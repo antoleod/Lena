@@ -38,6 +38,18 @@
           accent: '#7A5CFF',
           textLight: '#333333'
         }
+      },
+      {
+        id: 'licorne-chateau-magique',
+        name: 'Château Magique',
+        motif: '🏰',
+        priceCoins: 180,
+        description: 'Un château de rêve pour les aventures les plus féeriques.',
+        palette: {
+          background: ['#D8BFD8', '#E6E6FA'],
+          accent: '#9370DB',
+          textLight: '#4B0082'
+        }
       }
     ],
     lion: [
@@ -75,6 +87,18 @@
           background: ['#FFF4C2', '#B0E9D0'],
           accent: '#3E8872',
           textLight: '#2C2C2C'
+        }
+      },
+      {
+        id: 'lion-coucher-soleil-africain',
+        name: 'Coucher de Soleil Africain',
+        motif: '🌅',
+        priceCoins: 170,
+        description: 'Un fond majestueux avec les couleurs chaudes du crépuscule africain.',
+        palette: {
+          background: ['#FF8C00', '#FF4500'],
+          accent: '#FFD700',
+          textLight: '#8B0000'
         }
       }
     ],

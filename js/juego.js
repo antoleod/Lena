@@ -161,6 +161,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceCoins: 55,
                 description: 'Des étoiles filantes pour célébrer tes progrès.',
                 colors: { background: '#AC92FF', accent: '#FFD86F', text: '#2E1D52' }
+            },
+            {
+                id: 'badge-licorne-magique',
+                name: 'Badge Licorne Magique',
+                emoji: '🦄',
+                priceCoins: 70,
+                description: 'Un badge licorne pour les plus rêveurs.',
+                colors: { background: '#E0BBE4', accent: '#957DAD', text: '#574B60' }
+            },
+            {
+                id: 'badge-dragon-feu',
+                name: 'Badge Dragon de Feu',
+                emoji: '🐉',
+                priceCoins: 80,
+                description: 'Montre ta force avec ce badge dragon.',
+                colors: { background: '#FF6B6B', accent: '#EE4035', text: '#4A0505' }
             }
         ];
 
@@ -1710,9 +1726,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.className = 'shop-item__header';
             header.innerHTML = `<span class="shop-item__name">${resolvedItem.name}</span><span class="shop-item__price">${resolvedItem.priceCoins} 💰</span>`;
 
-            const description = document.createElement('p');
-            description.className = 'shop-item__description';
-            description.textContent = resolvedItem.description;
+            
 
             const action = document.createElement('button');
             action.type = 'button';
@@ -2137,7 +2151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speakText(`Choisis un niveau pour ${topic}`);
 
         const levelsContainer = document.createElement('div');
-        levelsContainer.className = 'options-grid';
+        levelsContainer.className = 'level-container';
 
         const maxLevels = {
             'additions': LEVELS_PER_TOPIC,
@@ -2158,8 +2172,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalLevels = maxLevels[currentTopic] || LEVELS_PER_TOPIC;
         
         for (let i = 1; i <= totalLevels; i++) {
-            const levelBtn = document.createElement('div');
-            levelBtn.className = 'option level-btn fx-bounce-in-down';
+            const levelBtn = document.createElement('button');
+            levelBtn.className = 'level-button fx-bounce-in-down';
             levelBtn.textContent = `Niveau ${i}`;
             levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
             if (answeredQuestions[`${currentTopic}-${i}`] === 'completed') {

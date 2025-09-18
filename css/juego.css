@@ -1581,3 +1581,55 @@
     max-width: 350px;
   }
 }
+
+/* Styles for Level Selection */
+.level-container {
+    display: flex;
+    flex-direction: column; /* Default to column for mobile */
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.level-button {
+    background-color: #fff4d6; /* Soft background */
+    border-radius: 12px; /* Rounded borders */
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Light shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 1rem 2rem;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.level-button:hover {
+    transform: scale(1.03); /* Hover effect */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+}
+
+.level-button.correct {
+    background-color: var(--success); /* Example for completed levels */
+    color: white;
+}
+
+/* Media query for larger screens (e.g., desktop) */
+@media (min-width: 768px) {
+    .level-container {
+        flex-direction: row; /* Arrange in a row for desktop */
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 800px;
+    }
+
+    .level-button {
+        width: auto;
+        min-width: 150px;
+        flex-grow: 1;
+    }
+}
