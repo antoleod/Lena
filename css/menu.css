@@ -73,11 +73,31 @@
     color: var(--accent-color);
 }
 
+/* En móviles */
 @media (max-width: 480px) {
-    .menu-container {
-        padding: 20px;
-        width: 95%;
-    }
+  .header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    grid-gap: 8px;
+    text-align: center;
+  }
+
+  .header-item {
+    font-size: 0.8rem; /* texto más pequeño */
+    padding: 6px 8px;
+  }
+
+  .header img {
+    width: 32px;
+    height: 32px; /* íconos más pequeños */
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    border-radius: 10px;
+  }
+}
 
     .menu-header {
         flex-direction: column;
