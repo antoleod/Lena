@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appli de Léna — Bienvenue !</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="login-container">
+        <h1 class="question-prompt">Qui es-tu ?</h1>
+        <p class="login-steps">1. Choisis ton avatar ✨ · 2. Écris ton nom ✍️ · 3. Choisis ta couleur 🎨</p>
+        <div id="avatar-selection">
+            <div class="avatar-option" data-avatar="🦄" title="Licorne">🦄</div>
+            <div class="avatar-option" data-avatar="🦁" title="Lion">🦁</div>
+            <div class="avatar-option" data-avatar="🐧" title="Pingouin">🐧</div>
+            <div class="avatar-option" data-avatar="🐼" title="Panda">🐼</div>
+            <div class="avatar-option" data-avatar="🦊" title="Renard">🦊</div>
+            <div class="avatar-option" data-avatar="🐸" title="Grenouille">🐸</div>
+        </div>
+        <div class="name-input-wrapper">
+            <span class="name-icon" aria-hidden="true">✍️</span>
+            <input type="text" id="name-input" placeholder="Écris ton nom ici..." aria-label="Écris ton nom ici">
+        </div>
+        <h2 class="question-prompt">Choisis ta couleur préférée</h2>
+        <div id="color-selection">
+            <div class="color-option" style="--color-base: #ffadad;" data-color="#ffadad" data-tooltip="🌸 Rose pastèle"></div>
+            <div class="color-option" style="--color-base: #ffd6a5;" data-color="#ffd6a5" data-tooltip="🍑 Abricot doux"></div>
+            <div class="color-option" style="--color-base: #fdffb6;" data-color="#fdffb6" data-tooltip="🍋 Citron léger"></div>
+            <div class="color-option" style="--color-base: #caffbf;" data-color="#caffbf" data-tooltip="🍃 Menthe fraîche"></div>
+            <div class="color-option" style="--color-base: #9bf6ff;" data-color="#9bf6ff" data-tooltip="🌊 Océan clair"></div>
+            <div class="color-option" style="--color-base: #a0c4ff;" data-color="#a0c4ff" data-tooltip="☁️ Ciel calme"></div>
+            <div class="color-option" style="--color-base: #bdb2ff;" data-color="#bdb2ff" data-tooltip="💜 Lavande"></div>
+            <div class="color-option" style="--color-base: #ffc6ff;" data-color="#ffc6ff" data-tooltip="🍓 Framboise légère"></div>
+            <div class="color-option color-option-white" style="--color-base: #ffffff;" data-color="#ffffff" data-tooltip="⚪ Blanc magique"></div>
+        </div>
+        <button id="login-btn" class="btn">
+            <span class="rocket-icon" aria-hidden="true">🚀</span>
+            <span class="btn-label">Commencer !</span>
+        </button>
+    </div>
+    <script src="../js/storage.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+</html>

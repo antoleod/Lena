@@ -1,0 +1,52 @@
+body {
+    justify-content: flex-start;
+    padding-top: 2rem;
+}
+
+#logros-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#progress-summary {
+    font-size: 1.5rem;
+    font-family: var(--font-body);
+    text-align: center;
+}
+
+.logros-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background: var(--bg2);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-large);
+    width: 100%;
+}
+
+.logro-item, .sticker-item {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    text-align: center;
+    min-width: 150px;
+}
+
+.sticker-item img {
+    width: 100px;
+    height: 100px;
+}
+
+#back-to-game {
+    margin-top: 1rem;
+    background-color: var(--primary);
+    color: white;
+}

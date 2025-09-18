@@ -1,0 +1,67 @@
+.menu-container {
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 2px dashed var(--secondary-color);
+}
+
+#user-greeting {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#user-avatar {
+    font-size: 3em;
+    animation: bounce 0.8s ease infinite;
+}
+
+.menu-options {
+    display: grid;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+
+.btn-play {
+    padding: 20px 40px;
+    font-size: 1.5em;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 12px 25px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #a6d4ca; /* Darker mint */
+}
+
+.progress-overview {
+    background-color: #f9f9f9;
+    padding: 1.5em;
+    border-radius: 15px;
+    border: 2px solid var(--accent-color);
+}
+
+.progress-overview h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+}

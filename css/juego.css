@@ -1,0 +1,715 @@
+/* Estilos para "Les maisons des nombres" */
+.number-house-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg2);
+  border-radius: 2rem;
+  box-shadow: var(--shadow-medium);
+  width: 100%;
+}
+.rooftop {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xxl);
+  background: var(--primary-light);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: var(--shadow-small);
+}
+.windows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+}
+.window-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+.window-number, .window-input {
+  font-family: var(--font-body);
+  font-size: var(--font-size-large);
+  background: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-small);
+  min-width: 60px;
+  text-align: center;
+  border: 2px solid transparent;
+}
+.window-number {
+  background: var(--p2);
+  color: var(--ink);
+}
+.window-input {
+  background: var(--p3);
+  border: 2px solid var(--p1);
+  outline: none;
+  transition: all 0.2s;
+}
+.window-input:focus {
+  border-color: var(--primary-light);
+  transform: scale(1.05);
+}
+.window-input.correct {
+  border-color: var(--success);
+  background: #e6ffec;
+}
+.window-input.incorrect {
+  border-color: var(--danger);
+  background: #ffe6e6;
+}
+.plus-sign, .equal-sign {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  color: var(--muted);
+}
+.submit-btn {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-large);
+  padding: 0.75rem 2rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-small);
+  background: var(--primary);
+  color: white;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+/* Estilos para "Les Couleurs" */
+.color-option-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-small);
+  transition: all 0.2s ease-in-out;
+  flex-grow: 1;
+  max-width: 200px;
+  font-size: var(--font-size-large);
+  font-family: var(--font-body);
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.color-option-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+.color-option-button.correct {
+  transform: scale(1.05);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.35);
+  position: relative;
+  animation: gentleColorGlow 1.4s ease-in-out 2;
+}
+.color-option-button.correct::after {
+  content: '✨';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.1rem 0.35rem;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.color-option-button.wrong {
+  transform: scale(0.97);
+  filter: saturate(70%);
+  box-shadow: 0 0 0 3px rgba(239, 83, 80, 0.4);
+  animation: softShake 0.4s ease-in-out;
+}
+
+@keyframes gentleColorGlow {
+  0% { box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25); }
+  50% { box-shadow: 0 14px 35px rgba(255, 255, 255, 0.4); }
+  100% { box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25); }
+}
+/* Specific color classes */
+.color-blue { background-color: #42a5f5; }
+.color-yellow { background-color: #ffee58; color: var(--ink); }
+.color-red { background-color: #ef5350; }
+.color-green { background-color: #66bb6a; }
+.color-orange { background-color: #ff9800; }
+.color-purple { background-color: #ab47bc; }
+.color-white { background-color: white; color: var(--ink); }
+.color-black { background-color: black; }
+.color-pink { background-color: #ec407a; }
+.color-light-blue { background-color: #29b6f6; }
+.color-light-green { background-color: #9ccc65; }
+
+/* Estilos para "Contes Magiques" */
+.story-container {
+  text-align: left;
+  position: relative;
+}
+.story-container h2 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+  text-align: center;
+}
+.story-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+  position: absolute;
+  font-size: 2rem;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Estilos para "Mémoire Magique" */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.memory-card {
+    background-color: var(--primary);
+    border-radius: 10px;
+    height: 100px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transform: rotateY(180deg);
+    transition: transform 0.6s;
+    box-shadow: var(--shadow-small);
+}
+
+.memory-card.matched {
+    cursor: default;
+    background-color: var(--success);
+    transition: background-color 0.5s;
+    pointer-events: none;
+}
+.memory-card.flipped {
+    transform: rotateY(0deg);
+    background-color: var(--card);
+}
+.memory-card.disabled {
+    pointer-events: none;
+}
+/* Estilos para el juego de ordenar */
+.sorting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.sorting-list {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  border: 2px dashed var(--primary);
+  border-radius: 1rem;
+  min-height: 100px;
+}
+.sortable-item {
+  font-family: var(--font-body);
+  font-size: var(--font-size-large);
+  padding: 0.5rem 1rem;
+  background: var(--card);
+  border-radius: 0.5rem;
+  cursor: grab;
+  box-shadow: var(--shadow-small);
+  transition: transform 0.2s ease-in-out;
+}
+.sortable-item:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+  box-shadow: var(--shadow-medium);
+}
+.sort-input {
+  width: 80px;
+  text-align: center;
+  font-size: var(--font-size-large);
+  border-radius: 0.5rem;
+  border: 1px solid var(--muted);
+  padding: 0.5rem;
+}
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto;
+}
+.image-container img {
+    max-width: 100%;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-medium);
+}
+.word-with-blank {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xxl);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+.blank {
+    display: inline-block;
+    width: 30px;
+    height: 35px;
+    border-bottom: 3px solid var(--ink);
+    margin: 0 5px;
+}
+.sequence-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: var(--font-size-xl);
+}
+.sequence-item {
+    font-size: var(--font-size-xl);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background: var(--bg2);
+    box-shadow: var(--shadow-small);
+    border: 2px solid transparent;
+}
+.sequence-item.selected {
+    border-color: var(--primary-light);
+    transform: scale(1.05);
+}
+
+/* --- Puzzle Magique --- */
+#content.puzzle-theme-forest {
+  background: linear-gradient(135deg, rgba(212, 255, 197, 0.85), rgba(161, 215, 252, 0.85));
+}
+
+#content.puzzle-theme-castle {
+  background: linear-gradient(135deg, rgba(255, 223, 211, 0.85), rgba(222, 203, 255, 0.85));
+}
+
+#content.puzzle-theme-sky {
+  background: linear-gradient(135deg, rgba(210, 237, 255, 0.85), rgba(240, 214, 255, 0.85));
+}
+
+.puzzle-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.puzzle-grid {
+  --puzzle-size: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--puzzle-size), minmax(70px, 90px));
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+.puzzle-cell {
+  position: relative;
+}
+
+.puzzle-input {
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: 1rem;
+  border: 3px solid rgba(255,255,255,0.7);
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: var(--font-heading);
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.puzzle-input:focus {
+  outline: none;
+  transform: scale(1.05);
+  border-color: var(--primary-light);
+  box-shadow: 0 16px 28px rgba(148,102,255,0.25);
+}
+
+.puzzle-input.correct {
+  border-color: var(--success);
+  background: #edffe7;
+}
+
+.puzzle-input.wrong {
+  border-color: var(--danger);
+  background: #ffe5e5;
+}
+
+.puzzle-hints {
+  display: grid;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 520px;
+}
+
+.puzzle-hints-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.puzzle-hint-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.puzzle-hint-card::before {
+  content: '✨';
+  position: absolute;
+  right: 0.6rem;
+  top: 0.4rem;
+  opacity: 0.35;
+}
+
+.puzzle-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.puzzle-help-btn {
+  background: linear-gradient(135deg, #ffd166, #ff9f1c);
+  border: none;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255, 159, 28, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.puzzle-help-btn:hover {
+  transform: translateY(-3px);
+}
+
+.puzzle-help-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.puzzle-sparkle {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  animation: twinkle 1s ease-in-out infinite;
+}
+
+/* --- Répartis & Multiplie --- */
+.repartis-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.repartis-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.repartis-groups {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.repartis-group {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 1.25rem;
+  padding: 1rem;
+  min-width: 140px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.repartis-group.highlight {
+  box-shadow: 0 0 0 4px rgba(148,102,255,0.4);
+}
+
+.repartis-character {
+  font-size: 2rem;
+}
+
+.repartis-dropzone {
+  min-height: 60px;
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.repartis-item {
+  font-size: 2rem;
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
+
+.repartis-item:active {
+  cursor: grabbing;
+  transform: scale(1.15);
+}
+
+.repartis-options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.repartis-option-btn {
+  background: linear-gradient(135deg, #ff9ff3, #feca57);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(255, 159, 243, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.repartis-option-btn:hover {
+  transform: translateY(-3px);
+}
+
+.repartis-bonus-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* --- Dictée Magique --- */
+.dictee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.dictee-progress {
+  width: 100%;
+  max-width: 520px;
+  height: 14px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(148,102,255,0.25);
+}
+
+.dictee-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(135deg, #a18aff, #ffb8f4);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.dictee-prompt {
+  font-family: var(--font-heading);
+  background: rgba(255,255,255,0.85);
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dictee-fairy {
+  font-size: 2.2rem;
+  animation: floaty 3s ease-in-out infinite;
+}
+
+.dictee-answer {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dictee-input {
+  font-size: 1.3rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  border: 3px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.95);
+  font-family: var(--font-heading);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dictee-input:focus {
+  outline: none;
+  transform: scale(1.02);
+  border-color: var(--primary-light);
+}
+
+.dictee-keypad {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+  gap: 0.5rem;
+  max-width: 420px;
+}
+
+.dictee-key {
+  padding: 0.6rem;
+  border-radius: 0.75rem;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  font-size: 1.1rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.dictee-key:hover {
+  transform: translateY(-2px);
+}
+
+.dictee-menu {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 520px;
+}
+
+.dictee-menu button {
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, #a0e7ff, #b388ff);
+  color: white;
+  box-shadow: 0 16px 32px rgba(160, 231, 255, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.dictee-menu button:hover {
+  transform: translateY(-4px);
+}
+
+.dictee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.dictee-list-item {
+  background: rgba(255,255,255,0.9);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dictee-control-bar {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dictee-mic-btn {
+  background: linear-gradient(135deg, #ff6f91, #ff9671);
+  border: none;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(255, 111, 145, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.dictee-mic-btn.recording {
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.dictee-note {
+  font-family: var(--font-body);
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.repartis-items {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.repartis-action-btn {
+  background: linear-gradient(135deg, #6c5ce7, #74b9ff);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(108, 92, 231, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.repartis-action-btn:hover {
+  transform: translateY(-3px);
+}
+.dictee-input.wrong {
+  border-color: var(--danger);
+  background: #ffe5e5;
+}
