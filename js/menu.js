@@ -24,10 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.querySelector('body');
 
     userGreeting.textContent = `¡Hola, ${activeUser}!`;
-    userAvatar.textContent = userData.avatar;
+    renderAvatar(userAvatar, userData.avatar);
     
     // Aplicamos el color favorito del usuario a la página
-    body.style.setProperty('--primary-color', userData.color);
+    if (userData.color) {
+        body.style.setProperty('--primary-color', userData.color);
+    }
 
     // Mostramos el progreso
     if (userData.progress) {
@@ -35,3 +37,41 @@ document.addEventListener('DOMContentLoaded', () => {
         timePlayed.textContent = Math.floor(userData.progress.timePlayed / 60); // en minutos
     }
 });
+
+function getActiveUser() {
+    const profile = storage.loadUserProfile();
+    return profile?.name || null;
+}
+
+function getUserData(activeName) {
+    if (!activeName) { return null; }
+    const profile = storage.loadUserProfile();
+    if (!profile || profile.name !== activeName) { return null; }
+    const progress = storage.loadUserProgress(activeName);
+    return {
+        ...profile,
+        progress
+    };
+}
+
+function renderAvatar(container, avatarData) {
+    if (!container) { return; }
+    container.innerHTML = '';
+    if (!avatarData) { return; }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'menu-avatar';
+
+    const img = document.createElement('img');
+    img.src = avatarData.iconUrl;
+    img.alt = avatarData.name || 'Avatar';
+    img.loading = 'lazy';
+    wrapper.appendChild(img);
+
+    const label = document.createElement('span');
+    label.className = 'menu-avatar__label';
+    label.textContent = avatarData.name || '';
+    wrapper.appendChild(label);
+
+    container.appendChild(wrapper);
+}

@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const defaultColor = '#ffffff';
     let selectedAvatar = null;
     let selectedColor = defaultColor;
+    const storedAvatarSelection = typeof storage.loadSelectedAvatar === 'function'
+        ? storage.loadSelectedAvatar()
+        : null;
 
     const popSound = new Audio('https://assets.mixkit.co/sfx/download/mixkit-select-click-1109.wav');
     const sparkleSound = new Audio('https://assets.mixkit.co/sfx/download/mixkit-game-level-completed-2059.wav');
@@ -24,18 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     avatars.forEach(avatar => {
         avatar.addEventListener('click', () => {
-            avatars.forEach(a => a.classList.remove('selected'));
-            avatar.classList.add('selected');
-            selectedAvatar = avatar.dataset.avatar;
-            animateAvatar(avatar);
+            selectAvatar(avatar, { animate: true });
             playSound(popSound);
         });
     });
 
-    const defaultAvatarOption = avatars[0];
-    if (defaultAvatarOption) {
-        defaultAvatarOption.classList.add('selected');
-        selectedAvatar = defaultAvatarOption.dataset.avatar;
+    if (storedAvatarSelection?.id) {
+        const matchingAvatar = Array.from(avatars).find(
+            (avatar) => avatar.dataset.avatarId === storedAvatarSelection.id
+        );
+        if (matchingAvatar) {
+            selectAvatar(matchingAvatar);
+        }
+    }
+
+    if (!selectedAvatar) {
+        const defaultAvatarOption = avatars[0];
+        if (defaultAvatarOption) {
+            selectAvatar(defaultAvatarOption);
+        }
     }
 
     const defaultColorOption = document.querySelector(`.color-option[data-color="${defaultColor}"]`);
@@ -63,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playSound(sparkleSound);
 
         const userProfile = {
-            name: name,
+            name,
             avatar: selectedAvatar,
             color: selectedColor || defaultColor
         };
@@ -92,8 +102,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function animateAvatar(avatar) {
+        avatar.classList.remove('pulse');
+        void avatar.offsetWidth;
         avatar.classList.add('pulse');
-        setTimeout(() => avatar.classList.remove('pulse'), 400);
+    }
+
+    function extractAvatarData(element) {
+        if (!element) { return null; }
+        return {
+            id: element.dataset.avatarId,
+            name: element.dataset.avatarName,
+            iconUrl: element.dataset.avatarIcon
+        };
+    }
+
+    function selectAvatar(avatarElement, { animate = false } = {}) {
+        if (!avatarElement) { return; }
+        avatars.forEach(a => a.classList.remove('selected'));
+        avatarElement.classList.add('selected');
+        selectedAvatar = extractAvatarData(avatarElement);
+        if (selectedAvatar && typeof storage.saveSelectedAvatar === 'function') {
+            storage.saveSelectedAvatar(selectedAvatar);
+        } else if (selectedAvatar) {
+            try {
+                localStorage.setItem('mathsLenaSelectedAvatar', JSON.stringify(selectedAvatar));
+            } catch (e) {
+                console.error('Error saving selected avatar locally', e);
+            }
+        }
+        if (animate) {
+            animateAvatar(avatarElement);
+        }
     }
 
     function triggerButtonSparkle(button) {

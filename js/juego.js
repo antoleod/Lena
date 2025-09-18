@@ -39,8 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let ownedItems = [];
     let activeCosmetics = { background: null, badge: null };
     let decorContainer = null;
-    let lastDecorLevel = null;
+    let lastDecorKey = null;
     let lastAppliedTheme = '';
+    let activeBadgeEmoji = null;
+    let questionStartTime = null;
+    let questionSkillTag = null;
+    let historyTracker = null;
+    let currentStoryIndex = null;
+    let activeReviewSkills = [];
+    let pauseReminderTimeout = null;
 
     // --- Game Data ---
     const LEVELS_PER_TOPIC = 12;
@@ -68,40 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
         balloon: '🎈', paint: '🖍️', drum: '🥁', guitar: '🎸', book: '📘', kite: '🪁'
     };
     const positiveMessages = ['🦄 Bravo !', '✨ Super !', '🌈 Génial !', '🌟 Parfait !', '🎉 Formidable !'];
-    const boutiqueItems = [
-        {
-            id: 'bg-galaxy',
-            type: 'background',
-            name: 'Fond Galaxie ✨',
-            price: 80,
-            description: 'Un ciel violet parsemé de constellations scintillantes.',
-            themeClass: 'theme-galaxy'
-        },
-        {
-            id: 'bg-ocean',
-            type: 'background',
-            name: 'Fond Océan 🌊',
-            price: 60,
-            description: 'Un dégradé bleu apaisant avec bulles et reflets.',
-            themeClass: 'theme-ocean'
-        },
-        {
-            id: 'badge-etoile',
-            type: 'badge',
-            name: 'Badge Super Étoile 🌟',
-            price: 35,
-            description: 'Affiche une médaille étoilée près de ton nom.',
-            badge: '🌟'
-        },
-        {
-            id: 'badge-arcenciel',
-            type: 'badge',
-            name: 'Badge Arc-en-ciel 🌈',
-            price: 45,
-            description: 'Ajoute un arc-en-ciel magique à ton profil.',
-            badge: '🌈'
-        }
-    ];
+    const DEFAULT_INK_COLOR = '#5a5a5a';
+    const PAUSE_REMINDER_DELAY = 8 * 60 * 1000;
+    const AVATAR_LIBRARY = window.AVATAR_LIBRARY || {};
+    const SHOP_BADGES = createBadgeItems();
+    const SHOP_CATALOG = buildShopCatalogue();
     const levelDecorIcons = {
         default: ['✨', '🌟', '💫', '🌈'],
         1: ['🦄', '✨', '🌸', '🌈'],
@@ -117,6 +95,127 @@ document.addEventListener('DOMContentLoaded', () => {
         11: ['🍂', '🔥', '🌟', '✨'],
         12: ['🔮', '💜', '🌙', '✨']
     };
+    const TOPIC_SKILL_TAGS = {
+        additions: 'math:addition',
+        soustractions: 'math:subtraction',
+        multiplications: 'math:multiplication',
+        colors: 'cognition:colors',
+        stories: 'reading:comprehension',
+        memory: 'memory:matching',
+        sorting: 'logic:sorting',
+        riddles: 'language:riddle',
+        vowels: 'language:vowel',
+        sequences: 'logic:sequence',
+        'number-houses': 'math:numberBond',
+        'puzzle-magique': 'logic:puzzle',
+        repartis: 'math:distribution',
+        dictee: 'language:dictation'
+    };
+
+    function svgDataUri(svg) {
+        return `data:image/svg+xml,${encodeURIComponent(svg).replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29')}`;
+    }
+
+    function generateBadgePreview(spec, size) {
+        const radius = size / 2 - size * 0.08;
+        const bg = spec.colors?.background || '#FFD93D';
+        const accent = spec.colors?.accent || '#FFB037';
+        const text = spec.colors?.text || '#4B3200';
+        const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="badgeGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="${accent}" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="${bg}" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <circle cx="${size / 2}" cy="${size / 2}" r="${radius}" fill="url(#badgeGlow)"/>
+  <circle cx="${size / 2}" cy="${size / 2}" r="${radius - size * 0.08}" fill="${bg}" opacity="0.85"/>
+  <text x="50%" y="52%" font-family="'Fredoka', 'Nunito', sans-serif" font-weight="700" font-size="${size * 0.45}" fill="${text}" text-anchor="middle" dominant-baseline="middle">${spec.emoji}</text>
+</svg>`;
+        return svgDataUri(svg);
+    }
+
+    function createBadgeItems() {
+        const base = [
+            {
+                id: 'badge-etoile',
+                name: 'Badge Super Étoile',
+                emoji: '🌟',
+                priceCoins: 35,
+                description: 'Affiche une médaille étoilée près de ton nom.',
+                colors: { background: '#FFD93D', accent: '#FFB037', text: '#4B3200' }
+            },
+            {
+                id: 'badge-arcenciel',
+                name: 'Badge Arc-en-ciel',
+                emoji: '🌈',
+                priceCoins: 45,
+                description: 'Ajoute un arc-en-ciel magique à ton profil.',
+                colors: { background: '#8AB6FF', accent: '#FF9AE1', text: '#1D2A58' }
+            },
+            {
+                id: 'badge-etoiles-filantes',
+                name: 'Badge Étoiles Filantes',
+                emoji: '💫',
+                priceCoins: 55,
+                description: 'Des étoiles filantes pour célébrer tes progrès.',
+                colors: { background: '#AC92FF', accent: '#FFD86F', text: '#2E1D52' }
+            }
+        ];
+
+        return base.map(spec => ({
+            ...spec,
+            type: 'badge',
+            iconUrl: generateBadgePreview(spec, 88),
+            previewUrl: generateBadgePreview(spec, 144)
+        }));
+    }
+
+    function buildShopCatalogue() {
+        const catalogue = new Map();
+        SHOP_BADGES.forEach(item => catalogue.set(item.id, item));
+        Object.values(AVATAR_LIBRARY).forEach(avatar => {
+            if (!avatar?.backgrounds) { return; }
+            avatar.backgrounds.forEach(bg => {
+                const backgroundItem = {
+                    id: bg.id,
+                    type: 'background',
+                    ownerAvatarId: avatar.id,
+                    name: bg.name,
+                    priceCoins: bg.priceCoins || bg.price || 120,
+                    description: bg.description,
+                    palette: bg.palette,
+                    iconUrl: bg.iconUrl,
+                    previewUrl: bg.previewUrl,
+                    motif: bg.motif || '✨'
+                };
+                catalogue.set(backgroundItem.id, backgroundItem);
+            });
+        });
+        return catalogue;
+    }
+
+    function getShopItemsForAvatar(avatarId) {
+        const items = [];
+        if (avatarId && AVATAR_LIBRARY[avatarId]) {
+            AVATAR_LIBRARY[avatarId].backgrounds?.forEach(bg => {
+                const item = SHOP_CATALOG.get(bg.id);
+                if (item) { items.push(item); }
+            });
+        }
+        SHOP_BADGES.forEach(badge => items.push(badge));
+        return items;
+    }
+
+    function findShopItem(itemId) {
+        if (!itemId) { return null; }
+        return SHOP_CATALOG.get(itemId) || null;
+    }
+
+    function getBoutiqueItem(itemId) {
+        return findShopItem(itemId);
+    }
     const answerOptionIcons = ['🔹', '🌟', '💡', '🎯', '✨', '🎈', '🧠'];
     const colorOptionIcons = ['🎨', '🖌️', '🧴', '🧑\u200d🎨', '🌈'];
     const magicStories = [
@@ -653,13 +752,17 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     const allQuestions = {
         additions: [], soustractions: [], multiplications: [], colors: [], stories: [], riddles: [], sorting: [], letters: [], shapes: [], vowels: [], sequences: [],
-        'puzzle-magique': [], repartis: [], dictee: []
+        'puzzle-magique': [], repartis: [], dictee: [], review: []
     };
 
     // --- Initialization ---
     console.log("Initializing game for user:", userProfile.name);
     function init() {
         loadProgress();
+        historyTracker = createHistoryTracker(userProfile.name);
+        historyTracker.trackAppOpen();
+        window.addEventListener('beforeunload', () => historyTracker.trackAppClose());
+        schedulePauseReminder();
         initializeQuestions();
         setupUI();
         setupEventListeners();
@@ -667,15 +770,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupUI() {
-        userInfo.textContent = userProfile.name;
-        userInfo.dataset.avatar = userProfile.avatar;
-        document.documentElement.style.setProperty('--primary', userProfile.color);
-        document.documentElement.style.setProperty('--primary-light', lightenColor(userProfile.color, 20));
+        renderUserIdentity();
+        setPrimaryTheme(userProfile.color);
         updateUI();
+        applyActiveCosmetics();
+    }
+
+    function renderUserIdentity(newBadgeEmoji) {
+        if (typeof newBadgeEmoji !== 'undefined') {
+            activeBadgeEmoji = newBadgeEmoji;
+        }
+        if (!userInfo) { return; }
+
+        userInfo.innerHTML = '';
+        userInfo.dataset.avatarId = userProfile.avatar?.id || '';
+
+        const avatarMeta = getAvatarMetaLocal(userProfile.avatar?.id);
+        const avatarIconUrl = userProfile.avatar?.iconUrl || avatarMeta?.iconUrl;
+        const avatarName = userProfile.avatar?.name || avatarMeta?.name || 'Avatar';
+
+        if (avatarIconUrl) {
+            const avatarImg = document.createElement('img');
+            avatarImg.src = avatarIconUrl;
+            avatarImg.alt = avatarName;
+            avatarImg.loading = 'lazy';
+            avatarImg.className = 'user-info__avatar';
+            userInfo.appendChild(avatarImg);
+        } else {
+            const avatarFallback = document.createElement('span');
+            avatarFallback.className = 'user-info__avatar user-info__avatar--fallback';
+            avatarFallback.textContent = (userProfile.name || '?').charAt(0).toUpperCase();
+            userInfo.appendChild(avatarFallback);
+        }
+
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'user-info__name';
+        nameSpan.textContent = userProfile.name || 'Explorateur·rice';
+        userInfo.appendChild(nameSpan);
+
+        if (activeBadgeEmoji) {
+            const badgeSpan = document.createElement('span');
+            badgeSpan.className = 'user-info__badge';
+            badgeSpan.textContent = activeBadgeEmoji;
+            badgeSpan.title = 'Badge spécial';
+            userInfo.appendChild(badgeSpan);
+        }
+    }
+
+    function setPrimaryTheme(color) {
+        const safeColor = color || userProfile.color || '#a890f0';
+        document.documentElement.style.setProperty('--primary', safeColor);
+        document.documentElement.style.setProperty('--primary-light', lightenColor(safeColor, 0.22));
     }
 
     function setupEventListeners() {
         btnLogout.addEventListener('click', () => {
+            historyTracker?.trackAppClose();
             localStorage.removeItem('mathsLenaUserProfile');
             window.location.href = 'login.html';
         });
@@ -747,6 +897,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btnBack.textContent = label;
         btnBack.onclick = () => {
             saveProgress();
+            historyTracker?.endGame({ status: 'interrompu' });
+            if (currentTopic === 'review') {
+                activeReviewSkills = [];
+            }
             handler();
         };
     }
@@ -949,7 +1103,9 @@ document.addEventListener('DOMContentLoaded', () => {
             scoreCoins.textContent = userScore.coins;
         }
         if (levelDisplay) {
-            levelDisplay.textContent = `Niveau ${currentLevel}`;
+            levelDisplay.textContent = currentTopic === 'review'
+                ? 'Session de repaso'
+                : `Niveau ${currentLevel}`;
         }
         updateBodyLevelClass();
         applyActiveCosmetics();
@@ -968,38 +1124,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function applyActiveCosmetics() {
-        const backgroundItem = getBoutiqueItem(activeCosmetics.background);
-        let themeChanged = false;
-        if (backgroundItem && backgroundItem.themeClass) {
-            if (lastAppliedTheme !== backgroundItem.themeClass) {
-                themeChanged = true;
-                lastAppliedTheme = backgroundItem.themeClass;
-            }
-            document.body?.setAttribute('data-bg-theme', backgroundItem.themeClass);
-        } else {
-            if (lastAppliedTheme !== '') {
-                themeChanged = true;
-            }
-            lastAppliedTheme = '';
-            document.body?.removeAttribute('data-bg-theme');
-        }
+        const backgroundItem = findShopItem(activeCosmetics.background);
+        applyBackgroundTheme(backgroundItem);
 
-        const badgeItem = getBoutiqueItem(activeCosmetics.badge);
-        if (badgeItem && badgeItem.badge) {
-            userInfo?.setAttribute('data-badge', badgeItem.badge);
-        } else {
-            userInfo?.removeAttribute('data-badge');
-        }
+        const badgeItem = findShopItem(activeCosmetics.badge);
+        applyBadgeTheme(badgeItem);
 
-        if (themeChanged) {
-            lastDecorLevel = null;
-        }
         renderFloatingDecor();
     }
 
-    function getBoutiqueItem(itemId) {
-        if (!itemId) { return null; }
-        return boutiqueItems.find(entry => entry.id === itemId) || null;
+    function applyBackgroundTheme(backgroundItem) {
+        if (backgroundItem && backgroundItem.type === 'background') {
+            const palette = backgroundItem.palette || {};
+            const [start, end] = palette.background || [];
+            const accent = palette.accent || userProfile.color;
+            const textColor = palette.textLight || DEFAULT_INK_COLOR;
+
+            if (lastAppliedTheme !== backgroundItem.id) {
+                lastAppliedTheme = backgroundItem.id;
+                lastDecorKey = null;
+            }
+
+            document.body.classList.add('has-custom-background');
+            if (start && end) {
+                document.body.style.setProperty('--custom-bg-start', start);
+                document.body.style.setProperty('--custom-bg-end', end);
+            }
+            document.body.style.setProperty('--custom-bg-accent', accent);
+            document.body.style.setProperty('--custom-text-color', textColor);
+            document.documentElement.style.setProperty('--ink', textColor);
+            setPrimaryTheme(accent);
+        } else {
+            if (lastAppliedTheme !== '') {
+                lastDecorKey = null;
+            }
+            lastAppliedTheme = '';
+            document.body.classList.remove('has-custom-background');
+            document.body.style.removeProperty('--custom-bg-start');
+            document.body.style.removeProperty('--custom-bg-end');
+            document.body.style.removeProperty('--custom-bg-accent');
+            document.body.style.removeProperty('--custom-text-color');
+            document.documentElement.style.setProperty('--ink', DEFAULT_INK_COLOR);
+            setPrimaryTheme(userProfile.color);
+        }
+    }
+
+    function applyBadgeTheme(badgeItem) {
+        activeBadgeEmoji = badgeItem?.emoji || null;
+        renderUserIdentity();
     }
 
     function ensureDecorContainer() {
@@ -1020,11 +1192,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = ensureDecorContainer();
         if (!container) { return; }
         const safeLevel = Number.isFinite(currentLevel) ? Math.min(Math.max(currentLevel, 1), 12) : 1;
-        const icons = levelDecorIcons[safeLevel] || levelDecorIcons.default;
-        if (lastDecorLevel === safeLevel && container.childElementCount) {
+        const icons = resolveDecorIcons(safeLevel);
+        const decorKey = `${userProfile.avatar?.id || 'default'}-${safeLevel}-${icons.join('')}`;
+        if (lastDecorKey === decorKey && container.childElementCount) {
             return;
         }
-        lastDecorLevel = safeLevel;
+        lastDecorKey = decorKey;
         const totalIcons = Math.max(icons.length * 3, 15);
         container.innerHTML = '';
         const fragment = document.createDocumentFragment();
@@ -1042,6 +1215,451 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         container.appendChild(fragment);
+    }
+
+    function resolveDecorIcons(level) {
+        const avatarIcons = getDecorIconsForAvatar(userProfile.avatar?.id);
+        if (avatarIcons.length >= 3) {
+            return avatarIcons;
+        }
+        const baseIcons = levelDecorIcons[level] || levelDecorIcons.default;
+        return [...new Set([...avatarIcons, ...baseIcons])];
+    }
+
+    function getDecorIconsForAvatar(avatarId) {
+        if (!avatarId) { return []; }
+        const avatar = AVATAR_LIBRARY[avatarId];
+        if (!avatar?.backgrounds) { return []; }
+        const motifs = avatar.backgrounds
+            .map(bg => bg.motif)
+            .filter(Boolean);
+        if (!motifs.length) {
+            return [];
+        }
+        return [...new Set([...motifs, '✨', '🌟'])];
+    }
+
+    function getAvatarMetaLocal(avatarId) {
+        if (!avatarId) { return null; }
+        return AVATAR_LIBRARY[avatarId] || null;
+    }
+
+    function resolveSkillTag(topicId) {
+        return TOPIC_SKILL_TAGS[topicId] || `general:${topicId || 'exploration'}`;
+    }
+
+    function createHistoryTracker(userName) {
+        const STORAGE_KEY = `mathsLenaHistory_${userName}`;
+        const history = loadHistory();
+        let currentSession = null;
+        let currentGame = null;
+
+        function loadHistory() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) {
+                    return defaultHistory();
+                }
+                const parsed = JSON.parse(raw);
+                return {
+                    ...defaultHistory(),
+                    ...parsed,
+                    sessions: Array.isArray(parsed.sessions) ? parsed.sessions : [],
+                    skills: parsed.skills && typeof parsed.skills === 'object' ? parsed.skills : {}
+                };
+            } catch (error) {
+                console.warn('Historique invalide, réinitialisation.', error);
+                return defaultHistory();
+            }
+        }
+
+        function defaultHistory() {
+            return {
+                appOpens: 0,
+                totalPracticeSeconds: 0,
+                lastOpenISO: null,
+                sessions: [],
+                skills: {}
+            };
+        }
+
+        function persist() {
+            const historyCopy = { ...history, sessions: history.sessions.map(normalizeSessionForSave) };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(historyCopy));
+        }
+
+        function normalizeSessionForSave(session) {
+            const clone = { ...session };
+            if (clone.startMs) { delete clone.startMs; }
+            if (clone.games) {
+                clone.games = clone.games.map(game => {
+                    const gameClone = { ...game };
+                    if (gameClone.startMs) { delete gameClone.startMs; }
+                    return gameClone;
+                });
+            }
+            return clone;
+        }
+
+        function ensureSkill(skillTag) {
+            if (!history.skills[skillTag]) {
+                history.skills[skillTag] = {
+                    attempts: 0,
+                    errors: 0,
+                    weight: 0,
+                    totalTimeMs: 0,
+                    history: [],
+                    lastPracticedISO: null,
+                    lastMistakeISO: null
+                };
+            }
+            return history.skills[skillTag];
+        }
+
+        function trackAppOpen() {
+            const now = new Date();
+            history.appOpens += 1;
+            history.lastOpenISO = now.toISOString();
+            currentSession = {
+                start: now.toISOString(),
+                startMs: now.getTime(),
+                games: []
+            };
+            history.sessions.push(currentSession);
+            if (history.sessions.length > 25) {
+                history.sessions.shift();
+            }
+            persist();
+        }
+
+        function trackAppClose() {
+            if (currentGame) {
+                endGame({ status: 'interrompu' });
+            }
+            if (!currentSession) { return; }
+            const now = new Date();
+            const durationSeconds = Math.max(0, Math.round((now.getTime() - currentSession.startMs) / 1000));
+            currentSession.end = now.toISOString();
+            currentSession.durationSeconds = durationSeconds;
+            history.totalPracticeSeconds += durationSeconds;
+            delete currentSession.startMs;
+            currentSession = null;
+            if (pauseReminderTimeout) {
+                clearTimeout(pauseReminderTimeout);
+                pauseReminderTimeout = null;
+            }
+            persist();
+        }
+
+        function startGame(gameId, level, meta = {}) {
+            if (!gameId) { return; }
+            if (!currentSession) {
+                trackAppOpen();
+            }
+            if (currentGame) {
+                endGame({ status: 'interrompu' });
+            }
+            const now = new Date();
+            currentGame = {
+                id: gameId,
+                level,
+                startedAt: now.toISOString(),
+                startMs: now.getTime(),
+                events: [],
+                meta: meta || {}
+            };
+            currentSession.games.push(currentGame);
+            persist();
+        }
+
+        function endGame(result = {}) {
+            if (!currentGame) { return; }
+            const now = new Date();
+            currentGame.endedAt = now.toISOString();
+            currentGame.durationSeconds = Math.max(0, Math.round((now.getTime() - currentGame.startMs) / 1000));
+            currentGame.result = result;
+            delete currentGame.startMs;
+            currentGame = null;
+            persist();
+        }
+
+        function recordQuestion(skillTag, { correct = false, timeMs = 0 } = {}) {
+            if (!skillTag) { return; }
+            const duration = Math.max(0, Math.round(timeMs));
+            const nowISO = new Date().toISOString();
+            const skill = ensureSkill(skillTag);
+            skill.attempts += 1;
+            skill.totalTimeMs += duration;
+            skill.lastPracticedISO = nowISO;
+            if (!correct) {
+                skill.errors += 1;
+                skill.lastMistakeISO = nowISO;
+            }
+            const baseWeight = correct ? -1 : 4;
+            const timeWeight = duration > 12000 ? 2 : duration > 8000 ? 1 : 0;
+            skill.weight = Math.max(0, (skill.weight || 0) + baseWeight + (!correct ? timeWeight : 0));
+            if (correct && duration > 12000) {
+                skill.weight = Math.max(0, skill.weight + 1);
+            }
+            skill.history.push({ correct: !!correct, timeMs: duration, at: nowISO });
+            if (skill.history.length > 100) {
+                skill.history.shift();
+            }
+
+            if (currentGame) {
+                currentGame.events.push({
+                    type: 'QUESTION',
+                    skillTag,
+                    correct: !!correct,
+                    timeMs: duration,
+                    at: nowISO
+                });
+            }
+            schedulePauseReminder();
+            persist();
+        }
+
+        return {
+            trackAppOpen,
+            trackAppClose,
+            startGame,
+            endGame,
+            recordQuestion,
+            applyReviewSuccess(skillTags = []) {
+                (skillTags || []).forEach(tag => {
+                    const skill = ensureSkill(tag);
+                    skill.weight = Math.max(0, (skill.weight || 0) - 3);
+                });
+                persist();
+            },
+            getSkillStats: () => history.skills,
+            getHistory: () => history
+        };
+    }
+
+    function getDifficultSkills(limit = 3) {
+        if (!historyTracker) { return []; }
+        const stats = historyTracker.getSkillStats() || {};
+        return Object.entries(stats)
+            .map(([tag, data]) => ({ tag, weight: data.weight || 0, attempts: data.attempts || 0, lastMistakeISO: data.lastMistakeISO }))
+            .filter(item => item.attempts >= 2 && item.weight >= 4)
+            .sort((a, b) => (b.weight - a.weight) || ((b.lastMistakeISO || '').localeCompare(a.lastMistakeISO || '')))
+            .slice(0, limit)
+            .map(item => item.tag);
+    }
+
+    function computeReviewLevel(skillStat) {
+        const weight = skillStat?.weight || 0;
+        return Math.min(5, Math.max(1, Math.round(weight / 2) + 1));
+    }
+
+    const REVIEW_GENERATORS = {
+        'math:addition': skill => generateMathQuestion('additions', computeReviewLevel(skill)),
+        'math:subtraction': skill => generateMathQuestion('soustractions', computeReviewLevel(skill)),
+        'math:multiplication': skill => generateMathQuestion('multiplications', computeReviewLevel(skill)),
+        'math:numberBond': skill => createNumberBondReviewQuestion(computeReviewLevel(skill)),
+        'cognition:colors': skill => generateColorQuestion(Math.min(6, computeReviewLevel(skill))),
+        'language:vowel': () => createVowelReviewQuestion(),
+        'logic:sequence': () => createSequenceReviewQuestion(),
+        'language:riddle': () => createRiddleReviewQuestion(),
+        'reading:comprehension': () => createStoryReviewQuestion()
+    };
+
+    function buildReviewQuestions(skillTags, desiredCount = 6) {
+        const stats = historyTracker?.getSkillStats() || {};
+        const supportedTags = (skillTags || []).filter(tag => REVIEW_GENERATORS[tag]);
+        if (!supportedTags.length) { return []; }
+        const questions = [];
+        let index = 0;
+        const maxIterations = desiredCount * 4;
+        while (questions.length < desiredCount && index < maxIterations) {
+            const tag = supportedTags[index % supportedTags.length];
+            const generator = REVIEW_GENERATORS[tag];
+            const question = generator(stats[tag]);
+            if (question) {
+                const enriched = {
+                    ...question,
+                    difficulty: 1,
+                    metaSkill: tag,
+                    reward: question.reward || { stars: 12, coins: 8 }
+                };
+                if (typeof enriched.explanation !== 'string' && enriched.options && typeof enriched.correct === 'number') {
+                    enriched.explanation = `La bonne réponse est <strong>${enriched.options[enriched.correct]}</strong>.`;
+                }
+                questions.push(enriched);
+            }
+            index += 1;
+        }
+        return questions;
+    }
+
+    function createNumberBondReviewQuestion(level) {
+        const roof = Math.max(10, level * 8 + 10);
+        const first = Math.floor(Math.random() * (roof - 4)) + 2;
+        const answer = roof - first;
+        const choicePool = new Set([answer, Math.max(0, answer - 1), answer + 1, answer + 2]);
+        const options = shuffle(Array.from(choicePool)).slice(0, 3);
+        if (!options.includes(answer)) {
+            options[0] = answer;
+        }
+        return {
+            questionText: `Complète : <strong>${first} + ? = ${roof}</strong>`,
+            options,
+            correct: options.indexOf(answer),
+            explanation: `Parce que ${first} + ${answer} = ${roof}.`
+        };
+    }
+
+    function createVowelReviewQuestion() {
+        const sample = vowelLevels[Math.floor(Math.random() * vowelLevels.length)];
+        if (!sample) { return null; }
+        const pool = new Set(sample.options);
+        pool.add(sample.answer);
+        const options = shuffle(Array.from(pool)).slice(0, 3);
+        if (!options.includes(sample.answer)) {
+            options[0] = sample.answer;
+        }
+        const correctIndex = options.indexOf(sample.answer);
+        const explanation = `On écrit <strong>${sample.masked.replace(/_/g, sample.answer)}</strong>.`;
+        return {
+            questionText: `Quelle syllabe complète : <strong>${sample.masked}</strong> ?`,
+            options,
+            correct: correctIndex >= 0 ? correctIndex : 0,
+            explanation
+        };
+    }
+
+    function createSequenceReviewQuestion() {
+        const sample = sequenceLevels[Math.floor(Math.random() * sequenceLevels.length)];
+        if (!sample) { return null; }
+        const text = sample.sequence.join(' ');
+        return {
+            questionText: `Quel est le prochain élément de la suite : <strong>${text}</strong> ?`,
+            options: sample.options,
+            correct: sample.options.indexOf(sample.answer),
+            explanation: `La logique de la suite mène à <strong>${sample.answer}</strong>.`
+        };
+    }
+
+    function createRiddleReviewQuestion() {
+        const sample = riddleLevels[Math.floor(Math.random() * riddleLevels.length)];
+        if (!sample) { return null; }
+        return {
+            questionText: sample.prompt,
+            options: sample.options,
+            correct: sample.answer,
+            explanation: `La bonne réponse est <strong>${sample.options[sample.answer]}</strong>.`
+        };
+    }
+
+    function createStoryReviewQuestion() {
+        const story = magicStories[Math.floor(Math.random() * magicStories.length)];
+        if (!story) { return null; }
+        const quiz = story.quiz[Math.floor(Math.random() * story.quiz.length)];
+        if (!quiz) { return null; }
+        return {
+            questionText: `${story.title} — ${quiz.question}`,
+            options: quiz.options,
+            correct: quiz.correct,
+            explanation: `Souviens-toi de l'histoire : ${quiz.options[quiz.correct]}.`
+        };
+    }
+
+    function maybeSuggestReview(container) {
+        if (!container || !historyTracker) { return; }
+        const difficultSkills = getDifficultSkills(3);
+        if (!difficultSkills.length) { return; }
+
+        const reviewQuestions = buildReviewQuestions(difficultSkills, Math.min(8, difficultSkills.length * 2));
+        if (!reviewQuestions.length) { return; }
+
+        const banner = document.createElement('div');
+        banner.className = 'review-banner';
+
+        const title = document.createElement('strong');
+        title.textContent = '✨ Session de repaso disponible';
+        banner.appendChild(title);
+
+        const detail = document.createElement('p');
+        detail.textContent = 'Un petit entraînement ciblé t\'aidera à progresser encore plus vite !';
+        banner.appendChild(detail);
+
+        const action = document.createElement('button');
+        action.type = 'button';
+        action.className = 'review-banner__btn';
+        action.textContent = 'Lancer le repaso';
+        action.addEventListener('click', () => startReviewSession(difficultSkills));
+        banner.appendChild(action);
+
+        container.appendChild(banner);
+    }
+
+    function startReviewSession(skillTags) {
+        const questions = buildReviewQuestions(skillTags, Math.min(8, Math.max(5, skillTags.length * 2)));
+        if (!questions.length) {
+            showErrorMessage('Pas encore de questions de repaso disponibles.', '');
+            return;
+        }
+        activeReviewSkills = [...skillTags];
+        allQuestions.review = questions;
+        currentTopic = 'review';
+        currentLevel = 1;
+        currentQuestionIndex = 0;
+        historyTracker?.startGame('review', 1, { skillTags });
+        loadQuestion(0);
+    }
+
+    function schedulePauseReminder() {
+        if (pauseReminderTimeout) {
+            clearTimeout(pauseReminderTimeout);
+        }
+        pauseReminderTimeout = window.setTimeout(() => {
+            pauseReminderTimeout = null;
+            showPauseReminder();
+        }, PAUSE_REMINDER_DELAY);
+    }
+
+    function showPauseReminder() {
+        if (!document.body || document.getElementById('pauseReminder')) { return; }
+        const banner = document.createElement('div');
+        banner.id = 'pauseReminder';
+        banner.className = 'pause-banner';
+
+        const title = document.createElement('strong');
+        title.textContent = '✨ Pause magique ✨';
+        banner.appendChild(title);
+
+        const message = document.createElement('p');
+        message.textContent = 'Respire, étire-toi et bois un peu d’eau avant de continuer.';
+        banner.appendChild(message);
+
+        const actions = document.createElement('div');
+        actions.className = 'pause-banner__actions';
+
+        const dismissBtn = document.createElement('button');
+        dismissBtn.type = 'button';
+        dismissBtn.className = 'pause-banner__btn';
+        dismissBtn.textContent = 'Je fais une pause !';
+        dismissBtn.addEventListener('click', () => {
+            banner.remove();
+            schedulePauseReminder();
+        });
+
+        const laterBtn = document.createElement('button');
+        laterBtn.type = 'button';
+        laterBtn.className = 'pause-banner__link';
+        laterBtn.textContent = 'Plus tard';
+        laterBtn.addEventListener('click', () => {
+            banner.remove();
+            schedulePauseReminder();
+        });
+
+        actions.appendChild(dismissBtn);
+        actions.appendChild(laterBtn);
+        banner.appendChild(actions);
+
+        document.body.appendChild(banner);
+        speakText('Pausa magique. Prends un petit moment pour te reposer.');
     }
 
     function openShop() {
@@ -1062,39 +1680,61 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!shopList) { return; }
         shopList.innerHTML = '';
 
-        boutiqueItems.forEach(item => {
+        const items = getShopItemsForAvatar(userProfile.avatar?.id);
+        if (!items.length) {
+            const empty = document.createElement('li');
+            empty.className = 'shop-inventory__empty';
+            empty.textContent = 'Aucune récompense disponible pour cet avatar pour le moment.';
+            shopList.appendChild(empty);
+            return;
+        }
+
+        items.forEach(item => {
+            const resolvedItem = findShopItem(item.id);
+            if (!resolvedItem) { return; }
+
             const listItem = document.createElement('li');
             listItem.className = 'shop-item';
+            listItem.dataset.type = resolvedItem.type;
+
+            if (resolvedItem.previewUrl) {
+                const preview = document.createElement('img');
+                preview.className = 'shop-item__preview';
+                preview.src = resolvedItem.previewUrl;
+                preview.alt = `Prévisualisation : ${resolvedItem.name}`;
+                preview.loading = 'lazy';
+                listItem.appendChild(preview);
+            }
 
             const header = document.createElement('div');
             header.className = 'shop-item__header';
-            header.innerHTML = `<span class="shop-item__name">${item.name}</span><span class="shop-item__price">${item.price} 💰</span>`;
+            header.innerHTML = `<span class="shop-item__name">${resolvedItem.name}</span><span class="shop-item__price">${resolvedItem.priceCoins} 💰</span>`;
 
             const description = document.createElement('p');
             description.className = 'shop-item__description';
-            description.textContent = item.description;
+            description.textContent = resolvedItem.description;
 
             const action = document.createElement('button');
             action.type = 'button';
             action.className = 'shop-item__action';
 
-            const owned = ownedItems.includes(item.id);
-            const isActive = activeCosmetics[item.type] === item.id;
+            const owned = ownedItems.includes(resolvedItem.id);
+            const isActive = activeCosmetics[resolvedItem.type] === resolvedItem.id;
 
             if (!owned) {
-                action.textContent = `Acheter (${item.price}💰)`;
-                if (userScore.coins < item.price) {
+                action.textContent = `Acheter (${resolvedItem.priceCoins}💰)`;
+                if (userScore.coins < resolvedItem.priceCoins) {
                     action.disabled = true;
                     action.classList.add('is-disabled');
                     action.title = 'Gagne plus de pièces pour acheter cette récompense.';
                 } else {
-                    action.addEventListener('click', () => purchaseItem(item.id));
+                    action.addEventListener('click', () => purchaseItem(resolvedItem.id));
                 }
             } else {
                 action.textContent = isActive ? 'Équipé' : 'Utiliser';
                 action.disabled = isActive;
                 if (!isActive) {
-                    action.addEventListener('click', () => activateItem(item.id));
+                    action.addEventListener('click', () => activateItem(resolvedItem.id));
                 }
             }
 
@@ -1118,35 +1758,57 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         ownedItems.forEach(itemId => {
-            const item = getBoutiqueItem(itemId);
+            const item = findShopItem(itemId);
             if (!item) { return; }
             const listItem = document.createElement('li');
             listItem.className = 'shop-inventory__item';
+            listItem.dataset.type = item.type;
+
+            const preview = document.createElement('img');
+            preview.className = 'shop-inventory__preview';
+            preview.src = item.iconUrl || item.previewUrl;
+            preview.alt = item.name;
+            preview.loading = 'lazy';
+            listItem.appendChild(preview);
+
+            const meta = document.createElement('div');
+            meta.className = 'shop-inventory__meta';
 
             const label = document.createElement('span');
             label.className = 'shop-inventory__label';
             label.textContent = item.name;
+            meta.appendChild(label);
 
-            if (item.badge) {
-                const icon = document.createElement('span');
-                icon.className = 'shop-inventory__icon';
-                icon.textContent = item.badge;
-                listItem.appendChild(icon);
+            if (item.type === 'background' && item.ownerAvatarId) {
+                const avatarMeta = getAvatarMetaLocal(item.ownerAvatarId);
+                const tag = document.createElement('span');
+                tag.className = 'shop-inventory__tag';
+                tag.textContent = avatarMeta ? avatarMeta.name : 'Fond spécial';
+                meta.appendChild(tag);
             }
+
+            listItem.appendChild(meta);
 
             const action = document.createElement('button');
             action.type = 'button';
             action.className = 'shop-inventory__action';
 
             const isActive = activeCosmetics[item.type] === item.id;
-            action.textContent = isActive ? 'Actif' : 'Activer';
-            action.disabled = isActive;
+            const incompatibleBackground = item.type === 'background' && item.ownerAvatarId && item.ownerAvatarId !== userProfile.avatar?.id;
 
-            if (!isActive) {
+            if (isActive) {
+                action.textContent = 'Actif';
+                action.disabled = true;
+            } else if (incompatibleBackground) {
+                action.textContent = 'Avatar requis';
+                action.disabled = true;
+                action.title = 'Change d\'avatar pour utiliser ce fond.';
+                listItem.classList.add('is-locked');
+            } else {
+                action.textContent = 'Activer';
                 action.addEventListener('click', () => activateItem(item.id));
             }
 
-            listItem.appendChild(label);
             listItem.appendChild(action);
             inventoryList.appendChild(listItem);
         });
@@ -1159,12 +1821,12 @@ document.addEventListener('DOMContentLoaded', () => {
             showSuccessMessage('Tu possèdes déjà cette récompense.');
             return;
         }
-        if (userScore.coins < item.price) {
-            showErrorMessage('Pas assez de pièces pour cette récompense 💰.', item.price);
+        if (userScore.coins < item.priceCoins) {
+            showErrorMessage('Pas assez de pièces pour cette récompense 💰.', item.priceCoins);
             return;
         }
 
-        userScore.coins = Math.max(0, userScore.coins - item.price);
+        userScore.coins = Math.max(0, userScore.coins - item.priceCoins);
         ownedItems.push(item.id);
         activateItem(item.id, { silent: true });
         showSuccessMessage('Nouvelle récompense débloquée ✨');
@@ -1175,8 +1837,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function activateItem(itemId, { silent = false } = {}) {
-        const item = getBoutiqueItem(itemId);
+        const item = findShopItem(itemId);
         if (!item) { return; }
+        if (item.type === 'background' && item.ownerAvatarId && item.ownerAvatarId !== userProfile.avatar?.id) {
+            showErrorMessage('Ce fond appartient à un autre avatar.', '');
+            return;
+        }
         if (!ownedItems.includes(item.id)) {
             ownedItems.push(item.id);
         }
@@ -1282,16 +1948,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return button;
     }
     
-    function lightenColor(hex, percent) {
-        let r = parseInt(hex.slice(1, 3), 16);
-        let g = parseInt(hex.slice(3, 5), 16);
-        let b = parseInt(hex.slice(5, 7), 16);
+    function lightenColor(hex, percent = 0.2) {
+        if (!hex || typeof hex !== 'string') { return '#ffffff'; }
+        let normalized = Number(percent);
+        if (!Number.isFinite(normalized)) { normalized = 0.2; }
+        if (normalized > 1) { normalized = normalized / 100; }
+        normalized = Math.min(Math.max(normalized, 0), 1);
 
-        r = Math.min(255, r + Math.floor(255 * percent));
-        g = Math.min(255, g + Math.floor(255 * percent));
-        b = Math.min(255, b + Math.floor(255 * percent));
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
 
-        return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+        const blend = channel => Math.round(channel + (255 - channel) * normalized)
+            .toString(16)
+            .padStart(2, '0');
+
+        return `#${blend(r)}${blend(g)}${blend(b)}`;
     }
 
     // --- Content Generation ---
@@ -1410,6 +2082,8 @@ document.addEventListener('DOMContentLoaded', () => {
         content.appendChild(prompt);
         speakText('Sélectionne un sujet pour commencer.');
 
+        maybeSuggestReview(content);
+
         const topicsContainer = document.createElement('div');
         topicsContainer.className = 'options-grid';
         
@@ -1493,6 +2167,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             levelBtn.addEventListener('click', () => {
                 currentLevel = i;
+                const skillTag = resolveSkillTag(currentTopic);
+                historyTracker?.startGame(currentTopic, currentLevel, { skillTag });
                 if (currentTopic === 'number-houses') { showNumberHousesGame(currentLevel); }
                 else if (currentTopic === 'colors') { showColorGame(currentLevel); }
                 else if (currentTopic === 'sorting') { showSortingGame(currentLevel); }
@@ -1547,8 +2223,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (correctOption) {
                 correctOption.classList.add('correct');
             }
-            showErrorMessage('❌ -5 pièces.', correctValue);
+            const explanation = questionData.explanation
+                ? `${questionData.explanation}`
+                : '❌ -5 pièces. Essaie encore !';
+            showErrorMessage(explanation, correctValue);
         }
+        const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
+        historyTracker?.recordQuestion(questionSkillTag, { correct: isCorrect, timeMs: elapsed });
         updateUI();
         saveProgress();
 
@@ -1557,7 +2238,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentQuestionIndex < questionsForLevel.length) {
                 loadQuestion(currentQuestionIndex);
             } else {
-                answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
+                if (currentTopic !== 'review') {
+                    answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
+                } else {
+                    historyTracker?.applyReviewSuccess(activeReviewSkills);
+                }
                 saveProgress();
                 clearProgressTracker();
                 const winPrompt = document.createElement('div');
@@ -1565,6 +2250,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 winPrompt.textContent = `Bravo, tu as complété le Niveau ${currentLevel} !`;
                 content.appendChild(winPrompt);
                 speakText(`Bravo, tu as complété le Niveau ${currentLevel} !`);
+                const endStatus = currentTopic === 'review' ? 'review-completed' : 'completed';
+                historyTracker?.endGame({ status: endStatus, topic: currentTopic, level: currentLevel, skills: activeReviewSkills });
+                if (currentTopic === 'review') {
+                    activeReviewSkills = [];
+                }
                 setTimeout(() => showLevelMenu(currentTopic), 2000);
             }
         }, 2500);
@@ -1584,7 +2274,12 @@ document.addEventListener('DOMContentLoaded', () => {
             clearProgressTracker();
             return;
         }
+        questionSkillTag = resolveSkillTag(currentTopic);
         const questionData = questionsForLevel[index];
+        if (questionData?.metaSkill) {
+            questionSkillTag = questionData.metaSkill;
+        }
+        questionStartTime = performance.now();
         const fragment = document.createDocumentFragment();
 
         const promptWrapper = document.createElement('div');
@@ -1626,7 +2321,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+        if (currentTopic === 'review') {
+            configureBackButton('Terminer le repaso', showTopicMenu);
+        } else {
+            configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+        }
     }
     /* === Juegos Específicos === */
     /**
@@ -1638,6 +2337,8 @@ function showNumberHousesGame(level) {
     const content = document.getElementById('content');
     content.innerHTML = ''; 
     updateUI();
+    questionSkillTag = resolveSkillTag('number-houses');
+    questionStartTime = performance.now();
 
     const maxRoofNumber = (level * 5) + 15;
     const roofNumber = Math.floor(Math.random() * (maxRoofNumber - 10)) + 10;
@@ -1744,6 +2445,8 @@ function handleCheckHouses() {
 
     updateUI();
     saveProgress();
+    const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
+    historyTracker?.recordQuestion(questionSkillTag || resolveSkillTag('number-houses'), { correct: allCorrect, timeMs: elapsed });
 
     if (allCorrect) {
         userScore.stars += 50;
@@ -1761,10 +2464,14 @@ function handleCheckHouses() {
             }
         };
         checkBtn.disabled = false;
+        historyTracker?.endGame({ status: 'completed', topic: 'number-houses', level: currentLevel });
     } else {
         const message = `${correctCount} réponses correctes. ${allInputs.length - correctCount} incorrectes. -5 pièces.`;
         showErrorMessage(message, incorrectValues.join(', '));
-        setTimeout(() => checkBtn.disabled = false, 500); 
+        setTimeout(() => {
+            checkBtn.disabled = false;
+            questionStartTime = performance.now();
+        }, 500); 
     }
 }
 
@@ -1814,6 +2521,8 @@ function generateNumberPairs(sum, count) {
             return;
         }
         const questionData = questionsForLevel[index];
+        questionSkillTag = questionData?.metaSkill || resolveSkillTag('colors');
+        questionStartTime = performance.now();
         const fragment = document.createDocumentFragment();
         
         const promptWrapper = document.createElement('div');
@@ -1857,7 +2566,11 @@ function generateNumberPairs(sum, count) {
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+        if (currentTopic === 'review') {
+            configureBackButton('Terminer le repaso', showTopicMenu);
+        } else {
+            configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+        }
     }
     
     function handleColorOptionClick(event) {
@@ -1892,8 +2605,13 @@ function generateNumberPairs(sum, count) {
             userScore.coins = Math.max(0, userScore.coins - 5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) { correctOption.classList.add('correct'); }
-            showErrorMessage('❌ -5 pièces.', correctValue);
+            const explanation = questionData.explanation
+                ? `${questionData.explanation}`
+                : '❌ -5 pièces. Essaie encore !';
+            showErrorMessage(explanation, correctValue);
         }
+        const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
+        historyTracker?.recordQuestion(questionSkillTag, { correct: isCorrect, timeMs: elapsed });
         updateUI();
         saveProgress();
         setTimeout(() => {
@@ -1901,10 +2619,19 @@ function generateNumberPairs(sum, count) {
             if (currentQuestionIndex < questionsForLevel.length) {
                 loadColorQuestion(currentQuestionIndex);
             } else {
-                answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
+                if (currentTopic !== 'review') {
+                    answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
+                } else {
+                    historyTracker?.applyReviewSuccess(activeReviewSkills);
+                }
                 saveProgress();
                 clearProgressTracker();
                 showSuccessMessage(`Bravo, tu as complété le Niveau ${currentLevel} !`);
+                const endStatus = currentTopic === 'review' ? 'review-completed' : 'completed';
+                historyTracker?.endGame({ status: endStatus, topic: currentTopic, level: currentLevel, skills: activeReviewSkills });
+                if (currentTopic === 'review') {
+                    activeReviewSkills = [];
+                }
                 setTimeout(() => showLevelMenu(currentTopic), 2000);
             }
         }, 2500);
@@ -1940,6 +2667,7 @@ function generateNumberPairs(sum, count) {
     function showMagicStory(storyIndex) {
         content.innerHTML = '';
         const story = magicStories[storyIndex];
+        currentStoryIndex = storyIndex;
         const storyContainer = document.createElement('div');
         storyContainer.className = 'story-container fx-bounce-in-down';
         const titleEl = document.createElement('h2');
@@ -1989,7 +2717,7 @@ function generateNumberPairs(sum, count) {
         startQuizBtn.className = 'btn submit-btn fx-bounce-in-down';
         startQuizBtn.textContent = 'Commencer le quiz';
         startQuizBtn.style.marginTop = '2rem';
-        startQuizBtn.addEventListener('click', () => startStoryQuiz(story.quiz));
+        startQuizBtn.addEventListener('click', () => startStoryQuiz(storyIndex));
         
         content.appendChild(storyContainer);
         content.appendChild(startQuizBtn);
@@ -1999,9 +2727,16 @@ function generateNumberPairs(sum, count) {
         configureBackButton('Retour aux contes', showStoryMenu);
     }
     
-    function startStoryQuiz(quizQuestions) {
-        storyQuiz = quizQuestions;
+    function startStoryQuiz(storyIndex) {
+        const story = magicStories[storyIndex];
+        storyQuiz = story.quiz;
         currentQuestionIndex = 0;
+        questionSkillTag = resolveSkillTag('stories');
+        questionStartTime = performance.now();
+        historyTracker?.startGame('stories', storyIndex + 1, {
+            skillTag: questionSkillTag,
+            storyTitle: story.title
+        });
         loadQuizQuestion();
     }
     
@@ -2013,6 +2748,8 @@ function generateNumberPairs(sum, count) {
         
         content.innerHTML = '';
         const questionData = storyQuiz[currentQuestionIndex];
+        questionSkillTag = questionData?.metaSkill || questionSkillTag || resolveSkillTag('stories');
+        questionStartTime = performance.now();
         const fragment = document.createDocumentFragment();
         
         const promptWrapper = document.createElement('div');
@@ -2072,7 +2809,9 @@ function generateNumberPairs(sum, count) {
         const correctAnswerIndex = questionData.correct;
         const correctValue = questionData.options[correctAnswerIndex];
 
-        if (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex) {
+        const isCorrect = !Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex;
+
+        if (isCorrect) {
             selectedOption.classList.add('correct');
             userScore.stars += 15;
             userScore.coins += 10;
@@ -2085,8 +2824,11 @@ function generateNumberPairs(sum, count) {
             if (correctOption) {
                 correctOption.classList.add('correct');
             }
-            showErrorMessage('Mauvaise réponse.', correctValue);
+            const explanation = questionData.explanation ? questionData.explanation : 'Mauvaise réponse.';
+            showErrorMessage(explanation, correctValue);
         }
+        const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
+        historyTracker?.recordQuestion(questionSkillTag || resolveSkillTag('stories'), { correct: isCorrect, timeMs: elapsed });
         updateUI();
         saveProgress();
         
@@ -2095,7 +2837,7 @@ function generateNumberPairs(sum, count) {
             loadQuizQuestion();
         }, 2000);
     }
-    
+
     function showQuizResults() {
         content.innerHTML = '';
         clearProgressTracker();
@@ -2103,6 +2845,12 @@ function generateNumberPairs(sum, count) {
         prompt.className = 'prompt ok fx-pop';
         prompt.innerHTML = `Quiz terminé ! 🎉<p>Tu as gagné des étoiles et des pièces !</p>`;
         content.appendChild(prompt);
+
+        historyTracker?.endGame({
+            status: 'completed',
+            topic: 'stories',
+            storyIndex: currentStoryIndex
+        });
 
         const backBtn = document.createElement('button');
         backBtn.className = 'btn submit-btn fx-bounce-in-down';
@@ -2597,6 +3345,8 @@ function generateNumberPairs(sum, count) {
         currentLevel = levelData.level;
         currentQuestionIndex = index;
         currentVowelLevelData = null;
+        questionSkillTag = resolveSkillTag('vowels');
+        questionStartTime = performance.now();
 
         content.innerHTML = '';
         updateUI();
@@ -2702,7 +3452,9 @@ function generateNumberPairs(sum, count) {
         const expected = currentVowelLevelData.answer;
         const blanks = currentVowelLevelData.displayEl.querySelectorAll('.vowel-blank');
 
-        if (userAnswer && userAnswer.toLowerCase() === expected.toLowerCase()) {
+        const isCorrect = userAnswer && userAnswer.toLowerCase() === expected.toLowerCase();
+        const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
+        if (isCorrect) {
             fillVowelBlanks(blanks, userAnswer);
             currentVowelLevelData.displayEl.classList.add('is-complete');
             selectedOption.classList.add('correct', 'vowel-option-correct');
@@ -2714,11 +3466,13 @@ function generateNumberPairs(sum, count) {
             updateUI();
             showSuccessMessage('Bravo !');
             showConfetti();
+            historyTracker?.recordQuestion(questionSkillTag || resolveSkillTag('vowels'), { correct: true, timeMs: elapsed });
             setTimeout(() => {
                 currentVowelLevelData = null;
                 if (currentQuestionIndex + 1 < vowelLevels.length) {
                     loadVowelQuestion(currentQuestionIndex + 1);
                 } else {
+                    historyTracker?.endGame({ status: 'completed', topic: 'vowels', level: currentLevel });
                     showLevelMenu('vowels');
                 }
             }, 1600);
@@ -2730,7 +3484,8 @@ function generateNumberPairs(sum, count) {
             answeredQuestions[`vowels-${currentLevel}`] = 'in-progress';
             saveProgress();
             updateUI();
-            showErrorMessage('Mauvaise réponse.', 'Regarde bien les lettres.');
+            historyTracker?.recordQuestion(questionSkillTag || resolveSkillTag('vowels'), { correct: false, timeMs: elapsed });
+            showErrorMessage('Regarde bien les lettres.', expected);
             setTimeout(() => {
                 currentVowelLevelData.displayEl.classList.remove('is-error');
                 currentVowelLevelData.buttons.forEach(btn => {
@@ -2739,6 +3494,7 @@ function generateNumberPairs(sum, count) {
                     btn.classList.remove('vowel-option-wrong');
                 });
                 hideVowelFeedback();
+                questionStartTime = performance.now();
             }, 1200);
         }
     }

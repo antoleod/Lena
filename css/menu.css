@@ -25,8 +25,32 @@
 }
 
 #user-avatar {
-    font-size: 3em;
-    animation: bounce 0.8s ease infinite;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.menu-avatar {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(148, 102, 255, 0.18);
+}
+
+.menu-avatar img {
+    width: clamp(48px, 8vw, 64px);
+    height: clamp(48px, 8vw, 64px);
+    object-fit: contain;
+}
+
+.menu-avatar__label {
+    font-family: var(--font-heading);
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #4a3c75;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.12);
 }
 
 .menu-options {
@@ -73,76 +97,87 @@
     color: var(--accent-color);
 }
 
-/* En móviles */
-@media (max-width: 480px) {
-  .header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    grid-gap: 8px;
-    text-align: center;
-  }
-
-  .header-item {
-    font-size: 0.8rem; /* texto más pequeño */
-    padding: 6px 8px;
-  }
-
-  .header img {
-    width: 32px;
-    height: 32px; /* íconos más pequeños */
-  }
-
-  .btn {
-    font-size: 0.8rem;
-    padding: 6px 10px;
-    border-radius: 10px;
-  }
-}
-
+@media (max-width: 768px) {
     .menu-header {
         flex-direction: column;
+        gap: 0.75rem;
         margin-bottom: 1.5em;
         padding-bottom: 0.8em;
     }
 
     #user-greeting {
         font-size: 1.5em;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.25em;
     }
 
-    #user-avatar {
-        font-size: 2.5em;
+    .menu-avatar {
+        flex-direction: column;
+        padding: 0.65rem;
+    }
+
+    .menu-avatar img {
+        width: clamp(56px, 14vw, 72px);
+        height: clamp(56px, 14vw, 72px);
+    }
+
+    .menu-avatar__label {
+        font-size: 0.95rem;
     }
 
     .menu-options {
-        gap: 0.8em;
-        margin-bottom: 1.5em;
         grid-template-columns: 1fr;
+        gap: 0.9em;
     }
 
     .btn-play {
-        padding: 12px 20px;
-        font-size: 1.1em;
+        padding: 16px 24px;
+        font-size: 1.2em;
     }
 
     .btn-secondary {
-        padding: 9px 16px;
+        padding: 11px 18px;
+        font-size: 0.95em;
+    }
+
+    .progress-overview {
+        padding: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 28px 20px;
+    }
+
+    #user-greeting {
+        font-size: 1.3em;
+    }
+
+    .menu-avatar img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .menu-avatar__label {
+        font-size: 0.9rem;
+    }
+
+    .btn-play {
+        padding: 12px 18px;
+        font-size: 1.05em;
+    }
+
+    .btn-secondary {
+        padding: 9px 14px;
         font-size: 0.85em;
     }
 
     .progress-overview {
-        padding: 1em;
+        padding: 0.85em;
     }
 
-    .progress-overview h3 {
-        font-size: 1.1em;
-    }
-
-    .progress-overview p {
-        font-size: 0.9em;
-    }
-
+    .progress-overview p,
     .motivational-quote {
-        font-size: 0.9em;
+        font-size: 0.85em;
     }
 }
