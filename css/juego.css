@@ -332,6 +332,9 @@
 
 .puzzle-cell {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .puzzle-input {
@@ -364,6 +367,30 @@
   background: #ffe5e5;
 }
 
+.puzzle-status-icon {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.puzzle-status-icon.is-correct,
+.puzzle-status-icon.is-wrong {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.puzzle-status-icon.is-correct {
+  text-shadow: 0 0 10px rgba(139, 195, 74, 0.35);
+}
+
+.puzzle-status-icon.is-wrong {
+  text-shadow: 0 0 10px rgba(239, 83, 80, 0.35);
+}
+
 .puzzle-hints {
   display: grid;
   gap: 0.85rem;
@@ -385,14 +412,27 @@
   font-size: 1rem;
   box-shadow: 0 12px 24px rgba(0,0,0,0.1);
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .puzzle-hint-card::before {
-  content: '✨';
+  content: '⭐';
   position: absolute;
   right: 0.6rem;
   top: 0.4rem;
   opacity: 0.35;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.puzzle-hint-card.complete {
+  box-shadow: 0 16px 30px rgba(139, 195, 74, 0.3);
+  transform: translateY(-3px);
+}
+
+.puzzle-hint-card.complete::before {
+  opacity: 1;
+  transform: scale(1.2);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
 
 .puzzle-controls {
@@ -432,12 +472,67 @@
   animation: twinkle 1s ease-in-out infinite;
 }
 
+.puzzle-instant-feedback {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s ease;
+}
+
+.puzzle-instant-feedback.is-positive {
+  color: var(--success);
+}
+
+.puzzle-instant-feedback.is-negative {
+  color: var(--danger);
+}
+
+.puzzle-instant-feedback.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* --- Répartis & Multiplie --- */
 .repartis-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
+}
+
+.repartis-progress {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.repartis-progress-track {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.repartis-progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(135deg, #a18aff, #ffb8f4);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.repartis-progress-label {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
 .repartis-scene {
@@ -472,8 +567,12 @@
   transition: box-shadow 0.2s ease;
 }
 
-.repartis-group.highlight {
-  box-shadow: 0 0 0 4px rgba(148,102,255,0.4);
+.repartis-group.needs-attention {
+  box-shadow: 0 0 0 4px rgba(239, 83, 80, 0.35);
+}
+
+.repartis-group.dragging-over {
+  box-shadow: 0 0 0 4px rgba(148, 102, 255, 0.4);
 }
 
 .repartis-character {
@@ -486,6 +585,9 @@
   gap: 0.35rem;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .repartis-item {
@@ -497,6 +599,75 @@
 .repartis-item:active {
   cursor: grabbing;
   transform: scale(1.15);
+}
+
+.repartis-item-pop {
+  animation: repartisPop 0.32s ease;
+}
+
+.repartis-dropzone.is-target {
+  box-shadow: inset 0 0 0 3px rgba(148, 102, 255, 0.25);
+}
+
+.repartis-dropzone.is-balanced {
+  box-shadow: inset 0 0 0 3px rgba(139, 195, 74, 0.45);
+}
+
+.repartis-dropzone.needs-more {
+  box-shadow: inset 0 0 0 3px rgba(255, 202, 40, 0.45);
+}
+
+.repartis-dropzone.has-extra {
+  box-shadow: inset 0 0 0 3px rgba(239, 83, 80, 0.45);
+}
+
+.repartis-counter {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.repartis-counter.is-balanced {
+  color: var(--success);
+}
+
+.repartis-counter.needs-more {
+  color: var(--warning);
+}
+
+.repartis-counter.has-extra {
+  color: var(--danger);
+}
+
+.repartis-feedback {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  transition: opacity 0.3s ease;
+  max-width: 420px;
+  text-align: center;
+}
+
+.repartis-feedback.is-positive {
+  color: var(--success);
+}
+
+.repartis-feedback.is-negative {
+  color: var(--danger);
+}
+
+.repartis-feedback.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .repartis-options {
@@ -517,16 +688,39 @@
   cursor: pointer;
   box-shadow: 0 14px 28px rgba(255, 159, 243, 0.35);
   transition: transform 0.2s ease;
+  touch-action: manipulation;
 }
 
 .repartis-option-btn:hover {
   transform: translateY(-3px);
 }
 
+.repartis-option-btn.correct {
+  background: linear-gradient(135deg, #4dd88d, #9dff9f);
+  box-shadow: 0 16px 32px rgba(77, 216, 141, 0.35);
+}
+
+.repartis-option-btn.wrong {
+  animation: softShake 0.4s ease-in-out;
+  box-shadow: 0 0 0 3px rgba(239, 83, 80, 0.35);
+}
+
 .repartis-bonus-text {
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--muted);
+}
+
+@keyframes repartisPop {
+  0% { transform: scale(0.4); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes dicteeGlow {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 /* --- Dictée Magique --- */
@@ -553,6 +747,15 @@
   background: linear-gradient(135deg, #a18aff, #ffb8f4);
   border-radius: inherit;
   transition: width 0.4s ease;
+}
+
+.dictee-progress-text {
+  display: block;
+  margin-top: 0.4rem;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 .dictee-prompt {
@@ -595,11 +798,82 @@
   border-color: var(--primary-light);
 }
 
+.dictee-feedback {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  transition: opacity 0.3s ease;
+}
+
+.dictee-feedback.is-positive {
+  color: var(--success);
+}
+
+.dictee-feedback.is-negative {
+  color: var(--danger);
+}
+
+.dictee-feedback.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dictee-preview {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  min-height: 2.2rem;
+}
+
+.dictee-preview span {
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.4rem;
+  transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.dictee-preview span.is-correct {
+  color: var(--success);
+  text-shadow: 0 0 12px rgba(139,195,74,0.35);
+}
+
+.dictee-preview span.is-wrong {
+  color: var(--danger);
+  text-shadow: 0 0 12px rgba(239,83,80,0.35);
+}
+
+.dictee-preview span.is-pending {
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+.dictee-preview span.is-space {
+  min-width: 0.6rem;
+}
+
+.dictee-preview.is-error {
+  animation: softShake 0.5s ease-in-out;
+}
+
+.dictee-preview.is-celebrating span {
+  animation: dicteeGlow 0.6s ease forwards;
+}
+
+.dictee-audio-btn.is-playing {
+  animation: pulse 0.6s ease;
+}
+
 .dictee-keypad {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
   gap: 0.5rem;
   max-width: 420px;
+  width: 100%;
 }
 
 .dictee-key {
@@ -615,6 +889,10 @@
 
 .dictee-key:hover {
   transform: translateY(-2px);
+}
+
+.dictee-key:active {
+  transform: scale(0.92);
 }
 
 .dictee-menu {
@@ -704,12 +982,232 @@
   cursor: pointer;
   box-shadow: 0 14px 28px rgba(108, 92, 231, 0.35);
   transition: transform 0.2s ease;
+  touch-action: manipulation;
 }
 
 .repartis-action-btn:hover {
   transform: translateY(-3px);
 }
+
+.repartis-action-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 8px 16px rgba(108, 92, 231, 0.15);
+}
 .dictee-input.wrong {
   border-color: var(--danger);
   background: #ffe5e5;
+}
+
+@media (max-width: 480px) {
+  /* General adjustments for smaller screens */
+  body {
+    font-size: 0.9rem;
+  }
+
+  /* Stage Top */
+  #stageTop {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  .scores-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #user-info,
+  #scoreStars,
+  #scoreCoins,
+  #level {
+    font-size: 1.1rem;
+  }
+
+  .top-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .top-buttons .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Stage Bottom */
+  #stageBottom {
+    padding: 0.8rem;
+  }
+
+  #stageBtns {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #stageBtns .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  /* Game specific elements */
+
+  /* Les maisons des nombres */
+  .number-house-container {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .rooftop {
+    font-size: var(--font-size-xl);
+    padding: 0.4rem 1rem;
+  }
+
+  .window-number, .window-input {
+    font-size: var(--font-size-medium);
+    padding: 0.5rem;
+    min-width: 45px;
+  }
+
+  .plus-sign, .equal-sign {
+    font-size: var(--font-size-large);
+  }
+
+  .submit-btn {
+    font-size: var(--font-size-medium);
+    padding: 0.6rem 1.5rem;
+  }
+
+  /* Les Couleurs */
+  .color-option-button {
+    padding: 0.6rem 1rem;
+    font-size: var(--font-size-medium);
+    max-width: 150px;
+    gap: 0.5rem;
+  }
+
+  /* Puzzle Magique */
+  .puzzle-grid {
+    grid-template-columns: repeat(var(--puzzle-size), minmax(50px, 70px));
+    gap: 0.6rem;
+  }
+
+  .puzzle-input {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .puzzle-hints {
+    gap: 0.6rem;
+  }
+
+  .puzzle-hint-card {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .puzzle-controls {
+    gap: 0.8rem;
+  }
+
+  .puzzle-help-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Répartis & Multiplie */
+  .repartis-scene {
+    padding: 1rem;
+  }
+
+  .repartis-groups {
+    gap: 0.8rem;
+  }
+
+  .repartis-group {
+    min-width: 100px;
+    min-height: 90px;
+    padding: 0.8rem;
+  }
+
+  .repartis-character {
+    font-size: 1.5rem;
+  }
+
+  .repartis-item {
+    font-size: 1.5rem;
+  }
+
+  .repartis-option-btn,
+  .repartis-action-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  /* Dictée Magique */
+  .dictee-prompt {
+    padding: 0.8rem 1rem;
+    gap: 0.8rem;
+  }
+
+  .dictee-fairy {
+    font-size: 1.8rem;
+  }
+
+  .dictee-input {
+    font-size: 1.1rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .dictee-keypad {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 0.4rem;
+  }
+
+  .dictee-key {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .dictee-menu button {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .dictee-list-item {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .dictee-mic-btn {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .dictee-note {
+    font-size: 0.85rem;
+  }
+
+  .sequence-item {
+    font-size: var(--font-size-medium);
+    padding: 0.4rem 0.8rem;
+  }
+
+  .word-with-blank {
+    font-size: var(--font-size-xl);
+    letter-spacing: 3px;
+  }
+
+  .blank {
+    width: 20px;
+    height: 25px;
+  }
+
+  .memory-card {
+    height: 80px;
+    font-size: 1.5rem;
+  }
+
+  .memory-grid {
+    gap: 8px;
+    max-width: 350px;
+  }
 }

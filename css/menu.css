@@ -31,8 +31,15 @@
 
 .menu-options {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1em;
     margin-bottom: 2em;
+}
+
+.btn-main,
+.btn-secondary {
+    touch-action: manipulation;
+    font-family: var(--font-heading);
 }
 
 .btn-play {
@@ -64,4 +71,58 @@
 .progress-overview h3 {
     margin-top: 0;
     color: var(--accent-color);
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .menu-header {
+        flex-direction: column;
+        margin-bottom: 1.5em;
+        padding-bottom: 0.8em;
+    }
+
+    #user-greeting {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+    }
+
+    #user-avatar {
+        font-size: 2.5em;
+    }
+
+    .menu-options {
+        gap: 0.8em;
+        margin-bottom: 1.5em;
+        grid-template-columns: 1fr;
+    }
+
+    .btn-play {
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+
+    .btn-secondary {
+        padding: 9px 16px;
+        font-size: 0.85em;
+    }
+
+    .progress-overview {
+        padding: 1em;
+    }
+
+    .progress-overview h3 {
+        font-size: 1.1em;
+    }
+
+    .progress-overview p {
+        font-size: 0.9em;
+    }
+
+    .motivational-quote {
+        font-size: 0.9em;
+    }
 }

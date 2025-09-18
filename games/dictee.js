@@ -79,6 +79,9 @@
         const progressBar = document.createElement('div');
         progressBar.className = 'dictee-progress-bar';
         progress.appendChild(progressBar);
+        const progressLabel = document.createElement('span');
+        progressLabel.className = 'dictee-progress-text';
+        progress.appendChild(progressLabel);
         wrapper.appendChild(progress);
 
         const prompt = document.createElement('div');
@@ -120,6 +123,16 @@
 
         wrapper.appendChild(answerContainer);
 
+        const feedbackBubble = document.createElement('div');
+        feedbackBubble.className = 'dictee-feedback is-hidden';
+        feedbackBubble.setAttribute('role', 'status');
+        feedbackBubble.setAttribute('aria-live', 'polite');
+        wrapper.appendChild(feedbackBubble);
+
+        const preview = document.createElement('div');
+        preview.className = 'dictee-preview';
+        wrapper.appendChild(preview);
+
         const keypad = document.createElement('div');
         keypad.className = 'dictee-keypad';
         KEYBOARD_CHARACTERS.forEach(char => {
@@ -129,6 +142,8 @@
             key.addEventListener('click', () => {
                 input.value += char;
                 input.focus();
+                hideFeedback();
+                updatePreview();
             });
             keypad.appendChild(key);
         });
@@ -137,6 +152,9 @@
         context.content.appendChild(wrapper);
         context.configureBackButton('Retour aux niveaux', () => context.showLevelMenu());
 
+        let feedbackTimer;
+        let celebrateTimer;
+
         function speakCurrent() {
             context.speakText(entries[currentIndex]);
         }
@@ -144,10 +162,97 @@
         function updateProgress() {
             const ratio = (currentIndex / entries.length) * 100;
             progressBar.style.width = `${ratio}%`;
+            if (currentIndex >= entries.length) {
+                progressLabel.textContent = 'Dictée terminée !';
+            } else {
+                progressLabel.textContent = `Mot ${currentIndex + 1} / ${entries.length}`;
+            }
         }
 
         function sanitize(value) {
             return value.trim().replace(/\s+/g, ' ').toLowerCase();
+        }
+
+        function lettersMatch(a, b) {
+            return a.toLocaleLowerCase('fr-FR') === b.toLocaleLowerCase('fr-FR');
+        }
+
+        function updatePreview() {
+            if (!preview) {
+                return;
+            }
+            preview.classList.remove('is-celebrating');
+            const expected = entries[currentIndex] || '';
+            const typed = input.value || '';
+            const maxLength = Math.max(expected.length, typed.length);
+            preview.innerHTML = '';
+            for (let i = 0; i < maxLength; i++) {
+                const expectedChar = expected[i] || '';
+                const typedChar = typed[i] || '';
+                const span = document.createElement('span');
+                if (typedChar) {
+                    span.textContent = typedChar;
+                    if (expectedChar && lettersMatch(typedChar, expectedChar)) {
+                        span.classList.add('is-correct');
+                    } else {
+                        span.classList.add('is-wrong');
+                    }
+                } else {
+                    if (expectedChar === ' ') {
+                        span.classList.add('is-pending', 'is-space');
+                        span.innerHTML = '&nbsp;';
+                    } else {
+                        span.classList.add('is-pending');
+                        span.textContent = '✶';
+                    }
+                }
+                preview.appendChild(span);
+            }
+        }
+
+        function celebrateWord(word) {
+            if (!preview) {
+                return;
+            }
+            clearTimeout(celebrateTimer);
+            preview.classList.add('is-celebrating');
+            preview.innerHTML = '';
+            for (const char of word) {
+                const span = document.createElement('span');
+                if (char === ' ') {
+                    span.innerHTML = '&nbsp;';
+                    span.classList.add('is-space');
+                } else {
+                    span.textContent = char;
+                }
+                span.classList.add('is-correct');
+                preview.appendChild(span);
+            }
+            celebrateTimer = setTimeout(() => {
+                preview.classList.remove('is-celebrating');
+            }, 600);
+        }
+
+        function showFeedback(type, message) {
+            clearTimeout(feedbackTimer);
+            feedbackBubble.textContent = message;
+            feedbackBubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
+            feedbackBubble.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+            feedbackTimer = setTimeout(() => {
+                hideFeedback();
+            }, 2600);
+        }
+
+        function hideFeedback() {
+            clearTimeout(feedbackTimer);
+            feedbackBubble.textContent = '';
+            feedbackBubble.classList.add('is-hidden');
+            feedbackBubble.classList.remove('is-positive', 'is-negative');
+        }
+
+        function animateAudioButton(button) {
+            button.classList.add('is-playing');
+            setTimeout(() => button.classList.remove('is-playing'), 500);
         }
 
         function handleValidation() {
@@ -156,29 +261,50 @@
             if (given === expected) {
                 context.playPositiveSound();
                 context.showSuccessMessage('Bravo !');
+                showFeedback('positive', '✅ Bravo, continue !');
+                const completedWord = entries[currentIndex];
+                celebrateWord(completedWord);
                 input.value = '';
                 currentIndex += 1;
                 updateProgress();
                 if (currentIndex >= entries.length) {
                     progressBar.style.width = '100%';
+                    showFeedback('positive', '✨ Dictée réussie !');
                     context.awardReward(data.reward.stars, data.reward.coins);
                     context.markLevelCompleted();
                     context.showConfetti();
-                    context.showSuccessMessage('Dictée réussie !');
                     setTimeout(() => context.showLevelMenu(), 1600);
                 } else {
-                    speakCurrent();
+                    setTimeout(() => {
+                        updatePreview();
+                        speakCurrent();
+                        input.focus();
+                    }, 550);
                 }
             } else {
                 context.playNegativeSound();
                 context.showErrorMessage('Essaie encore !', 'Répète après la fée.');
+                showFeedback('negative', '❌ Regarde les lettres brillantes pour t’aider.');
                 input.classList.add('wrong');
-                setTimeout(() => input.classList.remove('wrong'), 600);
+                preview.classList.add('is-error');
+                setTimeout(() => {
+                    input.classList.remove('wrong');
+                    preview.classList.remove('is-error');
+                }, 600);
             }
         }
 
-        listenBtn.addEventListener('click', speakCurrent);
-        repeatBtn.addEventListener('click', speakCurrent);
+        listenBtn.classList.add('dictee-audio-btn');
+        repeatBtn.classList.add('dictee-audio-btn');
+
+        listenBtn.addEventListener('click', () => {
+            animateAudioButton(listenBtn);
+            speakCurrent();
+        });
+        repeatBtn.addEventListener('click', () => {
+            animateAudioButton(repeatBtn);
+            speakCurrent();
+        });
         validateBtn.addEventListener('click', handleValidation);
         input.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
@@ -186,9 +312,15 @@
                 handleValidation();
             }
         });
+        input.addEventListener('input', () => {
+            hideFeedback();
+            preview.classList.remove('is-error');
+            updatePreview();
+        });
 
         currentIndex = 0;
         updateProgress();
+        updatePreview();
         speakCurrent();
         input.focus();
     }

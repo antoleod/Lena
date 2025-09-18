@@ -71,8 +71,13 @@
         grid.style.setProperty('--puzzle-size', puzzle.size);
 
         const inputs = [];
+        const statusIcons = [];
+        const rowHintCards = [];
+        const columnHintCards = [];
+        let feedbackTimeout;
         for (let r = 0; r < puzzle.size; r++) {
             inputs[r] = [];
+            statusIcons[r] = [];
             for (let c = 0; c < puzzle.size; c++) {
                 const cell = document.createElement('div');
                 cell.className = 'puzzle-cell';
@@ -81,8 +86,15 @@
                 input.className = 'puzzle-input';
                 input.setAttribute('aria-label', `Cellule ${r + 1}-${c + 1}`);
                 cell.appendChild(input);
+                const icon = document.createElement('span');
+                icon.className = 'puzzle-status-icon';
+                icon.setAttribute('aria-hidden', 'true');
+                cell.appendChild(icon);
                 grid.appendChild(cell);
                 inputs[r][c] = input;
+                statusIcons[r][c] = icon;
+                input.addEventListener('input', () => handleCellInput(r, c));
+                input.addEventListener('focus', () => setCellFeedback(r, c, 'pending'));
             }
         }
         wrapper.appendChild(grid);
@@ -97,6 +109,7 @@
             card.className = 'puzzle-hint-card';
             card.textContent = `Ligne ${r + 1}: ${buildHintText(operators, target)}`;
             rowHintsContainer.appendChild(card);
+            rowHintCards[r] = card;
         }
         wrapper.appendChild(rowHintsContainer);
 
@@ -114,8 +127,15 @@
             const columnLetter = String.fromCharCode(65 + c);
             card.textContent = `Colonne ${columnLetter}: ${buildHintText(operators, target)}`;
             columnHintsWrapper.appendChild(card);
+            columnHintCards[c] = card;
         }
         wrapper.appendChild(columnHintsWrapper);
+
+        const instantFeedback = document.createElement('div');
+        instantFeedback.className = 'puzzle-instant-feedback is-hidden';
+        instantFeedback.setAttribute('role', 'status');
+        instantFeedback.setAttribute('aria-live', 'polite');
+        wrapper.appendChild(instantFeedback);
 
         const controls = document.createElement('div');
         controls.className = 'puzzle-controls';
@@ -151,17 +171,18 @@
             const input = inputs[row][col];
             input.value = puzzle.solution[row][col];
             showSparkle(input.parentElement);
-            input.classList.remove('wrong');
-            input.classList.add('correct');
+            handleCellInput(row, col, { silent: true });
             context.playPositiveSound();
             helpUses += 1;
             if (helpUses >= puzzle.size) {
                 helpBtn.disabled = true;
             }
+            showInstantFeedback('positive', '⭐ Indice magique révélé !');
         });
 
         validateBtn.addEventListener('click', () => {
-            const result = validatePuzzle(inputs, puzzle.solution);
+            const result = validatePuzzle(inputs, puzzle.solution, setCellFeedback);
+            refreshHintBadges();
             if (result.allCorrect) {
                 validateBtn.disabled = true;
                 helpBtn.disabled = true;
@@ -170,6 +191,7 @@
                 context.markLevelCompleted();
                 context.showSuccessMessage('✨ Bien joué, puzzle complété !');
                 context.showConfetti();
+                showInstantFeedback('positive', '🎉 Puzzle parfait !');
                 setTimeout(() => {
                     goBack();
                 }, 1800);
@@ -177,11 +199,123 @@
                 context.playNegativeSound();
                 context.awardReward(0, -5);
                 context.showErrorMessage('Essaie encore !', `Indices: ${result.remaining} cases à vérifier`);
+                showInstantFeedback('negative', `❌ Il reste ${result.remaining} case(s) à vérifier.`);
             }
         });
+
+        refreshHintBadges();
+        hideInstantFeedback();
+
+        function handleCellInput(row, col, options = {}) {
+            const { silent = false } = options;
+            const inputEl = inputs[row][col];
+            const rawValue = inputEl.value.trim();
+            if (!rawValue) {
+                setCellFeedback(row, col, 'empty');
+                if (!silent) {
+                    hideInstantFeedback();
+                }
+                refreshHintBadges();
+                return;
+            }
+
+            const value = Number(rawValue);
+            if (!Number.isFinite(value)) {
+                setCellFeedback(row, col, 'wrong');
+                if (!silent) {
+                    showInstantFeedback('negative', '❌ Oups, utilise des nombres.');
+                }
+                refreshHintBadges();
+                return;
+            }
+
+            if (value === puzzle.solution[row][col]) {
+                setCellFeedback(row, col, 'correct');
+                if (!silent) {
+                    showInstantFeedback('positive', '✅ Bravo !');
+                }
+            } else {
+                setCellFeedback(row, col, 'wrong');
+                if (!silent) {
+                    showInstantFeedback('negative', '❌ Oups, vérifie cette case.');
+                }
+            }
+
+            refreshHintBadges();
+            if (areAllCellsCorrect()) {
+                showInstantFeedback('positive', '✨ Tout est prêt ! Appuie sur Vérifier.');
+            }
+        }
+
+        function setCellFeedback(row, col, status) {
+            const inputEl = inputs[row][col];
+            const icon = statusIcons[row][col];
+            inputEl.classList.remove('correct', 'wrong');
+            icon.textContent = '';
+            icon.classList.remove('is-correct', 'is-wrong');
+
+            if (status === 'correct') {
+                inputEl.classList.add('correct');
+                icon.textContent = '✅';
+                icon.classList.add('is-correct');
+            } else if (status === 'wrong') {
+                inputEl.classList.add('wrong');
+                icon.textContent = '❌';
+                icon.classList.add('is-wrong');
+            }
+        }
+
+        function refreshHintBadges() {
+            for (let r = 0; r < puzzle.size; r++) {
+                const rowComplete = puzzle.solution[r].every((expected, c) => Number(inputs[r][c].value) === expected);
+                if (rowHintCards[r]) {
+                    rowHintCards[r].classList.toggle('complete', rowComplete);
+                }
+            }
+            for (let c = 0; c < puzzle.size; c++) {
+                let columnComplete = true;
+                for (let r = 0; r < puzzle.size; r++) {
+                    if (Number(inputs[r][c].value) !== puzzle.solution[r][c]) {
+                        columnComplete = false;
+                        break;
+                    }
+                }
+                if (columnHintCards[c]) {
+                    columnHintCards[c].classList.toggle('complete', columnComplete);
+                }
+            }
+        }
+
+        function areAllCellsCorrect() {
+            for (let r = 0; r < puzzle.size; r++) {
+                for (let c = 0; c < puzzle.size; c++) {
+                    if (Number(inputs[r][c].value) !== puzzle.solution[r][c]) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        function showInstantFeedback(type, message) {
+            clearTimeout(feedbackTimeout);
+            instantFeedback.textContent = message;
+            instantFeedback.classList.remove('is-hidden', 'is-positive', 'is-negative');
+            instantFeedback.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+            feedbackTimeout = window.setTimeout(() => {
+                hideInstantFeedback();
+            }, 2600);
+        }
+
+        function hideInstantFeedback() {
+            clearTimeout(feedbackTimeout);
+            instantFeedback.textContent = '';
+            instantFeedback.classList.add('is-hidden');
+            instantFeedback.classList.remove('is-positive', 'is-negative');
+        }
     }
 
-    function validatePuzzle(inputs, solution) {
+    function validatePuzzle(inputs, solution, setFeedback) {
         let allCorrect = true;
         let remaining = 0;
         for (let r = 0; r < inputs.length; r++) {
@@ -190,14 +324,18 @@
                 const expected = solution[r][c];
                 const value = Number(input.value);
                 if (value === expected) {
-                    input.classList.add('correct');
-                    input.classList.remove('wrong');
+                    if (setFeedback) {
+                        setFeedback(r, c, 'correct');
+                    }
                 } else {
                     allCorrect = false;
                     remaining += 1;
-                    input.classList.remove('correct');
-                    if (input.value !== '') {
-                        input.classList.add('wrong');
+                    if (setFeedback) {
+                        if (input.value !== '') {
+                            setFeedback(r, c, 'wrong');
+                        } else {
+                            setFeedback(r, c, 'empty');
+                        }
                     }
                 }
             }

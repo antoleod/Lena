@@ -17,6 +17,8 @@
     function start(context) {
         const index = Math.max(0, Math.min(LEVELS.length, context.currentLevel) - 1);
         const levelData = LEVELS[index];
+        const totalLevels = LEVELS.length;
+        const displayLevel = context.currentLevel || index + 1;
 
         context.content.innerHTML = '';
         context.speakText('Distribue correctement les objets pour gagner des étoiles.');
@@ -24,22 +26,42 @@
         const wrapper = document.createElement('div');
         wrapper.className = 'repartis-wrapper';
 
+        const progress = document.createElement('div');
+        progress.className = 'repartis-progress';
+        const progressTrack = document.createElement('div');
+        progressTrack.className = 'repartis-progress-track';
+        const progressFill = document.createElement('span');
+        progressFill.className = 'repartis-progress-fill';
+        progressFill.style.width = `${Math.min(100, (displayLevel / totalLevels) * 100)}%`;
+        progressTrack.appendChild(progressFill);
+        const progressLabel = document.createElement('span');
+        progressLabel.className = 'repartis-progress-label';
+        progressLabel.textContent = `Niveau ${displayLevel} / ${totalLevels}`;
+        progress.appendChild(progressTrack);
+        progress.appendChild(progressLabel);
+        wrapper.appendChild(progress);
+
         const question = document.createElement('div');
         question.className = 'question-prompt fx-bounce-in-down';
         question.textContent = levelData.question || levelData.prompt;
         wrapper.appendChild(question);
 
+        const feedbackBubble = document.createElement('div');
+        feedbackBubble.className = 'repartis-feedback is-hidden';
+        feedbackBubble.setAttribute('role', 'status');
+        feedbackBubble.setAttribute('aria-live', 'polite');
+
         if (levelData.mode === 'choice') {
-            renderChoiceMode(wrapper, levelData, context);
+            renderChoiceMode(wrapper, levelData, context, feedbackBubble);
         } else {
-            renderDragMode(wrapper, levelData, context);
+            renderDragMode(wrapper, levelData, context, feedbackBubble);
         }
 
         context.content.appendChild(wrapper);
         context.configureBackButton('Retour aux niveaux', () => context.showLevelMenu());
     }
 
-    function renderChoiceMode(wrapper, levelData, context) {
+    function renderChoiceMode(wrapper, levelData, context, feedbackBubble) {
         const scene = document.createElement('div');
         scene.className = 'repartis-scene fx-bounce-in-down';
 
@@ -82,6 +104,7 @@
         }
 
         wrapper.appendChild(scene);
+        wrapper.appendChild(feedbackBubble);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'repartis-options';
@@ -90,41 +113,47 @@
             btn.className = 'repartis-option-btn fx-bounce-in-down';
             btn.textContent = `${option}`;
             btn.addEventListener('click', () => {
-                handleChoiceAnswer(btn, option === levelData.answer, levelData, context, optionsContainer);
+                handleChoiceAnswer(btn, option === levelData.answer, levelData, context, optionsContainer, feedbackBubble);
             });
             optionsContainer.appendChild(btn);
         });
         wrapper.appendChild(optionsContainer);
     }
 
-    function handleChoiceAnswer(button, isCorrect, levelData, context, container) {
+    function handleChoiceAnswer(button, isCorrect, levelData, context, container, feedbackBubble) {
         Array.from(container.children).forEach(btn => {
             btn.disabled = true;
         });
         if (isCorrect) {
+            button.classList.add('correct');
             context.playPositiveSound();
             context.awardReward(levelData.reward.stars, levelData.reward.coins);
             context.markLevelCompleted();
             context.showSuccessMessage('Bravo !');
             context.showConfetti();
+            showFeedbackBubble(feedbackBubble, 'positive', '✅ Bonne réponse !');
             setTimeout(() => context.showLevelMenu(), 1300);
         } else {
             context.playNegativeSound();
             context.awardReward(0, -5);
             context.showErrorMessage('Essaie encore !', 'Observe bien les groupes.');
             button.classList.add('wrong');
+            showFeedbackBubble(feedbackBubble, 'negative', '❌ Regarde combien chaque groupe contient.');
             setTimeout(() => {
                 button.classList.remove('wrong');
                 Array.from(container.children).forEach(btn => {
                     btn.disabled = false;
                 });
+                hideFeedbackBubble(feedbackBubble);
             }, 1000);
         }
     }
 
-    function renderDragMode(wrapper, levelData, context) {
+    function renderDragMode(wrapper, levelData, context, feedbackBubble) {
         const scene = document.createElement('div');
         scene.className = 'repartis-scene fx-bounce-in-down';
+
+        const expectedPerGroup = levelData.total / levelData.groups;
 
         const pool = document.createElement('div');
         pool.className = 'repartis-items';
@@ -135,6 +164,7 @@
             token.textContent = levelData.item;
             token.draggable = true;
             token.dataset.id = `token-${i}-${Date.now()}`;
+            token.setAttribute('aria-hidden', 'true');
             enableDrag(token);
             pool.appendChild(token);
         }
@@ -143,6 +173,7 @@
         const groupsContainer = document.createElement('div');
         groupsContainer.className = 'repartis-groups';
         const dropzones = [];
+        const counters = [];
         for (let g = 0; g < levelData.groups; g++) {
             const group = document.createElement('div');
             group.className = 'repartis-group';
@@ -154,13 +185,19 @@
             dropzone.className = 'repartis-dropzone';
             dropzone.dataset.zone = `drop-${g}`;
             group.appendChild(dropzone);
+            const counter = document.createElement('span');
+            counter.className = 'repartis-counter';
+            counter.setAttribute('aria-live', 'polite');
+            counter.textContent = `0 / ${expectedPerGroup}`;
+            group.appendChild(counter);
             groupsContainer.appendChild(group);
             dropzones.push(dropzone);
+            counters.push(counter);
         }
         scene.appendChild(groupsContainer);
 
         const allZones = [pool, ...dropzones];
-        allZones.forEach(zone => enableDropZone(zone));
+        allZones.forEach(zone => enableDropZone(zone, updateDistributionFeedback));
 
         const controls = document.createElement('div');
         controls.className = 'repartis-options';
@@ -171,15 +208,21 @@
         scene.appendChild(controls);
 
         wrapper.appendChild(scene);
+        wrapper.appendChild(feedbackBubble);
 
         verifyBtn.addEventListener('click', () => {
             const expected = levelData.total / levelData.groups;
             let correct = true;
             dropzones.forEach(zone => {
-                zone.classList.remove('highlight');
-                if (zone.children.length !== expected) {
+                const parent = zone.closest('.repartis-group');
+                if (parent) {
+                    parent.classList.remove('needs-attention');
+                }
+                if (zone.querySelectorAll('.repartis-item').length !== expected) {
                     correct = false;
-                    zone.classList.add('highlight');
+                    if (parent) {
+                        parent.classList.add('needs-attention');
+                    }
                 }
             });
             if (correct) {
@@ -189,13 +232,54 @@
                 context.markLevelCompleted();
                 context.showSuccessMessage('Distribution parfaite !');
                 context.showConfetti();
+                showFeedbackBubble(feedbackBubble, 'positive', '✅ Bravo ! Chaque ami a la même quantité.');
                 setTimeout(() => context.showLevelMenu(), 1400);
             } else {
                 context.playNegativeSound();
                 context.awardReward(0, -6);
                 context.showErrorMessage('Essaie encore !', `Chaque ami doit avoir ${expected} objet(s).`);
+                showFeedbackBubble(feedbackBubble, 'negative', `❌ Répartis ${expected} objet(s) dans chaque groupe.`);
             }
         });
+
+        updateDistributionFeedback();
+
+        function updateDistributionFeedback(activeZone) {
+            const expected = expectedPerGroup;
+            let totalPlaced = 0;
+            dropzones.forEach((zone, index) => {
+                const count = zone.querySelectorAll('.repartis-item').length;
+                totalPlaced += count;
+                const diff = expected - count;
+                zone.classList.remove('is-balanced', 'needs-more', 'has-extra');
+                const counter = counters[index];
+                counter.classList.remove('is-balanced', 'needs-more', 'has-extra');
+                counter.textContent = `${count} / ${expected}`;
+                if (count === expected) {
+                    zone.classList.add('is-balanced');
+                    counter.classList.add('is-balanced');
+                } else if (count < expected) {
+                    zone.classList.add('needs-more');
+                    counter.classList.add('needs-more');
+                } else {
+                    zone.classList.add('has-extra');
+                    counter.classList.add('has-extra');
+                }
+
+                if (activeZone && zone === activeZone && zone.dataset.zone !== 'pool') {
+                    if (diff === 0) {
+                        showFeedbackBubble(feedbackBubble, 'positive', '✅ Ce groupe est équilibré !');
+                    } else if (diff > 0) {
+                        showFeedbackBubble(feedbackBubble, 'negative', `Ajoute ${diff} objet(s) ici.`);
+                    } else {
+                        showFeedbackBubble(feedbackBubble, 'negative', `Retire ${Math.abs(diff)} objet(s).`);
+                    }
+                }
+            });
+
+            const allPlaced = totalPlaced === levelData.total && pool.querySelectorAll('.repartis-item').length === 0;
+            verifyBtn.disabled = !allPlaced;
+        }
     }
 
     function enableDrag(token) {
@@ -208,28 +292,68 @@
         });
     }
 
-    function enableDropZone(zone) {
+    function enableDropZone(zone, onDrop) {
         zone.addEventListener('dragenter', (event) => {
             event.preventDefault();
             if (zone.dataset.zone !== 'pool') {
-                zone.classList.add('highlight');
+                zone.classList.add('is-target');
+                const parent = zone.closest('.repartis-group');
+                if (parent) {
+                    parent.classList.add('dragging-over');
+                }
             }
         });
         zone.addEventListener('dragleave', () => {
-            zone.classList.remove('highlight');
+            zone.classList.remove('is-target');
+            const parent = zone.closest('.repartis-group');
+            if (parent) {
+                parent.classList.remove('dragging-over');
+            }
         });
         zone.addEventListener('dragover', (event) => {
             event.preventDefault();
         });
         zone.addEventListener('drop', (event) => {
             event.preventDefault();
-            zone.classList.remove('highlight');
+            zone.classList.remove('is-target');
+            const parent = zone.closest('.repartis-group');
+            if (parent) {
+                parent.classList.remove('dragging-over');
+            }
             const id = event.dataTransfer.getData('text/plain');
             const token = document.querySelector(`[data-id="${id}"]`);
             if (token) {
                 zone.appendChild(token);
+                token.classList.add('repartis-item-pop');
+                setTimeout(() => token.classList.remove('repartis-item-pop'), 320);
+                if (typeof onDrop === 'function') {
+                    onDrop(zone);
+                }
             }
         });
+    }
+
+    function showFeedbackBubble(bubble, type, message) {
+        if (!bubble) {
+            return;
+        }
+        clearTimeout(bubble._timerId);
+        bubble.textContent = message;
+        bubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
+        bubble.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+        bubble._timerId = setTimeout(() => {
+            hideFeedbackBubble(bubble);
+        }, 2400);
+    }
+
+    function hideFeedbackBubble(bubble) {
+        if (!bubble) {
+            return;
+        }
+        clearTimeout(bubble._timerId);
+        bubble.textContent = '';
+        bubble.classList.add('is-hidden');
+        bubble.classList.remove('is-positive', 'is-negative');
     }
 
     window.repartisGame = {
