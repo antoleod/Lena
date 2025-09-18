@@ -2,16 +2,16 @@
     'use strict';
 
     const LEVELS = [
-        { mode: 'choice', groups: 2, itemsPerGroup: 3, item: '🍎', characters: ['👧', '👦'], question: 'Deux sachets contiennent 3 pommes chacun. Combien de pommes au total ?', options: [5, 6, 8], answer: 6, reward: { stars: 18, coins: 10 } },
-        { mode: 'choice', groups: 3, itemsPerGroup: 4, item: '🖍', characters: ['👦', '👧', '🐸'], question: 'Trois boites ont 4 crayons chacune. Combien de crayons ?', options: [12, 14, 9], answer: 12, reward: { stars: 20, coins: 12 } },
-        { mode: 'choice', groups: 4, itemsPerGroup: 2, item: '🎒', characters: ['👧', '👦', '👧', '🐸'], question: 'Quatre sacs contiennent 2 livres. Combien de livres ?', options: [6, 8, 10], answer: 8, reward: { stars: 20, coins: 12 } },
-        { mode: 'choice', division: true, total: 12, groups: 3, item: '🍬', characters: ['👧', '👦', '🐸'], question: '12 bonbons sont partagés entre 3 amis. Combien chacun ?', options: [4, 3, 6], answer: 4, reward: { stars: 22, coins: 14 } },
-        { mode: 'choice', division: true, total: 15, groups: 5, item: '🍓', characters: ['👦', '👧', '🐸', '👧', '👦'], question: '15 fraises pour 5 personnes. Combien chacun ?', options: [5, 4, 3], answer: 3, reward: { stars: 22, coins: 14 } },
-        { mode: 'choice', division: true, total: 18, groups: 6, item: '🧃', characters: ['👧', '👦', '🐸', '👧', '👦', '🐸'], question: '18 jus répartis en 6 paniers. Combien par panier ?', options: [2, 4, 3], answer: 3, reward: { stars: 24, coins: 16 } },
-        { mode: 'drag', total: 12, groups: 3, item: '🍬', characters: ['👦', '👧', '🐸'], prompt: 'Répartis 12 bonbons équitablement entre les amis.' , reward: { stars: 28, coins: 18 } },
-        { mode: 'drag', total: 16, groups: 4, item: '🍎', characters: ['👧', '👦', '👧', '🐸'], prompt: 'Place les 16 pommes pour que chacun ait la même quantité.' , reward: { stars: 30, coins: 20 } },
-        { mode: 'drag', total: 18, groups: 3, item: '🖍', characters: ['👦', '👧', '🐸'], prompt: 'Distribue 18 crayons équitablement.' , reward: { stars: 32, coins: 22 } },
-        { mode: 'drag', total: 20, groups: 5, item: '🎒', characters: ['👧', '👦', '🐸', '👧', '👦'], prompt: '5 aventuriers partagent 20 objets. Répartis-les !' , reward: { stars: 35, coins: 24 } }
+        { mode: 'drag', total: 4, groups: 2, item: '🍎', characters: ['👧', '👦'], prompt: 'Répartis 4 pommes dans les 2 paniers.', tutorial: 'Glisse les pommes 🍎 pour bien les partager dans les paniers 🧺.', reward: { stars: 16, coins: 8 } },
+        { mode: 'drag', total: 6, groups: 2, item: '🍌', characters: ['👦', '👧'], prompt: 'Partage 6 bananes dans les deux paniers.', reward: { stars: 18, coins: 9 } },
+        { mode: 'drag', total: 8, groups: 2, item: '🍇', characters: ['👧', '👦'], prompt: 'Répartis 8 grappes de raisin, deux paniers se partagent tout.', reward: { stars: 20, coins: 10 } },
+        { mode: 'drag', total: 9, groups: 3, item: '🍓', characters: ['👦', '👧', '🐸'], prompt: 'Trois paniers partagent 9 fraises.', reward: { stars: 22, coins: 12 } },
+        { mode: 'drag', total: 12, groups: 4, item: '🍪', characters: ['👧', '👦', '👧', '🐸'], prompt: 'Place 12 biscuits dans 4 assiettes.', reward: { stars: 24, coins: 14 } },
+        { mode: 'drag', total: 16, groups: 4, item: '🥕', characters: ['👦', '👧', '🐸', '👩‍🍳'], prompt: 'Chaque panier doit recevoir la même quantité de carottes.', reward: { stars: 26, coins: 16 } },
+        { mode: 'choice', multiplication: true, groups: 3, itemsPerGroup: 4, item: '🍎', characters: ['👧', '👦', '🐸'], question: '3 paniers avec 4 pommes chacun. Combien de pommes en tout ?', options: [10, 12, 15], answer: 12, reward: { stars: 28, coins: 18 } },
+        { mode: 'choice', multiplication: true, groups: 4, itemsPerGroup: 3, item: '🍊', characters: ['👦', '👧', '🐸', '👧'], question: '4 plateaux avec 3 oranges chacun. Quel est le total ?', options: [12, 9, 15], answer: 12, reward: { stars: 30, coins: 20 } },
+        { mode: 'choice', multiplication: true, groups: 5, itemsPerGroup: 2, item: '🧁', characters: ['👧', '👦', '🐸', '👧', '👦'], question: '5 amis reçoivent 2 cupcakes chacun. Combien de cupcakes ? ', options: [12, 8, 10], answer: 10, reward: { stars: 32, coins: 22 } },
+        { mode: 'choice', multiplication: true, groups: 6, itemsPerGroup: 3, item: '🧃', characters: ['👦', '👧', '🐸', '👧', '👦', '🐸'], question: '6 paniers contiennent 3 jus chacun. Quel est le résultat ?', options: [18, 12, 21], answer: 18, reward: { stars: 35, coins: 24 } }
     ];
 
     function start(context) {
@@ -45,6 +45,13 @@
         question.className = 'question-prompt fx-bounce-in-down';
         question.textContent = levelData.question || levelData.prompt;
         wrapper.appendChild(question);
+
+        if (levelData.tutorial) {
+            const tutorial = document.createElement('p');
+            tutorial.className = 'repartis-tutorial';
+            tutorial.textContent = levelData.tutorial;
+            wrapper.appendChild(tutorial);
+        }
 
         const feedbackBubble = document.createElement('div');
         feedbackBubble.className = 'repartis-feedback is-hidden';
@@ -80,6 +87,12 @@
             }
             scene.appendChild(itemsPool);
         } else {
+            if (levelData.multiplication) {
+                const multInfo = document.createElement('p');
+                multInfo.className = 'repartis-bonus-text';
+                multInfo.textContent = `${levelData.groups} × ${levelData.itemsPerGroup} = ?`;
+                scene.appendChild(multInfo);
+            }
             const groupsContainer = document.createElement('div');
             groupsContainer.className = 'repartis-groups';
             for (let g = 0; g < levelData.groups; g++) {
@@ -129,16 +142,26 @@
             context.playPositiveSound();
             context.awardReward(levelData.reward.stars, levelData.reward.coins);
             context.markLevelCompleted();
-            context.showSuccessMessage('Bravo !');
+            const successMessage = levelData.multiplication ? 'Multiplication réussie !' : 'Bravo !';
+            context.showSuccessMessage(successMessage);
             context.showConfetti();
-            showFeedbackBubble(feedbackBubble, 'positive', '✅ Bonne réponse !');
+            const successHint = levelData.multiplication
+                ? `✅ ${levelData.groups} × ${levelData.itemsPerGroup} = ${levelData.groups * levelData.itemsPerGroup}`
+                : '✅ Bonne réponse !';
+            showFeedbackBubble(feedbackBubble, 'positive', successHint);
             setTimeout(() => context.showLevelMenu(), 1300);
         } else {
             context.playNegativeSound();
             context.awardReward(0, -5);
-            context.showErrorMessage('Essaie encore !', 'Observe bien les groupes.');
+            const retryHint = levelData.multiplication
+                ? `Multiplie ${levelData.groups} groupes de ${levelData.itemsPerGroup}.`
+                : 'Observe bien les groupes.';
+            context.showErrorMessage('Essaie encore !', retryHint);
             button.classList.add('wrong');
-            showFeedbackBubble(feedbackBubble, 'negative', '❌ Regarde combien chaque groupe contient.');
+            const feedbackText = levelData.multiplication
+                ? `❌ Pense à ${levelData.groups} × ${levelData.itemsPerGroup}.`
+                : '❌ Regarde combien chaque groupe contient.';
+            showFeedbackBubble(feedbackBubble, 'negative', feedbackText);
             setTimeout(() => {
                 button.classList.remove('wrong');
                 Array.from(container.children).forEach(btn => {

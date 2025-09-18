@@ -116,8 +116,7 @@ body {
   background: var(--bg2);
   color: var(--primary);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: var(--shadow-small);
+  transition: all 0.25s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,17 +124,27 @@ body {
   gap: 0.5rem;
   font-size: var(--font-size-large);
   animation: bounceIn 0.5s ease-out;
+
+  /* ✨ Relieve visible */
+  box-shadow: 
+    -6px -6px 12px rgba(255, 255, 255, 0.9),  /* luz fuerte arriba-izq */
+    6px 6px 12px rgba(0, 0, 0, 0.25);         /* sombra marcada abajo-der */
 }
+
 .topic-btn:hover {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-medium);
-  background: var(--primary-light);
-  color: white;
+  transform: translateY(-3px);
+  box-shadow: 
+    -2px -2px 6px rgba(255, 255, 255, 0.7),
+    6px 6px 12px rgba(0, 0, 0, 0.25);
 }
+
 .topic-btn:active {
-  transform: scale(0.95);
-  box-shadow: var(--shadow-small);
+  transform: translateY(1px);
+  box-shadow: 
+    inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+    inset 6px 6px 12px rgba(0, 0, 0, 0.25);
 }
+
 
 #btnBack, #btnLogros, #btnLogout {
   background: var(--muted);
@@ -235,8 +244,6 @@ body {
   background: var(--bg2);
   border: 3px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: var(--shadow-small);
   text-align: center;
   display: flex;
   align-items: center;
@@ -245,6 +252,9 @@ body {
   flex-wrap: wrap;
   position: relative;
   animation: bounceIn 0.5s ease-out;
+  box-shadow: 0 8px 18px rgba(148, 102, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .option-icon {

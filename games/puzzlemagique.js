@@ -66,6 +66,11 @@
         title.textContent = `Niveau ${context.currentLevel} — Résous le Puzzle Magique`;
         wrapper.appendChild(title);
 
+        const tutorialText = document.createElement('p');
+        tutorialText.className = 'puzzle-tutorial';
+        tutorialText.textContent = 'Complète la grille avec les bons nombres pour que chaque ligne et chaque colonne donne le bon résultat.';
+        wrapper.appendChild(tutorialText);
+
         const grid = document.createElement('div');
         grid.className = 'puzzle-grid';
         grid.style.setProperty('--puzzle-size', puzzle.size);
@@ -85,6 +90,7 @@
                 input.type = 'number';
                 input.className = 'puzzle-input';
                 input.setAttribute('aria-label', `Cellule ${r + 1}-${c + 1}`);
+                 input.classList.add('awaiting');
                 cell.appendChild(input);
                 const icon = document.createElement('span');
                 icon.className = 'puzzle-status-icon';
@@ -251,6 +257,9 @@
             const inputEl = inputs[row][col];
             const icon = statusIcons[row][col];
             inputEl.classList.remove('correct', 'wrong');
+            if (status !== 'pending' && status !== 'empty') {
+                inputEl.classList.remove('awaiting');
+            }
             icon.textContent = '';
             icon.classList.remove('is-correct', 'is-wrong');
 
@@ -262,6 +271,8 @@
                 inputEl.classList.add('wrong');
                 icon.textContent = '❌';
                 icon.classList.add('is-wrong');
+            } else if (status === 'pending' || status === 'empty') {
+                inputEl.classList.add('awaiting');
             }
         }
 

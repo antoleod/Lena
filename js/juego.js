@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let userScore;
     let answeredQuestions;
     let storyQuiz = [];
+    let currentVowelLevelData = null;
 
     // --- Game Data ---
     const LEVELS_PER_TOPIC = 12;
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "image": "https://photos.app.goo.gl/fkh9KiXZNouPpshj7",
             "text": [
               "Léna 👧 était une petite étoile ⭐️ brillante ✨ comme un diamant 💎.",
-              "Elle vivait 🏡 sur une montagne ⛰️ magique ✨ avec sa petite sœur Yaya 👧.",
+              "Elle vivait 🏡 sr une montagne ⛰️ magique ✨ avec sa petite sœur Yaya 👧.",
               "Un jour ☀️, Léna ⭐️ décida 🗺️ de faire un grand voyage 🚀 pour trouver 🔍 le plus beau arc-en-ciel 🌈.",
               "Yaya 👧, très curieuse 👀, la rejoignit 🤝.",
               "Elles sautèrent 🤸 de nuage ☁️ en nuage ☁️. C\'était un jeu 🎲 très amusant 😄 !",
@@ -312,27 +313,282 @@ document.addEventListener('DOMContentLoaded', () => {
         '💧 Bleu Clair': 'light-blue', '🍃 Vert Clair': 'light-green',
         '⚪ Blanc + 🔴 Rouge': 'pink', '🔵 Bleu + 🟡 Jaune': 'green', '🔴 Rouge + 🟡 Jaune': 'orange', '🔵 Bleu + 🔴 Rouge': 'purple',
     };
-    const riddles = [
+
+    const sortingLevels = [
         {
-            riddle: "Je suis un animal qui vit dans la mer, mais je ne suis pas un poisson. J\'ai huit bras. Qui suis-je?",
-            options: ["Une baleine", "Un requin", "Une pieuvre", "Un crabe"],
-            correct: 2,
+            level: 1,
+            type: 'color',
+            instruction: 'Classe chaque objet dans le panier de la bonne couleur.',
+            categories: [
+                { id: 'red', label: 'Rouge 🔴' },
+                { id: 'blue', label: 'Bleu 🔵' }
+            ],
+            items: [
+                { id: 'apple', emoji: '🍎', label: 'Pomme', target: 'red' },
+                { id: 'ball', emoji: '🔵', label: 'Balle', target: 'blue' },
+                { id: 'car', emoji: '🚗', label: 'Voiture', target: 'red' },
+                { id: 'fish', emoji: '🐟', label: 'Poisson', target: 'blue' }
+            ]
+        },
+        {
+            level: 2,
+            type: 'color',
+            instruction: 'Rouge, bleu ou vert ? Trie les objets !',
+            categories: [
+                { id: 'red', label: 'Rouge 🔴' },
+                { id: 'blue', label: 'Bleu 🔵' },
+                { id: 'green', label: 'Vert 🟢' }
+            ],
+            items: [
+                { id: 'leaf', emoji: '🍃', label: 'Feuille', target: 'green' },
+                { id: 'strawberry', emoji: '🍓', label: 'Fraise', target: 'red' },
+                { id: 'hat', emoji: '🧢', label: 'Casquette', target: 'blue' },
+                { id: 'frog', emoji: '🐸', label: 'Grenouille', target: 'green' },
+                { id: 'heart', emoji: '❤️', label: 'Cœur', target: 'red' }
+            ]
+        },
+        {
+            level: 3,
+            type: 'color',
+            instruction: 'Observe bien les couleurs pour tout classer.',
+            categories: [
+                { id: 'red', label: 'Rouge 🔴' },
+                { id: 'blue', label: 'Bleu 🔵' },
+                { id: 'green', label: 'Vert 🟢' }
+            ],
+            items: [
+                { id: 'flower', emoji: '🌹', label: 'Fleur', target: 'red' },
+                { id: 'balloon', emoji: '🎈', label: 'Ballon', target: 'red' },
+                { id: 'whale', emoji: '🐋', label: 'Baleine', target: 'blue' },
+                { id: 'gift', emoji: '🎁', label: 'Cadeau', target: 'blue' },
+                { id: 'dragon', emoji: '🐉', label: 'Dragon', target: 'green' },
+                { id: 'cactus', emoji: '🌵', label: 'Cactus', target: 'green' }
+            ]
+        },
+        {
+            level: 4,
+            type: 'shape',
+            instruction: 'Carré, rond ou triangle ? Classe selon la forme.',
+            categories: [
+                { id: 'square', label: 'Carré ⬜' },
+                { id: 'circle', label: 'Rond ⚪' },
+                { id: 'triangle', label: 'Triangle 🔺' }
+            ],
+            items: [
+                { id: 'frame', emoji: '🖼️', label: 'Cadre', target: 'square' },
+                { id: 'clock', emoji: '🕒', label: 'Horloge', target: 'circle' },
+                { id: 'slice', emoji: '🍕', label: 'Pizza', target: 'triangle' },
+                { id: 'giftbox', emoji: '🎁', label: 'Cadeau', target: 'square' },
+                { id: 'coin', emoji: '🪙', label: 'Pièce', target: 'circle' }
+            ]
+        },
+        {
+            level: 5,
+            type: 'shape',
+            instruction: 'Nouveau défi de formes, regarde bien !',
+            categories: [
+                { id: 'square', label: 'Carré ⬜' },
+                { id: 'circle', label: 'Rond ⚪' },
+                { id: 'triangle', label: 'Triangle 🔺' }
+            ],
+            items: [
+                { id: 'chocolate', emoji: '🍫', label: 'Chocolat', target: 'square' },
+                { id: 'basketball', emoji: '🏀', label: 'Ballon', target: 'circle' },
+                { id: 'cone', emoji: '🍦', label: 'Glace', target: 'triangle' },
+                { id: 'dice', emoji: '🎲', label: 'Dé', target: 'square' },
+                { id: 'planet', emoji: '🪐', label: 'Planète', target: 'circle' },
+                { id: 'flag', emoji: '🚩', label: 'Drapeau', target: 'triangle' }
+            ]
+        },
+        {
+            level: 6,
+            type: 'shape',
+            instruction: 'Encore plus de formes magiques à classer.',
+            categories: [
+                { id: 'square', label: 'Carré ⬜' },
+                { id: 'circle', label: 'Rond ⚪' },
+                { id: 'triangle', label: 'Triangle 🔺' }
+            ],
+            items: [
+                { id: 'giftbag', emoji: '🛍️', label: 'Sac', target: 'square' },
+                { id: 'cookie', emoji: '🍪', label: 'Cookie', target: 'circle' },
+                { id: 'cheese', emoji: '🧀', label: 'Fromage', target: 'triangle' },
+                { id: 'present', emoji: '🎁', label: 'Surprise', target: 'square' },
+                { id: 'coin2', emoji: '💿', label: 'Disque', target: 'circle' },
+                { id: 'warning', emoji: '⚠️', label: 'Panneau', target: 'triangle' }
+            ]
+        },
+        {
+            level: 7,
+            type: 'size',
+            instruction: 'Classe les objets selon leur taille.',
+            categories: [
+                { id: 'big', label: 'Grand 🐘' },
+                { id: 'small', label: 'Petit 🐭' }
+            ],
+            items: [
+                { id: 'elephant', emoji: '🐘', label: 'Éléphant', target: 'big' },
+                { id: 'mouse', emoji: '🐭', label: 'Souris', target: 'small' },
+                { id: 'mountain', emoji: '⛰️', label: 'Montagne', target: 'big' },
+                { id: 'ladybug', emoji: '🐞', label: 'Coccinelle', target: 'small' },
+                { id: 'whale2', emoji: '🐳', label: 'Baleine', target: 'big' }
+            ]
+        },
+        {
+            level: 8,
+            type: 'size',
+            instruction: 'Grand ou petit ? Fais-les sauter dans le bon panier.',
+            categories: [
+                { id: 'big', label: 'Grand 🦒' },
+                { id: 'small', label: 'Petit 🐣' }
+            ],
+            items: [
+                { id: 'giraffe', emoji: '🦒', label: 'Girafe', target: 'big' },
+                { id: 'chick', emoji: '🐥', label: 'Poussin', target: 'small' },
+                { id: 'bus', emoji: '🚌', label: 'Bus', target: 'big' },
+                { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'small' },
+                { id: 'tree', emoji: '🌳', label: 'Arbre', target: 'big' },
+                { id: 'acorn', emoji: '🌰', label: 'Gland', target: 'small' }
+            ]
+        },
+        {
+            level: 9,
+            type: 'mixed',
+            instruction: 'Associe la bonne couleur et la bonne forme.',
+            categories: [
+                { id: 'red-circle', label: 'Rond Rouge 🔴' },
+                { id: 'blue-square', label: 'Carré Bleu 🔷' },
+                { id: 'green-triangle', label: 'Triangle Vert 🟢🔺' }
+            ],
+            items: [
+                { id: 'lollipop', emoji: '🍭', label: 'Sucette', target: 'red-circle' },
+                { id: 'giftblue', emoji: '🎁', label: 'Paquet', target: 'blue-square' },
+                { id: 'treeTriangle', emoji: '🎄', label: 'Sapin', target: 'green-triangle' },
+                { id: 'shield', emoji: '🛡️', label: 'Bouclier', target: 'blue-square' },
+                { id: 'badge', emoji: '🔴', label: 'Jeton', target: 'red-circle' },
+                { id: 'pennant', emoji: '🚩', label: 'Fanion', target: 'green-triangle' }
+            ]
+        },
+        {
+            level: 10,
+            type: 'mixed',
+            instruction: 'Dernier défi ! Combine couleur et forme correctement.',
+            categories: [
+                { id: 'yellow-circle', label: 'Rond Jaune 🟡' },
+                { id: 'purple-square', label: 'Carré Violet 🟪' },
+                { id: 'orange-triangle', label: 'Triangle Orange 🟠' }
+            ],
+            items: [
+                { id: 'sun', emoji: '☀️', label: 'Soleil', target: 'yellow-circle' },
+                { id: 'cheeseTriangle', emoji: '🧀', label: 'Fromage', target: 'orange-triangle' },
+                { id: 'magicBox', emoji: '🎆', label: 'Boîte magique', target: 'purple-square' },
+                { id: 'flowerYellow', emoji: '🌼', label: 'Fleur', target: 'yellow-circle' },
+                { id: 'giftPurple', emoji: '🎁', label: 'Cadeau violet', target: 'purple-square' },
+                { id: 'coneOrange', emoji: '🎃', label: 'Lantern', target: 'orange-triangle' }
+            ]
+        }
+    ];
+
+    const riddleLevels = [
+        {
+            level: 1,
+            prompt: "J'ai 4 pattes 🐾 et j'aboie 🐶. Qui suis-je ?",
+            options: ['Un chiot', 'Un chat', 'Un oiseau'],
+            answer: 0,
+            reward: { stars: 12, coins: 8 }
+        },
+        {
+            level: 2,
+            prompt: "Je suis jaune 🍌 et très courbé. Qui suis-je ?",
+            options: ['Une banane', 'Une carotte', 'Un citron'],
+            answer: 0,
+            reward: { stars: 12, coins: 8 }
+        },
+        {
+            level: 3,
+            prompt: "Je vole 🕊️ et j'ai des ailes. Qui suis-je ?",
+            options: ['Un poisson', 'Un oiseau', 'Un chien'],
+            answer: 1,
+            reward: { stars: 12, coins: 8 }
+        },
+        {
+            level: 4,
+            prompt: "Qui brille le jour ?",
+            image: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
+            options: ['La lune', 'Le soleil', 'Une étoile filante'],
+            answer: 1,
             reward: { stars: 15, coins: 10 }
         },
         {
-            riddle: "Je suis grand et vert, et je n\'ai pas de bras. Je peux te donner des fruits ou de l\'ombre. Qui suis-je?",
-            options: ["Une fleur", "Un arbre", "Un champignon", "Une carotte"],
-            correct: 1,
+            level: 5,
+            prompt: "Qui ronronne à la maison ?",
+            image: 'https://cdn-icons-png.flaticon.com/512/3208/3208750.png',
+            options: ['Un chien', 'Un chat', 'Un lapin'],
+            answer: 1,
             reward: { stars: 15, coins: 10 }
+        },
+        {
+            level: 6,
+            prompt: "Qui éclaire la nuit ?",
+            image: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
+            options: ['La lune', 'Un nuage', 'Un livre'],
+            answer: 0,
+            reward: { stars: 15, coins: 10 }
+        },
+        {
+            level: 7,
+            prompt: "Je suis rond, je brille la nuit. Qui suis-je ?",
+            options: ['La lune', 'Un cerf-volant', 'Une balle'],
+            answer: 0,
+            reward: { stars: 18, coins: 12 }
+        },
+        {
+            level: 8,
+            prompt: "Je grandis quand tu m'arroses et je perds mes feuilles en automne. Qui suis-je ?",
+            options: ['Une fleur', 'Un arbre', 'Une pierre'],
+            answer: 1,
+            reward: { stars: 18, coins: 12 }
+        },
+        {
+            level: 9,
+            prompt: "Je suis rempli de pages, j'aime qu'on me lise. Qui suis-je ?",
+            options: ['Un livre', 'Une boîte', 'Un chapeau'],
+            answer: 0,
+            reward: { stars: 20, coins: 14 }
+        },
+        {
+            level: 10,
+            prompt: "Plus je grandis, plus je deviens léger. Qui suis-je ?",
+            options: ['Une bulle', 'Une pierre', 'Un train'],
+            answer: 0,
+            reward: { stars: 22, coins: 16 }
         }
     ];
-    const words = [
-        { word: 'chat', image: 'https://cdn-icons-png.flaticon.com/512/3602/3602145.png', hint: 'Un animal qui aime les siestes.' },
-        { word: 'soleil', image: 'https://cdn-icons-png.flaticon.com/512/869/869869.png', hint: 'Brille dans le ciel le jour.' }
+
+    const vowelLevels = [
+        { level: 1, masked: 'ch_t', answer: 'a', options: ['a', 'e', 'i', 'o'], hint: 'Un animal qui ronronne.' },
+        { level: 2, masked: 'l_ne', answer: 'u', options: ['u', 'o', 'a', 'i'], hint: 'Elle brille la nuit.' },
+        { level: 3, masked: 'b_bé', answer: 'é', options: ['é', 'a', 'i', 'o'], hint: 'Il rit aux éclats.' },
+        { level: 4, masked: 'cl__n', answer: 'ow', options: ['ow', 'oi', 'ou', 'au'], hint: 'Il fait rire au cirque.' },
+        { level: 5, masked: 'p_tt__ m__s', answer: 'eeai', options: ['eeai', 'aaee', 'ieea', 'ouie'], hint: 'De petites maisons adorables.' },
+        { level: 6, masked: 'm__on', answer: 'ai', options: ['ai', 'ei', 'oi', 'au'], hint: 'Elle aime le fromage !' },
+        { level: 7, masked: 'La f__ danse.', answer: 'ée', options: ['ée', 'ai', 'au', 'ou'], hint: 'Une petite créature magique.' },
+        { level: 8, masked: 'Il pl__t tr_s beau.', answer: 'euè', options: ['euè', 'eau', 'aie', 'oui'], hint: 'On parle du temps.' },
+        { level: 9, masked: 'Nous aim__ chanter.', answer: 'er', options: ['er', 'ai', 'ou', 'ie'], hint: 'Une chorale amusante.' },
+        { level: 10, masked: 'Les él_ves écrivent en s__r.', answer: 'èoi', options: ['èoi', 'eau', 'aio', 'oui'], hint: 'Une phrase scolaire.' }
     ];
-    const sequences = [
-        { items: ['1', '2', '3', '4', '?'], options: ['5', '6', '8'], correct: '5' },
-        { items: ['🔴', '🔵', '🔴', '🔵', '?'], options: ['🔴', '🟢', '🟡'], correct: '🔴' }
+
+    const sequenceLevels = [
+        { level: 1, sequence: ['1', '2', '3', '?'], options: ['4', '5', '6'], answer: '4', type: 'number' },
+        { level: 2, sequence: ['2', '4', '6', '?'], options: ['7', '8', '9'], answer: '8', type: 'number' },
+        { level: 3, sequence: ['5', '4', '3', '?'], options: ['2', '1', '6'], answer: '2', type: 'number' },
+        { level: 4, sequence: ['🔴', '🔵', '🟢', '?'], options: ['🟡', '🔵', '🔴'], answer: '🟡', type: 'color' },
+        { level: 5, sequence: ['🔴', '🟡', '🔴', '?'], options: ['🟢', '🔴', '🟡'], answer: '🟡', type: 'color' },
+        { level: 6, sequence: ['🟢', '🟢', '🔵', '?'], options: ['🔵', '🟢', '🔴'], answer: '🔵', type: 'color' },
+        { level: 7, sequence: ['⚫', '🔺', '⚫', '?'], options: ['🔺', '⚫', '⚪'], answer: '🔺', type: 'shape' },
+        { level: 8, sequence: ['🔺', '⚪', '🔺', '?'], options: ['⚫', '🔺', '🔵'], answer: '⚪', type: 'shape' },
+        { level: 9, sequence: ['1', '🔴', '2', '🔵', '?'], options: ['3', '🟢', '🔴'], answer: '3', type: 'mixed' },
+        { level: 10, sequence: ['🔺', '1', '🔺', '2', '?'], options: ['🔺', '3', '🔵'], answer: '3', type: 'mixed' }
     ];
     const allQuestions = {
         additions: [], soustractions: [], multiplications: [], colors: [], stories: [], riddles: [], sorting: [], letters: [], shapes: [], vowels: [], sequences: [],
@@ -755,7 +1011,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'multiplications', text: '✖️ Multiplications' },
             { id: 'number-houses', text: '🏠 Maisons des Nombres' },
             { id: 'colors', text: '🎨 Les Couleurs' },
-            { id: 'stories', text: '📚 Contes Magiques' },
+            { id: 'stories', text: '📚Contes Magiques' },
             { id: 'memory', text: '🧠 Mémoire Magique' },
             { id: 'sorting', text: '🗂️ Jeu de Tri' },
             { id: 'riddles', text: '🤔 Jeu d\'énigmes' },
@@ -775,15 +1031,9 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', () => {
                 currentTopic = topic.id;
                 if (topic.id === 'dictee') { showDicteeMenu(); return; }
-                if (topic.id === 'puzzle-magique' || topic.id === 'repartis') { showLevelMenu(topic.id); return; }
-                if (topic.id === 'stories') { showStoryMenu(); }
-                else if (topic.id === 'memory') { showMemoryGameMenu(); }
-                else if (topic.id === 'sorting') { showSortingGame(1); }
-                else if (topic.id === 'riddles') { showRiddleGame(); }
-                else if (topic.id === 'vowels') { showVowelGame(); }
-                else if (topic.id === 'sequences') { showSequenceGame(); }
-                else if (topic.id === 'number-houses') { showNumberHousesGame(1); }
-                else { showLevelMenu(topic.id); }
+                if (topic.id === 'stories') { showStoryMenu(); return; }
+                if (topic.id === 'memory') { showMemoryGameMenu(); return; }
+                showLevelMenu(topic.id);
             });
             topicsContainer.appendChild(btn);
         });
@@ -813,10 +1063,10 @@ document.addEventListener('DOMContentLoaded', () => {
             'number-houses': LEVELS_PER_TOPIC,
             'colors': LEVELS_PER_TOPIC,
             'memory': MEMORY_GAME_LEVELS.length,
-            'sorting': 10,
-            'riddles': riddles.length,
-            'vowels': words.length,
-            'sequences': sequences.length,
+            'sorting': sortingLevels.length,
+            'riddles': riddleLevels.length,
+            'vowels': vowelLevels.length,
+            'sequences': sequenceLevels.length,
             'stories': magicStories.length,
             'puzzle-magique': 10,
             'repartis': 10,
@@ -1206,7 +1456,7 @@ function generateNumberPairs(sum, count) {
             const storyBtn = document.createElement('button');
             storyBtn.className = 'topic-btn fx-bounce-in-down';
             storyBtn.style.animationDelay = `${index * 0.1}s`;
-            storyBtn.innerHTML = `📚 ${story.title}`;
+            storyBtn.innerHTML = `${story.title}`;
             storyBtn.addEventListener('click', () => showMagicStory(index));
             storiesContainer.appendChild(storyBtn);
         });
@@ -1476,137 +1726,192 @@ function generateNumberPairs(sum, count) {
         content.innerHTML = '';
         updateUI();
 
+        const levelData = sortingLevels.find(entry => entry.level === level) || sortingLevels[sortingLevels.length - 1];
+        const reward = { stars: 12 + level * 2, coins: 8 + Math.max(0, level - 1) * 2 };
+
         const container = document.createElement('div');
         container.className = 'sorting-container fx-bounce-in-down';
 
         const instruction = document.createElement('p');
         instruction.className = 'question-prompt';
+        instruction.textContent = level === 1
+            ? `${levelData.instruction} Glisse-les et lâche-les dans le bon panier.`
+            : levelData.instruction;
         container.appendChild(instruction);
-        
-        const listContainer = document.createElement('div');
-        listContainer.className = 'sorting-list';
-        container.appendChild(listContainer);
-        
-        const checkBtn = document.createElement('button');
-        checkBtn.className = 'submit-btn fx-bounce-in-down';
-        checkBtn.textContent = 'Vérifier';
-        container.appendChild(checkBtn);
-        
-        content.appendChild(container);
-        
-        let items, sortedItems;
-        if (level === 1) { // Números
-            items = shuffle([5, 2, 8, 1, 6]);
-            sortedItems = items.slice().sort((a, b) => a - b);
-            instruction.textContent = "Trie ces nombres du plus petit au plus grand.";
-        } else if (level === 2) { // Colores
-            items = shuffle(['🔴', '🔵', '🟢', '🟡', '🟣']);
-            sortedItems = ['🔴', '🔵', '🟢', '🟡', '🟣'];
-            instruction.textContent = "Trie ces couleurs dans l\'ordre de l\'arc-en-ciel.";
-        } else if (level === 3) { // Animales
-             items = shuffle(['🐶', '🐱', '🐰', '🐻', '🐼']);
-             sortedItems = ['🐶', '🐱', '🐰', '🐻', '🐼'];
-             instruction.textContent = "Trie ces animaux.";
-        } else if (level === 4) { // Numeros romanos
-            items = shuffle(['I', 'V', 'X', 'L', 'C']);
-            sortedItems = ['I', 'V', 'X', 'L', 'C'];
-            instruction.textContent = "Trie ces nombres romains du plus petit au plus grand.";
-        } else if (level === 5) { // Días de la semana
-            items = shuffle(['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi']);
-            sortedItems = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
-            instruction.textContent = "Trie ces jours de la semaine.";
-        } else if (level === 6) { // Meses del año
-            items = shuffle(['Janvier', 'Février', 'Mars', 'Avril']);
-            sortedItems = ['Janvier', 'Février', 'Mars', 'Avril'];
-            instruction.textContent = "Trie ces mois dans l\'ordre de l\'année.";
-        } else if (level === 7) { // Letras
-            items = shuffle(['d', 'c', 'b', 'a']);
-            sortedItems = ['a', 'b', 'c', 'd'];
-            instruction.textContent = "Trie ces lettres dans l\'ordre alphabétique.";
-        } else if (level === 8) { // Frutas
-            items = shuffle(['🍎', '🍌', '🍇', '🍊']);
-            sortedItems = ['🍎', '🍌', '🍇', '🍊'];
-            instruction.textContent = "Trie ces fruits par ordre de couleur (rouge, jaune, violet, orange).";
-        } else if (level === 9) { // Tamano
-            items = shuffle(['petit', 'moyen', 'grand', 'énorme']);
-            sortedItems = ['petit', 'moyen', 'grand', 'énorme'];
-            instruction.textContent = "Trie ces mots du plus petit au plus grand.";
-        } else { // Sumas
-            items = shuffle(['5+2', '1+3', '4+1', '3+3']);
-            sortedItems = ['1+3', '4+1', '3+3', '5+2'];
-            instruction.textContent = "Trie ces additions par ordre de résultat croissant.";
-        }
-        
         speakText(instruction.textContent);
 
-        let draggedItem = null;
+        const zonesWrapper = document.createElement('div');
+        zonesWrapper.className = 'sorting-zones';
 
-        items.forEach(item => {
-            const el = document.createElement('div');
-            el.className = 'sortable-item';
-            el.textContent = item;
-            el.draggable = true;
-            listContainer.appendChild(el);
-            
-            el.addEventListener('dragstart', () => {
-                draggedItem = el;
-                setTimeout(() => el.classList.add('dragging'), 0);
-            });
-            
-            el.addEventListener('dragend', () => {
-                draggedItem.classList.remove('dragging');
-                draggedItem = null;
-            });
+        const feedbackBubble = document.createElement('div');
+        feedbackBubble.className = 'sorting-feedback is-hidden';
+        feedbackBubble.setAttribute('role', 'status');
+        feedbackBubble.setAttribute('aria-live', 'polite');
+
+        const pool = document.createElement('div');
+        pool.className = 'sorting-pool';
+        pool.dataset.zone = 'pool';
+
+        const dropzones = [];
+        levelData.categories.forEach(category => {
+            const bin = document.createElement('div');
+            bin.className = 'sorting-bin';
+
+            const header = document.createElement('div');
+            header.className = 'sorting-bin-header';
+            header.textContent = category.label;
+            bin.appendChild(header);
+
+            const dropzone = document.createElement('div');
+            dropzone.className = 'sorting-dropzone';
+            dropzone.dataset.category = category.id;
+            bin.appendChild(dropzone);
+            zonesWrapper.appendChild(bin);
+            dropzones.push(dropzone);
         });
 
-        listContainer.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            const afterElement = getDragAfterElement(listContainer, e.clientX);
-            if (afterElement == null) {
-                listContainer.appendChild(draggedItem);
-            } else {
-                listContainer.insertBefore(draggedItem, afterElement);
-            }
+        container.appendChild(zonesWrapper);
+        container.appendChild(feedbackBubble);
+
+        const tokens = [];
+        const uniqueSuffix = Date.now();
+        levelData.items.forEach((item, index) => {
+            const token = document.createElement('div');
+            token.className = 'sorting-token fx-pop';
+            token.textContent = `${item.emoji} ${item.label}`;
+            token.draggable = true;
+            token.dataset.target = item.target;
+            token.dataset.id = `${item.id}-${uniqueSuffix}-${index}`;
+            enableSortingToken(token);
+            pool.appendChild(token);
+            tokens.push(token);
         });
 
-        function getDragAfterElement(container, x) {
-            const draggableElements = [...container.querySelectorAll('.sortable-item:not(.dragging)')];
-            return draggableElements.reduce((closest, child) => {
-                const box = child.getBoundingClientRect();
-                const offset = x - box.left - box.width / 2;
-                if (offset < 0 && offset > closest.offset) {
-                    return { offset: offset, element: child };
-                } else {
-                    return closest;
-                }
-            }, { offset: Number.NEGATIVE_INFINITY }).element;
-        }
+        container.appendChild(pool);
+        content.appendChild(container);
 
-        checkBtn.addEventListener('click', () => {
-            const userOrder = [...listContainer.children].map(el => el.textContent);
-            const isCorrect = userOrder.every((item, index) => item == sortedItems[index]);
-            
-            if (isCorrect) {
-                userScore.stars += 30;
-                userScore.coins += 20;
-                showSuccessMessage('C\'est bien trié ! 🎉');
-                showConfetti();
-                checkBtn.textContent = "Niveau suivant";
-                checkBtn.onclick = () => {
-                    if (currentLevel < 10) showSortingGame(currentLevel + 1);
-                    else showLevelMenu(currentTopic);
-                };
-            } else {
-                userScore.coins = Math.max(0, userScore.coins - 5);
-                showErrorMessage('Ce n\'est pas le bon ordre.', `La bonne réponse était: ${sortedItems.join(', ')}`);
-            }
-            updateUI();
-            saveProgress();
-        });
+        const allZones = [pool, ...dropzones];
+        allZones.forEach(zone => enableSortingDropzone(zone));
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+        configureBackButton('Retour aux niveaux', () => showLevelMenu('sorting'));
+
+        function enableSortingToken(token) {
+            token.addEventListener('dragstart', () => {
+                token.classList.add('is-dragging');
+            });
+            token.addEventListener('dragend', () => {
+                token.classList.remove('is-dragging');
+            });
+        }
+
+        function enableSortingDropzone(zone) {
+            zone.addEventListener('dragenter', event => {
+                event.preventDefault();
+                zone.classList.add('is-target');
+            });
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('is-target');
+            });
+            zone.addEventListener('dragover', event => {
+                event.preventDefault();
+            });
+            zone.addEventListener('drop', event => {
+                event.preventDefault();
+                zone.classList.remove('is-target');
+                const tokenId = event.dataTransfer ? event.dataTransfer.getData('text/plain') : undefined;
+                let token;
+                if (tokenId) {
+                    token = document.querySelector(`[data-id="${tokenId}"]`);
+                }
+                if (!token) {
+                    token = document.querySelector('.sorting-token.is-dragging');
+                }
+                if (!token) { return; }
+
+                if (zone.dataset.zone === 'pool') {
+                    pool.appendChild(token);
+                    token.classList.remove('is-correct');
+                    updateCompletionState();
+                    return;
+                }
+
+                const expected = zone.dataset.category;
+                const actual = token.dataset.target;
+                if (expected === actual) {
+                    zone.appendChild(token);
+                    token.classList.add('is-correct', 'sorting-token-pop');
+                    playSound('correct');
+                    showSortingFeedback('positive', 'Bravo !');
+                    setTimeout(() => token.classList.remove('sorting-token-pop'), 320);
+                    updateCompletionState();
+                } else {
+                    zone.classList.add('sorting-bin-error');
+                    playSound('wrong');
+                    showSortingFeedback('negative', "Oups, essaie une autre catégorie.");
+                    setTimeout(() => {
+                        zone.classList.remove('sorting-bin-error');
+                        pool.appendChild(token);
+                        token.classList.remove('is-correct');
+                        updateCompletionState();
+                    }, 420);
+                }
+            });
+        }
+
+        function showSortingFeedback(type, message) {
+            clearTimeout(feedbackBubble._timerId);
+            feedbackBubble.textContent = message;
+            feedbackBubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
+            feedbackBubble.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+            feedbackBubble._timerId = setTimeout(() => hideSortingFeedback(), 1800);
+        }
+
+        function hideSortingFeedback() {
+            feedbackBubble.textContent = '';
+            feedbackBubble.classList.add('is-hidden');
+            feedbackBubble.classList.remove('is-positive', 'is-negative');
+        }
+
+        function updateCompletionState() {
+            const allPlaced = tokens.every(token => token.parentElement && token.parentElement.dataset && token.parentElement.dataset.category === token.dataset.target);
+            if (allPlaced && tokens.every(token => token.classList.contains('is-correct'))) {
+                hideSortingFeedback();
+                rewardPlayer();
+            } else {
+                markLevelInProgress();
+            }
+        }
+
+        function markLevelInProgress() {
+            answeredQuestions[`sorting-${currentLevel}`] = 'in-progress';
+            saveProgress();
+        }
+
+        function rewardPlayer() {
+            showSuccessMessage('Classement parfait ! ✨');
+            showConfetti();
+            userScore.stars += reward.stars;
+            userScore.coins += reward.coins;
+            answeredQuestions[`sorting-${currentLevel}`] = 'completed';
+            saveProgress();
+            updateUI();
+            setTimeout(() => {
+                if (currentLevel < sortingLevels.length) {
+                    showSortingGame(currentLevel + 1);
+                } else {
+                    showLevelMenu('sorting');
+                }
+            }, 1600);
+        }
+
+        // Préparer les données de transfert pour le glisser-déposer (nécessaire pour certains navigateurs)
+        content.addEventListener('dragstart', event => {
+            if (event.target && event.target.classList.contains('sorting-token')) {
+                event.dataTransfer.setData('text/plain', event.target.dataset.id);
+            }
+        });
     }
     
     /**
@@ -1618,44 +1923,56 @@ function generateNumberPairs(sum, count) {
     }
     
     function loadRiddleQuestion(index) {
-        if (index >= riddles.length) {
+        if (index < 0 || index >= riddleLevels.length) {
             win();
             return;
         }
-        
+
         currentQuestionIndex = index;
+        const riddleData = riddleLevels[index];
+        currentLevel = riddleData.level;
+
         content.innerHTML = '';
         updateUI();
-        
-        const riddleData = riddles[currentQuestionIndex];
-        const fragment = document.createDocumentFragment();
-        
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'riddle-wrapper fx-bounce-in-down';
+
         const title = document.createElement('div');
-        title.className = 'question-prompt fx-bounce-in-down';
-        title.innerHTML = riddleData.riddle;
-        fragment.appendChild(title);
-        speakText(riddleData.riddle);
+        title.className = 'question-prompt';
+        title.textContent = riddleData.prompt;
+        wrapper.appendChild(title);
+        speakText(riddleData.prompt);
+
+        if (riddleData.image) {
+            const image = document.createElement('img');
+            image.className = 'riddle-image';
+            image.src = riddleData.image;
+            image.alt = 'Indice visuel';
+            wrapper.appendChild(image);
+        }
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
-        
+
         const shuffledOptions = shuffle([...riddleData.options]);
         shuffledOptions.forEach((opt, i) => {
             const optionEl = document.createElement('button');
-            optionEl.className = 'option fx-bounce-in-down';
-            optionEl.style.animationDelay = `${i * 0.1 + 0.5}s`;
+            optionEl.className = 'option riddle-option fx-bounce-in-down';
+            optionEl.style.animationDelay = `${i * 0.08 + 0.4}s`;
             const originalIndex = riddleData.options.indexOf(opt);
             optionEl.dataset.index = originalIndex;
             optionEl.addEventListener('click', handleRiddleAnswer);
             applyOptionContent(optionEl, opt, i);
             optionsContainer.appendChild(optionEl);
         });
-        fragment.appendChild(optionsContainer);
-        content.appendChild(fragment);
+
+        wrapper.appendChild(optionsContainer);
+        content.appendChild(wrapper);
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+        configureBackButton('Retour aux niveaux', () => showLevelMenu('riddles'));
     }
     
     function handleRiddleAnswer(event) {
@@ -1667,32 +1984,41 @@ function generateNumberPairs(sum, count) {
         const container = selectedOption.closest('.options-grid');
         const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
         optionNodes.forEach(opt => opt.removeEventListener('click', handleRiddleAnswer));
-        
-        const riddleData = riddles[currentQuestionIndex];
+
+        const riddleData = riddleLevels[currentQuestionIndex];
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
-        const correctAnswerIndex = riddleData.correct;
+        const correctAnswerIndex = riddleData.answer;
         const correctValue = riddleData.options[correctAnswerIndex];
 
         if (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex) {
             selectedOption.classList.add('correct');
+            selectedOption.classList.add('riddle-correct-glow');
             userScore.stars += riddleData.reward.stars;
             userScore.coins += riddleData.reward.coins;
+            answeredQuestions[`riddles-${currentLevel}`] = 'completed';
+            saveProgress();
             showSuccessMessage('Bonne réponse !');
             showConfetti();
         } else {
             selectedOption.classList.add('wrong');
+            selectedOption.classList.add('riddle-wrong-glow');
             userScore.coins = Math.max(0, userScore.coins - 5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
+                correctOption.classList.add('riddle-correct-glow');
             }
             showErrorMessage('Mauvaise réponse.', correctValue);
+            answeredQuestions[`riddles-${currentLevel}`] = 'in-progress';
+            saveProgress();
         }
         updateUI();
-        saveProgress();
         setTimeout(() => {
-            currentQuestionIndex++;
-            loadRiddleQuestion(currentQuestionIndex);
+            if (currentQuestionIndex + 1 < riddleLevels.length) {
+                loadRiddleQuestion(currentQuestionIndex + 1);
+            } else {
+                showLevelMenu('riddles');
+            }
         }, 2000);
     }
     
@@ -1704,88 +2030,174 @@ function generateNumberPairs(sum, count) {
     }
     
     function loadVowelQuestion(index) {
-        if (index >= words.length) {
+        if (index < 0 || index >= vowelLevels.length) {
             win();
             return;
         }
 
+        const levelData = vowelLevels[index];
+        currentLevel = levelData.level;
         currentQuestionIndex = index;
+        currentVowelLevelData = null;
+
         content.innerHTML = '';
         updateUI();
 
-        const wordData = words[index];
-        const word = wordData.word;
-        const vowels = ['a', 'e', 'i', 'o', 'u'];
-        const correctVowel = vowels.find(v => word.includes(v));
-        const blankedWord = word.replace(correctVowel, '<span class="blank"></span>');
-        
+        const wrapper = document.createElement('div');
+        wrapper.className = 'vowel-wrapper fx-bounce-in-down';
+
         const title = document.createElement('div');
-        title.className = 'question-prompt fx-bounce-in-down';
-        title.innerHTML = `Quelle voyelle manque ? <div class="word-with-blank">${blankedWord}</div>`;
-        content.appendChild(title);
-        
-        const imageContainer = document.createElement('div');
-        imageContainer.className = 'image-container fx-bounce-in-down';
-        imageContainer.innerHTML = `<img src="${wordData.image}" alt="${word}" />`;
-        content.appendChild(imageContainer);
+        title.className = 'question-prompt';
+        title.textContent = 'Quelle voyelle manque ?';
+        wrapper.appendChild(title);
+
+        const display = document.createElement('div');
+        display.className = 'vowel-display';
+        const blanksCount = (levelData.masked.match(/_/g) || []).length;
+        levelData.masked.split('').forEach(char => {
+            const span = document.createElement('span');
+            if (char === '_') {
+                span.className = 'vowel-blank shimmer';
+                span.textContent = '✨';
+            } else {
+                span.className = 'vowel-char';
+                span.textContent = char;
+            }
+            display.appendChild(span);
+        });
+        wrapper.appendChild(display);
+
+        const hint = document.createElement('p');
+        hint.className = 'vowel-hint';
+        hint.textContent = levelData.hint;
+        wrapper.appendChild(hint);
+
+        const feedbackBubble = document.createElement('div');
+        feedbackBubble.className = 'vowel-feedback is-hidden';
+        feedbackBubble.setAttribute('role', 'status');
+        feedbackBubble.setAttribute('aria-live', 'polite');
+        wrapper.appendChild(feedbackBubble);
 
         const optionsContainer = document.createElement('div');
-        optionsContainer.className = 'options-grid';
-        
-        const options = shuffle([...vowels.filter(v => v !== correctVowel).slice(0, 3), correctVowel]);
-        options.forEach((opt, i) => {
-            const optionEl = document.createElement('button');
-            optionEl.className = 'option fx-bounce-in-down';
-            applyOptionContent(optionEl, opt.toUpperCase(), i);
-            optionEl.dataset.vowel = opt;
-            optionEl.addEventListener('click', handleVowelAnswer);
-            optionsContainer.appendChild(optionEl);
+        optionsContainer.className = 'vowel-options';
+
+        const buttons = [];
+        const shuffledOptions = shuffle([...levelData.options]);
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'vowel-option fx-bounce-in-down';
+            btn.dataset.value = opt;
+            btn.textContent = opt.toUpperCase();
+            btn.addEventListener('click', handleVowelAnswer);
+            optionsContainer.appendChild(btn);
+            buttons.push(btn);
         });
-        content.appendChild(optionsContainer);
-        speakText(`Quelle voyelle manque ? ${wordData.hint}`);
+        wrapper.appendChild(optionsContainer);
+
+        content.appendChild(wrapper);
+        speakText(`${title.textContent}. ${levelData.hint}`);
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+        configureBackButton('Retour aux niveaux', () => showLevelMenu('vowels'));
+
+        currentVowelLevelData = {
+            level: levelData.level,
+            answer: levelData.answer,
+            blanksCount,
+            displayEl: display,
+            buttons,
+            feedbackEl: feedbackBubble
+        };
+        answeredQuestions[`vowels-${currentLevel}`] = answeredQuestions[`vowels-${currentLevel}`] || 'in-progress';
+        saveProgress();
     }
 
     function handleVowelAnswer(event) {
+        if (!currentVowelLevelData) { return; }
+
         const selectedOption = event.currentTarget instanceof HTMLElement
             ? event.currentTarget
-            : (event.target.closest && event.target.closest('.option'));
+            : (event.target.closest && event.target.closest('.vowel-option'));
         if (!selectedOption) { return; }
 
-        const container = selectedOption.closest('.options-grid');
-        const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
-        optionNodes.forEach(opt => opt.removeEventListener('click', handleVowelAnswer));
+        currentVowelLevelData.buttons.forEach(btn => {
+            btn.removeEventListener('click', handleVowelAnswer);
+            btn.disabled = true;
+        });
 
-        const wordData = words[currentQuestionIndex];
-        const word = wordData.word;
-        const vowels = ['a', 'e', 'i', 'o', 'u'];
-        const correctVowel = vowels.find(v => word.includes(v));
-        const userAnswer = selectedOption.dataset.vowel;
-        
-        if (userAnswer === correctVowel) {
-            selectedOption.classList.add('correct');
-            userScore.stars += 10;
-            userScore.coins += 5;
-            showSuccessMessage('C\'est la bonne voyelle !');
+        const userAnswer = selectedOption.dataset.value;
+        const expected = currentVowelLevelData.answer;
+        const blanks = currentVowelLevelData.displayEl.querySelectorAll('.vowel-blank');
+
+        if (userAnswer && userAnswer.toLowerCase() === expected.toLowerCase()) {
+            fillVowelBlanks(blanks, userAnswer);
+            currentVowelLevelData.displayEl.classList.add('is-complete');
+            selectedOption.classList.add('correct', 'vowel-option-correct');
+            showVowelFeedback('positive', 'Super !');
+            userScore.stars += 10 + currentLevel * 2;
+            userScore.coins += 10;
+            answeredQuestions[`vowels-${currentLevel}`] = 'completed';
+            saveProgress();
+            updateUI();
+            showSuccessMessage('Bravo !');
             showConfetti();
+            setTimeout(() => {
+                currentVowelLevelData = null;
+                if (currentQuestionIndex + 1 < vowelLevels.length) {
+                    loadVowelQuestion(currentQuestionIndex + 1);
+                } else {
+                    showLevelMenu('vowels');
+                }
+            }, 1600);
         } else {
-            selectedOption.classList.add('wrong');
+            selectedOption.classList.add('wrong', 'vowel-option-wrong');
+            currentVowelLevelData.displayEl.classList.add('is-error');
+            showVowelFeedback('negative', 'Essaie encore !');
             userScore.coins = Math.max(0, userScore.coins - 5);
-            const correctOption = Array.from(optionNodes).find(opt => opt.dataset.vowel === correctVowel);
-            if (correctOption) {
-                correctOption.classList.add('correct');
-            }
-            showErrorMessage('Mauvaise réponse.', correctVowel.toUpperCase());
+            answeredQuestions[`vowels-${currentLevel}`] = 'in-progress';
+            saveProgress();
+            updateUI();
+            showErrorMessage('Mauvaise réponse.', 'Regarde bien les lettres.');
+            setTimeout(() => {
+                currentVowelLevelData.displayEl.classList.remove('is-error');
+                currentVowelLevelData.buttons.forEach(btn => {
+                    btn.disabled = false;
+                    btn.addEventListener('click', handleVowelAnswer);
+                    btn.classList.remove('vowel-option-wrong');
+                });
+                hideVowelFeedback();
+            }, 1200);
         }
-        updateUI();
-        saveProgress();
+    }
 
-        setTimeout(() => {
-            loadVowelQuestion(currentQuestionIndex + 1);
-        }, 2000);
+    function fillVowelBlanks(blanks, selection) {
+        const chars = selection.split('');
+        blanks.forEach((blank, index) => {
+            const char = chars[index] || chars[chars.length - 1] || '';
+            blank.textContent = char;
+            blank.classList.add('is-filled');
+            blank.classList.remove('shimmer');
+        });
+    }
+
+    function showVowelFeedback(type, message) {
+        if (!currentVowelLevelData || !currentVowelLevelData.feedbackEl) { return; }
+        const bubble = currentVowelLevelData.feedbackEl;
+        clearTimeout(bubble._timerId);
+        bubble.textContent = message;
+        bubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
+        bubble.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+        bubble._timerId = setTimeout(() => hideVowelFeedback(), 2200);
+    }
+
+    function hideVowelFeedback() {
+        if (!currentVowelLevelData || !currentVowelLevelData.feedbackEl) { return; }
+        const bubble = currentVowelLevelData.feedbackEl;
+        clearTimeout(bubble._timerId);
+        bubble.textContent = '';
+        bubble.classList.add('is-hidden');
+        bubble.classList.remove('is-positive', 'is-negative');
     }
 
     function showSequenceGame() {
@@ -1794,86 +2206,198 @@ function generateNumberPairs(sum, count) {
     }
 
     function loadSequenceQuestion(index) {
-        if (index >= sequences.length) {
+        if (index < 0 || index >= sequenceLevels.length) {
             win();
             return;
         }
 
+        currentLevel = index + 1;
         currentQuestionIndex = index;
+        const levelData = sequenceLevels[index];
+
         content.innerHTML = '';
         updateUI();
 
-        const questionData = sequences[index];
+        const container = document.createElement('div');
+        container.className = 'sequence-wrapper fx-bounce-in-down';
+
         const title = document.createElement('div');
-        title.className = 'question-prompt fx-bounce-in-down';
+        title.className = 'question-prompt';
         title.textContent = 'Quel est le prochain élément de la séquence ?';
-        content.appendChild(title);
+        container.appendChild(title);
+        speakText(title.textContent);
 
         const sequenceContainer = document.createElement('div');
-        sequenceContainer.className = 'sequence-container fx-bounce-in-down';
-        questionData.items.forEach(item => {
-            const itemEl = document.createElement('span');
-            itemEl.className = 'sequence-item';
-            itemEl.textContent = item;
-            sequenceContainer.appendChild(itemEl);
-        });
-        content.appendChild(sequenceContainer);
+        sequenceContainer.className = 'sequence-container';
 
-        const optionsContainer = document.createElement('div');
-        optionsContainer.className = 'options-grid';
-        
-        const shuffledOptions = shuffle([...questionData.options]);
-        shuffledOptions.forEach((opt, i) => {
-            const optionEl = document.createElement('button');
-            optionEl.className = 'option fx-bounce-in-down';
-            applyOptionContent(optionEl, opt, i);
-            optionEl.dataset.value = opt;
-            optionEl.addEventListener('click', handleSequenceAnswer);
-            optionsContainer.appendChild(optionEl);
+        const blankSlot = document.createElement('div');
+        blankSlot.className = 'sequence-slot';
+        blankSlot.dataset.answer = levelData.answer;
+
+        levelData.sequence.forEach(item => {
+            if (item === '?') {
+                const slot = blankSlot.cloneNode(true);
+                sequenceContainer.appendChild(slot);
+            } else {
+                const itemEl = document.createElement('span');
+                itemEl.className = 'sequence-item';
+                itemEl.textContent = item;
+                sequenceContainer.appendChild(itemEl);
+            }
         });
-        content.appendChild(optionsContainer);
-        speakText('Quel est le prochain élément de la séquence ?');
+
+        container.appendChild(sequenceContainer);
+
+        const feedbackBubble = document.createElement('div');
+        feedbackBubble.className = 'sequence-feedback is-hidden';
+        feedbackBubble.setAttribute('role', 'status');
+        feedbackBubble.setAttribute('aria-live', 'polite');
+        container.appendChild(feedbackBubble);
+
+        const pool = document.createElement('div');
+        pool.className = 'sequence-pool';
+        pool.dataset.zone = 'pool';
+
+        const uniqueSuffix = Date.now();
+        const tokens = levelData.options.map((option, i) => {
+            const token = document.createElement('div');
+            token.className = 'sequence-token fx-pop';
+            token.textContent = option;
+            token.draggable = true;
+            token.dataset.value = option;
+            token.dataset.id = `sequence-${index}-${i}-${uniqueSuffix}`;
+            enableSequenceToken(token);
+            pool.appendChild(token);
+            return token;
+        });
+
+        container.appendChild(pool);
+        content.appendChild(container);
+
+        const dropzone = sequenceContainer.querySelector('.sequence-slot');
+        enableSequenceDropzone(dropzone);
+        enableSequenceDropzone(pool);
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
-    }
-    
-    function handleSequenceAnswer(event) {
-        const selectedOption = event.currentTarget instanceof HTMLElement
-            ? event.currentTarget
-            : (event.target.closest && event.target.closest('.option'));
-        if (!selectedOption) { return; }
+        configureBackButton('Retour aux niveaux', () => showLevelMenu('sequences'));
 
-        const container = selectedOption.closest('.options-grid');
-        const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
-        optionNodes.forEach(opt => opt.removeEventListener('click', handleSequenceAnswer));
-        
-        const questionData = sequences[currentQuestionIndex];
-        const userAnswer = selectedOption.dataset.value;
-        const correctValue = questionData.correct;
-
-        if (userAnswer === correctValue) {
-            selectedOption.classList.add('correct');
-            userScore.stars += 15;
-            userScore.coins += 10;
-            showSuccessMessage('Tu as trouvé le bon ordre !');
-            showConfetti();
-        } else {
-            selectedOption.classList.add('wrong');
-            userScore.coins = Math.max(0, userScore.coins - 5);
-            const correctOption = Array.from(optionNodes).find(opt => opt.dataset.value === correctValue);
-            if (correctOption) {
-                correctOption.classList.add('correct');
-            }
-            showErrorMessage('Mauvaise réponse.', correctValue);
+        function enableSequenceToken(token) {
+            token.addEventListener('dragstart', () => {
+                token.classList.add('is-dragging');
+            });
+            token.addEventListener('dragend', () => {
+                token.classList.remove('is-dragging');
+            });
         }
-        updateUI();
-        saveProgress();
 
-        setTimeout(() => {
-            loadSequenceQuestion(currentQuestionIndex + 1);
-        }, 2000);
+        function enableSequenceDropzone(zone) {
+            zone.addEventListener('dragenter', event => {
+                event.preventDefault();
+                zone.classList.add('is-target');
+            });
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('is-target');
+            });
+            zone.addEventListener('dragover', event => {
+                event.preventDefault();
+            });
+            zone.addEventListener('drop', event => {
+                event.preventDefault();
+                zone.classList.remove('is-target');
+                const tokenId = event.dataTransfer ? event.dataTransfer.getData('text/plain') : undefined;
+                let token;
+                if (tokenId) {
+                    token = document.querySelector(`[data-id="${tokenId}"]`);
+                }
+                if (!token) {
+                    token = document.querySelector('.sequence-token.is-dragging');
+                }
+                if (!token) { return; }
+
+                if (zone.dataset.zone === 'pool') {
+                    pool.appendChild(token);
+                    token.classList.remove('is-correct');
+                    token.setAttribute('draggable', 'true');
+                    dropzone.classList.remove('is-filled', 'is-correct', 'is-wrong');
+                    dropzone.textContent = '';
+                    hideFeedback();
+                    markSequenceInProgress();
+                    return;
+                }
+
+                const expected = zone.dataset.answer;
+                const actual = token.dataset.value;
+                zone.textContent = actual;
+
+                if (expected === actual) {
+                    zone.classList.add('is-filled', 'is-correct');
+                    zone.classList.remove('is-wrong');
+                    token.classList.add('is-correct', 'sequence-token-pop');
+                    token.setAttribute('draggable', 'false');
+                    zone.appendChild(token);
+                    playSound('correct');
+                    showFeedback('positive', 'Super ! La séquence est complète.');
+                    setTimeout(() => token.classList.remove('sequence-token-pop'), 320);
+                    rewardSequence();
+                } else {
+                    zone.classList.add('is-filled', 'is-wrong');
+                    zone.classList.remove('is-correct');
+                    playSound('wrong');
+                    showFeedback('negative', 'Essaie encore !');
+                    setTimeout(() => {
+                        zone.textContent = '';
+                        zone.classList.remove('is-filled', 'is-wrong');
+                        pool.appendChild(token);
+                        token.classList.remove('is-correct');
+                        token.setAttribute('draggable', 'true');
+                    }, 420);
+                    markSequenceInProgress();
+                }
+            });
+        }
+
+        function showFeedback(type, message) {
+            clearTimeout(feedbackBubble._timerId);
+            feedbackBubble.textContent = message;
+            feedbackBubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
+            feedbackBubble.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+            feedbackBubble._timerId = setTimeout(() => hideFeedback(), 2000);
+        }
+
+        function hideFeedback() {
+            feedbackBubble.textContent = '';
+            feedbackBubble.classList.add('is-hidden');
+            feedbackBubble.classList.remove('is-positive', 'is-negative');
+        }
+
+        function rewardSequence() {
+            hideFeedback();
+            userScore.stars += 12 + currentLevel * 2;
+            userScore.coins += 8 + currentLevel;
+            answeredQuestions[`sequences-${currentLevel}`] = 'completed';
+            saveProgress();
+            updateUI();
+            showConfetti();
+            setTimeout(() => {
+                if (currentLevel < sequenceLevels.length) {
+                    loadSequenceQuestion(currentLevel);
+                } else {
+                    showLevelMenu('sequences');
+                }
+            }, 1400);
+        }
+
+        function markSequenceInProgress() {
+            answeredQuestions[`sequences-${currentLevel}`] = 'in-progress';
+            saveProgress();
+        }
+
+        content.addEventListener('dragstart', event => {
+            if (event.target && event.target.classList.contains('sequence-token')) {
+                event.dataTransfer.setData('text/plain', event.target.dataset.id);
+            }
+        });
     }
 
     function win() {
