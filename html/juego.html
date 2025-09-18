@@ -19,6 +19,7 @@
       <span id="level" class="level">Niveau 1</span>
     </div>
     <div class="top-buttons">
+        <button id="btnShop" class="btn">🛍️ Boutique</button>
         <button id="btnLogros" class="btn">🏆 Succès</button>
         <button id="btnLogout" class="btn">🚪 Quitter</button>
         <button id="btnBack" class="btn">Retour</button>
@@ -38,6 +39,26 @@
 
   <audio id="audioCorrect" src="https://assets.mixkit.co/sfx/download/mixkit-game-bling-2041.wav"></audio>
   <audio id="audioWrong" src="https://assets.mixkit.co/sfx/download/mixkit-wrong-answer-2051.wav"></audio>
+
+  <div id="shopModal" class="shop-modal" aria-hidden="true">
+    <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
+      <div class="shop-modal__header">
+        <h2 id="shopModalTitle">Boutique de récompenses</h2>
+        <button id="shopClose" class="shop-modal__close" aria-label="Fermer la boutique">×</button>
+      </div>
+      <p class="shop-modal__subtitle">Échange tes pièces contre des cadeaux magiques ✨</p>
+      <div class="shop-modal__content">
+        <section class="shop-section" aria-label="Articles disponibles">
+          <h3>Articles disponibles</h3>
+          <ul id="shopList" class="shop-list"></ul>
+        </section>
+        <section class="shop-section" aria-label="Mes trésors">
+          <h3>Mes trésors</h3>
+          <ul id="inventoryList" class="shop-inventory"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
   <script src="../games/puzzlemagique.js"></script>

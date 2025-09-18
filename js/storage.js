@@ -27,21 +27,38 @@ const storage = {
         }
     },
     loadUserProgress: (userName) => {
-        if (!userName) return { userScore: { stars: 0, coins: 0 }, answeredQuestions: {}, currentLevel: 1 };
+        const defaultProgress = () => ({
+            userScore: { stars: 0, coins: 0 },
+            answeredQuestions: {},
+            currentLevel: 1,
+            ownedItems: [],
+            activeCosmetics: {}
+        });
+
+        if (!userName) {
+            return defaultProgress();
+        }
+
         try {
             const progress = localStorage.getItem(`mathsLenaProgress_${userName}`);
-            if (progress) {
-                return JSON.parse(progress);
+            if (!progress) {
+                return defaultProgress();
             }
-            // Return default structure if no progress is found for this user
+
+            const parsed = JSON.parse(progress);
+            const base = defaultProgress();
+
             return {
-                userScore: { stars: 0, coins: 0 },
-                answeredQuestions: {},
-                currentLevel: 1
+                ...base,
+                ...parsed,
+                userScore: { ...base.userScore, ...(parsed.userScore || {}) },
+                answeredQuestions: { ...base.answeredQuestions, ...(parsed.answeredQuestions || {}) },
+                activeCosmetics: { ...base.activeCosmetics, ...(parsed.activeCosmetics || {}) },
+                ownedItems: Array.isArray(parsed.ownedItems) ? parsed.ownedItems : base.ownedItems
             };
         } catch (e) {
             console.error("Error loading progress for user " + userName, e);
-            return { userScore: { stars: 0, coins: 0 }, answeredQuestions: {}, currentLevel: 1 };
+            return defaultProgress();
         }
     }
 };

@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const levelDisplay = document.getElementById('level');
     const audioCorrect = document.getElementById('audioCorrect');
     const audioWrong = document.getElementById('audioWrong');
+    const stageBottom = document.getElementById('stageBottom');
+    const btnShop = document.getElementById('btnShop');
+    const shopModal = document.getElementById('shopModal');
+    const shopList = document.getElementById('shopList');
+    const inventoryList = document.getElementById('inventoryList');
+    const shopCloseBtn = document.getElementById('shopClose');
+
 
     // --- Game State ---
     let currentTopic = '';
@@ -29,6 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let answeredQuestions;
     let storyQuiz = [];
     let currentVowelLevelData = null;
+    let ownedItems = [];
+    let activeCosmetics = { background: null, badge: null };
+    let decorContainer = null;
+    let lastDecorLevel = null;
+    let lastAppliedTheme = '';
 
     // --- Game Data ---
     const LEVELS_PER_TOPIC = 12;
@@ -56,6 +68,55 @@ document.addEventListener('DOMContentLoaded', () => {
         balloon: '🎈', paint: '🖍️', drum: '🥁', guitar: '🎸', book: '📘', kite: '🪁'
     };
     const positiveMessages = ['🦄 Bravo !', '✨ Super !', '🌈 Génial !', '🌟 Parfait !', '🎉 Formidable !'];
+    const boutiqueItems = [
+        {
+            id: 'bg-galaxy',
+            type: 'background',
+            name: 'Fond Galaxie ✨',
+            price: 80,
+            description: 'Un ciel violet parsemé de constellations scintillantes.',
+            themeClass: 'theme-galaxy'
+        },
+        {
+            id: 'bg-ocean',
+            type: 'background',
+            name: 'Fond Océan 🌊',
+            price: 60,
+            description: 'Un dégradé bleu apaisant avec bulles et reflets.',
+            themeClass: 'theme-ocean'
+        },
+        {
+            id: 'badge-etoile',
+            type: 'badge',
+            name: 'Badge Super Étoile 🌟',
+            price: 35,
+            description: 'Affiche une médaille étoilée près de ton nom.',
+            badge: '🌟'
+        },
+        {
+            id: 'badge-arcenciel',
+            type: 'badge',
+            name: 'Badge Arc-en-ciel 🌈',
+            price: 45,
+            description: 'Ajoute un arc-en-ciel magique à ton profil.',
+            badge: '🌈'
+        }
+    ];
+    const levelDecorIcons = {
+        default: ['✨', '🌟', '💫', '🌈'],
+        1: ['🦄', '✨', '🌸', '🌈'],
+        2: ['☁️', '🌟', '🪁', '✨'],
+        3: ['🌿', '🦋', '🍀', '✨'],
+        4: ['🍊', '🌞', '🍭', '✨'],
+        5: ['🧚‍♀️', '✨', '💜', '🌙'],
+        6: ['🐬', '🌊', '🐚', '✨'],
+        7: ['🍃', '🐞', '🌻', '✨'],
+        8: ['🪁', '☁️', '🛸', '✨'],
+        9: ['⭐️', '🍯', '🧸', '✨'],
+        10: ['🪐', '🌙', '⭐️', '✨'],
+        11: ['🍂', '🔥', '🌟', '✨'],
+        12: ['🔮', '💜', '🌙', '✨']
+    };
     const answerOptionIcons = ['🔹', '🌟', '💡', '🎯', '✨', '🎈', '🧠'];
     const colorOptionIcons = ['🎨', '🖌️', '🧴', '🧑\u200d🎨', '🌈'];
     const magicStories = [
@@ -566,16 +627,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const vowelLevels = [
-        { level: 1, masked: 'ch_t', answer: 'a', options: ['a', 'e', 'i', 'o'], hint: 'Un animal qui ronronne.' },
-        { level: 2, masked: 'l_ne', answer: 'u', options: ['u', 'o', 'a', 'i'], hint: 'Elle brille la nuit.' },
-        { level: 3, masked: 'b_bé', answer: 'é', options: ['é', 'a', 'i', 'o'], hint: 'Il rit aux éclats.' },
-        { level: 4, masked: 'cl__n', answer: 'ow', options: ['ow', 'oi', 'ou', 'au'], hint: 'Il fait rire au cirque.' },
-        { level: 5, masked: 'p_tt__ m__s', answer: 'eeai', options: ['eeai', 'aaee', 'ieea', 'ouie'], hint: 'De petites maisons adorables.' },
-        { level: 6, masked: 'm__on', answer: 'ai', options: ['ai', 'ei', 'oi', 'au'], hint: 'Elle aime le fromage !' },
-        { level: 7, masked: 'La f__ danse.', answer: 'ée', options: ['ée', 'ai', 'au', 'ou'], hint: 'Une petite créature magique.' },
-        { level: 8, masked: 'Il pl__t tr_s beau.', answer: 'euè', options: ['euè', 'eau', 'aie', 'oui'], hint: 'On parle du temps.' },
-        { level: 9, masked: 'Nous aim__ chanter.', answer: 'er', options: ['er', 'ai', 'ou', 'ie'], hint: 'Une chorale amusante.' },
-        { level: 10, masked: 'Les él_ves écrivent en s__r.', answer: 'èoi', options: ['èoi', 'eau', 'aio', 'oui'], hint: 'Une phrase scolaire.' }
+        { level: 1, masked: 'ch_t', answer: 'a', options: ['a', 'e', 'i'], hint: 'Un animal qui ronronne.' },
+        { level: 2, masked: 'l_ne', answer: 'u', options: ['u', 'o', 'a'], hint: 'Elle brille la nuit.' },
+        { level: 3, masked: 'b_bé', answer: 'é', options: ['é', 'a', 'i'], hint: 'Il rit aux éclats.' },
+        { level: 4, masked: 'cl__n', answer: 'ow', options: ['ow', 'oi', 'ou'], hint: 'Il fait rire au cirque.' },
+        { level: 5, masked: 'p_tt__ m__s', answer: 'eeai', options: ['eeai', 'aaee', 'ieea'], hint: 'De petites maisons adorables.' },
+        { level: 6, masked: 'm__on', answer: 'ai', options: ['ai', 'ei', 'oi'], hint: 'Elle aime le fromage !' },
+        { level: 7, masked: 'La f__ danse.', answer: 'ée', options: ['ée', 'ai', 'ou'], hint: 'Une petite créature magique.' },
+        { level: 8, masked: 'Il pl__t tr_s beau.', answer: 'euè', options: ['euè', 'eau', 'aie'], hint: 'On parle du temps.' },
+        { level: 9, masked: 'Nous aim__ chanter.', answer: 'er', options: ['er', 'ai', 'ou'], hint: 'Une chorale amusante.' },
+        { level: 10, masked: 'Les él_ves écrivent en s__r.', answer: 'èoi', options: ['èoi', 'eau', 'aio'], hint: 'Une phrase scolaire.' }
     ];
 
     const sequenceLevels = [
@@ -638,6 +699,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 goHome();
             }
         });
+
+        if (btnShop) {
+            btnShop.addEventListener('click', () => {
+                openShop();
+            });
+        }
+        if (shopCloseBtn) {
+            shopCloseBtn.addEventListener('click', closeShop);
+        }
+        if (shopModal) {
+            shopModal.addEventListener('click', (event) => {
+                if (event.target === shopModal) {
+                    closeShop();
+                }
+            });
+        }
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && shopModal && shopModal.classList.contains('is-open')) {
+                closeShop();
+            }
+        });
     }
 
     function loadProgress() {
@@ -645,13 +727,17 @@ document.addEventListener('DOMContentLoaded', () => {
         userScore = progress.userScore;
         answeredQuestions = progress.answeredQuestions;
         currentLevel = progress.currentLevel;
+        ownedItems = Array.isArray(progress.ownedItems) ? progress.ownedItems : [];
+        activeCosmetics = progress.activeCosmetics || { background: null, badge: null };
     }
 
     function saveProgress() {
         const progress = {
             userScore: userScore,
             answeredQuestions: answeredQuestions,
-            currentLevel: currentLevel
+            currentLevel: currentLevel,
+            ownedItems,
+            activeCosmetics
         };
         storage.saveUserProgress(userProfile.name, progress);
     }
@@ -856,10 +942,252 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateUI() {
-        scoreStars.textContent = userScore.stars;
-        scoreCoins.textContent = userScore.coins;
-        levelDisplay.textContent = `Niveau ${currentLevel}`;
-        document.body.className = `body-level-${currentLevel}`;
+        if (scoreStars) {
+            scoreStars.textContent = userScore.stars;
+        }
+        if (scoreCoins) {
+            scoreCoins.textContent = userScore.coins;
+        }
+        if (levelDisplay) {
+            levelDisplay.textContent = `Niveau ${currentLevel}`;
+        }
+        updateBodyLevelClass();
+        applyActiveCosmetics();
+        renderShopItems();
+        renderInventory();
+    }
+
+    function updateBodyLevelClass() {
+        if (!document.body) { return; }
+        const levelClassPrefix = 'body-level-';
+        const currentLevelClasses = Array.from(document.body.classList).filter(cls => cls.startsWith(levelClassPrefix));
+        currentLevelClasses.forEach(cls => document.body.classList.remove(cls));
+        if (typeof currentLevel === 'number' && currentLevel > 0) {
+            document.body.classList.add(`body-level-${Math.min(currentLevel, LEVELS_PER_TOPIC)}`);
+        }
+    }
+
+    function applyActiveCosmetics() {
+        const backgroundItem = getBoutiqueItem(activeCosmetics.background);
+        let themeChanged = false;
+        if (backgroundItem && backgroundItem.themeClass) {
+            if (lastAppliedTheme !== backgroundItem.themeClass) {
+                themeChanged = true;
+                lastAppliedTheme = backgroundItem.themeClass;
+            }
+            document.body?.setAttribute('data-bg-theme', backgroundItem.themeClass);
+        } else {
+            if (lastAppliedTheme !== '') {
+                themeChanged = true;
+            }
+            lastAppliedTheme = '';
+            document.body?.removeAttribute('data-bg-theme');
+        }
+
+        const badgeItem = getBoutiqueItem(activeCosmetics.badge);
+        if (badgeItem && badgeItem.badge) {
+            userInfo?.setAttribute('data-badge', badgeItem.badge);
+        } else {
+            userInfo?.removeAttribute('data-badge');
+        }
+
+        if (themeChanged) {
+            lastDecorLevel = null;
+        }
+        renderFloatingDecor();
+    }
+
+    function getBoutiqueItem(itemId) {
+        if (!itemId) { return null; }
+        return boutiqueItems.find(entry => entry.id === itemId) || null;
+    }
+
+    function ensureDecorContainer() {
+        if (decorContainer && decorContainer.isConnected) {
+            return decorContainer;
+        }
+        decorContainer = document.getElementById('floatingDecor');
+        if (!decorContainer) {
+            if (!document.body) { return null; }
+            decorContainer = document.createElement('div');
+            decorContainer.id = 'floatingDecor';
+            document.body?.appendChild(decorContainer);
+        }
+        return decorContainer;
+    }
+
+    function renderFloatingDecor() {
+        const container = ensureDecorContainer();
+        if (!container) { return; }
+        const safeLevel = Number.isFinite(currentLevel) ? Math.min(Math.max(currentLevel, 1), 12) : 1;
+        const icons = levelDecorIcons[safeLevel] || levelDecorIcons.default;
+        if (lastDecorLevel === safeLevel && container.childElementCount) {
+            return;
+        }
+        lastDecorLevel = safeLevel;
+        const totalIcons = Math.max(icons.length * 3, 15);
+        container.innerHTML = '';
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < totalIcons; i++) {
+            const iconEl = document.createElement('span');
+            iconEl.className = 'floating-decor__icon';
+            iconEl.textContent = icons[i % icons.length];
+            iconEl.style.left = `${Math.random() * 100}%`;
+            iconEl.style.setProperty('--delay', `${Math.random() * 6}s`);
+            iconEl.style.setProperty('--duration', `${10 + Math.random() * 8}s`);
+            iconEl.style.opacity = `${0.25 + Math.random() * 0.35}`;
+            iconEl.style.fontSize = `${1.3 + Math.random() * 1.4}rem`;
+            fragment.appendChild(iconEl);
+        }
+
+        container.appendChild(fragment);
+    }
+
+    function openShop() {
+        if (!shopModal) { return; }
+        shopModal.classList.add('is-open');
+        shopModal.setAttribute('aria-hidden', 'false');
+        renderShopItems();
+        renderInventory();
+    }
+
+    function closeShop() {
+        if (!shopModal) { return; }
+        shopModal.classList.remove('is-open');
+        shopModal.setAttribute('aria-hidden', 'true');
+    }
+
+    function renderShopItems() {
+        if (!shopList) { return; }
+        shopList.innerHTML = '';
+
+        boutiqueItems.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.className = 'shop-item';
+
+            const header = document.createElement('div');
+            header.className = 'shop-item__header';
+            header.innerHTML = `<span class="shop-item__name">${item.name}</span><span class="shop-item__price">${item.price} 💰</span>`;
+
+            const description = document.createElement('p');
+            description.className = 'shop-item__description';
+            description.textContent = item.description;
+
+            const action = document.createElement('button');
+            action.type = 'button';
+            action.className = 'shop-item__action';
+
+            const owned = ownedItems.includes(item.id);
+            const isActive = activeCosmetics[item.type] === item.id;
+
+            if (!owned) {
+                action.textContent = `Acheter (${item.price}💰)`;
+                if (userScore.coins < item.price) {
+                    action.disabled = true;
+                    action.classList.add('is-disabled');
+                    action.title = 'Gagne plus de pièces pour acheter cette récompense.';
+                } else {
+                    action.addEventListener('click', () => purchaseItem(item.id));
+                }
+            } else {
+                action.textContent = isActive ? 'Équipé' : 'Utiliser';
+                action.disabled = isActive;
+                if (!isActive) {
+                    action.addEventListener('click', () => activateItem(item.id));
+                }
+            }
+
+            listItem.appendChild(header);
+            listItem.appendChild(description);
+            listItem.appendChild(action);
+            shopList.appendChild(listItem);
+        });
+    }
+
+    function renderInventory() {
+        if (!inventoryList) { return; }
+        inventoryList.innerHTML = '';
+
+        if (!ownedItems.length) {
+            const empty = document.createElement('li');
+            empty.className = 'shop-inventory__empty';
+            empty.textContent = 'Pas encore de récompense… Continue à jouer ✨';
+            inventoryList.appendChild(empty);
+            return;
+        }
+
+        ownedItems.forEach(itemId => {
+            const item = getBoutiqueItem(itemId);
+            if (!item) { return; }
+            const listItem = document.createElement('li');
+            listItem.className = 'shop-inventory__item';
+
+            const label = document.createElement('span');
+            label.className = 'shop-inventory__label';
+            label.textContent = item.name;
+
+            if (item.badge) {
+                const icon = document.createElement('span');
+                icon.className = 'shop-inventory__icon';
+                icon.textContent = item.badge;
+                listItem.appendChild(icon);
+            }
+
+            const action = document.createElement('button');
+            action.type = 'button';
+            action.className = 'shop-inventory__action';
+
+            const isActive = activeCosmetics[item.type] === item.id;
+            action.textContent = isActive ? 'Actif' : 'Activer';
+            action.disabled = isActive;
+
+            if (!isActive) {
+                action.addEventListener('click', () => activateItem(item.id));
+            }
+
+            listItem.appendChild(label);
+            listItem.appendChild(action);
+            inventoryList.appendChild(listItem);
+        });
+    }
+
+    function purchaseItem(itemId) {
+        const item = getBoutiqueItem(itemId);
+        if (!item) { return; }
+        if (ownedItems.includes(item.id)) {
+            showSuccessMessage('Tu possèdes déjà cette récompense.');
+            return;
+        }
+        if (userScore.coins < item.price) {
+            showErrorMessage('Pas assez de pièces pour cette récompense 💰.', item.price);
+            return;
+        }
+
+        userScore.coins = Math.max(0, userScore.coins - item.price);
+        ownedItems.push(item.id);
+        activateItem(item.id, { silent: true });
+        showSuccessMessage('Nouvelle récompense débloquée ✨');
+        updateUI();
+        saveProgress();
+        renderShopItems();
+        renderInventory();
+    }
+
+    function activateItem(itemId, { silent = false } = {}) {
+        const item = getBoutiqueItem(itemId);
+        if (!item) { return; }
+        if (!ownedItems.includes(item.id)) {
+            ownedItems.push(item.id);
+        }
+        activeCosmetics[item.type] = item.id;
+        applyActiveCosmetics();
+        saveProgress();
+        renderShopItems();
+        renderInventory();
+        if (!silent) {
+            showSuccessMessage('Récompense activée ✨');
+        }
     }
 
     function showSuccessMessage(message = positiveMessages[Math.floor(Math.random() * positiveMessages.length)]) {
@@ -875,7 +1203,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function showErrorMessage(message, correctValue) {
         const promptEl = document.createElement('div');
         promptEl.className = 'prompt bad fx-shake';
-        promptEl.textContent = `${message} La bonne réponse était : ${correctValue}.`;
+        const extra = (typeof correctValue !== 'undefined' && correctValue !== null && String(correctValue).trim() !== '')
+            ? ` La bonne réponse était : ${correctValue}.`
+            : '';
+        promptEl.textContent = `${message}${extra}`;
         content.appendChild(promptEl);
         speakText(message);
         playSound('wrong');
@@ -888,6 +1219,67 @@ document.addEventListener('DOMContentLoaded', () => {
             spread: 70,
             origin: { y: 0.6 }
         });
+    }
+
+    function ensureProgressTrackerElements() {
+        if (!stageBottom) {
+            return { tracker: null, label: null, fill: null, bar: null };
+        }
+        let tracker = document.getElementById('progressTracker');
+        if (!tracker) {
+            tracker = document.createElement('div');
+            tracker.id = 'progressTracker';
+            tracker.className = 'progress-tracker';
+            tracker.innerHTML = `
+                <div class="progress-tracker__label"></div>
+                <div class="progress-tracker__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="progress-tracker__fill"></div>
+                </div>
+            `;
+            stageBottom.prepend(tracker);
+        }
+        const label = tracker.querySelector('.progress-tracker__label');
+        const bar = tracker.querySelector('.progress-tracker__bar');
+        const fill = tracker.querySelector('.progress-tracker__fill');
+        return { tracker, label, bar, fill };
+    }
+
+    function updateProgressTracker(current, total) {
+        const { tracker, label, bar, fill } = ensureProgressTrackerElements();
+        if (!tracker || !label || !fill || !bar) { return; }
+        const safeTotal = Math.max(1, total);
+        const currentQuestion = Math.min(Math.max(current, 0), safeTotal);
+        const percent = Math.min(Math.max(Math.round((currentQuestion / safeTotal) * 100), 0), 100);
+        label.textContent = `Question ${currentQuestion} / ${safeTotal}`;
+        fill.style.width = `${percent}%`;
+        bar.setAttribute('aria-valuenow', String(percent));
+        tracker.classList.add('is-visible');
+    }
+
+    function clearProgressTracker() {
+        const tracker = document.getElementById('progressTracker');
+        if (!tracker) { return; }
+        tracker.classList.remove('is-visible');
+        const fill = tracker.querySelector('.progress-tracker__fill');
+        if (fill) {
+            fill.style.width = '0%';
+        }
+        const label = tracker.querySelector('.progress-tracker__label');
+        if (label) {
+            label.textContent = '';
+        }
+    }
+
+    function createAudioButton({ text = '', label = '🔊', ariaLabel = 'Écouter', onClick } = {}) {
+        if (!window.speechSynthesis) { return null; }
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'audio-btn';
+        button.innerHTML = label;
+        button.setAttribute('aria-label', ariaLabel);
+        const handler = typeof onClick === 'function' ? onClick : () => speakText(text);
+        button.addEventListener('click', handler);
+        return button;
     }
     
     function lightenColor(hex, percent) {
@@ -949,7 +1341,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
 
-        const options = shuffle([correct, correct + 1, correct - 1, correct + 2].filter(n => n >= 0 && n !== correct).slice(0, 3).concat(correct));
+        const offsets = [-3, -2, -1, 1, 2, 3, 4, -4, 5, -5];
+        const distractors = [];
+        for (const offset of offsets) {
+            if (distractors.length >= 2) { break; }
+            const candidate = correct + offset;
+            if (candidate >= 0 && candidate !== correct && !distractors.includes(candidate)) {
+                distractors.push(candidate);
+            }
+        }
+        while (distractors.length < 2) {
+            const candidate = Math.floor(Math.random() * (max + level * 5));
+            if (candidate !== correct && !distractors.includes(candidate)) {
+                distractors.push(candidate);
+            }
+        }
+        const options = shuffle([correct, ...distractors]);
         return {
             questionText: `Combien font ${num1} ${type === 'additions' ? '+' : type === 'soustractions' ? '-' : 'x'} ${num2}?`,
             options: options,
@@ -982,7 +1389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let options = [questionData.correct];
-        while (options.length < 4) {
+        while (options.length < 3) {
             const randomColor = shuffle(allColors)[0];
             if (!options.includes(randomColor)) {
                 options.push(randomColor);
@@ -995,6 +1402,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Screen Management ---
     function showTopicMenu() {
+        clearProgressTracker();
         content.innerHTML = '';
         const prompt = document.createElement('div');
         prompt.className = 'question-prompt fx-bounce-in-down';
@@ -1046,6 +1454,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showLevelMenu(topic) {
         currentTopic = topic;
+        clearProgressTracker();
         content.innerHTML = '';
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
@@ -1145,11 +1554,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             currentQuestionIndex++;
-            if (currentQuestionIndex < QUESTIONS_PER_LEVEL) {
+            if (currentQuestionIndex < questionsForLevel.length) {
                 loadQuestion(currentQuestionIndex);
             } else {
                 answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
                 saveProgress();
+                clearProgressTracker();
                 const winPrompt = document.createElement('div');
                 winPrompt.className = 'prompt ok fx-pop';
                 winPrompt.textContent = `Bravo, tu as complété le Niveau ${currentLevel} !`;
@@ -1166,21 +1576,43 @@ document.addEventListener('DOMContentLoaded', () => {
         updateUI();
 
         const questionsForLevel = allQuestions[currentTopic].filter(q => q.difficulty === currentLevel);
+        if (!questionsForLevel.length) {
+            const emptyMessage = document.createElement('p');
+            emptyMessage.className = 'question-prompt';
+            emptyMessage.textContent = 'Aucune question disponible pour ce niveau pour le moment.';
+            content.appendChild(emptyMessage);
+            clearProgressTracker();
+            return;
+        }
         const questionData = questionsForLevel[index];
         const fragment = document.createDocumentFragment();
+
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
 
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
         title.innerHTML = questionData.questionText;
-        fragment.appendChild(title);
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: questionData.questionText,
+            ariaLabel: 'Écouter la question'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        fragment.appendChild(promptWrapper);
         speakText(questionData.questionText);
+        updateProgressTracker(index + 1, questionsForLevel.length);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
         
         const shuffledOptions = shuffle([...questionData.options]);
         shuffledOptions.forEach((opt, i) => {
-            const optionEl = document.createElement('div');
+            const optionEl = document.createElement('button');
             optionEl.className = 'option fx-bounce-in-down';
             optionEl.style.animationDelay = `${i * 0.1 + 0.5}s`;
             const originalIndex = questionData.options.indexOf(opt);
@@ -1220,11 +1652,25 @@ function showNumberHousesGame(level) {
     rooftop.textContent = roofNumber;
     container.appendChild(rooftop);
 
+    const promptWrapper = document.createElement('div');
+    promptWrapper.className = 'prompt-with-audio';
+
     const instruction = document.createElement('p');
     instruction.className = 'question-prompt';
     instruction.textContent = `Complète les ${pairsCount} maisons des nombres pour arriver à ${roofNumber}.`;
-    container.appendChild(instruction);
-speakText(instruction.textContent);
+    promptWrapper.appendChild(instruction);
+
+    const audioBtn = createAudioButton({
+        text: instruction.textContent,
+        ariaLabel: 'Écouter la consigne des maisons des nombres'
+    });
+    if (audioBtn) {
+        promptWrapper.appendChild(audioBtn);
+    }
+
+    container.appendChild(promptWrapper);
+    speakText(instruction.textContent);
+    updateProgressTracker(1, 1);
 
     const windowsContainer = document.createElement('div');
     windowsContainer.className = 'windows';
@@ -1359,14 +1805,36 @@ function generateNumberPairs(sum, count) {
         updateUI();
         
         const questionsForLevel = allQuestions.colors.filter(q => q.difficulty === currentLevel);
+        if (!questionsForLevel.length) {
+            const empty = document.createElement('p');
+            empty.className = 'question-prompt';
+            empty.textContent = 'Aucune question de couleur disponible pour ce niveau.';
+            content.appendChild(empty);
+            clearProgressTracker();
+            return;
+        }
         const questionData = questionsForLevel[index];
         const fragment = document.createDocumentFragment();
         
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
         title.innerHTML = questionData.questionText;
-        fragment.appendChild(title);
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: questionData.questionText,
+            ariaLabel: 'Écouter la question de couleur'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        fragment.appendChild(promptWrapper);
         speakText(questionData.questionText);
+        updateProgressTracker(index + 1, questionsForLevel.length);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
@@ -1430,11 +1898,12 @@ function generateNumberPairs(sum, count) {
         saveProgress();
         setTimeout(() => {
             currentQuestionIndex++;
-            if (currentQuestionIndex < QUESTIONS_PER_LEVEL) {
+            if (currentQuestionIndex < questionsForLevel.length) {
                 loadColorQuestion(currentQuestionIndex);
             } else {
                 answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
                 saveProgress();
+                clearProgressTracker();
                 showSuccessMessage(`Bravo, tu as complété le Niveau ${currentLevel} !`);
                 setTimeout(() => showLevelMenu(currentTopic), 2000);
             }
@@ -1442,6 +1911,7 @@ function generateNumberPairs(sum, count) {
     }
 
     function showStoryMenu() {
+        clearProgressTracker();
         content.innerHTML = '';
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
@@ -1472,8 +1942,33 @@ function generateNumberPairs(sum, count) {
         const story = magicStories[storyIndex];
         const storyContainer = document.createElement('div');
         storyContainer.className = 'story-container fx-bounce-in-down';
-        storyContainer.innerHTML = `<h2>${story.title}</h2><img src="${story.image}" alt="${story.title}" />`;
-        
+        const titleEl = document.createElement('h2');
+        titleEl.textContent = story.title;
+        storyContainer.appendChild(titleEl);
+
+        const storyToolbar = document.createElement('div');
+        storyToolbar.className = 'story-toolbar';
+
+        const fullStoryText = story.text.join(' ');
+        const listenBtn = createAudioButton({
+            label: '📖',
+            ariaLabel: 'Lire le conte en voix haute',
+            onClick: () => speakText(`${story.title}. ${fullStoryText}`)
+        });
+        if (listenBtn) {
+            listenBtn.classList.add('story-listen-btn');
+            listenBtn.textContent = '📖 Lire le conte';
+            storyToolbar.appendChild(listenBtn);
+            storyContainer.appendChild(storyToolbar);
+        }
+
+        if (story.image) {
+            const img = document.createElement('img');
+            img.src = story.image;
+            img.alt = story.title;
+            storyContainer.appendChild(img);
+        }
+
         story.text.forEach(paragraph => {
             const p = document.createElement('p');
             p.textContent = paragraph;
@@ -1502,9 +1997,6 @@ function generateNumberPairs(sum, count) {
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         configureBackButton('Retour aux contes', showStoryMenu);
-        
-        const fullStoryText = story.text.join(' ');
-        speakText(story.title + '. ' + fullStoryText);
     }
     
     function startStoryQuiz(quizQuestions) {
@@ -1523,11 +2015,25 @@ function generateNumberPairs(sum, count) {
         const questionData = storyQuiz[currentQuestionIndex];
         const fragment = document.createDocumentFragment();
         
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
-        title.innerHTML = `Question ${currentQuestionIndex + 1}:<br>${questionData.question}`;
-        fragment.appendChild(title);
+        title.innerHTML = `Question ${currentQuestionIndex + 1} / ${storyQuiz.length}<br>${questionData.question}`;
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: questionData.question,
+            ariaLabel: 'Écouter la question du conte'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        fragment.appendChild(promptWrapper);
         speakText(questionData.question);
+        updateProgressTracker(currentQuestionIndex + 1, storyQuiz.length);
         
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
@@ -1592,6 +2098,7 @@ function generateNumberPairs(sum, count) {
     
     function showQuizResults() {
         content.innerHTML = '';
+        clearProgressTracker();
         const prompt = document.createElement('div');
         prompt.className = 'prompt ok fx-pop';
         prompt.innerHTML = `Quiz terminé ! 🎉<p>Tu as gagné des étoiles et des pièces !</p>`;
@@ -1611,6 +2118,7 @@ function generateNumberPairs(sum, count) {
 
 
     function showMemoryGameMenu() {
+      clearProgressTracker();
       content.innerHTML = '';
 
       const title = document.createElement('div');
@@ -1637,11 +2145,25 @@ function generateNumberPairs(sum, count) {
 
     function showMemoryGame(pairsCount) {
         content.innerHTML = '';
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
         title.textContent = 'Trouve toutes les paires !';
-        content.appendChild(title);
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: 'Trouve toutes les paires !',
+            ariaLabel: 'Écouter les instructions du jeu de mémoire'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        content.appendChild(promptWrapper);
         speakText('Trouve toutes les paires !');
+        updateProgressTracker(0, pairsCount);
 
         const memoryGrid = document.createElement('div');
         memoryGrid.className = 'memory-grid';
@@ -1683,6 +2205,7 @@ function generateNumberPairs(sum, count) {
                     card1.card.classList.add('matched');
                     card2.card.classList.add('matched');
                     matchedPairs++;
+                    updateProgressTracker(matchedPairs, pairsCount);
                     userScore.stars += 20;
                     userScore.coins += 10;
                     playSound('correct');
@@ -1691,9 +2214,12 @@ function generateNumberPairs(sum, count) {
                     flippedCards = [];
                     lockBoard = false;
                     if (matchedPairs === pairsCount) {
+                        clearProgressTracker();
+                        answeredQuestions[`memory-${currentLevel}`] = 'completed';
+                        saveProgress();
                         showSuccessMessage('🦄 Toutes les paires trouvées !');
                         showConfetti();
-                        setTimeout(showMemoryGameMenu, 2000);
+                        setTimeout(() => showLevelMenu('memory'), 2000);
                     }
                 } else {
                     setTimeout(() => {
@@ -1732,12 +2258,25 @@ function generateNumberPairs(sum, count) {
         const container = document.createElement('div');
         container.className = 'sorting-container fx-bounce-in-down';
 
+        const instructionWrapper = document.createElement('div');
+        instructionWrapper.className = 'prompt-with-audio';
+
         const instruction = document.createElement('p');
         instruction.className = 'question-prompt';
         instruction.textContent = level === 1
             ? `${levelData.instruction} Glisse-les et lâche-les dans le bon panier.`
             : levelData.instruction;
-        container.appendChild(instruction);
+        instructionWrapper.appendChild(instruction);
+
+        const audioBtn = createAudioButton({
+            text: instruction.textContent,
+            ariaLabel: 'Écouter les instructions de tri'
+        });
+        if (audioBtn) {
+            instructionWrapper.appendChild(audioBtn);
+        }
+
+        container.appendChild(instructionWrapper);
         speakText(instruction.textContent);
 
         const zonesWrapper = document.createElement('div');
@@ -1786,6 +2325,8 @@ function generateNumberPairs(sum, count) {
             pool.appendChild(token);
             tokens.push(token);
         });
+
+        updateProgressTracker(0, tokens.length);
 
         container.appendChild(pool);
         content.appendChild(container);
@@ -1875,7 +2416,9 @@ function generateNumberPairs(sum, count) {
         }
 
         function updateCompletionState() {
-            const allPlaced = tokens.every(token => token.parentElement && token.parentElement.dataset && token.parentElement.dataset.category === token.dataset.target);
+            const correctCount = tokens.filter(token => token.parentElement && token.parentElement.dataset && token.parentElement.dataset.category === token.dataset.target).length;
+            updateProgressTracker(correctCount, tokens.length);
+            const allPlaced = correctCount === tokens.length;
             if (allPlaced && tokens.every(token => token.classList.contains('is-correct'))) {
                 hideSortingFeedback();
                 rewardPlayer();
@@ -1897,6 +2440,7 @@ function generateNumberPairs(sum, count) {
             answeredQuestions[`sorting-${currentLevel}`] = 'completed';
             saveProgress();
             updateUI();
+            clearProgressTracker();
             setTimeout(() => {
                 if (currentLevel < sortingLevels.length) {
                     showSortingGame(currentLevel + 1);
@@ -1938,11 +2482,25 @@ function generateNumberPairs(sum, count) {
         const wrapper = document.createElement('div');
         wrapper.className = 'riddle-wrapper fx-bounce-in-down';
 
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
         const title = document.createElement('div');
         title.className = 'question-prompt';
         title.textContent = riddleData.prompt;
-        wrapper.appendChild(title);
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: riddleData.prompt,
+            ariaLabel: 'Écouter l\'énigme'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        wrapper.appendChild(promptWrapper);
         speakText(riddleData.prompt);
+        updateProgressTracker(currentQuestionIndex + 1, riddleLevels.length);
 
         if (riddleData.image) {
             const image = document.createElement('img');
@@ -2046,10 +2604,23 @@ function generateNumberPairs(sum, count) {
         const wrapper = document.createElement('div');
         wrapper.className = 'vowel-wrapper fx-bounce-in-down';
 
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
         const title = document.createElement('div');
         title.className = 'question-prompt';
         title.textContent = 'Quelle voyelle manque ?';
-        wrapper.appendChild(title);
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: `${title.textContent}. ${levelData.hint}`,
+            ariaLabel: 'Écouter la consigne des voyelles'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        wrapper.appendChild(promptWrapper);
 
         const display = document.createElement('div');
         display.className = 'vowel-display';
@@ -2095,6 +2666,7 @@ function generateNumberPairs(sum, count) {
         wrapper.appendChild(optionsContainer);
 
         content.appendChild(wrapper);
+        updateProgressTracker(index + 1, vowelLevels.length);
         speakText(`${title.textContent}. ${levelData.hint}`);
 
         btnLogros.style.display = 'inline-block';
@@ -2221,11 +2793,25 @@ function generateNumberPairs(sum, count) {
         const container = document.createElement('div');
         container.className = 'sequence-wrapper fx-bounce-in-down';
 
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
         const title = document.createElement('div');
         title.className = 'question-prompt';
         title.textContent = 'Quel est le prochain élément de la séquence ?';
-        container.appendChild(title);
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: title.textContent,
+            ariaLabel: 'Écouter la consigne de la séquence'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        container.appendChild(promptWrapper);
         speakText(title.textContent);
+        updateProgressTracker(currentLevel, sequenceLevels.length);
 
         const sequenceContainer = document.createElement('div');
         sequenceContainer.className = 'sequence-container';
@@ -2379,6 +2965,7 @@ function generateNumberPairs(sum, count) {
             saveProgress();
             updateUI();
             showConfetti();
+            clearProgressTracker();
             setTimeout(() => {
                 if (currentLevel < sequenceLevels.length) {
                     loadSequenceQuestion(currentLevel);
@@ -2404,6 +2991,7 @@ function generateNumberPairs(sum, count) {
         content.innerHTML = `<div class="question-prompt fx-pop">Tu as complété toutes les questions! 🎉</div>
                             <div class="prompt ok">Ton score final : ${userScore.stars} étoiles et ${userScore.coins} pièces.</div>`;
         speakText("Tu as complété toutes les questions! Félicitations pour ton score final.");
+        clearProgressTracker();
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         configureBackButton('Retour au Menu Principal', showTopicMenu);
