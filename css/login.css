@@ -37,86 +37,64 @@ body {
 }
 
 #avatar-selection {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 1.25rem;
-    justify-items: center;
-    width: 100%;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .avatar-option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    width: clamp(110px, 18vw, 140px);
-    min-height: clamp(140px, 22vw, 170px);
-    padding: 0.85rem 0.75rem;
-    border-radius: 24px;
-    border: 3px solid transparent;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 10px 24px rgba(148, 102, 255, 0.22);
+    font-size: 4rem;
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    touch-action: manipulation;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(148, 102, 255, 0.1);
+    animation: floaty 4s ease-in-out infinite;
+    background: rgba(255, 255, 255, 0.85);
 }
 
-.avatar-option img {
-    width: clamp(72px, 12vw, 96px);
-    height: clamp(72px, 12vw, 96px);
-    object-fit: contain;
-    filter: drop-shadow(0 6px 12px rgba(54, 36, 96, 0.15));
+.avatar-option.pulse {
+    animation: pulseSelect 0.5s ease;
 }
 
-.avatar-label {
-    font-family: var(--font-heading);
-    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-    color: #4a3c75;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
-}
-
-.avatar-option:hover,
-.avatar-option:focus-visible {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 16px 36px rgba(148, 102, 255, 0.32);
-    border-color: rgba(148, 102, 255, 0.45);
-    outline: none;
-}
-
-.avatar-option:active {
-    transform: scale(0.97);
-    box-shadow: inset 0 6px 16px rgba(148, 102, 255, 0.28);
+.avatar-option:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 14px 32px rgba(148, 102, 255, 0.35);
 }
 
 .avatar-option.selected {
     border-color: var(--primary-light);
-    box-shadow:
-        0 0 0 6px rgba(255, 255, 255, 0.7),
-        0 20px 40px rgba(148, 102, 255, 0.4);
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(236, 229, 255, 0.95));
-    position: relative;
-}
-
-.avatar-option.pulse {
-    animation: pulseSelect 0.45s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.7), 0 18px 35px rgba(148,102,255,0.4);
+    animation: none;
 }
 
 .avatar-option.selected::before {
-    content: '';
+    content: '✨';
     position: absolute;
     top: -18px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.4rem;
-    animation: twinkle 1.4s ease-in-out infinite;
+    font-size: 1.5rem;
+    animation: twinkle 1.2s ease-in-out infinite;
 }
 
-.avatar-option.selected img {
-    filter: drop-shadow(0 8px 18px rgba(148, 102, 255, 0.35));
-    transform: translateY(-2px);
-    transition: transform 0.2s ease;
+.avatar-option.selected::after {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(255,255,255,0.35), rgba(255,255,255,0));
+    animation: starglow 2s linear infinite;
+    pointer-events: none;
 }
+
+.avatar-option[data-avatar="🦄"].selected { animation: unicornBlink 1.6s steps(2) infinite; }
+.avatar-option[data-avatar="🐼"].selected { animation: pandaNod 1.4s ease-in-out infinite; }
+.avatar-option[data-avatar="🐸"].selected { animation: frogHop 1s ease-in-out infinite; }
 
 .name-input-wrapper {
     display: flex;
@@ -343,6 +321,12 @@ body {
 @keyframes backgroundGlow {
     from { filter: hue-rotate(0deg); }
     to { filter: hue-rotate(12deg); }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
 }
 
 @media (max-width: 480px) {
