@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    const persistedAvatar = typeof storage.loadSelectedAvatar === 'function'
+        ? storage.loadSelectedAvatar()
+        : null;
+    if (persistedAvatar?.id) {
+        userProfile.avatar = {
+            ...(userProfile.avatar || {}),
+            ...persistedAvatar
+        };
+    }
+
     // --- DOM Elements ---
     const content = document.getElementById('content');
     const btnBack = document.getElementById('btnBack');
@@ -177,6 +187,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceCoins: 80,
                 description: 'Montre ta force avec ce badge dragon.',
                 colors: { background: '#FF6B6B', accent: '#EE4035', text: '#4A0505' }
+            },
+            {
+                id: 'badge-pingouin-glace',
+                name: 'Badge Pingouin Glacé',
+                emoji: '🐧',
+                priceCoins: 40,
+                description: 'Un badge givré pour les explorateurs polaires.',
+                colors: { background: '#BEE3FF', accent: '#4A90E2', text: '#17426B' }
+            },
+            {
+                id: 'badge-fee-lumineuse',
+                name: 'Badge Fée Lumineuse',
+                emoji: '🧚‍♀️',
+                priceCoins: 65,
+                description: 'La poussière de fée te suit dans chaque aventure.',
+                colors: { background: '#FFE8F6', accent: '#FF9FF3', text: '#6C1A5F' }
+            },
+            {
+                id: 'badge-robot-genial',
+                name: 'Badge Robot Génial',
+                emoji: '🤖',
+                priceCoins: 50,
+                description: 'Pour les inventeurs curieux et malins.',
+                colors: { background: '#E0F7FA', accent: '#00BCD4', text: '#004D54' }
+            },
+            {
+                id: 'badge-etoile-nord',
+                name: 'Badge Étoile du Nord',
+                emoji: '🌌',
+                priceCoins: 90,
+                description: 'Une étoile brillante qui guide tes missions.',
+                colors: { background: '#2E3359', accent: '#6C63FF', text: '#F4F4FF' }
             }
         ];
 
@@ -487,8 +529,91 @@ document.addEventListener('DOMContentLoaded', () => {
         '🔵 Bleu': 'blue', '🟡 Jaune': 'yellow', '🔴 Rouge': 'red',
         '⚫ Noir': 'black', '⚪ Blanc': 'white', '💗 Rose': 'pink',
         '💧 Bleu Clair': 'light-blue', '🍃 Vert Clair': 'light-green',
-        '⚪ Blanc + 🔴 Rouge': 'pink', '🔵 Bleu + 🟡 Jaune': 'green', '🔴 Rouge + 🟡 Jaune': 'orange', '🔵 Bleu + 🔴 Rouge': 'purple',
+        '🤎 Marron': 'brown', '🍫 Chocolat': 'chocolate', '💜 Lavande': 'lavender', '🍷 Bordeaux': 'bordeaux',
     };
+
+    const COLOR_MIX_LIBRARY = [
+        {
+            id: 'mix-blue-yellow',
+            inputs: ['🔵 Bleu', '🟡 Jaune'],
+            result: '🟢 Vert',
+            explanation: 'Le bleu et le jaune deviennent un joli vert.',
+            minLevel: 1,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-red-yellow',
+            inputs: ['🔴 Rouge', '🟡 Jaune'],
+            result: '🟠 Orange',
+            explanation: 'Jaune et rouge créent un orange lumineux.',
+            minLevel: 1,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-blue-red',
+            inputs: ['🔵 Bleu', '🔴 Rouge'],
+            result: '🟣 Violet',
+            explanation: 'Mélanger du bleu et du rouge donne du violet.',
+            minLevel: 1,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-red-white',
+            inputs: ['🔴 Rouge', '⚪ Blanc'],
+            result: '💗 Rose',
+            explanation: 'Un peu de blanc adoucit le rouge en rose.',
+            minLevel: 4,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-blue-white',
+            inputs: ['🔵 Bleu', '⚪ Blanc'],
+            result: '💧 Bleu Clair',
+            explanation: 'Le bleu devient plus léger avec du blanc.',
+            minLevel: 4,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-green-white',
+            inputs: ['🟢 Vert', '⚪ Blanc'],
+            result: '🍃 Vert Clair',
+            explanation: 'Du blanc rend le vert très doux.',
+            minLevel: 5,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-red-black',
+            inputs: ['🔴 Rouge', '⚫ Noir'],
+            result: '🍷 Bordeaux',
+            explanation: 'Noir et rouge foncent la couleur en bordeaux.',
+            minLevel: 7,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-orange-black',
+            inputs: ['🟠 Orange', '⚫ Noir'],
+            result: '🍫 Chocolat',
+            explanation: 'Orange avec un peu de noir crée une teinte chocolat.',
+            minLevel: 8,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-green-red',
+            inputs: ['🟢 Vert', '🔴 Rouge'],
+            result: '🤎 Marron',
+            explanation: 'Vert et rouge se mélangent pour devenir marron.',
+            minLevel: 8,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-violet-white',
+            inputs: ['🟣 Violet', '⚪ Blanc'],
+            result: '💜 Lavande',
+            explanation: 'Du blanc dans le violet donne une jolie lavande.',
+            minLevel: 9,
+            maxLevel: 12
+        }
+    ];
 
     const sortingLevels = [
         {
@@ -799,11 +924,40 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!userInfo) { return; }
 
         userInfo.innerHTML = '';
-        userInfo.dataset.avatarId = userProfile.avatar?.id || '';
-
         const avatarMeta = getAvatarMetaLocal(userProfile.avatar?.id);
         const avatarIconUrl = userProfile.avatar?.iconUrl || avatarMeta?.iconUrl;
         const avatarName = userProfile.avatar?.name || avatarMeta?.name || 'Avatar';
+        const avatarPalette = avatarMeta?.defaultPalette || null;
+
+        userInfo.dataset.avatarId = userProfile.avatar?.id || '';
+        userInfo.dataset.avatarName = avatarName || '';
+        if (avatarIconUrl) {
+            userInfo.dataset.avatarIcon = avatarIconUrl;
+        } else {
+            delete userInfo.dataset.avatarIcon;
+        }
+
+        if (!userInfo.classList.contains('user-info-home')) {
+            userInfo.classList.add('user-info-home');
+        }
+        const avatarClassPrefix = 'user-info-home--';
+        const variantClasses = Array.from(userInfo.classList).filter(cls => cls.startsWith(avatarClassPrefix));
+        variantClasses.forEach(cls => userInfo.classList.remove(cls));
+        if (avatarMeta?.id) {
+            userInfo.classList.add(`${avatarClassPrefix}${avatarMeta.id}`);
+        }
+
+        if (avatarPalette) {
+            const primaryTone = avatarPalette.accent || avatarPalette.primary || '#f0e6ff';
+            const inkTone = avatarPalette.textLight || '#2d1b44';
+            userInfo.style.setProperty('--user-info-bg', primaryTone);
+            userInfo.style.setProperty('--user-info-ink', inkTone);
+            userInfo.style.setProperty('--user-info-name', inkTone);
+        } else {
+            userInfo.style.removeProperty('--user-info-bg');
+            userInfo.style.removeProperty('--user-info-ink');
+            userInfo.style.removeProperty('--user-info-name');
+        }
 
         if (avatarIconUrl) {
             const avatarImg = document.createElement('img');
@@ -1713,20 +1867,37 @@ document.addEventListener('DOMContentLoaded', () => {
             listItem.className = 'shop-item';
             listItem.dataset.type = resolvedItem.type;
 
-            if (resolvedItem.previewUrl) {
-                const preview = document.createElement('img');
-                preview.className = 'shop-item__preview';
-                preview.src = resolvedItem.previewUrl;
-                preview.alt = `Prévisualisation : ${resolvedItem.name}`;
-                preview.loading = 'lazy';
-                listItem.appendChild(preview);
+            const artworkSrc = resolvedItem.iconUrl || resolvedItem.previewUrl;
+            if (artworkSrc) {
+                const artwork = document.createElement('img');
+                artwork.className = 'shop-item__artwork';
+                artwork.src = artworkSrc;
+                artwork.alt = resolvedItem.name;
+                artwork.loading = 'lazy';
+                listItem.appendChild(artwork);
+            } else if (resolvedItem.motif) {
+                const motif = document.createElement('span');
+                motif.className = 'shop-item__emoji';
+                motif.textContent = resolvedItem.motif;
+                motif.setAttribute('aria-hidden', 'true');
+                listItem.appendChild(motif);
             }
 
-            const header = document.createElement('div');
-            header.className = 'shop-item__header';
-            header.innerHTML = `<span class="shop-item__name">${resolvedItem.name}</span><span class="shop-item__price">${resolvedItem.priceCoins} 💰</span>`;
+            const name = document.createElement('span');
+            name.className = 'shop-item__name';
+            name.textContent = resolvedItem.name;
+            listItem.appendChild(name);
 
-            
+            const price = document.createElement('span');
+            price.className = 'shop-item__price';
+            price.setAttribute('aria-label', `${resolvedItem.priceCoins} pièces`);
+            price.textContent = `${resolvedItem.priceCoins}`;
+            const priceIcon = document.createElement('span');
+            priceIcon.className = 'shop-item__price-icon';
+            priceIcon.textContent = '💰';
+            priceIcon.setAttribute('aria-hidden', 'true');
+            price.appendChild(priceIcon);
+            listItem.appendChild(price);
 
             const action = document.createElement('button');
             action.type = 'button';
@@ -1736,8 +1907,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const isActive = activeCosmetics[resolvedItem.type] === resolvedItem.id;
 
             if (!owned) {
-                action.textContent = `Acheter (${resolvedItem.priceCoins}💰)`;
-                if (userScore.coins < resolvedItem.priceCoins) {
+                const canAfford = userScore.coins >= resolvedItem.priceCoins;
+                action.textContent = canAfford ? 'Acheter' : 'Pièces insuffisantes';
+                action.setAttribute('aria-label', canAfford
+                    ? `Acheter ${resolvedItem.name} pour ${resolvedItem.priceCoins} pièces`
+                    : `${resolvedItem.name} coûte ${resolvedItem.priceCoins} pièces`);
+                if (!canAfford) {
                     action.disabled = true;
                     action.classList.add('is-disabled');
                     action.title = 'Gagne plus de pièces pour acheter cette récompense.';
@@ -1747,13 +1922,14 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 action.textContent = isActive ? 'Équipé' : 'Utiliser';
                 action.disabled = isActive;
+                action.setAttribute('aria-label', isActive
+                    ? `${resolvedItem.name} est déjà équipé`
+                    : `Activer ${resolvedItem.name}`);
                 if (!isActive) {
                     action.addEventListener('click', () => activateItem(resolvedItem.id));
                 }
             }
 
-            listItem.appendChild(header);
-            listItem.appendChild(description);
             listItem.appendChild(action);
             shopList.appendChild(listItem);
         });
@@ -2053,37 +2229,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function generateColorQuestion(level) {
-        let questionData = {};
-        const allColors = Object.keys(colorMap);
-        const primaryColors = ['🔵 Bleu', '🟡 Jaune', '🔴 Rouge'];
-        const secondaryColors = ['🟢 Vert', '🟠 Orange', '🟣 Violet'];
-        
-        if (level <= 4) {
-            const color = shuffle(primaryColors)[0];
-            questionData = { questionText: `Quelle est la couleur ${color}?`, correct: color };
-        } else if (level <= 7) {
-            const combinations = shuffle([
-                { text: `🔵 Bleu + 🟡 Jaune`, result: '🟢 Vert' },
-                { text: `🔴 Rouge + 🟡 Jaune`, result: '🟠 Orange' },
-                { text: `🔵 Bleu + 🔴 Rouge`, result: '🟣 Violet' }
-            ]);
-            const combo = combinations[0];
-            questionData = { questionText: `Quelle couleur obtient-on en mélangeant ${combo.text}?`, correct: combo.result };
-        } else {
-            const color = shuffle(allColors.filter(c => !primaryColors.includes(c) && !secondaryColors.includes(c)))[0];
-            questionData = { questionText: `Quelle couleur est ${color}?`, correct: color };
+        const availableMixes = COLOR_MIX_LIBRARY.filter(mix => level >= (mix.minLevel || 1) && level <= (mix.maxLevel || LEVELS_PER_TOPIC));
+        const fallbackMixes = availableMixes.length ? availableMixes : COLOR_MIX_LIBRARY;
+        const selectedMix = shuffle([...fallbackMixes])[0];
+
+        const questionText = `Quelle couleur apparaît quand on mélange ${selectedMix.inputs[0]} + ${selectedMix.inputs[1]} ?`;
+        const optionsSet = new Set([selectedMix.result]);
+
+        const distractorPool = shuffle(fallbackMixes.filter(mix => mix.result !== selectedMix.result).map(mix => mix.result));
+        while (optionsSet.size < 3 && distractorPool.length) {
+            optionsSet.add(distractorPool.pop());
         }
 
-        let options = [questionData.correct];
-        while (options.length < 3) {
-            const randomColor = shuffle(allColors)[0];
-            if (!options.includes(randomColor)) {
-                options.push(randomColor);
+        if (optionsSet.size < 3) {
+            const extraColors = shuffle(Object.keys(colorMap).filter(color => !optionsSet.has(color)));
+            while (optionsSet.size < 3 && extraColors.length) {
+                optionsSet.add(extraColors.pop());
             }
         }
-        questionData.options = shuffle(options);
-        questionData.correct = questionData.options.indexOf(questionData.correct);
-        return { ...questionData, difficulty: level, reward: { stars: 20, coins: 15 } };
+
+        const options = shuffle(Array.from(optionsSet));
+        const correctIndex = options.indexOf(selectedMix.result);
+
+        return {
+            questionText,
+            options,
+            correct: correctIndex,
+            difficulty: level,
+            explanation: selectedMix.explanation,
+            metaSkill: 'cognition:colors',
+            reward: {
+                stars: 12 + level * 2,
+                coins: 8 + Math.floor(level * 1.5)
+            }
+        };
     }
 
     // --- Screen Management ---

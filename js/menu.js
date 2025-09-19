@@ -23,13 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     userGreeting.textContent = `¡Hola, ${activeUser}!`;
     
     // Load and render the selected avatar
-    let selectedAvatarId = storage.loadSelectedAvatar();
-    if (!selectedAvatarId) {
-        selectedAvatarId = 'licorne'; // Default avatar
-        storage.saveSelectedAvatar(selectedAvatarId);
+    let selectedAvatar = storage.loadSelectedAvatar();
+    if (!selectedAvatar) {
+        const fallbackAvatar = getAvatarMeta('licorne') || {
+            id: 'licorne',
+            name: 'Licorne',
+            iconUrl: '../assets/avatars/licorne.svg'
+        };
+        storage.saveSelectedAvatar(fallbackAvatar);
+        selectedAvatar = fallbackAvatar;
     }
-    const currentAvatarMeta = getAvatarMeta(selectedAvatarId);
+    const currentAvatarMeta = getAvatarMeta(selectedAvatar.id) || selectedAvatar;
     renderAvatar(userAvatarDisplay, currentAvatarMeta);
+    let selectedAvatarId = currentAvatarMeta?.id || 'licorne';
 
     if (userData.color) {
         body.style.setProperty('--primary-color', userData.color);
@@ -66,11 +72,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (avatarOption) {
             const newAvatarId = avatarOption.dataset.avatarId;
             if (newAvatarId) {
-                storage.saveSelectedAvatar(newAvatarId);
-                const newAvatarMeta = getAvatarMeta(newAvatarId);
+                const optionMeta = {
+                    id: newAvatarId,
+                    name: avatarOption.dataset.name,
+                    iconUrl: avatarOption.dataset.avatar
+                };
+                const newAvatarMeta = getAvatarMeta(newAvatarId) || optionMeta;
+                storage.saveSelectedAvatar(newAvatarMeta);
+                updateUserProfileAvatar(newAvatarMeta);
                 renderAvatar(userAvatarDisplay, newAvatarMeta);
+                if (newAvatarMeta?.defaultPalette?.primary) {
+                    document.body?.style.setProperty('--primary-color', newAvatarMeta.defaultPalette.primary);
+                }
+                selectedAvatarId = newAvatarId;
+                avatarOptionsContainer
+                    .querySelectorAll('.avatar-option')
+                    .forEach(option => option.classList.toggle('selected', option.dataset.avatarId === newAvatarId));
                 avatarSelectionModal.style.display = 'none';
-                selectedAvatarId = newAvatarId; // Update the selectedAvatarId
             }
         }
     });
@@ -99,9 +117,18 @@ function renderAvatar(container, avatarData) {
 
     const wrapper = document.createElement('div');
     wrapper.className = 'menu-avatar';
+    if (avatarData.id) {
+        wrapper.dataset.avatarId = avatarData.id;
+    }
+    if (avatarData.iconUrl) {
+        wrapper.dataset.avatar = avatarData.iconUrl;
+    }
+    if (avatarData.name) {
+        wrapper.dataset.avatarName = avatarData.name;
+    }
 
     const img = document.createElement('img');
-    img.src = avatarData.iconUrl;
+    img.src = avatarData.iconUrl || '../assets/avatars/licorne.svg';
     img.alt = avatarData.name || 'Avatar';
     img.loading = 'lazy';
     wrapper.appendChild(img);
@@ -120,7 +147,8 @@ function populateAvatarOptions(container, currentSelectedId) {
         const avatar = window.AVATAR_LIBRARY[avatarId];
         const avatarOption = document.createElement('div');
         avatarOption.className = 'avatar-option';
-        avatarOption.dataset.avatarId = avatar.id; // Use avatar.id for data-avatar
+        avatarOption.dataset.avatarId = avatar.id;
+        avatarOption.dataset.avatar = avatar.iconUrl || '';
         avatarOption.dataset.name = avatar.name;
 
         if (avatar.id === currentSelectedId) {
@@ -147,3 +175,17 @@ function getAvatarMeta(avatarId) {
     return library[avatarId] || null;
 }
 
+function updateUserProfileAvatar(avatarMeta) {
+    if (!avatarMeta || !avatarMeta.id) { return; }
+    const currentProfile = storage.loadUserProfile();
+    if (!currentProfile) { return; }
+    const sanitizedProfile = {
+        ...currentProfile,
+        avatar: {
+            id: avatarMeta.id,
+            name: avatarMeta.name,
+            iconUrl: avatarMeta.iconUrl
+        }
+    };
+    storage.saveUserProfile(sanitizedProfile);
+}
