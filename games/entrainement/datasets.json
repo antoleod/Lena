@@ -1,0 +1,51 @@
+{
+  "mini-add-sub": [
+    { "prompt": "J'ai 8 billes et j'en gagne 4. Combien maintenant ?", "options": ["11", "12", "13"], "answer": 1 },
+    { "prompt": "Il y avait 15 gâteaux, on en mange 6. Combien restent ?", "options": ["7", "9", "11"], "answer": 1 },
+    { "prompt": "Un sac contient 9 pommes. On en ajoute 5. Total ?", "options": ["13", "14", "15"], "answer": 1 },
+    { "prompt": "Léna possède 20 pièces et en offre 7. Combien garde-t-elle ?", "options": ["11", "12", "13"], "answer": 2 },
+    { "prompt": "Il y a 16 crayons, 3 tombent. Combien restent ?", "options": ["12", "13", "14"], "answer": 1 }
+  ],
+  "orthographe-rapide": [
+    { "prompt": "Choisis l'orthographe correcte.", "options": ["magicien", "magicienne", "magisien"], "answer": 0 },
+    { "prompt": "Choisis le bon mot.", "options": ["ami", "amis", "amie"], "answer": 0 },
+    { "prompt": "Choisis l'orthographe correcte.", "options": ["cheval", "chevaux", "chevaut"], "answer": 0 },
+    { "prompt": "Choisis le bon mot.", "options": ["voiture", "voiturs", "voiturs"], "answer": 0 },
+    { "prompt": "Choisis l'orthographe correcte.", "options": ["balade", "ballade", "baladee"], "answer": 0 }
+  ],
+  "accords-express": [
+    { "prompt": "Des fleurs ___", "options": ["coloré", "colorée", "colorées"], "answer": 2 },
+    { "prompt": "Un ___ chaton", "options": ["petits", "petit", "petite"], "answer": 1 },
+    { "prompt": "Mes amis sont ___", "options": ["gentil", "gentils", "gentille"], "answer": 1 },
+    { "prompt": "Une robe ___", "options": ["bleu", "bleue", "bleues"], "answer": 1 },
+    { "prompt": "Des chapeaux ___", "options": ["rouge", "rouges", "rougees"], "answer": 1 }
+  ],
+  "dictee-eclair": [
+    { "prompt": "Choisis ce que tu entends :", "options": ["le loup", "les loups", "les loupes"], "answer": 1 },
+    { "prompt": "Choisis ce que tu entends :", "options": ["il chante", "ils chantent", "ils chanter"], "answer": 1 },
+    { "prompt": "Choisis ce que tu entends :", "options": ["son livre", "sont livres", "sans livre"], "answer": 0 },
+    { "prompt": "Choisis ce que tu entends :", "options": ["nous jouons", "nous jouent", "nous jouer"], "answer": 0 },
+    { "prompt": "Choisis ce que tu entends :", "options": ["je suis allé", "je suis aller", "je suis allés"], "answer": 0 }
+  ],
+  "lecture-flash": [
+    { "prompt": "La petite fée glisse sur l'arc-en-ciel. Que fait-elle ?", "options": ["Elle vole", "Elle glisse", "Elle chante"], "answer": 1 },
+    { "prompt": "Le chat lit une histoire drôle. Que fait le chat ?", "options": ["Il lit", "Il dort", "Il mange"], "answer": 0 },
+    { "prompt": "Les trois amis construisent une cabane. Combien sont-ils ?", "options": ["Deux", "Trois", "Quatre"], "answer": 1 },
+    { "prompt": "Un dragon garde un trésor d'or. Que garde-t-il ?", "options": ["Un trésor", "Un jardin", "Une potion"], "answer": 0 },
+    { "prompt": "Léna range ses cahiers colorés. Que fait Léna ?", "options": ["Elle range", "Elle dessine", "Elle court"], "answer": 0 }
+  ],
+  "mot-corrige": [
+    { "prompt": "Quel mot est correctement écrit ?", "options": ["ornnge", "orange", "orenge"], "answer": 1 },
+    { "prompt": "Quel mot est correct ?", "options": ["maison", "maisson", "maisonne"], "answer": 0 },
+    { "prompt": "Quel mot est correct ?", "options": ["ami", "amis", "amies"], "answer": 0 },
+    { "prompt": "Quel mot est correct ?", "options": ["chate", "chat", "chatte"], "answer": 1 },
+    { "prompt": "Quel mot est correct ?", "options": ["licorne", "licornne", "licorn"], "answer": 0 }
+  ],
+  "copie-magique": [
+    { "prompt": "Recopie mentalement : 'La lune est argentée'.", "options": ["La lune est argentée", "La lune et argentée", "La lune est argenté"], "answer": 0 },
+    { "prompt": "Recopie mentalement : 'Les amis jouent'.", "options": ["Les amis jouent", "Les ami jouent", "Les amis joues"], "answer": 0 },
+    { "prompt": "Recopie mentalement : 'Je vois la mer'.", "options": ["Je vois la mer", "Je voit la mer", "Je voit la mère"], "answer": 0 },
+    { "prompt": "Recopie mentalement : 'Nous avons ri'.", "options": ["Nous avons ri", "Nous avons rit", "Nous avons ris"], "answer": 0 },
+    { "prompt": "Recopie mentalement : 'Il fait beau aujourd'hui'.", "options": ["Il fait beau aujourd'hui", "Il fait beau aujourdhui", "Il fait beaux aujourd'hui"], "answer": 0 }
+  ]
+}

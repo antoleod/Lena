@@ -45,7 +45,7 @@ const storage = {
     },
     loadUserProgress: (userName) => {
         const defaultProgress = () => ({
-            userScore: { stars: 0, coins: 0 },
+            userScore: { stars: 0, coins: 0, stickers: 0 },
             answeredQuestions: {},
             currentLevel: 1,
             ownedItems: [],
@@ -65,10 +65,15 @@ const storage = {
             const parsed = JSON.parse(progress);
             const base = defaultProgress();
 
+            const mergedUserScore = {
+                ...base.userScore,
+                ...(parsed.userScore || {})
+            };
+
             return {
                 ...base,
                 ...parsed,
-                userScore: { ...base.userScore, ...(parsed.userScore || {}) },
+                userScore: mergedUserScore,
                 answeredQuestions: { ...base.answeredQuestions, ...(parsed.answeredQuestions || {}) },
                 activeCosmetics: { ...base.activeCosmetics, ...(parsed.activeCosmetics || {}) },
                 ownedItems: Array.isArray(parsed.ownedItems) ? parsed.ownedItems : base.ownedItems

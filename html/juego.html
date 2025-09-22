@@ -1,71 +1,137 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-    <title>Appli de Léna — Jeu 🦄</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Appli de Léna — Mission d'apprentissage</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/juego.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 </head>
-<body class="body-level-1">
-  <div id="stageTop">
-    <div class="scores-container">
-      <span id="user-info"></span>
-      <span id="scoreStars">0</span>
-      <span id="scoreCoins" class="coins">0</span>
-      <span id="level" class="level">Niveau 1</span>
+<body class="mission-body" data-environment="forest">
+    <div class="mission-backdrop" aria-hidden="true">
+        <div class="mission-backdrop__layer mission-backdrop__layer--gradient"></div>
+        <div class="mission-backdrop__layer mission-backdrop__layer--sparkles"></div>
+        <div class="mission-backdrop__layer mission-backdrop__layer--orbs"></div>
     </div>
-    <div class="top-buttons">
-        <button id="btnShop" class="btn">🛍️ Boutique</button>
-        <button id="btnLogros" class="btn">🏆 Succès</button>
-        <button id="btnLogout" class="btn">🚪 Quitter</button>
-        <button id="btnBack" class="btn">Retour</button>
-    </div>
-  </div>
 
-  <div id="stageBottom">
-    <div id="content">
-      <!-- Game content will be loaded here by JavaScript -->
-    </div>
-    
-    <div id="stageBtns">
-      <button id="btnPrev" class="btn" aria-label="Précédent">Précédent</button>
-      <button id="btnSkip" class="btn" aria-label="Passer">Passer</button>
-    </div>
-  </div>
+    <div class="mission-wrapper">
+        <header class="mission-header">
+            <button id="btnBackMenu" class="header-btn" type="button">← Menu</button>
+            <div class="mission-header__profile" id="missionProfile">
+                <div class="mission-header__avatar" id="missionAvatar"></div>
+                <div class="mission-header__info">
+                    <p class="mission-header__greeting" id="missionGreeting">Salut, aventurière !</p>
+                    <p class="mission-header__section" id="missionSection">Section en cours</p>
+                </div>
+            </div>
+            <div class="mission-header__scores">
+                <div class="mission-score" data-score="stars">
+                    <span class="mission-score__icon">⭐</span>
+                    <span class="mission-score__value" id="scoreStars">0</span>
+                </div>
+                <div class="mission-score" data-score="coins">
+                    <span class="mission-score__icon">💰</span>
+                    <span class="mission-score__value" id="scoreCoins">0</span>
+                </div>
+                <div class="mission-score" data-score="stickers">
+                    <span class="mission-score__icon">🐱</span>
+                    <span class="mission-score__value" id="scoreStickers">0</span>
+                </div>
+            </div>
+        </header>
 
-  <audio id="audioCorrect" src="https://assets.mixkit.co/sfx/download/mixkit-game-bling-2041.wav"></audio>
-  <audio id="audioWrong" src="https://assets.mixkit.co/sfx/download/mixkit-wrong-answer-2051.wav"></audio>
+        <main class="mission-stage" role="main">
+            <section class="mission-card" aria-label="Carte de mission">
+                <header class="mission-card__header">
+                    <div class="mission-card__badge" id="levelBadge">Choisis un niveau ✨</div>
+                    <div class="mission-card__progress">
+                        <span class="mission-progress__label" id="questionProgress">Question 1 / 5</span>
+                        <div class="mission-progress__bar">
+                            <div class="mission-progress__fill" id="questionProgressFill"></div>
+                        </div>
+                    </div>
+                    <div class="mission-timer" id="missionTimer" hidden>
+                        ⏱️ <span id="timerValue">03:00</span>
+                    </div>
+                </header>
 
-  <div id="shopModal" class="shop-modal" aria-hidden="true">
-    <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
-      <div class="shop-modal__header">
-        <h2 id="shopModalTitle">Boutique de récompenses</h2>
-        <button id="shopClose" class="shop-modal__close" aria-label="Fermer la boutique">×</button>
-      </div>
-      <p class="shop-modal__subtitle">Échange tes pièces contre des cadeaux magiques ✨</p>
-      <div class="shop-modal__content">
-        <section class="shop-section" aria-label="Articles disponibles">
-          <h3>Articles disponibles</h3>
-          <ul id="shopList" class="shop-list"></ul>
-        </section>
-        <section class="shop-section" aria-label="Mes trésors">
-          <h3>Mes trésors</h3>
-          <ul id="inventoryList" class="shop-inventory"></ul>
-        </section>
-      </div>
+                <div class="mission-card__selectors">
+                    <div class="mission-categories" id="categoryBlock" aria-label="Choix des jeux">
+                        <h2 class="mission-categories__title">Jeux</h2>
+                        <ul class="mission-categories__list" id="categoryList"></ul>
+                    </div>
+                    <div class="mission-medals" aria-label="Choix du niveau">
+                        <h2 class="mission-medals__title">Niveaux</h2>
+                        <div class="mission-medals__track" id="levelList" role="list"></div>
+                    </div>
+                </div>
+
+                <div class="mission-card__content">
+                    <article class="question-card" id="questionCard" aria-live="polite">
+                        <div class="question-card__illustration" id="questionIllustration" aria-hidden="true"></div>
+                        <p class="question-card__text" id="questionText">La question apparaîtra ici.</p>
+                    </article>
+                    <div class="options-grid" id="optionsGrid" role="group" aria-label="Choisis une réponse"></div>
+                </div>
+
+                <footer class="mission-card__footer">
+                    <div class="mission-feedback" id="missionFeedback" aria-live="polite"></div>
+                    <div class="mission-actions">
+                        <button id="btnHint" class="mission-action" type="button">💡 Indice</button>
+                        <button id="btnSkip" class="mission-action" type="button">⏭️ Passer</button>
+                        <button id="btnReview" class="mission-action" type="button">🔁 Révision</button>
+                    </div>
+                    <div class="mission-rewards" aria-label="Récompenses">
+                        <h2 class="reward-board__title">Récompenses</h2>
+                        <ul class="reward-board__list" id="rewardList"></ul>
+                        <div class="review-tracker" id="reviewTracker" hidden>
+                            <h3>Révision magique</h3>
+                            <p id="reviewCount">0 question(s) à revoir</p>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </main>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
-  <script src="../games/puzzlemagique.js"></script>
-  <script src="../games/repartis.js"></script>
-  <script src="../games/dictee.js"></script>
-  <script src="../js/avatarData.js"></script>
-  <script src="../js/storage.js"></script>
-  <script src="../js/juego.js"></script>
+    <div id="feedbackOverlay" class="feedback-overlay" aria-hidden="true">
+        <div class="feedback-overlay__icon" id="feedbackIcon">✅</div>
+        <p class="feedback-overlay__text" id="feedbackText">Bravo !</p>
+    </div>
+
+    <div id="levelSummary" class="level-summary" aria-hidden="true" role="dialog" aria-labelledby="summaryTitle">
+        <div class="level-summary__content">
+            <h2 id="summaryTitle">Niveau terminé ✨</h2>
+            <p id="summaryMessage">Super travail !</p>
+            <div class="level-summary__stats">
+                <div class="summary-stat"><span>⭐</span><strong id="summaryStars">0</strong></div>
+                <div class="summary-stat"><span>💰</span><strong id="summaryCoins">0</strong></div>
+                <div class="summary-stat"><span>🐾</span><strong id="summaryStickers">0</strong></div>
+            </div>
+            <div class="level-summary__actions">
+                <button id="summaryRetry" class="summary-btn">Rejouer le niveau</button>
+                <button id="summaryNext" class="summary-btn summary-btn--primary">Niveau suivant</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="soundCorrect" src="https://assets.mixkit.co/sfx/download/mixkit-extra-bonus-in-a-video-game-2045.wav" preload="auto"></audio>
+    <audio id="soundWrong" src="https://assets.mixkit.co/sfx/download/mixkit-failure-arcade-alert-notification-240.wav" preload="auto"></audio>
+    <audio id="soundLevel" src="https://assets.mixkit.co/sfx/download/mixkit-magic-bonus-earned-314.wav" preload="auto"></audio>
+
+    <nav class="mobile-nav" aria-label="Navigation principale mobile">
+        <button type="button" class="mobile-nav__btn" data-nav="games">🎲 Jeux</button>
+        <button type="button" class="mobile-nav__btn" data-nav="rewards">⭐ Récompenses</button>
+        <button type="button" class="mobile-nav__btn" data-nav="help">🧚 Aide</button>
+        <button type="button" class="mobile-nav__btn" data-nav="profile">👤 Profil</button>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script src="../js/avatarData.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/juego.js"></script>
 </body>
 </html>

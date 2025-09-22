@@ -1,0 +1,76 @@
+{
+  "measure-basics": [
+    {
+      "question": "Quelle est la moitié d'une heure ?",
+      "options": ["30 minutes", "20 minutes", "45 minutes", "15 minutes"],
+      "answer": 0,
+      "explanation": "Une heure contient 60 minutes, la moitié vaut 30 minutes.",
+      "illustration": "🕒"
+    },
+    {
+      "question": "Complète : 1 m = ? cm",
+      "options": ["10 cm", "100 cm", "1000 cm", "1 cm"],
+      "answer": 1,
+      "explanation": "1 mètre correspond à 100 centimètres.",
+      "illustration": "📏"
+    },
+    {
+      "question": "Combien vaut une pièce de 2 € + une pièce de 1 € ?",
+      "options": ["5 €", "3 €", "4 €", "2 €"],
+      "answer": 1,
+      "explanation": "2 € + 1 € = 3 €.",
+      "illustration": "💶"
+    },
+    {
+      "question": "Quelle unité choisir pour peser une pomme ?",
+      "options": ["Kilogramme", "Litre", "Mètre", "Minute"],
+      "answer": 0,
+      "explanation": "On mesure la masse d'une pomme en kilogrammes (ou grammes).",
+      "illustration": "🍎"
+    },
+    {
+      "question": "Complète : 1 L = ? mL",
+      "options": ["10 mL", "100 mL", "1000 mL", "10000 mL"],
+      "answer": 2,
+      "explanation": "1 litre correspond à 1000 millilitres.",
+      "illustration": "🥛"
+    }
+  ],
+  "prices-debut": [
+    {
+      "question": "Léna achète un livre à 8 € et paie avec 10 €. Combien reçoit-elle en monnaie ?",
+      "options": ["3 €", "1 €", "2 €", "0 €"],
+      "answer": 2,
+      "explanation": "10 € - 8 € = 2 € de monnaie.",
+      "illustration": "📘"
+    },
+    {
+      "question": "Un paquet de cartes coûte 6 € et un crayon 2 €. Quel est le prix total ?",
+      "options": ["7 €", "6 €", "8 €", "9 €"],
+      "answer": 2,
+      "explanation": "6 € + 2 € = 8 €.",
+      "illustration": "✏️"
+    },
+    {
+      "question": "Tu vends des bracelets pour 4 € et tu en as fabriqué 3. Combien tu gagnes ?",
+      "options": ["7 €", "10 €", "12 €", "3 €"],
+      "answer": 2,
+      "explanation": "3 bracelets à 4 € rapportent 12 € au total.",
+      "illustration": "💎"
+    },
+    {
+      "question": "Pour gagner 5 €, tu dépenses 3 €. Quel est ton bénéfice ?",
+      "options": ["2 €", "8 €", "1 €", "5 €"],
+      "answer": 0,
+      "explanation": "Le bénéfice correspond à l'argent gagné moins l'argent dépensé : 5 - 3 = 2 €.",
+      "illustration": "💰"
+    },
+    {
+      "question": "Una glace coûte 2 €. Combien pour 4 glaces ?",
+      "options": ["8 €", "6 €", "10 €", "4 €"],
+      "answer": 0,
+      "explanation": "2 € × 4 = 8 €.",
+      "illustration": "🍦"
+    }
+  ]
+}

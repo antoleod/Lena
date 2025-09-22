@@ -1,0 +1,20 @@
+{
+    "title": "Puzzles Magiques",
+    "pilot": {
+        "levels": [
+            {
+                "id": "puzzle1",
+                "name": "Premier Puzzle",
+                "number": 1,
+                "template": "puzzles:puzzlemagique",
+                "items": [
+                    {
+                        "prompt": "Reconstitue le puzzle pour voir l'image.",
+                        "options": ["Continuer"],
+                        "answer": 0
+                    }
+                ]
+            }
+        ]
+    }
+}

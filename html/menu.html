@@ -1,43 +1,146 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Principal - MathsWebLena</title>
+    <title>Appli de Léna — Monde magique</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="menu-container">
-        <header class="menu-header">
-            <div id="user-greeting">¡Hola, aventurera!</div>
-            <div id="user-avatar"></div>
-            <button id="change-avatar-btn" class="btn-secondary">Cambiar Avatar</button>
+<body class="menu-body">
+    <div class="menu-background" aria-hidden="true">
+        <div class="background-layer background-layer--stars"></div>
+        <div class="background-layer background-layer--aurora"></div>
+        <div class="background-layer background-layer--glow"></div>
+    </div>
 
-            <div id="avatar-selection-modal" class="modal">
+    <div class="menu-wrapper">
+        <header class="menu-header">
+            <div class="profile-card">
+                <div id="user-avatar" class="profile-card__avatar"></div>
+                <div class="profile-card__details">
+                    <p id="user-greeting" class="profile-card__greeting">Bonjour, exploratrice !</p>
+                    <p class="profile-card__progress">
+                        <span class="progress-pill">⭐ Niveaux : <span id="levels-completed">0</span></span>
+                        <span class="progress-pill">⏱️ Minutes : <span id="time-played">0</span></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button id="change-avatar-btn" class="btn-tertiary">Changer d'avatar</button>
+                <button id="logout-btn" class="btn-tertiary">Changer de joueur</button>
+            </div>
+
+            <div id="avatar-selection-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="avatar-modal-title">
                 <div class="modal-content">
-                    <span class="close-button">&times;</span>
-                    <h2>Selecciona tu Avatar</h2>
-                    <div id="avatar-options-container">
-                        <!-- Avatars will be loaded here by JavaScript -->
-                    </div>
+                    <button class="close-button" aria-label="Fermer la fenêtre">×</button>
+                    <h2 id="avatar-modal-title">Choisis ton avatar magique</h2>
+                    <p class="modal-helper">Clique sur ton animal préféré pour te transformer ✨</p>
+                    <div id="avatar-options-container" class="modal-grid"></div>
                 </div>
             </div>
         </header>
 
-        <main class="menu-options">
-            <a href="juego.html" class="btn-main btn-play">¡A Jugar!</a>
-            <a href="logros.html" class="btn-secondary">Mis Logros</a>
-            <button class="btn-secondary">Opciones</button>
+        <main class="section-grid" aria-label="Choisis ton monde d'apprentissage">
+            <article class="section-card" data-section="math" data-theme="forest" data-gradient-start="#a8e6cf" data-gradient-end="#56cfe1">
+                <div class="section-card__header">
+                    <span class="section-card__icon" aria-hidden="true">🧮</span>
+                    <h2 class="section-card__title">Mathématiques</h2>
+                </div>
+                <p class="section-card__intro">Explorer les calculs, les mesures et les nombres magiques.</p>
+                <ul class="section-card__focus">
+                    <li>Additions et soustractions</li>
+                    <li>Multiplications et divisions</li>
+                    <li>Répartis les trésors</li>
+                </ul>
+                <button class="btn-primary" data-navigate="math">Commencer l'aventure</button>
+            </article>
+
+            <article class="section-card" data-section="francais" data-theme="castle" data-gradient-start="#ffd6ff" data-gradient-end="#b8b8ff">
+                <div class="section-card__header">
+                    <span class="section-card__icon" aria-hidden="true">📚</span>
+                    <h2 class="section-card__title">Français</h2>
+                </div>
+                <p class="section-card__intro">Jouer avec les sons, les mots et les phrases enchantées.</p>
+                <ul class="section-card__focus">
+                    <li>Voyelles magiques et consonnes farceuses</li>
+                    <li>Nature du nom, adjectifs et accords</li>
+                    <li>Dictées interactives</li>
+                </ul>
+                <button class="btn-primary" data-navigate="francais">Grimper au nuage</button>
+            </article>
+
+            <article class="section-card" data-section="geometrie" data-theme="space" data-gradient-start="#b3f0ff" data-gradient-end="#6c63ff">
+                <div class="section-card__header">
+                    <span class="section-card__icon" aria-hidden="true">📐</span>
+                    <h2 class="section-card__title">Géométrie</h2>
+                </div>
+                <p class="section-card__intro">Construire, mesurer et reconnaître les formes fantastiques.</p>
+                <ul class="section-card__focus">
+                    <li>Formes planes et solides en 3D</li>
+                    <li>Angles droits, segments et perpendiculaires</li>
+                    <li>Périmètres et aires à estimer</li>
+                </ul>
+                <button class="btn-primary" data-navigate="geometrie">Décoller 🚀</button>
+            </article>
+
+            <article class="section-card" data-section="problemes" data-theme="mystery" data-gradient-start="#ffe29f" data-gradient-end="#ffa99f">
+                <div class="section-card__header">
+                    <span class="section-card__icon" aria-hidden="true">🤔</span>
+                    <h2 class="section-card__title">Problèmes de logique</h2>
+                </div>
+                <p class="section-card__intro">Résoudre des enquêtes et décoder des énigmes.</p>
+                <ul class="section-card__focus">
+                    <li>Mots-clés en évidence dans l'énoncé</li>
+                    <li>Problèmes en plusieurs étapes guidées</li>
+                    <li>Suites logiques de couleurs et de nombres</li>
+                </ul>
+                <button class="btn-primary" data-navigate="problemes">Mener l'enquête</button>
+            </article>
+
+            <article class="section-card" data-section="puzzles" data-theme="creative" data-gradient-start="#ffafbd" data-gradient-end="#ffc3a0">
+                <div class="section-card__header">
+                    <span class="section-card__icon" aria-hidden="true">🧩</span>
+                    <h2 class="section-card__title">Puzzles</h2>
+                </div>
+                <p class="section-card__intro">Assembler des pièces et créer des images.</p>
+                <ul class="section-card__focus">
+                    <li>Puzzles magiques</li>
+                    <li>Créativité et patience</li>
+                    <li>Logique et observation</li>
+                </ul>
+                <button class="btn-primary" data-navigate="puzzles">Créer la magie</button>
+            </article>
+
+            <article class="section-card" data-section="entrainement" data-theme="lightning" data-gradient-start="#f6d365" data-gradient-end="#fda085">
+                <div class="section-card__header">
+                    <span class="section-card__icon" aria-hidden="true">⚡</span>
+                    <h2 class="section-card__title">Entraînement</h2>
+                </div>
+                <p class="section-card__intro">Mode chrono pour booster ta mémoire et ta vitesse.</p>
+                <ul class="section-card__focus">
+                    <li>Calcul mental flash</li>
+                    <li>Mini-problèmes à résoudre vite</li>
+                    <li>Orthographe express et lecture flash</li>
+                </ul>
+                <button class="btn-primary" data-navigate="entrainement">Lancer le chrono</button>
+            </article>
         </main>
 
-        <div class="progress-overview">
-            <h3>Tu Progreso</h3>
-            <p>Niveles completados: <span id="levels-completed">0</span></p>
-            <p>Tiempo total de juego: <span id="time-played">0</span> minutos</p>
-        </div>
-
-        <p class="motivational-quote">“¡Un paso más cerca de tu meta!”</p>
+        <footer class="menu-footer">
+            <div class="footer-card">
+                <p class="footer-title">Récompenses magiques</p>
+                <p class="footer-text">Gagne des ⭐, des 💰 et collectionne des autocollants 🐱🦄🐧 en réussissant tes missions.</p>
+            </div>
+            <div class="footer-card">
+                <p class="footer-title">Astuces TDAH</p>
+                <p class="footer-text">Feedback immédiat, choix limités et révisions guidées pour rester concentrée et motivée.</p>
+            </div>
+        </footer>
     </div>
 
     <script src="../js/avatarData.js"></script>

@@ -1,0 +1,303 @@
+{
+  "sectionId": "math",
+  "title": "Mathématiques magiques",
+  "icon": "🧮",
+  "ambient": {
+    "backgrounds": [
+      "foret-aube",
+      "foret-etoiles",
+      "foret-lucioles",
+      "foret-arcenciel"
+    ],
+    "stickers": [
+      "🧮",
+      "🎲",
+      "📏",
+      "💡"
+    ],
+    "rewardEmojis": [
+      "⭐",
+      "💰",
+      "🦄"
+    ]
+  },
+  "pilot": {
+    "id": "mission-operations",
+    "name": "Mission Opérations Magiques",
+    "description": "Résous des calculs pas à pas, du plus simple au plus courageux !",
+    "levels": [
+      {
+        "number": 1,
+        "name": "Additions lumineuses",
+        "focus": "Additions sans retenue jusqu'à 20",
+        "template": "math:operations",
+        "settings": {
+          "operations": [
+            "add"
+          ],
+          "min": 1,
+          "max": 10,
+          "allowCarry": false
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "skillTags": [
+          "math:addition",
+          "calcul:mental"
+        ],
+        "background": "foret-aube",
+        "id": "math-l1",
+        "categories": [
+          "additions"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Soustractions étoilées",
+        "focus": "Soustractions sans retenue jusqu'à 30",
+        "template": "math:operations",
+        "settings": {
+          "operations": [
+            "sub"
+          ],
+          "min": 4,
+          "max": 30,
+          "allowCarry": false
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "skillTags": [
+          "math:soustraction"
+        ],
+        "background": "foret-aube",
+        "id": "math-l2",
+        "categories": [
+          "soustractions"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Combos magiques",
+        "focus": "Additions & soustractions avec retenue, 2 ou 3 nombres",
+        "template": "math:multi-terms",
+        "settings": {
+          "operations": [
+            "add",
+            "sub"
+          ],
+          "terms": 3,
+          "min": 5,
+          "max": 60,
+          "allowCarry": true
+        },
+        "exerciseCount": 6,
+        "options": 4,
+        "skillTags": [
+          "math:addition",
+          "math:soustraction"
+        ],
+        "background": "foret-lucioles",
+        "id": "math-l3",
+        "categories": [
+          "additions",
+          "soustractions"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Tables éclairs",
+        "focus": "Multiplications ×2 à ×5",
+        "template": "math:multiplication",
+        "settings": {
+          "tables": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "range": [
+            2,
+            10
+          ]
+        },
+        "exerciseCount": 7,
+        "options": 3,
+        "skillTags": [
+          "math:multiplication",
+          "calcul:mental"
+        ],
+        "background": "foret-lucioles",
+        "id": "math-l4",
+        "categories": [
+          "multiplications"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Colonnes enchantées",
+        "focus": "Multiplications en colonne avec 2 chiffres",
+        "template": "math:multiplication",
+        "settings": {
+          "tables": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "range": [
+            10,
+            19
+          ],
+          "column": true
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "skillTags": [
+          "math:multiplication",
+          "calcul:pose"
+        ],
+        "background": "foret-arcenciel",
+        "id": "math-l5",
+        "categories": [
+          "multiplications"
+        ]
+      },
+      {
+        "number": 6,
+        "name": "Divisions en trésor",
+        "focus": "Partages égaux par 2 à 10",
+        "template": "math:division",
+        "settings": {
+          "divisors": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            10
+          ],
+          "maxDividend": 90
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "skillTags": [
+          "math:division",
+          "partage"
+        ],
+        "background": "foret-etoiles",
+        "id": "math-l6",
+        "categories": [
+          "repartis",
+          "multiplications"
+        ]
+      },
+      {
+        "number": 7,
+        "name": "Compléments rapides",
+        "focus": "Compléments à 10, 20 et 60",
+        "template": "math:complements",
+        "settings": {
+          "targets": [
+            10,
+            20,
+            60
+          ]
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "skillTags": [
+          "math:complement",
+          "calcul:mental"
+        ],
+        "background": "foret-lucioles",
+        "id": "math-l7",
+        "categories": [
+          "additions",
+          "number-houses"
+        ]
+      },
+      {
+        "number": 8,
+        "name": "Par 10 et par 100",
+        "focus": "Passage par 10 ou 100 (ajouter/retirer)",
+        "template": "math:jump",
+        "settings": {
+          "multiples": [
+            10,
+            100
+          ],
+          "range": [
+            20,
+            600
+          ]
+        },
+        "exerciseCount": 6,
+        "options": 4,
+        "skillTags": [
+          "math:passage10",
+          "math:passage100"
+        ],
+        "background": "foret-etoiles",
+        "id": "math-l8",
+        "categories": [
+          "soustractions",
+          "number-houses"
+        ]
+      },
+      {
+        "number": 9,
+        "name": "Mesures vivantes",
+        "focus": "Heures, monnaie, longueurs, masses et capacités",
+        "template": "math:measure",
+        "settings": {
+          "dataset": "measure-basics"
+        },
+        "exerciseCount": 5,
+        "options": 4,
+        "skillTags": [
+          "mesure:temps",
+          "mesure:monnaie",
+          "mesure:longueur"
+        ],
+        "background": "foret-arcenciel",
+        "id": "math-l9",
+        "categories": [
+          "number-houses"
+        ]
+      },
+      {
+        "number": 10,
+        "name": "Boutique magique",
+        "focus": "Achats, bénéfice/perte et révisions mixtes",
+        "template": "math:prices",
+        "settings": {
+          "dataset": "prices-debut",
+          "mixWith": {
+            "template": "math:operations",
+            "operations": [
+              "add",
+              "sub",
+              "mul"
+            ],
+            "min": 3,
+            "max": 40
+          }
+        },
+        "exerciseCount": 7,
+        "options": 4,
+        "skillTags": [
+          "math:prix",
+          "math:logique",
+          "math:revision"
+        ],
+        "background": "foret-arcenciel",
+        "id": "math-l10",
+        "categories": [
+          "number-houses",
+          "repartis"
+        ]
+      }
+    ]
+  }
+}

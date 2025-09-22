@@ -1,0 +1,244 @@
+{
+  "sectionId": "entrainement",
+  "title": "Sprint Magique",
+  "icon": "⚡",
+  "ambient": {
+    "backgrounds": [
+      "flash-soleil",
+      "flash-cosmo",
+      "flash-foudre"
+    ],
+    "stickers": [
+      "⚡",
+      "⏱️",
+      "🎯",
+      "🏁"
+    ],
+    "rewardEmojis": [
+      "⭐",
+      "💰",
+      "🏅"
+    ]
+  },
+  "pilot": {
+    "id": "mode-rapide",
+    "name": "Mode Chrono",
+    "description": "Réponds vite et bien pour gagner des éclairs d'énergie !",
+    "levels": [
+      {
+        "number": 1,
+        "name": "Calcul mental flash",
+        "focus": "Additions et soustractions rapides",
+        "template": "train:math",
+        "settings": {
+          "operations": [
+            "add",
+            "sub"
+          ],
+          "min": 1,
+          "max": 20
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "timerSeconds": 180,
+        "skillTags": [
+          "train:math"
+        ],
+        "id": "train-l1",
+        "categories": [
+          "flash"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Tables chrono",
+        "focus": "Multiplications et divisions",
+        "template": "train:math",
+        "settings": {
+          "operations": [
+            "mul",
+            "div"
+          ],
+          "tables": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "timerSeconds": 180,
+        "skillTags": [
+          "train:math"
+        ],
+        "id": "train-l2",
+        "categories": [
+          "flash"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Mini-problèmes",
+        "focus": "Résoudre vite un énoncé",
+        "template": "train:problemes",
+        "settings": {
+          "dataset": "mini-add-sub"
+        },
+        "exerciseCount": 5,
+        "options": 3,
+        "timerSeconds": 210,
+        "skillTags": [
+          "train:probleme"
+        ],
+        "id": "train-l3",
+        "categories": [
+          "flash"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Orthographe flash",
+        "focus": "Choisir la bonne orthographe",
+        "template": "train:francais",
+        "settings": {
+          "dataset": "orthographe-rapide"
+        },
+        "exerciseCount": 5,
+        "options": 3,
+        "timerSeconds": 200,
+        "skillTags": [
+          "train:orthographe"
+        ],
+        "id": "train-l4",
+        "categories": [
+          "memoire"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Accords express",
+        "focus": "Accord nom/adjectif",
+        "template": "train:francais",
+        "settings": {
+          "dataset": "accords-express"
+        },
+        "exerciseCount": 5,
+        "options": 3,
+        "timerSeconds": 200,
+        "skillTags": [
+          "train:accord"
+        ],
+        "id": "train-l5",
+        "categories": [
+          "memoire"
+        ]
+      },
+      {
+        "number": 6,
+        "name": "Dictée-éclair",
+        "focus": "Choisir le mot entendu",
+        "template": "train:audio",
+        "settings": {
+          "dataset": "dictee-eclair"
+        },
+        "exerciseCount": 5,
+        "options": 3,
+        "timerSeconds": 210,
+        "skillTags": [
+          "train:dictee"
+        ],
+        "id": "train-l6",
+        "categories": [
+          "memoire"
+        ]
+      },
+      {
+        "number": 7,
+        "name": "Lecture flash",
+        "focus": "Comprendre une phrase",
+        "template": "train:lecture",
+        "settings": {
+          "dataset": "lecture-flash"
+        },
+        "exerciseCount": 5,
+        "options": 3,
+        "timerSeconds": 210,
+        "skillTags": [
+          "train:lecture"
+        ],
+        "id": "train-l7",
+        "categories": [
+          "memoire"
+        ]
+      },
+      {
+        "number": 8,
+        "name": "Corrige le mot",
+        "focus": "Repérer l'erreur",
+        "template": "train:francais",
+        "settings": {
+          "dataset": "mot-corrige"
+        },
+        "exerciseCount": 5,
+        "options": 3,
+        "timerSeconds": 210,
+        "skillTags": [
+          "train:orthographe"
+        ],
+        "id": "train-l8",
+        "categories": [
+          "colors"
+        ]
+      },
+      {
+        "number": 9,
+        "name": "Copie magique",
+        "focus": "Réécrire correctement",
+        "template": "train:francais",
+        "settings": {
+          "dataset": "copie-magique"
+        },
+        "exerciseCount": 5,
+        "options": 3,
+        "timerSeconds": 210,
+        "skillTags": [
+          "train:ecriture"
+        ],
+        "id": "train-l9",
+        "categories": [
+          "colors"
+        ]
+      },
+      {
+        "number": 10,
+        "name": "Mix express",
+        "focus": "Mélange math + français + logique",
+        "template": "train:mix",
+        "settings": {
+          "mix": [
+            "train:math",
+            "train:francais",
+            "train:problemes"
+          ],
+          "difficulty": "medium"
+        },
+        "exerciseCount": 8,
+        "options": 4,
+        "timerSeconds": 240,
+        "skillTags": [
+          "train:mix"
+        ],
+        "id": "train-l10",
+        "categories": [
+          "flash",
+          "memoire"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,708 @@
+{
+  "sectionId": "francais",
+  "title": "Voyage en Français",
+  "icon": "📚",
+  "ambient": {
+    "backgrounds": [
+      "nuage-rose",
+      "nuage-lavande",
+      "nuage-etoiles"
+    ],
+    "stickers": [
+      "📖",
+      "✏️",
+      "🐱",
+      "🔤"
+    ],
+    "rewardEmojis": [
+      "⭐",
+      "🐱",
+      "💌"
+    ]
+  },
+  "pilot": {
+    "id": "atelier-lecture",
+    "name": "Atelier des Mots Magiques",
+    "description": "Découvre les sons, les mots et les phrases avec le chat conteur.",
+    "levels": [
+      {
+        "number": 1,
+        "name": "Sons éclair (é/è/e)",
+        "focus": "Repérer le son é, è ou e",
+        "template": "fr:phonics",
+        "items": [
+          {
+            "prompt": "Quel mot contient le son é ?",
+            "options": [
+              "clé",
+              "sel",
+              "mer"
+            ],
+            "answer": 0,
+            "tip": "Le son é se lit comme dans 'clé'."
+          },
+          {
+            "prompt": "Entoure le mot avec le son è.",
+            "options": [
+              "fête",
+              "père",
+              "nez"
+            ],
+            "answer": 1,
+            "tip": "è s'entend comme dans 'père'."
+          },
+          {
+            "prompt": "Quel mot contient le son e muet ?",
+            "options": [
+              "fenêtre",
+              "clé",
+              "nez"
+            ],
+            "answer": 0,
+            "tip": "e muet se trouve souvent en fin de mot."
+          },
+          {
+            "prompt": "Trouve le mot avec le son é.",
+            "options": [
+              "thé",
+              "mer",
+              "cerf"
+            ],
+            "answer": 0,
+            "tip": "thé se prononce /té/."
+          },
+          {
+            "prompt": "Quel mot contient le son è ?",
+            "options": [
+              "école",
+              "chaise",
+              "nez"
+            ],
+            "answer": 1,
+            "tip": "chaise contient è comme 'chaise'."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:phonologie",
+          "fr:sons"
+        ],
+        "id": "fr-l1",
+        "categories": [
+          "vowels"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Au, eau, ai, ei",
+        "focus": "Choisir la bonne graphie",
+        "template": "fr:phonics",
+        "items": [
+          {
+            "prompt": "Complète : ch___val (son o)",
+            "options": [
+              "eau",
+              "au",
+              "ai"
+            ],
+            "answer": 1,
+            "tip": "On écrit cheval avec AU."
+          },
+          {
+            "prompt": "Quel mot contient le son /o/ écrit EAU ?",
+            "options": [
+              "bateau",
+              "chaud",
+              "manteau"
+            ],
+            "answer": 0,
+            "tip": "Bateau se termine par EAU."
+          },
+          {
+            "prompt": "Complète : n___ neige (son è)",
+            "options": [
+              "ai",
+              "ei",
+              "au"
+            ],
+            "answer": 0,
+            "tip": "On écrit neige avec AI."
+          },
+          {
+            "prompt": "Quel mot contient le son in ?",
+            "options": [
+              "pain",
+              "main",
+              "chien"
+            ],
+            "answer": 0,
+            "tip": "Pain se prononce /pin/."
+          },
+          {
+            "prompt": "Choisis l'écriture du son on.",
+            "options": [
+              "lon",
+              "long",
+              "lont"
+            ],
+            "answer": 1,
+            "tip": "ON s'écrit ON ou ON suivit de consonne : long."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:phonologie",
+          "fr:graphie"
+        ],
+        "id": "fr-l2",
+        "categories": [
+          "vowels"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Consonnes farceuses",
+        "focus": "g/j, s/ss, c/ç/sc",
+        "template": "fr:phonics",
+        "items": [
+          {
+            "prompt": "Quel mot se prononce avec le son /j/ ?",
+            "options": [
+              "giant",
+              "gare",
+              "gue"
+            ],
+            "answer": 0,
+            "tip": "GI se prononce /ji/."
+          },
+          {
+            "prompt": "Choisis le mot où le S se prononce /z/.",
+            "options": [
+              "maison",
+              "sac",
+              "sucre"
+            ],
+            "answer": 0,
+            "tip": "S entre deux voyelles = /z/."
+          },
+          {
+            "prompt": "Complète : gar___on",
+            "options": [
+              "ç",
+              "ss",
+              "sc"
+            ],
+            "answer": 0,
+            "tip": "Garçon s'écrit avec Ç."
+          },
+          {
+            "prompt": "Quel mot contient le son /s/ avec ss ?",
+            "options": [
+              "classe",
+              "café",
+              "genou"
+            ],
+            "answer": 0,
+            "tip": "SS donne le son /s/ fort."
+          },
+          {
+            "prompt": "Choisis le mot où la lettre c se lit /s/.",
+            "options": [
+              "cerise",
+              "colline",
+              "cube"
+            ],
+            "answer": 0,
+            "tip": "C + e/i = /s/."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:consonnes",
+          "fr:orthographe"
+        ],
+        "id": "fr-l3",
+        "categories": [
+          "vowels"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Mots et syllabes",
+        "focus": "Compter syllabes, lettres, ordre",
+        "template": "fr:syllabes",
+        "items": [
+          {
+            "prompt": "Combien de syllabes dans 'licorne' ?",
+            "options": [
+              "2",
+              "3",
+              "4"
+            ],
+            "answer": 1,
+            "tip": "Li-corne = 2 syllabes."
+          },
+          {
+            "prompt": "Quel mot contient 5 lettres ?",
+            "options": [
+              "pomme",
+              "chou",
+              "koala"
+            ],
+            "answer": 0,
+            "tip": "Pomme = 5 lettres."
+          },
+          {
+            "prompt": "Quel mot vient en premier dans l'ordre alphabétique ?",
+            "options": [
+              "bébé",
+              "banane",
+              "ballon"
+            ],
+            "answer": 0,
+            "tip": "Les accents sont pris en compte après la lettre."
+          },
+          {
+            "prompt": "Quel mot contient 3 syllabes ?",
+            "options": [
+              "papillon",
+              "lapin",
+              "chat"
+            ],
+            "answer": 1,
+            "tip": "La-pin = 2 ; pa-pi-llon = 3."
+          },
+          {
+            "prompt": "Trouve le mot qui rime avec 'chanson'.",
+            "options": [
+              "maison",
+              "chocolat",
+              "chou"
+            ],
+            "answer": 0,
+            "tip": "Maison rime avec chanson (son on)."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:syllabe",
+          "fr:lexique"
+        ],
+        "id": "fr-l4",
+        "categories": [
+          "contes-magiques"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Types de phrases",
+        "focus": "Déclarative, interrogative, injonctive, exclamative",
+        "template": "fr:phrases",
+        "items": [
+          {
+            "prompt": "\"Viens ici !\" est une phrase...",
+            "options": [
+              "déclarative",
+              "exclamative",
+              "interrogative"
+            ],
+            "answer": 1,
+            "tip": "Point d'exclamation = exclamative."
+          },
+          {
+            "prompt": "\"Manges-tu ta soupe ?\" est...",
+            "options": [
+              "interrogative",
+              "déclarative",
+              "exclamative"
+            ],
+            "answer": 0,
+            "tip": "Point d'interrogation."
+          },
+          {
+            "prompt": "\"Ferme la porte.\" est...",
+            "options": [
+              "injonctive",
+              "déclarative",
+              "exclamative"
+            ],
+            "answer": 0,
+            "tip": "Un ordre = injonction."
+          },
+          {
+            "prompt": "\"Le chat dort.\" est...",
+            "options": [
+              "déclarative",
+              "interrogative",
+              "exclamative"
+            ],
+            "answer": 0,
+            "tip": "Elle donne une information."
+          },
+          {
+            "prompt": "\"Que c'est joli !\" est...",
+            "options": [
+              "exclamative",
+              "interrogative",
+              "déclarative"
+            ],
+            "answer": 0,
+            "tip": "Point d'exclamation."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:types-phrases"
+        ],
+        "id": "fr-l5",
+        "categories": [
+          "contes-magiques"
+        ]
+      },
+      {
+        "number": 6,
+        "name": "Le nom en couleurs",
+        "focus": "Commun/propre, genre et nombre",
+        "template": "fr:grammaire",
+        "items": [
+          {
+            "prompt": "Quel est un nom propre ?",
+            "options": [
+              "Paris",
+              "ville",
+              "maison"
+            ],
+            "answer": 0,
+            "tip": "Nom propre commence par majuscule."
+          },
+          {
+            "prompt": "Quel nom est féminin ?",
+            "options": [
+              "garçon",
+              "fille",
+              "roi"
+            ],
+            "answer": 1,
+            "tip": "Fille est féminin."
+          },
+          {
+            "prompt": "Quel nom est au pluriel ?",
+            "options": [
+              "pomme",
+              "pommes",
+              "pommier"
+            ],
+            "answer": 1,
+            "tip": "Le S indique le pluriel."
+          },
+          {
+            "prompt": "Quel est le nom commun ?",
+            "options": [
+              "Léna",
+              "chien",
+              "Louvre"
+            ],
+            "answer": 1,
+            "tip": "Nom commun désigne un être en général."
+          },
+          {
+            "prompt": "Quel nom devient féminin en ajoutant -e ?",
+            "options": [
+              "lion",
+              "papa",
+              "roi"
+            ],
+            "answer": 0,
+            "tip": "Lion -> lionne."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:nom",
+          "fr:genre",
+          "fr:nombre"
+        ],
+        "id": "fr-l6",
+        "categories": [
+          "contes-magiques"
+        ]
+      },
+      {
+        "number": 7,
+        "name": "Adjectifs magiques",
+        "focus": "Adjectifs qualificatifs et possessifs",
+        "template": "fr:grammaire",
+        "items": [
+          {
+            "prompt": "Quel adjectif convient ? 'Une robe ___'",
+            "options": [
+              "bleu",
+              "bleue",
+              "bleues"
+            ],
+            "answer": 1,
+            "tip": "Adjectif s'accorde avec robe (féminin singulier)."
+          },
+          {
+            "prompt": "Quel adjectif possessif pour 'nous' ?",
+            "options": [
+              "mon",
+              "notre",
+              "leur"
+            ],
+            "answer": 1,
+            "tip": "Nous -> notre (singulier)."
+          },
+          {
+            "prompt": "Quel adjectif est qualificatif ?",
+            "options": [
+              "sa",
+              "petit",
+              "leur"
+            ],
+            "answer": 1,
+            "tip": "Petit décrit le nom."
+          },
+          {
+            "prompt": "Choisis l'accord correct : 'des fleurs ___'",
+            "options": [
+              "coloré",
+              "colorées",
+              "colorée"
+            ],
+            "answer": 1,
+            "tip": "Fleurs (pluriel) => colorées."
+          },
+          {
+            "prompt": "Complète : 'Elle prend ___ sac.'",
+            "options": [
+              "ton",
+              "son",
+              "leur"
+            ],
+            "answer": 1,
+            "tip": "Elle -> son."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:adjectif"
+        ],
+        "id": "fr-l7",
+        "categories": [
+          "contes-magiques"
+        ]
+      },
+      {
+        "number": 8,
+        "name": "Verbes en action",
+        "focus": "Être, avoir, aller, faire et verbes en -er",
+        "template": "fr:conjugaison",
+        "items": [
+          {
+            "prompt": "Je ___ (être) contente.",
+            "options": [
+              "suis",
+              "es",
+              "est"
+            ],
+            "answer": 0,
+            "tip": "Je suis."
+          },
+          {
+            "prompt": "Nous ___ (avoir) un chien.",
+            "options": [
+              "ai",
+              "avais",
+              "avons"
+            ],
+            "answer": 2,
+            "tip": "Nous avons."
+          },
+          {
+            "prompt": "Ils ___ (aller) à l'école.",
+            "options": [
+              "allons",
+              "vont",
+              "vais"
+            ],
+            "answer": 1,
+            "tip": "Ils vont."
+          },
+          {
+            "prompt": "Je ___ (chanter) une chanson.",
+            "options": [
+              "chantes",
+              "chante",
+              "chantons"
+            ],
+            "answer": 1,
+            "tip": "Je chante."
+          },
+          {
+            "prompt": "Hier, elle ___ (faire) un gâteau.",
+            "options": [
+              "fait",
+              "fera",
+              "fais"
+            ],
+            "answer": 0,
+            "tip": "Passé composé : elle a fait."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:verbe",
+          "fr:conjugaison"
+        ],
+        "id": "fr-l8",
+        "categories": [
+          "contes-magiques"
+        ]
+      },
+      {
+        "number": 9,
+        "name": "Accord verbe-sujet",
+        "focus": "Trouver le bon verbe",
+        "template": "fr:accord-verbe",
+        "items": [
+          {
+            "prompt": "Les enfants ___ dans la cour.",
+            "options": [
+              "joue",
+              "jouent",
+              "jouons"
+            ],
+            "answer": 1,
+            "tip": "Sujet pluriel => verbe au pluriel."
+          },
+          {
+            "prompt": "Mon frère ___ son sac.",
+            "options": [
+              "range",
+              "rangent",
+              "rangeons"
+            ],
+            "answer": 0,
+            "tip": "Sujet singulier => range."
+          },
+          {
+            "prompt": "Nous ___ un livre.",
+            "options": [
+              "lisent",
+              "lisons",
+              "lit"
+            ],
+            "answer": 1,
+            "tip": "Nous lisons."
+          },
+          {
+            "prompt": "La maîtresse ___ la leçon.",
+            "options": [
+              "explique",
+              "expliquent",
+              "expliquez"
+            ],
+            "answer": 0,
+            "tip": "Sujet singulier."
+          },
+          {
+            "prompt": "Elles ___ la danse.",
+            "options": [
+              "apprend",
+              "apprennent",
+              "apprends"
+            ],
+            "answer": 1,
+            "tip": "Elles apprennent."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:accord"
+        ],
+        "id": "fr-l9",
+        "categories": [
+          "dictee"
+        ]
+      },
+      {
+        "number": 10,
+        "name": "Mini dictée",
+        "focus": "Écoute et choisis la bonne orthographe",
+        "template": "fr:dictee",
+        "items": [
+          {
+            "prompt": "Choisis :",
+            "options": [
+              "les chats jouent",
+              "les chat jouent",
+              "lé chats jouent"
+            ],
+            "answer": 0,
+            "tip": "Accord sujet-verbe."
+          },
+          {
+            "prompt": "Quel mot est correct ?",
+            "options": [
+              "je suis aller",
+              "je suis allé",
+              "je suit allé"
+            ],
+            "answer": 1,
+            "tip": "Participe passé accordé."
+          },
+          {
+            "prompt": "Complète : ___ amis arrivent.",
+            "options": [
+              "Mes",
+              "Meses",
+              "Mest"
+            ],
+            "answer": 0,
+            "tip": "Mes + nom pluriel."
+          },
+          {
+            "prompt": "Écris correctement :",
+            "options": [
+              "un belle licorne",
+              "une belle licorne",
+              "une bel licorne"
+            ],
+            "answer": 1,
+            "tip": "Adjectif au féminin."
+          },
+          {
+            "prompt": "Choisis la bonne phrase.",
+            "options": [
+              "Nous avons chanter",
+              "Nous avons chanté",
+              "Nous avons chantés"
+            ],
+            "answer": 1,
+            "tip": "Participe passé invariable avec avoir."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "fr:dictee",
+          "fr:orthographe"
+        ],
+        "id": "fr-l10",
+        "categories": [
+          "dictee"
+        ]
+      }
+    ]
+  }
+}

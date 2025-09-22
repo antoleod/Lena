@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if a user is already logged in
     const existingProfile = storage.loadUserProfile();
     if (existingProfile && existingProfile.name) {
-        // If so, go straight to the game
-        window.location.href = 'juego.html';
+        // If so, go straight to the menu
+        window.location.href = 'menu.html';
     }
 
     avatars.forEach(avatar => {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         storage.saveUserProfile(userProfile);
-        window.location.href = 'juego.html';
+        window.location.href = 'menu.html';
     });
 
     nameInput.addEventListener('input', () => {

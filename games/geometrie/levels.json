@@ -1,0 +1,540 @@
+{
+  "sectionId": "geometrie",
+  "title": "Explorateurs de Formes",
+  "icon": "📐",
+  "ambient": {
+    "backgrounds": [
+      "espace-crepuscule",
+      "espace-nebuleuse",
+      "espace-arcenciel"
+    ],
+    "stickers": [
+      "📐",
+      "🔺",
+      "🧊",
+      "🪐"
+    ],
+    "rewardEmojis": [
+      "⭐",
+      "🪐",
+      "💎"
+    ]
+  },
+  "pilot": {
+    "id": "mission-formes",
+    "name": "Laboratoire des Formes",
+    "description": "Reconnais, mesure et calcule avec précision dans l'espace magique.",
+    "levels": [
+      {
+        "number": 1,
+        "name": "Formes planes",
+        "focus": "Carré, rectangle, triangle, cercle",
+        "template": "geo:identify",
+        "items": [
+          {
+            "prompt": "Quel est le nom de cette forme ?",
+            "illustration": "⬜",
+            "options": [
+              "Carré",
+              "Rectangle",
+              "Triangle"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Quel est le nom de cette forme ?",
+            "illustration": "🔺",
+            "options": [
+              "Cercle",
+              "Triangle",
+              "Carré"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Quel est le nom de cette forme ?",
+            "illustration": "⚪",
+            "options": [
+              "Cercle",
+              "Losange",
+              "Rectangle"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Trouve la forme avec 4 côtés égaux.",
+            "options": [
+              "Rectangle",
+              "Carré",
+              "Triangle"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Quelle forme possède 4 angles droits mais pas forcément 4 côtés égaux ?",
+            "options": [
+              "Carré",
+              "Rectangle",
+              "Triangle"
+            ],
+            "answer": 1
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "geo:formes",
+          "geo:plane"
+        ],
+        "id": "geo-l1",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Polygones étincelants",
+        "focus": "Triangle, losange, polygones",
+        "template": "geo:identify",
+        "items": [
+          {
+            "prompt": "Quel polygone possède 6 côtés ?",
+            "options": [
+              "Hexagone",
+              "Pentagone",
+              "Octogone"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Le losange a...",
+            "options": [
+              "4 côtés égaux",
+              "3 côtés",
+              "1 angle droit"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Quel triangle possède un angle droit ?",
+            "options": [
+              "Triangle rectangle",
+              "Triangle isocèle",
+              "Triangle équilatéral"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Quel polygone commence par TRI ?",
+            "options": [
+              "Triangle",
+              "Quadrilatère",
+              "Pentagone"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Combien de côtés a un octogone ?",
+            "options": [
+              "6",
+              "8",
+              "10"
+            ],
+            "answer": 1
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "geo:polygone"
+        ],
+        "id": "geo-l2",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Solides brillants",
+        "focus": "Cube, sphère, cylindre, pyramide, prisme",
+        "template": "geo:solids",
+        "items": [
+          {
+            "prompt": "Quel solide roule facilement ?",
+            "options": [
+              "Cube",
+              "Sphère",
+              "Pyramide"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Quel solide possède 6 faces carrées ?",
+            "options": [
+              "Cube",
+              "Cylindre",
+              "Cône"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Quel solide a une base triangulaire et des faces qui se rejoignent en un sommet ?",
+            "options": [
+              "Pyramide",
+              "Prisme",
+              "Cylindre"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Quel solide peut représenter une boîte de conserve ?",
+            "options": [
+              "Sphere",
+              "Cylindre",
+              "Prisme"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Quel solide possède deux bases identiques reliées par des faces rectangles ?",
+            "options": [
+              "Prisme",
+              "Cône",
+              "Sphère"
+            ],
+            "answer": 0
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "geo:solide"
+        ],
+        "id": "geo-l3",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Sommet et arêtes",
+        "focus": "Identifier sommets, arêtes, faces",
+        "template": "geo:solids",
+        "items": [
+          {
+            "prompt": "Combien de sommets a un cube ?",
+            "options": [
+              "6",
+              "8",
+              "12"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Combien d'arêtes a un prisme rectangulaire ?",
+            "options": [
+              "12",
+              "8",
+              "10"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Combien de faces a une pyramide à base carrée ?",
+            "options": [
+              "5",
+              "4",
+              "6"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Le cylindre a...",
+            "options": [
+              "0 arête",
+              "1 arête",
+              "2 arêtes"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Combien de faces possède un cône ?",
+            "options": [
+              "1",
+              "2",
+              "3"
+            ],
+            "answer": 1
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "geo:solide",
+          "geo:composant"
+        ],
+        "id": "geo-l4",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Droites et segments",
+        "focus": "Droites, segments, angles droits",
+        "template": "geo:droites",
+        "items": [
+          {
+            "prompt": "Une droite...",
+            "options": [
+              "a un début et une fin",
+              "est infinie",
+              "est courbée"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Un segment...",
+            "options": [
+              "est infini",
+              "a deux extrémités",
+              "est courbé"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Un angle droit mesure...",
+            "options": [
+              "90°",
+              "45°",
+              "180°"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Quel outil pour vérifier un angle droit ?",
+            "options": [
+              "Compas",
+              "Équerre",
+              "Rapporteur"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Deux droites qui ne se croisent jamais sont...",
+            "options": [
+              "perpendiculaires",
+              "parallèles",
+              "séquentes"
+            ],
+            "answer": 1
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "geo:droite",
+          "geo:angle"
+        ],
+        "id": "geo-l5",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 6,
+        "name": "Périmètre des carrés",
+        "focus": "Calculer le périmètre d'un carré",
+        "template": "geo:perimetre",
+        "settings": {
+          "shape": "carre",
+          "sideRange": [
+            2,
+            12
+          ]
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "skillTags": [
+          "geo:perimetre",
+          "math:calcul"
+        ],
+        "id": "geo-l6",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 7,
+        "name": "Périmètre des rectangles",
+        "focus": "Calculer le périmètre d'un rectangle",
+        "template": "geo:perimetre",
+        "settings": {
+          "shape": "rectangle",
+          "sideRange": [
+            2,
+            20
+          ]
+        },
+        "exerciseCount": 6,
+        "options": 3,
+        "skillTags": [
+          "geo:perimetre",
+          "math:calcul"
+        ],
+        "id": "geo-l7",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 8,
+        "name": "Aires en carreaux",
+        "focus": "Compter des carreaux pour mesurer l'aire",
+        "template": "geo:aires",
+        "items": [
+          {
+            "prompt": "La forme couvre 6 carreaux. Quelle est son aire ?",
+            "options": [
+              "6 carreaux",
+              "8 carreaux",
+              "4 carreaux"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Si un rectangle mesure 3 carreaux de long et 2 carreaux de large, quelle est son aire ?",
+            "options": [
+              "5 carreaux",
+              "6 carreaux",
+              "8 carreaux"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Quelle figure a la plus grande aire ?",
+            "options": [
+              "4 carreaux",
+              "7 carreaux",
+              "5 carreaux"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "L'aire d'un carré de côté 4 carreaux vaut...",
+            "options": [
+              "8 carreaux",
+              "12 carreaux",
+              "16 carreaux"
+            ],
+            "answer": 2
+          },
+          {
+            "prompt": "Combien de carreaux pour remplir un rectangle 5×2 ?",
+            "options": [
+              "10",
+              "7",
+              "8"
+            ],
+            "answer": 0
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "geo:aire"
+        ],
+        "id": "geo-l8",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 9,
+        "name": "Volumes magiques",
+        "focus": "Comparer volume de cube, pavé, cylindre, cône",
+        "template": "geo:volume",
+        "items": [
+          {
+            "prompt": "Quel récipient contient le plus d'eau ?",
+            "options": [
+              "Un verre",
+              "Une bouteille d'1 L",
+              "Une tasse"
+            ],
+            "answer": 1
+          },
+          {
+            "prompt": "Quel solide peut contenir des cubes identiques sans laisser de trou ?",
+            "options": [
+              "Cube",
+              "Cône",
+              "Sphère"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Quel solide a la base la plus large ?",
+            "options": [
+              "Cône",
+              "Pyramide",
+              "Cylindre"
+            ],
+            "answer": 2
+          },
+          {
+            "prompt": "Quelle unité convient pour mesurer un volume de cube ?",
+            "options": [
+              "cm³",
+              "cm",
+              "cm²"
+            ],
+            "answer": 0
+          },
+          {
+            "prompt": "Quel contenant a le plus grand volume ?",
+            "options": [
+              "Boîte 5×5×5 cm",
+              "Boîte 4×4×8 cm",
+              "Boîte 3×3×9 cm"
+            ],
+            "answer": 1
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "geo:volume"
+        ],
+        "id": "geo-l9",
+        "categories": [
+          "puzzle-magique"
+        ]
+      },
+      {
+        "number": 10,
+        "name": "Mission révision",
+        "focus": "Mélange formes, périmètre, volume",
+        "template": "geo:revision",
+        "settings": {
+          "mix": [
+            "geo:identify",
+            "geo:perimetre",
+            "geo:volume"
+          ],
+          "difficulty": "medium"
+        },
+        "exerciseCount": 7,
+        "options": 4,
+        "skillTags": [
+          "geo:revision",
+          "geo:multi"
+        ],
+        "id": "geo-l10",
+        "categories": [
+          "puzzle-magique"
+        ]
+      }
+    ]
+  }
+}

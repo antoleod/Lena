@@ -1,0 +1,659 @@
+{
+  "sectionId": "problemes",
+  "title": "Logi'Détectives",
+  "icon": "🤔",
+  "ambient": {
+    "backgrounds": [
+      "mystere-ambre",
+      "mystere-crepuscule",
+      "mystere-etoiles"
+    ],
+    "stickers": [
+      "🔍",
+      "🧩",
+      "⚖️",
+      "💡"
+    ],
+    "rewardEmojis": [
+      "⭐",
+      "💰",
+      "🧩"
+    ]
+  },
+  "pilot": {
+    "id": "detective-logique",
+    "name": "Agence des Énigmes",
+    "description": "Lis l'énoncé, trouve la stratégie et résous les enquêtes magiques.",
+    "levels": [
+      {
+        "number": 1,
+        "name": "Mots-clés lumineux",
+        "focus": "Repérer les informations importantes",
+        "template": "logique:mots-cles",
+        "items": [
+          {
+            "prompt": "Léna a 4 perles rouges et 5 bleues. Quel mot te dit d'ajouter ?",
+            "options": [
+              "encore",
+              "reste",
+              "partage"
+            ],
+            "answer": 0,
+            "tip": "\"Encore\" indique qu'on ajoute."
+          },
+          {
+            "prompt": "Tom a 8 billes, il en perd 3. Quel mot annonce une soustraction ?",
+            "options": [
+              "perd",
+              "gagne",
+              "reçoit"
+            ],
+            "answer": 0,
+            "tip": "Perdre = enlever."
+          },
+          {
+            "prompt": "On partage 12 cartes entre 4 amis. Quel mot parle d'un partage égal ?",
+            "options": [
+              "partage",
+              "ajoute",
+              "reste"
+            ],
+            "answer": 0,
+            "tip": "Partage indique division."
+          },
+          {
+            "prompt": "Il reste 7 minutes avant la récré. Quel mot montre une soustraction ?",
+            "options": [
+              "reste",
+              "donne",
+              "reçoit"
+            ],
+            "answer": 0,
+            "tip": "Reste = on enlève."
+          },
+          {
+            "prompt": "Léna gagne 5 pièces puis encore 2. Quel mot parle d'ajout ?",
+            "options": [
+              "encore",
+              "perd",
+              "partage"
+            ],
+            "answer": 0,
+            "tip": "Encore = on ajoute."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:motscles"
+        ],
+        "id": "prob-l1",
+        "categories": [
+          "enigmes"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Problèmes +",
+        "focus": "Problèmes simples d'addition",
+        "template": "logique:probleme",
+        "items": [
+          {
+            "prompt": "Léna a 6 stickers licorne et reçoit 3 stickers chat. Combien en a-t-elle ?",
+            "options": [
+              "8",
+              "9",
+              "7"
+            ],
+            "answer": 1,
+            "tip": "6 + 3 = 9."
+          },
+          {
+            "prompt": "Il y a 12 livres dans une étagère et 5 sur la table. Combien de livres au total ?",
+            "options": [
+              "17",
+              "15",
+              "18"
+            ],
+            "answer": 0,
+            "tip": "12 + 5 = 17."
+          },
+          {
+            "prompt": "Une vitrine a 8 cupcakes et on en ajoute 4. Combien maintenant ?",
+            "options": [
+              "11",
+              "12",
+              "13"
+            ],
+            "answer": 1,
+            "tip": "8 + 4 = 12."
+          },
+          {
+            "prompt": "Dans une boîte, 4 billes dorées et 9 argentées. Combien de billes ?",
+            "options": [
+              "12",
+              "14",
+              "13"
+            ],
+            "answer": 2,
+            "tip": "4 + 9 = 13."
+          },
+          {
+            "prompt": "Le chat parcours 7 cases puis 3 cases. Combien de cases ?",
+            "options": [
+              "10",
+              "9",
+              "11"
+            ],
+            "answer": 0,
+            "tip": "7 + 3 = 10."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:addition"
+        ],
+        "id": "prob-l2",
+        "categories": [
+          "enigmes"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Problèmes -",
+        "focus": "Problèmes simples de soustraction",
+        "template": "logique:probleme",
+        "items": [
+          {
+            "prompt": "Il y avait 12 chocolats, on en mange 5. Combien restent-ils ?",
+            "options": [
+              "5",
+              "6",
+              "7"
+            ],
+            "answer": 2,
+            "tip": "12 - 5 = 7."
+          },
+          {
+            "prompt": "Léna a 15 billes, elle en donne 6. Combien en garde-t-elle ?",
+            "options": [
+              "9",
+              "8",
+              "7"
+            ],
+            "answer": 0,
+            "tip": "15 - 6 = 9."
+          },
+          {
+            "prompt": "Dans un jardin 18 fleurs, 4 sont cueillies. Combien restent ?",
+            "options": [
+              "14",
+              "12",
+              "16"
+            ],
+            "answer": 0,
+            "tip": "18 - 4 = 14."
+          },
+          {
+            "prompt": "Un dragon possède 25 pièces et en dépense 9. Combien lui reste-t-il ?",
+            "options": [
+              "14",
+              "16",
+              "18"
+            ],
+            "answer": 1,
+            "tip": "25 - 9 = 16."
+          },
+          {
+            "prompt": "Ma tirelire contient 20 €, j'achète un livre à 8 €. Combien reste ?",
+            "options": [
+              "11",
+              "12",
+              "14"
+            ],
+            "answer": 2,
+            "tip": "20 - 8 = 12."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:soustraction"
+        ],
+        "id": "prob-l3",
+        "categories": [
+          "enigmes"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Choisir l'opération",
+        "focus": "Addition ou soustraction",
+        "template": "logique:choix-operation",
+        "items": [
+          {
+            "prompt": "Léna gagne 5 autocollants puis 4. Faut-il ajouter ou enlever ?",
+            "options": [
+              "Ajouter",
+              "Enlever",
+              "Multiplier"
+            ],
+            "answer": 0,
+            "tip": "On ajoute des autocollants."
+          },
+          {
+            "prompt": "Il y a 18 bonbons, on en mange 7. Quelle opération ?",
+            "options": [
+              "Addition",
+              "Soustraction",
+              "Division"
+            ],
+            "answer": 1,
+            "tip": "On enlève des bonbons."
+          },
+          {
+            "prompt": "La maîtresse distribue 6 crayons supplémentaires. Quelle opération ?",
+            "options": [
+              "Addition",
+              "Soustraction",
+              "Multiplication"
+            ],
+            "answer": 0,
+            "tip": "Distribution = ajouter."
+          },
+          {
+            "prompt": "Il reste 4 minutes. Quelle opération pour trouver le temps utilisé ?",
+            "options": [
+              "Addition",
+              "Soustraction",
+              "Division"
+            ],
+            "answer": 1,
+            "tip": "On compare au total initial."
+          },
+          {
+            "prompt": "On met 3 pièces de plus dans la tirelire. Opération ?",
+            "options": [
+              "Addition",
+              "Soustraction",
+              "Multiplication"
+            ],
+            "answer": 0,
+            "tip": "On ajoute des pièces."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:strategie"
+        ],
+        "id": "prob-l4",
+        "categories": [
+          "enigmes"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Problèmes à étapes",
+        "focus": "Addition + multiplication",
+        "template": "logique:etapes",
+        "items": [
+          {
+            "prompt": "Un bouquet contient 4 roses. Léna prépare 3 bouquets identiques. Combien de roses et combien de roses après en rajouter 2 ?",
+            "options": [
+              "14",
+              "12",
+              "10"
+            ],
+            "answer": 0,
+            "tip": "4×3 = 12 puis 12 + 2 = 14."
+          },
+          {
+            "prompt": "Il y a 5 sachets avec 6 billes chacun. On ajoute 3 billes bonus. Combien de billes ?",
+            "options": [
+              "33",
+              "30",
+              "35"
+            ],
+            "answer": 0,
+            "tip": "5×6 = 30, 30 + 3 = 33."
+          },
+          {
+            "prompt": "Un manège prend 4 enfants par tour. 3 tours remplis, plus 2 enfants qui montent ensuite. Nombre d'enfants ?",
+            "options": [
+              "14",
+              "12",
+              "16"
+            ],
+            "answer": 0,
+            "tip": "4×3 = 12, 12 + 2 = 14."
+          },
+          {
+            "prompt": "On prépare 2 boîtes de 8 gâteaux et on en mange 3. Combien reste-t-il ?",
+            "options": [
+              "13",
+              "12",
+              "11"
+            ],
+            "answer": 0,
+            "tip": "2×8 = 16, 16 - 3 = 13."
+          },
+          {
+            "prompt": "Une table compte 6 crayons. 4 tables identiques et on ajoute 5 crayons. Total ?",
+            "options": [
+              "29",
+              "24",
+              "30"
+            ],
+            "answer": 0,
+            "tip": "6×4 = 24, 24 + 5 = 29."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:etapes"
+        ],
+        "id": "prob-l5",
+        "categories": [
+          "enigmes"
+        ]
+      },
+      {
+        "number": 6,
+        "name": "Partages équitables",
+        "focus": "Division intuitive",
+        "template": "logique:partage",
+        "items": [
+          {
+            "prompt": "On partage 12 pièces entre 3 pirates. Combien chacun ?",
+            "options": [
+              "4",
+              "3",
+              "5"
+            ],
+            "answer": 0,
+            "tip": "12 ÷ 3 = 4."
+          },
+          {
+            "prompt": "18 bonbons pour 6 enfants. Combien par enfant ?",
+            "options": [
+              "2",
+              "3",
+              "4"
+            ],
+            "answer": 1,
+            "tip": "18 ÷ 6 = 3."
+          },
+          {
+            "prompt": "24 cartes réparties en 4 paquets. Combien dans chaque paquet ?",
+            "options": [
+              "6",
+              "7",
+              "8"
+            ],
+            "answer": 0,
+            "tip": "24 ÷ 4 = 6."
+          },
+          {
+            "prompt": "16 billes partagées entre 2 amis. Combien chacun ?",
+            "options": [
+              "8",
+              "7",
+              "6"
+            ],
+            "answer": 0,
+            "tip": "16 ÷ 2 = 8."
+          },
+          {
+            "prompt": "20 pièces réparties entre 5 coffres. Combien par coffre ?",
+            "options": [
+              "6",
+              "5",
+              "4"
+            ],
+            "answer": 1,
+            "tip": "20 ÷ 5 = 4."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:division"
+        ],
+        "id": "prob-l6",
+        "categories": [
+          "enigmes"
+        ]
+      },
+      {
+        "number": 7,
+        "name": "Suites formes & couleurs",
+        "focus": "Repérer la logique dans les formes",
+        "template": "logique:suite",
+        "items": [
+          {
+            "prompt": "🔴🔵🔴🔵 ... Quel symbole continue la suite ?",
+            "options": [
+              "🔴",
+              "🔵",
+              "🟢"
+            ],
+            "answer": 0,
+            "tip": "On alterne rouge puis bleu."
+          },
+          {
+            "prompt": "⬛⬜⬛⬜ ... Quelle couleur ensuite ?",
+            "options": [
+              "⬛",
+              "⬜",
+              "🟨"
+            ],
+            "answer": 0,
+            "tip": "Noir, blanc, noir, blanc..."
+          },
+          {
+            "prompt": "▲●▲●▲ ... Quel symbole suit ?",
+            "options": [
+              "▲",
+              "●",
+              "■"
+            ],
+            "answer": 1,
+            "tip": "Triangle, rond répété."
+          },
+          {
+            "prompt": "🔺🔺🔵🔺🔺 ... Quelle forme suit ?",
+            "options": [
+              "🔺",
+              "🔵",
+              "🟢"
+            ],
+            "answer": 0,
+            "tip": "Deux triangles puis un rond."
+          },
+          {
+            "prompt": "🟡🟡🟢🟡🟡 ... Quelle couleur continue ?",
+            "options": [
+              "🟡",
+              "🟢",
+              "🔴"
+            ],
+            "answer": 0,
+            "tip": "Deux jaunes puis un vert."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:suite"
+        ],
+        "id": "prob-l7",
+        "categories": [
+          "sequences",
+          "tri"
+        ]
+      },
+      {
+        "number": 8,
+        "name": "Suites numériques",
+        "focus": "Compléter une suite de nombres",
+        "template": "logique:suite-nombres",
+        "items": [
+          {
+            "prompt": "2, 4, 6, 8, ...",
+            "options": [
+              "9",
+              "10",
+              "12"
+            ],
+            "answer": 1,
+            "tip": "On ajoute 2."
+          },
+          {
+            "prompt": "5, 10, 15, ...",
+            "options": [
+              "18",
+              "20",
+              "25"
+            ],
+            "answer": 1,
+            "tip": "On ajoute 5."
+          },
+          {
+            "prompt": "1, 3, 5, 7, ...",
+            "options": [
+              "8",
+              "9",
+              "11"
+            ],
+            "answer": 0,
+            "tip": "Nombres impairs +2."
+          },
+          {
+            "prompt": "10, 20, 30, ...",
+            "options": [
+              "35",
+              "40",
+              "45"
+            ],
+            "answer": 1,
+            "tip": "+10."
+          },
+          {
+            "prompt": "12, 11, 10, ...",
+            "options": [
+              "8",
+              "9",
+              "7"
+            ],
+            "answer": 1,
+            "tip": "On enlève 1."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:suite",
+          "math:nombres"
+        ],
+        "id": "prob-l8",
+        "categories": [
+          "sequences"
+        ]
+      },
+      {
+        "number": 9,
+        "name": "Mesures appliquées",
+        "focus": "Temps, monnaie, longueurs",
+        "template": "logique:mesures",
+        "items": [
+          {
+            "prompt": "Le film dure 35 min et il reste 5 min. Quelle est la durée totale ?",
+            "options": [
+              "30 min",
+              "35 min",
+              "40 min"
+            ],
+            "answer": 2,
+            "tip": "35 + 5 = 40."
+          },
+          {
+            "prompt": "Tu as 7 € et tu trouves 4 €. Combien maintenant ?",
+            "options": [
+              "10 €",
+              "11 €",
+              "12 €"
+            ],
+            "answer": 1,
+            "tip": "7 + 4 = 11."
+          },
+          {
+            "prompt": "Une corde mesure 120 cm. Combien en mètres ?",
+            "options": [
+              "12 m",
+              "1,2 m",
+              "0,12 m"
+            ],
+            "answer": 1,
+            "tip": "Diviser 120 cm par 100."
+          },
+          {
+            "prompt": "Il est 14h. Quelle heure dans 2 heures ?",
+            "options": [
+              "15h",
+              "16h",
+              "17h"
+            ],
+            "answer": 1,
+            "tip": "14 + 2 = 16h."
+          },
+          {
+            "prompt": "Un litre + 500 mL = ?",
+            "options": [
+              "1,5 L",
+              "1,05 L",
+              "2 L"
+            ],
+            "answer": 0,
+            "tip": "1000 mL + 500 mL = 1500 mL."
+          }
+        ],
+        "exerciseCount": 5,
+        "options": 3,
+        "skillTags": [
+          "logique:mesures"
+        ],
+        "id": "prob-l9",
+        "categories": [
+          "enigmes"
+        ]
+      },
+      {
+        "number": 10,
+        "name": "Dossier final",
+        "focus": "Révision mixte",
+        "template": "logique:revision",
+        "settings": {
+          "mix": [
+            "logique:probleme",
+            "logique:suite",
+            "logique:mesures"
+          ],
+          "difficulty": "medium"
+        },
+        "exerciseCount": 7,
+        "options": 4,
+        "skillTags": [
+          "logique:revision",
+          "logique:multi"
+        ],
+        "id": "prob-l10",
+        "categories": [
+          "enigmes"
+        ]
+      }
+    ]
+  }
+}
