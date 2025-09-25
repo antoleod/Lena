@@ -998,7 +998,7 @@ body[data-bg-theme] #stageBottom {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: clamp(0.75rem, 2vw, 1.1rem);
   align-content: start;
   max-height: clamp(220px, 40vh, 360px);
