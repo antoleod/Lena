@@ -256,6 +256,8 @@ body::after {
   padding: clamp(0.45rem, 1vw, 0.8rem) clamp(0.7rem, 1.4vw, 1.1rem);
   background: var(--user-info-bg, var(--card));
   color: var(--user-info-ink, var(--primary));
+
+  
 }
 
 /* 🧲 Efecto al pasar el cursor en info del usuario */
@@ -366,51 +368,55 @@ body::after {
 #btnBack,
 #btnLogros,
 #btnLogout {
-  color: white;
+  
+  
   font-family: var(--font-heading);
-  font-size: var(--font-size-base);
-  padding: 0.7rem 1.6rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
   border: none;
-  border-radius: var(--border-radius-medium);
-  background: var(--muted); /* Gris suave pastel */
+  background: var(--bg2);
+  color: var(--primary);
   cursor: pointer;
-  display: inline-flex;
+  transition: all 0.25s ease-in-out;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  transition:
-    transform 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out,
-    background-color 0.3s ease-in-out;
+  text-align: center;
+  gap: 0.5rem;
+  font-size: var(--font-size-large);
+  animation: bounceIn 0.5s ease-out;
 
-  /* 🌟 Relieve en esquinas */
-  box-shadow:
-    inset 4px 4px 6px rgba(0, 0, 0, 0.15),       /* sombra interior abajo derecha */
-    inset -4px -4px 6px rgba(255, 255, 255, 0.6),/* luz interior arriba izquierda */
-    0 6px 10px rgba(0, 0, 0, 0.1);               /* sombra externa para flotación */
+  /* ✨ Relieve visible */
+  box-shadow: 
+    -6px -6px 12px rgba(255, 255, 255, 0.9),  /* luz fuerte arriba-izq */
+    6px 6px 12px rgba(0, 0, 0, 0.25);         /* sombra marcada abajo-der */
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.25),  /* sombra suave negra */
+    0 -1px 1px rgba(255, 255, 255, 0.4), /* brillo sutil claro */
+    0 0 6px rgba(0, 0, 0, 0.15); /* desenfoque suave */
 }
+
 
 /* 🧲 Hover: elevación suave */
 #btnBack:hover,
 #btnLogros:hover,
 #btnLogout:hover {
   transform: translateY(-3px);
-  box-shadow:
-    inset 2px 2px 4px rgba(0, 0, 0, 0.12),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.5),
-    0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #8e8e8e;
+  box-shadow: 
+    -2px -2px 6px rgba(255, 255, 255, 0.7),
+    6px 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 /* ✴️ Active: efecto de "presionado" */
 #btnBack:active,
 #btnLogros:active,
 #btnLogout:active {
-  transform: scale(0.95);
-  box-shadow:
-    inset 6px 6px 10px rgba(0, 0, 0, 0.25),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.5);
+  transform: translateY(1px);
+  box-shadow: 
+    inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+    inset 6px 6px 12px rgba(0, 0, 0, 0.25);
 }
+
 
 
 /* 📦 Contenedor principal */
@@ -733,24 +739,49 @@ body::after {
 
 /* 🌈 Botones responsivos con rebote */
 .btn {
-  padding: 0.8rem 1.2rem;
-  border-radius: var(--border-radius-small);
-  font-size: var(--font-size-base);
-  transition: var(--transition-fast);
-  background-color: var(--bg-glow);
-  color: white;
+
+
+  font-family: var(--font-heading);
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  animation: bounceIn 0.6s ease both;
+  background: var(--bg2);
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  font-size: var(--font-size-large);
+  animation: bounceIn 0.5s ease-out;
+
+  /* ✨ Relieve visible */
+  box-shadow: 
+    -6px -6px 12px rgba(255, 255, 255, 0.9),  /* luz fuerte arriba-izq */
+    6px 6px 12px rgba(0, 0, 0, 0.25);         /* sombra marcada abajo-der */
+    text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.25),  /* sombra suave negra */
+    0 -1px 1px rgba(255, 255, 255, 0.4), /* brillo sutil claro */
+    0 0 6px rgba(0, 0, 0, 0.15); /* desenfoque suave */
 }
 
+
 .btn:hover {
-  animation: shake 0.3s ease-in-out;
-  background-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 
+    -2px -2px 6px rgba(255, 255, 255, 0.7),
+    6px 6px 12px rgba(0, 0, 0, 0.25);
 }
+
 .btn:active {
-  transform: scale(0.95);
+  transform: translateY(1px);
+  box-shadow: 
+    inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+    inset 6px 6px 12px rgba(0, 0, 0, 0.25);
 }
+
 
 .prompt-with-audio {
   display: flex;
@@ -967,7 +998,7 @@ body[data-bg-theme] #stageBottom {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 2fr));
   gap: clamp(0.75rem, 2vw, 1.1rem);
   align-content: start;
   max-height: clamp(220px, 40vh, 360px);
@@ -1282,7 +1313,10 @@ body[data-bg-theme] #stageBottom {
   animation: iconFloat 1.8s ease-in-out infinite, sparkle 1.8s ease-in-out infinite;
 }
 
+
+
 /* 🖥️📱 Breakpoints: Desktop, Tablet, Móvil */
+/* 🖥️ Pantallas grandes (Desktop) */
 @media (max-width: 1024px) {
   .card {
     padding: 1.8rem;
@@ -1290,22 +1324,64 @@ body[data-bg-theme] #stageBottom {
   }
 }
 
+/* 📱 Tabletas */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
     padding: 1rem;
   }
+
   .card {
     padding: 1.5rem;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
+/* 📳 Móviles */
 @media (max-width: 480px) {
   .card {
     width: 100%;
     padding: 1.2rem;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   }
+
+  .btn {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    padding: 0.6rem 1rem;
+  }
+
+  .option:hover .option-icon,
+  .color-option-button:hover .option-icon {
+    animation: iconFloat 1.8s ease-in-out infinite,
+               iconSparkle 1.8s ease-in-out infinite;
+  }
+}
+
+/* 📏 Teléfonos muy pequeños */
+@media (max-width: 360px) {
+  .card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}
+
+
+  .btn {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    padding: 0.6rem 1rem;
+  }
+.option:hover .option-icon,
+.color-option-button:hover .option-icon {
+  animation: iconFloat 1.8s ease-in-out infinite, iconSparkle 1.8s ease-in-out infinite;
+}
+
+
   .btn {
     font-size: clamp(0.9rem, 3.5vw, 1rem);
     padding: 0.6rem 1rem;
