@@ -1586,55 +1586,78 @@
   }
 }
 
-/* Styles for Level Selection */
+/* 🎮 LEVEL SELECTION - Contenedor de niveles */
 .level-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    width: min(100%, 520px);
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: min(100%, 520px);
+  margin: 0 auto;
 }
 
+/* 🌈 Botón transparente con borde de alto relieve y arcoíris */
 .level-button {
-    width: 100%;
-    padding: 1rem 2rem;
-    background-color: #fff4d6;
-    border: none;
-    border-radius: 12px;
-    color: var(--primary-color);
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: 3px solid;
+  border-image: linear-gradient(
+    135deg,
+    #ff8a80,
+    #ffd180,
+    #ffff8d,
+    #80d8ff,
+    #a7ffeb,
+    #b388ff,
+    #ff8a80
+  ) 1;
+  border-radius: var(--border-radius-medium);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  color: var(--ink);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-clip: padding-box;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    inset 0 2px 6px rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
+/* 🌟 Hover con efecto flotante suave */
 .level-button:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transform: scale(1.04);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12),
+    0 0 8px rgba(186, 104, 255, 0.3);
 }
 
+/* ✅ Botón correcto */
 .level-button.correct {
-    background-color: var(--success);
-    color: #fff;
+  background-color: var(--success);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
+/* 📱💻 Responsive: grid layout desde tablet */
 @media (min-width: 768px) {
-    .level-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        justify-items: center;
-        width: min(100%, 760px);
-    }
+  .level-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items: center;
+    width: min(100%, 760px);
+  }
 
-    .level-button {
-        width: 100%;
-        min-width: unset;
-    }
+  .level-button {
+    width: 100%;
+    min-width: unset;
+  }
 }

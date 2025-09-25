@@ -3,34 +3,76 @@
 */
 
 :root {
-  /* Paleta de colores más vibrante y pastel */
-  --bg: #fcf8e8; /* Very light cream */
-  --bg2: #f5e6cc; /* Light beige */
-  --card: rgba(255, 255, 255, .95);
-  --cardHi: rgba(255, 255, 255, .9);
-  --ink: #5a5a5a; /* Slightly softer dark grey */
-  --muted: #a0a0a0; /* Softer muted grey */
-  --primary: #a890f0; /* Softer purple */
-  --primary-light: #c0a8f8; /* Lighter, more pastel purple */
-  --success: #8bc34a; /* Brighter, more cheerful green */
-  --warning: #ffca28; /* Brighter yellow/orange */
-  --danger: #ef5350; /* Keeping red for danger, but could be softened if needed */
-  --highlight: #ffeb3b; /* Brighter yellow highlight */
-  /* Espaciado y tipografía */
-  --space-unit: 1rem;
-  --font-heading: 'Fredoka', sans-serif;
+  /* 🎨 Colores */
+  --bg-glass: rgba(255, 255, 255, 0.2);
+  --bg-glow: linear-gradient(145deg, #f5e6cc, #ffffff);
+  --glass-blur: blur(20px);
+
+  --card-color: rgba(255, 255, 255, 0.3);
+  --card-border: rgba(255, 255, 255, 0.4);
+  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  --glow-purple: 0 0 15px #cfa7ff;
+
+  --border-radius: 2rem;
+  --transition: all 0.4s ease;
+
+  /* Tipografía */
+  --font-heading: 'Fredoka', cursive;
   --font-body: 'Nunito', sans-serif;
-  --font-size-base: clamp(0.8rem, 1vw + 0.5rem, 1rem);
-  --font-size-large: clamp(1.2rem, 1.5vw + 0.5rem, 1.5rem);
-  --font-size-xl: clamp(1.5rem, 2vw + 0.5rem, 2rem);
-  --font-size-xxl: clamp(2rem, 3vw + 1rem, 3rem);
-  /* Sombra y bordes */
-  --shadow-small: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.15);
-  --shadow-large: 0 20px 25px rgba(0, 0, 0, 0.2);
-  --border-radius-large: 1.5rem;
-  --border-radius-medium: 1rem;
 }
+
+/* 🌌 Fondo Glass + animación */
+body {
+  background: var(--bg2);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  z-index: 0;
+}
+
+/* 🧊 Tarjeta flotante futurista */
+.card {
+  background: var(--card);
+  border-radius: var(--border-radius-medium);
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), var(--glow-purple);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* ✨ Efecto 3D al pasar el mouse */
+.card:hover {
+  transform: rotateX(4deg) rotateY(-4deg) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2), var(--glow-purple);
+}
+/* 👶 Título estilo infantil */
+.card h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: #444;
+  margin: 0;
+}
+
+
 
 * { box-sizing: border-box; }
 body {
@@ -119,38 +161,75 @@ body::after {
   }
 }
 
-/* Fondos de pantalla por nivel */
-.body-level-1 { background: linear-gradient(180deg, #fce4ec 0%, #f8bbd0 45%, #f48fb1 100%); }
-.body-level-2 { background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 40%, #64b5f6 100%); }
-.body-level-3 { background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 45%, #81c784 100%); }
-.body-level-4 { background: linear-gradient(180deg, #fff3e0 0%, #ffe0b2 42%, #ffb74d 100%); }
-.body-level-5 { background: linear-gradient(180deg, #f3e5f5 0%, #e1bee7 42%, #ba68c8 100%); }
-.body-level-6 { background: linear-gradient(180deg, #e0f2f1 0%, #b2dfdb 40%, #4db6ac 100%); }
-.body-level-7 { background: linear-gradient(180deg, #f1f8e9 0%, #dcedc8 40%, #aed581 100%); }
-.body-level-8 { background: linear-gradient(180deg, #e1f5fe 0%, #b3e5fc 40%, #4fc3f7 100%); }
-.body-level-9 { background: linear-gradient(180deg, #fffde7 0%, #fff59d 42%, #fdd835 100%); }
-.body-level-10 { background: linear-gradient(180deg, #efebe9 0%, #d7ccc8 40%, #a1887f 100%); }
-.body-level-11 { background: linear-gradient(180deg, #fbe9e7 0%, #ffccbc 40%, #ff8a65 100%); }
-.body-level-12 { background: linear-gradient(180deg, #ede7f6 0%, #d1c4e9 40%, #9575cd 100%); }
+.body-level-1 {
+  background: linear-gradient(180deg, #fff1f4 0%, #ffe4ec 45%, #ffc8da 100%);
+}
 
+.body-level-2 {
+  background: linear-gradient(180deg, #eef7ff 0%, #d2e9fb 40%, #a8d4f4 100%);
+}
 
-/* 🏆 Header */
+.body-level-3 {
+  background: linear-gradient(180deg, #f2fcf4 0%, #d5f2dd 45%, #b2e9c6 100%);
+}
+
+.body-level-4 {
+  background: linear-gradient(180deg, #fff8ec 0%, #ffe9c7 42%, #ffd9a2 100%);
+}
+
+.body-level-5 {
+  background: linear-gradient(180deg, #f8f2fa 0%, #ecdff3 42%, #dabde8 100%);
+}
+
+.body-level-6 {
+  background: linear-gradient(180deg, #eafafa 0%, #cdeeee 40%, #a0e1e1 100%);
+}
+
+.body-level-7 {
+  background: linear-gradient(180deg, #f5fbea 0%, #e3f4d4 40%, #cdecb3 100%);
+}
+
+.body-level-8 {
+  background: linear-gradient(180deg, #eaf9ff 0%, #c9edfa 40%, #a6e2f6 100%);
+}
+
+.body-level-9 {
+  background: linear-gradient(180deg, #fffef2 0%, #fff8cd 42%, #fff1a4 100%);
+}
+
+.body-level-10 {
+  background: linear-gradient(180deg, #f7f5f3 0%, #ede6e2 40%, #d6c9c0 100%);
+}
+
+.body-level-11 {
+  background: linear-gradient(180deg, #fff3f1 0%, #ffe1d9 40%, #ffc5ae 100%);
+}
+
+.body-level-12 {
+  background: linear-gradient(180deg, #f3f1fa 0%, #e4def4 40%, #cbb7e6 100%);
+}
+
+/* 🏆 HEADER - Encabezado superior del juego o app educativa */
 #stageTop {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
-  max-width: 900px;
   width: 100%;
+  max-width: 900px;
   padding: var(--space-unit);
-  font-family: var(--font-heading);
-  font-size: var(--font-size-large);
-  color: var(--primary);
+  background: var(--cardHi); /* Fondo semitransparente pastel */
+  border-radius: var(--border-radius-medium);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--ink);
+  box-shadow: var(--shadow-small);
   position: relative;
   z-index: 1;
 }
 
+/* ⭐ Contenedor de puntuaciones u otras estadísticas */
 .scores-container {
   display: flex;
   flex-wrap: wrap;
@@ -158,16 +237,18 @@ body::after {
   align-items: center;
 }
 
+/* 🧾 Elementos individuales del header (ej. monedas, estrellas, niveles) */
 #stageTop span {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
+  border-radius: 9999px; /* Forma de píldora */
   background: var(--card);
   box-shadow: var(--shadow-small);
 }
 
+/* 👤 Contenedor de información del usuario */
 #stageTop span#user-info {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -176,11 +257,14 @@ body::after {
   background: var(--user-info-bg, var(--card));
   color: var(--user-info-ink, var(--primary));
 }
+
+/* 🧲 Efecto al pasar el cursor en info del usuario */
 #stageTop span#user-info:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 18px rgba(148, 102, 255, 0.25);
+  box-shadow: 0 10px 18px rgba(148, 102, 255, 0.25); /* Sombra púrpura suave */
 }
 
+/* 🖼️ Avatar del usuario (imagen o ícono) */
 .user-info__avatar {
   width: clamp(42px, 5vw, 56px);
   height: clamp(42px, 5vw, 56px);
@@ -190,15 +274,17 @@ body::after {
   box-shadow: 0 6px 14px rgba(148, 102, 255, 0.25);
 }
 
+/* 🔤 Fallback si no hay imagen de avatar (iniciales, etc) */
 .user-info__avatar--fallback {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-heading);
   font-weight: 700;
-  color: #4a3c75;
+  color: #4a3c75; /* Color vibrante amigable */
 }
 
+/* 🧑‍🎓 Nombre del usuario */
 .user-info__name {
   font-family: var(--font-heading);
   font-size: clamp(1.05rem, 2vw, 1.35rem);
@@ -206,26 +292,31 @@ body::after {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
+/* 🎖️ Badge/Icono del usuario (ej. nivel, estrellas, etc.) */
 .user-info__badge {
   font-size: clamp(1.3rem, 2.2vw, 1.6rem);
   animation: sparklePulse 4.5s ease-in-out infinite;
 }
 
+/* 🌟 Íconos automáticos con before */
 #stageTop span#scoreStars::before { content: '⭐️'; }
 #stageTop span.coins::before { content: '💰'; }
 #stageTop span.level::before { content: '🚀'; }
 
+/* ✨ Sparkle animado sutil en todos los íconos */
 #stageTop span::before {
   display: inline-flex;
   animation: sparklePulse 4.5s ease-in-out infinite;
   transform-origin: center;
 }
 
+/* 🎮 Contenedor para botones en el header (ej. ajustes, tienda, etc.) */
 .top-buttons {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
+
 
 /* Estilos mejorados para los botones de temas */
 .topic-btn {
@@ -249,7 +340,11 @@ body::after {
   box-shadow: 
     -6px -6px 12px rgba(255, 255, 255, 0.9),  /* luz fuerte arriba-izq */
     6px 6px 12px rgba(0, 0, 0, 0.25);         /* sombra marcada abajo-der */
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.25),  /* sombra suave negra */
+    0 -1px 1px rgba(255, 255, 255, 0.4), /* brillo sutil claro */
+    0 0 6px rgba(0, 0, 0, 0.15); /* desenfoque suave */
+  
 }
 
 .topic-btn:hover {
@@ -267,19 +362,56 @@ body::after {
 }
 
 
-#btnBack, #btnLogros, #btnLogout {
-  background: var(--muted);
+/* 🪐 Botones secundarios: volver, logros, salir */
+#btnBack,
+#btnLogros,
+#btnLogout {
   color: white;
-  box-shadow: var(--shadow-small);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  padding: 0.7rem 1.6rem;
+  border: none;
+  border-radius: var(--border-radius-medium);
+  background: var(--muted); /* Gris suave pastel */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    background-color 0.3s ease-in-out;
+
+  /* 🌟 Relieve en esquinas */
+  box-shadow:
+    inset 4px 4px 6px rgba(0, 0, 0, 0.15),       /* sombra interior abajo derecha */
+    inset -4px -4px 6px rgba(255, 255, 255, 0.6),/* luz interior arriba izquierda */
+    0 6px 10px rgba(0, 0, 0, 0.1);               /* sombra externa para flotación */
 }
-#btnBack:hover, #btnLogros:hover, #btnLogout:hover {
+
+/* 🧲 Hover: elevación suave */
+#btnBack:hover,
+#btnLogros:hover,
+#btnLogout:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
+  box-shadow:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+    0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #8e8e8e;
 }
-#btnBack:active, #btnLogros:active, #btnLogout:active {
+
+/* ✴️ Active: efecto de "presionado" */
+#btnBack:active,
+#btnLogros:active,
+#btnLogout:active {
   transform: scale(0.95);
+  box-shadow:
+    inset 6px 6px 10px rgba(0, 0, 0, 0.25),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.5);
 }
+
 
 /* 📦 Contenedor principal */
 #stageBottom {
@@ -599,25 +731,22 @@ body::after {
   width: 100%;
 }
 
+/* 🌈 Botones responsivos con rebote */
 .btn {
-  font-family: var(--font-heading);
-  font-size: var(--font-size-large);
-  padding: 0.75rem 2rem;
-  border-radius: var(--border-radius-medium);
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--border-radius-small);
+  font-size: var(--font-size-base);
+  transition: var(--transition-fast);
+  background-color: var(--bg-glow);
+  color: white;
   border: none;
-  cursor: pointer;
-  box-shadow: var(--shadow-small);
-  transition: all 0.2s ease-in-out;
-  flex-grow: 1;
-  max-width: min(260px, 100%);
-  appearance: none;
-  -webkit-appearance: none;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: bounceIn 0.6s ease both;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
+  animation: shake 0.3s ease-in-out;
+  background-color: var(--primary);
 }
 .btn:active {
   transform: scale(0.95);
@@ -1146,67 +1275,41 @@ body[data-bg-theme] #stageBottom {
   }
 }
 
-/* 📱 Media queries mejorados */
-@media (max-width: 900px) {
-  #stageBottom {
-    padding: clamp(1.2rem, 4vw, 1.9rem);
-    min-height: clamp(360px, 70vh, 640px);
-  }
-  #stageTop {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .scores-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-  }
-  .top-buttons {
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  .top-buttons .btn {
-    flex: 1 1 calc(50% - 0.5rem);
-    max-width: none;
+
+/* ✨ Iconos que flotan al pasar el mouse */
+.option:hover .option-icon,
+.color-option-button:hover .option-icon {
+  animation: iconFloat 1.8s ease-in-out infinite, sparkle 1.8s ease-in-out infinite;
+}
+
+/* 🖥️📱 Breakpoints: Desktop, Tablet, Móvil */
+@media (max-width: 1024px) {
+  .card {
+    padding: 1.8rem;
+    border-radius: var(--border-radius-medium);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   body {
-    padding: clamp(0.75rem, 4vw, 1rem);
-    justify-content: flex-start;
-    gap: 1.25rem;
+    flex-direction: column;
+    padding: 1rem;
   }
-  #stageBottom {
-    padding: clamp(1rem, 6vw, 1.3rem);
-    border-radius: 1.35rem;
-    min-height: auto;
-  }
-  .question-prompt {
-    font-size: clamp(1.1rem, 5vw, 1.35rem);
-  }
-  .options-grid {
-    grid-template-columns: 1fr;
-  }
-  .btn {
-    font-size: clamp(0.95rem, 4vw, 1.05rem);
-    padding: clamp(0.55rem, 3vw, 0.8rem);
-  }
-  .audio-btn {
-    width: 2.6rem;
-    height: 2.6rem;
-    font-size: 1.5rem;
-  }
-  .shop-modal__dialog {
-    max-height: 92vh;
-    padding: clamp(1.2rem, 5vw, 1.8rem);
-  }
-  .shop-modal__content {
-    grid-template-columns: 1fr;
-    max-height: 65vh;
+  .card {
+    padding: 1.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    padding: 1.2rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  .btn {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    padding: 0.6rem 1rem;
+  }
 .option:hover .option-icon,
 .color-option-button:hover .option-icon {
   animation: iconFloat 1.8s ease-in-out infinite, iconSparkle 1.8s ease-in-out infinite;
