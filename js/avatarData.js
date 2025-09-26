@@ -367,6 +367,158 @@
           textLight: '#FFEFF9'
         }
       }
+    ],
+    fraise: [
+      {
+        id: 'fraise-jardin-etoile',
+        name: 'Jardin aux Étoiles',
+        motif: '🍓',
+        priceCoins: 95,
+        description: 'Un jardin parfumé où brillent des fraises constellées.',
+        palette: {
+          background: ['#FFE1F0', '#FFC5DE'],
+          accent: '#FF6FA2',
+          textLight: '#4C1036'
+        }
+      },
+      {
+        id: 'fraise-festival-confettis',
+        name: 'Festival de Confettis',
+        motif: '🎉',
+        priceCoins: 105,
+        description: 'Une pluie de confettis sucrés qui danse autour de toi.',
+        palette: {
+          background: ['#FFF4E6', '#FFD3E8'],
+          accent: '#FF89B4',
+          textLight: '#4A2739'
+        }
+      },
+      {
+        id: 'fraise-picnic-boise',
+        name: 'Pique-nique Boisé',
+        motif: '🧺',
+        priceCoins: 110,
+        description: 'Une nappe ensoleillée et des paniers remplis de fraises.',
+        palette: {
+          background: ['#FFEBEE', '#FFE6C7'],
+          accent: '#FF5A76',
+          textLight: '#402022'
+        }
+      }
+    ],
+    pomme: [
+      {
+        id: 'pomme-verger-ensoleille',
+        name: 'Verger Ensoleillé',
+        motif: '🌳',
+        priceCoins: 100,
+        description: 'Des pommiers dorés et une lumière douce du matin.',
+        palette: {
+          background: ['#FFF5E6', '#D8FFB4'],
+          accent: '#FF8A5C',
+          textLight: '#2C3B1A'
+        }
+      },
+      {
+        id: 'pomme-gouttes-roses',
+        name: 'Gouttes Rosées',
+        motif: '💧',
+        priceCoins: 112,
+        description: 'Des gouttelettes de rosée brillent sur les pommes sucrées.',
+        palette: {
+          background: ['#FFE5E0', '#FFEBCF'],
+          accent: '#FF4F53',
+          textLight: '#512319'
+        }
+      },
+      {
+        id: 'pomme-balade-automne',
+        name: 'Balade d\'Automne',
+        motif: '🍂',
+        priceCoins: 118,
+        description: 'Une promenade dans les feuilles dorées du verger.',
+        palette: {
+          background: ['#FFEAC9', '#FFCF99'],
+          accent: '#E36A3C',
+          textLight: '#4D2B12'
+        }
+      }
+    ],
+    banane: [
+      {
+        id: 'banane-jungle-rieuse',
+        name: 'Jungle Rieuse',
+        motif: '🌿',
+        priceCoins: 95,
+        description: 'Une jungle remplie de rires et de feuilles dansantes.',
+        palette: {
+          background: ['#FFF8B8', '#DFFFA8'],
+          accent: '#FFCF3F',
+          textLight: '#3A3A10'
+        }
+      },
+      {
+        id: 'banane-plage-coco',
+        name: 'Plage Coco',
+        motif: '🏖️',
+        priceCoins: 108,
+        description: 'Une plage fraîche où les noix de coco chantent.',
+        palette: {
+          background: ['#FFF5D1', '#BAF3FF'],
+          accent: '#FFDB58',
+          textLight: '#3E2F12'
+        }
+      },
+      {
+        id: 'banane-cirque-magique',
+        name: 'Cirque Magique',
+        motif: '🎪',
+        priceCoins: 115,
+        description: 'Des guirlandes lumineuses et des bananes acrobates.',
+        palette: {
+          background: ['#FFF0B3', '#FFC6FF'],
+          accent: '#FF8B1F',
+          textLight: '#40220A'
+        }
+      }
+    ],
+    ananas: [
+      {
+        id: 'ananas-fete-tropicale',
+        name: 'Fête Tropicale',
+        motif: '🌴',
+        priceCoins: 105,
+        description: 'Un ciel orangé et des palmiers qui dansent.',
+        palette: {
+          background: ['#FFF0D0', '#FFE766'],
+          accent: '#FF9A1F',
+          textLight: '#45300E'
+        }
+      },
+      {
+        id: 'ananas-soiree-lumineuse',
+        name: 'Soirée Lumineuse',
+        motif: '✨',
+        priceCoins: 118,
+        description: 'Des lanternes scintillantes autour d\'un ananas géant.',
+        palette: {
+          background: ['#FFE5B4', '#FFB6C1'],
+          accent: '#FF7B54',
+          textLight: '#4A1F0F'
+        }
+      },
+      {
+        id: 'ananas-ciel-creme',
+        name: 'Ciel Crème',
+        motif: '☁️',
+        priceCoins: 122,
+        description: 'De la chantilly nuageuse et des bulles turquoise.',
+        palette: {
+          background: ['#FFF8DB', '#B6F2E3'],
+          accent: '#F4A259',
+          textLight: '#2F3021'
+        }
+      }
     ]
   };
 
@@ -505,6 +657,50 @@
         accent: '#FFD23F'
       },
       backgrounds: backgroundSpecs.dragon.map(enrichBackground)
+    },
+    fraise: {
+      id: 'fraise',
+      name: 'Fraise Pétillante',
+      iconUrl: `${baseAvatarPath}fraise.svg`,
+      defaultPalette: {
+        primary: '#FF6FA2',
+        secondary: '#FFC6FF',
+        accent: '#FFE6F5'
+      },
+      backgrounds: backgroundSpecs.fraise.map(enrichBackground)
+    },
+    pomme: {
+      id: 'pomme',
+      name: 'Pomme Brillante',
+      iconUrl: `${baseAvatarPath}pomme.svg`,
+      defaultPalette: {
+        primary: '#FF8A5C',
+        secondary: '#FFD9A0',
+        accent: '#FFF2E3'
+      },
+      backgrounds: backgroundSpecs.pomme.map(enrichBackground)
+    },
+    banane: {
+      id: 'banane',
+      name: 'Banane Rigolote',
+      iconUrl: `${baseAvatarPath}banane.svg`,
+      defaultPalette: {
+        primary: '#FFCF3F',
+        secondary: '#FFF4A3',
+        accent: '#FFEFD7'
+      },
+      backgrounds: backgroundSpecs.banane.map(enrichBackground)
+    },
+    ananas: {
+      id: 'ananas',
+      name: 'Ananas Disco',
+      iconUrl: `${baseAvatarPath}ananas.svg`,
+      defaultPalette: {
+        primary: '#FF9A1F',
+        secondary: '#FFD97D',
+        accent: '#FFF1D0'
+      },
+      backgrounds: backgroundSpecs.ananas.map(enrichBackground)
     }
   };
 

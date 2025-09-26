@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const levelDisplay = document.getElementById('level');
     const audioCorrect = document.getElementById('audioCorrect');
     const audioWrong = document.getElementById('audioWrong');
+    const audioCoins = document.getElementById('audioCoins');
     const stageBottom = document.getElementById('stageBottom');
     const btnShop = document.getElementById('btnShop');
     const shopModal = document.getElementById('shopModal');
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentStoryIndex = null;
     let activeReviewSkills = [];
     let pauseReminderTimeout = null;
+    let currentRiddleLevelIndex = 0;
 
     // --- Game Data ---
     const LEVELS_PER_TOPIC = 12;
@@ -119,7 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'number-houses': 'math:numberBond',
         'puzzle-magique': 'logic:puzzle',
         repartis: 'math:distribution',
-        dictee: 'language:dictation'
+        dictee: 'language:dictation',
+        'math-blitz': 'math:blitz',
+        'lecture-magique': 'reading:fluency',
+        raisonnement: 'logic:reasoning'
     };
 
     function svgDataUri(svg) {
@@ -793,76 +798,473 @@ document.addEventListener('DOMContentLoaded', () => {
     const riddleLevels = [
         {
             level: 1,
-            prompt: "J'ai 4 pattes 🐾 et j'aboie 🐶. Qui suis-je ?",
-            options: ['Un chiot', 'Un chat', 'Un oiseau'],
-            answer: 0,
-            reward: { stars: 12, coins: 8 }
+            theme: "Animaux câlins",
+            completionMessage: "Tu connais les animaux câlins !",
+            questions: [
+                {
+                    prompt: "Je suis petit, je miaule doucement et j'adore les câlins. Qui suis-je ?",
+                    options: ["Un chaton", "Un lion", "Un hibou"],
+                    answer: 0,
+                    hint: "Je vis souvent dans la maison.",
+                    success: "Oui, le chaton adore les câlins !",
+                    reward: { stars: 6, coins: 4 }
+                },
+                {
+                    prompt: "Je saute dans la prairie et je grignote des carottes. Qui suis-je ?",
+                    options: ["Un lapin", "Un cheval", "Un poisson"],
+                    answer: 0,
+                    hint: "Mes oreilles sont très longues.",
+                    success: "Le lapin adore bondir !",
+                    reward: { stars: 6, coins: 4 }
+                },
+                {
+                    prompt: "Je porte une carapace et je marche très lentement. Qui suis-je ?",
+                    options: ["Une tortue", "Une souris", "Un chien"],
+                    answer: 0,
+                    hint: "On me voit souvent au soleil.",
+                    success: "Oui, la tortue avance lentement !",
+                    reward: { stars: 6, coins: 4 }
+                },
+                {
+                    prompt: "Je suis rayé et je ronronne comme un grand chat. Qui suis-je ?",
+                    options: ["Un tigre", "Un panda", "Un pingouin"],
+                    answer: 0,
+                    hint: "Je vis dans la jungle.",
+                    success: "Le tigre est un grand chat rayé !",
+                    reward: { stars: 6, coins: 4 }
+                },
+                {
+                    prompt: "Je dors accroché la tête en bas dans une grotte. Qui suis-je ?",
+                    options: ["Une chauve-souris", "Un renard", "Un mouton"],
+                    answer: 0,
+                    hint: "Je suis un animal de la nuit.",
+                    success: "La chauve-souris dort à l'envers !",
+                    reward: { stars: 6, coins: 4 }
+                }
+            ]
         },
         {
             level: 2,
-            prompt: "Je suis jaune 🍌 et très courbé. Qui suis-je ?",
-            options: ['Une banane', 'Une carotte', 'Un citron'],
-            answer: 0,
-            reward: { stars: 12, coins: 8 }
+            theme: "Fruits colorés",
+            completionMessage: "Tu reconnais les fruits colorés !",
+            questions: [
+                {
+                    prompt: "Je suis jaune et on me pèle avant de me manger. Qui suis-je ?",
+                    options: ["Une banane", "Un kiwi", "Une prune"],
+                    answer: 0,
+                    hint: "On me tient par ma queue.",
+                    success: "La banane est délicieuse !",
+                    reward: { stars: 7, coins: 5 }
+                },
+                {
+                    prompt: "Je suis verte ou rouge et je croque sous la dent. Qui suis-je ?",
+                    options: ["Une pomme", "Une tomate", "Une cerise"],
+                    answer: 0,
+                    hint: "On me trouve souvent dans les paniers de pique-nique.",
+                    success: "Bravo, la pomme croque !",
+                    reward: { stars: 7, coins: 5 }
+                },
+                {
+                    prompt: "Je suis orange et j'offre un jus plein de vitamine C. Qui suis-je ?",
+                    options: ["Une orange", "Un citron", "Une fraise"],
+                    answer: 0,
+                    hint: "Mon jus te réveille le matin.",
+                    success: "L'orange est pleine d'énergie !",
+                    reward: { stars: 7, coins: 5 }
+                },
+                {
+                    prompt: "Je suis petite, rouge et j'ai des grains sur ma peau. Qui suis-je ?",
+                    options: ["Une fraise", "Une prune", "Une poire"],
+                    answer: 0,
+                    hint: "Je pousse dans le jardin au printemps.",
+                    success: "La fraise est toute rouge !",
+                    reward: { stars: 7, coins: 5 }
+                },
+                {
+                    prompt: "J'ai une couronne piquante mais un cœur doré. Qui suis-je ?",
+                    options: ["Un ananas", "Une mangue", "Une banane"],
+                    answer: 0,
+                    hint: "Je viens souvent des îles.",
+                    success: "L'ananas est royal !",
+                    reward: { stars: 7, coins: 5 }
+                }
+            ]
         },
         {
             level: 3,
-            prompt: "Je vole 🕊️ et j'ai des ailes. Qui suis-je ?",
-            options: ['Un poisson', 'Un oiseau', 'Un chien'],
-            answer: 1,
-            reward: { stars: 12, coins: 8 }
+            theme: "Amis de la ferme",
+            completionMessage: "Tu as reconnu tous les animaux de la ferme !",
+            questions: [
+                {
+                    prompt: "Je me réveille très tôt et je crie cocorico. Qui suis-je ?",
+                    options: ["Un coq", "Un canard", "Un hibou"],
+                    answer: 0,
+                    hint: "Je réveille toute la ferme.",
+                    success: "Cocorico, bien joué !",
+                    reward: { stars: 8, coins: 5 }
+                },
+                {
+                    prompt: "Je donne du lait blanc et j'aime manger de l'herbe. Qui suis-je ?",
+                    options: ["Une vache", "Une chèvre", "Une poule"],
+                    answer: 0,
+                    hint: "Je me fais traire chaque matin.",
+                    success: "La vache fournit du lait !",
+                    reward: { stars: 8, coins: 5 }
+                },
+                {
+                    prompt: "Je donne de la laine douce pour fabriquer des pulls. Qui suis-je ?",
+                    options: ["Un mouton", "Un cheval", "Un lapin"],
+                    answer: 0,
+                    hint: "On me tond au printemps.",
+                    success: "La laine vient du mouton !",
+                    reward: { stars: 8, coins: 5 }
+                },
+                {
+                    prompt: "J'adore me rouler dans la boue pour me rafraîchir. Qui suis-je ?",
+                    options: ["Un cochon", "Un chien", "Un lama"],
+                    answer: 0,
+                    hint: "Je fais groin groin.",
+                    success: "Le cochon adore la boue !",
+                    reward: { stars: 8, coins: 5 }
+                },
+                {
+                    prompt: "Je porte parfois un jockey pour courir très vite. Qui suis-je ?",
+                    options: ["Un cheval", "Une vache", "Un lapin"],
+                    answer: 0,
+                    hint: "Je galope au haras.",
+                    success: "Le cheval est un champion !",
+                    reward: { stars: 8, coins: 5 }
+                }
+            ]
         },
         {
             level: 4,
-            prompt: "Qui brille le jour ?",
-            image: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-            options: ['La lune', 'Le soleil', 'Une étoile filante'],
-            answer: 1,
-            reward: { stars: 15, coins: 10 }
+            theme: "Fruits tropicaux",
+            completionMessage: "Tes papilles adorent les fruits tropicaux !",
+            questions: [
+                {
+                    prompt: "Ma chair est orange, douce et juteuse. Je tombe parfois des arbres en martinique. Qui suis-je ?",
+                    options: ["Une mangue", "Une prune", "Une pêche"],
+                    answer: 0,
+                    hint: "Je suis un fruit tropical qui commence par la lettre M.",
+                    success: "La mangue est un soleil sucré !",
+                    reward: { stars: 9, coins: 6 }
+                },
+                {
+                    prompt: "Je suis verte à l'extérieur, rouge à l'intérieur et je rafraîchis tout l'été. Qui suis-je ?",
+                    options: ["Une pastèque", "Une prune", "Un citron"],
+                    answer: 0,
+                    hint: "Je suis très lourde et pleine de graines.",
+                    success: "La pastèque désaltère tout le monde !",
+                    reward: { stars: 9, coins: 6 }
+                },
+                {
+                    prompt: "Je suis petit, brun dehors et vert brillant dedans. Qui suis-je ?",
+                    options: ["Un kiwi", "Une figue", "Une prune"],
+                    answer: 0,
+                    hint: "Je me mange à la cuillère.",
+                    success: "Le kiwi est plein de vitamines !",
+                    reward: { stars: 9, coins: 6 }
+                },
+                {
+                    prompt: "On me casse pour boire mon eau sucrée au bord de la plage. Qui suis-je ?",
+                    options: ["Une noix de coco", "Un melon", "Une mandarine"],
+                    answer: 0,
+                    hint: "Ma coque est très dure.",
+                    success: "La noix de coco rafraîchit !",
+                    reward: { stars: 9, coins: 6 }
+                },
+                {
+                    prompt: "Je ressemble à une grosse baie violette et on me croque grain par grain. Qui suis-je ?",
+                    options: ["Une grappe de raisin", "Une myrtille", "Une mûre"],
+                    answer: 0,
+                    hint: "Je suis souvent servi avec du fromage.",
+                    success: "Les raisins sont délicieux !",
+                    reward: { stars: 9, coins: 6 }
+                }
+            ]
         },
         {
             level: 5,
-            prompt: "Qui ronronne à la maison ?",
-            image: 'https://cdn-icons-png.flaticon.com/512/3208/3208750.png',
-            options: ['Un chien', 'Un chat', 'Un lapin'],
-            answer: 1,
-            reward: { stars: 15, coins: 10 }
+            theme: "Animaux malins",
+            completionMessage: "Tu connais bien les animaux malins !",
+            questions: [
+                {
+                    prompt: "Je hulule la nuit avec mes grands yeux ronds. Qui suis-je ?",
+                    options: ["Un hibou", "Un manchot", "Un chien"],
+                    answer: 0,
+                    hint: "Je surveille la forêt pendant que tu dors.",
+                    success: "Le hibou observe dans la nuit !",
+                    reward: { stars: 10, coins: 7 }
+                },
+                {
+                    prompt: "Je suis rusé, ma queue est rousse et je vis dans le bois. Qui suis-je ?",
+                    options: ["Un renard", "Un ours", "Un loup"],
+                    answer: 0,
+                    hint: "On me dit parfois voleur de poules.",
+                    success: "Quel renard astucieux !",
+                    reward: { stars: 10, coins: 7 }
+                },
+                {
+                    prompt: "Je chante coâ coâ près des mares le soir. Qui suis-je ?",
+                    options: ["Une grenouille", "Un cygne", "Un crocodile"],
+                    answer: 0,
+                    hint: "Je saute dans l'eau et j'ai la peau verte.",
+                    success: "La grenouille adore chanter !",
+                    reward: { stars: 10, coins: 7 }
+                },
+                {
+                    prompt: "Je grimpe aux arbres et je mange des noisettes. Qui suis-je ?",
+                    options: ["Un écureuil", "Un blaireau", "Un hérisson"],
+                    answer: 0,
+                    hint: "Ma queue est en panache.",
+                    success: "L'écureuil est très agile !",
+                    reward: { stars: 10, coins: 7 }
+                },
+                {
+                    prompt: "Quand je suis surpris, je roule sur moi-même en boule piquante. Qui suis-je ?",
+                    options: ["Un hérisson", "Un castor", "Un lapin"],
+                    answer: 0,
+                    hint: "On me trouve parfois dans le jardin.",
+                    success: "Le hérisson se protège bien !",
+                    reward: { stars: 10, coins: 7 }
+                }
+            ]
         },
         {
             level: 6,
-            prompt: "Qui éclaire la nuit ?",
-            image: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-            options: ['La lune', 'Un nuage', 'Un livre'],
-            answer: 0,
-            reward: { stars: 15, coins: 10 }
+            theme: "Salade de fruits",
+            completionMessage: "Tu as préparé une salade de fruits magique !",
+            questions: [
+                {
+                    prompt: "Je suis violet et je laisse parfois une moustache colorée sur ta bouche. Qui suis-je ?",
+                    options: ["Une myrtille", "Un citron", "Une poire"],
+                    answer: 0,
+                    hint: "Je suis tout petit et je pousse sur des buissons.",
+                    success: "La myrtille colore la langue !",
+                    reward: { stars: 11, coins: 8 }
+                },
+                {
+                    prompt: "Je suis rose à l'extérieur et j'ai un gros noyau. Qui suis-je ?",
+                    options: ["Une pêche", "Une pomme", "Une poire"],
+                    answer: 0,
+                    hint: "Ma peau est toute douce.",
+                    success: "La pêche est veloutée !",
+                    reward: { stars: 11, coins: 8 }
+                },
+                {
+                    prompt: "Je suis jaune, très acide et on m'utilise pour faire de la limonade. Qui suis-je ?",
+                    options: ["Un citron", "Une banane", "Un abricot"],
+                    answer: 0,
+                    hint: "On fait une grimace en me goûtant.",
+                    success: "Le citron pique la langue !",
+                    reward: { stars: 11, coins: 8 }
+                },
+                {
+                    prompt: "Je suis allongée, verte à l'extérieur et rose avec des pépins noirs à l'intérieur. Qui suis-je ?",
+                    options: ["Une pastèque", "Une papaye", "Une figue"],
+                    answer: 0,
+                    hint: "On me partage en grosses tranches l'été.",
+                    success: "La pastèque rafraîchit !",
+                    reward: { stars: 11, coins: 8 }
+                },
+                {
+                    prompt: "Je suis petite, jaune et on me trouve souvent en grappe avec mes amis. Qui suis-je ?",
+                    options: ["Un grain de raisin", "Un pois", "Une prune"],
+                    answer: 0,
+                    hint: "On me cueille par grappes.",
+                    success: "Les raisins dorés sont délicieux !",
+                    reward: { stars: 11, coins: 8 }
+                }
+            ]
         },
         {
             level: 7,
-            prompt: "Je suis rond, je brille la nuit. Qui suis-je ?",
-            options: ['La lune', 'Un cerf-volant', 'Une balle'],
-            answer: 0,
-            reward: { stars: 18, coins: 12 }
+            theme: "Voyage sous la mer",
+            completionMessage: "Tu as exploré l'océan !",
+            questions: [
+                {
+                    prompt: "Je suis un mammifère qui saute hors de l'eau et j'adore jouer. Qui suis-je ?",
+                    options: ["Un dauphin", "Une baleine", "Un requin"],
+                    answer: 0,
+                    hint: "Je siffle pour parler avec mes amis.",
+                    success: "Le dauphin est très joueur !",
+                    reward: { stars: 12, coins: 9 }
+                },
+                {
+                    prompt: "J'ai huit bras et je peux changer de couleur. Qui suis-je ?",
+                    options: ["Une pieuvre", "Une sardine", "Une tortue"],
+                    answer: 0,
+                    hint: "Je me cache dans les rochers.",
+                    success: "La pieuvre est caméléon !",
+                    reward: { stars: 12, coins: 9 }
+                },
+                {
+                    prompt: "Je marche sur le sable de côté avec mes pinces. Qui suis-je ?",
+                    options: ["Un crabe", "Un ours polaire", "Un phoque"],
+                    answer: 0,
+                    hint: "Je laisse des traces en zigzag.",
+                    success: "Le crabe marche de travers !",
+                    reward: { stars: 12, coins: 9 }
+                },
+                {
+                    prompt: "Je suis géante, j'ai un jet d'eau sur ma tête et je chante sous l'eau. Qui suis-je ?",
+                    options: ["Une baleine", "Une raie", "Une otarie"],
+                    answer: 0,
+                    hint: "Je suis l'un des plus grands animaux du monde.",
+                    success: "La baleine chante fort !",
+                    reward: { stars: 12, coins: 9 }
+                },
+                {
+                    prompt: "Je porte une carapace et je nage longtemps sans me fatiguer. Qui suis-je ?",
+                    options: ["Une tortue de mer", "Un hippopotame", "Une grenouille"],
+                    answer: 0,
+                    hint: "Je pond mes œufs sur le sable.",
+                    success: "La tortue de mer voyage loin !",
+                    reward: { stars: 12, coins: 9 }
+                }
+            ]
         },
         {
             level: 8,
-            prompt: "Je grandis quand tu m'arroses et je perds mes feuilles en automne. Qui suis-je ?",
-            options: ['Une fleur', 'Un arbre', 'Une pierre'],
-            answer: 1,
-            reward: { stars: 18, coins: 12 }
+            theme: "Desserts fruités",
+            completionMessage: "Tes desserts fruités sont prêts !",
+            questions: [
+                {
+                    prompt: "Je suis petite, rouge foncé et je repose souvent sur un gâteau. Qui suis-je ?",
+                    options: ["Une cerise", "Une framboise", "Une prune"],
+                    answer: 0,
+                    hint: "On me met aussi sur les glaces.",
+                    success: "La cerise embellit les desserts !",
+                    reward: { stars: 13, coins: 10 }
+                },
+                {
+                    prompt: "Je suis rose, pleine de graines et parfaite en sorbet. Qui suis-je ?",
+                    options: ["Une framboise", "Une figue", "Une groseille"],
+                    answer: 0,
+                    hint: "Je pousse en petits buissons.",
+                    success: "La framboise est sucrée !",
+                    reward: { stars: 13, coins: 10 }
+                },
+                {
+                    prompt: "Je suis longue, jaune clair et pleine de petites graines noires à l'intérieur. Qui suis-je ?",
+                    options: ["Une vanille", "Une banane", "Une mangue"],
+                    answer: 0,
+                    hint: "On m'utilise pour parfumer les crèmes.",
+                    success: "La gousse de vanille sent bon !",
+                    reward: { stars: 13, coins: 10 }
+                },
+                {
+                    prompt: "Je suis verte claire, toute douce et je deviens orange quand je suis cuite dans une tarte. Qui suis-je ?",
+                    options: ["La rhubarbe", "La poire", "Le raisin"],
+                    answer: 0,
+                    hint: "Je suis souvent mélangée avec des fraises.",
+                    success: "La rhubarbe prépare de bonnes tartes !",
+                    reward: { stars: 13, coins: 10 }
+                },
+                {
+                    prompt: "Je suis jaune, sucré et je brille dans les salades de fruits exotiques. Qui suis-je ?",
+                    options: ["Une mangue", "Une poire", "Une papaye"],
+                    answer: 0,
+                    hint: "Je suis très parfumée et juteuse.",
+                    success: "La mangue est un dessert merveilleux !",
+                    reward: { stars: 13, coins: 10 }
+                }
+            ]
         },
         {
             level: 9,
-            prompt: "Je suis rempli de pages, j'aime qu'on me lise. Qui suis-je ?",
-            options: ['Un livre', 'Une boîte', 'Un chapeau'],
-            answer: 0,
-            reward: { stars: 20, coins: 14 }
+            theme: "Animaux fantastiques",
+            completionMessage: "Ton encyclopédie magique est remplie d'animaux fantastiques !",
+            questions: [
+                {
+                    prompt: "Je suis un cheval blanc avec une corne scintillante. Qui suis-je ?",
+                    options: ["Une licorne", "Un poney", "Un zèbre"],
+                    answer: 0,
+                    hint: "Je vis dans les contes de fées.",
+                    success: "La licorne est légendaire !",
+                    reward: { stars: 15, coins: 11 }
+                },
+                {
+                    prompt: "Je crache du feu et je protège des trésors. Qui suis-je ?",
+                    options: ["Un dragon", "Un dinosaure", "Un griffon"],
+                    answer: 0,
+                    hint: "On me voit dans les histoires de chevaliers.",
+                    success: "Le dragon garde ses trésors !",
+                    reward: { stars: 15, coins: 11 }
+                },
+                {
+                    prompt: "J'ai le corps d'un lion et des ailes d'aigle. Qui suis-je ?",
+                    options: ["Un griffon", "Un phénix", "Un minotaure"],
+                    answer: 0,
+                    hint: "Je suis un mélange majestueux.",
+                    success: "Le griffon surveille les royaumes !",
+                    reward: { stars: 15, coins: 11 }
+                },
+                {
+                    prompt: "Je renais de mes cendres dans un éclat de lumière. Qui suis-je ?",
+                    options: ["Un phénix", "Un hibou", "Un serpent"],
+                    answer: 0,
+                    hint: "Je suis un oiseau de feu.",
+                    success: "Le phénix renaît toujours !",
+                    reward: { stars: 15, coins: 11 }
+                },
+                {
+                    prompt: "Je nage comme un poisson mais je chante comme une humaine. Qui suis-je ?",
+                    options: ["Une sirène", "Une baleine", "Un dauphin"],
+                    answer: 0,
+                    hint: "Je vis sous la mer dans les chansons.",
+                    success: "Les sirènes savent chanter !",
+                    reward: { stars: 15, coins: 11 }
+                }
+            ]
         },
         {
             level: 10,
-            prompt: "Plus je grandis, plus je deviens léger. Qui suis-je ?",
-            options: ['Une bulle', 'Une pierre', 'Un train'],
-            answer: 0,
-            reward: { stars: 22, coins: 16 }
+            theme: "Panier surprise",
+            completionMessage: "Tu as résolu toutes les énigmes du panier surprise !",
+            questions: [
+                {
+                    prompt: "Je suis un fruit vert dehors, rouge dedans, et je porte une petite couronne. Qui suis-je ?",
+                    options: ["Une fraise", "Un kiwi", "Une pastèque"],
+                    answer: 0,
+                    hint: "Je suis petite et je pousse près du sol.",
+                    success: "La fraise royale est choisie !",
+                    reward: { stars: 16, coins: 12 }
+                },
+                {
+                    prompt: "Je suis un animal noir et blanc qui mange du bambou. Qui suis-je ?",
+                    options: ["Un panda", "Un zèbre", "Un lynx"],
+                    answer: 0,
+                    hint: "Je vis en Chine et je grimpe dans les arbres.",
+                    success: "Le panda est le roi du bambou !",
+                    reward: { stars: 16, coins: 12 }
+                },
+                {
+                    prompt: "Je suis orange, j'ai des crocs et je vis dans la savane. Qui suis-je ?",
+                    options: ["Un lion", "Un renard", "Un tigre"],
+                    answer: 0,
+                    hint: "Je suis surnommé le roi des animaux.",
+                    success: "Le lion règne sur la savane !",
+                    reward: { stars: 16, coins: 12 }
+                },
+                {
+                    prompt: "Je suis un fruit violet, j'ai des graines et je deviens confiture. Qui suis-je ?",
+                    options: ["Une figue", "Une prune", "Une myrtille"],
+                    answer: 0,
+                    hint: "On m'ouvre pour voir plein de graines.",
+                    success: "La figue régale les gourmands !",
+                    reward: { stars: 16, coins: 12 }
+                },
+                {
+                    prompt: "Je suis minuscule, j'avance vite en groupe et j'aime le sucre. Qui suis-je ?",
+                    options: ["Une fourmi", "Une abeille", "Un papillon"],
+                    answer: 0,
+                    hint: "On me voit souvent sur les pique-niques.",
+                    success: "Les fourmis sont très organisées !",
+                    reward: { stars: 16, coins: 12 }
+                }
+            ]
         }
     ];
 
@@ -893,7 +1295,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     const allQuestions = {
         additions: [], soustractions: [], multiplications: [], colors: [], stories: [], riddles: [], sorting: [], letters: [], shapes: [], vowels: [], sequences: [],
-        'puzzle-magique': [], repartis: [], dictee: [], review: []
+        'puzzle-magique': [], repartis: [], dictee: [], 'math-blitz': [], 'lecture-magique': [], raisonnement: [], review: []
     };
 
     // --- Initialization ---
@@ -1173,6 +1575,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function launchMathBlitzLevel(level) {
+        currentTopic = 'math-blitz';
+        currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('math-blitz');
+        if (window.mathBlitzGame && typeof window.mathBlitzGame.start === 'function') {
+            window.mathBlitzGame.start(context);
+        } else {
+            console.warn('Module Maths Sprint introuvable');
+            showLevelMenu('math-blitz');
+        }
+    }
+
+    function launchLectureMagiqueLevel(level) {
+        currentTopic = 'lecture-magique';
+        currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('lecture-magique');
+        if (window.lectureMagiqueGame && typeof window.lectureMagiqueGame.start === 'function') {
+            window.lectureMagiqueGame.start(context);
+        } else {
+            console.warn('Module Lecture Magique introuvable');
+            showLevelMenu('lecture-magique');
+        }
+    }
+
+    function launchRaisonnementLevel(level) {
+        currentTopic = 'raisonnement';
+        currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('raisonnement');
+        if (window.raisonnementGame && typeof window.raisonnementGame.start === 'function') {
+            window.raisonnementGame.start(context);
+        } else {
+            console.warn('Module Raisonnement introuvable');
+            showLevelMenu('raisonnement');
+        }
+    }
+
     function showDicteeMenu() {
         currentTopic = 'dictee';
         btnLogros.style.display = 'inline-block';
@@ -1243,6 +1687,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (type === 'wrong') {
             audioWrong.currentTime = 0;
             audioWrong.play();
+        } else if (type === 'coins' && audioCoins) {
+            audioCoins.currentTime = 0;
+            audioCoins.play();
         }
     }
 
@@ -2004,6 +2451,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function triggerShopCelebration(item) {
+        if (!shopModal) { return; }
+        const dialog = shopModal.querySelector('.shop-modal__dialog');
+        if (!dialog) { return; }
+        playSound('coins');
+        shopModal.classList.add('shop-modal--celebrate');
+
+        const sparkleCount = 12;
+        for (let i = 0; i < sparkleCount; i++) {
+            const sparkle = document.createElement('span');
+            sparkle.className = 'shop-coin-sparkle';
+            sparkle.style.left = `${10 + Math.random() * 80}%`;
+            sparkle.style.top = `${40 + Math.random() * 20}%`;
+            dialog.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 800);
+        }
+
+        setTimeout(() => shopModal.classList.remove('shop-modal--celebrate'), 600);
+    }
+
     function purchaseItem(itemId) {
         const item = getBoutiqueItem(itemId);
         if (!item) { return; }
@@ -2020,6 +2487,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ownedItems.push(item.id);
         activateItem(item.id, { silent: true });
         showSuccessMessage('Nouvelle récompense débloquée ✨');
+        triggerShopCelebration(item);
         updateUI();
         saveProgress();
         renderShopItems();
@@ -2284,9 +2752,11 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'additions', text: '➕ Additions' },
             { id: 'soustractions', text: '➖ Soustractions' },
             { id: 'multiplications', text: '✖️ Multiplications' },
+            { id: 'math-blitz', text: '⚡ Maths Sprint' },
             { id: 'number-houses', text: '🏠 Maisons des Nombres' },
             { id: 'colors', text: '🎨 Les Couleurs' },
             { id: 'stories', text: '📚Contes Magiques' },
+            { id: 'lecture-magique', text: '📖 Lecture Magique' },
             { id: 'memory', text: '🧠 Mémoire Magique' },
             { id: 'sorting', text: '🗂️ Jeu de Tri' },
             { id: 'riddles', text: '🤔 Jeu d\'énigmes' },
@@ -2294,7 +2764,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'sequences', text: '➡️ Jeu des Séquences' },
             { id: 'puzzle-magique', text: '🧩 Puzzle Magique' },
             { id: 'repartis', text: '🍎 Répartis & Multiplie' },
-            { id: 'dictee', text: '🧚‍♀️ Dictée Magique' },
+            { id: 'raisonnement', text: '🧩 Raisonnement Magique' },
+            { id: 'dictee', text: '🧚‍♀️ Dictée Magique' }
         ];
 
         allTopics.forEach(topic => {
@@ -2346,7 +2817,10 @@ document.addEventListener('DOMContentLoaded', () => {
             'stories': magicStories.length,
             'puzzle-magique': 10,
             'repartis': 10,
-            'dictee': 10
+            'dictee': 10,
+            'math-blitz': 10,
+            'lecture-magique': 10,
+            'raisonnement': 10
         };
         const totalLevels = maxLevels[currentTopic] || LEVELS_PER_TOPIC;
         
@@ -2366,11 +2840,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (currentTopic === 'colors') { showColorGame(currentLevel); }
                 else if (currentTopic === 'sorting') { showSortingGame(currentLevel); }
                 else if (currentTopic === 'vowels') { loadVowelQuestion(currentLevel - 1); }
-                else if (currentTopic === 'riddles') { loadRiddleQuestion(currentLevel - 1); }
+                else if (currentTopic === 'riddles') { launchRiddleLevel(currentLevel); }
                 else if (currentTopic === 'sequences') { loadSequenceQuestion(currentLevel - 1); }
                 else if (currentTopic === 'puzzle-magique') { launchPuzzleMagique(currentLevel); }
                 else if (currentTopic === 'repartis') { launchRepartisGame(currentLevel); }
                 else if (currentTopic === 'dictee') { launchDicteeLevel(currentLevel); }
+                else if (currentTopic === 'math-blitz') { launchMathBlitzLevel(currentLevel); }
+                else if (currentTopic === 'lecture-magique') { launchLectureMagiqueLevel(currentLevel); }
+                else if (currentTopic === 'raisonnement') { launchRaisonnementLevel(currentLevel); }
                 else if (currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[currentLevel - 1].pairs); }
                 else { currentQuestionIndex = 0; loadQuestion(0); }
             });
@@ -3407,15 +3884,34 @@ function generateNumberPairs(sum, count) {
         showLevelMenu(currentTopic);
     }
     
-    function loadRiddleQuestion(index) {
-        if (index < 0 || index >= riddleLevels.length) {
-            win();
+    function launchRiddleLevel(level) {
+        currentTopic = 'riddles';
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        currentRiddleLevelIndex = Math.max(0, Math.min(riddleLevels.length, level) - 1);
+        const levelData = riddleLevels[currentRiddleLevelIndex];
+        currentLevel = levelData?.level || level;
+        currentQuestionIndex = 0;
+        answeredQuestions[`riddles-${currentLevel}`] = 'in-progress';
+        saveProgress();
+        loadRiddleQuestion(0);
+    }
+
+    function loadRiddleQuestion(questionIndex = 0) {
+        const levelData = riddleLevels[currentRiddleLevelIndex];
+        if (!levelData) {
+            showLevelMenu('riddles');
             return;
         }
 
-        currentQuestionIndex = index;
-        const riddleData = riddleLevels[index];
-        currentLevel = riddleData.level;
+        const questions = levelData.questions || [];
+        if (questionIndex >= questions.length) {
+            completeRiddleLevel(levelData);
+            return;
+        }
+
+        currentQuestionIndex = questionIndex;
+        const riddleData = questions[questionIndex];
 
         content.innerHTML = '';
         updateUI();
@@ -3423,13 +3919,18 @@ function generateNumberPairs(sum, count) {
         const wrapper = document.createElement('div');
         wrapper.className = 'riddle-wrapper fx-bounce-in-down';
 
+        const title = document.createElement('div');
+        title.className = 'question-prompt';
+        title.textContent = `Niveau ${levelData.level} — ${levelData.theme}`;
+        wrapper.appendChild(title);
+
         const promptWrapper = document.createElement('div');
         promptWrapper.className = 'prompt-with-audio';
 
-        const title = document.createElement('div');
-        title.className = 'question-prompt';
-        title.textContent = riddleData.prompt;
-        promptWrapper.appendChild(title);
+        const promptText = document.createElement('p');
+        promptText.className = 'riddle-prompt';
+        promptText.textContent = riddleData.prompt;
+        promptWrapper.appendChild(promptText);
 
         const audioBtn = createAudioButton({
             text: riddleData.prompt,
@@ -3441,15 +3942,7 @@ function generateNumberPairs(sum, count) {
 
         wrapper.appendChild(promptWrapper);
         speakText(riddleData.prompt);
-        updateProgressTracker(currentQuestionIndex + 1, riddleLevels.length);
-
-        if (riddleData.image) {
-            const image = document.createElement('img');
-            image.className = 'riddle-image';
-            image.src = riddleData.image;
-            image.alt = 'Indice visuel';
-            wrapper.appendChild(image);
-        }
+        updateProgressTracker(currentQuestionIndex + 1, questions.length);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
@@ -3469,11 +3962,21 @@ function generateNumberPairs(sum, count) {
         wrapper.appendChild(optionsContainer);
         content.appendChild(wrapper);
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
         configureBackButton('Retour aux niveaux', () => showLevelMenu('riddles'));
     }
-    
+
+    function completeRiddleLevel(levelData) {
+        answeredQuestions[`riddles-${levelData.level}`] = 'completed';
+        saveProgress();
+        showSuccessMessage(levelData.completionMessage || 'Niveau terminé !');
+        showConfetti();
+        updateProgressTracker(levelData.questions.length, levelData.questions.length);
+        setTimeout(() => {
+            clearProgressTracker();
+            showLevelMenu('riddles');
+        }, 1600);
+    }
+
     function handleRiddleAnswer(event) {
         const selectedOption = event.currentTarget instanceof HTMLElement
             ? event.currentTarget
@@ -3484,7 +3987,9 @@ function generateNumberPairs(sum, count) {
         const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
         optionNodes.forEach(opt => opt.removeEventListener('click', handleRiddleAnswer));
 
-        const riddleData = riddleLevels[currentQuestionIndex];
+        const levelData = riddleLevels[currentRiddleLevelIndex];
+        const questions = levelData.questions || [];
+        const riddleData = questions[currentQuestionIndex];
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctAnswerIndex = riddleData.answer;
         const correctValue = riddleData.options[correctAnswerIndex];
@@ -3492,11 +3997,9 @@ function generateNumberPairs(sum, count) {
         if (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex) {
             selectedOption.classList.add('correct');
             selectedOption.classList.add('riddle-correct-glow');
-            userScore.stars += riddleData.reward.stars;
-            userScore.coins += riddleData.reward.coins;
-            answeredQuestions[`riddles-${currentLevel}`] = 'completed';
-            saveProgress();
-            showSuccessMessage('Bonne réponse !');
+            userScore.stars += riddleData.reward?.stars || (10 + levelData.level);
+            userScore.coins += riddleData.reward?.coins || (6 + Math.floor(levelData.level / 2));
+            showSuccessMessage(riddleData.success || 'Bonne réponse !');
             showConfetti();
         } else {
             selectedOption.classList.add('wrong');
@@ -3507,18 +4010,20 @@ function generateNumberPairs(sum, count) {
                 correctOption.classList.add('correct');
                 correctOption.classList.add('riddle-correct-glow');
             }
-            showErrorMessage('Mauvaise réponse.', correctValue);
-            answeredQuestions[`riddles-${currentLevel}`] = 'in-progress';
-            saveProgress();
+            const hint = riddleData.hint ? ` Conseil : ${riddleData.hint}` : '';
+            showErrorMessage('Mauvaise réponse.', `${correctValue}.${hint}`);
         }
+
         updateUI();
+        saveProgress();
+
         setTimeout(() => {
-            if (currentQuestionIndex + 1 < riddleLevels.length) {
+            if (currentQuestionIndex + 1 < questions.length) {
                 loadRiddleQuestion(currentQuestionIndex + 1);
             } else {
-                showLevelMenu('riddles');
+                completeRiddleLevel(levelData);
             }
-        }, 2000);
+        }, 1600);
     }
     
     // --- NOUVEAUX JEUX ---

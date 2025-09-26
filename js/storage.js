@@ -86,7 +86,11 @@ const LEGACY_AVATAR_MAP = {
     '🐧': 'pingouin',
     '🐼': 'panda',
     '🦊': 'renard',
-    '🐸': 'grenouille'
+    '🐸': 'grenouille',
+    '🍓': 'fraise',
+    '🍎': 'pomme',
+    '🍌': 'banane',
+    '🍍': 'ananas'
 };
 
 function persistSelectedAvatar(avatar) {
