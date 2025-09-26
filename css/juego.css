@@ -3,7 +3,42 @@
    ============================== */
 
 /* — Variables (suponiendo que ya están definidas en :root) */
-/* — No repetir variables aquí */
+.user-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 100;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.user-menu.is-hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.user-menu button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 0.5rem;
+}
+
+.user-menu button:hover {
+    background: #f0f0f0;
+}
 
 /* ------------------------------
    § Estilos para "Les maisons des nombres"
@@ -393,6 +428,15 @@
   0% { transform: scale(0.4); opacity: 0; }
   60% { transform: scale(1.15); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+.sell-btn {
+    background: linear-gradient(135deg, #ff8a80, #ff5252) !important;
+    box-shadow: 0 14px 32px rgba(255, 82, 82, 0.35) !important;
+}
+
+.sell-btn:hover {
+    box-shadow: 0 20px 40px rgba(255, 82, 82, 0.4) !important;
 }
 
 /* ------------------------------

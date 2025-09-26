@@ -1395,6 +1395,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.style.setProperty('--primary-light', lightenColor(safeColor, 0.22));
     }
 
+    const userMenu = document.getElementById('user-menu');
+    const menuBack = document.getElementById('menu-back');
+    const menuShop = document.getElementById('menu-shop');
+    const menuAvatar = document.getElementById('menu-avatar');
+
     function setupEventListeners() {
         btnLogout.addEventListener('click', () => {
             historyTracker?.trackAppClose();
@@ -1409,24 +1414,26 @@ document.addEventListener('DOMContentLoaded', () => {
         userInfo.setAttribute('tabindex', '0');
         userInfo.classList.add('user-info-home');
 
-        const goHome = () => {
-            saveProgress();
-            showTopicMenu();
-        };
-
-        userInfo.addEventListener('click', goHome);
-        userInfo.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                goHome();
-            }
+        userInfo.addEventListener('click', () => {
+            userMenu.classList.toggle('is-hidden');
         });
 
-        if (btnShop) {
-            btnShop.addEventListener('click', () => {
-                openShop();
-            });
-        }
+        menuBack.addEventListener('click', () => {
+            userMenu.classList.add('is-hidden');
+            showTopicMenu();
+        });
+
+        menuShop.addEventListener('click', () => {
+            window.location.href = 'boutique.html';
+        });
+
+        menuAvatar.addEventListener('click', () => {
+            window.location.href = 'login.html?edit=true';
+        });
+
+        btnShop.addEventListener('click', () => {
+            window.location.href = 'boutique.html'; // Rediriger vers la boutique
+        });
         if (shopCloseBtn) {
             shopCloseBtn.addEventListener('click', closeShop);
         }
@@ -2447,6 +2454,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             listItem.appendChild(action);
+
+            const sellBtn = document.createElement('button');
+            sellBtn.type = 'button';
+            sellBtn.className = 'shop-inventory__action sell-btn';
+            sellBtn.textContent = 'Vendre';
+            sellBtn.addEventListener('click', () => sellItem(item.id));
+            listItem.appendChild(sellBtn);
+
             inventoryList.appendChild(listItem);
         });
     }
@@ -2512,6 +2527,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!silent) {
             showSuccessMessage('Récompense activée ✨');
         }
+    }
+
+    function sellItem(itemId) {
+        const item = findShopItem(itemId);
+        if (!item) { return; }
+
+        const sellPrice = Math.round(item.priceCoins * 0.5);
+        userScore.coins += sellPrice;
+
+        ownedItems = ownedItems.filter(id => id !== itemId);
+
+        const newPrice = Math.round(item.priceCoins * 1.4);
+        const updatedItem = { ...item, priceCoins: newPrice };
+        SHOP_CATALOG.set(itemId, updatedItem);
+
+        if (activeCosmetics[item.type] === item.id) {
+            activeCosmetics[item.type] = null;
+        }
+
+        showSuccessMessage(`Tu as vendu ${item.name} pour ${sellPrice} pièces.`);
+        updateUI();
+        saveProgress();
+        renderShopItems();
+        renderInventory();
     }
 
     function showSuccessMessage(message = positiveMessages[Math.floor(Math.random() * positiveMessages.length)]) {

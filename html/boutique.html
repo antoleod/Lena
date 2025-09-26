@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique Magique</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/boutique.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="stageTop">
+        <div class="scores-container">
+          <span id="user-info"></span>
+          <span id="scoreStars">0</span>
+          <span id="scoreCoins" class="coins">0</span>
+        </div>
+        <div class="top-buttons">
+            <button id="btnVolver" class="btn">🚪 Retour aux Jeux</button>
+        </div>
+    </div>
+
+    <div id="magic-shop-container">
+        <canvas id="magic-particles"></canvas>
+        
+        <div class="shop-header">
+            <h1>✨ Boutique Magique ✨</h1>
+            <p>Collectionne des trésors et personnalise ton aventure !</p>
+        </div>
+
+        <!-- Marché Rare -->
+        <div class="shop-section rare-market">
+            <h2>🌟 Marché Rare 🌟</h2>
+            <div id="rare-items-container" class="items-grid">
+                <!-- Les objets rares sont insérés ici -->
+            </div>
+        </div>
+
+        <!-- Boutique Principale -->
+        <div class="shop-section">
+            <h2>🦄 Boutique Principale 🦄</h2>
+            <div id="shop-items-container" class="items-grid">
+                <!-- Les objets normaux sont insérés ici -->
+            </div>
+        </div>
+
+        <!-- Mes Trésors -->
+        <div class="shop-section my-treasures">
+            <h2>💖 Mes Trésors 💖</h2>
+            <div id="my-treasures-container" class="items-grid">
+                <!-- Les objets achetés sont insérés ici -->
+            </div>
+        </div>
+    </div>
+
+    <audio id="buy-sound" src="../assets/sounds/bling.wav"></audio>
+
+    <script src="../js/avatarData.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/boutiqueData.js"></script>
+    <script src="../js/boutique.js"></script>
+</body>
+</html>

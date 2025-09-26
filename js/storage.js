@@ -45,7 +45,7 @@ const storage = {
     },
     loadUserProgress: (userName) => {
         const defaultProgress = () => ({
-            userScore: { stars: 0, coins: 0 },
+            userScore: { stars: 0, coins: 50 },
             answeredQuestions: {},
             currentLevel: 1,
             ownedItems: [],
@@ -64,6 +64,11 @@ const storage = {
 
             const parsed = JSON.parse(progress);
             const base = defaultProgress();
+
+            // For existing users, if they don't have coins, give them 50.
+            if (parsed.userScore && typeof parsed.userScore.coins === 'undefined') {
+                parsed.userScore.coins = 50;
+            }
 
             return {
                 ...base,

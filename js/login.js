@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (animate) {
       animateAvatar(avatarEl);
       // partículas al seleccionar avatar
-      triggerSparklesOnElement(avatarEl, 10);
+      createParticleTrail(avatarEl);
     }
   }
 
