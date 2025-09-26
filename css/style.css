@@ -208,8 +208,7 @@ body::after {
 .body-level-12 {
   background: linear-gradient(180deg, #f3f1fa 0%, #e4def4 40%, #cbb7e6 100%);
 }
-
-/* 🏆 HEADER - Encabezado superior del juego o app educativa */
+/* ========== HEADER - Área superior con mejoras mágicas ========== */
 #stageTop {
   display: flex;
   justify-content: space-between;
@@ -219,17 +218,24 @@ body::after {
   width: 100%;
   max-width: 900px;
   padding: var(--space-unit);
-  background: var(--cardHi); /* Fondo semitransparente pastel */
+  background: linear-gradient(135deg, rgba(255,245,255,0.95), rgba(255,255,255,0.82));
   border-radius: var(--border-radius-medium);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   color: var(--ink);
-  box-shadow: var(--shadow-small);
+  box-shadow: 0 12px 28px rgba(148, 102, 255, 0.15);
   position: relative;
   z-index: 1;
+  animation: fadeInTop 0.8s ease-out;
 }
 
-/* ⭐ Contenedor de puntuaciones u otras estadísticas */
+/* ✨ Animación de entrada */
+@keyframes fadeInTop {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ⭐ Contenedor de stats */
 .scores-container {
   display: flex;
   flex-wrap: wrap;
@@ -237,82 +243,92 @@ body::after {
   align-items: center;
 }
 
-/* 🧾 Elementos individuales del header (ej. monedas, estrellas, niveles) */
+/* 🧾 Cada span (estrellas, monedas, nivel) */
 #stageTop span {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px; /* Forma de píldora */
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
   background: var(--card);
   box-shadow: var(--shadow-small);
+  position: relative;
+  transition: transform 0.2s ease;
 }
 
-/* 👤 Contenedor de información del usuario */
-#stageTop span#user-info {
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  gap: clamp(0.45rem, 1vw, 0.75rem);
-  padding: clamp(0.45rem, 1vw, 0.8rem) clamp(0.7rem, 1.4vw, 1.1rem);
-  background: var(--user-info-bg, var(--card));
-  color: var(--user-info-ink, var(--primary));
-
-  
-}
-
-/* 🧲 Efecto al pasar el cursor en info del usuario */
-#stageTop span#user-info:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 18px rgba(148, 102, 255, 0.25); /* Sombra púrpura suave */
-}
-
-/* 🖼️ Avatar del usuario (imagen o ícono) */
-.user-info__avatar {
-  width: clamp(42px, 5vw, 56px);
-  height: clamp(42px, 5vw, 56px);
-  object-fit: contain;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 6px 14px rgba(148, 102, 255, 0.25);
-}
-
-/* 🔤 Fallback si no hay imagen de avatar (iniciales, etc) */
-.user-info__avatar--fallback {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: #4a3c75; /* Color vibrante amigable */
-}
-
-/* 🧑‍🎓 Nombre del usuario */
-.user-info__name {
-  font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
-  color: var(--user-info-name, var(--ink));
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
-}
-
-/* 🎖️ Badge/Icono del usuario (ej. nivel, estrellas, etc.) */
-.user-info__badge {
-  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-  animation: sparklePulse 4.5s ease-in-out infinite;
-}
-
-/* 🌟 Íconos automáticos con before */
-#stageTop span#scoreStars::before { content: '⭐️'; }
-#stageTop span.coins::before { content: '💰'; }
-#stageTop span.level::before { content: '🚀'; }
-
-/* ✨ Sparkle animado sutil en todos los íconos */
+/* ✨ Sparkle animado sutil en los íconos */
 #stageTop span::before {
   display: inline-flex;
   animation: sparklePulse 4.5s ease-in-out infinite;
   transform-origin: center;
+  font-size: 1.1rem;
 }
 
-/* 🎮 Contenedor para botones en el header (ej. ajustes, tienda, etc.) */
+/* 🌟 Íconos por tipo */
+#stageTop span#scoreStars::before { content: '⭐️'; }
+#stageTop span.coins::before { content: '💰'; }
+#stageTop span.level::before { content: '🚀'; }
+
+/* 👤 Info del usuario */
+#stageTop span#user-info {
+  cursor: pointer;
+  gap: clamp(0.45rem, 1vw, 0.75rem);
+  padding: clamp(0.6rem, 1vw, 0.9rem) clamp(1rem, 1.5vw, 1.4rem);
+  background: linear-gradient(135deg, #f3e8ff, #e0ddff);
+  color: #4a3c75;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 18px rgba(148, 102, 255, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover animado */
+#stageTop span#user-info:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 22px rgba(148, 102, 255, 0.25);
+}
+
+/* 🖼️ Avatar */
+.user-info__avatar {
+  width: clamp(38px, 5vw, 48px);
+  height: clamp(38px, 5vw, 48px);
+  object-fit: cover;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 14px rgba(148, 102, 255, 0.25);
+  transition: transform 0.3s ease;
+}
+
+/* Animación al pasar sobre el span */
+#user-info:hover .user-info__avatar {
+  transform: rotate(-3deg) scale(1.03);
+}
+
+/* 🧑‍🎓 Nombre */
+.user-info__name {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #3f2c85;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* 🎖️ Badge animado */
+.user-info__badge {
+  font-size: clamp(1.3rem, 2vw, 1.5rem);
+  animation: badgeBounce 3.5s ease-in-out infinite;
+}
+
+/* 🔁 Animaciones adicionales */
+@keyframes sparklePulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes badgeBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* 🎮 Botones extra (ajustes, etc.) */
 .top-buttons {
   display: flex;
   gap: 1rem;

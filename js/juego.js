@@ -1402,7 +1402,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'login.html';
         });
         btnLogros.addEventListener('click', () => {
-            window.location.href = 'logros.html';
+            window.location.href = '../logros.html';
         });
 
         userInfo.setAttribute('role', 'button');
