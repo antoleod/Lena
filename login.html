@@ -10,43 +10,97 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div id="login-container">
-        <h1 class="question-prompt">Qui es-tu ?</h1>
-        <p class="login-steps">1. Choisis ton avatar  · 2. Écris ton nom  · 3. Choisis ta couleur </p>
-        
-       
-        <div id="avatar-selection">
-            <div class="avatar-option" data-avatar="🦄" title="Licorne">🦄</div>
-            <div class="avatar-option" data-avatar="🦁" title="Lion">🦁</div>
-            <div class="avatar-option" data-avatar="🐧" title="Pingouin">🐧</div>
-            <div class="avatar-option" data-avatar="🐼" title="Panda">🐼</div>
-            <div class="avatar-option" data-avatar="🦊" title="Renard">🦊</div>
-            <div class="avatar-option" data-avatar="🐸" title="Grenouille">🐸</div>
-            <div class="avatar-option" data-avatar="🦉" title="Hibou">🦉</div>
-            <div class="avatar-option" data-avatar="🐬" title="Dauphin">🐬</div>
-            <div class="avatar-option" data-avatar="🐉" title="Dragon">🐉</div>
+<body class="login-body">
+    <div class="login-orb login-orb--pink"></div>
+    <div class="login-orb login-orb--mint"></div>
+    <div class="login-orb login-orb--lavender"></div>
+
+    <div id="login-container" role="main">
+        <div class="login-header">
+            <span class="login-badge">✨ Club magique du français ✨</span>
+            <h1 class="login-title">Choisis ton compagnon d'aventure</h1>
+            <p class="login-steps">1. Sélectionne un avatar fruit ou animal · 2. Écris ton prénom · 3. Décore ton monde</p>
         </div>
-        <div class="name-input-wrapper">
-            <span class="name-icon" aria-hidden="true"></span>
-            <input type="text" id="name-input" placeholder="Écris ton nom ici..." aria-label="Écris ton nom ici">
-        </div>
-        <h2 class="question-prompt">Choisis ta couleur préférée</h2>
-        <div id="color-selection">
-            <div class="color-option" style="--color-base: #ffadad;" data-color="#ffadad" data-tooltip="🌸 Rose pastèle"></div>
-            <div class="color-option" style="--color-base: #ffd6a5;" data-color="#ffd6a5" data-tooltip="🍑 Abricot doux"></div>
-            <div class="color-option" style="--color-base: #fdffb6;" data-color="#fdffb6" data-tooltip="🍋 Citron léger"></div>
-            <div class="color-option" style="--color-base: #caffbf;" data-color="#caffbf" data-tooltip="🍃 Menthe fraîche"></div>
-            <div class="color-option" style="--color-base: #9bf6ff;" data-color="#9bf6ff" data-tooltip="🌊 Océan clair"></div>
-            <div class="color-option" style="--color-base: #a0c4ff;" data-color="#a0c4ff" data-tooltip="☁️ Ciel calme"></div>
-            <div class="color-option" style="--color-base: #bdb2ff;" data-color="#bdb2ff" data-tooltip="💜 Lavande"></div>
-            <div class="color-option" style="--color-base: #ffc6ff;" data-color="#ffc6ff" data-tooltip="🍓 Framboise légère"></div>
-            <div class="color-option color-option-white" style="--color-base: #ffffff;" data-color="#ffffff" data-tooltip="⚪ Blanc magique"></div>
-        </div>
-        <button id="login-btn" class="btn">
-            <span class="rocket-icon" aria-hidden="true"></span>
-            <span class="btn-label">Commencer !</span>
+
+        <section class="login-section" aria-labelledby="avatar-section-title">
+            <header class="section-header">
+                <h2 id="avatar-section-title">Avatars délicieux</h2>
+                <p class="section-subtitle">Chaque ami t'offre une couleur magique pour apprendre avec joie.</p>
+            </header>
+            <div id="avatar-selection" role="listbox" aria-label="Choisis ton avatar préféré">
+                <button class="avatar-option" type="button" data-avatar-id="licorne" data-avatar-name="Licorne Arc-en-ciel" data-avatar-icon="../assets/avatars/licorne.svg" data-avatar-color="#ffc6ff" aria-label="Licorne arc-en-ciel">
+                    <span class="avatar-emoji">🦄</span>
+                    <span class="avatar-label">Licorne</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="gato" data-avatar-name="Gato Mágico" data-avatar-icon="🐱✨" data-avatar-color="#9B8DFF" aria-label="Gato Mágico">
+                    <span class="avatar-emoji">🐱✨</span>
+                    <span class="avatar-label">Gato Mágico</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="unicornio_estelar" data-avatar-name="Unicornio Estelar" data-avatar-icon="🦄⭐" data-avatar-color="#FFD700" aria-label="Unicornio Estelar">
+                    <span class="avatar-emoji">🦄⭐</span>
+                    <span class="avatar-label">Unicornio Estelar</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="gaticornio" data-avatar-name="Gaticornio" data-avatar-icon="🐱‍👓" data-avatar-color="#FF8A80" aria-label="Gaticornio">
+                    <span class="avatar-emoji">🐱‍👓</span>
+                    <span class="avatar-label">Gaticornio</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="renard" data-avatar-name="Renard malicieux" data-avatar-icon="../assets/avatars/renard.svg" data-avatar-color="#ffd6a5" aria-label="Renard malicieux">
+                    <span class="avatar-emoji">🦊</span>
+                    <span class="avatar-label">Renard</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="panda" data-avatar-name="Panda câlin" data-avatar-icon="../assets/avatars/panda.svg" data-avatar-color="#caffbf" aria-label="Panda câlin">
+                    <span class="avatar-emoji">🐼</span>
+                    <span class="avatar-label">Panda</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="hibou" data-avatar-name="Hibou sage" data-avatar-icon="../assets/avatars/hibou.svg" data-avatar-color="#a0c4ff" aria-label="Hibou sage">
+                    <span class="avatar-emoji">🦉</span>
+                    <span class="avatar-label">Hibou</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="fraise" data-avatar-name="Fraise pétillante" data-avatar-icon="../assets/avatars/fraise.svg" data-avatar-color="#ffadad" aria-label="Fraise pétillante">
+                    <span class="avatar-emoji">🍓</span>
+                    <span class="avatar-label">Fraise</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="login-section" aria-labelledby="name-section-title">
+            <header class="section-header">
+                <h2 id="name-section-title">Écris ton prénom magique</h2>
+                <p class="section-subtitle">Il sera affiché avec des étincelles dans tous les jeux.</p>
+            </header>
+            <div class="name-input-wrapper">
+                <span class="name-icon" aria-hidden="true">✨</span>
+                <input type="text" id="name-input" placeholder="Écris ton nom ici..." aria-label="Écris ton nom ici">
+            </div>
+        </section>
+
+        <section class="login-section" aria-labelledby="color-section-title">
+            <header class="section-header">
+                <h2 id="color-section-title">Choisis ta couleur préférée</h2>
+                <p class="section-subtitle">Elle colorera les boutons et les étoiles de ton aventure.</p>
+            </header>
+            <div id="color-selection">
+                <button class="color-option" type="button" style="--color-base: #ffadad;" data-color="#ffadad" data-tooltip="🌸 Rose pastèle" aria-label="Rose pastèle"></button>
+                <button class="color-option" type="button" style="--color-base: #ffd6a5;" data-color="#ffd6a5" data-tooltip="🍑 Abricot doux" aria-label="Abricot doux"></button>
+                <button class="color-option" type="button" style="--color-base: #fdffb6;" data-color="#fdffb6" data-tooltip="🍋 Citron léger" aria-label="Citron léger"></button>
+                <button class="color-option" type="button" style="--color-base: #caffbf;" data-color="#caffbf" data-tooltip="🍃 Menthe fraîche" aria-label="Menthe fraîche"></button>
+                <button class="color-option" type="button" style="--color-base: #9bf6ff;" data-color="#9bf6ff" data-tooltip="🌊 Océan clair" aria-label="Océan clair"></button>
+                <button class="color-option" type="button" style="--color-base: #a0c4ff;" data-color="#a0c4ff" data-tooltip="☁️ Ciel calme" aria-label="Ciel calme"></button>
+                <button class="color-option" type="button" style="--color-base: #bdb2ff;" data-color="#bdb2ff" data-tooltip="💜 Lavande" aria-label="Lavande"></button>
+                <button class="color-option" type="button" style="--color-base: #ffc6ff;" data-color="#ffc6ff" data-tooltip="🍓 Framboise légère" aria-label="Framboise légère"></button>
+                <button class="color-option color-option-white" type="button" style="--color-base: #ffffff;" data-color="#ffffff" data-tooltip="⚪ Blanc magique" aria-label="Blanc magique"></button>
+            </div>
+        </section>
+
+        <button id="login-btn" class="btn" type="button">
+            <span class="rocket-icon" aria-hidden="true">🚀</span>
+            <span class="btn-label">Entrer dans le monde de Léna</span>
         </button>
+    </div>
+
+    <div class="login-wand" aria-hidden="true">🪄</div>
+    <div class="login-fireflies" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
     </div>
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>

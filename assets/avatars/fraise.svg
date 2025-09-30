@@ -1,0 +1,29 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fraise-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8ba7"/>
+      <stop offset="100%" stop-color="#ff4f73"/>
+    </linearGradient>
+    <linearGradient id="fraise-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8fd67d"/>
+      <stop offset="100%" stop-color="#36a867"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="200" height="200" rx="40" fill="#fff6fb"/>
+    <path d="M100 38C69 38 44 61 44 95c0 44 33 78 56 93a12 12 0 0 0 12 0c23-15 56-49 56-93 0-34-25-57-56-57Z" fill="url(#fraise-body)"/>
+    <path d="M72 48c6 5 13 7 28 7s23-2 29-7c-6-13-18-22-29-22s-23 9-28 22Z" fill="url(#fraise-leaf)"/>
+    <path d="M100 26c-3 4-5 9-5 13 3 2 11 2 15 0 0-4-2-9-4-13-2-3-4-3-6 0Z" fill="#36a867"/>
+    <g fill="#ffde9f" opacity="0.85">
+      <ellipse cx="76" cy="88" rx="5" ry="8"/>
+      <ellipse cx="96" cy="102" rx="5" ry="8"/>
+      <ellipse cx="116" cy="88" rx="5" ry="8"/>
+      <ellipse cx="134" cy="104" rx="5" ry="8"/>
+      <ellipse cx="84" cy="118" rx="5" ry="8"/>
+      <ellipse cx="104" cy="130" rx="5" ry="8"/>
+      <ellipse cx="124" cy="120" rx="5" ry="8"/>
+      <ellipse cx="90" cy="144" rx="5" ry="8"/>
+      <ellipse cx="114" cy="148" rx="5" ry="8"/>
+    </g>
+  </g>
+</svg>

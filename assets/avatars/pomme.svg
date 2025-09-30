@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pomme-skin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb07b"/>
+      <stop offset="100%" stop-color="#ff5e54"/>
+    </linearGradient>
+    <linearGradient id="pomme-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9be15d"/>
+      <stop offset="100%" stop-color="#3da35d"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="200" height="200" rx="40" fill="#fff4e8"/>
+    <path d="M140 58c-8 0-15 3-21 7-5-11-13-19-23-19s-19 8-24 19c-6-4-13-7-21-7-21 0-35 17-35 44 0 35 27 58 66 84a14 14 0 0 0 14 0c39-26 66-49 66-84 0-27-14-44-22-44Z" fill="url(#pomme-skin)"/>
+    <path d="M98 46c0 6 4 14 14 17 5-2 9-9 9-17-5-3-14-4-23 0Z" fill="#6d3f2b"/>
+    <path d="M126 36c-8 0-16 5-22 12 9 2 19 1 26-3 5-3 6-7 3-9-2-1-4-2-7-2Z" fill="url(#pomme-leaf)"/>
+    <ellipse cx="96" cy="104" rx="9" ry="14" fill="rgba(255,255,255,0.25)" transform="rotate(-18 96 104)"/>
+    <ellipse cx="124" cy="132" rx="7" ry="10" fill="rgba(255,255,255,0.18)" transform="rotate(12 124 132)"/>
+  </g>
+</svg>

@@ -1,0 +1,226 @@
+/* Estilos generales para la boutique mágica */
+body {
+    background: linear-gradient(135deg, #f3e7e9, #e3eeff);
+    font-family: 'Nunito', sans-serif;
+}
+
+#magic-shop-container {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#magic-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* Para que no interfiera con los clics */
+}
+
+.shop-header h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.5em;
+    color: #ff69b4;
+    text-shadow: 2px 2px 0px #fff, 4px 4px 0px #f7c6e2;
+    margin-bottom: 10px;
+}
+
+.shop-header p {
+    font-size: 1.2em;
+    color: #6a5acd;
+}
+
+.shop-section {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 90%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.shop-section h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5em;
+    color: #8a2be2;
+    margin-bottom: 20px;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 25px;
+}
+
+/* Card de ítems */
+.item-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.item-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(138, 43, 226, 0.2);
+}
+
+.item-card.rare {
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+}
+
+.item-card.rare::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #00ffff);
+    background-size: 400% 400%;
+    z-index: -1;
+    border-radius: 18px;
+    animation: glowing 5s linear infinite;
+}
+
+@keyframes glowing {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.item-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.item-card:hover img {
+    transform: scale(1.1);
+}
+
+.item-name {
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.item-tag {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(138, 43, 226, 0.12);
+    color: #5a2ea6;
+    font-size: 0.85em;
+}
+
+.item-price {
+    color: #ff6347;
+    font-weight: 800;
+    font-size: 1.1em;
+}
+
+/* Botones */
+.item-buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-action {
+    background-color: #4CAF50; /* Verde para comprar/usar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+}
+
+.btn-action.sell {
+    background-color: #f44336; /* Rojo para vender */
+}
+
+.btn-action.sell:hover {
+    background-color: #d32f2f;
+}
+
+.btn-action:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilos para la sección 'Mis Tesoros' */
+.my-treasures .item-card {
+    background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+}
+
+.my-treasures .item-card.active-item {
+    box-shadow: 0 0 20px 5px #00ff00; /* Resaltado para ítem en uso */
+}
+
+@media (max-width: 720px) {
+    .shop-header h1 {
+        font-size: 2.4em;
+    }
+
+    .shop-section {
+        padding: 16px;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .shop-section.rare-market {
+        padding: 14px;
+    }
+
+    .shop-section.rare-market h2 {
+        font-size: 1.8em;
+    }
+
+    .shop-section.rare-market .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
+    }
+
+    .shop-section.rare-market .item-card {
+        padding: 10px;
+    }
+
+    .shop-section.rare-market .item-card img {
+        width: 72px;
+        height: 72px;
+    }
+
+    .shop-section.rare-market .item-name {
+        font-size: 0.95em;
+    }
+
+    .shop-section.rare-market .item-price {
+        font-size: 0.95em;
+    }
+
+    .shop-section.rare-market .btn-action {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="banane-peel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe772"/>
+      <stop offset="100%" stop-color="#f7b733"/>
+    </linearGradient>
+    <linearGradient id="banane-shadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f9c74f"/>
+      <stop offset="100%" stop-color="#f08d28"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="200" height="200" rx="40" fill="#fffbe4"/>
+    <path d="M56 74c14 48 58 77 112 84-4 16-22 26-40 26-44 0-81-32-96-86-3-12 5-26 24-24Z" fill="url(#banane-peel)"/>
+    <path d="M60 88c16 38 47 58 80 64-7 8-18 12-30 12-32 0-60-23-70-58-2-7 3-16 20-18Z" fill="url(#banane-shadow)" opacity="0.6"/>
+    <path d="M52 70c-4-13 1-22 10-26 8-4 16 0 18 8-11 3-19 9-28 18Z" fill="#6f5016" opacity="0.6"/>
+    <path d="M166 146c6-1 10 2 10 8 0 8-6 14-15 16 1-10 3-18 5-24Z" fill="#6f5016" opacity="0.5"/>
+  </g>
+</svg>

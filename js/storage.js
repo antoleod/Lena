@@ -1,5 +1,6 @@
 const USER_PROFILE_KEY = 'mathsLenaUserProfile';
 const SELECTED_AVATAR_KEY = 'mathsLenaSelectedAvatar';
+const USER_NAME_DRAFT_KEY = 'mathsLenaNameDraft';
 
 const storage = {
     // --- User Profile ---
@@ -8,6 +9,7 @@ const storage = {
             const normalized = normalizeUserProfile(profile);
             localStorage.setItem(USER_PROFILE_KEY, JSON.stringify(normalized));
             persistSelectedAvatar(normalized.avatar);
+            clearNameDraft();
         } catch (e) {
             console.error("Error saving user profile", e);
         }
@@ -33,6 +35,9 @@ const storage = {
     },
     loadSelectedAvatar: () => loadPersistedAvatar(),
     saveSelectedAvatar: (avatar) => persistSelectedAvatar(avatar),
+    loadNameDraft: () => loadNameDraft(),
+    saveNameDraft: (name) => persistNameDraft(name),
+    clearNameDraft: () => clearNameDraft(),
 
     // --- User Progress ---
     saveUserProgress: (userName, progressData) => {
@@ -45,7 +50,7 @@ const storage = {
     },
     loadUserProgress: (userName) => {
         const defaultProgress = () => ({
-            userScore: { stars: 0, coins: 0 },
+            userScore: { stars: 0, coins: 50 },
             answeredQuestions: {},
             currentLevel: 1,
             ownedItems: [],
@@ -64,6 +69,11 @@ const storage = {
 
             const parsed = JSON.parse(progress);
             const base = defaultProgress();
+
+            // For existing users, if they don't have coins, give them 50.
+            if (parsed.userScore && typeof parsed.userScore.coins === 'undefined') {
+                parsed.userScore.coins = 50;
+            }
 
             return {
                 ...base,
@@ -86,7 +96,11 @@ const LEGACY_AVATAR_MAP = {
     '🐧': 'pingouin',
     '🐼': 'panda',
     '🦊': 'renard',
-    '🐸': 'grenouille'
+    '🐸': 'grenouille',
+    '🍓': 'fraise',
+    '🍎': 'pomme',
+    '🍌': 'banane',
+    '🍍': 'ananas'
 };
 
 function persistSelectedAvatar(avatar) {
@@ -103,6 +117,36 @@ function persistSelectedAvatar(avatar) {
         localStorage.setItem(SELECTED_AVATAR_KEY, JSON.stringify(normalizedAvatar));
     } catch (e) {
         console.error('Error saving selected avatar', e);
+    }
+}
+
+function persistNameDraft(name) {
+    try {
+        const trimmed = typeof name === 'string' ? name.trim() : '';
+        if (!trimmed) {
+            localStorage.removeItem(USER_NAME_DRAFT_KEY);
+            return;
+        }
+        localStorage.setItem(USER_NAME_DRAFT_KEY, trimmed);
+    } catch (e) {
+        console.error('Error saving name draft', e);
+    }
+}
+
+function loadNameDraft() {
+    try {
+        return localStorage.getItem(USER_NAME_DRAFT_KEY) || '';
+    } catch (e) {
+        console.error('Error loading name draft', e);
+        return '';
+    }
+}
+
+function clearNameDraft() {
+    try {
+        localStorage.removeItem(USER_NAME_DRAFT_KEY);
+    } catch (e) {
+        console.error('Error clearing name draft', e);
     }
 }
 

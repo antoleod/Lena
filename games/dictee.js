@@ -478,7 +478,10 @@
                 playBtn.addEventListener('click', () => {
                     if (entry.audio) {
                         const audio = new Audio(entry.audio);
-                        audio.play();
+                        window.audioManager?.bind(audio);
+                        if (!window.audioManager?.isMuted) {
+                            audio.play();
+                        }
                     }
                 });
                 controls.appendChild(playBtn);
@@ -572,7 +575,10 @@
         function playEntry(entry) {
             if (entry.audio) {
                 const audio = new Audio(entry.audio);
-                audio.play();
+                window.audioManager?.bind(audio);
+                if (!window.audioManager?.isMuted) {
+                    audio.play();
+                }
             } else {
                 context.speakText(entry.text);
             }

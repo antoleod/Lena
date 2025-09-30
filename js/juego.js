@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const levelDisplay = document.getElementById('level');
     const audioCorrect = document.getElementById('audioCorrect');
     const audioWrong = document.getElementById('audioWrong');
+    const audioCoins = document.getElementById('audioCoins');
+    window.audioManager?.bind(audioCorrect);
+    window.audioManager?.bind(audioWrong);
+    window.audioManager?.bind(audioCoins);
     const stageBottom = document.getElementById('stageBottom');
     const btnShop = document.getElementById('btnShop');
     const shopModal = document.getElementById('shopModal');
@@ -45,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let userScore;
     let answeredQuestions;
     let storyQuiz = [];
+    let storyProgress = { activeSetIndex: 0, completed: {} };
     let currentVowelLevelData = null;
     let ownedItems = [];
     let activeCosmetics = { background: null, badge: null };
@@ -58,10 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentStoryIndex = null;
     let activeReviewSkills = [];
     let pauseReminderTimeout = null;
+    let currentRiddleLevelIndex = 0;
 
     // --- Game Data ---
     const LEVELS_PER_TOPIC = 12;
-    const QUESTIONS_PER_LEVEL = 5;
+    const DEFAULT_QUESTIONS_PER_LEVEL = 5;
+    const TOPIC_QUESTION_COUNTS = {
+        additions: 8,
+        soustractions: 8,
+        multiplications: 8,
+        divisions: 8,
+        colors: 6
+    };
     const MEMORY_GAME_LEVELS = [
       { level: 1, pairs: 2, grid: '2x2' },
       { level: 2, pairs: 4, grid: '2x4' },
@@ -85,6 +98,136 @@ document.addEventListener('DOMContentLoaded', () => {
         balloon: '🎈', paint: '🖍️', drum: '🥁', guitar: '🎸', book: '📘', kite: '🪁'
     };
     const positiveMessages = ['🦄 Bravo !', '✨ Super !', '🌈 Génial !', '🌟 Parfait !', '🎉 Formidable !'];
+    const MATH_OPERATION_THEMES = {
+        additions: {
+            id: 'additions',
+            label: 'Sommes lumineuses',
+            icon: '🧱',
+            accent: '#ff9ae1',
+            accentSoft: '#ffe6f7',
+            optionIcons: ['🧱', '🧊', '🪄', '🔷'],
+            stickers: ['🧱', '🧊', '🪄', '🌈'],
+            encouragement: '🧱 Essaie encore, tu peux bâtir la tour magique !',
+            success: '🧱 Tour lumineuse complétée !',
+            storylines: [
+                'Empile les briques brillantes pour réveiller le château.',
+                'Ajoute les blocs arc-en-ciel pour aider les lutins.',
+                'Construis un pont de lumière pour la licorne voyageuse.'
+            ]
+        },
+        soustractions: {
+            id: 'soustractions',
+            label: 'Récolte fruitée',
+            icon: '🍎',
+            accent: '#ffb347',
+            accentSoft: '#ffe7c7',
+            optionIcons: ['🍎', '🍐', '🍑', '🍊'],
+            stickers: ['🍓', '🍎', '🍑', '🍐'],
+            encouragement: '🍏 Retente ta récolte, tu vas y arriver !',
+            success: '🍎 Récolte délicieuse réussie !',
+            storylines: [
+                'Distribue les fruits magiques aux amis de la forêt.',
+                'Cueille les pommes en retirant juste ce qu’il faut.',
+                'Aide la fée à partager les fruits du verger doré.'
+            ]
+        },
+        multiplications: {
+            id: 'multiplications',
+            label: 'Constellations étincelantes',
+            icon: '✨',
+            accent: '#8c5bff',
+            accentSoft: '#e5dcff',
+            optionIcons: ['✨', '🌟', '💎', '🪄'],
+            stickers: ['🌟', '💫', '✨', '🪐'],
+            encouragement: '✨ Respire et multiplie les étoiles une à une !',
+            success: '🌟 Constellation complète !',
+            storylines: [
+                'Relie les étoiles de la table magique.',
+                'Illumine le ciel pour le renard cosmique.',
+                'Trace de nouvelles constellations scintillantes.'
+            ]
+        },
+        divisions: {
+            id: 'divisions',
+            label: 'Trésors partagés',
+            icon: '🪙',
+            accent: '#44c2ff',
+            accentSoft: '#d6f4ff',
+            optionIcons: ['🪙', '💰', '📦', '💎'],
+            stickers: ['🪙', '💰', '🧭', '🪄'],
+            encouragement: '🪙 Divise encore, chaque indice compte !',
+            success: '🗝️ Coffre ouvert, trésor partagé !',
+            storylines: [
+                'Partage équitablement les pièces des pirates gentils.',
+                'Répartis les trésors entre les explorateurs amis.',
+                'Ouvre la porte magique en divisant correctement.'
+            ]
+        }
+    };
+
+    function buildAdditionConfigs(count) {
+        return Array.from({ length: count }, (_, index) => {
+            const step = index + 1;
+            const maxSum = step * 10;
+            return {
+                maxSum,
+                maxAddend: maxSum,
+                minAddend: 0,
+                description: `Sommes jusqu'à ${maxSum}`,
+                storyIndex: index
+            };
+        });
+    }
+
+    function buildSubtractionConfigs(count) {
+        return Array.from({ length: count }, (_, index) => {
+            const step = index + 1;
+            const maxStart = step * 10;
+            return {
+                maxStart,
+                minResult: 0,
+                description: `Restes jusqu'à ${maxStart}`,
+                storyIndex: index
+            };
+        });
+    }
+
+    function buildMultiplicationConfigs(count) {
+        return Array.from({ length: count }, (_, index) => {
+            const table = index + 1;
+            return {
+                tables: [table],
+                minFactor: 1,
+                maxFactor: 12,
+                description: `Table de ${table}`,
+                storyIndex: index
+            };
+        });
+    }
+
+    function buildDivisionConfigs(count) {
+        return Array.from({ length: count }, (_, index) => {
+            const divisor = index + 1;
+            return {
+                divisor,
+                minQuotient: 1,
+                maxQuotient: Math.min(12, divisor === 1 ? 12 : 12 - Math.max(0, divisor - 6)),
+                description: `Divisions par ${divisor}`,
+                storyIndex: index
+            };
+        });
+    }
+
+    const MATH_LEVEL_CONFIG = {
+        additions: buildAdditionConfigs(LEVELS_PER_TOPIC),
+        soustractions: buildSubtractionConfigs(LEVELS_PER_TOPIC),
+        multiplications: buildMultiplicationConfigs(Math.max(LEVELS_PER_TOPIC, 12)),
+        divisions: buildDivisionConfigs(Math.max(LEVELS_PER_TOPIC, 12))
+    };
+
+    window.LENA_MATH_THEMES = MATH_OPERATION_THEMES;
+    window.LENA_MATH_LEVEL_CONFIG = MATH_LEVEL_CONFIG;
+
     const DEFAULT_INK_COLOR = '#5a5a5a';
     const PAUSE_REMINDER_DELAY = 8 * 60 * 1000;
     const AVATAR_LIBRARY = window.AVATAR_LIBRARY || {};
@@ -109,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         additions: 'math:addition',
         soustractions: 'math:subtraction',
         multiplications: 'math:multiplication',
+        divisions: 'math:division',
         colors: 'cognition:colors',
         stories: 'reading:comprehension',
         memory: 'memory:matching',
@@ -119,7 +263,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'number-houses': 'math:numberBond',
         'puzzle-magique': 'logic:puzzle',
         repartis: 'math:distribution',
-        dictee: 'language:dictation'
+        dictee: 'language:dictation',
+        'math-blitz': 'math:blitz',
+        'lecture-magique': 'reading:fluency',
+        raisonnement: 'logic:reasoning'
     };
 
     function svgDataUri(svg) {
@@ -276,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const answerOptionIcons = ['🔹', '🌟', '💡', '🎯', '✨', '🎈', '🧠'];
     const colorOptionIcons = ['🎨', '🖌️', '🧴', '🧑\u200d🎨', '🌈'];
-    const magicStories = [
+    const storySetOne = [
         {
             "title": "Le Voyage de Léna l\'Étoile ⭐️",
             "image": "https://photos.app.goo.gl/fkh9KiXZNouPpshj7",
@@ -524,6 +671,310 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         }
     ];
+    const storySetTwo = [
+        {
+            "title": "La Montgolfière Surprise 🎈🏔️",
+            "image": "https://via.placeholder.com/600x400.png?text=Montgolfiere",
+            "text": [
+              "Léna 👧 découvrit une montgolfière 🎈 cachée dans la grange.",
+              "Yaya 🐱 gonfla l'énorme ballon avec un soufflet magique ✨.",
+              "Elles montèrent doucement dans le ciel bleu ☁️.",
+              "De là-haut, elles saluèrent le village entier 👋.",
+              "Elles atterrirent près d'une montagne remplie de fleurs alpines 🌼."
+            ],
+            "quiz": [
+              { "question": "Que trouva Léna 👧 ?", "options": ["Un vélo 🚲", "Une montgolfière 🎈", "Un bateau ⛵"], "correct": 1 },
+              { "question": "Qui gonfla le ballon ✨ ?", "options": ["Un oiseau 🐦", "Léna 👧", "Yaya 🐱"], "correct": 2 },
+              { "question": "Où atterrirent-elles 🌼 ?", "options": ["Dans la forêt 🌳", "Près d'une montagne fleurie 🌼", "Dans un désert 🏜️"], "correct": 1 }
+            ]
+        },
+        {
+            "title": "Le Trésor Sous-Marin 🌊🪙",
+            "image": "https://via.placeholder.com/600x400.png?text=Tresor+sous-marin",
+            "text": [
+              "Léna 👧 et Yaya 🐱 plongèrent dans la mer avec un sous-marin jaune 🛥️.",
+              "Elles rencontrèrent une tortue bavarde 🐢.",
+              "La tortue leur montra un coffre brillant sur le sable ✨.",
+              "À l'intérieur, il y avait des coquillages musicaux 🎶.",
+              "Le sous-marin rentra à la surface en chantant lalala 🎵."
+            ],
+            "quiz": [
+              { "question": "Quelle couleur était le sous-marin 🛥️ ?", "options": ["Rouge 🔴", "Jaune 💛", "Vert 🟢"], "correct": 1 },
+              { "question": "Qui guida Léna 👧 ?", "options": ["Une pieuvre 🐙", "Une tortue 🐢", "Un dauphin 🐬"], "correct": 1 },
+              { "question": "Que contenait le coffre ✨ ?", "options": ["Des bonbons 🍬", "Des coquillages musicaux 🎶", "Des livres 📚"], "correct": 1 }
+            ]
+        },
+        {
+            "title": "La Classe des Robots 🤖📚",
+            "image": "https://via.placeholder.com/600x400.png?text=Classe+robots",
+            "text": [
+              "Yaya 🐱 ouvrit une école spéciale pour robots 🤖.",
+              "Léna 👧 enseigna comment dire bonjour poliment 🙋.",
+              "Les robots apprirent à dessiner des arcs-en-ciel 🌈.",
+              "À la récréation, ils jouèrent au ballon-éclair ⚡.",
+              "Leur devoir du soir : raconter une blague gentille 😂."
+            ],
+            "quiz": [
+              { "question": "Qui ouvrit l'école 🤖 ?", "options": ["Léna 👧", "Yaya 🐱", "Un robot"], "correct": 1 },
+              { "question": "Que dessinaient les robots 🌈 ?", "options": ["Des nuages ☁️", "Des arcs-en-ciel 🌈", "Des montagnes ⛰️"], "correct": 1 },
+              { "question": "Quel jeu jouaient-ils ⚡ ?", "options": ["Au ballon-éclair ⚡", "À la corde à sauter 🪢", "Aux cartes 🃏"], "correct": 0 }
+            ]
+        },
+        {
+            "title": "Le Festival des Lanternes 🏮✨",
+            "image": "https://via.placeholder.com/600x400.png?text=Lanternes",
+            "text": [
+              "Dans le village, un festival de lanternes brillait 🏮.",
+              "Léna 👧 fabriqua une lanterne en forme de lune 🌙.",
+              "Yaya 🐱 dessina des étoiles dorées ⭐.",
+              "Quand la nuit arriva, le ciel devint un océan de lumières ✨.",
+              "Elles firent un vœu de bonheur pour tous 🤍."
+            ],
+            "quiz": [
+              { "question": "Quelle forme avait la lanterne 🌙 ?", "options": ["Un soleil ☀️", "Une lune 🌙", "Une fleur 🌸"], "correct": 1 },
+              { "question": "Qui dessina des étoiles ⭐ ?", "options": ["Léna 👧", "Yaya 🐱", "Le vent 🍃"], "correct": 1 },
+              { "question": "Que firent-elles à la fin 🤍 ?", "options": ["Un concours", "Un vœu de bonheur 🤍", "Une course"], "correct": 1 }
+            ]
+        },
+        {
+            "title": "Le Marché des Sorbets 🍧🛒",
+            "image": "https://via.placeholder.com/600x400.png?text=Marche+sorbets",
+            "text": [
+              "Léna 👧 et Yaya 🐱 tinrent un stand de sorbets 🍧.",
+              "Chaque parfum changeait la couleur de la langue 😛.",
+              "Une licorne gourmande passa goûter la saveur arc-en-ciel 🦄.",
+              "Le stand devint l'endroit le plus frais du marché ❄️.",
+              "Elles offrirent le dernier sorbet à un petit nuage timide ☁️."
+            ],
+            "quiz": [
+              { "question": "Que vendaient-elles 🍧 ?", "options": ["Des gâteaux 🎂", "Des sorbets 🍧", "Des fleurs 🌸"], "correct": 1 },
+              { "question": "Qui goûta la saveur arc-en-ciel 🦄 ?", "options": ["Une licorne 🦄", "Un dragon 🐉", "Un pirate 🏴‍☠️"], "correct": 0 },
+              { "question": "À qui offrirent-elles le dernier sorbet ☁️ ?", "options": ["Un nuage timide ☁️", "Un cheval 🐴", "Un robot 🤖"], "correct": 0 }
+            ]
+        },
+        {
+            "title": "Le Concert des Forêts 🌲🎻",
+            "image": "https://via.placeholder.com/600x400.png?text=Concert+foret",
+            "text": [
+              "Dans la forêt magique, les arbres voulaient chanter 🎶.",
+              "Léna 👧 dirigea l'orchestre avec une baguette lumineuse ✨.",
+              "Yaya 🐱 joua du tambourin de feuilles 🍃.",
+              "Les oiseaux sifflèrent la mélodie principale 🐦.",
+              "Toute la forêt applaudit avec ses branches 🌲."
+            ],
+            "quiz": [
+              { "question": "Qui dirigeait l'orchestre ✨ ?", "options": ["Yaya 🐱", "Léna 👧", "Un hibou 🦉"], "correct": 1 },
+              { "question": "Quel instrument jouait Yaya 🍃 ?", "options": ["Tambourin de feuilles 🍃", "Guitare 🎸", "Piano 🎹"], "correct": 0 },
+              { "question": "Qui sifflait la mélodie 🐦 ?", "options": ["Les oiseaux 🐦", "Les lapins 🐰", "Les rochers 🪨"], "correct": 0 }
+            ]
+        }
+    ];
+
+    const storySetThree = [
+        {
+            "title": "La Biblioteca de las Nubes ☁️📚",
+            "image": "https://via.placeholder.com/600x400.png?text=Biblioteca+de+nubes",
+            "text": [
+              "Una nube esponjosa invitó a Léna 👧 y Yaya 🐱 a una biblioteca flotante ☁️📚.",
+              "Cada libro estaba hecho de vapor brillante ✨.",
+              "Al abrir un cuento, salieron notas musicales que cantaban las palabras 🎶.",
+              "Las niñas ordenaron las notas para crear una historia nueva 📝.",
+              "La nube guardiana les regaló señaladores arcoíris 🌈 para recordar la visita."
+            ],
+            "quiz": [
+              { "question": "¿Dónde estaba la biblioteca?", "options": ["Sobre una nube ☁️", "Dentro del mar 🌊", "En una cueva 🪨"], "correct": 0 },
+              { "question": "¿Qué salió del cuento al abrirlo?", "options": ["Copos de nieve ❄️", "Notas musicales 🎶", "Caramelos 🍬"], "correct": 1 },
+              { "question": "¿Qué regalo recibieron?", "options": ["Sombreros 🎩", "Campanas 🔔", "Señaladores arcoíris 🌈"], "correct": 2 }
+            ]
+        },
+        {
+            "title": "La Carrera de Meteoritos 🌠🏁",
+            "image": "https://via.placeholder.com/600x400.png?text=Carrera+meteoritos",
+            "text": [
+              "El zorro cósmico invitó a Léna y Yaya a una carrera de meteoritos 🌠.",
+              "Cada meteorito tenía un número mágico que indicaba su velocidad 🔢.",
+              "Para avanzar, debían sumar los números y formar un hechizo de energía ✨.",
+              "Cuando acertaban, el meteorito dejaba una estela de colores brillantes 🌈.",
+              "Terminaron la carrera saludando a la luna, que les dio medallas estrelladas 🏅."
+            ],
+            "quiz": [
+              { "question": "¿Quién organizó la carrera?", "options": ["Un zorro cósmico 🦊", "Un dragón 🐉", "Un robot 🤖"], "correct": 0 },
+              { "question": "¿Qué tenían los meteoritos?", "options": ["Números mágicos 🔢", "Plumas 🪶", "Orejas 👂"], "correct": 0 },
+              { "question": "¿Qué recibieron al final?", "options": ["Medallas estrelladas 🏅", "Llaves doradas 🔑", "Gafas brillantes 🕶️"], "correct": 0 }
+            ]
+        },
+        {
+            "title": "La Isla de los Rompecabezas 🧩🏝️",
+            "image": "https://via.placeholder.com/600x400.png?text=Isla+rompecabezas",
+            "text": [
+              "Un mapa secreto condujo a Léna y Yaya a la Isla de los Rompecabezas 🧩🏝️.",
+              "Las palmeras hablaban y proponían acertijos para abrir cofres 🗝️.",
+              "Debían ordenar bloques de colores siguiendo patrones mágicos 🎨.",
+              "Cada cofre liberaba una melodía que hacía danzar las olas 🌊.",
+              "Al caer la tarde, toda la isla aplaudió su ingenio con luces doradas ✨."
+            ],
+            "quiz": [
+              { "question": "¿Qué proponían las palmeras?", "options": ["Acertijos 🤔", "Canciones 🎵", "Sombras misteriosas 👤"], "correct": 0 },
+              { "question": "¿Qué debían ordenar?", "options": ["Bloques de colores 🎨", "Sombreros 🎩", "Copas de cristal 🥂"], "correct": 0 },
+              { "question": "¿Qué pasaba al abrir un cofre?", "options": ["Salía una melodía 🌊", "Aparecía un dragón 🐉", "Caía nieve ❄️"], "correct": 0 }
+            ]
+        },
+        {
+            "title": "El Jardín de las Divisiones 🪙🌷",
+            "image": "https://via.placeholder.com/600x400.png?text=Jardin+divisiones",
+            "text": [
+              "El hada de las monedas pidió ayuda para repartir luz en su jardín 🪙🌷.",
+              "Cada flor se iluminaba solo si recibía la misma cantidad de brillo ✨.",
+              "Léna y Yaya dividieron las chispas doradas entre los maceteros iguales ⚖️.",
+              "Cuando lo lograban, nacían nuevas flores con pétalos musicales 🎼.",
+              "El hada les entregó un cofre con semillas de amistad para seguir compartiendo 💌."
+            ],
+            "quiz": [
+              { "question": "¿Quién las llamó al jardín?", "options": ["El hada de las monedas 🧚‍♀️", "Un pingüino ❄️", "Un gigante 👣"], "correct": 0 },
+              { "question": "¿Qué repartieron entre las flores?", "options": ["Chispas doradas ✨", "Helados 🍦", "Sombreros 🎩"], "correct": 0 },
+              { "question": "¿Qué recibieron al final?", "options": ["Semillas de amistad 💌", "Espadas ⚔️", "Relojes ⏰"], "correct": 0 }
+            ]
+        },
+        {
+            "title": "El Bosque de las Risas Secretas 😂🌳",
+            "image": "https://via.placeholder.com/600x400.png?text=Bosque+risas",
+            "text": [
+              "El bosque encantado estaba silencioso y pidió una ronda de chistes 😂🌳.",
+              "Cada árbol tenía un acertijo escondido en sus hojas doradas 🍂.",
+              "Al resolverlos, salían burbujas de risa que cosquilleaban el aire 🫧.",
+              "Los animales se reunían para compartir historias divertidas 🐿️.",
+              "Al anochecer, una estrella bajó para guardar todas las risas en un frasco luminoso ⭐."
+            ],
+            "quiz": [
+              { "question": "¿Qué pedía el bosque?", "options": ["Una ronda de chistes 😂", "Un concurso de carreras 🏃", "Un día de silencio 🤫"], "correct": 0 },
+              { "question": "¿Dónde estaban los acertijos?", "options": ["En las hojas doradas 🍂", "En las nubes ☁️", "En las piedras 🪨"], "correct": 0 },
+              { "question": "¿Quién guardó las risas?", "options": ["Una estrella ⭐", "Un pez 🐟", "Un duende 🧝"], "correct": 0 }
+            ]
+        }
+    ];
+
+    function withStoryIds(stories, prefix) {
+        return stories.map((story, index) => ({
+            ...story,
+            id: story.id || `${prefix}-${index + 1}`
+        }));
+    }
+
+    const storyCollections = [
+        { id: 'set-1', stories: withStoryIds(storySetOne, 'set1-story') },
+        { id: 'set-2', stories: withStoryIds(storySetTwo, 'set2-story') },
+        { id: 'set-3', stories: withStoryIds(storySetThree, 'set3-story') }
+    ];
+
+    let activeStorySetIndex = 0;
+    let magicStories = storyCollections[activeStorySetIndex].stories;
+
+    function getActiveStorySet() {
+        return storyCollections[activeStorySetIndex] || storyCollections[0];
+    }
+
+    function setActiveStorySet(newIndex) {
+        const numericIndex = Number.isFinite(newIndex) ? newIndex : parseInt(newIndex, 10);
+        const safeIndex = Number.isNaN(numericIndex)
+            ? 0
+            : Math.min(Math.max(0, numericIndex), storyCollections.length - 1);
+        activeStorySetIndex = safeIndex;
+        magicStories = storyCollections[safeIndex]?.stories || [];
+        if (storyProgress && typeof storyProgress === 'object') {
+            storyProgress.activeSetIndex = safeIndex;
+        }
+    }
+
+    function ensureStoryProgressInitialized() {
+        if (!storyProgress || typeof storyProgress !== 'object') {
+            storyProgress = { activeSetIndex: activeStorySetIndex, completed: {} };
+        }
+        if (!storyProgress.completed || typeof storyProgress.completed !== 'object') {
+            storyProgress.completed = {};
+        }
+        const currentSet = getActiveStorySet();
+        if (currentSet && !storyProgress.completed[currentSet.id]) {
+            storyProgress.completed[currentSet.id] = {};
+        }
+    }
+
+    function getStoryCompletionMap(setId) {
+        ensureStoryProgressInitialized();
+        const targetSet = setId || getActiveStorySet()?.id;
+        if (!targetSet) { return {}; }
+        if (!storyProgress.completed[targetSet]) {
+            storyProgress.completed[targetSet] = {};
+        }
+        return storyProgress.completed[targetSet];
+    }
+
+    function isStoryMarkedCompleted(storyId, setId) {
+        if (!storyId) { return false; }
+        const map = getStoryCompletionMap(setId);
+        return !!map[storyId];
+    }
+
+    function markStoryCompletedById(storyId, setId) {
+        if (!storyId) { return; }
+        const map = getStoryCompletionMap(setId);
+        map[storyId] = true;
+    }
+
+    function isActiveStorySetFullyCompleted() {
+        if (!magicStories || !magicStories.length) { return false; }
+        const currentSet = getActiveStorySet();
+        const map = getStoryCompletionMap(currentSet?.id);
+        return magicStories.every(story => map[story.id]);
+    }
+
+    function advanceStorySetIfNeeded() {
+        if (!isActiveStorySetFullyCompleted()) { return false; }
+        if (activeStorySetIndex >= storyCollections.length - 1) { return false; }
+        setActiveStorySet(activeStorySetIndex + 1);
+        ensureStoryProgressInitialized();
+        return true;
+    }
+
+    function normalizeStoryProgress(rawProgress) {
+        const normalized = { activeSetIndex: 0, completed: {} };
+        if (rawProgress && typeof rawProgress === 'object') {
+            const rawIndex = Number(rawProgress.activeSetIndex);
+            if (!Number.isNaN(rawIndex)) {
+                normalized.activeSetIndex = Math.min(
+                    Math.max(0, rawIndex),
+                    storyCollections.length - 1
+                );
+            }
+            if (rawProgress.completed && typeof rawProgress.completed === 'object') {
+                Object.keys(rawProgress.completed).forEach(setId => {
+                    const setData = rawProgress.completed[setId];
+                    if (setData && typeof setData === 'object') {
+                        normalized.completed[setId] = { ...setData };
+                    }
+                });
+            }
+        }
+        return normalized;
+    }
+
+    function migrateLegacyStoryKeys(answeredMap) {
+        if (!answeredMap || typeof answeredMap !== 'object') { return; }
+        const legacyKeys = Object.keys(answeredMap).filter(key => {
+            return /^stories-\d+$/.test(key) && answeredMap[key] === 'completed';
+        });
+        if (!legacyKeys.length) { return; }
+        const firstSet = storyCollections[0];
+        legacyKeys.forEach(key => {
+            const match = key.match(/^stories-(\d+)$/);
+            if (!match) { return; }
+            const storyIndex = parseInt(match[1], 10) - 1;
+            const legacyStory = firstSet?.stories?.[storyIndex];
+            if (legacyStory?.id) {
+                markStoryCompletedById(legacyStory.id, firstSet.id);
+            }
+        });
+    }
+
     const colorMap = {
         '🟢 Vert': 'green', '🟠 Orange': 'orange', '🟣 Violet': 'purple',
         '🔵 Bleu': 'blue', '🟡 Jaune': 'yellow', '🔴 Rouge': 'red',
@@ -793,76 +1244,614 @@ document.addEventListener('DOMContentLoaded', () => {
     const riddleLevels = [
         {
             level: 1,
-            prompt: "J'ai 4 pattes 🐾 et j'aboie 🐶. Qui suis-je ?",
-            options: ['Un chiot', 'Un chat', 'Un oiseau'],
-            answer: 0,
-            reward: { stars: 12, coins: 8 }
+            theme: "Animaux câlins",
+            completionMessage: "Tu connais les animaux câlins !",
+            questions: [
+                {
+                    prompt: "Je suis petit, je miaule doucement et j'adore les câlins. Qui suis-je ?",
+                    options: ["Un chaton", "Un lion", "Un hibou"],
+                    answer: 0,
+                    hint: "Je vis souvent dans la maison.",
+                    success: "Oui, le chaton adore les câlins !",
+                    reward: { stars: 6, coins: 4 }
+                },
+                {
+                    prompt: "Je saute dans la prairie et je grignote des carottes. Qui suis-je ?",
+                    options: ["Un lapin", "Un cheval", "Un poisson"],
+                    answer: 0,
+                    hint: "Mes oreilles sont très longues.",
+                    success: "Le lapin adore bondir !",
+                    reward: { stars: 6, coins: 4 }
+                },
+                {
+                    prompt: "Je porte une carapace et je marche très lentement. Qui suis-je ?",
+                    options: ["Une tortue", "Une souris", "Un chien"],
+                    answer: 0,
+                    hint: "On me voit souvent au soleil.",
+                    success: "Oui, la tortue avance lentement !",
+                    reward: { stars: 6, coins: 4 }
+                },
+                {
+                    prompt: "Je suis rayé et je ronronne comme un grand chat. Qui suis-je ?",
+                    options: ["Un tigre", "Un panda", "Un pingouin"],
+                    answer: 0,
+                    hint: "Je vis dans la jungle.",
+                    success: "Le tigre est un grand chat rayé !",
+                    reward: { stars: 6, coins: 4 }
+                },
+                {
+                    prompt: "Je dors accroché la tête en bas dans une grotte. Qui suis-je ?",
+                    options: ["Une chauve-souris", "Un renard", "Un mouton"],
+                    answer: 0,
+                    hint: "Je suis un animal de la nuit.",
+                    success: "La chauve-souris dort à l'envers !",
+                    reward: { stars: 6, coins: 4 }
+                }
+            ]
         },
         {
             level: 2,
-            prompt: "Je suis jaune 🍌 et très courbé. Qui suis-je ?",
-            options: ['Une banane', 'Une carotte', 'Un citron'],
-            answer: 0,
-            reward: { stars: 12, coins: 8 }
+            theme: "Fruits colorés",
+            completionMessage: "Tu reconnais les fruits colorés !",
+            questions: [
+                {
+                    prompt: "Je suis jaune et on me pèle avant de me manger. Qui suis-je ?",
+                    options: ["Une banane", "Un kiwi", "Une prune"],
+                    answer: 0,
+                    hint: "On me tient par ma queue.",
+                    success: "La banane est délicieuse !",
+                    reward: { stars: 7, coins: 5 }
+                },
+                {
+                    prompt: "Je suis verte ou rouge et je croque sous la dent. Qui suis-je ?",
+                    options: ["Une pomme", "Une tomate", "Une cerise"],
+                    answer: 0,
+                    hint: "On me trouve souvent dans les paniers de pique-nique.",
+                    success: "Bravo, la pomme croque !",
+                    reward: { stars: 7, coins: 5 }
+                },
+                {
+                    prompt: "Je suis orange et j'offre un jus plein de vitamine C. Qui suis-je ?",
+                    options: ["Une orange", "Un citron", "Une fraise"],
+                    answer: 0,
+                    hint: "Mon jus te réveille le matin.",
+                    success: "L'orange est pleine d'énergie !",
+                    reward: { stars: 7, coins: 5 }
+                },
+                {
+                    prompt: "Je suis petite, rouge et j'ai des grains sur ma peau. Qui suis-je ?",
+                    options: ["Une fraise", "Une prune", "Une poire"],
+                    answer: 0,
+                    hint: "Je pousse dans le jardin au printemps.",
+                    success: "La fraise est toute rouge !",
+                    reward: { stars: 7, coins: 5 }
+                },
+                {
+                    prompt: "J'ai une couronne piquante mais un cœur doré. Qui suis-je ?",
+                    options: ["Un ananas", "Une mangue", "Une banane"],
+                    answer: 0,
+                    hint: "Je viens souvent des îles.",
+                    success: "L'ananas est royal !",
+                    reward: { stars: 7, coins: 5 }
+                }
+            ]
         },
         {
             level: 3,
-            prompt: "Je vole 🕊️ et j'ai des ailes. Qui suis-je ?",
-            options: ['Un poisson', 'Un oiseau', 'Un chien'],
-            answer: 1,
-            reward: { stars: 12, coins: 8 }
+            theme: "Amis de la ferme",
+            completionMessage: "Tu as reconnu tous les animaux de la ferme !",
+            questions: [
+                {
+                    prompt: "Je me réveille très tôt et je crie cocorico. Qui suis-je ?",
+                    options: ["Un coq", "Un canard", "Un hibou"],
+                    answer: 0,
+                    hint: "Je réveille toute la ferme.",
+                    success: "Cocorico, bien joué !",
+                    reward: { stars: 8, coins: 5 }
+                },
+                {
+                    prompt: "Je donne du lait blanc et j'aime manger de l'herbe. Qui suis-je ?",
+                    options: ["Une vache", "Une chèvre", "Une poule"],
+                    answer: 0,
+                    hint: "Je me fais traire chaque matin.",
+                    success: "La vache fournit du lait !",
+                    reward: { stars: 8, coins: 5 }
+                },
+                {
+                    prompt: "Je donne de la laine douce pour fabriquer des pulls. Qui suis-je ?",
+                    options: ["Un mouton", "Un cheval", "Un lapin"],
+                    answer: 0,
+                    hint: "On me tond au printemps.",
+                    success: "La laine vient du mouton !",
+                    reward: { stars: 8, coins: 5 }
+                },
+                {
+                    prompt: "J'adore me rouler dans la boue pour me rafraîchir. Qui suis-je ?",
+                    options: ["Un cochon", "Un chien", "Un lama"],
+                    answer: 0,
+                    hint: "Je fais groin groin.",
+                    success: "Le cochon adore la boue !",
+                    reward: { stars: 8, coins: 5 }
+                },
+                {
+                    prompt: "Je porte parfois un jockey pour courir très vite. Qui suis-je ?",
+                    options: ["Un cheval", "Une vache", "Un lapin"],
+                    answer: 0,
+                    hint: "Je galope au haras.",
+                    success: "Le cheval est un champion !",
+                    reward: { stars: 8, coins: 5 }
+                }
+            ]
         },
         {
             level: 4,
-            prompt: "Qui brille le jour ?",
-            image: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-            options: ['La lune', 'Le soleil', 'Une étoile filante'],
-            answer: 1,
-            reward: { stars: 15, coins: 10 }
+            theme: "Fruits tropicaux",
+            completionMessage: "Tes papilles adorent les fruits tropicaux !",
+            questions: [
+                {
+                    prompt: "Ma chair est orange, douce et juteuse. Je tombe parfois des arbres en martinique. Qui suis-je ?",
+                    options: ["Une mangue", "Une prune", "Une pêche"],
+                    answer: 0,
+                    hint: "Je suis un fruit tropical qui commence par la lettre M.",
+                    success: "La mangue est un soleil sucré !",
+                    reward: { stars: 9, coins: 6 }
+                },
+                {
+                    prompt: "Je suis verte à l'extérieur, rouge à l'intérieur et je rafraîchis tout l'été. Qui suis-je ?",
+                    options: ["Une pastèque", "Une prune", "Un citron"],
+                    answer: 0,
+                    hint: "Je suis très lourde et pleine de graines.",
+                    success: "La pastèque désaltère tout le monde !",
+                    reward: { stars: 9, coins: 6 }
+                },
+                {
+                    prompt: "Je suis petit, brun dehors et vert brillant dedans. Qui suis-je ?",
+                    options: ["Un kiwi", "Une figue", "Une prune"],
+                    answer: 0,
+                    hint: "Je me mange à la cuillère.",
+                    success: "Le kiwi est plein de vitamines !",
+                    reward: { stars: 9, coins: 6 }
+                },
+                {
+                    prompt: "On me casse pour boire mon eau sucrée au bord de la plage. Qui suis-je ?",
+                    options: ["Une noix de coco", "Un melon", "Une mandarine"],
+                    answer: 0,
+                    hint: "Ma coque est très dure.",
+                    success: "La noix de coco rafraîchit !",
+                    reward: { stars: 9, coins: 6 }
+                },
+                {
+                    prompt: "Je ressemble à une grosse baie violette et on me croque grain par grain. Qui suis-je ?",
+                    options: ["Une grappe de raisin", "Une myrtille", "Une mûre"],
+                    answer: 0,
+                    hint: "Je suis souvent servi avec du fromage.",
+                    success: "Les raisins sont délicieux !",
+                    reward: { stars: 9, coins: 6 }
+                }
+            ]
         },
         {
             level: 5,
-            prompt: "Qui ronronne à la maison ?",
-            image: 'https://cdn-icons-png.flaticon.com/512/3208/3208750.png',
-            options: ['Un chien', 'Un chat', 'Un lapin'],
-            answer: 1,
-            reward: { stars: 15, coins: 10 }
+            theme: "Animaux malins",
+            completionMessage: "Tu connais bien les animaux malins !",
+            questions: [
+                {
+                    prompt: "Je hulule la nuit avec mes grands yeux ronds. Qui suis-je ?",
+                    options: ["Un hibou", "Un manchot", "Un chien"],
+                    answer: 0,
+                    hint: "Je surveille la forêt pendant que tu dors.",
+                    success: "Le hibou observe dans la nuit !",
+                    reward: { stars: 10, coins: 7 }
+                },
+                {
+                    prompt: "Je suis rusé, ma queue est rousse et je vis dans le bois. Qui suis-je ?",
+                    options: ["Un renard", "Un ours", "Un loup"],
+                    answer: 0,
+                    hint: "On me dit parfois voleur de poules.",
+                    success: "Quel renard astucieux !",
+                    reward: { stars: 10, coins: 7 }
+                },
+                {
+                    prompt: "Je chante coâ coâ près des mares le soir. Qui suis-je ?",
+                    options: ["Une grenouille", "Un cygne", "Un crocodile"],
+                    answer: 0,
+                    hint: "Je saute dans l'eau et j'ai la peau verte.",
+                    success: "La grenouille adore chanter !",
+                    reward: { stars: 10, coins: 7 }
+                },
+                {
+                    prompt: "Je grimpe aux arbres et je mange des noisettes. Qui suis-je ?",
+                    options: ["Un écureuil", "Un blaireau", "Un hérisson"],
+                    answer: 0,
+                    hint: "Ma queue est en panache.",
+                    success: "L'écureuil est très agile !",
+                    reward: { stars: 10, coins: 7 }
+                },
+                {
+                    prompt: "Quand je suis surpris, je roule sur moi-même en boule piquante. Qui suis-je ?",
+                    options: ["Un hérisson", "Un castor", "Un lapin"],
+                    answer: 0,
+                    hint: "On me trouve parfois dans le jardin.",
+                    success: "Le hérisson se protège bien !",
+                    reward: { stars: 10, coins: 7 }
+                }
+            ]
         },
         {
             level: 6,
-            prompt: "Qui éclaire la nuit ?",
-            image: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-            options: ['La lune', 'Un nuage', 'Un livre'],
-            answer: 0,
-            reward: { stars: 15, coins: 10 }
+            theme: "Salade de fruits",
+            completionMessage: "Tu as préparé une salade de fruits magique !",
+            questions: [
+                {
+                    prompt: "Je suis violet et je laisse parfois une moustache colorée sur ta bouche. Qui suis-je ?",
+                    options: ["Une myrtille", "Un citron", "Une poire"],
+                    answer: 0,
+                    hint: "Je suis tout petit et je pousse sur des buissons.",
+                    success: "La myrtille colore la langue !",
+                    reward: { stars: 11, coins: 8 }
+                },
+                {
+                    prompt: "Je suis rose à l'extérieur et j'ai un gros noyau. Qui suis-je ?",
+                    options: ["Une pêche", "Une pomme", "Une poire"],
+                    answer: 0,
+                    hint: "Ma peau est toute douce.",
+                    success: "La pêche est veloutée !",
+                    reward: { stars: 11, coins: 8 }
+                },
+                {
+                    prompt: "Je suis jaune, très acide et on m'utilise pour faire de la limonade. Qui suis-je ?",
+                    options: ["Un citron", "Une banane", "Un abricot"],
+                    answer: 0,
+                    hint: "On fait une grimace en me goûtant.",
+                    success: "Le citron pique la langue !",
+                    reward: { stars: 11, coins: 8 }
+                },
+                {
+                    prompt: "Je suis allongée, verte à l'extérieur et rose avec des pépins noirs à l'intérieur. Qui suis-je ?",
+                    options: ["Une pastèque", "Une papaye", "Une figue"],
+                    answer: 0,
+                    hint: "On me partage en grosses tranches l'été.",
+                    success: "La pastèque rafraîchit !",
+                    reward: { stars: 11, coins: 8 }
+                },
+                {
+                    prompt: "Je suis petite, jaune et on me trouve souvent en grappe avec mes amis. Qui suis-je ?",
+                    options: ["Un grain de raisin", "Un pois", "Une prune"],
+                    answer: 0,
+                    hint: "On me cueille par grappes.",
+                    success: "Les raisins dorés sont délicieux !",
+                    reward: { stars: 11, coins: 8 }
+                }
+            ]
         },
         {
             level: 7,
-            prompt: "Je suis rond, je brille la nuit. Qui suis-je ?",
-            options: ['La lune', 'Un cerf-volant', 'Une balle'],
-            answer: 0,
-            reward: { stars: 18, coins: 12 }
+            theme: "Voyage sous la mer",
+            completionMessage: "Tu as exploré l'océan !",
+            questions: [
+                {
+                    prompt: "Je suis un mammifère qui saute hors de l'eau et j'adore jouer. Qui suis-je ?",
+                    options: ["Un dauphin", "Une baleine", "Un requin"],
+                    answer: 0,
+                    hint: "Je siffle pour parler avec mes amis.",
+                    success: "Le dauphin est très joueur !",
+                    reward: { stars: 12, coins: 9 }
+                },
+                {
+                    prompt: "J'ai huit bras et je peux changer de couleur. Qui suis-je ?",
+                    options: ["Une pieuvre", "Une sardine", "Une tortue"],
+                    answer: 0,
+                    hint: "Je me cache dans les rochers.",
+                    success: "La pieuvre est caméléon !",
+                    reward: { stars: 12, coins: 9 }
+                },
+                {
+                    prompt: "Je marche sur le sable de côté avec mes pinces. Qui suis-je ?",
+                    options: ["Un crabe", "Un ours polaire", "Un phoque"],
+                    answer: 0,
+                    hint: "Je laisse des traces en zigzag.",
+                    success: "Le crabe marche de travers !",
+                    reward: { stars: 12, coins: 9 }
+                },
+                {
+                    prompt: "Je suis géante, j'ai un jet d'eau sur ma tête et je chante sous l'eau. Qui suis-je ?",
+                    options: ["Une baleine", "Une raie", "Une otarie"],
+                    answer: 0,
+                    hint: "Je suis l'un des plus grands animaux du monde.",
+                    success: "La baleine chante fort !",
+                    reward: { stars: 12, coins: 9 }
+                },
+                {
+                    prompt: "Je porte une carapace et je nage longtemps sans me fatiguer. Qui suis-je ?",
+                    options: ["Une tortue de mer", "Un hippopotame", "Une grenouille"],
+                    answer: 0,
+                    hint: "Je pond mes œufs sur le sable.",
+                    success: "La tortue de mer voyage loin !",
+                    reward: { stars: 12, coins: 9 }
+                }
+            ]
         },
         {
             level: 8,
-            prompt: "Je grandis quand tu m'arroses et je perds mes feuilles en automne. Qui suis-je ?",
-            options: ['Une fleur', 'Un arbre', 'Une pierre'],
-            answer: 1,
-            reward: { stars: 18, coins: 12 }
+            theme: "Desserts fruités",
+            completionMessage: "Tes desserts fruités sont prêts !",
+            questions: [
+                {
+                    prompt: "Je suis petite, rouge foncé et je repose souvent sur un gâteau. Qui suis-je ?",
+                    options: ["Une cerise", "Une framboise", "Une prune"],
+                    answer: 0,
+                    hint: "On me met aussi sur les glaces.",
+                    success: "La cerise embellit les desserts !",
+                    reward: { stars: 13, coins: 10 }
+                },
+                {
+                    prompt: "Je suis rose, pleine de graines et parfaite en sorbet. Qui suis-je ?",
+                    options: ["Une framboise", "Une figue", "Une groseille"],
+                    answer: 0,
+                    hint: "Je pousse en petits buissons.",
+                    success: "La framboise est sucrée !",
+                    reward: { stars: 13, coins: 10 }
+                },
+                {
+                    prompt: "Je suis longue, jaune clair et pleine de petites graines noires à l'intérieur. Qui suis-je ?",
+                    options: ["Une vanille", "Une banane", "Une mangue"],
+                    answer: 0,
+                    hint: "On m'utilise pour parfumer les crèmes.",
+                    success: "La gousse de vanille sent bon !",
+                    reward: { stars: 13, coins: 10 }
+                },
+                {
+                    prompt: "Je suis verte claire, toute douce et je deviens orange quand je suis cuite dans une tarte. Qui suis-je ?",
+                    options: ["La rhubarbe", "La poire", "Le raisin"],
+                    answer: 0,
+                    hint: "Je suis souvent mélangée avec des fraises.",
+                    success: "La rhubarbe prépare de bonnes tartes !",
+                    reward: { stars: 13, coins: 10 }
+                },
+                {
+                    prompt: "Je suis jaune, sucré et je brille dans les salades de fruits exotiques. Qui suis-je ?",
+                    options: ["Une mangue", "Une poire", "Une papaye"],
+                    answer: 0,
+                    hint: "Je suis très parfumée et juteuse.",
+                    success: "La mangue est un dessert merveilleux !",
+                    reward: { stars: 13, coins: 10 }
+                }
+            ]
         },
         {
             level: 9,
-            prompt: "Je suis rempli de pages, j'aime qu'on me lise. Qui suis-je ?",
-            options: ['Un livre', 'Une boîte', 'Un chapeau'],
-            answer: 0,
-            reward: { stars: 20, coins: 14 }
+            theme: "Animaux fantastiques",
+            completionMessage: "Ton encyclopédie magique est remplie d'animaux fantastiques !",
+            questions: [
+                {
+                    prompt: "Je suis un cheval blanc avec une corne scintillante. Qui suis-je ?",
+                    options: ["Une licorne", "Un poney", "Un zèbre"],
+                    answer: 0,
+                    hint: "Je vis dans les contes de fées.",
+                    success: "La licorne est légendaire !",
+                    reward: { stars: 15, coins: 11 }
+                },
+                {
+                    prompt: "Je crache du feu et je protège des trésors. Qui suis-je ?",
+                    options: ["Un dragon", "Un dinosaure", "Un griffon"],
+                    answer: 0,
+                    hint: "On me voit dans les histoires de chevaliers.",
+                    success: "Le dragon garde ses trésors !",
+                    reward: { stars: 15, coins: 11 }
+                },
+                {
+                    prompt: "J'ai le corps d'un lion et des ailes d'aigle. Qui suis-je ?",
+                    options: ["Un griffon", "Un phénix", "Un minotaure"],
+                    answer: 0,
+                    hint: "Je suis un mélange majestueux.",
+                    success: "Le griffon surveille les royaumes !",
+                    reward: { stars: 15, coins: 11 }
+                },
+                {
+                    prompt: "Je renais de mes cendres dans un éclat de lumière. Qui suis-je ?",
+                    options: ["Un phénix", "Un hibou", "Un serpent"],
+                    answer: 0,
+                    hint: "Je suis un oiseau de feu.",
+                    success: "Le phénix renaît toujours !",
+                    reward: { stars: 15, coins: 11 }
+                },
+                {
+                    prompt: "Je nage comme un poisson mais je chante comme une humaine. Qui suis-je ?",
+                    options: ["Une sirène", "Une baleine", "Un dauphin"],
+                    answer: 0,
+                    hint: "Je vis sous la mer dans les chansons.",
+                    success: "Les sirènes savent chanter !",
+                    reward: { stars: 15, coins: 11 }
+                }
+            ]
         },
         {
             level: 10,
-            prompt: "Plus je grandis, plus je deviens léger. Qui suis-je ?",
-            options: ['Une bulle', 'Une pierre', 'Un train'],
-            answer: 0,
-            reward: { stars: 22, coins: 16 }
+            theme: "Panier surprise",
+            completionMessage: "Tu as résolu toutes les énigmes du panier surprise !",
+            questions: [
+                {
+                    prompt: "Je suis un fruit vert dehors, rouge dedans, et je porte une petite couronne. Qui suis-je ?",
+                    options: ["Une fraise", "Un kiwi", "Une pastèque"],
+                    answer: 0,
+                    hint: "Je suis petite et je pousse près du sol.",
+                    success: "La fraise royale est choisie !",
+                    reward: { stars: 16, coins: 12 }
+                },
+                {
+                    prompt: "Je suis un animal noir et blanc qui mange du bambou. Qui suis-je ?",
+                    options: ["Un panda", "Un zèbre", "Un lynx"],
+                    answer: 0,
+                    hint: "Je vis en Chine et je grimpe dans les arbres.",
+                    success: "Le panda est le roi du bambou !",
+                    reward: { stars: 16, coins: 12 }
+                },
+                {
+                    prompt: "Je suis orange, j'ai des crocs et je vis dans la savane. Qui suis-je ?",
+                    options: ["Un lion", "Un renard", "Un tigre"],
+                    answer: 0,
+                    hint: "Je suis surnommé le roi des animaux.",
+                    success: "Le lion règne sur la savane !",
+                    reward: { stars: 16, coins: 12 }
+                },
+                {
+                    prompt: "Je suis un fruit violet, j'ai des graines et je deviens confiture. Qui suis-je ?",
+                    options: ["Une figue", "Une prune", "Une myrtille"],
+                    answer: 0,
+                    hint: "On m'ouvre pour voir plein de graines.",
+                    success: "La figue régale les gourmands !",
+                    reward: { stars: 16, coins: 12 }
+                },
+                {
+                    prompt: "Je suis minuscule, j'avance vite en groupe et j'aime le sucre. Qui suis-je ?",
+                    options: ["Une fourmi", "Une abeille", "Un papillon"],
+                    answer: 0,
+                    hint: "On me voit souvent sur les pique-niques.",
+                    success: "Les fourmis sont très organisées !",
+                    reward: { stars: 16, coins: 12 }
+                }
+            ]
+        },
+        {
+            level: 11,
+            theme: "Exploradores del espacio",
+            completionMessage: "¡Has viajado entre estrellas como un verdadero explorador!",
+            questions: [
+                {
+                    prompt: "Vuelo con traje plateado y recojo muestras en la luna. ¿Quién soy?",
+                    options: ["Una astronauta", "Una sirena", "Una hada"],
+                    answer: 0,
+                    hint: "Pisa la luna con botas especiales.",
+                    success: "¡Exacto, la astronauta explora la luna!",
+                    reward: { stars: 17, coins: 13 }
+                },
+                {
+                    prompt: "Ilumino el camino de las naves con mi cola brillante. ¿Quién soy?",
+                    options: ["Un cometa", "Un perro", "Un coral"],
+                    answer: 0,
+                    hint: "Cruzo el cielo dejando una estela.",
+                    success: "El cometa es una estrella viajera.",
+                    reward: { stars: 17, coins: 13 }
+                },
+                {
+                    prompt: "Llevo un telescopio y busco nuevos planetas. ¿Quién soy?",
+                    options: ["Un astrónomo", "Un chef", "Un bailarín"],
+                    answer: 0,
+                    hint: "Mira el cielo toda la noche.",
+                    success: "El astrónomo estudia las estrellas.",
+                    reward: { stars: 17, coins: 13 }
+                },
+                {
+                    prompt: "Soy un robot simpático que arregla antenas en el espacio. ¿Quién soy?",
+                    options: ["Un pulpo", "Un droide mecánico", "Un músico"],
+                    answer: 1,
+                    hint: "Tiene herramientas en sus brazos metálicos.",
+                    success: "¡Sí, el droide mecánico ayuda en las misiones!",
+                    reward: { stars: 17, coins: 13 }
+                },
+                {
+                    prompt: "Cuento historias de galaxias y dibujo constelaciones. ¿Quién soy?",
+                    options: ["Un mago de hielo", "Una narradora espacial", "Un carpintero"],
+                    answer: 1,
+                    hint: "Comparte cuentos antes de dormir mirando el cielo.",
+                    success: "Una narradora espacial convierte las estrellas en cuentos.",
+                    reward: { stars: 17, coins: 13 }
+                }
+            ]
+        },
+        {
+            level: 12,
+            theme: "Profesiones fantásticas",
+            completionMessage: "¡Conoces a los mejores trabajadores mágicos!",
+            questions: [
+                {
+                    prompt: "Preparo pociones de colores para curar dragones. ¿Quién soy?",
+                    options: ["Una alquimista", "Una piloto", "Una escultora"],
+                    answer: 0,
+                    hint: "Mezcla ingredientes burbujeantes.",
+                    success: "La alquimista cuida de los dragones.",
+                    reward: { stars: 18, coins: 14 }
+                },
+                {
+                    prompt: "Construyo guitarras que lanzan chispas de alegría. ¿Quién soy?",
+                    options: ["Un jardinero", "Un luthier mágico", "Un bombero"],
+                    answer: 1,
+                    hint: "Crea instrumentos especiales para conciertos mágicos.",
+                    success: "¡Un luthier mágico fabrica música brillante!",
+                    reward: { stars: 18, coins: 14 }
+                },
+                {
+                    prompt: "Coso capas invisibles para héroes tímidos. ¿Quién soy?",
+                    options: ["Una costurera encantada", "Una granjera", "Una panadera"],
+                    answer: 0,
+                    hint: "Trabaja con hilos que desaparecen.",
+                    success: "La costurera encantada crea capas especiales.",
+                    reward: { stars: 18, coins: 14 }
+                },
+                {
+                    prompt: "Pinto murales que cobran vida por la noche. ¿Quién soy?",
+                    options: ["Un pintor nocturno", "Un policía", "Un conductor"],
+                    answer: 0,
+                    hint: "Sus cuadros se mueven cuando todos duermen.",
+                    success: "El pintor nocturno llena la ciudad de magia.",
+                    reward: { stars: 18, coins: 14 }
+                },
+                {
+                    prompt: "Dirijo un tren que viaja entre sueños y canciones. ¿Quién soy?",
+                    options: ["Una maquinista de sueños", "Una astronauta", "Una librera"],
+                    answer: 0,
+                    hint: "Conduce vagones que suenan como melodías.",
+                    success: "La maquinista de sueños lleva música a todos los pasajeros.",
+                    reward: { stars: 18, coins: 14 }
+                }
+            ]
+        },
+        {
+            level: 13,
+            theme: "Bosque encantado",
+            completionMessage: "¡Has descubierto cada secreto del bosque mágico!",
+            questions: [
+                {
+                    prompt: "Guardo mapas secretos en mi mochila y guío a los aventureros. ¿Quién soy?",
+                    options: ["Un guía del bosque", "Un panadero", "Un marinero"],
+                    answer: 0,
+                    hint: "Sabe cada sendero y cada escondite.",
+                    success: "El guía del bosque conoce todos los caminos.",
+                    reward: { stars: 19, coins: 15 }
+                },
+                {
+                    prompt: "Apago incendios con lluvia de estrellas. ¿Quién soy?",
+                    options: ["Una guardabosques", "Un fotógrafo", "Un cartero"],
+                    answer: 0,
+                    hint: "Protege a los árboles con magia acuática.",
+                    success: "La guardabosques mantiene el bosque seguro.",
+                    reward: { stars: 19, coins: 15 }
+                },
+                {
+                    prompt: "Toco la flauta para que las luciérnagas bailen. ¿Quién soy?",
+                    options: ["Un músico del claro", "Un doctor", "Un barquero"],
+                    answer: 0,
+                    hint: "Hace conciertos bajo la luna.",
+                    success: "El músico del claro llena de luz cada noche.",
+                    reward: { stars: 19, coins: 15 }
+                },
+                {
+                    prompt: "Cuido una biblioteca de hojas que cuentan historias. ¿Quién soy?",
+                    options: ["Un bibliotecario del bosque", "Un chef", "Un piloto"],
+                    answer: 0,
+                    hint: "Cada hoja es una página verde.",
+                    success: "El bibliotecario del bosque guarda cuentos en los árboles.",
+                    reward: { stars: 19, coins: 15 }
+                },
+                {
+                    prompt: "Recojo gotas de rocío para hacer perfume de amanecer. ¿Quién soy?",
+                    options: ["Una perfumista de rocío", "Una astrónoma", "Una fotógrafa"],
+                    answer: 0,
+                    hint: "Se levanta antes del sol para atrapar la primera luz.",
+                    success: "La perfumista de rocío embotella el aroma del amanecer.",
+                    reward: { stars: 19, coins: 15 }
+                }
+            ]
         }
     ];
 
@@ -892,8 +1881,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { level: 10, sequence: ['🔺', '1', '🔺', '2', '?'], options: ['🔺', '3', '🔵'], answer: '3', type: 'mixed' }
     ];
     const allQuestions = {
-        additions: [], soustractions: [], multiplications: [], colors: [], stories: [], riddles: [], sorting: [], letters: [], shapes: [], vowels: [], sequences: [],
-        'puzzle-magique': [], repartis: [], dictee: [], review: []
+        additions: [], soustractions: [], multiplications: [], divisions: [], colors: [], stories: [], riddles: [], sorting: [], letters: [], shapes: [], vowels: [], sequences: [],
+        'puzzle-magique': [], repartis: [], dictee: [], 'math-blitz': [], 'lecture-magique': [], raisonnement: [], review: []
     };
 
     // --- Initialization ---
@@ -991,7 +1980,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const safeColor = color || userProfile.color || '#a890f0';
         document.documentElement.style.setProperty('--primary', safeColor);
         document.documentElement.style.setProperty('--primary-light', lightenColor(safeColor, 0.22));
+        document.documentElement.style.setProperty('--primary-contrast', getReadableTextColor(safeColor));
     }
+
+    const userMenu = document.getElementById('user-menu');
+    const menuBack = document.getElementById('menu-back');
+    const menuShop = document.getElementById('menu-shop');
+    const menuAvatar = document.getElementById('menu-avatar');
 
     function setupEventListeners() {
         btnLogout.addEventListener('click', () => {
@@ -1000,31 +1995,33 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'login.html';
         });
         btnLogros.addEventListener('click', () => {
-            window.location.href = 'logros.html';
+            window.location.href = '../logros.html';
         });
 
         userInfo.setAttribute('role', 'button');
         userInfo.setAttribute('tabindex', '0');
         userInfo.classList.add('user-info-home');
 
-        const goHome = () => {
-            saveProgress();
-            showTopicMenu();
-        };
-
-        userInfo.addEventListener('click', goHome);
-        userInfo.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                goHome();
-            }
+        userInfo.addEventListener('click', () => {
+            userMenu.classList.toggle('is-hidden');
         });
 
-        if (btnShop) {
-            btnShop.addEventListener('click', () => {
-                openShop();
-            });
-        }
+        menuBack.addEventListener('click', () => {
+            userMenu.classList.add('is-hidden');
+            showTopicMenu();
+        });
+
+        menuShop.addEventListener('click', () => {
+            window.location.href = 'boutique.html';
+        });
+
+        menuAvatar.addEventListener('click', () => {
+            window.location.href = 'login.html?edit=true';
+        });
+
+        btnShop.addEventListener('click', () => {
+            window.location.href = 'boutique.html'; // Rediriger vers la boutique
+        });
         if (shopCloseBtn) {
             shopCloseBtn.addEventListener('click', closeShop);
         }
@@ -1049,6 +2046,15 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLevel = progress.currentLevel;
         ownedItems = Array.isArray(progress.ownedItems) ? progress.ownedItems : [];
         activeCosmetics = progress.activeCosmetics || { background: null, badge: null };
+        storyProgress = normalizeStoryProgress(progress.storyProgress);
+        setActiveStorySet(storyProgress.activeSetIndex || 0);
+        ensureStoryProgressInitialized();
+        migrateLegacyStoryKeys(answeredQuestions);
+        ensureStoryProgressInitialized();
+        if (advanceStorySetIfNeeded()) {
+            // Reset completion map for the newly active set if absent
+            ensureStoryProgressInitialized();
+        }
     }
 
     function saveProgress() {
@@ -1057,7 +2063,8 @@ document.addEventListener('DOMContentLoaded', () => {
             answeredQuestions: answeredQuestions,
             currentLevel: currentLevel,
             ownedItems,
-            activeCosmetics
+            activeCosmetics,
+            storyProgress
         };
         storage.saveUserProgress(userProfile.name, progress);
     }
@@ -1173,6 +2180,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function launchMathBlitzLevel(level) {
+        currentTopic = 'math-blitz';
+        currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('math-blitz');
+        if (window.mathBlitzGame && typeof window.mathBlitzGame.start === 'function') {
+            window.mathBlitzGame.start(context);
+        } else {
+            console.warn('Module Maths Sprint introuvable');
+            showLevelMenu('math-blitz');
+        }
+    }
+
+    function launchLectureMagiqueLevel(level) {
+        currentTopic = 'lecture-magique';
+        currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('lecture-magique');
+        if (window.lectureMagiqueGame && typeof window.lectureMagiqueGame.start === 'function') {
+            window.lectureMagiqueGame.start(context);
+        } else {
+            console.warn('Module Lecture Magique introuvable');
+            showLevelMenu('lecture-magique');
+        }
+    }
+
+    function launchRaisonnementLevel(level) {
+        currentTopic = 'raisonnement';
+        currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('raisonnement');
+        if (window.raisonnementGame && typeof window.raisonnementGame.start === 'function') {
+            window.raisonnementGame.start(context);
+        } else {
+            console.warn('Module Raisonnement introuvable');
+            showLevelMenu('raisonnement');
+        }
+    }
+
     function showDicteeMenu() {
         currentTopic = 'dictee';
         btnLogros.style.display = 'inline-block';
@@ -1237,17 +2286,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playSound(type) {
+        if (window.audioManager?.isMuted) {
+            return;
+        }
         if (type === 'correct') {
             audioCorrect.currentTime = 0;
             audioCorrect.play();
         } else if (type === 'wrong') {
             audioWrong.currentTime = 0;
             audioWrong.play();
+        } else if (type === 'coins' && audioCoins) {
+            audioCoins.currentTime = 0;
+            audioCoins.play();
         }
     }
 
     function shuffle(array) {
         return array.sort(() => Math.random() - 0.5);
+    }
+
+    function randomInt(min, max) {
+        const lower = Math.ceil(Math.min(min, max));
+        const upper = Math.floor(Math.max(min, max));
+        if (upper <= lower) {
+            return lower;
+        }
+        return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+    }
+
+    function computeMathReward(type, level) {
+        const base = {
+            additions: { stars: 8, coins: 4 },
+            soustractions: { stars: 8, coins: 4 },
+            multiplications: { stars: 11, coins: 6 },
+            divisions: { stars: 12, coins: 7 }
+        }[type] || { stars: 8, coins: 4 };
+
+        const stars = base.stars + level * 3;
+        const coins = base.coins + Math.max(2, Math.floor(level * 1.5));
+        return {
+            stars,
+            coins
+        };
     }
 
     function applyOptionContent(element, value, iconIndex, iconSet = answerOptionIcons) {
@@ -1627,6 +2707,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'math:addition': skill => generateMathQuestion('additions', computeReviewLevel(skill)),
         'math:subtraction': skill => generateMathQuestion('soustractions', computeReviewLevel(skill)),
         'math:multiplication': skill => generateMathQuestion('multiplications', computeReviewLevel(skill)),
+        'math:division': skill => generateMathQuestion('divisions', computeReviewLevel(skill)),
         'math:numberBond': skill => createNumberBondReviewQuestion(computeReviewLevel(skill)),
         'cognition:colors': skill => generateColorQuestion(Math.min(6, computeReviewLevel(skill))),
         'language:vowel': () => createVowelReviewQuestion(),
@@ -2000,8 +3081,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             listItem.appendChild(action);
+
+            const sellBtn = document.createElement('button');
+            sellBtn.type = 'button';
+            sellBtn.className = 'shop-inventory__action sell-btn';
+            sellBtn.textContent = 'Vendre';
+            sellBtn.addEventListener('click', () => sellItem(item.id));
+            listItem.appendChild(sellBtn);
+
             inventoryList.appendChild(listItem);
         });
+    }
+
+    function triggerShopCelebration(item) {
+        if (!shopModal) { return; }
+        const dialog = shopModal.querySelector('.shop-modal__dialog');
+        if (!dialog) { return; }
+        playSound('coins');
+        shopModal.classList.add('shop-modal--celebrate');
+
+        const sparkleCount = 12;
+        for (let i = 0; i < sparkleCount; i++) {
+            const sparkle = document.createElement('span');
+            sparkle.className = 'shop-coin-sparkle';
+            sparkle.style.left = `${10 + Math.random() * 80}%`;
+            sparkle.style.top = `${40 + Math.random() * 20}%`;
+            dialog.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 800);
+        }
+
+        setTimeout(() => shopModal.classList.remove('shop-modal--celebrate'), 600);
     }
 
     function purchaseItem(itemId) {
@@ -2020,6 +3129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ownedItems.push(item.id);
         activateItem(item.id, { silent: true });
         showSuccessMessage('Nouvelle récompense débloquée ✨');
+        triggerShopCelebration(item);
         updateUI();
         saveProgress();
         renderShopItems();
@@ -2044,6 +3154,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!silent) {
             showSuccessMessage('Récompense activée ✨');
         }
+    }
+
+    function sellItem(itemId) {
+        const item = findShopItem(itemId);
+        if (!item) { return; }
+
+        const sellPrice = Math.round(item.priceCoins * 0.5);
+        userScore.coins += sellPrice;
+
+        ownedItems = ownedItems.filter(id => id !== itemId);
+
+        const newPrice = Math.round(item.priceCoins * 1.4);
+        const updatedItem = { ...item, priceCoins: newPrice };
+        SHOP_CATALOG.set(itemId, updatedItem);
+
+        if (activeCosmetics[item.type] === item.id) {
+            activeCosmetics[item.type] = null;
+        }
+
+        showSuccessMessage(`Tu as vendu ${item.name} pour ${sellPrice} pièces.`);
+        updateUI();
+        saveProgress();
+        renderShopItems();
+        renderInventory();
     }
 
     function showSuccessMessage(message = positiveMessages[Math.floor(Math.random() * positiveMessages.length)]) {
@@ -2156,75 +3290,161 @@ document.addEventListener('DOMContentLoaded', () => {
         return `#${blend(r)}${blend(g)}${blend(b)}`;
     }
 
+    function getReadableTextColor(hex) {
+        if (!hex || typeof hex !== 'string') {
+            return '#2f1d4f';
+        }
+        const normalized = hex.trim().startsWith('#') ? hex.trim() : `#${hex.trim()}`;
+        if (normalized.length !== 7) {
+            return '#2f1d4f';
+        }
+
+        const r = parseInt(normalized.slice(1, 3), 16) / 255;
+        const g = parseInt(normalized.slice(3, 5), 16) / 255;
+        const b = parseInt(normalized.slice(5, 7), 16) / 255;
+
+        const luminance = 0.2126 * linearise(r) + 0.7152 * linearise(g) + 0.0722 * linearise(b);
+        return luminance > 0.65 ? '#2f1d4f' : '#ffffff';
+    }
+
+    function linearise(channel) {
+        return channel <= 0.03928 ? channel / 12.92 : Math.pow((channel + 0.055) / 1.055, 2.4);
+    }
+
     // --- Content Generation ---
+    function questionsPerLevel(topic) {
+        return TOPIC_QUESTION_COUNTS[topic] || DEFAULT_QUESTIONS_PER_LEVEL;
+    }
+
     function initializeQuestions() {
+        Object.keys(MATH_LEVEL_CONFIG).forEach(type => {
+            if (!Array.isArray(allQuestions[type])) {
+                allQuestions[type] = [];
+            }
+            allQuestions[type].length = 0;
+            const configs = MATH_LEVEL_CONFIG[type] || [];
+            configs.forEach((_, levelIndex) => {
+                const perLevel = questionsPerLevel(type);
+                for (let i = 0; i < perLevel; i++) {
+                    allQuestions[type].push(generateMathQuestion(type, levelIndex + 1));
+                }
+            });
+        });
+
+        if (!Array.isArray(allQuestions.colors)) {
+            allQuestions.colors = [];
+        }
+        allQuestions.colors.length = 0;
         for (let level = 1; level <= LEVELS_PER_TOPIC; level++) {
-            for (let i = 0; i < QUESTIONS_PER_LEVEL; i++) {
-                allQuestions.additions.push(generateMathQuestion('additions', level));
-                allQuestions.soustractions.push(generateMathQuestion('soustractions', level));
-                allQuestions.multiplications.push(generateMathQuestion('multiplications', level));
+            const perLevel = questionsPerLevel('colors');
+            for (let i = 0; i < perLevel; i++) {
                 allQuestions.colors.push(generateColorQuestion(level));
             }
         }
     }
 
     function generateMathQuestion(type, level) {
-        let num1, num2, correct, max;
-        const rewards = { additions: 10, soustractions: 10, multiplications: 15 };
+        const theme = MATH_OPERATION_THEMES[type] || MATH_OPERATION_THEMES.additions;
+        const configs = MATH_LEVEL_CONFIG[type] || MATH_LEVEL_CONFIG.additions;
+        const safeIndex = Math.max(0, Math.min(configs.length - 1, level - 1));
+        const config = configs[safeIndex] || {};
 
-        if (level <= 3) max = 10;
-        else if (level <= 6) max = 50;
-        else if (level <= 9) max = 100;
-        else max = 200;
+        let num1;
+        let num2;
+        let correct;
+        let questionText = '';
+        let explanation = '';
 
-        switch(type) {
-            case 'additions':
-                num1 = Math.floor(Math.random() * (max - 1)) + 1;
-                num2 = Math.floor(Math.random() * (max - num1)) + 1;
-                correct = num1 + num2;
-                break;
-            case 'soustractions':
-                num1 = Math.floor(Math.random() * (max - 1)) + 10;
-                num2 = Math.floor(Math.random() * num1);
-                correct = num1 - num2;
-                break;
-            case 'multiplications':
-                if (level <= 5) {
-                    num1 = Math.floor(Math.random() * 10) + 1;
-                    num2 = Math.floor(Math.random() * 10) + 1;
-                } else if (level <= 9) {
-                    num1 = Math.floor(Math.random() * 15) + 1;
-                    num2 = Math.floor(Math.random() * 15) + 1;
-                } else {
-                    num1 = Math.floor(Math.random() * 20) + 1;
-                    num2 = Math.floor(Math.random() * 20) + 1;
-                }
-                correct = num1 * num2;
-                break;
+        if (type === 'soustractions') {
+            const maxStart = Math.max(5, config.maxStart || (level * 10));
+            const start = randomInt(Math.max(3, Math.floor(maxStart * 0.4)), maxStart);
+            const subtrahend = randomInt(config.minResult ?? 0, start);
+            num1 = start;
+            num2 = subtrahend;
+            correct = num1 - num2;
+            questionText = `${num1} − ${num2} = ?`;
+            explanation = `${num1} − ${num2} = ${correct}`;
+        } else if (type === 'multiplications') {
+            const tables = Array.isArray(config.tables) && config.tables.length
+                ? config.tables
+                : [Math.max(1, Math.min(12, level))];
+            const baseTable = tables[Math.floor(Math.random() * tables.length)];
+            const factor = randomInt(config.minFactor || 1, config.maxFactor || 12);
+            if (Math.random() > 0.5) {
+                num1 = baseTable;
+                num2 = factor;
+            } else {
+                num1 = factor;
+                num2 = baseTable;
+            }
+            correct = num1 * num2;
+            questionText = `${num1} × ${num2} = ?`;
+            explanation = `${num1} × ${num2} = ${correct}`;
+        } else if (type === 'divisions') {
+            const divisor = Math.max(1, config.divisor || level);
+            const quotient = randomInt(config.minQuotient || 1, Math.max(config.minQuotient || 1, config.maxQuotient || 12));
+            num1 = divisor * quotient;
+            num2 = divisor;
+            correct = quotient;
+            questionText = `${num1} ÷ ${num2} = ?`;
+            explanation = `${num1} ÷ ${num2} = ${correct} car ${num2} × ${correct} = ${num1}`;
+        } else {
+            const maxSum = Math.max(10, config.maxSum || (level * 10));
+            const minAddend = Math.max(0, config.minAddend ?? 0);
+            const first = randomInt(minAddend, Math.max(minAddend, Math.floor(maxSum * 0.6)));
+            const secondMax = Math.max(minAddend, Math.min(config.maxAddend || maxSum, maxSum - first));
+            const second = randomInt(minAddend, secondMax);
+            num1 = first;
+            num2 = second;
+            correct = num1 + num2;
+            questionText = `${num1} + ${num2} = ?`;
+            explanation = `${num1} + ${num2} = ${correct}`;
         }
 
-        const offsets = [-3, -2, -1, 1, 2, 3, 4, -4, 5, -5];
-        const distractors = [];
-        for (const offset of offsets) {
-            if (distractors.length >= 2) { break; }
+        const optionsSet = new Set([correct]);
+        const spread = Math.max(3, Math.round(Math.abs(correct) * 0.25) + 2 + safeIndex);
+        while (optionsSet.size < 3) {
+            const offset = randomInt(-spread, spread);
             const candidate = correct + offset;
-            if (candidate >= 0 && candidate !== correct && !distractors.includes(candidate)) {
-                distractors.push(candidate);
+            if (candidate >= 0 && !optionsSet.has(candidate)) {
+                optionsSet.add(candidate);
             }
         }
-        while (distractors.length < 2) {
-            const candidate = Math.floor(Math.random() * (max + level * 5));
-            if (candidate !== correct && !distractors.includes(candidate)) {
-                distractors.push(candidate);
-            }
-        }
-        const options = shuffle([correct, ...distractors]);
+
+        const options = shuffle(Array.from(optionsSet));
+        const answerIndex = options.indexOf(correct);
+
+        const storyline = theme.storylines
+            ? theme.storylines[safeIndex % theme.storylines.length]
+            : '';
+        const sticker = theme.stickers
+            ? theme.stickers[safeIndex % theme.stickers.length]
+            : null;
+
+        const operationMeta = {
+            id: theme.id,
+            icon: theme.icon,
+            label: theme.label,
+            accent: theme.accent,
+            accentSoft: theme.accentSoft,
+            className: `math-theme-${theme.id}`,
+            levelLabel: config.description || `Défi niveau ${level}`,
+            sticker,
+            storyline: storyline || ''
+        };
+
         return {
-            questionText: `Combien font ${num1} ${type === 'additions' ? '+' : type === 'soustractions' ? '-' : 'x'} ${num2}?`,
-            options: options,
-            correct: options.indexOf(correct),
+            questionText: questionText,
+            detail: storyline || null,
+            options,
+            correct: answerIndex,
             difficulty: level,
-            reward: { stars: level * rewards[type], coins: level * (rewards[type] / 2) }
+            reward: computeMathReward(type, level),
+            explanation,
+            successMessage: theme.success,
+            encouragement: theme.encouragement,
+            operationMeta,
+            optionIcons: Array.isArray(theme.optionIcons) && theme.optionIcons.length ? theme.optionIcons : undefined
         };
     }
     
@@ -2281,12 +3501,16 @@ document.addEventListener('DOMContentLoaded', () => {
         topicsContainer.className = 'options-grid';
         
         const allTopics = [
+            { id: 'grande-aventure-mots', text: '🟣 La Grande Aventure des Mots', type: 'external', href: 'grande-aventure-mots/index.html' },
             { id: 'additions', text: '➕ Additions' },
             { id: 'soustractions', text: '➖ Soustractions' },
             { id: 'multiplications', text: '✖️ Multiplications' },
+            { id: 'divisions', text: '➗ Divisions' },
+            { id: 'math-blitz', text: '⚡ Maths Sprint' },
             { id: 'number-houses', text: '🏠 Maisons des Nombres' },
             { id: 'colors', text: '🎨 Les Couleurs' },
             { id: 'stories', text: '📚Contes Magiques' },
+            { id: 'lecture-magique', text: '📖 Lecture Magique' },
             { id: 'memory', text: '🧠 Mémoire Magique' },
             { id: 'sorting', text: '🗂️ Jeu de Tri' },
             { id: 'riddles', text: '🤔 Jeu d\'énigmes' },
@@ -2294,7 +3518,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'sequences', text: '➡️ Jeu des Séquences' },
             { id: 'puzzle-magique', text: '🧩 Puzzle Magique' },
             { id: 'repartis', text: '🍎 Répartis & Multiplie' },
-            { id: 'dictee', text: '🧚‍♀️ Dictée Magique' },
+            { id: 'raisonnement', text: '🧩 Raisonnement Magique' },
+            { id: 'dictee', text: '🧚‍♀️ Dictée Magique' }
         ];
 
         allTopics.forEach(topic => {
@@ -2304,6 +3529,10 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.dataset.topic = topic.id;
             btn.style.animationDelay = `${Math.random() * 0.5}s`;
             btn.addEventListener('click', () => {
+                if (topic.type === 'external' && topic.href) {
+                    window.location.href = topic.href;
+                    return;
+                }
                 currentTopic = topic.id;
                 if (topic.id === 'dictee') { showDicteeMenu(); return; }
                 if (topic.id === 'stories') { showStoryMenu(); return; }
@@ -2333,9 +3562,10 @@ document.addEventListener('DOMContentLoaded', () => {
         levelsContainer.className = 'level-container';
 
         const maxLevels = {
-            'additions': LEVELS_PER_TOPIC,
-            'soustractions': LEVELS_PER_TOPIC,
-            'multiplications': LEVELS_PER_TOPIC,
+            'additions': MATH_LEVEL_CONFIG.additions.length,
+            'soustractions': MATH_LEVEL_CONFIG.soustractions.length,
+            'multiplications': MATH_LEVEL_CONFIG.multiplications.length,
+            'divisions': MATH_LEVEL_CONFIG.divisions.length,
             'number-houses': LEVELS_PER_TOPIC,
             'colors': LEVELS_PER_TOPIC,
             'memory': MEMORY_GAME_LEVELS.length,
@@ -2346,7 +3576,10 @@ document.addEventListener('DOMContentLoaded', () => {
             'stories': magicStories.length,
             'puzzle-magique': 10,
             'repartis': 10,
-            'dictee': 10
+            'dictee': 10,
+            'math-blitz': (window.mathBlitzGame?.getLevelCount?.() || 10),
+            'lecture-magique': 10,
+            'raisonnement': 10
         };
         const totalLevels = maxLevels[currentTopic] || LEVELS_PER_TOPIC;
         
@@ -2355,8 +3588,13 @@ document.addEventListener('DOMContentLoaded', () => {
             levelBtn.className = 'level-button fx-bounce-in-down';
             levelBtn.textContent = `Niveau ${i}`;
             levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
-            if (answeredQuestions[`${currentTopic}-${i}`] === 'completed') {
-                levelBtn.classList.add('correct');
+            const levelKey = `${currentTopic}-${i}`;
+            if (answeredQuestions[levelKey] === 'completed') {
+                levelBtn.classList.add('correct', 'is-completed');
+                levelBtn.dataset.status = 'completed';
+            } else if (answeredQuestions[levelKey] === 'in-progress') {
+                levelBtn.classList.add('is-in-progress');
+                levelBtn.dataset.status = 'in-progress';
             }
             levelBtn.addEventListener('click', () => {
                 currentLevel = i;
@@ -2366,11 +3604,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (currentTopic === 'colors') { showColorGame(currentLevel); }
                 else if (currentTopic === 'sorting') { showSortingGame(currentLevel); }
                 else if (currentTopic === 'vowels') { loadVowelQuestion(currentLevel - 1); }
-                else if (currentTopic === 'riddles') { loadRiddleQuestion(currentLevel - 1); }
+                else if (currentTopic === 'riddles') { launchRiddleLevel(currentLevel); }
                 else if (currentTopic === 'sequences') { loadSequenceQuestion(currentLevel - 1); }
                 else if (currentTopic === 'puzzle-magique') { launchPuzzleMagique(currentLevel); }
                 else if (currentTopic === 'repartis') { launchRepartisGame(currentLevel); }
                 else if (currentTopic === 'dictee') { launchDicteeLevel(currentLevel); }
+                else if (currentTopic === 'math-blitz') { launchMathBlitzLevel(currentLevel); }
+                else if (currentTopic === 'lecture-magique') { launchLectureMagiqueLevel(currentLevel); }
+                else if (currentTopic === 'raisonnement') { launchRaisonnementLevel(currentLevel); }
                 else if (currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[currentLevel - 1].pairs); }
                 else { currentQuestionIndex = 0; loadQuestion(0); }
             });
@@ -2404,22 +3645,28 @@ document.addEventListener('DOMContentLoaded', () => {
             || userAnswerLabel === String(correctValue);
 
         if (isCorrect) {
-            selectedOption.classList.add('correct');
+            selectedOption.classList.add('correct', 'fx-pulse');
             userScore.stars += questionData.reward.stars;
             userScore.coins += questionData.reward.coins;
-            showSuccessMessage();
+            const sticker = questionData.operationMeta?.sticker ? ` ${questionData.operationMeta.sticker}` : '';
+            const successMessage = questionData.successMessage
+                ? `${questionData.successMessage}${sticker}`
+                : `${positiveMessages[Math.floor(Math.random() * positiveMessages.length)]}${sticker}`;
+            showSuccessMessage(successMessage);
             showConfetti();
         } else {
-            selectedOption.classList.add('wrong');
+            selectedOption.classList.add('wrong', 'fx-shake');
             userScore.coins = Math.max(0, userScore.coins - 5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
             }
+            const encouragement = questionData.encouragement || 'Courage, essaie encore !';
             const explanation = questionData.explanation
-                ? `${questionData.explanation}`
-                : '❌ -5 pièces. Essaie encore !';
+                ? `${encouragement} ${questionData.explanation}`
+                : encouragement;
             showErrorMessage(explanation, correctValue);
+            setTimeout(() => selectedOption.classList.remove('fx-shake'), 800);
         }
         const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
         historyTracker?.recordQuestion(questionSkillTag, { correct: isCorrect, timeMs: elapsed });
@@ -2469,11 +3716,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         questionSkillTag = resolveSkillTag(currentTopic);
         const questionData = questionsForLevel[index];
+        const operationMeta = questionData?.operationMeta || null;
         if (questionData?.metaSkill) {
             questionSkillTag = questionData.metaSkill;
         }
         questionStartTime = performance.now();
+        if (operationMeta?.id) {
+            content.dataset.operationTheme = operationMeta.id;
+        } else {
+            delete content.dataset.operationTheme;
+        }
+
+        if (operationMeta?.accent) {
+            content.style.setProperty('--operation-accent', operationMeta.accent);
+            content.style.setProperty('--operation-accent-soft', operationMeta.accentSoft || operationMeta.accent);
+        } else {
+            content.style.removeProperty('--operation-accent');
+            content.style.removeProperty('--operation-accent-soft');
+        }
+
         const fragment = document.createDocumentFragment();
+
+        if (operationMeta) {
+            const banner = document.createElement('div');
+            banner.className = `operation-banner fx-bounce-in-down ${operationMeta.className || ''}`.trim();
+
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'operation-banner__icon';
+            iconSpan.textContent = operationMeta.icon || '✨';
+
+            const textBox = document.createElement('div');
+            textBox.className = 'operation-banner__text';
+
+            const labelSpan = document.createElement('span');
+            labelSpan.className = 'operation-banner__label';
+            labelSpan.textContent = operationMeta.label || 'Défi magique';
+            textBox.appendChild(labelSpan);
+
+            const levelSpan = document.createElement('span');
+            levelSpan.className = 'operation-banner__level';
+            levelSpan.textContent = operationMeta.levelLabel || `Niveau ${currentLevel}`;
+            textBox.appendChild(levelSpan);
+
+            if (operationMeta.storyline) {
+                const storySpan = document.createElement('span');
+                storySpan.className = 'operation-banner__story';
+                storySpan.textContent = operationMeta.storyline;
+                textBox.appendChild(storySpan);
+            }
+
+            banner.appendChild(iconSpan);
+            banner.appendChild(textBox);
+
+            if (operationMeta.sticker) {
+                const stickerSpan = document.createElement('span');
+                stickerSpan.className = 'operation-banner__sticker';
+                stickerSpan.textContent = operationMeta.sticker;
+                banner.appendChild(stickerSpan);
+            }
+
+            fragment.appendChild(banner);
+        }
 
         const promptWrapper = document.createElement('div');
         promptWrapper.className = 'prompt-with-audio';
@@ -2491,22 +3794,38 @@ document.addEventListener('DOMContentLoaded', () => {
             promptWrapper.appendChild(audioBtn);
         }
 
+        if (questionData.detail && !operationMeta) {
+            const detail = document.createElement('p');
+            detail.className = 'question-detail';
+            detail.textContent = questionData.detail;
+            promptWrapper.appendChild(detail);
+        }
+
         fragment.appendChild(promptWrapper);
         speakText(questionData.questionText);
         updateProgressTracker(index + 1, questionsForLevel.length);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
+        if (operationMeta) {
+            optionsContainer.classList.add('options-grid--math', `options-grid--${operationMeta.id}`);
+        }
         
         const shuffledOptions = shuffle([...questionData.options]);
         shuffledOptions.forEach((opt, i) => {
             const optionEl = document.createElement('button');
             optionEl.className = 'option fx-bounce-in-down';
+            if (operationMeta) {
+                optionEl.classList.add('math-option', `math-option--${operationMeta.id}`);
+            }
             optionEl.style.animationDelay = `${i * 0.1 + 0.5}s`;
             const originalIndex = questionData.options.indexOf(opt);
             optionEl.dataset.index = originalIndex;
             optionEl.addEventListener('click', handleOptionClick);
-            applyOptionContent(optionEl, opt, i);
+            const iconSet = Array.isArray(questionData.optionIcons) && questionData.optionIcons.length
+                ? questionData.optionIcons
+                : answerOptionIcons;
+            applyOptionContent(optionEl, opt, i, iconSet);
             optionsContainer.appendChild(optionEl);
         });
         fragment.appendChild(optionsContainer);
@@ -2832,26 +4151,133 @@ function generateNumberPairs(sum, count) {
 
     function showStoryMenu() {
         clearProgressTracker();
+        setActiveStorySet(storyProgress?.activeSetIndex || activeStorySetIndex);
+        ensureStoryProgressInitialized();
         content.innerHTML = '';
+
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
         title.textContent = 'Choisis un conte magique ✨';
         content.appendChild(title);
         speakText('Choisis un conte magique');
-        
-        const storiesContainer = document.createElement('div');
-        storiesContainer.className = 'options-grid';
-        
+
+        const activeSet = getActiveStorySet();
+        const completionMap = getStoryCompletionMap(activeSet?.id);
+        const completedCount = magicStories.reduce((total, story) => {
+            return total + (completionMap[story.id] ? 1 : 0);
+        }, 0);
+
+        const subtitle = document.createElement('p');
+        subtitle.className = 'story-menu__subtitle fx-bounce-in-down';
+        subtitle.style.animationDelay = '0.1s';
+        subtitle.textContent = `Collection ${activeStorySetIndex + 1} sur ${storyCollections.length}`;
+        content.appendChild(subtitle);
+
+        const progressBadge = document.createElement('div');
+        progressBadge.className = 'story-menu__progress fx-bounce-in-down';
+        progressBadge.style.animationDelay = '0.15s';
+        progressBadge.textContent = `Progrès : ${completedCount} / ${magicStories.length} contes`;
+        content.appendChild(progressBadge);
+
+        if (!magicStories.length) {
+            const emptyState = document.createElement('p');
+            emptyState.className = 'story-menu__empty';
+            emptyState.textContent = 'De nouvelles histoires arrivent bientôt !';
+            content.appendChild(emptyState);
+            return;
+        }
+
+        const carousel = document.createElement('div');
+        carousel.className = 'story-carousel fx-bounce-in-down';
+        carousel.style.animationDelay = '0.2s';
+
+        const viewport = document.createElement('div');
+        viewport.className = 'story-carousel__viewport';
+
+        const track = document.createElement('div');
+        track.className = 'story-carousel__track';
+
         magicStories.forEach((story, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'story-carousel__slide';
+
             const storyBtn = document.createElement('button');
-            storyBtn.className = 'topic-btn fx-bounce-in-down';
-            storyBtn.style.animationDelay = `${index * 0.1}s`;
-            storyBtn.innerHTML = `${story.title}`;
+            storyBtn.type = 'button';
+            storyBtn.className = 'story-card fx-bounce-in-down';
+            storyBtn.dataset.storyIndex = String(index);
+            storyBtn.dataset.storyId = story.id;
+            storyBtn.style.animationDelay = `${index * 0.08 + 0.25}s`;
+
+            const isCompleted = isStoryCompletedForDisplay(story);
+            if (isCompleted) {
+                storyBtn.classList.add('is-completed');
+            }
+            storyBtn.setAttribute('aria-pressed', isCompleted ? 'true' : 'false');
+            storyBtn.setAttribute('aria-label', `${story.title} — ${isCompleted ? 'déjà lu' : 'à lire'}`);
+
+            const cardTitle = document.createElement('span');
+            cardTitle.className = 'story-card__title';
+            cardTitle.textContent = story.title;
+            storyBtn.appendChild(cardTitle);
+
+            const statusBadge = document.createElement('span');
+            statusBadge.className = 'story-card__status';
+            statusBadge.textContent = isCompleted ? '✔ Terminé' : '📖 À lire';
+            storyBtn.appendChild(statusBadge);
+
             storyBtn.addEventListener('click', () => showMagicStory(index));
-            storiesContainer.appendChild(storyBtn);
+
+            slide.appendChild(storyBtn);
+            track.appendChild(slide);
         });
-        
-        content.appendChild(storiesContainer);
+
+        viewport.appendChild(track);
+        carousel.appendChild(viewport);
+
+        const navPrev = document.createElement('button');
+        navPrev.type = 'button';
+        navPrev.className = 'story-carousel__nav story-carousel__nav--prev';
+        navPrev.setAttribute('aria-label', 'Voir les contes précédents');
+        navPrev.textContent = '◀';
+
+        const navNext = document.createElement('button');
+        navNext.type = 'button';
+        navNext.className = 'story-carousel__nav story-carousel__nav--next';
+        navNext.setAttribute('aria-label', 'Voir les contes suivants');
+        navNext.textContent = '▶';
+
+        const scrollAmount = () => Math.max(carousel.offsetWidth * 0.7, 280);
+
+        navPrev.addEventListener('click', () => {
+            track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+        });
+        navNext.addEventListener('click', () => {
+            track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+        });
+
+        carousel.appendChild(navPrev);
+        carousel.appendChild(navNext);
+
+        const updateNavState = () => {
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            const epsilon = 4;
+            const showNav = maxScroll > epsilon;
+            navPrev.style.display = showNav ? 'flex' : 'none';
+            navNext.style.display = showNav ? 'flex' : 'none';
+            if (!showNav) { return; }
+            navPrev.disabled = track.scrollLeft <= epsilon;
+            navNext.disabled = track.scrollLeft >= (maxScroll - epsilon);
+        };
+
+        track.addEventListener('scroll', () => {
+            window.requestAnimationFrame(updateNavState);
+        });
+
+        updateNavState();
+        setTimeout(updateNavState, 120);
+
+        content.appendChild(carousel);
+
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         configureBackButton('Retour aux sujets', showTopicMenu);
@@ -3034,9 +4460,23 @@ function generateNumberPairs(sum, count) {
     function showQuizResults() {
         content.innerHTML = '';
         clearProgressTracker();
+        const activeSetBefore = getActiveStorySet();
+        const completedStory = activeSetBefore?.stories?.[currentStoryIndex];
+        if (completedStory) {
+            markStoryAsCompleted(completedStory);
+        }
+        const unlockedNewSet = advanceStorySetIfNeeded();
+        if (unlockedNewSet) {
+            currentStoryIndex = 0;
+            saveProgress();
+        }
         const prompt = document.createElement('div');
         prompt.className = 'prompt ok fx-pop';
-        prompt.innerHTML = `Quiz terminé ! 🎉<p>Tu as gagné des étoiles et des pièces !</p>`;
+        let promptMessage = 'Quiz terminé ! 🎉<p>Tu as gagné des étoiles et des pièces !</p>';
+        if (unlockedNewSet) {
+            promptMessage += '<p>Nouvelle série de contes débloquée ✨</p>';
+        }
+        prompt.innerHTML = promptMessage;
         content.appendChild(prompt);
 
         historyTracker?.endGame({
@@ -3407,15 +4847,34 @@ function generateNumberPairs(sum, count) {
         showLevelMenu(currentTopic);
     }
     
-    function loadRiddleQuestion(index) {
-        if (index < 0 || index >= riddleLevels.length) {
-            win();
+    function launchRiddleLevel(level) {
+        currentTopic = 'riddles';
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        currentRiddleLevelIndex = Math.max(0, Math.min(riddleLevels.length, level) - 1);
+        const levelData = riddleLevels[currentRiddleLevelIndex];
+        currentLevel = levelData?.level || level;
+        currentQuestionIndex = 0;
+        answeredQuestions[`riddles-${currentLevel}`] = 'in-progress';
+        saveProgress();
+        loadRiddleQuestion(0);
+    }
+
+    function loadRiddleQuestion(questionIndex = 0) {
+        const levelData = riddleLevels[currentRiddleLevelIndex];
+        if (!levelData) {
+            showLevelMenu('riddles');
             return;
         }
 
-        currentQuestionIndex = index;
-        const riddleData = riddleLevels[index];
-        currentLevel = riddleData.level;
+        const questions = levelData.questions || [];
+        if (questionIndex >= questions.length) {
+            completeRiddleLevel(levelData);
+            return;
+        }
+
+        currentQuestionIndex = questionIndex;
+        const riddleData = questions[questionIndex];
 
         content.innerHTML = '';
         updateUI();
@@ -3423,13 +4882,18 @@ function generateNumberPairs(sum, count) {
         const wrapper = document.createElement('div');
         wrapper.className = 'riddle-wrapper fx-bounce-in-down';
 
+        const title = document.createElement('div');
+        title.className = 'question-prompt';
+        title.textContent = `Niveau ${levelData.level} — ${levelData.theme}`;
+        wrapper.appendChild(title);
+
         const promptWrapper = document.createElement('div');
         promptWrapper.className = 'prompt-with-audio';
 
-        const title = document.createElement('div');
-        title.className = 'question-prompt';
-        title.textContent = riddleData.prompt;
-        promptWrapper.appendChild(title);
+        const promptText = document.createElement('p');
+        promptText.className = 'riddle-prompt';
+        promptText.textContent = riddleData.prompt;
+        promptWrapper.appendChild(promptText);
 
         const audioBtn = createAudioButton({
             text: riddleData.prompt,
@@ -3441,15 +4905,7 @@ function generateNumberPairs(sum, count) {
 
         wrapper.appendChild(promptWrapper);
         speakText(riddleData.prompt);
-        updateProgressTracker(currentQuestionIndex + 1, riddleLevels.length);
-
-        if (riddleData.image) {
-            const image = document.createElement('img');
-            image.className = 'riddle-image';
-            image.src = riddleData.image;
-            image.alt = 'Indice visuel';
-            wrapper.appendChild(image);
-        }
+        updateProgressTracker(currentQuestionIndex + 1, questions.length);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
@@ -3469,11 +4925,21 @@ function generateNumberPairs(sum, count) {
         wrapper.appendChild(optionsContainer);
         content.appendChild(wrapper);
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
         configureBackButton('Retour aux niveaux', () => showLevelMenu('riddles'));
     }
-    
+
+    function completeRiddleLevel(levelData) {
+        answeredQuestions[`riddles-${levelData.level}`] = 'completed';
+        saveProgress();
+        showSuccessMessage(levelData.completionMessage || 'Niveau terminé !');
+        showConfetti();
+        updateProgressTracker(levelData.questions.length, levelData.questions.length);
+        setTimeout(() => {
+            clearProgressTracker();
+            showLevelMenu('riddles');
+        }, 1600);
+    }
+
     function handleRiddleAnswer(event) {
         const selectedOption = event.currentTarget instanceof HTMLElement
             ? event.currentTarget
@@ -3484,7 +4950,9 @@ function generateNumberPairs(sum, count) {
         const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
         optionNodes.forEach(opt => opt.removeEventListener('click', handleRiddleAnswer));
 
-        const riddleData = riddleLevels[currentQuestionIndex];
+        const levelData = riddleLevels[currentRiddleLevelIndex];
+        const questions = levelData.questions || [];
+        const riddleData = questions[currentQuestionIndex];
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctAnswerIndex = riddleData.answer;
         const correctValue = riddleData.options[correctAnswerIndex];
@@ -3492,11 +4960,9 @@ function generateNumberPairs(sum, count) {
         if (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex) {
             selectedOption.classList.add('correct');
             selectedOption.classList.add('riddle-correct-glow');
-            userScore.stars += riddleData.reward.stars;
-            userScore.coins += riddleData.reward.coins;
-            answeredQuestions[`riddles-${currentLevel}`] = 'completed';
-            saveProgress();
-            showSuccessMessage('Bonne réponse !');
+            userScore.stars += riddleData.reward?.stars || (10 + levelData.level);
+            userScore.coins += riddleData.reward?.coins || (6 + Math.floor(levelData.level / 2));
+            showSuccessMessage(riddleData.success || 'Bonne réponse !');
             showConfetti();
         } else {
             selectedOption.classList.add('wrong');
@@ -3507,18 +4973,20 @@ function generateNumberPairs(sum, count) {
                 correctOption.classList.add('correct');
                 correctOption.classList.add('riddle-correct-glow');
             }
-            showErrorMessage('Mauvaise réponse.', correctValue);
-            answeredQuestions[`riddles-${currentLevel}`] = 'in-progress';
-            saveProgress();
+            const hint = riddleData.hint ? ` Conseil : ${riddleData.hint}` : '';
+            showErrorMessage('Mauvaise réponse.', `${correctValue}.${hint}`);
         }
+
         updateUI();
+        saveProgress();
+
         setTimeout(() => {
-            if (currentQuestionIndex + 1 < riddleLevels.length) {
+            if (currentQuestionIndex + 1 < questions.length) {
                 loadRiddleQuestion(currentQuestionIndex + 1);
             } else {
-                showLevelMenu('riddles');
+                completeRiddleLevel(levelData);
             }
-        }, 2000);
+        }, 1600);
     }
     
     // --- NOUVEAUX JEUX ---
@@ -3690,6 +5158,20 @@ function generateNumberPairs(sum, count) {
                 questionStartTime = performance.now();
             }, 1200);
         }
+    }
+
+    function isStoryCompletedForDisplay(story) {
+        if (!story) { return false; }
+        const activeSet = getActiveStorySet();
+        return isStoryMarkedCompleted(story.id, activeSet?.id);
+    }
+
+    function markStoryAsCompleted(story) {
+        if (!story) { return; }
+        const activeSet = getActiveStorySet();
+        markStoryCompletedById(story.id, activeSet?.id);
+        answeredQuestions[`stories-${story.id}`] = 'completed';
+        saveProgress();
     }
 
     function fillVowelBlanks(blanks, selection) {
