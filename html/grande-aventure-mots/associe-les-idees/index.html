@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Associe les idées – La Grande Aventure des Mots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🤝</span>Associe les idées</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" onclick="window.location.href='../index.html'">⬅ Retour aux mini-jeux</button>
+      </div>
+    </div>
+
+    <section class="section-intro">
+      Choisis un niveau pour aider Léna à associer les idées.
+    </section>
+
+    <section id="levelGrid" class="grid" aria-label="Liste des niveaux">
+      <!-- Les cartes sont générées par JavaScript -->
+    </section>
+  </main>
+  <script src="../common.js"></script>
+  <script src="levels.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      GAM.renderLevelCards({
+        levels: window.ASSOCIE_LES_IDEES_LEVELS,
+        containerSelector: '#levelGrid',
+        baseHref: 'play.html',
+        storageKey: window.ASSOCIE_LES_IDEES_SETTINGS.storageKey,
+        requireCompletion: false
+      });
+    });
+  </script>
+</body>
+</html>

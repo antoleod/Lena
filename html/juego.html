@@ -14,11 +14,17 @@
   <div id="stageTop">
     <div class="scores-container">
       <span id="user-info"></span>
+      <div id="user-menu" class="user-menu is-hidden">
+        <button id="menu-back">Retour au menu</button>
+        <button id="menu-shop">Voir la boutique</button>
+        <button id="menu-avatar">Changer d'avatar</button>
+      </div>
       <span id="scoreStars">0</span>
       <span id="scoreCoins" class="coins">0</span>
       <span id="level" class="level">Niveau 1</span>
     </div>
     <div class="top-buttons">
+        <button id="btnReadMode" class="btn" disabled>📖</button>
         <button id="btnShop" class="btn">🛍️ Boutique</button>
         <button id="btnLogros" class="btn">🏆 Succès</button>
         <button id="btnLogout" class="btn">🚪 Quitter</button>
@@ -39,6 +45,7 @@
 
   <audio id="audioCorrect" src="https://assets.mixkit.co/sfx/download/mixkit-game-bling-2041.wav"></audio>
   <audio id="audioWrong" src="https://assets.mixkit.co/sfx/download/mixkit-wrong-answer-2051.wav"></audio>
+  <audio id="audioCoins" src="https://assets.mixkit.co/sfx/download/mixkit-collect-coin-1938.wav"></audio>
 
   <div id="shopModal" class="shop-modal" aria-hidden="true">
     <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
@@ -64,8 +71,13 @@
   <script src="../games/puzzlemagique.js"></script>
   <script src="../games/repartis.js"></script>
   <script src="../games/dictee.js"></script>
+  <script src="../games/mathblitz.js"></script>
+  <script src="../games/lecturemagique.js"></script>
+  <script src="../games/raisonnement.js"></script>
+  <script src="../js/audioManager.js"></script>
   <script src="../js/avatarData.js"></script>
   <script src="../js/storage.js"></script>
+  <script src="../js/footer.js"></script>
   <script src="../js/juego.js"></script>
 </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Trouve le mot – Niveau 8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🎯</span>Trouve le mot – Niveau 8</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" onclick="window.location.href='../index.html'">⬅ Retour aux niveaux</button>
+        <button class="action-btn" type="button" id="repeatInstructionBtn">🔊 Répéter la consigne</button>
+      </div>
+    </div>
+
+    <section class="section-intro" id="instructionText">
+      Clique sur l’image qui correspond au mot entendu.
+    </section>
+
+    <div class="controls">
+      <div class="progress-counter" id="progressCounter">Exercice 1 / 7</div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+    </div>
+
+    <section class="illustration-container" id="optionsContainer" aria-label="Choisis l’image correspondante">
+      <!-- Options générées par JavaScript -->
+    </section>
+  </main>
+
+  <template id="optionTemplate">
+    <button class="word-option" type="button">
+      <span class="word-option__emoji" aria-hidden="true"></span>
+      <span class="word-option__label"></span>
+    </button>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+    window.TROUVE_LE_MOT_CONFIG = {
+      storageKey: 'gam_trouve_le_mot',
+      levelId: 'niveau8',
+      exercises: [
+            { word: 'cercle', instruction: 'Clique sur le cercle.', options: [ { word: 'cercle', emoji: '🔴' }, { word: 'carré', emoji: '🟥' }, { word: 'triangle', emoji: '🔺' }, { word: 'rectangle', emoji: '▭' } ] },
+            { word: 'carré', instruction: 'Clique sur le carré.', options: [ { word: 'carré', emoji: '🟥' }, { word: 'losange', emoji: '♦️' }, { word: 'ovale', emoji: '🥚' }, { word: 'étoile', emoji: '⭐' } ] },
+            { word: 'triangle', instruction: 'Clique sur le triangle.', options: [ { word: 'triangle', emoji: '🔺' }, { word: 'pentagone', emoji: '⬠' }, { word: 'hexagone', emoji: '⬢' }, { word: 'octogone', emoji: '⬣' } ] },
+            { word: 'étoile', instruction: "Clique sur l'étoile.", options: [ { word: 'étoile', emoji: '⭐' }, { word: 'coeur', emoji: '❤️' }, { word: 'croix', emoji: '✝️' }, { word: 'flèche', emoji: '➡️' } ] },
+            { word: 'coeur', instruction: 'Clique sur le coeur.', options: [ { word: 'coeur', emoji: '❤️' }, { word: 'lune', emoji: '🌙' }, { word: 'soleil', emoji: '☀️' }, { word: 'nuage', emoji: '☁️' } ] },
+            { word: 'flèche', instruction: 'Clique sur la flèche.', options: [ { word: 'flèche', emoji: '➡️' }, { word: 'spirale', emoji: '🌀' }, { word: 'cube', emoji: '🧊' }, { word: 'cylindre', emoji: '🛢️' } ] },
+            { word: 'cube', instruction: 'Clique sur le cube.', options: [ { word: 'cube', emoji: '🧊' }, { word: 'sphère', emoji: '🌐' }, { word: 'pyramide', emoji: '🔺' }, { word: 'cône', emoji: '🍦' } ] }
+          ]
+    };
+  </script>
+  <script src="../level.js"></script>
+</body>
+</html>

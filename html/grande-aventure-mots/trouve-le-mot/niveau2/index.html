@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Trouve le mot – Niveau 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🎯</span>Trouve le mot – Niveau 2</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" onclick="window.location.href='../index.html'">⬅ Retour aux niveaux</button>
+        <button class="action-btn" type="button" id="repeatInstructionBtn">🔊 Répéter la consigne</button>
+      </div>
+    </div>
+
+    <section class="section-intro" id="instructionText">
+      Clique sur l’image qui correspond au mot entendu.
+    </section>
+
+    <div class="controls">
+      <div class="progress-counter" id="progressCounter">Exercice 1 / 7</div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+    </div>
+
+    <section class="illustration-container" id="optionsContainer" aria-label="Choisis l’image correspondante">
+      <!-- Options générées par JavaScript -->
+    </section>
+  </main>
+
+  <template id="optionTemplate">
+    <button class="word-option" type="button">
+      <span class="word-option__emoji" aria-hidden="true"></span>
+      <span class="word-option__label"></span>
+    </button>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+    window.TROUVE_LE_MOT_CONFIG = {
+      storageKey: 'gam_trouve_le_mot',
+      levelId: 'niveau2',
+      exercises: [
+            {
+              word: 'chien',
+              instruction: 'Clique sur le chien.',
+              options: [
+                { word: 'chien', emoji: '🐶' },
+                { word: 'chat', emoji: '🐱' },
+                { word: 'poisson', emoji: '🐠' },
+                { word: 'lapin', emoji: '🐰' }
+              ]
+            },
+            {
+              word: 'poisson',
+              instruction: 'Clique sur le poisson.',
+              options: [
+                { word: 'poisson', emoji: '🐠' },
+                { word: 'oiseau', emoji: '🐦' },
+                { word: 'serpent', emoji: '🐍' },
+                { word: 'souris', emoji: '🐭' }
+              ]
+            },
+            {
+              word: 'lapin',
+              instruction: 'Clique sur le lapin.',
+              options: [
+                { word: 'lapin', emoji: '🐰' },
+                { word: 'tortue', emoji: '🐢' },
+                { word: 'cheval', emoji: '🐴' },
+                { word: 'vache', emoji: '🐮' }
+              ]
+            },
+            {
+              word: 'oiseau',
+              instruction: "Clique sur l'oiseau.",
+              options: [
+                { word: 'oiseau', emoji: '🐦' },
+                { word: 'abeille', emoji: '🐝' },
+                { word: 'coccinelle', emoji: '🐞' },
+                { word: 'papillon', emoji: '🦋' }
+              ]
+            },
+            {
+              word: 'tortue',
+              instruction: 'Clique sur la tortue.',
+              options: [
+                { word: 'tortue', emoji: '🐢' },
+                { word: 'grenouille', emoji: '🐸' },
+                { word: 'crabe', emoji: '🦀' },
+                { word: 'poulpe', emoji: '🐙' }
+              ]
+            },
+            {
+              word: 'cheval',
+              instruction: 'Clique sur le cheval.',
+              options: [
+                { word: 'cheval', emoji: '🐴' },
+                { word: 'mouton', emoji: '🐑' },
+                { word: 'cochon', emoji: '🐷' },
+                { word: 'poule', emoji: '🐔' }
+              ]
+            },
+            {
+              word: 'vache',
+              instruction: 'Clique sur la vache.',
+              options: [
+                { word: 'vache', emoji: '🐮' },
+                { word: 'singe', emoji: '🐵' },
+                { word: 'lion', emoji: '🦁' },
+                { word: 'tigre', emoji: '🐯' }
+              ]
+            }
+          ]
+    };
+  </script>
+  <script src="../level.js"></script>
+</body>
+</html>

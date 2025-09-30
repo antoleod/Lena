@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Trouve le mot – La Grande Aventure des Mots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🎯</span>Trouve le mot</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" onclick="window.location.href='../index.html'">⬅ Retour aux mini-jeux</button>
+      </div>
+    </div>
+
+    <section class="section-intro">
+      Choisis un niveau pour aider Léna à reconnaître les mots. Chaque niveau contient 7 exercices colorés. Termine-les pour gagner des étoiles et débloquer les niveaux suivants.
+    </section>
+
+    <section class="grid" aria-label="Liste des niveaux">
+      <a class="level-card" data-level="niveau1" href="niveau1/index.html">
+        <span class="level-card__badge">⭐</span>
+        <h2 class="level-card__title">Niveau 1</h2>
+        <p class="level-card__status">Mots du quotidien</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau2" href="niveau2/index.html">
+        <span class="level-card__badge">🌈</span>
+        <h2 class="level-card__title">Niveau 2</h2>
+        <p class="level-card__status">Les animaux</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau3" href="niveau3/index.html">
+        <span class="level-card__badge">🎵</span>
+        <h2 class="level-card__title">Niveau 3</h2>
+        <p class="level-card__status">La nourriture</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau4" href="niveau4/index.html">
+        <span class="level-card__badge">🌟</span>
+        <h2 class="level-card__title">Niveau 4</h2>
+        <p class="level-card__status">Les objets de la maison</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau5" href="niveau5/index.html">
+        <span class="level-card__badge">🚀</span>
+        <h2 class="level-card__title">Niveau 5</h2>
+        <p class="level-card__status">Les vêtements</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau6" href="niveau6/index.html">
+        <span class="level-card__badge">🧠</span>
+        <h2 class="level-card__title">Niveau 6</h2>
+        <p class="level-card__status">Les parties du corps</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau7" href="niveau7/index.html">
+        <span class="level-card__badge">🪐</span>
+        <h2 class="level-card__title">Niveau 7</h2>
+        <p class="level-card__status">Les couleurs</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau8" href="niveau8/index.html">
+        <span class="level-card__badge">🧚‍♀️</span>
+        <h2 class="level-card__title">Niveau 8</h2>
+        <p class="level-card__status">Les formes</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau9" href="niveau9/index.html">
+        <span class="level-card__badge">🧩</span>
+        <h2 class="level-card__title">Niveau 9</h2>
+        <p class="level-card__status">La nature</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+
+      <a class="level-card" data-level="niveau10" href="niveau10/index.html">
+        <span class="level-card__badge">🎇</span>
+        <h2 class="level-card__title">Niveau 10</h2>
+        <p class="level-card__status">Les actions</p>
+        <div class="progress-wrapper" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'gam_trouve_le_mot';
+    function loadProgress() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        return saved && typeof saved === 'object' ? saved : {};
+      } catch (error) {
+        console.warn('Impossible de charger la progression', error);
+        return {};
+      }
+    }
+
+    function applyProgress() {
+      const progress = loadProgress();
+      const levels = document.querySelectorAll('.level-card');
+      levels.forEach(levelCard => {
+        const levelId = levelCard.dataset.level;
+        if (!levelId) return;
+        const levelData = progress[levelId] || { completed: false, exercisesDone: 0, total: 7 };
+        const fill = levelCard.querySelector('.progress-fill');
+        if (fill) {
+          const total = levelData.total || 7;
+          const ratio = Math.min(levelData.exercisesDone || 0, total) / total;
+          fill.style.width = `${Math.round(ratio * 100)}%`;
+        }
+        if (levelData.completed) {
+          levelCard.classList.add('is-completed');
+          levelCard.classList.remove('is-locked');
+          const status = levelCard.querySelector('.level-card__status');
+          if (status) {
+            status.textContent = 'Terminé ✔';
+          }
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', applyProgress);
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Enquête grammaticale – Jouer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title" id="levelTitle"><span>🕵️‍♀️</span>Enquête grammaticale</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" id="btnBack">⬅ Retour aux niveaux</button>
+        <button class="action-btn" type="button" id="btnReplay">🔊 Réécouter la phrase</button>
+      </div>
+    </div>
+
+    <section class="section-intro" id="levelDescription"></section>
+
+    <div class="controls">
+      <div class="progress-counter" id="progressCounter">Exercice 1 / 1</div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+    </div>
+
+    <section class="grammatical-board" aria-live="polite">
+      <p class="sentence-display" id="sentenceDisplay"></p>
+      <p class="question-display" id="questionDisplay"></p>
+      <div class="options-container" id="optionsContainer"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+  <script src="../common.js"></script>
+  <script src="levels.js"></script>
+  <script src="play.js"></script>
+</body>
+</html>
