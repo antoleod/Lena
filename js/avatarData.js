@@ -14,6 +14,30 @@
           accent: '#FF82C6',
           textLight: '#333333'
         }
+      },
+      {
+        id: 'licorne-galaxie-scintillante',
+        name: 'Galaxie Scintillante',
+        motif: '🌌',
+        priceCoins: 180,
+        description: 'Voyage à travers une galaxie remplie de nébuleuses et d\'étoiles filantes.',
+        palette: {
+          background: ['#2E3359', '#4A3F7E'],
+          accent: '#957DAD',
+          textLight: '#FFFFFF'
+        }
+      },
+      {
+        id: 'licorne-foret-enchantee',
+        name: 'Forêt Enchantée',
+        motif: '🌳',
+        priceCoins: 150,
+        description: 'Une forêt magique où la lumière filtre à travers les arbres centenaires.',
+        palette: {
+          background: ['#C8E6C9', '#A5D6A7'],
+          accent: '#81C784',
+          textLight: '#1B5E20'
+        }
       }
     ],
     lion: [

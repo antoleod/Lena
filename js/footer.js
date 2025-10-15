@@ -47,6 +47,7 @@
     btn.type = 'button';
     btn.className = 'footer-btn';
     btn.id = id;
+    btn.setAttribute('aria-label', label);
     if (isCurrent) {
       btn.setAttribute('aria-current', 'page');
     }
@@ -54,11 +55,6 @@
     iconSpan.className = 'footer-btn__icon';
     iconSpan.textContent = icon;
     btn.appendChild(iconSpan);
-
-    const labelSpan = document.createElement('span');
-    labelSpan.className = 'footer-btn__label';
-    labelSpan.textContent = label;
-    btn.appendChild(labelSpan);
 
     if (typeof handler === 'function') {
       btn.addEventListener('click', handler);
@@ -89,13 +85,12 @@
     const muted = Boolean(window.audioManager?.isMuted);
     button.classList.toggle('is-audio-muted', muted);
     const icon = button.querySelector('.footer-btn__icon');
-    const label = button.querySelector('.footer-btn__label');
+    const newLabel = muted ? AUDIO_ACTION.labelOff : AUDIO_ACTION.labelOn;
+    
     if (icon) {
       icon.textContent = muted ? AUDIO_ACTION.iconOff : AUDIO_ACTION.iconOn;
     }
-    if (label) {
-      label.textContent = muted ? AUDIO_ACTION.labelOff : AUDIO_ACTION.labelOn;
-    }
+    button.setAttribute('aria-label', newLabel);
   }
 
   function initFooter() {

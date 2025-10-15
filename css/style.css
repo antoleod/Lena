@@ -1501,164 +1501,84 @@ body[data-bg-theme] #stageBottom {
   right: 0;
   bottom: 0;
   z-index: 1000;
-  padding: clamp(0.65rem, 3vw, 1rem) clamp(1rem, 4vw, 2.75rem);
-  background: linear-gradient(120deg, rgba(22, 9, 54, 0.92), rgba(22, 9, 54, 0.76));
-  backdrop-filter: var(--footer-blur);
-  -webkit-backdrop-filter: var(--footer-blur);
-  border-top: 1px solid var(--footer-border);
-  box-shadow: 0 -12px 32px rgba(18, 6, 50, 0.28);
-  overflow: hidden;
-  isolation: isolate;
+  height: 52px; /* Compact height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(1rem, 4vw, 2.75rem);
+  background: rgba(255, 255, 255, 0.1); /* More translucent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 .footer-actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.6rem, 2vw, 1.4rem);
+  gap: 1rem; /* Consistent gap */
   max-width: 1080px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
 }
 
 .footer-btn {
   position: relative;
-  flex: 1 1 0;
-  min-width: clamp(120px, 22vw, 170px);
+  width: 44px;   /* Circular button width */
+  height: 44px;  /* Circular button height */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: clamp(0.65rem, 2.5vw, 0.9rem) clamp(0.9rem, 3vw, 1.4rem);
-  border-radius: 999px;
-  border: none;
-  font-family: var(--font-heading);
-  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
-  letter-spacing: 0.01em;
+  padding: 0;
+  border-radius: 50%; /* Circular shape */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border as part of the frame */
   cursor: pointer;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: var(--primary-contrast);
-  box-shadow: 0 12px 20px rgba(31, 17, 63, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden; /* allow shine sweep */
-  will-change: transform, box-shadow;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Frame/shadow effect */
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform, background-color, box-shadow;
 }
 
 .footer-btn__icon {
-  font-size: 1.3em;
+  font-size: 24px; /* Icon size */
   line-height: 1;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Shadow for the icon */
+  transition: transform 0.25s ease;
+}
+
+.footer-btn__label {
+  display: none !important; /* Hide label */
 }
 
 .footer-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 28px rgba(31, 17, 63, 0.32), 0 0 24px rgba(168, 101, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.footer-btn:hover .footer-btn__icon {
+  transform: scale(1.1);
 }
 
 .footer-btn:active {
-  transform: translateY(1px);
-  box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.18);
+  transform: scale(0.9);
+  transition-duration: 0.1s;
 }
 
 .footer-btn[aria-current="page"] {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6), 0 10px 24px rgba(31, 17, 63, 0.3);
+  background-color: var(--primary);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 12px rgba(168, 144, 240, 0.5), 0 4px 8px rgba(0, 0, 0, 0.2); /* Combine colored glow with standard shadow */
 }
 
 .footer-btn.is-audio-muted {
-  background: linear-gradient(135deg, #4a3a6f, #33265c);
-  color: #f2e8ff;
+  color: #a9a9a9; /* Muted color */
 }
 
 @media (max-width: 640px) {
   .footer-actions {
-    gap: 0.65rem;
-  }
-
-  .footer-btn {
-    min-width: clamp(94px, 28vw, 140px);
-    padding: 0.6rem clamp(0.7rem, 3vw, 1.1rem);
-    font-size: 0.95rem;
-  }
-
-  .footer-btn__icon {
-    font-size: 1.2em;
+    gap: 0.75rem;
   }
 }
 
-
-  .btn {
-    font-size: clamp(0.9rem, 3.5vw, 1rem);
-    padding: 0.6rem 1rem;
-  }
-.option:hover .option-icon,
-.color-option-button:hover .option-icon {
-  animation: iconFloat 1.8s ease-in-out infinite, iconSparkle 1.8s ease-in-out infinite;
-}
-
-/* ===== Magical footer effects ===== */
-@keyframes footerMagicShine {
-  0% { background-position: 0% 50%; opacity: 0.4; }
-  50% { background-position: 100% 50%; opacity: 0.6; }
-  100% { background-position: 0% 50%; opacity: 0.4; }
-}
-
-@keyframes starTwinkle {
-  0%, 100% { transform: translateY(0) scale(0.9); opacity: 0.0; }
-  30% { opacity: 0.9; }
-  50% { transform: translateY(-2px) scale(1); opacity: 1; }
-  70% { opacity: 0.6; }
-}
-
-.global-footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 10% 50%, rgba(255,255,255,0.12), transparent 40%),
-              radial-gradient(circle at 80% 40%, rgba(255, 215, 0, 0.10), transparent 45%),
-              linear-gradient(120deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  background-size: 200% 200%, 200% 200%, 200% 200%;
-  animation: footerMagicShine 16s ease-in-out infinite;
-}
-
-.footer-btn::after {
-  content: '✨';
-  position: absolute;
-  top: -6px;
-  right: 10px;
-  font-size: 1rem;
-  opacity: 0;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
-  animation: starTwinkle 3.2s ease-in-out infinite;
-}
-
-/* Vary twinkle timing per button */
-.footer-btn:nth-child(1)::after { animation-delay: 0.2s; }
-.footer-btn:nth-child(2)::after { animation-delay: 0.8s; }
-.footer-btn:nth-child(3)::after { animation-delay: 1.4s; }
-.footer-btn:nth-child(4)::after { animation-delay: 2.0s; }
-
-/* Shine sweep across button on hover */
-@keyframes footerShineSweep {
-  0% { transform: translateX(-160%) rotate(20deg); opacity: 0.0; }
-  20% { opacity: 0.55; }
-  100% { transform: translateX(180%) rotate(20deg); opacity: 0.0; }
-}
-
-.footer-btn::before {
-  content: '';
-  position: absolute;
-  top: -60%;
-  left: -30%;
-  width: 60%;
-  height: 220%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.00) 0%, rgba(255,255,255,0.45) 48%, rgba(255,255,255,0.00) 100%);
-  transform: translateX(-160%) rotate(20deg);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.footer-btn:hover::before {
-  animation: footerShineSweep 1.05s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-}

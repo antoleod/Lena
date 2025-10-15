@@ -3093,8 +3093,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        items.forEach(item => { // This should be `userProgress.ownedItems`
-            const resolvedItem = findShopItem(item.id);
+        items.forEach(resolvedItem => {
             if (!resolvedItem) { return; }
 
             const listItem = document.createElement('li');

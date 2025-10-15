@@ -1,7 +1,7 @@
 function buildBackgroundCatalogue() {
     const library = window.AVATAR_LIBRARY || {};
     const items = [];
-
+    
     Object.values(library).forEach(avatar => {
         if (!avatar || !Array.isArray(avatar.backgrounds)) {
             return;
@@ -11,7 +11,7 @@ function buildBackgroundCatalogue() {
             const price = background.priceCoins || background.price || 120;
             items.push({
                 id: background.id,
-                name: `${background.name} (${avatar.name})`,
+                name: background.name,
                 price,
                 priceCoins: price,
                 image: background.previewUrl || background.iconUrl,

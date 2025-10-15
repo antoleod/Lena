@@ -145,12 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
             buyButton.className = 'btn-action';
             buyButton.textContent = 'Acheter';
             buyButton.onclick = (e) => { e.stopPropagation(); buyItem(item); };
+            if (userProgress.userScore.coins < item.price) {
+                buyButton.disabled = true;
+                buyButton.textContent = 'Pièces insuffisantes';
+            }
             itemButtons.appendChild(buyButton);
 
         } else if (context === 'owned') {
             const useButton = document.createElement('button');
-            useButton.className = 'btn-action use';
-            useButton.textContent = 'Utiliser';
             const activeCosmetics = userProgress.activeCosmetics || {};
             const isCurrentAvatar = item.type === 'avatar' && userProfile.avatar?.id === item.id;
             const isCurrentTheme = item.type === 'theme' && userProgress.activeTheme === item.id;
@@ -159,18 +161,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 && item.ownerAvatarId
                 && item.ownerAvatarId !== userProfile.avatar?.id;
 
-            if (isCurrentAvatar || isCurrentTheme || isCurrentBackground) {
+            if (isCurrentAvatar || isCurrentBackground) {
+                useButton.className = 'btn-action';
                 useButton.textContent = 'Équipé';
                 useButton.disabled = true;
-            } else if (item.type === 'avatar' || item.type === 'theme' || item.type === 'background') {
+            } else if (item.type === 'avatar' || item.type === 'theme' || item.type === 'background' || item.type === 'sticker' || item.type === 'sound') {
+                useButton.className = 'btn-action use';
                 if (incompatibleBackground) {
                     useButton.textContent = 'Avatar requis';
                     useButton.disabled = true;
                     useButton.title = 'Equipe d\'abord l\'avatar lié pour utiliser ce fond.';
                 } else {
+                    useButton.textContent = 'Utiliser';
                     useButton.onclick = (e) => { e.stopPropagation(); useItem(item); };
                 }
             } else {
+                useButton.className = 'btn-action';
                 useButton.disabled = true;
                 useButton.title = 'Utilisation bientôt disponible !';
             }
@@ -180,7 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
             sellButton.className = 'btn-action sell';
             const sellPrice = Math.ceil(item.price * 0.5);
             sellButton.textContent = `Vendre (+${sellPrice} 🪙)`;
-            sellButton.onclick = (e) => { e.stopPropagation(); sellItem(item, sellPrice); };
+            sellButton.onclick = (e) => {
+                e.stopPropagation();
+                if (confirm(`¿Estás seguro de que quieres vender ${item.name} por ${sellPrice} monedas?`)) {
+                    sellItem(item, sellPrice);
+                }
+            };
             itemButtons.appendChild(sellButton);
         }
 
@@ -267,6 +278,15 @@ document.addEventListener('DOMContentLoaded', () => {
             storage.saveUserProgress(userProfile.name, userProgress);
             alert(`Tu as activé le fond: ${item.name}. Magique !`);
             renderAllItems();
+        } else if (item.type === 'sticker') {
+            alert(`L'autocollant "${item.name}" est dans ta collection ! Tu peux le voir dans tes trésors et sur la page des réussites.`);
+            renderAllItems();
+        } else if (item.type === 'sound') {
+            if (item.audio) {
+                const sound = new Audio(item.audio);
+                sound.play();
+            }
+            alert(`Tu as écouté : ${item.name}`);
         } else {
             alert(`L'utilisation de cet objet n'est pas encore disponible.`);
         }

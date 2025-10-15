@@ -32,14 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   updateSelectionPreview();
-  // En mode édition, precargar y renderizar objetos comprados
-  if (editMode && existingProfile?.name) {
-    if (nameInput) nameInput.value = existingProfile.name;
-    selectedAvatar = existingProfile.avatar;
-    selectedColor = existingProfile.color || selectedColor;
-    updateSelectionPreview();
-    renderOwnedCosmetics(existingProfile);
-  }
+
 
   function renderOwnedCosmetics(profile) {
     const ownedAvatarsEl = document.getElementById('owned-avatars');
