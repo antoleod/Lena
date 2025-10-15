@@ -4366,6 +4366,8 @@ function generateNumberProblems(sum, count) {
     }
 
     function showStoryMenu() {
+        ensureSkyElements();
+        document.body.classList.add('story-menu-active');
         document.body.classList.remove('stage-controls-visible');
         clearProgressTracker();
         setActiveStorySet(userProgress.storyProgress?.activeSetIndex || activeStorySetIndex);
@@ -4373,7 +4375,7 @@ function generateNumberProblems(sum, count) {
         content.innerHTML = '';
 
         const title = document.createElement('div');
-        title.className = 'question-prompt fx-bounce-in-down';
+        title.className = 'question-prompt story-menu-title fx-bounce-in-down';
         title.textContent = 'Choisis un conte magique ✨';
         content.appendChild(title);
         speakText('Choisis un conte magique');
@@ -4566,6 +4568,7 @@ function generateNumberProblems(sum, count) {
     
     function startStoryQuiz(storyIndex) {
         const story = magicStories[storyIndex];
+        document.body.classList.add('story-quiz-active');
         gameState.storyQuiz = story.quiz;
         gameState.currentQuestionIndex = 0;
         gameState.questionSkillTag = resolveSkillTag('stories');
@@ -5758,4 +5761,3 @@ function generateNumberProblems(sum, count) {
     // --- Start Game ---
     init();
 });
-

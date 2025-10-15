@@ -96,6 +96,19 @@
   font-family: var(--font-heading);
   font-size: clamp(1.2rem, 3vw, 1.7rem);
   color: var(--ink);
+  position: relative;
+}
+
+.question-prompt.story-menu-title {
+    background: linear-gradient(135deg, #8c5bff, #ff89c6);
+    color: #fff;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    animation: textGlow 3s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 3px 8px rgba(0, 0, 0, 0.25), 0 0 10px rgba(255, 137, 198, 0.5); }
+    50% { text-shadow: 0 3px 8px rgba(0, 0, 0, 0.25), 0 0 20px rgba(140, 91, 255, 0.7); }
 }
 
 .topic-btn {
@@ -712,36 +725,45 @@
    § Estilos para "Contes Magiques"
    ------------------------------ */
 .story-menu__subtitle {
-  margin: 0.75rem 0 0.35rem;
+  margin: 0.25rem 0 0.5rem;
   font-family: var(--font-body);
   font-size: clamp(0.95rem, 2vw, 1.05rem);
-  color: rgba(63, 44, 133, 0.85);
+  color: #f0e6ff;
   text-align: center;
+  opacity: 0.85;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .story-menu__progress {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.6rem;
   padding: 0.45rem 1.2rem;
   border-radius: 999px;
-  background: rgba(148, 102, 255, 0.12);
-  color: var(--primary);
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
   font-family: var(--font-heading);
   font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-  margin: 0.35rem auto 0.25rem;
+  margin: 0.25rem auto 1.2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .story-menu__progress::before {
   content: '📚';
+  font-size: 1.1em;
 }
 
 .story-menu__empty {
   text-align: center;
   font-family: var(--font-body);
   color: var(--muted, #6f6f8b);
-  margin-top: 1.5rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-medium);
 }
 
 .story-carousel {
@@ -951,91 +973,110 @@
 .sequence-token-pop { animation: pop 0.32s ease-out both; }
 
 .story-carousel__track {
+  /* Carrousel horizontal fluide */
   display: flex;
-  gap: clamp(0.8rem, 2vw, 1.25rem);
+  gap: clamp(1rem, 3vw, 2rem);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 0.6rem;
+  padding: 0.5rem clamp(1rem, 5vw, 3rem) 1.5rem; /* Espace pour le défilement et les ombres */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(148, 102, 255, 0.35) transparent;
+  scrollbar-color: rgba(189, 178, 255, 0.6) rgba(255, 255, 255, 0.3);
+  /* Cache la barre de défilement tout en gardant la fonctionnalité */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .story-carousel__track::-webkit-scrollbar {
-  height: 8px;
+  height: 10px;
 }
 
 .story-carousel__track::-webkit-scrollbar-thumb {
-  background: rgba(148, 102, 255, 0.35);
+  background: rgba(189, 178, 255, 0.6);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.story-carousel__track::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 999px;
 }
 
 .story-carousel__slide {
-  flex: 0 0 clamp(220px, 38vw, 320px);
+  /* Chaque carte occupe une grande partie de l'écran sur mobile */
+  flex: 0 0 clamp(240px, 75vw, 340px);
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
 }
 
 .story-card {
+  /* Style "couverture de livre" */
   position: relative;
   width: 100%;
-  min-height: clamp(150px, 32vh, 190px);
-  padding: clamp(1rem, 2.5vw, 1.4rem);
-  border-radius: 1.5rem;
-  border: 2px solid transparent;
-  background: var(--bg2);
+  min-height: clamp(180px, 40vh, 240px);
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  border-radius: 1.75rem; /* Bords bien arrondis */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(240, 230, 255, 0.7));
   color: var(--ink);
-  box-shadow: var(--shadow-small);
+  box-shadow: 0 12px 28px rgba(148, 102, 255, 0.18);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  transform-style: preserve-3d;
 }
 
-.story-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-medium);
+/* Effet de survol magique */
+.story-card:hover:not(:active) {
+  transform: translateY(-8px) scale(1.03) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(148, 102, 255, 0.25), 0 0 20px rgba(255, 198, 255, 0.5);
 }
 
 .story-card:focus-visible {
   outline: 3px solid rgba(148, 102, 255, 0.4);
   outline-offset: 4px;
+  box-shadow: 0 0 0 3px rgba(148, 102, 255, 0.4), 0 12px 28px rgba(148, 102, 255, 0.18);
 }
 
 .story-card__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 2.3vw, 1.35rem);
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
   line-height: 1.2;
+  color: #4a3c75;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
 }
 
 .story-card__status {
+  /* Étiquette colorée et douce */
   margin-top: auto;
   font-family: var(--font-body);
   font-size: clamp(0.85rem, 1.8vw, 1rem);
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  background: rgba(148, 102, 255, 0.15);
-  color: var(--primary);
+  background: #ffd1dc; /* Rose pastel */
+  color: #9c4257;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  box-shadow: inset 0 0 0 1px rgba(148, 102, 255, 0.15);
+  font-weight: 700;
+  box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .story-card.is-completed {
-  border-color: rgba(76, 175, 80, 0.65);
-  background: linear-gradient(135deg, rgba(197, 240, 207, 0.85), rgba(188, 227, 199, 0.7));
-  box-shadow: 0 18px 36px rgba(76, 175, 80, 0.25);
+  /* Style pour les contes terminés */
+  border-color: rgba(160, 220, 180, 0.8);
+  background: linear-gradient(145deg, rgba(232, 250, 236, 0.9), rgba(210, 240, 220, 0.8));
+  box-shadow: 0 12px 28px rgba(120, 200, 140, 0.2);
 }
 
 .story-card.is-completed .story-card__status {
-  background: rgba(76, 175, 80, 0.18);
-  color: var(--success, #66bb6a);
-  box-shadow: inset 0 0 0 1px rgba(76, 175, 80, 0.2);
+  background: #caffbf; /* Vert menthe pastel */
+  color: #38761d;
 }
 
 .story-card.is-completed::after {
@@ -1043,8 +1084,10 @@
   position: absolute;
   top: 12px;
   right: 16px;
-  font-size: 1.35rem;
-  opacity: 0.9;
+  font-size: 1.4rem;
+  opacity: 1;
+  filter: drop-shadow(0 2px 4px rgba(255, 220, 100, 0.5));
+  animation: sparklePulse 3s infinite ease-in-out;
 }
 
 .story-card.is-completed:focus-visible {
@@ -1053,7 +1096,7 @@
 
 .story-carousel__nav {
   position: absolute;
-  top: 50%;
+  top: calc(50% - 1rem); /* Ajusté pour mieux s'aligner avec les cartes */
   transform: translateY(-50%);
   width: 44px;
   height: 44px;
@@ -1062,7 +1105,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.85);
   box-shadow: var(--shadow-medium);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
@@ -1071,7 +1114,7 @@
 
 .story-carousel__nav:hover:not(:disabled) {
   transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 24px rgba(148, 102, 255, 0.2);
 }
 
 .story-carousel__nav:disabled {
@@ -1081,18 +1124,20 @@
 }
 
 .story-carousel__nav--prev {
-  left: -1rem;
+  left: clamp(-1rem, 2vw, 1rem);
 }
 
 .story-carousel__nav--next {
-  right: -1rem;
+  right: clamp(-1rem, 2vw, 1rem);
 }
 
 @media (max-width: 768px) {
   .story-carousel__slide {
-    flex-basis: clamp(220px, 75vw, 280px);
+    /* Sur tablette, la carte est un peu plus petite que sur mobile */
+    flex-basis: clamp(240px, 65vw, 320px);
   }
 
+  /* Cache les flèches sur les écrans tactiles où le swipe est naturel */
   .story-carousel__nav--prev {
     left: 0.25rem;
   }
@@ -1101,30 +1146,229 @@
     right: 0.25rem;
   }
 }
+@media (pointer: coarse) {
+  .story-carousel__nav {
+    display: none;
+  }
+}
+
 
 .story-container {
+  /* Estilo de página de libro de cuentos */
+  background: linear-gradient(155deg, #fff8f0, #fdf4e8);
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  box-shadow: 0 20px 50px rgba(87, 66, 44, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  width: 100%;
+  max-width: 800px;
   text-align: left;
   position: relative;
+  overflow: hidden;
 }
 .story-container h2 {
   font-family: var(--font-heading);
-  color: var(--primary);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #6d4c41; /* Marrón oscuro y suave */
   text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .story-container img {
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
   margin-bottom: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
+/* Párrafos del cuento con animación de aparición */
+.story-container p {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+  line-height: 1.7;
+  color: #5d4037; /* Tinta sepia */
+  margin-bottom: 1.2em;
+  animation: fadeInText 0.8s ease-out both;
+}
+
+/* Animación escalonada para los párrafos */
+.story-container p:nth-child(2) { animation-delay: 0.2s; }
+.story-container p:nth-child(3) { animation-delay: 0.4s; }
+.story-container p:nth-child(4) { animation-delay: 0.6s; }
+.story-container p:nth-child(5) { animation-delay: 0.8s; }
+.story-container p:nth-child(6) { animation-delay: 1s; }
+.story-container p:nth-child(7) { animation-delay: 1.2s; }
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Elemento para chispa animada */
 .sparkle {
   animation: sparkle 2s ease-in-out infinite;
   position: absolute;
   font-size: 2rem;
-  z-index: 10;
+  z-index: 0; /* Detrás del texto */
   pointer-events: none;
   opacity: 0;
+  color: #ffd54f;
+}
+
+/* Botón para empezar el quiz con estilo de libro */
+.story-container + .submit-btn {
+  background: linear-gradient(135deg, #81c784, #4caf50);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.story-container + .submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(76, 175, 80, 0.4);
+}
+
+/* ------------------------------
+   § Fond étoilé pour le menu des contes
+   ------------------------------ */
+.story-menu-active {
+  /* Fond nocturne profond */
+  background: #1a1a2e;
+  transition: background 0.8s ease-in-out;
+}
+
+.story-menu-active #stageBottom {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Conteneur pour les éléments du ciel (lune, étoiles) */
+.sky-elements {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* La lune croissante */
+.story-menu-active .sky-elements::before {
+  content: '🌙';
+  position: absolute;
+  top: clamp(2rem, 10vh, 5rem);
+  right: clamp(2rem, 12vw, 6rem);
+  font-size: clamp(3rem, 8vw, 5rem);
+  opacity: 0.85;
+  filter: drop-shadow(0 0 15px rgba(240, 230, 255, 0.5));
+  animation: moonFloat 12s ease-in-out infinite;
+}
+
+/* Les étoiles qui scintillent */
+.story-menu-active .sky-elements::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  will-change: transform;
+  background-image: radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
+                    radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 90px 40px, #ddd, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 50px 150px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(1px 1px at 120px 80px, #ddd, rgba(0,0,0,0));
+  background-size: 250px 250px;
+  animation: moveStars 150s linear infinite, twinkleStars 8s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-15deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-10deg);
+  }
+}
+
+@keyframes moveStars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-250px, -250px);
+  }
+}
+
+@keyframes twinkleStars {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* ------------------------------
+   § Estilos para el Quiz de los Cuentos
+   ------------------------------ */
+
+/* Contenedor principal del quiz, con fondo de papel */
+.story-quiz-active #stageBottom {
+  background: linear-gradient(155deg, #fff8f0, #fdf4e8);
+  box-shadow: 0 20px 50px rgba(87, 66, 44, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Título de la pregunta del quiz */
+.story-quiz-active .question-prompt {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  color: #6d4c41; /* Marrón oscuro */
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 2px solid rgba(109, 76, 65, 0.2);
+  padding-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Opciones del quiz con estilo de etiqueta antigua */
+.story-quiz-active .option {
+  background: linear-gradient(145deg, #fdfbf5, #f9f5ea);
+  border: 2px solid #d7ccc8;
+  color: #5d4037; /* Tinta sepia */
+  font-family: 'Georgia', serif;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  box-shadow: 0 8px 15px rgba(87, 66, 44, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.story-quiz-active .option:hover {
+  transform: translateY(-4px);
+  border-color: #bcaaa4;
+  box-shadow: 0 12px 25px rgba(87, 66, 44, 0.15);
+}
+
+/* Opción correcta */
+.story-quiz-active .option.correct {
+  background: linear-gradient(145deg, #e8f5e9, #dcedc8);
+  border-color: #a5d6a7;
+  color: #2e7d32;
+  animation: none; /* Sobrescribe la animación de brillo genérica */
+}
+
+/* Opción incorrecta */
+.story-quiz-active .option.wrong {
+  background: linear-gradient(145deg, #ffebee, #ffcdd2);
+  border-color: #ef9a9a;
+  color: #c62828;
+  animation: softShake 0.4s ease-in-out;
 }
 
 /* ------------------------------
