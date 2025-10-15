@@ -94,7 +94,7 @@
   box-shadow: var(--shadow-small);
   text-align: center;
   font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
   color: var(--ink);
 }
 
@@ -421,13 +421,15 @@
 
 /* Tejado decorativo */
 .rooftop {
+  animation: floatySticker 3.8s ease-in-out infinite;
   font-family: var(--font-heading);
   font-size: var(--font-size-xxl);
   background: var(--primary-light);
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 1rem 1rem 0 0;
-  box-shadow: var(--shadow-small);
+  box-shadow: var(--shadow-medium);
+  text-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
 /* Contenedor de ventanas */
@@ -478,11 +480,13 @@
 }
 .window-input:focus {
   border-color: var(--primary-light);
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 4px rgba(140, 91, 255, 0.15), var(--shadow-small);
 }
 .window-input.correct {
   border-color: var(--success);
   background: #e6ffec;
+  animation: pulse 0.4s ease;
 }
 .window-input.incorrect {
   border-color: var(--danger);
@@ -509,12 +513,29 @@
   background: var(--primary);
   color: white;
   transition: all 0.2s ease;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
 }
 .submit-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-small);
+}
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
 }
 
 /* ------------------------------
@@ -1236,7 +1257,7 @@
 }
 
 .math-blitz__prompt-icon {
-  font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
 .math-blitz__detail {
@@ -1356,6 +1377,32 @@
 .math-blitz__next-btn:hover:not(:disabled) {
   transform: translateY(-3px);
   box-shadow: 0 24px 44px rgba(0, 0, 0, 0.18);
+}
+
+.math-blitz__bg-animation {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.math-blitz__bg-symbol {
+  position: absolute;
+  top: -10%;
+  color: var(--math-blitz-accent, #8c5bff);
+  opacity: 0.18;
+  font-family: var(--font-heading, 'Fredoka');
+  font-weight: 700;
+  animation: fall-down linear infinite;
+  will-change: transform;
+}
+
+@keyframes fall-down {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
 }
 
 .math-blitz__next-btn:disabled {

@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             storage.saveUserProgress(userProfile.name, userProgress);
             
             if (!window.audioManager?.isMuted) {
-                buySound.play();
+                buySound.play().catch(e => console.error("Error playing sound", e));
             }
             triggerMagicEffect();
             

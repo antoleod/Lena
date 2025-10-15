@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sonidos locales para clic y brillo (offline-friendly)
   const popSound = createAudio('../assets/sounds/bling.wav');
-  const sparkleSound = createAudio('../assets/sounds/level-up.wav');
+  const sparkleSound = createAudio('../assets/sounds/correct.wav');
   window.audioManager?.bind(popSound);
   window.audioManager?.bind(sparkleSound);
   popSound.volume = 0.4;

@@ -41,61 +41,38 @@
   }
 
   function createLevelBlueprints() {
-    const additions = Array.from({ length: 6 }, (_, index) => ({
-      operationKey: 'additions',
-      levelRef: index + 1,
-      description: `Sommes jusqu'à ${(index + 1) * 10}`
-    }));
-
-    const soustractions = Array.from({ length: 6 }, (_, index) => ({
-      operationKey: 'soustractions',
-      levelRef: index + 1,
-      description: `Restes jusqu'à ${(index + 1) * 10}`
-    }));
-
-    const multiplications = Array.from({ length: 12 }, (_, index) => ({
-      operationKey: 'multiplications',
-      levelRef: index + 1,
-      description: `Table de ${index + 1}`
-    }));
-
-    const divisions = Array.from({ length: 10 }, (_, index) => ({
-      operationKey: 'divisions',
-      levelRef: index + 1,
-      description: `Divisions par ${index + 1}`
-    }));
-
-    const segments = [
-      { entries: additions, questionCount: 6 },
-      { entries: soustractions, questionCount: 6 },
-      { entries: multiplications, questionCount: 7 },
-      { entries: divisions, questionCount: 7 }
+    const levelDefinitions = [
+      { level: 1, title: 'Premiers Pas', subtitle: 'Additions et soustractions simples', operations: { additions: { levelRef: 1 }, soustractions: { levelRef: 1 } }, icon: '✨' },
+      { level: 2, title: 'Jardin des Nombres', subtitle: 'Additions et soustractions jusqu\'à 20', operations: { additions: { levelRef: 2 }, soustractions: { levelRef: 2 } }, icon: '🍎' },
+      { level: 3, title: 'Tour des Briques', subtitle: 'Additions et soustractions jusqu\'à 30', operations: { additions: { levelRef: 3 }, soustractions: { levelRef: 3 } }, icon: '🧱' },
+      { level: 4, title: 'Étoiles Multipliées', subtitle: 'Mélange avec multiplications (tables de 1, 2)', operations: { additions: { levelRef: 4 }, soustractions: { levelRef: 4 }, multiplications: { levelRef: 2 } }, icon: '🌟' },
+      { level: 5, title: 'Aventure Fruitée', subtitle: 'Mélange avec multiplications (tables de 3, 4)', operations: { additions: { levelRef: 5 }, soustractions: { levelRef: 5 }, multiplications: { levelRef: 4 } }, icon: '🍓' },
+      { level: 6, title: 'Trésors Partagés', subtitle: 'Mélange avec divisions simples', operations: { additions: { levelRef: 6 }, multiplications: { levelRef: 5 }, divisions: { levelRef: 2 } }, icon: '🪙' },
+      { level: 7, title: 'Défi Cosmique', subtitle: 'Les quatre opérations magiques', operations: { additions: { levelRef: 7 }, soustractions: { levelRef: 6 }, multiplications: { levelRef: 6 }, divisions: { levelRef: 3 } }, icon: '🪐' },
+      { level: 8, title: 'Énigmes du Pirate', subtitle: 'Calculs pour ouvrir les coffres', operations: { additions: { levelRef: 8 }, soustractions: { levelRef: 7 }, multiplications: { levelRef: 7 }, divisions: { levelRef: 4 } }, icon: '🏴‍☠️' },
+      { level: 9, title: 'Forêt Enchantée', subtitle: 'Opérations complexes pour les esprits vifs', operations: { additions: { levelRef: 9 }, soustractions: { levelRef: 8 }, multiplications: { levelRef: 8 }, divisions: { levelRef: 5 } }, icon: '🌳' },
+      { level: 10, title: 'Volcan de Nombres', subtitle: 'Calculs avancés pour les experts', operations: { additions: { levelRef: 10 }, soustractions: { levelRef: 9 }, multiplications: { levelRef: 9 }, divisions: { levelRef: 6 } }, icon: '🌋' },
+      { level: 11, title: 'Galaxie des Calculs', subtitle: 'Maîtrise des multiplications et divisions', operations: { additions: { levelRef: 11 }, soustractions: { levelRef: 10 }, multiplications: { levelRef: 10 }, divisions: { levelRef: 8 } }, icon: '🌌' },
+      { level: 12, title: 'Le Grand Tournoi', subtitle: 'Le défi ultime des quatre opérations', operations: { additions: { levelRef: 12 }, soustractions: { levelRef: 12 }, multiplications: { levelRef: 12 }, divisions: { levelRef: 10 } }, icon: '🏆' }
     ];
 
     const levels = [];
-    let counter = 1;
 
-    segments.forEach(segment => {
-      segment.entries.forEach((entry, index) => {
-        const theme = themeFor(entry.operationKey);
-        const storyline = theme.storylines
-          ? theme.storylines[index % theme.storylines.length]
-          : '';
-        const sticker = theme.stickers
-          ? theme.stickers[index % theme.stickers.length]
-          : null;
-        levels.push({
-          level: counter,
-          operationKey: entry.operationKey,
-          levelRef: entry.levelRef,
-          questionCount: segment.questionCount || DEFAULT_QUESTION_COUNT,
-          subtitle: entry.description,
-          storyline,
-          sticker,
-          reward: computeRewardForLevel(entry.operationKey, entry.levelRef),
-          theme
-        });
-        counter += 1;
+    levelDefinitions.forEach(def => {
+      const availableOps = Object.keys(def.operations);
+      const primaryOp = availableOps[0] || 'additions';
+      const theme = themeFor(primaryOp);
+
+      levels.push({
+        level: def.level,
+        operations: def.operations,
+        questionCount: 8,
+        title: def.title,
+        subtitle: def.subtitle,
+        storyline: def.subtitle,
+        sticker: def.icon,
+        reward: computeRewardForLevel(primaryOp, def.level),
+        theme: { ...theme, label: def.title, icon: def.icon }
       });
     });
 
@@ -114,12 +91,24 @@
     const levelIndex = Math.max(0, Math.min(levels.length, context.currentLevel) - 1);
     const levelData = levels[levelIndex] || levels[0];
     const questions = buildQuestions(levelData);
+
+    const getPositiveMessage = (() => {
+      let messages = shuffle(window.positiveMessages || ['Bravo !', 'Super !', 'Génial !']);
+      return () => {
+        if (messages.length === 0) {
+          messages = shuffle(window.positiveMessages || ['Bravo !', 'Super !', 'Génial !']);
+        }
+        return messages.pop() || 'Bravo !';
+      };
+    })();
+
     const state = {
       levels,
       levelData,
       questions,
+      getPositiveMessage,
       index: 0,
-      feedbackTimer: null
+      feedbackTimer: null,
     };
 
     context.clearGameClasses?.(['math-blitz']);
@@ -127,25 +116,29 @@
   }
 
   function buildQuestions(levelData) {
+    const { operations, questionCount } = levelData;
+    const availableOps = Object.keys(operations);
     const questions = [];
-    for (let i = 0; i < levelData.questionCount; i++) {
-      questions.push(createQuestion(levelData));
+    for (let i = 0; i < questionCount; i++) {
+      const operationKey = availableOps[i % availableOps.length];
+      const levelRef = operations[operationKey].levelRef;
+      questions.push(createQuestion(operationKey, levelRef, levelData));
     }
     return questions;
   }
 
-  function createQuestion(levelData) {
+  function createQuestion(operationKey, levelRef, levelData) {
     let payload = null;
     if (typeof window.generateMathQuestion === 'function') {
       try {
-        payload = window.generateMathQuestion(levelData.operationKey, levelData.levelRef);
+        payload = window.generateMathQuestion(operationKey, levelRef);
       } catch (error) {
         console.warn('generateMathQuestion failed in Math Blitz, falling back', error);
       }
     }
 
     if (!payload || !Array.isArray(payload.options) || typeof payload.correct !== 'number') {
-      payload = legacyQuestion(levelData);
+      payload = legacyQuestion(operationKey, levelRef, levelData);
     }
 
     const choices = payload.options.slice();
@@ -165,8 +158,8 @@
     };
   }
 
-  function legacyQuestion(levelData) {
-    const { operationKey, levelRef, storyline, theme } = levelData;
+  function legacyQuestion(operationKey, levelRef, levelData) {
+    const { storyline, theme } = levelData;
     let a;
     let b;
     let prompt;
@@ -241,7 +234,7 @@
 
     const title = document.createElement('h2');
     title.className = 'math-blitz__title';
-    title.textContent = `${theme.icon || '✨'} Niveau ${levelData.level} — ${theme.label}`;
+    title.textContent = `${theme.icon || '✨'} Niveau ${levelData.level} — ${levelData.title}`;
     header.appendChild(title);
 
     const subtitle = document.createElement('p');
@@ -283,16 +276,20 @@
     feedback.setAttribute('aria-live', 'polite');
     wrapper.appendChild(feedback);
 
-    const controls = document.createElement('div');
-    controls.className = 'math-blitz__controls';
-
-    const nextButton = document.createElement('button');
-    nextButton.className = 'math-blitz__next-btn';
-    nextButton.type = 'button';
-    nextButton.textContent = 'Question suivante';
-    nextButton.disabled = true;
-    controls.appendChild(nextButton);
-    wrapper.appendChild(controls);
+    const bgAnimation = document.createElement('div');
+    bgAnimation.className = 'math-blitz__bg-animation';
+    const symbols = ['+', '−', '×', '÷'];
+    for (let i = 0; i < 20; i++) {
+      const symbol = document.createElement('span');
+      symbol.className = 'math-blitz__bg-symbol';
+      symbol.textContent = symbols[i % symbols.length];
+      symbol.style.left = `${Math.random() * 100}%`;
+      symbol.style.fontSize = `${1 + Math.random() * 1.5}rem`;
+      symbol.style.animationDuration = `${5 + Math.random() * 5}s`;
+      symbol.style.animationDelay = `${Math.random() * 10}s`;
+      bgAnimation.appendChild(symbol);
+    }
+    wrapper.appendChild(bgAnimation);
 
     content.appendChild(wrapper);
 
@@ -302,23 +299,13 @@
       context.showLevelMenu('math-blitz');
     });
 
-    nextButton.addEventListener('click', () => {
-      state.index += 1;
-      if (state.index < questions.length) {
-        renderQuestion(context, state, questionWrapper, feedback, progressFill, nextButton);
-      } else {
-        finishLevel(context, state, progressFill, feedback, nextButton);
-      }
-    });
-
-    renderQuestion(context, state, questionWrapper, feedback, progressFill, nextButton);
+    renderQuestion(context, state, questionWrapper, feedback, progressFill);
   }
 
-  function renderQuestion(context, state, questionWrapper, feedback, progressFill, nextButton) {
+  function renderQuestion(context, state, questionWrapper, feedback, progressFill) {
     clearTimeout(state.feedbackTimer);
     feedback.classList.add('is-hidden');
     feedback.textContent = '';
-    nextButton.disabled = true;
 
     const question = state.questions[state.index];
     const total = state.questions.length;
@@ -382,7 +369,7 @@
 
       option.appendChild(icon);
       option.appendChild(label);
-      option.addEventListener('click', () => handleAnswer(context, state, question, idx, option, optionsGrid, feedback, nextButton));
+      option.addEventListener('click', () => handleAnswer(context, state, question, idx, option, optionsGrid, feedback, questionWrapper, progressFill));
       optionsGrid.appendChild(option);
     });
 
@@ -392,7 +379,7 @@
     progressFill.style.width = `${percent}%`;
   }
 
-  function handleAnswer(context, state, question, selectedIndex, button, optionsGrid, feedback, nextButton) {
+  function handleAnswer(context, state, question, selectedIndex, button, optionsGrid, feedback, questionWrapper, progressFill) {
     if (button.disabled) {
       return;
     }
@@ -405,28 +392,33 @@
       context.updateUI?.();
       button.classList.add('is-correct');
       Array.from(optionsGrid.children).forEach(child => { child.disabled = true; });
-      showFeedback(feedback, 'positive', question.successMessage || 'Bravo !');
-      nextButton.disabled = false;
-      nextButton.focus();
+      showFeedback(feedback, 'positive', state.getPositiveMessage(), 1200);
+      setTimeout(() => proceedToNextStep(context, state, questionWrapper, feedback, progressFill), 1200);
     } else {
       context.playNegativeSound();
       context.awardReward(0, -3);
       context.updateUI?.();
       button.classList.add('is-wrong');
-      button.disabled = true;
-      showFeedback(feedback, 'negative', question.hint || 'Essaie une autre réponse.');
-      setTimeout(() => button.classList.remove('is-wrong'), 600);
+      Array.from(optionsGrid.children).forEach(child => { child.disabled = true; });
+      showFeedback(feedback, 'negative', question.hint || 'Essaie une autre réponse.', 1200);
+      setTimeout(() => proceedToNextStep(context, state, questionWrapper, feedback, progressFill), 1200);
     }
   }
 
-  function finishLevel(context, state, progressFill, feedback, nextButton) {
+  function proceedToNextStep(context, state, questionWrapper, feedback, progressFill) {
+    state.index += 1;
+    if (state.index < state.questions.length) {
+      renderQuestion(context, state, questionWrapper, feedback, progressFill);
+    } else {
+      finishLevel(context, state, progressFill, feedback);
+    }
+  }
+
+  function finishLevel(context, state, progressFill, feedback) {
     const theme = state.levelData.theme;
     progressFill.style.width = '100%';
-    feedback.classList.remove('is-hidden', 'is-negative');
-    feedback.classList.add('is-positive');
     const sticker = state.levelData.sticker ? ` ${state.levelData.sticker}` : '';
-    feedback.textContent = `${theme.success || '✨ Niveau terminé !'}${sticker}`;
-    nextButton.disabled = true;
+    showFeedback(feedback, 'positive', `${theme.success || '✨ Niveau terminé !'}${sticker}`);
 
     context.markLevelCompleted();
     context.showSuccessMessage(`${theme.icon || '✨'} ${theme.success || 'Niveau complété !'}`);
@@ -434,14 +426,25 @@
     context.setAnsweredStatus('completed');
 
     state.feedbackTimer = setTimeout(() => {
-      context.showLevelMenu('math-blitz');
+      const currentLevelNumber = state.levelData.level;
+      const totalLevels = state.levels.length;
+      if (currentLevelNumber < totalLevels) {
+        context.setCurrentLevel(currentLevelNumber + 1);
+        start(context);
+      } else {
+        context.showLevelMenu('math-blitz');
+      }
     }, 1600);
   }
 
-  function showFeedback(feedback, variant, message) {
+  function showFeedback(feedback, variant, message, duration = 2600) {
     feedback.classList.remove('is-hidden', 'is-positive', 'is-negative');
     feedback.classList.add(variant === 'positive' ? 'is-positive' : 'is-negative');
     feedback.textContent = message;
+    if (duration > 0) {
+      clearTimeout(feedback._timer);
+      feedback._timer = setTimeout(() => feedback.classList.add('is-hidden'), duration);
+    }
   }
 
   function randomInt(min, max) {

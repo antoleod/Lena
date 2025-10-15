@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         balloon: '🎈', paint: '🖍️', drum: '🥁', guitar: '🎸', book: '📘', kite: '🪁'
     };
     const positiveMessages = ['🦄 Bravo !', '✨ Super !', '🌈 Génial !', '🌟 Parfait !', '🎉 Formidable !'];
+    window.positiveMessages = positiveMessages;
     const MATH_OPERATION_THEMES = {
         additions: {
             id: 'additions',
@@ -404,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const storySetOne = [
         {
             "title": "Le Voyage de Léna l\'Étoile ⭐️",
-            "image": "https://photos.app.goo.gl/fkh9KiXZNouPpshj7",
+            "image": "",
             "text": [
               "Léna 👧 était une petite étoile ⭐️ brillante ✨ comme un diamant 💎.",
               "Elle vivait 🏡 sr une montagne ⛰️ magique ✨ avec sa petite sœur Yaya 👧.",
@@ -422,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Lion au Grand Coeur 🦁💖",
-            "image": "https://via.placeholder.com/600x400.png?text=Le+lion+au+grand+coeur",
+            "image": "",
             "text": [
               "Dans la savane 🌍 vivait un lion 🦁 nommé Léo.",
               "Il n\'était pas le plus fort 💪, mais il était le plus courageux 💖 et le plus gentil 🤗.",
@@ -442,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Roller Fou de Yaya 🛼🐱",
-            "image": "https://via.placeholder.com/600x400.png?text=Roller+de+Yaya",
+            "image": "",
             "text": [
               "Un jour ☀️, Léna 👧 offrit des rollers 🛼 à Yaya 🐱.",
               "Yaya essaya… et BOUM 💥 elle partit comme une fusée 🚀.",
@@ -458,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Gâteau Volant 🎂✨",
-            "image": "https://via.placeholder.com/600x400.png?text=Gateau+volant",
+            "image": "",
             "text": [
               "Léna 👧 voulait préparer un gâteau 🎂 magique.",
               "Yaya 🐱 ajouta trop de levure 🧁…",
@@ -474,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Chasse aux Chaussettes 🧦🔍",
-            "image": "https://via.placeholder.com/600x400.png?text=Chaussettes",
+            "image": "",
             "text": [
               "Léna 👧 ne retrouvait jamais ses chaussettes 🧦.",
               "Yaya 🐱 les avait toutes cachées dans sa maison secrète 🏠.",
@@ -490,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Bus Magique 🚌✨",
-            "image": "https://via.placeholder.com/600x400.png?text=Bus+magique",
+            "image": "",
             "text": [
               "En allant à l’école 📚, Léna 👧 monta dans un bus étrange 🚌.",
               "Yaya 🐱 conduisait le bus 🚍 ! Quelle folie 🤯 !",
@@ -506,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Chien Savant 🐶🎓",
-            "image": "https://via.placeholder.com/600x400.png?text=Chien+savant",
+            "image": "",
             "text": [
               "Un jour, Léna 👧 et Yaya 🐱 rencontrèrent un chien 🐶 qui savait lire 📖.",
               "Il portait des lunettes 🤓 et récitait l’alphabet 🎶.",
@@ -522,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Forêt qui Rigole 🌳😂",
-            "image": "https://via.placeholder.com/600x400.png?text=Foret+rigolote",
+            "image": "",
             "text": [
               "En se promenant 🌳, Léna 👧 entendit des arbres qui rigolaient 😂.",
               "Yaya 🐱 grimpa et chatouilla les branches 🤭.",
@@ -538,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Chapeau de Pirate 🏴‍☠️🎩",
-            "image": "https://via.placeholder.com/600x400.png?text=Chapeau+pirate",
+            "image": "",
             "text": [
               "Léna 👧 trouva un chapeau de pirate 🏴‍☠️ dans un coffre.",
               "Yaya 🐱 le porta… et se crut capitaine ⛵.",
@@ -554,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Pluie de Bonbons 🍬🌧️",
-            "image": "https://via.placeholder.com/600x400.png?text=Pluie+bonbons",
+            "image": "",
             "text": [
               "Un jour, le ciel devint bizarre 🌥️.",
               "Au lieu de pluie 💧, il tomba des bonbons 🍬 !",
@@ -570,7 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Fusée en Carton 🚀📦",
-            "image": "https://via.placeholder.com/600x400.png?text=Fusee+carton",
+            "image": "",
             "text": [
               "Léna 👧 construisit une fusée 🚀 avec un carton 📦.",
               "Yaya 🐱 monta à bord comme copilote 👩‍🚀.",
@@ -586,7 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Cirque de Yaya 🎪🐱",
-            "image": "https://via.placeholder.com/600x400.png?text=Cirque+Yaya",
+            "image": "",
             "text": [
               "Yaya 🐱 décida d’ouvrir un cirque 🎪 dans le salon.",
               "Léna 👧 vendait les tickets 🎟️.",
@@ -602,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Jardin Arc-en-ciel 🌼🌈",
-            "image": "https://via.placeholder.com/600x400.png?text=Jardin+arc-en-ciel",
+            "image": "",
             "text": [
               "Léna 👧 planta des graines de toutes les couleurs 🎨.",
               "Yaya 🐱 arrosait avec un arrosoir magique ✨.",
@@ -618,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Robot Rieur 🤖😂",
-            "image": "https://via.placeholder.com/600x400.png?text=Robot+Rieur",
+            "image": "",
             "text": [
               "Léna 👧 construisit un petit robot en carton 🤖.",
               "Yaya 🐱 programma un bouton spécial ▶️.",
@@ -634,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Pluie de Bulles 🫧☔",
-            "image": "https://via.placeholder.com/600x400.png?text=Pluie+de+bulles",
+            "image": "",
             "text": [
               "Un nuage passa au-dessus de la maison ☁️.",
               "Au lieu de pluie, il tomba des bulles géantes 🫧.",
@@ -652,7 +653,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const storySetTwo = [
         {
             "title": "La Montgolfière Surprise 🎈🏔️",
-            "image": "https://via.placeholder.com/600x400.png?text=Montgolfiere",
+            "image": "",
             "text": [
               "Léna 👧 découvrit une montgolfière 🎈 cachée dans la grange.",
               "Yaya 🐱 gonfla l'énorme ballon avec un soufflet magique ✨.",
@@ -668,7 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Trésor Sous-Marin 🌊🪙",
-            "image": "https://via.placeholder.com/600x400.png?text=Tresor+sous-marin",
+            "image": "",
             "text": [
               "Léna 👧 et Yaya 🐱 plongèrent dans la mer avec un sous-marin jaune 🛥️.",
               "Elles rencontrèrent une tortue bavarde 🐢.",
@@ -684,7 +685,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Classe des Robots 🤖📚",
-            "image": "https://via.placeholder.com/600x400.png?text=Classe+robots",
+            "image": "",
             "text": [
               "Yaya 🐱 ouvrit une école spéciale pour robots 🤖.",
               "Léna 👧 enseigna comment dire bonjour poliment 🙋.",
@@ -700,7 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Festival des Lanternes 🏮✨",
-            "image": "https://via.placeholder.com/600x400.png?text=Lanternes",
+            "image": "",
             "text": [
               "Dans le village, un festival de lanternes brillait 🏮.",
               "Léna 👧 fabriqua une lanterne en forme de lune 🌙.",
@@ -716,7 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Marché des Sorbets 🍧🛒",
-            "image": "https://via.placeholder.com/600x400.png?text=Marche+sorbets",
+            "image": "",
             "text": [
               "Léna 👧 et Yaya 🐱 tinrent un stand de sorbets 🍧.",
               "Chaque parfum changeait la couleur de la langue 😛.",
@@ -732,7 +733,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "Le Concert des Forêts 🌲🎻",
-            "image": "https://via.placeholder.com/600x400.png?text=Concert+foret",
+            "image": "",
             "text": [
               "Dans la forêt magique, les arbres voulaient chanter 🎶.",
               "Léna 👧 dirigea l'orchestre avec une baguette lumineuse ✨.",
@@ -751,7 +752,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const storySetThree = [
         {
             "title": "La Biblioteca de las Nubes ☁️📚",
-            "image": "https://via.placeholder.com/600x400.png?text=Biblioteca+de+nubes",
+            "image": "",
             "text": [
               "Una nube esponjosa invitó a Léna 👧 y Yaya 🐱 a una biblioteca flotante ☁️📚.",
               "Cada libro estaba hecho de vapor brillante ✨.",
@@ -767,7 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Carrera de Meteoritos 🌠🏁",
-            "image": "https://via.placeholder.com/600x400.png?text=Carrera+meteoritos",
+            "image": "",
             "text": [
               "El zorro cósmico invitó a Léna y Yaya a una carrera de meteoritos 🌠.",
               "Cada meteorito tenía un número mágico que indicaba su velocidad 🔢.",
@@ -783,7 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "La Isla de los Rompecabezas 🧩🏝️",
-            "image": "https://via.placeholder.com/600x400.png?text=Isla+rompecabezas",
+            "image": "",
             "text": [
               "Un mapa secreto condujo a Léna y Yaya a la Isla de los Rompecabezas 🧩🏝️.",
               "Las palmeras hablaban y proponían acertijos para abrir cofres 🗝️.",
@@ -799,7 +800,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "El Jardín de las Divisiones 🪙🌷",
-            "image": "https://via.placeholder.com/600x400.png?text=Jardin+divisiones",
+            "image": "",
             "text": [
               "El hada de las monedas pidió ayuda para repartir luz en su jardín 🪙🌷.",
               "Cada flor se iluminaba solo si recibía la misma cantidad de brillo ✨.",
@@ -815,7 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "title": "El Bosque de las Risas Secretas 😂🌳",
-            "image": "https://via.placeholder.com/600x400.png?text=Bosque+risas",
+            "image": "",
             "text": [
               "El bosque encantado estaba silencioso y pidió una ronda de chistes 😂🌳.",
               "Cada árbol tenía un acertijo escondido en sus hojas doradas 🍂.",
@@ -1216,7 +1217,92 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'giftPurple', emoji: '🎁', label: 'Cadeau violet', target: 'purple-square' },
                 { id: 'coneOrange', emoji: '🎃', label: 'Lantern', target: 'orange-triangle' }
             ]
-        }
+        },
+        {
+            level: 11,
+            type: 'category',
+            instruction: 'Trie les animaux : ceux de la ferme et ceux de la savane.',
+            categories: [
+                { id: 'farm', label: 'Ferme 🐔' },
+                { id: 'savanna', label: 'Savane 🦁' }
+            ],
+            items: [
+                { id: 'cow', emoji: '🐮', label: 'Vache', target: 'farm' },
+                { id: 'lion', emoji: '🦁', label: 'Lion', target: 'savanna' },
+                { id: 'pig', emoji: '🐷', label: 'Cochon', target: 'farm' },
+                { id: 'zebra', emoji: '🦓', label: 'Zèbre', target: 'savanna' },
+                { id: 'chicken', emoji: '🐔', label: 'Poule', target: 'farm' },
+                { id: 'elephant', emoji: '🐘', label: 'Éléphant', target: 'savanna' }
+            ]
+        },
+        {
+            level: 12,
+            type: 'category',
+            instruction: 'Classe les aliments : fruits ou légumes ?',
+            categories: [
+                { id: 'fruit', label: 'Fruits 🍓' },
+                { id: 'vegetable', label: 'Légumes 🥕' }
+            ],
+            items: [
+                { id: 'banana', emoji: '🍌', label: 'Banane', target: 'fruit' },
+                { id: 'carrot', emoji: '🥕', label: 'Carotte', target: 'vegetable' },
+                { id: 'grapes', emoji: '🍇', label: 'Raisin', target: 'fruit' },
+                { id: 'broccoli', emoji: '🥦', label: 'Brocoli', target: 'vegetable' },
+                { id: 'orange', emoji: '🍊', label: 'Orange', target: 'fruit' },
+                { id: 'tomato', emoji: '🍅', label: 'Tomate', target: 'vegetable' }
+            ]
+        },
+        {
+            level: 13,
+            type: 'transport',
+            instruction: 'Trie les moyens de transport.',
+            categories: [
+                { id: 'land', label: 'Sur Terre 🚗' },
+                { id: 'air', label: 'Dans les Airs ✈️' },
+                { id: 'water', label: 'Sur l\'Eau ⛵' }
+            ],
+            items: [
+                { id: 'car', emoji: '🚗', label: 'Voiture', target: 'land' },
+                { id: 'airplane', emoji: '✈️', label: 'Avion', target: 'air' },
+                { id: 'boat', emoji: '⛵', label: 'Bateau', target: 'water' },
+                { id: 'bicycle', emoji: '🚲', label: 'Vélo', target: 'land' },
+                { id: 'helicopter', emoji: '🚁', label: 'Hélicoptère', target: 'air' },
+                { id: 'ship', emoji: '🚢', label: 'Navire', target: 'water' }
+            ]
+        },
+        {
+            level: 14,
+            type: 'category',
+            instruction: 'Range les objets : jouets ou fournitures scolaires ?',
+            categories: [
+                { id: 'toy', label: 'Jouets 🧸' },
+                { id: 'school', label: 'École ✏️' }
+            ],
+            items: [
+                { id: 'teddy', emoji: '🧸', label: 'Nounours', target: 'toy' },
+                { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'school' },
+                { id: 'ball', emoji: '⚽', label: 'Ballon', target: 'toy' },
+                { id: 'book', emoji: '📖', label: 'Livre', target: 'school' },
+                { id: 'doll', emoji: '🎎', label: 'Poupée', target: 'toy' },
+                { id: 'scissors', emoji: '✂️', label: 'Ciseaux', target: 'school' }
+            ]
+        },
+        {
+            level: 15,
+            type: 'weather',
+            instruction: 'Quel temps fait-il ?',
+            categories: [
+                { id: 'sunny', label: 'Soleil ☀️' },
+                { id: 'rainy', label: 'Pluie 🌧️' }
+            ],
+            items: [
+                { id: 'sun', emoji: '☀️', label: 'Soleil', target: 'sunny' },
+                { id: 'umbrella', emoji: '☔', label: 'Parapluie', target: 'rainy' },
+                { id: 'sunglasses', emoji: '😎', label: 'Lunettes', target: 'sunny' },
+                { id: 'cloud', emoji: '🌧️', label: 'Nuage', target: 'rainy' },
+                { id: 'rainbow', emoji: '🌈', label: 'Arc-en-ciel', target: 'sunny' }
+            ]
+        },
     ];
 
     const riddleLevels = [
@@ -2364,10 +2450,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.audioManager?.isMuted) {
             return;
         }
-        if (type === 'correct') {
+        if (type === 'correct' && audioCorrect && audioCorrect.src) {
             audioCorrect.currentTime = 0;
             audioCorrect.play();
-        } else if (type === 'wrong') {
+        } else if (type === 'wrong' && audioWrong && audioWrong.src) {
             audioWrong.currentTime = 0;
             audioWrong.play();
         } else if (type === 'coins' && audioCoins) {
@@ -3472,8 +3558,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             const maxSum = Math.max(10, config.maxSum || (level * 10));
             const minAddend = Math.max(0, config.minAddend ?? 0);
-            const first = randomInt(minAddend, Math.max(minAddend, Math.floor(maxSum * 0.6)));
-            const secondMax = Math.max(minAddend, Math.min(config.maxAddend || maxSum, maxSum - first));
+            const first = randomInt(minAddend, Math.max(minAddend, Math.floor(maxSum * 0.8)));
+            const secondMax = Math.max(minAddend, maxSum - first);
             const second = randomInt(minAddend, secondMax);
             num1 = first;
             num2 = second;
@@ -3946,9 +4032,9 @@ function showNumberHousesGame(level) {
     gameState.questionStartTime = performance.now();
 
     const maxRoofNumber = (level * 5) + 15;
-    const roofNumber = Math.floor(Math.random() * (maxRoofNumber - 10)) + 10;
-    const pairsCount = Math.min(10, level * 2 + 5); 
-    const pairs = generateNumberPairs(roofNumber, pairsCount);
+    const roofNumber = randomInt(10, maxRoofNumber);
+    const pairsCount = 6;
+    const problems = generateNumberProblems(roofNumber, pairsCount);
 
     const container = document.createElement('div');
     container.className = 'number-house-container fx-bounce-in-down';
@@ -3963,7 +4049,7 @@ function showNumberHousesGame(level) {
 
     const instruction = document.createElement('p');
     instruction.className = 'question-prompt';
-    instruction.textContent = `Complète les ${pairsCount} maisons des nombres pour arriver à ${roofNumber}.`;
+    instruction.textContent = `Complète les ${pairsCount} maisons pour trouver le nombre magique.`;
     promptWrapper.appendChild(instruction);
 
     const audioBtn = createAudioButton({
@@ -3981,23 +4067,32 @@ function showNumberHousesGame(level) {
     const windowsContainer = document.createElement('div');
     windowsContainer.className = 'windows';
 
-pairs.forEach((pair, index) => {
-    const row = document.createElement('div');
-    row.className = 'window-row';
-    const isFirstHidden = Math.random() < 0.5;
-    const firstNum = isFirstHidden ? '' : pair[0];
-    const secondNum = isFirstHidden ? pair[1] : '';
-    const correctValue = isFirstHidden ? pair[0] : pair[1];
+    problems.forEach((problem, index) => {
+        const row = document.createElement('div');
+        row.className = 'window-row';
+        row.style.animationDelay = `${index * 0.08}s`;
+        row.classList.add('fx-bounce-in-down');
 
-    row.innerHTML = `
-        ${isFirstHidden ? `<input type="number" class="window-input" data-correct-value="${correctValue}" />` : `<span class="window-number">${firstNum}</span>`}
-        <span class="plus-sign">+</span>
-        ${isFirstHidden ? `<span class="window-number">${secondNum}</span>` : `<input type="number" class="window-input" data-correct-value="${correctValue}" />`}
-        <span class="equal-sign">=</span>
-        <span class="window-number">${roofNumber}</span>
-    `;
-    windowsContainer.appendChild(row);
-});
+        const { num1, num2, answer, operation, hiddenIndex } = problem;
+        const operatorSymbol = operation === 'subtraction' ? '−' : '+';
+
+        const parts = [
+            hiddenIndex === 0 ? `<input type="number" class="window-input" data-correct-value="${answer}" />` : `<span class="window-number">${num1}</span>`,
+            `<span class="plus-sign">${operatorSymbol}</span>`,
+            hiddenIndex === 1 ? `<input type="number" class="window-input" data-correct-value="${answer}" />` : `<span class="window-number">${num2}</span>`,
+            `<span class="equal-sign">=</span>`,
+            `<span class="window-number">${roofNumber}</span>`
+        ];
+
+        if (operation === 'subtraction' && hiddenIndex === 1) {
+            // To make it num1 - ? = roof, we swap the input and the roof
+            parts[2] = `<span class="window-number">${roofNumber}</span>`;
+            parts[4] = `<input type="number" class="window-input" data-correct-value="${answer}" />`;
+        }
+
+        row.innerHTML = parts.join('');
+        windowsContainer.appendChild(row);
+    });
 
 container.appendChild(windowsContainer);
 
@@ -4006,7 +4101,7 @@ checkBtn.id = 'checkHouseBtn';
 checkBtn.className = 'submit-btn fx-bounce-in-down';
 checkBtn.textContent = 'Vérifier';
 checkBtn.setAttribute('aria-label', 'Vérifier les réponses');
-checkBtn.style.animationDelay = `${pairs.length * 0.1 + 0.5}s`;
+checkBtn.style.animationDelay = `${problems.length * 0.1 + 0.5}s`;
 container.appendChild(checkBtn);
 content.appendChild(container);
 
@@ -4086,22 +4181,44 @@ function handleCheckHouses() {
  * @param {number} count La cantidad de pares a generar.
  * @returns {Array<Array<number>>} Un array de pares de números.
  */
-function generateNumberPairs(sum, count) {
-    const pairs = [];
+function generateNumberProblems(sum, count) {
+    const problems = [];
     const usedPairs = new Set(); 
 
-    while (pairs.length < count) {
-        const num1 = Math.floor(Math.random() * (sum + 1)); 
-        const num2 = sum - num1;
-        
-        const pairKey = num1 < num2 ? `${num1}-${num2}` : `${num2}-${num1}`;
+    while (problems.length < count) {
+        const isSubtraction = Math.random() < 0.4; // 40% de probabilidad de resta
+        let problem;
 
-        if (!usedPairs.has(pairKey)) {
-            pairs.push([num1, num2]);
-            usedPairs.add(pairKey);
+        if (isSubtraction) {
+            const num1 = randomInt(sum + 1, sum + 15);
+            const answer = num1 - sum;
+            const pairKey = `${num1}-sub`;
+            if (!usedPairs.has(pairKey)) {
+                problem = { num1, num2: answer, answer, operation: 'subtraction', hiddenIndex: 1 };
+                usedPairs.add(pairKey);
+            }
+        } else { // Adición
+            const num1 = randomInt(0, sum);
+            const answer = sum - num1;
+            const pairKey = num1 < answer ? `${num1}-${answer}` : `${answer}-${num1}`;
+            if (!usedPairs.has(pairKey)) {
+                const hiddenIndex = Math.random() < 0.5 ? 0 : 1;
+                problem = {
+                    num1: hiddenIndex === 0 ? answer : num1,
+                    num2: hiddenIndex === 0 ? num1 : answer,
+                    answer: hiddenIndex === 0 ? num1 : answer,
+                    operation: 'addition',
+                    hiddenIndex
+                };
+                usedPairs.add(pairKey);
+            }
+        }
+
+        if (problem) {
+            problems.push(problem);
         }
     }
-    return pairs;
+    return problems;
 }
 
     function showColorGame(level) {
@@ -4973,8 +5090,8 @@ function generateNumberPairs(sum, count) {
             updateUI();
             clearProgressTracker();
             setTimeout(() => {
-                if (currentLevel < sortingLevels.length) {
-                    showSortingGame(currentLevel + 1);
+                if (gameState.currentLevel < sortingLevels.length) {
+                    showSortingGame(gameState.currentLevel + 1);
                 } else {
                     showLevelMenu('sorting');
                 }
