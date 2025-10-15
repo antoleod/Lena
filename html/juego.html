@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <title>Appli de Léna — Jeu 🦄</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/juego.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body class="body-level-1">
+  <div id="stageTop">
+    <div class="scores-container">
+      <span id="user-info"></span>
+      <div id="user-menu" class="user-menu is-hidden">
+        <button id="menu-back">Retour au menu</button>
+        <button id="menu-shop">Voir la boutique</button>
+        <button id="menu-avatar">Changer d'avatar</button>
+      </div>
+      <span id="scoreStars">0</span>
+      <span id="scoreCoins" class="coins">0</span>
+      <span id="level" class="level">Niveau 1</span>
+    </div>
+    <div class="top-buttons">
+        <button id="btnReadMode" class="btn" disabled>📖</button>
+        <button id="btnShop" class="btn">🛍️ Boutique</button>
+        <button id="btnLogros" class="btn">🏆 Succès</button>
+        <button id="btnLogout" class="btn">🚪 Quitter</button>
+        <button id="btnBack" class="btn">Retour</button>
+    </div>
+  </div>
+
+  <div id="stageBottom">
+    <div id="content">
+      <!-- Game content will be loaded here by JavaScript -->
+    </div>
+    
+    <div id="stageBtns">
+      <button id="btnPrev" class="btn" aria-label="Précédent">Précédent</button>
+      <button id="btnSkip" class="btn" aria-label="Passer">Passer</button>
+    </div>
+  </div>
+
+  <audio id="audioCorrect" src="https://assets.mixkit.co/sfx/download/mixkit-game-bling-2041.wav"></audio>
+  <audio id="audioWrong" src="https://assets.mixkit.co/sfx/download/mixkit-wrong-answer-2051.wav"></audio>
+  <audio id="audioCoins" src="https://assets.mixkit.co/sfx/download/mixkit-collect-coin-1938.wav"></audio>
+
+  <div id="shopModal" class="shop-modal" aria-hidden="true">
+    <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
+      <div class="shop-modal__header">
+        <h2 id="shopModalTitle">Boutique de récompenses</h2>
+        <button id="shopClose" class="shop-modal__close" aria-label="Fermer la boutique">×</button>
+      </div>
+      <p class="shop-modal__subtitle">Échange tes pièces contre des cadeaux magiques ✨</p>
+      <div class="shop-modal__content">
+        <section class="shop-section" aria-label="Articles disponibles">
+          <h3>Articles disponibles</h3>
+          <ul id="shopList" class="shop-list"></ul>
+        </section>
+        <section class="shop-section" aria-label="Mes trésors">
+          <h3>Mes trésors</h3>
+          <ul id="inventoryList" class="shop-inventory"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+  <script src="../games/puzzlemagique.js"></script>
+  <script src="../games/repartis.js"></script>
+  <script src="../games/dictee.js"></script>
+  <script src="../games/mathblitz.js"></script>
+  <script src="../games/lecturemagique.js"></script>
+  <script src="../games/raisonnement.js"></script>
+  <script src="../js/audioManager.js"></script>
+  <script src="../js/avatarData.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/footer.js"></script>
+  <script src="../js/juego.js"></script>
+</body>
+</html>

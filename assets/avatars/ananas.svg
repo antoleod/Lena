@@ -1,0 +1,26 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ananas-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd184"/>
+      <stop offset="100%" stop-color="#ff9f1c"/>
+    </linearGradient>
+    <linearGradient id="ananas-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8dd39b"/>
+      <stop offset="100%" stop-color="#2f9a74"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="200" height="200" rx="40" fill="#fff7e6"/>
+    <path d="M102 30c-10 0-20 8-24 20 8-2 16-3 24-3s16 1 24 3c-4-12-14-20-24-20Z" fill="url(#ananas-leaf)"/>
+    <path d="M82 32c-8 7-12 16-12 24 9-4 19-6 32-6s23 2 32 6c0-8-4-17-12-24-12 4-28 4-40 0Z" fill="#2f9a74" opacity="0.75"/>
+    <path d="M64 86c0-28 21-40 48-40s48 12 48 40c0 42-24 74-48 92a12 12 0 0 1-14 0c-24-18-34-32-34-92Z" fill="url(#ananas-body)"/>
+    <g stroke="#f48f2c" stroke-width="6" opacity="0.5" stroke-linecap="round">
+      <path d="M74 92c24 32 52 50 88 60"/>
+      <path d="M74 120c18 18 40 34 74 46"/>
+      <path d="M150 92c-24 32-52 50-88 60"/>
+      <path d="M150 120c-18 18-40 34-74 46"/>
+    </g>
+    <ellipse cx="90" cy="108" rx="10" ry="5" fill="rgba(255,255,255,0.22)"/>
+    <ellipse cx="120" cy="140" rx="8" ry="4" fill="rgba(255,255,255,0.18)"/>
+  </g>
+</svg>

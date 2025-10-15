@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Trouve le mot – Niveau 6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🎯</span>Trouve le mot – Niveau 6</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" onclick="window.location.href='../index.html'">⬅ Retour aux niveaux</button>
+        <button class="action-btn" type="button" id="repeatInstructionBtn">🔊 Répéter la consigne</button>
+      </div>
+    </div>
+
+    <section class="section-intro" id="instructionText">
+      Clique sur l’image qui correspond au mot entendu.
+    </section>
+
+    <div class="controls">
+      <div class="progress-counter" id="progressCounter">Exercice 1 / 7</div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+    </div>
+
+    <section class="illustration-container" id="optionsContainer" aria-label="Choisis l’image correspondante">
+      <!-- Options générées par JavaScript -->
+    </section>
+  </main>
+
+  <template id="optionTemplate">
+    <button class="word-option" type="button">
+      <span class="word-option__emoji" aria-hidden="true"></span>
+      <span class="word-option__label"></span>
+    </button>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+    window.TROUVE_LE_MOT_CONFIG = {
+      storageKey: 'gam_trouve_le_mot',
+      levelId: 'niveau6',
+      exercises: [
+            { word: 'tête', instruction: 'Clique sur la tête.', options: [ { word: 'tête', emoji: '👦' }, { word: 'main', emoji: '✋' }, { word: 'pied', emoji: '🦶' }, { word: 'jambe', emoji: '🦵' } ] },
+            { word: 'main', instruction: 'Clique sur la main.', options: [ { word: 'main', emoji: '✋' }, { word: 'bras', emoji: '💪' }, { word: 'doigt', emoji: '👍' }, { word: 'ongle', emoji: '💅' } ] },
+            { word: 'pied', instruction: 'Clique sur le pied.', options: [ { word: 'pied', emoji: '🦶' }, { word: 'orteil', emoji: '👣' }, { word: 'cheville', emoji: ' ankle' }, { word: 'talon', emoji: ' heel' } ] },
+            { word: 'jambe', instruction: 'Clique sur la jambe.', options: [ { word: 'jambe', emoji: '🦵' }, { word: 'genou', emoji: ' knee' }, { word: 'cuisse', emoji: ' thigh' }, { word: 'mollet', emoji: ' calf' } ] },
+            { word: 'yeux', instruction: 'Clique sur les yeux.', options: [ { word: 'yeux', emoji: '👀' }, { word: 'nez', emoji: '👃' }, { word: 'bouche', emoji: '👄' }, { word: 'oreille', emoji: '👂' } ] },
+            { word: 'nez', instruction: 'Clique sur le nez.', options: [ { word: 'nez', emoji: '👃' }, { word: 'front', emoji: ' forehead' }, { word: 'menton', emoji: ' chin' }, { word: 'joue', emoji: ' cheek' } ] },
+            { word: 'bouche', instruction: 'Clique sur la bouche.', options: [ { word: 'bouche', emoji: '👄' }, { word: 'dents', emoji: '🦷' }, { word: 'langue', emoji: '👅' }, { word: 'lèvres', emoji: '💋' } ] }
+          ]
+    };
+  </script>
+  <script src="../level.js"></script>
+</body>
+</html>

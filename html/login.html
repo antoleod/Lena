@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Appli de Léna - Bienvenue !</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div class="login-orb login-orb--pink"></div>
+    <div class="login-orb login-orb--mint"></div>
+    <div class="login-orb login-orb--lavender"></div>
+
+    <div id="login-container" role="main">
+        <div class="login-header">
+            <span class="login-badge">✨ Choisis ton avatar ✨</span>
+            <h1 class="login-title">Bienvenue dans ton aventure magique</h1>
+            <p class="login-steps">Sélectionne un avatar, choisis ta couleur préférée et écris ton prénom.</p>
+
+            <div class="selection-preview" aria-live="polite">
+                <div class="selection-preview__avatar" aria-hidden="true">
+                    <img id="selected-avatar-preview" src="" alt="">
+                    <span id="selected-avatar-placeholder" class="selection-preview__placeholder">✨</span>
+                </div>
+                <div class="selection-preview__details">
+                    <span class="selection-preview__label">Avatar choisi</span>
+                    <span class="selection-preview__value" id="selected-avatar-name">Choisis ton avatar</span>
+                </div>
+                <div class="selection-preview__details">
+                    <span class="selection-preview__label">Ton prénom</span>
+                    <span class="selection-preview__value" id="selected-player-name">Écris ton prénom</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="login-section" aria-labelledby="avatar-section-title">
+            <header class="section-header">
+                <h2 id="avatar-section-title">Avatars délicieux</h2>
+            </header>
+            <div id="avatar-selection" role="listbox" aria-label="Choisis ton avatar préféré">
+                <button class="avatar-option" type="button" data-avatar-id="licorne" data-avatar-name="Licorne Arc-en-ciel" data-avatar-icon="../assets/avatars/licorne.svg" data-avatar-color="#ffc6ff" aria-label="Licorne arc-en-ciel">
+                    <span class="avatar-emoji">🦄</span>
+                    <span class="avatar-label">Licorne</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="renard" data-avatar-name="Renard malicieux" data-avatar-icon="../assets/avatars/renard.svg" data-avatar-color="#ffd6a5" aria-label="Renard malicieux">
+                    <span class="avatar-emoji">🦊</span>
+                    <span class="avatar-label">Renard</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="panda" data-avatar-name="Panda câlin" data-avatar-icon="../assets/avatars/panda.svg" data-avatar-color="#caffbf" aria-label="Panda câlin">
+                    <span class="avatar-emoji">🐼</span>
+                    <span class="avatar-label">Panda</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="hibou" data-avatar-name="Hibou sage" data-avatar-icon="../assets/avatars/hibou.svg" data-avatar-color="#a0c4ff" aria-label="Hibou sage">
+                    <span class="avatar-emoji">🦉</span>
+                    <span class="avatar-label">Hibou</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="fraise" data-avatar-name="Fraise pétillante" data-avatar-icon="../assets/avatars/fraise.svg" data-avatar-color="#ffadad" aria-label="Fraise pétillante">
+                    <span class="avatar-emoji">🍓</span>
+                    <span class="avatar-label">Fraise</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="pomme" data-avatar-name="Pomme brillante" data-avatar-icon="../assets/avatars/pomme.svg" data-avatar-color="#ffadad" aria-label="Pomme brillante">
+                    <span class="avatar-emoji">🍎</span>
+                    <span class="avatar-label">Pomme</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="banane" data-avatar-name="Banane rigolote" data-avatar-icon="../assets/avatars/banane.svg" data-avatar-color="#fdffb6" aria-label="Banane rigolote">
+                    <span class="avatar-emoji">🍌</span>
+                    <span class="avatar-label">Banane</span>
+                </button>
+                <button class="avatar-option" type="button" data-avatar-id="ananas" data-avatar-name="Ananas disco" data-avatar-icon="../assets/avatars/ananas.svg" data-avatar-color="#ffd6a5" aria-label="Ananas disco">
+                    <span class="avatar-emoji">🍍</span>
+                    <span class="avatar-label">Ananas</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="login-section" aria-labelledby="name-section-title">
+           <div class="name-input-wrapper">
+                <span class="name-icon" aria-hidden="true">📝</span>
+                <input type="text" id="name-input" placeholder="Écris ton prénom ici..." aria-label="Écris ton prénom" autocapitalize="words" maxlength="12" inputmode="text">
+            </div>
+        </section>
+
+        <section class="login-section" aria-labelledby="color-section-title">
+            <header class="section-header">
+                <h2 id="color-section-title">Choisis ta couleur préférée</h2>
+            </header>
+            <div id="color-selection" role="radiogroup" aria-label="Choisis ta couleur préférée">
+                <button class="color-option" type="button" style="--color-base: #ffadad;" data-color="#ffadad" data-tooltip="🌸 Rose pastel" aria-label="Rose pastel"></button>
+                <button class="color-option" type="button" style="--color-base: #ffd6a5;" data-color="#ffd6a5" data-tooltip="🍑 Abricot doux" aria-label="Abricot doux"></button>
+                <button class="color-option" type="button" style="--color-base: #fdffb6;" data-color="#fdffb6" data-tooltip="🍋 Citron léger" aria-label="Citron léger"></button>
+                <button class="color-option" type="button" style="--color-base: #caffbf;" data-color="#caffbf" data-tooltip="🌿 Menthe fraîche" aria-label="Menthe fraîche"></button>
+                <button class="color-option" type="button" style="--color-base: #9bf6ff;" data-color="#9bf6ff" data-tooltip="🌊 Océan clair" aria-label="Océan clair"></button>
+                <button class="color-option" type="button" style="--color-base: #a0c4ff;" data-color="#a0c4ff" data-tooltip="☁️ Ciel calme" aria-label="Ciel calme"></button>
+                <button class="color-option" type="button" style="--color-base: #bdb2ff;" data-color="#bdb2ff" data-tooltip="💜 Lavande" aria-label="Lavande"></button>
+                <button class="color-option" type="button" style="--color-base: #ffc6ff;" data-color="#ffc6ff" data-tooltip="🍓 Framboise légère" aria-label="Framboise légère"></button>
+                <button class="color-option color-option-white" type="button" style="--color-base: #ffffff;" data-color="#ffffff" data-tooltip="✨ Blanc magique" aria-label="Blanc magique"></button>
+            </div>
+        </section>
+
+        <button id="login-btn" class="btn" type="button">
+            <span class="rocket-icon" aria-hidden="true">🚀</span>
+            <span class="btn-label">Entrer dans le monde de Léna</span>
+        </button>
+
+        <p id="login-error" class="login-error" role="alert" aria-live="assertive" hidden></p>
+    </div>
+
+    <div class="login-wand" aria-hidden="true">🪄</div>
+    <div class="login-fireflies" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+    </div>
+    <script src="../js/audioManager.js"></script>
+    <script src="../js/avatarData.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+</html>
