@@ -32,6 +32,54 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   updateSelectionPreview();
+  // En mode édition, precargar y renderizar objetos comprados
+  if (editMode && existingProfile?.name) {
+    if (nameInput) nameInput.value = existingProfile.name;
+    selectedAvatar = existingProfile.avatar;
+    selectedColor = existingProfile.color || selectedColor;
+    updateSelectionPreview();
+    renderOwnedCosmetics(existingProfile);
+  }
+
+  function renderOwnedCosmetics(profile) {
+    const ownedAvatarsEl = document.getElementById('owned-avatars');
+    const ownedBackgroundsEl = document.getElementById('owned-backgrounds');
+    if (!ownedAvatarsEl || !ownedBackgroundsEl || !profile?.name) return;
+    const progress = storage.loadUserProgress(profile.name);
+    const items = Array.isArray(progress.ownedItems) ? progress.ownedItems : [];
+    const activeBg = progress.activeCosmetics?.background || null;
+    ownedAvatarsEl.innerHTML = '';
+    ownedBackgroundsEl.innerHTML = '';
+    items.forEach(item => {
+      if (item.type === 'avatar') {
+        const div = document.createElement('div'); div.className = 'owned-item';
+        const img = document.createElement('img'); img.alt = item.name || 'Avatar'; img.src = resolveAvatarIcon(item.iconUrl || '');
+        const label = document.createElement('div'); label.className = 'owned-item__name'; label.textContent = item.name || item.id;
+        const btn = document.createElement('button'); btn.className = 'owned-item__btn'; btn.type='button'; btn.textContent = 'Utiliser';
+        if (profile.avatar?.id === item.id) { btn.disabled = true; }
+        btn.addEventListener('click', () => {
+          const newProfile = { ...profile, avatar: { id: item.id, name: item.name, iconUrl: item.iconUrl } };
+          storage.saveUserProfile(newProfile);
+          selectedAvatar = newProfile.avatar; updateSelectionPreview();
+          renderOwnedCosmetics(newProfile);
+        });
+        div.append(img, label, btn); ownedAvatarsEl.appendChild(div);
+      } else if (item.type === 'background' || item.type === 'theme') {
+        const div = document.createElement('div'); div.className = 'owned-item';
+        const img = document.createElement('img'); img.alt = item.name || 'Fond'; img.src = item.previewUrl || resolveAvatarIcon(profile.avatar?.iconUrl || '');
+        const label = document.createElement('div'); label.className = 'owned-item__name'; label.textContent = item.name || item.id;
+        const btn = document.createElement('button'); btn.className = 'owned-item__btn'; btn.type='button'; btn.textContent = 'Définir';
+        if (activeBg === item.id) { btn.disabled = true; }
+        btn.addEventListener('click', () => {
+          const prog = storage.loadUserProgress(profile.name);
+          prog.activeCosmetics = { ...(prog.activeCosmetics || {}), background: item.id };
+          storage.saveUserProgress(profile.name, prog);
+          renderOwnedCosmetics(profile);
+        });
+        div.append(img, label, btn); ownedBackgroundsEl.appendChild(div);
+      }
+    });
+  }
 
   function createAudio(src) {
     const audio = new Audio(src);
@@ -40,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Sonidos locales para clic y brillo (offline-friendly)
-  const popSound = createAudio('../assets/sounds/bling.wav');
-  const sparkleSound = createAudio('../assets/sounds/correct.wav');
+  const popSound = createAudio('../sonidos/bling.wav');
+  const sparkleSound = createAudio('../sonidos/correct.wav');
   window.audioManager?.bind(popSound);
   window.audioManager?.bind(sparkleSound);
   popSound.volume = 0.4;

@@ -2406,12 +2406,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function launchAbaqueMagique(level) {
         gameState.currentTopic = 'abaque-magique';
-        gameState.currentLevel = level;
+        gameState.currentLevel = level || 1; // Toujours commencer au niveau 1
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('abaque-magique');
         if (window.abaqueMagiqueGame && typeof window.abaqueMagiqueGame.start === 'function') {
-            window.abaqueMagiqueGame.start(context);
+            window.abaqueMagiqueGame.start(context); // Le module gère maintenant ses propres niveaux
         } else {
             showComingSoon('Abaque Magique', '🔢');
         }

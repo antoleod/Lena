@@ -1237,8 +1237,10 @@
    § Fond étoilé pour le menu des contes
    ------------------------------ */
 .story-menu-active {
-  /* Fond nocturne profond */
-  background: #1a1a2e;
+  /* Fond animé de type coucher de soleil magique */
+  background: linear-gradient(170deg, #1a1a2e, #3a2d58, #6b446e, #a35d6a);
+  background-size: 400% 400%;
+  animation: sunsetGradient 45s ease infinite;
   transition: background 0.8s ease-in-out;
 }
 
@@ -1268,7 +1270,7 @@
   font-size: clamp(3rem, 8vw, 5rem);
   opacity: 0.85;
   filter: drop-shadow(0 0 15px rgba(240, 230, 255, 0.5));
-  animation: moonFloat 12s ease-in-out infinite;
+  animation: moonFloat 12s ease-in-out infinite, moonGlow 45s ease-in-out infinite;
 }
 
 /* Les étoiles qui scintillent */
@@ -1296,6 +1298,12 @@
   }
 }
 
+@keyframes moonGlow {
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(220, 220, 255, 0.6)); } /* Resplandor azulado frío */
+  25% { filter: drop-shadow(0 0 18px rgba(230, 210, 255, 0.7)); } /* Resplandor lavanda */
+  50% { filter: drop-shadow(0 0 20px rgba(255, 200, 220, 0.75)); } /* Resplandor rosado */
+  75% { filter: drop-shadow(0 0 18px rgba(255, 220, 180, 0.7)); } /* Resplandor dorado cálido */
+}
 @keyframes moveStars {
   from {
     transform: translate(0, 0);
@@ -1314,6 +1322,46 @@
   }
 }
 
+@keyframes sunsetGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Estrellas fugaces */
+.shooting-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
+  animation: shooting-star-anim var(--duration, 7s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.shooting-star:nth-child(2) {
+  top: 20%;
+  left: 40%;
+  animation-delay: 1s;
+  animation-duration: 8s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 60%;
+  left: 70%;
+  animation-delay: 3.5s;
+  animation-duration: 6s;
+}
+
+@keyframes shooting-star-anim {
+  0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(-150vw) translateY(150vh) rotate(45deg); opacity: 0; }
+}
 
 /* ------------------------------
    § Estilos para el Quiz de los Cuentos

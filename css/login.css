@@ -226,6 +226,22 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.55);
 }
 
+/* Boutique: liste des objets possédés (profil) */
+.owned-cosmetics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.owned-group { background: rgba(255,255,255,0.7); border-radius: 1rem; padding: 0.75rem; box-shadow: 0 6px 14px rgba(0,0,0,0.06); }
+.owned-title { font-family: 'Fredoka', sans-serif; font-size: 1.1rem; color: #3f2c85; margin: 0 0 0.5rem 0; }
+.owned-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.6rem; }
+.owned-item { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.8); border-radius: 0.75rem; padding: 0.6rem; box-shadow: 0 6px 10px rgba(0,0,0,0.06); }
+.owned-item img { width: 56px; height: 56px; object-fit: contain; }
+.owned-item__name { font-family: 'Nunito', sans-serif; font-size: 0.9rem; color: #4a3c75; text-align: center; }
+.owned-item__btn { border: none; border-radius: 999px; padding: 0.4rem 0.8rem; font-family: 'Fredoka', sans-serif; font-size: 0.9rem; background: linear-gradient(135deg, var(--primary-light), var(--primary)); color: white; cursor: pointer; box-shadow: 0 6px 10px rgba(0,0,0,0.1); }
+.owned-item__btn:hover { transform: translateY(-2px); }
+.owned-item__btn[disabled] { opacity: 0.6; cursor: default; box-shadow: none; }
+
 /* Encabezados de sección */
 .section-header {
   display: flex;
