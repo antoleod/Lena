@@ -11,6 +11,18 @@ window.REPETE_AVEC_MOI_LEVELS = [
       { sentence: 'La balle est rouge.' },
       { sentence: 'Le soleil brille.' }
     ]
+  },
+  {
+    id: 'niveau2',
+    title: 'Niveau 2',
+    badge: '🔊',
+    subtitle: 'Phrases un peu plus longues',
+    description: 'Écoute et répète des phrases de 5 à 7 mots.',
+    exercises: [
+      { sentence: 'Le petit train part tôt.' },
+      { sentence: 'La licorne saute très haut.' },
+      { sentence: 'Nous regardons la grande lune.' }
+    ]
   }
 ];
 

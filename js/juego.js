@@ -35,35 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.audioManager?.bind(audioWrong);
     window.audioManager?.bind(audioCoins);
     const stageBottom = document.getElementById('stageBottom');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnSkip = document.getElementById('btnSkip');
     const btnShop = document.getElementById('btnShop');
     const shopModal = document.getElementById('shopModal');
     const shopList = document.getElementById('shopList');
     const inventoryList = document.getElementById('inventoryList');
     const shopCloseBtn = document.getElementById('shopClose');
-
-
-    // --- Game State ---
-    let currentTopic = '';
-    let currentLevel;
-    let currentQuestionIndex = 0;
-    let userScore;
-    let answeredQuestions;
-    let storyQuiz = [];
-    let storyProgress = { activeSetIndex: 0, completed: {} };
-    let currentVowelLevelData = null;
-    let ownedItems = [];
-    let activeCosmetics = { background: null, badge: null };
-    let decorContainer = null;
-    let lastDecorKey = null;
-    let lastAppliedTheme = '';
-    let activeBadgeEmoji = null;
-    let questionStartTime = null;
-    let questionSkillTag = null;
-    let historyTracker = null;
-    let currentStoryIndex = null;
-    let activeReviewSkills = [];
-    let pauseReminderTimeout = null;
-    let currentRiddleLevelIndex = 0;
 
     // --- Game Data ---
     const LEVELS_PER_TOPIC = 12;
@@ -76,18 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
         colors: 6
     };
     const MEMORY_GAME_LEVELS = [
-      { level: 1, pairs: 2, grid: '2x2' },
-      { level: 2, pairs: 4, grid: '2x4' },
-      { level: 3, pairs: 6, grid: '3x4' },
-      { level: 4, pairs: 8, grid: '4x4' },
-      { level: 5, pairs: 10, grid: '4x5' },
-      { level: 6, pairs: 12, grid: '4x6' },
-      { level: 7, pairs: 14, grid: '4x7' },
-      { level: 8, pairs: 16, grid: '4x8' },
-      { level: 9, pairs: 18, grid: '5x8' },
-      { level: 10, pairs: 20, grid: '5x8' },
-      { level: 11, pairs: 22, grid: '4x11' },
-      { level: 12, pairs: 24, grid: '6x8' }
+      { level: 1, pairs: 2, grid: '2x2', timeLimit: null, traps: 0 },
+      { level: 2, pairs: 4, grid: '2x4', timeLimit: null, traps: 0 },
+      { level: 3, pairs: 6, grid: '3x4', timeLimit: null, traps: 0 },
+      { level: 4, pairs: 8, grid: '4x4', timeLimit: 90, traps: 0 },
+      { level: 5, pairs: 10, grid: '4x5', timeLimit: 100, traps: 2 },
+      { level: 6, pairs: 12, grid: '4x6', timeLimit: 120, traps: 2 },
+      { level: 7, pairs: 14, grid: '4x7', timeLimit: 130, traps: 3 },
+      { level: 8, pairs: 16, grid: '4x8', timeLimit: 140, traps: 4 },
+      { level: 9, pairs: 18, grid: '5x8', timeLimit: 150, traps: 4 },
+      { level: 10, pairs: 20, grid: '5x8', timeLimit: 160, traps: 5 },
+      { level: 11, pairs: 22, grid: '4x11', timeLimit: 170, traps: 6 },
+      { level: 12, pairs: 24, grid: '6x8', timeLimit: 180, traps: 6 }
     ];
     const emoji = {
         blue: '🔵', yellow: '🟡', red: '🔴', green: '🟢', orange: '🟠', purple: '🟣',
@@ -880,21 +858,21 @@ document.addEventListener('DOMContentLoaded', () => {
             : Math.min(Math.max(0, numericIndex), storyCollections.length - 1);
         activeStorySetIndex = safeIndex;
         magicStories = storyCollections[safeIndex]?.stories || [];
-        if (storyProgress && typeof storyProgress === 'object') {
-            storyProgress.activeSetIndex = safeIndex;
+        if (userProgress.storyProgress && typeof userProgress.storyProgress === 'object') {
+            userProgress.storyProgress.activeSetIndex = safeIndex;
         }
     }
 
     function ensureStoryProgressInitialized() {
-        if (!storyProgress || typeof storyProgress !== 'object') {
-            storyProgress = { activeSetIndex: activeStorySetIndex, completed: {} };
+        if (!userProgress.storyProgress || typeof userProgress.storyProgress !== 'object') {
+            userProgress.storyProgress = { activeSetIndex: activeStorySetIndex, completed: {} };
         }
-        if (!storyProgress.completed || typeof storyProgress.completed !== 'object') {
-            storyProgress.completed = {};
+        if (!userProgress.storyProgress.completed || typeof userProgress.storyProgress.completed !== 'object') {
+            userProgress.storyProgress.completed = {};
         }
         const currentSet = getActiveStorySet();
-        if (currentSet && !storyProgress.completed[currentSet.id]) {
-            storyProgress.completed[currentSet.id] = {};
+        if (currentSet && !userProgress.storyProgress.completed[currentSet.id]) {
+            userProgress.storyProgress.completed[currentSet.id] = {};
         }
     }
 
@@ -902,10 +880,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ensureStoryProgressInitialized();
         const targetSet = setId || getActiveStorySet()?.id;
         if (!targetSet) { return {}; }
-        if (!storyProgress.completed[targetSet]) {
-            storyProgress.completed[targetSet] = {};
+        if (!userProgress.storyProgress.completed[targetSet]) {
+            userProgress.storyProgress.completed[targetSet] = {};
         }
-        return storyProgress.completed[targetSet];
+        return userProgress.storyProgress.completed[targetSet];
     }
 
     function isStoryMarkedCompleted(storyId, setId) {
@@ -1885,6 +1863,34 @@ document.addEventListener('DOMContentLoaded', () => {
         'puzzle-magique': [], repartis: [], dictee: [], 'math-blitz': [], 'lecture-magique': [], raisonnement: [], review: []
     };
 
+    // --- Game State & User Progress ---
+    let gameState = {
+        currentTopic: '',
+        currentLevel: null,
+        currentQuestionIndex: 0,
+        storyQuiz: [],
+        currentVowelLevelData: null,
+        decorContainer: null,
+        lastDecorKey: null,
+        lastAppliedTheme: '',
+        questionStartTime: null,
+        questionSkillTag: null,
+        historyTracker: null,
+        currentStoryIndex: null,
+        activeReviewSkills: [],
+        pauseReminderTimeout: null,
+        currentRiddleLevelIndex: 0,
+    };
+
+    let userProgress = {
+        userScore: { stars: 0, coins: 0 },
+        answeredQuestions: {},
+        storyProgress: { activeSetIndex: 0, completed: {} },
+        ownedItems: [],
+        activeCosmetics: { background: null, badge: null },
+        activeBadgeEmoji: null,
+    };
+
     // --- Initialization ---
     console.log("Initializing game for user:", userProfile.name);
     function init() {
@@ -1908,10 +1914,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderUserIdentity(newBadgeEmoji) {
         if (typeof newBadgeEmoji !== 'undefined') {
-            activeBadgeEmoji = newBadgeEmoji;
+            userProgress.activeBadgeEmoji = newBadgeEmoji;
         }
         if (!userInfo) { return; }
-
+    
         userInfo.innerHTML = '';
         const avatarMeta = getAvatarMetaLocal(userProfile.avatar?.id);
         const avatarIconUrl = userProfile.avatar?.iconUrl || avatarMeta?.iconUrl;
@@ -1967,10 +1973,10 @@ document.addEventListener('DOMContentLoaded', () => {
         nameSpan.textContent = userProfile.name || 'Explorateur·rice';
         userInfo.appendChild(nameSpan);
 
-        if (activeBadgeEmoji) {
+        if (userProgress.activeBadgeEmoji) {
             const badgeSpan = document.createElement('span');
             badgeSpan.className = 'user-info__badge';
-            badgeSpan.textContent = activeBadgeEmoji;
+            badgeSpan.textContent = userProgress.activeBadgeEmoji;
             badgeSpan.title = 'Badge spécial';
             userInfo.appendChild(badgeSpan);
         }
@@ -1990,7 +1996,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupEventListeners() {
         btnLogout.addEventListener('click', () => {
-            historyTracker?.trackAppClose();
+            gameState.historyTracker?.trackAppClose();
             localStorage.removeItem('mathsLenaUserProfile');
             window.location.href = 'login.html';
         });
@@ -2032,6 +2038,75 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
+        // Global bottom controls
+        if (btnPrev) {
+            btnPrev.addEventListener('click', () => {
+                // Re-use the configured Back handler if available, otherwise go to topics
+                if (btnBack && typeof btnBack.onclick === 'function') {
+                    try { btnBack.onclick(); } catch (_) { showTopicMenu(); }
+                } else {
+                    showTopicMenu();
+                }
+            });
+        }
+
+        if (btnSkip) {
+            btnSkip.addEventListener('click', () => {
+                try {
+                    // Topics with their own loaders
+                    if (gameState.currentTopic === 'vowels') {
+                        const next = (gameState.currentQuestionIndex || 0) + 1;
+                        if (next < vowelLevels.length) { loadVowelQuestion(next); return; }
+                        showLevelMenu('vowels'); return;
+                    }
+                    if (gameState.currentTopic === 'riddles') {
+                        const next = (gameState.currentQuestionIndex || 0) + 1;
+                        if (next < (riddleLevels[gameState.currentRiddleLevelIndex]?.questions?.length || 0)) { loadRiddleQuestion(next); return; }
+                        showLevelMenu('riddles'); return;
+                    }
+                    if (gameState.currentTopic === 'sequences') {
+                        const next = (gameState.currentLevel || 1); // levels are 1-based
+                        if (next < sequenceLevels.length) { loadSequenceQuestion(next); return; }
+                        showLevelMenu('sequences'); return;
+                    }
+
+                    // Generic question-flow topics
+                    if (allQuestions && allQuestions[gameState.currentTopic]) {
+                        const questionsForLevel = allQuestions[gameState.currentTopic].filter(q => q.difficulty === gameState.currentLevel);
+                        const next = (gameState.currentQuestionIndex || 0) + 1;
+                        if (next < questionsForLevel.length) { loadQuestion(next); return; }
+                        // End of level -> back to levels
+                        showLevelMenu(gameState.currentTopic);
+                        return;
+                    }
+
+                    // Mini-games managed by separate modules: return to their level menus
+                    if (
+                      gameState.currentTopic === 'memory' ||
+                      gameState.currentTopic === 'puzzle-magique' ||
+                      gameState.currentTopic === 'repartis' ||
+                      gameState.currentTopic === 'dictee' ||
+                      gameState.currentTopic === 'math-blitz' ||
+                      gameState.currentTopic === 'lecture-magique' ||
+                      gameState.currentTopic === 'raisonnement' ||
+                      gameState.currentTopic === 'sorting'
+                    ) {
+                      showLevelMenu(gameState.currentTopic);
+                      return;
+                    }
+
+                    // For mini-games without question index, just go back to level menu
+                    if (gameState.currentTopic) {
+                        showLevelMenu(gameState.currentTopic);
+                    } else {
+                        showTopicMenu();
+                    }
+                } catch (err) {
+                    console.warn('Skip action failed', err);
+                    showTopicMenu();
+                }
+            });
+        }
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && shopModal && shopModal.classList.contains('is-open')) {
                 closeShop();
@@ -2040,50 +2115,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadProgress() {
-        const progress = storage.loadUserProgress(userProfile.name);
-        userScore = progress.userScore;
-        answeredQuestions = progress.answeredQuestions;
-        currentLevel = progress.currentLevel;
-        ownedItems = Array.isArray(progress.ownedItems) ? progress.ownedItems : [];
-        activeCosmetics = progress.activeCosmetics || { background: null, badge: null };
-        storyProgress = normalizeStoryProgress(progress.storyProgress);
-        setActiveStorySet(storyProgress.activeSetIndex || 0);
+        const loadedProgress = storage.loadUserProgress(userProfile.name);
+        userProgress.userScore = loadedProgress.userScore;
+        userProgress.answeredQuestions = loadedProgress.answeredQuestions;
+        gameState.currentLevel = loadedProgress.currentLevel;
+        userProgress.ownedItems = Array.isArray(loadedProgress.ownedItems) ? loadedProgress.ownedItems : [];
+        userProgress.activeCosmetics = loadedProgress.activeCosmetics || { background: null, badge: null };
+        userProgress.storyProgress = normalizeStoryProgress(loadedProgress.storyProgress);
+        setActiveStorySet(userProgress.storyProgress.activeSetIndex || 0);
         ensureStoryProgressInitialized();
-        migrateLegacyStoryKeys(answeredQuestions);
+        migrateLegacyStoryKeys(userProgress.answeredQuestions);
         ensureStoryProgressInitialized();
         if (advanceStorySetIfNeeded()) {
             // Reset completion map for the newly active set if absent
             ensureStoryProgressInitialized();
         }
     }
-
+    
     function saveProgress() {
         const progress = {
-            userScore: userScore,
-            answeredQuestions: answeredQuestions,
-            currentLevel: currentLevel,
-            ownedItems,
-            activeCosmetics,
-            storyProgress
+            userScore: userProgress.userScore,
+            answeredQuestions: userProgress.answeredQuestions,
+            currentLevel: gameState.currentLevel,
+            ownedItems: userProgress.ownedItems,
+            activeCosmetics: userProgress.activeCosmetics,
+            storyProgress: userProgress.storyProgress
         };
         storage.saveUserProgress(userProfile.name, progress);
     }
-
+    
     function configureBackButton(label, handler) {
         btnBack.style.display = 'inline-block';
         btnBack.textContent = label;
         btnBack.onclick = () => {
             saveProgress();
-            historyTracker?.endGame({ status: 'interrompu' });
-            if (currentTopic === 'review') {
-                activeReviewSkills = [];
+            gameState.historyTracker?.endGame({ status: 'interrompu' });
+            if (gameState.currentTopic === 'review') {
+                gameState.activeReviewSkills = [];
             }
             handler();
         };
     }
 
     function markLevelCompleted(topic, level) {
-        answeredQuestions[`${topic}-${level}`] = 'completed';
+        userProgress.answeredQuestions[`${topic}-${level}`] = 'completed';
         saveProgress();
     }
 
@@ -2093,19 +2168,19 @@ document.addEventListener('DOMContentLoaded', () => {
             content,
             btnLogros,
             btnLogout,
-            get currentLevel() {
-                return currentLevel;
+            get currentLevel() { 
+                return gameState.currentLevel;
             },
             setCurrentLevel(level) {
-                currentLevel = level;
+                gameState.currentLevel = level;
                 saveProgress();
             },
-            userScore,
+            userScore: userProgress.userScore,
             awardReward(stars = 0, coins = 0) {
-                if (typeof stars === 'number') { userScore.stars += stars; }
-                if (typeof coins === 'number') { userScore.coins += coins; }
-                userScore.stars = Math.max(0, userScore.stars);
-                userScore.coins = Math.max(0, userScore.coins);
+                if (typeof stars === 'number') { userProgress.userScore.stars += stars; }
+                if (typeof coins === 'number') { userProgress.userScore.coins += coins; }
+                userProgress.userScore.stars = Math.max(0, userProgress.userScore.stars);
+                userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins);
                 updateUI();
                 saveProgress();
             },
@@ -2118,9 +2193,9 @@ document.addEventListener('DOMContentLoaded', () => {
             playPositiveSound: () => playSound('correct'),
             playNegativeSound: () => playSound('wrong'),
             configureBackButton: (label, handler) => configureBackButton(label, handler),
-            markLevelCompleted: () => markLevelCompleted(topic, currentLevel),
+            markLevelCompleted: () => markLevelCompleted(topic, gameState.currentLevel),
             setAnsweredStatus: (status) => {
-                answeredQuestions[`${topic}-${currentLevel}`] = status;
+                userProgress.answeredQuestions[`${topic}-${gameState.currentLevel}`] = status;
                 saveProgress();
             },
             clearGameClasses: (classes) => {
@@ -2134,8 +2209,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function launchPuzzleMagique(level) {
-        currentTopic = 'puzzle-magique';
-        currentLevel = level;
+        gameState.currentTopic = 'puzzle-magique';
+        gameState.currentLevel = level;
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('puzzle-magique');
@@ -2148,8 +2223,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function launchRepartisGame(level) {
-        currentTopic = 'repartis';
-        currentLevel = level;
+        gameState.currentTopic = 'repartis';
+        gameState.currentLevel = level;
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('repartis');
@@ -2162,8 +2237,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function launchDicteeLevel(level) {
-        currentTopic = 'dictee';
-        currentLevel = level;
+        gameState.currentTopic = 'dictee';
+        gameState.currentLevel = level;
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('dictee', {
@@ -2181,8 +2256,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function launchMathBlitzLevel(level) {
-        currentTopic = 'math-blitz';
-        currentLevel = level;
+        gameState.currentTopic = 'math-blitz';
+        gameState.currentLevel = level;
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('math-blitz');
@@ -2195,8 +2270,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function launchLectureMagiqueLevel(level) {
-        currentTopic = 'lecture-magique';
-        currentLevel = level;
+        gameState.currentTopic = 'lecture-magique';
+        gameState.currentLevel = level;
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('lecture-magique');
@@ -2209,8 +2284,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function launchRaisonnementLevel(level) {
-        currentTopic = 'raisonnement';
-        currentLevel = level;
+        gameState.currentTopic = 'raisonnement';
+        gameState.currentLevel = level;
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('raisonnement');
@@ -2223,7 +2298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showDicteeMenu() {
-        currentTopic = 'dictee';
+        gameState.currentTopic = 'dictee';
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('dictee', {
@@ -2241,7 +2316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function launchCustomDictationManager() {
-        currentTopic = 'dictee';
+        gameState.currentTopic = 'dictee';
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('dictee', {
@@ -2259,7 +2334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startCustomDictationPlay() {
-        currentTopic = 'dictee';
+        gameState.currentTopic = 'dictee';
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         const context = createGameContext('dictee', {
@@ -2347,15 +2422,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateUI() {
         if (scoreStars) {
-            scoreStars.textContent = userScore.stars;
+            scoreStars.textContent = userProgress.userScore.stars;
         }
         if (scoreCoins) {
-            scoreCoins.textContent = userScore.coins;
+            scoreCoins.textContent = userProgress.userScore.coins;
         }
         if (levelDisplay) {
-            levelDisplay.textContent = currentTopic === 'review'
+            levelDisplay.textContent = gameState.currentTopic === 'review'
                 ? 'Session de repaso'
-                : `Niveau ${currentLevel}`;
+                : `Niveau ${gameState.currentLevel}`;
         }
         updateBodyLevelClass();
         applyActiveCosmetics();
@@ -2368,16 +2443,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const levelClassPrefix = 'body-level-';
         const currentLevelClasses = Array.from(document.body.classList).filter(cls => cls.startsWith(levelClassPrefix));
         currentLevelClasses.forEach(cls => document.body.classList.remove(cls));
-        if (typeof currentLevel === 'number' && currentLevel > 0) {
-            document.body.classList.add(`body-level-${Math.min(currentLevel, LEVELS_PER_TOPIC)}`);
+        if (typeof gameState.currentLevel === 'number' && gameState.currentLevel > 0) {
+            document.body.classList.add(`body-level-${Math.min(gameState.currentLevel, LEVELS_PER_TOPIC)}`);
         }
     }
 
     function applyActiveCosmetics() {
-        const backgroundItem = findShopItem(activeCosmetics.background);
+        const backgroundItem = findShopItem(userProgress.activeCosmetics.background);
         applyBackgroundTheme(backgroundItem);
 
-        const badgeItem = findShopItem(activeCosmetics.badge);
+        const badgeItem = findShopItem(userProgress.activeCosmetics.badge);
         applyBadgeTheme(badgeItem);
 
         renderFloatingDecor();
@@ -2390,9 +2465,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const accent = palette.accent || userProfile.color;
             const textColor = palette.textLight || DEFAULT_INK_COLOR;
 
-            if (lastAppliedTheme !== backgroundItem.id) {
-                lastAppliedTheme = backgroundItem.id;
-                lastDecorKey = null;
+            if (gameState.lastAppliedTheme !== backgroundItem.id) {
+                gameState.lastAppliedTheme = backgroundItem.id;
+                gameState.lastDecorKey = null;
             }
 
             document.body.classList.add('has-custom-background');
@@ -2405,10 +2480,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.style.setProperty('--ink', textColor);
             setPrimaryTheme(accent);
         } else {
-            if (lastAppliedTheme !== '') {
-                lastDecorKey = null;
+            if (gameState.lastAppliedTheme !== '') {
+                gameState.lastDecorKey = null;
             }
-            lastAppliedTheme = '';
+            gameState.lastAppliedTheme = '';
             document.body.classList.remove('has-custom-background');
             document.body.style.removeProperty('--custom-bg-start');
             document.body.style.removeProperty('--custom-bg-end');
@@ -2420,34 +2495,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function applyBadgeTheme(badgeItem) {
-        activeBadgeEmoji = badgeItem?.emoji || null;
+        userProgress.activeBadgeEmoji = badgeItem?.emoji || null;
         renderUserIdentity();
     }
 
     function ensureDecorContainer() {
-        if (decorContainer && decorContainer.isConnected) {
-            return decorContainer;
+        if (gameState.decorContainer && gameState.decorContainer.isConnected) {
+            return gameState.decorContainer;
         }
-        decorContainer = document.getElementById('floatingDecor');
-        if (!decorContainer) {
+        gameState.decorContainer = document.getElementById('floatingDecor');
+        if (!gameState.decorContainer) {
             if (!document.body) { return null; }
-            decorContainer = document.createElement('div');
-            decorContainer.id = 'floatingDecor';
-            document.body?.appendChild(decorContainer);
+            gameState.decorContainer = document.createElement('div');
+            gameState.decorContainer.id = 'floatingDecor';
+            document.body?.appendChild(gameState.decorContainer);
         }
-        return decorContainer;
+        return gameState.decorContainer;
     }
 
     function renderFloatingDecor() {
         const container = ensureDecorContainer();
         if (!container) { return; }
-        const safeLevel = Number.isFinite(currentLevel) ? Math.min(Math.max(currentLevel, 1), 12) : 1;
+        const safeLevel = Number.isFinite(gameState.currentLevel) ? Math.min(Math.max(gameState.currentLevel, 1), 12) : 1;
         const icons = resolveDecorIcons(safeLevel);
         const decorKey = `${userProfile.avatar?.id || 'default'}-${safeLevel}-${icons.join('')}`;
-        if (lastDecorKey === decorKey && container.childElementCount) {
+        if (gameState.lastDecorKey === decorKey && container.childElementCount) {
             return;
         }
-        lastDecorKey = decorKey;
+        gameState.lastDecorKey = decorKey;
         const totalIcons = Math.max(icons.length * 3, 15);
         container.innerHTML = '';
         const fragment = document.createDocumentFragment();
@@ -2594,9 +2669,9 @@ document.addEventListener('DOMContentLoaded', () => {
             history.totalPracticeSeconds += durationSeconds;
             delete currentSession.startMs;
             currentSession = null;
-            if (pauseReminderTimeout) {
-                clearTimeout(pauseReminderTimeout);
-                pauseReminderTimeout = null;
+            if (gameState.pauseReminderTimeout) {
+                clearTimeout(gameState.pauseReminderTimeout);
+                gameState.pauseReminderTimeout = null;
             }
             persist();
         }
@@ -2688,8 +2763,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getDifficultSkills(limit = 3) {
-        if (!historyTracker) { return []; }
-        const stats = historyTracker.getSkillStats() || {};
+        if (!gameState.historyTracker) { return []; }
+        const stats = gameState.historyTracker.getSkillStats() || {};
         return Object.entries(stats)
             .map(([tag, data]) => ({ tag, weight: data.weight || 0, attempts: data.attempts || 0, lastMistakeISO: data.lastMistakeISO }))
             .filter(item => item.attempts >= 2 && item.weight >= 4)
@@ -2717,7 +2792,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function buildReviewQuestions(skillTags, desiredCount = 6) {
-        const stats = historyTracker?.getSkillStats() || {};
+        const stats = gameState.historyTracker?.getSkillStats() || {};
         const supportedTags = (skillTags || []).filter(tag => REVIEW_GENERATORS[tag]);
         if (!supportedTags.length) { return []; }
         const questions = [];
@@ -2817,7 +2892,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function maybeSuggestReview(container) {
-        if (!container || !historyTracker) { return; }
+        if (!container || !gameState.historyTracker) { return; }
         const difficultSkills = getDifficultSkills(3);
         if (!difficultSkills.length) { return; }
 
@@ -2851,21 +2926,21 @@ document.addEventListener('DOMContentLoaded', () => {
             showErrorMessage('Pas encore de questions de repaso disponibles.', '');
             return;
         }
-        activeReviewSkills = [...skillTags];
+        gameState.activeReviewSkills = [...skillTags];
         allQuestions.review = questions;
-        currentTopic = 'review';
-        currentLevel = 1;
-        currentQuestionIndex = 0;
-        historyTracker?.startGame('review', 1, { skillTags });
+        gameState.currentTopic = 'review';
+        gameState.currentLevel = 1;
+        gameState.currentQuestionIndex = 0;
+        gameState.historyTracker?.startGame('review', 1, { skillTags });
         loadQuestion(0);
     }
 
     function schedulePauseReminder() {
-        if (pauseReminderTimeout) {
-            clearTimeout(pauseReminderTimeout);
+        if (gameState.pauseReminderTimeout) {
+            clearTimeout(gameState.pauseReminderTimeout);
         }
-        pauseReminderTimeout = window.setTimeout(() => {
-            pauseReminderTimeout = null;
+        gameState.pauseReminderTimeout = window.setTimeout(() => {
+            gameState.pauseReminderTimeout = null;
             showPauseReminder();
         }, PAUSE_REMINDER_DELAY);
     }
@@ -2940,7 +3015,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        items.forEach(item => {
+        items.forEach(item => { // This should be `userProgress.ownedItems`
             const resolvedItem = findShopItem(item.id);
             if (!resolvedItem) { return; }
 
@@ -2984,11 +3059,11 @@ document.addEventListener('DOMContentLoaded', () => {
             action.type = 'button';
             action.className = 'shop-item__action';
 
-            const owned = ownedItems.includes(resolvedItem.id);
-            const isActive = activeCosmetics[resolvedItem.type] === resolvedItem.id;
+            const isOwned = userProgress.ownedItems.includes(resolvedItem.id);
+            const isActive = userProgress.activeCosmetics[resolvedItem.type] === resolvedItem.id;
 
-            if (!owned) {
-                const canAfford = userScore.coins >= resolvedItem.priceCoins;
+            if (!isOwned) {
+                const canAfford = userProgress.userScore.coins >= resolvedItem.priceCoins;
                 action.textContent = canAfford ? 'Acheter' : 'Pièces insuffisantes';
                 action.setAttribute('aria-label', canAfford
                     ? `Acheter ${resolvedItem.name} pour ${resolvedItem.priceCoins} pièces`
@@ -3020,15 +3095,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!inventoryList) { return; }
         inventoryList.innerHTML = '';
 
-        if (!ownedItems.length) {
+        if (!userProgress.ownedItems.length) {
             const empty = document.createElement('li');
             empty.className = 'shop-inventory__empty';
             empty.textContent = 'Pas encore de récompense… Continue à jouer ✨';
             inventoryList.appendChild(empty);
             return;
         }
-
-        ownedItems.forEach(itemId => {
+    
+        userProgress.ownedItems.forEach(itemId => {
             const item = findShopItem(itemId);
             if (!item) { return; }
             const listItem = document.createElement('li');
@@ -3064,7 +3139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             action.type = 'button';
             action.className = 'shop-inventory__action';
 
-            const isActive = activeCosmetics[item.type] === item.id;
+            const isActive = userProgress.activeCosmetics[item.type] === item.id;
             const incompatibleBackground = item.type === 'background' && item.ownerAvatarId && item.ownerAvatarId !== userProfile.avatar?.id;
 
             if (isActive) {
@@ -3116,17 +3191,17 @@ document.addEventListener('DOMContentLoaded', () => {
     function purchaseItem(itemId) {
         const item = getBoutiqueItem(itemId);
         if (!item) { return; }
-        if (ownedItems.includes(item.id)) {
+        if (userProgress.ownedItems.includes(item.id)) {
             showSuccessMessage('Tu possèdes déjà cette récompense.');
             return;
         }
-        if (userScore.coins < item.priceCoins) {
+        if (userProgress.userScore.coins < item.priceCoins) {
             showErrorMessage('Pas assez de pièces pour cette récompense 💰.', item.priceCoins);
             return;
         }
-
-        userScore.coins = Math.max(0, userScore.coins - item.priceCoins);
-        ownedItems.push(item.id);
+    
+        userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - item.priceCoins);
+        userProgress.ownedItems.push(item.id);
         activateItem(item.id, { silent: true });
         showSuccessMessage('Nouvelle récompense débloquée ✨');
         triggerShopCelebration(item);
@@ -3143,10 +3218,10 @@ document.addEventListener('DOMContentLoaded', () => {
             showErrorMessage('Ce fond appartient à un autre avatar.', '');
             return;
         }
-        if (!ownedItems.includes(item.id)) {
-            ownedItems.push(item.id);
+        if (!userProgress.ownedItems.includes(item.id)) {
+            userProgress.ownedItems.push(item.id);
         }
-        activeCosmetics[item.type] = item.id;
+        userProgress.activeCosmetics[item.type] = item.id;
         applyActiveCosmetics();
         saveProgress();
         renderShopItems();
@@ -3161,16 +3236,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!item) { return; }
 
         const sellPrice = Math.round(item.priceCoins * 0.5);
-        userScore.coins += sellPrice;
+        userProgress.userScore.coins += sellPrice;
 
-        ownedItems = ownedItems.filter(id => id !== itemId);
+        userProgress.ownedItems = userProgress.ownedItems.filter(id => id !== itemId);
 
         const newPrice = Math.round(item.priceCoins * 1.4);
         const updatedItem = { ...item, priceCoins: newPrice };
         SHOP_CATALOG.set(itemId, updatedItem);
 
-        if (activeCosmetics[item.type] === item.id) {
-            activeCosmetics[item.type] = null;
+        if (userProgress.activeCosmetics[item.type] === item.id) {
+            userProgress.activeCosmetics[item.type] = null;
         }
 
         showSuccessMessage(`Tu as vendu ${item.name} pour ${sellPrice} pièces.`);
@@ -3212,11 +3287,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function ensureProgressTrackerElements() {
-        if (!stageBottom) {
-            return { tracker: null, label: null, fill: null, bar: null };
-        }
+        const label = document.getElementById('progress-label');
         let tracker = document.getElementById('progressTracker');
+
         if (!tracker) {
+            if (!stageBottom) return { tracker: null, label, fill: null, bar: null };
+
             tracker = document.createElement('div');
             tracker.id = 'progressTracker';
             tracker.className = 'progress-tracker';
@@ -3228,7 +3304,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             stageBottom.prepend(tracker);
         }
-        const label = tracker.querySelector('.progress-tracker__label');
         const bar = tracker.querySelector('.progress-tracker__bar');
         const fill = tracker.querySelector('.progress-tracker__fill');
         return { tracker, label, bar, fill };
@@ -3240,10 +3315,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const safeTotal = Math.max(1, total);
         const currentQuestion = Math.min(Math.max(current, 0), safeTotal);
         const percent = Math.min(Math.max(Math.round((currentQuestion / safeTotal) * 100), 0), 100);
-        label.textContent = `Question ${currentQuestion} / ${safeTotal}`;
-        fill.style.width = `${percent}%`;
-        bar.setAttribute('aria-valuenow', String(percent));
-        tracker.classList.add('is-visible');
+        if (label) {
+            label.textContent = `Question ${currentQuestion} / ${safeTotal}`;
+            label.classList.add('is-visible');
+        }
+        if (fill && bar && tracker) {
+            fill.style.width = `${percent}%`;
+            bar.setAttribute('aria-valuenow', String(percent));
+            tracker.classList.add('is-visible');
+        }
     }
 
     function clearProgressTracker() {
@@ -3254,8 +3334,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (fill) {
             fill.style.width = '0%';
         }
-        const label = tracker.querySelector('.progress-tracker__label');
+        const label = document.getElementById('progress-label');
         if (label) {
+            label.classList.remove('is-visible');
             label.textContent = '';
         }
     }
@@ -3487,6 +3568,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Screen Management ---
     function showTopicMenu() {
+        document.body.classList.remove('stage-controls-visible');
         clearProgressTracker();
         content.innerHTML = '';
         const prompt = document.createElement('div');
@@ -3533,7 +3615,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = topic.href;
                     return;
                 }
-                currentTopic = topic.id;
+                    gameState.currentTopic = topic.id;
                 if (topic.id === 'dictee') { showDicteeMenu(); return; }
                 if (topic.id === 'stories') { showStoryMenu(); return; }
                 if (topic.id === 'memory') { showMemoryGameMenu(); return; }
@@ -3549,7 +3631,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showLevelMenu(topic) {
-        currentTopic = topic;
+        document.body.classList.remove('stage-controls-visible');
+        gameState.currentTopic = topic;
         clearProgressTracker();
         content.innerHTML = '';
         const title = document.createElement('div');
@@ -3581,39 +3664,39 @@ document.addEventListener('DOMContentLoaded', () => {
             'lecture-magique': 10,
             'raisonnement': 10
         };
-        const totalLevels = maxLevels[currentTopic] || LEVELS_PER_TOPIC;
+        const totalLevels = maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
         
         for (let i = 1; i <= totalLevels; i++) {
             const levelBtn = document.createElement('button');
             levelBtn.className = 'level-button fx-bounce-in-down';
             levelBtn.textContent = `Niveau ${i}`;
             levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
-            const levelKey = `${currentTopic}-${i}`;
-            if (answeredQuestions[levelKey] === 'completed') {
+            const levelKey = `${gameState.currentTopic}-${i}`;
+            if (userProgress.answeredQuestions[levelKey] === 'completed') {
                 levelBtn.classList.add('correct', 'is-completed');
                 levelBtn.dataset.status = 'completed';
-            } else if (answeredQuestions[levelKey] === 'in-progress') {
+            } else if (userProgress.answeredQuestions[levelKey] === 'in-progress') {
                 levelBtn.classList.add('is-in-progress');
                 levelBtn.dataset.status = 'in-progress';
             }
             levelBtn.addEventListener('click', () => {
-                currentLevel = i;
-                const skillTag = resolveSkillTag(currentTopic);
-                historyTracker?.startGame(currentTopic, currentLevel, { skillTag });
-                if (currentTopic === 'number-houses') { showNumberHousesGame(currentLevel); }
-                else if (currentTopic === 'colors') { showColorGame(currentLevel); }
-                else if (currentTopic === 'sorting') { showSortingGame(currentLevel); }
-                else if (currentTopic === 'vowels') { loadVowelQuestion(currentLevel - 1); }
-                else if (currentTopic === 'riddles') { launchRiddleLevel(currentLevel); }
-                else if (currentTopic === 'sequences') { loadSequenceQuestion(currentLevel - 1); }
-                else if (currentTopic === 'puzzle-magique') { launchPuzzleMagique(currentLevel); }
-                else if (currentTopic === 'repartis') { launchRepartisGame(currentLevel); }
-                else if (currentTopic === 'dictee') { launchDicteeLevel(currentLevel); }
-                else if (currentTopic === 'math-blitz') { launchMathBlitzLevel(currentLevel); }
-                else if (currentTopic === 'lecture-magique') { launchLectureMagiqueLevel(currentLevel); }
-                else if (currentTopic === 'raisonnement') { launchRaisonnementLevel(currentLevel); }
-                else if (currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[currentLevel - 1].pairs); }
-                else { currentQuestionIndex = 0; loadQuestion(0); }
+                gameState.currentLevel = i;
+                const skillTag = resolveSkillTag(gameState.currentTopic);
+                gameState.historyTracker?.startGame(gameState.currentTopic, gameState.currentLevel, { skillTag });
+                if (gameState.currentTopic === 'number-houses') { showNumberHousesGame(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'colors') { showColorGame(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'sorting') { showSortingGame(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'vowels') { loadVowelQuestion(gameState.currentLevel - 1); }
+                else if (gameState.currentTopic === 'riddles') { launchRiddleLevel(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'sequences') { loadSequenceQuestion(gameState.currentLevel - 1); }
+                else if (gameState.currentTopic === 'puzzle-magique') { launchPuzzleMagique(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'repartis') { launchRepartisGame(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'dictee') { launchDicteeLevel(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'math-blitz') { launchMathBlitzLevel(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'lecture-magique') { launchLectureMagiqueLevel(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'raisonnement') { launchRaisonnementLevel(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[gameState.currentLevel - 1].pairs); }
+                else { gameState.currentQuestionIndex = 0; loadQuestion(0); }
             });
             levelsContainer.appendChild(levelBtn);
         }
@@ -3632,9 +3715,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = selectedOption.closest('.options-grid');
         const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
         optionNodes.forEach(opt => opt.removeEventListener('click', handleOptionClick));
-
-        const questionsForLevel = allQuestions[currentTopic].filter(q => q.difficulty === currentLevel);
-        const questionData = questionsForLevel[currentQuestionIndex];
+    
+        const questionsForLevel = allQuestions[gameState.currentTopic].filter(q => q.difficulty === gameState.currentLevel);
+        const questionData = questionsForLevel[gameState.currentQuestionIndex];
         const correctAnswerIndex = questionData.correct;
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctValue = questionData.options[correctAnswerIndex];
@@ -3646,8 +3729,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isCorrect) {
             selectedOption.classList.add('correct', 'fx-pulse');
-            userScore.stars += questionData.reward.stars;
-            userScore.coins += questionData.reward.coins;
+            userProgress.userScore.stars += questionData.reward.stars;
+            userProgress.userScore.coins += questionData.reward.coins;
             const sticker = questionData.operationMeta?.sticker ? ` ${questionData.operationMeta.sticker}` : '';
             const successMessage = questionData.successMessage
                 ? `${questionData.successMessage}${sticker}`
@@ -3656,7 +3739,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showConfetti();
         } else {
             selectedOption.classList.add('wrong', 'fx-shake');
-            userScore.coins = Math.max(0, userScore.coins - 5);
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
@@ -3668,44 +3751,45 @@ document.addEventListener('DOMContentLoaded', () => {
             showErrorMessage(explanation, correctValue);
             setTimeout(() => selectedOption.classList.remove('fx-shake'), 800);
         }
-        const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
-        historyTracker?.recordQuestion(questionSkillTag, { correct: isCorrect, timeMs: elapsed });
+        const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
+        gameState.historyTracker?.recordQuestion(gameState.questionSkillTag, { correct: isCorrect, timeMs: elapsed });
         updateUI();
         saveProgress();
 
         setTimeout(() => {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questionsForLevel.length) {
-                loadQuestion(currentQuestionIndex);
+            gameState.currentQuestionIndex++;
+            if (gameState.currentQuestionIndex < questionsForLevel.length) {
+                loadQuestion(gameState.currentQuestionIndex);
             } else {
-                if (currentTopic !== 'review') {
-                    answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
+                if (gameState.currentTopic !== 'review') {
+                    userProgress.answeredQuestions[`${gameState.currentTopic}-${gameState.currentLevel}`] = 'completed';
                 } else {
-                    historyTracker?.applyReviewSuccess(activeReviewSkills);
+                    gameState.historyTracker?.applyReviewSuccess(gameState.activeReviewSkills);
                 }
                 saveProgress();
                 clearProgressTracker();
                 const winPrompt = document.createElement('div');
                 winPrompt.className = 'prompt ok fx-pop';
-                winPrompt.textContent = `Bravo, tu as complété le Niveau ${currentLevel} !`;
+                winPrompt.textContent = `Bravo, tu as complété le Niveau ${gameState.currentLevel} !`;
                 content.appendChild(winPrompt);
-                speakText(`Bravo, tu as complété le Niveau ${currentLevel} !`);
-                const endStatus = currentTopic === 'review' ? 'review-completed' : 'completed';
-                historyTracker?.endGame({ status: endStatus, topic: currentTopic, level: currentLevel, skills: activeReviewSkills });
-                if (currentTopic === 'review') {
-                    activeReviewSkills = [];
+                speakText(`Bravo, tu as complété le Niveau ${gameState.currentLevel} !`);
+                const endStatus = gameState.currentTopic === 'review' ? 'review-completed' : 'completed';
+                gameState.historyTracker?.endGame({ status: endStatus, topic: gameState.currentTopic, level: gameState.currentLevel, skills: gameState.activeReviewSkills });
+                if (gameState.currentTopic === 'review') {
+                    gameState.activeReviewSkills = [];
                 }
-                setTimeout(() => showLevelMenu(currentTopic), 2000);
+                setTimeout(() => showLevelMenu(gameState.currentTopic), 2000);
             }
         }, 2500);
     }
     
     function loadQuestion(index) {
-        currentQuestionIndex = index;
+        document.body.classList.add('stage-controls-visible');
+        gameState.currentQuestionIndex = index;
         content.innerHTML = '';
         updateUI();
 
-        const questionsForLevel = allQuestions[currentTopic].filter(q => q.difficulty === currentLevel);
+        const questionsForLevel = allQuestions[gameState.currentTopic].filter(q => q.difficulty === gameState.currentLevel);
         if (!questionsForLevel.length) {
             const emptyMessage = document.createElement('p');
             emptyMessage.className = 'question-prompt';
@@ -3714,13 +3798,13 @@ document.addEventListener('DOMContentLoaded', () => {
             clearProgressTracker();
             return;
         }
-        questionSkillTag = resolveSkillTag(currentTopic);
+        gameState.questionSkillTag = resolveSkillTag(gameState.currentTopic);
         const questionData = questionsForLevel[index];
         const operationMeta = questionData?.operationMeta || null;
         if (questionData?.metaSkill) {
-            questionSkillTag = questionData.metaSkill;
+            gameState.questionSkillTag = questionData.metaSkill;
         }
-        questionStartTime = performance.now();
+        gameState.questionStartTime = performance.now();
         if (operationMeta?.id) {
             content.dataset.operationTheme = operationMeta.id;
         } else {
@@ -3755,7 +3839,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const levelSpan = document.createElement('span');
             levelSpan.className = 'operation-banner__level';
-            levelSpan.textContent = operationMeta.levelLabel || `Niveau ${currentLevel}`;
+            levelSpan.textContent = operationMeta.levelLabel || `Niveau ${gameState.currentLevel}`;
             textBox.appendChild(levelSpan);
 
             if (operationMeta.storyline) {
@@ -3833,10 +3917,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        if (currentTopic === 'review') {
+        if (gameState.currentTopic === 'review') {
             configureBackButton('Terminer le repaso', showTopicMenu);
         } else {
-            configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+            configureBackButton('Retour aux niveaux', () => showLevelMenu(gameState.currentTopic));
         }
     }
     /* === Juegos Específicos === */
@@ -3845,12 +3929,13 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {number} level El nivel actual del juego.
  */
 function showNumberHousesGame(level) {
-    currentLevel = level;
+    document.body.classList.add('stage-controls-visible');
+    gameState.currentLevel = level;
     const content = document.getElementById('content');
     content.innerHTML = ''; 
     updateUI();
-    questionSkillTag = resolveSkillTag('number-houses');
-    questionStartTime = performance.now();
+    gameState.questionSkillTag = resolveSkillTag('number-houses');
+    gameState.questionStartTime = performance.now();
 
     const maxRoofNumber = (level * 5) + 15;
     const roofNumber = Math.floor(Math.random() * (maxRoofNumber - 10)) + 10;
@@ -3919,7 +4004,7 @@ content.appendChild(container);
 
 btnLogros.style.display = 'inline-block';
 btnLogout.style.display = 'inline-block';
-configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+configureBackButton('Retour aux niveaux', () => showLevelMenu(gameState.currentTopic));
 
 checkBtn.addEventListener('click', handleCheckHouses);
 }
@@ -3948,8 +4033,8 @@ function handleCheckHouses() {
             correctCount++;
         } else {
             input.classList.add('incorrect', 'fx-shake');
-            setTimeout(() => input.classList.remove('fx-shake'), 1000);
-            userScore.coins = Math.max(0, userScore.coins - 5);
+            setTimeout(() => input.classList.remove('fx-shake'), 1000); // This should be userProgress.userScore.coins
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
             allCorrect = false;
             incorrectValues.push(`Réponse attendue : ${correctValue}`);
         }
@@ -3957,32 +4042,32 @@ function handleCheckHouses() {
 
     updateUI();
     saveProgress();
-    const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
-    historyTracker?.recordQuestion(questionSkillTag || resolveSkillTag('number-houses'), { correct: allCorrect, timeMs: elapsed });
+    const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
+    gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('number-houses'), { correct: allCorrect, timeMs: elapsed });
 
     if (allCorrect) {
-        userScore.stars += 50;
-        userScore.coins += 50;
-        answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
+        userProgress.userScore.stars += 50;
+        userProgress.userScore.coins += 50;
+        userProgress.answeredQuestions[`${gameState.currentTopic}-${gameState.currentLevel}`] = 'completed';
         saveProgress();
         showSuccessMessage('Bravo ! Toutes les maisons sont correctes. 🦄✨');
         showConfetti();
         checkBtn.textContent = 'Niveau suivant';
         checkBtn.onclick = () => {
-            if (currentLevel < LEVELS_PER_TOPIC) {
-                showNumberHousesGame(currentLevel + 1);
+            if (gameState.currentLevel < LEVELS_PER_TOPIC) {
+                showNumberHousesGame(gameState.currentLevel + 1);
             } else {
                 win();
             }
         };
         checkBtn.disabled = false;
-        historyTracker?.endGame({ status: 'completed', topic: 'number-houses', level: currentLevel });
+        gameState.historyTracker?.endGame({ status: 'completed', topic: 'number-houses', level: gameState.currentLevel });
     } else {
         const message = `${correctCount} réponses correctes. ${allInputs.length - correctCount} incorrectes. -5 pièces.`;
         showErrorMessage(message, incorrectValues.join(', '));
         setTimeout(() => {
             checkBtn.disabled = false;
-            questionStartTime = performance.now();
+            gameState.questionStartTime = performance.now();
         }, 500); 
     }
 }
@@ -4012,18 +4097,20 @@ function generateNumberPairs(sum, count) {
 }
 
     function showColorGame(level) {
-        currentTopic = 'colors';
-        currentLevel = level;
-        currentQuestionIndex = 0;
+        document.body.classList.add('stage-controls-visible');
+        gameState.currentTopic = 'colors';
+        gameState.currentLevel = level;
+        gameState.currentQuestionIndex = 0;
         loadColorQuestion(0);
     }
     
     function loadColorQuestion(index) {
-        currentQuestionIndex = index;
+        document.body.classList.add('stage-controls-visible');
+        gameState.currentQuestionIndex = index;
         content.innerHTML = '';
         updateUI();
         
-        const questionsForLevel = allQuestions.colors.filter(q => q.difficulty === currentLevel);
+        const questionsForLevel = allQuestions.colors.filter(q => q.difficulty === gameState.currentLevel);
         if (!questionsForLevel.length) {
             const empty = document.createElement('p');
             empty.className = 'question-prompt';
@@ -4033,8 +4120,8 @@ function generateNumberPairs(sum, count) {
             return;
         }
         const questionData = questionsForLevel[index];
-        questionSkillTag = questionData?.metaSkill || resolveSkillTag('colors');
-        questionStartTime = performance.now();
+        gameState.questionSkillTag = questionData?.metaSkill || resolveSkillTag('colors');
+        gameState.questionStartTime = performance.now();
         const fragment = document.createDocumentFragment();
         
         const promptWrapper = document.createElement('div');
@@ -4078,10 +4165,10 @@ function generateNumberPairs(sum, count) {
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        if (currentTopic === 'review') {
+        if (gameState.currentTopic === 'review') {
             configureBackButton('Terminer le repaso', showTopicMenu);
         } else {
-            configureBackButton('Retour aux niveaux', () => showLevelMenu(currentTopic));
+            configureBackButton('Retour aux niveaux', () => showLevelMenu(gameState.currentTopic));
         }
     }
     
@@ -4095,8 +4182,8 @@ function generateNumberPairs(sum, count) {
         const optionNodes = container ? container.querySelectorAll('.color-option-button') : document.querySelectorAll('.color-option-button');
         optionNodes.forEach(opt => opt.removeEventListener('click', handleColorOptionClick));
 
-        const questionsForLevel = allQuestions.colors.filter(q => q.difficulty === currentLevel);
-        const questionData = questionsForLevel[currentQuestionIndex];
+        const questionsForLevel = allQuestions.colors.filter(q => q.difficulty === gameState.currentLevel);
+        const questionData = questionsForLevel[gameState.currentQuestionIndex];
         const correctAnswerIndex = questionData.correct;
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctValue = questionData.options[correctAnswerIndex];
@@ -4108,13 +4195,13 @@ function generateNumberPairs(sum, count) {
 
         if (isCorrect) {
             selectedOption.classList.add('correct');
-            userScore.stars += questionData.reward.stars;
-            userScore.coins += questionData.reward.coins;
+            userProgress.userScore.stars += questionData.reward.stars;
+            userProgress.userScore.coins += questionData.reward.coins;
             showSuccessMessage();
             showConfetti();
         } else {
             selectedOption.classList.add('wrong');
-            userScore.coins = Math.max(0, userScore.coins - 5);
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) { correctOption.classList.add('correct'); }
             const explanation = questionData.explanation
@@ -4122,36 +4209,37 @@ function generateNumberPairs(sum, count) {
                 : '❌ -5 pièces. Essaie encore !';
             showErrorMessage(explanation, correctValue);
         }
-        const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
-        historyTracker?.recordQuestion(questionSkillTag, { correct: isCorrect, timeMs: elapsed });
+        const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
+        gameState.historyTracker?.recordQuestion(gameState.questionSkillTag, { correct: isCorrect, timeMs: elapsed });
         updateUI();
         saveProgress();
         setTimeout(() => {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questionsForLevel.length) {
-                loadColorQuestion(currentQuestionIndex);
+            gameState.currentQuestionIndex++;
+            if (gameState.currentQuestionIndex < questionsForLevel.length) {
+                loadColorQuestion(gameState.currentQuestionIndex);
             } else {
-                if (currentTopic !== 'review') {
-                    answeredQuestions[`${currentTopic}-${currentLevel}`] = 'completed';
+                if (gameState.currentTopic !== 'review') {
+                    userProgress.answeredQuestions[`${gameState.currentTopic}-${gameState.currentLevel}`] = 'completed';
                 } else {
-                    historyTracker?.applyReviewSuccess(activeReviewSkills);
+                    gameState.historyTracker?.applyReviewSuccess(gameState.activeReviewSkills);
                 }
                 saveProgress();
                 clearProgressTracker();
-                showSuccessMessage(`Bravo, tu as complété le Niveau ${currentLevel} !`);
-                const endStatus = currentTopic === 'review' ? 'review-completed' : 'completed';
-                historyTracker?.endGame({ status: endStatus, topic: currentTopic, level: currentLevel, skills: activeReviewSkills });
-                if (currentTopic === 'review') {
-                    activeReviewSkills = [];
+                showSuccessMessage(`Bravo, tu as complété le Niveau ${gameState.currentLevel} !`);
+                const endStatus = gameState.currentTopic === 'review' ? 'review-completed' : 'completed';
+                gameState.historyTracker?.endGame({ status: endStatus, topic: gameState.currentTopic, level: gameState.currentLevel, skills: gameState.activeReviewSkills });
+                if (gameState.currentTopic === 'review') {
+                    gameState.activeReviewSkills = [];
                 }
-                setTimeout(() => showLevelMenu(currentTopic), 2000);
+                setTimeout(() => showLevelMenu(gameState.currentTopic), 2000);
             }
         }, 2500);
     }
 
     function showStoryMenu() {
+        document.body.classList.remove('stage-controls-visible');
         clearProgressTracker();
-        setActiveStorySet(storyProgress?.activeSetIndex || activeStorySetIndex);
+        setActiveStorySet(userProgress.storyProgress?.activeSetIndex || activeStorySetIndex);
         ensureStoryProgressInitialized();
         content.innerHTML = '';
 
@@ -4284,9 +4372,10 @@ function generateNumberPairs(sum, count) {
     }
 
     function showMagicStory(storyIndex) {
+        document.body.classList.add('stage-controls-visible');
         content.innerHTML = '';
         const story = magicStories[storyIndex];
-        currentStoryIndex = storyIndex;
+        gameState.currentStoryIndex = storyIndex;
         const storyContainer = document.createElement('div');
         storyContainer.className = 'story-container fx-bounce-in-down';
         const titleEl = document.createElement('h2');
@@ -4348,27 +4437,28 @@ function generateNumberPairs(sum, count) {
     
     function startStoryQuiz(storyIndex) {
         const story = magicStories[storyIndex];
-        storyQuiz = story.quiz;
-        currentQuestionIndex = 0;
-        questionSkillTag = resolveSkillTag('stories');
-        questionStartTime = performance.now();
-        historyTracker?.startGame('stories', storyIndex + 1, {
-            skillTag: questionSkillTag,
+        gameState.storyQuiz = story.quiz;
+        gameState.currentQuestionIndex = 0;
+        gameState.questionSkillTag = resolveSkillTag('stories');
+        gameState.questionStartTime = performance.now();
+        gameState.historyTracker?.startGame('stories', storyIndex + 1, {
+            skillTag: gameState.questionSkillTag,
             storyTitle: story.title
         });
         loadQuizQuestion();
     }
     
     function loadQuizQuestion() {
-        if (currentQuestionIndex >= storyQuiz.length) {
+        document.body.classList.add('stage-controls-visible');
+        if (gameState.currentQuestionIndex >= gameState.storyQuiz.length) {
             showQuizResults();
             return;
         }
         
         content.innerHTML = '';
-        const questionData = storyQuiz[currentQuestionIndex];
-        questionSkillTag = questionData?.metaSkill || questionSkillTag || resolveSkillTag('stories');
-        questionStartTime = performance.now();
+        const questionData = gameState.storyQuiz[gameState.currentQuestionIndex];
+        gameState.questionSkillTag = questionData?.metaSkill || gameState.questionSkillTag || resolveSkillTag('stories');
+        gameState.questionStartTime = performance.now();
         const fragment = document.createDocumentFragment();
         
         const promptWrapper = document.createElement('div');
@@ -4376,7 +4466,7 @@ function generateNumberPairs(sum, count) {
 
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
-        title.innerHTML = `Question ${currentQuestionIndex + 1} / ${storyQuiz.length}<br>${questionData.question}`;
+        title.innerHTML = `Question ${gameState.currentQuestionIndex + 1} / ${gameState.storyQuiz.length}<br>${questionData.question}`;
         promptWrapper.appendChild(title);
 
         const audioBtn = createAudioButton({
@@ -4389,7 +4479,7 @@ function generateNumberPairs(sum, count) {
 
         fragment.appendChild(promptWrapper);
         speakText(questionData.question);
-        updateProgressTracker(currentQuestionIndex + 1, storyQuiz.length);
+        updateProgressTracker(gameState.currentQuestionIndex + 1, gameState.storyQuiz.length);
         
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
@@ -4423,7 +4513,7 @@ function generateNumberPairs(sum, count) {
         const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
         optionNodes.forEach(opt => opt.removeEventListener('click', handleStoryQuizAnswer));
         
-        const questionData = storyQuiz[currentQuestionIndex];
+        const questionData = gameState.storyQuiz[gameState.currentQuestionIndex];
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctAnswerIndex = questionData.correct;
         const correctValue = questionData.options[correctAnswerIndex];
@@ -4432,13 +4522,13 @@ function generateNumberPairs(sum, count) {
 
         if (isCorrect) {
             selectedOption.classList.add('correct');
-            userScore.stars += 15;
-            userScore.coins += 10;
+            userProgress.userScore.stars += 15;
+            userProgress.userScore.coins += 10;
             showSuccessMessage('Bonne réponse !');
             showConfetti();
         } else {
             selectedOption.classList.add('wrong');
-            userScore.coins = Math.max(0, userScore.coins - 5);
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
@@ -4446,13 +4536,13 @@ function generateNumberPairs(sum, count) {
             const explanation = questionData.explanation ? questionData.explanation : 'Mauvaise réponse.';
             showErrorMessage(explanation, correctValue);
         }
-        const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
-        historyTracker?.recordQuestion(questionSkillTag || resolveSkillTag('stories'), { correct: isCorrect, timeMs: elapsed });
+        const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
+        gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('stories'), { correct: isCorrect, timeMs: elapsed });
         updateUI();
         saveProgress();
         
         setTimeout(() => {
-            currentQuestionIndex++;
+            gameState.currentQuestionIndex++;
             loadQuizQuestion();
         }, 2000);
     }
@@ -4461,13 +4551,13 @@ function generateNumberPairs(sum, count) {
         content.innerHTML = '';
         clearProgressTracker();
         const activeSetBefore = getActiveStorySet();
-        const completedStory = activeSetBefore?.stories?.[currentStoryIndex];
+        const completedStory = activeSetBefore?.stories?.[gameState.currentStoryIndex];
         if (completedStory) {
             markStoryAsCompleted(completedStory);
         }
         const unlockedNewSet = advanceStorySetIfNeeded();
         if (unlockedNewSet) {
-            currentStoryIndex = 0;
+            gameState.currentStoryIndex = 0;
             saveProgress();
         }
         const prompt = document.createElement('div');
@@ -4479,10 +4569,10 @@ function generateNumberPairs(sum, count) {
         prompt.innerHTML = promptMessage;
         content.appendChild(prompt);
 
-        historyTracker?.endGame({
+        gameState.historyTracker?.endGame({
             status: 'completed',
             topic: 'stories',
-            storyIndex: currentStoryIndex
+            storyIndex: gameState.currentStoryIndex
         });
 
         const backBtn = document.createElement('button');
@@ -4514,7 +4604,7 @@ function generateNumberPairs(sum, count) {
         btn.className = 'topic-btn fx-bounce-in-down';
         btn.innerHTML = `Niveau ${levelConfig.level}<br>${levelConfig.pairs} paires`;
         btn.style.animationDelay = `${Math.random() * 0.5}s`;
-        btn.addEventListener('click', () => showMemoryGame(levelConfig.pairs));
+        btn.addEventListener('click', () => showMemoryGame(levelConfig));
         levelsGrid.appendChild(btn);
       });
       content.appendChild(levelsGrid);
@@ -4524,7 +4614,11 @@ function generateNumberPairs(sum, count) {
       configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 
-    function showMemoryGame(pairsCount) {
+    function showMemoryGame(levelConfig) {
+        document.body.classList.add('stage-controls-visible');
+        const { pairs: pairsCount, timeLimit, traps: trapCount } = levelConfig;
+        let timerId = null;
+        let timeLeft = timeLimit;
         content.innerHTML = '';
         const promptWrapper = document.createElement('div');
         promptWrapper.className = 'prompt-with-audio';
@@ -4546,10 +4640,15 @@ function generateNumberPairs(sum, count) {
         speakText('Trouve toutes les paires !');
         updateProgressTracker(0, pairsCount);
 
+        const timerDisplay = document.createElement('div');
+        timerDisplay.className = 'memory-timer';
+        if (timeLimit) {
+            content.appendChild(timerDisplay);
+        }
+
         const memoryGrid = document.createElement('div');
         memoryGrid.className = 'memory-grid';
-        const levelConfig = MEMORY_GAME_LEVELS.find(l => l.pairs === pairsCount);
-        if (levelConfig && levelConfig.grid) {
+        if (levelConfig.grid) {
           const gridParts = levelConfig.grid.split('x').map(Number);
           const columns = gridParts.length > 1 && !Number.isNaN(gridParts[1]) ? gridParts[1] : Math.sqrt(pairsCount * 2);
           memoryGrid.style.gridTemplateColumns = `repeat(${Math.round(columns)}, 1fr)`;
@@ -4557,27 +4656,65 @@ function generateNumberPairs(sum, count) {
         content.appendChild(memoryGrid);
 
         const cardEmojis = Object.values(emoji).slice(6, 6 + pairsCount);
-        const gameCards = shuffle([...cardEmojis, ...cardEmojis]);
+        const trapEmojis = ['💣', '💥', '🔥', '⚡️', '👻', '💀'].slice(0, trapCount);
+        const gameCardsData = shuffle([
+            ...cardEmojis.map(e => ({ emoji: e, type: 'pair' })),
+            ...cardEmojis.map(e => ({ emoji: e, type: 'pair' })),
+            ...trapEmojis.map(e => ({ emoji: e, type: 'trap' }))
+        ]);
+
         let flippedCards = [];
         let matchedPairs = 0;
         let lockBoard = false;
 
-        gameCards.forEach((cardEmoji, index) => {
+        gameCardsData.forEach((cardData, index) => {
             const card = document.createElement('div');
             card.className = 'memory-card fx-bounce-in-down';
             card.style.animationDelay = `${index * 0.05}s`;
-            card.innerHTML = `<span style="opacity:0;">${cardEmoji}</span>`;
-            card.addEventListener('click', () => flipCard(card, cardEmoji, index));
+            card.innerHTML = `<span style="opacity:0;">${cardData.emoji}</span>`;
+            card.addEventListener('click', () => flipCard(card, cardData, index)); // Corrected to use cardData from the loop
             memoryGrid.appendChild(card);
         });
 
-        function flipCard(card, cardEmoji, index) {
+        if (timeLimit) {
+            timerId = setInterval(() => {
+                timeLeft--;
+                timerDisplay.textContent = `Temps restant : ${timeLeft}s`;
+                if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    memoryGrid.classList.add('disabled');
+                    showErrorMessage('Temps écoulé ! Essaie encore.', '');
+                    setTimeout(() => showLevelMenu('memory'), 2000);
+                }
+            }, 1000);
+        }
+
+        function cleanupGame() {
+            if (timerId) {
+                clearInterval(timerId);
+            }
+        }
+
+        function flipCard(card, cardData, index) {
             if (lockBoard) return;
             if (card.classList.contains('flipped')) return;
 
             card.classList.add('flipped');
             card.querySelector('span').style.opacity = '1';
-            flippedCards.push({ card, emoji: cardEmoji, index });
+
+            if (cardData.type === 'trap') {
+                lockBoard = true;
+                card.classList.add('matched', 'wrong');
+                playSound('wrong');
+                showErrorMessage('Oh non, une carte piège !', '');
+                // userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 10); // Penalización desactivada
+                if (timeLimit) timeLeft = Math.max(0, timeLeft - 5);
+                updateUI();
+                setTimeout(() => { lockBoard = false; }, 800);
+                return;
+            }
+
+            flippedCards.push({ card, emoji: cardData.emoji, index });
 
             if (flippedCards.length === 2) {
                 lockBoard = true;
@@ -4587,16 +4724,17 @@ function generateNumberPairs(sum, count) {
                     card2.card.classList.add('matched');
                     matchedPairs++;
                     updateProgressTracker(matchedPairs, pairsCount);
-                    userScore.stars += 20;
-                    userScore.coins += 10;
+                    userProgress.userScore.stars += 20;
+                    userProgress.userScore.coins += 10;
                     playSound('correct');
                     updateUI();
                     saveProgress();
                     flippedCards = [];
                     lockBoard = false;
                     if (matchedPairs === pairsCount) {
+                        cleanupGame();
                         clearProgressTracker();
-                        answeredQuestions[`memory-${currentLevel}`] = 'completed';
+                        userProgress.answeredQuestions[`memory-${gameState.currentLevel}`] = 'completed';
                         saveProgress();
                         showSuccessMessage('🦄 Toutes les paires trouvées !');
                         showConfetti();
@@ -4610,7 +4748,7 @@ function generateNumberPairs(sum, count) {
                         card2.card.querySelector('span').style.opacity = '0';
                         flippedCards = [];
                         lockBoard = false;
-                        userScore.coins = Math.max(0, userScore.coins - 5);
+                        // userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5); // Penalización desactivada
                         playSound('wrong');
                         updateUI();
                         saveProgress();
@@ -4621,7 +4759,10 @@ function generateNumberPairs(sum, count) {
         }
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        configureBackButton('Retour aux niveaux de mémoire', showMemoryGameMenu);
+        configureBackButton('Retour aux niveaux de mémoire', () => {
+            cleanupGame();
+            showMemoryGameMenu();
+        });
     }
     
     /**
@@ -4629,7 +4770,8 @@ function generateNumberPairs(sum, count) {
      * @param {number} level El nivel de dificultad.
      */
     function showSortingGame(level) {
-        currentLevel = level;
+        document.body.classList.add('stage-controls-visible');
+        gameState.currentLevel = level;
         content.innerHTML = '';
         updateUI();
 
@@ -4843,25 +4985,28 @@ function generateNumberPairs(sum, count) {
      * Muestra el juego de adivinanzas.
      */
     function showRiddleGame() {
-        currentTopic = 'riddles';
-        showLevelMenu(currentTopic);
+        document.body.classList.remove('stage-controls-visible');
+        gameState.currentTopic = 'riddles';
+        showLevelMenu(gameState.currentTopic);
     }
     
     function launchRiddleLevel(level) {
-        currentTopic = 'riddles';
+        gameState.currentTopic = 'riddles';
+        document.body.classList.add('stage-controls-visible');
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
-        currentRiddleLevelIndex = Math.max(0, Math.min(riddleLevels.length, level) - 1);
-        const levelData = riddleLevels[currentRiddleLevelIndex];
-        currentLevel = levelData?.level || level;
-        currentQuestionIndex = 0;
-        answeredQuestions[`riddles-${currentLevel}`] = 'in-progress';
+        gameState.currentRiddleLevelIndex = Math.max(0, Math.min(riddleLevels.length, level) - 1);
+        const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
+        gameState.currentLevel = levelData?.level || level;
+        gameState.currentQuestionIndex = 0;
+        userProgress.answeredQuestions[`riddles-${gameState.currentLevel}`] = 'in-progress';
         saveProgress();
         loadRiddleQuestion(0);
     }
 
-    function loadRiddleQuestion(questionIndex = 0) {
-        const levelData = riddleLevels[currentRiddleLevelIndex];
+    function loadRiddleQuestion(questionIndex = 0) { // This should use gameState.currentRiddleLevelIndex
+        document.body.classList.add('stage-controls-visible');
+        const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
         if (!levelData) {
             showLevelMenu('riddles');
             return;
@@ -4873,7 +5018,7 @@ function generateNumberPairs(sum, count) {
             return;
         }
 
-        currentQuestionIndex = questionIndex;
+        gameState.currentQuestionIndex = questionIndex;
         const riddleData = questions[questionIndex];
 
         content.innerHTML = '';
@@ -4905,7 +5050,7 @@ function generateNumberPairs(sum, count) {
 
         wrapper.appendChild(promptWrapper);
         speakText(riddleData.prompt);
-        updateProgressTracker(currentQuestionIndex + 1, questions.length);
+        updateProgressTracker(gameState.currentQuestionIndex + 1, questions.length);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
@@ -4929,7 +5074,7 @@ function generateNumberPairs(sum, count) {
     }
 
     function completeRiddleLevel(levelData) {
-        answeredQuestions[`riddles-${levelData.level}`] = 'completed';
+        userProgress.answeredQuestions[`riddles-${levelData.level}`] = 'completed';
         saveProgress();
         showSuccessMessage(levelData.completionMessage || 'Niveau terminé !');
         showConfetti();
@@ -4950,9 +5095,9 @@ function generateNumberPairs(sum, count) {
         const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
         optionNodes.forEach(opt => opt.removeEventListener('click', handleRiddleAnswer));
 
-        const levelData = riddleLevels[currentRiddleLevelIndex];
+        const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
         const questions = levelData.questions || [];
-        const riddleData = questions[currentQuestionIndex];
+        const riddleData = questions[gameState.currentQuestionIndex];
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctAnswerIndex = riddleData.answer;
         const correctValue = riddleData.options[correctAnswerIndex];
@@ -4960,14 +5105,14 @@ function generateNumberPairs(sum, count) {
         if (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex) {
             selectedOption.classList.add('correct');
             selectedOption.classList.add('riddle-correct-glow');
-            userScore.stars += riddleData.reward?.stars || (10 + levelData.level);
-            userScore.coins += riddleData.reward?.coins || (6 + Math.floor(levelData.level / 2));
+            userProgress.userScore.stars += riddleData.reward?.stars || (10 + levelData.level);
+            userProgress.userScore.coins += riddleData.reward?.coins || (6 + Math.floor(levelData.level / 2));
             showSuccessMessage(riddleData.success || 'Bonne réponse !');
             showConfetti();
         } else {
             selectedOption.classList.add('wrong');
             selectedOption.classList.add('riddle-wrong-glow');
-            userScore.coins = Math.max(0, userScore.coins - 5);
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
@@ -4981,8 +5126,8 @@ function generateNumberPairs(sum, count) {
         saveProgress();
 
         setTimeout(() => {
-            if (currentQuestionIndex + 1 < questions.length) {
-                loadRiddleQuestion(currentQuestionIndex + 1);
+            if (gameState.currentQuestionIndex + 1 < questions.length) {
+                loadRiddleQuestion(gameState.currentQuestionIndex + 1);
             } else {
                 completeRiddleLevel(levelData);
             }
@@ -4992,22 +5137,24 @@ function generateNumberPairs(sum, count) {
     // --- NOUVEAUX JEUX ---
 
     function showVowelGame() {
-        currentTopic = 'vowels';
-        showLevelMenu(currentTopic);
+        document.body.classList.remove('stage-controls-visible');
+        gameState.currentTopic = 'vowels';
+        showLevelMenu(gameState.currentTopic);
     }
     
     function loadVowelQuestion(index) {
+        document.body.classList.add('stage-controls-visible');
         if (index < 0 || index >= vowelLevels.length) {
             win();
             return;
         }
 
         const levelData = vowelLevels[index];
-        currentLevel = levelData.level;
-        currentQuestionIndex = index;
-        currentVowelLevelData = null;
-        questionSkillTag = resolveSkillTag('vowels');
-        questionStartTime = performance.now();
+        gameState.currentLevel = levelData.level;
+        gameState.currentQuestionIndex = index;
+        gameState.currentVowelLevelData = null;
+        gameState.questionSkillTag = resolveSkillTag('vowels');
+        gameState.questionStartTime = performance.now();
 
         content.innerHTML = '';
         updateUI();
@@ -5083,8 +5230,8 @@ function generateNumberPairs(sum, count) {
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';
         configureBackButton('Retour aux niveaux', () => showLevelMenu('vowels'));
-
-        currentVowelLevelData = {
+    
+        gameState.currentVowelLevelData = {
             level: levelData.level,
             answer: levelData.answer,
             blanksCount,
@@ -5092,70 +5239,70 @@ function generateNumberPairs(sum, count) {
             buttons,
             feedbackEl: feedbackBubble
         };
-        answeredQuestions[`vowels-${currentLevel}`] = answeredQuestions[`vowels-${currentLevel}`] || 'in-progress';
+        userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] || 'in-progress';
         saveProgress();
     }
 
     function handleVowelAnswer(event) {
-        if (!currentVowelLevelData) { return; }
+        if (!gameState.currentVowelLevelData) { return; }
 
         const selectedOption = event.currentTarget instanceof HTMLElement
             ? event.currentTarget
             : (event.target.closest && event.target.closest('.vowel-option'));
         if (!selectedOption) { return; }
 
-        currentVowelLevelData.buttons.forEach(btn => {
+        gameState.currentVowelLevelData.buttons.forEach(btn => {
             btn.removeEventListener('click', handleVowelAnswer);
             btn.disabled = true;
         });
 
         const userAnswer = selectedOption.dataset.value;
-        const expected = currentVowelLevelData.answer;
-        const blanks = currentVowelLevelData.displayEl.querySelectorAll('.vowel-blank');
+        const expected = gameState.currentVowelLevelData.answer;
+        const blanks = gameState.currentVowelLevelData.displayEl.querySelectorAll('.vowel-blank');
 
         const isCorrect = userAnswer && userAnswer.toLowerCase() === expected.toLowerCase();
-        const elapsed = questionStartTime ? performance.now() - questionStartTime : 0;
+        const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
         if (isCorrect) {
             fillVowelBlanks(blanks, userAnswer);
-            currentVowelLevelData.displayEl.classList.add('is-complete');
+            gameState.currentVowelLevelData.displayEl.classList.add('is-complete');
             selectedOption.classList.add('correct', 'vowel-option-correct');
             showVowelFeedback('positive', 'Super !');
-            userScore.stars += 10 + currentLevel * 2;
-            userScore.coins += 10;
-            answeredQuestions[`vowels-${currentLevel}`] = 'completed';
+            userProgress.userScore.stars += 10 + gameState.currentLevel * 2;
+            userProgress.userScore.coins += 10;
+            userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = 'completed';
             saveProgress();
             updateUI();
             showSuccessMessage('Bravo !');
             showConfetti();
-            historyTracker?.recordQuestion(questionSkillTag || resolveSkillTag('vowels'), { correct: true, timeMs: elapsed });
+            gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('vowels'), { correct: true, timeMs: elapsed });
             setTimeout(() => {
-                currentVowelLevelData = null;
-                if (currentQuestionIndex + 1 < vowelLevels.length) {
-                    loadVowelQuestion(currentQuestionIndex + 1);
+                gameState.currentVowelLevelData = null;
+                if (gameState.currentQuestionIndex + 1 < vowelLevels.length) {
+                    loadVowelQuestion(gameState.currentQuestionIndex + 1);
                 } else {
-                    historyTracker?.endGame({ status: 'completed', topic: 'vowels', level: currentLevel });
+                    gameState.historyTracker?.endGame({ status: 'completed', topic: 'vowels', level: gameState.currentLevel });
                     showLevelMenu('vowels');
                 }
             }, 1600);
         } else {
             selectedOption.classList.add('wrong', 'vowel-option-wrong');
-            currentVowelLevelData.displayEl.classList.add('is-error');
+            gameState.currentVowelLevelData.displayEl.classList.add('is-error');
             showVowelFeedback('negative', 'Essaie encore !');
-            userScore.coins = Math.max(0, userScore.coins - 5);
-            answeredQuestions[`vowels-${currentLevel}`] = 'in-progress';
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = 'in-progress';
             saveProgress();
             updateUI();
-            historyTracker?.recordQuestion(questionSkillTag || resolveSkillTag('vowels'), { correct: false, timeMs: elapsed });
+            gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('vowels'), { correct: false, timeMs: elapsed });
             showErrorMessage('Regarde bien les lettres.', expected);
             setTimeout(() => {
-                currentVowelLevelData.displayEl.classList.remove('is-error');
-                currentVowelLevelData.buttons.forEach(btn => {
+                gameState.currentVowelLevelData.displayEl.classList.remove('is-error');
+                gameState.currentVowelLevelData.buttons.forEach(btn => {
                     btn.disabled = false;
                     btn.addEventListener('click', handleVowelAnswer);
                     btn.classList.remove('vowel-option-wrong');
                 });
                 hideVowelFeedback();
-                questionStartTime = performance.now();
+                gameState.questionStartTime = performance.now();
             }, 1200);
         }
     }
@@ -5170,7 +5317,7 @@ function generateNumberPairs(sum, count) {
         if (!story) { return; }
         const activeSet = getActiveStorySet();
         markStoryCompletedById(story.id, activeSet?.id);
-        answeredQuestions[`stories-${story.id}`] = 'completed';
+        userProgress.answeredQuestions[`stories-${story.id}`] = 'completed';
         saveProgress();
     }
 
@@ -5185,8 +5332,8 @@ function generateNumberPairs(sum, count) {
     }
 
     function showVowelFeedback(type, message) {
-        if (!currentVowelLevelData || !currentVowelLevelData.feedbackEl) { return; }
-        const bubble = currentVowelLevelData.feedbackEl;
+        if (!gameState.currentVowelLevelData || !gameState.currentVowelLevelData.feedbackEl) { return; }
+        const bubble = gameState.currentVowelLevelData.feedbackEl;
         clearTimeout(bubble._timerId);
         bubble.textContent = message;
         bubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
@@ -5195,8 +5342,8 @@ function generateNumberPairs(sum, count) {
     }
 
     function hideVowelFeedback() {
-        if (!currentVowelLevelData || !currentVowelLevelData.feedbackEl) { return; }
-        const bubble = currentVowelLevelData.feedbackEl;
+        if (!gameState.currentVowelLevelData || !gameState.currentVowelLevelData.feedbackEl) { return; }
+        const bubble = gameState.currentVowelLevelData.feedbackEl;
         clearTimeout(bubble._timerId);
         bubble.textContent = '';
         bubble.classList.add('is-hidden');
@@ -5204,18 +5351,20 @@ function generateNumberPairs(sum, count) {
     }
 
     function showSequenceGame() {
-        currentTopic = 'sequences';
-        showLevelMenu(currentTopic);
+        document.body.classList.remove('stage-controls-visible');
+        gameState.currentTopic = 'sequences';
+        showLevelMenu(gameState.currentTopic);
     }
 
     function loadSequenceQuestion(index) {
+        document.body.classList.add('stage-controls-visible');
         if (index < 0 || index >= sequenceLevels.length) {
             win();
             return;
         }
 
-        currentLevel = index + 1;
-        currentQuestionIndex = index;
+        gameState.currentLevel = index + 1;
+        gameState.currentQuestionIndex = index;
         const levelData = sequenceLevels[index];
 
         content.innerHTML = '';
@@ -5242,7 +5391,7 @@ function generateNumberPairs(sum, count) {
 
         container.appendChild(promptWrapper);
         speakText(title.textContent);
-        updateProgressTracker(currentLevel, sequenceLevels.length);
+        updateProgressTracker(gameState.currentLevel, sequenceLevels.length);
 
         const sequenceContainer = document.createElement('div');
         sequenceContainer.className = 'sequence-container';
@@ -5390,16 +5539,16 @@ function generateNumberPairs(sum, count) {
 
         function rewardSequence() {
             hideFeedback();
-            userScore.stars += 12 + currentLevel * 2;
-            userScore.coins += 8 + currentLevel;
-            answeredQuestions[`sequences-${currentLevel}`] = 'completed';
+            userProgress.userScore.stars += 12 + gameState.currentLevel * 2;
+            userProgress.userScore.coins += 8 + gameState.currentLevel;
+            userProgress.answeredQuestions[`sequences-${gameState.currentLevel}`] = 'completed';
             saveProgress();
             updateUI();
             showConfetti();
             clearProgressTracker();
             setTimeout(() => {
-                if (currentLevel < sequenceLevels.length) {
-                    loadSequenceQuestion(currentLevel);
+                if (gameState.currentLevel < sequenceLevels.length) {
+                    loadSequenceQuestion(gameState.currentLevel);
                 } else {
                     showLevelMenu('sequences');
                 }
@@ -5407,7 +5556,7 @@ function generateNumberPairs(sum, count) {
         }
 
         function markSequenceInProgress() {
-            answeredQuestions[`sequences-${currentLevel}`] = 'in-progress';
+            userProgress.answeredQuestions[`sequences-${gameState.currentLevel}`] = 'in-progress';
             saveProgress();
         }
 
@@ -5420,7 +5569,7 @@ function generateNumberPairs(sum, count) {
 
     function win() {
         content.innerHTML = `<div class="question-prompt fx-pop">Tu as complété toutes les questions! 🎉</div>
-                            <div class="prompt ok">Ton score final : ${userScore.stars} étoiles et ${userScore.coins} pièces.</div>`;
+                            <div class="prompt ok">Ton score final : ${userProgress.userScore.stars} étoiles et ${userProgress.userScore.coins} pièces.</div>`;
         speakText("Tu as complété toutes les questions! Félicitations pour ton score final.");
         clearProgressTracker();
         btnLogros.style.display = 'inline-block';

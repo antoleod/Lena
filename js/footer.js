@@ -32,10 +32,14 @@
   };
 
   function navigateTo(target) {
-    const inHtmlDir = /\/html\//.test(window.location.pathname);
-    const basePath = inHtmlDir ? target : `html/${target}`;
-    if (window.location.pathname.endsWith(`/${target}`)) { return; }
-    window.location.href = basePath;
+    const path = window.location.pathname || '';
+    const htmlIdx = path.indexOf('/html/');
+    // If we are anywhere under /html/, build an absolute path rooted at /html/
+    const href = htmlIdx >= 0
+      ? path.slice(0, htmlIdx + '/html/'.length) + target
+      : `html/${target}`; // otherwise navigate relative to root index
+    if (path.endsWith(`/${target}`)) { return; }
+    window.location.href = href;
   }
 
   function createFooterButton({ id, icon, label, handler, isCurrent = false }) {
@@ -95,22 +99,13 @@
   }
 
   function initFooter() {
-    if (document.querySelector('[data-app-footer]')) {
-      enhanceExistingFooter();
+    const footer = document.querySelector('[data-app-footer]');
+    if (!footer) {
+      console.warn('Footer element with [data-app-footer] not found.');
       return;
     }
-    const footer = document.createElement('footer');
     footer.className = 'global-footer';
-    footer.setAttribute('data-app-footer', '');
-    mountFooterContent(footer);
-    document.body.appendChild(footer);
-  }
-
-  function enhanceExistingFooter() {
-    const footer = document.querySelector('[data-app-footer]');
-    if (!footer) { return; }
-    footer.classList.add('global-footer');
-    footer.innerHTML = '';
+    footer.innerHTML = ''; // Clear any placeholder content
     mountFooterContent(footer);
   }
 

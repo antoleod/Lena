@@ -17,6 +17,11 @@ body {
   padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2.2rem);
 }
 
+.has-app-footer .main-shell {
+  /* Reserve space so footer never overlaps options */
+  padding-bottom: calc(7.5rem + env(safe-area-inset-bottom));
+}
+
 .main-shell {
   width: min(1100px, 100%);
   background: rgba(255, 255, 255, 0.85);
@@ -183,6 +188,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: clamp(1rem, 2.4vw, 1.6rem);
   width: 100%;
+  pointer-events: auto;
 }
 
 .word-option {
@@ -199,6 +205,7 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  pointer-events: auto;
 }
 
 .word-option__emoji {
@@ -225,6 +232,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  pointer-events: auto;
 }
 
 .rhyme-board__prompt {
@@ -254,6 +262,7 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  pointer-events: auto;
 }
 
 .rhyme-option:hover:not(:disabled) {

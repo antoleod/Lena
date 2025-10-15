@@ -29,6 +29,18 @@ window.ENQUETE_GRAMMATICALE_LEVELS = [
         options: ['sujet', 'verbe', 'complément']
       }
     ]
+  },
+  {
+    id: 'niveau2',
+    title: 'Niveau 2',
+    badge: '🕵️‍♀️',
+    subtitle: 'Enquête 2',
+    description: 'Identifie sujet, verbe et complément dans de nouvelles phrases.',
+    exercises: [
+      { sentence: 'La maîtresse lit une histoire.', target: 'lit', question: 'Quel est le rôle de "lit" ?', correct: 'verbe', options: ['sujet', 'verbe', 'complément'] },
+      { sentence: 'Le chien regarde la balle.', target: 'chien', question: 'Quel est le rôle de "chien" ?', correct: 'sujet', options: ['sujet', 'verbe', 'complément'] },
+      { sentence: 'Léa mange une pomme.', target: 'pomme', question: 'Quel est le rôle de "pomme" ?', correct: 'complément', options: ['sujet', 'verbe', 'complément'] }
+    ]
   }
 ];
 

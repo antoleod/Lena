@@ -179,47 +179,34 @@ body {
 
 @media (max-width: 720px) {
     .shop-header h1 {
-        font-size: 2.4em;
+        font-size: 2.2em;
     }
 
     .shop-section {
         padding: 16px;
         margin: 20px auto;
     }
-}
-
-@media (max-width: 600px) {
-    .shop-section.rare-market {
-        padding: 14px;
-    }
-
-    .shop-section.rare-market h2 {
+    .shop-section h2 {
         font-size: 1.8em;
     }
-
-    .shop-section.rare-market .items-grid {
+    .items-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 16px;
     }
-
-    .shop-section.rare-market .item-card {
+    .item-card {
         padding: 10px;
     }
-
-    .shop-section.rare-market .item-card img {
+    .item-card img {
         width: 72px;
         height: 72px;
     }
-
-    .shop-section.rare-market .item-name {
+    .item-name {
         font-size: 0.95em;
     }
-
-    .shop-section.rare-market .item-price {
+    .item-price {
         font-size: 0.95em;
     }
-
-    .shop-section.rare-market .btn-action {
+    .btn-action {
         padding: 8px 10px;
         font-size: 0.9em;
     }

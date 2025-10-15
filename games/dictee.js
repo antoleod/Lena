@@ -31,16 +31,25 @@
         menu.className = 'dictee-menu';
 
         const guidedBtn = document.createElement('button');
+        guidedBtn.className = 'dictee-menu-btn dictee-menu-btn--guided';
         guidedBtn.textContent = '🎧 Dictée Magique';
         guidedBtn.addEventListener('click', () => {
             if (typeof context.openLevelSelection === 'function') {
                 context.openLevelSelection();
             }
         });
-        menu.appendChild(guidedBtn);
+        const guidedDesc = document.createElement('p');
+        guidedDesc.className = 'dictee-menu-item__description';
+        guidedDesc.textContent = 'Suis les niveaux guidés pour progresser à ton rythme.';
+        const guidedItem = document.createElement('div');
+        guidedItem.className = 'dictee-menu-item';
+        guidedItem.appendChild(guidedBtn);
+        guidedItem.appendChild(guidedDesc);
+        menu.appendChild(guidedItem);
 
         const hasCustom = Boolean(loadCustomDictation());
         const customPlayBtn = document.createElement('button');
+        customPlayBtn.className = 'dictee-menu-btn dictee-menu-btn--custom';
         customPlayBtn.textContent = hasCustom ? '📒 Mon dictée du jour' : '📒 Aucun dictée enregistrée';
         customPlayBtn.disabled = !hasCustom;
         customPlayBtn.addEventListener('click', () => {
@@ -48,16 +57,31 @@
                 context.startCustomPlay();
             }
         });
-        menu.appendChild(customPlayBtn);
+        const customDesc = document.createElement('p');
+        customDesc.className = 'dictee-menu-item__description';
+        customDesc.textContent = 'Entraîne-toi avec les mots ou phrases que tu as créés.';
+        const customItem = document.createElement('div');
+        customItem.className = 'dictee-menu-item';
+        customItem.appendChild(customPlayBtn);
+        customItem.appendChild(customDesc);
+        menu.appendChild(customItem);
 
         const parentBtn = document.createElement('button');
+        parentBtn.className = 'dictee-menu-btn dictee-menu-btn--parent';
         parentBtn.textContent = '🎙️ Créer une dictée';
         parentBtn.addEventListener('click', () => {
             if (typeof context.openCustomEditor === 'function') {
                 context.openCustomEditor();
             }
         });
-        menu.appendChild(parentBtn);
+        const parentDesc = document.createElement('p');
+        parentDesc.className = 'dictee-menu-item__description';
+        parentDesc.textContent = 'Zone parent : ajoute tes propres mots et enregistre ta voix.';
+        const parentItem = document.createElement('div');
+        parentItem.className = 'dictee-menu-item';
+        parentItem.appendChild(parentBtn);
+        parentItem.appendChild(parentDesc);
+        menu.appendChild(parentItem);
 
         wrapper.appendChild(menu);
         context.content.appendChild(wrapper);

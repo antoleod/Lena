@@ -23,6 +23,18 @@ window.ASSOCIE_LES_IDEES_LEVELS = [
         options: ['clou', 'vis', 'planche']
       }
     ]
+  },
+  {
+    id: 'niveau2',
+    title: 'Niveau 2',
+    badge: '🧩',
+    subtitle: 'Paires du quotidien',
+    description: 'Associe l’objet à ce qui va naturellement avec.',
+    exercises: [
+      { prompt: 'crayon', correct: 'papier', options: ['papier', 'ciseaux', 'colle'] },
+      { prompt: 'clé', correct: 'porte', options: ['porte', 'fenêtre', 'chaise'] },
+      { prompt: 'brosse', correct: 'cheveux', options: ['cheveux', 'chaussettes', 'vélo'] }
+    ]
   }
 ];
 

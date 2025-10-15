@@ -40,13 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Sonidos locales para clic y brillo (offline-friendly)
-  const popSound = new Audio('../assets/sounds/bling.wav');
-  const sparkleSound = new Audio('../assets/sounds/level-up.wav');
   const popSound = createAudio('../assets/sounds/bling.wav');
   const sparkleSound = createAudio('../assets/sounds/level-up.wav');
   window.audioManager?.bind(popSound);
   window.audioManager?.bind(sparkleSound);
-  popSound.volume = 0.35;
   popSound.volume = 0.4;
   sparkleSound.volume = 0.3;
 
@@ -415,4 +412,3 @@ function createSparkle(x, y, parentEl) {
   sparkle.style.top = `${y}px`;
   sparkle.addEventListener('animationend', () => sparkle.remove());
 }
-

@@ -24,11 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         userProgress.activeCosmetics.background = userProgress.activeTheme;
     }
 
-<<<<<<< HEAD
     applyUserTheme(userProfile.color);
 
-=======
->>>>>>> 169cb41 (Reemplazo completo de css)
     // --- Éléments DOM ---
     const userInfo = document.getElementById('user-info');
     const scoreStars = document.getElementById('scoreStars');
@@ -38,10 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const myTreasuresContainer = document.getElementById('my-treasures-container');
     const btnVolver = document.getElementById('btnVolver');
     const buySound = document.getElementById('buy-sound');
-<<<<<<< HEAD
     window.audioManager?.bind(buySound);
-=======
->>>>>>> 169cb41 (Reemplazo completo de css)
     const particlesCanvas = document.getElementById('magic-particles');
     const ctx = particlesCanvas.getContext('2d');
 
@@ -202,13 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             storage.saveUserProgress(userProfile.name, userProgress);
             
-<<<<<<< HEAD
             if (!window.audioManager?.isMuted) {
                 buySound.play();
             }
-=======
-            buySound.play();
->>>>>>> 169cb41 (Reemplazo completo de css)
             triggerMagicEffect();
             
             alert(`Tu as acheté ${item.name} !`);
@@ -253,10 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const normalizedIcon = iconSource.startsWith('../') ? iconSource.replace('../', '') : iconSource;
             userProfile.avatar = { id: item.id, name: item.name, iconUrl: normalizedIcon };
             storage.saveUserProfile(userProfile);
-<<<<<<< HEAD
             applyUserTheme(userProfile.color);
-=======
->>>>>>> 169cb41 (Reemplazo completo de css)
             alert(`Tu as équipé l'avatar: ${item.name}. Super look !`);
             renderAllItems();
             renderUserInfo();
@@ -285,7 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-<<<<<<< HEAD
     function applyUserTheme(color) {
         const accent = color || '#a890f0';
         document.documentElement.style.setProperty('--primary', accent);
@@ -340,8 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return channel <= 0.03928 ? channel / 12.92 : Math.pow((channel + 0.055) / 1.055, 2.4);
     }
 
-=======
->>>>>>> 169cb41 (Reemplazo completo de css)
     // --- Effets Magiques ---
     let particles = [];
     function setupParticles() {

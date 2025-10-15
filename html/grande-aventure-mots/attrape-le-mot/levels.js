@@ -11,6 +11,18 @@ window.ATTRAPE_LE_MOT_LEVELS = [
       { correct: 'voiture', options: ['voiture', 'arbre', 'fleur', 'lune'] },
       { correct: 'pomme', options: ['pomme', 'banane', 'orange', 'fraise'] }
     ]
+  },
+  {
+    id: 'niveau2',
+    title: 'Niveau 2',
+    badge: '✨',
+    subtitle: 'Objets et nature',
+    description: 'Écoute puis attrape rapidement le mot affiché !',
+    exercises: [
+      { correct: 'fleur', options: ['fleur', 'nuage', 'bouteille', 'crayon'] },
+      { correct: 'arbre', options: ['arbre', 'camion', 'chocolat', 'chaise'] },
+      { correct: 'soleil', options: ['soleil', 'lune', 'verre', 'fourchette'] }
+    ]
   }
 ];
 

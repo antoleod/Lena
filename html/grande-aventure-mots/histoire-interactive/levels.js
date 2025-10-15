@@ -36,6 +36,43 @@ window.HISTOIRE_INTERACTIVE_LEVELS = [
         marcher: { text: 'Tu découvres une cascade secrète derrière laquelle se cache un trésor. FIN.', choices: [] }
       }
     }
+  },
+  {
+    id: 'niveau2',
+    title: 'Niveau 2',
+    badge: '📖',
+    subtitle: 'Le château mystérieux',
+    description: 'Une aventure avec passages secrets et petits dragons.',
+    story: {
+      start: 'portail',
+      nodes: {
+        portail: {
+          text: 'Tu arrives devant un grand château. Un portail et une petite porte sont ouverts.',
+          choices: [
+            { text: 'Entrer par le portail', target: 'cour' },
+            { text: 'Passer par la petite porte', target: 'cuisine' }
+          ]
+        },
+        cour: {
+          text: 'Dans la cour, un petit dragon dort près d’une fontaine.',
+          choices: [
+            { text: 'Réveiller doucement le dragon', target: 'dragon' },
+            { text: 'Chercher une porte secrète', target: 'secret' }
+          ]
+        },
+        cuisine: {
+          text: 'La cuisine sent bon le gâteau. Une trappe mène à la cave.',
+          choices: [
+            { text: 'Goûter le gâteau', target: 'gateau' },
+            { text: 'Descendre à la cave', target: 'cave' }
+          ]
+        },
+        dragon: { text: 'Le dragon t’offre une plume magique. FIN.', choices: [] },
+        secret: { text: 'Tu trouves un passage vers une salle aux trésors. FIN.', choices: [] },
+        gateau: { text: 'Délicieux ! Le cuisinier te donne une boîte de biscuits. FIN.', choices: [] },
+        cave: { text: 'Une lanterne te guide vers une carte mystérieuse. FIN.', choices: [] }
+      }
+    }
   }
 ];
 

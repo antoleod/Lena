@@ -6,11 +6,13 @@
     <title>Appli de Léna — Jeu 🦄</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/juego.css">
+    <link rel="stylesheet" href="../css/dictee.css">
+    <link rel="stylesheet" href="../css/theme-unicorn.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 </head>
-<body class="body-level-1">
+<body class="theme-unicorn-rainbow">
   <div id="stageTop">
     <div class="scores-container">
       <span id="user-info"></span>
@@ -22,6 +24,7 @@
       <span id="scoreStars">0</span>
       <span id="scoreCoins" class="coins">0</span>
       <span id="level" class="level">Niveau 1</span>
+      <span id="progress-label" class="progress-label"></span>
     </div>
     <div class="top-buttons">
         <button id="btnReadMode" class="btn" disabled>📖</button>
@@ -43,9 +46,9 @@
     </div>
   </div>
 
-  <audio id="audioCorrect" src="https://assets.mixkit.co/sfx/download/mixkit-game-bling-2041.wav"></audio>
-  <audio id="audioWrong" src="https://assets.mixkit.co/sfx/download/mixkit-wrong-answer-2051.wav"></audio>
-  <audio id="audioCoins" src="https://assets.mixkit.co/sfx/download/mixkit-collect-coin-1938.wav"></audio>
+  <audio id="audioCorrect" src="../assets/sounds/bling.wav"></audio>
+  <audio id="audioWrong" src="../assets/sounds/wrong.wav"></audio>
+  <audio id="audioCoins" src="../assets/sounds/coin.wav"></audio>
 
   <div id="shopModal" class="shop-modal" aria-hidden="true">
     <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
@@ -75,6 +78,7 @@
   <script src="../games/lecturemagique.js"></script>
   <script src="../games/raisonnement.js"></script>
   <script src="../js/audioManager.js"></script>
+  <footer class="global-footer" data-app-footer></footer>
   <script src="../js/avatarData.js"></script>
   <script src="../js/storage.js"></script>
   <script src="../js/footer.js"></script>

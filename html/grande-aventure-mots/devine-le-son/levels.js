@@ -27,6 +27,34 @@ window.DEVINE_LE_SON_LEVELS = [
       }
     ]
   }
+  ,
+  {
+    id: 'niveau2',
+    title: 'Niveau 2',
+    badge: '🐾',
+    subtitle: 'Toujours à la ferme',
+    description: 'Reconnais d’autres sons d’animaux de la ferme.',
+    exercises: [
+      {
+        sound: '../../../../assets/sounds/animals/cow.mp3',
+        correct: 'vache',
+        options: [
+          { word: 'vache', emoji: '🐮' },
+          { word: 'poule', emoji: '🐔' },
+          { word: 'cheval', emoji: '🐴' }
+        ]
+      },
+      {
+        sound: '../../../../assets/sounds/animals/pig.mp3',
+        correct: 'cochon',
+        options: [
+          { word: 'mouton', emoji: '🐑' },
+          { word: 'canard', emoji: '🦆' },
+          { word: 'cochon', emoji: '🐷' }
+        ]
+      }
+    ]
+  }
 ];
 
 window.DEVINE_LE_SON_SETTINGS = {
