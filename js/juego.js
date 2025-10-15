@@ -3669,8 +3669,16 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 1; i <= totalLevels; i++) {
             const levelBtn = document.createElement('button');
             levelBtn.className = 'level-button fx-bounce-in-down';
+            levelBtn.type = 'button';
             levelBtn.textContent = `Niveau ${i}`;
             levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
+            levelBtn.setAttribute('aria-label', `Niveau ${i}`);
+            levelBtn.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    levelBtn.click();
+                }
+            });
             const levelKey = `${gameState.currentTopic}-${i}`;
             if (userProgress.answeredQuestions[levelKey] === 'completed') {
                 levelBtn.classList.add('correct', 'is-completed');
@@ -5443,6 +5451,55 @@ function generateNumberPairs(sum, count) {
         const dropzone = sequenceContainer.querySelector('.sequence-slot');
         enableSequenceDropzone(dropzone);
         enableSequenceDropzone(pool);
+
+        // Click-to-place fallback for accessibility (in addition to drag & drop)
+        tokens.forEach(token => {
+            token.tabIndex = 0;
+            token.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); token.click(); }
+            });
+            token.addEventListener('click', () => {
+                // If token is in pool and dropzone empty, attempt placement
+                const inPool = !!token.closest('.sequence-pool');
+                const expected = dropzone.dataset.answer;
+                const actual = token.dataset.value;
+                if (inPool) {
+                    if (!dropzone.classList.contains('is-filled')) {
+                        if (expected === actual) {
+                            dropzone.classList.add('is-filled', 'is-correct');
+                            dropzone.classList.remove('is-wrong');
+                            token.classList.add('is-correct', 'sequence-token-pop');
+                            token.setAttribute('draggable', 'false');
+                            dropzone.textContent = actual;
+                            dropzone.appendChild(token);
+                            playSound('correct');
+                            showFeedback('positive', 'Super ! La séquence est complète.');
+                            setTimeout(() => token.classList.remove('sequence-token-pop'), 320);
+                            rewardSequence();
+                        } else {
+                            dropzone.classList.add('is-filled', 'is-wrong');
+                            dropzone.classList.remove('is-correct');
+                            playSound('wrong');
+                            showFeedback('negative', 'Essaie encore !');
+                            setTimeout(() => {
+                                dropzone.textContent = '';
+                                dropzone.classList.remove('is-filled', 'is-wrong');
+                            }, 420);
+                            markSequenceInProgress();
+                        }
+                    }
+                } else {
+                    // If token is already in dropzone, clicking returns it to pool
+                    pool.appendChild(token);
+                    token.classList.remove('is-correct');
+                    token.setAttribute('draggable', 'true');
+                    dropzone.classList.remove('is-filled', 'is-correct', 'is-wrong');
+                    dropzone.textContent = '';
+                    hideFeedback();
+                    markSequenceInProgress();
+                }
+            });
+        });
 
         btnLogros.style.display = 'inline-block';
         btnLogout.style.display = 'inline-block';

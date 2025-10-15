@@ -282,6 +282,34 @@ body {
   color: #b71c1c;
 }
 
+/* ===== Locked animations (cards + levels) ===== */
+.game-card.is-locked,
+.level-card.is-locked {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+  filter: grayscale(0.15) saturate(0.75);
+}
+
+.game-card.is-locked::after,
+.level-card.is-locked::after {
+  content: '🔒';
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  animation: gamLockWiggle 1.8s ease-in-out infinite;
+}
+
+@keyframes gamLockWiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(8deg); }
+  75% { transform: rotate(-4deg); }
+  100% { transform: rotate(0deg); }
+}
+
 .rhyme-option:disabled {
   cursor: default;
   opacity: 0.85;

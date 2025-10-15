@@ -35,6 +35,13 @@
     </div>
   </div>
 
+  <div id="progressTracker" class="progress-tracker progress-tracker--inline is-visible">
+    <div class="progress-tracker__label"></div>
+    <div class="progress-tracker__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="progress-tracker__fill" style="width: 0%;"></div>
+    </div>
+  </div>
+
   <div id="stageBottom">
     <div id="content">
       <!-- Game content will be loaded here by JavaScript -->
@@ -46,8 +53,9 @@
     </div>
   </div>
 
-  <audio id="audioCorrect" src="../assets/sounds/bling.wav"></audio>
-  <audio id="audioWrong" src="../assets/sounds/wrong.wav"></audio>
+  <audio id="audioCorrect" src="../assets/sounds/correct.wav"></audio>
+  <audio id="audioWrong" src="../assets/sounds/bling.wav"></audio>
+  <audio id="audioCoins" src="../assets/sounds/level-up.wav"></audio>
   <audio id="audioCoins" src="../assets/sounds/coin.wav"></audio>
 
   <div id="shopModal" class="shop-modal" aria-hidden="true">
