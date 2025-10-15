@@ -12,8 +12,7 @@
         { type: 'word-image', illustration: '🍎', prompt: 'Quel mot correspond à ce dessin ?', options: ['poire', 'banane', 'pomme'], answer: 2, hint: 'Ce fruit est rouge.', success: 'Oui, c\'est la pomme !' },
         { type: 'fill', sentence: 'La ___ boit du lait.', options: ['chatte', 'voiture', 'chaise'], answer: 0, hint: 'Cherche un animal.', success: 'Bien vu !' },
         { type: 'rhyme', base: 'chat', options: ['rat', 'nez', 'pied'], answer: 0, hint: 'Quel mot a le même son final ?', success: 'Rat rime avec chat !' },
-        { type: 'start-sound', letter: 'p', options: ['pomme', 'tomate', 'cerise'], answer: 0, hint: 'Quel mot commence par le son P ?', success: 'Pomme commence par P !' },
-        { type: 'fill', sentence: 'Le soleil est ___ et chaud.', options: ['bleu', 'jaune', 'noir'], answer: 1, hint: 'Pense à la couleur du soleil.', success: 'Parfait !' }
+        { type: 'start-sound', letter: 'p', options: ['pomme', 'tomate', 'cerise'], answer: 0, hint: 'Quel mot commence par le son P ?', success: 'Pomme commence par P !' }
       ]
     },
     {
@@ -23,9 +22,7 @@
         { type: 'word-image', illustration: '🐸', prompt: 'Quel mot correspond à ce dessin ?', options: ['grenouille', 'requin', 'girafe'], answer: 0, hint: 'Elle saute dans les étangs.', success: 'Grenouille réussi !' },
         { type: 'fill', sentence: 'La fée agite sa ___ magique.', options: ['baguette', 'chaussure', 'maison'], answer: 0, hint: 'Elle brille et lance des étincelles.', success: 'Tu as trouvé la baguette !' },
         { type: 'rhyme', base: 'montagne', options: ['campagne', 'écureuil', 'nuage'], answer: 0, hint: 'Quel mot termine presque pareil ?', success: 'Campagne rime avec montagne.' },
-        { type: 'start-sound', letter: 'b', options: ['robe', 'ballon', 'lune'], answer: 1, hint: 'Quel mot commence par b ?', success: 'Ballon commence par b !' },
-        { type: 'word-image', illustration: '🍓', prompt: 'Quel mot correspond à ce dessin ?', options: ['orange', 'fraise', 'melon'], answer: 1, hint: 'Ce fruit est rouge avec des graines.', success: 'Fraise délicieux !' },
-        { type: 'fill', sentence: 'La classe chante une ___ joyeuse.', options: ['chanson', 'chaise', 'chose'], answer: 0, hint: 'On l\'écoute avec les oreilles.', success: 'Chanson est correct.' }
+        { type: 'start-sound', letter: 'b', options: ['robe', 'ballon', 'lune'], answer: 1, hint: 'Quel mot commence par b ?', success: 'Ballon commence par b !' }
       ]
     },
     {
@@ -35,9 +32,7 @@
         { type: 'rhyme', base: 'glace', options: ['place', 'souris', 'lapin'], answer: 0, hint: 'Quel mot finit comme glace ?', success: 'Place rime avec glace.' },
         { type: 'fill', sentence: 'La licorne traverse la ___ enchantée.', options: ['forêt', 'chaise', 'fourchette'], answer: 0, hint: 'Un lieu magique avec des arbres.', success: 'Forêt enchantée !' },
         { type: 'word-image', illustration: '🦉', prompt: 'Quel mot correspond à ce dessin ?', options: ['hibou', 'dauphin', 'requin'], answer: 0, hint: 'Il veille la nuit.', success: 'Hibou bien joué !' },
-        { type: 'word-image', illustration: '🌧️', prompt: 'Quel mot correspond à ce dessin ?', options: ['pluie', 'feu', 'neige'], answer: 0, hint: 'C\'est de l\'eau qui tombe du ciel.', success: 'Pluie juste !' },
-        { type: 'start-sound', letter: 'm', options: ['montagne', 'banane', 'rue'], answer: 0, hint: 'Quel mot commence par le son M ?', success: 'Montagne commence par M.' },
-        { type: 'fill', sentence: 'La petite souris porte un ___ doré.', options: ['chapeau', 'camion', 'ballon'], answer: 0, hint: 'On le porte sur la tête.', success: 'Chapeau doré trouvé !' }
+        { type: 'start-sound', letter: 'm', options: ['montagne', 'banane', 'rue'], answer: 0, hint: 'Quel mot commence par le son M ?', success: 'Montagne commence par M.' }
       ]
     },
     {
@@ -47,9 +42,7 @@
         { type: 'word-image', illustration: '🪄', prompt: 'Quel mot correspond à ce dessin ?', options: ['baguette', 'camion', 'piano'], answer: 0, hint: 'Elle jette des étincelles.', success: 'Baguette magique !' },
         { type: 'fill', sentence: 'Le dragon garde un coffret plein de ___.', options: ['trésors', 'nuages', 'sandwichs'], answer: 0, hint: 'Des bijoux brillants.', success: 'Trésors scintillants !' },
         { type: 'rhyme', base: 'fée', options: ['clé', 'pied', 'nez'], answer: 0, hint: 'Quel mot a le même son final ?', success: 'Clé rime avec fée.' },
-        { type: 'start-sound', letter: 'v', options: ['violette', 'lampe', 'orange'], answer: 0, hint: 'Quel mot commence par le son V ?', success: 'Violette commence par V.' },
-        { type: 'word-image', illustration: '🦄', prompt: 'Quel mot correspond à ce dessin ?', options: ['licorne', 'vache', 'souris'], answer: 0, hint: 'Elle a une corne magique.', success: 'Licorne enchantée !' },
-        { type: 'fill', sentence: 'Le pirate chante au bord du ___ bleu.', options: ['lac', 'pain', 'soleil'], answer: 0, hint: 'C\'est de l\'eau tranquille.', success: 'Lac bleu trouvé.' }
+        { type: 'start-sound', letter: 'v', options: ['violette', 'lampe', 'orange'], answer: 0, hint: 'Quel mot commence par le son V ?', success: 'Violette commence par V.' }
       ]
     },
     {
@@ -59,9 +52,7 @@
         { type: 'fill', sentence: 'Les enfants décorent une ___ en papier.', options: ['lanterne', 'glace', 'chaussette'], answer: 0, hint: 'Elle s\'illumine le soir.', success: 'Lanterne bien décorée !' },
         { type: 'word-image', illustration: '🐧', prompt: 'Quel mot correspond à ce dessin ?', options: ['pingouin', 'pigeon', 'panda'], answer: 0, hint: 'Il glisse sur la glace.', success: 'Pingouin adorable !' },
         { type: 'rhyme', base: 'magie', options: ['vie', 'vent', 'son'], answer: 0, hint: 'Quel mot finit comme magie ?', success: 'Vie rime avec magie.' },
-        { type: 'start-sound', letter: 'ch', options: ['chapeau', 'sapin', 'table'], answer: 0, hint: 'Quel mot commence par le son ch ?', success: 'Chapeau commence par ch.' },
-        { type: 'word-image', illustration: '🌈', prompt: 'Quel mot correspond à ce dessin ?', options: ['arc-en-ciel', 'tornade', 'éclair'], answer: 0, hint: 'Il apparaît après la pluie.', success: 'Arc-en-ciel lumineux !' },
-        { type: 'fill', sentence: 'Un renard malin cache un ___ doré.', options: ['trésor', 'tapis', 'verre'], answer: 0, hint: 'Ce mot rime avec décor.', success: 'Trésor bien caché !' }
+        { type: 'start-sound', letter: 'ch', options: ['chapeau', 'sapin', 'table'], answer: 0, hint: 'Quel mot commence par le son ch ?', success: 'Chapeau commence par ch.' }
       ]
     },
     {
@@ -71,9 +62,7 @@
         { type: 'fill', sentence: 'La princesse lit une histoire sur un ___ de velours.', options: ['trône', 'table', 'rideau'], answer: 0, hint: 'Elle est assise dessus.', success: 'Trône confortable !' },
         { type: 'rhyme', base: 'souris', options: ['paradis', 'soleil', 'poisson'], answer: 0, hint: 'Cherche un mot qui sonne pareil.', success: 'Paradis rime avec souris.' },
         { type: 'start-sound', letter: 'gr', options: ['grenouille', 'avion', 'citron'], answer: 0, hint: 'Quel mot commence par gr ?', success: 'Grenouille commence par gr.' },
-        { type: 'word-image', illustration: '🕯️', prompt: 'Quel mot correspond à ce dessin ?', options: ['bougie', 'planète', 'rideau'], answer: 0, hint: 'Elle éclaire doucement.', success: 'Bougie brillante !' },
-        { type: 'fill', sentence: 'Le hibou rêve dans une ___ étoilée.', options: ['forêt', 'chaise', 'cabane'], answer: 0, hint: 'Un lieu plein d\'arbres.', success: 'Forêt étoilée !' },
-        { type: 'word-image', illustration: '🍯', prompt: 'Quel mot correspond à ce dessin ?', options: ['miel', 'sucre', 'sel'], answer: 0, hint: 'Les abeilles le fabriquent.', success: 'Miel délicieux !' }
+        { type: 'word-image', illustration: '🕯️', prompt: 'Quel mot correspond à ce dessin ?', options: ['bougie', 'planète', 'rideau'], answer: 0, hint: 'Elle éclaire doucement.', success: 'Bougie brillante !' }
       ]
     },
     {
@@ -83,9 +72,7 @@
         { type: 'rhyme', base: 'cloche', options: ['poche', 'nez', 'biche'], answer: 0, hint: 'Quel mot finit comme cloche ?', success: 'Poche rime avec cloche.' },
         { type: 'fill', sentence: 'Le chevalier trouve un ___ secret.', options: ['passage', 'chocolat', 'doigt'], answer: 0, hint: 'Un chemin caché.', success: 'Passage secret découvert !' },
         { type: 'start-sound', letter: 'pl', options: ['plume', 'bateau', 'soldat'], answer: 0, hint: 'Quel mot commence par pl ?', success: 'Plume magique !' },
-        { type: 'word-image', illustration: '🧁', prompt: 'Quel mot correspond à ce dessin ?', options: ['cupcake', 'sandwich', 'soupe'], answer: 0, hint: 'Un petit gâteau décoré.', success: 'Cupcake gourmand !' },
-        { type: 'fill', sentence: 'La sorcière prépare une ___ sucrée.', options: ['potion', 'chaussure', 'bouteille'], answer: 0, hint: 'Un mélange magique.', success: 'Potion sucrée trouvée !' },
-        { type: 'word-image', illustration: '🎻', prompt: 'Quel mot correspond à ce dessin ?', options: ['violon', 'trompette', 'tambour'], answer: 0, hint: 'On le joue avec un archet.', success: 'Violon mélodieux !' }
+        { type: 'word-image', illustration: '🧁', prompt: 'Quel mot correspond à ce dessin ?', options: ['cupcake', 'sandwich', 'soupe'], answer: 0, hint: 'Un petit gâteau décoré.', success: 'Cupcake gourmand !' }
       ]
     },
     {
@@ -95,9 +82,7 @@
         { type: 'fill', sentence: 'Les étoiles brillent comme des ___ en sucre.', options: ['perles', 'pieds', 'fleurs'], answer: 0, hint: 'De petites boules brillantes.', success: 'Perles scintillantes !' },
         { type: 'rhyme', base: 'glisser', options: ['danser', 'regarder', 'chanter'], answer: 0, hint: 'Quel mot se termine comme glisser ?', success: 'Danser rime avec glisser.' },
         { type: 'start-sound', letter: 'fr', options: ['fraise', 'maison', 'feu'], answer: 0, hint: 'Quel mot commence par fr ?', success: 'Fraise commence par fr.' },
-        { type: 'word-image', illustration: '🧚', prompt: 'Quel mot correspond à ce dessin ?', options: ['fée', 'chien', 'poule'], answer: 0, hint: 'Elle a des ailes.', success: 'Fée radieuse !' },
-        { type: 'fill', sentence: 'Le sorcier écrit un ___ mystérieux.', options: ['livre', 'pain', 'vent'], answer: 0, hint: 'Un objet qu\'on lit.', success: 'Livre mystérieux !' },
-        { type: 'word-image', illustration: '🧊', prompt: 'Quel mot correspond à ce dessin ?', options: ['glace', 'feu', 'sable'], answer: 0, hint: 'C\'est très froid.', success: 'Glace glacée !' }
+        { type: 'word-image', illustration: '🧚', prompt: 'Quel mot correspond à ce dessin ?', options: ['fée', 'chien', 'poule'], answer: 0, hint: 'Elle a des ailes.', success: 'Fée radieuse !' }
       ]
     },
     {
@@ -107,9 +92,7 @@
         { type: 'rhyme', base: 'coquille', options: ['fille', 'bateau', 'drap'], answer: 0, hint: 'Quel mot finit comme coquille ?', success: 'Fille rime avec coquille.' },
         { type: 'fill', sentence: 'Le vent murmure une ___ secrète.', options: ['chanson', 'fourche', 'pluie'], answer: 0, hint: 'On l\'entend et on peut la chanter.', success: 'Chanson secrète !' },
         { type: 'start-sound', letter: 'cr', options: ['crayon', 'lampe', 'tour'], answer: 0, hint: 'Quel mot commence par cr ?', success: 'Crayon commence par cr.' },
-        { type: 'word-image', illustration: '🦋', prompt: 'Quel mot correspond à ce dessin ?', options: ['papillon', 'mouche', 'grenouille'], answer: 0, hint: 'Ses ailes sont colorées.', success: 'Papillon léger !' },
-        { type: 'fill', sentence: 'La lune éclaire la ___ paisible.', options: ['nuit', 'chaussure', 'assiette'], answer: 0, hint: 'On y dort.', success: 'Nuit paisible !' },
-        { type: 'word-image', illustration: '🍋', prompt: 'Quel mot correspond à ce dessin ?', options: ['citron', 'prune', 'pêche'], answer: 0, hint: 'Ce fruit est jaune et acidulé.', success: 'Citron acidulé !' }
+        { type: 'word-image', illustration: '🦋', prompt: 'Quel mot correspond à ce dessin ?', options: ['papillon', 'mouche', 'grenouille'], answer: 0, hint: 'Ses ailes sont colorées.', success: 'Papillon léger !' }
       ]
     },
     {
@@ -119,9 +102,7 @@
         { type: 'fill', sentence: 'Les amis inventent une ___ étincelante.', options: ['histoire', 'chaise', 'loupe'], answer: 0, hint: 'On la lit avec plaisir.', success: 'Histoire étincelante !' },
         { type: 'rhyme', base: 'diamant', options: ['géant', 'nez', 'pépin'], answer: 0, hint: 'Quel mot finit comme diamant ?', success: 'Géant rime avec diamant.' },
         { type: 'start-sound', letter: 'sc', options: ['scintille', 'melon', 'tomate'], answer: 0, hint: 'Quel mot commence par sc ?', success: 'Scintille commence par sc.' },
-        { type: 'word-image', illustration: '🪐', prompt: 'Quel mot correspond à ce dessin ?', options: ['planète', 'casserole', 'cactus'], answer: 0, hint: 'Elle tourne autour du soleil.', success: 'Planète brillante !' },
-        { type: 'fill', sentence: 'Le poète murmure une ___ enchantée.', options: ['poésie', 'chaise', 'lettre'], answer: 0, hint: 'Un texte qui rime.', success: 'Poésie enchantée !' },
-        { type: 'word-image', illustration: '🌟', prompt: 'Quel mot correspond à ce dessin ?', options: ['étoile', 'gâteau', 'table'], answer: 0, hint: 'Elle brille dans le ciel.', success: 'Étoile scintillante !' }
+        { type: 'word-image', illustration: '🪐', prompt: 'Quel mot correspond à ce dessin ?', options: ['planète', 'casserole', 'cactus'], answer: 0, hint: 'Elle tourne autour du soleil.', success: 'Planète brillante !' }
       ]
     }
   ];

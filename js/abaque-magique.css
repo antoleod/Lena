@@ -1,0 +1,110 @@
+/* === 🔢 Abaque Magique: Styles === */
+
+.abaque-container {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+}
+
+.abaque-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.abaque-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: #00796b;
+    text-align: center;
+}
+
+.abaque-prompt {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #004d40;
+    text-align: center;
+    max-width: 600px;
+}
+
+.abaque-pool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 1rem;
+    width: 100%;
+    min-height: 150px;
+    border: 2px dashed rgba(0, 121, 107, 0.3);
+}
+
+.abaque-item {
+    font-size: 1.5rem;
+    animation: pop-in 0.3s ease-out both;
+}
+
+@keyframes pop-in {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.abaque-answer-area {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.abaque-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.abaque-input-label {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00796b;
+}
+
+.abaque-input {
+    width: 80px;
+    height: 80px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    border: 3px solid #00796b;
+    border-radius: 1rem;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.abaque-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.3);
+}
+
+.abaque-input.correct { border-color: #4caf50; background: #e8f5e9; }
+.abaque-input.incorrect { border-color: #f44336; background: #ffebee; animation: shake-error 0.4s; }
+
+.abaque-btn {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    border: none;
+    background: #00796b;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.abaque-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.abaque-btn:disabled { background: #9e9e9e; cursor: not-allowed; }

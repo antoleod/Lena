@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/juego.css">
     <link rel="stylesheet" href="../css/dictee.css">
+    <link rel="stylesheet" href="../css/ecriture-cursive.css">
+    <link rel="stylesheet" href="../css/abaque-magique.css">
     <link rel="stylesheet" href="../css/theme-unicorn.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,13 +37,6 @@
     </div>
   </div>
 
-  <div id="progressTracker" class="progress-tracker progress-tracker--inline is-visible">
-    <div class="progress-tracker__label"></div>
-    <div class="progress-tracker__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-      <div class="progress-tracker__fill" style="width: 0%;"></div>
-    </div>
-  </div>
-
   <div id="stageBottom">
     <div id="content">
       <!-- Game content will be loaded here by JavaScript -->
@@ -54,9 +49,8 @@
   </div>
 
   <audio id="audioCorrect" src="../assets/sounds/correct.wav"></audio>
-  <audio id="audioWrong" src="../assets/sounds/bling.wav"></audio>
-  <audio id="audioCoins" src="../assets/sounds/level-up.wav"></audio>
-  <audio id="audioCoins" src="../assets/sounds/coin.wav"></audio>
+  <audio id="audioWrong" src="../assets/sounds/error.wav"></audio>
+  <audio id="audioCoins" src="../assets/sounds/bling.wav"></audio>
 
   <div id="shopModal" class="shop-modal" aria-hidden="true">
     <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
@@ -85,11 +79,14 @@
   <script src="../games/mathblitz.js"></script>
   <script src="../games/lecturemagique.js"></script>
   <script src="../games/raisonnement.js"></script>
+  <script src="../games/ecriture-cursive.js"></script>
+  <script src="../games/abaque-magique.js"></script>
   <script src="../js/audioManager.js"></script>
   <footer class="global-footer" data-app-footer></footer>
   <script src="../js/avatarData.js"></script>
   <script src="../js/storage.js"></script>
   <script src="../js/footer.js"></script>
+  <script src="../js/mots-outils.js"></script>
   <script src="../js/juego.js"></script>
 </body>
 </html>

@@ -1,378 +1,185 @@
 (function () {
     'use strict';
 
-    const THEME_CLASSES = ['puzzle-theme-forest', 'puzzle-theme-castle', 'puzzle-theme-sky'];
     const SYMBOL_MAP = { '+': '+', '-': '−', 'x': '×', '÷': '÷' };
-
+    
     const PUZZLE_LEVELS = [
-        { size: 2, rows: [['+'], ['+']], cols: [['+'], ['-']], solution: [[2, 3], [4, 1]] },
-        { size: 2, rows: [['-'], ['+']], cols: [['-'], ['+']], solution: [[6, 2], [5, 3]] },
-        { size: 2, rows: [['-'], ['+']], cols: [['+'], ['+']], solution: [[5, 1], [2, 4]] },
-        { size: 3, rows: [['+', '+'], ['x', '+'], ['+', '-']], cols: [['+', '+'], ['x', '+'], ['-', '+']], solution: [[1, 2, 3], [3, 2, 1], [2, 3, 4]] },
-        { size: 3, rows: [['÷', '+'], ['+', 'x'], ['x', '-']], cols: [['-', '+'], ['+', '-'], ['+', '+']], solution: [[4, 2, 1], [3, 3, 2], [2, 4, 2]] },
-        { size: 3, rows: [['x', '-'], ['÷', '+'], ['+', '÷']], cols: [['+', '-'], ['-', '+'], ['+', '+']], solution: [[2, 4, 2], [6, 3, 3], [3, 6, 3]] },
-        { size: 4, rows: [['÷', '+', '+'], ['÷', '+', '-'], ['÷', '+', '+'], ['÷', '+', '-']], cols: [['-', '+', '+'], ['+', '-', '+'], ['+', '-', '+'], ['+', '+', '+']], solution: [[8, 4, 2, 1], [6, 3, 3, 3], [4, 2, 2, 2], [12, 6, 3, 3]] },
-        { size: 4, rows: [['÷', '+', '-'], ['÷', '+', '+'], ['÷', 'x', '-'], ['÷', '+', '-']], cols: [['-', '+', '+'], ['+', '-', '+'], ['-', '+', 'x'], ['+', '-', '+']], solution: [[9, 3, 6, 2], [8, 4, 2, 4], [6, 3, 3, 6], [12, 4, 2, 2]] },
-        { size: 4, rows: [['÷', '+', '-'], ['÷', '+', '+'], ['÷', '+', '-'], ['÷', '+', '-']], cols: [['-', '+', '+'], ['+', '÷', '+'], ['+', '-', '+'], ['+', '-', '+']], solution: [[10, 5, 5, 2], [9, 3, 3, 3], [8, 4, 4, 4], [12, 6, 6, 3]] },
-        { size: 4, rows: [['÷', '+', '-'], ['÷', '+', '-'], ['÷', 'x', '-'], ['÷', '+', '-']], cols: [['-', '+', '-'], ['+', '-', '+'], ['+', '+', '-'], ['+', '+', '-']], solution: [[18, 6, 3, 3], [12, 4, 4, 2], [16, 8, 4, 4], [24, 6, 3, 3]] }
+        // Niveaux 1-3: Additions simples (a + b = ?)
+        { level: 1, operations: ['+'], range: [1, 5], count: 5, reward: { stars: 10, coins: 5 } },
+        { level: 2, operations: ['+'], range: [3, 8], count: 5, reward: { stars: 12, coins: 6 } },
+        { level: 3, operations: ['+'], range: [5, 12], count: 5, reward: { stars: 14, coins: 7 } },
+        // Niveaux 4-6: Additions avec inconnue (a + ? = c)
+        { level: 4, operations: ['+'], range: [1, 10], count: 5, unknown: true, reward: { stars: 15, coins: 8 } },
+        { level: 5, operations: ['+'], range: [5, 15], count: 5, unknown: true, reward: { stars: 16, coins: 8 } },
+        // Niveaux 6-8: Soustractions simples (a - b = ?)
+        { level: 6, operations: ['-'], range: [5, 15], count: 5, reward: { stars: 18, coins: 9 } },
+        { level: 7, operations: ['-'], range: [10, 25], count: 5, reward: { stars: 20, coins: 10 } },
+        // Niveaux 9-10: Mélange
+        { level: 8, operations: ['+', '-'], range: [5, 20], count: 5, unknown: true, reward: { stars: 22, coins: 11 } },
+        { level: 9, operations: ['+', '-'], range: [10, 30], count: 5, unknown: true, reward: { stars: 25, coins: 12 } },
+        { level: 10, operations: ['+', '-'], range: [15, 50], count: 5, unknown: true, reward: { stars: 30, coins: 15 } },
     ];
 
-    function computeTarget(values, operators) {
-        let total = values[0];
-        for (let i = 0; i < operators.length; i++) {
-            const op = operators[i];
-            const next = values[i + 1];
-            if (op === '+') {
-                total = total + next;
-            } else if (op === '-') {
-                total = total - next;
-            } else if (op === 'x') {
-                total = total * next;
-            } else if (op === '÷') {
-                total = total / next;
-            }
-        }
-        return Math.round((total + Number.EPSILON) * 100) / 100;
-    }
+    function generateQuestion(levelData) {
+        const op = levelData.operations[Math.floor(Math.random() * levelData.operations.length)];
+        const [min, max] = levelData.range;
+        let num1, num2, answer, questionText;
 
-    function buildHintText(operators, result) {
-        const blanks = operators.length + 1;
-        const parts = [];
-        for (let i = 0; i < blanks; i++) {
-            parts.push('?');
-            if (operators[i]) {
-                parts.push(` ${SYMBOL_MAP[operators[i]]} `);
+        if (op === '+') {
+            num1 = randomInt(min, max);
+            num2 = randomInt(min, max);
+            if (levelData.unknown && Math.random() > 0.5) {
+                answer = num2;
+                questionText = `${num1} + ? = ${num1 + num2}`;
+            } else {
+                answer = num1 + num2;
+                questionText = `${num1} + ${num2} = ?`;
+            }
+        } else { // op === '-'
+            num1 = randomInt(min + 5, max + 5);
+            num2 = randomInt(min, num1 - 1);
+            if (levelData.unknown && Math.random() > 0.5) {
+                answer = num2;
+                questionText = `${num1} − ? = ${num1 - num2}`;
+            } else {
+                answer = num1 - num2;
+                questionText = `${num1} − ${num2} = ?`;
             }
         }
-        return `${parts.join('')} = ${result}`;
+
+        const options = new Set([answer]);
+        while (options.size < 4) {
+            const wrong = answer + randomInt(-5, 5);
+            if (wrong !== answer && wrong >= 0) {
+                options.add(wrong);
+            }
+        }
+
+        return {
+            questionText,
+            options: shuffle(Array.from(options)),
+            answer
+        };
     }
 
     function start(context) {
         const levelIndex = Math.max(0, Math.min(PUZZLE_LEVELS.length, context.currentLevel) - 1);
-        const puzzle = PUZZLE_LEVELS[levelIndex];
-        const themeClass = context.currentLevel <= 3 ? THEME_CLASSES[0] : (context.currentLevel <= 6 ? THEME_CLASSES[1] : THEME_CLASSES[2]);
+        const levelData = PUZZLE_LEVELS[levelIndex];
 
-        context.clearGameClasses(THEME_CLASSES);
-        context.content.classList.add(themeClass);
+        const questions = Array.from({ length: levelData.count }, () => generateQuestion(levelData));
+
+        const state = {
+            levelData,
+            questions,
+            currentIndex: 0,
+        };
+
+        renderScene(context, state);
+    }
+
+    function renderScene(context, state) {
         context.content.innerHTML = '';
-
-        context.speakText("Complète la grille magique pour que les opérations soient correctes.");
-
         const wrapper = document.createElement('div');
         wrapper.className = 'puzzle-wrapper';
 
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
-        title.textContent = `Niveau ${context.currentLevel} — Résous le Puzzle Magique`;
+        title.textContent = `Niveau ${state.levelData.level} — Puzzle Magique`;
         wrapper.appendChild(title);
 
-        const tutorialText = document.createElement('p');
-        tutorialText.className = 'puzzle-tutorial';
-        tutorialText.textContent = 'Complète la grille avec les bons nombres pour que chaque ligne et chaque colonne donne le bon résultat.';
-        wrapper.appendChild(tutorialText);
+        const questionContainer = document.createElement('div');
+        questionContainer.className = 'puzzle-question-container';
+        wrapper.appendChild(questionContainer);
 
-        const grid = document.createElement('div');
-        grid.className = 'puzzle-grid';
-        grid.style.setProperty('--puzzle-size', puzzle.size);
-
-        const inputs = [];
-        const statusIcons = [];
-        const rowHintCards = [];
-        const columnHintCards = [];
-        let feedbackTimeout;
-        for (let r = 0; r < puzzle.size; r++) {
-            inputs[r] = [];
-            statusIcons[r] = [];
-            for (let c = 0; c < puzzle.size; c++) {
-                const cell = document.createElement('div');
-                cell.className = 'puzzle-cell';
-                const input = document.createElement('input');
-                input.type = 'number';
-                input.className = 'puzzle-input';
-                input.setAttribute('aria-label', `Cellule ${r + 1}-${c + 1}`);
-                 input.classList.add('awaiting');
-                cell.appendChild(input);
-                const icon = document.createElement('span');
-                icon.className = 'puzzle-status-icon';
-                icon.setAttribute('aria-hidden', 'true');
-                cell.appendChild(icon);
-                grid.appendChild(cell);
-                inputs[r][c] = input;
-                statusIcons[r][c] = icon;
-                input.addEventListener('input', () => handleCellInput(r, c));
-                input.addEventListener('focus', () => setCellFeedback(r, c, 'pending'));
-            }
-        }
-        wrapper.appendChild(grid);
-
-        const rowHintsContainer = document.createElement('div');
-        rowHintsContainer.className = 'puzzle-hints';
-        for (let r = 0; r < puzzle.size; r++) {
-            const values = puzzle.solution[r];
-            const operators = puzzle.rows[r];
-            const target = computeTarget(values, operators);
-            const card = document.createElement('div');
-            card.className = 'puzzle-hint-card';
-            card.textContent = `Ligne ${r + 1}: ${buildHintText(operators, target)}`;
-            rowHintsContainer.appendChild(card);
-            rowHintCards[r] = card;
-        }
-        wrapper.appendChild(rowHintsContainer);
-
-        const columnHintsWrapper = document.createElement('div');
-        columnHintsWrapper.className = 'puzzle-hints puzzle-hints-columns';
-        for (let c = 0; c < puzzle.size; c++) {
-            const columnValues = [];
-            for (let r = 0; r < puzzle.size; r++) {
-                columnValues.push(puzzle.solution[r][c]);
-            }
-            const operators = puzzle.cols[c];
-            const target = computeTarget(columnValues, operators);
-            const card = document.createElement('div');
-            card.className = 'puzzle-hint-card';
-            const columnLetter = String.fromCharCode(65 + c);
-            card.textContent = `Colonne ${columnLetter}: ${buildHintText(operators, target)}`;
-            columnHintsWrapper.appendChild(card);
-            columnHintCards[c] = card;
-        }
-        wrapper.appendChild(columnHintsWrapper);
-
-        const instantFeedback = document.createElement('div');
-        instantFeedback.className = 'puzzle-instant-feedback is-hidden';
-        instantFeedback.setAttribute('role', 'status');
-        instantFeedback.setAttribute('aria-live', 'polite');
-        wrapper.appendChild(instantFeedback);
-
-        const controls = document.createElement('div');
-        controls.className = 'puzzle-controls';
-
-        const helpBtn = document.createElement('button');
-        helpBtn.className = 'puzzle-help-btn fx-bounce-in-down';
-        helpBtn.textContent = '⭐ Aide magique';
-        controls.appendChild(helpBtn);
-
-        const validateBtn = document.createElement('button');
-        validateBtn.className = 'submit-btn fx-bounce-in-down';
-        validateBtn.textContent = 'Vérifier';
-        controls.appendChild(validateBtn);
-
-        wrapper.appendChild(controls);
         context.content.appendChild(wrapper);
 
         const goBack = () => {
-            context.clearGameClasses(THEME_CLASSES);
             context.showLevelMenu();
         };
         context.configureBackButton('Retour aux niveaux', goBack);
 
-        let helpUses = 0;
+        renderQuestion(context, state, questionContainer);
+    }
 
-        helpBtn.addEventListener('click', () => {
-            const nextCell = findNextEmptyOrWrong(inputs, puzzle.solution);
-            if (!nextCell) {
-                helpBtn.disabled = true;
-                return;
-            }
-            const { row, col } = nextCell;
-            const input = inputs[row][col];
-            input.value = puzzle.solution[row][col];
-            showSparkle(input.parentElement);
-            handleCellInput(row, col, { silent: true });
+    function renderQuestion(context, state, container) {
+        container.innerHTML = '';
+        const question = state.questions[state.currentIndex];
+
+        const equation = document.createElement('div');
+        equation.className = 'puzzle-equation';
+        equation.innerHTML = question.questionText.replace('?', '<span class="puzzle-blank">?</span>');
+        container.appendChild(equation);
+
+        const optionsGrid = document.createElement('div');
+        optionsGrid.className = 'puzzle-options';
+
+        question.options.forEach((optionValue) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'puzzle-option-btn';
+            btn.textContent = optionValue;
+            btn.dataset.value = optionValue;
+            btn.addEventListener('click', () => handleAnswer(context, state, btn, optionsGrid));
+            optionsGrid.appendChild(btn);
+        });
+
+        container.appendChild(optionsGrid);
+        context.speakText(question.questionText.replace('?', 'combien'));
+    }
+
+    function handleAnswer(context, state, button, grid) {
+        const question = state.questions[state.currentIndex];
+        const selectedValue = Number(button.dataset.value);
+
+        Array.from(grid.children).forEach(btn => btn.disabled = true);
+
+        if (selectedValue === question.answer) {
+            button.classList.add('is-correct');
             context.playPositiveSound();
-            helpUses += 1;
-            if (helpUses >= puzzle.size) {
-                helpBtn.disabled = true;
+            context.awardReward(state.levelData.reward.stars, state.levelData.reward.coins);
+            context.updateUI();
+            setTimeout(() => nextQuestion(context, state), 1200);
+        } else {
+            button.classList.add('is-wrong');
+            const correctButton = grid.querySelector(`[data-value="${question.answer}"]`);
+            if (correctButton) {
+                correctButton.classList.add('is-correct');
             }
-            showInstantFeedback('positive', '⭐ Indice magique révélé !');
-        });
-
-        validateBtn.addEventListener('click', () => {
-            const result = validatePuzzle(inputs, puzzle.solution, setCellFeedback);
-            refreshHintBadges();
-            if (result.allCorrect) {
-                validateBtn.disabled = true;
-                helpBtn.disabled = true;
-                context.playPositiveSound();
-                context.awardReward(45, 25);
-                context.markLevelCompleted();
-                context.showSuccessMessage('✨ Bien joué, puzzle complété !');
-                context.showConfetti();
-                showInstantFeedback('positive', '🎉 Puzzle parfait !');
-                setTimeout(() => {
-                    goBack();
-                }, 1800);
-            } else {
-                context.playNegativeSound();
-                context.awardReward(0, -5);
-                context.showErrorMessage('Essaie encore !', `Indices: ${result.remaining} cases à vérifier`);
-                showInstantFeedback('negative', `❌ Il reste ${result.remaining} case(s) à vérifier.`);
-            }
-        });
-
-        refreshHintBadges();
-        hideInstantFeedback();
-
-        function handleCellInput(row, col, options = {}) {
-            const { silent = false } = options;
-            const inputEl = inputs[row][col];
-            const rawValue = inputEl.value.trim();
-            if (!rawValue) {
-                setCellFeedback(row, col, 'empty');
-                if (!silent) {
-                    hideInstantFeedback();
-                }
-                refreshHintBadges();
-                return;
-            }
-
-            const value = Number(rawValue);
-            if (!Number.isFinite(value)) {
-                setCellFeedback(row, col, 'wrong');
-                if (!silent) {
-                    showInstantFeedback('negative', '❌ Oups, utilise des nombres.');
-                }
-                refreshHintBadges();
-                return;
-            }
-
-            if (value === puzzle.solution[row][col]) {
-                setCellFeedback(row, col, 'correct');
-                if (!silent) {
-                    showInstantFeedback('positive', '✅ Bravo !');
-                }
-            } else {
-                setCellFeedback(row, col, 'wrong');
-                if (!silent) {
-                    showInstantFeedback('negative', '❌ Oups, vérifie cette case.');
-                }
-            }
-
-            refreshHintBadges();
-            if (areAllCellsCorrect()) {
-                showInstantFeedback('positive', '✨ Tout est prêt ! Appuie sur Vérifier.');
-            }
-        }
-
-        function setCellFeedback(row, col, status) {
-            const inputEl = inputs[row][col];
-            const icon = statusIcons[row][col];
-            inputEl.classList.remove('correct', 'wrong');
-            if (status !== 'pending' && status !== 'empty') {
-                inputEl.classList.remove('awaiting');
-            }
-            icon.textContent = '';
-            icon.classList.remove('is-correct', 'is-wrong');
-
-            if (status === 'correct') {
-                inputEl.classList.add('correct');
-                icon.textContent = '✅';
-                icon.classList.add('is-correct');
-            } else if (status === 'wrong') {
-                inputEl.classList.add('wrong');
-                icon.textContent = '❌';
-                icon.classList.add('is-wrong');
-            } else if (status === 'pending' || status === 'empty') {
-                inputEl.classList.add('awaiting');
-            }
-        }
-
-        function refreshHintBadges() {
-            for (let r = 0; r < puzzle.size; r++) {
-                const rowComplete = puzzle.solution[r].every((expected, c) => Number(inputs[r][c].value) === expected);
-                if (rowHintCards[r]) {
-                    rowHintCards[r].classList.toggle('complete', rowComplete);
-                }
-            }
-            for (let c = 0; c < puzzle.size; c++) {
-                let columnComplete = true;
-                for (let r = 0; r < puzzle.size; r++) {
-                    if (Number(inputs[r][c].value) !== puzzle.solution[r][c]) {
-                        columnComplete = false;
-                        break;
-                    }
-                }
-                if (columnHintCards[c]) {
-                    columnHintCards[c].classList.toggle('complete', columnComplete);
-                }
-            }
-        }
-
-        function areAllCellsCorrect() {
-            for (let r = 0; r < puzzle.size; r++) {
-                for (let c = 0; c < puzzle.size; c++) {
-                    if (Number(inputs[r][c].value) !== puzzle.solution[r][c]) {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-        function showInstantFeedback(type, message) {
-            clearTimeout(feedbackTimeout);
-            instantFeedback.textContent = message;
-            instantFeedback.classList.remove('is-hidden', 'is-positive', 'is-negative');
-            instantFeedback.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
-            feedbackTimeout = window.setTimeout(() => {
-                hideInstantFeedback();
-            }, 2600);
-        }
-
-        function hideInstantFeedback() {
-            clearTimeout(feedbackTimeout);
-            instantFeedback.textContent = '';
-            instantFeedback.classList.add('is-hidden');
-            instantFeedback.classList.remove('is-positive', 'is-negative');
+            context.playNegativeSound();
+            context.awardReward(0, -2);
+            context.updateUI();
+            setTimeout(() => nextQuestion(context, state), 1800);
         }
     }
 
-    function validatePuzzle(inputs, solution, setFeedback) {
-        let allCorrect = true;
-        let remaining = 0;
-        for (let r = 0; r < inputs.length; r++) {
-            for (let c = 0; c < inputs[r].length; c++) {
-                const input = inputs[r][c];
-                const expected = solution[r][c];
-                const value = Number(input.value);
-                if (value === expected) {
-                    if (setFeedback) {
-                        setFeedback(r, c, 'correct');
-                    }
-                } else {
-                    allCorrect = false;
-                    remaining += 1;
-                    if (setFeedback) {
-                        if (input.value !== '') {
-                            setFeedback(r, c, 'wrong');
-                        } else {
-                            setFeedback(r, c, 'empty');
-                        }
-                    }
-                }
-            }
+    function nextQuestion(context, state) {
+        state.currentIndex++;
+        if (state.currentIndex >= state.questions.length) {
+            finishLevel(context);
+        } else {
+            renderQuestion(context, state, context.content.querySelector('.puzzle-question-container'));
         }
-        return { allCorrect, remaining };
     }
 
-    function findNextEmptyOrWrong(inputs, solution) {
-        for (let r = 0; r < inputs.length; r++) {
-            for (let c = 0; c < inputs[r].length; c++) {
-                const input = inputs[r][c];
-                const expected = solution[r][c];
-                if (Number(input.value) !== expected) {
-                    return { row: r, col: c };
-                }
-            }
-        }
-        return null;
+    function finishLevel(context) {
+        context.markLevelCompleted();
+        context.showSuccessMessage('✨ Super, tu as résolu tous les puzzles !');
+        context.showConfetti();
+        setTimeout(() => context.showLevelMenu(), 2000);
     }
 
-    function showSparkle(container) {
-        const sparkle = document.createElement('span');
-        sparkle.className = 'puzzle-sparkle';
-        sparkle.textContent = '✨';
-        container.appendChild(sparkle);
-        setTimeout(() => sparkle.remove(), 900);
+    function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function shuffle(array) {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
     }
 
     window.puzzleMagiqueGame = {

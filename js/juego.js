@@ -245,7 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
         dictee: 'language:dictation',
         'math-blitz': 'math:blitz',
         'lecture-magique': 'reading:fluency',
-        raisonnement: 'logic:reasoning'
+        raisonnement: 'logic:reasoning',
+        'ecriture-cursive': 'writing:cursive',
+        'abaque-magique': 'math:abacus',
+        'mots-outils': 'language:grammar'
     };
 
     function svgDataUri(svg) {
@@ -1057,8 +1060,7 @@ document.addEventListener('DOMContentLoaded', () => {
             items: [
                 { id: 'apple', emoji: '🍎', label: 'Pomme', target: 'red' },
                 { id: 'ball', emoji: '🔵', label: 'Balle', target: 'blue' },
-                { id: 'car', emoji: '🚗', label: 'Voiture', target: 'red' },
-                { id: 'fish', emoji: '🐟', label: 'Poisson', target: 'blue' }
+                { id: 'car', emoji: '🚗', label: 'Voiture', target: 'red' }
             ]
         },
         {
@@ -1074,8 +1076,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'leaf', emoji: '🍃', label: 'Feuille', target: 'green' },
                 { id: 'strawberry', emoji: '🍓', label: 'Fraise', target: 'red' },
                 { id: 'hat', emoji: '🧢', label: 'Casquette', target: 'blue' },
-                { id: 'frog', emoji: '🐸', label: 'Grenouille', target: 'green' },
-                { id: 'heart', emoji: '❤️', label: 'Cœur', target: 'red' }
+                { id: 'frog', emoji: '🐸', label: 'Grenouille', target: 'green' }
             ]
         },
         {
@@ -1091,9 +1092,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'flower', emoji: '🌹', label: 'Fleur', target: 'red' },
                 { id: 'balloon', emoji: '🎈', label: 'Ballon', target: 'red' },
                 { id: 'whale', emoji: '🐋', label: 'Baleine', target: 'blue' },
-                { id: 'gift', emoji: '🎁', label: 'Cadeau', target: 'blue' },
-                { id: 'dragon', emoji: '🐉', label: 'Dragon', target: 'green' },
-                { id: 'cactus', emoji: '🌵', label: 'Cactus', target: 'green' }
+                { id: 'gift', emoji: '🎁', label: 'Cadeau', target: 'blue' }
             ]
         },
         {
@@ -1109,8 +1108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'frame', emoji: '🖼️', label: 'Cadre', target: 'square' },
                 { id: 'clock', emoji: '🕒', label: 'Horloge', target: 'circle' },
                 { id: 'slice', emoji: '🍕', label: 'Pizza', target: 'triangle' },
-                { id: 'giftbox', emoji: '🎁', label: 'Cadeau', target: 'square' },
-                { id: 'coin', emoji: '🪙', label: 'Pièce', target: 'circle' }
+                { id: 'giftbox', emoji: '🎁', label: 'Cadeau', target: 'square' }
             ]
         },
         {
@@ -1126,9 +1124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'chocolate', emoji: '🍫', label: 'Chocolat', target: 'square' },
                 { id: 'basketball', emoji: '🏀', label: 'Ballon', target: 'circle' },
                 { id: 'cone', emoji: '🍦', label: 'Glace', target: 'triangle' },
-                { id: 'dice', emoji: '🎲', label: 'Dé', target: 'square' },
-                { id: 'planet', emoji: '🪐', label: 'Planète', target: 'circle' },
-                { id: 'flag', emoji: '🚩', label: 'Drapeau', target: 'triangle' }
+                { id: 'dice', emoji: '🎲', label: 'Dé', target: 'square' }
             ]
         },
         {
@@ -1144,9 +1140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'giftbag', emoji: '🛍️', label: 'Sac', target: 'square' },
                 { id: 'cookie', emoji: '🍪', label: 'Cookie', target: 'circle' },
                 { id: 'cheese', emoji: '🧀', label: 'Fromage', target: 'triangle' },
-                { id: 'present', emoji: '🎁', label: 'Surprise', target: 'square' },
-                { id: 'coin2', emoji: '💿', label: 'Disque', target: 'circle' },
-                { id: 'warning', emoji: '⚠️', label: 'Panneau', target: 'triangle' }
+                { id: 'present', emoji: '🎁', label: 'Surprise', target: 'square' }
             ]
         },
         {
@@ -1161,8 +1155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'elephant', emoji: '🐘', label: 'Éléphant', target: 'big' },
                 { id: 'mouse', emoji: '🐭', label: 'Souris', target: 'small' },
                 { id: 'mountain', emoji: '⛰️', label: 'Montagne', target: 'big' },
-                { id: 'ladybug', emoji: '🐞', label: 'Coccinelle', target: 'small' },
-                { id: 'whale2', emoji: '🐳', label: 'Baleine', target: 'big' }
+                { id: 'ladybug', emoji: '🐞', label: 'Coccinelle', target: 'small' }
             ]
         },
         {
@@ -1177,9 +1170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'giraffe', emoji: '🦒', label: 'Girafe', target: 'big' },
                 { id: 'chick', emoji: '🐥', label: 'Poussin', target: 'small' },
                 { id: 'bus', emoji: '🚌', label: 'Bus', target: 'big' },
-                { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'small' },
-                { id: 'tree', emoji: '🌳', label: 'Arbre', target: 'big' },
-                { id: 'acorn', emoji: '🌰', label: 'Gland', target: 'small' }
+                { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'small' }
             ]
         },
         {
@@ -1195,9 +1186,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'lollipop', emoji: '🍭', label: 'Sucette', target: 'red-circle' },
                 { id: 'giftblue', emoji: '🎁', label: 'Paquet', target: 'blue-square' },
                 { id: 'treeTriangle', emoji: '🎄', label: 'Sapin', target: 'green-triangle' },
-                { id: 'shield', emoji: '🛡️', label: 'Bouclier', target: 'blue-square' },
-                { id: 'badge', emoji: '🔴', label: 'Jeton', target: 'red-circle' },
-                { id: 'pennant', emoji: '🚩', label: 'Fanion', target: 'green-triangle' }
+                { id: 'shield', emoji: '🛡️', label: 'Bouclier', target: 'blue-square' }
             ]
         },
         {
@@ -1213,9 +1202,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'sun', emoji: '☀️', label: 'Soleil', target: 'yellow-circle' },
                 { id: 'cheeseTriangle', emoji: '🧀', label: 'Fromage', target: 'orange-triangle' },
                 { id: 'magicBox', emoji: '🎆', label: 'Boîte magique', target: 'purple-square' },
-                { id: 'flowerYellow', emoji: '🌼', label: 'Fleur', target: 'yellow-circle' },
-                { id: 'giftPurple', emoji: '🎁', label: 'Cadeau violet', target: 'purple-square' },
-                { id: 'coneOrange', emoji: '🎃', label: 'Lantern', target: 'orange-triangle' }
+                { id: 'flowerYellow', emoji: '🌼', label: 'Fleur', target: 'yellow-circle' }
             ]
         },
         {
@@ -1231,8 +1218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'lion', emoji: '🦁', label: 'Lion', target: 'savanna' },
                 { id: 'pig', emoji: '🐷', label: 'Cochon', target: 'farm' },
                 { id: 'zebra', emoji: '🦓', label: 'Zèbre', target: 'savanna' },
-                { id: 'chicken', emoji: '🐔', label: 'Poule', target: 'farm' },
-                { id: 'elephant', emoji: '🐘', label: 'Éléphant', target: 'savanna' }
+                { id: 'chicken', emoji: '🐔', label: 'Poule', target: 'farm' }
             ]
         },
         {
@@ -1248,8 +1234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'carrot', emoji: '🥕', label: 'Carotte', target: 'vegetable' },
                 { id: 'grapes', emoji: '🍇', label: 'Raisin', target: 'fruit' },
                 { id: 'broccoli', emoji: '🥦', label: 'Brocoli', target: 'vegetable' },
-                { id: 'orange', emoji: '🍊', label: 'Orange', target: 'fruit' },
-                { id: 'tomato', emoji: '🍅', label: 'Tomate', target: 'vegetable' }
+                { id: 'orange', emoji: '🍊', label: 'Orange', target: 'fruit' }
             ]
         },
         {
@@ -1266,8 +1251,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'airplane', emoji: '✈️', label: 'Avion', target: 'air' },
                 { id: 'boat', emoji: '⛵', label: 'Bateau', target: 'water' },
                 { id: 'bicycle', emoji: '🚲', label: 'Vélo', target: 'land' },
-                { id: 'helicopter', emoji: '🚁', label: 'Hélicoptère', target: 'air' },
-                { id: 'ship', emoji: '🚢', label: 'Navire', target: 'water' }
+                { id: 'helicopter', emoji: '🚁', label: 'Hélicoptère', target: 'air' }
             ]
         },
         {
@@ -1283,8 +1267,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'school' },
                 { id: 'ball', emoji: '⚽', label: 'Ballon', target: 'toy' },
                 { id: 'book', emoji: '📖', label: 'Livre', target: 'school' },
-                { id: 'doll', emoji: '🎎', label: 'Poupée', target: 'toy' },
-                { id: 'scissors', emoji: '✂️', label: 'Ciseaux', target: 'school' }
+                { id: 'doll', emoji: '🎎', label: 'Poupée', target: 'toy' }
             ]
         },
         {
@@ -1299,8 +1282,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'sun', emoji: '☀️', label: 'Soleil', target: 'sunny' },
                 { id: 'umbrella', emoji: '☔', label: 'Parapluie', target: 'rainy' },
                 { id: 'sunglasses', emoji: '😎', label: 'Lunettes', target: 'sunny' },
-                { id: 'cloud', emoji: '🌧️', label: 'Nuage', target: 'rainy' },
-                { id: 'rainbow', emoji: '🌈', label: 'Arc-en-ciel', target: 'sunny' }
+                { id: 'cloud', emoji: '🌧️', label: 'Nuage', target: 'rainy' }
             ]
         },
     ];
@@ -1882,67 +1864,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     hint: "Sabe cada sendero y cada escondite.",
                     success: "El guía del bosque conoce todos los caminos.",
                     reward: { stars: 19, coins: 15 }
-                },
-                {
-                    prompt: "Apago incendios con lluvia de estrellas. ¿Quién soy?",
-                    options: ["Una guardabosques", "Un fotógrafo", "Un cartero"],
-                    answer: 0,
-                    hint: "Protege a los árboles con magia acuática.",
-                    success: "La guardabosques mantiene el bosque seguro.",
-                    reward: { stars: 19, coins: 15 }
-                },
-                {
-                    prompt: "Toco la flauta para que las luciérnagas bailen. ¿Quién soy?",
-                    options: ["Un músico del claro", "Un doctor", "Un barquero"],
-                    answer: 0,
-                    hint: "Hace conciertos bajo la luna.",
-                    success: "El músico del claro llena de luz cada noche.",
-                    reward: { stars: 19, coins: 15 }
-                },
-                {
-                    prompt: "Cuido una biblioteca de hojas que cuentan historias. ¿Quién soy?",
-                    options: ["Un bibliotecario del bosque", "Un chef", "Un piloto"],
-                    answer: 0,
-                    hint: "Cada hoja es una página verde.",
-                    success: "El bibliotecario del bosque guarda cuentos en los árboles.",
-                    reward: { stars: 19, coins: 15 }
-                },
-                {
-                    prompt: "Recojo gotas de rocío para hacer perfume de amanecer. ¿Quién soy?",
-                    options: ["Una perfumista de rocío", "Una astrónoma", "Una fotógrafa"],
-                    answer: 0,
-                    hint: "Se levanta antes del sol para atrapar la primera luz.",
-                    success: "La perfumista de rocío embotella el aroma del amanecer.",
-                    reward: { stars: 19, coins: 15 }
                 }
             ]
         }
     ];
 
     const vowelLevels = [
-        { level: 1, masked: 'ch_t', answer: 'a', options: ['a', 'e', 'i'], hint: 'Un animal qui ronronne.' },
-        { level: 2, masked: 'l_ne', answer: 'u', options: ['u', 'o', 'a'], hint: 'Elle brille la nuit.' },
-        { level: 3, masked: 'b_bé', answer: 'é', options: ['é', 'a', 'i'], hint: 'Il rit aux éclats.' },
-        { level: 4, masked: 'cl__n', answer: 'ow', options: ['ow', 'oi', 'ou'], hint: 'Il fait rire au cirque.' },
-        { level: 5, masked: 'p_tt__ m__s', answer: 'eeai', options: ['eeai', 'aaee', 'ieea'], hint: 'De petites maisons adorables.' },
-        { level: 6, masked: 'm__on', answer: 'ai', options: ['ai', 'ei', 'oi'], hint: 'Elle aime le fromage !' },
-        { level: 7, masked: 'La f__ danse.', answer: 'ée', options: ['ée', 'ai', 'ou'], hint: 'Une petite créature magique.' },
-        { level: 8, masked: 'Il pl__t tr_s beau.', answer: 'euè', options: ['euè', 'eau', 'aie'], hint: 'On parle du temps.' },
-        { level: 9, masked: 'Nous aim__ chanter.', answer: 'er', options: ['er', 'ai', 'ou'], hint: 'Une chorale amusante.' },
-        { level: 10, masked: 'Les él_ves écrivent en s__r.', answer: 'èoi', options: ['èoi', 'eau', 'aio'], hint: 'Une phrase scolaire.' }
+        { level: 1, masked: 'ch_t', answer: 'a', options: ['a', 'e', 'i'], hint: 'Un animal qui ronronne.' }
     ];
 
     const sequenceLevels = [
-        { level: 1, sequence: ['1', '2', '3', '?'], options: ['4', '5', '6'], answer: '4', type: 'number' },
-        { level: 2, sequence: ['2', '4', '6', '?'], options: ['7', '8', '9'], answer: '8', type: 'number' },
-        { level: 3, sequence: ['5', '4', '3', '?'], options: ['2', '1', '6'], answer: '2', type: 'number' },
-        { level: 4, sequence: ['🔴', '🔵', '🟢', '?'], options: ['🟡', '🔵', '🔴'], answer: '🟡', type: 'color' },
-        { level: 5, sequence: ['🔴', '🟡', '🔴', '?'], options: ['🟢', '🔴', '🟡'], answer: '🟡', type: 'color' },
-        { level: 6, sequence: ['🟢', '🟢', '🔵', '?'], options: ['🔵', '🟢', '🔴'], answer: '🔵', type: 'color' },
-        { level: 7, sequence: ['⚫', '🔺', '⚫', '?'], options: ['🔺', '⚫', '⚪'], answer: '🔺', type: 'shape' },
-        { level: 8, sequence: ['🔺', '⚪', '🔺', '?'], options: ['⚫', '🔺', '🔵'], answer: '⚪', type: 'shape' },
-        { level: 9, sequence: ['1', '🔴', '2', '🔵', '?'], options: ['3', '🟢', '🔴'], answer: '3', type: 'mixed' },
-        { level: 10, sequence: ['🔺', '1', '🔺', '2', '?'], options: ['🔺', '3', '🔵'], answer: '3', type: 'mixed' }
+        { level: 1, sequence: ['1', '2', '3', '?'], options: ['4', '5', '6'], answer: '4', type: 'number' }
     ];
     const allQuestions = {
         additions: [], soustractions: [], multiplications: [], divisions: [], colors: [], stories: [], riddles: [], sorting: [], letters: [], shapes: [], vowels: [], sequences: [],
@@ -2436,6 +2368,66 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function showComingSoon(gameTitle, icon) {
+        content.innerHTML = '';
+        const wrapper = document.createElement('div');
+        wrapper.className = 'coming-soon-wrapper fx-bounce-in-down';
+
+        const emoji = document.createElement('div');
+        emoji.className = 'coming-soon-emoji';
+        emoji.textContent = icon || '✨';
+        wrapper.appendChild(emoji);
+
+        const title = document.createElement('h2');
+        title.className = 'coming-soon-title';
+        title.textContent = `${gameTitle}`;
+        wrapper.appendChild(title);
+
+        const message = document.createElement('p');
+        message.className = 'coming-soon-message';
+        message.textContent = 'Ce jeu magique sera bientôt disponible !';
+        wrapper.appendChild(message);
+
+        content.appendChild(wrapper);
+        configureBackButton('Retour aux sujets', showTopicMenu);
+    }
+
+    function launchEcritureCursive(level) {
+        gameState.currentTopic = 'ecriture-cursive';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('ecriture-cursive');
+        if (window.ecritureCursiveGame && typeof window.ecritureCursiveGame.start === 'function') {
+            window.ecritureCursiveGame.start(context);
+        } else {
+            showComingSoon('J’écris en cursive', '✍️');
+        }
+    }
+    function launchAbaqueMagique(level) {
+        gameState.currentTopic = 'abaque-magique';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('abaque-magique');
+        if (window.abaqueMagiqueGame && typeof window.abaqueMagiqueGame.start === 'function') {
+            window.abaqueMagiqueGame.start(context);
+        } else {
+            showComingSoon('Abaque Magique', '🔢');
+        }
+    }
+    function launchMotsOutils(level) {
+        gameState.currentTopic = 'mots-outils';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('mots-outils');
+        if (window.motsOutilsGame && typeof window.motsOutilsGame.start === 'function') {
+            window.motsOutilsGame.start(context);
+        } else {
+            showComingSoon('Mots-Outils Magiques', '💬');
+        }
+    }
     // --- UI & Helpers ---
     function speakText(text) {
         if (window.speechSynthesis) {
@@ -3669,31 +3661,34 @@ document.addEventListener('DOMContentLoaded', () => {
         topicsContainer.className = 'options-grid';
         
         const allTopics = [
-            { id: 'grande-aventure-mots', text: '🟣 La Grande Aventure des Mots', type: 'external', href: 'grande-aventure-mots/index.html' },
-            { id: 'additions', text: '➕ Additions' },
-            { id: 'soustractions', text: '➖ Soustractions' },
-            { id: 'multiplications', text: '✖️ Multiplications' },
-            { id: 'divisions', text: '➗ Divisions' },
-            { id: 'math-blitz', text: '⚡ Maths Sprint' },
-            { id: 'number-houses', text: '🏠 Maisons des Nombres' },
-            { id: 'colors', text: '🎨 Les Couleurs' },
-            { id: 'stories', text: '📚Contes Magiques' },
-            { id: 'lecture-magique', text: '📖 Lecture Magique' },
-            { id: 'memory', text: '🧠 Mémoire Magique' },
-            { id: 'sorting', text: '🗂️ Jeu de Tri' },
-            { id: 'riddles', text: '🤔 Jeu d\'énigmes' },
-            { id: 'vowels', text: '🅰️ Jeu des Voyelles' },
-            { id: 'sequences', text: '➡️ Jeu des Séquences' },
-            { id: 'puzzle-magique', text: '🧩 Puzzle Magique' },
-            { id: 'repartis', text: '🍎 Répartis & Multiplie' },
-            { id: 'raisonnement', text: '🧩 Raisonnement Magique' },
-            { id: 'dictee', text: '🧚‍♀️ Dictée Magique' }
+            { id: 'math-blitz', icon: '⚡', text: 'Maths Sprint' },
+            { id: 'lecture-magique', icon: '📖', text: 'Lecture Magique' },
+            { id: 'ecriture-cursive', icon: '✍️', text: 'J’écris en cursive' },
+            { id: 'additions', icon: '➕', text: 'Additions' },
+            { id: 'soustractions', icon: '➖', text: 'Soustractions' },
+            { id: 'multiplications', icon: '✖️', text: 'Multiplications' },
+            { id: 'divisions', icon: '➗', text: 'Divisions' },
+            { id: 'sorting', icon: '🗂️', text: 'Jeu de Tri' },
+            { id: 'number-houses', icon: '🏠', text: 'Maisons des Nombres' },
+            { id: 'puzzle-magique', icon: '🧩', text: 'Puzzle Magique' },
+            { id: 'repartis', icon: '🍎', text: 'Répartis & Multiplie' },
+            { id: 'raisonnement', icon: '🧠', text: 'Raisonnement' },
+            { id: 'stories', icon: '📚', text: 'Contes Magiques' },
+            { id: 'memory', icon: '🤔', text: 'Mémoire Magique' },
+            { id: 'riddles', icon: '❓', text: 'Jeu d\'énigmes' },
+            { id: 'vowels', icon: '🅰️', text: 'Jeu des Voyelles' },
+            { id: 'sequences', icon: '➡️', text: 'Jeu des Séquences' },
+            { id: 'colors', icon: '🎨', text: 'Les Couleurs' },
+            { id: 'dictee', icon: '🧚‍♀️', text: 'Dictée Magique' },
+            { id: 'grande-aventure-mots', icon: '🟣', text: 'La Grande Aventure des Mots', type: 'external', href: 'grande-aventure-mots/index.html' },
+            { id: 'abaque-magique', icon: '🔢', text: 'Abaque Magique' },
+            { id: 'mots-outils', icon: '🗣️', text: 'Mots-Outils' }
         ];
 
         allTopics.forEach(topic => {
             const btn = document.createElement('button');
             btn.className = 'topic-btn fx-bounce-in-down';
-            btn.innerHTML = topic.text;
+            btn.innerHTML = `<span class="topic-btn__icon">${topic.icon || '✨'}</span><span class="topic-btn__text">${topic.text}</span>`;
             btn.dataset.topic = topic.id;
             btn.style.animationDelay = `${Math.random() * 0.5}s`;
             btn.addEventListener('click', () => {
@@ -3705,6 +3700,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (topic.id === 'dictee') { showDicteeMenu(); return; }
                 if (topic.id === 'stories') { showStoryMenu(); return; }
                 if (topic.id === 'memory') { showMemoryGameMenu(); return; }
+                if (topic.id === 'ecriture-cursive') { launchEcritureCursive(1); return; }
+                if (topic.id === 'abaque-magique') { launchAbaqueMagique(1); return; }
+                if (topic.id === 'mots-outils') { launchMotsOutils(1); return; }
                 showLevelMenu(topic.id);
             });
             topicsContainer.appendChild(btn);
@@ -3748,7 +3746,10 @@ document.addEventListener('DOMContentLoaded', () => {
             'dictee': 10,
             'math-blitz': (window.mathBlitzGame?.getLevelCount?.() || 10),
             'lecture-magique': 10,
-            'raisonnement': 10
+            'raisonnement': 10,
+            'ecriture-cursive': 3,
+            'abaque-magique': 3,
+            'mots-outils': 3
         };
         const totalLevels = maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
         
@@ -3789,6 +3790,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (gameState.currentTopic === 'math-blitz') { launchMathBlitzLevel(gameState.currentLevel); }
                 else if (gameState.currentTopic === 'lecture-magique') { launchLectureMagiqueLevel(gameState.currentLevel); }
                 else if (gameState.currentTopic === 'raisonnement') { launchRaisonnementLevel(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'ecriture-cursive') { launchEcritureCursive(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'abaque-magique') { launchAbaqueMagique(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'mots-outils') { launchMotsOutils(gameState.currentLevel); }
                 else if (gameState.currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[gameState.currentLevel - 1].pairs); }
                 else { gameState.currentQuestionIndex = 0; loadQuestion(0); }
             });
@@ -4033,7 +4037,7 @@ function showNumberHousesGame(level) {
 
     const maxRoofNumber = (level * 5) + 15;
     const roofNumber = randomInt(10, maxRoofNumber);
-    const pairsCount = 6;
+    const pairsCount = 5;
     const problems = generateNumberProblems(roofNumber, pairsCount);
 
     const container = document.createElement('div');
@@ -5754,3 +5758,4 @@ function generateNumberProblems(sum, count) {
     // --- Start Game ---
     init();
 });
+

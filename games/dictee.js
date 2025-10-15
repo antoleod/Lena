@@ -5,16 +5,16 @@
     const KEYBOARD_CHARACTERS = ['é', 'è', 'ê', 'à', 'ù', 'ç', 'ô'];
 
     const GUIDED_LEVELS = [
-        { level: 1, entries: ['chat', 'lune', 'sac'], reward: { stars: 25, coins: 14 } },
-        { level: 2, entries: ['maman', 'robot', 'piano'], reward: { stars: 26, coins: 15 } },
-        { level: 3, entries: ['renard', 'miroir', 'magie'], reward: { stars: 27, coins: 16 } },
-        { level: 4, entries: ['balle', 'lapin', 'tambour'], reward: { stars: 28, coins: 17 } },
-        { level: 5, entries: ['lettre', 'puzzle', 'carotte'], reward: { stars: 29, coins: 18 } },
-        { level: 6, entries: ['chanson', 'ventouse', 'ballon'], reward: { stars: 30, coins: 19 } },
-        { level: 7, entries: ['La souris mange du pain.', 'Le chat saute dans la neige.'], reward: { stars: 32, coins: 20 } },
-        { level: 8, entries: ['La lune brille très fort.', 'Le pirate trouve un trésor.'], reward: { stars: 33, coins: 21 } },
-        { level: 9, entries: ['Les enfants chantent sous la pluie.', 'Un dragon vole dans le ciel.'], reward: { stars: 34, coins: 22 } },
-        { level: 10, entries: ['La petite fée prépare une potion magique.', 'La licorne traverse la forêt lumineuse.'], reward: { stars: 36, coins: 24 } }
+        { level: 1, entries: ['chat', 'lune', 'sac', 'ami', 'jour'], reward: { stars: 25, coins: 14 } },
+        { level: 2, entries: ['maman', 'robot', 'piano', 'école', 'soleil'], reward: { stars: 26, coins: 15 } },
+        { level: 3, entries: ['renard', 'miroir', 'magie', 'fleur', 'nuage'], reward: { stars: 27, coins: 16 } },
+        { level: 4, entries: ['balle', 'lapin', 'tambour', 'étoile', 'livre'], reward: { stars: 28, coins: 17 } },
+        { level: 5, entries: ['lettre', 'puzzle', 'carotte', 'fenêtre', 'musique'], reward: { stars: 29, coins: 18 } },
+        { level: 6, entries: ['chanson', 'ventouse', 'ballon', 'gâteau', 'famille'], reward: { stars: 30, coins: 19 } },
+        { level: 7, entries: ['La souris mange.', 'Le chat saute.', 'Il fait beau.', 'J\'aime lire.', 'Où est papa ?'], reward: { stars: 32, coins: 20 } },
+        { level: 8, entries: ['La lune brille fort.', 'Le pirate trouve un trésor.', 'Le chien court vite.', 'La fée est gentille.', 'Le train arrive.'], reward: { stars: 33, coins: 21 } },
+        { level: 9, entries: ['Les enfants chantent.', 'Un dragon vole.', 'Le gâteau est bon.', 'La porte est ouverte.', 'Le ciel est bleu.'], reward: { stars: 34, coins: 22 } },
+        { level: 10, entries: ['La petite fée prépare une potion.', 'La licorne traverse la forêt.', 'Le robot danse bien.', 'Le soleil chauffe la plage.', 'Léna dessine un arc-en-ciel.'], reward: { stars: 36, coins: 24 } }
     ];
 
     function showRoot(context) {

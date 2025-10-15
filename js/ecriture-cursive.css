@@ -1,0 +1,113 @@
+/* === ✍️ J'écris en Cursive: Styles === */
+
+.ecriture-container {
+    --ecriture-bg: #fdf6f8; /* Rose très pâle */
+    --ecriture-lines: rgba(255, 173, 173, 0.4); /* Lignes roses */
+    --ecriture-margin-line: rgba(155, 246, 255, 0.7); /* Marge bleue */
+    --ecriture-ink: #3f2c85;
+    --ecriture-model-bg: rgba(255, 255, 255, 0.7);
+    --ecriture-canvas-bg: rgba(255, 255, 255, 0.9);
+
+    background-color: var(--ecriture-bg);
+    background-image:
+        linear-gradient(var(--ecriture-lines) 1px, transparent 1px),
+        linear-gradient(to right, var(--ecriture-lines) 1px, transparent 1px);
+    background-size: 28px 28px;
+    position: relative;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+}
+
+/* Ligne de marge rouge/bleue sur le côté */
+.ecriture-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--ecriture-margin-line);
+}
+
+.ecriture-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ecriture-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: var(--ecriture-ink);
+    text-align: center;
+}
+
+.ecriture-model-wrapper {
+    background: var(--ecriture-model-bg);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    width: 100%;
+}
+
+.ecriture-model-text {
+    font-family: 'cursive', 'Dancing Script', 'Fredoka';
+    font-size: clamp(3rem, 10vw, 5rem);
+    color: var(--ecriture-ink);
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.ecriture-canvas {
+    width: 100%;
+    height: 250px;
+    background-color: var(--ecriture-canvas-bg);
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    cursor: crosshair;
+    touch-action: none; /* Empêche le scroll sur mobile en dessinant */
+}
+
+.ecriture-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.ecriture-btn {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    border: 2px solid var(--ecriture-ink);
+    background: transparent;
+    color: var(--ecriture-ink);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ecriture-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.ecriture-btn--primary {
+    background: var(--ecriture-ink);
+    color: white;
+}
+
+.ecriture-btn--primary:hover {
+    background: #5a42b9;
+}
+
+@media (max-width: 600px) {
+    .ecriture-model-text {
+        font-size: clamp(2rem, 12vw, 3.5rem);
+    }
+}

@@ -66,7 +66,7 @@
       levels.push({
         level: def.level,
         operations: def.operations,
-        questionCount: 8,
+        questionCount: 5,
         title: def.title,
         subtitle: def.subtitle,
         storyline: def.subtitle,
