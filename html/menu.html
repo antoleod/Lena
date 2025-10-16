@@ -6,8 +6,12 @@
     <title>Menú Principal - MathsWebLena</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/universe.css">
 </head>
 <body>
+    <div class="sun"></div>
+    <div class="moon"></div>
+    <div class="stars"></div>
     <div class="menu-container">
         <header class="menu-header">
             <div id="user-greeting">¡Hola, aventurera!</div>
@@ -43,5 +47,22 @@
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>
     <script src="../js/menu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const starsContainer = document.querySelector('.stars');
+            const numberOfStars = 100;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+        });
+    </script>
 </body>
 </html>
