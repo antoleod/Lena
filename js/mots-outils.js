@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  const OPTION_ICONS = ['✏️', '📖', '🗣️', '👍'];
+
   const LEVELS = [
     { level: 1, title: "Qui suis-je ?", reward: { stars: 8, coins: 5 }, activities: [
         { sentence: '___ une fille.', blank: 'Je suis', options: ['Je suis', 'Je vais', 'Je fais'], answer: 0 },
@@ -71,6 +73,41 @@
         { sentence: 'Je joue ___ mes amis.', blank: 'avec', options: ['pour', 'avec', 'chez'], answer: 1 },
         { sentence: '___ allons au cinéma.', blank: 'Nous', options: ['Ils', 'Vous', 'Nous'], answer: 2 },
         { sentence: 'Le chat est ___ la table.', blank: 'sous', options: ['sur', 'sous', 'dans'], answer: 1 }
+    ]},
+    { level: 11, title: "Le, La, Les", reward: { stars: 21, coins: 15 }, activities: [
+        { sentence: '___ chat dort.', blank: 'Le', options: ['Le', 'La', 'Les'], answer: 0 },
+        { sentence: '___ fleurs sont jolies.', blank: 'Les', options: ['Le', 'La', 'Les'], answer: 2 },
+        { sentence: '___ voiture est rouge.', blank: 'La', options: ['Le', 'La', 'Les'], answer: 1 },
+        { sentence: '___ livres sont sur la table.', blank: 'Les', options: ['Le', 'La', 'Les'], answer: 2 },
+        { sentence: '___ lune brille dans le ciel.', blank: 'La', options: ['Le', 'La', 'Les'], answer: 1 }
+    ]},
+    { level: 12, title: "Un, Une, Des", reward: { stars: 22, coins: 16 }, activities: [
+        { sentence: 'J\'ai ___ frère.', blank: 'un', options: ['un', 'une', 'des'], answer: 0 },
+        { sentence: 'Elle a ___ sœur.', blank: 'une', options: ['un', 'une', 'des'], answer: 1 },
+        { sentence: 'Il y a ___ nuages dans le ciel.', blank: 'des', options: ['un', 'une', 'des'], answer: 2 },
+        { sentence: 'Je vois ___ oiseau sur la branche.', blank: 'un', options: ['un', 'une', 'des'], answer: 0 },
+        { sentence: 'C\'est ___ belle histoire.', blank: 'une', options: ['un', 'une', 'des'], answer: 1 }
+    ]},
+    { level: 13, title: "La Négation", reward: { stars: 23, coins: 17 }, activities: [
+        { sentence: 'Il ___ pas content.', blank: 'n\'est', options: ['est', 'n\'est', 'va'], answer: 1 },
+        { sentence: 'Je ___ pas de devoirs.', blank: 'n\'ai', options: ['ai', 'suis', 'n\'ai'], answer: 2 },
+        { sentence: 'Elle ne veut ___ jouer dehors.', blank: 'pas', options: ['plus', 'pas', 'jamais'], answer: 1 },
+        { sentence: 'Nous ___ pas à l\'école aujourd\'hui.', blank: 'n\'allons', options: ['allons', 'sommes', 'n\'allons'], answer: 2 },
+        { sentence: 'Tu ___ pas faim.', blank: 'n\'as', options: ['as', 'es', 'n\'as'], answer: 2 }
+    ]},
+    { level: 14, title: "Le Passé", reward: { stars: 24, coins: 18 }, activities: [
+        { sentence: 'Hier, j\'___ mangé une pomme.', blank: 'ai', options: ['ai', 'suis', 'vais'], answer: 0 },
+        { sentence: 'Elle ___ jouée dans le jardin.', blank: 'a', options: ['est', 'a', 'va'], answer: 1 },
+        { sentence: 'Nous ___ regardé un film.', blank: 'avons', options: ['sommes', 'avons', 'allons'], answer: 1 },
+        { sentence: 'Tu ___ bien dormi.', blank: 'as', options: ['es', 'as', 'vas'], answer: 1 },
+        { sentence: 'Ils ___ construit une cabane.', blank: 'ont', options: ['sont', 'ont', 'vont'], answer: 1 }
+    ]},
+    { level: 15, title: "Le Futur", reward: { stars: 25, coins: 19 }, activities: [
+        { sentence: 'Demain, je ___ à la piscine.', blank: 'vais aller', options: ['suis allé', 'vais aller', 'vais'], answer: 1 },
+        { sentence: 'Elle ___ un gâteau.', blank: 'va faire', options: ['a fait', 'fait', 'va faire'], answer: 2 },
+        { sentence: 'Nous ___ nos grands-parents.', blank: 'allons voir', options: ['avons vu', 'voyons', 'allons voir'], answer: 2 },
+        { sentence: 'Tu ___ un livre.', blank: 'vas lire', options: ['as lu', 'vas lire', 'lis'], answer: 1 },
+        { sentence: 'Ils ___ au parc.', blank: 'vont jouer', options: ['ont joué', 'jouent', 'vont jouer'], answer: 2 }
     ]}
   ];
 
@@ -83,7 +120,7 @@
     renderScene(context, state);
   }
 
-  function renderScene(context, state) {
+  function renderScene(context, state) { // This should use state.levelData.level
     const content = context.content;
     content.innerHTML = '';
 
@@ -92,7 +129,7 @@
 
     const header = document.createElement('div');
     header.className = 'mots-outils__header';
-    header.innerHTML = `<h2 class="mots-outils__title">Mots‑outils — Niveau ${state.levelData.level}</h2>`;
+    header.innerHTML = `<h2 class="mots-outils__title">${state.levelData.title} — Niveau ${state.levelData.level}</h2>`;
     const progress = document.createElement('div'); progress.className = 'mots-outils__progress';
     const progressFill = document.createElement('div'); progressFill.className = 'mots-outils__progress-fill';
     progress.appendChild(progressFill); header.appendChild(progress); wrapper.appendChild(header);
@@ -101,7 +138,12 @@
     const feedback = document.createElement('div'); feedback.className = 'mots-outils__feedback is-hidden'; feedback.setAttribute('role','status'); feedback.setAttribute('aria-live','polite'); wrapper.appendChild(feedback);
 
     content.appendChild(wrapper);
-    context.configureBackButton('Retour aux niveaux', () => context.showLevelMenu('mots-outils'));
+    context.configureBackButton('Retour aux niveaux', () => {
+        const totalLevels = LEVELS.length;
+        const completedCount = Object.keys(context.userProgress.answeredQuestions).filter(k => k.startsWith('mots-outils-') && context.userProgress.answeredQuestions[k] === 'completed').length;
+        context.setAnsweredStatus(completedCount === totalLevels ? 'completed' : 'in-progress');
+        context.showLevelMenu('mots-outils');
+    });
     context.setAnsweredStatus('in-progress');
 
     renderActivity(context, state, zone, feedback, progressFill);
@@ -159,7 +201,7 @@
       context.updateUI?.();
       button.classList.add('is-correct');
       showFeedback(feedback, 'positive', activity.success || 'Très bien !');
-      sentenceEl.innerHTML = activity.sentence.replace('___', `<span class="mots-outils__blank--filled">${activity.blank}</span>`);
+      sentenceEl.innerHTML = activity.sentence.replace('___', `<span class="mots-outils__blank--filled">${activity.blank || activity.options[activity.answer]}</span>`);
       setTimeout(() => nextActivity(context, state), 1500);
     } else {
       context.playNegativeSound();
@@ -199,11 +241,18 @@
     }, 1600);
   }
 
+  function getLevelCount() {
+    return LEVELS.length;
+  }
+
   function showFeedback(el, variant, msg) {
     el.classList.remove('is-hidden','is-positive','is-negative');
     el.classList.add(variant==='positive'?'is-positive':'is-negative');
     el.textContent = msg;
   }
 
-  window.motsOutilsGame = { start };
+  window.motsOutilsGame = {
+      start,
+      getLevelCount
+  };
 })();

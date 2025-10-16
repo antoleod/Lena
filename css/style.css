@@ -4,7 +4,7 @@
 
 :root {
   /* 🎨 Colores */
-  --bg-glass: rgba(255, 255, 255, 0.2);
+--bg-glass: rgba(255, 255, 255, 0.2); /* <- ese velo translúcido */
   --bg-glow: linear-gradient(145deg, #f5e6cc, #ffffff);
   --card-color: rgba(255, 255, 255, 0.3);
   --card-border: rgba(255, 255, 255, 0.4);
@@ -56,6 +56,8 @@ body::before {
   background: var(--bg-glass);
   z-index: 0;
 }
+
+
 
 body.has-app-footer {
   padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
@@ -1419,6 +1421,20 @@ body[data-bg-theme] #stageBottom {
   }
 }
 
+.level-button.is-completed {
+  background: linear-gradient(135deg, #a8e063, #56ab2f);
+  color: white;
+  border-color: #6fbf73;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.level-button.is-completed::after {
+  content: '✅';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.2rem;
+}
 
 /* ✨ Iconos que flotan al pasar el mouse */
 .option:hover .option-icon,
@@ -1576,9 +1592,68 @@ body[data-bg-theme] #stageBottom {
   color: #a9a9a9; /* Muted color */
 }
 
+/* Estilos para los botones del juego Répartis & Multiplie */
+.repartis-option-btn {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: white;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.repartis-option-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.repartis-option-btn.color-1 {
+  background: linear-gradient(135deg, #84fab0, #8fd3f4);
+  box-shadow: 0 8px 16px rgba(132, 250, 176, 0.3);
+}
+
+.repartis-option-btn.color-2 {
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  box-shadow: 0 8px 16px rgba(161, 196, 253, 0.3);
+}
+
+.repartis-option-btn.color-3 {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  box-shadow: 0 8px 16px rgba(246, 211, 101, 0.3);
+}
+
+.repartis-option-btn.color-4 {
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  box-shadow: 0 8px 16px rgba(255, 221, 225, 0.4);
+}
+
 @media (max-width: 640px) {
   .footer-actions {
     gap: 0.75rem;
   }
 }
+/* --- Logic games styles (3e primaire) --- */
+:root {
+  --logic-blue: #6b5bff;
+  --logic-green: #3ac9a8;
+  --logic-yellow: #ffd36b;
+  --logic-pink: #ff8c8c;
+}
 
+#logic-games.category { margin-top: 1.5rem; padding: 0.5rem 0 1rem; }
+#logic-games h2 { font-family: 'Fredoka','Nunito',sans-serif; font-weight: 800; color: var(--logic-blue); text-align: center; margin: 0 0 0.5rem; }
+.logic-game-grid, #logic-games .game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; padding: 6px 8px; }
+.game-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px 12px; border: none; border-radius: 16px; background: #f6f7ff; box-shadow: 0 4px 10px rgba(0,0,0,0.06); color: #5a4ae3; cursor: pointer; outline: none; transition: transform 160ms ease, box-shadow 160ms ease; }
+.game-card .icon { font-size: 1.6rem; line-height: 1; }
+.game-card .svg { width: 24px; height: 24px; opacity: 0.85; }
+.game-card .title { font-weight: 800; font-size: 0.95rem; text-align: center; }
+.game-card .progress { width: 100%; height: 6px; background: #eaeaff; border-radius: 999px; overflow: hidden; }
+.game-card .progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--logic-green), var(--logic-blue)); }
+.game-card:focus-visible { box-shadow: 0 0 0 3px rgba(107,91,255,0.35); }
+.game-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+.game-card:active { transform: translateY(-1px); }
+
+@media (prefers-reduced-motion: reduce) { .game-card { transition: none; } .fx-bounce-in-down { animation: none !important; } }

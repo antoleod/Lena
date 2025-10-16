@@ -38,12 +38,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreStars = document.getElementById('scoreStars');
     const scoreCoins = document.getElementById('scoreCoins');
     const levelDisplay = document.getElementById('level');
-    const audioCorrect = document.getElementById('audioCorrect');
-    const audioWrong = document.getElementById('audioWrong');
-    const audioCoins = document.getElementById('audioCoins');
-    window.audioManager?.bind(audioCorrect);
-    window.audioManager?.bind(audioWrong);
-    window.audioManager?.bind(audioCoins);
+    const btnReadMode = document.getElementById('btnReadMode');
+
+    // --- Audio Pre-loading ---
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const soundBuffers = {};
+
+    async function loadSound(name, url) {
+        if (!audioContext) return;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
+            }
+            const arrayBuffer = await response.arrayBuffer();
+            const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+            soundBuffers[name] = audioBuffer;
+        } catch (error) {
+            console.warn(`Could not load sound: ${name}`, error);
+        }
+    }
+
+    function playBufferedSound(name, volume = 1.0) {
+        if (window.audioManager?.isMuted || !soundBuffers[name] || !audioContext) {
+            return;
+        }
+        // Allow playing sounds even if the context was suspended by the browser
+        if (audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
+        const gainNode = audioContext.createGain();
+        gainNode.gain.value = volume;
+
+        const source = audioContext.createBufferSource();
+        source.buffer = soundBuffers[name];
+        source.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        source.start(0);
+    }
+
     const stageBottom = document.getElementById('stageBottom');
     const btnPrev = document.getElementById('btnPrev');
     const btnSkip = document.getElementById('btnSkip');
@@ -55,28 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Game Data ---
     const LEVELS_PER_TOPIC = 12;
-    const DEFAULT_QUESTIONS_PER_LEVEL = 5;
+    const DEFAULT_QUESTIONS_PER_LEVEL = 7;
     const TOPIC_QUESTION_COUNTS = {
-        additions: 8,
-        soustractions: 8,
-        multiplications: 8,
-        divisions: 8,
-        colors: 6
+        additions: 7,
+        soustractions: 7,
+        multiplications: 7,
+        divisions: 7,
+        colors: 7
     };
-    const MEMORY_GAME_LEVELS = [
-      { level: 1, pairs: 2, grid: '2x2', timeLimit: null, traps: 0 },
-      { level: 2, pairs: 4, grid: '2x4', timeLimit: null, traps: 0 },
-      { level: 3, pairs: 6, grid: '3x4', timeLimit: null, traps: 0 },
-      { level: 4, pairs: 8, grid: '4x4', timeLimit: 90, traps: 0 },
-      { level: 5, pairs: 10, grid: '4x5', timeLimit: 100, traps: 2 },
-      { level: 6, pairs: 12, grid: '4x6', timeLimit: 120, traps: 2 },
-      { level: 7, pairs: 14, grid: '4x7', timeLimit: 130, traps: 3 },
-      { level: 8, pairs: 16, grid: '4x8', timeLimit: 140, traps: 4 },
-      { level: 9, pairs: 18, grid: '5x8', timeLimit: 150, traps: 4 },
-      { level: 10, pairs: 20, grid: '5x8', timeLimit: 160, traps: 5 },
-      { level: 11, pairs: 22, grid: '4x11', timeLimit: 170, traps: 6 },
-      { level: 12, pairs: 24, grid: '6x8', timeLimit: 180, traps: 6 }
-    ];
+    const MEMORY_GAME_LEVELS = window.gameData?.MEMORY_GAME_LEVELS || [];
     const emoji = {
         blue: '🔵', yellow: '🟡', red: '🔴', green: '🟢', orange: '🟠', purple: '🟣',
         car: '🚗', bus: '🚌', plane: '✈️', rocket: '🚀', star: '⭐', coin: '💰', sparkle: '✨',
@@ -256,11 +276,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'math-blitz': 'math:blitz',
         'lecture-magique': 'reading:fluency',
         raisonnement: 'logic:reasoning',
-        'ecriture-cursive': 'writing:cursive',
-        'abaque-magique': 'math:abacus',
-        'mots-outils': 'language:grammar'
+        'ecriture-cursive': 'writing:cursive', // Habilitado
+        'abaque-magique': 'math:abacus', // Habilitado
+        'mots-outils': 'language:grammar' // Habilitado
     };
-
+    
     function svgDataUri(svg) {
         return `data:image/svg+xml,${encodeURIComponent(svg).replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29')}`;
     }
@@ -414,437 +434,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return findShopItem(itemId);
     }
     const answerOptionIcons = ['🔹', '🌟', '💡', '🎯', '✨', '🎈', '🧠'];
-    const colorOptionIcons = ['🎨', '🖌️', '🧴', '🧑\u200d🎨', '🌈'];
-    const storySetOne = [
-        {
-            "title": "Le Voyage de Léna l\'Étoile ⭐️",
-            "image": "",
-            "text": [
-              "Léna 👧 était une petite étoile ⭐️ brillante ✨ comme un diamant 💎.",
-              "Elle vivait 🏡 sr une montagne ⛰️ magique ✨ avec sa petite sœur Yaya 👧.",
-              "Un jour ☀️, Léna ⭐️ décida 🗺️ de faire un grand voyage 🚀 pour trouver 🔍 le plus beau arc-en-ciel 🌈.",
-              "Yaya 👧, très curieuse 👀, la rejoignit 🤝.",
-              "Elles sautèrent 🤸 de nuage ☁️ en nuage ☁️. C\'était un jeu 🎲 très amusant 😄 !",
-              "Finalement 🎉, elles trouvèrent 🔎 un arc-en-ciel 🌈 géant 🏞️. Mission accomplie 🏆 !",
-              "Léna ⭐️ et Yaya 👧 avaient fait un voyage 🚀 inoubliable 💖."
-            ],
-            "quiz": [
-              { "question": "Qui est Léna 👧 ?", "options": ["Une princesse 👑", "Une étoile ⭐️", "Un animal 🐾"], "correct": 1 },
-              { "question": "Où vivait Léna ⭐️ ?", "options": ["Dans une forêt 🌳", "Sur une montagne magique ⛰️✨", "Dans un château 🏰"], "correct": 1 },
-              { "question": "Qu'ont-elles trouvé 🔍 ?", "options": ["Une fleur 🌸", "Un trésor 💰", "Un arc-en-ciel 🌈"], "correct": 2 }
-            ]
-        },
-        {
-            "title": "Le Lion au Grand Coeur 🦁💖",
-            "image": "",
-            "text": [
-              "Dans la savane 🌍 vivait un lion 🦁 nommé Léo.",
-              "Il n\'était pas le plus fort 💪, mais il était le plus courageux 💖 et le plus gentil 🤗.",
-              "Léna 👧 et Yaya 👧 étaient ses meilleures amies 👭.",
-              "Un jour ☀️, una pequeña antílope 🦌 se encontró atrapada 😨 en un pantano 🪵.",
-              "Léna 👧 y Yaya 👧 estaban preocupadas 😟.",
-              "Léo 🦁, sin dudarlo ⚡, saltó 🤾 al barro 🌿 para salvarla 🙌.",
-              "Los otros animales 🐒🦓🐘 aplaudieron 👏.",
-              "Léo 🦁 había demostrado que el coraje 💖 no se mide por la fuerza 💪, sino por la bondad 🤗.",
-              "Léna 👧 y Yaya 👧 estaban tan orgullosas 🌟 de su amigo 🦁."
-            ],
-            "quiz": [
-              { "question": "Comment s\'appelle le lion 🦁 ?", "options": ["Léo 🦁", "Max 🐯", "Simba 🐾"], "correct": 0 },
-              { "question": "Qu\'est-ce qui le rendait courageux 💖 ?", "options": ["Sa force 💪", "Sa gentillesse 🤗", "Sa vitesse 🏃‍♂️"], "correct": 1 },
-              { "question": "Quel animal 🐾 Léo 🦁 a-t-il sauvé 🙌 ?", "options": ["Un zèbre 🦓", "Une antilope 🦌", "Une girafe 🦒"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "Le Roller Fou de Yaya 🛼🐱",
-            "image": "",
-            "text": [
-              "Un jour ☀️, Léna 👧 offrit des rollers 🛼 à Yaya 🐱.",
-              "Yaya essaya… et BOUM 💥 elle partit comme une fusée 🚀.",
-              "Elle glissa sur une flaque d’eau 💦 et fit un tourbillon 🌀.",
-              "Léna 👧 riait tellement 😂 qu’elle tomba aussi par terre 🙃.",
-              "Finalement, Yaya s’arrêta dans un tas de coussins 🛏️, toute étourdie 🤪."
-            ],
-            "quiz": [
-              { "question": "Qui portait des rollers 🛼 ?", "options": ["Léna 👧", "Yaya 🐱", "Un chien 🐶"], "correct": 1 },
-              { "question": "Sur quoi Yaya a-t-elle glissé 💦 ?", "options": ["Une flaque d’eau 💦", "Une banane 🍌", "Un tapis 🧶"], "correct": 0 },
-              { "question": "Où s’est-elle arrêtée 🛏️ ?", "options": ["Dans un arbre 🌳", "Dans des coussins 🛏️", "Dans la cuisine 🍴"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "La Gâteau Volant 🎂✨",
-            "image": "",
-            "text": [
-              "Léna 👧 voulait préparer un gâteau 🎂 magique.",
-              "Yaya 🐱 ajouta trop de levure 🧁…",
-              "Le gâteau commença à gonfler 🎈… puis POUF 💨 il s’envola !",
-              "Les deux coururent derrière 🍰 comme si c’était un ballon 🎈.",
-              "Enfin, il retomba sur la table 🍴 et tout le monde goûta, miam 😋."
-            ],
-            "quiz": [
-              { "question": "Qui ajouta trop de levure 🧁 ?", "options": ["Léna 👧", "Yaya 🐱", "Mamie 👵"], "correct": 1 },
-              { "question": "Que fit le gâteau 🎂 ?", "options": ["Il s’envola ✨", "Il brûla 🔥", "Il disparut 👻"], "correct": 0 },
-              { "question": "Où finit le gâteau 🍰 ?", "options": ["Par terre 🪣", "Dans le ciel 🌈", "Sur la table 🍴"], "correct": 2 }
-            ]
-        },
-        {
-            "title": "La Chasse aux Chaussettes 🧦🔍",
-            "image": "",
-            "text": [
-              "Léna 👧 ne retrouvait jamais ses chaussettes 🧦.",
-              "Yaya 🐱 les avait toutes cachées dans sa maison secrète 🏠.",
-              "Elles jouaient à cache-cache 🤫 avec les chaussettes colorées 🎨.",
-              "Quand Léna ouvrit le panier… PAF 💥 une montagne de chaussettes !",
-              "Elles rirent tellement 😂 qu’elles firent un château de chaussettes 👑."
-            ],
-            "quiz": [
-              { "question": "Que cherchait Léna 👧 ?", "options": ["Ses jouets 🧸", "Ses chaussettes 🧦", "Ses livres 📚"], "correct": 1 },
-              { "question": "Qui les avait cachées 🐱 ?", "options": ["Papa 👨", "Yaya 🐱", "Un voleur 🕵️"], "correct": 1 },
-              { "question": "Que firent-elles à la fin 👑 ?", "options": ["Un château 🏰", "Un château de chaussettes 👑", "Un gâteau 🎂"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "Le Bus Magique 🚌✨",
-            "image": "",
-            "text": [
-              "En allant à l’école 📚, Léna 👧 monta dans un bus étrange 🚌.",
-              "Yaya 🐱 conduisait le bus 🚍 ! Quelle folie 🤯 !",
-              "Le bus roula sur un arc-en-ciel 🌈 et fit des loopings 🌀.",
-              "Tous les enfants criaient de joie 🎉.",
-              "À la fin, le bus atterrit devant l’école 🏫, pile à l’heure ⏰."
-            ],
-            "quiz": [
-              { "question": "Qui conduisait le bus 🚌 ?", "options": ["Le chauffeur 👨", "Léna 👧", "Yaya 🐱"], "correct": 2 },
-              { "question": "Sur quoi le bus roula 🌈 ?", "options": ["Un arc-en-ciel 🌈", "Une rivière 💧", "Une route normale 🛣️"], "correct": 0 },
-              { "question": "Où s’arrêta le bus 🏫 ?", "options": ["À la maison 🏡", "Devant l’école 🏫", "Dans la forêt 🌳"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "Le Chien Savant 🐶🎓",
-            "image": "",
-            "text": [
-              "Un jour, Léna 👧 et Yaya 🐱 rencontrèrent un chien 🐶 qui savait lire 📖.",
-              "Il portait des lunettes 🤓 et récitait l’alphabet 🎶.",
-              "Yaya 🐱 essaya aussi… mais elle miaula seulement 😹.",
-              "Léna 👧 applaudit 👏 le chien professeur.",
-              "Ils passèrent la journée à rire et apprendre ensemble 💡."
-            ],
-            "quiz": [
-              { "question": "Que savait faire le chien 🐶 ?", "options": ["Cuisiner 🍳", "Lire 📖", "Voler 🕊️"], "correct": 1 },
-              { "question": "Que portait le chien 🤓 ?", "options": ["Un chapeau 🎩", "Des lunettes 🤓", "Un manteau 🧥"], "correct": 1 },
-              { "question": "Qui essaya aussi 😹 ?", "options": ["Léna 👧", "Yaya 🐱", "Mamie 👵"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "La Forêt qui Rigole 🌳😂",
-            "image": "",
-            "text": [
-              "En se promenant 🌳, Léna 👧 entendit des arbres qui rigolaient 😂.",
-              "Yaya 🐱 grimpa et chatouilla les branches 🤭.",
-              "Les oiseaux 🐦 se mirent à chanter une chanson rigolote 🎶.",
-              "Tout l’endroit résonnait comme un grand concert 🎤.",
-              "Léna 👧 et Yaya 🐱 dansaient au milieu de la forêt 💃."
-            ],
-            "quiz": [
-              { "question": "Qui rigolait 😂 ?", "options": ["Les arbres 🌳", "Les fleurs 🌸", "Les nuages ☁️"], "correct": 0 },
-              { "question": "Que fit Yaya 🐱 ?", "options": ["Elle grimpa 🌳", "Elle dormit 😴", "Elle mangea 🍽️"], "correct": 0 },
-              { "question": "Que firent Léna et Yaya 💃 ?", "options": ["Elles dansèrent 💃", "Elles dormirent 😴", "Elles coururent 🏃‍♀️"], "correct": 0 }
-            ]
-        },
-        {
-            "title": "Le Chapeau de Pirate 🏴‍☠️🎩",
-            "image": "",
-            "text": [
-              "Léna 👧 trouva un chapeau de pirate 🏴‍☠️ dans un coffre.",
-              "Yaya 🐱 le porta… et se crut capitaine ⛵.",
-              "Elle ordonna : ‘À l’abordage !’ ⚔️",
-              "Elles jouèrent à chercher un trésor 💰 dans le jardin.",
-              "Le trésor ? Une boîte de biscuits au chocolat 🍪 !"
-            ],
-            "quiz": [
-              { "question": "Quel chapeau trouvèrent-elles 🎩 ?", "options": ["Un chapeau de magicien ✨", "Un chapeau de pirate 🏴‍☠️", "Un chapeau de cowboy 🤠"], "correct": 1 },
-              { "question": "Que cria Yaya 🐱 ?", "options": ["Bonjour 👋", "À l’abordage ⚔️", "Bonne nuit 😴"], "correct": 1 },
-              { "question": "Quel était le trésor 💰 ?", "options": ["Des bijoux 💎", "Des biscuits 🍪", "Un jouet 🧸"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "La Pluie de Bonbons 🍬🌧️",
-            "image": "",
-            "text": [
-              "Un jour, le ciel devint bizarre 🌥️.",
-              "Au lieu de pluie 💧, il tomba des bonbons 🍬 !",
-              "Léna 👧 ouvrit son parapluie ☂️ pour les attraper.",
-              "Yaya 🐱 courait partout en mangeant 😋.",
-              "La rue entière devint une fête de bonbons 🎉."
-            ],
-            "quiz": [
-              { "question": "Qu’est-ce qui tombait du ciel 🌧️ ?", "options": ["Des bonbons 🍬", "Des ballons 🎈", "Des fleurs 🌸"], "correct": 0 },
-              { "question": "Que fit Léna 👧 ☂️ ?", "options": ["Elle se cacha 🙈", "Elle attrapa des bonbons 🍬", "Elle dormit 😴"], "correct": 1 },
-              { "question": "Qui mangeait partout 😋 ?", "options": ["Léna 👧", "Yaya 🐱", "Un chien 🐶"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "La Fusée en Carton 🚀📦",
-            "image": "",
-            "text": [
-              "Léna 👧 construisit une fusée 🚀 avec un carton 📦.",
-              "Yaya 🐱 monta à bord comme copilote 👩‍🚀.",
-              "3…2…1… décollage ✨ !",
-              "Elles voyagèrent jusqu’à la lune 🌕 (dans le jardin !).",
-              "Puis elles revinrent pour manger des crêpes 🥞."
-            ],
-            "quiz": [
-              { "question": "Avec quoi Léna construisit-elle 🚀 ?", "options": ["Du bois 🪵", "Un carton 📦", "Des briques 🧱"], "correct": 1 },
-              { "question": "Qui était copilote 👩‍🚀 ?", "options": ["Un robot 🤖", "Yaya 🐱", "Mamie 👵"], "correct": 1 },
-              { "question": "Où allèrent-elles 🌕 ?", "options": ["Sur la lune 🌕", "Sur Mars 🔴", "Dans la mer 🌊"], "correct": 0 }
-            ]
-        },
-        {
-            "title": "Le Cirque de Yaya 🎪🐱",
-            "image": "",
-            "text": [
-              "Yaya 🐱 décida d’ouvrir un cirque 🎪 dans le salon.",
-              "Léna 👧 vendait les tickets 🎟️.",
-              "Yaya jonglait avec des pelotes de laine 🧶.",
-              "Puis elle sauta dans un cerceau en feu imaginaire 🔥 (ouf, en carton 😅).",
-              "Le public invisible applaudit 👏 très fort !"
-            ],
-            "quiz": [
-              { "question": "Qui ouvrit un cirque 🎪 ?", "options": ["Léna 👧", "Yaya 🐱", "Papa 👨"], "correct": 1 },
-              { "question": "Avec quoi jonglait Yaya 🐱 🧶 ?", "options": ["Des ballons 🎈", "Des pelotes de laine 🧶", "Des pommes 🍏"], "correct": 1 },
-              { "question": "Que faisait le public 👏 ?", "options": ["Il riait 😂", "Il applaudissait 👏", "Il dormait 😴"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "Le Jardin Arc-en-ciel 🌼🌈",
-            "image": "",
-            "text": [
-              "Léna 👧 planta des graines de toutes les couleurs 🎨.",
-              "Yaya 🐱 arrosait avec un arrosoir magique ✨.",
-              "Chaque fleur sortait dans une couleur de l’arc-en-ciel 🌈.",
-              "Les papillons 🦋 faisaient la ronde autour des pétales.",
-              "Le soir, le jardin brillait comme des guirlandes lumineuses 💡."
-            ],
-            "quiz": [
-              { "question": "Qui planta les graines 🌼 ?", "options": ["Yaya 🐱", "Léna 👧", "Le vent 🍃"], "correct": 1 },
-              { "question": "Avec quoi Yaya arrosait-elle ✨ ?", "options": ["Un arrosoir magique ✨", "Une bouteille 🍼", "Un seau 🪣"], "correct": 0 },
-              { "question": "Que firent les papillons 🦋 ?", "options": ["Ils dormaient 😴", "Ils faisaient la ronde 🦋", "Ils s’envolèrent loin 🛫"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "Le Robot Rieur 🤖😂",
-            "image": "",
-            "text": [
-              "Léna 👧 construisit un petit robot en carton 🤖.",
-              "Yaya 🐱 programma un bouton spécial ▶️.",
-              "Chaque fois qu’on appuyait dessus, le robot gloussait 😂.",
-              "Il faisait aussi danser ses bras comme un DJ 🎶.",
-              "Toute la maison faisait la fête avec lui 🎉."
-            ],
-            "quiz": [
-              { "question": "Avec quoi fut construit le robot 🤖 ?", "options": ["Du carton 📦", "Du métal ⚙️", "Du verre 🪟"], "correct": 0 },
-              { "question": "Que faisait le robot en riant 😂 ?", "options": ["Il dormait 😴", "Il dansait 🎶", "Il lisait 📖"], "correct": 1 },
-              { "question": "Qui a appuyé sur le bouton ▶️ ?", "options": ["Yaya 🐱", "Le robot 🤖", "Personne"], "correct": 0 }
-            ]
-        },
-        {
-            "title": "La Pluie de Bulles 🫧☔",
-            "image": "",
-            "text": [
-              "Un nuage passa au-dessus de la maison ☁️.",
-              "Au lieu de pluie, il tomba des bulles géantes 🫧.",
-              "Léna 👧 et Yaya 🐱 sautaient pour les attraper 🤾‍♀️.",
-              "Quand une bulle éclatait, elle sentait la fraise 🍓.",
-              "Elles remplirent un panier de parfums sucrés 🍭."
-            ],
-            "quiz": [
-              { "question": "Que tomba du ciel 🫧 ?", "options": ["De la pluie 💧", "Des bulles 🫧", "De la neige ❄️"], "correct": 1 },
-              { "question": "Quel parfum avaient les bulles 🍓 ?", "options": ["Vanille 🍦", "Fraise 🍓", "Menthe 🍃"], "correct": 1 },
-              { "question": "Que firent Léna et Yaya 🧺 ?", "options": ["Elles regardèrent la télé 📺", "Elles remplissaient un panier 🍭", "Elles firent une sieste 😴"], "correct": 1 }
-            ]
-        }
-    ];
-    const storySetTwo = [
-        {
-            "title": "La Montgolfière Surprise 🎈🏔️",
-            "image": "",
-            "text": [
-              "Léna 👧 découvrit une montgolfière 🎈 cachée dans la grange.",
-              "Yaya 🐱 gonfla l'énorme ballon avec un soufflet magique ✨.",
-              "Elles montèrent doucement dans le ciel bleu ☁️.",
-              "De là-haut, elles saluèrent le village entier 👋.",
-              "Elles atterrirent près d'une montagne remplie de fleurs alpines 🌼."
-            ],
-            "quiz": [
-              { "question": "Que trouva Léna 👧 ?", "options": ["Un vélo 🚲", "Une montgolfière 🎈", "Un bateau ⛵"], "correct": 1 },
-              { "question": "Qui gonfla le ballon ✨ ?", "options": ["Un oiseau 🐦", "Léna 👧", "Yaya 🐱"], "correct": 2 },
-              { "question": "Où atterrirent-elles 🌼 ?", "options": ["Dans la forêt 🌳", "Près d'une montagne fleurie 🌼", "Dans un désert 🏜️"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "Le Trésor Sous-Marin 🌊🪙",
-            "image": "",
-            "text": [
-              "Léna 👧 et Yaya 🐱 plongèrent dans la mer avec un sous-marin jaune 🛥️.",
-              "Elles rencontrèrent une tortue bavarde 🐢.",
-              "La tortue leur montra un coffre brillant sur le sable ✨.",
-              "À l'intérieur, il y avait des coquillages musicaux 🎶.",
-              "Le sous-marin rentra à la surface en chantant lalala 🎵."
-            ],
-            "quiz": [
-              { "question": "Quelle couleur était le sous-marin 🛥️ ?", "options": ["Rouge 🔴", "Jaune 💛", "Vert 🟢"], "correct": 1 },
-              { "question": "Qui guida Léna 👧 ?", "options": ["Une pieuvre 🐙", "Une tortue 🐢", "Un dauphin 🐬"], "correct": 1 },
-              { "question": "Que contenait le coffre ✨ ?", "options": ["Des bonbons 🍬", "Des coquillages musicaux 🎶", "Des livres 📚"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "La Classe des Robots 🤖📚",
-            "image": "",
-            "text": [
-              "Yaya 🐱 ouvrit une école spéciale pour robots 🤖.",
-              "Léna 👧 enseigna comment dire bonjour poliment 🙋.",
-              "Les robots apprirent à dessiner des arcs-en-ciel 🌈.",
-              "À la récréation, ils jouèrent au ballon-éclair ⚡.",
-              "Leur devoir du soir : raconter une blague gentille 😂."
-            ],
-            "quiz": [
-              { "question": "Qui ouvrit l'école 🤖 ?", "options": ["Léna 👧", "Yaya 🐱", "Un robot"], "correct": 1 },
-              { "question": "Que dessinaient les robots 🌈 ?", "options": ["Des nuages ☁️", "Des arcs-en-ciel 🌈", "Des montagnes ⛰️"], "correct": 1 },
-              { "question": "Quel jeu jouaient-ils ⚡ ?", "options": ["Au ballon-éclair ⚡", "À la corde à sauter 🪢", "Aux cartes 🃏"], "correct": 0 }
-            ]
-        },
-        {
-            "title": "Le Festival des Lanternes 🏮✨",
-            "image": "",
-            "text": [
-              "Dans le village, un festival de lanternes brillait 🏮.",
-              "Léna 👧 fabriqua une lanterne en forme de lune 🌙.",
-              "Yaya 🐱 dessina des étoiles dorées ⭐.",
-              "Quand la nuit arriva, le ciel devint un océan de lumières ✨.",
-              "Elles firent un vœu de bonheur pour tous 🤍."
-            ],
-            "quiz": [
-              { "question": "Quelle forme avait la lanterne 🌙 ?", "options": ["Un soleil ☀️", "Une lune 🌙", "Une fleur 🌸"], "correct": 1 },
-              { "question": "Qui dessina des étoiles ⭐ ?", "options": ["Léna 👧", "Yaya 🐱", "Le vent 🍃"], "correct": 1 },
-              { "question": "Que firent-elles à la fin 🤍 ?", "options": ["Un concours", "Un vœu de bonheur 🤍", "Une course"], "correct": 1 }
-            ]
-        },
-        {
-            "title": "Le Marché des Sorbets 🍧🛒",
-            "image": "",
-            "text": [
-              "Léna 👧 et Yaya 🐱 tinrent un stand de sorbets 🍧.",
-              "Chaque parfum changeait la couleur de la langue 😛.",
-              "Une licorne gourmande passa goûter la saveur arc-en-ciel 🦄.",
-              "Le stand devint l'endroit le plus frais du marché ❄️.",
-              "Elles offrirent le dernier sorbet à un petit nuage timide ☁️."
-            ],
-            "quiz": [
-              { "question": "Que vendaient-elles 🍧 ?", "options": ["Des gâteaux 🎂", "Des sorbets 🍧", "Des fleurs 🌸"], "correct": 1 },
-              { "question": "Qui goûta la saveur arc-en-ciel 🦄 ?", "options": ["Une licorne 🦄", "Un dragon 🐉", "Un pirate 🏴‍☠️"], "correct": 0 },
-              { "question": "À qui offrirent-elles le dernier sorbet ☁️ ?", "options": ["Un nuage timide ☁️", "Un cheval 🐴", "Un robot 🤖"], "correct": 0 }
-            ]
-        },
-        {
-            "title": "Le Concert des Forêts 🌲🎻",
-            "image": "",
-            "text": [
-              "Dans la forêt magique, les arbres voulaient chanter 🎶.",
-              "Léna 👧 dirigea l'orchestre avec une baguette lumineuse ✨.",
-              "Yaya 🐱 joua du tambourin de feuilles 🍃.",
-              "Les oiseaux sifflèrent la mélodie principale 🐦.",
-              "Toute la forêt applaudit avec ses branches 🌲."
-            ],
-            "quiz": [
-              { "question": "Qui dirigeait l'orchestre ✨ ?", "options": ["Yaya 🐱", "Léna 👧", "Un hibou 🦉"], "correct": 1 },
-              { "question": "Quel instrument jouait Yaya 🍃 ?", "options": ["Tambourin de feuilles 🍃", "Guitare 🎸", "Piano 🎹"], "correct": 0 },
-              { "question": "Qui sifflait la mélodie 🐦 ?", "options": ["Les oiseaux 🐦", "Les lapins 🐰", "Les rochers 🪨"], "correct": 0 }
-            ]
-        }
-    ];
-
-    const storySetThree = [
-        {
-            "title": "La Biblioteca de las Nubes ☁️📚",
-            "image": "",
-            "text": [
-              "Una nube esponjosa invitó a Léna 👧 y Yaya 🐱 a una biblioteca flotante ☁️📚.",
-              "Cada libro estaba hecho de vapor brillante ✨.",
-              "Al abrir un cuento, salieron notas musicales que cantaban las palabras 🎶.",
-              "Las niñas ordenaron las notas para crear una historia nueva 📝.",
-              "La nube guardiana les regaló señaladores arcoíris 🌈 para recordar la visita."
-            ],
-            "quiz": [
-              { "question": "¿Dónde estaba la biblioteca?", "options": ["Sobre una nube ☁️", "Dentro del mar 🌊", "En una cueva 🪨"], "correct": 0 },
-              { "question": "¿Qué salió del cuento al abrirlo?", "options": ["Copos de nieve ❄️", "Notas musicales 🎶", "Caramelos 🍬"], "correct": 1 },
-              { "question": "¿Qué regalo recibieron?", "options": ["Sombreros 🎩", "Campanas 🔔", "Señaladores arcoíris 🌈"], "correct": 2 }
-            ]
-        },
-        {
-            "title": "La Carrera de Meteoritos 🌠🏁",
-            "image": "",
-            "text": [
-              "El zorro cósmico invitó a Léna y Yaya a una carrera de meteoritos 🌠.",
-              "Cada meteorito tenía un número mágico que indicaba su velocidad 🔢.",
-              "Para avanzar, debían sumar los números y formar un hechizo de energía ✨.",
-              "Cuando acertaban, el meteorito dejaba una estela de colores brillantes 🌈.",
-              "Terminaron la carrera saludando a la luna, que les dio medallas estrelladas 🏅."
-            ],
-            "quiz": [
-              { "question": "¿Quién organizó la carrera?", "options": ["Un zorro cósmico 🦊", "Un dragón 🐉", "Un robot 🤖"], "correct": 0 },
-              { "question": "¿Qué tenían los meteoritos?", "options": ["Números mágicos 🔢", "Plumas 🪶", "Orejas 👂"], "correct": 0 },
-              { "question": "¿Qué recibieron al final?", "options": ["Medallas estrelladas 🏅", "Llaves doradas 🔑", "Gafas brillantes 🕶️"], "correct": 0 }
-            ]
-        },
-        {
-            "title": "La Isla de los Rompecabezas 🧩🏝️",
-            "image": "",
-            "text": [
-              "Un mapa secreto condujo a Léna y Yaya a la Isla de los Rompecabezas 🧩🏝️.",
-              "Las palmeras hablaban y proponían acertijos para abrir cofres 🗝️.",
-              "Debían ordenar bloques de colores siguiendo patrones mágicos 🎨.",
-              "Cada cofre liberaba una melodía que hacía danzar las olas 🌊.",
-              "Al caer la tarde, toda la isla aplaudió su ingenio con luces doradas ✨."
-            ],
-            "quiz": [
-              { "question": "¿Qué proponían las palmeras?", "options": ["Acertijos 🤔", "Canciones 🎵", "Sombras misteriosas 👤"], "correct": 0 },
-              { "question": "¿Qué debían ordenar?", "options": ["Bloques de colores 🎨", "Sombreros 🎩", "Copas de cristal 🥂"], "correct": 0 },
-              { "question": "¿Qué pasaba al abrir un cofre?", "options": ["Salía una melodía 🌊", "Aparecía un dragón 🐉", "Caía nieve ❄️"], "correct": 0 }
-            ]
-        },
-        {
-            "title": "El Jardín de las Divisiones 🪙🌷",
-            "image": "",
-            "text": [
-              "El hada de las monedas pidió ayuda para repartir luz en su jardín 🪙🌷.",
-              "Cada flor se iluminaba solo si recibía la misma cantidad de brillo ✨.",
-              "Léna y Yaya dividieron las chispas doradas entre los maceteros iguales ⚖️.",
-              "Cuando lo lograban, nacían nuevas flores con pétalos musicales 🎼.",
-              "El hada les entregó un cofre con semillas de amistad para seguir compartiendo 💌."
-            ],
-            "quiz": [
-              { "question": "¿Quién las llamó al jardín?", "options": ["El hada de las monedas 🧚‍♀️", "Un pingüino ❄️", "Un gigante 👣"], "correct": 0 },
-              { "question": "¿Qué repartieron entre las flores?", "options": ["Chispas doradas ✨", "Helados 🍦", "Sombreros 🎩"], "correct": 0 },
-              { "question": "¿Qué recibieron al final?", "options": ["Semillas de amistad 💌", "Espadas ⚔️", "Relojes ⏰"], "correct": 0 }
-            ]
-        },
-        {
-            "title": "El Bosque de las Risas Secretas 😂🌳",
-            "image": "",
-            "text": [
-              "El bosque encantado estaba silencioso y pidió una ronda de chistes 😂🌳.",
-              "Cada árbol tenía un acertijo escondido en sus hojas doradas 🍂.",
-              "Al resolverlos, salían burbujas de risa que cosquilleaban el aire 🫧.",
-              "Los animales se reunían para compartir historias divertidas 🐿️.",
-              "Al anochecer, una estrella bajó para guardar todas las risas en un frasco luminoso ⭐."
-            ],
-            "quiz": [
-              { "question": "¿Qué pedía el bosque?", "options": ["Una ronda de chistes 😂", "Un concurso de carreras 🏃", "Un día de silencio 🤫"], "correct": 0 },
-              { "question": "¿Dónde estaban los acertijos?", "options": ["En las hojas doradas 🍂", "En las nubes ☁️", "En las piedras 🪨"], "correct": 0 },
-              { "question": "¿Quién guardó las risas?", "options": ["Una estrella ⭐", "Un pez 🐟", "Un duende 🧝"], "correct": 0 }
-            ]
-        }
-    ];
-
+    const colorOptionIcons = ['🎨', '🖌️', '🧴', '🧑‍🎨', '🌈'];
+    
     function withStoryIds(stories, prefix) {
         return stories.map((story, index) => ({
             ...story,
@@ -853,9 +444,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const storyCollections = [
-        { id: 'set-1', stories: withStoryIds(storySetOne, 'set1-story') },
-        { id: 'set-2', stories: withStoryIds(storySetTwo, 'set2-story') },
-        { id: 'set-3', stories: withStoryIds(storySetThree, 'set3-story') }
+        { id: 'set-1', stories: withStoryIds(window.storySetOne || [], 'set1-story') },
+        { id: 'set-2', stories: withStoryIds(window.storySetTwo || [], 'set2-story') },
+        { id: 'set-3', stories: withStoryIds(window.storySetThree || [], 'set3-story') }
     ];
 
     let activeStorySetIndex = 0;
@@ -975,917 +566,12 @@ document.addEventListener('DOMContentLoaded', () => {
         '🤎 Marron': 'brown', '🍫 Chocolat': 'chocolate', '💜 Lavande': 'lavender', '🍷 Bordeaux': 'bordeaux',
     };
 
-    const COLOR_MIX_LIBRARY = [
-        {
-            id: 'mix-blue-yellow',
-            inputs: ['🔵 Bleu', '🟡 Jaune'],
-            result: '🟢 Vert',
-            explanation: 'Le bleu et le jaune deviennent un joli vert.',
-            minLevel: 1,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-red-yellow',
-            inputs: ['🔴 Rouge', '🟡 Jaune'],
-            result: '🟠 Orange',
-            explanation: 'Jaune et rouge créent un orange lumineux.',
-            minLevel: 1,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-blue-red',
-            inputs: ['🔵 Bleu', '🔴 Rouge'],
-            result: '🟣 Violet',
-            explanation: 'Mélanger du bleu et du rouge donne du violet.',
-            minLevel: 1,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-red-white',
-            inputs: ['🔴 Rouge', '⚪ Blanc'],
-            result: '💗 Rose',
-            explanation: 'Un peu de blanc adoucit le rouge en rose.',
-            minLevel: 4,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-blue-white',
-            inputs: ['🔵 Bleu', '⚪ Blanc'],
-            result: '💧 Bleu Clair',
-            explanation: 'Le bleu devient plus léger avec du blanc.',
-            minLevel: 4,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-green-white',
-            inputs: ['🟢 Vert', '⚪ Blanc'],
-            result: '🍃 Vert Clair',
-            explanation: 'Du blanc rend le vert très doux.',
-            minLevel: 5,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-red-black',
-            inputs: ['🔴 Rouge', '⚫ Noir'],
-            result: '🍷 Bordeaux',
-            explanation: 'Noir et rouge foncent la couleur en bordeaux.',
-            minLevel: 7,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-orange-black',
-            inputs: ['🟠 Orange', '⚫ Noir'],
-            result: '🍫 Chocolat',
-            explanation: 'Orange avec un peu de noir crée une teinte chocolat.',
-            minLevel: 8,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-green-red',
-            inputs: ['🟢 Vert', '🔴 Rouge'],
-            result: '🤎 Marron',
-            explanation: 'Vert et rouge se mélangent pour devenir marron.',
-            minLevel: 8,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-violet-white',
-            inputs: ['🟣 Violet', '⚪ Blanc'],
-            result: '💜 Lavande',
-            explanation: 'Du blanc dans le violet donne une jolie lavande.',
-            minLevel: 9,
-            maxLevel: 12
-        }
-    ];
+    const COLOR_MIX_LIBRARY = window.gameData?.COLOR_MIX_LIBRARY || [];
+    const sortingLevels = window.gameData?.sortingLevels || [];
+    const riddleLevels = window.gameData?.riddleLevels || [];
+    const vowelLevels = window.gameData?.vowelLevels || [];
+    const sequenceLevels = window.gameData?.sequenceLevels || [];
 
-    const sortingLevels = [
-        {
-            level: 1,
-            type: 'color',
-            instruction: 'Classe chaque objet dans le panier de la bonne couleur.',
-            categories: [
-                { id: 'red', label: 'Rouge 🔴' },
-                { id: 'blue', label: 'Bleu 🔵' }
-            ],
-            items: [
-                { id: 'apple', emoji: '🍎', label: 'Pomme', target: 'red' },
-                { id: 'ball', emoji: '🔵', label: 'Balle', target: 'blue' },
-                { id: 'car', emoji: '🚗', label: 'Voiture', target: 'red' }
-            ]
-        },
-        {
-            level: 2,
-            type: 'color',
-            instruction: 'Rouge, bleu ou vert ? Trie les objets !',
-            categories: [
-                { id: 'red', label: 'Rouge 🔴' },
-                { id: 'blue', label: 'Bleu 🔵' },
-                { id: 'green', label: 'Vert 🟢' }
-            ],
-            items: [
-                { id: 'leaf', emoji: '🍃', label: 'Feuille', target: 'green' },
-                { id: 'strawberry', emoji: '🍓', label: 'Fraise', target: 'red' },
-                { id: 'hat', emoji: '🧢', label: 'Casquette', target: 'blue' },
-                { id: 'frog', emoji: '🐸', label: 'Grenouille', target: 'green' }
-            ]
-        },
-        {
-            level: 3,
-            type: 'color',
-            instruction: 'Observe bien les couleurs pour tout classer.',
-            categories: [
-                { id: 'red', label: 'Rouge 🔴' },
-                { id: 'blue', label: 'Bleu 🔵' },
-                { id: 'green', label: 'Vert 🟢' }
-            ],
-            items: [
-                { id: 'flower', emoji: '🌹', label: 'Fleur', target: 'red' },
-                { id: 'balloon', emoji: '🎈', label: 'Ballon', target: 'red' },
-                { id: 'whale', emoji: '🐋', label: 'Baleine', target: 'blue' },
-                { id: 'gift', emoji: '🎁', label: 'Cadeau', target: 'blue' }
-            ]
-        },
-        {
-            level: 4,
-            type: 'shape',
-            instruction: 'Carré, rond ou triangle ? Classe selon la forme.',
-            categories: [
-                { id: 'square', label: 'Carré ⬜' },
-                { id: 'circle', label: 'Rond ⚪' },
-                { id: 'triangle', label: 'Triangle 🔺' }
-            ],
-            items: [
-                { id: 'frame', emoji: '🖼️', label: 'Cadre', target: 'square' },
-                { id: 'clock', emoji: '🕒', label: 'Horloge', target: 'circle' },
-                { id: 'slice', emoji: '🍕', label: 'Pizza', target: 'triangle' },
-                { id: 'giftbox', emoji: '🎁', label: 'Cadeau', target: 'square' }
-            ]
-        },
-        {
-            level: 5,
-            type: 'shape',
-            instruction: 'Nouveau défi de formes, regarde bien !',
-            categories: [
-                { id: 'square', label: 'Carré ⬜' },
-                { id: 'circle', label: 'Rond ⚪' },
-                { id: 'triangle', label: 'Triangle 🔺' }
-            ],
-            items: [
-                { id: 'chocolate', emoji: '🍫', label: 'Chocolat', target: 'square' },
-                { id: 'basketball', emoji: '🏀', label: 'Ballon', target: 'circle' },
-                { id: 'cone', emoji: '🍦', label: 'Glace', target: 'triangle' },
-                { id: 'dice', emoji: '🎲', label: 'Dé', target: 'square' }
-            ]
-        },
-        {
-            level: 6,
-            type: 'shape',
-            instruction: 'Encore plus de formes magiques à classer.',
-            categories: [
-                { id: 'square', label: 'Carré ⬜' },
-                { id: 'circle', label: 'Rond ⚪' },
-                { id: 'triangle', label: 'Triangle 🔺' }
-            ],
-            items: [
-                { id: 'giftbag', emoji: '🛍️', label: 'Sac', target: 'square' },
-                { id: 'cookie', emoji: '🍪', label: 'Cookie', target: 'circle' },
-                { id: 'cheese', emoji: '🧀', label: 'Fromage', target: 'triangle' },
-                { id: 'present', emoji: '🎁', label: 'Surprise', target: 'square' }
-            ]
-        },
-        {
-            level: 7,
-            type: 'size',
-            instruction: 'Classe les objets selon leur taille.',
-            categories: [
-                { id: 'big', label: 'Grand 🐘' },
-                { id: 'small', label: 'Petit 🐭' }
-            ],
-            items: [
-                { id: 'elephant', emoji: '🐘', label: 'Éléphant', target: 'big' },
-                { id: 'mouse', emoji: '🐭', label: 'Souris', target: 'small' },
-                { id: 'mountain', emoji: '⛰️', label: 'Montagne', target: 'big' },
-                { id: 'ladybug', emoji: '🐞', label: 'Coccinelle', target: 'small' }
-            ]
-        },
-        {
-            level: 8,
-            type: 'size',
-            instruction: 'Grand ou petit ? Fais-les sauter dans le bon panier.',
-            categories: [
-                { id: 'big', label: 'Grand 🦒' },
-                { id: 'small', label: 'Petit 🐣' }
-            ],
-            items: [
-                { id: 'giraffe', emoji: '🦒', label: 'Girafe', target: 'big' },
-                { id: 'chick', emoji: '🐥', label: 'Poussin', target: 'small' },
-                { id: 'bus', emoji: '🚌', label: 'Bus', target: 'big' },
-                { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'small' }
-            ]
-        },
-        {
-            level: 9,
-            type: 'mixed',
-            instruction: 'Associe la bonne couleur et la bonne forme.',
-            categories: [
-                { id: 'red-circle', label: 'Rond Rouge 🔴' },
-                { id: 'blue-square', label: 'Carré Bleu 🔷' },
-                { id: 'green-triangle', label: 'Triangle Vert 🟢🔺' }
-            ],
-            items: [
-                { id: 'lollipop', emoji: '🍭', label: 'Sucette', target: 'red-circle' },
-                { id: 'giftblue', emoji: '🎁', label: 'Paquet', target: 'blue-square' },
-                { id: 'treeTriangle', emoji: '🎄', label: 'Sapin', target: 'green-triangle' },
-                { id: 'shield', emoji: '🛡️', label: 'Bouclier', target: 'blue-square' }
-            ]
-        },
-        {
-            level: 10,
-            type: 'mixed',
-            instruction: 'Dernier défi ! Combine couleur et forme correctement.',
-            categories: [
-                { id: 'yellow-circle', label: 'Rond Jaune 🟡' },
-                { id: 'purple-square', label: 'Carré Violet 🟪' },
-                { id: 'orange-triangle', label: 'Triangle Orange 🟠' }
-            ],
-            items: [
-                { id: 'sun', emoji: '☀️', label: 'Soleil', target: 'yellow-circle' },
-                { id: 'cheeseTriangle', emoji: '🧀', label: 'Fromage', target: 'orange-triangle' },
-                { id: 'magicBox', emoji: '🎆', label: 'Boîte magique', target: 'purple-square' },
-                { id: 'flowerYellow', emoji: '🌼', label: 'Fleur', target: 'yellow-circle' }
-            ]
-        },
-        {
-            level: 11,
-            type: 'category',
-            instruction: 'Trie les animaux : ceux de la ferme et ceux de la savane.',
-            categories: [
-                { id: 'farm', label: 'Ferme 🐔' },
-                { id: 'savanna', label: 'Savane 🦁' }
-            ],
-            items: [
-                { id: 'cow', emoji: '🐮', label: 'Vache', target: 'farm' },
-                { id: 'lion', emoji: '🦁', label: 'Lion', target: 'savanna' },
-                { id: 'pig', emoji: '🐷', label: 'Cochon', target: 'farm' },
-                { id: 'zebra', emoji: '🦓', label: 'Zèbre', target: 'savanna' },
-                { id: 'chicken', emoji: '🐔', label: 'Poule', target: 'farm' }
-            ]
-        },
-        {
-            level: 12,
-            type: 'category',
-            instruction: 'Classe les aliments : fruits ou légumes ?',
-            categories: [
-                { id: 'fruit', label: 'Fruits 🍓' },
-                { id: 'vegetable', label: 'Légumes 🥕' }
-            ],
-            items: [
-                { id: 'banana', emoji: '🍌', label: 'Banane', target: 'fruit' },
-                { id: 'carrot', emoji: '🥕', label: 'Carotte', target: 'vegetable' },
-                { id: 'grapes', emoji: '🍇', label: 'Raisin', target: 'fruit' },
-                { id: 'broccoli', emoji: '🥦', label: 'Brocoli', target: 'vegetable' },
-                { id: 'orange', emoji: '🍊', label: 'Orange', target: 'fruit' }
-            ]
-        },
-        {
-            level: 13,
-            type: 'transport',
-            instruction: 'Trie les moyens de transport.',
-            categories: [
-                { id: 'land', label: 'Sur Terre 🚗' },
-                { id: 'air', label: 'Dans les Airs ✈️' },
-                { id: 'water', label: 'Sur l\'Eau ⛵' }
-            ],
-            items: [
-                { id: 'car', emoji: '🚗', label: 'Voiture', target: 'land' },
-                { id: 'airplane', emoji: '✈️', label: 'Avion', target: 'air' },
-                { id: 'boat', emoji: '⛵', label: 'Bateau', target: 'water' },
-                { id: 'bicycle', emoji: '🚲', label: 'Vélo', target: 'land' },
-                { id: 'helicopter', emoji: '🚁', label: 'Hélicoptère', target: 'air' }
-            ]
-        },
-        {
-            level: 14,
-            type: 'category',
-            instruction: 'Range les objets : jouets ou fournitures scolaires ?',
-            categories: [
-                { id: 'toy', label: 'Jouets 🧸' },
-                { id: 'school', label: 'École ✏️' }
-            ],
-            items: [
-                { id: 'teddy', emoji: '🧸', label: 'Nounours', target: 'toy' },
-                { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'school' },
-                { id: 'ball', emoji: '⚽', label: 'Ballon', target: 'toy' },
-                { id: 'book', emoji: '📖', label: 'Livre', target: 'school' },
-                { id: 'doll', emoji: '🎎', label: 'Poupée', target: 'toy' }
-            ]
-        },
-        {
-            level: 15,
-            type: 'weather',
-            instruction: 'Quel temps fait-il ?',
-            categories: [
-                { id: 'sunny', label: 'Soleil ☀️' },
-                { id: 'rainy', label: 'Pluie 🌧️' }
-            ],
-            items: [
-                { id: 'sun', emoji: '☀️', label: 'Soleil', target: 'sunny' },
-                { id: 'umbrella', emoji: '☔', label: 'Parapluie', target: 'rainy' },
-                { id: 'sunglasses', emoji: '😎', label: 'Lunettes', target: 'sunny' },
-                { id: 'cloud', emoji: '🌧️', label: 'Nuage', target: 'rainy' }
-            ]
-        },
-    ];
-
-    const riddleLevels = [
-        {
-            level: 1,
-            theme: "Animaux câlins",
-            completionMessage: "Tu connais les animaux câlins !",
-            questions: [
-                {
-                    prompt: "Je suis petit, je miaule doucement et j'adore les câlins. Qui suis-je ?",
-                    options: ["Un chaton", "Un lion", "Un hibou"],
-                    answer: 0,
-                    hint: "Je vis souvent dans la maison.",
-                    success: "Oui, le chaton adore les câlins !",
-                    reward: { stars: 6, coins: 4 }
-                },
-                {
-                    prompt: "Je saute dans la prairie et je grignote des carottes. Qui suis-je ?",
-                    options: ["Un lapin", "Un cheval", "Un poisson"],
-                    answer: 0,
-                    hint: "Mes oreilles sont très longues.",
-                    success: "Le lapin adore bondir !",
-                    reward: { stars: 6, coins: 4 }
-                },
-                {
-                    prompt: "Je porte une carapace et je marche très lentement. Qui suis-je ?",
-                    options: ["Une tortue", "Une souris", "Un chien"],
-                    answer: 0,
-                    hint: "On me voit souvent au soleil.",
-                    success: "Oui, la tortue avance lentement !",
-                    reward: { stars: 6, coins: 4 }
-                },
-                {
-                    prompt: "Je suis rayé et je ronronne comme un grand chat. Qui suis-je ?",
-                    options: ["Un tigre", "Un panda", "Un pingouin"],
-                    answer: 0,
-                    hint: "Je vis dans la jungle.",
-                    success: "Le tigre est un grand chat rayé !",
-                    reward: { stars: 6, coins: 4 }
-                },
-                {
-                    prompt: "Je dors accroché la tête en bas dans une grotte. Qui suis-je ?",
-                    options: ["Une chauve-souris", "Un renard", "Un mouton"],
-                    answer: 0,
-                    hint: "Je suis un animal de la nuit.",
-                    success: "La chauve-souris dort à l'envers !",
-                    reward: { stars: 6, coins: 4 }
-                }
-            ]
-        },
-        {
-            level: 2,
-            theme: "Fruits colorés",
-            completionMessage: "Tu reconnais les fruits colorés !",
-            questions: [
-                {
-                    prompt: "Je suis jaune et on me pèle avant de me manger. Qui suis-je ?",
-                    options: ["Une banane", "Un kiwi", "Une prune"],
-                    answer: 0,
-                    hint: "On me tient par ma queue.",
-                    success: "La banane est délicieuse !",
-                    reward: { stars: 7, coins: 5 }
-                },
-                {
-                    prompt: "Je suis verte ou rouge et je croque sous la dent. Qui suis-je ?",
-                    options: ["Une pomme", "Une tomate", "Une cerise"],
-                    answer: 0,
-                    hint: "On me trouve souvent dans les paniers de pique-nique.",
-                    success: "Bravo, la pomme croque !",
-                    reward: { stars: 7, coins: 5 }
-                },
-                {
-                    prompt: "Je suis orange et j'offre un jus plein de vitamine C. Qui suis-je ?",
-                    options: ["Une orange", "Un citron", "Une fraise"],
-                    answer: 0,
-                    hint: "Mon jus te réveille le matin.",
-                    success: "L'orange est pleine d'énergie !",
-                    reward: { stars: 7, coins: 5 }
-                },
-                {
-                    prompt: "Je suis petite, rouge et j'ai des grains sur ma peau. Qui suis-je ?",
-                    options: ["Une fraise", "Une prune", "Une poire"],
-                    answer: 0,
-                    hint: "Je pousse dans le jardin au printemps.",
-                    success: "La fraise est toute rouge !",
-                    reward: { stars: 7, coins: 5 }
-                },
-                {
-                    prompt: "J'ai une couronne piquante mais un cœur doré. Qui suis-je ?",
-                    options: ["Un ananas", "Une mangue", "Une banane"],
-                    answer: 0,
-                    hint: "Je viens souvent des îles.",
-                    success: "L'ananas est royal !",
-                    reward: { stars: 7, coins: 5 }
-                }
-            ]
-        },
-        {
-            level: 3,
-            theme: "Amis de la ferme",
-            completionMessage: "Tu as reconnu tous les animaux de la ferme !",
-            questions: [
-                {
-                    prompt: "Je me réveille très tôt et je crie cocorico. Qui suis-je ?",
-                    options: ["Un coq", "Un canard", "Un hibou"],
-                    answer: 0,
-                    hint: "Je réveille toute la ferme.",
-                    success: "Cocorico, bien joué !",
-                    reward: { stars: 8, coins: 5 }
-                },
-                {
-                    prompt: "Je donne du lait blanc et j'aime manger de l'herbe. Qui suis-je ?",
-                    options: ["Une vache", "Une chèvre", "Une poule"],
-                    answer: 0,
-                    hint: "Je me fais traire chaque matin.",
-                    success: "La vache fournit du lait !",
-                    reward: { stars: 8, coins: 5 }
-                },
-                {
-                    prompt: "Je donne de la laine douce pour fabriquer des pulls. Qui suis-je ?",
-                    options: ["Un mouton", "Un cheval", "Un lapin"],
-                    answer: 0,
-                    hint: "On me tond au printemps.",
-                    success: "La laine vient du mouton !",
-                    reward: { stars: 8, coins: 5 }
-                },
-                {
-                    prompt: "J'adore me rouler dans la boue pour me rafraîchir. Qui suis-je ?",
-                    options: ["Un cochon", "Un chien", "Un lama"],
-                    answer: 0,
-                    hint: "Je fais groin groin.",
-                    success: "Le cochon adore la boue !",
-                    reward: { stars: 8, coins: 5 }
-                },
-                {
-                    prompt: "Je porte parfois un jockey pour courir très vite. Qui suis-je ?",
-                    options: ["Un cheval", "Une vache", "Un lapin"],
-                    answer: 0,
-                    hint: "Je galope au haras.",
-                    success: "Le cheval est un champion !",
-                    reward: { stars: 8, coins: 5 }
-                }
-            ]
-        },
-        {
-            level: 4,
-            theme: "Fruits tropicaux",
-            completionMessage: "Tes papilles adorent les fruits tropicaux !",
-            questions: [
-                {
-                    prompt: "Ma chair est orange, douce et juteuse. Je tombe parfois des arbres en martinique. Qui suis-je ?",
-                    options: ["Une mangue", "Une prune", "Une pêche"],
-                    answer: 0,
-                    hint: "Je suis un fruit tropical qui commence par la lettre M.",
-                    success: "La mangue est un soleil sucré !",
-                    reward: { stars: 9, coins: 6 }
-                },
-                {
-                    prompt: "Je suis verte à l'extérieur, rouge à l'intérieur et je rafraîchis tout l'été. Qui suis-je ?",
-                    options: ["Une pastèque", "Une prune", "Un citron"],
-                    answer: 0,
-                    hint: "Je suis très lourde et pleine de graines.",
-                    success: "La pastèque désaltère tout le monde !",
-                    reward: { stars: 9, coins: 6 }
-                },
-                {
-                    prompt: "Je suis petit, brun dehors et vert brillant dedans. Qui suis-je ?",
-                    options: ["Un kiwi", "Une figue", "Une prune"],
-                    answer: 0,
-                    hint: "Je me mange à la cuillère.",
-                    success: "Le kiwi est plein de vitamines !",
-                    reward: { stars: 9, coins: 6 }
-                },
-                {
-                    prompt: "On me casse pour boire mon eau sucrée au bord de la plage. Qui suis-je ?",
-                    options: ["Une noix de coco", "Un melon", "Une mandarine"],
-                    answer: 0,
-                    hint: "Ma coque est très dure.",
-                    success: "La noix de coco rafraîchit !",
-                    reward: { stars: 9, coins: 6 }
-                },
-                {
-                    prompt: "Je ressemble à une grosse baie violette et on me croque grain par grain. Qui suis-je ?",
-                    options: ["Une grappe de raisin", "Une myrtille", "Une mûre"],
-                    answer: 0,
-                    hint: "Je suis souvent servi avec du fromage.",
-                    success: "Les raisins sont délicieux !",
-                    reward: { stars: 9, coins: 6 }
-                }
-            ]
-        },
-        {
-            level: 5,
-            theme: "Animaux malins",
-            completionMessage: "Tu connais bien les animaux malins !",
-            questions: [
-                {
-                    prompt: "Je hulule la nuit avec mes grands yeux ronds. Qui suis-je ?",
-                    options: ["Un hibou", "Un manchot", "Un chien"],
-                    answer: 0,
-                    hint: "Je surveille la forêt pendant que tu dors.",
-                    success: "Le hibou observe dans la nuit !",
-                    reward: { stars: 10, coins: 7 }
-                },
-                {
-                    prompt: "Je suis rusé, ma queue est rousse et je vis dans le bois. Qui suis-je ?",
-                    options: ["Un renard", "Un ours", "Un loup"],
-                    answer: 0,
-                    hint: "On me dit parfois voleur de poules.",
-                    success: "Quel renard astucieux !",
-                    reward: { stars: 10, coins: 7 }
-                },
-                {
-                    prompt: "Je chante coâ coâ près des mares le soir. Qui suis-je ?",
-                    options: ["Une grenouille", "Un cygne", "Un crocodile"],
-                    answer: 0,
-                    hint: "Je saute dans l'eau et j'ai la peau verte.",
-                    success: "La grenouille adore chanter !",
-                    reward: { stars: 10, coins: 7 }
-                },
-                {
-                    prompt: "Je grimpe aux arbres et je mange des noisettes. Qui suis-je ?",
-                    options: ["Un écureuil", "Un blaireau", "Un hérisson"],
-                    answer: 0,
-                    hint: "Ma queue est en panache.",
-                    success: "L'écureuil est très agile !",
-                    reward: { stars: 10, coins: 7 }
-                },
-                {
-                    prompt: "Quand je suis surpris, je roule sur moi-même en boule piquante. Qui suis-je ?",
-                    options: ["Un hérisson", "Un castor", "Un lapin"],
-                    answer: 0,
-                    hint: "On me trouve parfois dans le jardin.",
-                    success: "Le hérisson se protège bien !",
-                    reward: { stars: 10, coins: 7 }
-                }
-            ]
-        },
-        {
-            level: 6,
-            theme: "Salade de fruits",
-            completionMessage: "Tu as préparé une salade de fruits magique !",
-            questions: [
-                {
-                    prompt: "Je suis violet et je laisse parfois une moustache colorée sur ta bouche. Qui suis-je ?",
-                    options: ["Une myrtille", "Un citron", "Une poire"],
-                    answer: 0,
-                    hint: "Je suis tout petit et je pousse sur des buissons.",
-                    success: "La myrtille colore la langue !",
-                    reward: { stars: 11, coins: 8 }
-                },
-                {
-                    prompt: "Je suis rose à l'extérieur et j'ai un gros noyau. Qui suis-je ?",
-                    options: ["Une pêche", "Une pomme", "Une poire"],
-                    answer: 0,
-                    hint: "Ma peau est toute douce.",
-                    success: "La pêche est veloutée !",
-                    reward: { stars: 11, coins: 8 }
-                },
-                {
-                    prompt: "Je suis jaune, très acide et on m'utilise pour faire de la limonade. Qui suis-je ?",
-                    options: ["Un citron", "Une banane", "Un abricot"],
-                    answer: 0,
-                    hint: "On fait une grimace en me goûtant.",
-                    success: "Le citron pique la langue !",
-                    reward: { stars: 11, coins: 8 }
-                },
-                {
-                    prompt: "Je suis allongée, verte à l'extérieur et rose avec des pépins noirs à l'intérieur. Qui suis-je ?",
-                    options: ["Une pastèque", "Une papaye", "Une figue"],
-                    answer: 0,
-                    hint: "On me partage en grosses tranches l'été.",
-                    success: "La pastèque rafraîchit !",
-                    reward: { stars: 11, coins: 8 }
-                },
-                {
-                    prompt: "Je suis petite, jaune et on me trouve souvent en grappe avec mes amis. Qui suis-je ?",
-                    options: ["Un grain de raisin", "Un pois", "Une prune"],
-                    answer: 0,
-                    hint: "On me cueille par grappes.",
-                    success: "Les raisins dorés sont délicieux !",
-                    reward: { stars: 11, coins: 8 }
-                }
-            ]
-        },
-        {
-            level: 7,
-            theme: "Voyage sous la mer",
-            completionMessage: "Tu as exploré l'océan !",
-            questions: [
-                {
-                    prompt: "Je suis un mammifère qui saute hors de l'eau et j'adore jouer. Qui suis-je ?",
-                    options: ["Un dauphin", "Une baleine", "Un requin"],
-                    answer: 0,
-                    hint: "Je siffle pour parler avec mes amis.",
-                    success: "Le dauphin est très joueur !",
-                    reward: { stars: 12, coins: 9 }
-                },
-                {
-                    prompt: "J'ai huit bras et je peux changer de couleur. Qui suis-je ?",
-                    options: ["Une pieuvre", "Une sardine", "Une tortue"],
-                    answer: 0,
-                    hint: "Je me cache dans les rochers.",
-                    success: "La pieuvre est caméléon !",
-                    reward: { stars: 12, coins: 9 }
-                },
-                {
-                    prompt: "Je marche sur le sable de côté avec mes pinces. Qui suis-je ?",
-                    options: ["Un crabe", "Un ours polaire", "Un phoque"],
-                    answer: 0,
-                    hint: "Je laisse des traces en zigzag.",
-                    success: "Le crabe marche de travers !",
-                    reward: { stars: 12, coins: 9 }
-                },
-                {
-                    prompt: "Je suis géante, j'ai un jet d'eau sur ma tête et je chante sous l'eau. Qui suis-je ?",
-                    options: ["Une baleine", "Une raie", "Une otarie"],
-                    answer: 0,
-                    hint: "Je suis l'un des plus grands animaux du monde.",
-                    success: "La baleine chante fort !",
-                    reward: { stars: 12, coins: 9 }
-                },
-                {
-                    prompt: "Je porte une carapace et je nage longtemps sans me fatiguer. Qui suis-je ?",
-                    options: ["Une tortue de mer", "Un hippopotame", "Une grenouille"],
-                    answer: 0,
-                    hint: "Je pond mes œufs sur le sable.",
-                    success: "La tortue de mer voyage loin !",
-                    reward: { stars: 12, coins: 9 }
-                }
-            ]
-        },
-        {
-            level: 8,
-            theme: "Desserts fruités",
-            completionMessage: "Tes desserts fruités sont prêts !",
-            questions: [
-                {
-                    prompt: "Je suis petite, rouge foncé et je repose souvent sur un gâteau. Qui suis-je ?",
-                    options: ["Une cerise", "Une framboise", "Une prune"],
-                    answer: 0,
-                    hint: "On me met aussi sur les glaces.",
-                    success: "La cerise embellit les desserts !",
-                    reward: { stars: 13, coins: 10 }
-                },
-                {
-                    prompt: "Je suis rose, pleine de graines et parfaite en sorbet. Qui suis-je ?",
-                    options: ["Une framboise", "Une figue", "Une groseille"],
-                    answer: 0,
-                    hint: "Je pousse en petits buissons.",
-                    success: "La framboise est sucrée !",
-                    reward: { stars: 13, coins: 10 }
-                },
-                {
-                    prompt: "Je suis longue, jaune clair et pleine de petites graines noires à l'intérieur. Qui suis-je ?",
-                    options: ["Une vanille", "Une banane", "Une mangue"],
-                    answer: 0,
-                    hint: "On m'utilise pour parfumer les crèmes.",
-                    success: "La gousse de vanille sent bon !",
-                    reward: { stars: 13, coins: 10 }
-                },
-                {
-                    prompt: "Je suis verte claire, toute douce et je deviens orange quand je suis cuite dans une tarte. Qui suis-je ?",
-                    options: ["La rhubarbe", "La poire", "Le raisin"],
-                    answer: 0,
-                    hint: "Je suis souvent mélangée avec des fraises.",
-                    success: "La rhubarbe prépare de bonnes tartes !",
-                    reward: { stars: 13, coins: 10 }
-                },
-                {
-                    prompt: "Je suis jaune, sucré et je brille dans les salades de fruits exotiques. Qui suis-je ?",
-                    options: ["Une mangue", "Une poire", "Une papaye"],
-                    answer: 0,
-                    hint: "Je suis très parfumée et juteuse.",
-                    success: "La mangue est un dessert merveilleux !",
-                    reward: { stars: 13, coins: 10 }
-                }
-            ]
-        },
-        {
-            level: 9,
-            theme: "Animaux fantastiques",
-            completionMessage: "Ton encyclopédie magique est remplie d'animaux fantastiques !",
-            questions: [
-                {
-                    prompt: "Je suis un cheval blanc avec une corne scintillante. Qui suis-je ?",
-                    options: ["Une licorne", "Un poney", "Un zèbre"],
-                    answer: 0,
-                    hint: "Je vis dans les contes de fées.",
-                    success: "La licorne est légendaire !",
-                    reward: { stars: 15, coins: 11 }
-                },
-                {
-                    prompt: "Je crache du feu et je protège des trésors. Qui suis-je ?",
-                    options: ["Un dragon", "Un dinosaure", "Un griffon"],
-                    answer: 0,
-                    hint: "On me voit dans les histoires de chevaliers.",
-                    success: "Le dragon garde ses trésors !",
-                    reward: { stars: 15, coins: 11 }
-                },
-                {
-                    prompt: "J'ai le corps d'un lion et des ailes d'aigle. Qui suis-je ?",
-                    options: ["Un griffon", "Un phénix", "Un minotaure"],
-                    answer: 0,
-                    hint: "Je suis un mélange majestueux.",
-                    success: "Le griffon surveille les royaumes !",
-                    reward: { stars: 15, coins: 11 }
-                },
-                {
-                    prompt: "Je renais de mes cendres dans un éclat de lumière. Qui suis-je ?",
-                    options: ["Un phénix", "Un hibou", "Un serpent"],
-                    answer: 0,
-                    hint: "Je suis un oiseau de feu.",
-                    success: "Le phénix renaît toujours !",
-                    reward: { stars: 15, coins: 11 }
-                },
-                {
-                    prompt: "Je nage comme un poisson mais je chante comme une humaine. Qui suis-je ?",
-                    options: ["Une sirène", "Une baleine", "Un dauphin"],
-                    answer: 0,
-                    hint: "Je vis sous la mer dans les chansons.",
-                    success: "Les sirènes savent chanter !",
-                    reward: { stars: 15, coins: 11 }
-                }
-            ]
-        },
-        {
-            level: 10,
-            theme: "Panier surprise",
-            completionMessage: "Tu as résolu toutes les énigmes du panier surprise !",
-            questions: [
-                {
-                    prompt: "Je suis un fruit vert dehors, rouge dedans, et je porte une petite couronne. Qui suis-je ?",
-                    options: ["Une fraise", "Un kiwi", "Une pastèque"],
-                    answer: 0,
-                    hint: "Je suis petite et je pousse près du sol.",
-                    success: "La fraise royale est choisie !",
-                    reward: { stars: 16, coins: 12 }
-                },
-                {
-                    prompt: "Je suis un animal noir et blanc qui mange du bambou. Qui suis-je ?",
-                    options: ["Un panda", "Un zèbre", "Un lynx"],
-                    answer: 0,
-                    hint: "Je vis en Chine et je grimpe dans les arbres.",
-                    success: "Le panda est le roi du bambou !",
-                    reward: { stars: 16, coins: 12 }
-                },
-                {
-                    prompt: "Je suis orange, j'ai des crocs et je vis dans la savane. Qui suis-je ?",
-                    options: ["Un lion", "Un renard", "Un tigre"],
-                    answer: 0,
-                    hint: "Je suis surnommé le roi des animaux.",
-                    success: "Le lion règne sur la savane !",
-                    reward: { stars: 16, coins: 12 }
-                },
-                {
-                    prompt: "Je suis un fruit violet, j'ai des graines et je deviens confiture. Qui suis-je ?",
-                    options: ["Une figue", "Une prune", "Une myrtille"],
-                    answer: 0,
-                    hint: "On m'ouvre pour voir plein de graines.",
-                    success: "La figue régale les gourmands !",
-                    reward: { stars: 16, coins: 12 }
-                },
-                {
-                    prompt: "Je suis minuscule, j'avance vite en groupe et j'aime le sucre. Qui suis-je ?",
-                    options: ["Une fourmi", "Une abeille", "Un papillon"],
-                    answer: 0,
-                    hint: "On me voit souvent sur les pique-niques.",
-                    success: "Les fourmis sont très organisées !",
-                    reward: { stars: 16, coins: 12 }
-                }
-            ]
-        },
-        {
-            level: 11,
-            theme: "Exploradores del espacio",
-            completionMessage: "¡Has viajado entre estrellas como un verdadero explorador!",
-            questions: [
-                {
-                    prompt: "Vuelo con traje plateado y recojo muestras en la luna. ¿Quién soy?",
-                    options: ["Una astronauta", "Una sirena", "Una hada"],
-                    answer: 0,
-                    hint: "Pisa la luna con botas especiales.",
-                    success: "¡Exacto, la astronauta explora la luna!",
-                    reward: { stars: 17, coins: 13 }
-                },
-                {
-                    prompt: "Ilumino el camino de las naves con mi cola brillante. ¿Quién soy?",
-                    options: ["Un cometa", "Un perro", "Un coral"],
-                    answer: 0,
-                    hint: "Cruzo el cielo dejando una estela.",
-                    success: "El cometa es una estrella viajera.",
-                    reward: { stars: 17, coins: 13 }
-                },
-                {
-                    prompt: "Llevo un telescopio y busco nuevos planetas. ¿Quién soy?",
-                    options: ["Un astrónomo", "Un chef", "Un bailarín"],
-                    answer: 0,
-                    hint: "Mira el cielo toda la noche.",
-                    success: "El astrónomo estudia las estrellas.",
-                    reward: { stars: 17, coins: 13 }
-                },
-                {
-                    prompt: "Soy un robot simpático que arregla antenas en el espacio. ¿Quién soy?",
-                    options: ["Un pulpo", "Un droide mecánico", "Un músico"],
-                    answer: 1,
-                    hint: "Tiene herramientas en sus brazos metálicos.",
-                    success: "¡Sí, el droide mecánico ayuda en las misiones!",
-                    reward: { stars: 17, coins: 13 }
-                },
-                {
-                    prompt: "Cuento historias de galaxias y dibujo constelaciones. ¿Quién soy?",
-                    options: ["Un mago de hielo", "Una narradora espacial", "Un carpintero"],
-                    answer: 1,
-                    hint: "Comparte cuentos antes de dormir mirando el cielo.",
-                    success: "Una narradora espacial convierte las estrellas en cuentos.",
-                    reward: { stars: 17, coins: 13 }
-                }
-            ]
-        },
-        {
-            level: 12,
-            theme: "Profesiones fantásticas",
-            completionMessage: "¡Conoces a los mejores trabajadores mágicos!",
-            questions: [
-                {
-                    prompt: "Preparo pociones de colores para curar dragones. ¿Quién soy?",
-                    options: ["Una alquimista", "Una piloto", "Una escultora"],
-                    answer: 0,
-                    hint: "Mezcla ingredientes burbujeantes.",
-                    success: "La alquimista cuida de los dragones.",
-                    reward: { stars: 18, coins: 14 }
-                },
-                {
-                    prompt: "Construyo guitarras que lanzan chispas de alegría. ¿Quién soy?",
-                    options: ["Un jardinero", "Un luthier mágico", "Un bombero"],
-                    answer: 1,
-                    hint: "Crea instrumentos especiales para conciertos mágicos.",
-                    success: "¡Un luthier mágico fabrica música brillante!",
-                    reward: { stars: 18, coins: 14 }
-                },
-                {
-                    prompt: "Coso capas invisibles para héroes tímidos. ¿Quién soy?",
-                    options: ["Una costurera encantada", "Una granjera", "Una panadera"],
-                    answer: 0,
-                    hint: "Trabaja con hilos que desaparecen.",
-                    success: "La costurera encantada crea capas especiales.",
-                    reward: { stars: 18, coins: 14 }
-                },
-                {
-                    prompt: "Pinto murales que cobran vida por la noche. ¿Quién soy?",
-                    options: ["Un pintor nocturno", "Un policía", "Un conductor"],
-                    answer: 0,
-                    hint: "Sus cuadros se mueven cuando todos duermen.",
-                    success: "El pintor nocturno llena la ciudad de magia.",
-                    reward: { stars: 18, coins: 14 }
-                },
-                {
-                    prompt: "Dirijo un tren que viaja entre sueños y canciones. ¿Quién soy?",
-                    options: ["Una maquinista de sueños", "Una astronauta", "Una librera"],
-                    answer: 0,
-                    hint: "Conduce vagones que suenan como melodías.",
-                    success: "La maquinista de sueños lleva música a todos los pasajeros.",
-                    reward: { stars: 18, coins: 14 }
-                }
-            ]
-        },
-        {
-            level: 13,
-            theme: "Bosque encantado",
-            completionMessage: "¡Has descubierto cada secreto del bosque mágico!",
-            questions: [
-                {
-                    prompt: "Guardo mapas secretos en mi mochila y guío a los aventureros. ¿Quién soy?",
-                    options: ["Un guía del bosque", "Un panadero", "Un marinero"],
-                    answer: 0,
-                    hint: "Sabe cada sendero y cada escondite.",
-                    success: "El guía del bosque conoce todos los caminos.",
-                    reward: { stars: 19, coins: 15 }
-                }
-            ]
-        }
-    ];
-
-    const vowelLevels = [
-        { level: 1, masked: 'ch_t', answer: 'a', options: ['a', 'e', 'i'], hint: 'Un animal qui ronronne.' }
-    ];
-
-    const sequenceLevels = [
-        { level: 1, sequence: ['1', '2', '3', '?'], options: ['4', '5', '6'], answer: '4', type: 'number' }
-    ];
     const allQuestions = {
         additions: [], soustractions: [], multiplications: [], divisions: [], colors: [], stories: [], riddles: [], sorting: [], letters: [], shapes: [], vowels: [], sequences: [],
         'puzzle-magique': [], repartis: [], dictee: [], 'math-blitz': [], 'lecture-magique': [], raisonnement: [], review: []
@@ -1931,6 +617,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setupUI();
         setupEventListeners();
         showTopicMenu();
+        // Pre-load sounds
+        loadSound('correct', '../assets/sounds/correct.mp3');
+        loadSound('wrong', '../assets/sounds/bling.wav');
+        loadSound('coins', '../assets/sounds/bling.wav');
+        loadSound('hover', '../assets/sounds/bling.wav');
+
     }
 
     function setupUI() {
@@ -2069,6 +761,16 @@ document.addEventListener('DOMContentLoaded', () => {
         menuAvatar.addEventListener('click', () => {
             window.location.href = 'login.html?edit=true';
         });
+
+        if (btnReadMode) {
+            btnReadMode.disabled = false;
+            btnReadMode.addEventListener('click', () => {
+                const isActive = document.body.classList.toggle('read-mode-active');
+                btnReadMode.classList.toggle('active', isActive);
+                btnReadMode.setAttribute('aria-pressed', isActive);
+                showSuccessMessage(isActive ? 'Mode lecture activé' : 'Mode lecture désactivé');
+            });
+        }
 
         btnShop.addEventListener('click', () => {
             window.location.href = 'boutique.html'; // Rediriger vers la boutique
@@ -2329,6 +1031,72 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Nouveaux modules (3e primaire)
+    function launchProblemsMagiques(level) {
+        gameState.currentTopic = 'problems-magiques';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('problems-magiques');
+        if (window.problemsMagiquesGame?.start) {
+            window.problemsMagiquesGame.start(context);
+        } else {
+            showComingSoon('Problèmes Magiques', '💡');
+        }
+    }
+
+    function launchFractionsFantastiques(level) {
+        gameState.currentTopic = 'fractions-fantastiques';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('fractions-fantastiques');
+        if (window.fractionsFantastiquesGame?.start) {
+            window.fractionsFantastiquesGame.start(context);
+        } else {
+            showComingSoon('Fractions Fantastiques', '🍰');
+        }
+    }
+
+    function launchTempsHorloges(level) {
+        gameState.currentTopic = 'temps-horloges';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('temps-horloges');
+        if (window.tempsHorlogesGame?.start) {
+            window.tempsHorlogesGame.start(context);
+        } else {
+            showComingSoon('Temps & Horloges', '⏰');
+        }
+    }
+
+    function launchTablesDefi(level) {
+        gameState.currentTopic = 'tables-defi';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('tables-defi');
+        if (window.tablesDefiGame?.start) {
+            window.tablesDefiGame.start(context);
+        } else {
+            showComingSoon('Tables Défi', '✖️');
+        }
+    }
+
+    function launchSeriesNumeriques(level) {
+        gameState.currentTopic = 'series-numeriques';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('series-numeriques');
+        if (window.seriesNumeriquesGame?.start) {
+            window.seriesNumeriquesGame.start(context);
+        } else {
+            showComingSoon('Séries Numériques', '🔢');
+        }
+    }
+
     function launchRaisonnementLevel(level) {
         gameState.currentTopic = 'raisonnement';
         gameState.currentLevel = level;
@@ -2470,15 +1238,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.audioManager?.isMuted) {
             return;
         }
-        if (type === 'correct' && audioCorrect && audioCorrect.src) {
-            audioCorrect.currentTime = 0;
-            audioCorrect.play();
-        } else if (type === 'wrong' && audioWrong && audioWrong.src) {
-            audioWrong.currentTime = 0;
-            audioWrong.play();
-        } else if (type === 'coins' && audioCoins) {
-            audioCoins.currentTime = 0;
-            audioCoins.play();
+        if (type === 'correct' && soundCorrect) {
+            playBufferedSound('correct'); // Already using buffered sound, good.
+        } else if (type === 'wrong' && soundWrong) {
+            playBufferedSound('wrong');
+        } else if (type === 'coins' && soundCoins) {
+            playBufferedSound('coins'); // Changed from soundCoins.play()
         }
     }
 
@@ -3365,7 +2130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         promptEl.className = 'prompt ok fx-pop';
         promptEl.textContent = message;
         content.appendChild(promptEl);
-        speakText(message);
+        // speakText(message); // Comentado para evitar sobrecarga de audio
         playSound('correct');
         setTimeout(() => promptEl.remove(), 1000);
     }
@@ -3379,17 +2144,1091 @@ document.addEventListener('DOMContentLoaded', () => {
         promptEl.textContent = `${message}${extra}`;
         content.appendChild(promptEl);
         speakText(message);
-        playSound('wrong');
+        playBufferedSound('wrong');
         setTimeout(() => promptEl.remove(), 2500);
     }
 
     function showConfetti() {
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 }
+        if (typeof confetti !== 'function') return;
+        try {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        } catch(e) { console.warn("Confetti effect failed", e); }
+    }
+
+    function showFireworks() {
+        if (typeof confetti !== 'function') return;
+        const duration = 3 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1001 };
+
+        const interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+            if (timeLeft <= 0) return clearInterval(interval);
+            const particleCount = 50 * (timeLeft / duration);
+            confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.4 + 0.1, y: Math.random() - 0.2 } });
+            confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.4 + 0.5, y: Math.random() - 0.2 } });
+        }, 250);
+        setTimeout(showConfetti, 500); // Add a small burst of regular confetti
+    }
+
+    function ensureSkyElements() {
+        if (document.getElementById('sky-elements')) {
+            return;
+        }
+        const sky = document.createElement('div');
+        sky.id = 'sky-elements';
+        sky.className = 'sky-elements';
+        sky.innerHTML = `
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>`;
+        document.body.appendChild(sky);
+    }
+
+    function showMemoryGameMenu() {
+      clearProgressTracker();
+      content.innerHTML = '';
+
+      const title = document.createElement('div');
+      title.className = 'question-prompt fx-bounce-in-down';
+      title.textContent = 'Choisis un niveau de mémoire';
+      content.appendChild(title);
+
+      const levelsGrid = document.createElement('div');
+      levelsGrid.className = 'options-grid';
+      MEMORY_GAME_LEVELS.forEach(levelConfig => {
+        const btn = document.createElement('button');
+        btn.className = 'topic-btn fx-bounce-in-down';
+        btn.innerHTML = `Niveau ${levelConfig.level}<br>${levelConfig.pairs} paires`;
+        btn.style.animationDelay = `${Math.random() * 0.5}s`;
+        btn.addEventListener('click', () => showMemoryGame(levelConfig));
+        levelsGrid.appendChild(btn);
+      });
+      content.appendChild(levelsGrid);
+
+      btnLogros.style.display = 'inline-block';
+      btnLogout.style.display = 'inline-block';
+      configureBackButton('Retour au Menu Principal', showTopicMenu);
+    }
+
+    function showMemoryGame(levelConfig) {
+        document.body.classList.add('stage-controls-visible');
+        const { pairs: pairsCount, timeLimit, traps: trapCount } = levelConfig;
+        let timerId = null;
+        let timeLeft = timeLimit;
+        content.innerHTML = '';
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
+        const title = document.createElement('div');
+        title.className = 'question-prompt fx-bounce-in-down';
+        title.textContent = 'Trouve toutes les paires !';
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: 'Trouve toutes les paires !',
+            ariaLabel: 'Écouter les instructions du jeu de mémoire'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        content.appendChild(promptWrapper);
+        speakText('Trouve toutes les paires !');
+        updateProgressTracker(0, pairsCount);
+
+        const timerDisplay = document.createElement('div');
+        timerDisplay.className = 'memory-timer';
+        if (timeLimit) {
+            content.appendChild(timerDisplay);
+        }
+
+        const memoryGrid = document.createElement('div');
+        memoryGrid.className = 'memory-grid';
+        if (levelConfig.grid) {
+          const gridParts = levelConfig.grid.split('x').map(Number);
+          const columns = gridParts.length > 1 && !Number.isNaN(gridParts[1]) ? gridParts[1] : Math.sqrt(pairsCount * 2);
+          memoryGrid.style.gridTemplateColumns = `repeat(${Math.round(columns)}, 1fr)`;
+        }
+        content.appendChild(memoryGrid);
+
+        const cardEmojis = Object.values(emoji).slice(6, 6 + pairsCount);
+        const trapEmojis = ['💣', '💥', '🔥', '⚡️', '👻', '💀'].slice(0, trapCount);
+        const gameCardsData = shuffle([
+            ...cardEmojis.map(e => ({ emoji: e, type: 'pair' })),
+            ...cardEmojis.map(e => ({ emoji: e, type: 'pair' })),
+            ...trapEmojis.map(e => ({ emoji: e, type: 'trap' }))
+        ]);
+
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let lockBoard = false;
+
+        gameCardsData.forEach((cardData, index) => {
+            const card = document.createElement('div');
+            card.className = 'memory-card fx-bounce-in-down';
+            card.style.animationDelay = `${index * 0.05}s`;
+            card.innerHTML = `<span style="opacity:0;">${cardData.emoji}</span>`;
+            card.addEventListener('click', () => flipCard(card, cardData, index)); // Corrected to use cardData from the loop
+            memoryGrid.appendChild(card);
+        });
+
+        if (timeLimit) {
+            timerId = setInterval(() => {
+                timeLeft--;
+                timerDisplay.textContent = `Temps restant : ${timeLeft}s`;
+                if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    memoryGrid.classList.add('disabled');
+                    showErrorMessage('Temps écoulé ! Essaie encore.', '');
+                    setTimeout(() => showLevelMenu('memory'), 2000);
+                }
+            }, 1000);
+        }
+
+        function cleanupGame() {
+            if (timerId) {
+                clearInterval(timerId);
+            }
+        }
+
+        function flipCard(card, cardData, index) {
+            if (lockBoard) return;
+            if (card.classList.contains('flipped')) return;
+
+            card.classList.add('flipped');
+            card.querySelector('span').style.opacity = '1';
+
+            if (cardData.type === 'trap') {
+                lockBoard = true;
+                card.classList.add('matched', 'wrong');
+                playBufferedSound('wrong');
+                showErrorMessage('Oh non, une carte piège !', '');
+                // userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 10); // Penalización desactivada
+                if (timeLimit) timeLeft = Math.max(0, timeLeft - 5);
+                updateUI();
+                setTimeout(() => { lockBoard = false; }, 800);
+                return;
+            }
+
+            flippedCards.push({ card, emoji: cardData.emoji, index });
+
+            if (flippedCards.length === 2) {
+                lockBoard = true;
+                const [card1, card2] = flippedCards;
+                if (card1.emoji === card2.emoji) {
+                    card1.card.classList.add('matched');
+                    card2.card.classList.add('matched');
+                    matchedPairs++;
+                    updateProgressTracker(matchedPairs, pairsCount);
+                    userProgress.userScore.stars += 20;
+                    userProgress.userScore.coins += 10;
+                    playBufferedSound('correct');
+                    updateUI(); // Llamada a updateUI()
+                    saveProgress();
+                    flippedCards = [];
+                    lockBoard = false;
+                    if (matchedPairs === pairsCount) {
+                        cleanupGame();
+                        clearProgressTracker();
+                        userProgress.answeredQuestions[`memory-${gameState.currentLevel}`] = 'completed';
+                        saveProgress();
+                        showSuccessMessage('🦄 Toutes les paires trouvées !');
+                        showFireworks();
+                        setTimeout(() => showLevelMenu('memory'), 2000);
+                    }
+                } else {
+                    setTimeout(() => {
+                        card1.card.classList.remove('flipped');
+                        card2.card.classList.remove('flipped');
+                        card1.card.querySelector('span').style.opacity = '0';
+                        card2.card.querySelector('span').style.opacity = '0';
+                        flippedCards = [];
+                        lockBoard = false;
+                        // userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5); // Penalización desactivada
+                        playBufferedSound('wrong');
+                        updateUI(); // Llamada a updateUI()
+                        saveProgress();
+                        showErrorMessage('Mauvaise réponse.', `Il fallait trouver une paire de ${card1.emoji}`);
+                    }, 1000);
+                }
+            }
+        }
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        configureBackButton('Retour aux niveaux de mémoire', () => {
+            cleanupGame();
+            showMemoryGameMenu();
         });
     }
+    
+    /**
+     * Muestra el juego de ordenar.
+     * @param {number} level El nivel de dificultad.
+     */
+    function showSortingGame(level) {
+        document.body.classList.add('stage-controls-visible');
+        gameState.currentLevel = level;
+        content.innerHTML = '';
+        updateUI();
+
+        const levelData = sortingLevels.find(entry => entry.level === level) || sortingLevels[sortingLevels.length - 1];
+        const reward = { stars: 12 + level * 2, coins: 8 + Math.max(0, level - 1) * 2 };
+
+        const container = document.createElement('div');
+        container.className = 'sorting-container fx-bounce-in-down';
+
+        const instructionWrapper = document.createElement('div');
+        instructionWrapper.className = 'prompt-with-audio';
+
+        const instruction = document.createElement('p');
+        instruction.className = 'question-prompt';
+        instruction.textContent = level === 1
+            ? `${levelData.instruction} Glisse-les et lâche-les dans le bon panier.`
+            : levelData.instruction;
+        instructionWrapper.appendChild(instruction);
+
+        const audioBtn = createAudioButton({
+            text: instruction.textContent,
+            ariaLabel: 'Écouter les instructions de tri'
+        });
+        if (audioBtn) {
+            instructionWrapper.appendChild(audioBtn);
+        }
+
+        container.appendChild(instructionWrapper);
+        speakText(instruction.textContent);
+
+        const zonesWrapper = document.createElement('div');
+        zonesWrapper.className = 'sorting-zones';
+
+        const feedbackBubble = document.createElement('div');
+        feedbackBubble.className = 'sorting-feedback is-hidden';
+        feedbackBubble.setAttribute('role', 'status');
+        feedbackBubble.setAttribute('aria-live', 'polite');
+
+        const pool = document.createElement('div');
+        pool.className = 'sorting-pool';
+        pool.dataset.zone = 'pool';
+
+        const dropzones = [];
+        levelData.categories.forEach(category => {
+            const bin = document.createElement('div');
+            bin.className = 'sorting-bin';
+
+            const header = document.createElement('div');
+            header.className = 'sorting-bin-header';
+            header.textContent = category.label;
+            bin.appendChild(header);
+
+            const dropzone = document.createElement('div');
+            dropzone.className = 'sorting-dropzone';
+            dropzone.dataset.category = category.id;
+            bin.appendChild(dropzone);
+            zonesWrapper.appendChild(bin);
+            dropzones.push(dropzone);
+        });
+
+        container.appendChild(zonesWrapper);
+        container.appendChild(feedbackBubble);
+
+        const tokens = [];
+        const uniqueSuffix = Date.now();
+        levelData.items.forEach((item, index) => {
+            const token = document.createElement('div');
+            token.className = 'sorting-token fx-pop';
+            token.textContent = `${item.emoji} ${item.label}`;
+            token.draggable = true;
+            token.dataset.target = item.target;
+            token.dataset.id = `${item.id}-${uniqueSuffix}-${index}`;
+            enableSortingToken(token);
+            pool.appendChild(token);
+            tokens.push(token);
+        });
+
+        updateProgressTracker(0, tokens.length);
+
+        container.appendChild(pool);
+        content.appendChild(container);
+
+        const allZones = [pool, ...dropzones];
+        allZones.forEach(zone => enableSortingDropzone(zone));
+
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        configureBackButton('Retour aux niveaux', () => showLevelMenu('sorting'));
+
+        function enableSortingToken(token) {
+            token.addEventListener('dragstart', () => {
+                token.classList.add('is-dragging');
+            });
+            token.addEventListener('dragend', () => {
+                token.classList.remove('is-dragging');
+            });
+        }
+
+        function enableSortingDropzone(zone) {
+            zone.addEventListener('dragenter', event => {
+                event.preventDefault();
+                zone.classList.add('is-target');
+            });
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('is-target');
+            });
+            zone.addEventListener('dragover', event => {
+                event.preventDefault();
+            });
+            zone.addEventListener('drop', event => {
+                event.preventDefault();
+                zone.classList.remove('is-target');
+                const tokenId = event.dataTransfer ? event.dataTransfer.getData('text/plain') : undefined;
+                let token;
+                if (tokenId) {
+                    token = document.querySelector(`[data-id="${tokenId}"]`);
+                }
+                if (!token) {
+                    token = document.querySelector('.sorting-token.is-dragging');
+                }
+                if (!token) { return; }
+
+                if (zone.dataset.zone === 'pool') {
+                    pool.appendChild(token);
+                    token.classList.remove('is-correct');
+                    updateCompletionState();
+                    return;
+                }
+
+                const expected = zone.dataset.category;
+                const actual = token.dataset.target;
+                if (expected === actual) {
+                    zone.appendChild(token);
+                    token.classList.add('is-correct', 'sorting-token-pop');
+                    playBufferedSound('correct');
+                    showSortingFeedback('positive', 'Bravo !');
+                    setTimeout(() => token.classList.remove('sorting-token-pop'), 320);
+                    updateCompletionState();
+                } else {
+                    zone.classList.add('sorting-bin-error');
+                    playBufferedSound('wrong');
+                    showSortingFeedback('negative', "Oups, essaie une autre catégorie.");
+                    setTimeout(() => {
+                        zone.classList.remove('sorting-bin-error');
+                        pool.appendChild(token);
+                        token.classList.remove('is-correct');
+                        updateCompletionState();
+                    }, 420);
+                }
+            });
+        }
+
+        function showSortingFeedback(type, message) {
+            clearTimeout(feedbackBubble._timerId);
+            feedbackBubble.textContent = message;
+            feedbackBubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
+            feedbackBubble.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+            feedbackBubble._timerId = setTimeout(() => hideSortingFeedback(), 1800);
+        }
+
+        function hideSortingFeedback() {
+            feedbackBubble.textContent = '';
+            feedbackBubble.classList.add('is-hidden');
+            feedbackBubble.classList.remove('is-positive', 'is-negative');
+        }
+
+        function updateCompletionState() {
+            const correctCount = tokens.filter(token => token.parentElement && token.parentElement.dataset && token.parentElement.dataset.category === token.dataset.target).length;
+            updateProgressTracker(correctCount, tokens.length);
+            const allPlaced = correctCount === tokens.length;
+            if (allPlaced && tokens.every(token => token.classList.contains('is-correct'))) {
+                hideSortingFeedback();
+                rewardPlayer();
+            } else {
+                markLevelInProgress();
+            }
+        }
+
+        function markLevelInProgress() {
+            userProgress.answeredQuestions[`sorting-${gameState.currentLevel}`] = 'in-progress';
+            saveProgress();
+        }
+
+        function rewardPlayer() {
+            showSuccessMessage('Classement parfait ! ✨');
+            showFireworks();
+            const reward = { stars: 10, coins: 5 }; // Default reward
+            userProgress.userScore.stars += reward.stars;
+            userProgress.userScore.coins += reward.coins;
+            userProgress.answeredQuestions[`sorting-${gameState.currentLevel}`] = 'completed';
+            saveProgress();
+            updateUI();
+            clearProgressTracker();
+            setTimeout(() => {
+                if (gameState.currentLevel < sortingLevels.length) {
+                    showSortingGame(gameState.currentLevel + 1);
+                } else {
+                    showLevelMenu('sorting');
+                }
+            }, 1600);
+        }
+
+        // Préparer les données de transfert pour le glisser-déposer (nécessaire pour certains navigateurs)
+        content.addEventListener('dragstart', event => {
+            if (event.target && event.target.classList.contains('sorting-token')) {
+                event.dataTransfer.setData('text/plain', event.target.dataset.id);
+            }
+        });
+    }
+    
+    /**
+     * Muestra el juego de adivinanzas.
+     */
+    function showRiddleGame() {
+        document.body.classList.remove('stage-controls-visible');
+        gameState.currentTopic = 'riddles';
+        showLevelMenu(gameState.currentTopic);
+    }
+    
+    function launchRiddleLevel(level) {
+        gameState.currentTopic = 'riddles';
+        document.body.classList.add('stage-controls-visible');
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        gameState.currentRiddleLevelIndex = Math.max(0, Math.min(riddleLevels.length, level) - 1);
+        const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
+        gameState.currentLevel = levelData?.level || level;
+        gameState.currentQuestionIndex = 0;
+        userProgress.answeredQuestions[`riddles-${gameState.currentLevel}`] = 'in-progress';
+        saveProgress();
+        loadRiddleQuestion(0);
+    }
+
+    function loadRiddleQuestion(questionIndex = 0) { // This should use gameState.currentRiddleLevelIndex
+        document.body.classList.add('stage-controls-visible');
+        const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
+        if (!levelData) {
+            showLevelMenu('riddles');
+            return;
+        }
+
+        const questions = levelData.questions || [];
+        if (questionIndex >= questions.length) {
+            completeRiddleLevel(levelData);
+            return;
+        }
+
+        gameState.currentQuestionIndex = questionIndex;
+        const riddleData = questions[questionIndex];
+
+        content.innerHTML = '';
+        updateUI();
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'riddle-wrapper fx-bounce-in-down';
+
+        const title = document.createElement('div');
+        title.className = 'question-prompt';
+        title.textContent = `Niveau ${levelData.level} — ${levelData.theme}`;
+        wrapper.appendChild(title);
+
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
+        const promptText = document.createElement('p');
+        promptText.className = 'riddle-prompt';
+        promptText.textContent = riddleData.prompt;
+        promptWrapper.appendChild(promptText);
+
+        const audioBtn = createAudioButton({
+            text: riddleData.prompt,
+            ariaLabel: 'Écouter l\'énigme'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        wrapper.appendChild(promptWrapper);
+        speakText(riddleData.prompt);
+        updateProgressTracker(gameState.currentQuestionIndex + 1, questions.length);
+
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'options-grid';
+
+        const shuffledOptions = shuffle([...riddleData.options]);
+        shuffledOptions.forEach((opt, i) => {
+            const optionEl = document.createElement('button');
+            optionEl.className = 'option riddle-option fx-bounce-in-down';
+            optionEl.style.animationDelay = `${i * 0.08 + 0.4}s`;
+            const originalIndex = riddleData.options.indexOf(opt);
+            optionEl.dataset.index = originalIndex;
+            optionEl.addEventListener('click', handleRiddleAnswer);
+            applyOptionContent(optionEl, opt, i);
+            optionsContainer.appendChild(optionEl);
+        });
+
+        wrapper.appendChild(optionsContainer);
+        content.appendChild(wrapper);
+
+        configureBackButton('Retour aux niveaux', () => showLevelMenu('riddles'));
+    }
+
+    function completeRiddleLevel(levelData) {
+        userProgress.answeredQuestions[`riddles-${levelData.level}`] = 'completed';
+        saveProgress();
+        showSuccessMessage(levelData.completionMessage || 'Niveau terminé !');
+        showFireworks();
+        updateProgressTracker(levelData.questions.length, levelData.questions.length);
+        setTimeout(() => {
+            clearProgressTracker();
+            showLevelMenu('riddles');
+        }, 1600);
+    }
+
+    function handleRiddleAnswer(event) {
+        const selectedOption = event.currentTarget instanceof HTMLElement
+            ? event.currentTarget
+            : (event.target.closest && event.target.closest('.option'));
+        if (!selectedOption) { return; }
+
+        const container = selectedOption.closest('.options-grid');
+        const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
+        optionNodes.forEach(opt => opt.removeEventListener('click', handleRiddleAnswer));
+
+        const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
+        const questions = levelData.questions || [];
+        const riddleData = questions[gameState.currentQuestionIndex];
+        const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
+        const correctAnswerIndex = riddleData.answer;
+        const correctValue = riddleData.options[correctAnswerIndex];
+
+        if (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex) {
+            selectedOption.classList.add('correct');
+            selectedOption.classList.add('riddle-correct-glow');
+            userProgress.userScore.stars += riddleData.reward?.stars || (10 + levelData.level);
+            userProgress.userScore.coins += riddleData.reward?.coins || (6 + Math.floor(levelData.level / 2));
+            showSuccessMessage(riddleData.success || 'Bonne réponse !');
+            showConfetti();
+        } else {
+            selectedOption.classList.add('wrong');
+            selectedOption.classList.add('riddle-wrong-glow');
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
+            if (correctOption) {
+                correctOption.classList.add('correct');
+                correctOption.classList.add('riddle-correct-glow');
+            }
+            const hint = riddleData.hint ? ` Conseil : ${riddleData.hint}` : '';
+            showErrorMessage('Mauvaise réponse.', `${correctValue}.${hint}`);
+        }
+
+        updateUI();
+        saveProgress();
+
+        setTimeout(() => {
+            if (gameState.currentQuestionIndex + 1 < questions.length) {
+                loadRiddleQuestion(gameState.currentQuestionIndex + 1);
+            } else {
+                completeRiddleLevel(levelData);
+            }
+        }, 1600);
+    }
+    
+    // --- NOUVEAUX JEUX ---
+
+    function showVowelGame() {
+        document.body.classList.remove('stage-controls-visible');
+        gameState.currentTopic = 'vowels';
+        showLevelMenu(gameState.currentTopic);
+    }
+    
+    function loadVowelQuestion(index) {
+        document.body.classList.add('stage-controls-visible');
+        if (index < 0 || index >= vowelLevels.length) {
+            win();
+            return;
+        }
+
+        const levelData = vowelLevels[index];
+        gameState.currentLevel = levelData.level;
+        gameState.currentQuestionIndex = index;
+        gameState.currentVowelLevelData = null;
+        gameState.questionSkillTag = resolveSkillTag('vowels');
+        gameState.questionStartTime = performance.now();
+
+        content.innerHTML = '';
+        updateUI();
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'vowel-wrapper fx-bounce-in-down';
+
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
+        const title = document.createElement('div');
+        title.className = 'question-prompt';
+        title.textContent = 'Quelle voyelle manque ?';
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: `${title.textContent}. ${levelData.hint}`,
+            ariaLabel: 'Écouter la consigne des voyelles'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        wrapper.appendChild(promptWrapper);
+
+        const display = document.createElement('div');
+        display.className = 'vowel-display';
+        const blanksCount = (levelData.masked.match(/_/g) || []).length;
+        levelData.masked.split('').forEach(char => {
+            const span = document.createElement('span');
+            if (char === '_') {
+                span.className = 'vowel-blank shimmer';
+                span.textContent = '✨';
+            } else {
+                span.className = 'vowel-char';
+                span.textContent = char;
+            }
+            display.appendChild(span);
+        });
+        wrapper.appendChild(display);
+
+        const hint = document.createElement('p');
+        hint.className = 'vowel-hint';
+        hint.textContent = levelData.hint;
+        wrapper.appendChild(hint);
+
+        const feedbackBubble = document.createElement('div');
+        feedbackBubble.className = 'vowel-feedback is-hidden';
+        feedbackBubble.setAttribute('role', 'status');
+        feedbackBubble.setAttribute('aria-live', 'polite');
+        wrapper.appendChild(feedbackBubble);
+
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'vowel-options';
+
+        const buttons = [];
+        const shuffledOptions = shuffle([...levelData.options]);
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'vowel-option fx-bounce-in-down';
+            btn.dataset.value = opt;
+            btn.textContent = opt.toUpperCase();
+            btn.addEventListener('click', handleVowelAnswer);
+            optionsContainer.appendChild(btn);
+            buttons.push(btn);
+        });
+        wrapper.appendChild(optionsContainer);
+
+        content.appendChild(wrapper);
+        updateProgressTracker(index + 1, vowelLevels.length);
+        speakText(`${title.textContent}. ${levelData.hint}`);
+
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        configureBackButton('Retour aux niveaux', () => showLevelMenu('vowels'));
+    
+        gameState.currentVowelLevelData = {
+            level: levelData.level,
+            answer: levelData.answer,
+            blanksCount,
+            displayEl: display,
+            buttons,
+            feedbackEl: feedbackBubble
+        };
+        userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] || 'in-progress';
+        saveProgress();
+    }
+
+    function handleVowelAnswer(event) {
+        if (!gameState.currentVowelLevelData) { return; }
+
+        const selectedOption = event.currentTarget instanceof HTMLElement
+            ? event.currentTarget
+            : (event.target.closest && event.target.closest('.vowel-option'));
+        if (!selectedOption) { return; }
+
+        gameState.currentVowelLevelData.buttons.forEach(btn => {
+            btn.removeEventListener('click', handleVowelAnswer);
+            btn.disabled = true;
+        });
+
+        const userAnswer = selectedOption.dataset.value;
+        const expected = gameState.currentVowelLevelData.answer;
+        const blanks = gameState.currentVowelLevelData.displayEl.querySelectorAll('.vowel-blank');
+
+        const isCorrect = userAnswer && userAnswer.toLowerCase() === expected.toLowerCase();
+        const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
+        if (isCorrect) {
+            fillVowelBlanks(blanks, userAnswer);
+            gameState.currentVowelLevelData.displayEl.classList.add('is-complete');
+            selectedOption.classList.add('correct', 'vowel-option-correct');
+            showVowelFeedback('positive', 'Super !');
+            userProgress.userScore.stars += 10 + gameState.currentLevel * 2;
+            userProgress.userScore.coins += 10;
+            userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = 'completed';
+            saveProgress();
+            updateUI(); // Llamada a updateUI()
+            showSuccessMessage('Bravo !');
+            showFireworks();
+            gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('vowels'), { correct: true, timeMs: elapsed });
+            setTimeout(() => {
+                gameState.currentVowelLevelData = null;
+                if (gameState.currentQuestionIndex + 1 < vowelLevels.length) {
+                    loadVowelQuestion(gameState.currentQuestionIndex + 1);
+                } else {
+                    gameState.historyTracker?.endGame({ status: 'completed', topic: 'vowels', level: gameState.currentLevel });
+                    showLevelMenu('vowels');
+                }
+            }, 1600);
+        } else {
+            selectedOption.classList.add('wrong', 'vowel-option-wrong');
+            gameState.currentVowelLevelData.displayEl.classList.add('is-error');
+            showVowelFeedback('negative', 'Essaie encore !');
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = 'in-progress';
+            saveProgress();
+            updateUI(); // Llamada a updateUI()
+            gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('vowels'), { correct: false, timeMs: elapsed });
+            showErrorMessage('Regarde bien les lettres.', expected);
+            setTimeout(() => {
+                gameState.currentVowelLevelData.displayEl.classList.remove('is-error');
+                gameState.currentVowelLevelData.buttons.forEach(btn => {
+                    btn.disabled = false;
+                    btn.addEventListener('click', handleVowelAnswer);
+                    btn.classList.remove('vowel-option-wrong');
+                });
+                hideVowelFeedback();
+                gameState.questionStartTime = performance.now();
+            }, 1200);
+        }
+    }
+
+    function isStoryCompletedForDisplay(story) {
+        if (!story) { return false; }
+        const activeSet = getActiveStorySet();
+        return isStoryMarkedCompleted(story.id, activeSet?.id);
+    }
+
+    function markStoryAsCompleted(story) {
+        if (!story) { return; }
+        const activeSet = getActiveStorySet();
+        markStoryCompletedById(story.id, activeSet.id);
+        userProgress.answeredQuestions[`stories-${story.id}`] = 'completed';
+        saveProgress();
+    }
+
+    function fillVowelBlanks(blanks, selection) {
+        const chars = selection.split('');
+        blanks.forEach((blank, index) => {
+            const char = chars[index] || chars[chars.length - 1] || '';
+            blank.textContent = char;
+            blank.classList.add('is-filled');
+            blank.classList.remove('shimmer');
+        });
+    }
+
+    function showVowelFeedback(type, message) {
+        if (!gameState.currentVowelLevelData || !gameState.currentVowelLevelData.feedbackEl) { return; }
+        const bubble = gameState.currentVowelLevelData.feedbackEl;
+        clearTimeout(bubble._timerId);
+        bubble.textContent = message;
+        bubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
+        bubble.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+        bubble._timerId = setTimeout(() => hideVowelFeedback(), 2200);
+    }
+
+    function hideVowelFeedback() {
+        if (!gameState.currentVowelLevelData || !gameState.currentVowelLevelData.feedbackEl) { return; }
+        const bubble = gameState.currentVowelLevelData.feedbackEl;
+        clearTimeout(bubble._timerId);
+        bubble.textContent = '';
+        bubble.classList.add('is-hidden');
+        bubble.classList.remove('is-positive', 'is-negative');
+    }
+
+    function showSequenceGame() {
+        document.body.classList.remove('stage-controls-visible');
+        gameState.currentTopic = 'sequences';
+        showLevelMenu(gameState.currentTopic);
+    }
+
+    function loadSequenceQuestion(index) {
+        document.body.classList.add('stage-controls-visible');
+        if (index < 0 || index >= sequenceLevels.length) {
+            win();
+            return;
+        }
+
+        gameState.currentLevel = index + 1;
+        gameState.currentQuestionIndex = index;
+        const levelData = sequenceLevels[index];
+
+        content.innerHTML = '';
+        updateUI();
+
+        const container = document.createElement('div');
+        container.className = 'sequence-wrapper fx-bounce-in-down';
+
+        const promptWrapper = document.createElement('div');
+        promptWrapper.className = 'prompt-with-audio';
+
+        const title = document.createElement('div');
+        title.className = 'question-prompt';
+        title.textContent = 'Quel est le prochain élément de la séquence ?';
+        promptWrapper.appendChild(title);
+
+        const audioBtn = createAudioButton({
+            text: title.textContent,
+            ariaLabel: 'Écouter la consigne de la séquence'
+        });
+        if (audioBtn) {
+            promptWrapper.appendChild(audioBtn);
+        }
+
+        container.appendChild(promptWrapper);
+        speakText(title.textContent);
+        updateProgressTracker(gameState.currentLevel, sequenceLevels.length);
+
+        const sequenceContainer = document.createElement('div');
+        sequenceContainer.className = 'sequence-container';
+
+        const blankSlot = document.createElement('div');
+        blankSlot.className = 'sequence-slot';
+        blankSlot.dataset.answer = levelData.answer;
+
+        levelData.sequence.forEach(item => {
+            if (item === '?') {
+                const slot = blankSlot.cloneNode(true);
+                sequenceContainer.appendChild(slot);
+            } else {
+                const itemEl = document.createElement('span');
+                itemEl.className = 'sequence-item';
+                itemEl.textContent = item;
+                sequenceContainer.appendChild(itemEl);
+            }
+        });
+
+        container.appendChild(sequenceContainer);
+
+        const feedbackBubble = document.createElement('div');
+        feedbackBubble.className = 'sequence-feedback is-hidden';
+        feedbackBubble.setAttribute('role', 'status');
+        feedbackBubble.setAttribute('aria-live', 'polite');
+        container.appendChild(feedbackBubble);
+
+        const pool = document.createElement('div');
+        pool.className = 'sequence-pool';
+        pool.dataset.zone = 'pool';
+
+        const uniqueSuffix = Date.now();
+        const tokens = levelData.options.map((option, i) => {
+            const token = document.createElement('div');
+            token.className = 'sequence-token fx-pop';
+            token.textContent = option;
+            token.draggable = true;
+            token.dataset.value = option;
+            token.dataset.id = `sequence-${index}-${i}-${uniqueSuffix}`;
+            enableSequenceToken(token);
+            pool.appendChild(token);
+            return token;
+        });
+
+        container.appendChild(pool);
+        content.appendChild(container);
+
+        const dropzone = sequenceContainer.querySelector('.sequence-slot');
+        enableSequenceDropzone(dropzone);
+        enableSequenceDropzone(pool);
+
+        // Click-to-place fallback for accessibility (in addition to drag & drop)
+        tokens.forEach(token => {
+            token.tabIndex = 0;
+            token.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); token.click(); }
+            });
+            token.addEventListener('click', () => {
+                // If token is in pool and dropzone empty, attempt placement
+                const inPool = !!token.closest('.sequence-pool');
+                const expected = dropzone.dataset.answer;
+                const actual = token.dataset.value;
+                if (inPool) {
+                    if (!dropzone.classList.contains('is-filled')) {
+                        if (expected === actual) {
+                            dropzone.classList.add('is-filled', 'is-correct');
+                            dropzone.classList.remove('is-wrong');
+                            token.classList.add('is-correct', 'sequence-token-pop');
+                            token.setAttribute('draggable', 'false');
+                            dropzone.textContent = actual;
+                            dropzone.appendChild(token);
+                            playBufferedSound('correct');
+                            showFeedback('positive', 'Super ! La séquence est complète.');
+                            setTimeout(() => token.classList.remove('sequence-token-pop'), 320);
+                            rewardSequence();
+                        } else {
+                            dropzone.classList.add('is-filled', 'is-wrong');
+                            dropzone.classList.remove('is-correct');
+                            playBufferedSound('wrong');
+                            showFeedback('negative', 'Essaie encore !');
+                            setTimeout(() => {
+                                dropzone.textContent = '';
+                                dropzone.classList.remove('is-filled', 'is-wrong');
+                            }, 420);
+                            markSequenceInProgress();
+                        }
+                    }
+                } else {
+                    // If token is already in dropzone, clicking returns it to pool
+                    pool.appendChild(token);
+                    token.classList.remove('is-correct');
+                    token.setAttribute('draggable', 'true');
+                    dropzone.classList.remove('is-filled', 'is-correct', 'is-wrong');
+                    dropzone.textContent = '';
+                    hideFeedback();
+                    markSequenceInProgress();
+                }
+            });
+        });
+
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        configureBackButton('Retour aux niveaux', () => showLevelMenu('sequences'));
+
+        function enableSequenceToken(token) {
+            token.addEventListener('dragstart', () => {
+                token.classList.add('is-dragging');
+            });
+            token.addEventListener('dragend', () => {
+                token.classList.remove('is-dragging');
+            });
+        }
+
+        function enableSequenceDropzone(zone) {
+            zone.addEventListener('dragenter', event => {
+                event.preventDefault();
+                zone.classList.add('is-target');
+            });
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('is-target');
+            });
+            zone.addEventListener('dragover', event => {
+                event.preventDefault();
+            });
+            zone.addEventListener('drop', event => {
+                event.preventDefault();
+                zone.classList.remove('is-target');
+                const tokenId = event.dataTransfer ? event.dataTransfer.getData('text/plain') : undefined;
+                let token;
+                if (tokenId) {
+                    token = document.querySelector(`[data-id="${tokenId}"]`);
+                }
+                if (!token) {
+                    token = document.querySelector('.sequence-token.is-dragging');
+                }
+                if (!token) { return; }
+
+                if (zone.dataset.zone === 'pool') {
+                    pool.appendChild(token);
+                    token.classList.remove('is-correct');
+                    token.setAttribute('draggable', 'true');
+                    dropzone.classList.remove('is-filled', 'is-correct', 'is-wrong');
+                    dropzone.textContent = '';
+                    hideFeedback();
+                    markSequenceInProgress();
+                    return;
+                }
+
+                const expected = zone.dataset.answer;
+                const actual = token.dataset.value;
+                zone.textContent = actual;
+
+                if (expected === actual) {
+                    zone.classList.add('is-filled', 'is-correct');
+                    zone.classList.remove('is-wrong');
+                    token.classList.add('is-correct', 'sequence-token-pop');
+                    token.setAttribute('draggable', 'false');
+                    zone.appendChild(token);
+                    playBufferedSound('correct');
+                    showFeedback('positive', 'Super ! La séquence est complète.');
+                    setTimeout(() => token.classList.remove('sequence-token-pop'), 320);
+                    rewardSequence();
+                } else {
+                    zone.classList.add('is-filled', 'is-wrong');
+                    zone.classList.remove('is-correct');
+                    playBufferedSound('wrong');
+                    showFeedback('negative', 'Essaie encore !');
+                    setTimeout(() => {
+                        zone.textContent = '';
+                        zone.classList.remove('is-filled', 'is-wrong');
+                        pool.appendChild(token);
+                        token.classList.remove('is-correct');
+                        token.setAttribute('draggable', 'true');
+                    }, 420);
+                    markSequenceInProgress();
+                }
+            });
+        }
+
+        function showFeedback(type, message) {
+            clearTimeout(feedbackBubble._timerId);
+            feedbackBubble.textContent = message;
+            feedbackBubble.classList.remove('is-hidden', 'is-positive', 'is-negative');
+            feedbackBubble.classList.add(type === 'positive' ? 'is-positive' : 'is-negative');
+            feedbackBubble._timerId = setTimeout(() => hideFeedback(), 2000);
+        }
+
+        function hideFeedback() {
+            feedbackBubble.textContent = '';
+            feedbackBubble.classList.add('is-hidden');
+            feedbackBubble.classList.remove('is-positive', 'is-negative');
+        }
+
+        function rewardSequence() {
+            hideFeedback();
+            userProgress.userScore.stars += 12 + gameState.currentLevel * 2;
+            userProgress.userScore.coins += 8 + gameState.currentLevel;
+            userProgress.answeredQuestions[`sequences-${gameState.currentLevel}`] = 'completed';
+            saveProgress();
+            updateUI();
+            showFireworks();
+            clearProgressTracker();
+            setTimeout(() => {
+                if (gameState.currentLevel < sequenceLevels.length) {
+                    loadSequenceQuestion(gameState.currentLevel);
+                } else {
+                    showLevelMenu('sequences');
+                }
+            }, 1400);
+        }
+
+        function markSequenceInProgress() {
+            userProgress.answeredQuestions[`sequences-${gameState.currentLevel}`] = 'in-progress';
+            saveProgress();
+        }
+
+        content.addEventListener('dragstart', event => {
+            if (event.target && event.target.classList.contains('sequence-token')) {
+                event.dataTransfer.setData('text/plain', event.target.dataset.id);
+            }
+        });
+    }
+
+    function win() {
+        content.innerHTML = `<div class="question-prompt fx-pop">Tu as complété toutes les questions! 🎉</div>
+                            <div class="prompt ok">Ton score final : ${userProgress.userScore.stars} étoiles et ${userProgress.userScore.coins} pièces.</div>`;
+        speakText("Tu as complété toutes les questions! Félicitations pour ton score final.");
+        clearProgressTracker();
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        configureBackButton('Retour au Menu Principal', showTopicMenu);
+    }
+
+    
 
     function ensureProgressTrackerElements() {
         const label = document.getElementById('progress-label');
@@ -3695,26 +3534,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const allTopics = [
             { id: 'math-blitz', icon: '⚡', text: 'Maths Sprint' },
             { id: 'lecture-magique', icon: '📖', text: 'Lecture Magique' },
-            { id: 'ecriture-cursive', icon: '✍️', text: 'J’écris en cursive' },
+            { id: 'raisonnement', icon: '🧠', text: 'Raisonnement' },
+            { id: 'mots-outils', icon: '🗣️', text: 'Mots-Outils' },
             { id: 'additions', icon: '➕', text: 'Additions' },
             { id: 'soustractions', icon: '➖', text: 'Soustractions' },
             { id: 'multiplications', icon: '✖️', text: 'Multiplications' },
             { id: 'divisions', icon: '➗', text: 'Divisions' },
             { id: 'sorting', icon: '🗂️', text: 'Jeu de Tri' },
+            { id: 'memory', icon: '🤔', text: 'Mémoire Magique' },
+            { id: 'abaque-magique', icon: '🔢', text: 'Abaque Magique' },
             { id: 'number-houses', icon: '🏠', text: 'Maisons des Nombres' },
             { id: 'puzzle-magique', icon: '🧩', text: 'Puzzle Magique' },
             { id: 'repartis', icon: '🍎', text: 'Répartis & Multiplie' },
-            { id: 'raisonnement', icon: '🧠', text: 'Raisonnement' },
             { id: 'stories', icon: '📚', text: 'Contes Magiques' },
-            { id: 'memory', icon: '🤔', text: 'Mémoire Magique' },
             { id: 'riddles', icon: '❓', text: 'Jeu d\'énigmes' },
             { id: 'vowels', icon: '🅰️', text: 'Jeu des Voyelles' },
             { id: 'sequences', icon: '➡️', text: 'Jeu des Séquences' },
             { id: 'colors', icon: '🎨', text: 'Les Couleurs' },
             { id: 'dictee', icon: '🧚‍♀️', text: 'Dictée Magique' },
-            { id: 'grande-aventure-mots', icon: '🟣', text: 'La Grande Aventure des Mots', type: 'external', href: 'grande-aventure-mots/index.html' },
-            { id: 'abaque-magique', icon: '🔢', text: 'Abaque Magique' },
-            { id: 'mots-outils', icon: '🗣️', text: 'Mots-Outils' }
+            { id: 'ecriture-cursive', icon: '✍️', text: 'J’écris en cursive' },
+            { id: 'grande-aventure-mots', icon: '🟣', text: 'La Grande Aventure des Mots', type: 'external', href: 'grande-aventure-mots/index.html' }
         ];
 
         allTopics.forEach(topic => {
@@ -3734,12 +3573,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (topic.id === 'memory') { showMemoryGameMenu(); return; }
                 if (topic.id === 'ecriture-cursive') { launchEcritureCursive(1); return; }
                 if (topic.id === 'abaque-magique') { launchAbaqueMagique(1); return; }
+                if (topic.id === 'repartis') { showLevelMenu('repartis'); return; }
                 if (topic.id === 'mots-outils') { launchMotsOutils(1); return; }
                 showLevelMenu(topic.id);
             });
             topicsContainer.appendChild(btn);
+            btn.addEventListener('mouseenter', () => {
+                playBufferedSound('hover', 0.2);
+            });
         });
         content.appendChild(topicsContainer);
+
+        // Section: Nouveaux Jeux Logiques et Avancés (3e Primaire)
+        if (window.logicGames && typeof window.logicGames.renderSection === 'function') {
+            window.logicGames.renderSection(content, (game) => {
+                const ctx = createGameContext(game.id, {});
+                if (typeof window.logicGames.start === 'function') {
+                    window.logicGames.start(game.id, ctx);
+                }
+            });
+        }
+
+        // Ajout d'une rangée supplémentaire de nouveaux modules (3e primaire)
+        const newTopics = [
+            { id: 'problems-magiques', icon: '💡', text: 'Problèmes Magiques' },
+            { id: 'fractions-fantastiques', icon: '🍰', text: 'Fractions Fantastiques' },
+            { id: 'temps-horloges', icon: '⏰', text: 'Temps & Horloges' },
+            { id: 'tables-defi', icon: '✖️', text: 'Tables Défi' },
+            { id: 'series-numeriques', icon: '🔢', text: 'Séries Numériques' },
+            // Placeholders (affichent bientôt)
+            { id: 'mesures-magiques', icon: '⚖️', text: 'Mesures Magiques' },
+            { id: 'labyrinthe-logique', icon: '🧭', text: 'Labyrinthe Logique' },
+            { id: 'sudoku-junior', icon: '🔳', text: 'Sudoku Junior' },
+            { id: 'grammaire-magique', icon: '📝', text: 'Grammaire Magique' },
+            { id: 'conjugaison-magique', icon: '✍️', text: 'Conjugaison Magique' },
+            { id: 'genres-accords', icon: '👥', text: 'Genres & Accords' },
+            { id: 'lecture-voix-haute', icon: '🎙️', text: 'Lecture à Voix Haute' },
+            { id: 'vocabulaire-thematique', icon: '🌿', text: 'Vocabulaire Thématique' },
+            { id: 'atelier-art', icon: '🎨', text: 'Atelier d’Art' },
+            { id: 'decouvre-nature', icon: '🌦️', text: 'Découvre la Nature' },
+            { id: 'carte-monde', icon: '🌍', text: 'Carte du Monde' },
+            { id: 'emotions-magiques', icon: '😊', text: 'Émotions Magiques' },
+            { id: 'missions-jour', icon: '✅', text: 'Missions du Jour' }
+        ];
+        const extraContainer = document.createElement('div');
+        extraContainer.className = 'options-grid';
+        newTopics.forEach(topic => {
+            const btn = document.createElement('button');
+            btn.className = 'topic-btn fx-bounce-in-down';
+            btn.innerHTML = `<span class="topic-btn__icon">${topic.icon}</span><span class="topic-btn__text">${topic.text}</span>`;
+            btn.dataset.topic = topic.id;
+            btn.addEventListener('click', () => {
+                gameState.currentTopic = topic.id;
+                showLevelMenu(topic.id);
+            });
+            btn.addEventListener('mouseenter', () => {
+                playBufferedSound('hover', 0.2);
+            });
+            extraContainer.appendChild(btn);
+        });
+        content.appendChild(extraContainer);
 
         btnBack.style.display = 'none';
         btnLogros.style.display = 'inline-block';
@@ -3767,21 +3660,41 @@ document.addEventListener('DOMContentLoaded', () => {
             'divisions': MATH_LEVEL_CONFIG.divisions.length,
             'number-houses': LEVELS_PER_TOPIC,
             'colors': LEVELS_PER_TOPIC,
-            'memory': MEMORY_GAME_LEVELS.length,
+            'memory': (window.gameData?.MEMORY_GAME_LEVELS || []).length,
             'sorting': sortingLevels.length,
             'riddles': riddleLevels.length,
             'vowels': vowelLevels.length,
             'sequences': sequenceLevels.length,
             'stories': magicStories.length,
-            'puzzle-magique': 10,
-            'repartis': 10,
+            'puzzle-magique': (window.puzzleMagiqueGame?.getLevelCount?.() || 10),
+            'repartis': (window.repartisGame?.getLevelCount?.() || 15),
             'dictee': 10,
             'math-blitz': (window.mathBlitzGame?.getLevelCount?.() || 10),
             'lecture-magique': 10,
             'raisonnement': 10,
             'ecriture-cursive': 3,
-            'abaque-magique': 3,
-            'mots-outils': 3
+            'abaque-magique': (window.abaqueMagiqueGame?.getLevelCount?.() || 10),
+            'mots-outils': (window.motsOutilsGame?.getLevelCount?.() || 15),
+            // Nouveaux modules (3e primaire)
+            'problems-magiques': (window.problemsMagiquesGame?.getLevelCount?.() || 10),
+            'fractions-fantastiques': (window.fractionsFantastiquesGame?.getLevelCount?.() || 10),
+            'temps-horloges': (window.tempsHorlogesGame?.getLevelCount?.() || 10),
+            'tables-defi': (window.tablesDefiGame?.getLevelCount?.() || 10),
+            'series-numeriques': (window.seriesNumeriquesGame?.getLevelCount?.() || 10),
+            // Placeholders (affichent bientôt)
+            'mesures-magiques': 10,
+            'labyrinthe-logique': (window.logicGames?.getLevelCount?.() || 12),
+            'sudoku-junior': (window.logicGames?.getLevelCount?.() || 12),
+            'grammaire-magique': 10,
+            'conjugaison-magique': 10,
+            'genres-accords': 10,
+            'lecture-voix-haute': 10,
+            'vocabulaire-thematique': 10,
+            'atelier-art': 10,
+            'decouvre-nature': 10,
+            'carte-monde': 10,
+            'emotions-magiques': 10,
+            'missions-jour': 10
         };
         const totalLevels = maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
         
@@ -3797,6 +3710,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.preventDefault();
                     levelBtn.click();
                 }
+            });
+            levelBtn.addEventListener('mouseenter', () => {
+                playBufferedSound('hover', 0.2);
             });
             const levelKey = `${gameState.currentTopic}-${i}`;
             if (userProgress.answeredQuestions[levelKey] === 'completed') {
@@ -3825,7 +3741,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (gameState.currentTopic === 'ecriture-cursive') { launchEcritureCursive(gameState.currentLevel); }
                 else if (gameState.currentTopic === 'abaque-magique') { launchAbaqueMagique(gameState.currentLevel); }
                 else if (gameState.currentTopic === 'mots-outils') { launchMotsOutils(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[gameState.currentLevel - 1].pairs); }
+                // Nouveaux modules jouables
+                else if (gameState.currentTopic === 'problems-magiques') { launchProblemsMagiques(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'fractions-fantastiques') { launchFractionsFantastiques(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'temps-horloges') { launchTempsHorloges(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'tables-defi') { launchTablesDefi(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'series-numeriques') { launchSeriesNumeriques(gameState.currentLevel); }
+                // Placeholders
+                else if ([
+                  'mesures-magiques','labyrinthe-logique','sudoku-junior','grammaire-magique','conjugaison-magique',
+                  'genres-accords','lecture-voix-haute','vocabulaire-thematique','atelier-art','decouvre-nature',
+                  'carte-monde','emotions-magiques','missions-jour'
+                ].includes(gameState.currentTopic)) { showComingSoon(gameState.currentTopic, '✨'); }
+                else if (gameState.currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[gameState.currentLevel - 1]); }
                 else { gameState.currentQuestionIndex = 0; loadQuestion(0); }
             });
             levelsContainer.appendChild(levelBtn);
@@ -3863,7 +3791,7 @@ document.addEventListener('DOMContentLoaded', () => {
             userProgress.userScore.coins += questionData.reward.coins;
             const sticker = questionData.operationMeta?.sticker ? ` ${questionData.operationMeta.sticker}` : '';
             const successMessage = questionData.successMessage
-                ? `${questionData.successMessage}${sticker}`
+                ? `${questionData.successMessage}${sticker}` // Mensaje de éxito
                 : `${positiveMessages[Math.floor(Math.random() * positiveMessages.length)]}${sticker}`;
             showSuccessMessage(successMessage);
             showConfetti();
@@ -4189,7 +4117,7 @@ function handleCheckHouses() {
         userProgress.userScore.coins += 50;
         userProgress.answeredQuestions[`${gameState.currentTopic}-${gameState.currentLevel}`] = 'completed';
         saveProgress();
-        showSuccessMessage('Bravo ! Toutes les maisons sont correctes. 🦄✨');
+        showSuccessMessage('Bravo ! Toutes les maisons sont correctes. 🦄✨'); // Mensaje de éxito
         showConfetti();
         checkBtn.textContent = 'Niveau suivant';
         checkBtn.onclick = () => {
@@ -4360,7 +4288,7 @@ function generateNumberProblems(sum, count) {
             userProgress.userScore.coins += questionData.reward.coins;
             showSuccessMessage();
             showConfetti();
-        } else {
+        } else { // Respuesta incorrecta
             selectedOption.classList.add('wrong');
             userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
@@ -4689,7 +4617,7 @@ function generateNumberProblems(sum, count) {
             userProgress.userScore.stars += 15;
             userProgress.userScore.coins += 10;
             showSuccessMessage('Bonne réponse !');
-            showConfetti();
+            showFireworks();
         } else {
             selectedOption.classList.add('wrong');
             userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
@@ -4751,6 +4679,19 @@ function generateNumberProblems(sum, count) {
         configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 
+    function ensureSkyElements() {
+        if (document.getElementById('sky-elements')) {
+            return;
+        }
+        const sky = document.createElement('div');
+        sky.id = 'sky-elements';
+        sky.className = 'sky-elements';
+        sky.innerHTML = `
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>`;
+        document.body.appendChild(sky);
+    }
 
     function showMemoryGameMenu() {
       clearProgressTracker();
@@ -4891,7 +4832,7 @@ function generateNumberProblems(sum, count) {
                     userProgress.userScore.stars += 20;
                     userProgress.userScore.coins += 10;
                     playSound('correct');
-                    updateUI();
+                    updateUI(); // Llamada a updateUI()
                     saveProgress();
                     flippedCards = [];
                     lockBoard = false;
@@ -4901,7 +4842,7 @@ function generateNumberProblems(sum, count) {
                         userProgress.answeredQuestions[`memory-${gameState.currentLevel}`] = 'completed';
                         saveProgress();
                         showSuccessMessage('🦄 Toutes les paires trouvées !');
-                        showConfetti();
+                        showFireworks();
                         setTimeout(() => showLevelMenu('memory'), 2000);
                     }
                 } else {
@@ -4914,7 +4855,7 @@ function generateNumberProblems(sum, count) {
                         lockBoard = false;
                         // userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5); // Penalización desactivada
                         playSound('wrong');
-                        updateUI();
+                        updateUI(); // Llamada a updateUI()
                         saveProgress();
                         showErrorMessage('Mauvaise réponse.', `Il fallait trouver une paire de ${card1.emoji}`);
                     }, 1000);
@@ -5121,7 +5062,7 @@ function generateNumberProblems(sum, count) {
 
         function rewardPlayer() {
             showSuccessMessage('Classement parfait ! ✨');
-            showConfetti();
+            showFireworks();
             const reward = { stars: 10, coins: 5 }; // Default reward
             userProgress.userScore.stars += reward.stars;
             userProgress.userScore.coins += reward.coins;
@@ -5241,7 +5182,7 @@ function generateNumberProblems(sum, count) {
     function completeRiddleLevel(levelData) {
         userProgress.answeredQuestions[`riddles-${levelData.level}`] = 'completed';
         saveProgress();
-        showSuccessMessage(levelData.completionMessage || 'Niveau terminé !');
+        showSuccessMessage(levelData.completionMessage || 'Niveau terminé !'); // Mensaje de éxito
         showConfetti();
         updateProgressTracker(levelData.questions.length, levelData.questions.length);
         setTimeout(() => {
@@ -5274,7 +5215,7 @@ function generateNumberProblems(sum, count) {
             userProgress.userScore.coins += riddleData.reward?.coins || (6 + Math.floor(levelData.level / 2));
             showSuccessMessage(riddleData.success || 'Bonne réponse !');
             showConfetti();
-        } else {
+        } else { // Respuesta incorrecta
             selectedOption.classList.add('wrong');
             selectedOption.classList.add('riddle-wrong-glow');
             userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
@@ -5284,7 +5225,7 @@ function generateNumberProblems(sum, count) {
                 correctOption.classList.add('riddle-correct-glow');
             }
             const hint = riddleData.hint ? ` Conseil : ${riddleData.hint}` : '';
-            showErrorMessage('Mauvaise réponse.', `${correctValue}.${hint}`);
+            showErrorMessage('Mauvaise réponse.', `${correctValue}. ${hint}`);
         }
 
         updateUI();
@@ -5436,7 +5377,7 @@ function generateNumberProblems(sum, count) {
             userProgress.userScore.coins += 10;
             userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = 'completed';
             saveProgress();
-            updateUI();
+            updateUI(); // Llamada a updateUI()
             showSuccessMessage('Bravo !');
             showConfetti();
             gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('vowels'), { correct: true, timeMs: elapsed });
@@ -5456,7 +5397,7 @@ function generateNumberProblems(sum, count) {
             userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
             userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = 'in-progress';
             saveProgress();
-            updateUI();
+            updateUI(); // Llamada a updateUI()
             gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('vowels'), { correct: false, timeMs: elapsed });
             showErrorMessage('Regarde bien les lettres.', expected);
             setTimeout(() => {
@@ -5481,7 +5422,7 @@ function generateNumberProblems(sum, count) {
     function markStoryAsCompleted(story) {
         if (!story) { return; }
         const activeSet = getActiveStorySet();
-        markStoryCompletedById(story.id, activeSet?.id);
+        markStoryCompletedById(story.id, activeSet.id);
         userProgress.answeredQuestions[`stories-${story.id}`] = 'completed';
         saveProgress();
     }
@@ -5758,7 +5699,7 @@ function generateNumberProblems(sum, count) {
             userProgress.answeredQuestions[`sequences-${gameState.currentLevel}`] = 'completed';
             saveProgress();
             updateUI();
-            showConfetti();
+            showFireworks();
             clearProgressTracker();
             setTimeout(() => {
                 if (gameState.currentLevel < sequenceLevels.length) {

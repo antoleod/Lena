@@ -4,16 +4,16 @@
     const SYMBOL_MAP = { '+': '+', '-': '−', 'x': '×', '÷': '÷' };
 
     const PUZZLE_LEVELS = [
-        { level: 1, operations: ['+'], range: [1, 5], count: 5, reward: { stars: 10, coins: 5 } },
-        { level: 2, operations: ['+'], range: [3, 8], count: 5, reward: { stars: 12, coins: 6 } },
-        { level: 3, operations: ['+'], range: [5, 12], count: 5, reward: { stars: 14, coins: 7 } },
-        { level: 4, operations: ['+'], range: [1, 10], count: 5, unknown: true, reward: { stars: 15, coins: 8 } },
-        { level: 5, operations: ['+'], range: [5, 15], count: 5, unknown: true, reward: { stars: 16, coins: 8 } },
-        { level: 6, operations: ['-'], range: [5, 15], count: 5, reward: { stars: 18, coins: 9 } },
-        { level: 7, operations: ['-'], range: [10, 25], count: 5, reward: { stars: 20, coins: 10 } },
-        { level: 8, operations: ['-'], range: [10, 30], count: 5, unknown: true, reward: { stars: 22, coins: 11 } },
-        { level: 9, operations: ['-'], range: [15, 40], count: 5, unknown: true, reward: { stars: 25, coins: 12 } },
-        { level: 10, operations: ['-'], range: [20, 50], count: 5, unknown: true, reward: { stars: 30, coins: 15 } },
+        { level: 1, operations: ['+'], range: [1, 5], count: 7, reward: { stars: 10, coins: 5 } },
+        { level: 2, operations: ['+'], range: [3, 8], count: 7, reward: { stars: 12, coins: 6 } },
+        { level: 3, operations: ['+'], range: [5, 12], count: 7, reward: { stars: 14, coins: 7 } },
+        { level: 4, operations: ['+'], range: [1, 10], count: 7, unknown: true, reward: { stars: 15, coins: 8 } },
+        { level: 5, operations: ['+'], range: [5, 15], count: 7, unknown: true, reward: { stars: 16, coins: 8 } },
+        { level: 6, operations: ['-'], range: [5, 15], count: 7, reward: { stars: 18, coins: 9 } },
+        { level: 7, operations: ['-'], range: [10, 25], count: 7, reward: { stars: 20, coins: 10 } },
+        { level: 8, operations: ['-'], range: [10, 30], count: 7, unknown: true, reward: { stars: 22, coins: 11 } },
+        { level: 9, operations: ['-'], range: [15, 40], count: 7, unknown: true, reward: { stars: 25, coins: 12 } },
+        { level: 10, operations: ['-'], range: [20, 50], count: 7, unknown: true, reward: { stars: 30, coins: 15 } },
     ];
 
     function generateQuestion(levelData) {
@@ -196,6 +196,7 @@
     }
 
     window.puzzleMagiqueGame = {
-        start
+        start,
+        getLevelCount: () => PUZZLE_LEVELS.length
     };
 })();

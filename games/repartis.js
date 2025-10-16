@@ -11,10 +11,16 @@
         { mode: 'choice', multiplication: true, groups: 3, itemsPerGroup: 4, item: '🍎', characters: ['👧', '👦', '🐸'], question: '3 paniers avec 4 pommes chacun. Combien de pommes en tout ?', options: [10, 12, 15], answer: 12, reward: { stars: 28, coins: 18 } },
         { mode: 'choice', multiplication: true, groups: 4, itemsPerGroup: 3, item: '🍊', characters: ['👦', '👧', '🐸', '👧'], question: '4 plateaux avec 3 oranges chacun. Quel est le total ?', options: [12, 9, 15], answer: 12, reward: { stars: 30, coins: 20 } },
         { mode: 'choice', multiplication: true, groups: 5, itemsPerGroup: 2, item: '🧁', characters: ['👧', '👦', '🐸', '👧', '👦'], question: '5 amis reçoivent 2 cupcakes chacun. Combien de cupcakes ? ', options: [12, 8, 10], answer: 10, reward: { stars: 32, coins: 22 } },
-        { mode: 'choice', multiplication: true, groups: 6, itemsPerGroup: 3, item: '🧃', characters: ['👦', '👧', '🐸', '👧', '👦', '🐸'], question: '6 paniers contiennent 3 jus chacun. Quel est le résultat ?', options: [18, 12, 21], answer: 18, reward: { stars: 35, coins: 24 } }
+        { mode: 'choice', multiplication: true, groups: 6, itemsPerGroup: 3, item: '🧃', characters: ['👦', '👧', '🐸', '👧', '👦', '🐸'], question: '6 paniers contiennent 3 jus chacun. Quel est le résultat ?', options: [18, 12, 21], answer: 18, reward: { stars: 35, coins: 24 } },
+        // --- Nouveaux niveaux de division ---
+        { mode: 'choice', division: true, total: 12, groups: 3, item: '💎', characters: ['👧', '👦', '🐸'], question: 'Léna a 12 diamants à partager entre 3 amis. Combien chacun en reçoit ?', options: [3, 4, 5], answer: 4, reward: { stars: 38, coins: 26 } },
+        { mode: 'choice', division: true, total: 15, groups: 5, item: '⭐', characters: ['👧', '👦', '🐸', '👩‍🍳', '🤖'], question: '15 étoiles sont réparties dans 5 boîtes. Combien d\'étoiles par boîte ?', options: [3, 4, 5], answer: 3, reward: { stars: 40, coins: 28 } },
+        { mode: 'choice', division: true, total: 20, groups: 4, item: '🍭', characters: ['👧', '👦', '🐸', '👩‍🍳'], question: 'Le magicien partage 20 sucettes entre 4 enfants. Combien pour chaque enfant ?', options: [4, 5, 6], answer: 5, reward: { stars: 42, coins: 30 } },
+        { mode: 'choice', division: true, total: 18, groups: 2, item: '🎈', characters: ['👧', '👦'], question: '18 ballons pour 2 amis. Combien de ballons chacun aura-t-il ?', options: [8, 9, 10], answer: 9, reward: { stars: 45, coins: 32 } },
+        { mode: 'choice', division: true, total: 24, groups: 6, item: '🪙', characters: ['👧', '👦', '🐸', '👩‍🍳', '🤖', '🦊'], question: 'Un trésor de 24 pièces d\'or est partagé entre 6 pirates. Combien de pièces pour chaque pirate ?', options: [3, 4, 5], answer: 4, reward: { stars: 50, coins: 35 } }
     ];
     
-    function start(context) {
+    function start(context, level) {
         const index = Math.max(0, Math.min(LEVELS.length, context.currentLevel) - 1);
         const levelData = LEVELS[index];
         const totalLevels = LEVELS.length;
@@ -77,12 +83,14 @@
             totalDisplay.className = 'repartis-bonus-text';
             totalDisplay.textContent = `${levelData.total} objets à partager entre ${levelData.groups} amis.`;
             scene.appendChild(totalDisplay);
+
             const itemsPool = document.createElement('div');
             itemsPool.className = 'repartis-items';
             for (let i = 0; i < levelData.total; i++) {
                 const item = document.createElement('span');
-                item.className = 'repartis-item';
+                item.className = 'repartis-item fx-pop';
                 item.textContent = levelData.item;
+                item.style.animationDelay = `${i * 0.05}s`;
                 itemsPool.appendChild(item);
             }
             scene.appendChild(itemsPool);
@@ -121,10 +129,12 @@
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'repartis-options';
-        levelData.options.forEach(option => {
+        const colorClasses = ['color-1', 'color-2', 'color-3', 'color-4'];
+        levelData.options.forEach((option, index) => {
             const btn = document.createElement('button');
             btn.className = 'repartis-option-btn fx-bounce-in-down';
             btn.textContent = `${option}`;
+            btn.classList.add(colorClasses[index % colorClasses.length]);
             btn.addEventListener('click', () => {
                 handleChoiceAnswer(btn, option === levelData.answer, levelData, context, optionsContainer, feedbackBubble);
             });
@@ -179,13 +189,13 @@
         const expectedPerGroup = levelData.total / levelData.groups;
 
         const pool = document.createElement('div');
-        pool.className = 'repartis-items';
+        pool.className = 'repartis-items repartis-pool';
         pool.dataset.zone = 'pool';
         for (let i = 0; i < levelData.total; i++) {
             const token = document.createElement('span');
             token.className = 'repartis-item';
             token.textContent = levelData.item;
-            token.draggable = true;
+            token.setAttribute('draggable', 'true');
             token.dataset.id = `token-${i}-${Date.now()}`;
             token.setAttribute('aria-hidden', 'true');
             enableDrag(token);
@@ -220,7 +230,7 @@
         scene.appendChild(groupsContainer);
 
         const allZones = [pool, ...dropzones];
-        allZones.forEach(zone => enableDropZone(zone, updateDistributionFeedback));
+        allZones.forEach(zone => enableDropZone(zone, updateDistributionFeedback, { expectedPerGroup }));
 
         const controls = document.createElement('div');
         controls.className = 'repartis-options';
@@ -300,6 +310,16 @@
                 }
             });
 
+            // Accessibility: Announce the result
+            const placedItems = dropzones.map((zone, i) => `${zone.children.length} dans le panier ${i + 1}`).join(', ');
+            const poolItems = pool.children.length;
+            const srMessage = `Vérification: ${placedItems}. ${poolItems} restant(s) à placer.`;
+            const srAnnouncer = document.createElement('div');
+            srAnnouncer.className = 'sr-only';
+            srAnnouncer.textContent = srMessage;
+            document.body.appendChild(srAnnouncer);
+            setTimeout(() => srAnnouncer.remove(), 1000);
+
             const allPlaced = totalPlaced === levelData.total && pool.querySelectorAll('.repartis-item').length === 0;
             verifyBtn.disabled = !allPlaced;
         }
@@ -307,12 +327,14 @@
 
     function enableDrag(token) {
         token.addEventListener('dragstart', (event) => {
+            if (!event.dataTransfer) return;
             event.dataTransfer.setData('text/plain', token.dataset.id);
+            event.dataTransfer.effectAllowed = 'move';
             setTimeout(() => token.classList.add('dragging'), 0);
         });
         token.addEventListener('dragend', () => {
             token.classList.remove('dragging');
-        });
+        }, { passive: true });
     }
 
     function enableDropZone(zone, onDrop) {
@@ -343,11 +365,20 @@
             if (parent) {
                 parent.classList.remove('dragging-over');
             }
-            const id = event.dataTransfer.getData('text/plain');
+            const id = event.dataTransfer?.getData('text/plain');
             const token = document.querySelector(`[data-id="${id}"]`);
             if (token) {
+                const isPool = zone.dataset.zone === 'pool';
+                const expected = Number(zone.dataset.expected) || Infinity;
+                const currentCount = zone.children.length;
+
+                if (!isPool && currentCount >= expected) {
+                    // Prevent dropping if the zone is full
+                    return;
+                }
+
                 zone.appendChild(token);
-                token.classList.add('repartis-item-pop');
+                token.classList.add('repartis-item-pop'); // Animation on drop
                 setTimeout(() => token.classList.remove('repartis-item-pop'), 320);
                 if (typeof onDrop === 'function') {
                     onDrop(zone);
@@ -380,6 +411,7 @@
     }
 
     window.repartisGame = {
-        start
+        start,
+        getLevelCount: () => LEVELS.length
     };
 })();

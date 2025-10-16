@@ -2123,3 +2123,53 @@
     padding: 0.4rem 0.8rem;
   }
 }
+.logic-question-block {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.35rem, 1.2vw, 0.6rem);
+  text-align: left;
+  font-family: "Nunito", sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.45;
+  color: rgba(47, 29, 79, 0.88);
+}
+
+.logic-question-detail {
+  margin: 0;
+  font-size: inherit;
+}
+
+.logic-question-main {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  font-weight: 800;
+  color: #513eea;
+}
+
+.logic-question-code {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  border-radius: 14px;
+  background: rgba(107, 91, 255, 0.12);
+  font-family: "Cascadia Code", "Courier New", monospace;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  color: #3a2f7a;
+  line-height: 1.45;
+  white-space: pre;
+}
+
+.logic-options-grid {
+  margin-top: clamp(0.75rem, 1.8vw, 1rem);
+  gap: clamp(0.6rem, 1.6vw, 0.9rem);
+}
+
+.logic-options-grid .puzzle-option-btn {
+  min-height: clamp(54px, 10vh, 68px);
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+}
+
+.logic-level-intro {
+  color: rgba(47, 29, 79, 0.7);
+  margin-bottom: 0.4rem;
+}
+
