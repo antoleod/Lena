@@ -2,32 +2,41 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appli de Léna — Mes Logros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Appli de Léna — Mes Succès</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/logros.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../css/theme-unicorn.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div id="logros-container">
-        <h1 class="question-prompt">🏆 Mes Logros 🏆</h1>
-        <div id="progress-summary">
-            <p>Étoiles totales: <span id="total-stars">0</span> ⭐️</p>
-            <p>Pièces totales: <span id="total-coins">0</span> 💰</p>
+<body class="theme-unicorn-rainbow has-app-footer">
+    <div id="stageTop">
+        <div class="scores-container">
+          <span id="user-info"></span>
+          <span id="scoreStars">0</span>
+          <span id="scoreCoins" class="coins">0</span>
         </div>
-        <h2>Niveaux Complétés</h2>
-        <div id="completed-levels" class="logros-grid">
-            <!-- Completed levels will be shown here -->
+        <div class="top-buttons">
+            <button id="back-to-game" class="btn">⬅️ Retour au jeu</button>
         </div>
-        <h2>Stickers Collectionnés</h2>
-        <div id="stickers" class="logros-grid">
-            <!-- Stickers will be shown here -->
-        </div>
-        <h1 class="question-prompt">🏆 Mes Succès 🏆</h1>
-        <button id="back-to-game" class="btn">⬅️ Retour au jeu</button>
     </div>
+
+    <div id="stageBottom">
+        <div id="logros-container">
+            <h1 class="question-prompt">🏆 Mes Succès 🏆</h1>
+            <div id="progress-summary">
+                <p>Étoiles totales: <span id="total-stars">0</span> ⭐️</p>
+                <p>Pièces totales: <span id="total-coins">0</span> 💰</p>
+            </div>
+            <h2>Niveaux Complétés</h2>
+            <div id="completed-levels" class="logros-grid"></div>
+            <h2>Stickers Collectionnés</h2>
+            <div id="stickers" class="logros-grid"></div>
+        </div>
+    </div>
+
     <footer class="global-footer" data-app-footer></footer>
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>

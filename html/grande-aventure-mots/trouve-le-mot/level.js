@@ -15,6 +15,7 @@
   delete window.TROUVE_LE_MOT_CONFIG;
 
   let currentIndex = 0;
+  let activeCorrectWord = '';
   let hasCompletedLevel = false;
 
   const optionTemplate = document.getElementById('optionTemplate');
@@ -97,7 +98,7 @@
     return copy;
   }
 
-  function createOptionNode(option, exerciseWord) {
+  function createOptionNode(option) {
     if (!option) { return null; }
     if (optionTemplate && optionTemplate.content) {
       const fragment = optionTemplate.content.cloneNode(true);
@@ -108,7 +109,6 @@
         if (emojiEl) { emojiEl.textContent = option.emoji || ''; }
         if (labelEl) { labelEl.textContent = option.word || ''; }
         btn.dataset.word = option.word || '';
-        btn.addEventListener('click', () => handleSelection(btn, option.word === exerciseWord));
         return fragment;
       }
     }
@@ -129,7 +129,6 @@
 
     fallbackBtn.appendChild(emojiSpan);
     fallbackBtn.appendChild(labelSpan);
-    fallbackBtn.addEventListener('click', () => handleSelection(fallbackBtn, option.word === exerciseWord));
     return fallbackBtn;
   }
 
@@ -156,10 +155,11 @@
       feedbackEl.textContent = '';
     }
 
+    activeCorrectWord = exercise.word || '';
     optionsContainer.innerHTML = '';
     const options = shuffle(exercise.options);
     options.forEach(option => {
-      const node = createOptionNode(option, exercise.word);
+      const node = createOptionNode(option);
       if (!node) { return; }
       if (node instanceof DocumentFragment) {
         optionsContainer.appendChild(node);
@@ -169,6 +169,15 @@
     });
 
     speak(exercise.instruction);
+  }
+
+  function onOptionClick(event) {
+    const target = event.target.closest('.word-option');
+    if (!target || target.disabled) {
+      return;
+    }
+    const chosen = target.dataset.word || '';
+    handleSelection(target, chosen === activeCorrectWord);
   }
 
   function setButtonsDisabled(disabled) {
@@ -280,6 +289,8 @@
       logWarning('Missing options container element');
       return;
     }
+
+    optionsContainer.addEventListener('click', onOptionClick);
 
     if (repeatBtn) {
       repeatBtn.addEventListener('click', () => {

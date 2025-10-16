@@ -13,8 +13,57 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+    /* Sections groupées – cartes grandes + chips enfants */
+    .mm-sections{max-width:1200px;margin:0 auto 1rem;padding:0 .5rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+    .mm-section-card{flex:1 1 320px;min-width:300px;border-radius:22px;padding:14px 14px 12px;margin:0;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.72));box-shadow:0 14px 36px rgba(24,20,68,.08)}
+    .mm-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+    .mm-section-title{display:flex;align-items:center;gap:.5rem;font-family:'Fredoka','Nunito',sans-serif;font-weight:900;color:#5b4fcf}
+    .mm-section-title .mm-emoji{font-size:22px}
+    .mm-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;justify-content:center}
+    .mm-chip{border:none;border-radius:14px;padding:10px 12px;background:#fff;box-shadow:0 6px 14px rgba(24,20,68,.08);cursor:pointer;text-align:left;font-weight:800;color:#513eea;display:flex;align-items:center;gap:.5rem;transition:transform .2s ease, box-shadow .2s ease}
+    .mm-chip .mm-emoji{font-size:18px}
+    .mm-chip:focus-visible{outline:3px solid rgba(107,91,255,.45)}
+    .mm-chip:hover:not([disabled]){transform:translateY(-3px);box-shadow:0 10px 20px rgba(24,20,68,.12)}
+    .mm-chip[disabled]{opacity:.6;cursor:not-allowed}
+    .mm-hide{display:none!important}
+    @media (prefers-reduced-motion:reduce){
+      .mm-section-card{transition:none;animation:none}
+      .mm-chip::after{transition:none}
+      .magic-scene,.magic-cloud,.magic-firefly,.magic-rainbow{animation:none}
+    }
+    .magic-scene{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1;background:radial-gradient(circle at top,#ffe6ff 0%,rgba(255,255,255,.6)35%,rgba(255,255,255,0)70%)}
+    .magic-rainbow{position:absolute;bottom:-20%;left:50%;width:1200px;height:1200px;margin-left:-600px;border-radius:50%;background:conic-gradient(from 180deg,#ff9fd7 0deg,#ffc36e 60deg,#f7ff7a 120deg,#9fffd1 180deg,#a8c3ff 240deg,#ff9fd7 300deg,#ffc36e 360deg);opacity:.35;animation:rainbowPulse 18s linear infinite}
+    .magic-cloud{position:absolute;width:360px;height:180px;background:rgba(255,255,255,.8);border-radius:50%;filter:blur(0);box-shadow:-80px 20px 0 -40px rgba(255,255,255,.8),60px 30px 0 -30px rgba(255,255,255,.8),120px 10px 0 -50px rgba(255,255,255,.7)}
+    .magic-cloud--left{top:15%;left:-8%;animation:cloudDrift 28s linear infinite}
+    .magic-cloud--right{top:55%;right:-10%;animation:cloudDrift 32s linear infinite reverse}
+    .magic-firefly{position:absolute;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#ffe77a 60%,rgba(255,255,255,0)70%);mix-blend-mode:screen;opacity:.7;animation:fireflyDance 10s ease-in-out infinite}
+    .magic-firefly--one{top:18%;left:22%;animation-delay:-2s}
+    .magic-firefly--two{top:30%;left:68%;animation-delay:-5s}
+    .magic-firefly--three{top:68%;left:35%;animation-delay:-8s}
+    .magic-firefly--four{top:75%;left:78%;animation-delay:-3s}
+    .mm-section-card{animation:cardFloat 6s ease-in-out infinite;animation-delay:calc(var(--card-index,0)*.2s)}
+    .mm-section-card:nth-child(even){animation-direction:reverse}
+    .mm-chip{position:relative;overflow:hidden}
+    .mm-chip::after{content:'';position:absolute;inset:auto -40%;top:110%;width:80%;height:80%;background:linear-gradient(120deg,rgba(255,255,255,.65),rgba(186,170,255,.3));transform:rotate(8deg);transition:top .35s ease}
+    .mm-chip:hover::after{top:-10%}
+    @keyframes rainbowPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes cloudDrift{0%{transform:translateX(0)}50%{transform:translateX(60px)}100%{transform:translateX(0)}}
+    @keyframes fireflyDance{0%,100%{transform:translate3d(0,0,0) scale(.9);opacity:.6}50%{transform:translate3d(40px,-20px,0) scale(1.1);opacity:1}}
+    @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    </style>
+    <!-- Monde Magique CSS (glass + transición por mundo) -->
 </head>
 <body class="theme-unicorn-rainbow">
+  <div class="magic-scene" aria-hidden="true">
+    <div class="magic-cloud magic-cloud--left"></div>
+    <div class="magic-cloud magic-cloud--right"></div>
+    <div class="magic-rainbow"></div>
+    <div class="magic-firefly magic-firefly--one"></div>
+    <div class="magic-firefly magic-firefly--two"></div>
+    <div class="magic-firefly magic-firefly--three"></div>
+    <div class="magic-firefly magic-firefly--four"></div>
+  </div>
   <div id="stageTop">
     <div class="scores-container">
       <span id="user-info"></span>
@@ -38,6 +87,8 @@
   </div>
 
   <div id="stageBottom">
+    <!-- Sections groupées par thèmes (rendered by JS) -->
+    <section id="mm-sections" class="mm-sections"></section>
     <div id="content">
       <!-- Game content will be loaded here by JavaScript -->
     </div>
@@ -47,10 +98,6 @@
       <button id="btnSkip" class="btn" aria-label="Passer">Passer</button>
     </div>
   </div>
-
-  <audio id="audioCorrect" src="../assets/sounds/correct.wav" preload="metadata"></audio>
-  <audio id="audioWrong" src="../assets/sounds/bling.wav" preload="metadata"></audio>
-  <audio id="audioCoins" src="../assets/sounds/bling.wav" preload="metadata"></audio>
 
   <div id="shopModal" class="shop-modal" aria-hidden="true">
     <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
@@ -73,20 +120,200 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+  <script src="../games/gameData.js"></script>
   <script src="../games/puzzlemagique.js"></script>
   <script src="../games/repartis.js"></script>
   <script src="../games/dictee.js"></script>
   <script src="../games/mathblitz.js"></script>
   <script src="../games/lecturemagique.js"></script>
   <script src="../games/raisonnement.js"></script>
-  <script src="../js/ecriture-cursive.js"></script>
+  <!-- Logic & Advanced games (3e primaire) -->
+  <script src="../games/logicgames.js"></script>
+  <!-- New modules for 3e primaire -->
+  <script src="../games/problemsmagiques.js"></script>
+  <script src="../games/fractionsfantastiques.js"></script>
+  <script src="../games/tempshorloges.js"></script>
+  <script src="../games/tablesdefi.js"></script>
+  <script src="../games/seriesnumeriques.js"></script>
+    <script src="../js/ecriture-cursive.js"></script>
   <script src="../js/abaque-magique.js"></script>
   <script src="../js/audioManager.js"></script>
+  <script src="../js/mcqEngine.js"></script>
   <footer class="global-footer" data-app-footer></footer>
   <script src="../js/avatarData.js"></script>
   <script src="../js/storage.js"></script>
   <script src="../js/footer.js"></script>
   <script src="../js/mots-outils.js"></script>
   <script src="../js/juego.js"></script>
+  <script>
+  (function(){
+    const sectionsData = [
+      {
+        title: 'Mathématiques', emoji: 0x2795,
+        items: [
+          { label: 'Additions', emoji: 0x2795 },
+          { label: 'Soustractions', emoji: 0x2796 },
+          { label: 'Multiplications', emoji: 0x2716 },
+          { label: 'Divisions', emoji: 0x2797 },
+          { label: 'Maths Sprint', emoji: 0x26A1 },
+          { label: 'Abaque Magique', emoji: 0x1F9EE },
+          { label: 'Maisons des Nombres', emoji: 0x1F3E0 },
+          { label: 'Temps & Horloges', emoji: 0x23F0 },
+          { label: 'Mesures Magiques', emoji: 0x1F4CF },
+          { label: 'Fractions Fantastiques', emoji: 0x1F355 }
+        ]
+      },
+      {
+        title: 'Logique & Raisonnement', emoji: 0x1F9E0,
+        items: [
+          { label: 'Labyrinthe Logique', emoji: 0x1F9ED },
+          { label: 'Séries & Motifs / Jeu des Séquences', emoji: 0x1F537, aliases: ['Séries & Motifs','Jeu des Séquences'] },
+          { label: 'Tri & Classement (Jeu de Tri)', emoji: 0x1F5C2, aliases: ['Tri & Classement','Jeu de Tri'] },
+          { label: 'Sudoku Junior', emoji: 0x1F522 },
+          { label: 'Symétrie Magique', emoji: 0x1FA9E },
+          { label: 'Cartes Comparatives', emoji: 0x2696 },
+          { label: 'Réseaux de Chemins', emoji: 0x1F517 },
+          { label: 'Logigrammes (Si… Alors…)', emoji: 0x1F9E9 },
+          { label: 'Jeu d’énigmes', emoji: 0x1F4A1, aliases: ['Jeu d’énigmes','Jeu d\'énigmes'] },
+          { label: 'Répartis & Multiplie', emoji: 0x1F34E }
+        ]
+      },
+      {
+        title: 'Mots & Lecture', emoji: 0x1F4D6,
+        items: [
+          { label: 'Lecture Magique', emoji: 0x1F4D8 },
+          { label: 'Mots-Outils', emoji: 0x1F5E3 },
+          { label: 'Jeu des Voyelles', emoji: 0x1F170 },
+          { label: 'Dictée Magique', emoji: 0x270D },
+          { label: 'La Grande Aventure des Mots', emoji: 0x1F7E3 }
+        ]
+      },
+      {
+        title: 'Créatif & Monde', emoji: 0x1F3A8,
+        items: [
+          { label: 'Les Couleurs / Atelier d’Art', emoji: 0x1F3A8, aliases: ['Les Couleurs','Atelier d’Art'] },
+          { label: 'Puzzle Magique', emoji: 0x1F9E9 },
+          { label: 'Carte du Monde Interactive', emoji: 0x1F30D, aliases: ['Carte du Monde Interactive','Carte du Monde'] },
+          { label: 'Découvre la Nature', emoji: 0x1F333 },
+          { label: 'J’écris en cursive', emoji: 0x270F, aliases: ['J’écris en cursive','J\'écris en cursive'] },
+          { label: 'Contes Magiques', emoji: 0x1F4D6 }
+        ]
+      },
+      {
+        title: 'Cœur & Émotions', emoji: 0x2764,
+        items: [
+          { label: 'Émotions Magiques', emoji: 0x1F60A, aliases: ['Émotions Magiques','Emotions Magiques'] },
+          { label: 'Missions du Jour', emoji: 0x2705 },
+          { label: 'Quiz du Jour', emoji: 0x1F31E },
+          { label: 'Respire & Repose-toi', emoji: 0x1F9D8, aliases: ['Respire & Repose-toi','Respire & Repose toi'] },
+          { label: 'Expression de Soi / Mon Journal', emoji: 0x1F4AC, aliases: ['Expression de Soi','Mon Journal','Expression de Soi / Mon Journal'] }
+        ]
+      }
+    ];
+
+    const normalize = text => (text || '').replace(/\s+/g, ' ').trim();
+
+    function collectSources(){
+      const map = new Map();
+      document.querySelectorAll('#content .topic-btn, #content #logic-games .game-card').forEach(node => {
+        const labelEl = node.querySelector('.topic-btn__text, .title, .game-title');
+        const text = normalize(labelEl ? labelEl.textContent : node.textContent);
+        if (text && !map.has(text)) {
+          map.set(text, node);
+        }
+      });
+      return map;
+    }
+
+    function findSource(item, sources){
+      const aliases = item.aliases || [item.label];
+      for (const alias of aliases){
+        const key = normalize(alias);
+        if (sources.has(key)) return sources.get(key);
+      }
+      return null;
+    }
+
+    function buildSections(){
+      const container = document.getElementById('mm-sections');
+      if (!container) return;
+
+      const sources = collectSources();
+      const hasMenu = sources.size > 0;
+      container.classList.toggle('mm-hide', !hasMenu);
+      if (!hasMenu){
+        container.innerHTML = '';
+        return;
+      }
+
+      document.querySelectorAll('#content .options-grid, #content #logic-games').forEach(el => {
+        if (el.querySelector('.topic-btn, .game-card')) {
+          el.classList.add('mm-hide');
+        }
+      });
+
+      container.innerHTML = '';
+      sectionsData.forEach((section, index) => {
+        const card = document.createElement('article');
+        card.className = 'mm-section-card';
+        card.style.setProperty('--card-index', index);
+        const header = document.createElement('div'); header.className = 'mm-section-header';
+        const title = document.createElement('h3'); title.className = 'mm-section-title';
+        const emojiSpan = document.createElement('span'); emojiSpan.className = 'mm-emoji';
+        if (section.emoji) {
+          emojiSpan.textContent = typeof section.emoji === 'number' ? String.fromCodePoint(section.emoji) : section.emoji;
+        } else {
+          emojiSpan.textContent = String.fromCodePoint(0x2728);
+        }
+        title.appendChild(emojiSpan);
+        title.appendChild(document.createTextNode(' ' + section.title));
+        header.appendChild(title);
+        card.appendChild(header);
+        const grid = document.createElement('div'); grid.className = 'mm-chip-grid';
+
+        section.items.forEach(item => {
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'mm-chip';
+          const emojiSpanChip = document.createElement('span'); emojiSpanChip.className = 'mm-emoji';
+          if (item.emoji) {
+            emojiSpanChip.textContent = typeof item.emoji === 'number' ? String.fromCodePoint(item.emoji) : item.emoji;
+          } else {
+            emojiSpanChip.textContent = String.fromCodePoint(0x1F3AF);
+          }
+          chip.appendChild(emojiSpanChip);
+          const labelSpan = document.createElement('span'); labelSpan.textContent = item.label;
+          chip.appendChild(labelSpan);
+
+          const target = findSource(item, sources);
+          if (target){
+            chip.addEventListener('click', () => {
+              if (typeof target.focus === 'function') {
+                target.focus();
+              }
+              target.click();
+            });
+          } else {
+            chip.disabled = true;
+          }
+
+          grid.appendChild(chip);
+        });
+
+        card.appendChild(grid);
+        container.appendChild(card);
+      });
+    }
+
+    const contentEl = document.getElementById('content');
+    if (!contentEl) return;
+
+    const observer = new MutationObserver(() => buildSections());
+    observer.observe(contentEl, { childList: true, subtree: true });
+
+    document.addEventListener('DOMContentLoaded', buildSections);
+    window.addEventListener('load', buildSections);
+  })();
+  </script>
 </body>
 </html>
