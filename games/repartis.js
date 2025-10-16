@@ -13,7 +13,7 @@
         { mode: 'choice', multiplication: true, groups: 5, itemsPerGroup: 2, item: '🧁', characters: ['👧', '👦', '🐸', '👧', '👦'], question: '5 amis reçoivent 2 cupcakes chacun. Combien de cupcakes ? ', options: [12, 8, 10], answer: 10, reward: { stars: 32, coins: 22 } },
         { mode: 'choice', multiplication: true, groups: 6, itemsPerGroup: 3, item: '🧃', characters: ['👦', '👧', '🐸', '👧', '👦', '🐸'], question: '6 paniers contiennent 3 jus chacun. Quel est le résultat ?', options: [18, 12, 21], answer: 18, reward: { stars: 35, coins: 24 } }
     ];
-
+    
     function start(context) {
         const index = Math.max(0, Math.min(LEVELS.length, context.currentLevel) - 1);
         const levelData = LEVELS[index];

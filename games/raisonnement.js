@@ -12,7 +12,8 @@
         { type: 'odd', prompt: 'Quel élément ne fait pas partie du groupe ?', options: ['🍎', '🍌', '🚗'], answer: 2, hint: 'Deux sont des fruits.', success: 'Exact, la voiture est différente.' },
         { type: 'compare', left: '3', right: '5', options: ['<', '>', '='], answer: 0, hint: 'Compare les nombres.', success: '3 est plus petit que 5.' },
         { type: 'pattern', pattern: ['🔺', '🔵', '🔺', '🔵', '?'], options: ['🔺', '🟢', '⚪'], answer: 0, hint: 'Les formes alternent.', success: 'Triangle puis cercle, bravo !' },
-        { type: 'sequence', sequence: ['2', '4', '6', '?'], options: ['7', '8', '9'], answer: 1, hint: 'On ajoute toujours 2.', success: 'Suite numérique parfaite !' }
+        { type: 'sequence', sequence: ['2', '4', '6', '?'], options: ['7', '8', '9'], answer: 1, hint: 'On ajoute toujours 2.', success: 'Suite numérique parfaite !' },
+        { type: 'odd', prompt: 'Quel élément ne fait pas partie du groupe ?', options: ['🐶', '🐱', '🐠'], answer: 2, hint: 'Deux sont des animaux domestiques.', success: 'Exact, le poisson est différent.' }
       ]
     },
     {
@@ -22,7 +23,8 @@
         { type: 'sequence', sequence: ['🍓', '🍓', '🍍', '🍓', '?'], options: ['🍍', '🍓', '🍎'], answer: 0, hint: 'Un fruit différent revient régulièrement.', success: 'Ananas complète la suite !' },
         { type: 'pattern', pattern: ['⬛', '⬛', '⬜', '⬛', '?'], options: ['⬛', '⬜', '🔶'], answer: 1, hint: 'Deux noirs suivis d\'un blanc.', success: 'Blanc était attendu !' },
         { type: 'compare', left: '7', right: '7', options: ['<', '>', '='], answer: 2, hint: 'Ils sont identiques.', success: 'Égalité parfaite !' },
-        { type: 'shadow', base: '🦄', options: ['🦄', '🐴', '🦓'], answer: 0, hint: 'Quelle silhouette correspond ?', success: 'Silhouette magique trouvée.' }
+        { type: 'shadow', base: '🦄', options: ['🦄', '🐴', '🦓'], answer: 0, hint: 'Quelle silhouette correspond ?', success: 'Silhouette magique trouvée.' },
+        { type: 'sequence', sequence: ['A', 'B', 'C', '?'], options: ['D', 'E', 'F'], answer: 0, hint: 'Alphabetical order.', success: 'D comes after C.' }
       ]
     },
     {
@@ -32,7 +34,8 @@
         { type: 'pattern', pattern: ['🔺', '🔺', '🔵', '🔵', '?'], options: ['🔺', '🔵', '🟢'], answer: 0, hint: 'Deux triangles, deux cercles...', success: 'Deux triangles encore !' },
         { type: 'sequence', sequence: ['10', '8', '6', '?'], options: ['4', '5', '7'], answer: 0, hint: 'On retire deux.', success: '4 est correct.' },
         { type: 'odd', prompt: 'Choisis l\'intrus.', options: ['🦊', '🐺', '🐠'], answer: 2, hint: 'Deux vivent dans la forêt.', success: 'Le poisson vit dans l\'eau.' },
-        { type: 'shadow', base: '🧁', options: ['🧁', '🍰', '🍪'], answer: 0, hint: 'Même silhouette arrondie.', success: 'Cupcake trouvé !' }
+        { type: 'shadow', base: '🧁', options: ['🧁', '🍰', '🍪'], answer: 0, hint: 'Même silhouette arrondie.', success: 'Cupcake trouvé !' },
+        { type: 'compare', left: '10', right: '1', options: ['<', '>', '='], answer: 1, hint: 'Compare the numbers.', success: '10 is greater than 1.' }
       ]
     },
     {
@@ -42,7 +45,8 @@
         { type: 'sequence', sequence: ['5', '10', '15', '?'], options: ['18', '20', '25'], answer: 1, hint: 'On ajoute 5.', success: '20 est parfait !' },
         { type: 'pattern', pattern: ['🔷', '🔶', '🔷', '🔶', '?'], options: ['🔷', '🔶', '⬛'], answer: 0, hint: 'Les formes alternent.', success: 'Encore un losange bleu !' },
         { type: 'shadow', base: '🐼', options: ['🐼', '🐨', '🐻'], answer: 0, hint: 'Cherche le noir et blanc.', success: 'Panda repéré !' },
-        { type: 'odd', prompt: 'Qui est l\'intrus ?', options: ['🎻', '🎷', '🍩'], answer: 2, hint: 'Deux sont des instruments.', success: 'Le donut est gourmand mais pas un instrument !' }
+        { type: 'odd', prompt: 'Qui est l\'intrus ?', options: ['🎻', '🎷', '🍩'], answer: 2, hint: 'Deux sont des instruments.', success: 'Le donut est gourmand mais pas un instrument !' },
+        { type: 'pattern', pattern: ['❤️', '💔', '❤️', '💔', '?'], options: ['❤️', '💔', '💚'], answer: 0, hint: 'The pattern alternates.', success: 'Another heart.' }
       ]
     },
     {
@@ -52,7 +56,8 @@
         { type: 'pattern', pattern: ['🐱', '🐱', '🐾', '🐱', '?'], options: ['🐾', '🐱', '🐶'], answer: 0, hint: 'On voit des traces toutes les deux cases.', success: 'Empreinte retrouvée !' },
         { type: 'sequence', sequence: ['12', '15', '18', '?'], options: ['19', '21', '22'], answer: 1, hint: 'On ajoute 3.', success: '21 complète la suite.' },
         { type: 'odd', prompt: 'Quel symbole ne correspond pas ?', options: ['⬜', '⬛', '💧'], answer: 2, hint: 'Deux sont des carrés.', success: 'La goutte est différente.' },
-        { type: 'shadow', base: '🦋', options: ['🦋', '🐞', '🪲'], answer: 0, hint: 'Cherche les ailes symétriques.', success: 'Papillon trouvé !' }
+        { type: 'shadow', base: '🦋', options: ['🦋', '🐞', '🪲'], answer: 0, hint: 'Cherche les ailes symétriques.', success: 'Papillon trouvé !' },
+        { type: 'shadow', base: '⭐', options: ['⭐', '🌙', '☀️'], answer: 0, hint: 'Which shadow matches?', success: 'Star shadow found.' }
       ]
     },
     {
@@ -62,7 +67,8 @@
         { type: 'sequence', sequence: ['30', '25', '20', '?'], options: ['15', '18', '22'], answer: 0, hint: 'On retire 5.', success: '15 est correct.' },
         { type: 'pattern', pattern: ['🔺', '🔺', '🔺', '🔵', '?'], options: ['🔺', '🔵', '🟢'], answer: 0, hint: 'Trois triangles avant le cercle.', success: 'Triangle attendu !' },
         { type: 'shadow', base: '🍄', options: ['🍄', '🍅', '🍋'], answer: 0, hint: 'Forme ronde avec pied fin.', success: 'Champignon repéré.' },
-        { type: 'odd', prompt: 'Qui est différent ?', options: ['🚀', '✈️', '🛶'], answer: 2, hint: 'Deux volent dans le ciel.', success: 'Le canoë ne vole pas !' }
+        { type: 'odd', prompt: 'Qui est différent ?', options: ['🚀', '✈️', '🛶'], answer: 2, hint: 'Deux volent dans le ciel.', success: 'Le canoë ne vole pas !' },
+        { type: 'sequence', sequence: ['Z', 'Y', 'X', '?'], options: ['W', 'A', 'V'], answer: 0, hint: 'Reverse alphabetical order.', success: 'W comes before X.' }
       ]
     },
     {
@@ -72,7 +78,8 @@
         { type: 'pattern', pattern: ['🍎', '🍎', '🍎', '🍇', '?'], options: ['🍇', '🍎', '🍊'], answer: 0, hint: 'Trois pommes avant le raisin.', success: 'Encore un raisin !' },
         { type: 'sequence', sequence: ['4', '9', '14', '?'], options: ['18', '19', '20'], answer: 1, hint: 'On ajoute 5.', success: '19 complète la suite.' },
         { type: 'odd', prompt: 'Quel symbole n\'est pas comme les autres ?', options: ['💧', '🌧️', '🔥'], answer: 2, hint: 'Deux sont liés à l\'eau.', success: 'Le feu est différent.' },
-        { type: 'shadow', base: '🦔', options: ['🦔', '🐿️', '🐁'], answer: 0, hint: 'Cherche les piques.', success: 'Le hérisson a des piques.' }
+        { type: 'shadow', base: '🦔', options: ['🦔', '🐿️', '🐁'], answer: 0, hint: 'Cherche les piques.', success: 'Le hérisson a des piques.' },
+        { type: 'odd', prompt: 'Which one is not a color?', options: ['Red', 'Green', 'Banana'], answer: 2, hint: 'Two are colors.', success: 'Banana is a fruit.' }
       ]
     },
     {
@@ -82,7 +89,8 @@
         { type: 'sequence', sequence: ['6', '12', '18', '?'], options: ['20', '24', '26'], answer: 1, hint: 'On ajoute 6.', success: '24 complète la suite.' },
         { type: 'pattern', pattern: ['⬜', '⬜', '⬛', '⬛', '?'], options: ['⬜', '⬛', '🟦'], answer: 0, hint: 'Deux blancs puis deux noirs.', success: 'Retour aux carrés blancs.' },
         { type: 'shadow', base: '🎠', options: ['🎠', '🦓', '🐴'], answer: 0, hint: 'Cheval de manège.', success: 'Manège trouvé.' },
-        { type: 'odd', prompt: 'Qui est l\'intrus ?', options: ['🌳', '🌲', '🌊'], answer: 2, hint: 'Deux sont des arbres.', success: 'L\'eau est différente.' }
+        { type: 'odd', prompt: 'Qui est l\'intrus ?', options: ['🌳', '🌲', '🌊'], answer: 2, hint: 'Deux sont des arbres.', success: 'L\'eau est différente.' },
+        { type: 'compare', left: '100', right: '100', options: ['<', '>', '='], answer: 2, hint: 'They are identical.', success: 'Perfect equality!' }
       ]
     },
     {
@@ -92,7 +100,8 @@
         { type: 'sequence', sequence: ['40', '35', '30', '?'], options: ['26', '25', '28'], answer: 1, hint: 'On retire 5.', success: '25 est la bonne réponse.' },
         { type: 'pattern', pattern: ['🎈', '🎁', '🎈', '🎁', '?'], options: ['🎈', '🎁', '🎊'], answer: 0, hint: 'Ballon puis cadeau.', success: 'Encore un ballon.' },
         { type: 'shadow', base: '🚲', options: ['🚲', '🏍️', '🚗'], answer: 0, hint: 'Deux roues fines.', success: 'Vélo choisi.' },
-        { type: 'odd', prompt: 'Quel élément n\'appartient pas ?', options: ['🧁', '🍭', '🧃'], answer: 2, hint: 'Deux sont des douceurs solides.', success: 'Le jus est liquide.' }
+        { type: 'odd', prompt: 'Quel élément n\'appartient pas ?', options: ['🧁', '🍭', '🧃'], answer: 2, hint: 'Deux sont des douceurs solides.', success: 'Le jus est liquide.' },
+        { type: 'pattern', pattern: ['⬆️', '⬇️', '⬆️', '⬇️', '?'], options: ['⬆️', '⬇️', '➡️'], answer: 0, hint: 'The arrows alternate.', success: 'Up arrow again!' }
       ]
     },
     {
@@ -102,7 +111,8 @@
         { type: 'sequence', sequence: ['8', '16', '24', '?'], options: ['30', '32', '36'], answer: 1, hint: 'On ajoute 8.', success: '32 complète la suite.' },
         { type: 'pattern', pattern: ['⚙️', '⚙️', '🔩', '⚙️', '?'], options: ['⚙️', '🔩', '🔧'], answer: 2, hint: 'Une pièce différente apparaît.', success: 'La clé complète la série.' },
         { type: 'shadow', base: '🛸', options: ['🛸', '✈️', '🚀'], answer: 0, hint: 'Forme ovale flottante.', success: 'Ovni détecté !' },
-        { type: 'odd', prompt: 'Quel symbole est différent ?', options: ['🪄', '✨', '🍀'], answer: 2, hint: 'Deux sont liés à la magie.', success: 'Le trèfle est particulier.' }
+        { type: 'odd', prompt: 'Quel symbole est différent ?', options: ['🪄', '✨', '🍀'], answer: 2, hint: 'Deux sont liés à la magie.', success: 'Le trèfle est particulier.' },
+        { type: 'shadow', base: '🔑', options: ['🔑', '🔒', '🚪'], answer: 0, hint: 'Which shadow matches?', success: 'Key shadow found.' }
       ]
     }
   ];
@@ -166,6 +176,7 @@
     nextBtn.type = 'button';
     nextBtn.textContent = 'Prochaine énigme';
     nextBtn.disabled = true;
+    nextBtn.style.display = 'none';
     controls.appendChild(nextBtn);
     wrapper.appendChild(controls);
 
@@ -232,7 +243,7 @@
       option.appendChild(icon);
       option.appendChild(label);
 
-      option.addEventListener('click', () => handleAnswer(context, state, activity, idx, option, options, feedback, nextBtn));
+      option.addEventListener('click', () => handleAnswer(context, state, activity, idx, option, options, feedback, nextBtn, progressFill, activityZone));
       options.appendChild(option);
     });
 
@@ -244,7 +255,7 @@
     context.speakText(activity.speak || prompt.textContent);
   }
 
-  function handleAnswer(context, state, activity, selectedIndex, button, optionsContainer, feedback, nextBtn) {
+  function handleAnswer(context, state, activity, selectedIndex, button, optionsContainer, feedback, nextBtn, fill, activityZone) {
     if (button.disabled) { return; }
     const isCorrect = selectedIndex === activity.answer;
 
@@ -255,8 +266,15 @@
       button.classList.add('is-correct');
       disableButtons(optionsContainer);
       showFeedback(feedback, 'positive', activity.success || 'Bonne logique !');
-      nextBtn.disabled = false;
-      nextBtn.focus();
+      
+      setTimeout(() => {
+        state.index += 1;
+        if (state.index < state.levelData.activities.length) {
+          renderActivity(context, state, activityZone, feedback, fill, nextBtn);
+        } else {
+          finishLevel(context, state, feedback, nextBtn, fill);
+        }
+      }, 1000);
     } else {
       context.playNegativeSound();
       context.awardReward(0, -3);

@@ -215,7 +215,7 @@
       const base = htmlIdx >= 0 ? path.slice(0, htmlIdx + '/html/'.length) : '/html/';
 
       // 3) Ensure audioManager is present first (for footer audio button)
-      const audioLoaded = Array.from(document.scripts).some(s => /\/js\/audioManager\.js($|\?)/.test(s.src || ''));
+      const audioLoaded = Array.from(document.scripts).some(s => (s.src || '').endsWith('/js/audioManager.js'));
       if (!audioLoaded) {
         const audioScript = document.createElement('script');
         audioScript.src = base + '../js/audioManager.js';
@@ -224,7 +224,7 @@
       }
 
       // 4) If footer.js is not yet loaded, inject it with a robust path
-      const footerLoaded = Array.from(document.scripts).some(s => /\/js\/footer\.js($|\?)/.test(s.src || ''));
+      const footerLoaded = Array.from(document.scripts).some(s => (s.src || '').endsWith('/js/footer.js'));
       if (!footerLoaded) {
         const footerScript = document.createElement('script');
         footerScript.src = base + '../js/footer.js';

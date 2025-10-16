@@ -4,107 +4,55 @@
   const OPTION_ICONS = ['📘', '📗', '📙', '📕'];
 
   const LEVELS = [
-    {
-      level: 1,
-      reward: { stars: 8, coins: 5 },
-      activities: [
-        { type: 'word-image', illustration: '🦊', prompt: 'Quel mot correspond à ce dessin ?', options: ['renard', 'lion', 'éléphant'], answer: 0, hint: 'Il a une queue rousse.', success: 'Bravo, renard est correct !' },
-        { type: 'word-image', illustration: '🍎', prompt: 'Quel mot correspond à ce dessin ?', options: ['poire', 'banane', 'pomme'], answer: 2, hint: 'Ce fruit est rouge.', success: 'Oui, c\'est la pomme !' },
-        { type: 'fill', sentence: 'La ___ boit du lait.', options: ['chatte', 'voiture', 'chaise'], answer: 0, hint: 'Cherche un animal.', success: 'Bien vu !' },
-        { type: 'rhyme', base: 'chat', options: ['rat', 'nez', 'pied'], answer: 0, hint: 'Quel mot a le même son final ?', success: 'Rat rime avec chat !' },
-        { type: 'start-sound', letter: 'p', options: ['pomme', 'tomate', 'cerise'], answer: 0, hint: 'Quel mot commence par le son P ?', success: 'Pomme commence par P !' }
-      ]
-    },
-    {
-      level: 2,
-      reward: { stars: 9, coins: 6 },
-      activities: [
-        { type: 'word-image', illustration: '🐸', prompt: 'Quel mot correspond à ce dessin ?', options: ['grenouille', 'requin', 'girafe'], answer: 0, hint: 'Elle saute dans les étangs.', success: 'Grenouille réussi !' },
-        { type: 'fill', sentence: 'La fée agite sa ___ magique.', options: ['baguette', 'chaussure', 'maison'], answer: 0, hint: 'Elle brille et lance des étincelles.', success: 'Tu as trouvé la baguette !' },
-        { type: 'rhyme', base: 'montagne', options: ['campagne', 'écureuil', 'nuage'], answer: 0, hint: 'Quel mot termine presque pareil ?', success: 'Campagne rime avec montagne.' },
-        { type: 'start-sound', letter: 'b', options: ['robe', 'ballon', 'lune'], answer: 1, hint: 'Quel mot commence par b ?', success: 'Ballon commence par b !' }
-      ]
-    },
-    {
-      level: 3,
-      reward: { stars: 10, coins: 6 },
-      activities: [
-        { type: 'rhyme', base: 'glace', options: ['place', 'souris', 'lapin'], answer: 0, hint: 'Quel mot finit comme glace ?', success: 'Place rime avec glace.' },
-        { type: 'fill', sentence: 'La licorne traverse la ___ enchantée.', options: ['forêt', 'chaise', 'fourchette'], answer: 0, hint: 'Un lieu magique avec des arbres.', success: 'Forêt enchantée !' },
-        { type: 'word-image', illustration: '🦉', prompt: 'Quel mot correspond à ce dessin ?', options: ['hibou', 'dauphin', 'requin'], answer: 0, hint: 'Il veille la nuit.', success: 'Hibou bien joué !' },
-        { type: 'start-sound', letter: 'm', options: ['montagne', 'banane', 'rue'], answer: 0, hint: 'Quel mot commence par le son M ?', success: 'Montagne commence par M.' }
-      ]
-    },
-    {
-      level: 4,
-      reward: { stars: 12, coins: 7 },
-      activities: [
-        { type: 'word-image', illustration: '🪄', prompt: 'Quel mot correspond à ce dessin ?', options: ['baguette', 'camion', 'piano'], answer: 0, hint: 'Elle jette des étincelles.', success: 'Baguette magique !' },
-        { type: 'fill', sentence: 'Le dragon garde un coffret plein de ___.', options: ['trésors', 'nuages', 'sandwichs'], answer: 0, hint: 'Des bijoux brillants.', success: 'Trésors scintillants !' },
-        { type: 'rhyme', base: 'fée', options: ['clé', 'pied', 'nez'], answer: 0, hint: 'Quel mot a le même son final ?', success: 'Clé rime avec fée.' },
-        { type: 'start-sound', letter: 'v', options: ['violette', 'lampe', 'orange'], answer: 0, hint: 'Quel mot commence par le son V ?', success: 'Violette commence par V.' }
-      ]
-    },
-    {
-      level: 5,
-      reward: { stars: 13, coins: 8 },
-      activities: [
-        { type: 'fill', sentence: 'Les enfants décorent une ___ en papier.', options: ['lanterne', 'glace', 'chaussette'], answer: 0, hint: 'Elle s\'illumine le soir.', success: 'Lanterne bien décorée !' },
-        { type: 'word-image', illustration: '🐧', prompt: 'Quel mot correspond à ce dessin ?', options: ['pingouin', 'pigeon', 'panda'], answer: 0, hint: 'Il glisse sur la glace.', success: 'Pingouin adorable !' },
-        { type: 'rhyme', base: 'magie', options: ['vie', 'vent', 'son'], answer: 0, hint: 'Quel mot finit comme magie ?', success: 'Vie rime avec magie.' },
-        { type: 'start-sound', letter: 'ch', options: ['chapeau', 'sapin', 'table'], answer: 0, hint: 'Quel mot commence par le son ch ?', success: 'Chapeau commence par ch.' }
-      ]
-    },
-    {
-      level: 6,
-      reward: { stars: 14, coins: 9 },
-      activities: [
-        { type: 'fill', sentence: 'La princesse lit une histoire sur un ___ de velours.', options: ['trône', 'table', 'rideau'], answer: 0, hint: 'Elle est assise dessus.', success: 'Trône confortable !' },
-        { type: 'rhyme', base: 'souris', options: ['paradis', 'soleil', 'poisson'], answer: 0, hint: 'Cherche un mot qui sonne pareil.', success: 'Paradis rime avec souris.' },
-        { type: 'start-sound', letter: 'gr', options: ['grenouille', 'avion', 'citron'], answer: 0, hint: 'Quel mot commence par gr ?', success: 'Grenouille commence par gr.' },
-        { type: 'word-image', illustration: '🕯️', prompt: 'Quel mot correspond à ce dessin ?', options: ['bougie', 'planète', 'rideau'], answer: 0, hint: 'Elle éclaire doucement.', success: 'Bougie brillante !' }
-      ]
-    },
-    {
-      level: 7,
-      reward: { stars: 15, coins: 10 },
-      activities: [
-        { type: 'rhyme', base: 'cloche', options: ['poche', 'nez', 'biche'], answer: 0, hint: 'Quel mot finit comme cloche ?', success: 'Poche rime avec cloche.' },
-        { type: 'fill', sentence: 'Le chevalier trouve un ___ secret.', options: ['passage', 'chocolat', 'doigt'], answer: 0, hint: 'Un chemin caché.', success: 'Passage secret découvert !' },
-        { type: 'start-sound', letter: 'pl', options: ['plume', 'bateau', 'soldat'], answer: 0, hint: 'Quel mot commence par pl ?', success: 'Plume magique !' },
-        { type: 'word-image', illustration: '🧁', prompt: 'Quel mot correspond à ce dessin ?', options: ['cupcake', 'sandwich', 'soupe'], answer: 0, hint: 'Un petit gâteau décoré.', success: 'Cupcake gourmand !' }
-      ]
-    },
-    {
-      level: 8,
-      reward: { stars: 16, coins: 11 },
-      activities: [
-        { type: 'fill', sentence: 'Les étoiles brillent comme des ___ en sucre.', options: ['perles', 'pieds', 'fleurs'], answer: 0, hint: 'De petites boules brillantes.', success: 'Perles scintillantes !' },
-        { type: 'rhyme', base: 'glisser', options: ['danser', 'regarder', 'chanter'], answer: 0, hint: 'Quel mot se termine comme glisser ?', success: 'Danser rime avec glisser.' },
-        { type: 'start-sound', letter: 'fr', options: ['fraise', 'maison', 'feu'], answer: 0, hint: 'Quel mot commence par fr ?', success: 'Fraise commence par fr.' },
-        { type: 'word-image', illustration: '🧚', prompt: 'Quel mot correspond à ce dessin ?', options: ['fée', 'chien', 'poule'], answer: 0, hint: 'Elle a des ailes.', success: 'Fée radieuse !' }
-      ]
-    },
-    {
-      level: 9,
-      reward: { stars: 18, coins: 12 },
-      activities: [
-        { type: 'rhyme', base: 'coquille', options: ['fille', 'bateau', 'drap'], answer: 0, hint: 'Quel mot finit comme coquille ?', success: 'Fille rime avec coquille.' },
-        { type: 'fill', sentence: 'Le vent murmure une ___ secrète.', options: ['chanson', 'fourche', 'pluie'], answer: 0, hint: 'On l\'entend et on peut la chanter.', success: 'Chanson secrète !' },
-        { type: 'start-sound', letter: 'cr', options: ['crayon', 'lampe', 'tour'], answer: 0, hint: 'Quel mot commence par cr ?', success: 'Crayon commence par cr.' },
-        { type: 'word-image', illustration: '🦋', prompt: 'Quel mot correspond à ce dessin ?', options: ['papillon', 'mouche', 'grenouille'], answer: 0, hint: 'Ses ailes sont colorées.', success: 'Papillon léger !' }
-      ]
-    },
-    {
-      level: 10,
-      reward: { stars: 20, coins: 13 },
-      activities: [
-        { type: 'fill', sentence: 'Les amis inventent une ___ étincelante.', options: ['histoire', 'chaise', 'loupe'], answer: 0, hint: 'On la lit avec plaisir.', success: 'Histoire étincelante !' },
-        { type: 'rhyme', base: 'diamant', options: ['géant', 'nez', 'pépin'], answer: 0, hint: 'Quel mot finit comme diamant ?', success: 'Géant rime avec diamant.' },
-        { type: 'start-sound', letter: 'sc', options: ['scintille', 'melon', 'tomate'], answer: 0, hint: 'Quel mot commence par sc ?', success: 'Scintille commence par sc.' },
-        { type: 'word-image', illustration: '🪐', prompt: 'Quel mot correspond à ce dessin ?', options: ['planète', 'casserole', 'cactus'], answer: 0, hint: 'Elle tourne autour du soleil.', success: 'Planète brillante !' }
-      ]
-    }
+{
+level: 1,
+reward: { stars: 8, coins: 5 },
+activities: [
+{ type: 'word-image', illustration: '🦊', prompt: 'Quel mot représente cet animal rusé ?', options: ['renard', 'lion', 'éléphant'], answer: 0, hint: 'Il a une queue rousse et vit dans les forêts.', success: 'Bravo, renard est correct !' },
+{ type: 'word-image', illustration: '🍎', prompt: 'Quel fruit croquant est ici représenté ?', options: ['poire', 'banane', 'pomme'], answer: 2, hint: 'Ce fruit est souvent rouge ou vert.', success: 'Oui, c\'est la pomme !' },
+{ type: 'fill', sentence: 'La ___ boit du lait.', options: ['chatte', 'voiture', 'chaise'], answer: 0, hint: 'Cherche un animal domestique.', success: 'Bien vu !' },
+{ type: 'rhyme', base: 'chat', options: ['rat', 'nez', 'pied'], answer: 0, hint: 'Quel mot se termine par le même son ?', success: 'Rat rime avec chat !' },
+{ type: 'start-sound', letter: 'p', options: ['pomme', 'tomate', 'cerise'], answer: 0, hint: 'Quel mot commence par le son P ?', success: 'Pomme commence par P !' },
+{ type: 'fill', sentence: 'Le soleil brille dans le ___ bleu.', options: ['ciel', 'sol', 'bois'], answer: 0, hint: 'Regarde en haut pendant la journée.', success: 'Exactement, c\'est le ciel !' }
+]
+},
+{
+level: 2,
+reward: { stars: 9, coins: 6 },
+activities: [
+{ type: 'word-image', illustration: '🐱', prompt: 'Quel animal miaule ?', options: ['chien', 'chat', 'lapin'], answer: 1, hint: 'Il aime les souris.', success: 'Bonne réponse, le chat miaule !' },
+{ type: 'fill', sentence: 'Le pain est dans la ___.', options: ['boîte', 'poubelle', 'corbeille'], answer: 2, hint: 'On y met souvent les fruits ou le pain.', success: 'Oui, dans la corbeille !' },
+{ type: 'rhyme', base: 'chien', options: ['bien', 'fleur', 'lien'], answer: 0, hint: 'Quel mot rime avec chien ?', success: 'Bien rime avec chien !' },
+{ type: 'start-sound', letter: 't', options: ['tigre', 'zèbre', 'oiseau'], answer: 0, hint: 'Quel mot commence par le son T ?', success: 'Tigre commence par T !' },
+{ type: 'fill', sentence: 'La mer est pleine d\'___.', options: ['eau', 'arbres', 'sable'], answer: 0, hint: 'C\'est un liquide.', success: 'Oui, elle est pleine d\'eau !' },
+{ type: 'word-image', illustration: '🌕', prompt: 'Quel mot correspond à cette image céleste ?', options: ['lune', 'soleil', 'terre'], answer: 0, hint: 'Elle brille la nuit.', success: 'C\'est bien la lune !' }
+]
+},
+{
+level: 3,
+reward: { stars: 10, coins: 7 },
+activities: [
+{ type: 'word-image', illustration: '🦉', prompt: 'Quel oiseau voit dans le noir ?', options: ['hibou', 'colombe', 'canard'], answer: 0, hint: 'Il hulule la nuit.', success: 'Exactement, le hibou !' },
+{ type: 'fill', sentence: 'Le ___ tourne autour du soleil.', options: ['planète', 'rocher', 'sapin'], answer: 0, hint: 'La Terre est une.', success: 'Planète est la bonne réponse !' },
+{ type: 'rhyme', base: 'nuit', options: ['fruit', 'jour', 'matin'], answer: 0, hint: 'Quel mot finit comme nuit ?', success: 'Fruit rime avec nuit !' },
+{ type: 'start-sound', letter: 'cl', options: ['cloche', 'lampe', 'poule'], answer: 0, hint: 'Quel mot commence par cl ?', success: 'Cloche commence par cl !' },
+{ type: 'word-image', illustration: '🌲', prompt: 'Quel mot correspond à cet arbre ?', options: ['pin', 'rose', 'citrouille'], answer: 0, hint: 'Un arbre vert et pointu.', success: 'Pin est le bon mot !' },
+{ type: 'fill', sentence: 'Le magicien utilise une ___.', options: ['baguette', 'assiette', 'télécommande'], answer: 0, hint: 'Objet magique et fin.', success: 'Bravo, une baguette magique !' }
+]
+},
+{
+level: 4,
+reward: { stars: 11, coins: 8 },
+activities: [
+{ type: 'fill', sentence: 'L\'enfant monte sur une ___ pour voir plus haut.', options: ['chaise', 'échelle', 'table'], answer: 1, hint: 'Elle a des barreaux.', success: 'Bonne réponse, une échelle !' },
+{ type: 'word-image', illustration: '🐢', prompt: 'Quel animal porte une carapace ?', options: ['tortue', 'chien', 'singe'], answer: 0, hint: 'Elle est lente.', success: 'Tortue est correct !' },
+{ type: 'rhyme', base: 'beau', options: ['chaud', 'chien', 'fleur'], answer: 0, hint: 'Quel mot se termine pareil ?', success: 'Chaud rime avec beau !' },
+{ type: 'start-sound', letter: 'tr', options: ['train', 'lune', 'livre'], answer: 0, hint: 'Quel mot commence par tr ?', success: 'Train commence par tr !' },
+{ type: 'word-image', illustration: '🖼️', prompt: 'Quel mot représente cet objet accroché au mur ?', options: ['tableau', 'canapé', 'lampe'], answer: 0, hint: 'On y voit souvent des images.', success: 'Oui, un tableau !' },
+{ type: 'fill', sentence: 'L\'avion vole dans le ___.', options: ['vent', 'ciel', 'jardin'], answer: 1, hint: 'Au-dessus de nous.', success: 'Dans le ciel !' }
+]
+},
+
   ];
 
   function start(context) {
@@ -159,16 +107,6 @@
     feedback.setAttribute('aria-live', 'polite');
     wrapper.appendChild(feedback);
 
-    const controls = document.createElement('div');
-    controls.className = 'lecture-magique__controls';
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'lecture-magique__next-btn';
-    nextBtn.type = 'button';
-    nextBtn.textContent = 'Continuer l\'histoire';
-    nextBtn.disabled = true;
-    controls.appendChild(nextBtn);
-    wrapper.appendChild(controls);
-
     content.appendChild(wrapper);
 
     context.configureBackButton('Retour aux niveaux', () => {
@@ -178,23 +116,14 @@
 
     context.setAnsweredStatus('in-progress');
 
-    nextBtn.addEventListener('click', () => {
-      state.index += 1;
-      if (state.index < state.levelData.activities.length) {
-        renderActivity(context, state, activityZone, feedback, progressFill, nextBtn);
-      } else {
-        finishLevel(context, state, feedback, nextBtn, progressFill);
-      }
-    });
-
-    renderActivity(context, state, activityZone, feedback, progressFill, nextBtn);
+    renderActivity(context, state, activityZone, feedback, progressFill, null);
   }
 
   function renderActivity(context, state, activityZone, feedback, progressFill, nextBtn) {
     clearTimeout(state.feedbackTimer);
     feedback.classList.add('is-hidden');
     feedback.textContent = '';
-    nextBtn.disabled = true;
+    if (nextBtn) nextBtn.disabled = true;
 
     const activity = state.levelData.activities[state.index];
     const total = state.levelData.activities.length;
@@ -208,9 +137,7 @@
     activityZone.appendChild(question);
 
     const illustration = buildIllustration(activity);
-    if (illustration) {
-      activityZone.appendChild(illustration);
-    }
+    if (illustration) activityZone.appendChild(illustration);
 
     const options = document.createElement('div');
     options.className = 'lecture-magique__options';
@@ -232,7 +159,9 @@
       option.appendChild(icon);
       option.appendChild(label);
 
-      option.addEventListener('click', () => handleReadingAnswer(context, state, activity, idx, option, options, feedback, nextBtn));
+      option.addEventListener('click', () =>
+        handleReadingAnswer(context, state, activity, idx, option, options, feedback, activityZone, progressFill)
+      );
       options.appendChild(option);
     });
 
@@ -244,8 +173,9 @@
     context.speakText(activity.speak || question.textContent);
   }
 
-  function handleReadingAnswer(context, state, activity, selectedIndex, button, optionsContainer, feedback, nextBtn) {
-    if (button.disabled) { return; }
+  function handleReadingAnswer(context, state, activity, selectedIndex, button, optionsContainer, feedback, activityZone, progressFill) {
+    if (button.disabled) return;
+
     const isCorrect = selectedIndex === activity.answer;
 
     if (isCorrect) {
@@ -255,8 +185,15 @@
       button.classList.add('is-correct');
       disableOptions(optionsContainer);
       showReadingFeedback(feedback, 'positive', activity.success || 'Super lecture !');
-      nextBtn.disabled = false;
-      nextBtn.focus();
+
+      setTimeout(() => {
+        state.index += 1;
+        if (state.index < state.levelData.activities.length) {
+          renderActivity(context, state, activityZone, feedback, progressFill, null);
+        } else {
+          finishLevel(context, state, feedback, null, progressFill);
+        }
+      }, 1200);
     } else {
       context.playNegativeSound();
       context.awardReward(0, -2);
@@ -276,8 +213,8 @@
 
   function finishLevel(context, state, feedback, nextBtn, progressFill) {
     progressFill.style.width = '100%';
-    nextBtn.disabled = true;
-    showReadingFeedback(feedback, 'positive', '✨ Tu as lu toute l\'histoire !');
+    if (nextBtn) nextBtn.disabled = true;
+    showReadingFeedback(feedback, '✨ Tu as lu toute l\'histoire !');
 
     context.markLevelCompleted();
     context.showSuccessMessage('Lecture réussie !');
@@ -300,10 +237,10 @@
       return activity.sentence.replace('___', '____');
     }
     if (activity.type === 'rhyme') {
-      return `Quel mot rime avec "${activity.base}" ?`;
+      return `Quel mot rime avec \"${activity.base}\" ?`;
     }
     if (activity.type === 'start-sound') {
-      return `Quel mot commence par le son "${activity.letter}" ?`;
+      return `Quel mot commence par le son \"${activity.letter}\" ?`;
     }
     return 'Lis et choisis la bonne réponse.';
   }
@@ -337,7 +274,7 @@
   }
 
   function highlightBlank(sentence) {
-    return sentence.replace('___', '<span class="lecture-magique__blank">___</span>');
+    return sentence.replace('___', '<span class=\"lecture-magique__blank\">___</span>');
   }
 
   window.lectureMagiqueGame = {

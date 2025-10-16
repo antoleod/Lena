@@ -1,4 +1,14 @@
 console.log("juego.js loaded");
+
+function debounce(func, delay) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const userProfile = storage.loadUserProfile();
     console.log("userProfile:", userProfile);
@@ -1930,6 +1940,23 @@ document.addEventListener('DOMContentLoaded', () => {
         applyActiveCosmetics();
     }
 
+    function resolveAvatarIcon(iconUrl = '') {
+        if (!iconUrl || typeof iconUrl !== 'string') {
+            return '';
+        }
+        if (/^(data:|https?:|blob:)/.test(iconUrl)) {
+            return iconUrl;
+        }
+        if (iconUrl.startsWith('../')) {
+            return iconUrl;
+        }
+        if (iconUrl.startsWith('./')) {
+            return `../${iconUrl.slice(2)}`;
+        }
+        const cleaned = iconUrl.replace(/^\/+/, '');
+        return `../${cleaned}`;
+    }
+
     function renderUserIdentity(newBadgeEmoji) {
         if (typeof newBadgeEmoji !== 'undefined') {
             userProgress.activeBadgeEmoji = newBadgeEmoji;
@@ -2150,7 +2177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    function saveProgress() {
+    function _saveProgressImmediate() {
         const progress = {
             userScore: userProgress.userScore,
             answeredQuestions: userProgress.answeredQuestions,
@@ -2161,6 +2188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         storage.saveUserProgress(userProfile.name, progress);
     }
+    const saveProgress = debounce(_saveProgressImmediate, 1500);
     
     function configureBackButton(label, handler) {
         btnBack.style.display = 'inline-block';
@@ -3379,7 +3407,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="progress-tracker__fill"></div>
                 </div>
             `;
-            stageBottom.prepend(tracker);
+            const footer = document.querySelector('.global-footer');
+            if (footer) {
+                footer.parentNode.insertBefore(tracker, footer);
+            } else {
+                document.body.appendChild(tracker);
+            }
         }
         const bar = tracker.querySelector('.progress-tracker__bar');
         const fill = tracker.querySelector('.progress-tracker__fill');
@@ -5082,16 +5115,17 @@ function generateNumberProblems(sum, count) {
         }
 
         function markLevelInProgress() {
-            answeredQuestions[`sorting-${currentLevel}`] = 'in-progress';
+            userProgress.answeredQuestions[`sorting-${gameState.currentLevel}`] = 'in-progress';
             saveProgress();
         }
 
         function rewardPlayer() {
             showSuccessMessage('Classement parfait ! ✨');
             showConfetti();
-            userScore.stars += reward.stars;
-            userScore.coins += reward.coins;
-            answeredQuestions[`sorting-${currentLevel}`] = 'completed';
+            const reward = { stars: 10, coins: 5 }; // Default reward
+            userProgress.userScore.stars += reward.stars;
+            userProgress.userScore.coins += reward.coins;
+            userProgress.answeredQuestions[`sorting-${gameState.currentLevel}`] = 'completed';
             saveProgress();
             updateUI();
             clearProgressTracker();

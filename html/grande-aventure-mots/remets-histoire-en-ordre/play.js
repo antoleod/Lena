@@ -29,13 +29,33 @@
   let score = 0;
   let sortable = null;
 
+const sounds = {
+    drag: null,
+    drop: null,
+    correct: null
+  };
+
+  function initSounds() {
+    if (window.audioManager) {
+      sounds.drag = window.audioManager.bind(new Audio('../../assets/sounds/bling.wav'));
+      sounds.drop = window.audioManager.bind(new Audio('../../assets/sounds/bling.wav'));
+      sounds.correct = window.audioManager.bind(new Audio('../../assets/sounds/correct.wav'));
+    }
+  }
+
+  function playSound(sound) {
+    if (sound && sound.play) {
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+    }
+  }
+
   function updateTitle() {
     if (elements.title) {
       elements.title.innerHTML = `<span>📚</span>${level.title}`;
     }
     if (elements.description) {
-      const intro = SETTINGS.introText ? `${SETTINGS.introText}
-` : '';
+      const intro = SETTINGS.introText ? `${SETTINGS.introText}\n` : '';
       elements.description.textContent = `${intro}${level.description || ''}`.trim();
     }
   }
@@ -71,6 +91,7 @@
     if (isCorrect) {
       score += 1;
       setFeedback('Bravo, c’est le bon ordre !', 'success');
+      playSound(sounds.correct);
       GAM.speak('Bravo !');
     } else {
       setFeedback('Ce n’est pas tout à fait ça. Essaie encore.', 'error');
@@ -117,6 +138,8 @@
     }
     sortable = new Sortable(elements.container, {
       animation: 150,
+      onStart: () => playSound(sounds.drag),
+      onEnd: () => playSound(sounds.drop)
     });
 
     speakStory(exercise.steps);
@@ -152,6 +175,7 @@
   }
 
   function init() {
+    initSounds();
     updateTitle();
     initControls();
     renderExercise();

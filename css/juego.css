@@ -226,30 +226,16 @@
 
 /* Pildora de progreso */
 .progress-tracker {
-  position: fixed;
-  top: 0.8rem;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
   background: rgba(255,255,255,0.85);
   box-shadow: var(--shadow-small);
   opacity: 0;
   transition: opacity 0.3s ease;
+  margin: 0 auto 1rem;
+  width: fit-content;
 }
 .progress-tracker.is-visible { opacity: 1; }
-
-/* Inline variant for tracker placed in layout (not fixed) */
-.progress-tracker--inline {
-  position: static;
-  top: auto;
-  left: auto;
-  transform: none;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-  margin: 0.25rem 0 0.8rem;
-}
 
 /* ------------------------------
    § Cinta mágica para operaciones

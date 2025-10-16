@@ -2,57 +2,74 @@
     'use strict';
 
     const SYMBOL_MAP = { '+': '+', '-': '−', 'x': '×', '÷': '÷' };
-    
+
     const PUZZLE_LEVELS = [
-        // Niveaux 1-3: Additions simples (a + b = ?)
         { level: 1, operations: ['+'], range: [1, 5], count: 5, reward: { stars: 10, coins: 5 } },
         { level: 2, operations: ['+'], range: [3, 8], count: 5, reward: { stars: 12, coins: 6 } },
         { level: 3, operations: ['+'], range: [5, 12], count: 5, reward: { stars: 14, coins: 7 } },
-        // Niveaux 4-6: Additions avec inconnue (a + ? = c)
         { level: 4, operations: ['+'], range: [1, 10], count: 5, unknown: true, reward: { stars: 15, coins: 8 } },
         { level: 5, operations: ['+'], range: [5, 15], count: 5, unknown: true, reward: { stars: 16, coins: 8 } },
-        // Niveaux 6-8: Soustractions simples (a - b = ?)
         { level: 6, operations: ['-'], range: [5, 15], count: 5, reward: { stars: 18, coins: 9 } },
         { level: 7, operations: ['-'], range: [10, 25], count: 5, reward: { stars: 20, coins: 10 } },
-        // Niveaux 9-10: Mélange
-        { level: 8, operations: ['+', '-'], range: [5, 20], count: 5, unknown: true, reward: { stars: 22, coins: 11 } },
-        { level: 9, operations: ['+', '-'], range: [10, 30], count: 5, unknown: true, reward: { stars: 25, coins: 12 } },
-        { level: 10, operations: ['+', '-'], range: [15, 50], count: 5, unknown: true, reward: { stars: 30, coins: 15 } },
+        { level: 8, operations: ['-'], range: [10, 30], count: 5, unknown: true, reward: { stars: 22, coins: 11 } },
+        { level: 9, operations: ['-'], range: [15, 40], count: 5, unknown: true, reward: { stars: 25, coins: 12 } },
+        { level: 10, operations: ['-'], range: [20, 50], count: 5, unknown: true, reward: { stars: 30, coins: 15 } },
     ];
 
     function generateQuestion(levelData) {
         const op = levelData.operations[Math.floor(Math.random() * levelData.operations.length)];
         const [min, max] = levelData.range;
-        let num1, num2, answer, questionText;
+        let numbers = [];
+        let answer;
+        let questionText;
 
         if (op === '+') {
-            num1 = randomInt(min, max);
-            num2 = randomInt(min, max);
-            if (levelData.unknown && Math.random() > 0.5) {
-                answer = num2;
-                questionText = `${num1} + ? = ${num1 + num2}`;
+            // ➕ SUMAS de 3 a 5 términos
+            const numTerms = randomInt(3, 5);
+            do {
+                numbers = Array.from({ length: numTerms }, () => randomInt(min, max));
+            } while (numbers.reduce((a, b) => a + b, 0) > max * numTerms);
+
+            const sum = numbers.reduce((a, b) => a + b, 0);
+
+            if (levelData.unknown) {
+                const unknownIndex = randomInt(0, numbers.length - 1);
+                answer = numbers[unknownIndex];
+                const display = numbers.map((num, idx) => idx === unknownIndex ? '?' : num).join(' + ');
+                questionText = `${display} = ${sum}`;
             } else {
-                answer = num1 + num2;
-                questionText = `${num1} + ${num2} = ?`;
+                answer = sum;
+                questionText = `${numbers.join(' + ')} = ?`;
             }
-        } else { // op === '-'
-            num1 = randomInt(min + 5, max + 5);
-            num2 = randomInt(min, num1 - 1);
-            if (levelData.unknown && Math.random() > 0.5) {
-                answer = num2;
-                questionText = `${num1} − ? = ${num1 - num2}`;
+
+        } else if (op === '-') {
+            // ➖ RESTAS de 3 a 5 términos
+            const numTerms = randomInt(3, 5);
+            const subtrahends = Array.from({ length: numTerms - 1 }, () => randomInt(min, max));
+
+            // Aseguramos que el primer número sea suficientemente grande
+            const totalSubtract = subtrahends.reduce((a, b) => a + b, 0);
+            const firstNumber = totalSubtract + randomInt(5, max);
+
+            numbers = [firstNumber, ...subtrahends];
+            const result = numbers.reduce((a, b) => a - b);
+
+            if (levelData.unknown) {
+                const unknownIndex = randomInt(0, numbers.length - 1);
+                answer = numbers[unknownIndex];
+                const display = numbers.map((num, idx) => idx === unknownIndex ? '?' : num).join(' − ');
+                questionText = `${display} = ${result}`;
             } else {
-                answer = num1 - num2;
-                questionText = `${num1} − ${num2} = ?`;
+                answer = result;
+                questionText = `${numbers.join(' − ')} = ?`;
             }
         }
 
+        // Opciones múltiples
         const options = new Set([answer]);
         while (options.size < 4) {
-            const wrong = answer + randomInt(-5, 5);
-            if (wrong !== answer && wrong >= 0) {
-                options.add(wrong);
-            }
+            const wrong = answer + randomInt(-10, 10);
+            if (wrong !== answer && wrong >= 0) options.add(wrong);
         }
 
         return {
@@ -93,10 +110,7 @@
 
         context.content.appendChild(wrapper);
 
-        const goBack = () => {
-            context.showLevelMenu();
-        };
-        context.configureBackButton('Retour aux niveaux', goBack);
+        context.configureBackButton('Retour aux niveaux', () => context.showLevelMenu());
 
         renderQuestion(context, state, questionContainer);
     }
@@ -142,10 +156,9 @@
         } else {
             button.classList.add('is-wrong');
             const correctButton = grid.querySelector(`[data-value="${question.answer}"]`);
-            if (correctButton) {
-                correctButton.classList.add('is-correct');
-            }
+            if (correctButton) correctButton.classList.add('is-correct');
             context.playNegativeSound();
+            if (navigator.vibrate) navigator.vibrate(300);
             context.awardReward(0, -2);
             context.updateUI();
             setTimeout(() => nextQuestion(context, state), 1800);
