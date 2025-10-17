@@ -1922,6 +1922,20 @@
   80% { transform: translateX(2px); }
 }
 
+.clock-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.clock-svg {
+  width: clamp(150px, 40vw, 220px);
+  height: auto;
+  background: #f0f4ff;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
 .puzzle-wrapper {
     background: linear-gradient(145deg, #fff8e1, #ffecb3);
     border-radius: 2rem;
@@ -2161,11 +2175,54 @@
 .logic-options-grid {
   margin-top: clamp(0.75rem, 1.8vw, 1rem);
   gap: clamp(0.6rem, 1.6vw, 0.9rem);
+  animation: optionStagger 0.6s ease both;
 }
 
 .logic-options-grid .puzzle-option-btn {
-  min-height: clamp(54px, 10vh, 68px);
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  position: relative;
+  min-height: clamp(56px, 10vh, 74px);
+  font-size: clamp(0.98rem, 1.8vw, 1.12rem);
+  border-radius: 18px;
+  border: 1px solid rgba(123, 104, 238, 0.55);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(204, 193, 255, 0.08));
+  box-shadow: 0 14px 26px rgba(81, 62, 234, 0.18);
+  backdrop-filter: blur(6px);
+  color: #2f2762;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.logic-options-grid .puzzle-option-btn::before {
+  content: '';
+  position: absolute;
+  inset: -140% -40%;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transform: rotate(12deg);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.logic-options-grid .puzzle-option-btn:hover::before,
+.logic-options-grid .puzzle-option-btn:focus-visible::before {
+  opacity: 0.95;
+  transform: rotate(0deg) translateY(-12%);
+}
+
+.logic-options-grid .puzzle-option-btn:hover,
+.logic-options-grid .puzzle-option-btn:focus-visible {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 34px rgba(123, 104, 238, 0.28);
+  border-color: rgba(161, 147, 255, 0.9);
+}
+
+.logic-options-grid .puzzle-option-btn.is-correct {
+  border-color: rgba(72, 201, 176, 0.95);
+  box-shadow: 0 22px 38px rgba(72, 201, 176, 0.28);
+}
+
+.logic-options-grid .puzzle-option-btn.is-wrong {
+  border-color: rgba(255, 99, 132, 0.9);
+  box-shadow: 0 22px 38px rgba(255, 99, 132, 0.25);
 }
 
 .logic-level-intro {
@@ -2173,3 +2230,763 @@
   margin-bottom: 0.4rem;
 }
 
+.logic-timer {
+  align-self: center;
+  margin-top: 0.25rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(0.85rem, 2.3vw, 1rem);
+  letter-spacing: 0.02em;
+  background: rgba(81, 62, 234, 0.12);
+  color: #463ac9;
+  box-shadow: 0 12px 24px rgba(70, 58, 201, 0.12);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.logic-timer.is-warning {
+  background: rgba(255, 193, 7, 0.18);
+  color: #f7961c;
+}
+
+.logic-timer.is-danger {
+  background: rgba(255, 82, 82, 0.22);
+  color: #ff3b30;
+}
+
+.logic-timer.is-expired {
+  animation: timer-pop 0.28s ease-in-out 0s 2 alternate;
+}
+
+@keyframes timer-pop {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes optionStagger {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shellBreath {
+  from {
+    box-shadow: 0 18px 40px rgba(24, 20, 68, 0.12);
+  }
+  to {
+    box-shadow: 0 24px 48px rgba(81, 62, 234, 0.2);
+  }
+}
+
+/* ------------------------------
+   Game shells (Temps/Mesures/Fractions)
+   ------------------------------ */
+.game-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 1.6rem);
+  border-radius: 26px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(245, 240, 255, 0.88));
+  box-shadow: 0 18px 40px rgba(24, 20, 68, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2.6vw, 1.2rem);
+  position: relative;
+  overflow: hidden;
+  animation: shellBreath 9s ease-in-out infinite alternate;
+}
+
+.game-shell::after {
+  content: '';
+  position: absolute;
+  inset: 12% -40% auto;
+  height: 220px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 60%);
+  pointer-events: none;
+}
+
+.game-shell__header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 2vw, 0.9rem);
+  position: relative;
+  z-index: 1;
+}
+
+.game-shell__icon {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  filter: drop-shadow(0 8px 18px rgba(81, 62, 234, 0.25));
+}
+
+.game-shell__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.game-shell__subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  font-weight: 800;
+  color: #3f2cb4;
+}
+
+.game-shell__level {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 2.3vw, 1.05rem);
+  font-weight: 700;
+  color: rgba(54, 39, 120, 0.75);
+}
+
+.game-shell__progress {
+  align-self: center;
+  margin-bottom: clamp(0.35rem, 1.5vw, 0.6rem);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(49, 62, 234, 0.12);
+  font-family: var(--font-heading);
+  font-size: clamp(0.85rem, 2.4vw, 1rem);
+  color: #5145b0;
+}
+
+.time-mastery {
+  background: linear-gradient(155deg, rgba(245, 249, 255, 0.96), rgba(220, 232, 255, 0.88));
+}
+
+.metric-mastery {
+  background: linear-gradient(155deg, rgba(247, 255, 247, 0.96), rgba(218, 244, 229, 0.88));
+}
+
+.fraction-magic {
+  background: linear-gradient(155deg, rgba(255, 248, 243, 0.96), rgba(255, 227, 204, 0.86));
+}
+
+.time-question-area,
+.measure-question-area,
+.fraction-question-area {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 22px;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.time-question,
+.measure-question,
+.fraction-question {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.3rem, 1.2vw, 0.5rem);
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  color: rgba(36, 28, 77, 0.88);
+}
+
+.time-question__intro,
+.measure-question__intro,
+.fraction-question__intro {
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: rgba(81, 62, 234, 0.85);
+  text-transform: uppercase;
+}
+
+
+.time-question__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(81, 62, 234, 0.18);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(0.75rem, 2.1vw, 0.9rem);
+  color: #4a3cc7;
+  margin-bottom: 0.35rem;
+  box-shadow: 0 6px 14px rgba(72, 63, 177, 0.12);
+}
+
+.time-question__badge span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.time-question__highlight {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2.8vw, 1.35rem);
+  font-weight: 800;
+  color: #32276e;
+  margin: 0 0 0.35rem;
+}
+
+.time-question__scroll {
+  display: block;
+  text-align: center;
+  margin: 0.6rem 0;
+  padding: 0.65rem 0.9rem;
+  border-radius: 16px;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.7), rgba(229, 223, 255, 0.42));
+  border: 1px solid rgba(123, 104, 238, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 12px 22px rgba(47, 41, 118, 0.12);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: rgba(45, 37, 105, 0.9);
+}
+
+.time-question__timeline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: 'Cascadia Code', 'Courier New', monospace;
+  font-weight: 700;
+  color: #2d2765;
+  margin: 0.6rem 0;
+}
+
+.time-question__timeline-start,
+.time-question__timeline-end {
+  padding: 0.4rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(123, 104, 238, 0.18);
+  box-shadow: 0 10px 18px rgba(72, 63, 177, 0.14);
+}
+
+.time-question__timeline-arrow {
+  font-size: 1.3rem;
+  color: #6c5ce7;
+}
+
+.time-question__detail,
+.measure-question__detail,
+.fraction-question__detail {
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
+  margin: 0;
+  color: rgba(60, 47, 120, 0.8);
+}
+
+.time-question__main,
+.measure-question__main,
+.fraction-question__main {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+  font-weight: 800;
+  color: #372a8b;
+}
+
+.time-question__visual,
+.measure-question__visual,
+.fraction-question__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.6rem, 2.4vw, 1rem);
+}
+
+.time-question__digital {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.4rem;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #1f1f3d, #0c0c24);
+  color: #f8fbff;
+  font-family: "Cascadia Code", "Courier New", monospace;
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 8px 24px rgba(255, 255, 255, 0.08), 0 20px 38px rgba(12, 22, 86, 0.35);
+}
+
+.measure-options .puzzle-option-btn,
+.fraction-options .puzzle-option-btn {
+  min-height: clamp(54px, 10vh, 70px);
+  font-size: clamp(0.98rem, 2.6vw, 1.08rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.measure-question__detail strong {
+  color: #297373;
+}
+
+.time-options .puzzle-option-btn {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: none;
+}
+
+.time-options .puzzle-option-btn:focus-visible {
+  outline: none;
+}
+
+.time-options .puzzle-option-btn.is-correct .time-option-card {
+  border-color: rgba(72, 201, 176, 0.95);
+  box-shadow: 0 24px 40px rgba(72, 201, 176, 0.25);
+}
+
+.time-options .puzzle-option-btn.is-wrong .time-option-card {
+  border-color: rgba(255, 99, 132, 0.9);
+  box-shadow: 0 24px 40px rgba(255, 99, 132, 0.22);
+}
+
+.time-option-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1.05rem;
+  border-radius: 18px;
+  border: 1px solid rgba(123, 104, 238, 0.45);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.24), rgba(198, 193, 255, 0.12));
+  box-shadow: 0 16px 32px rgba(72, 63, 177, 0.16);
+  backdrop-filter: blur(6px);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.time-option-card::after {
+  content: '';
+  position: absolute;
+  inset: -120% -50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transform: rotate(12deg);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.time-options .puzzle-option-btn:hover .time-option-card::after,
+.time-options .puzzle-option-btn:focus-visible .time-option-card::after {
+  opacity: 0.9;
+  transform: rotate(0deg) translateY(-12%);
+}
+
+.time-option-card__icon {
+  flex: 0 0 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  background: linear-gradient(160deg, rgba(105, 90, 255, 0.22), rgba(125, 104, 255, 0.38));
+  box-shadow: inset 0 4px 12px rgba(255, 255, 255, 0.25), 0 10px 18px rgba(86, 74, 196, 0.25);
+}
+
+.time-option-card__labels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.time-option-card__main {
+  font-family: "Cascadia Code", "Courier New", monospace;
+  font-size: clamp(1.15rem, 3vw, 1.3rem);
+  font-weight: 700;
+  color: #2d2765;
+  letter-spacing: 0.04em;
+}
+
+.time-option-card__sub {
+  font-family: "Nunito", sans-serif;
+  font-size: clamp(0.82rem, 2.3vw, 0.95rem);
+  font-weight: 600;
+  color: rgba(47, 41, 118, 0.7);
+}
+
+.time-option-card--analog .time-option-card__icon {
+  background: linear-gradient(160deg, rgba(255, 196, 140, 0.2), rgba(255, 169, 114, 0.45));
+}
+
+.time-option-card--digital .time-option-card__icon {
+  background: linear-gradient(160deg, rgba(140, 196, 255, 0.22), rgba(114, 169, 255, 0.45));
+}
+
+.time-option-card--duration .time-option-card__icon {
+  background: linear-gradient(160deg, rgba(169, 255, 209, 0.2), rgba(114, 214, 186, 0.45));
+}
+
+.time-option-card--elapsed .time-option-card__icon {
+  background: linear-gradient(160deg, rgba(255, 224, 140, 0.2), rgba(255, 201, 114, 0.45));
+}
+
+.time-option-card--words .time-option-card__icon {
+  background: linear-gradient(160deg, rgba(216, 196, 255, 0.2), rgba(185, 169, 255, 0.45));
+}
+
+.fraction-pizza {
+  width: min(220px, 60vw);
+  height: auto;
+  filter: drop-shadow(0 15px 30px rgba(209, 123, 50, 0.25));
+}
+
+.fraction-options .puzzle-option-btn {
+  font-family: "Cascadia Code", "Courier New", monospace;
+}
+
+.measure-options .puzzle-option-btn {
+  font-family: var(--font-heading);
+}
+
+.time-options .puzzle-option-btn {
+  font-family: "Nunito", sans-serif;
+}
+
+@media (max-width: 640px) {
+  .game-shell {
+    padding: 1rem 0.9rem;
+  }
+  .time-question__digital {
+    padding: 0.5rem 1.1rem;
+  }
+  .time-question-area,
+  .measure-question-area,
+  .fraction-question-area {
+    padding: 0.85rem;
+  }
+}
+.logic-visual-block {
+  width: 100%;
+}
+
+.comparison-prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: clamp(0.6rem, 2vw, 0.9rem);
+}
+
+.comparison-prompt__emblem {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.9rem;
+  box-shadow: inset 0 8px 14px rgba(255, 255, 255, 0.25), 0 14px 28px rgba(70, 63, 177, 0.18);
+}
+
+.comparison-prompt__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.comparison-prompt__title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.7vw, 1.3rem);
+  color: #3c2d86;
+}
+
+.comparison-prompt__subtitle {
+  font-family: var(--font-body);
+  color: rgba(47, 41, 118, 0.72);
+  font-size: clamp(0.85rem, 2.4vw, 1rem);
+}
+
+.comparison-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: clamp(0.6rem, 2vw, 1rem);
+  margin-bottom: clamp(0.6rem, 2vw, 1rem);
+}
+
+.comparison-card {
+  position: relative;
+  border-radius: 18px;
+  padding: 0.95rem 1.1rem;
+  overflow: hidden;
+  box-shadow: 0 18px 32px rgba(72, 63, 177, 0.18);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.75), rgba(229, 223, 255, 0.55));
+  animation: comparisonCardPop 0.55s ease both;
+}
+
+.comparison-card::after {
+  content: '';
+  position: absolute;
+  inset: -30% -50% auto;
+  height: 120%;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.comparison-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: rgba(44, 34, 94, 0.8);
+}
+
+.comparison-card__letter {
+  font-size: 1.1rem;
+}
+
+.comparison-card__icon {
+  font-size: 1.3rem;
+}
+
+.comparison-card__value {
+  margin-top: 0.65rem;
+  font-family: 'Cascadia Code', 'Courier New', monospace;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  font-weight: 700;
+  color: #2f2762;
+}
+
+.comparison-card__hint {
+  margin-top: 0.4rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.78rem, 2.3vw, 0.92rem);
+  color: rgba(47, 41, 118, 0.62);
+}
+
+.comparison-card--weight {
+  background: linear-gradient(145deg, rgba(224, 236, 255, 0.9), rgba(192, 213, 255, 0.6));
+  border: 1px solid rgba(84, 126, 255, 0.35);
+}
+
+.comparison-card--weight .comparison-card__value {
+  color: #3854d6;
+}
+
+.comparison-card--length {
+  background: linear-gradient(145deg, rgba(219, 245, 233, 0.9), rgba(190, 231, 215, 0.6));
+  border: 1px solid rgba(94, 196, 166, 0.35);
+}
+
+.comparison-card--length .comparison-card__value {
+  color: #2c8c6e;
+}
+
+.comparison-card--score {
+  background: linear-gradient(145deg, rgba(255, 244, 214, 0.9), rgba(255, 226, 173, 0.6));
+  border: 1px solid rgba(255, 196, 120, 0.4);
+}
+
+.comparison-card--score .comparison-card__value {
+  color: #d67a24;
+}
+
+.comparison-prompt.comparison-card--weight .comparison-prompt__emblem {
+  background: rgba(84, 126, 255, 0.22);
+  color: #3854d6;
+}
+
+.comparison-prompt.comparison-card--length .comparison-prompt__emblem {
+  background: rgba(94, 196, 166, 0.22);
+  color: #2c8c6e;
+}
+
+.comparison-prompt.comparison-card--score .comparison-prompt__emblem {
+  background: rgba(255, 196, 120, 0.26);
+  color: #d67a24;
+}
+
+.comparison-option-btn.puzzle-option-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  min-height: auto;
+}
+
+.comparison-option-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.85rem 1.05rem;
+  border-radius: 16px;
+  border: 1px solid rgba(123, 104, 238, 0.4);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(226, 221, 255, 0.18));
+  box-shadow: 0 14px 26px rgba(72, 63, 177, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.comparison-option-card__icon {
+  font-size: 1.6rem;
+}
+
+.comparison-option-card__label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #312963;
+  letter-spacing: 0.02em;
+}
+
+.comparison-option-card__value {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(47, 41, 118, 0.65);
+}
+
+.comparison-option-btn:hover .comparison-option-card,
+.comparison-option-btn:focus-visible .comparison-option-card {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 34px rgba(123, 104, 238, 0.26);
+  border-color: rgba(161, 147, 255, 0.85);
+}
+
+.comparison-option-btn.is-correct .comparison-option-card {
+  border-color: rgba(72, 201, 176, 0.95);
+  box-shadow: 0 22px 38px rgba(72, 201, 176, 0.28);
+}
+
+.comparison-option-btn.is-wrong .comparison-option-card {
+  border-color: rgba(255, 99, 132, 0.9);
+  box-shadow: 0 22px 38px rgba(255, 99, 132, 0.24);
+}
+
+.comparison-option-card--all {
+  border: 1px dashed rgba(123, 104, 238, 0.4);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(235, 230, 255, 0.14));
+}
+
+@keyframes comparisonCardPop {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.logic-chain-card {
+  border-radius: 18px;
+  padding: 0.95rem 1.1rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(223, 215, 255, 0.52));
+  box-shadow: 0 18px 30px rgba(72, 63, 177, 0.16);
+  margin-bottom: clamp(0.75rem, 2.4vw, 1rem);
+}
+
+.logic-chain-card__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(0.75rem, 2.2vw, 0.9rem);
+  background: rgba(97, 81, 255, 0.18);
+  color: #4d3fd2;
+  margin-bottom: 0.45rem;
+}
+
+.logic-chain-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.logic-chain-card__icon {
+  font-size: 1.6rem;
+}
+
+.logic-chain-card__title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  color: #312a6b;
+}
+
+.logic-chain-card__premises {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.9rem, 2.3vw, 1.05rem);
+  color: rgba(47, 41, 118, 0.82);
+}
+
+.logic-chain-card__premises li {
+  margin-bottom: 0.35rem;
+}
+.symmetry-card {
+  border-radius: 18px;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(215, 207, 255, 0.5));
+  box-shadow: 0 18px 32px rgba(87, 76, 196, 0.18);
+  margin-bottom: clamp(0.7rem, 2.4vw, 1rem);
+}
+
+.symmetry-card__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(0.75rem, 2.2vw, 0.9rem);
+  background: rgba(122, 108, 255, 0.22);
+  color: #4c40c6;
+  margin-bottom: 0.35rem;
+}
+
+.symmetry-card__title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  color: #2f2962;
+  margin: 0 0 0.3rem;
+}
+
+.symmetry-card__detail {
+  font-family: 'Nunito', sans-serif;
+  color: rgba(47, 41, 118, 0.75);
+  margin: 0 0 0.5rem;
+}
+
+.symmetry-scene {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(122, 108, 255, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.symmetry-scene__row {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.symmetry-scene__cell {
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+}
+
+.symmetry-card--balanced {
+  border: 1px solid rgba(116, 210, 182, 0.35);
+  box-shadow: 0 18px 32px rgba(76, 201, 176, 0.2);
+}
+
+.symmetry-card--broken {
+  border: 1px solid rgba(255, 140, 148, 0.35);
+  box-shadow: 0 18px 32px rgba(255, 140, 148, 0.18);
+}

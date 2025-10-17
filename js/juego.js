@@ -105,6 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
         sun: '☀️', moon: '🌙', cloud: '☁️', rainbow: '🌈', cupcake: '🧁', icecream: '🍦',
         balloon: '🎈', paint: '🖍️', drum: '🥁', guitar: '🎸', book: '📘', kite: '🪁'
     };
+    const completionMessages = [
+        "Excellent travail, Léna !", "Tu es une vraie championne ! ✨", "Quelle performance incroyable !",
+        "Bravo, tu as tout réussi ! 🦄", "Super, continue comme ça !", "Tu es sur la bonne voie ! 🚀",
+        "Fantastique ! Tu as débloqué un nouveau succès.", "Impressionnant ! Rien ne t'arrête.",
+        "Tu as un esprit vif comme l'éclair ! ⚡️", "Mission accomplie avec brio !",
+        "Ton talent est éblouissant ! 🌟", "Félicitations, tu as maîtrisé ce niveau !",
+        "Chaque bonne réponse te rend plus forte !", "Tu es une étoile montante ! 🌠"
+    ];
     const positiveMessages = ['🦄 Bravo !', '✨ Super !', '🌈 Génial !', '🌟 Parfait !', '🎉 Formidable !'];
     window.positiveMessages = positiveMessages;
     const MATH_OPERATION_THEMES = {
@@ -284,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function svgDataUri(svg) {
         return `data:image/svg+xml,${encodeURIComponent(svg).replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29')}`;
     }
+    window.svgPath = svgDataUri; // Make available globally for other scripts like logicgames.js
 
     function generateBadgePreview(spec, size) {
         const radius = size / 2 - size * 0.08;
@@ -1017,6 +1026,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function launchMesuresMagiques(level) {
+        gameState.currentTopic = 'mesures-magiques';
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext('mesures-magiques');
+        if (window.mesuresMagiquesGame?.start) {
+            window.mesuresMagiquesGame.start(context);
+        } else {
+            showComingSoon('Mesures Magiques', '📏');
+        }
+    }
+
     function launchLectureMagiqueLevel(level) {
         gameState.currentTopic = 'lecture-magique';
         gameState.currentLevel = level;
@@ -1094,6 +1116,27 @@ document.addEventListener('DOMContentLoaded', () => {
             window.seriesNumeriquesGame.start(context);
         } else {
             showComingSoon('Séries Numériques', '🔢');
+        }
+    }
+
+    function launchCoeurEmotionsGame(topicId, level) {
+        const titles = {
+            'emotions-magiques': { label: 'Émotions Magiques', icon: '😊' },
+            'missions-jour': { label: 'Missions du Jour', icon: '✅' },
+            'quiz-jour': { label: 'Quiz du Jour', icon: '🌞' },
+            'respire-repose': { label: 'Respire & Repose-toi', icon: '🧘' },
+            'expression-soi': { label: 'Expression de Soi / Mon Journal', icon: '💬' }
+        };
+        gameState.currentTopic = topicId;
+        gameState.currentLevel = level;
+        btnLogros.style.display = 'inline-block';
+        btnLogout.style.display = 'inline-block';
+        const context = createGameContext(topicId);
+        if (window.coeurEmotions?.start) {
+            window.coeurEmotions.start(topicId, context);
+        } else {
+            const meta = titles[topicId] || { label: 'Atelier bien-être', icon: '✨' };
+            showComingSoon(meta.label, meta.icon);
         }
     }
 
@@ -2125,7 +2168,9 @@ document.addEventListener('DOMContentLoaded', () => {
         renderInventory();
     }
 
-    function showSuccessMessage(message = positiveMessages[Math.floor(Math.random() * positiveMessages.length)]) {
+    function showSuccessMessage(message) {
+        // Si no se proporciona un mensaje, elige uno aleatorio de la lista de finalización.
+        message = message || completionMessages[Math.floor(Math.random() * completionMessages.length)];
         const promptEl = document.createElement('div');
         promptEl.className = 'prompt ok fx-pop';
         promptEl.textContent = message;
@@ -3553,7 +3598,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'colors', icon: '🎨', text: 'Les Couleurs' },
             { id: 'dictee', icon: '🧚‍♀️', text: 'Dictée Magique' },
             { id: 'ecriture-cursive', icon: '✍️', text: 'J’écris en cursive' },
-            { id: 'grande-aventure-mots', icon: '🟣', text: 'La Grande Aventure des Mots', type: 'external', href: 'grande-aventure-mots/index.html' }
         ];
 
         allTopics.forEach(topic => {
@@ -3601,20 +3645,23 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'temps-horloges', icon: '⏰', text: 'Temps & Horloges' },
             { id: 'tables-defi', icon: '✖️', text: 'Tables Défi' },
             { id: 'series-numeriques', icon: '🔢', text: 'Séries Numériques' },
-            // Placeholders (affichent bientôt)
-            { id: 'mesures-magiques', icon: '⚖️', text: 'Mesures Magiques' },
-            { id: 'labyrinthe-logique', icon: '🧭', text: 'Labyrinthe Logique' },
-            { id: 'sudoku-junior', icon: '🔳', text: 'Sudoku Junior' },
-            { id: 'grammaire-magique', icon: '📝', text: 'Grammaire Magique' },
-            { id: 'conjugaison-magique', icon: '✍️', text: 'Conjugaison Magique' },
-            { id: 'genres-accords', icon: '👥', text: 'Genres & Accords' },
-            { id: 'lecture-voix-haute', icon: '🎙️', text: 'Lecture à Voix Haute' },
-            { id: 'vocabulaire-thematique', icon: '🌿', text: 'Vocabulaire Thématique' },
-            { id: 'atelier-art', icon: '🎨', text: 'Atelier d’Art' },
-            { id: 'decouvre-nature', icon: '🌦️', text: 'Découvre la Nature' },
-            { id: 'carte-monde', icon: '🌍', text: 'Carte du Monde' },
+            // Placeholders (affichent bient\u00f4t)
+            { id: 'mesures-magiques', icon: '??', text: 'Mesures Magiques' },
+            { id: 'labyrinthe-logique', icon: '??', text: 'Labyrinthe Logique' },
+            { id: 'sudoku-junior', icon: '??', text: 'Sudoku Junior' },
+            { id: 'grammaire-magique', icon: '??', text: 'Grammaire Magique' },
+            { id: 'conjugaison-magique', icon: '??', text: 'Conjugaison Magique' },
+            { id: 'genres-accords', icon: '??', text: 'Genres & Accords' },
+            { id: 'lecture-voix-haute', icon: '???', text: 'Lecture \u00e0 Voix Haute' },
+            { id: 'vocabulaire-thematique', icon: '??', text: 'Vocabulaire Th\u00e9matique' },
+            { id: 'atelier-art', icon: '??', text: 'Atelier d\'Art' },
+            { id: 'decouvre-nature', icon: '???', text: 'D\u00e9couvre la Nature' },
+            { id: 'carte-monde', icon: '??', text: 'Carte du Monde' },
             { id: 'emotions-magiques', icon: '😊', text: 'Émotions Magiques' },
-            { id: 'missions-jour', icon: '✅', text: 'Missions du Jour' }
+            { id: 'missions-jour', icon: '✅', text: 'Missions du Jour' },
+            { id: 'quiz-jour', icon: '🌞', text: 'Quiz du Jour' },
+            { id: 'respire-repose', icon: '🧘', text: 'Respire & Repose-toi' },
+            { id: 'expression-soi', icon: '💬', text: 'Expression de Soi / Mon Journal' }
         ];
         const extraContainer = document.createElement('div');
         extraContainer.className = 'options-grid';
@@ -3682,7 +3729,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'tables-defi': (window.tablesDefiGame?.getLevelCount?.() || 10),
             'series-numeriques': (window.seriesNumeriquesGame?.getLevelCount?.() || 10),
             // Placeholders (affichent bientôt)
-            'mesures-magiques': 10,
+            'mesures-magiques': (window.mesuresMagiquesGame?.getLevelCount?.() || 10),
             'labyrinthe-logique': (window.logicGames?.getLevelCount?.() || 12),
             'sudoku-junior': (window.logicGames?.getLevelCount?.() || 12),
             'grammaire-magique': 10,
@@ -3693,8 +3740,11 @@ document.addEventListener('DOMContentLoaded', () => {
             'atelier-art': 10,
             'decouvre-nature': 10,
             'carte-monde': 10,
-            'emotions-magiques': 10,
-            'missions-jour': 10
+            'emotions-magiques': (window.coeurEmotions?.getLevelCount?.() || 12),
+            'missions-jour': (window.coeurEmotions?.getLevelCount?.() || 12),
+            'quiz-jour': (window.coeurEmotions?.getLevelCount?.() || 12),
+            'respire-repose': (window.coeurEmotions?.getLevelCount?.() || 12),
+            'expression-soi': (window.coeurEmotions?.getLevelCount?.() || 12)
         };
         const totalLevels = maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
         
@@ -3746,13 +3796,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (gameState.currentTopic === 'fractions-fantastiques') { launchFractionsFantastiques(gameState.currentLevel); }
                 else if (gameState.currentTopic === 'temps-horloges') { launchTempsHorloges(gameState.currentLevel); }
                 else if (gameState.currentTopic === 'tables-defi') { launchTablesDefi(gameState.currentLevel); }
+                else if (gameState.currentTopic === 'mesures-magiques') { launchMesuresMagiques(gameState.currentLevel); }
                 else if (gameState.currentTopic === 'series-numeriques') { launchSeriesNumeriques(gameState.currentLevel); }
+                else if (['emotions-magiques','missions-jour','quiz-jour','respire-repose','expression-soi'].includes(gameState.currentTopic)) { launchCoeurEmotionsGame(gameState.currentTopic, gameState.currentLevel); }
                 // Placeholders
-                else if ([
-                  'mesures-magiques','labyrinthe-logique','sudoku-junior','grammaire-magique','conjugaison-magique',
-                  'genres-accords','lecture-voix-haute','vocabulaire-thematique','atelier-art','decouvre-nature',
-                  'carte-monde','emotions-magiques','missions-jour'
-                ].includes(gameState.currentTopic)) { showComingSoon(gameState.currentTopic, '✨'); }
+                else if (['labyrinthe-logique','sudoku-junior','grammaire-magique','conjugaison-magique','genres-accords','lecture-voix-haute','vocabulaire-thematique','atelier-art','decouvre-nature','carte-monde'].includes(gameState.currentTopic)) { showComingSoon(gameState.currentTopic, '✨'); }
                 else if (gameState.currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[gameState.currentLevel - 1]); }
                 else { gameState.currentQuestionIndex = 0; loadQuestion(0); }
             });

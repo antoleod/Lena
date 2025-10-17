@@ -10,11 +10,11 @@
     { id: 'series-motifs', icon: '🔷', title: 'Séries & Motifs', svg: svgWave(), playable: true },
     { id: 'tri-classement', icon: '🗂', title: 'Tri & Classement', svg: svgBins(), playable: true },
     { id: 'sudoku-junior', icon: '🔢', title: 'Sudoku Junior', svg: svgGrid(), playable: true },
-    { id: 'symetrie', icon: '🪞', title: 'Symétrie Magique', svg: svgMirror(), playable: true },
+    { id: 'orbes-lumiere', icon: '\u2728', title: 'Les Orbes de Lumi\u00e8re', svg: svgMirror(), playable: true },
     { id: 'cartes-comparatives', icon: '⚖', title: 'Cartes Comparatives', svg: svgScale(), playable: true },
     { id: 'reseaux-chemins', icon: '🔗', title: 'Réseaux de Chemins', svg: svgNet(), playable: true },
     { id: 'logigrammes', icon: '🧩', title: 'Logigrammes (Si… Alors…)', svg: svgFlow(), playable: true },
-    { id: 'enigmes', icon: '💡', title: 'Jeu d’énigmes', svg: svgSpy(), playable: true },
+    { id: 'enigmes', icon: '💡', title: "Jeu d’énigmes", svg: svgSpy(), playable: true },
     { id: 'repartis-multiplie', icon: '🍎', title: 'Répartis & Multiplie', svg: svgBalance(), playable: true }
   ];
 
@@ -49,6 +49,12 @@
         return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildSymmetryQuestion(level));
       }
     },
+    'orbes-lumiere': {
+      title: 'Les Orbes de Lumière',
+      generateLevel(level) {
+        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildOrbesDeLumiereQuestion(level));
+      }
+    },
     'cartes-comparatives': {
       title: 'Cartes Comparatives',
       generateLevel(level) {
@@ -68,7 +74,7 @@
       }
     },
     'enigmes': {
-      title: 'Jeu d’énigmes',
+      title: "Jeu d’énigmes",
       generateLevel(level) {
         return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildRiddleQuestion(level));
       }
@@ -187,11 +193,15 @@
       title: `${config.title} - Niveau ${level}`,
       questions,
       reward,
+      level,
       onComplete: () => {
         markCompleted(gameId, level);
         context.markLevelCompleted();
         context.awardReward(reward.stars, reward.coins);
-        context.showSuccessMessage('Bravo ! Niveau réussi ✨');
+        const message = gameId === 'orbes-lumiere'
+          ? 'La lumière revient ! Fragment de constellation décroché ✨'
+          : 'Bravo ! Niveau réussi ✨';
+        context.showSuccessMessage(message);
         context.showConfetti();
         setTimeout(() => showLevelMenu(gameId, context, config), 1200);
       }
@@ -205,9 +215,19 @@
     };
   }
 
-  function renderQuiz(context, { gameId, title, questions, reward, onComplete }) {
+  function computeTimeLimit(level) {
+    const clamped = Math.max(1, Math.min(level, TOTAL_LEVELS));
+    const base = 14 - Math.floor(clamped * 0.9);
+    return Math.max(6, base);
+  }
+
+  function renderQuiz(context, { gameId, title, questions, reward, level = 1, onComplete }) {
     let index = 0;
     const total = questions.length;
+    const timedMode = gameId === 'tri-classement';
+    const baseTimePerQuestion = timedMode ? computeTimeLimit(level) : 0;
+    let timerInterval = null;
+    let timeRemaining = baseTimePerQuestion;
 
     context.content.innerHTML = '';
     const heading = document.createElement('div');
@@ -219,6 +239,9 @@
     info.className = 'question-detail logic-level-intro';
     info.textContent = `Réponds aux ${total} énigmes pour gagner ${reward.stars} étoiles et ${reward.coins} pièces.`;
     context.content.appendChild(info);
+    if (timedMode) {
+      info.textContent += ` Tu as ${baseTimePerQuestion} secondes par question, sois rapide !`;
+    }
 
     const card = document.createElement('div');
     card.className = 'puzzle-question-container fx-bounce-in-down';
@@ -229,6 +252,14 @@
     progressLabel.textContent = `Question 1 / ${total}`;
     card.appendChild(progressLabel);
 
+    let timerLabel = null;
+    if (timedMode) {
+      timerLabel = document.createElement('div');
+      timerLabel.className = 'logic-timer';
+      timerLabel.textContent = `Temps restant : ${baseTimePerQuestion}s`;
+      card.appendChild(timerLabel);
+    }
+
     const questionHolder = document.createElement('div');
     questionHolder.className = 'puzzle-equation fx-pop logic-question-block';
     card.appendChild(questionHolder);
@@ -237,7 +268,12 @@
     optionsGrid.className = 'puzzle-options logic-options-grid';
     card.appendChild(optionsGrid);
 
-    context.configureBackButton('Retour aux niveaux', () => showLevelMenu(gameId, context, GAME_CONFIGS[gameId]));
+    context.configureBackButton('Retour aux niveaux', () => {
+      if (timedMode) {
+        stopTimer();
+      }
+      showLevelMenu(gameId, context, GAME_CONFIGS[gameId]);
+    });
 
     showQuestion();
 
@@ -252,14 +288,28 @@
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'puzzle-option-btn';
-        button.textContent = value;
+        if (current.kind === 'comparison') {
+          button.classList.add('comparison-option-btn');
+          const visuals = buildComparisonOptionVisual(value, current.context);
+          button.innerHTML = visuals.html;
+          button.setAttribute('aria-label', visuals.label);
+        } else {
+          button.textContent = value;
+        }
         button.dataset.value = value;
         button.addEventListener('click', () => handleAnswer(button, String(current.answer), value));
         optionsGrid.appendChild(button);
       });
+
+      if (timedMode) {
+        startTimer(String(current.answer));
+      }
     }
 
     function handleAnswer(button, answer, candidate) {
+      if (timedMode) {
+        stopTimer();
+      }
       Array.from(optionsGrid.children).forEach(btn => {
         btn.disabled = true;
         if (btn.dataset.value === answer) {
@@ -272,21 +322,103 @@
         button.classList.add('is-wrong');
         context.playNegativeSound();
       }
+      advanceAfter(600);
+    }
+
+    function handleTimeout(answer) {
+      Array.from(optionsGrid.children).forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.value === answer) {
+          btn.classList.add('is-correct');
+        }
+      });
+      if (timerLabel) {
+        timerLabel.classList.add('is-expired');
+      }
+      context.playNegativeSound();
+      advanceAfter(750);
+    }
+
+    function advanceAfter(delay) {
       setTimeout(() => {
         index += 1;
         if (index >= total) {
+          if (timedMode) {
+            stopTimer();
+          }
           onComplete && onComplete();
         } else {
           Array.from(optionsGrid.children).forEach(btn => btn.classList.remove('is-correct', 'is-wrong'));
           Array.from(optionsGrid.children).forEach(btn => (btn.disabled = false));
+          if (timedMode && timerLabel) {
+            timerLabel.classList.remove('is-warning', 'is-danger', 'is-expired');
+          }
           showQuestion();
         }
-      }, 600);
+      }, delay);
+    }
+
+    function startTimer(answer) {
+      stopTimer();
+      timeRemaining = baseTimePerQuestion;
+      updateTimerLabel();
+      timerInterval = setInterval(() => {
+        timeRemaining -= 1;
+        updateTimerLabel();
+        if (timeRemaining <= 0) {
+          stopTimer();
+          handleTimeout(answer);
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    function updateTimerLabel() {
+      if (!timerLabel) return;
+      timerLabel.textContent = `Temps restant : ${Math.max(0, timeRemaining)}s`;
+      timerLabel.classList.toggle('is-warning', timeRemaining <= 5 && timeRemaining > 2);
+      timerLabel.classList.toggle('is-danger', timeRemaining <= 2 && timeRemaining > 0);
     }
   }
 
   function renderPrompt(holder, question) {
     holder.innerHTML = '';
+    if (question.promptHTML) {
+      const block = document.createElement('div');
+      block.className = 'logic-visual-block';
+      block.innerHTML = question.promptHTML;
+      holder.appendChild(block);
+    }
+    const lines = normalizePromptLines(question);
+    lines.forEach(line => {
+      const element = document.createElement(line.type === 'code' ? 'pre' : 'p');
+      element.className = line.type === 'code' ? 'logic-question-code' : 'logic-question-detail';
+      element.textContent = line.text;
+      holder.appendChild(element);
+    });
+    const questionText = question.questionText || question.question || null;
+    if (questionText) {
+      const main = document.createElement('p');
+      main.className = 'logic-question-main';
+      main.textContent = questionText;
+      holder.appendChild(main);
+    }
+  }
+
+  function renderPrompt(holder, question) {
+    holder.innerHTML = '';
+    if (question.promptHTML) {
+      const block = document.createElement('div');
+      block.className = 'logic-visual-block';
+      block.innerHTML = question.promptHTML;
+      holder.appendChild(block);
+    }
     const lines = normalizePromptLines(question);
     lines.forEach(line => {
       const element = document.createElement(line.type === 'code' ? 'pre' : 'p');
@@ -312,6 +444,41 @@
       const text = typeof line.text === 'string' ? line.text.trim() : '';
       return { text, type: line.type || 'text' };
     }).filter(entry => entry.text.length);
+  }
+
+  function buildComparisonOptionVisual(option, context) {
+    const safeOption = escapeHtml(option);
+    const meta = (context && context.meta) || { icon: '✨', accent: 'comparison-card--default' };
+    const cards = (context && context.cards) || [];
+    const unit = (context && context.unit) || '';
+    const cardData = cards.find(card => card.label === option);
+
+    if (cardData) {
+      const html = `<span class="comparison-option-card ${meta.accent}">
+          <span class="comparison-option-card__icon">${meta.icon}</span>
+          <span class="comparison-option-card__label">${escapeHtml(cardData.label)}</span>
+          <span class="comparison-option-card__value">${cardData.value} ${escapeHtml(unit)}</span>
+        </span>`;
+      const label = `${cardData.label}, ${cardData.value} ${unit}`.trim();
+      return { html, label };
+    }
+
+    const html = `<span class="comparison-option-card comparison-option-card--all">
+        <span class="comparison-option-card__icon">🎲</span>
+        <span class="comparison-option-card__label">${safeOption}</span>
+        <span class="comparison-option-card__value">Comparer toutes les cartes</span>
+      </span>`;
+    return { html, label: option };
+  }
+
+  function escapeHtml(text) {
+    return String(text).replace(/[&<>"']/g, ch => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[ch] || ch);
   }
 
   function showSoon(context, gameId) {
@@ -521,38 +688,232 @@
     };
   }
 
-  function buildSymmetryQuestion(level) {
-    const axis = randomChoice(['verticale', 'horizontale']);
-    const max = 5 + Math.floor(level / 2);
-    const x = randomInt(1, max);
-    const y = randomInt(1, max);
-    let answer;
-    let promptLines;
+  function buildOrbesDeLumiereQuestion(level) {
+    const SYMMETRY_SCENES = {
+    symmetric: [
+      { title: 'Miroir enchanté', description: 'Le dessin semble se refléter parfaitement. A-t-il une vraie symétrie ?' },
+      { title: 'Rosace magique', description: 'Chaque côté paraît identique. Confirme si c’est bien symétrique.' },
+      { title: 'Bouclier mystique', description: 'Le motif doit être le même à gauche et à droite. Est-ce le cas ?' }
+    ],
+    asymmetric: [
+      { title: 'Miroir brisé', description: 'Quelque chose cloche dans ce reflet. Le motif est-il vraiment symétrique ?' },
+      { title: 'Pattern étrange', description: 'Un côté est légèrement différent. Découvre s’il manque la symétrie.' },
+      { title: 'Reflet imparfait', description: 'Observe bien les deux côtés : se correspondent-ils ?' }
+    ]
+  };
 
-    if (axis === 'verticale') {
-      answer = `(${ -x }, ${ y })`;
-      promptLines = [
-        { text: `Point de départ : A(${x}, ${y}).` },
-        { text: 'Symétrie par rapport à l’axe vertical (y).' }
-      ];
-    } else {
-      answer = `(${ x }, ${ -y })`;
-      promptLines = [
-        { text: `Point de départ : A(${x}, ${y}).` },
-        { text: 'Symétrie par rapport à l’axe horizontal (x).' }
-      ];
+  const ORB_BLUEPRINTS = [
+      {
+        level: 1,
+        title: 'Les Orbes du Vent \u{1F32C}',
+        guardian: 'Nemiri, le colibri des brises douces',
+        ambiance: 'Bleu ciel et filaments argent\u00e9s',
+        mechanic: 'Toucher les orbes dans l’ordre des couleurs : bleu, vert puis blanc.',
+        innerLogic: 'S\u00e9quence lin\u00e9aire : toute erreur renvoie au d\u00e9but.',
+        learning: 'M\u00e9morisation visuelle et patience.',
+        answer: 'Toucher les orbes dans l’ordre Bleu \u2192 Vert \u2192 Blanc.',
+        options: [
+          'Toucher les orbes dans l’ordre Bleu \u2192 Vert \u2192 Blanc.',
+          'Les toucher tous en m\u00eame temps pour aller plus vite.',
+          'Commencer par le blanc puis passer au vert.',
+          'Attendre que Nemiri les active seul.'
+        ]
+      },
+      {
+        level: 2,
+        title: 'Les Orbes de l\'Eau \u{1F4A7}',
+        guardian: 'Lirio, le poisson de cristal',
+        ambiance: 'Vert jade et reflets ondul\u00e9s',
+        mechanic: 'Relier chaque goutte \u00e0 celle de m\u00eame couleur pour former un ruisseau.',
+        innerLogic: 'Connexions par couleur et continuit\u00e9 du flux.',
+        learning: 'Classification visuelle et rep\u00e9rage spatial.',
+        answer: 'Relier chaque goutte \u00e0 sa jumelle de m\u00eame couleur.',
+        options: [
+          'Relier chaque goutte \u00e0 sa jumelle de m\u00eame couleur.',
+          'Tracer une ligne droite qui coupe toutes les gouttes.',
+          'Ne garder que les gouttes les plus grosses.',
+          'Laisser l\'eau couler sans intervenir.'
+        ]
+      },
+      {
+        level: 3,
+        title: 'Les Orbes du Feu \u{1F525}',
+        guardian: 'S\u00e9lyr, le petit dragon des braises',
+        ambiance: 'Rouge corail et lueurs dor\u00e9es',
+        mechanic: 'Maintenir chaque orbe press\u00e9 1 s, 2 s puis 3 s selon sa vibration.',
+        innerLogic: 'Gestion du tempo et contr\u00f4le fin du geste.',
+        learning: 'Coordination main-oeil et attention soutenue.',
+        answer: 'Maintenir chaque orbe appuy\u00e9 exactement le temps indiqu\u00e9.',
+        options: [
+          'Maintenir chaque orbe appuy\u00e9 exactement le temps indiqu\u00e9.',
+          'Tapoter tr\u00e8s vite plusieurs fois de suite.',
+          'Souffler sur l\'orbe pour le refroidir.',
+          'Le secouer jusqu\'\u00e0 ce qu\'il s\'allume.'
+        ]
+      },
+      {
+        level: 4,
+        title: 'Les Orbes du Son \u{1F3B5}',
+        guardian: 'Lyra, la luciole musicienne',
+        ambiance: 'Violet doux et ondes lumineuses',
+        mechanic: '\u00c9couter puis reproduire une m\u00e9lodie de trois sons.',
+        innerLogic: 'Comparaison et reproduction d\'un motif auditif.',
+        learning: 'M\u00e9moire auditive et coordination.',
+        answer: 'Rejouer la m\u00eame m\u00e9lodie dans l\'ordre exact.',
+        options: [
+          'Rejouer la m\u00eame m\u00e9lodie dans l\'ordre exact.',
+          'Inventer une nouvelle chanson.',
+          'Tapoter un seul orbe en rythme.',
+          'Attendre que Lyra recommence trois fois.'
+        ]
+      },
+      {
+        level: 5,
+        title: 'Les Orbes de la Terre \u{1F333}',
+        guardian: 'Eilan, le renard mousse',
+        ambiance: 'Bruns terreux et feuilles lumineuses',
+        mechanic: 'Retourner deux feuilles \u00e0 la fois pour trouver des orbes jumeaux.',
+        innerLogic: 'Jeu de memory classique.',
+        learning: 'Observation et association visuelle.',
+        answer: 'Retrouver chaque paire d\'orbes identiques cach\u00e9e sous les feuilles.',
+        options: [
+          'Retrouver chaque paire d\'orbes identiques cach\u00e9e sous les feuilles.',
+          'Ramasser toutes les feuilles sans regarder.',
+          'Chercher uniquement le renard.',
+          'Choisir la feuille la plus brillante.'
+        ]
+      },
+      {
+        level: 6,
+        title: 'Les Orbes du Temps \u23F1',
+        guardian: 'Noctelle, l\'horloge lunaire',
+        ambiance: 'Dor\u00e9 et reflets nocturnes',
+        mechanic: 'Placer matin, cr\u00e9puscule et nuit dans l\'ordre chronologique.',
+        innerLogic: 'Rep\u00e8res temporels et cause \u2192 effet.',
+        learning: 'Compr\u00e9hension de la frise du temps.',
+        answer: 'Organiser les sc\u00e8nes du matin vers la nuit.',
+        options: [
+          'Organiser les sc\u00e8nes du matin vers la nuit.',
+          'Commencer par la nuit puis aller vers le matin.',
+          'Classer selon la couleur dominante.',
+          'Choisir la sc\u00e8ne la plus lumineuse.'
+        ]
+      },
+      {
+        level: 7,
+        title: 'L\'Orbe \u00c9ternelle \u2728',
+        guardian: 'L\u00e9na, porteuse de lumi\u00e8re',
+        ambiance: 'Blanc opalin et particules iris\u00e9es',
+        mechanic: 'Associer simultan\u00e9ment couleur, forme et son correspondants.',
+        innerLogic: 'Combinaison multisensorielle finale.',
+        learning: 'Synth\u00e8se des comp\u00e9tences mobilis\u00e9es.',
+        answer: 'Choisir la combinaison couleur + forme + son qui s\'accordent.',
+        options: [
+          'Choisir la combinaison couleur + forme + son qui s\'accordent.',
+          'Laisser l\'orbe choisir sa couleur pr\u00e9f\u00e9r\u00e9e.',
+          'Utiliser uniquement le son le plus grave.',
+          'Tapoter chaque orbe dans le d\u00e9sordre.'
+        ]
+      }
+    ];
+
+    const blueprint = ORB_BLUEPRINTS[(level - 1) % ORB_BLUEPRINTS.length];
+
+    if (level > ORB_BLUEPRINTS.length) {
+      const echoes = shuffle(ORB_BLUEPRINTS)
+        .slice(0, 2)
+        .map(entry => `${entry.title} : ${entry.mechanic}`);
+      return {
+        promptLines: [
+          { text: `${blueprint.title}` },
+          { text: 'Les orbes scintillent plus vite – souviens-toi de leurs voix.' },
+          ...echoes.map(line => ({ text: line }))
+        ],
+        questionText: "Quelle règle dois-tu appliquer pour réveiller cette lueur ?",
+        answer: blueprint.answer,
+        options: shuffle(blueprint.options)
+      };
     }
 
-    const options = new Set([answer]);
-    while (options.size < 4) {
-      options.add(`(${ randomInt(-max, max) }, ${ randomInt(-max, max) })`);
-    }
+    const promptLines = [
+      { text: `Niveau ${blueprint.level} : ${blueprint.title}` },
+      { text: `Gardien : ${blueprint.guardian}` },
+      { text: `Ambiance : ${blueprint.ambiance}` },
+      { text: `Règle : ${blueprint.mechanic}` },
+      { text: `Logique : ${blueprint.innerLogic}` },
+      { text: `Ce que tu travailles : ${blueprint.learning}` }
+    ];
 
     return {
       promptLines,
-      questionText: 'Quelle est l’image du point ?',
+      questionText: "Quelle est la bonne action pour réveiller l'orbe ?",
+      answer: blueprint.answer,
+      options: shuffle(blueprint.options)
+    };
+  }
+
+  function buildMirrorRow(leftSide, size) {
+    const row = leftSide.slice();
+    const mirror = size % 2 === 0
+      ? leftSide.slice().reverse()
+      : leftSide.slice(0, leftSide.length - 1).reverse();
+    return row.concat(mirror);
+  }
+
+  function buildSymmetryQuestion(level) {
+    const size = Math.min(5, 3 + Math.floor(level / 3));
+    const palette = level >= 7 ? ['🟦', '🟧', '🟪', '🟩', '⬜'] : ['🟦', '⬜'];
+    const symmetric = Math.random() < 0.5;
+    const grid = [];
+    const half = Math.ceil(size / 2);
+
+    for (let r = 0; r < size; r++) {
+      const left = [];
+      for (let c = 0; c < half; c++) {
+        left.push(randomChoice(palette));
+      }
+      const row = buildMirrorRow(left, size);
+      grid.push(row);
+    }
+
+    if (!symmetric) {
+      const rowIndex = rand(0, size - 1);
+      const colIndex = rand(Math.floor(size / 2), size - 1);
+      let replacement = grid[rowIndex][colIndex];
+      let guard = 0;
+      while (replacement === grid[rowIndex][colIndex] && guard < 10) {
+        replacement = randomChoice(palette);
+        guard++;
+      }
+      grid[rowIndex][colIndex] = replacement;
+    }
+
+    const scenePool = symmetric ? SYMMETRY_SCENES.symmetric : SYMMETRY_SCENES.asymmetric;
+    const scene = scenePool[rand(0, scenePool.length - 1)];
+
+    const rowsHTML = grid.map(row => `
+        <div class="symmetry-scene__row">${row.map(cell => `<span class="symmetry-scene__cell">${cell}</span>`).join('')}</div>
+      `).join('');
+
+    const promptHTML = `
+      <div class="symmetry-card ${symmetric ? 'symmetry-card--balanced' : 'symmetry-card--broken'}">
+        <div class="symmetry-card__badge"><span>🪞 Symétrie</span></div>
+        <p class="symmetry-card__title">${escapeHtml(scene.title)}</p>
+        <p class="symmetry-card__detail">${escapeHtml(scene.description)}</p>
+        <div class="symmetry-scene">${rowsHTML}</div>
+      </div>
+    `;
+
+    const options = symmetric ? ['Symétrique', 'Pas symétrique'] : ['Pas symétrique', 'Symétrique'];
+    const answer = symmetric ? 'Symétrique' : 'Pas symétrique';
+
+    return {
+      promptHTML,
+      questionText: 'Ce motif est-il symétrique ?',
       answer,
-      options: shuffle(Array.from(options))
+      options,
+      kind: 'symmetry',
+      context: { symmetric }
     };
   }
 
@@ -564,19 +925,77 @@
       { label: 'Carte C', value: baseValue + randomInt(-5, 8) }
     ];
     const property = randomChoice(['poids', 'longueur', 'score']);
-    const unit = property === 'poids' ? 'kg' : property === 'longueur' ? 'cm' : 'pts';
-    const promptLines = cards.map(c => ({ text: `${c.label} : ${c.value} ${unit}` }));
-    const answer = cards.reduce((best, card) => (card.value > best.value ? card : best), cards[0]).label;
+    const propertyMeta = {
+      poids: {
+        icon: '⚖️',
+        accent: 'comparison-card--weight',
+        title: 'Balance magique',
+        subtitle: 'Compare les poids pour trouver le plus lourd.',
+        hint: 'Poids mesuré',
+        question: 'Quelle carte est la plus lourde ?',
+        unit: 'kg'
+      },
+      longueur: {
+        icon: '📏',
+        accent: 'comparison-card--length',
+        title: 'Règle lumineuse',
+        subtitle: 'Compare les longueurs pour trouver la plus grande.',
+        hint: 'Longueur mesurée',
+        question: 'Quelle carte est la plus longue ?',
+        unit: 'cm'
+      },
+      score: {
+        icon: '⭐',
+        accent: 'comparison-card--score',
+        title: 'Défi des scores',
+        subtitle: 'Compare les points pour trouver le meilleur score.',
+        hint: 'Score total',
+        question: 'Quel score est le plus élevé ?',
+        unit: 'pts'
+      }
+    };
+    const meta = propertyMeta[property] || propertyMeta.score;
+    const unit = meta.unit;
+    const answerCard = cards.reduce((best, card) => (card.value > best.value ? card : best), cards[0]);
+    const answer = answerCard.label;
+    const promptHTML = `
+      <div class="comparison-prompt ${meta.accent}">
+        <div class="comparison-prompt__emblem"><span>${meta.icon}</span></div>
+        <div class="comparison-prompt__text">
+          <span class="comparison-prompt__title">${meta.title}</span>
+          <span class="comparison-prompt__subtitle">${meta.subtitle}</span>
+        </div>
+      </div>
+      <div class="comparison-card-grid">
+        ${cards.map(card => `
+          <article class="comparison-card ${meta.accent}">
+            <header class="comparison-card__header">
+              <span class="comparison-card__letter">${card.label}</span>
+              <span class="comparison-card__icon">${meta.icon}</span>
+            </header>
+            <div class="comparison-card__value">${card.value} ${unit}</div>
+            <footer class="comparison-card__hint">${meta.hint}</footer>
+          </article>
+        `).join('')}
+      </div>
+    `;
     const options = shuffle(['Carte A', 'Carte B', 'Carte C', 'Toutes égales']);
     return {
-      promptLines,
-      questionText: `Laquelle a le plus grand ${property} ?`,
+      promptHTML,
+      questionText: meta.question,
       answer,
-      options
+      options,
+      kind: 'comparison',
+      context: {
+        property,
+        unit,
+        meta,
+        cards
+      }
     };
   }
 
-  function buildNetworkQuestion(level) {
+function buildNetworkQuestion(level) {
     const rows = 1 + Math.floor((level + 1) / 4);
     const cols = 1 + Math.floor((level + 2) / 4);
     const paths = binomial(rows + cols, rows);
@@ -598,41 +1017,84 @@
     };
   }
 
+
   function buildLogicChainQuestion(level) {
     const scenarios = [
       {
-        rules: ['Si un animal a des rayures, alors c’est un zèbre.', 'Le cheval de Léo a des rayures.'],
-        answer: 'Le cheval de Léo est un zèbre.',
-        distractors: ['Le cheval de Léo est un cheval blanc.', 'Le cheval de Léo est un tigre.', 'On ne sait rien.']
+        badge: "🧠 Déduction",
+        icon: "🧠",
+        title: "Boîte brillante",
+        premises: [
+          'Si une boîte brille, alors elle contient une clé.',
+          'La boîte de Léna brille.'
+        ],
+        answer: 'Oui, la boîte contient la clé.',
+        alternatives: ['Non, on ne peut pas être sûrs.', 'Non, la boîte n’a pas de clé.'],
+        question: 'Quelle conclusion choisis-tu ?'
       },
       {
-        rules: ['Si une boîte brille, alors elle contient une clé.', 'La boîte de Léna brille.'],
-        answer: 'La boîte de Léna contient une clé.',
-        distractors: ['La boîte de Léna est vide.', 'La boîte ne contient pas de clé.', 'La boîte contient un livre.']
+        badge: "🧠 Déduction",
+        icon: "🔍",
+        title: "Animal rayé",
+        premises: [
+          'Si un animal a des rayures, alors c’est un zèbre.',
+          'L’animal mystère a des rayures.'
+        ],
+        answer: 'C’est un zèbre.',
+        alternatives: ['Ce n’est pas forcément un zèbre.', 'C’est sûrement un tigre.'],
+        question: 'Quelle conclusion choisis-tu ?'
       },
       {
-        rules: ['Si une forme a quatre côtés égaux, alors c’est un carré.', 'La forme mystérieuse a quatre côtés égaux.'],
-        answer: 'La forme mystérieuse est un carré.',
-        distractors: ['La forme est un rectangle.', 'La forme est un triangle.', 'On ne peut pas conclure.']
+        badge: "🧠 Déduction",
+        icon: "📦",
+        title: "Cadeau surprise",
+        premises: [
+          'Si une boîte est rouge, alors elle contient un jouet.',
+          'Cette boîte est rouge.'
+        ],
+        answer: 'La boîte cache un jouet.',
+        alternatives: ['La boîte ne contient rien.', 'On ne sait pas ce qu’il y a.'],
+        question: 'Que peux-tu dire ?'
       },
       {
-        rules: ['Si un élève termine ses devoirs, alors il peut jouer.', 'Maya a fini ses devoirs.'],
-        answer: 'Maya peut jouer.',
-        distractors: ['Maya doit encore étudier.', 'Maya ne peut pas jouer.', 'On ne sait pas.']
+        badge: "🧠 Déduction",
+        icon: "🌧️",
+        title: "Prévision météo",
+        premises: [
+          'S’il pleut, le sol est mouillé.',
+          'Il pleut maintenant.'
+        ],
+        answer: 'Le sol devient mouillé.',
+        alternatives: ['Le sol reste sec.', 'On ne peut pas savoir.'],
+        question: 'Que se passe-t-il ?'
       }
     ];
     const data = randomChoice(scenarios);
-    const promptLines = data.rules.map(text => ({ text }));
-    const options = shuffle(uniqueArray([data.answer, ...data.distractors]).slice(0, 4));
+    const promptHTML = `
+      <div class="logic-chain-card">
+        <div class="logic-chain-card__badge"><span>${data.badge}</span></div>
+        <div class="logic-chain-card__header">
+          <span class="logic-chain-card__icon">${data.icon}</span>
+          <span class="logic-chain-card__title">${escapeHtml(data.title)}</span>
+        </div>
+        <ul class="logic-chain-card__premises">
+          ${data.premises.map(line => `<li>${escapeHtml(line)}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+    const distractor = randomChoice(data.alternatives);
+    const options = shuffle([data.answer, distractor]);
     return {
-      promptLines,
-      questionText: 'Quelle conclusion logique peux-tu faire ?',
+      promptHTML,
+      questionText: data.question || 'Quelle conclusion peux-tu faire ?',
       answer: data.answer,
-      options
+      options,
+      kind: 'logic-chain',
+      context: data
     };
   }
 
-  function buildRiddleQuestion(level) {
+function buildRiddleQuestion(level) {
     const riddles = [
       { text: 'Je grandis quand on me nourrit, mais je meurs si on me donne de l’eau.', answer: 'Le feu', options: ['Le feu', 'Une fleur', 'Une fourmi', 'Un nuage'] },
       { text: 'Je commence par E, je finis par E, mais je ne contiens qu’une lettre.', answer: 'Une enveloppe', options: ['Une enveloppe', 'Une étagère', 'Une étoile', 'Une école'] },
@@ -668,20 +1130,19 @@
     };
   }
 
-  // --- Helpers ---
-  function randomInt(min, max) {
-    const lower = Math.ceil(Math.min(min, max));
-    const upper = Math.floor(Math.max(min, max));
-    if (upper <= lower) return lower;
-    return Math.floor(Math.random() * (upper - lower + 1)) + lower;
-  }
-
   function pickEven() {
     return (randomInt(1, 4) * 2);
   }
 
   function pickOdd() {
     return (randomInt(0, 4) * 2 + 1);
+  }
+
+  function randomInt(min, max) {
+    const lower = Math.ceil(Math.min(min, max));
+    const upper = Math.floor(Math.max(min, max));
+    if (upper <= lower) return lower;
+    return Math.floor(Math.random() * (upper - lower + 1)) + lower;
   }
 
   function randomChoice(array) {
@@ -697,16 +1158,16 @@
     return copy;
   }
 
+  function uniqueArray(array) {
+    return Array.from(new Set(array));
+  }
+
   function rotateRow(row, shift) {
     const copy = row.slice();
     for (let i = 0; i < shift; i++) {
       copy.push(copy.shift());
     }
     return copy;
-  }
-
-  function uniqueArray(array) {
-    return Array.from(new Set(array));
   }
 
   function clamp(value, min, max) {
@@ -723,16 +1184,79 @@
     return Math.round(result);
   }
 
-  function svgPath() { return '<path d="M4 12h16M12 4v16" stroke="#6b5bff" stroke-width="2" stroke-linecap="round"/>'; }
-  function svgWave() { return '<path d="M2 12c3-6 7 6 10 0s7 6 10 0" fill="none" stroke="#3ac9a8" stroke-width="2" />'; }
-  function svgBins() { return '<rect x="4" y="6" width="4" height="12" rx="1" fill="#6b5bff"/><rect x="10" y="3" width="4" height="15" rx="1" fill="#ffd36b"/><rect x="16" y="9" width="4" height="9" rx="1" fill="#3ac9a8"/>'; }
-  function svgGrid() { return '<rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="#6b5bff"/><path d="M12 3v18M3 12h18" stroke="#6b5bff"/>'; }
-  function svgMirror() { return '<path d="M4 4h16v16H4z" fill="none" stroke="#6b5bff"/><path d="M12 4v16" stroke="#ffd36b"/>'; }
-  function svgScale() { return '<path d="M12 4v14M5 10l-3 3h6l-3-3zm14 0l-3 3h6l-3-3z" stroke="#6b5bff" fill="none"/>'; }
-  function svgNet() { return '<path d="M4 6h16M4 12h16M4 18h16M8 3v18M16 3v18" stroke="#3ac9a8"/>'; }
-  function svgFlow() { return '<circle cx="6" cy="6" r="2" fill="#6b5bff"/><path d="M8 6h8l2 3-2 3h-8" fill="none" stroke="#6b5bff"/><circle cx="18" cy="12" r="2" fill="#ffd36b"/>'; }
-  function svgBalance() { return '<path d="M12 5l-6 6h12l-6-6zm0 0v14" stroke="#6b5bff" fill="none"/>'; }
-  function svgSpy() { return '<circle cx="12" cy="12" r="7" fill="none" stroke="#6b5bff"/><circle cx="9" cy="11" r="1.5" fill="#6b5bff"/><circle cx="15" cy="11" r="1.5" fill="#6b5bff"/>'; }
+  function svgPath() {
+    return [
+      '<path d="M5 5h14v14H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+      '<path d="M9 9h6v6H13V11H9z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>'
+    ].join('');
+  }
+
+  function svgWave() {
+    return '<path d="M3 14c1.8-3.6 3.6 3.6 5.4 0s3.6-3.6 5.4 0 3.6 3.6 5.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>';
+  }
+
+  function svgBins() {
+    return [
+      '<rect x="4" y="9" width="4" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+      '<rect x="10" y="5" width="4" height="14" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+      '<rect x="16" y="11" width="4" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>'
+    ].join('');
+  }
+
+  function svgGrid() {
+    return [
+      '<rect x="4" y="4" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+      '<path d="M12 4v16M4 12h16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>'
+    ].join('');
+  }
+
+  function svgMirror() {
+    return [
+      '<path d="M8 6l4 4-4 4M16 6l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>',
+      '<path d="M4 20h16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>'
+    ].join('');
+  }
+
+  function svgScale() {
+    return [
+      '<path d="M12 5v14M6 9l-3 5h6l-3-5zm12 0l-3 5h6l-3-5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>',
+      '<path d="M8 19h8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>'
+    ].join('');
+  }
+
+  function svgNet() {
+    return [
+      '<circle cx="6" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+      '<circle cx="18" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+      '<circle cx="6" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+      '<circle cx="18" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+      '<path d="M8 6h8M6 8v8M18 8v8M8 18h8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>'
+    ].join('');
+  }
+
+  function svgFlow() {
+    return [
+      '<rect x="5" y="5" width="6" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/>',
+      '<rect x="13" y="9" width="6" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/>',
+      '<rect x="9" y="15" width="6" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/>',
+      '<path d="M11 9v2M11 13l2 2M15 13v2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>'
+    ].join('');
+  }
+
+  function svgSpy() {
+    return [
+      '<circle cx="10" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+      '<path d="M13 13l5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>'
+    ].join('');
+  }
+
+  function svgBalance() {
+    return [
+      '<path d="M4 12h16M12 4v16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
+      '<circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/>',
+      '<circle cx="16" cy="16" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/>'
+    ].join('');
+  }
 
   window.logicGames = {
     LOGIC_GAMES,
@@ -742,3 +1266,4 @@
     getLevelCount: () => TOTAL_LEVELS
   };
 })();
+
