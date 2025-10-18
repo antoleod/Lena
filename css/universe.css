@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
     background-size: 400% 400%;
-    animation: rainbow 16s ease infinite;
+    animation: rainbow 24s ease infinite;
     overflow: hidden;
 }
 
@@ -24,7 +24,7 @@ body {
     position: absolute;
     background-color: white;
     border-radius: 50%;
-    animation: twinkle 2s infinite;
+    animation: twinkle 2s infinite, slowColorChange 24s linear infinite;
 }
 
 @keyframes twinkle {
@@ -41,8 +41,8 @@ body {
     height: 100px;
     background-color: #FFD700;
     border-radius: 50%;
-    box-shadow: 0 0 50px #FFD700;
-    animation: pulse 4s infinite;
+    box-shadow: 0 0 50px #ffd700;
+    animation: pulse 4s infinite, slowColorChange 24s linear infinite;
 }
 
 .moon {
@@ -53,12 +53,17 @@ body {
     height: 80px;
     background-color: #E0E0E0;
     border-radius: 50%;
-    box-shadow: 0 0 30px #E0E0E0;
-    animation: pulse 5s infinite;
+    box-shadow: 0 0 30px #e0e0e0;
+    animation: pulse 5s infinite, slowColorChange 24s linear infinite;
 }
 
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
+}
+
+@keyframes slowColorChange {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
 }

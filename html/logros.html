@@ -6,22 +6,14 @@
     <title>Appli de Léna — Mes Succès</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/logros.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="../css/theme-unicorn.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 </head>
-<body class="theme-unicorn-rainbow has-app-footer">
-    <div id="stageTop">
-        <div class="scores-container">
-          <span id="user-info"></span>
-          <span id="scoreStars">0</span>
-          <span id="scoreCoins" class="coins">0</span>
-        </div>
-        <div class="top-buttons">
-            <button id="back-to-game" class="btn">⬅️ Retour au jeu</button>
-        </div>
-    </div>
+<body class="theme-unicorn-rainbow">
+    <header data-lena-header></header>
 
     <div id="stageBottom">
         <div id="logros-container">
@@ -37,10 +29,13 @@
         </div>
     </div>
 
-    <footer class="global-footer" data-app-footer></footer>
+    <footer data-lena-footer></footer>
+    <script src="../js/appShell.js" defer></script>
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>
-    <script src="../js/footer.js"></script>
     <script src="../js/logros.js"></script>
 </body>
 </html>
+
+
+

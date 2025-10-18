@@ -32,20 +32,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Elements ---
     const content = document.getElementById('content');
     const btnBack = document.getElementById('btnBack');
+    let navBackBtn = document.getElementById('nav-back');
+    let navBackLabel = navBackBtn?.querySelector('.lena-footer-btn__label') || null;
+    const navBackDefaults = {
+        label: navBackLabel?.textContent?.trim() || 'Retour'
+    };
     const btnLogros = document.getElementById('btnLogros');
     const btnLogout = document.getElementById('btnLogout');
-    const userInfo = document.getElementById('user-info');
-    const scoreStars = document.getElementById('scoreStars');
-    const scoreCoins = document.getElementById('scoreCoins');
+    // New header elements
+    const userAvatarImg = document.getElementById('user-avatar-img');
+    const userNameSpan = document.getElementById('user-name-span');
+    const scoreStarsElements = [
+        document.getElementById('scoreStars'),
+        document.getElementById('stars')
+    ].filter(Boolean);
+    const scoreCoinsElements = [
+        document.getElementById('scoreCoins'),
+        document.getElementById('coins')
+    ].filter(Boolean);
     const levelDisplay = document.getElementById('level');
     const btnReadMode = document.getElementById('btnReadMode');
 
+    function setDisplay(target, value) {
+        if (target && target.style) {
+            target.style.display = value;
+        }
+    }
+
+    function ensureNavBackRefs() {
+        const current = document.getElementById('nav-back');
+        if (current && current !== navBackBtn) {
+            navBackBtn = current;
+            navBackLabel = null;
+        } else if (!current) {
+            navBackBtn = null;
+            navBackLabel = null;
+        }
+
+        if (!navBackBtn) { return; }
+
+        if (!navBackLabel || !navBackBtn.contains(navBackLabel)) {
+            navBackLabel = navBackBtn.querySelector('.lena-footer-btn__label');
+        }
+
+        if (!navBackBtn.__navBackDefaultCaptured && navBackLabel) {
+            const labelText = (navBackLabel.textContent || '').trim();
+            if (labelText) {
+                navBackDefaults.label = labelText;
+            }
+            navBackBtn.__navBackDefaultCaptured = true;
+        }
+    }
+
     // --- Audio Pre-loading ---
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const SOUND_ENABLED = false;
+    const AudioCtor = window.AudioContext || window.webkitAudioContext;
+    const audioContext = SOUND_ENABLED && AudioCtor ? new AudioCtor() : null;
     const soundBuffers = {};
 
     async function loadSound(name, url) {
-        if (!audioContext) return;
+        if (!SOUND_ENABLED || !audioContext) return;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -60,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playBufferedSound(name, volume = 1.0) {
-        if (window.audioManager?.isMuted || !soundBuffers[name] || !audioContext) {
+        if (!SOUND_ENABLED || window.audioManager?.isMuted || !soundBuffers[name] || !audioContext) {
             return;
         }
         // Allow playing sounds even if the context was suspended by the browser
@@ -105,6 +151,65 @@ document.addEventListener('DOMContentLoaded', () => {
         sun: '☀️', moon: '🌙', cloud: '☁️', rainbow: '🌈', cupcake: '🧁', icecream: '🍦',
         balloon: '🎈', paint: '🖍️', drum: '🥁', guitar: '🎸', book: '📘', kite: '🪁'
     };
+
+const LEVEL_THEMES = {
+    default: { icon: '✨', accent: '#8364ff', soft: 'rgba(131, 100, 255, 0.18)', strong: '#8364ff' },
+    additions: { icon: '➕', accent: '#ff71c2', soft: 'rgba(255, 137, 210, 0.25)', strong: '#ff71c2' },
+    soustractions: { icon: '➖', accent: '#ff9f68', soft: 'rgba(255, 175, 104, 0.25)', strong: '#ff9f68', iconColor: '#5b3100' },
+    multiplications: { icon: '✖️', accent: '#8c5bff', soft: 'rgba(140, 91, 255, 0.25)', strong: '#8c5bff' },
+    divisions: { icon: '➗', accent: '#44c2ff', soft: 'rgba(68, 194, 255, 0.25)', strong: '#44c2ff' },
+    'number-houses': { icon: '🏠', accent: '#ffafcc', soft: 'rgba(255, 175, 204, 0.25)', strong: '#ff85b8' },
+    colors: { icon: '🎨', accent: '#f6b73c', soft: 'rgba(246, 183, 60, 0.25)', strong: '#f6b73c', iconColor: '#5b3600' },
+    sorting: { icon: '🧩', accent: '#9b5de5', soft: 'rgba(155, 93, 229, 0.25)', strong: '#9b5de5' },
+    riddles: { icon: '🧠', accent: '#4cc9f0', soft: 'rgba(76, 201, 240, 0.25)', strong: '#4895ef' },
+    vowels: { icon: '🔤', accent: '#f72585', soft: 'rgba(247, 37, 133, 0.25)', strong: '#f72585' },
+    sequences: { icon: '🔗', accent: '#4895ef', soft: 'rgba(72, 149, 239, 0.25)', strong: '#4895ef' },
+    stories: { icon: '📖', accent: '#ffadc6', soft: 'rgba(255, 173, 198, 0.25)', strong: '#ff85b5' },
+    'puzzle-magique': { icon: '🧙', accent: '#9d4edd', soft: 'rgba(157, 78, 221, 0.25)', strong: '#7b2cbf' },
+    repartis: { icon: '🗂️', accent: '#f8961e', soft: 'rgba(248, 150, 30, 0.25)', strong: '#f8961e', iconColor: '#5a3200' },
+    dictee: { icon: '✏️', accent: '#ff6f91', soft: 'rgba(255, 111, 145, 0.25)', strong: '#ff6f91', iconColor: '#ffffff' },
+    'math-blitz': { icon: '⚡', accent: '#ffd166', soft: 'rgba(255, 209, 102, 0.25)', strong: '#ffd166', iconColor: '#5f3c00' },
+    'lecture-magique': { icon: '📚', accent: '#a29bfe', soft: 'rgba(162, 155, 254, 0.25)', strong: '#8479ff', iconColor: '#ffffff' },
+    raisonnement: { icon: '🧠', accent: '#4cc9f0', soft: 'rgba(76, 201, 240, 0.25)', strong: '#4895ef' },
+    'ecriture-cursive': { icon: '✍️', accent: '#fabc60', soft: 'rgba(250, 188, 96, 0.25)', strong: '#f77f00', iconColor: '#6b3a00' },
+    'abaque-magique': { icon: '🧮', accent: '#3da9fc', soft: 'rgba(61, 169, 252, 0.25)', strong: '#0077b6', iconColor: '#ffffff' },
+    'mots-outils': { icon: '🔠', accent: '#ff7aa2', soft: 'rgba(255, 122, 162, 0.25)', strong: '#ff4d8d', iconColor: '#ffffff' },
+    'problems-magiques': { icon: '💡', accent: '#6a4c93', soft: 'rgba(106, 76, 147, 0.25)', strong: '#6a4c93', iconColor: '#ffffff' },
+    'fractions-fantastiques': { icon: '🧮', accent: '#0fa3b1', soft: 'rgba(15, 163, 177, 0.25)', strong: '#0fa3b1', iconColor: '#ffffff' },
+    'temps-horloges': { icon: '⏰', accent: '#ff8c42', soft: 'rgba(255, 140, 66, 0.25)', strong: '#ff8c42', iconColor: '#5f3c00' },
+    'tables-defi': { icon: '🏆', accent: '#ffd166', soft: 'rgba(255, 209, 102, 0.25)', strong: '#e9a700', iconColor: '#5c4200' },
+    'series-numeriques': { icon: '🔢', accent: '#4361ee', soft: 'rgba(67, 97, 238, 0.25)', strong: '#4361ee', iconColor: '#ffffff' },
+    'mesures-magiques': { icon: '📏', accent: '#4cc9f0', soft: 'rgba(76, 201, 240, 0.25)', strong: '#4895ef', iconColor: '#ffffff' },
+    'labyrinthe-logique': { icon: '🌀', accent: '#ffd166', soft: 'rgba(255, 209, 102, 0.25)', strong: '#ffb703', iconColor: '#5f4800' },
+    'sudoku-junior': { icon: '🔲', accent: '#06d6a0', soft: 'rgba(6, 214, 160, 0.25)', strong: '#06d6a0', iconColor: '#ffffff' },
+    'grammaire-magique': { icon: '📘', accent: '#8ecae6', soft: 'rgba(142, 202, 230, 0.25)', strong: '#219ebc', iconColor: '#1b4b63' },
+    'conjugaison-magique': { icon: '📝', accent: '#ff9f1c', soft: 'rgba(255, 159, 28, 0.25)', strong: '#ff9f1c', iconColor: '#5f3b00' },
+    'genres-accords': { icon: '⚖️', accent: '#ff95c5', soft: 'rgba(255, 149, 197, 0.25)', strong: '#ff6fb5', iconColor: '#ffffff' },
+    'lecture-voix-haute': { icon: '🎤', accent: '#6a4c93', soft: 'rgba(106, 76, 147, 0.25)', strong: '#6a4c93', iconColor: '#ffffff' },
+    'vocabulaire-thematique': { icon: '🗣️', accent: '#118ab2', soft: 'rgba(17, 138, 178, 0.25)', strong: '#118ab2', iconColor: '#ffffff' },
+    'atelier-art': { icon: '🎨', accent: '#ff99c8', soft: 'rgba(255, 153, 200, 0.25)', strong: '#ff6f91', iconColor: '#ffffff' },
+    'decouvre-nature': { icon: '🌳', accent: '#80ed99', soft: 'rgba(128, 237, 153, 0.25)', strong: '#57cc99', iconColor: '#1f6f3d' },
+    'carte-monde': { icon: '🌍', accent: '#38a3a5', soft: 'rgba(56, 163, 165, 0.25)', strong: '#22577a', iconColor: '#e9f5ff' },
+    'emotions-magiques': { icon: '💖', accent: '#ff7096', soft: 'rgba(255, 112, 150, 0.25)', strong: '#ff4d8d', iconColor: '#ffffff' },
+    'missions-jour': { icon: '🚀', accent: '#ffd166', soft: 'rgba(255, 209, 102, 0.25)', strong: '#ffb703', iconColor: '#5f4400' },
+    'quiz-jour': { icon: '❓', accent: '#8338ec', soft: 'rgba(131, 56, 236, 0.25)', strong: '#5f0fff', iconColor: '#ffffff' },
+    'respire-repose': { icon: '🧘', accent: '#06d6a0', soft: 'rgba(6, 214, 160, 0.25)', strong: '#06d6a0', iconColor: '#0c5c3f' },
+    'expression-soi': { icon: '🎭', accent: '#f4a261', soft: 'rgba(244, 162, 97, 0.25)', strong: '#f4a261', iconColor: '#5f3b1a' }
+};
+
+function resolveLevelTheme(topicId) {
+    if (MATH_OPERATION_THEMES?.[topicId]) {
+        const theme = MATH_OPERATION_THEMES[topicId];
+        return {
+            icon: theme.icon || LEVEL_THEMES.default.icon,
+            accent: theme.accent || LEVEL_THEMES.default.accent,
+            soft: theme.accentSoft || 'rgba(140, 91, 255, 0.22)',
+            strong: theme.accent || LEVEL_THEMES.default.strong
+        };
+    }
+    return LEVEL_THEMES[topicId] || LEVEL_THEMES.default;
+}
+
     const completionMessages = [
         "Excellent travail, Léna !", "Tu es une vraie championne ! ✨", "Quelle performance incroyable !",
         "Bravo, tu as tout réussi ! 🦄", "Super, continue comme ça !", "Tu es sur la bonne voie ! 🚀",
@@ -627,10 +732,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setupEventListeners();
         showTopicMenu();
         // Pre-load sounds
+    if (SOUND_ENABLED) {
         loadSound('correct', '../assets/sounds/correct.mp3');
         loadSound('wrong', '../assets/sounds/bling.wav');
         loadSound('coins', '../assets/sounds/bling.wav');
         loadSound('hover', '../assets/sounds/bling.wav');
+    }
 
     }
 
@@ -659,73 +766,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderUserIdentity(newBadgeEmoji) {
-        if (typeof newBadgeEmoji !== 'undefined') {
-            userProgress.activeBadgeEmoji = newBadgeEmoji;
-        }
-        if (!userInfo) { return; }
-    
-        userInfo.innerHTML = '';
+        if (!userAvatarImg || !userNameSpan) return;
+
         const avatarMeta = getAvatarMetaLocal(userProfile.avatar?.id);
         const avatarIconUrl = userProfile.avatar?.iconUrl || avatarMeta?.iconUrl;
         const avatarName = userProfile.avatar?.name || avatarMeta?.name || 'Avatar';
-        const avatarPalette = avatarMeta?.defaultPalette || null;
-
-        userInfo.dataset.avatarId = userProfile.avatar?.id || '';
-        userInfo.dataset.avatarName = avatarName || '';
-        if (avatarIconUrl) {
-            userInfo.dataset.avatarIcon = avatarIconUrl;
-        } else {
-            delete userInfo.dataset.avatarIcon;
-        }
-
-        if (!userInfo.classList.contains('user-info-home')) {
-            userInfo.classList.add('user-info-home');
-        }
-        const avatarClassPrefix = 'user-info-home--';
-        const variantClasses = Array.from(userInfo.classList).filter(cls => cls.startsWith(avatarClassPrefix));
-        variantClasses.forEach(cls => userInfo.classList.remove(cls));
-        if (avatarMeta?.id) {
-            userInfo.classList.add(`${avatarClassPrefix}${avatarMeta.id}`);
-        }
-
-        if (avatarPalette) {
-            const primaryTone = avatarPalette.accent || avatarPalette.primary || '#f0e6ff';
-            const inkTone = avatarPalette.textLight || '#2d1b44';
-            userInfo.style.setProperty('--user-info-bg', primaryTone);
-            userInfo.style.setProperty('--user-info-ink', inkTone);
-            userInfo.style.setProperty('--user-info-name', inkTone);
-        } else {
-            userInfo.style.removeProperty('--user-info-bg');
-            userInfo.style.removeProperty('--user-info-ink');
-            userInfo.style.removeProperty('--user-info-name');
-        }
 
         if (avatarIconUrl) {
-            const avatarImg = document.createElement('img');
-            avatarImg.src = avatarIconUrl;
-            avatarImg.alt = avatarName;
-            avatarImg.loading = 'lazy';
-            avatarImg.className = 'user-info__avatar';
-            userInfo.appendChild(avatarImg);
+            userAvatarImg.src = resolveAvatarIcon(avatarIconUrl);
+            userAvatarImg.alt = avatarName;
+            userAvatarImg.style.display = 'block';
         } else {
-            const avatarFallback = document.createElement('span');
-            avatarFallback.className = 'user-info__avatar user-info__avatar--fallback';
-            avatarFallback.textContent = (userProfile.name || '?').charAt(0).toUpperCase();
-            userInfo.appendChild(avatarFallback);
+            userAvatarImg.style.display = 'none';
         }
 
-        const nameSpan = document.createElement('span');
-        nameSpan.className = 'user-info__name';
-        nameSpan.textContent = userProfile.name || 'Explorateur·rice';
-        userInfo.appendChild(nameSpan);
-
-        if (userProgress.activeBadgeEmoji) {
-            const badgeSpan = document.createElement('span');
-            badgeSpan.className = 'user-info__badge';
-            badgeSpan.textContent = userProgress.activeBadgeEmoji;
-            badgeSpan.title = 'Badge spécial';
-            userInfo.appendChild(badgeSpan);
-        }
+        userNameSpan.textContent = userProfile.name || 'Explorateur';
     }
 
     function setPrimaryTheme(color) {
@@ -735,41 +790,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.style.setProperty('--primary-contrast', getReadableTextColor(safeColor));
     }
 
-    const userMenu = document.getElementById('user-menu');
     const menuBack = document.getElementById('menu-back');
-    const menuShop = document.getElementById('menu-shop');
-    const menuAvatar = document.getElementById('menu-avatar');
 
     function setupEventListeners() {
-        btnLogout.addEventListener('click', () => {
-            gameState.historyTracker?.trackAppClose();
-            localStorage.removeItem('mathsLenaUserProfile');
-            window.location.href = 'login.html';
-        });
-        btnLogros.addEventListener('click', () => {
-            window.location.href = '../logros.html';
-        });
-
-        userInfo.setAttribute('role', 'button');
-        userInfo.setAttribute('tabindex', '0');
-        userInfo.classList.add('user-info-home');
-
-        userInfo.addEventListener('click', () => {
-            userMenu.classList.toggle('is-hidden');
-        });
-
-        menuBack.addEventListener('click', () => {
-            userMenu.classList.add('is-hidden');
-            showTopicMenu();
-        });
-
-        menuShop.addEventListener('click', () => {
-            window.location.href = 'boutique.html';
-        });
-
-        menuAvatar.addEventListener('click', () => {
-            window.location.href = 'login.html?edit=true';
-        });
+        if (btnLogout) {
+            btnLogout.addEventListener('click', () => {
+                gameState.historyTracker?.trackAppClose();
+                localStorage.removeItem('mathsLenaUserProfile');
+                window.location.href = 'login.html';
+            });
+        }
+        if (btnLogros) {
+            btnLogros.addEventListener('click', () => {
+                window.location.href = '../logros.html';
+            });
+        }
 
         if (btnReadMode) {
             btnReadMode.disabled = false;
@@ -781,9 +816,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        btnShop.addEventListener('click', () => {
-            window.location.href = 'boutique.html'; // Rediriger vers la boutique
-        });
+        if (btnShop) {
+            btnShop.addEventListener('click', () => {
+                window.location.href = 'boutique.html'; // Rediriger vers la boutique
+            });
+        }
         if (shopCloseBtn) {
             shopCloseBtn.addEventListener('click', closeShop);
         }
@@ -797,10 +834,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Global bottom controls
         if (btnPrev) {
             btnPrev.addEventListener('click', () => {
-                // Re-use the configured Back handler if available, otherwise go to topics
-                if (btnBack && typeof btnBack.onclick === 'function') {
-                    try { btnBack.onclick(); } catch (_) { showTopicMenu(); }
-                } else {
+                if (!triggerBackNavigation()) {
                     showTopicMenu();
                 }
             });
@@ -901,10 +935,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const saveProgress = debounce(_saveProgressImmediate, 1500);
     
+    function removeNavBackOverride() {
+        ensureNavBackRefs();
+        if (navBackBtn?.__customBackListener) {
+            navBackBtn.removeEventListener('click', navBackBtn.__customBackListener, true);
+            navBackBtn.__customBackListener = null;
+        }
+        if (navBackBtn) {
+            navBackBtn.__customBackHandler = null;
+        }
+    }
+
+    function clearBackButton() {
+        if (btnBack) {
+            btnBack.style.display = 'none';
+            btnBack.textContent = 'Retour';
+            btnBack.onclick = null;
+        }
+        removeNavBackOverride();
+        ensureNavBackRefs();
+        if (navBackBtn) {
+            navBackBtn.removeAttribute('data-back-active');
+            if (navBackLabel && navBackDefaults.label) {
+                navBackLabel.textContent = navBackDefaults.label;
+            }
+        }
+    }
+
+    function triggerBackNavigation() {
+        if (btnBack && typeof btnBack.onclick === 'function') {
+            try {
+                btnBack.onclick();
+                return true;
+            } catch (error) {
+                console.warn('[BackNavigation] Legacy back handler failed', error);
+            }
+        }
+        ensureNavBackRefs();
+        if (navBackBtn && typeof navBackBtn.__customBackHandler === 'function') {
+            try {
+                navBackBtn.__customBackHandler();
+                return true;
+            } catch (error) {
+                console.warn('[BackNavigation] Footer back handler failed', error);
+            }
+        }
+        return false;
+    }
+    
     function configureBackButton(label, handler) {
-        btnBack.style.display = 'inline-block';
-        btnBack.textContent = label;
-        btnBack.onclick = () => {
+        const clickHandler = () => {
             saveProgress();
             gameState.historyTracker?.endGame({ status: 'interrompu' });
             if (gameState.currentTopic === 'review') {
@@ -912,6 +992,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             handler();
         };
+
+        if (btnBack) {
+            btnBack.style.display = 'inline-block';
+            btnBack.textContent = label;
+            btnBack.onclick = clickHandler;
+        }
+
+        ensureNavBackRefs();
+        if (navBackBtn) {
+            removeNavBackOverride();
+            const navListener = (event) => {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                clickHandler();
+            };
+            navBackBtn.__customBackListener = navListener;
+            navBackBtn.__customBackHandler = clickHandler;
+            navBackBtn.addEventListener('click', navListener, true);
+            navBackBtn.setAttribute('data-back-active', 'true');
+            if (navBackLabel) {
+                navBackLabel.textContent = label;
+            }
+        }
     }
 
     function markLevelCompleted(topic, level) {
@@ -968,8 +1071,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchPuzzleMagique(level) {
         gameState.currentTopic = 'puzzle-magique';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('puzzle-magique');
         if (window.puzzleMagiqueGame && typeof window.puzzleMagiqueGame.start === 'function') {
             window.puzzleMagiqueGame.start(context);
@@ -982,8 +1085,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchRepartisGame(level) {
         gameState.currentTopic = 'repartis';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('repartis');
         if (window.repartisGame && typeof window.repartisGame.start === 'function') {
             window.repartisGame.start(context);
@@ -996,8 +1099,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchDicteeLevel(level) {
         gameState.currentTopic = 'dictee';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('dictee', {
             openLevelSelection: () => showLevelMenu('dictee'),
             openCustomEditor: () => launchCustomDictationManager(),
@@ -1015,8 +1118,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchMathBlitzLevel(level) {
         gameState.currentTopic = 'math-blitz';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('math-blitz');
         if (window.mathBlitzGame && typeof window.mathBlitzGame.start === 'function') {
             window.mathBlitzGame.start(context);
@@ -1029,8 +1132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchMesuresMagiques(level) {
         gameState.currentTopic = 'mesures-magiques';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('mesures-magiques');
         if (window.mesuresMagiquesGame?.start) {
             window.mesuresMagiquesGame.start(context);
@@ -1042,8 +1145,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchLectureMagiqueLevel(level) {
         gameState.currentTopic = 'lecture-magique';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('lecture-magique');
         if (window.lectureMagiqueGame && typeof window.lectureMagiqueGame.start === 'function') {
             window.lectureMagiqueGame.start(context);
@@ -1057,8 +1160,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchProblemsMagiques(level) {
         gameState.currentTopic = 'problems-magiques';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('problems-magiques');
         if (window.problemsMagiquesGame?.start) {
             window.problemsMagiquesGame.start(context);
@@ -1070,8 +1173,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchFractionsFantastiques(level) {
         gameState.currentTopic = 'fractions-fantastiques';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('fractions-fantastiques');
         if (window.fractionsFantastiquesGame?.start) {
             window.fractionsFantastiquesGame.start(context);
@@ -1083,8 +1186,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchTempsHorloges(level) {
         gameState.currentTopic = 'temps-horloges';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('temps-horloges');
         if (window.tempsHorlogesGame?.start) {
             window.tempsHorlogesGame.start(context);
@@ -1096,8 +1199,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchTablesDefi(level) {
         gameState.currentTopic = 'tables-defi';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('tables-defi');
         if (window.tablesDefiGame?.start) {
             window.tablesDefiGame.start(context);
@@ -1109,8 +1212,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchSeriesNumeriques(level) {
         gameState.currentTopic = 'series-numeriques';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('series-numeriques');
         if (window.seriesNumeriquesGame?.start) {
             window.seriesNumeriquesGame.start(context);
@@ -1129,8 +1232,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         gameState.currentTopic = topicId;
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext(topicId);
         if (window.coeurEmotions?.start) {
             window.coeurEmotions.start(topicId, context);
@@ -1143,8 +1246,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchRaisonnementLevel(level) {
         gameState.currentTopic = 'raisonnement';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('raisonnement');
         if (window.raisonnementGame && typeof window.raisonnementGame.start === 'function') {
             window.raisonnementGame.start(context);
@@ -1156,8 +1259,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showDicteeMenu() {
         gameState.currentTopic = 'dictee';
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('dictee', {
             openLevelSelection: () => showLevelMenu('dictee'),
             startGuidedLevel: (level) => launchDicteeLevel(level),
@@ -1174,8 +1277,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function launchCustomDictationManager() {
         gameState.currentTopic = 'dictee';
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('dictee', {
             openLevelSelection: () => showLevelMenu('dictee'),
             startGuidedLevel: (level) => launchDicteeLevel(level),
@@ -1192,8 +1295,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startCustomDictationPlay() {
         gameState.currentTopic = 'dictee';
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('dictee', {
             openLevelSelection: () => showLevelMenu('dictee'),
             openCustomEditor: () => launchCustomDictationManager(),
@@ -1234,8 +1337,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchEcritureCursive(level) {
         gameState.currentTopic = 'ecriture-cursive';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('ecriture-cursive');
         if (window.ecritureCursiveGame && typeof window.ecritureCursiveGame.start === 'function') {
             window.ecritureCursiveGame.start(context);
@@ -1246,8 +1349,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchAbaqueMagique(level) {
         gameState.currentTopic = 'abaque-magique';
         gameState.currentLevel = level || 1; // Toujours commencer au niveau 1
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('abaque-magique');
         if (window.abaqueMagiqueGame && typeof window.abaqueMagiqueGame.start === 'function') {
             window.abaqueMagiqueGame.start(context); // Le module gère maintenant ses propres niveaux
@@ -1258,8 +1361,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchMotsOutils(level) {
         gameState.currentTopic = 'mots-outils';
         gameState.currentLevel = level;
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('mots-outils');
         if (window.motsOutilsGame && typeof window.motsOutilsGame.start === 'function') {
             window.motsOutilsGame.start(context);
@@ -1335,11 +1438,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateUI() {
-        if (scoreStars) {
-            scoreStars.textContent = userProgress.userScore.stars;
+        if (scoreStarsElements.length) {
+            const value = userProgress.userScore.stars;
+            scoreStarsElements.forEach(el => { el.textContent = value; });
         }
-        if (scoreCoins) {
-            scoreCoins.textContent = userProgress.userScore.coins;
+        if (scoreCoinsElements.length) {
+            const value = userProgress.userScore.coins;
+            scoreCoinsElements.forEach(el => { el.textContent = value; });
         }
         if (levelDisplay) {
             levelDisplay.textContent = gameState.currentTopic === 'review'
@@ -2255,8 +2360,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       content.appendChild(levelsGrid);
 
-      btnLogros.style.display = 'inline-block';
-      btnLogout.style.display = 'inline-block';
+      setDisplay(btnLogros, 'inline-block');
+      setDisplay(btnLogout, 'inline-block');
       configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 
@@ -2403,8 +2508,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux niveaux de mémoire', () => {
             cleanupGame();
             showMemoryGameMenu();
@@ -2503,8 +2608,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const allZones = [pool, ...dropzones];
         allZones.forEach(zone => enableSortingDropzone(zone));
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux niveaux', () => showLevelMenu('sorting'));
 
         function enableSortingToken(token) {
@@ -2640,8 +2745,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchRiddleLevel(level) {
         gameState.currentTopic = 'riddles';
         document.body.classList.add('stage-controls-visible');
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         gameState.currentRiddleLevelIndex = Math.max(0, Math.min(riddleLevels.length, level) - 1);
         const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
         gameState.currentLevel = levelData?.level || level;
@@ -2874,8 +2979,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProgressTracker(index + 1, vowelLevels.length);
         speakText(`${title.textContent}. ${levelData.hint}`);
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux niveaux', () => showLevelMenu('vowels'));
     
         gameState.currentVowelLevelData = {
@@ -3140,8 +3245,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux niveaux', () => showLevelMenu('sequences'));
 
         function enableSequenceToken(token) {
@@ -3268,8 +3373,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="prompt ok">Ton score final : ${userProgress.userScore.stars} étoiles et ${userProgress.userScore.coins} pièces.</div>`;
         speakText("Tu as complété toutes les questions! Félicitations pour ton score final.");
         clearProgressTracker();
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 
@@ -3291,7 +3396,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="progress-tracker__fill"></div>
                 </div>
             `;
-            const footer = document.querySelector('.global-footer');
+            const footer = document.querySelector('[data-lena-footer]');
             if (footer) {
                 footer.parentNode.insertBefore(tracker, footer);
             } else {
@@ -3681,9 +3786,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         content.appendChild(extraContainer);
 
-        btnBack.style.display = 'none';
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        clearBackButton();
+        if (btnLogros) {
+            setDisplay(btnLogros, 'inline-block');
+        }
+        if (btnLogout) {
+            setDisplay(btnLogout, 'inline-block');
+        }
     }
 
     function showLevelMenu(topic) {
@@ -3749,12 +3858,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalLevels = maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
         
         for (let i = 1; i <= totalLevels; i++) {
+            const theme = resolveLevelTheme(gameState.currentTopic);
             const levelBtn = document.createElement('button');
             levelBtn.className = 'level-button fx-bounce-in-down';
             levelBtn.type = 'button';
-            levelBtn.textContent = `Niveau ${i}`;
+            levelBtn.dataset.level = String(i);
             levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
             levelBtn.setAttribute('aria-label', `Niveau ${i}`);
+            levelBtn.style.setProperty('--level-accent', theme.accent);
+            levelBtn.style.setProperty('--level-accent-soft', theme.soft);
+            levelBtn.style.setProperty('--level-accent-strong', theme.strong);
+            if (theme.iconColor) {
+                levelBtn.style.setProperty('--level-icon-color', theme.iconColor);
+            }
+
+            const levelIcon = document.createElement('span');
+            levelIcon.className = 'level-button__icon';
+            levelIcon.textContent = theme.icon || '✨';
+
+            const levelNumber = document.createElement('span');
+            levelNumber.className = 'level-button__number';
+            levelNumber.textContent = String(i);
+
+            const levelLabel = document.createElement('span');
+            levelLabel.className = 'level-button__label';
+            levelLabel.textContent = `Niveau ${i}`;
+
+            const statusBadge = document.createElement('span');
+            statusBadge.className = 'level-button__status';
+
+            const applyStatus = (state) => {
+                const STATUS_COPY = {
+                    ready: 'Prêt à jouer',
+                    'in-progress': 'En cours...',
+                    completed: 'Niveau terminé',
+                    locked: 'Verrouillé'
+                };
+                statusBadge.dataset.state = state;
+                statusBadge.textContent = STATUS_COPY[state] || STATUS_COPY.ready;
+                levelBtn.dataset.status = state;
+            };
+
+            applyStatus('ready');
+            levelBtn.append(levelIcon, levelNumber, levelLabel, statusBadge);
+
             levelBtn.addEventListener('keyup', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -3767,12 +3914,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const levelKey = `${gameState.currentTopic}-${i}`;
             if (userProgress.answeredQuestions[levelKey] === 'completed') {
                 levelBtn.classList.add('correct', 'is-completed');
-                levelBtn.dataset.status = 'completed';
+                applyStatus('completed');
             } else if (userProgress.answeredQuestions[levelKey] === 'in-progress') {
                 levelBtn.classList.add('is-in-progress');
-                levelBtn.dataset.status = 'in-progress';
+                applyStatus('in-progress');
             }
             levelBtn.addEventListener('click', () => {
+                if (levelBtn.dataset.status !== 'completed') {
+                    levelBtn.classList.add('is-in-progress');
+                    applyStatus('in-progress');
+                }
                 gameState.currentLevel = i;
                 const skillTag = resolveSkillTag(gameState.currentTopic);
                 gameState.historyTracker?.startGame(gameState.currentTopic, gameState.currentLevel, { skillTag });
@@ -3807,8 +3958,8 @@ document.addEventListener('DOMContentLoaded', () => {
             levelsContainer.appendChild(levelBtn);
         }
         content.appendChild(levelsContainer);
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux sujets', showTopicMenu);
     }
 
@@ -4021,8 +4172,8 @@ document.addEventListener('DOMContentLoaded', () => {
         fragment.appendChild(optionsContainer);
         content.appendChild(fragment);
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         if (gameState.currentTopic === 'review') {
             configureBackButton('Terminer le repaso', showTopicMenu);
         } else {
@@ -4117,8 +4268,8 @@ checkBtn.style.animationDelay = `${problems.length * 0.1 + 0.5}s`;
 container.appendChild(checkBtn);
 content.appendChild(container);
 
-btnLogros.style.display = 'inline-block';
-btnLogout.style.display = 'inline-block';
+setDisplay(btnLogros, 'inline-block');
+setDisplay(btnLogout, 'inline-block');
 configureBackButton('Retour aux niveaux', () => showLevelMenu(gameState.currentTopic));
 
 checkBtn.addEventListener('click', handleCheckHouses);
@@ -4300,8 +4451,8 @@ function generateNumberProblems(sum, count) {
         fragment.appendChild(optionsContainer);
         content.appendChild(fragment);
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         if (gameState.currentTopic === 'review') {
             configureBackButton('Terminer le repaso', showTopicMenu);
         } else {
@@ -4505,8 +4656,8 @@ function generateNumberProblems(sum, count) {
 
         content.appendChild(carousel);
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux sujets', showTopicMenu);
     }
 
@@ -4569,8 +4720,8 @@ function generateNumberProblems(sum, count) {
         content.appendChild(storyContainer);
         content.appendChild(startQuizBtn);
         
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux contes', showStoryMenu);
     }
     
@@ -4638,8 +4789,8 @@ function generateNumberProblems(sum, count) {
         fragment.appendChild(optionsContainer);
         content.appendChild(fragment);
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux contes', showStoryMenu);
     }
     
@@ -4722,8 +4873,8 @@ function generateNumberProblems(sum, count) {
         content.appendChild(backBtn);
 
         speakText('Quiz terminé ! Bravo !');
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 
@@ -4762,8 +4913,8 @@ function generateNumberProblems(sum, count) {
       });
       content.appendChild(levelsGrid);
 
-      btnLogros.style.display = 'inline-block';
-      btnLogout.style.display = 'inline-block';
+      setDisplay(btnLogros, 'inline-block');
+      setDisplay(btnLogout, 'inline-block');
       configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 
@@ -4910,8 +5061,8 @@ function generateNumberProblems(sum, count) {
                 }
             }
         }
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux niveaux de mémoire', () => {
             cleanupGame();
             showMemoryGameMenu();
@@ -5010,8 +5161,8 @@ function generateNumberProblems(sum, count) {
         const allZones = [pool, ...dropzones];
         allZones.forEach(zone => enableSortingDropzone(zone));
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux niveaux', () => showLevelMenu('sorting'));
 
         function enableSortingToken(token) {
@@ -5147,8 +5298,8 @@ function generateNumberProblems(sum, count) {
     function launchRiddleLevel(level) {
         gameState.currentTopic = 'riddles';
         document.body.classList.add('stage-controls-visible');
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         gameState.currentRiddleLevelIndex = Math.max(0, Math.min(riddleLevels.length, level) - 1);
         const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
         gameState.currentLevel = levelData?.level || level;
@@ -5381,8 +5532,8 @@ function generateNumberProblems(sum, count) {
         updateProgressTracker(index + 1, vowelLevels.length);
         speakText(`${title.textContent}. ${levelData.hint}`);
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux niveaux', () => showLevelMenu('vowels'));
     
         gameState.currentVowelLevelData = {
@@ -5647,8 +5798,8 @@ function generateNumberProblems(sum, count) {
             });
         });
 
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux niveaux', () => showLevelMenu('sequences'));
 
         function enableSequenceToken(token) {
@@ -5775,8 +5926,8 @@ function generateNumberProblems(sum, count) {
                             <div class="prompt ok">Ton score final : ${userProgress.userScore.stars} étoiles et ${userProgress.userScore.coins} pièces.</div>`;
         speakText("Tu as complété toutes les questions! Félicitations pour ton score final.");
         clearProgressTracker();
-        btnLogros.style.display = 'inline-block';
-        btnLogout.style.display = 'inline-block';
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 

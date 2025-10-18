@@ -28,8 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Éléments DOM ---
     const userInfo = document.getElementById('user-info');
-    const scoreStars = document.getElementById('scoreStars');
-    const scoreCoins = document.getElementById('scoreCoins');
+    const scoreStarsElements = [
+        document.getElementById('scoreStars'),
+        document.getElementById('stars')
+    ].filter(Boolean);
+    const scoreCoinsElements = [
+        document.getElementById('scoreCoins'),
+        document.getElementById('coins')
+    ].filter(Boolean);
     const rareItemsContainer = document.getElementById('rare-items-container');
     const shopItemsContainer = document.getElementById('shop-items-container');
     const myTreasuresContainer = document.getElementById('my-treasures-container');
@@ -82,8 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
             userInfo.appendChild(nameSpan);
         }
 
-        if (scoreStars) scoreStars.textContent = userProgress.userScore.stars;
-        if (scoreCoins) scoreCoins.textContent = userProgress.userScore.coins;
+        if (scoreStarsElements.length) {
+            const stars = userProgress.userScore.stars;
+            scoreStarsElements.forEach(el => { el.textContent = stars; });
+        }
+        if (scoreCoinsElements.length) {
+            const coins = userProgress.userScore.coins;
+            scoreCoinsElements.forEach(el => { el.textContent = coins; });
+        }
     }
 
     function renderAllItems() {

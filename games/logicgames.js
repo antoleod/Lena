@@ -170,6 +170,16 @@
       button.type = 'button';
       button.className = 'level-button fx-bounce-in-down';
       button.style.animationDelay = `${Math.random() * 0.45}s`;
+      
+      if (gameId === 'orbes-lumiere') {
+        button.style.borderRadius = '50%';
+        button.style.width = '80px';
+        button.style.height = '80px';
+        button.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        if (level <= completed) {
+          button.style.backgroundColor = 'rgba(40, 200, 140, 0.5)';
+        }
+      }
       if (level <= completed) {
         button.classList.add('correct', 'is-completed');
         button.dataset.status = 'completed';
@@ -1266,4 +1276,3 @@ function buildRiddleQuestion(level) {
     getLevelCount: () => TOTAL_LEVELS
   };
 })();
-

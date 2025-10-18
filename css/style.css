@@ -2,112 +2,53 @@
   Mejoras de la paleta de colores, tipografía, y animaciones.
 */
 
+* { box-sizing: border-box; }
+
 :root {
   /* 🎨 Colores */
---bg-glass: rgba(255, 255, 255, 0.2); /* <- ese velo translúcido */
-  --bg-glow: linear-gradient(145deg, #f5e6cc, #ffffff);
-  --card-color: rgba(255, 255, 255, 0.3);
-  --card-border: rgba(255, 255, 255, 0.4);
-  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  --glow-purple: 0 0 15px #cfa7ff;
-  --card: var(--card-color);
-
-  --border-radius: 2rem;
-  --border-radius-medium: 1rem;
-  --border-radius-large: 1.5rem;
-  --transition: all 0.4s ease;
-
-  /* Tipografía */
-  --font-heading: 'Fredoka', cursive;
-  --font-body: 'Nunito', sans-serif;
-
-  /* Tonos dinámicos */
-  --primary: #a890f0;
-  --primary-light: #c9b2ff;
-  --primary-contrast: #2f1d4f;
+  --primary: #a890f0; /* Lavande douce */
+  --primary-light: #dcd8ff; /* Lavande très claire */
+  --primary-contrast: #2f1d4f; /* Texte sur fond lavande */
+  --secondary: #9bf6ff; /* Bleu clair pastel */
   --success: #8bc34a;
   --danger: #ef5350;
-  --ink: #2f1d4f;
-  --shadow-small: 0 4px 12px rgba(77, 67, 160, 0.15);
-  --shadow-medium: 0 18px 45px rgba(77, 67, 160, 0.28);
-  --bg2: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 234, 255, 0.68));
-  --footer-surface: rgba(18, 10, 45, 0.78);
-  --footer-border: rgba(255, 255, 255, 0.24);
-  --footer-blur: blur(12px);
+  --ink: #3f2c85; /* Texte principal sombre */
+  --ink-muted: #6a5acd; /* Texte secondaire */
+  --bg-main: linear-gradient(160deg, #fde4ff, #dcd8ff); /* Fond principal pastel */
+  --bg-card: rgba(255, 255, 255, 0.75); /* Fond de carte translucide */
+  --border-card: rgba(255, 255, 255, 0.5);
+
+  /* 📐 Tailles et espacements fluides */
+  --font-size-base: clamp(1rem, 1.8vw, 1.1rem);
+  --font-size-large: clamp(1.1rem, 2.2vw, 1.4rem);
+  --font-size-xl: clamp(1.4rem, 3vw, 1.8rem);
+  --font-size-xxl: clamp(1.8rem, 4vw, 2.5rem);
+  --space-unit: clamp(0.75rem, 2vw, 1.25rem);
+
+  /* 🖋️ Polices */
+  --font-heading: 'Fredoka', 'Nunito', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+
+  /* 🖼️ Rayons et ombres */
+  --border-radius-medium: 16px;
+  --border-radius-large: 24px;
+  --shadow-small: 0 4px 12px rgba(77, 67, 160, 0.1);
+  --shadow-medium: 0 10px 25px rgba(77, 67, 160, 0.15);
+  --shadow-large: 0 18px 45px rgba(77, 67, 160, 0.18);
 }
 
-/* 🌌 Fondo Glass + animación */
-body {
-  background: var(--bg2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  min-height: 100vh;
-  font-family: var(--font-body);
-  position: relative;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--bg-glass);
-  z-index: 0;
-}
-
-
-
-body.has-app-footer {
-  padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
-}
-
-body.login-body.has-app-footer {
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* 🧊 Tarjeta flotante futurista */
-.card {
-  background: var(--card);
-  border-radius: var(--border-radius-medium);
-  padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), var(--glow-purple);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-/* ✨ Efecto 3D al pasar el mouse */
-.card:hover {
-  transform: rotateX(4deg) rotateY(-4deg) scale(1.02);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2), var(--glow-purple);
-}
-/* 👶 Título estilo infantil */
-.card h1 {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  color: #444;
-  margin: 0;
-}
-
-
-
-* { box-sizing: border-box; }
 body {
   font-family: var(--font-body);
-  background: var(--bg);
+  background: var(--bg-main);
   color: var(--ink);
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: clamp(1rem, 4vw, 2.5rem);
+  justify-content: flex-start; /* Aligner en haut */
+  gap: var(--space-unit);
   min-height: 100vh;
-  padding: clamp(1rem, 3vw, 2.5rem);
+  padding: var(--space-unit);
   line-height: 1.6;
   font-size: var(--font-size-base);
   transition: background-color 0.5s ease-in-out;
@@ -123,7 +64,7 @@ body.has-custom-background #stageBottom {
   backdrop-filter: blur(10px);
 }
 
-body.has-custom-background #stageTop span {
+body.has-custom-background #stageTop:not(.game-header) #user-info {
   background: rgba(255, 255, 255, 0.92);
 }
 
@@ -230,7 +171,7 @@ body::after {
   background: linear-gradient(180deg, #f3f1fa 0%, #e4def4 40%, #cbb7e6 100%);
 }
 /* ========== HEADER - Área superior con mejoras mágicas ========== */
-#stageTop {
+#stageTop:not(.game-header) {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -265,7 +206,7 @@ body::after {
 }
 
 /* 🧾 Cada span (estrellas, monedas, nivel) */
-#stageTop span {
+#stageTop:not(.game-header) span {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -278,7 +219,7 @@ body::after {
 }
 
 /* ✨ Sparkle animado sutil en los íconos */
-#stageTop span::before {
+#stageTop:not(.game-header) span::before {
   display: inline-flex;
   animation: sparklePulse 4.5s ease-in-out infinite;
   transform-origin: center;
@@ -286,27 +227,9 @@ body::after {
 }
 
 /* 🌟 Íconos por tipo */
-#stageTop span#scoreStars::before { content: '⭐️'; }
-#stageTop span.coins::before { content: '💰'; }
-#stageTop span.level::before { content: '🚀'; }
-
-/* 👤 Info del usuario */
-#stageTop span#user-info {
-  cursor: pointer;
-  gap: clamp(0.45rem, 1vw, 0.75rem);
-  padding: clamp(0.6rem, 1vw, 0.9rem) clamp(1rem, 1.5vw, 1.4rem);
-  background: linear-gradient(135deg, #f3e8ff, #e0ddff);
-  color: #4a3c75;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 18px rgba(148, 102, 255, 0.15);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Hover animado */
-#stageTop span#user-info:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 22px rgba(148, 102, 255, 0.25);
-}
+#stageTop:not(.game-header) span#scoreStars::before { content: '⭐️'; }
+#stageTop:not(.game-header) span.coins::before { content: '💰'; }
+#stageTop:not(.game-header) span.level::before { content: '🚀'; }
 
 /* 🖼️ Avatar */
 .user-info__avatar {
@@ -317,11 +240,6 @@ body::after {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 6px 14px rgba(148, 102, 255, 0.25);
   transition: transform 0.3s ease;
-}
-
-/* Animación al pasar sobre el span */
-#user-info:hover .user-info__avatar {
-  transform: rotate(-3deg) scale(1.03);
 }
 
 /* 🧑‍🎓 Nombre */
@@ -349,22 +267,6 @@ body::after {
   50% { transform: translateY(-3px); }
 }
 
-/* 🎮 Botones extra (ajustes, etc.) */
-.top-buttons {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-/* Top bar button sizing and grouping */
-.top-buttons .btn {
-  padding: 0.55rem 0.9rem;
-  border-radius: 1rem;
-  font-size: clamp(0.9rem, 1.6vw, 1rem);
-  gap: 0.25rem;
-}
-
 /* Place the back button at the far left */
 #btnBack {
   order: -1; /* visually first */
@@ -375,10 +277,9 @@ body::after {
   margin-left: auto;
 }
 
-
 /* Estilos mejorados para los botones de temas */
 .topic-btn {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   padding: 1rem 1.5rem;
   border-radius: 1.5rem;
   border: none;
@@ -424,10 +325,9 @@ body::after {
 #btnBack,
 #btnLogros,
 #btnLogout {
-  
-  
-  font-family: var(--font-heading);
-  padding: 1rem 1.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
   border-radius: 1.5rem;
   border: none;
   background: var(--bg2);
@@ -437,8 +337,7 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   font-size: var(--font-size-large);
   animation: bounceIn 0.5s ease-out;
 
@@ -451,7 +350,6 @@ body::after {
     0 -1px 1px rgba(255, 255, 255, 0.4), /* brillo sutil claro */
     0 0 6px rgba(0, 0, 0, 0.15); /* desenfoque suave */
 }
-
 
 /* 🧲 Hover: elevación suave */
 #btnBack:hover,
@@ -471,27 +369,6 @@ body::after {
   box-shadow: 
     inset -2px -2px 6px rgba(255, 255, 255, 0.7),
     inset 6px 6px 12px rgba(0, 0, 0, 0.25);
-}
-
-
-
-/* 📦 Contenedor principal */
-#stageBottom {
-  max-width: min(960px, 100%);
-  width: 100%;
-  background: var(--card);
-  border-radius: var(--border-radius-large);
-  padding: clamp(1.5rem, 4vw, 3rem);
-  box-shadow: var(--shadow-large);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1rem, 2.2vw, 2rem);
-  text-align: center;
-  animation: fadeIn 1s ease-in-out;
-  position: relative;
-  overflow: hidden;
-  min-height: clamp(420px, 65vh, 780px);
-  z-index: 1;
 }
 
 .review-banner {
@@ -598,16 +475,6 @@ body::after {
   text-decoration: underline;
   padding: 0.3rem 0.6rem;
 }
-#stageBottom::before {
-  content: '';
-  position: absolute;
-  inset: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, var(--primary-light), transparent 70%);
-  opacity: 0.1;
-  animation: bg-pulse 10s infinite alternate;
-}
 
 @keyframes bg-pulse {
   from { transform: scale(1); }
@@ -658,18 +525,6 @@ body::after {
   gap: var(--space-unit);
 }
 
-.question-prompt {
-  font-family: var(--font-heading);
-  font-size: 2rem; /* Aumentamos aún más el tamaño */
-  color: #FFD93D;
-  margin-bottom: var(--space-unit);
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra más grande y profunda */
-  animation: fadeIn 0.8s ease-in-out;
-  font-weight: bold; /* Le da más presencia */
-  letter-spacing: 1px; /* Mejora la legibilidad en grande */
-  text-align: center; /* Opcional: centrado para mayor énfasis */
-}
-
 .options-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 28vw, 320px), 1fr));
@@ -678,7 +533,7 @@ body::after {
 }
 
 .option {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: var(--font-size-large);
   padding: clamp(1rem, 2.5vw, 1.75rem);
   border-radius: var(--border-radius-medium);
@@ -798,7 +653,7 @@ body::after {
 
 /* 🌈 Botones responsivos con rebote */
 .btn {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   padding: 1rem 1.6rem;
   border-radius: 1.5rem;
   border: none;
@@ -810,7 +665,7 @@ body::after {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   font-size: var(--font-size-large);
   animation: bounceIn 0.5s ease-out;
   box-shadow:
@@ -885,7 +740,7 @@ body::after {
 }
 
 .story-listen-btn {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.25rem);
   padding: clamp(0.6rem, 1.8vw, 0.9rem) clamp(1rem, 2.5vw, 1.6rem);
   border-radius: 999px;
@@ -923,7 +778,7 @@ body::after {
 }
 
 .progress-tracker__label {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: clamp(0.95rem, 1.8vw, 1.15rem);
   color: var(--primary);
 }
@@ -1014,7 +869,7 @@ body[data-bg-theme] #stageBottom {
 }
 
 .shop-modal__header h2 {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: clamp(1.4rem, 2.4vw, 1.9rem);
   color: var(--primary);
   margin: 0;
@@ -1056,7 +911,7 @@ body[data-bg-theme] #stageBottom {
 }
 
 .shop-section h3 {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   margin-bottom: 0.5rem;
   color: var(--primary);
 }
@@ -1123,7 +978,7 @@ body[data-bg-theme] #stageBottom {
 }
 
 .shop-item__name {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: clamp(1rem, 1.8vw, 1.15rem);
 }
 
@@ -1143,8 +998,8 @@ body[data-bg-theme] #stageBottom {
   width: 100%;
   border: none;
   border-radius: 999px;
-  padding: 0.65rem 1.2rem;
-  font-family: var(--font-heading);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-body);
   font-size: clamp(0.85rem, 1.4vw, 1rem);
   cursor: pointer;
   background: linear-gradient(135deg, #7755ff, #ff89c6);
@@ -1193,8 +1048,8 @@ body[data-bg-theme] #stageBottom {
   align-self: flex-start;
   border: none;
   border-radius: 999px;
-  padding: 0.55rem 1.4rem;
-  font-family: var(--font-heading);
+  padding: 0.45rem 1.2rem;
+  font-family: var(--font-body);
   font-size: clamp(0.9rem, 1.5vw, 1rem);
   cursor: pointer;
   background: linear-gradient(135deg, #6bc5ff, #7b8dff);
@@ -1444,157 +1299,14 @@ body[data-bg-theme] #stageBottom {
 
 
 
-/* 🖥️📱 Breakpoints: Desktop, Tablet, Móvil */
-/* 🖥️ Pantallas grandes (Desktop) */
-@media (max-width: 1024px) {
-  .card {
-    padding: 1.8rem;
-    border-radius: var(--border-radius-medium);
-  }
-}
-
-/* 📱 Tabletas */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
-/* 📳 Móviles */
-@media (max-width: 480px) {
-  .card {
-    width: 100%;
-    padding: 1.2rem;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  }
-
-  .btn {
-    font-size: clamp(0.9rem, 3.5vw, 1rem);
-    padding: 0.6rem 1rem;
-  }
-
-  .option:hover .option-icon,
-  .color-option-button:hover .option-icon {
-    animation: iconFloat 1.8s ease-in-out infinite,
-               iconSparkle 1.8s ease-in-out infinite;
-  }
-}
-
-/* 📏 Teléfonos muy pequeños */
-@media (max-width: 360px) {
-  .card {
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 0.8rem;
-  }
-}
-
-
-  .btn {
-    font-size: clamp(0.9rem, 3.5vw, 1rem);
-    padding: 0.6rem 1rem;
-  }
 .option:hover .option-icon,
 .color-option-button:hover .option-icon {
   animation: iconFloat 1.8s ease-in-out infinite, iconSparkle 1.8s ease-in-out infinite;
 }
 
-/* ===== Footer global ===== */
-.global-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
-  height: 52px; /* Compact height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 clamp(1rem, 4vw, 2.75rem);
-  background: rgba(255, 255, 255, 0.1); /* More translucent */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1); /* Softer shadow */
-}
-
-.footer-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem; /* Consistent gap */
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-.footer-btn {
-  position: relative;
-  width: 44px;   /* Circular button width */
-  height: 44px;  /* Circular button height */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: 50%; /* Circular shape */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border as part of the frame */
-  cursor: pointer;
-  background: transparent;
-  color: var(--ink);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Frame/shadow effect */
-  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-  will-change: transform, background-color, box-shadow;
-}
-
-.footer-btn__icon {
-  font-size: 24px; /* Icon size */
-  line-height: 1;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Shadow for the icon */
-  transition: transform 0.25s ease;
-}
-
-.footer-btn__label {
-  display: none !important; /* Hide label */
-}
-
-.footer-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-.footer-btn:hover .footer-btn__icon {
-  transform: scale(1.1);
-}
-
-.footer-btn:active {
-  transform: scale(0.9);
-  transition-duration: 0.1s;
-}
-
-.footer-btn[aria-current="page"] {
-  background-color: var(--primary);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 0 12px rgba(168, 144, 240, 0.5), 0 4px 8px rgba(0, 0, 0, 0.2); /* Combine colored glow with standard shadow */
-}
-
-.footer-btn.is-audio-muted {
-  color: #a9a9a9; /* Muted color */
-}
-
 /* Estilos para los botones del juego Répartis & Multiplie */
 .repartis-option-btn {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: clamp(1.4rem, 4vw, 2rem);
   color: white;
   border: none;
@@ -1630,11 +1342,6 @@ body[data-bg-theme] #stageBottom {
   box-shadow: 0 8px 16px rgba(255, 221, 225, 0.4);
 }
 
-@media (max-width: 640px) {
-  .footer-actions {
-    gap: 0.75rem;
-  }
-}
 /* --- Logic games styles (3e primaire) --- */
 :root {
   --logic-blue: #6b5bff;
@@ -1644,12 +1351,12 @@ body[data-bg-theme] #stageBottom {
 }
 
 #logic-games.category { margin-top: 1.5rem; padding: 0.5rem 0 1rem; }
-#logic-games h2 { font-family: 'Fredoka','Nunito',sans-serif; font-weight: 800; color: var(--logic-blue); text-align: center; margin: 0 0 0.5rem; }
+#logic-games h2 { font-family: var(--font-heading); font-weight: 800; color: var(--logic-blue); text-align: center; margin: 0 0 0.5rem; }
 .logic-game-grid, #logic-games .game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; padding: 6px 8px; }
 .game-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px 12px; border: none; border-radius: 16px; background: #f6f7ff; box-shadow: 0 4px 10px rgba(0,0,0,0.06); color: #5a4ae3; cursor: pointer; outline: none; transition: transform 160ms ease, box-shadow 160ms ease; }
 .game-card .icon { font-size: 1.6rem; line-height: 1; }
 .game-card .svg { width: 24px; height: 24px; opacity: 0.85; }
-.game-card .title { font-weight: 800; font-size: 0.95rem; text-align: center; }
+.game-card .title { font-family: var(--font-body); font-weight: 800; font-size: 0.95rem; text-align: center; }
 .game-card .progress { width: 100%; height: 6px; background: #eaeaff; border-radius: 999px; overflow: hidden; }
 .game-card .progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--logic-green), var(--logic-blue)); }
 .game-card:focus-visible { box-shadow: 0 0 0 3px rgba(107,91,255,0.35); }
@@ -1657,3 +1364,4 @@ body[data-bg-theme] #stageBottom {
 .game-card:active { transform: translateY(-1px); }
 
 @media (prefers-reduced-motion: reduce) { .game-card { transition: none; } .fx-bounce-in-down { animation: none !important; } }
+

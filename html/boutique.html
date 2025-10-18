@@ -6,21 +6,13 @@
     <title>Boutique Magique</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/boutique.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="stageTop">
-        <div class="scores-container">
-          <span id="user-info"></span>
-          <span id="scoreStars">0</span>
-          <span id="scoreCoins" class="coins">0</span>
-        </div>
-        <div class="top-buttons">
-            <button id="btnVolver" class="btn">🚪 Retour aux Jeux</button>
-        </div>
-    </div>
+    <header data-lena-header></header>
 
     <div id="magic-shop-container">
         <canvas id="magic-particles"></canvas>
@@ -58,11 +50,14 @@
     <audio id="buy-sound" src="../assets/sounds/correct.wav"></audio>
 
     <script src="../js/audioManager.js"></script>
+    <script src="../js/appShell.js" defer></script>
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>
     <script src="../js/boutiqueData.js"></script>
-    <footer class="global-footer" data-app-footer></footer>
-    <script src="../js/footer.js"></script>
+    <footer data-lena-footer></footer>
     <script src="../js/boutique.js"></script>
 </body>
 </html>
+
+
+

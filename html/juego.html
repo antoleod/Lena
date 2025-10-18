@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/juego.css">
     <link rel="stylesheet" href="../css/dictee.css">
-    <link rel="stylesheet" href="../js/ecriture-cursive.css">
-    <link rel="stylesheet" href="../js/abaque-magique.css">
+    <link rel="stylesheet" href="../css/ecriture-cursive.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/abaque-magique.css">
     <link rel="stylesheet" href="../css/theme-unicorn.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/favicon.ico">
     <style>
     /* Sections groupées – cartes grandes + chips enfants */
     .mm-sections{max-width:1200px;margin:0 auto 1rem;padding:0 .5rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
@@ -22,9 +24,9 @@
     .mm-section-title .mm-emoji{font-size:22px}
     .mm-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;justify-content:center}
     .mm-chip{border:none;border-radius:14px;padding:10px 12px;background:#fff;box-shadow:0 6px 14px rgba(24,20,68,.08);cursor:pointer;text-align:left;font-weight:800;color:#513eea;display:flex;align-items:center;gap:.5rem;transition:transform .2s ease, box-shadow .2s ease}
-    .mm-chip .mm-emoji{font-size:18px}
-    .mm-chip:focus-visible{outline:3px solid rgba(107,91,255,.45)}
-    .mm-chip:hover:not([disabled]){transform:translateY(-3px);box-shadow:0 10px 20px rgba(24,20,68,.12)}
+    .mm-chip .mm-emoji{font-size:18px;filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));}
+    .mm-chip:focus-visible{outline:3px solid rgba(107,91,255,.45);box-shadow:0 10px 20px rgba(24,20,68,.12), 0 0 15px rgba(81, 62, 234, 0.5);}
+    .mm-chip:hover:not([disabled]){transform:translateY(-3px);box-shadow:0 10px 20px rgba(24,20,68,.12), 0 0 15px rgba(81, 62, 234, 0.5);}
     .mm-chip[disabled]{opacity:.6;cursor:not-allowed}
     .mm-hide{display:none!important}
     @media (prefers-reduced-motion:reduce){
@@ -64,27 +66,7 @@
     <div class="magic-firefly magic-firefly--three"></div>
     <div class="magic-firefly magic-firefly--four"></div>
   </div>
-  <div id="stageTop">
-    <div class="scores-container">
-      <span id="user-info"></span>
-      <div id="user-menu" class="user-menu is-hidden">
-        <button id="menu-back">Retour au menu</button>
-        <button id="menu-shop">Voir la boutique</button>
-        <button id="menu-avatar">Changer d'avatar</button>
-      </div>
-      <span id="scoreStars">0</span>
-      <span id="scoreCoins" class="coins">0</span>
-      <span id="level" class="level">Niveau 1</span>
-      <span id="progress-label" class="progress-label"></span>
-    </div>
-    <div class="top-buttons">
-        <button id="btnReadMode" class="btn" disabled>📖</button>
-        <button id="btnShop" class="btn">🛍️ Boutique</button>
-        <button id="btnLogros" class="btn">🏆 Succès</button>
-        <button id="btnLogout" class="btn">🚪 Quitter</button>
-        <button id="btnBack" class="btn">Retour</button>
-    </div>
-  </div>
+  <header data-lena-header></header>
 
   <div id="stageBottom">
     <!-- Sections groupées par thèmes (rendered by JS) -->
@@ -140,11 +122,10 @@
     <script src="../js/ecriture-cursive.js"></script>
   <script src="../js/abaque-magique.js"></script>
   <script src="../js/audioManager.js"></script>
+  <script src="../js/appShell.js" defer></script>
   <script src="../js/mcqEngine.js"></script>
-  <footer class="global-footer" data-app-footer></footer>
   <script src="../js/avatarData.js"></script>
   <script src="../js/storage.js"></script>
-  <script src="../js/footer.js"></script>
   <script src="../js/mots-outils.js"></script>
   <script src="../js/juego.js"></script>
   <script>
@@ -318,3 +299,10 @@
   </script>
 </body>
 </html>
+
+
+
+  <footer data-lena-footer></footer>
+
+
+

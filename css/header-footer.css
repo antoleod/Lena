@@ -1,0 +1,678 @@
+/* ==========================================================================
+   Lena App Shell - Header & Footer
+   Glassmorphic, playful UI for kids
+   ========================================================================== */
+
+:root {
+    --shell-font: 'Fredoka', 'Nunito', sans-serif;
+    --shell-header-height: 96px;
+    --shell-header-height-compact: 70px;
+    --shell-footer-height: 80px;
+    --shell-fab-size: 68px;
+    --shell-fab-size-mobile: 58px;
+
+    --shell-glass-bg: linear-gradient(135deg, rgba(232, 226, 255, 0.82), rgba(182, 243, 239, 0.68));
+    --shell-glass-border: rgba(255, 255, 255, 0.5);
+    --shell-glass-shadow: 0 18px 40px rgba(131, 100, 255, 0.18);
+    --shell-ambient-glow: 0 0 45px rgba(182, 243, 239, 0.32);
+
+    --shell-color-violet: #8364ff;
+    --shell-color-mint: #b6f3ef;
+    --shell-color-rose: #ffc6f4;
+    --shell-color-sun: #ffd54a;
+    --shell-color-text: #2d2557;
+    --shell-color-muted: rgba(45, 37, 87, 0.62);
+    --shell-color-white: #ffffff;
+
+    --shell-gradient-sheen: radial-gradient(circle at top left, rgba(255, 255, 255, 0.45), transparent 58%);
+}
+
+body.has-shell-header {
+    padding-top: calc(var(--shell-header-height) + 16px);
+}
+
+body.has-shell-footer {
+    padding-bottom: calc(var(--shell-footer-height) + 12px);
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.lena-shell__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    height: var(--shell-header-height);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    pointer-events: none;
+    transition: height 0.3s ease, transform 0.3s ease;
+}
+
+.lena-shell__header-inner {
+    position: relative;
+    width: min(1100px, calc(100% - 32px));
+    margin: 8px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 22px;
+    border-radius: 26px;
+    border: 1px solid var(--shell-glass-border);
+    border-bottom: 1px solid rgba(131, 100, 255, 0.22);
+    background: var(--shell-glass-bg);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: var(--shell-glass-shadow), var(--shell-ambient-glow);
+    pointer-events: auto;
+    overflow: hidden;
+    transition: border-radius 0.3s ease, padding 0.3s ease, gap 0.2s ease, transform 0.3s ease;
+}
+
+.lena-shell__header-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--shell-gradient-sheen);
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.lena-shell__header.is-compact .lena-shell__header-inner {
+    border-radius: 22px;
+    padding: 10px 16px;
+    gap: 8px;
+    margin-top: 6px;
+    transform: translateY(-6px) scale(0.97);
+}
+
+.lena-shell__header.is-compact {
+    height: var(--shell-header-height-compact);
+}
+
+.lena-shell__header-inner > * {
+    position: relative;
+    z-index: 1;
+}
+
+.lena-shell__header.on-hide {
+    transform: translateY(-110%);
+}
+
+.lena-shell__identity {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1 1 auto;
+    min-width: 0;
+    z-index: 1;
+}
+
+.lena-avatar {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), rgba(232, 226, 255, 0.4));
+    border: 3px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 28px rgba(131, 100, 255, 0.28);
+    overflow: hidden;
+}
+
+.lena-avatar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    mix-blend-mode: screen;
+}
+
+.lena-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.lena-avatar__fallback {
+    font-size: 1.9rem;
+    color: var(--shell-color-violet);
+}
+
+.lena-shell__identity-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--shell-font);
+    color: var(--shell-color-text);
+    min-width: 0;
+}
+
+.lena-shell__identity-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+.lena-shell__logout {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 213, 74, 0.35));
+    color: var(--shell-color-text);
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(255, 213, 74, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lena-shell__logout:hover,
+.lena-shell__logout:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 22px rgba(255, 213, 74, 0.28);
+}
+
+.lena-shell__logout.is-pressed {
+    transform: translateY(0) scale(0.94);
+    box-shadow: 0 6px 12px rgba(255, 213, 74, 0.24);
+}
+
+.lena-shell__stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    z-index: 1;
+}
+
+.lena-stat-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 8px 18px rgba(131, 100, 255, 0.15);
+    font-family: var(--shell-font);
+    font-weight: 600;
+    color: var(--shell-color-text);
+    min-width: 108px;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lena-stat-card--stars {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(232, 226, 255, 0.6));
+}
+
+.lena-stat-card--coins {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(182, 243, 239, 0.58));
+}
+
+.lena-stat-card__icon {
+    font-size: 1.1rem;
+    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.75));
+}
+
+.lena-stat-card__value {
+    font-size: 1.05rem;
+}
+
+.lena-level-badge {
+    margin-left: 6px;
+    padding: 6px 10px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(232, 226, 255, 0.65));
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 10px 18px rgba(131, 100, 255, 0.2);
+    font-family: var(--shell-font);
+    font-weight: 600;
+    color: var(--shell-color-text);
+}
+
+.lena-shell__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 8px;
+    z-index: 1;
+}
+
+.lena-icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.7);
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+    color: var(--shell-color-violet);
+    cursor: pointer;
+    box-shadow: 0 12px 22px rgba(131, 100, 255, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.lena-icon-btn:hover,
+.lena-icon-btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 26px rgba(131, 100, 255, 0.24);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.lena-icon-btn.is-muted {
+    color: rgba(131, 100, 255, 0.55);
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.lena-icon-btn.is-pressed {
+    transform: translateY(0) scale(0.9);
+}
+
+.lena-shell__header.is-compact .lena-avatar {
+    width: 52px;
+    height: 52px;
+    box-shadow: 0 6px 16px rgba(131, 100, 255, 0.24);
+}
+
+.lena-shell__header.is-compact .lena-shell__identity-name {
+    font-size: 1.05rem;
+}
+
+.lena-shell__header.is-compact .lena-shell__logout {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.lena-shell__header.is-compact .lena-stat-card {
+    padding: 6px 10px;
+}
+
+.lena-shell__header.is-compact .lena-icon-btn {
+    width: 38px;
+    height: 38px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer Dock
+   -------------------------------------------------------------------------- */
+
+.lena-shell__footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+    height: var(--shell-footer-height);
+    pointer-events: none;
+}
+
+.lena-shell__footer-inner {
+    position: absolute;
+    inset: auto 16px 14px;
+    padding: 10px 16px;
+    background: var(--shell-glass-bg);
+    border-radius: 28px;
+    border: 1px solid var(--shell-glass-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: var(--shell-glass-shadow);
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    align-items: center;
+    pointer-events: auto;
+    position: relative;
+}
+
+.lena-footer-btn {
+    background: transparent;
+    border: none;
+    border-radius: 18px;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--shell-font);
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: var(--shell-color-muted);
+    cursor: pointer;
+    transition: transform 0.22s ease, color 0.22s ease, background-color 0.22s ease;
+}
+
+.lena-footer-btn__icon {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.lena-footer-btn:hover .lena-footer-btn__icon {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.lena-footer-btn:hover,
+.lena-footer-btn:focus-visible {
+    color: var(--shell-color-text);
+    background: rgba(123, 92, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.lena-footer-btn.is-active {
+    color: var(--shell-color-text);
+    background: rgba(123, 92, 255, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(123, 92, 255, 0.16);
+}
+
+.lena-footer-btn.is-pressed {
+    transform: translateY(0) scale(0.96);
+    transition-duration: 90ms;
+}
+
+.lena-footer-btn.is-pressed .lena-footer-btn__icon {
+    transform: translateY(0) scale(0.92);
+}
+
+/* --------------------------------------------------------------------------
+   Floating Action Button
+   -------------------------------------------------------------------------- */
+
+.lena-shell__fab {
+    position: fixed;
+    left: 50%;
+    bottom: calc(var(--shell-footer-height) - 24px);
+    transform: translateX(-50%);
+    width: var(--shell-fab-size);
+    height: var(--shell-fab-size);
+    border-radius: 32px;
+    background: linear-gradient(135deg, var(--shell-color-violet), var(--shell-color-rose));
+    color: #fff;
+    font-size: 1.8rem;
+    font-family: var(--shell-font);
+    font-weight: 900;
+    border: none;
+    box-shadow: 0 20px 45px rgba(123, 92, 255, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    pointer-events: auto;
+}
+
+.lena-shell__fab:hover {
+    transform: translate(-50%, -4px) scale(1.05);
+    box-shadow: 0 24px 50px rgba(123, 92, 255, 0.55);
+}
+
+.lena-shell__fab:active {
+    transform: translate(-50%, 0) scale(0.97);
+}
+
+.lena-shell__fab::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: inherit;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.55), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.lena-shell__fab.is-pressed::after {
+    opacity: 1;
+}
+
+.lena-shell__fab.is-pressed {
+    transform: translate(-50%, 2px) scale(0.93);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+    :root {
+        --shell-header-height: 86px;
+        --shell-footer-height: 70px;
+    }
+
+    .lena-shell__identity-name {
+        max-width: 120px;
+    }
+
+    .lena-shell__stats {
+        gap: 10px;
+    }
+
+    .lena-stat-card {
+        min-width: 96px;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --shell-header-height: 74px;
+        --shell-header-height-compact: 56px;
+        --shell-fab-size-mobile: 54px;
+    }
+
+    body.has-shell-header {
+        padding-top: calc(var(--shell-header-height) + 4px);
+    }
+
+    body.has-shell-footer {
+        padding-bottom: calc(var(--shell-footer-height) + 24px);
+    }
+
+    .lena-shell__header-inner {
+        width: calc(100% - 20px);
+        margin: 4px auto 0;
+        padding: 10px 14px;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .lena-shell__identity {
+        gap: 8px;
+        flex: 1 1 100%;
+    }
+
+    .lena-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lena-shell__identity-name {
+        max-width: 100px;
+        font-size: 1.05rem;
+    }
+
+    .lena-shell__logout {
+        font-size: 0.72rem;
+        padding: 5px 9px;
+    }
+
+    .lena-shell__stats {
+        gap: 6px;
+        flex: 1 1 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .lena-stat-card {
+        padding: 5px 9px;
+        min-width: 0;
+        flex: 1 1 calc(50% - 6px);
+        font-size: 0.9rem;
+    }
+
+    .lena-shell__actions {
+        gap: 6px;
+        flex: 1 1 100%;
+        justify-content: flex-start;
+    }
+
+    .lena-icon-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 14px;
+        font-size: 1rem;
+    }
+
+    .lena-shell__header.is-compact .lena-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .lena-shell__header.is-compact .lena-icon-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.95rem;
+    }
+
+    .lena-shell__footer-inner {
+        inset: auto 12px 14px;
+        border-radius: 26px;
+        padding: 7px 10px;
+        gap: 6px;
+    }
+
+    .lena-footer-btn {
+        font-size: 0.7rem;
+        gap: 4px;
+        padding: 10px 6px;
+    }
+
+    .lena-footer-btn__icon {
+        font-size: 1.1rem;
+    }
+
+    .lena-shell__fab {
+        width: var(--shell-fab-size-mobile);
+        height: var(--shell-fab-size-mobile);
+        bottom: calc(var(--shell-footer-height) - 18px);
+    }
+}
+
+@media (max-width: 460px) {
+    body.has-shell-header {
+        padding-top: 140px;
+    }
+
+    .lena-shell__header {
+        height: auto;
+        align-items: stretch;
+    }
+
+    .lena-shell__header.is-compact {
+        height: auto;
+    }
+
+    .lena-shell__header-inner {
+        width: calc(100% - 20px);
+        margin: 8px 10px 0;
+        padding: 14px 16px;
+        border-radius: 22px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "identity actions"
+            "stats stats";
+        row-gap: 12px;
+        column-gap: 12px;
+    }
+
+    .lena-shell__header.is-compact .lena-shell__header-inner {
+        padding: 12px 14px;
+        transform: translateY(-4px) scale(0.98);
+    }
+
+    .lena-shell__identity {
+        grid-area: identity;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .lena-avatar {
+        width: 42px;
+        height: 42px;
+        box-shadow: 0 8px 18px rgba(131, 100, 255, 0.22);
+    }
+
+    .lena-shell__identity-name {
+        max-width: 130px;
+        font-size: 0.98rem;
+    }
+
+    .lena-shell__logout {
+        font-size: 0.68rem;
+        padding: 4px 8px;
+    }
+
+    .lena-shell__stats {
+        grid-area: stats;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .lena-stat-card {
+        padding: 6px 10px;
+        font-size: 0.82rem;
+        min-width: 0;
+    }
+
+    .lena-level-badge {
+        grid-column: 1 / -1;
+        justify-self: center;
+        padding: 8px 12px;
+        font-size: 0.82rem;
+    }
+
+    .lena-shell__actions {
+        grid-area: actions;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .lena-icon-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

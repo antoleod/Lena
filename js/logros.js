@@ -9,8 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- DOM Elements ---
     const userInfo = document.getElementById('user-info');
-    const scoreStars = document.getElementById('scoreStars');
-    const scoreCoins = document.getElementById('scoreCoins');
+    const scoreStarsElements = [
+        document.getElementById('scoreStars'),
+        document.getElementById('stars')
+    ].filter(Boolean);
+    const scoreCoinsElements = [
+        document.getElementById('scoreCoins'),
+        document.getElementById('coins')
+    ].filter(Boolean);
     const logrosContainer = document.getElementById('logros-container');
     const btnVolver = document.getElementById('btnVolver');
 
@@ -19,8 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupUI() {
         renderUserIdentity();
-        scoreStars.textContent = userProgress.userScore.stars;
-        scoreCoins.textContent = userProgress.userScore.coins;
+        if (scoreStarsElements.length) {
+            const stars = userProgress.userScore.stars;
+            scoreStarsElements.forEach(el => { el.textContent = stars; });
+        }
+        if (scoreCoinsElements.length) {
+            const coins = userProgress.userScore.coins;
+            scoreCoinsElements.forEach(el => { el.textContent = coins; });
+        }
         renderLogros();
     }
 

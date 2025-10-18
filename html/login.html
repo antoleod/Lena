@@ -6,20 +6,26 @@
     <title>Appli de Léna - Bienvenue !</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 </head>
 <body class="login-body">
+    <header data-lena-header></header>
     <div class="login-orb login-orb--pink"></div>
     <div class="login-orb login-orb--mint"></div>
     <div class="login-orb login-orb--lavender"></div>
 
     <div id="login-container" role="main">
         <div class="login-header">
-            <span class="login-badge">✨ Choisis ton avatar ✨</span>
-            <h1 class="login-title">Bienvenue dans ton aventure magique</h1>
-            <p class="login-steps">Sélectionne un avatar, choisis ta couleur préférée et écris ton prénom.</p>
+            <div class="login-header__card">
+                <span class="login-badge">✨ Choisis ton avatar ✨</span>
+                <div class="login-headline">
+                    <h1 class="login-title">Bienvenue dans ton aventure magique</h1>
+                    <p class="login-steps">Sélectionne un avatar, choisis ta couleur préférée et écris ton prénom.</p>
+                </div>
+            </div>
 
             <div class="selection-preview" aria-live="polite">
                 <div class="selection-preview__avatar" aria-hidden="true">
@@ -116,10 +122,10 @@
         <span></span><span></span><span></span><span></span>
     </div>
     <script src="../js/audioManager.js"></script>
-    <footer class="global-footer" data-app-footer></footer>
+    <footer data-lena-footer></footer>
+    <script src="../js/appShell.js" defer></script>
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>
-    <script src="../js/footer.js"></script>
     <script src="../js/login.js"></script>
 </body>
 </html>

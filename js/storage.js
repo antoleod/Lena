@@ -171,6 +171,9 @@ function normalizeUserProfile(profile) {
         const avatarMeta = getAvatarMeta(normalized.avatar?.id);
         normalized.color = avatarMeta?.defaultPalette?.primary || '#ffb3d3';
     }
+    if (!normalized.settings) {
+        normalized.settings = {};
+    }
     return normalized;
 }
 
