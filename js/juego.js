@@ -3889,10 +3889,10 @@ function resolveLevelTheme(topicId) {
 
             const applyStatus = (state) => {
                 const STATUS_COPY = {
-                    ready: 'Prêt à jouer',
+                    ready: 'Pr\u00EAt \u00E0 jouer',
                     'in-progress': 'En cours...',
-                    completed: 'Niveau terminé',
-                    locked: 'Verrouillé'
+                    completed: 'Niveau termin\u00E9',
+                    locked: 'Verrouill\u00E9'
                 };
                 statusBadge.dataset.state = state;
                 statusBadge.textContent = STATUS_COPY[state] || STATUS_COPY.ready;
@@ -5934,3 +5934,4 @@ function generateNumberProblems(sum, count) {
     // --- Start Game ---
     init();
 });
+

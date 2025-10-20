@@ -1017,17 +1017,27 @@
    § Sélection de niveaux
    ------------------------------ */
 .level-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: clamp(0.8rem, 2vw, 1.25rem);
-  width: 100%;
-  margin: clamp(1rem, 2vw, 1.75rem) 0;
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(1rem, 2vw, 1.6rem);
+  width: 100%;
+  margin: clamp(1.2rem, 3vw, 2.2rem) auto;
+  padding: clamp(0.4rem, 1.2vw, 1rem);
   z-index: 1;
 }
 
-{
-  outline-color: rgba(76, 175, 80, 0.55);
+.level-container::before {
+  content: '';
+  position: absolute;
+  inset: -6% -8%;
+  border-radius: 32px;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.6), transparent 60%),
+              radial-gradient(circle at 80% 30%, rgba(194, 224, 255, 0.55), transparent 70%),
+              radial-gradient(circle at 50% 90%, rgba(255, 215, 245, 0.5), transparent 70%);
+  z-index: -1;
+  filter: blur(12px);
+  opacity: 0.75;
 }
 
 /* ------------------------------

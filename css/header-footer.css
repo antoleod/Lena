@@ -198,9 +198,11 @@ body.has-shell-footer {
 .lena-shell__stats {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
     gap: 10px;
     margin-left: auto;
     z-index: 1;
+    white-space: nowrap;
 }
 
 .lena-stat-card {

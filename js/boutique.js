@@ -121,11 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createItemCard(item, context) {
-        if (!item || !item.id) return null;
+        if (!item || !item.id) {
+            return null;
+        }
 
         const itemCard = document.createElement('div');
         itemCard.className = 'item-card';
-        if (item.rare) itemCard.classList.add('rare');
+        if (item.rare) {
+            itemCard.classList.add('rare');
+        }
 
         const itemImage = document.createElement('img');
         itemImage.src = item.image || '../assets/stickers/sticker1.png';
@@ -150,19 +154,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (context === 'shop') {
             const itemPrice = document.createElement('div');
             itemPrice.className = 'item-price';
-            itemPrice.textContent = `${item.price} 🪙`;
+            itemPrice.innerHTML = `<span class="price-value">${item.price}</span><span aria-hidden="true">\uD83E\uDE99</span>`;
+            itemPrice.setAttribute('aria-label', `${item.price} pi\u00E8ces`);
             itemCard.appendChild(itemPrice);
 
             const buyButton = document.createElement('button');
             buyButton.className = 'btn-action';
             buyButton.textContent = 'Acheter';
-            buyButton.onclick = (e) => { e.stopPropagation(); buyItem(item); };
+            buyButton.onclick = (event) => { event.stopPropagation(); buyItem(item); };
             if (userProgress.userScore.coins < item.price) {
                 buyButton.disabled = true;
-                buyButton.textContent = 'Pièces insuffisantes';
+                buyButton.textContent = 'Pi\u00E8ces insuffisantes';
             }
             itemButtons.appendChild(buyButton);
-
         } else if (context === 'owned') {
             const useButton = document.createElement('button');
             const activeCosmetics = userProgress.activeCosmetics || {};
@@ -175,32 +179,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isCurrentAvatar || isCurrentBackground) {
                 useButton.className = 'btn-action';
-                useButton.textContent = 'Équipé';
+                useButton.textContent = '\u00C9quip\u00E9';
                 useButton.disabled = true;
-            } else if (item.type === 'avatar' || item.type === 'theme' || item.type === 'background' || item.type === 'sticker' || item.type === 'sound') {
+            } else if (['avatar', 'theme', 'background', 'sticker', 'sound'].includes(item.type)) {
                 useButton.className = 'btn-action use';
                 if (incompatibleBackground) {
                     useButton.textContent = 'Avatar requis';
                     useButton.disabled = true;
-                    useButton.title = 'Equipe d\'abord l\'avatar lié pour utiliser ce fond.';
+                    useButton.title = '\u00C9quipe d\'abord l\'avatar li\u00E9 pour utiliser ce fond.';
                 } else {
                     useButton.textContent = 'Utiliser';
-                    useButton.onclick = (e) => { e.stopPropagation(); useItem(item); };
+                    useButton.onclick = (event) => { event.stopPropagation(); useItem(item); };
                 }
             } else {
                 useButton.className = 'btn-action';
                 useButton.disabled = true;
-                useButton.title = 'Utilisation bientôt disponible !';
+                useButton.title = 'Utilisation bient\u00F4t disponible !';
             }
             itemButtons.appendChild(useButton);
 
             const sellButton = document.createElement('button');
             sellButton.className = 'btn-action sell';
             const sellPrice = Math.ceil(item.price * 0.5);
-            sellButton.textContent = `Vendre (+${sellPrice} 🪙)`;
-            sellButton.onclick = (e) => {
-                e.stopPropagation();
-                if (confirm(`¿Estás seguro de que quieres vender ${item.name} por ${sellPrice} monedas?`)) {
+            sellButton.textContent = `Revendre (+${sellPrice} \uD83E\uDE99)`;
+            sellButton.onclick = (event) => {
+                event.stopPropagation();
+                if (confirm(`Es-tu s\u00FBr(e) de vouloir vendre ${item.name} pour ${sellPrice} pi\u00E8ces ?`)) {
                     sellItem(item, sellPrice);
                 }
             };
@@ -414,3 +418,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupUI();
     animateParticles();
 });
+
+
+
+
+

@@ -399,12 +399,78 @@
         window.lenaShell = window.lenaShell || {};
         window.lenaShell.updateUser = hydrateUserIdentity;
 
+        if (window.feedbackSystem?.refreshHud) {
+            try {
+                window.feedbackSystem.refreshHud();
+            } catch (error) {
+                console.warn('[LenaShell] Impossible de rafraîchir le HUD', error);
+            }
+        }
+
         document.addEventListener('lena:user:update', (event) => {
             if (event?.detail) {
                 hydrateUserIdentity(event.detail);
             }
         });
+
+        document.addEventListener('lena:exercise:context', forwardExerciseContext);
+        document.addEventListener('lena:exercise:answer', forwardExerciseAnswer);
+        document.addEventListener('lena:exercise:hint', forwardExerciseHint);
+        document.addEventListener('lena:exercise:level-complete', forwardLevelComplete);
     }
 
     ready(initShell);
+
+    function getFeedbackSystem() {
+        return window.feedbackSystem || null;
+    }
+
+    function forwardExerciseContext(event) {
+        const system = getFeedbackSystem();
+        if (!system?.setCurrentExercise || !event?.detail) {
+            return;
+        }
+        try {
+            system.setCurrentExercise(event.detail);
+        } catch (error) {
+            console.warn('[LenaShell] Impossible de d\u00E9finir le contexte exercice', error);
+        }
+    }
+
+    function forwardExerciseAnswer(event) {
+        const system = getFeedbackSystem();
+        if (!system?.onAnswer || !event?.detail) {
+            return;
+        }
+        try {
+            system.onAnswer(event.detail);
+        } catch (error) {
+            console.warn('[LenaShell] Impossible d\u2019envoyer la r\u00E9ponse au feedback system', error);
+        }
+    }
+
+    function forwardExerciseHint(event) {
+        const system = getFeedbackSystem();
+        if (!system?.showHint || !event?.detail) {
+            return;
+        }
+        try {
+            const detail = event.detail;
+            system.showHint(detail.level || 1, detail);
+        } catch (error) {
+            console.warn('[LenaShell] Impossible d\u2019afficher l\u2019indice', error);
+        }
+    }
+
+    function forwardLevelComplete(event) {
+        const system = getFeedbackSystem();
+        if (!system?.onLevelComplete || !event?.detail) {
+            return;
+        }
+        try {
+            system.onLevelComplete(event.detail);
+        } catch (error) {
+            console.warn('[LenaShell] Impossible de notifier la fin de niveau', error);
+        }
+    }
 })();
