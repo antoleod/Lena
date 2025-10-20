@@ -11,32 +11,32 @@
   const SIMPLE_MINUTES = [0, 15, 30, 45];
   const DIGITAL_SCENES = [
     { badge: "🕒 Lecture numerique", title: "Horloge de la gare", description: "Un train part bientot. Lis l'heure affichee sur l'ecran lumineux." },
-    { badge: "🕒 Lecture numerique", title: "Tableau de classe", description: "La cloche va sonner. Que lit-on sur l'horloge murale digitale ?" },
-    { badge: "🕒 Lecture numerique", title: "Panneau du metro", description: "Le panneau affiche l'heure exacte pour les voyageurs. Observe-le bien." }
+    { badge: "🕒 Lecture numerique", title: "Tableau de classe", description: "La cloche va sonner. Quelle heure est-il sur l'horloge digitale ?" },
+    { badge: "🕒 Lecture numerique", title: "Réveil de Léna", description: "Le réveil de Léna sonne pour une nouvelle journée. Quelle heure est-il ?" }
   ];
 
   const ANALOG_SCENES = [
     { badge: "🕰️ Horloge classique", title: "Tour du village", description: "La grande horloge sonne dans le village. Quelle heure indique-t-elle ?" },
     { badge: "🕰️ Horloge classique", title: "Salon familial", description: "Chez Lena, une horloge ancienne donne l'heure du gouter." },
-    { badge: "🕰️ Horloge classique", title: "Parc calme", description: "Une horloge fleurie indique l'heure du rendez-vous." }
+    { badge: "🕰️ Horloge classique", title: "Cuisine de Mamie", description: "L'horloge de la cuisine indique qu'il est l'heure de préparer le gâteau." }
   ];
 
   const DURATION_SCENES = [
-    { badge: "⏱️ Duree d'activite", title: "Atelier creatif", description: "Un atelier commence et se termine plus tard. Calcule l'heure de fin." },
-    { badge: "⏱️ Duree d'activite", title: "Cours de musique", description: "La lecon debute et dure plusieurs heures. A quelle heure s'acheve-t-elle ?" },
-    { badge: "⏱️ Duree d'activite", title: "Entrainement sportif", description: "L'entrainement commence maintenant. Decris l'heure a laquelle il se termine." }
+    { badge: "⏱️ Durée d'activité", title: "Film au cinéma", description: "Le film commence maintenant. Calcule l'heure de fin pour savoir quand il se termine." },
+    { badge: "⏱️ Durée d'activité", title: "Cours de musique", description: "La leçon débute et dure un certain temps. À quelle heure s'achève-t-elle ?" },
+    { badge: "⏱️ Durée d'activité", title: "Trajet en train", description: "Le train part à cette heure. Calcule son heure d'arrivée." }
   ];
 
   const WORD_SCENES = [
-    { badge: "📜 Heure en mots", title: "Carnet des gardiens du temps", description: "Une phrase decrivait l'heure en toutes lettres. Retrouve-la sur l'horloge." },
-    { badge: "📜 Heure en mots", title: "Grimoire lumineux", description: "Le grimoire ecrit l'heure. Associe-la a l'horloge correspondante." },
-    { badge: "📜 Heure en mots", title: "Journal des explorateurs", description: "Les explorateurs notent l'heure en lettres. Selectionne l'horloge qui correspond." }
+    { badge: "📜 Heure en mots", title: "Invitation au bal", description: "L'invitation indique l'heure en toutes lettres. Retrouve-la sur l'horloge." },
+    { badge: "📜 Heure en mots", title: "Grimoire lumineux", description: "Le grimoire écrit l'heure. Associe-la à l'horloge correspondante." },
+    { badge: "📜 Heure en mots", title: "Message secret", description: "Un message secret donne l'heure en mots. Quelle horloge est la bonne ?" }
   ];
 
   const ELAPSED_SCENES = [
-    { badge: "🔁 Temps ecoule", title: "Chrono aventure", description: "Note le temps ecoule entre le debut et la fin de la mission." },
-    { badge: "🔁 Temps ecoule", title: "Voyage express", description: "Combien de temps s'est ecoule entre depart et arrivee ?" },
-    { badge: "🔁 Temps ecoule", title: "Course relais", description: "Additionne les minutes pour trouver le temps total ecoule." }
+    { badge: "🔁 Temps écoulé", title: "Chrono aventure", description: "Note le temps écoulé entre le début et la fin de la mission." },
+    { badge: "🔁 Temps écoulé", title: "Voyage express", description: "Combien de temps s'est écoulé entre le départ et l'arrivée ?" },
+    { badge: "🔁 Temps écoulé", title: "Recette de potion", description: "La potion a mijoté. Combien de temps cela a-t-il pris ?" }
   ];
 
   const QUESTION_POOL = [
@@ -44,7 +44,8 @@
     { id: 'analog', minLevel: 1, weight: 3, builder: buildAnalogueQuestion },
     { id: 'duration', minLevel: 3, weight: 2, builder: buildDurationQuestion },
     { id: 'words', minLevel: 4, weight: 2, builder: buildWordQuestion },
-    { id: 'elapsed', minLevel: 5, weight: 2, builder: buildElapsedQuestion }
+    { id: 'elapsed', minLevel: 5, weight: 2, builder: buildElapsedQuestion },
+    { id: 'am-pm', minLevel: 6, weight: 1, builder: buildAmPmQuestion }
   ];
 
   function build(level){
@@ -109,6 +110,31 @@
     return base;
   }
 
+  function buildAmPmQuestion(level) {
+    const hour12 = rand(1, 11);
+    const minutes = SIMPLE_MINUTES[rand(0, SIMPLE_MINUTES.length - 1)];
+    const isAm = Math.random() < 0.5;
+    const hour24 = isAm ? hour12 : (hour12 % 12) + 12;
+
+    const scenarios = [
+        { period: 'matin', isAm: true, activity: 'Le soleil se lève', question: 'Quelle horloge indique cette heure du matin ?' },
+        { period: 'après-midi', isAm: false, activity: 'On prend le goûter', question: 'Quelle horloge indique cette heure de l\'après-midi ?' },
+        { period: 'soir', isAm: false, activity: 'On regarde les étoiles', question: 'Quelle horloge indique cette heure du soir ?' }
+    ];
+    const scenario = scenarios.find(s => s.isAm === isAm) || scenarios[0];
+
+    const prompt = `
+      <div class="time-question time-question--ampm">
+        <div class="time-question__badge"><span>${isAm ? '☀️' : '🌙'} Matin ou Soir ?</span></div>
+        <p class="time-question__highlight">${scenario.activity}</p>
+        <p class="time-question__detail">L'heure est <strong>${formatTime(hour12, minutes)}</strong>.</p>
+        <p class="time-question__main">${scenario.question}</p>
+      </div>
+    `;
+    const answer = formatTime(hour24, minutes);
+    return withOptions(prompt, answer, makeTimeDistractors(hour24, minutes, level), level);
+  }
+
   function buildClockSVG(hours, minutes){
     const hourAngle = (hours % 12 + minutes / 60) * 30;
     const minuteAngle = minutes * 6;
@@ -152,7 +178,7 @@
       <div class="time-question time-question--timeline">
         <div class="time-question__badge"><span>${scene.badge}</span></div>
         <p class="time-question__highlight">${scene.title}</p>
-        <p class="time-question__detail">${scene.description}</p>
+        <p class="time-question__detail">${scene.description.replace("maintenant", `à <strong>${formatTime(startHour, startMinutes)}</strong>`)}</p>
         <p class="time-question__detail">Debut : <strong>${formatTime(startHour, startMinutes)}</strong></p>
         <p class="time-question__detail">Durée : ${formatDuration(totalDuration)}</p>
         <p class="time-question__main">A quelle heure se termine-t-il ?</p>
@@ -211,7 +237,7 @@
       <div class="time-question time-question--elapsed">
         <div class="time-question__badge"><span>${scene.badge}</span></div>
         <p class="time-question__highlight">${scene.title}</p>
-        <p class="time-question__detail">${scene.description}</p>
+        <p class="time-question__detail">${scene.description.replace("Note le temps ecoule", "Calcule le temps écoulé")}</p>
         <div class="time-question__timeline">
           <span class="time-question__timeline-start">${formatTime(startHour, startMinutes)}</span>
           <span class="time-question__timeline-arrow">➜</span>
@@ -530,4 +556,3 @@
 
   window.tempsHorlogesGame = { start, getLevelCount: () => LEVELS.length };
 })();
-

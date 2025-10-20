@@ -182,6 +182,7 @@ const LEVEL_THEMES = {
     'mesures-magiques': { icon: '📏', accent: '#4cc9f0', soft: 'rgba(76, 201, 240, 0.25)', strong: '#4895ef', iconColor: '#ffffff' },
     'labyrinthe-logique': { icon: '🌀', accent: '#ffd166', soft: 'rgba(255, 209, 102, 0.25)', strong: '#ffb703', iconColor: '#5f4800' },
     'sudoku-junior': { icon: '🔲', accent: '#06d6a0', soft: 'rgba(6, 214, 160, 0.25)', strong: '#06d6a0', iconColor: '#ffffff' },
+    'les-sorcieres': { icon: '🧙‍♀️', accent: '#9d4edd', soft: 'rgba(157, 78, 221, 0.25)', strong: '#7b2cbf', iconColor: '#ffffff' },
     'grammaire-magique': { icon: '📘', accent: '#8ecae6', soft: 'rgba(142, 202, 230, 0.25)', strong: '#219ebc', iconColor: '#1b4b63' },
     'conjugaison-magique': { icon: '📝', accent: '#ff9f1c', soft: 'rgba(255, 159, 28, 0.25)', strong: '#ff9f1c', iconColor: '#5f3b00' },
     'genres-accords': { icon: '⚖️', accent: '#ff95c5', soft: 'rgba(255, 149, 197, 0.25)', strong: '#ff6fb5', iconColor: '#ffffff' },
@@ -231,6 +232,7 @@ function resolveLevelTheme(topicId) {
             stickers: ['🧱', '🧊', '🪄', '🌈'],
             encouragement: '🧱 Essaie encore, tu peux bâtir la tour magique !',
             success: '🧱 Tour lumineuse complétée !',
+            instruction: 'Additionne les deux nombres et choisis la bonne reponse.',
             storylines: [
                 'Empile les briques brillantes pour réveiller le château.',
                 'Ajoute les blocs arc-en-ciel pour aider les lutins.',
@@ -247,6 +249,7 @@ function resolveLevelTheme(topicId) {
             stickers: ['🍓', '🍎', '🍑', '🍐'],
             encouragement: '🍏 Retente ta récolte, tu vas y arriver !',
             success: '🍎 Récolte délicieuse réussie !',
+            instruction: 'Soustrais pour trouver ce qu il reste puis valide la reponse.',
             storylines: [
                 'Distribue les fruits magiques aux amis de la forêt.',
                 'Cueille les pommes en retirant juste ce qu’il faut.',
@@ -263,6 +266,7 @@ function resolveLevelTheme(topicId) {
             stickers: ['🌟', '💫', '✨', '🪐'],
             encouragement: '✨ Respire et multiplie les étoiles une à une !',
             success: '🌟 Constellation complète !',
+            instruction: 'Multiplie les nombres et tape sur le bon produit.',
             storylines: [
                 'Relie les étoiles de la table magique.',
                 'Illumine le ciel pour le renard cosmique.',
@@ -279,6 +283,7 @@ function resolveLevelTheme(topicId) {
             stickers: ['🪙', '💰', '🧭', '🪄'],
             encouragement: '🪙 Divise encore, chaque indice compte !',
             success: '🗝️ Coffre ouvert, trésor partagé !',
+            instruction: 'Divise le tresor et selectionne le quotient juste.',
             storylines: [
                 'Partage équitablement les pièces des pirates gentils.',
                 'Répartis les trésors entre les explorateurs amis.',
@@ -708,6 +713,12 @@ function resolveLevelTheme(topicId) {
         activeReviewSkills: [],
         pauseReminderTimeout: null,
         currentRiddleLevelIndex: 0,
+        sessionPhase: 'initial',
+        reviewQueue: [],
+        reviewCursor: 0,
+        reviewAttemptsRemaining: 0,
+        initialQuestionCount: 0,
+        activeQuestion: null,
     };
 
     let userProgress = {
@@ -1370,6 +1381,19 @@ function resolveLevelTheme(topicId) {
             showComingSoon('Mots-Outils Magiques', '💬');
         }
     }
+
+    function launchLesSorcieres(level) {
+        gameState.currentTopic = 'les-sorcieres';
+        gameState.currentLevel = level;
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
+        const context = createGameContext('les-sorcieres');
+        if (window.lesSorcieresGame && typeof window.lesSorcieresGame.start === 'function') {
+            window.lesSorcieresGame.start(context);
+        } else {
+            showComingSoon('Les Sorcières', '🧙‍♀️');
+        }
+    }
     // --- UI & Helpers ---
     function speakText(text) {
         if (window.speechSynthesis) {
@@ -1404,6 +1428,37 @@ function resolveLevelTheme(topicId) {
             return lower;
         }
         return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+    }
+
+    function limitOptionsToTwo(options, correctIndex) {
+        if (!Array.isArray(options)) {
+            return { options: [], correct: 0 };
+        }
+        if (options.length <= 2) {
+            const safeIndex = typeof correctIndex === 'number'
+                ? Math.max(0, Math.min(correctIndex, options.length - 1))
+                : 0;
+            return { options: options.slice(), correct: safeIndex };
+        }
+        const safeIndex = typeof correctIndex === 'number' && correctIndex >= 0 && correctIndex < options.length
+            ? correctIndex
+            : 0;
+        const correctOption = options[safeIndex] ?? options[0];
+        const distractors = options
+            .map((value, idx) => ({ value, idx }))
+            .filter(item => item.idx !== safeIndex);
+        let chosenDistractor = distractors.length
+            ? distractors[Math.floor(Math.random() * distractors.length)].value
+            : null;
+        if (chosenDistractor == null && options.length > 1) {
+            chosenDistractor = options[safeIndex === 0 ? 1 : 0];
+        }
+        const limited = chosenDistractor == null ? [correctOption] : [correctOption, chosenDistractor];
+        if (limited.length === 2 && Math.random() < 0.5) {
+            limited.reverse();
+        }
+        const newCorrect = limited.indexOf(correctOption);
+        return { options: limited, correct: Math.max(0, newCorrect) };
     }
 
     function computeMathReward(type, level) {
@@ -3381,11 +3436,11 @@ function resolveLevelTheme(topicId) {
     
 
     function ensureProgressTrackerElements() {
-        const label = document.getElementById('progress-label');
+        const explicitLabel = document.getElementById('progress-label');
         let tracker = document.getElementById('progressTracker');
 
         if (!tracker) {
-            if (!stageBottom) return { tracker: null, label, fill: null, bar: null };
+            if (!stageBottom) return { tracker: null, label: explicitLabel, fill: null, bar: null };
 
             tracker = document.createElement('div');
             tracker.id = 'progressTracker';
@@ -3405,17 +3460,21 @@ function resolveLevelTheme(topicId) {
         }
         const bar = tracker.querySelector('.progress-tracker__bar');
         const fill = tracker.querySelector('.progress-tracker__fill');
-        return { tracker, label, bar, fill };
+        const fallbackLabel = tracker.querySelector('.progress-tracker__label');
+        const resolvedLabel = explicitLabel || fallbackLabel;
+        return { tracker, label: resolvedLabel, bar, fill };
     }
 
-    function updateProgressTracker(current, total) {
+    function updateProgressTracker(current, total, isReview = false) {
         const { tracker, label, bar, fill } = ensureProgressTrackerElements();
         if (!tracker || !label || !fill || !bar) { return; }
         const safeTotal = Math.max(1, total);
         const currentQuestion = Math.min(Math.max(current, 0), safeTotal);
         const percent = Math.min(Math.max(Math.round((currentQuestion / safeTotal) * 100), 0), 100);
         if (label) {
-            label.textContent = `Question ${currentQuestion} / ${safeTotal}`;
+            label.textContent = isReview
+                ? `Repaso ${currentQuestion} / ${safeTotal}`
+                : `Question ${currentQuestion} / ${safeTotal}`;
             label.classList.add('is-visible');
         }
         if (fill && bar && tracker) {
@@ -3703,6 +3762,7 @@ function resolveLevelTheme(topicId) {
             { id: 'colors', icon: '🎨', text: 'Les Couleurs' },
             { id: 'dictee', icon: '🧚‍♀️', text: 'Dictée Magique' },
             { id: 'ecriture-cursive', icon: '✍️', text: 'J’écris en cursive' },
+            { id: 'les-sorcieres', icon: '🧙‍♀️', text: 'Les Sorcières', href: '../html/les-sorcieres.html', type: 'external' },
         ];
 
         allTopics.forEach(topic => {
@@ -3971,77 +4031,122 @@ function resolveLevelTheme(topicId) {
 
         const container = selectedOption.closest('.options-grid');
         const optionNodes = container ? container.querySelectorAll('.option') : document.querySelectorAll('.option');
-        optionNodes.forEach(opt => opt.removeEventListener('click', handleOptionClick));
-    
-        const questionsForLevel = allQuestions[gameState.currentTopic].filter(q => q.difficulty === gameState.currentLevel);
-        const questionData = questionsForLevel[gameState.currentQuestionIndex];
-        const correctAnswerIndex = questionData.correct;
-        const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
-        const correctValue = questionData.options[correctAnswerIndex];
-        const userAnswerLabel = selectedOption.querySelector('.option-text')
-            ? selectedOption.querySelector('.option-text').textContent.trim()
-            : selectedOption.textContent.trim();
-        const isCorrect = (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex)
-            || userAnswerLabel === String(correctValue);
+        optionNodes.forEach(opt => {
+            opt.removeEventListener('click', handleOptionClick);
+            opt.disabled = true;
+        });
 
-        if (isCorrect) {
-            selectedOption.classList.add('correct', 'fx-pulse');
-            userProgress.userScore.stars += questionData.reward.stars;
-            userProgress.userScore.coins += questionData.reward.coins;
-            const sticker = questionData.operationMeta?.sticker ? ` ${questionData.operationMeta.sticker}` : '';
-            const successMessage = questionData.successMessage
-                ? `${questionData.successMessage}${sticker}` // Mensaje de éxito
-                : `${positiveMessages[Math.floor(Math.random() * positiveMessages.length)]}${sticker}`;
-            showSuccessMessage(successMessage);
-            showConfetti();
-        } else {
-            selectedOption.classList.add('wrong', 'fx-shake');
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+        const questionsForLevel = allQuestions[gameState.currentTopic].filter(q => q.difficulty === gameState.currentLevel);
+        const questionData = gameState.activeQuestion || questionsForLevel[gameState.currentQuestionIndex];
+        if (!questionData) { return; }
+        const correctAnswerIndex = typeof questionData.correct === 'number' ? questionData.correct : 0;
+        const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
+        const correctValue = Array.isArray(questionData.options) ? questionData.options[correctAnswerIndex] : null;
+        const isCorrect = !Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex;
+        const reward = questionData.reward || { stars: 0, coins: 0 };
+        const sticker = questionData.operationMeta?.sticker ? ` ${questionData.operationMeta.sticker}` : '';
+        const encouragement = questionData.encouragement || 'Courage, essaie encore !';
+        const explanation = questionData.explanation
+            ? `${encouragement} ${questionData.explanation}`
+            : encouragement;
+        const isReviewPhase = gameState.sessionPhase === 'review';
+
+        const revealCorrectOption = () => {
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
             }
-            const encouragement = questionData.encouragement || 'Courage, essaie encore !';
-            const explanation = questionData.explanation
-                ? `${encouragement} ${questionData.explanation}`
-                : encouragement;
-            showErrorMessage(explanation, correctValue);
-            setTimeout(() => selectedOption.classList.remove('fx-shake'), 800);
-        }
-        const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
-        gameState.historyTracker?.recordQuestion(gameState.questionSkillTag, { correct: isCorrect, timeMs: elapsed });
-        updateUI();
-        saveProgress();
+        };
 
-        setTimeout(() => {
-            gameState.currentQuestionIndex++;
-            if (gameState.currentQuestionIndex < questionsForLevel.length) {
-                loadQuestion(gameState.currentQuestionIndex);
-            } else {
-                if (gameState.currentTopic !== 'review') {
-                    userProgress.answeredQuestions[`${gameState.currentTopic}-${gameState.currentLevel}`] = 'completed';
+        const advanceToNext = () => {
+            const delay = isReviewPhase ? 1800 : 2500;
+            setTimeout(() => {
+                if (gameState.sessionPhase === 'initial') {
+                    gameState.currentQuestionIndex += 1;
+                    if (gameState.currentQuestionIndex < gameState.initialQuestionCount) {
+                        loadQuestion(gameState.currentQuestionIndex);
+                    } else if (gameState.reviewQueue.length) {
+                        startReviewPhase();
+                    } else {
+                        completeLevelRun();
+                    }
                 } else {
-                    gameState.historyTracker?.applyReviewSuccess(gameState.activeReviewSkills);
+                    gameState.reviewCursor += 1;
+                    if (gameState.reviewCursor < gameState.reviewQueue.length) {
+                        const nextIndex = gameState.reviewQueue[gameState.reviewCursor];
+                        loadQuestion(nextIndex, { phase: 'review', reviewCursor: gameState.reviewCursor });
+                    } else {
+                        completeLevelRun();
+                    }
                 }
-                saveProgress();
-                clearProgressTracker();
-                const winPrompt = document.createElement('div');
-                winPrompt.className = 'prompt ok fx-pop';
-                winPrompt.textContent = `Bravo, tu as complété le Niveau ${gameState.currentLevel} !`;
-                content.appendChild(winPrompt);
-                speakText(`Bravo, tu as complété le Niveau ${gameState.currentLevel} !`);
-                const endStatus = gameState.currentTopic === 'review' ? 'review-completed' : 'completed';
-                gameState.historyTracker?.endGame({ status: endStatus, topic: gameState.currentTopic, level: gameState.currentLevel, skills: gameState.activeReviewSkills });
-                if (gameState.currentTopic === 'review') {
-                    gameState.activeReviewSkills = [];
-                }
-                setTimeout(() => showLevelMenu(gameState.currentTopic), 2000);
+            }, delay);
+        };
+
+        const recordAttempt = (success) => {
+            const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
+            gameState.historyTracker?.recordQuestion(gameState.questionSkillTag, { correct: success, timeMs: elapsed });
+            updateUI();
+            saveProgress();
+        };
+
+        if (isCorrect) {
+            selectedOption.classList.add('correct', 'fx-pulse');
+            userProgress.userScore.stars += reward.stars || 0;
+            userProgress.userScore.coins += reward.coins || 0;
+            const successMessage = questionData.successMessage
+                ? `${questionData.successMessage}${sticker}`
+                : `${positiveMessages[Math.floor(Math.random() * positiveMessages.length)]}${sticker}`;
+            showSuccessMessage(successMessage);
+            showConfetti();
+            recordAttempt(true);
+            advanceToNext();
+            return;
+        }
+
+        // Incorrect answer
+        const enqueueForReview = () => {
+            if (!gameState.reviewQueue.includes(questionData.originalIndex ?? gameState.currentQuestionIndex)) {
+                gameState.reviewQueue.push(questionData.originalIndex ?? gameState.currentQuestionIndex);
             }
-        }, 2500);
+        };
+
+        selectedOption.classList.add('wrong', 'fx-shake');
+        setTimeout(() => selectedOption.classList.remove('fx-shake'), 700);
+
+        if (!isReviewPhase) {
+            enqueueForReview();
+            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            revealCorrectOption();
+            showErrorMessage(explanation, correctValue);
+            recordAttempt(false);
+            advanceToNext();
+            return;
+        }
+
+        // Review phase logic with limited attempts
+        gameState.reviewAttemptsRemaining = Math.max(0, gameState.reviewAttemptsRemaining - 1);
+        if (gameState.reviewAttemptsRemaining > 0) {
+            const retryMessage = questionData.retryMessage || `${encouragement} Tu as une deuxième chance !`;
+            showErrorMessage(retryMessage);
+            optionNodes.forEach(opt => {
+                opt.classList.remove('wrong', 'correct');
+                opt.disabled = false;
+                opt.addEventListener('click', handleOptionClick);
+            });
+            return;
+        }
+
+        userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+        revealCorrectOption();
+        showErrorMessage(explanation, correctValue);
+        recordAttempt(false);
+        advanceToNext();
     }
     
-    function loadQuestion(index) {
+    function loadQuestion(index, options = {}) {
         document.body.classList.add('stage-controls-visible');
+        const isExplicitReview = options.phase === 'review';
+        const isReviewPhase = isExplicitReview || gameState.sessionPhase === 'review';
         gameState.currentQuestionIndex = index;
         content.innerHTML = '';
         updateUI();
@@ -4055,13 +4160,44 @@ function resolveLevelTheme(topicId) {
             clearProgressTracker();
             return;
         }
-        gameState.questionSkillTag = resolveSkillTag(gameState.currentTopic);
-        const questionData = questionsForLevel[index];
-        const operationMeta = questionData?.operationMeta || null;
-        if (questionData?.metaSkill) {
-            gameState.questionSkillTag = questionData.metaSkill;
+
+        if (!isReviewPhase && index === 0) {
+            gameState.sessionPhase = 'initial';
+            gameState.reviewQueue = [];
+            gameState.reviewCursor = 0;
+            gameState.initialQuestionCount = questionsForLevel.length;
         }
+
+        if (isReviewPhase) {
+            if (typeof options.reviewCursor === 'number') {
+                gameState.reviewCursor = options.reviewCursor;
+            }
+            gameState.sessionPhase = 'review';
+            const reviewTotal = Math.max(1, gameState.reviewQueue.length || questionsForLevel.length || 1);
+            updateProgressTracker(gameState.reviewCursor + 1, reviewTotal, true);
+        } else {
+            updateProgressTracker(index + 1, questionsForLevel.length);
+            gameState.sessionPhase = 'initial';
+        }
+
+        const originalQuestion = questionsForLevel[index];
+        if (!originalQuestion) {
+            clearProgressTracker();
+            return;
+        }
+
+        const trimmed = limitOptionsToTwo(originalQuestion.options, originalQuestion.correct);
+        const displayQuestion = {
+            ...originalQuestion,
+            options: trimmed.options,
+            correct: trimmed.correct,
+            originalIndex: index
+        };
+        gameState.activeQuestion = displayQuestion;
+        gameState.questionSkillTag = displayQuestion.metaSkill || resolveSkillTag(gameState.currentTopic);
         gameState.questionStartTime = performance.now();
+
+        const operationMeta = displayQuestion.operationMeta || null;
         if (operationMeta?.id) {
             content.dataset.operationTheme = operationMeta.id;
         } else {
@@ -4106,6 +4242,13 @@ function resolveLevelTheme(topicId) {
                 textBox.appendChild(storySpan);
             }
 
+            if (operationMeta.instruction) {
+                const instructionSpan = document.createElement('span');
+                instructionSpan.className = 'operation-banner__instruction';
+                instructionSpan.textContent = operationMeta.instruction;
+                textBox.appendChild(instructionSpan);
+            }
+
             banner.appendChild(iconSpan);
             banner.appendChild(textBox);
 
@@ -4124,35 +4267,34 @@ function resolveLevelTheme(topicId) {
 
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
-        title.innerHTML = questionData.questionText;
+        title.innerHTML = displayQuestion.questionText;
         promptWrapper.appendChild(title);
 
         const audioBtn = createAudioButton({
-            text: questionData.questionText,
+            text: displayQuestion.questionText,
             ariaLabel: 'Écouter la question'
         });
         if (audioBtn) {
             promptWrapper.appendChild(audioBtn);
         }
 
-        if (questionData.detail && !operationMeta) {
+        if (displayQuestion.detail && !operationMeta) {
             const detail = document.createElement('p');
             detail.className = 'question-detail';
-            detail.textContent = questionData.detail;
+            detail.textContent = displayQuestion.detail;
             promptWrapper.appendChild(detail);
         }
 
         fragment.appendChild(promptWrapper);
-        speakText(questionData.questionText);
-        updateProgressTracker(index + 1, questionsForLevel.length);
+        speakText(displayQuestion.questionText);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
         if (operationMeta) {
             optionsContainer.classList.add('options-grid--math', `options-grid--${operationMeta.id}`);
         }
-        
-        const shuffledOptions = shuffle([...questionData.options]);
+
+        const shuffledOptions = shuffle([...displayQuestion.options]);
         shuffledOptions.forEach((opt, i) => {
             const optionEl = document.createElement('button');
             optionEl.className = 'option fx-bounce-in-down';
@@ -4160,11 +4302,11 @@ function resolveLevelTheme(topicId) {
                 optionEl.classList.add('math-option', `math-option--${operationMeta.id}`);
             }
             optionEl.style.animationDelay = `${i * 0.1 + 0.5}s`;
-            const originalIndex = questionData.options.indexOf(opt);
-            optionEl.dataset.index = originalIndex;
+            const trimmedIndex = displayQuestion.options.indexOf(opt);
+            optionEl.dataset.index = trimmedIndex;
             optionEl.addEventListener('click', handleOptionClick);
-            const iconSet = Array.isArray(questionData.optionIcons) && questionData.optionIcons.length
-                ? questionData.optionIcons
+            const iconSet = Array.isArray(displayQuestion.optionIcons) && displayQuestion.optionIcons.length
+                ? displayQuestion.optionIcons
                 : answerOptionIcons;
             applyOptionContent(optionEl, opt, i, iconSet);
             optionsContainer.appendChild(optionEl);
@@ -4174,11 +4316,53 @@ function resolveLevelTheme(topicId) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        if (gameState.currentTopic === 'review') {
+        if (gameState.currentTopic === 'review' || isReviewPhase) {
             configureBackButton('Terminer le repaso', showTopicMenu);
         } else {
             configureBackButton('Retour aux niveaux', () => showLevelMenu(gameState.currentTopic));
         }
+
+        gameState.reviewAttemptsRemaining = isReviewPhase ? 2 : 0;
+    }
+
+    function startReviewPhase() {
+        if (!gameState.reviewQueue.length) {
+            completeLevelRun();
+            return;
+        }
+        gameState.sessionPhase = 'review';
+        gameState.reviewCursor = 0;
+        speakText('Passons au repaso des questions que tu veux revoir.');
+        const firstIndex = gameState.reviewQueue[0];
+        loadQuestion(firstIndex, { phase: 'review', reviewCursor: 0 });
+    }
+
+    function completeLevelRun() {
+        if (gameState.currentTopic !== 'review') {
+            userProgress.answeredQuestions[`${gameState.currentTopic}-${gameState.currentLevel}`] = 'completed';
+        } else {
+            gameState.historyTracker?.applyReviewSuccess(gameState.activeReviewSkills);
+        }
+        saveProgress();
+        clearProgressTracker();
+        const winPrompt = document.createElement('div');
+        winPrompt.className = 'prompt ok fx-pop';
+        winPrompt.textContent = `Bravo, tu as complété le Niveau ${gameState.currentLevel} !`;
+        content.appendChild(winPrompt);
+        speakText(`Bravo, tu as complété le Niveau ${gameState.currentLevel} !`);
+        const endStatus = gameState.currentTopic === 'review' ? 'review-completed' : 'completed';
+        gameState.historyTracker?.endGame({ status: endStatus, topic: gameState.currentTopic, level: gameState.currentLevel, skills: gameState.activeReviewSkills });
+        if (gameState.currentTopic === 'review') {
+            gameState.activeReviewSkills = [];
+        }
+        gameState.sessionPhase = 'initial';
+        gameState.reviewQueue = [];
+        gameState.reviewCursor = 0;
+        gameState.reviewAttemptsRemaining = 0;
+        gameState.activeQuestion = null;
+        gameState.initialQuestionCount = 0;
+        gameState.currentQuestionIndex = 0;
+        setTimeout(() => showLevelMenu(gameState.currentTopic), 2000);
     }
     /* === Juegos Específicos === */
     /**
@@ -5934,4 +6118,5 @@ function generateNumberProblems(sum, count) {
     // --- Start Game ---
     init();
 });
+
 

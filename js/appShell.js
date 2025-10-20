@@ -63,7 +63,6 @@
     let audioBtn;
     let notificationBtn;
     let logoutBtn;
-    let fabBtn;
     let userNameEl;
     let avatarImgEl;
     let avatarFallbackEl;
@@ -93,36 +92,28 @@
     function buildHeader(container) {
         container.className = 'lena-shell__header';
         headerInner = document.createElement('div');
-        headerInner.className = 'lena-shell__header-inner';
+        headerInner.className = 'lena-header-single';
         headerInner.innerHTML = `
-            <div class="lena-shell__identity">
-                <div class="lena-avatar">
-                    <span class="lena-avatar__fallback" aria-hidden="true">${EMOJI.rainbow}</span>
-                    <img id="user-avatar-img" src="" alt="Avatar joueur">
-                </div>
-                <div class="lena-shell__identity-meta">
-                    <span id="user-name" class="lena-shell__identity-name">Gean</span>
-                    <button type="button" class="lena-shell__logout" id="logoutButton">
-                        <span aria-hidden="true">${EMOJI.lock}</span>
-                        <span class="lena-shell__logout-label">Se déconnecter</span>
-                    </button>
-                </div>
+            <div class="lena-avatar">
+                <span class="lena-avatar__fallback" aria-hidden="true">${EMOJI.rainbow}</span>
+                <img id="user-avatar-img" src="" alt="Avatar joueur">
             </div>
-            <div class="lena-shell__stats">
-                <div class="lena-stat-card lena-stat-card--stars">
-                    <span class="lena-stat-card__icon" aria-hidden="true">${EMOJI.star}</span>
-                    <span class="lena-stat-card__value" id="stars">0</span>
-                </div>
-                <div class="lena-stat-card lena-stat-card--coins">
-                    <span class="lena-stat-card__icon" aria-hidden="true">${EMOJI.coin}</span>
-                    <span class="lena-stat-card__value" id="coins">50</span>
-                </div>
-                <div class="lena-level-badge" id="level">Niveau 1</div>
-            </div>
-            <div class="lena-shell__actions">
-                <button type="button" class="lena-icon-btn" id="audioToggleButton" aria-label="${AUDIO_STATE.labelOn}">${AUDIO_STATE.iconOn}</button>
-                <button type="button" class="lena-icon-btn" id="notificationButton" aria-label="Notifications">${EMOJI.bell}</button>
-            </div>
+            <span id="user-name" class="lena-username">Gean</span>
+            <button type="button" class="lena-btn-logout" id="logoutButton">
+                <span aria-hidden="true">${EMOJI.lock}</span>
+                <span class="lena-btn-logout__label">Sortir</span>
+            </button>
+            <span class="lena-stat" data-stat="stars">
+                <span class="lena-stat__icon" aria-hidden="true">${EMOJI.star}</span>
+                <span class="lena-stat__value" id="stars">0</span>
+            </span>
+            <span class="lena-stat" data-stat="coins">
+                <span class="lena-stat__icon" aria-hidden="true">${EMOJI.coin}</span>
+                <span class="lena-stat__value" id="coins">50</span>
+            </span>
+            <span class="lena-level" id="level">Niveau 1</span>
+            <button type="button" class="lena-icon-btn" id="audioToggleButton" aria-label="${AUDIO_STATE.labelOn}">${AUDIO_STATE.iconOn}</button>
+            <button type="button" class="lena-icon-btn" id="notificationButton" aria-label="Notifications">${EMOJI.bell}</button>
         `;
 
         container.appendChild(headerInner);
@@ -234,55 +225,9 @@
         container.appendChild(inner);
     }
 
-    function buildFab() {
-        fabBtn = document.createElement('button');
-        fabBtn.type = 'button';
-        fabBtn.className = 'lena-shell__fab';
-        fabBtn.id = 'playFabButton';
-        fabBtn.setAttribute('aria-label', 'Jouer');
-        fabBtn.textContent = EMOJI.play;
-
-        fabBtn.addEventListener('click', () => {
-            animatePress(fabBtn, true);
-            incrementCounters();
-            console.log(`[Action] ${EMOJI.play} Jouer - démo`);
-        });
-
-        document.body.appendChild(fabBtn);
-    }
-
-    function animatePress(element, isFab = false) {
-        if (isFab) {
-            element.classList.add('is-pressed');
-            setTimeout(() => element.classList.remove('is-pressed'), 220);
-        } else {
-            element.classList.add('is-pressed');
-            setTimeout(() => element.classList.remove('is-pressed'), 180);
-        }
-    }
-
-    function incrementCounters() {
-        const starTargets = [
-            document.getElementById('scoreStars'),
-            document.getElementById('stars'),
-            starsValueEl
-        ].filter(Boolean);
-        const coinTargets = [
-            document.getElementById('scoreCoins'),
-            document.getElementById('coins'),
-            coinsValueEl
-        ].filter(Boolean);
-
-        if (starTargets.length) {
-            const current = parseInt(starTargets[0].textContent, 10) || 0;
-            const nextValue = current + 1;
-            starTargets.forEach(target => { target.textContent = nextValue; });
-        }
-        if (coinTargets.length) {
-            const current = parseInt(coinTargets[0].textContent, 10) || 0;
-            const nextValue = current + 5;
-            coinTargets.forEach(target => { target.textContent = nextValue; });
-        }
+    function animatePress(element) {
+        element.classList.add('is-pressed');
+        setTimeout(() => element.classList.remove('is-pressed'), 180);
     }
 
     function handleScrollCompact() {
@@ -391,7 +336,6 @@
 
         buildHeader(headerEl);
         buildFooter(footerEl);
-        buildFab();
         handleScrollCompact();
         hydrateUserIdentity();
 

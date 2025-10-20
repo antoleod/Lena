@@ -2,14 +2,18 @@
   'use strict';
 
   const STORAGE_KEY = 'logicGamesProgress_v2';
-  const TOTAL_LEVELS = 12;
-  const QUESTIONS_PER_LEVEL = 7;
+  const DEFAULT_TOTAL_LEVELS = 12;
+  const DEFAULT_QUESTIONS_PER_LEVEL = 8;
+  const LEVEL_OVERRIDES = {
+    labyrinthe: 10
+  };
 
   const LOGIC_GAMES = [
     { id: 'labyrinthe', icon: '🧭', title: 'Labyrinthe Logique', svg: svgPath(), playable: true },
     { id: 'series-motifs', icon: '🔷', title: 'Séries & Motifs', svg: svgWave(), playable: true },
     { id: 'tri-classement', icon: '🗂', title: 'Tri & Classement', svg: svgBins(), playable: true },
     { id: 'sudoku-junior', icon: '🔢', title: 'Sudoku Junior', svg: svgGrid(), playable: true },
+    { id: 'symetrie', icon: '🪞', title: 'Symétrie Magique', svg: svgMirror(), playable: true },
     { id: 'orbes-lumiere', icon: '\u2728', title: 'Les Orbes de Lumi\u00e8re', svg: svgMirror(), playable: true },
     { id: 'cartes-comparatives', icon: '⚖', title: 'Cartes Comparatives', svg: svgScale(), playable: true },
     { id: 'reseaux-chemins', icon: '🔗', title: 'Réseaux de Chemins', svg: svgNet(), playable: true },
@@ -21,71 +25,76 @@
   const GAME_CONFIGS = {
     'labyrinthe': {
       title: 'Labyrinthe Logique',
+      levels: LEVEL_OVERRIDES.labyrinthe,
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildLabyrinthQuestion(level));
+        return buildLabyrinthAdventureLevel(level);
       }
     },
     'series-motifs': {
       title: 'Séries & Motifs',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildSeriesQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildSeriesQuestion(level));
       }
     },
     'tri-classement': {
       title: 'Tri & Classement',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildSortingQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildSortingQuestion(level));
       }
     },
     'sudoku-junior': {
       title: 'Sudoku Junior',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildMiniSudokuQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildMiniSudokuQuestion(level));
       }
     },
     'symetrie': {
       title: 'Symétrie Magique',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildSymmetryQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildSymmetryQuestion(level));
       }
     },
     'orbes-lumiere': {
       title: 'Les Orbes de Lumière',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildOrbesDeLumiereQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildOrbesDeLumiereQuestion(level));
       }
     },
     'cartes-comparatives': {
       title: 'Cartes Comparatives',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildComparisonQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildComparisonQuestion(level));
       }
     },
     'reseaux-chemins': {
       title: 'Réseaux de Chemins',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildNetworkQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildNetworkQuestion(level));
       }
     },
     'logigrammes': {
       title: 'Logigrammes (Si… Alors…)',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildLogicChainQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildLogicChainQuestion(level));
       }
     },
     'enigmes': {
       title: "Jeu d’énigmes",
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildRiddleQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildRiddleQuestion(level));
       }
     },
     'repartis-multiplie': {
       title: 'Répartis & Multiplie',
       generateLevel(level) {
-        return Array.from({ length: QUESTIONS_PER_LEVEL }, () => buildDistributionQuestion(level));
+        return Array.from({ length: DEFAULT_QUESTIONS_PER_LEVEL }, () => buildDistributionQuestion(level));
       }
     }
   };
+
+  function getTotalLevelsFor(gameId) {
+    return LEVEL_OVERRIDES[gameId] || DEFAULT_TOTAL_LEVELS;
+  }
 
   function loadProgress() {
     try {
@@ -101,12 +110,15 @@
 
   function getCompleted(gameId) {
     const progress = loadProgress();
-    return Math.max(0, Math.min(TOTAL_LEVELS, progress[gameId]?.completed || 0));
+    const totalLevels = getTotalLevelsFor(gameId);
+    return Math.max(0, Math.min(totalLevels, progress[gameId]?.completed || 0));
   }
 
   function markCompleted(gameId, nextLevel) {
     const progress = loadProgress();
-    progress[gameId] = { completed: Math.max(getCompleted(gameId), nextLevel) };
+    const totalLevels = getTotalLevelsFor(gameId);
+    const safeLevel = Math.max(0, Math.min(totalLevels, nextLevel));
+    progress[gameId] = { completed: Math.max(getCompleted(gameId), safeLevel) };
     saveProgress(progress);
   }
 
@@ -125,7 +137,8 @@
       card.id = `logic-${game.id}`;
       card.setAttribute('aria-label', game.title);
       card.tabIndex = 0;
-      const progress = Math.round((getCompleted(game.id) / TOTAL_LEVELS) * 100);
+      const totalLevels = Math.max(1, getTotalLevelsFor(game.id));
+      const progress = Math.round((getCompleted(game.id) / totalLevels) * 100);
       card.innerHTML = `
         <span class="icon" aria-hidden="true">${game.icon}</span>
         <svg class="svg" viewBox="0 0 24 24" aria-hidden="true">${game.svg}</svg>
@@ -151,7 +164,8 @@
 
   function showLevelMenu(gameId, context, config) {
     context.topic = gameId;
-    const completed = getCompleted(gameId);
+    const totalLevels = config.levels || getTotalLevelsFor(gameId);
+    const completed = Math.min(getCompleted(gameId), totalLevels);
     context.content.innerHTML = '';
 
     const heading = document.createElement('div');
@@ -165,7 +179,7 @@
 
     const container = document.createElement('div');
     container.className = 'level-container';
-    for (let level = 1; level <= TOTAL_LEVELS; level++) {
+    for (let level = 1; level <= totalLevels; level++) {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'level-button fx-bounce-in-down';
@@ -196,8 +210,30 @@
 
   function runLevel(gameId, context, config, level) {
     context.setCurrentLevel(level);
-    const questions = config.generateLevel(level).slice(0, QUESTIONS_PER_LEVEL);
     const reward = computeReward(level);
+    const generated = config.generateLevel(level);
+    const rawQuestions = Array.isArray(generated) ? generated : [];
+
+    if (gameId === 'labyrinthe') {
+      runLabyrinthAdventure(context, {
+        gameId,
+        title: `${config.title} - Niveau ${level}`,
+        questions: rawQuestions,
+        reward,
+        level,
+        onRetry: () => runLabyrinthAdventure(context, {
+          gameId,
+          title: `${config.title} - Niveau ${level}`,
+          questions: buildLabyrinthAdventureLevel(level),
+          reward,
+          level
+        }),
+        onReturn: () => showLevelMenu(gameId, context, config)
+      });
+      return;
+    }
+
+    const questions = rawQuestions.slice(0, DEFAULT_QUESTIONS_PER_LEVEL);
     renderQuiz(context, {
       gameId,
       title: `${config.title} - Niveau ${level}`,
@@ -226,7 +262,7 @@
   }
 
   function computeTimeLimit(level) {
-    const clamped = Math.max(1, Math.min(level, TOTAL_LEVELS));
+    const clamped = Math.max(1, Math.min(level, DEFAULT_TOTAL_LEVELS));
     const base = 14 - Math.floor(clamped * 0.9);
     return Math.max(6, base);
   }
@@ -288,8 +324,7 @@
     showQuestion();
 
     function showQuestion() {
-      const current = questions[index];
-      renderPrompt(questionHolder, current);
+      const current = questions[index];      renderLogicPrompt(questionHolder, current);
       optionsGrid.innerHTML = '';
       progressLabel.textContent = `Question ${index + 1} / ${total}`;
 
@@ -397,31 +432,7 @@
     }
   }
 
-  function renderPrompt(holder, question) {
-    holder.innerHTML = '';
-    if (question.promptHTML) {
-      const block = document.createElement('div');
-      block.className = 'logic-visual-block';
-      block.innerHTML = question.promptHTML;
-      holder.appendChild(block);
-    }
-    const lines = normalizePromptLines(question);
-    lines.forEach(line => {
-      const element = document.createElement(line.type === 'code' ? 'pre' : 'p');
-      element.className = line.type === 'code' ? 'logic-question-code' : 'logic-question-detail';
-      element.textContent = line.text;
-      holder.appendChild(element);
-    });
-    const questionText = question.questionText || question.question || null;
-    if (questionText) {
-      const main = document.createElement('p');
-      main.className = 'logic-question-main';
-      main.textContent = questionText;
-      holder.appendChild(main);
-    }
-  }
-
-  function renderPrompt(holder, question) {
+  function renderLogicPrompt(holder, question) {
     holder.innerHTML = '';
     if (question.promptHTML) {
       const block = document.createElement('div');
@@ -501,48 +512,748 @@
   }
 
   // --- Question builders ---
-  function buildLabyrinthQuestion(level) {
-    const size = Math.min(6, 4 + Math.floor(level / 3));
-    let row = size - 1;
-    let col = 0;
-    const steps = 3 + Math.min(6, Math.floor(level / 2) + 2);
-    const numbers = [];
+  const LABYRINTH_DEFAULT_SUCCESS = 'Bravo ! Tu es un vrai détective des nombres !';
+  const LABYRINTH_DEFAULT_HINT = 'Essaie encore ! Voici un petit indice…';
 
-    for (let i = 0; i < steps; i++) {
-      const atTop = row === 0;
-      const atRight = col === size - 1;
-      let even = Math.random() < 0.5;
-      if (atRight) even = false;
-      if (atTop) even = true;
+  const LABYRINTH_SCENARIOS = [
+    {
+      id: 'roses',
+      emoji: '🌹',
+      title: 'Les pétales de lune',
+      operation: 'soustraction',
+      build(level) {
+        const total = randomInt(12, 16 + Math.min(level, 4));
+        const wilted = randomInt(3, Math.min(total - 2, 5 + Math.floor(level / 2)));
+        const answer = total - wilted;
+        return {
+          story: `Un rosier magique a fait éclore ${total} pétales de lune. Le vent en a emporté ${wilted}.`,
+          details: ['Seuls les pétales restants brillent encore.'],
+          questionText: 'Combien de pétales de lune brillent encore sur le rosier ?',
+          calculation: `${total} - ${wilted}`,
+          answer,
+          hint: 'Retire les pétales que le vent a emportés.',
+          explanation: `Il reste ${total} - ${wilted} = ${answer} pétales.`
+        };
+      }
+    },
+    {
+      id: 'labubu',
+      emoji: '🧸',
+      title: 'Les Labubu d’anniversaire',
+      operation: 'addition',
+      build(level) {
+        const fromMom = randomInt(2 + Math.floor(level / 3), 4 + Math.floor(level / 2));
+        const fromFriends = randomInt(4, 6 + Math.floor(level / 2));
+        const answer = fromMom + fromFriends;
+        return {
+          story: `Pour son anniversaire, Léa reçoit ${fromMom} figurines Labubu de sa maman et ${fromFriends} de ses amis.`,
+          details: ['Elle les collectionne sur son étagère enchantée.'],
+          questionText: 'Combien de Labubu a-t-elle en tout ?',
+          calculation: `${fromMom} + ${fromFriends}`,
+          answer,
+          hint: 'Additionne les cadeaux de maman et ceux des copines.',
+          explanation: `${fromMom} + ${fromFriends} = ${answer} Labubu.`,
+          successMessage: 'Bravo ! Tu comptes les doudous comme un pro !'
+        };
+      }
+    },
+    {
+      id: 'parachutistes',
+      emoji: '🪂',
+      title: 'Les parachutistes',
+      operation: 'addition',
+      build(level) {
+        const waveOne = randomInt(2, 3 + Math.floor(level / 2));
+        const waveTwo = randomInt(3, 4 + Math.floor(level / 2));
+        const waveThree = randomInt(1, 2 + Math.floor(level / 3));
+        const answer = waveOne + waveTwo + waveThree;
+        return {
+          story: `${waveOne} amis sautent en parachute, puis ${waveTwo} les rejoignent, et enfin ${waveThree} décident de sauter aussi !`,
+          details: ['Tous se retrouvent dans le ciel pour une figure magique.'],
+          questionText: 'Combien de parachutistes ont sauté en tout ?',
+          calculation: `${waveOne} + ${waveTwo} + ${waveThree}`,
+          answer,
+          hint: 'Additionne les trois groupes de sauteurs.',
+          explanation: `${waveOne} + ${waveTwo} + ${waveThree} = ${answer} amis dans le ciel.`
+        };
+      }
+    },
+    {
+      id: 'macarons',
+      emoji: '🧁',
+      title: 'Les gâteaux des fées',
+      operation: 'multiplication',
+      build(level) {
+        const sachets = randomInt(3, 4 + Math.floor(level / 3));
+        const perSachet = randomInt(3, 4 + Math.floor(level / 3));
+        const answer = sachets * perSachet;
+        return {
+          story: `Nadia prépare ${sachets} boîtes de gâteaux pour le bal des fées.`,
+          details: [`Chaque sachet contient ${perSachet} macarons aux mille couleurs.`],
+          questionText: 'Combien de macarons Nadia rapporte-t-elle ?',
+          calculation: `${sachets} × ${perSachet}`,
+          answer,
+          hint: 'Multiplie le nombre de sachets par le nombre de macarons dans chaque sachet.',
+          explanation: `${sachets} × ${perSachet} = ${answer} macarons.`
+        };
+      }
+    },
+    {
+      id: 'pralines',
+      emoji: '🍫',
+      title: 'Les chocolats des gnomes',
+      operation: 'division',
+      build(level) {
+        const friends = randomInt(3, 4 + Math.floor(level / 4));
+        const eachGets = randomInt(5, 6 + Math.floor(level / 2));
+        const total = friends * eachGets;
+        return {
+          story: `Un groupe de ${friends} gnomes a trouvé un trésor de ${total} chocolats magiques.`,
+          details: ['Chaque ami reçoit exactement la même quantité.'],
+          questionText: 'Combien de pralines reçoit chaque ami ?',
+          calculation: `${total} ÷ ${friends}`,
+          answer: eachGets,
+          hint: 'Divise le nombre total de pralines par le nombre d’amis.',
+          explanation: `${total} ÷ ${friends} = ${eachGets} pralines par ami.`
+        };
+      }
+    },
+    {
+      id: 'cartes',
+      emoji: '🎴',
+      title: 'Les cartes du destin',
+      operation: 'division',
+      build(level) {
+        const kids = randomInt(4, 5 + Math.floor(level / 3));
+        const eachGets = randomInt(5, 6 + Math.floor(level / 2));
+        const total = kids * eachGets;
+        return {
+          story: `Le gardien du temps distribue ${total} cartes du destin à ${kids} apprentis.`,
+          details: ['Il veut que la distribution soit parfaitement équitable.'],
+          questionText: 'Combien de cartes reçoit chaque enfant ?',
+          calculation: `${total} ÷ ${kids}`,
+          answer: eachGets,
+          hint: 'Partage le nombre total de cartes entre les enfants.',
+          explanation: `Chaque enfant reçoit ${total} ÷ ${kids} = ${eachGets} cartes.`
+        };
+      }
+    },
+    {
+      id: 'bonbons',
+      emoji: '🍬',
+      title: 'Les bonbons colorés',
+      operation: 'division',
+      build(level) {
+        const kids = randomInt(3, 5 + Math.floor(level / 3));
+        const eachGets = randomInt(4, 6 + Math.floor(level / 2));
+        const total = kids * eachGets;
+        return {
+          story: `On partage ${total} bonbons colorés entre ${kids} enfants.`,
+          details: ['Chaque enfant reçoit une poignée colorée identique.'],
+          questionText: 'Combien de bonbons reçoit chaque enfant ?',
+          calculation: `${total} ÷ ${kids}`,
+          answer: eachGets,
+          hint: 'Divise le nombre de bonbons par le nombre d’enfants.',
+          explanation: `${total} ÷ ${kids} = ${eachGets} bonbons chacun.`
+        };
+      }
+    },
+    {
+      id: 'fleurs',
+      emoji: '🌸',
+      title: 'Les fleurs de lumière',
+      operation: 'division',
+      build(level) {
+        const vases = randomInt(3, 4 + Math.floor(level / 3));
+        const perVase = randomInt(4, 6 + Math.floor(level / 2));
+        const total = vases * perVase;
+        return {
+          story: `On répartit ${total} fleurs de lumière dans ${vases} vases en cristal.`,
+          details: ['Chaque vase doit avoir exactement le même nombre de fleurs.'],
+          questionText: 'Combien de fleurs place-t-on dans chaque vase ?',
+          calculation: `${total} ÷ ${vases}`,
+          answer: perVase,
+          hint: 'Partage les fleurs équitablement entre les vases.',
+          explanation: `${total} ÷ ${vases} = ${perVase} fleurs par vase.`
+        };
+      }
+    },
+    {
+      id: 'cerfs-volants',
+      emoji: '🪁',
+      title: 'Les cerfs-volants enchantés',
+      operation: 'soustraction',
+      build(level) {
+        const total = randomInt(20, 26 + Math.floor(level / 2));
+        const lost = randomInt(6, Math.min(total - 4, 9 + Math.floor(level / 2)));
+        const answer = total - lost;
+        return {
+          story: `Au festival du vent, ${total} cerfs-volants enchantés dansent dans le ciel.`,
+          details: [`Mais ${lost} s’envolent trop loin et disparaissent.`],
+          questionText: 'Combien de cerfs-volants restent sur la plage ?',
+          calculation: `${total} - ${lost}`,
+          answer,
+          hint: 'Retire les cerfs-volants qui se sont envolés trop loin.',
+          explanation: `${total} - ${lost} = ${answer} cerfs-volants restants.`
+        };
+      }
+    },
+    {
+      id: 'lanternes',
+      emoji: '🏮',
+      title: 'Les lanternes au festival',
+      operation: 'multiplication',
+      build(level) {
+        const rows = randomInt(2 + Math.floor(level / 4), 4 + Math.floor(level / 3));
+        const perRow = randomInt(4, 6 + Math.floor(level / 2));
+        const answer = rows * perRow;
+        return {
+          story: `Pour le festival, on accroche ${rows} rangées de lanternes.`,
+          details: [`Chaque rangée contient ${perRow} lanternes lumineuses.`],
+          questionText: 'Combien de lanternes illuminent le ciel ?',
+          calculation: `${rows} × ${perRow}`,
+          answer,
+          hint: 'Multiplie le nombre de rangées par le nombre de lanternes par rangée.',
+          explanation: `${rows} × ${perRow} = ${answer} lanternes.`
+        };
+      }
+    },
+    {
+      id: 'coquillages',
+      emoji: '🐚',
+      title: 'La collection de coquillages',
+      operation: 'combinaison',
+      build(level) {
+        const start = randomInt(10, 15 + Math.floor(level / 2));
+        const found = randomInt(3, 5 + Math.floor(level / 2));
+        const gifted = randomInt(2, Math.min(start, 4 + Math.floor(level / 3)));
+        const answer = start + found - gifted;
+        return {
+          story: `Léo a ${start} coquillages dans sa collection.`,
+          details: [`On en trouve ${found} de plus, mais on en offre ${gifted} à un ami.`],
+          questionText: 'Combien de coquillages reste-t-il pour la collection ?',
+          calculation: `${start} + ${found} - ${gifted}`,
+          answer,
+          hint: 'Ajoute les coquillages trouvés puis enlève ceux offerts.',
+          explanation: `${start} + ${found} - ${gifted} = ${answer} coquillages.`
+        };
+      }
+    },
+    {
+      id: 'pastels',
+      emoji: '🖍️',
+      title: 'Les pastels de l’atelier',
+      operation: 'multiplication',
+      build(level) {
+        const boites = randomInt(3, 4 + Math.floor(level / 3));
+        const crayons = randomInt(4, 6 + Math.floor(level / 2));
+        const answer = boites * crayons;
+        return {
+          story: `L’atelier de peinture reçoit ${boites} boîtes de pastels.`,
+          details: [`Chaque boîte contient ${crayons} couleurs pétillantes.`],
+          questionText: 'Combien de pastels les artistes peuvent-ils utiliser ?',
+          calculation: `${boites} × ${crayons}`,
+          answer,
+          hint: 'Multiplie le nombre de boîtes par le nombre de pastels dans chaque boîte.',
+          explanation: `${boites} × ${crayons} = ${answer} pastels.`
+        };
+      }
+    },
+    {
+      id: 'glaces',
+      emoji: '🍨',
+      title: 'Les glaces givrés',
+      operation: 'division',
+      build(level) {
+        const enfants = randomInt(4, 5 + Math.floor(level / 3));
+        const parfums = randomInt(3, 4 + Math.floor(level / 3));
+        const total = enfants * parfums;
+        return {
+          story: `Un glacier prépare ${total} boules de glace pour ${enfants} enfants.`,
+          details: ['Il veut servir exactement le même nombre de boules à chacun.'],
+          questionText: 'Combien de boules de glace reçoit chaque enfant ?',
+          calculation: `${total} ÷ ${enfants}`,
+          answer: parfums,
+          hint: 'Partage le nombre total de boules par les enfants.',
+          explanation: `${total} ÷ ${enfants} = ${parfums} boules par enfant.`
+        };
+      }
+    },
+    {
+      id: 'dragon-tresor',
+      emoji: '🐉',
+      title: 'Le trésor du dragon',
+      operation: 'combinaison',
+      build(level) {
+        const start = randomInt(20, 30 + level * 2);
+        const added = randomInt(5, 10 + level);
+        const lost = randomInt(3, 8 + Math.floor(level / 2));
+        const answer = start + added - lost;
+        return {
+          story: `Un dragon garde un trésor de ${start} pièces d'or. Il y ajoute ${added} nouvelles pièces.`,
+          details: [`Plus tard, un voleur réussit à lui dérober ${lost} pièces.`],
+          questionText: 'Combien de pièces d\'or reste-t-il dans le trésor ?',
+          calculation: `${start} + ${added} - ${lost}`,
+          answer,
+          hint: 'Commence par ajouter les nouvelles pièces, puis retire celles qui ont été volées.',
+          explanation: `Le trésor a d'abord ${start} + ${added} = ${start + added} pièces. Puis, ${start + added} - ${lost} = ${answer} pièces restantes.`
+        };
+      }
+    },
+    {
+      id: 'potion-magique',
+      emoji: '🧪',
+      title: 'La potion magique',
+      operation: 'addition',
+      build(level) {
+        const ing1 = randomInt(5, 8 + level);
+        const ing2 = randomInt(4, 7 + level);
+        const extraInfo = randomInt(2, 4); // Info inutile
+        const answer = ing1 + ing2;
+        return {
+          story: `Pour une potion, il faut ${ing1} gouttes de rosée et ${ing2} feuilles de menthe.`,
+          details: [`La recette mentionne aussi ${extraInfo} champignons, mais ils ne sont pas pour cette potion.`],
+          questionText: 'De combien d\'ingrédients (gouttes et feuilles) a-t-on besoin au total ?',
+          calculation: `${ing1} + ${ing2}`,
+          answer,
+          hint: 'Ignore les champignons, ils ne font pas partie de cette recette !',
+          explanation: `On a besoin de ${ing1} gouttes + ${ing2} feuilles = ${answer} ingrédients.`
+        };
+      }
+    },
+    {
+      id: 'course-escargots',
+      emoji: '🐌',
+      title: 'La course des escargots',
+      operation: 'difference',
+      build(level) {
+        const dist1 = randomInt(15, 25 + level);
+        const dist2 = randomInt(8, Math.min(dist1 - 2, 18 + level));
+        const answer = dist1 - dist2;
+        return {
+          story: `L'escargot A a parcouru ${dist1} cm. L'escargot B a parcouru ${dist2} cm.`,
+          details: ['Ils font une course pour savoir qui est le plus rapide.'],
+          questionText: 'De combien de centimètres l\'escargot A devance-t-il l\'escargot B ?',
+          calculation: `${dist1} - ${dist2}`,
+          answer,
+          hint: 'Calcule la différence entre la distance de A et celle de B.',
+          explanation: `La différence est de ${dist1} - ${dist2} = ${answer} cm.`
+        };
+      }
+    },
+    {
+      id: 'chemin-ecolier',
+      emoji: '🎒',
+      title: 'Le chemin de l\'écolier',
+      operation: 'addition',
+      build(level) {
+        const part1 = randomInt(10, 20 + level * 2);
+        const part2 = randomInt(8, 15 + level);
+        const part3 = randomInt(5, 10 + level);
+        const answer = part1 + part2 + part3;
+        return {
+          story: `Pour aller à l'école, un écolier parcourt ${part1} mètres, tourne, marche ${part2} mètres, puis termine par ${part3} mètres.`,
+          details: ['Il suit un chemin magique qui change chaque jour.'],
+          questionText: 'Quelle est la distance totale du chemin ?',
+          calculation: `${part1} + ${part2} + ${part3}`,
+          answer,
+          hint: 'Additionne la longueur de chaque partie du chemin.',
+          explanation: `La distance totale est de ${part1} + ${part2} + ${part3} = ${answer} mètres.`
+        };
+      }
+    },
+    {
+      id: 'livres-bibliotheque',
+      emoji: '📚',
+      title: 'La bibliothèque mystérieuse',
+      operation: 'inverse',
+      build(level) {
+        const remaining = randomInt(15, 25 + level * 2);
+        const borrowed = randomInt(5, 10 + level);
+        const added = randomInt(3, 8 + level);
+        const answer = remaining - added + borrowed;
+        return {
+          story: `Dans la bibliothèque, il reste ${remaining} livres sur l'étagère.`,
+          details: [`Ceci est après que ${added} nouveaux livres aient été ajoutés et que ${borrowed} livres aient été empruntés.`],
+          questionText: 'Combien de livres y avait-il au tout début ?',
+          calculation: `${remaining} - ${added} + ${borrowed}`,
+          answer,
+          hint: 'Pense à l\'envers : pars des livres restants, retire ceux qui ont été ajoutés et rajoute ceux empruntés.',
+          explanation: `Au début, il y avait ${remaining} - ${added} (nouveaux) + ${borrowed} (empruntés) = ${answer} livres.`
+        };
+      }
+    },
+    {
+      id: 'gateau-anniversaire',
+      emoji: '🎂',
+      title: 'Le gâteau d\'anniversaire',
+      operation: 'division-reste',
+      build(level) {
+        const totalSlices = randomInt(15, 25 + level);
+        const friends = randomInt(4, 6 + Math.floor(level / 2));
+        const answer = totalSlices % friends;
+        return {
+          story: `Un gâteau a ${totalSlices} parts. On le partage équitablement entre ${friends} amis.`,
+          details: ['Chacun prend le même nombre de parts entières.'],
+          questionText: 'Combien de parts de gâteau reste-t-il après le partage ?',
+          calculation: `${totalSlices} % ${friends}`,
+          answer,
+          hint: 'Divise les parts par le nombre d\'amis et regarde ce qu\'il reste.',
+          explanation: `${totalSlices} divisé par ${friends} donne ${Math.floor(totalSlices / friends)} parts chacun, et il reste ${answer} parts.`
+        };
+      }
+    },
+    {
+      id: 'course-relais',
+      emoji: '🏃',
+      title: 'La course de relais',
+      operation: 'addition-temps',
+      build(level) {
+        const time1 = randomInt(10, 15 + level);
+        const time2 = randomInt(8, 12 + level);
+        const time3 = randomInt(9, 14 + level);
+        const answer = time1 + time2 + time3;
+        return {
+          story: `Dans une course de relais, le premier coureur met ${time1} secondes, le deuxième ${time2} secondes, et le troisième ${time3} secondes.`,
+          questionText: 'Quel est le temps total de l\'équipe en secondes ?',
+          calculation: `${time1} + ${time2} + ${time3}`,
+          answer,
+          hint: 'Additionne les temps de chaque coureur pour trouver le total.',
+          explanation: `Le temps total est de ${time1} + ${time2} + ${time3} = ${answer} secondes.`
+        };
+      }
+    }
+  ];
 
-      if (even) {
-        col += 1;
-        numbers.push(pickEven());
+  function runLabyrinthAdventure(context, { gameId, title, questions, reward, level, onRetry, onReturn }) {
+    const state = {
+      gameId,
+      title,
+      reward,
+      level,
+      onRetry,
+      onReturn,
+      stage: 'initial',
+      queue: [],
+      reviewQueue: [],
+      currentQuestion: null,
+      completedCount: 0,
+      totalQuestions: 0,
+    };
+
+    const goBack = () => {
+      if (typeof onReturn === 'function') onReturn();
+      else showLevelMenu(gameId, context, GAME_CONFIGS[gameId]);
+    };
+
+    const preparedQuestions = (Array.isArray(questions) && questions.length ? questions : buildLabyrinthAdventureLevel(level))
+      .map((q, i) => normalizeLabyrinthQuestion(LABYRINTH_SCENARIOS.find(s => s.id === (q.scenarioId || q.id)), q, level, i))
+      .filter(Boolean);
+
+    if (!preparedQuestions.length) {
+      context.content.innerHTML = '<p class="question-prompt">Aucune aventure disponible pour le moment.</p>';
+      context.configureBackButton('Retour aux niveaux', goBack);
+      return;
+    }
+
+    state.queue = preparedQuestions.map(q => ({ ...q }));
+    state.totalQuestions = preparedQuestions.length;
+
+    context.setAnsweredStatus?.('in-progress');
+    context.content.innerHTML = '';
+    context.configureBackButton('Retour aux niveaux', goBack);
+
+    const heading = document.createElement('div');
+    heading.className = 'question-prompt fx-bounce-in-down';
+    heading.textContent = title;
+    context.content.appendChild(heading);
+
+    const ui = renderLabyrinthUI(context.content, state);
+
+    loadNextQuestion(state, context, ui);
+  }
+
+  function renderLabyrinthUI(container, state) {
+    const shell = document.createElement('div');
+    shell.className = 'labyrinth-shell fx-bounce-in-down';
+    shell.innerHTML = `
+      <div class="labyrinth-progress">
+        <span class="labyrinth-stage-chip"></span>
+        <div class="labyrinth-progress__track"><div class="labyrinth-progress__fill"></div></div>
+        <div class="labyrinth-progress__info">
+          <span class="labyrinth-progress__label"></span>
+          <span class="labyrinth-progress__reward">⭐ ${state.reward.stars} • 🪙 ${state.reward.coins}</span>
+        </div>
+      </div>
+      <article class="labyrinth-story-card">
+        <span class="labyrinth-story-card__emoji"></span>
+        <div class="labyrinth-story-card__content">
+          <h3 class="labyrinth-story-card__title"></h3>
+          <div class="labyrinth-story-card__text"></div>
+        </div>
+      </article>
+      <div class="labyrinth-calculation is-hidden">
+        <span class="labyrinth-calculation__label">Calcul magique :</span>
+        <span class="labyrinth-calculation__value"></span>
+      </div>
+      <p class="labyrinth-question"></p>
+      <div class="labyrinth-options"></div>
+      <div class="labyrinth-feedback"></div>
+    `;
+    container.appendChild(shell);
+
+    return {
+      shell,
+      stageChip: shell.querySelector('.labyrinth-stage-chip'),
+      progressFill: shell.querySelector('.labyrinth-progress__fill'),
+      progressLabel: shell.querySelector('.labyrinth-progress__label'),
+      storyBadge: shell.querySelector('.labyrinth-story-card__emoji'),
+      storyTitle: shell.querySelector('.labyrinth-story-card__title'),
+      storyText: shell.querySelector('.labyrinth-story-card__text'),
+      calcBox: shell.querySelector('.labyrinth-calculation'),
+      calcValue: shell.querySelector('.labyrinth-calculation__value'),
+      questionPrompt: shell.querySelector('.labyrinth-question'),
+      optionsContainer: shell.querySelector('.labyrinth-options'),
+      feedbackArea: shell.querySelector('.labyrinth-feedback'),
+    };
+  }
+
+  function renderLabyrinthQuestion(ui, question, state, context) {
+    ui.storyBadge.textContent = question.emoji || '🧩';
+    ui.storyTitle.textContent = question.title || 'Défi logique';
+    ui.storyText.innerHTML = [...toLineArray(question.storyLines), ...toLineArray(question.detailLines)]
+      .map(line => `<p>${escapeHtml(line)}</p>`).join('');
+
+    const hasCalc = Boolean(question.calculation);
+    ui.calcBox.classList.toggle('is-hidden', !hasCalc);
+    ui.calcValue.textContent = hasCalc ? question.calculation : '';
+
+    ui.questionPrompt.textContent = question.questionText || 'Choisis le bon résultat.';
+    ui.optionsContainer.innerHTML = '';
+    question.options.forEach((option, index) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'labyrinth-option-btn';
+      btn.dataset.value = option;
+      btn.textContent = option;
+      btn.style.animationDelay = `${index * 0.08 + 0.2}s`;
+      btn.addEventListener('click', () => handleLabyrinthAnswer(question, btn, state, context, ui));
+      ui.optionsContainer.appendChild(btn);
+    });
+    setLabyrinthFeedback(ui.feedbackArea, null, []);
+  }
+
+  function handleLabyrinthAnswer(question, button, state, context, ui) {
+    const optionButtons = Array.from(ui.optionsContainer.querySelectorAll('button'));
+    optionButtons.forEach(btn => (btn.disabled = true));
+
+    const isCorrect = button.dataset.value === question.answer;
+
+    if (isCorrect) {
+      button.classList.add('is-correct');
+      if (!question.solved) {
+        question.solved = true;
+        state.completedCount++;
+      }
+      context.playPositiveSound();
+      setLabyrinthFeedback(ui.feedbackArea, 'success', [question.successMessage || LABYRINTH_DEFAULT_SUCCESS]);
+      updateLabyrinthProgress(state, ui);
+      setTimeout(() => {
+        setLabyrinthFeedback(ui.feedbackArea, null, []);
+        loadNextQuestion(state, context, ui);
+      }, 900);
+    } else {
+      button.classList.add('is-wrong');
+      const correctButton = optionButtons.find(btn => btn.dataset.value === question.answer);
+      if (correctButton) correctButton.classList.add('is-correct');
+      context.playNegativeSound();
+      context.awardReward(0, -1);
+      const messages = [question.failureMessage || LABYRINTH_DEFAULT_HINT, question.hint, question.explanation].filter(Boolean);
+      setLabyrinthFeedback(ui.feedbackArea, 'error', messages);
+      if (!state.reviewQueue.includes(question)) {
+        state.reviewQueue.push(question);
+      }
+      setTimeout(() => {
+        setLabyrinthFeedback(ui.feedbackArea, null, []);
+        loadNextQuestion(state, context, ui);
+      }, 1500);
+    }
+  }
+
+  function loadNextQuestion(state, context, ui) {
+    if (!state.queue.length) {
+      if (state.reviewQueue.length) {
+        state.queue = state.reviewQueue.splice(0);
+        if (state.stage === 'initial') state.stage = 'review';
       } else {
-        row -= 1;
-        numbers.push(pickOdd());
+        finishLabyrinthLevel(state, context, ui);
+        return;
+      }
+    }
+    state.currentQuestion = state.queue.shift();
+    updateLabyrinthProgress(state, ui);
+    renderLabyrinthQuestion(ui, state.currentQuestion, state, context);
+  }
+
+  function finishLabyrinthLevel(state, context, ui) {
+    state.stage = 'completed';
+    updateLabyrinthProgress(state, ui);
+    markCompleted(state.gameId, state.level);
+    context.markLevelCompleted();
+    context.awardReward(state.reward.stars, state.reward.coins);
+    context.setAnsweredStatus?.('completed');
+    context.showConfetti();
+
+    ui.shell.innerHTML = `
+      <div class="labyrinth-summary fx-pop">
+        <h3>${LABYRINTH_DEFAULT_SUCCESS}</h3>
+        <p>Tu gagnes <strong>${state.reward.stars}</strong> étoiles et <strong>${state.reward.coins}</strong> pièces.</p>
+        <p>Tu y es presque ! Essaie encore 🌟</p>
+        <div class="labyrinth-summary__actions">
+          <button type="button" class="labyrinth-cta" id="labyrinth-retry-btn">Réessayer 🌟</button>
+          <button type="button" class="labyrinth-cta labyrinth-cta--ghost" id="labyrinth-back-btn">Retour aux niveaux</button>
+        </div>
+      </div>
+    `;
+
+    ui.shell.querySelector('#labyrinth-retry-btn').addEventListener('click', () => {
+      if (typeof state.onRetry === 'function') state.onRetry();
+      else runLabyrinthAdventure(context, { ...state, questions: buildLabyrinthAdventureLevel(state.level) });
+    });
+
+    ui.shell.querySelector('#labyrinth-back-btn').addEventListener('click', () => {
+      if (typeof state.onReturn === 'function') state.onReturn();
+      else showLevelMenu(state.gameId, context, GAME_CONFIGS[state.gameId]);
+    });
+  }
+
+  function updateLabyrinthProgress(state, ui) {
+    const percent = Math.round((state.completedCount / state.totalQuestions) * 100);
+    ui.progressFill.style.width = `${percent}%`;
+    ui.progressLabel.textContent = `Défis résolus : ${state.completedCount} / ${state.totalQuestions}`;
+    ui.stageChip.textContent = state.stage === 'review' ? 'Mission repaso' : 'Mission découverte';
+  }
+
+  function setLabyrinthFeedback(feedbackArea, type, lines) {
+    feedbackArea.className = 'labyrinth-feedback';
+    if (type) feedbackArea.classList.add(`is-${type}`);
+    feedbackArea.innerHTML = (Array.isArray(lines) ? lines : [])
+      .filter(Boolean)
+      .map(line => `<p>${escapeHtml(line)}</p>`)
+      .join('');
+  }
+
+  function buildLabyrinthAdventureLevel(level) {
+    const desired = clamp(randomInt(5, 5 + Math.min(3, Math.floor(level / 2))), 5, 8);
+    const pool = shuffle(LABYRINTH_SCENARIOS.slice());
+    const selected = [];
+
+    for (let i = 0; i < pool.length && selected.length < desired; i++) {
+      const scenario = pool[i];
+      const normalized = normalizeLabyrinthQuestion(scenario, scenario.build(level), level, i);
+      if (!normalized) { continue; }
+      selected.push(normalized);
+    }
+
+    if (selected.length < desired) {
+      const remaining = LABYRINTH_SCENARIOS.filter(s => !selected.some(q => q.scenarioId === s.id));
+      const fallbackPool = shuffle(remaining.length ? remaining : LABYRINTH_SCENARIOS.slice());
+      for (let i = 0; i < fallbackPool.length && selected.length < desired; i++) {
+        const scenario = fallbackPool[i];
+        const normalized = normalizeLabyrinthQuestion(scenario, scenario.build(level), level, selected.length);
+        if (!normalized) { continue; }
+        if (selected.some(item => item.scenarioId === scenario.id && item.calculation === normalized.calculation)) {
+          continue;
+        }
+        selected.push(normalized);
       }
     }
 
-    const answer = `L${row + 1} C${col + 1}`;
-    const options = new Set([answer]);
-    while (options.size < 4) {
-      const r = clamp(row + randomInt(-1, 1), 0, size - 1);
-      const c = clamp(col + randomInt(-1, 1), 0, size - 1);
-      options.add(`L${r + 1} C${c + 1}`);
-    }
+    return selected.slice(0, desired);
+  }
 
-    const promptLines = [
-      { text: 'Règle : nombre pair ⇒ avance à droite, impair ⇒ monte.' },
-      { text: `Départ : bas gauche (L${size} C1).` },
-      { text: `Suite de nombres : ${numbers.join(', ')}` }
-    ];
+  function normalizeLabyrinthQuestion(scenario, raw, level, index = 0) {
+    if (!raw || typeof raw.answer === 'undefined') { return null; }
+    const reference = scenario || LABYRINTH_SCENARIOS.find(item => item.id === raw.scenarioId) || null;
+    const numericAnswer = Number(raw.answer);
+    if (!Number.isFinite(numericAnswer)) { return null; }
+    const optionNumbers = ensureLabyrinthOptions(raw.options, numericAnswer, level);
+    const scenarioId = reference ? reference.id : (raw.scenarioId || 'labyrinth');
+
     return {
-      promptLines,
-      questionText: 'Quelle case atteins-tu ?',
-      answer,
-      options: shuffle(Array.from(options))
+      id: raw.id || `${scenarioId}-${Date.now()}-${index}-${randomInt(0, 9999)}`,
+      scenarioId,
+      emoji: raw.emoji || (reference && reference.emoji) || '🧩',
+      title: raw.title || (reference && reference.title) || 'Défi logique',
+      operation: raw.operation || (reference && reference.operation) || '',
+      storyLines: raw.storyLines ? toLineArray(raw.storyLines) : toLineArray(raw.story),
+      detailLines: raw.detailLines ? toLineArray(raw.detailLines) : (Array.isArray(raw.details) ? raw.details.map(String) : []),
+      questionText: raw.questionText || 'Quel est le bon résultat ?',
+      calculation: raw.calculation || '',
+      answer: String(numericAnswer),
+      options: optionNumbers.map(String),
+      hint: raw.hint || LABYRINTH_DEFAULT_HINT,
+      explanation: raw.explanation || '',
+      successMessage: raw.successMessage || LABYRINTH_DEFAULT_SUCCESS,
+      failureMessage: raw.failureMessage || LABYRINTH_DEFAULT_HINT,
+      solved: false,
+      attempts: 0
     };
+  }
+
+  function ensureLabyrinthOptions(options, answer, level) {
+    const pool = new Set();
+    if (Array.isArray(options)) {
+      options.forEach(value => {
+        const num = Number(value);
+        if (Number.isFinite(num)) {
+          pool.add(num);
+        }
+      });
+    }
+    pool.add(answer);
+    const needed = 2;
+    let guard = 0;
+    while (pool.size < needed && guard < 40) {
+      generateLabyrinthOptions(answer, level).forEach(value => {
+        if (pool.size < needed) {
+          pool.add(value);
+        }
+      });
+      guard += 1;
+    }
+    return shuffle(Array.from(pool)).slice(0, needed);
+  }
+
+  function generateLabyrinthOptions(answer, level) {
+    const variance = Math.max(2, Math.min(10, Math.round(answer * 0.3) + Math.floor(level / 2)));
+    const results = new Set();
+    while (results.size < 4) {
+      const delta = randomInt(1, variance);
+      const plus = answer + delta;
+      const minus = answer - delta;
+      if (plus !== answer) {
+        results.add(plus);
+      }
+      if (minus >= 0 && minus !== answer) {
+        results.add(minus);
+      }
+      if (answer > 5) {
+        results.add(answer + delta + 1);
+      }
+      if (results.size > 6) {
+        break;
+      }
+    }
+    return Array.from(results).filter(value => value >= 0);
+  }
+
+  function toLineArray(value) {
+    if (!value) { return []; }
+    if (Array.isArray(value)) {
+      return value.map(String);
+    }
+    return [String(value)];
   }
 
   function buildSeriesQuestion(level) {
@@ -587,6 +1298,19 @@
       answer,
       options: options.map(String)
     };
+  }
+
+  function generateNumericOptions(answer, step = 1) {
+    const options = new Set([String(answer)]);
+    const safeStep = Math.max(1, Math.round(step));
+    while (options.size < 4) {
+      const direction = randomChoice([-2, -1, 1, 2, 3]);
+      const candidate = answer + direction * safeStep;
+      if (candidate >= 0) {
+        options.add(String(candidate));
+      }
+    }
+    return shuffle(Array.from(options));
   }
 
   function buildSortingQuestion(level) {
@@ -1140,14 +1864,6 @@ function buildRiddleQuestion(level) {
     };
   }
 
-  function pickEven() {
-    return (randomInt(1, 4) * 2);
-  }
-
-  function pickOdd() {
-    return (randomInt(0, 4) * 2 + 1);
-  }
-
   function randomInt(min, max) {
     const lower = Math.ceil(Math.min(min, max));
     const upper = Math.floor(Math.max(min, max));
@@ -1273,6 +1989,6 @@ function buildRiddleQuestion(level) {
     renderSection,
     start,
     getCompleted,
-    getLevelCount: () => TOTAL_LEVELS
+    getLevelCount: (gameId) => getTotalLevelsFor(gameId)
   };
 })();

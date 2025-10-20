@@ -70,15 +70,30 @@
     const maxValue = level >= 7 ? 120 : level >= 4 ? 80 : 40;
     const baseValue = rand(2, maxValue);
     const value = +(baseValue * step).toFixed(2);
+
+    const scenarios = {
+      length: { icon: '📏', text: 'Mesure ce ruban magique.' },
+      mass: { icon: '⚖️', text: 'Pèse cet ingrédient de potion.' },
+      capacity: { icon: '🧪', text: 'Verse ce liquide mystérieux.' }
+    };
+    const scenario = scenarios[type] || scenarios.mass;
+    const typeLabel = type === 'length' ? 'longueur' : type === 'mass' ? 'masse' : 'capacité';
+
     const answerValue = convertValue(value, fromUnit, toUnit);
     const prompt = `
-      <div class="measure-question measure-question--convert">
-        <p class="measure-question__intro">Mission conversion.</p>
-        <p class="measure-question__detail">Type : ${type === 'length' ? 'longueur' : type === 'mass' ? 'masse' : 'capacite'}.</p>
-        <p class="measure-question__main">Combien font ${formatValue(value, fromUnit.unit)} en ${toUnit.label} (${toUnit.unit}) ?</p>
+      <div class="measure-question measure-question--convert-visual measure-question--${type}">
+        <div class="measure-question__scenario">
+          <div class="measure-question__scenario-icon">${scenario.icon}</div>
+          <div class="measure-question__scenario-text">
+            <p class="measure-question__intro">Recette de la Potion</p>
+            <p class="measure-question__detail">Tu as besoin de <strong>${formatValue(value, fromUnit.unit)}</strong> de cet ingrédient.</p>
+          </div>
+        </div>
+        <div class="measure-question__conversion-task">La balance magique mesure en <strong>${toUnit.label} (${toUnit.unit})</strong>.</div>
+        <p class="measure-question__main">Quelle valeur dois-tu lire sur la balance ?</p>
       </div>
     `;
-    const distractors = generateNumericDistractors(answerValue);
+    const distractors = generateNumericDistractors(answerValue, value, fromUnit, toUnit);
     return withNumericOptions(prompt, answerValue, toUnit.unit, distractors);
   }
 
@@ -116,14 +131,15 @@
       answer = baseA > baseB ? 'Option A' : 'Option B';
     }
     const options = shuffle(['Option A', 'Option B', 'Ils sont egaux', 'Impossible a comparer']);
-    return { prompt, answer, options };
+    const finalOptions = shuffle([answer, randomFrom(options.filter(o => o !== answer))]);
+    return { prompt, answer, options: finalOptions };
   }
 
   function buildUnitChoiceQuestion(level){
     const available = UNIT_SCENARIOS.filter(item => level >= item.minLevel);
     const scenario = randomFrom(available);
     const prompt = `
-      <div class="measure-question measure-question--unit">
+      <div class="measure-question measure-question--unit fx-pop">
         <p class="measure-question__intro">Choix de l unite.</p>
         <p class="measure-question__detail">${scenario.text}</p>
         <p class="measure-question__main">Quelle unite est la plus adaptee ?</p>
@@ -131,10 +147,10 @@
     `;
     const optionsSet = new Set([scenario.answer, ...scenario.distractors]);
     const allUnits = Object.values(UNIT_GROUPS).flat().map(u => u.unit);
-    while (optionsSet.size < 4){
+    while (optionsSet.size < 2){
       optionsSet.add(randomFrom(allUnits));
     }
-    const options = shuffle(Array.from(optionsSet).slice(0, 4));
+    const options = shuffle(Array.from(optionsSet).slice(0, 2));
     return { prompt, answer: scenario.answer, options };
   }
 
@@ -252,7 +268,7 @@
 
   function withNumericOptions(prompt, answerValue, unit, extraCandidates){
     const values = new Set([Number(answerValue), ...((extraCandidates || []).map(Number))]);
-    while (values.size < 4){
+    while (values.size < 2){
       const deltaBase = Math.max(0.1, Math.abs(answerValue) * 0.25);
       const noise = (Math.random() * 0.6 + 0.2) * deltaBase;
       const direction = Math.random() < 0.5 ? -1 : 1;
@@ -260,18 +276,26 @@
       values.add(candidate);
     }
     const optionValues = shuffle(Array.from(values)).slice(0, 4);
-    const options = optionValues.map(value => formatValue(value, unit));
+    const options = optionValues.slice(0, 2).map(value => formatValue(value, unit));
     const answer = formatValue(answerValue, unit);
     return { prompt, answer, options };
   }
 
-  function generateNumericDistractors(answer){
+  function generateNumericDistractors(answer, originalValue, fromUnit, toUnit){
     const base = Math.max(1, Math.abs(answer));
-    return [
-      Number(Math.max(0.01, answer + base * 0.1).toFixed(3)),
-      Number(Math.max(0.01, answer - base * 0.1).toFixed(3)),
-      Number(Math.max(0.01, answer + base * 0.25).toFixed(3))
-    ];
+    const distractors = new Set();
+
+    // Error común: multiplicar en lugar de dividir (o viceversa)
+    if (fromUnit.toBase > toUnit.toBase) { // e.g., g to kg (1 > 0.001) -> division
+      distractors.add(originalValue * fromUnit.toBase * toUnit.toBase); // 30 * 1000 = 30000
+    } else { // e.g., kg to g (1000 > 1) -> multiplication
+      distractors.add(originalValue / (fromUnit.toBase / toUnit.toBase));
+    }
+
+    // Error de un orden de magnitud
+    distractors.add(answer * 10);
+    distractors.add(answer / 10);
+    return Array.from(distractors).map(d => Number(Math.max(0.01, d).toFixed(3)));
   }
 
   function formatValue(value, unit){

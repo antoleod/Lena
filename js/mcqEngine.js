@@ -71,6 +71,19 @@
 
   function el(t,c,txt){ const n=document.createElement(t); if(c) n.className=c; if(txt!=null) n.textContent=txt; return n; }
 
+  function el(t, c, txt) {
+    const n = document.createElement(t);
+    if (c) n.className = c;
+    if (txt != null) {
+      // Utiliser innerHTML si le texte contient du HTML, sinon textContent
+      if (String(txt).includes('<') && String(txt).includes('>')) {
+        n.innerHTML = txt;
+      } else {
+        n.textContent = txt;
+      }
+    }
+    return n;
+  }
+
   window.MCQEngine = { start };
 })();
-

@@ -119,6 +119,7 @@
   let state = mergeState(loadStored());
   let current = { game: 'global', level: 'freeplay' };
   let ui = { toasts: null, badges: null, confetti: null, hud: null };
+  let hudCreationTimeout = null;
   let audioCtx;
 
   const api = {
@@ -619,7 +620,7 @@
   }
 
   function ensureHud() {
-    const headerStats = document.querySelector('.lena-shell__stats');
+    const headerStats = document.querySelector('.lena-header-single');
     ui.hud = document.getElementById('scoreHUD');
 
     if (headerStats) {
@@ -646,7 +647,7 @@
 
     hudCreationTimeout = window.setTimeout(() => {
       hudCreationTimeout = null;
-      const refreshedHeader = document.querySelector('.lena-shell__stats');
+      const refreshedHeader = document.querySelector('.lena-header-single');
       if (refreshedHeader) {
         syncHud();
         return;
