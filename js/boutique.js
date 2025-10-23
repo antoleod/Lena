@@ -17,11 +17,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let userProgress = storage.loadUserProgress(userProfile.name);
+    let progressUpdated = false;
+    if (!userProgress || typeof userProgress !== 'object') {
+        userProgress = {
+            userScore: { stars: 0, coins: 0 },
+            ownedItems: [],
+            activeCosmetics: {},
+            answeredQuestions: {}
+        };
+        progressUpdated = true;
+    }
+    if (!userProgress.userScore || typeof userProgress.userScore !== 'object') {
+        userProgress.userScore = { stars: 0, coins: 0 };
+        progressUpdated = true;
+    }
+    userProgress.userScore.stars = Number.isFinite(Number(userProgress.userScore.stars))
+        ? Number(userProgress.userScore.stars)
+        : 0;
+    userProgress.userScore.coins = Number.isFinite(Number(userProgress.userScore.coins))
+        ? Number(userProgress.userScore.coins)
+        : 0;
+    if (!Array.isArray(userProgress.ownedItems)) {
+        userProgress.ownedItems = [];
+        progressUpdated = true;
+    }
     if (!userProgress.activeCosmetics || typeof userProgress.activeCosmetics !== 'object') {
         userProgress.activeCosmetics = {};
+        progressUpdated = true;
     }
     if (userProgress.activeTheme && !userProgress.activeCosmetics.background) {
         userProgress.activeCosmetics.background = userProgress.activeTheme;
+        progressUpdated = true;
+    }
+    if (progressUpdated) {
+        storage.saveUserProgress(userProfile.name, userProgress);
     }
 
     applyUserTheme(userProfile.color);
@@ -44,6 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.audioManager?.bind(buySound);
     const particlesCanvas = document.getElementById('magic-particles');
     const ctx = particlesCanvas.getContext('2d');
+    const filterButtons = Array.from(document.querySelectorAll('.filter-btn')) || [];
+    let activeFilter = 'all';
 
     // --- Bonus de Bienvenue ---
     function grantWelcomeBonus() {
@@ -55,9 +86,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
+    function matchesFilter(item, owned) {
+        if (activeFilter === 'all') { return true; }
+        if (activeFilter === 'owned') { return owned; }
+        return item.type === activeFilter;
+    }
+
+    function setEmptyState(container, message) {
+        if (!container) { return; }
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = message;
+        container.appendChild(empty);
+    }
+
+    function setupFilters() {
+        if (!filterButtons.length) { return; }
+        const defaultButton = filterButtons.find(btn => btn.classList.contains('is-active')) || filterButtons[0] || null;
+        activeFilter = defaultButton && defaultButton.dataset ? (defaultButton.dataset.filter || 'all') : 'all';
+        filterButtons.forEach(btn => btn.classList.toggle('is-active', btn === defaultButton));
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetFilter = button.dataset.filter || 'all';
+                if (activeFilter === targetFilter) { return; }
+                activeFilter = targetFilter;
+                filterButtons.forEach(btn => btn.classList.toggle('is-active', btn === button));
+                renderAllItems();
+                if (activeFilter === 'owned') {
+                    const treasuresSection = document.querySelector('.my-treasures');
+                    if (treasuresSection && typeof treasuresSection.scrollIntoView === 'function') {
+                        treasuresSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    }
+
     function setupUI() {
         grantWelcomeBonus();
         renderUserInfo();
+        setupFilters();
         renderAllItems();
         setupParticles();
     }
@@ -67,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             userInfo.innerHTML = '';
             const avatarId = userProfile.avatar?.id || 'ananas';
             userInfo.dataset.avatarId = avatarId;
-            
+
             const avatarMeta = window.AVATAR_LIBRARY[avatarId] || window.AVATAR_LIBRARY['ananas'];
             const avatarIconUrl = userProfile.avatar?.iconUrl || avatarMeta?.iconUrl;
             const avatarName = userProfile.avatar?.name || avatarMeta?.name || 'Avatar';
@@ -80,12 +149,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 avatarImg.alt = avatarName;
                 avatarImg.className = 'user-info__avatar';
                 userInfo.appendChild(avatarImg);
+            } else {
+                const avatarPlaceholder = document.createElement('div');
+                avatarPlaceholder.className = 'user-info__avatar user-info__avatar--placeholder';
+                avatarPlaceholder.textContent = '🙂';
+                userInfo.appendChild(avatarPlaceholder);
             }
 
             const nameSpan = document.createElement('span');
             nameSpan.className = 'user-info__name';
             nameSpan.textContent = userProfile.name || 'Explorateur';
             userInfo.appendChild(nameSpan);
+
+            const tagline = document.createElement('span');
+            tagline.className = 'user-info__tagline';
+            tagline.textContent = 'Pret pour de nouvelles trouvailles !';
+            userInfo.appendChild(tagline);
         }
 
         if (scoreStarsElements.length) {
@@ -98,26 +177,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
+
     function renderAllItems() {
+        if (!rareItemsContainer || !shopItemsContainer || !myTreasuresContainer) { return; }
         rareItemsContainer.innerHTML = '';
         shopItemsContainer.innerHTML = '';
         myTreasuresContainer.innerHTML = '';
 
         const allItems = Object.values(BOUTIQUE_ITEMS).flat();
+        const isOwnedFilter = activeFilter === 'owned';
+        let rareCount = 0;
+        let shopCount = 0;
+        let ownedCount = 0;
 
         allItems.forEach(item => {
             const owned = userProgress.ownedItems.includes(item.id);
+            if (!matchesFilter(item, owned)) { return; }
             const card = createItemCard(item, owned ? 'owned' : 'shop');
-            if (!card) return;
+            if (!card) { return; }
 
             if (owned) {
                 myTreasuresContainer.appendChild(card);
+                ownedCount += 1;
             } else if (item.rare) {
                 rareItemsContainer.appendChild(card);
+                rareCount += 1;
             } else {
                 shopItemsContainer.appendChild(card);
+                shopCount += 1;
             }
         });
+
+        if (!rareCount && !isOwnedFilter) { setEmptyState(rareItemsContainer, "Aucun objet rare pour le moment, reviens demain !"); }
+        if (!shopCount && !isOwnedFilter) { setEmptyState(shopItemsContainer, "Aucun article ne correspond a ce filtre."); }
+        if (!ownedCount) { setEmptyState(myTreasuresContainer, "Tu n'as pas encore d'objet dans cette categorie."); }
     }
 
     function createItemCard(item, context) {
@@ -222,12 +316,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 userProgress.ownedItems.push(item.id);
             }
             storage.saveUserProgress(userProfile.name, userProgress);
-            
-            if (!window.audioManager?.isMuted) {
-                buySound.play().catch(e => console.error("Error playing sound", e));
+
+            if (buySound && typeof buySound.play === 'function') {
+                try {
+                    buySound.currentTime = 0;
+                    buySound.play().catch(() => {});
+                } catch (error) {
+                    console.warn('Audio playback failed', error);
+                }
             }
             triggerMagicEffect();
-            
+
             alert(`Tu as acheté ${item.name} !`);
             renderAllItems();
             renderUserInfo();
@@ -239,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function sellItem(item, sellPrice) {
         userProgress.userScore.coins += sellPrice;
         userProgress.ownedItems = userProgress.ownedItems.filter(id => id !== item.id);
-        
+
         if (item.type === 'avatar' && userProfile.avatar?.id === item.id) {
             userProfile.avatar = { id: 'ananas', name: 'Ananas', iconUrl: 'assets/avatars/ananas.svg' };
             storage.saveUserProfile(userProfile);
@@ -258,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         storage.saveUserProgress(userProfile.name, userProgress);
-        
+
         alert(`Tu as vendu ${item.name} pour ${sellPrice} pièces !`);
         renderAllItems();
         renderUserInfo();
@@ -418,8 +517,3 @@ document.addEventListener('DOMContentLoaded', () => {
     setupUI();
     animateParticles();
 });
-
-
-
-
-

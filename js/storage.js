@@ -234,3 +234,45 @@ function fallbackAvatar(library) {
         iconUrl: '../assets/avatars/licorne.svg'
     };
 }
+
+if (typeof window !== 'undefined') {
+    const attachProgressAPI = window.progressStore && typeof window.progressStore === 'object'
+        ? window.progressStore
+        : null;
+
+    if (attachProgressAPI) {
+        Object.assign(storage, attachProgressAPI);
+    } else if (!storage.getProgress) {
+        const fallbackProgress = {
+            getProgress() {
+                return {
+                    stars: 0,
+                    bestTimeMs: null,
+                    lastScore: null,
+                    lastHelp: 0,
+                    accuracy: null,
+                    attempts: 0,
+                    completed: false,
+                    notes: {
+                        strengths: [],
+                        focus: []
+                    }
+                };
+            },
+            setProgress() { return fallbackProgress.getProgress(); },
+            getMastery() { return {}; },
+            clearProgress() { /* noop in fallback */ },
+            listLevels() { return []; }
+        };
+        Object.assign(storage, fallbackProgress);
+    }
+
+    window.storage = storage;
+    window.progressStore = Object.assign({}, window.progressStore || {}, {
+        getProgress: storage.getProgress,
+        setProgress: storage.setProgress,
+        getMastery: storage.getMastery,
+        clearProgress: storage.clearProgress,
+        listLevels: storage.listLevels
+    });
+}

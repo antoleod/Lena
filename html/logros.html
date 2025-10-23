@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/theme-unicorn.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.json">
 </head>
 <body class="theme-unicorn-rainbow">
     <header data-lena-header></header>
@@ -35,6 +36,19 @@
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>
     <script src="../js/logros.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('../service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
 </body>
 </html>
 

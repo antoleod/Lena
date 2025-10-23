@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>QA - Test d'Accessibilité</title>
+    <script src="https://cdn.jsdelivr.net/npm/axe-core@4.4.1/axe.min.js"></script>
+    <style> body { font-family: sans-serif; padding: 2rem; } pre { background: #eee; padding: 1rem; border-radius: 8px; } </style>
+</head>
+<body>
+    <h1>Rapport d'Accessibilité (axe-core)</h1>
+    <div id="results"></div>
+
+    <script>
+        async function runA11yTest(url) {
+            const iframe = document.createElement('iframe');
+            iframe.src = url;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+
+            return new Promise(resolve => {
+                iframe.onload = async () => {
+                    const results = await axe.run(iframe.contentDocument);
+                    document.body.removeChild(iframe);
+                    resolve({ url, results });
+                };
+            });
+        }
+
+        async function runAllTests() {
+            const urls = ['login.html', 'juego.html'];
+            const resultsContainer = document.getElementById('results');
+            for (const url of urls) {
+                const { results } = await runA11yTest(url);
+                const pre = document.createElement('pre');
+                pre.textContent = `Résultats pour ${url}:\n\n${JSON.stringify(results.violations, null, 2)}`;
+                resultsContainer.appendChild(pre);
+            }
+        }
+        runAllTests();
+    </script>
+</body>
+</html>

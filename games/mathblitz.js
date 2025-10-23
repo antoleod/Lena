@@ -109,6 +109,13 @@
       getPositiveMessage,
       index: 0,
       feedbackTimer: null,
+      comboFailures: new Map(),
+      timeRecords: [],
+      questionStart: null,
+      correctCount: 0,
+      incorrectCount: 0,
+      streak: 0,
+      bestStreak: 0
     };
 
     context.clearGameClasses?.(['math-blitz']);
@@ -120,7 +127,10 @@
     const availableOps = Object.keys(operations);
     const questions = [];
     for (let i = 0; i < questionCount; i++) {
-      const operationKey = availableOps[i % availableOps.length];
+      const useRandomMix = Math.random() < 0.2 && availableOps.length > 1;
+      const operationKey = useRandomMix
+        ? availableOps[randomInt(0, availableOps.length - 1)]
+        : availableOps[i % availableOps.length];
       const levelRef = operations[operationKey].levelRef;
       questions.push(createQuestion(operationKey, levelRef, levelData));
     }
@@ -154,6 +164,10 @@
       explanation: payload.explanation || '',
       optionIcons: payload.optionIcons || levelData.theme.optionIcons || DEFAULT_OPTION_ICONS,
       sticker: payload.operationMeta?.sticker || levelData.sticker,
+      hints: Array.isArray(payload.hints) ? payload.hints : [],
+      metaSkill: payload.metaSkill || null,
+      operationKey,
+      levelRef,
       theme: levelData.theme
     };
   }
@@ -311,6 +325,8 @@
     const total = state.questions.length;
     const current = state.index + 1;
 
+    state.questionStart = typeof performance !== 'undefined' ? performance.now() : Date.now();
+
     questionWrapper.innerHTML = '';
     questionWrapper.dataset.operation = question.theme?.id || '';
 
@@ -384,27 +400,81 @@
       return;
     }
 
+    const now = typeof performance !== 'undefined' ? performance.now() : Date.now();
+    if (state.questionStart) {
+      const elapsed = Math.max(0, now - state.questionStart);
+      state.timeRecords.push(elapsed);
+    }
+
+    const key = question.metaSkill || question.prompt;
+    const previousFailures = state.comboFailures.get(key) || 0;
     const isCorrect = selectedIndex === question.answerIndex;
 
+    Array.from(optionsGrid.children).forEach(child => { child.disabled = true; });
+
     if (isCorrect) {
+      state.comboFailures.set(key, 0);
+      state.correctCount += 1;
+      state.streak += 1;
+      state.bestStreak = Math.max(state.bestStreak, state.streak);
+
       context.playPositiveSound();
       context.awardReward(state.levelData.reward.stars, state.levelData.reward.coins);
       context.updateUI?.();
       button.classList.add('is-correct');
-      Array.from(optionsGrid.children).forEach(child => { child.disabled = true; });
       showFeedback(feedback, 'positive', state.getPositiveMessage(), 1200);
       setTimeout(() => proceedToNextStep(context, state, questionWrapper, feedback, progressFill), 1200);
     } else {
+      state.streak = 0;
+      state.incorrectCount += 1;
+
+      const newFailures = previousFailures + 1;
+      state.comboFailures.set(key, newFailures);
+
       context.playNegativeSound();
       context.awardReward(0, -3);
       context.updateUI?.();
       button.classList.add('is-wrong');
-      Array.from(optionsGrid.children).forEach(child => { child.disabled = true; });
-      showFeedback(feedback, 'negative', question.hint || 'Essaie une autre réponse.', 1200);
-      setTimeout(() => proceedToNextStep(context, state, questionWrapper, feedback, progressFill), 1200);
+
+      let hintMessage = question.hint || 'Essaie une autre réponse.';
+      if (newFailures >= 2) {
+        const hintIndex = Math.min(newFailures - 2, (question.hints || []).length - 1);
+        if (Array.isArray(question.hints) && question.hints.length) {
+          const hintEntry = question.hints[Math.max(0, hintIndex)];
+          if (typeof hintEntry === 'string') {
+            hintMessage = hintEntry;
+          } else if (hintEntry && typeof hintEntry.text === 'string') {
+            hintMessage = hintEntry.text;
+          }
+        } else if (question.explanation) {
+          hintMessage = question.explanation;
+        }
+        enqueueRemedialQuestion(state, question);
+      }
+
+      showFeedback(feedback, 'negative', hintMessage, newFailures >= 2 ? 1800 : 1200);
+      const delay = newFailures >= 2 ? 1600 : 1200;
+      setTimeout(() => proceedToNextStep(context, state, questionWrapper, feedback, progressFill), delay);
     }
   }
-
+  function enqueueRemedialQuestion(state, referenceQuestion) {
+    if (!referenceQuestion || referenceQuestion.isRemedial) {
+      return;
+    }
+    if (!referenceQuestion.operationKey) {
+      return;
+    }
+    const targetLevel = Math.max(1, (referenceQuestion.levelRef || 1) - 1);
+    if (targetLevel === referenceQuestion.levelRef) {
+      return;
+    }
+    const remedialQuestion = createQuestion(referenceQuestion.operationKey, targetLevel, state.levelData);
+    remedialQuestion.isRemedial = true;
+    remedialQuestion.metaSkill = remedialQuestion.metaSkill || referenceQuestion.metaSkill || null;
+    remedialQuestion.operationKey = referenceQuestion.operationKey;
+    remedialQuestion.levelRef = targetLevel;
+    state.questions.splice(Math.min(state.questions.length, state.index + 1), 0, remedialQuestion);
+  }
   function proceedToNextStep(context, state, questionWrapper, feedback, progressFill) {
     state.index += 1;
     if (state.index < state.questions.length) {

@@ -425,11 +425,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const startX = rect.left + rect.width / 2;
       const startY = rect.top + rect.height / 2;
 
+      const hue = Math.random() * 360;
+      particle.style.background = `hsl(${hue}, 100%, 70%)`;
       particle.style.left = `${startX}px`;
       particle.style.top = `${startY}px`;
 
       const angle = Math.random() * 2 * Math.PI;
-      const distance = 50 + Math.random() * 50;
       const duration = 0.5 + Math.random() * 0.5;
 
       particle.style.setProperty('--angle', angle);

@@ -9,8 +9,8 @@
       const blockedEndpoints = [/events\.launchdarkly\.com/i];
       const matchesBlocked = (url) => {
         if (!url) return false;
-        try { return blockedEndpoints.some((pattern) => pattern.test(String(url))); }
-        catch { return false; }
+        try { return blockedEndpoints.some((pattern) => pattern.test(String(url))); } 
+        catch { return false; } 
       };
       const createStubResponse = () => new Response('', { status: 204, statusText: 'Local Dev Stub' });
 
@@ -23,7 +23,7 @@
               console.info('[LaunchDarkly] fetch blocked in local mode:', url);
               return Promise.resolve(createStubResponse());
             }
-          } catch {}
+          } catch {} 
           return originalFetch.apply(this, arguments);
         };
       }
@@ -79,57 +79,58 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../assets/unicorn-favicon.svg">
+    <link rel="manifest" href="../manifest.json">
     <style>
     /* Sections groupées – cartes grandes + chips enfants */
-    .mm-sections{max-width:1100px;margin:0 auto 1.75rem;padding:0 1.5rem 2rem;display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center}
-    .mm-section-card{flex:1 1 320px;min-width:280px;border-radius:20px;padding:16px 18px 14px;margin:0;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.72));box-shadow:0 12px 30px rgba(24,20,68,.08);backdrop-filter:blur(14px)}
-    .mm-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-    .mm-section-title{display:flex;align-items:center;gap:.55rem;font-family:'Fredoka','Nunito',sans-serif;font-weight:900;font-size:1.25rem;color:#5b4fcf}
-    .mm-section-title .mm-emoji{font-size:21px}
-    .mm-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;justify-content:center}
-    .mm-chip{border:none;border-radius:14px;padding:12px 14px;background:#fff;box-shadow:0 6px 14px rgba(24,20,68,.08);cursor:pointer;text-align:left;font-weight:800;font-size:1rem;line-height:1.35;color:#513eea;display:flex;align-items:center;gap:.55rem;transition:transform .2s ease, box-shadow .2s ease}
-    .mm-chip .mm-emoji{font-size:18px;filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));}
-    .mm-chip:focus-visible{outline:3px solid rgba(107,91,255,.45);box-shadow:0 10px 20px rgba(24,20,68,.12), 0 0 15px rgba(81, 62, 234, 0.5);}
-    .mm-chip:hover:not([disabled]){transform:translateY(-3px);box-shadow:0 10px 20px rgba(24,20,68,.12), 0 0 15px rgba(81, 62, 234, 0.5);}
+    .mm-sections{max-width:1200px;margin:0 auto 1.75rem;padding:0 1.5rem 2rem;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center}
+    .mm-section-card{flex:1 1 340px;min-width:300px;border-radius:24px;padding:18px 20px 16px;margin:0;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.78));box-shadow:0 16px 38px rgba(24,20,68,.1), 0 0 20px var(--section-color-soft, rgba(120,90,220,0.1));backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.5);transition:transform 0.3s ease, box-shadow 0.3s ease;}
+    .mm-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--section-color-soft, rgba(0,0,0,0.1));}
+    .mm-section-title{display:flex;align-items:center;gap:.6rem;font-family:'Fredoka','Nunito',sans-serif;font-weight:700;font-size:1.3rem;color:var(--section-color, #5b4fcf);}
+    .mm-section-title .mm-emoji{font-size:24px;filter: drop-shadow(0 3px 4px rgba(0,0,0,0.1));}
+    .mm-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;justify-content:center}
+    .mm-chip{border:none;border-radius:16px;padding:12px 16px;background:#fff;box-shadow:0 8px 18px rgba(24,20,68,.07);cursor:pointer;text-align:left;font-weight:800;font-size:1rem;line-height:1.35;color:#513eea;display:flex;align-items:center;gap:.6rem;transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease; position: relative; overflow: hidden;}
+    .mm-chip .mm-emoji{font-size:20px;filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));}
+    .mm-chip:focus-visible{outline:3px solid var(--section-color-soft, rgba(107,91,255,.45));box-shadow:0 12px 24px rgba(24,20,68,.14), 0 0 18px var(--section-color-soft, rgba(81, 62, 234, 0.5));}
+    .mm-chip:hover:not([disabled]){
+        transform:translateY(-4px);
+        box-shadow:0 12px 24px rgba(24,20,68,.14), 0 0 18px var(--section-color-soft, rgba(81, 62, 234, 0.5));
+        background-color: #faf8ff;
+    }
     .mm-chip[disabled]{opacity:.6;cursor:not-allowed}
     .mm-hide{display:none!important}
     @media (prefers-reduced-motion:reduce){
       .mm-section-card{transition:none;animation:none}
       .mm-chip::after{transition:none}
-      .magic-scene,.magic-cloud,.magic-firefly,.magic-rainbow{animation:none}
+      .magic-scene,.magic-cloud,.magic-firefly,.magic-aurora{animation:none}
     }
     .magic-scene{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1;background:radial-gradient(circle at 20% 10%,rgba(255,246,253,.85),rgba(255,255,255,0)) ,linear-gradient(180deg,rgba(41,25,82,.35),rgba(255,255,255,0)60%);mix-blend-mode:screen}
-    .magic-aurora{position:absolute;inset:-30% -40% auto;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:conic-gradient(from 120deg,rgba(255,160,235,.35),rgba(151,211,255,.25),rgba(255,244,196,.3),rgba(151,211,255,.25),rgba(255,160,235,.35));opacity:.55;transform:rotate(6deg) scale(1.2);animation:auroraDrift 24s ease-in-out infinite alternate}
-    .magic-rainbow{position:absolute;bottom:-25%;left:50%;width:1400px;height:1400px;margin-left:-700px;border-radius:50%;background:conic-gradient(from 180deg,rgba(255,159,215,.4)0deg,rgba(255,195,110,.45)80deg,rgba(247,255,122,.42)140deg,rgba(159,255,209,.45)220deg,rgba(168,195,255,.4)300deg,rgba(255,159,215,.42)360deg);filter:blur(4px);animation:rainbowPulse 22s linear infinite}
-    .magic-moon{position:absolute;top:8%;right:12%;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff 0%,rgba(255,255,255,.9)45%,rgba(255,255,255,.35)70%,rgba(255,255,255,0)100%);box-shadow:0 0 60px rgba(255,255,255,.55);animation:moonGlow 12s ease-in-out infinite}
-    .magic-moon::after{content:'';position:absolute;inset:18px; border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.65),rgba(255,255,255,0));filter:blur(1px)}
-    .magic-cloud{position:absolute;width:320px;height:160px;background:rgba(255,255,255,.28);border-radius:50%;filter:blur(0);box-shadow:-80px 20px 0 -40px rgba(255,255,255,.22),60px 30px 0 -30px rgba(255,255,255,.18),120px 10px 0 -50px rgba(255,255,255,.18)}
-    .magic-cloud--left{top:12%;left:-12%;animation:cloudDrift 32s linear infinite}
-    .magic-cloud--right{top:58%;right:-14%;animation:cloudDrift 36s linear infinite reverse}
-    .magic-firefly{position:absolute;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,#fff 0%,rgba(255,231,122,.9)55%,rgba(255,255,255,0)70%);mix-blend-mode:screen;opacity:.65;animation:fireflyDance 10s ease-in-out infinite}
+    .magic-aurora{position:absolute;inset:-30% -40% auto;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:conic-gradient(from 180deg at 50% 70%, #2d5a62, #3c8c80, #6bbf8f, #a9e29c, #3c8c80, #2d5a62);opacity:.55;transform:rotate(6deg) scale(1.2);animation:auroraDrift 48s ease-in-out infinite alternate}
+    .magic-cloud{position:absolute;width:320px;height:160px;background:rgba(255,255,255,.1);border-radius:50%;filter:blur(10px);box-shadow:-80px 20px 0 -40px rgba(255,255,255,.08),60px 30px 0 -30px rgba(255,255,255,.05),120px 10px 0 -50px rgba(255,255,255,.05)}
+    .magic-cloud--left{top:12%;left:-12%;animation:cloudDrift 60s linear infinite}
+    .magic-cloud--right{top:58%;right:-14%;animation:cloudDrift 70s linear infinite reverse}
+    .magic-firefly{position:absolute;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#fff 0%,rgba(255,231,122,.9)55%,rgba(255,255,255,0)70%);mix-blend-mode:screen;opacity:.65;animation:fireflyDance 20s ease-in-out infinite}
     .magic-firefly--one{top:18%;left:22%;animation-delay:-2s}
     .magic-firefly--two{top:30%;left:68%;animation-delay:-5s}
     .magic-firefly--three{top:68%;left:35%;animation-delay:-8s}
     .magic-firefly--four{top:75%;left:78%;animation-delay:-3s}
-    .magic-starfall{position:absolute;width:2px;height:140px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.85));filter:blur(.2px);opacity:.75;animation:starCascade 6s linear infinite}
-    .magic-starfall::before{content:'';position:absolute;top:-6px;left:-6px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,255,255,0));box-shadow:0 0 12px rgba(255,255,255,.9)}
+    .magic-starfall{position:absolute;width:1px;height:100px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.4));filter:blur(.5px);opacity:.75;animation:starCascade 15s linear infinite}
+    .magic-starfall::before{content:'';position:absolute;top:-4px;left:-4px;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,255,255,0));box-shadow:0 0 8px rgba(255,255,255,.9)}
     .magic-starfall--one{top:-10%;left:18%;animation-delay:-1s}
-    .magic-starfall--two{top:-15%;left:42%;animation-duration:7s;animation-delay:-3s}
-    .magic-starfall--three{top:-12%;right:24%;animation-duration:6.5s;animation-delay:-2s}
-    .magic-starfall--four{top:-18%;right:8%;animation-duration:8s;animation-delay:-4s}
+    .magic-starfall--two{top:-15%;left:42%;animation-duration:12s;animation-delay:-3s}
+    .magic-starfall--three{top:-12%;right:24%;animation-duration:10s;animation-delay:-2s}
+    .magic-starfall--four{top:-18%;right:8%;animation-duration:14s;animation-delay:-4s}
+    .magic-fog{position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top, rgba(23, 34, 44, 0.8), transparent);pointer-events:none;}
     #stageBottom{padding-top:96px;padding-bottom:1.5rem}
-    .mm-section-card{animation:cardFloat 6s ease-in-out infinite;animation-delay:calc(var(--card-index,0)*.2s)}
+    .mm-section-card{animation:cardFloat 14s ease-in-out infinite;animation-delay:calc(var(--card-index,0)*.2s)}
     .mm-section-card:nth-child(even){animation-direction:reverse}
     .mm-chip{position:relative;overflow:hidden}
     .mm-chip::after{content:'';position:absolute;inset:auto -40%;top:110%;width:80%;height:80%;background:linear-gradient(120deg,rgba(255,255,255,.65),rgba(186,170,255,.3));transform:rotate(8deg);transition:top .35s ease}
     .mm-chip:hover::after{top:-10%}
-    @keyframes rainbowPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-    @keyframes cloudDrift{0%{transform:translateX(0)}50%{transform:translateX(60px)}100%{transform:translateX(0)}}
-    @keyframes fireflyDance{0%,100%{transform:translate3d(0,0,0) scale(.9);opacity:.55}50%{transform:translate3d(40px,-20px,0) scale(1.15);opacity:1}}
-    @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-    @keyframes auroraDrift{0%{transform:rotate(4deg) scale(1.15)}100%{transform:rotate(8deg) scale(1.28)}}
-    @keyframes moonGlow{0%,100%{box-shadow:0 0 48px rgba(255,255,255,.45);transform:scale(1)}50%{box-shadow:0 0 72px rgba(255,255,255,.7);transform:scale(1.04)}}
-    @keyframes starCascade{0%{transform:translateY(0) scaleY(.9);opacity:0}10%{opacity:.8}90%{opacity:.1}100%{transform:translateY(120vh) scaleY(1.1);opacity:0}}
+    @keyframes cloudDrift{0%{transform:translateX(0)}50%{transform:translateX(40px)}100%{transform:translateX(0)}}
+    @keyframes fireflyDance{0%,100%{transform:translate3d(0,0,0) scale(.8);opacity:.4}50%{transform:translate3d(30px,-15px,0) scale(1);opacity:.8}}
+    @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes auroraDrift{0%{transform:rotate(4deg) scale(1.2)}100%{transform:rotate(8deg) scale(1.3)}}
+    @keyframes starCascade{0%{transform:translateY(0) scaleY(.9);opacity:0}10%{opacity:.6}90%{opacity:.1}100%{transform:translateY(120vh) scaleY(1.1);opacity:0}}
     @media (max-width:1024px){
       .mm-sections{padding:0 1.25rem 1.75rem;gap:1rem}
       .mm-section-card{flex:1 1 45%;min-width:260px;padding:14px 16px 13px;border-radius:18px;box-shadow:0 10px 26px rgba(24,20,68,.08)}
@@ -144,9 +145,6 @@
       .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
       .mm-chip{font-size:.92rem;padding:9px 11px}
       .magic-scene{opacity:.55}
-      .magic-rainbow{opacity:.22;filter:blur(2px)}
-      .magic-cloud{opacity:.5;filter:blur(4px)}
-      .magic-firefly{opacity:.45}
       #stageBottom{padding-top:88px}
     }
     @media (max-width:600px){
@@ -165,9 +163,6 @@
       .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px}
       .mm-chip{font-size:.88rem;padding:7px 9px}
       .magic-scene{opacity:.45}
-      .magic-rainbow{opacity:.15}
-      .magic-cloud{opacity:.4}
-      .magic-firefly{opacity:.35}
       #stageBottom{padding-top:80px}
     }
     </style>
@@ -175,10 +170,8 @@
 <body class="theme-unicorn-rainbow">
   <div class="magic-scene" aria-hidden="true">
     <div class="magic-aurora"></div>
-    <div class="magic-moon"></div>
     <div class="magic-cloud magic-cloud--left"></div>
     <div class="magic-cloud magic-cloud--right"></div>
-    <div class="magic-rainbow"></div>
     <div class="magic-firefly magic-firefly--one"></div>
     <div class="magic-firefly magic-firefly--two"></div>
     <div class="magic-firefly magic-firefly--three"></div>
@@ -187,6 +180,7 @@
     <div class="magic-starfall magic-starfall--two"></div>
     <div class="magic-starfall magic-starfall--three"></div>
     <div class="magic-starfall magic-starfall--four"></div>
+    <div class="magic-fog"></div>
   </div>
   <header data-lena-header></header>
 
@@ -249,71 +243,73 @@
   <script src="../js/feedbackSystem.js" defer></script>  <script src="../js/appShell.js" defer></script>
   <script src="../js/mcqEngine.js"></script>
   <script src="../js/avatarData.js"></script>
+  <script src="../js/core/storage.js"></script>
   <script src="../js/storage.js"></script>
+  <script src="../js/math/mathEngine.js"></script>
   <script src="../js/mots-outils.js"></script>
   <script src="../js/juego.js"></script>
   <script>
   (function(){
     const sectionsData = [
       {
-        title: 'Mathématiques', emoji: 0x2795,
+        title: 'Mathématiques', emoji: 0x1F9EE, color: '#4A90E2',
         items: [
           { label: 'Additions', emoji: 0x2795 },
           { label: 'Soustractions', emoji: 0x2796 },
           { label: 'Multiplications', emoji: 0x2716 },
           { label: 'Divisions', emoji: 0x2797 },
-          { label: 'Maths Sprint', emoji: 0x26A1 },
-          { label: 'Abaque Magique', emoji: 0x1F9EE },
-          { label: 'Maisons des Nombres', emoji: 0x1F3E0 },
+          { label: 'Maths Sprint', emoji: 0x26A1, aliases: ['Maths Sprint', 'Maths Sprint'] },
+          { label: 'Abaque Magique', emoji: 0x1F9EE, aliases: ['Abaque Magique', 'Abaque Magique'] }, // Changed emoji
+          { label: 'Maisons des Nombres', emoji: 0x1F3E0, aliases: ['Maisons des Nombres', 'Maisons des Nombres'] },
           { label: 'Temps & Horloges', emoji: 0x23F0 },
-          { label: 'Mesures Magiques', emoji: 0x1F4CF },
+          { label: 'Mesures Magiques', emoji: 0x1F4CF, aliases: ['Mesures Magiques', 'Mesures Magiques'] },
           { label: 'Fractions Fantastiques', emoji: 0x1F355 }
         ]
       },
       {
-        title: 'Logique & Raisonnement', emoji: 0x1F9E0,
+        title: 'Logique & Raisonnement', emoji: 0x1F9E0, color: '#7B2CBF',
         items: [
           { label: 'Labyrinthe Logique', emoji: 0x1F9ED },
-          { label: 'Séries & Motifs / Jeu des Séquences', emoji: 0x1F537, aliases: ['Séries & Motifs','Jeu des Séquences'] },
-          { label: 'Tri & Classement (Jeu de Tri)', emoji: 0x1F5C2, aliases: ['Tri & Classement','Jeu de Tri'] },
+          { label: 'Jeu des Séquences', emoji: 0x1F537, aliases: ['Jeu des Séquences', 'Jeu des Séquences'] },
+          { label: 'Tri & Classement', emoji: 0x1F5C2, aliases: ['Tri & Classement', 'Jeu de Tri'] },
           { label: 'Sudoku Junior', emoji: 0x1F522 },
           { label: 'Symétrie Magique', emoji: 0x1FA9E },
-          { label: 'Cartes Comparatives', emoji: 0x2696 },
+          { label: 'Cartes Comparatives', emoji: 0x2696, aliases: ['Cartes Comparatives', 'Cartes Comparatives'] },
           { label: 'Réseaux de Chemins', emoji: 0x1F517 },
-          { label: 'Logigrammes (Si… Alors…)', emoji: 0x1F9E9 },
-          { label: 'Jeu d’énigmes', emoji: 0x1F4A1, aliases: ['Jeu d’énigmes','Jeu d\'énigmes'] },
+          { label: 'Logigrammes (Si… Alors…)', emoji: 0x1F9E9, aliases: ['Logigrammes (Si… Alors…)', 'Logigrammes'] },
+          { label: 'Jeu d’énigmes', emoji: 0x1F4A1},
           { label: 'Répartis & Multiplie', emoji: 0x1F34E }
         ]
       },
       {
-        title: 'Mots & Lecture', emoji: 0x1F4D6,
+        title: 'Mots & Lecture', emoji: 0x1F4D6, color: '#F5A623',
         items: [
           { label: 'Lecture Magique', emoji: 0x1F4D8 },
-          { label: 'Mots-Outils', emoji: 0x1F5E3 },
-          { label: 'Jeu des Voyelles', emoji: 0x1F170 },
-          { label: 'Les Sorcières — Jeu de Mémoire Magique', emoji: 0x1F9D9, aliases: ['Les Sorcières','Jeu de Mémoire Magique'] },
+          { label: 'Mots-Outils', emoji: 0x1F5E3, aliases: ['Mots-Outils', 'Mots-Outils'] },
+          { label: 'Jeu des Voyelles', emoji: 0x1F170, aliases: ['Jeu des Voyelles', 'Jeu des Voyelles'] },
+          { label: 'Les Sorcières — Jeu de Mémoire Magique', emoji: 0x1F9D9, aliases: ['Les Sorcières — Jeu de Mémoire Magique', 'Les Sorcières'] },
           { label: 'Dictée Magique', emoji: 0x270D },
         ]
       },
       {
-        title: 'Créatif & Monde', emoji: 0x1F3A8,
+        title: 'Créatif & Monde', emoji: 0x1F308, color: '#50E3C2',
         items: [
-          { label: 'Les Couleurs / Atelier d’Art', emoji: 0x1F3A8, aliases: ['Les Couleurs','Atelier d’Art'] },
+          { label: 'Les Couleurs / Atelier d’Art', emoji: 0x1F3A8, aliases: ['Les Couleurs / Atelier d’Art', 'Les Couleurs'] },
           { label: 'Puzzle Magique', emoji: 0x1F9E9 },
-          { label: 'Carte du Monde Interactive', emoji: 0x1F30D, aliases: ['Carte du Monde Interactive','Carte du Monde'] },
-          { label: 'Découvre la Nature', emoji: 0x1F333 },
-          { label: 'J’écris en cursive', emoji: 0x270F, aliases: ['J’écris en cursive','J\'écris en cursive'] },
+          { label: 'Carte du Monde Interactive', emoji: 0x1F30D, aliases: ['Carte du Monde Interactive', 'Carte du Monde'] },
+          { label: 'Découvre la Nature', emoji: 0x1F333, aliases: ['Découvre la Nature', 'Découvre la Nature'] },
+          { label: 'J’écris en cursive', emoji: 0x270F },
           { label: 'Contes Magiques', emoji: 0x1F4D6 }
         ]
       },
       {
-        title: 'Cœur & Émotions', emoji: 0x2764,
+        title: 'Cœur & Émotions', emoji: 0x1F496, color: '#F783AC',
         items: [
-          { label: 'Émotions Magiques', emoji: 0x1F60A, aliases: ['Émotions Magiques','Emotions Magiques'] },
+          { label: 'Émotions Magiques', emoji: 0x1F60A},
           { label: 'Missions du Jour', emoji: 0x2705 },
-          { label: 'Quiz du Jour', emoji: 0x1F31E },
-          { label: 'Respire & Repose-toi', emoji: 0x1F9D8, aliases: ['Respire & Repose-toi','Respire & Repose toi'] },
-          { label: 'Expression de Soi / Mon Journal', emoji: 0x1F4AC, aliases: ['Expression de Soi','Mon Journal','Expression de Soi / Mon Journal'] }
+          { label: 'Quiz du Jour', emoji: 0x1F31E, aliases: ['Quiz du Jour', 'Quiz du Jour'] },
+          { label: 'Respire & Repose-toi', emoji: 0x1F9D8},
+          { label: 'Expression de Soi / Mon Journal', emoji: 0x1F4AC }
         ]
       }
     ];
@@ -364,6 +360,10 @@
         const card = document.createElement('article');
         card.className = 'mm-section-card';
         card.style.setProperty('--card-index', index);
+        if (section.color) {
+            card.style.setProperty('--section-color', section.color);
+            card.style.setProperty('--section-color-soft', `${section.color}40`);
+        }
         const header = document.createElement('div'); header.className = 'mm-section-header';
         const title = document.createElement('h3'); title.className = 'mm-section-title';
         const emojiSpan = document.createElement('span'); emojiSpan.className = 'mm-emoji';
@@ -422,5 +422,41 @@
     window.addEventListener('load', buildSections);
   })();
   </script>
+<script>
+document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth) - 0.5;
+    const y = (e.clientY / window.innerHeight) - 0.5;
+
+    const aurora = document.querySelector('.magic-aurora');
+    if (aurora) {
+        aurora.style.transform = `translateX(${-x * 40}px) translateY(${-y * 20}px) rotate(6deg) scale(1.2)`;
+    }
+
+    const clouds = document.querySelectorAll('.magic-cloud');
+    clouds.forEach(cloud => {
+        const speed = cloud.classList.contains('magic-cloud--left') ? 15 : 25;
+        cloud.style.transform = `translateX(${-x * speed}px) translateY(${-y * (speed / 2)}px)`;
+    });
+
+    const fireflies = document.querySelectorAll('.magic-firefly');
+    fireflies.forEach((firefly, index) => {
+        const speed = 10 + (index * 5);
+        firefly.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+    });
+});
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('../service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
 </body>
 </html>

@@ -15,6 +15,17 @@
         play: '\u{25B6}'
     };
 
+    function logout() {
+        const wantsLogout = window.confirm('Veux-tu vraiment te déconnecter ?');
+        if (!wantsLogout) { return; }
+        try {
+            window.localStorage?.removeItem('mathsLenaUserProfile');
+        } catch (error) {
+            console.warn('[LenaShell] Impossible de nettoyer le profil', error);
+        }
+        window.location.href = '../index.html';
+    }
+
     const FOOTER_LINKS = [
         {
             id: 'nav-home',
@@ -47,6 +58,15 @@
             action: () => {
                 console.log('[Navigation] Retour (démo)');
                 window.history.length > 1 ? window.history.back() : console.log('Aucune page précédente');
+            }
+        },
+        {
+            id: 'nav-logout',
+            icon: EMOJI.lock,
+            label: 'Sortir',
+            action: () => {
+                console.log('[Navigation] Logout');
+                logout();
             }
         }
     ];
@@ -172,14 +192,7 @@
         if (!logoutBtn) { return; }
         logoutBtn.addEventListener('click', () => {
             animatePress(logoutBtn);
-            const wantsLogout = window.confirm('Veux-tu vraiment te déconnecter ?');
-            if (!wantsLogout) { return; }
-            try {
-                window.localStorage?.removeItem('mathsLenaUserProfile');
-            } catch (error) {
-                console.warn('[LenaShell] Impossible de nettoyer le profil', error);
-            }
-            window.location.href = '../index.html';
+            logout();
         });
     }
 

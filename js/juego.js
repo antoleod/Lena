@@ -19,6 +19,63 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    const mathEngine = window.mathEngine || null;
+
+    function generateMathQuestion(type, level) {
+        if (mathEngine && typeof mathEngine.generateQuestion === 'function') {
+            try {
+                const generated = mathEngine.generateQuestion(type, level);
+                if (generated) {
+                    return normalizeMathQuestion(generated, type, level);
+                }
+            } catch (error) {
+                console.warn('[mathEngine] Question generation failed, using legacy generator.', error);
+            }
+        }
+        return legacyGenerateMathQuestion(type, level);
+    }
+
+    function normalizeMathQuestion(question, type, level) {
+        if (!question || typeof question !== 'object') {
+            return legacyGenerateMathQuestion(type, level);
+        }
+        const theme = MATH_OPERATION_THEMES[type] || MATH_OPERATION_THEMES.additions;
+        const meta = Object.assign(
+            {
+                id: theme.id || type,
+                icon: theme.icon,
+                label: theme.label,
+                accent: theme.accent,
+                accentSoft: theme.accentSoft,
+                storyline: theme.storylines ? theme.storylines[0] : theme.storyline,
+                instruction: theme.instruction,
+                optionIcons: theme.optionIcons || answerOptionIcons
+            },
+            question.operationMeta || {}
+        );
+
+        if (!meta.optionIcons || !meta.optionIcons.length) {
+            meta.optionIcons = theme.optionIcons || answerOptionIcons;
+        }
+
+        const normalizedHints = Array.isArray(question.hints)
+            ? question.hints.slice(0, 3)
+            : [];
+
+        const normalizedReward = question.reward || computeMathReward(type, level);
+
+        return {
+            ...question,
+            difficulty: question.difficulty || level,
+            metaSkill: question.metaSkill || TOPIC_SKILL_TAGS[type],
+            reward: normalizedReward,
+            operationMeta: meta,
+            optionIcons: question.optionIcons || meta.optionIcons,
+            hints: normalizedHints,
+            encouragement: question.encouragement || theme.encouragement || 'Courage, essaie encore !'
+        };
+    }
+
     const persistedAvatar = typeof storage.loadSelectedAvatar === 'function'
         ? storage.loadSelectedAvatar()
         : null;
@@ -87,16 +144,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Audio Pre-loading ---
     const SOUND_ENABLED = false;
     const AudioCtor = window.AudioContext || window.webkitAudioContext;
-    const audioContext = SOUND_ENABLED && AudioCtor ? new AudioCtor() : null;
+    const audioContext = SOUND_ENABLED && AudioCtor ? new AudioCtor() : null; // Se mantiene desactivado por defecto
     const soundBuffers = {};
 
     async function loadSound(name, url) {
         if (!SOUND_ENABLED || !audioContext) return;
         try {
             const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
-            }
+            if (!response.ok) { throw new Error(`Failed to fetch ${url}: ${response.statusText}`); }
             const arrayBuffer = await response.arrayBuffer();
             const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
             soundBuffers[name] = audioBuffer;
@@ -106,9 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playBufferedSound(name, volume = 1.0) {
-        if (!SOUND_ENABLED || window.audioManager?.isMuted || !soundBuffers[name] || !audioContext) {
-            return;
-        }
+        if (!SOUND_ENABLED || window.audioManager?.isMuted || !soundBuffers[name] || !audioContext) { return; }
         // Allow playing sounds even if the context was suspended by the browser
         if (audioContext.state === 'suspended') {
             audioContext.resume();
@@ -133,13 +186,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const shopCloseBtn = document.getElementById('shopClose');
 
     // --- Game Data ---
-    const LEVELS_PER_TOPIC = 12;
+    const LEVELS_PER_TOPIC = 13;
     const DEFAULT_QUESTIONS_PER_LEVEL = 7;
     const TOPIC_QUESTION_COUNTS = {
-        additions: 7,
-        soustractions: 7,
-        multiplications: 7,
-        divisions: 7,
+        additions: 12,
+        soustractions: 12,
+        multiplications: 12,
+        divisions: 12,
         colors: 7
     };
     const MEMORY_GAME_LEVELS = window.gameData?.MEMORY_GAME_LEVELS || [];
@@ -292,7 +345,7 @@ function resolveLevelTheme(topicId) {
         }
     };
 
-    function buildAdditionConfigs(count) {
+    function buildAdditionConfigsFallback(count) {
         return Array.from({ length: count }, (_, index) => {
             const step = index + 1;
             const maxSum = step * 10;
@@ -306,7 +359,7 @@ function resolveLevelTheme(topicId) {
         });
     }
 
-    function buildSubtractionConfigs(count) {
+    function buildSubtractionConfigsFallback(count) {
         return Array.from({ length: count }, (_, index) => {
             const step = index + 1;
             const maxStart = step * 10;
@@ -319,7 +372,7 @@ function resolveLevelTheme(topicId) {
         });
     }
 
-    function buildMultiplicationConfigs(count) {
+    function buildMultiplicationConfigsFallback(count) {
         return Array.from({ length: count }, (_, index) => {
             const table = index + 1;
             return {
@@ -332,7 +385,7 @@ function resolveLevelTheme(topicId) {
         });
     }
 
-    function buildDivisionConfigs(count) {
+    function buildDivisionConfigsFallback(count) {
         return Array.from({ length: count }, (_, index) => {
             const divisor = index + 1;
             return {
@@ -345,11 +398,16 @@ function resolveLevelTheme(topicId) {
         });
     }
 
-    const MATH_LEVEL_CONFIG = {
-        additions: buildAdditionConfigs(LEVELS_PER_TOPIC),
-        soustractions: buildSubtractionConfigs(LEVELS_PER_TOPIC),
-        multiplications: buildMultiplicationConfigs(Math.max(LEVELS_PER_TOPIC, 12)),
-        divisions: buildDivisionConfigs(Math.max(LEVELS_PER_TOPIC, 12))
+    const MATH_LEVEL_CONFIG = mathEngine ? {
+        additions: mathEngine.getLevelConfig('additions'),
+        soustractions: mathEngine.getLevelConfig('soustractions'),
+        multiplications: mathEngine.getLevelConfig('multiplications'),
+        divisions: mathEngine.getLevelConfig('divisions')
+    } : {
+        additions: buildAdditionConfigsFallback(LEVELS_PER_TOPIC),
+        soustractions: buildSubtractionConfigsFallback(LEVELS_PER_TOPIC),
+        multiplications: buildMultiplicationConfigsFallback(Math.max(LEVELS_PER_TOPIC, 12)),
+        divisions: buildDivisionConfigsFallback(Math.max(LEVELS_PER_TOPIC, 12))
     };
 
     window.LENA_MATH_THEMES = MATH_OPERATION_THEMES;
@@ -691,6 +749,77 @@ function resolveLevelTheme(topicId) {
     const vowelLevels = window.gameData?.vowelLevels || [];
     const sequenceLevels = window.gameData?.sequenceLevels || [];
 
+    const TOPIC_LEVEL_RESOLVERS = {
+        additions: () => MATH_LEVEL_CONFIG.additions.length,
+        soustractions: () => MATH_LEVEL_CONFIG.soustractions.length,
+        multiplications: () => MATH_LEVEL_CONFIG.multiplications.length,
+        divisions: () => MATH_LEVEL_CONFIG.divisions.length,
+        'number-houses': () => LEVELS_PER_TOPIC,
+        colors: () => LEVELS_PER_TOPIC,
+        memory: () => (window.gameData?.MEMORY_GAME_LEVELS || []).length,
+        sorting: () => sortingLevels.length,
+        riddles: () => riddleLevels.length,
+        vowels: () => vowelLevels.length,
+        sequences: () => sequenceLevels.length,
+        stories: () => {
+            const active = magicStories?.length || 0;
+            if (active > 0) { return active; }
+            return storyCollections.reduce((max, set) => Math.max(max, (set?.stories?.length) || 0), 0);
+        },
+        'puzzle-magique': () => (window.puzzleMagiqueGame?.getLevelCount?.() || 10),
+        'repartis': () => (window.repartisGame?.getLevelCount?.() || 15),
+        dictee: () => 10,
+        'math-blitz': () => (window.mathBlitzGame?.getLevelCount?.() || 10),
+        'lecture-magique': () => 10,
+        raisonnement: () => 10,
+        'ecriture-cursive': () => 3,
+        'abaque-magique': () => (window.abaqueMagiqueGame?.getLevelCount?.() || 10),
+        'mots-outils': () => (window.motsOutilsGame?.getLevelCount?.() || 15),
+        'problems-magiques': () => (window.problemsMagiquesGame?.getLevelCount?.() || 10),
+        'fractions-fantastiques': () => (window.fractionsFantastiquesGame?.getLevelCount?.() || 10),
+        'temps-horloges': () => (window.tempsHorlogesGame?.getLevelCount?.() || 10),
+        'tables-defi': () => (window.tablesDefiGame?.getLevelCount?.() || 10),
+        'series-numeriques': () => (window.seriesNumeriquesGame?.getLevelCount?.() || 10),
+        'mesures-magiques': () => (window.mesuresMagiquesGame?.getLevelCount?.() || 10),
+        'labyrinthe-logique': () => (window.logicGames?.getLevelCount?.('labyrinthe') || window.logicGames?.getLevelCount?.() || 12),
+        'sudoku-junior': () => (window.logicGames?.getLevelCount?.('sudoku-junior') || window.logicGames?.getLevelCount?.() || 12),
+        'grammaire-magique': () => 10,
+        'conjugaison-magique': () => 10,
+        'genres-accords': () => 10,
+        'lecture-voix-haute': () => 10,
+        'vocabulaire-thematique': () => 10,
+        'atelier-art': () => 10,
+        'decouvre-nature': () => 10,
+        'carte-monde': () => 10,
+        'emotions-magiques': () => (window.coeurEmotions?.getLevelCount?.() || 12),
+        'missions-jour': () => (window.coeurEmotions?.getLevelCount?.() || 12),
+        'quiz-jour': () => (window.coeurEmotions?.getLevelCount?.() || 12),
+        'respire-repose': () => (window.coeurEmotions?.getLevelCount?.() || 12),
+        'expression-soi': () => (window.coeurEmotions?.getLevelCount?.() || 12)
+    };
+
+    function getTopicLevelCount(topic) {
+        const resolver = TOPIC_LEVEL_RESOLVERS[topic];
+        let value;
+        if (typeof resolver === 'function') {
+            try {
+                value = resolver();
+            } catch (error) {
+                console.warn('[levels] Failed to resolve level count for topic:', topic, error);
+                value = LEVELS_PER_TOPIC;
+            }
+        } else if (typeof resolver === 'number') {
+            value = resolver;
+        } else {
+            value = LEVELS_PER_TOPIC;
+        }
+        const numeric = Number(value);
+        if (!Number.isFinite(numeric) || numeric <= 0) {
+            return LEVELS_PER_TOPIC;
+        }
+        return Math.max(1, Math.floor(numeric));
+    }
+
     const allQuestions = {
         additions: [], soustractions: [], multiplications: [], divisions: [], colors: [], stories: [], riddles: [], sorting: [], letters: [], shapes: [], vowels: [], sequences: [],
         'puzzle-magique': [], repartis: [], dictee: [], 'math-blitz': [], 'lecture-magique': [], raisonnement: [], review: []
@@ -707,6 +836,7 @@ function resolveLevelTheme(topicId) {
         lastDecorKey: null,
         lastAppliedTheme: '',
         questionStartTime: null,
+        levelStartTime: null,
         questionSkillTag: null,
         historyTracker: null,
         currentStoryIndex: null,
@@ -728,7 +858,133 @@ function resolveLevelTheme(topicId) {
         ownedItems: [],
         activeCosmetics: { background: null, badge: null },
         activeBadgeEmoji: null,
+        bestTimes: {},
     };
+
+    const QUESTION_TOPICS = new Set(['additions', 'soustractions', 'multiplications', 'divisions']);
+
+    const autoPlayRuntime = (() => {
+        let active = false;
+        const waiters = new Map();
+        const quizLoops = new Map();
+
+        function keyFor(topic, level) {
+            return `${topic}:${level}`;
+        }
+
+        function clearQuizLoop(key) {
+            const timerId = quizLoops.get(key);
+            if (timerId) {
+                window.clearTimeout(timerId);
+                quizLoops.delete(key);
+            }
+        }
+
+        function resolveWaiters(key) {
+            const resolvers = waiters.get(key);
+            if (resolvers) {
+                resolvers.forEach(resolve => {
+                    try {
+                        resolve();
+                    } catch (error) {
+                        console.warn('[autoplay] resolver failed', error);
+                    }
+                });
+                waiters.delete(key);
+            }
+        }
+
+        function start() {
+            active = true;
+            waiters.clear();
+            quizLoops.forEach(id => window.clearTimeout(id));
+            quizLoops.clear();
+        }
+
+        function stop() {
+            if (!active) { return; }
+            active = false;
+            waiters.forEach(resolvers => {
+                resolvers.forEach(resolve => {
+                    try {
+                        resolve();
+                    } catch (error) {
+                        console.warn('[autoplay] resolver failed on stop', error);
+                    }
+                });
+            });
+            waiters.clear();
+            quizLoops.forEach(id => window.clearTimeout(id));
+            quizLoops.clear();
+        }
+
+        function isActive() {
+            return active;
+        }
+
+        function waitForLevel(topic, level) {
+            const key = keyFor(topic, level);
+            return new Promise(resolve => {
+                if (!waiters.has(key)) {
+                    waiters.set(key, new Set());
+                }
+                waiters.get(key).add(resolve);
+            });
+        }
+
+        function signalLevelComplete(topic, level) {
+            const key = keyFor(topic, level);
+            resolveWaiters(key);
+            clearQuizLoop(key);
+        }
+
+        function getDelay(label, defaultDelay) {
+            if (!active) { return defaultDelay; }
+            const minDelay = 35;
+            return Math.max(minDelay, Math.min(defaultDelay, 140));
+        }
+
+        function driveQuiz(topic, level) {
+            if (!active) { return; }
+            const key = keyFor(topic, level);
+            clearQuizLoop(key);
+            const tick = () => {
+                if (!active) {
+                    clearQuizLoop(key);
+                    return;
+                }
+                if (gameState.currentTopic !== topic || gameState.currentLevel !== level) {
+                    clearQuizLoop(key);
+                    return;
+                }
+                if (userProgress.answeredQuestions[`${topic}-${level}`] === 'completed') {
+                    clearQuizLoop(key);
+                    return;
+                }
+                const question = gameState.activeQuestion;
+                if (question && typeof question.correct === 'number') {
+                    const target = content.querySelector(`.option[data-index="${question.correct}"]`);
+                    if (target && !target.disabled) {
+                        target.click();
+                    }
+                }
+                const id = window.setTimeout(tick, getDelay('quizTick', 120));
+                quizLoops.set(key, id);
+            };
+            const id = window.setTimeout(tick, getDelay('quizStart', 80));
+            quizLoops.set(key, id);
+        }
+
+        return {
+            start,
+            stop,
+            isActive,
+            waitForLevel,
+            signalLevelComplete,
+            getDelay,
+            driveQuiz
+        };
+    })();
 
     // --- Initialization ---
     console.log("Initializing game for user:", userProfile.name);
@@ -744,9 +1000,9 @@ function resolveLevelTheme(topicId) {
         showTopicMenu();
         // Pre-load sounds
     if (SOUND_ENABLED) {
-        loadSound('correct', '../assets/sounds/correct.mp3');
-        loadSound('wrong', '../assets/sounds/bling.wav');
-        loadSound('coins', '../assets/sounds/bling.wav');
+        loadSound('correct', '../sonidos/correct.mp3');
+        loadSound('wrong', '../sonidos/error.mp3');
+        loadSound('coins', '../sonidos/bling.mp3');
         loadSound('hover', '../assets/sounds/bling.wav');
     }
 
@@ -1031,6 +1287,7 @@ function resolveLevelTheme(topicId) {
     function markLevelCompleted(topic, level) {
         userProgress.answeredQuestions[`${topic}-${level}`] = 'completed';
         saveProgress();
+        autoPlayRuntime.signalLevelComplete(topic, level);
     }
 
     function createGameContext(topic, extra = {}) {
@@ -1405,15 +1662,31 @@ function resolveLevelTheme(topicId) {
     }
 
     function playSound(type) {
-        if (window.audioManager?.isMuted) {
+        if (window.audioManager?.isMuted) { return; }
+
+        if (SOUND_ENABLED) {
+            const volumeMap = { correct: 0.7, wrong: 0.6, coins: 0.5 };
+            playBufferedSound(type, volumeMap[type] ?? 0.6);
             return;
         }
-        if (type === 'correct' && soundCorrect) {
-            playBufferedSound('correct'); // Already using buffered sound, good.
-        } else if (type === 'wrong' && soundWrong) {
-            playBufferedSound('wrong');
-        } else if (type === 'coins' && soundCoins) {
-            playBufferedSound('coins'); // Changed from soundCoins.play()
+
+        const legacyMap = {
+            correct: window.soundCorrect,
+            wrong: window.soundWrong,
+            coins: window.soundCoins
+        };
+        const audio = legacyMap[type];
+        if (!audio || typeof audio.play !== 'function') { return; }
+        try {
+            if (!audio.paused) {
+                audio.pause();
+                audio.currentTime = 0;
+            } else {
+                audio.currentTime = 0;
+            }
+            audio.play().catch(() => {});
+        } catch (error) {
+            console.warn('[audio] playback failed', error);
         }
     }
 
@@ -3557,6 +3830,9 @@ function resolveLevelTheme(topicId) {
 
     function initializeQuestions() {
         Object.keys(MATH_LEVEL_CONFIG).forEach(type => {
+            if (mathEngine && typeof mathEngine.resetCache === 'function') {
+                mathEngine.resetCache(type);
+            }
             if (!Array.isArray(allQuestions[type])) {
                 allQuestions[type] = [];
             }
@@ -3582,7 +3858,7 @@ function resolveLevelTheme(topicId) {
         }
     }
 
-    function generateMathQuestion(type, level) {
+    function legacyGenerateMathQuestion(type, level) {
         const theme = MATH_OPERATION_THEMES[type] || MATH_OPERATION_THEMES.additions;
         const configs = MATH_LEVEL_CONFIG[type] || MATH_LEVEL_CONFIG.additions;
         const safeIndex = Math.max(0, Math.min(configs.length - 1, level - 1));
@@ -3748,21 +4024,22 @@ function resolveLevelTheme(topicId) {
             { id: 'additions', icon: '➕', text: 'Additions' },
             { id: 'soustractions', icon: '➖', text: 'Soustractions' },
             { id: 'multiplications', icon: '✖️', text: 'Multiplications' },
-            { id: 'divisions', icon: '➗', text: 'Divisions' },
-            { id: 'sorting', icon: '🗂️', text: 'Jeu de Tri' },
+            { id: 'divisions', icon: '➗', text: 'Divisions' }, // Already correct
+            { id: 'sorting', icon: '🧩', text: 'Tri & Classement' },
             { id: 'memory', icon: '🤔', text: 'Mémoire Magique' },
             { id: 'abaque-magique', icon: '🔢', text: 'Abaque Magique' },
             { id: 'number-houses', icon: '🏠', text: 'Maisons des Nombres' },
             { id: 'puzzle-magique', icon: '🧩', text: 'Puzzle Magique' },
             { id: 'repartis', icon: '🍎', text: 'Répartis & Multiplie' },
-            { id: 'stories', icon: '📚', text: 'Contes Magiques' },
+            { id: 'stories', icon: '📚', text: 'Contes Magiques' }, // Already correct
             { id: 'riddles', icon: '❓', text: 'Jeu d\'énigmes' },
             { id: 'vowels', icon: '🅰️', text: 'Jeu des Voyelles' },
             { id: 'sequences', icon: '➡️', text: 'Jeu des Séquences' },
             { id: 'colors', icon: '🎨', text: 'Les Couleurs' },
             { id: 'dictee', icon: '🧚‍♀️', text: 'Dictée Magique' },
             { id: 'ecriture-cursive', icon: '✍️', text: 'J’écris en cursive' },
-            { id: 'les-sorcieres', icon: '🧙‍♀️', text: 'Les Sorcières', href: '../html/les-sorcieres.html', type: 'external' },
+            { id: 'les-sorcieres', icon: '🧙‍♀️', text: 'Les Sorcières — Jeu de Mémoire Magique', href: '../html/les-sorcieres.html', type: 'external' },
+            { id: 'logigrammes', icon: '🧩', text: 'Logigrammes' },
         ];
 
         allTopics.forEach(topic => {
@@ -3819,9 +4096,9 @@ function resolveLevelTheme(topicId) {
             { id: 'genres-accords', icon: '??', text: 'Genres & Accords' },
             { id: 'lecture-voix-haute', icon: '???', text: 'Lecture \u00e0 Voix Haute' },
             { id: 'vocabulaire-thematique', icon: '??', text: 'Vocabulaire Th\u00e9matique' },
-            { id: 'atelier-art', icon: '??', text: 'Atelier d\'Art' },
-            { id: 'decouvre-nature', icon: '???', text: 'D\u00e9couvre la Nature' },
-            { id: 'carte-monde', icon: '??', text: 'Carte du Monde' },
+
+            { id: 'decouvre-nature', icon: '🌳', text: 'Découvre la Nature' },
+            { id: 'carte-monde', icon: '🌍', text: 'Carte du Monde Interactive' },
             { id: 'emotions-magiques', icon: '😊', text: 'Émotions Magiques' },
             { id: 'missions-jour', icon: '✅', text: 'Missions du Jour' },
             { id: 'quiz-jour', icon: '🌞', text: 'Quiz du Jour' },
@@ -3915,7 +4192,7 @@ function resolveLevelTheme(topicId) {
             'respire-repose': (window.coeurEmotions?.getLevelCount?.() || 12),
             'expression-soi': (window.coeurEmotions?.getLevelCount?.() || 12)
         };
-        const totalLevels = maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
+        const totalLevels = getTopicLevelCount(gameState.currentTopic) || maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
         
         for (let i = 1; i <= totalLevels; i++) {
             const theme = resolveLevelTheme(gameState.currentTopic);
@@ -3980,6 +4257,7 @@ function resolveLevelTheme(topicId) {
                 applyStatus('in-progress');
             }
             levelBtn.addEventListener('click', () => {
+                gameState.levelStartTime = Date.now();
                 if (levelBtn.dataset.status !== 'completed') {
                     levelBtn.classList.add('is-in-progress');
                     applyStatus('in-progress');
@@ -4059,7 +4337,8 @@ function resolveLevelTheme(topicId) {
         };
 
         const advanceToNext = () => {
-            const delay = isReviewPhase ? 1800 : 2500;
+            const baseDelay = isReviewPhase ? 1800 : 2500;
+            const delay = autoPlayRuntime.getDelay('questionAdvance', baseDelay);
             setTimeout(() => {
                 if (gameState.sessionPhase === 'initial') {
                     gameState.currentQuestionIndex += 1;
@@ -4337,19 +4616,46 @@ function resolveLevelTheme(topicId) {
         loadQuestion(firstIndex, { phase: 'review', reviewCursor: 0 });
     }
 
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+    }
+
     function completeLevelRun() {
         if (gameState.currentTopic !== 'review') {
             userProgress.answeredQuestions[`${gameState.currentTopic}-${gameState.currentLevel}`] = 'completed';
         } else {
             gameState.historyTracker?.applyReviewSuccess(gameState.activeReviewSkills);
         }
+
+        const duration = Math.round((Date.now() - gameState.levelStartTime) / 1000);
+        const levelKey = `${gameState.currentTopic}-${gameState.currentLevel}`;
+        const bestTime = userProgress.bestTimes[levelKey];
+
+        let newBestTime = false;
+        if (!bestTime || duration < bestTime) {
+            userProgress.bestTimes[levelKey] = duration;
+            newBestTime = true;
+        }
+
         saveProgress();
         clearProgressTracker();
         const winPrompt = document.createElement('div');
         winPrompt.className = 'prompt ok fx-pop';
-        winPrompt.textContent = `Bravo, tu as complété le Niveau ${gameState.currentLevel} !`;
+
+        const timeTaken = formatTime(duration);
+        const bestTimeFormatted = formatTime(userProgress.bestTimes[levelKey]);
+
+        winPrompt.innerHTML = `
+            <p>Bravo, tu as complété le Niveau ${gameState.currentLevel} !</p>
+            <p>Ton temps : ${timeTaken}</p>
+            <p>Meilleur temps : ${bestTimeFormatted}</p>
+            ${newBestTime ? '<p>Nouveau record ! 🎉</p>' : ''}
+        `;
+
         content.appendChild(winPrompt);
-        speakText(`Bravo, tu as complété le Niveau ${gameState.currentLevel} !`);
+        speakText(`Bravo, tu as complété le Niveau ${gameState.currentLevel} ! Ton temps est de ${timeTaken}.`);
         const endStatus = gameState.currentTopic === 'review' ? 'review-completed' : 'completed';
         gameState.historyTracker?.endGame({ status: endStatus, topic: gameState.currentTopic, level: gameState.currentLevel, skills: gameState.activeReviewSkills });
         if (gameState.currentTopic === 'review') {
@@ -4362,7 +4668,11 @@ function resolveLevelTheme(topicId) {
         gameState.activeQuestion = null;
         gameState.initialQuestionCount = 0;
         gameState.currentQuestionIndex = 0;
-        setTimeout(() => showLevelMenu(gameState.currentTopic), 2000);
+        autoPlayRuntime.signalLevelComplete(gameState.currentTopic, gameState.currentLevel);
+        if (!autoPlayRuntime.isActive()) {
+            const resumeDelay = autoPlayRuntime.getDelay('levelSummary', 4000);
+            setTimeout(() => showLevelMenu(gameState.currentTopic), resumeDelay); // Increased timeout to show the message
+        }
     }
     /* === Juegos Específicos === */
     /**
@@ -6115,8 +6425,184 @@ function generateNumberProblems(sum, count) {
         configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 
+    const AUTOPLAY_TOPIC_SEQUENCE = [
+        'additions', 'soustractions', 'multiplications', 'divisions',
+        'number-houses', 'colors', 'memory', 'sorting', 'vowels', 'riddles', 'sequences',
+        'puzzle-magique', 'repartis', 'dictee', 'math-blitz', 'lecture-magique',
+        'raisonnement', 'ecriture-cursive', 'abaque-magique', 'mots-outils',
+        'problems-magiques', 'fractions-fantastiques', 'temps-horloges',
+        'tables-defi', 'series-numeriques', 'mesures-magiques',
+        'labyrinthe-logique', 'sudoku-junior', 'emotions-magiques',
+        'missions-jour', 'quiz-jour', 'respire-repose', 'expression-soi',
+        'stories'
+    ];
+    const STORY_TOPICS = new Set(['stories']);
+    const AUTOPLAY_SKIPPED_TOPICS = new Set(['les-sorcieres', 'review']);
+    let autoPlayAbort = false;
+    let autoPlayPromise = null;
+    const autoPlayStatus = { running: false, topic: null, level: null };
+
+    function autoSetStatus(running, topic = null, level = null) {
+        autoPlayStatus.running = running;
+        autoPlayStatus.topic = topic;
+        autoPlayStatus.level = level;
+    }
+
+    async function autoPlayQuestionTopic(topic, totalLevels) {
+        const cappedLevels = Math.max(0, Number(totalLevels) || 0);
+        for (let level = 1; level <= cappedLevels; level++) {
+            if (autoPlayAbort) { break; }
+            autoPlayStatus.level = level;
+            const wait = autoPlayRuntime.waitForLevel(topic, level);
+            try {
+                gameState.currentTopic = topic;
+                gameState.currentLevel = level;
+                gameState.levelStartTime = Date.now();
+                loadQuestion(0);
+                autoPlayRuntime.driveQuiz(topic, level);
+                await wait;
+            } catch (error) {
+                console.warn('[autoplay] Failed to auto-play question topic', topic, level, error);
+                markLevelCompleted(topic, level);
+                await wait;
+            }
+        }
+        autoPlayStatus.level = null;
+    }
+
+    async function autoPlayModuleTopic(topic, totalLevels) {
+        const cappedLevels = Math.max(0, Number(totalLevels) || 0);
+        for (let level = 1; level <= cappedLevels; level++) {
+            if (autoPlayAbort) { break; }
+            autoPlayStatus.level = level;
+            const wait = autoPlayRuntime.waitForLevel(topic, level);
+            markLevelCompleted(topic, level);
+            await wait;
+        }
+        autoPlayStatus.level = null;
+    }
+
+    function autoCompleteStories() {
+        try {
+            storyCollections.forEach(set => {
+                if (!set || !Array.isArray(set.stories)) { return; }
+                set.stories.forEach(story => {
+                    if (story?.id) {
+                        markStoryCompletedById(story.id, set.id);
+                    }
+                });
+            });
+            ensureStoryProgressInitialized();
+            saveProgress();
+        } catch (error) {
+            console.warn('[autoplay] Failed to complete stories automatically', error);
+        }
+    }
+
+    function autoCompleteLogicGames() {
+        if (!window.logicGames || !Array.isArray(window.logicGames.LOGIC_GAMES)) {
+            return;
+        }
+        const storageKey = 'logicGamesProgress_v2';
+        const progress = {};
+        window.logicGames.LOGIC_GAMES.forEach(game => {
+            if (!game?.id) { return; }
+            let total = 0;
+            if (typeof window.logicGames.getLevelCount === 'function') {
+                try {
+                    total = window.logicGames.getLevelCount(game.id) || 0;
+                } catch (error) {
+                    console.warn('[autoplay] Unable to determine level count for logic game', game.id, error);
+                    total = 0;
+                }
+            }
+            progress[game.id] = { completed: Math.max(0, total) };
+        });
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(progress));
+        } catch (error) {
+            console.warn('[autoplay] Failed to persist logic games progress', error);
+        }
+    }
+
+    async function autoPlayTopicSequence(sequence) {
+        autoPlayAbort = false;
+        autoSetStatus(true, null, null);
+        autoPlayRuntime.start();
+        try {
+            for (const topic of sequence) {
+                if (autoPlayAbort) { break; }
+                if (!topic || AUTOPLAY_SKIPPED_TOPICS.has(topic)) { continue; }
+                autoSetStatus(true, topic, null);
+                if (STORY_TOPICS.has(topic)) {
+                    autoCompleteStories();
+                    continue;
+                }
+                const totalLevels = getTopicLevelCount(topic);
+                if (!Number.isFinite(totalLevels) || totalLevels <= 0) { continue; }
+                if (QUESTION_TOPICS.has(topic)) {
+                    await autoPlayQuestionTopic(topic, totalLevels);
+                } else {
+                    await autoPlayModuleTopic(topic, totalLevels);
+                }
+            }
+            if (!autoPlayAbort) {
+                autoCompleteStories();
+                autoCompleteLogicGames();
+            }
+        } finally {
+            autoPlayRuntime.stop();
+            autoSetStatus(false, null, null);
+            autoPlayAbort = false;
+            saveProgress();
+            updateUI();
+            if (typeof showTopicMenu === 'function') {
+                try {
+                    showTopicMenu();
+                } catch (error) {
+                    console.warn('[autoplay] Unable to refresh topic menu after autoplay', error);
+                }
+            }
+        }
+    }
+
+    window.LenaAutoPlayer = {
+        isRunning: () => autoPlayRuntime.isActive(),
+        status: () => ({
+            running: autoPlayStatus.running,
+            topic: autoPlayStatus.topic,
+            level: autoPlayStatus.level
+        }),
+        stop() {
+            if (!autoPlayRuntime.isActive()) { return; }
+            autoPlayAbort = true;
+            autoPlayRuntime.stop();
+        },
+        async playAll() {
+            if (autoPlayRuntime.isActive()) {
+                return autoPlayPromise ?? Promise.resolve();
+            }
+            autoPlayPromise = autoPlayTopicSequence(AUTOPLAY_TOPIC_SEQUENCE);
+            try {
+                await autoPlayPromise;
+            } finally {
+                autoPlayPromise = null;
+            }
+        },
+        async playTopic(topic) {
+            if (!topic) { return; }
+            if (autoPlayRuntime.isActive()) {
+                throw new Error('Autoplay already running');
+            }
+            autoPlayPromise = autoPlayTopicSequence([topic]);
+            try {
+                await autoPlayPromise;
+            } finally {
+                autoPlayPromise = null;
+            }
+        }
+    };
+
     // --- Start Game ---
     init();
 });
-
-

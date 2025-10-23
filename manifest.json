@@ -1,0 +1,15 @@
+{
+  "name": "App de Léna",
+  "short_name": "Léna",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8364ff",
+  "icons": [
+    {
+      "src": "assets/unicorn-favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

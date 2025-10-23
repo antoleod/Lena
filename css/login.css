@@ -335,15 +335,6 @@ html, body {
     animation: shimmer 5s infinite;
 }
 
-.particle {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    pointer-events: none;
-    background: radial-gradient(circle, #ffd700, #ff9100, #ff2c55, #ad32ff, #23a6d5, #23d5ab);
-    animation: particle-trail 1s ease-out forwards;
-}
 
 .avatar-option::after {
   content: '';
@@ -676,18 +667,22 @@ html, body {
   50% { transform: rotate(8deg) translateY(-10px); }
 }
 
-@keyframes firefly {
-  0%, 100% { opacity: 0; transform: translate3d(0, 0, 0) scale(0.8); }
-  50% { opacity: 1; transform: translate3d(10px, -18px, 0) scale(1.1); }
+.particle {
+    position: fixed; /* Usar fixed para que no se vea afectado por el scroll */
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2000; /* Asegurar que esté por encima de otros elementos */
+    animation: particle-trail var(--duration, 1s) ease-out forwards;
 }
-
 @keyframes particle-trail {
   0% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
   100% {
-    transform: translate(calc(-50% + cos(var(--angle)) * var(--distance) * 1px), calc(-50% + sin(var(--angle)) * var(--distance) * 1px)) scale(0);
+    transform: translate(calc(-50% + cos(var(--angle)) * 80px), calc(-50% + sin(var(--angle)) * 80px)) scale(0);
     opacity: 0;
   }
 }

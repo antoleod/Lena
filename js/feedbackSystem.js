@@ -832,15 +832,22 @@
         const profile = window.storage.loadUserProfile();
         const userName = profile && profile.name;
         if (userName) {
-          window.storage.saveUserProgress(userName, {
-            userScore: { coins: state.coins, stars: state.stars },
+          const existingProgress = window.storage.loadUserProgress(userName);
+          const newProgress = {
+            ...existingProgress,
+            userScore: {
+                ...existingProgress.userScore,
+                coins: state.coins,
+                stars: state.stars
+            },
             motivation: {
               xp: state.xp,
               badges: state.badges,
               totals: state.totals,
               streaks: state.streaks
             }
-          });
+          };
+          window.storage.saveUserProgress(userName, newProgress);
         }
       }
     } catch (error) {
@@ -914,4 +921,3 @@
     return list[Math.floor(Math.random() * list.length)];
   }
 })();
-

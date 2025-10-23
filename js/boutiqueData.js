@@ -55,9 +55,13 @@ const BOUTIQUE_ITEMS = (() => {
             { id: 'renard', name: 'Renard', price: 150, image: '../assets/avatars/renard.svg', type: 'avatar' }
         ],
         stickers: [
-            { id: 'sticker1', name: 'Autocollant 1', price: 50, image: '../assets/stickers/sticker1.png', type: 'sticker' },
-            { id: 'sticker2', name: 'Autocollant 2', price: 50, image: '../assets/stickers/sticker2.png', type: 'sticker' },
-            { id: 'sticker3', name: 'Autocollant 3', price: 75, image: '../assets/stickers/sticker3.png', rare: true, type: 'sticker' }
+            { id: 'sticker1', name: 'Autocollant Etoile', price: 50, image: '../assets/stickers/sticker1.png', type: 'sticker' },
+            { id: 'sticker2', name: 'Autocollant Fusee', price: 50, image: '../assets/stickers/sticker2.png', type: 'sticker' },
+            { id: 'sticker3', name: 'Autocollant Magique', price: 75, image: '../assets/stickers/sticker3.png', rare: true, type: 'sticker' },
+            { id: 'sticker-etoile', name: 'Etoile Solaire', price: 80, image: '../assets/stickers/sticker-etoile.svg', type: 'sticker' },
+            { id: 'sticker-arcenciel', name: 'Arc-en-ciel Doux', price: 90, image: '../assets/stickers/sticker-arcenciel.svg', type: 'sticker' },
+            { id: 'sticker-potion', name: 'Potion Chatoyante', price: 95, image: '../assets/stickers/sticker-potion.svg', type: 'sticker' },
+            { id: 'sticker-gemme', name: 'Gemme Boreale', price: 110, image: '../assets/stickers/sticker-gemme.svg', rare: true, type: 'sticker' }
         ],
         sounds: [
             { id: 'correct', name: 'Son Correct', price: 100, audio: '../assets/sounds/correct.wav', type: 'sound' },

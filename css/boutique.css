@@ -356,3 +356,182 @@
         height: 88px;
     }
 }
+/* --- Boutique Enhancements --- */
+.shop-user-panel {
+    margin: 4.5rem auto 2rem;
+    padding: 1.6rem 1.8rem;
+    display: grid;
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+    gap: 1.8rem;
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 28px;
+    box-shadow: 0 18px 38px rgba(86, 65, 149, 0.16);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    align-items: stretch;
+}
+
+.user-info-card {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.1rem 1.3rem;
+    background: linear-gradient(135deg, rgba(131, 100, 255, 0.12), rgba(255, 182, 219, 0.12));
+    border-radius: 24px;
+    min-height: 96px;
+}
+
+.user-info-card img {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 10px 22px rgba(131, 100, 255, 0.18);
+}
+
+.user-info__name {
+    font-family: 'Fredoka', cursive;
+    font-weight: 900;
+    font-size: 1.35rem;
+    color: #4a3c7d;
+    letter-spacing: 0.02em;
+}
+
+.wallet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.wallet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 1rem 1.3rem;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 24px rgba(86, 65, 149, 0.14);
+}
+
+.wallet-item--stars {
+    background: linear-gradient(135deg, rgba(255, 237, 185, 0.45), rgba(255, 213, 119, 0.2));
+}
+
+.wallet-item--coins {
+    background: linear-gradient(135deg, rgba(199, 236, 255, 0.45), rgba(140, 181, 255, 0.2));
+}
+
+.wallet-icon {
+    font-size: 1.35rem;
+}
+
+.wallet-label {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6c5acb;
+}
+
+.wallet-value {
+    font-family: 'Fredoka', cursive;
+    font-size: 1.7rem;
+    color: #473a7b;
+}
+
+.shop-toolbar {
+    margin: 1.2rem auto 0;
+    padding: 0.85rem;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 14px 28px rgba(95, 79, 155, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.filter-btn {
+    border: none;
+    border-radius: 999px;
+    padding: 0.55rem 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: transparent;
+    color: #6a5ccd;
+    cursor: pointer;
+    transition: transform 140ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+}
+
+.filter-btn.is-active {
+    background: linear-gradient(140deg, rgba(125, 134, 255, 0.18), rgba(159, 110, 255, 0.22));
+    box-shadow: 0 10px 18px rgba(118, 103, 232, 0.18);
+    color: #4a3c7d;
+}
+
+.shop-section__subtitle {
+    margin: 0 0 1.4rem;
+    font-size: 0.95rem;
+    color: #6b5c91;
+    font-weight: 600;
+}
+
+.empty-state {
+    padding: 1.6rem;
+    grid-column: 1 / -1;
+    text-align: center;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.78);
+    color: #6b5c91;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .shop-user-panel {
+        grid-template-columns: 1fr;
+        padding: 1.4rem 1.2rem;
+        gap: 1.2rem;
+    }
+
+    .user-info-card {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .wallet-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .shop-toolbar {
+        padding: 0.7rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+    }
+}
+
+.user-info__tagline {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b5c91;
+}
+
+
+.user-info__avatar--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #4a3c7d;
+}
+
