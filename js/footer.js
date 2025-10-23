@@ -28,7 +28,7 @@
     iconOn: '🔊',
     iconOff: '🔇',
     labelOn: 'Son actif',
-    labelOff: 'Son coupé'
+    labelOff: 'Son coupé',
   };
 
   function navigateTo(target) {
@@ -66,11 +66,11 @@
     const btn = createFooterButton({
       id: AUDIO_ACTION.id,
       icon: AUDIO_ACTION.iconOn,
-      label: AUDIO_ACTION.labelOn,
+      label: AUDIO_ACTION.labelOn, // El handler se añade después
       handler: () => {
         if (!window.audioManager) { return; }
         window.audioManager.toggle();
-        syncAudioButton(btn);
+        // El listener se encargará de la sincronización
       }
     });
     syncAudioButton(btn);

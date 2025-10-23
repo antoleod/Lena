@@ -2622,7 +2622,7 @@ function resolveLevelTheme(topicId) {
         promptEl.textContent = `${message}${extra}`;
         content.appendChild(promptEl);
         speakText(message);
-        playBufferedSound('wrong');
+        playSound('wrong');
         setTimeout(() => promptEl.remove(), 2500);
     }
 
@@ -2651,6 +2651,250 @@ function resolveLevelTheme(topicId) {
             confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.4 + 0.5, y: Math.random() - 0.2 } });
         }, 250);
         setTimeout(showConfetti, 500); // Add a small burst of regular confetti
+    }
+
+    // --- NOUVEAU JEU: Glisser-Déposer Dizaines & Unités ---
+    function launchGrouperDU(level) {
+        gameState.currentTopic = 'glisser-du';
+        gameState.currentLevel = level;
+        const DU_LEVEL_COLORS = [
+            '#f6f8ff', '#f0faff', '#f5fff0', '#fff5f0', '#fff0f5', 
+            '#f5f0ff', '#f0f8ff', '#fafff0', '#fffaf0', '#f0fff8', 
+            '#fff0f8', '#f8f0ff'
+        ];
+
+        const D_U_LEVEL_RANGES = [ // Expanded to 12 levels
+            { level: 1, range: [10, 19] },
+            { level: 2, range: [20, 29] },
+            { level: 3, range: [11, 29] },
+            { level: 4, range: [30, 39] },
+            { level: 5, range: [40, 49] },
+            { level: 6, range: [30, 49] },
+            { level: 7, range: [50, 69] },
+            { level: 8, range: [70, 89] },
+            { level: 9, range: [50, 89] },
+            { level: 10, range: [60, 99] },
+            { level: 11, range: [40, 99] },
+            { level: 12, range: [11, 99] }
+        ];
+        const EXERCISES_PER_LEVEL = 6;
+        let currentExerciseIndex = 0;
+        let exercises = [];
+        let attempts = 0;
+        let selectedItems = [];
+        let dizainesFound = 0;
+
+        function generateExercisesForLevel() {
+            const config = D_U_LEVEL_RANGES.find(l => l.level === level) || D_U_LEVEL_RANGES[D_U_LEVEL_RANGES.length - 1];
+            const numbers = new Set();
+            while (numbers.size < EXERCISES_PER_LEVEL) {
+                numbers.add(randomInt(config.range[0], config.range[1]));
+            }
+            exercises = Array.from(numbers).map(n => ({
+                target: n,
+                d: Math.floor(n / 10),
+                u: n % 10
+            }));
+        }
+
+        function renderExercise() {
+            attempts = 0;
+            selectedItems = [];
+            dizainesFound = 0;
+            const exercise = exercises[currentExerciseIndex];
+            content.innerHTML = `
+                <div class="du-game-shell">
+                    <div class="du-header">
+                        <div class="progress-label is-visible">Exercice ${currentExerciseIndex + 1} / ${EXERCISES_PER_LEVEL} – Niveau ${level}</div>
+                        <h2 class="du-title">Réorganise les groupes</h2>
+                        <p id="du-selection-counter" class="du-selection-counter">🍓 Sélectionnés : 0 / 10</p>
+                        <p class="du-instruction">Touche les 🍓 pour les regrouper par 10.</p>
+                    </div>
+                    <div class="du-problem-area">
+                        <div class="du-item-pool"></div>
+                        <div id="du-feedback-area" class="du-feedback-area"></div>
+                    </div>
+                </div>
+            `;
+
+            const gameShell = content.querySelector('.du-game-shell');
+            if (gameShell) {
+                const colorIndex = (level - 1) % DU_LEVEL_COLORS.length;
+                const color = DU_LEVEL_COLORS[colorIndex];
+                gameShell.style.setProperty('--bg', color);
+            }
+
+            const pool = content.querySelector('.du-item-pool');
+            const items = Array.from({ length: exercise.target }, (_, i) => createItem(i));
+            shuffle(items).forEach(item => pool.appendChild(item));
+        }
+
+        function createItem(id) {
+            const item = document.createElement('div');
+            item.className = 'du-item';
+            item.dataset.id = id;
+            item.textContent = '🍓';
+            item.addEventListener('click', () => handleItemClick(item));
+            return item;
+        }
+
+        function handleItemClick(item) {
+            if (item.classList.contains('grouped')) {
+                return;
+            }
+
+            const isSelected = item.classList.toggle('selected');
+
+            if (isSelected) {
+                selectedItems.push(item);
+            } else {
+                const index = selectedItems.findIndex(selected => selected.dataset.id === item.dataset.id);
+                if (index > -1) {
+                    selectedItems.splice(index, 1);
+                }
+            }
+
+            updateSelectionCounter();
+
+            if (selectedItems.length >= 10) {
+                // Retraso para que la animación de selección sea visible antes de agrupar
+                setTimeout(processGroup, 200);
+            }
+        }
+
+        function processGroup() {
+            if (selectedItems.length < 10) return;
+
+            const itemsToGroup = selectedItems.slice(0, 10);
+            selectedItems = selectedItems.slice(10);
+
+                dizainesFound++;
+                const group = document.createElement('div');
+                group.className = 'du-group-10';
+                itemsToGroup.forEach(selected => {
+                    selected.classList.add('grouped');
+                    group.appendChild(selected.cloneNode(true));
+                });
+                
+                const pool = content.querySelector('.du-item-pool');
+                pool.prepend(group);
+                itemsToGroup.forEach(selected => selected.remove());
+
+                showFeedback(`1 dizaine ✅ (${dizainesFound})`);
+                playSound('correct');
+                updateSelectionCounter();
+                checkCompletion();
+        }
+
+        function updateSelectionCounter() {
+            const counter = document.getElementById('du-selection-counter');
+            if (counter) {
+                counter.textContent = `🍓 Sélectionnés : ${selectedItems.length} / 10`;
+            }
+        }
+
+        function showFeedback(message) {
+            const feedbackArea = document.getElementById('du-feedback-area');
+            if (!feedbackArea) return;
+            const msgEl = document.createElement('div');
+            msgEl.className = 'du-feedback-bubble';
+            msgEl.textContent = message;
+            feedbackArea.appendChild(msgEl);
+            setTimeout(() => msgEl.remove(), 2000);
+        }
+
+        function checkCompletion() {
+            const target = exercises[currentExerciseIndex].target;
+            const expectedDizaines = Math.floor(target / 10);
+
+            if (dizainesFound >= expectedDizaines) {
+                const remainingUnits = target % 10;
+                const pool = content.querySelector('.du-item-pool');
+                const remainingItems = pool.querySelectorAll('.du-item:not(.grouped)');
+
+                if (remainingItems.length > 0) {
+                    const unitsGroup = document.createElement('div');
+                    unitsGroup.className = 'du-units-loose';
+                    remainingItems.forEach(item => {
+                        item.classList.add('grouped');
+                        unitsGroup.appendChild(item.cloneNode(true));
+                        item.remove();
+                    });
+                    pool.appendChild(unitsGroup);
+                    showFeedback(`${remainingUnits} unité${remainingUnits > 1 ? 's' : ''} 🍓`);
+                }
+
+                const finalMessage = `Tu as ${expectedDizaines} dizaine${expectedDizaines > 1 ? 's' : ''} et ${remainingUnits} unité${remainingUnits > 1 ? 's' : ''}. C’est ${target} ! 🎉`;
+                showSuccessMessage(finalMessage);
+                playSound('correct');
+                showFireworks();
+                userProgress.userScore.stars += 3;
+                userProgress.userScore.coins += 2;
+                updateUI();
+                saveProgress();
+                
+                setTimeout(nextExercise, 3000);
+            }
+        }
+
+        function nextExercise() {
+                    currentExerciseIndex++;
+                    if (currentExerciseIndex >= EXERCISES_PER_LEVEL) {
+                        completeLevel();
+                    } else {
+                        renderExercise();
+                    }
+        }
+
+        function completeLevel() {
+            userProgress.answeredQuestions[`glisser-du-${level}`] = 'completed';
+            saveProgress();
+            showSuccessMessage(`Niveau ${level} complété !`);
+            showFireworks();
+            setTimeout(() => showLevelMenu('glisser-du'), 2000);
+        }
+
+        generateExercisesForLevel();
+        renderExercise();
+    }
+
+    function showGlisserDULevelMenu() {
+        gameState.currentTopic = 'glisser-du';
+        const maxLevels = 12;
+        content.innerHTML = '';
+        const title = document.createElement('div');
+        title.className = 'question-prompt fx-bounce-in-down';
+        title.textContent = 'Choisis un niveau pour Glisser D&U';
+        content.appendChild(title);
+
+        const levelsContainer = document.createElement('div');
+        levelsContainer.className = 'level-container';
+
+        for (let i = 1; i <= maxLevels; i++) {
+            const levelBtn = document.createElement('button');
+            levelBtn.className = 'level-button fx-bounce-in-down';
+            levelBtn.dataset.level = String(i);
+            levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
+            
+            const levelIcon = document.createElement('span');
+            levelIcon.className = 'level-button__icon';
+            levelIcon.textContent = '🖐️';
+            
+            const levelNumber = document.createElement('span');
+            levelNumber.className = 'level-button__number';
+            levelNumber.textContent = String(i);
+
+            levelBtn.append(levelIcon, levelNumber);
+
+            if (userProgress.answeredQuestions[`glisser-du-${i}`] === 'completed') {
+                levelBtn.classList.add('correct', 'is-completed');
+            }
+
+            levelBtn.addEventListener('click', () => launchGrouperDU(i));
+            levelsContainer.appendChild(levelBtn);
+        }
+        content.appendChild(levelsContainer);
+        configureBackButton('Retour aux sujets', showTopicMenu);
     }
 
     function ensureSkyElements() {
@@ -4030,6 +4274,7 @@ function resolveLevelTheme(topicId) {
             { id: 'abaque-magique', icon: '🔢', text: 'Abaque Magique' },
             { id: 'number-houses', icon: '🏠', text: 'Maisons des Nombres' },
             { id: 'puzzle-magique', icon: '🧩', text: 'Puzzle Magique' },
+            { id: 'glisser-du', icon: '🖐️', text: 'Glisser D&U' },
             { id: 'repartis', icon: '🍎', text: 'Répartis & Multiplie' },
             { id: 'stories', icon: '📚', text: 'Contes Magiques' }, // Already correct
             { id: 'riddles', icon: '❓', text: 'Jeu d\'énigmes' },
@@ -4058,7 +4303,8 @@ function resolveLevelTheme(topicId) {
                 if (topic.id === 'stories') { showStoryMenu(); return; }
                 if (topic.id === 'memory') { showMemoryGameMenu(); return; }
                 if (topic.id === 'ecriture-cursive') { launchEcritureCursive(1); return; }
-                if (topic.id === 'abaque-magique') { launchAbaqueMagique(1); return; }
+                if (topic.id === 'abaque-magique') { launchAbaqueMagique(1); return; } // This line seems to be duplicated, but it's okay.
+                if (topic.id === 'glisser-du') { showGlisserDULevelMenu(); return; }
                 if (topic.id === 'repartis') { showLevelMenu('repartis'); return; }
                 if (topic.id === 'mots-outils') { launchMotsOutils(1); return; }
                 showLevelMenu(topic.id);
@@ -4167,6 +4413,7 @@ function resolveLevelTheme(topicId) {
             'raisonnement': 10,
             'ecriture-cursive': 3,
             'abaque-magique': (window.abaqueMagiqueGame?.getLevelCount?.() || 10),
+            'glisser-du': 12,
             'mots-outils': (window.motsOutilsGame?.getLevelCount?.() || 15),
             // Nouveaux modules (3e primaire)
             'problems-magiques': (window.problemsMagiquesGame?.getLevelCount?.() || 10),

@@ -2961,6 +2961,187 @@
   margin-bottom: 0.4rem;
 }
 
+/* ==============================
+   § Mode Glisser Dizaines & Unités
+   ============================== */
+
+.du-game-shell {
+  --bg: #f6f8ff;
+  --card: #fff;
+  --lav: #8f7cf7;
+  --mint: #6dd5c4;
+  --text: #2d2e42;
+  --soft: #eef2ff;
+  --r: 16px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 1.5rem);
+  background: var(--bg);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.du-header {
+  text-align: center;
+}
+
+.du-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  color: var(--lav);
+  margin: 0;
+}
+
+.du-instruction {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: var(--text);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.du-legend {
+  font-size: 0.85rem;
+  color: #7a7d95;
+  background: var(--soft);
+  padding: 0.25rem 0.6rem;
+  border-radius: 99px;
+  display: inline-block;
+}
+
+.du-problem-area {
+  background: var(--soft);
+  border-radius: var(--r);
+  padding: clamp(0.8rem, 3vw, 1.2rem);
+}
+
+.du-item-pool {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+  gap: 12px;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.du-item {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.du-item:hover {
+  transform: scale(1.1);
+}
+
+.du-item.selected {
+  background-color: rgba(109, 213, 196, 0.3);
+  transform: scale(1.05);
+}
+
+.du-group-10 {
+  background: rgba(255,255,255,0.7);
+  border-radius: var(--r);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  box-shadow: 0 6px 15px rgba(143,124,247,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--lav);
+  grid-column: 1 / -1; /* Ocupa todo el ancho */
+  margin-bottom: 1rem;
+}
+
+.du-group-10.highlight {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px var(--mint), 0 8px 20px rgba(109, 213, 196, 0.4);
+}
+
+.du-units-loose {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px dashed var(--mint);
+  border-radius: var(--r);
+  grid-column: 1 / -1;
+  animation: pop 0.4s ease-out 0.2s backwards;
+}
+
+.du-action-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: rgba(255,255,255,0.4);
+  border-radius: 99px;
+}
+
+.du-selection-counter {
+  font-size: clamp(1rem, 2.8vw, 1.1rem);
+  font-weight: 700;
+  color: var(--lav);
+  background: var(--soft);
+  padding: 0.4rem 0.8rem;
+  border-radius: 99px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.du-selection-counter.du-counter-error {
+  background-color: #ffdde0;
+  color: #c51f32;
+  animation: shake-error 0.4s;
+}
+
+.du-group-btn {
+  border: none;
+  background: var(--lav);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.du-group-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+.du-group-btn:not(:disabled):hover { transform: scale(1.05); }
+
+.du-feedback-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  min-height: 40px;
+}
+
+.du-feedback-bubble {
+  background: var(--mint);
+  color: #004d40;
+  padding: 0.5rem 1rem;
+  border-radius: 99px;
+  font-weight: 600;
+  animation: pop 0.3s ease-out;
+}
+
+@media (min-width: 768px) {
+  .du-item-pool { grid-template-columns: repeat(auto-fit, minmax(56px, 1fr)); }
+}
+}
+
 /* ------------------------------
    Game shells (Temps/Mesures/Fractions)
    ------------------------------ */
