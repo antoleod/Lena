@@ -423,6 +423,10 @@
   .game-footer__actions .btn {
     flex: 1 1 calc(33% - 0.4rem);
   }
+
+  .story-grid-magic {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
 }
 
 @media (max-width: 480px) {
@@ -442,6 +446,11 @@
 
   .game-footer__actions {
     gap: 0.45rem;
+  }
+
+  .story-grid-magic {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -1803,6 +1812,37 @@
   animation: shooting-star-anim var(--duration, 7s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
 }
+.story-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.story-title-play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a890f0, #c9b2ff);
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(168, 144, 240, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.story-title-play-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 22px rgba(168, 144, 240, 0.4);
+}
+
+.story-title {
+  margin-bottom: 0 !important;
+}
+
 
 .shooting-star:nth-child(2) {
   top: 20%;
@@ -2955,6 +2995,404 @@
   .labyrinth-cta {
     width: 100%;
   }
+}
+
+/* ==============================
+   § Menu Principal (Cartes)
+   ============================== */
+.mm-sections{max-width:1200px;margin:0 auto 1.75rem;padding:0 1.5rem 2rem;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center}
+.mm-section-card{flex:1 1 340px;min-width:300px;border-radius:24px;padding:18px 20px 16px;margin:0;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.78));box-shadow:0 16px 38px rgba(24,20,68,.1), 0 0 20px var(--section-color-soft, rgba(120,90,220,0.1));backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.5);transition:transform 0.3s ease, box-shadow 0.3s ease;}
+.mm-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--section-color-soft, rgba(0,0,0,0.1));}
+.mm-section-title{display:flex;align-items:center;gap:.6rem;font-family:'Fredoka','Nunito',sans-serif;font-weight:700;font-size:1.3rem;color:var(--section-color, #5b4fcf);}
+.mm-section-title .mm-emoji{font-size:24px;filter: drop-shadow(0 3px 4px rgba(0,0,0,0.1));}
+.mm-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;justify-content:center}
+.mm-chip{border:none;border-radius:16px;padding:12px 16px;background:#fff;box-shadow:0 8px 18px rgba(24,20,68,.07);cursor:pointer;text-align:left;font-weight:800;font-size:1rem;line-height:1.35;color:#513eea;display:flex;align-items:center;gap:.6rem;transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease; position: relative; overflow: hidden;}
+.mm-chip .mm-emoji{font-size:20px;filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));}
+.mm-chip:focus-visible{outline:3px solid var(--section-color-soft, rgba(107,91,255,.45));box-shadow:0 12px 24px rgba(24,20,68,.14), 0 0 18px var(--section-color-soft, rgba(81, 62, 234, 0.5));}
+.mm-chip:hover:not([disabled]){
+    transform:translateY(-4px);
+    box-shadow:0 12px 24px rgba(24,20,68,.14), 0 0 18px var(--section-color-soft, rgba(81, 62, 234, 0.5));
+    background-color: #faf8ff;
+}
+.mm-chip[disabled]{opacity:.6;cursor:not-allowed}
+.mm-hide{display:none!important}
+
+@media (max-width:1024px){
+  .mm-sections{padding:0 1.25rem 1.75rem;gap:1rem}
+  .mm-section-card{flex:1 1 45%;min-width:260px;padding:14px 16px 13px;border-radius:18px;box-shadow:0 10px 26px rgba(24,20,68,.08)}
+  .mm-section-title{font-size:1.15rem}
+  .mm-section-title .mm-emoji{font-size:20px}
+  .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+  .mm-chip{font-size:.95rem;padding:10px 12px;gap:.5rem}
+}
+@media (max-width:768px){
+  .mm-sections{padding:0 1rem 1.5rem;gap:.9rem}
+  .mm-section-card{flex:1 1 100%;min-width:100%;padding:14px 14px 12px;border-radius:18px}
+  .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+  .mm-chip{font-size:.92rem;padding:9px 11px}
+  #stageBottom{padding-top:88px}
+}
+@media (max-width:600px){
+  .mm-sections{padding:0 .75rem 1.25rem;gap:.75rem}
+  .mm-section-card{padding:12px 12px 10px;border-radius:17px;box-shadow:0 8px 20px rgba(24,20,68,.07)}
+  .mm-section-title{font-size:1.05rem;gap:.45rem}
+  .mm-section-title .mm-emoji{font-size:19px}
+  .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+  .mm-chip{font-size:.9rem;padding:8px 10px;gap:.4rem;border-radius:12px}
+  .mm-chip .mm-emoji{font-size:16px}
+  #stageBottom{padding-top:84px}
+}
+@media (max-width:480px){
+  .mm-sections{padding:0 .5rem 1rem}
+  .mm-section-card{padding:11px 11px 9px;border-radius:16px}
+  .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px}
+  .mm-chip{font-size:.88rem;padding:7px 9px}
+  #stageBottom{padding-top:80px}
+}
+
+.mm-section-card{animation:cardFloat 14s ease-in-out infinite;animation-delay:calc(var(--card-index,0)*.2s)}
+.mm-section-card:nth-child(even){animation-direction:reverse}
+.mm-chip{position:relative;overflow:hidden}
+.mm-chip::after{content:'';position:absolute;inset:auto -40%;top:110%;width:80%;height:80%;background:linear-gradient(120deg,rgba(255,255,255,.65),rgba(186,170,255,.3));transform:rotate(8deg);transition:top .35s ease}
+.mm-chip:hover::after{top:-10%}
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+@media (prefers-reduced-motion:reduce){
+  .mm-section-card{transition:none;animation:none}
+  .mm-chip::after{transition:none}
+}
+
+/* ==============================
+   § Filtres et Recherche (Contes)
+   ============================== */
+.story-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.story-search-wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+.story-search-input {
+  width: 100%;
+  padding: 0.7rem 1rem 0.7rem 2.5rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.story-search-input::placeholder { color: rgba(255,255,255,0.6); }
+.story-search-wrapper::before {
+  content: '🔍';
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+}
+.logic-level-intro {
+  color: rgba(47, 29, 79, 0.7);
+  margin-bottom: 0.4rem;
+}
+
+/* ==============================
+   § Contes Magiques (Nouveau Design)
+   ============================== */
+
+.story-grid-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.story-grid-header__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.story-grid-header__icon {
+  font-size: 1.2em;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.story-grid-header__collection-info,
+.story-grid-header__progress {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: 600;
+  opacity: 0.9;
+  background: rgba(0,0,0,0.15);
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+}
+
+.story-grid-magic {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(1.2rem, 3vw, 2rem);
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+.story-card-magic {
+  --story-color-1: #8e76fa;
+  --story-color-2: #e0c3fc;
+  --story-glow-color: rgba(178, 150, 255, 0.6);
+
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: none;
+  cursor: pointer;
+  /* --- NOUVEAU : Rendre la carte transparente --- */
+  background: transparent;
+  /* On retire la bordure simple pour la remplacer par le cadre étoilé */
+  /* border: 1px solid rgba(255, 255, 255, 0.25); */
+  overflow: visible; /* Permet aux étoiles de déborder légèrement */
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn-story-card 0.6s ease-out backwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/*.story-card-magic::before,
+.story-card-magic::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+*/
+.story-card-magic::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  background: conic-gradient(from var(--angle), transparent 25%, #FFD700, #ffef99, transparent 50%) border-box;
+  -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+  mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-star-border 6s linear infinite;
+  opacity: 0.8;
+}
+
+.story-card-magic::after {
+  content: '✨';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 1.5rem;
+  animation: sparkle-corner 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px gold);
+}
+
+.story-card-magic:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px var(--story-glow-color);
+} 
+
+.story-card-magic:focus-visible {
+  outline: 3px solid var(--story-color-2);
+  outline-offset: 4px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px var(--story-glow-color);
+}
+
+.story-card-magic__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.story-card-magic__icon {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+  line-height: 1;
+}
+
+.story-card-magic__status {
+  padding: 0.3rem 0.7rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.story-card-magic.is-completed .story-card-magic__status {
+  background: #FFD700;
+  color: #4c3a00;
+  text-shadow: none;
+}
+
+.story-card-magic.is-completed .story-card-magic__status::before {
+  content: '🏆';
+}
+
+.story-card-magic__content {
+  text-align: left;
+}
+
+.story-card-magic__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+
+.story-card-magic__teaser {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  opacity: 0.8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.story-card-magic.is-completed {
+  box-shadow: 0 0 0 3px gold, 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.story-card-magic.is-completed:hover {
+  box-shadow: 0 0 0 3px gold, 0 20px 40px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.7);
+}
+
+@keyframes fadeIn-story-card {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .story-grid-magic {
+    /* --- NOUVEAU : Réduction de 15% (180px * 0.85 ≈ 153px) --- */
+    grid-template-columns: repeat(auto-fill, minmax(153px, 1fr));
+    gap: 1rem;
+  }
+  .story-card-magic {
+    padding: 1rem;
+    border-radius: 20px;
+  }
+  .story-card-magic__icon {
+    font-size: 2.2rem;
+  }
+  .story-card-magic__title {
+    font-size: 1.1rem;
+  }
+  .story-card-magic__teaser {
+    font-size: 0.8rem;
+  }
+}
+
+/* Supprimer l'ancienne bibliothèque de livres */
+.story-library, .story-shelf, .story-book {
+  display: none !important;
+}
+
+/* --- Effet Poussière de Fée --- */
+.fairy-dust-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.fairy-dust {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #ffd700, transparent 60%);
+    border-radius: 50%;
+    animation: fade-out-dust 1s forwards;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes fade-out-dust {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) translateY(-20px);
+    }
+}
+/* ==============================
+   § Menu de Mode de Lecture
+   ============================== */
+.story-mode-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: rgba(0,0,0,0.1);
+  border-radius: 24px;
+}
+
+.story-mode-btn {
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  min-width: 300px;
+  text-align: center;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
 }
 .logic-level-intro {
   color: rgba(47, 29, 79, 0.7);

@@ -1,0 +1,79 @@
+const subtitle = document.createElement('p');
+        subtitle.className = 'story-menu__subtitle fx-bounce-in-down';
+        subtitle.style.animationDelay = '0.1s';
+        subtitle.textContent = `Collection ${activeStorySetIndex + 1} sur ${storyCollections.length}`;
+        libraryContainer.appendChild(subtitle);
+
+        const progressContainer = document.createElement('div');
+        progressContainer.className = 'story-menu__progress-container fx-bounce-in-down';
+        progressContainer.style.animationDelay = '0.15s';
+        const progressCircle = document.createElement('div');
+        progressCircle.className = 'story-progress-circle';
+        const progressValue = magicStories.length > 0 ? (completedCount / magicStories.length) * 100 : 0;
+        progressCircle.style.setProperty('--progress', `${progressValue}%`);
+        progressCircle.innerHTML = `
+            <svg viewBox="0 0 36 36" class="story-progress-circle__svg">
+                <path class="story-progress-circle__bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="story-progress-circle__fg" stroke-dasharray="${progressValue}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <span class="story-progress-circle__text">${completedCount}/${magicStories.length}</span>
+        `;
+        const progressLabel = document.createElement('span');
+        progressLabel.className = 'story-menu__progress-label';
+        progressLabel.textContent = 'Contes lus';
+        progressContainer.appendChild(progressCircle);
+        progressContainer.appendChild(progressLabel);
+        libraryContainer.appendChild(progressContainer);
+
+        if (!magicStories.length) {
+            const emptyState = document.createElement('p');
+            emptyState.className = 'story-menu__empty';
+            emptyState.textContent = 'De nouvelles histoires arrivent bientôt !';
+            content.appendChild(emptyState);
+            return;
+        } else {
+            const library = document.createElement('div');
+            library.className = 'story-library';
+
+            const shelf = document.createElement('div');
+            shelf.className = 'story-shelf';
+
+            magicStories.forEach((story, index) => {
+                const book = document.createElement('button');
+                book.type = 'button';
+                book.className = 'story-book';
+                book.style.animationDelay = `${index * 0.08 + 0.25}s`;
+                book.dataset.storyIndex = String(index);
+                book.dataset.storyId = story.id;
+
+                const isCompleted = isStoryCompletedForDisplay(story);
+                if (isCompleted) {
+                    book.classList.add('is-completed');
+                }
+                book.setAttribute('aria-pressed', isCompleted ? 'true' : 'false');
+                book.setAttribute('aria-label', `${story.title} — ${isCompleted ? 'déjà lu' : 'à lire'}`);
+
+                const bookSpine = document.createElement('div');
+                bookSpine.className = 'story-book__spine';
+                
+                const bookTitle = document.createElement('span');
+                bookTitle.className = 'story-book__title';
+                bookTitle.textContent = story.title;
+                
+                const bookIcon = document.createElement('span');
+                bookIcon.className = 'story-book__icon';
+                bookIcon.textContent = isCompleted ? '✔️' : '📖';
+
+                bookSpine.appendChild(bookTitle);
+                bookSpine.appendChild(bookIcon);
+                book.appendChild(bookSpine);
+
+                book.addEventListener('click', () => showMagicStory(index));
+                shelf.appendChild(book);
+            });
+
+            library.appendChild(shelf);
+            libraryContainer.appendChild(library);
+        }
+
+        

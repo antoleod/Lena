@@ -1316,7 +1316,7 @@ function resolveLevelTheme(topicId) {
             saveProgress,
             showSuccessMessage,
             showErrorMessage,
-            showConfetti,
+            showConfetti: showFireworks, // Corregido para usar la nueva función
             speakText,
             playPositiveSound: () => playSound('correct'),
             playNegativeSound: () => playSound('wrong'),
@@ -1388,7 +1388,10 @@ function resolveLevelTheme(topicId) {
         gameState.currentLevel = level;
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        const context = createGameContext('math-blitz');
+        const context = createGameContext('math-blitz', {
+            // Pass the question generator to the game module
+            generateMathQuestion: generateMathQuestion 
+        });
         if (window.mathBlitzGame && typeof window.mathBlitzGame.start === 'function') {
             window.mathBlitzGame.start(context);
         } else {
@@ -1616,7 +1619,7 @@ function resolveLevelTheme(topicId) {
     }
     function launchAbaqueMagique(level) {
         gameState.currentTopic = 'abaque-magique';
-        gameState.currentLevel = level || 1; // Toujours commencer au niveau 1
+        gameState.currentLevel = level;
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
         const context = createGameContext('abaque-magique');
@@ -1652,11 +1655,65 @@ function resolveLevelTheme(topicId) {
         }
     }
     // --- UI & Helpers ---
+    let preferredVoice = null;
+
+    function setupSpeechSynthesis() {
+        if (!window.speechSynthesis) {
+            return;
+        }
+
+        function findFrenchVoice() {
+            const voices = window.speechSynthesis.getVoices();
+            if (!voices || voices.length === 0) {
+                console.warn('[Speech] La liste de voix est vide. La sélection est reportée.');
+                return;
+            }
+
+            const voicePriority = [
+                { name: 'Google français', lang: 'fr-FR' },
+                { name: 'Microsoft Hortense - French (France)', lang: 'fr-FR' },
+                { name: 'Microsoft Julie, Natural - French (France)', lang: 'fr-FR' },
+                { name: 'Amelie', lang: 'fr-CA' },
+                { name: 'Thomas', lang: 'fr-FR' },
+                // Voix génériques de haute qualité
+                { name: 'fr-FR-Standard-D', lang: 'fr-FR' }, 
+                { name: 'fr-FR-Wavenet-A', lang: 'fr-FR' },
+                { name: 'fr-FR-Wavenet-E', lang: 'fr-FR' },
+                // Voix macOS
+                { name: 'Aurelie', lang: 'fr-FR' },
+                { name: 'Audrey', lang: 'fr-FR' },
+            ];
+
+            for (const priority of voicePriority) {
+                const found = voices.find(voice => voice.name === priority.name && voice.lang === priority.lang);
+                if (found) {
+                    preferredVoice = found;
+                    return;
+                }
+            }
+
+            // Fallback to any French voice
+            preferredVoice = voices.find(voice => voice.lang === 'fr-FR') || null;
+        }
+        
+        // L'astuce est d'attendre que les voix soient chargées.
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = findFrenchVoice;
+        } else {
+            // Pour les navigateurs plus anciens, on essaie après un court délai.
+            setTimeout(findFrenchVoice, 200);
+        }
+        findFrenchVoice(); // Essayer une première fois au cas où elles seraient déjà prêtes.
+    }
+
     function speakText(text) {
         if (window.speechSynthesis) {
             const synth = window.speechSynthesis;
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'fr-FR';
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
             synth.speak(utterance);
         }
     }
@@ -2332,7 +2389,6 @@ function resolveLevelTheme(topicId) {
         banner.appendChild(actions);
 
         document.body.appendChild(banner);
-        speakText('Pausa magique. Prends un petit moment pour te reposer.');
     }
 
     function openShop() {
@@ -2621,20 +2677,8 @@ function resolveLevelTheme(topicId) {
             : '';
         promptEl.textContent = `${message}${extra}`;
         content.appendChild(promptEl);
-        speakText(message);
         playSound('wrong');
         setTimeout(() => promptEl.remove(), 2500);
-    }
-
-    function showConfetti() {
-        if (typeof confetti !== 'function') return;
-        try {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-        } catch(e) { console.warn("Confetti effect failed", e); }
     }
 
     function showFireworks() {
@@ -2651,250 +2695,6 @@ function resolveLevelTheme(topicId) {
             confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.4 + 0.5, y: Math.random() - 0.2 } });
         }, 250);
         setTimeout(showConfetti, 500); // Add a small burst of regular confetti
-    }
-
-    // --- NOUVEAU JEU: Glisser-Déposer Dizaines & Unités ---
-    function launchGrouperDU(level) {
-        gameState.currentTopic = 'glisser-du';
-        gameState.currentLevel = level;
-        const DU_LEVEL_COLORS = [
-            '#f6f8ff', '#f0faff', '#f5fff0', '#fff5f0', '#fff0f5', 
-            '#f5f0ff', '#f0f8ff', '#fafff0', '#fffaf0', '#f0fff8', 
-            '#fff0f8', '#f8f0ff'
-        ];
-
-        const D_U_LEVEL_RANGES = [ // Expanded to 12 levels
-            { level: 1, range: [10, 19] },
-            { level: 2, range: [20, 29] },
-            { level: 3, range: [11, 29] },
-            { level: 4, range: [30, 39] },
-            { level: 5, range: [40, 49] },
-            { level: 6, range: [30, 49] },
-            { level: 7, range: [50, 69] },
-            { level: 8, range: [70, 89] },
-            { level: 9, range: [50, 89] },
-            { level: 10, range: [60, 99] },
-            { level: 11, range: [40, 99] },
-            { level: 12, range: [11, 99] }
-        ];
-        const EXERCISES_PER_LEVEL = 6;
-        let currentExerciseIndex = 0;
-        let exercises = [];
-        let attempts = 0;
-        let selectedItems = [];
-        let dizainesFound = 0;
-
-        function generateExercisesForLevel() {
-            const config = D_U_LEVEL_RANGES.find(l => l.level === level) || D_U_LEVEL_RANGES[D_U_LEVEL_RANGES.length - 1];
-            const numbers = new Set();
-            while (numbers.size < EXERCISES_PER_LEVEL) {
-                numbers.add(randomInt(config.range[0], config.range[1]));
-            }
-            exercises = Array.from(numbers).map(n => ({
-                target: n,
-                d: Math.floor(n / 10),
-                u: n % 10
-            }));
-        }
-
-        function renderExercise() {
-            attempts = 0;
-            selectedItems = [];
-            dizainesFound = 0;
-            const exercise = exercises[currentExerciseIndex];
-            content.innerHTML = `
-                <div class="du-game-shell">
-                    <div class="du-header">
-                        <div class="progress-label is-visible">Exercice ${currentExerciseIndex + 1} / ${EXERCISES_PER_LEVEL} – Niveau ${level}</div>
-                        <h2 class="du-title">Réorganise les groupes</h2>
-                        <p id="du-selection-counter" class="du-selection-counter">🍓 Sélectionnés : 0 / 10</p>
-                        <p class="du-instruction">Touche les 🍓 pour les regrouper par 10.</p>
-                    </div>
-                    <div class="du-problem-area">
-                        <div class="du-item-pool"></div>
-                        <div id="du-feedback-area" class="du-feedback-area"></div>
-                    </div>
-                </div>
-            `;
-
-            const gameShell = content.querySelector('.du-game-shell');
-            if (gameShell) {
-                const colorIndex = (level - 1) % DU_LEVEL_COLORS.length;
-                const color = DU_LEVEL_COLORS[colorIndex];
-                gameShell.style.setProperty('--bg', color);
-            }
-
-            const pool = content.querySelector('.du-item-pool');
-            const items = Array.from({ length: exercise.target }, (_, i) => createItem(i));
-            shuffle(items).forEach(item => pool.appendChild(item));
-        }
-
-        function createItem(id) {
-            const item = document.createElement('div');
-            item.className = 'du-item';
-            item.dataset.id = id;
-            item.textContent = '🍓';
-            item.addEventListener('click', () => handleItemClick(item));
-            return item;
-        }
-
-        function handleItemClick(item) {
-            if (item.classList.contains('grouped')) {
-                return;
-            }
-
-            const isSelected = item.classList.toggle('selected');
-
-            if (isSelected) {
-                selectedItems.push(item);
-            } else {
-                const index = selectedItems.findIndex(selected => selected.dataset.id === item.dataset.id);
-                if (index > -1) {
-                    selectedItems.splice(index, 1);
-                }
-            }
-
-            updateSelectionCounter();
-
-            if (selectedItems.length >= 10) {
-                // Retraso para que la animación de selección sea visible antes de agrupar
-                setTimeout(processGroup, 200);
-            }
-        }
-
-        function processGroup() {
-            if (selectedItems.length < 10) return;
-
-            const itemsToGroup = selectedItems.slice(0, 10);
-            selectedItems = selectedItems.slice(10);
-
-                dizainesFound++;
-                const group = document.createElement('div');
-                group.className = 'du-group-10';
-                itemsToGroup.forEach(selected => {
-                    selected.classList.add('grouped');
-                    group.appendChild(selected.cloneNode(true));
-                });
-                
-                const pool = content.querySelector('.du-item-pool');
-                pool.prepend(group);
-                itemsToGroup.forEach(selected => selected.remove());
-
-                showFeedback(`1 dizaine ✅ (${dizainesFound})`);
-                playSound('correct');
-                updateSelectionCounter();
-                checkCompletion();
-        }
-
-        function updateSelectionCounter() {
-            const counter = document.getElementById('du-selection-counter');
-            if (counter) {
-                counter.textContent = `🍓 Sélectionnés : ${selectedItems.length} / 10`;
-            }
-        }
-
-        function showFeedback(message) {
-            const feedbackArea = document.getElementById('du-feedback-area');
-            if (!feedbackArea) return;
-            const msgEl = document.createElement('div');
-            msgEl.className = 'du-feedback-bubble';
-            msgEl.textContent = message;
-            feedbackArea.appendChild(msgEl);
-            setTimeout(() => msgEl.remove(), 2000);
-        }
-
-        function checkCompletion() {
-            const target = exercises[currentExerciseIndex].target;
-            const expectedDizaines = Math.floor(target / 10);
-
-            if (dizainesFound >= expectedDizaines) {
-                const remainingUnits = target % 10;
-                const pool = content.querySelector('.du-item-pool');
-                const remainingItems = pool.querySelectorAll('.du-item:not(.grouped)');
-
-                if (remainingItems.length > 0) {
-                    const unitsGroup = document.createElement('div');
-                    unitsGroup.className = 'du-units-loose';
-                    remainingItems.forEach(item => {
-                        item.classList.add('grouped');
-                        unitsGroup.appendChild(item.cloneNode(true));
-                        item.remove();
-                    });
-                    pool.appendChild(unitsGroup);
-                    showFeedback(`${remainingUnits} unité${remainingUnits > 1 ? 's' : ''} 🍓`);
-                }
-
-                const finalMessage = `Tu as ${expectedDizaines} dizaine${expectedDizaines > 1 ? 's' : ''} et ${remainingUnits} unité${remainingUnits > 1 ? 's' : ''}. C’est ${target} ! 🎉`;
-                showSuccessMessage(finalMessage);
-                playSound('correct');
-                showFireworks();
-                userProgress.userScore.stars += 3;
-                userProgress.userScore.coins += 2;
-                updateUI();
-                saveProgress();
-                
-                setTimeout(nextExercise, 3000);
-            }
-        }
-
-        function nextExercise() {
-                    currentExerciseIndex++;
-                    if (currentExerciseIndex >= EXERCISES_PER_LEVEL) {
-                        completeLevel();
-                    } else {
-                        renderExercise();
-                    }
-        }
-
-        function completeLevel() {
-            userProgress.answeredQuestions[`glisser-du-${level}`] = 'completed';
-            saveProgress();
-            showSuccessMessage(`Niveau ${level} complété !`);
-            showFireworks();
-            setTimeout(() => showLevelMenu('glisser-du'), 2000);
-        }
-
-        generateExercisesForLevel();
-        renderExercise();
-    }
-
-    function showGlisserDULevelMenu() {
-        gameState.currentTopic = 'glisser-du';
-        const maxLevels = 12;
-        content.innerHTML = '';
-        const title = document.createElement('div');
-        title.className = 'question-prompt fx-bounce-in-down';
-        title.textContent = 'Choisis un niveau pour Glisser D&U';
-        content.appendChild(title);
-
-        const levelsContainer = document.createElement('div');
-        levelsContainer.className = 'level-container';
-
-        for (let i = 1; i <= maxLevels; i++) {
-            const levelBtn = document.createElement('button');
-            levelBtn.className = 'level-button fx-bounce-in-down';
-            levelBtn.dataset.level = String(i);
-            levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
-            
-            const levelIcon = document.createElement('span');
-            levelIcon.className = 'level-button__icon';
-            levelIcon.textContent = '🖐️';
-            
-            const levelNumber = document.createElement('span');
-            levelNumber.className = 'level-button__number';
-            levelNumber.textContent = String(i);
-
-            levelBtn.append(levelIcon, levelNumber);
-
-            if (userProgress.answeredQuestions[`glisser-du-${i}`] === 'completed') {
-                levelBtn.classList.add('correct', 'is-completed');
-            }
-
-            levelBtn.addEventListener('click', () => launchGrouperDU(i));
-            levelsContainer.appendChild(levelBtn);
-        }
-        content.appendChild(levelsContainer);
-        configureBackButton('Retour aux sujets', showTopicMenu);
     }
 
     function ensureSkyElements() {
@@ -2960,7 +2760,6 @@ function resolveLevelTheme(topicId) {
         }
 
         content.appendChild(promptWrapper);
-        speakText('Trouve toutes les paires !');
         updateProgressTracker(0, pairsCount);
 
         const timerDisplay = document.createElement('div');
@@ -4253,7 +4052,6 @@ function resolveLevelTheme(topicId) {
         prompt.className = 'question-prompt fx-bounce-in-down';
         prompt.textContent = 'Sélectionne un sujet pour commencer.';
         content.appendChild(prompt);
-        speakText('Sélectionne un sujet pour commencer.');
 
         maybeSuggestReview(content);
 
@@ -4273,8 +4071,6 @@ function resolveLevelTheme(topicId) {
             { id: 'memory', icon: '🤔', text: 'Mémoire Magique' },
             { id: 'abaque-magique', icon: '🔢', text: 'Abaque Magique' },
             { id: 'number-houses', icon: '🏠', text: 'Maisons des Nombres' },
-            { id: 'puzzle-magique', icon: '🧩', text: 'Puzzle Magique' },
-            { id: 'glisser-du', icon: '🖐️', text: 'Glisser D&U' },
             { id: 'repartis', icon: '🍎', text: 'Répartis & Multiplie' },
             { id: 'stories', icon: '📚', text: 'Contes Magiques' }, // Already correct
             { id: 'riddles', icon: '❓', text: 'Jeu d\'énigmes' },
@@ -4303,8 +4099,6 @@ function resolveLevelTheme(topicId) {
                 if (topic.id === 'stories') { showStoryMenu(); return; }
                 if (topic.id === 'memory') { showMemoryGameMenu(); return; }
                 if (topic.id === 'ecriture-cursive') { launchEcritureCursive(1); return; }
-                if (topic.id === 'abaque-magique') { launchAbaqueMagique(1); return; } // This line seems to be duplicated, but it's okay.
-                if (topic.id === 'glisser-du') { showGlisserDULevelMenu(); return; }
                 if (topic.id === 'repartis') { showLevelMenu('repartis'); return; }
                 if (topic.id === 'mots-outils') { launchMotsOutils(1); return; }
                 showLevelMenu(topic.id);
@@ -4387,7 +4181,6 @@ function resolveLevelTheme(topicId) {
         title.className = 'question-prompt fx-bounce-in-down';
         title.textContent = `Choisis un niveau pour ${topic}`;
         content.appendChild(title);
-        speakText(`Choisis un niveau pour ${topic}`);
 
         const levelsContainer = document.createElement('div');
         levelsContainer.className = 'level-container';
@@ -4413,7 +4206,6 @@ function resolveLevelTheme(topicId) {
             'raisonnement': 10,
             'ecriture-cursive': 3,
             'abaque-magique': (window.abaqueMagiqueGame?.getLevelCount?.() || 10),
-            'glisser-du': 12,
             'mots-outils': (window.motsOutilsGame?.getLevelCount?.() || 15),
             // Nouveaux modules (3e primaire)
             'problems-magiques': (window.problemsMagiquesGame?.getLevelCount?.() || 10),
@@ -4812,7 +4604,6 @@ function resolveLevelTheme(topicId) {
         }
 
         fragment.appendChild(promptWrapper);
-        speakText(displayQuestion.questionText);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
@@ -4894,15 +4685,9 @@ function resolveLevelTheme(topicId) {
         const timeTaken = formatTime(duration);
         const bestTimeFormatted = formatTime(userProgress.bestTimes[levelKey]);
 
-        winPrompt.innerHTML = `
-            <p>Bravo, tu as complété le Niveau ${gameState.currentLevel} !</p>
-            <p>Ton temps : ${timeTaken}</p>
-            <p>Meilleur temps : ${bestTimeFormatted}</p>
-            ${newBestTime ? '<p>Nouveau record ! 🎉</p>' : ''}
-        `;
+        winPrompt.innerHTML = `<p>Bravo, tu as complété le Niveau ${gameState.currentLevel} !</p>`;
 
         content.appendChild(winPrompt);
-        speakText(`Bravo, tu as complété le Niveau ${gameState.currentLevel} ! Ton temps est de ${timeTaken}.`);
         const endStatus = gameState.currentTopic === 'review' ? 'review-completed' : 'completed';
         gameState.historyTracker?.endGame({ status: endStatus, topic: gameState.currentTopic, level: gameState.currentLevel, skills: gameState.activeReviewSkills });
         if (gameState.currentTopic === 'review') {
@@ -4965,7 +4750,6 @@ function showNumberHousesGame(level) {
     }
 
     container.appendChild(promptWrapper);
-    speakText(instruction.textContent);
     updateProgressTracker(1, 1);
 
     const windowsContainer = document.createElement('div');
@@ -5028,55 +4812,57 @@ function handleCheckHouses() {
     checkBtn.disabled = true;
 
     let incorrectValues = [];
-    allInputs.forEach(input => {
-        const inputValue = parseInt(input.value, 10);
-        const correctValue = parseInt(input.dataset.correctValue, 10);
+    allInputs.forEach(input => {        
+        // Validación mejorada: trim() para espacios, Number() para conversión robusta.
+        const userValue = input.value.trim();
+        const inputValue = userValue === '' ? NaN : Number(userValue);
+        const correctValue = Number(input.dataset.correctValue);
         
-        input.classList.remove('correct', 'incorrect', 'fx-shake');
+        input.classList.remove('correct', 'incorrect');
 
-        if (inputValue === correctValue) {
+        if (!isNaN(inputValue) && inputValue === correctValue) {
             input.classList.add('correct');
             input.disabled = true;
             correctCount++;
         } else {
             input.classList.add('incorrect', 'fx-shake');
-            setTimeout(() => input.classList.remove('fx-shake'), 1000); // This should be userProgress.userScore.coins
+            setTimeout(() => input.classList.remove('fx-shake'), 500);
             userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
-            allCorrect = false;
             incorrectValues.push(`Réponse attendue : ${correctValue}`);
         }
     });
 
     updateUI();
-    saveProgress();
     const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
+    allCorrect = incorrectValues.length === 0;
     gameState.historyTracker?.recordQuestion(gameState.questionSkillTag || resolveSkillTag('number-houses'), { correct: allCorrect, timeMs: elapsed });
 
     if (allCorrect) {
         userProgress.userScore.stars += 50;
         userProgress.userScore.coins += 50;
         userProgress.answeredQuestions[`${gameState.currentTopic}-${gameState.currentLevel}`] = 'completed';
-        saveProgress();
-        showSuccessMessage('Bravo ! Toutes les maisons sont correctes. 🦄✨'); // Mensaje de éxito
-        showConfetti();
-        checkBtn.textContent = 'Niveau suivant';
-        checkBtn.onclick = () => {
+        window.ui.toast('Bravo ! Toutes les maisons sont correctes. 🦄✨', 'success');
+        showFireworks();
+        
+        // Avance automático al siguiente nivel después de una breve celebración.
+        setTimeout(() => {
             if (gameState.currentLevel < LEVELS_PER_TOPIC) {
                 showNumberHousesGame(gameState.currentLevel + 1);
             } else {
                 win();
             }
-        };
-        checkBtn.disabled = false;
+        }, 2200);
+
         gameState.historyTracker?.endGame({ status: 'completed', topic: 'number-houses', level: gameState.currentLevel });
     } else {
-        const message = `${correctCount} réponses correctes. ${allInputs.length - correctCount} incorrectes. -5 pièces.`;
-        showErrorMessage(message, incorrectValues.join(', '));
+        window.ui.toast(`Presque ! ${allInputs.length - correctCount} erreur(s). Essaie encore !`, 'error');
         setTimeout(() => {
             checkBtn.disabled = false;
             gameState.questionStartTime = performance.now();
         }, 500); 
     }
+
+    saveProgress();
 }
 
 /**
@@ -5170,7 +4956,6 @@ function generateNumberProblems(sum, count) {
         }
 
         fragment.appendChild(promptWrapper);
-        speakText(questionData.questionText);
         updateProgressTracker(index + 1, questionsForLevel.length);
 
         const optionsContainer = document.createElement('div');
@@ -5266,182 +5051,257 @@ function generateNumberProblems(sum, count) {
     }
 
     function showStoryMenu() {
-        ensureSkyElements();
-        document.body.classList.add('story-menu-active');
-        document.body.classList.remove('stage-controls-visible');
+        document.body.classList.add('story-menu-active', 'in-story-mode');
+        document.body.classList.remove('story-quiz-active');
         clearProgressTracker();
+        ensureSkyElements(); // Assure que le fond étoilé est présent
+
         setActiveStorySet(userProgress.storyProgress?.activeSetIndex || activeStorySetIndex);
         ensureStoryProgressInitialized();
         content.innerHTML = '';
 
-        const title = document.createElement('div');
-        title.className = 'question-prompt story-menu-title fx-bounce-in-down';
-        title.textContent = 'Choisis un conte magique ✨';
-        content.appendChild(title);
-        speakText('Choisis un conte magique');
-
         const activeSet = getActiveStorySet();
+        if (!activeSet || !magicStories.length) {
+            showComingSoon('Contes Magiques', '📖');
+            return;
+
+        }
         const completionMap = getStoryCompletionMap(activeSet?.id);
         const completedCount = magicStories.reduce((total, story) => {
             return total + (completionMap[story.id] ? 1 : 0);
         }, 0);
 
-        const subtitle = document.createElement('p');
-        subtitle.className = 'story-menu__subtitle fx-bounce-in-down';
-        subtitle.style.animationDelay = '0.1s';
-        subtitle.textContent = `Collection ${activeStorySetIndex + 1} sur ${storyCollections.length}`;
-        content.appendChild(subtitle);
+        const storyHeader = document.createElement('div');
+        storyHeader.className = 'question-prompt story-menu-title fx-bounce-in-down';
+        storyHeader.textContent = 'Bibliothèque des Contes Magiques';
+        content.appendChild(storyHeader);
 
-        const progressBadge = document.createElement('div');
-        progressBadge.className = 'story-menu__progress fx-bounce-in-down';
-        progressBadge.style.animationDelay = '0.15s';
-        progressBadge.textContent = `Progrès : ${completedCount} / ${magicStories.length} contes`;
-        content.appendChild(progressBadge);
+        // --- Filtres et recherche ---
+        const controls = document.createElement('div');
+        controls.className = 'story-controls fx-bounce-in-down';
+        controls.style.animationDelay = '0.1s';
 
-        if (!magicStories.length) {
-            const emptyState = document.createElement('p');
-            emptyState.className = 'story-menu__empty';
-            emptyState.textContent = 'De nouvelles histoires arrivent bientôt !';
-            content.appendChild(emptyState);
-            return;
-        }
+        const searchWrapper = document.createElement('div');
+        searchWrapper.className = 'story-search-wrapper';
+        const searchInput = document.createElement('input');
+        searchInput.type = 'search';
+        searchInput.placeholder = 'Rechercher un conte...';
+        searchInput.className = 'story-search-input';
+        searchWrapper.appendChild(searchInput);
+        controls.appendChild(searchWrapper);
 
-        const carousel = document.createElement('div');
-        carousel.className = 'story-carousel fx-bounce-in-down';
-        carousel.style.animationDelay = '0.2s';
+        const allThemes = ['Tous', ...new Set(magicStories.map(s => s.theme).filter(Boolean))];
+        const themeFilter = document.createElement('select');
+        themeFilter.className = 'btn';
+        allThemes.forEach(theme => {
+            const option = document.createElement('option');
+            option.value = theme;
+            option.textContent = theme;
+            themeFilter.appendChild(option);
+        });
+        controls.appendChild(themeFilter);
 
-        const viewport = document.createElement('div');
-        viewport.className = 'story-carousel__viewport';
+        content.appendChild(controls);
 
-        const track = document.createElement('div');
-        track.className = 'story-carousel__track';
+        const storyGrid = document.createElement('div');
+        storyGrid.className = 'story-grid-magic';
 
-        magicStories.forEach((story, index) => {
-            const slide = document.createElement('div');
-            slide.className = 'story-carousel__slide';
+        const renderCards = (filterText = '', filterTheme = 'Tous') => {
+            storyGrid.innerHTML = '';
+            const filteredStories = magicStories.filter(story => {
+                const matchesText = !filterText || story.title.toLowerCase().includes(filterText.toLowerCase());
+                const matchesTheme = filterTheme === 'Tous' || story.theme === filterTheme;
+                return matchesText && matchesTheme;
+            });
 
-            const storyBtn = document.createElement('button');
-            storyBtn.type = 'button';
-            storyBtn.className = 'story-card fx-bounce-in-down';
-            storyBtn.dataset.storyIndex = String(index);
-            storyBtn.dataset.storyId = story.id;
-            storyBtn.style.animationDelay = `${index * 0.08 + 0.25}s`;
+            if (filteredStories.length === 0) {
+                const noResult = document.createElement('p');
+                noResult.textContent = 'Aucun conte ne correspond à ta recherche.';
+                noResult.className = 'story-menu__empty';
+                storyGrid.appendChild(noResult);
+                return;
+            }
+
+            filteredStories.forEach((story, index) => {
+                const originalIndex = magicStories.findIndex(s => s.id === story.id);
+                if (originalIndex === -1) return;
+
+            const card = document.createElement('button');
+            card.type = 'button';
+            card.className = 'story-card-magic';
+            card.style.setProperty('--delay', `${index * 0.08 + 0.2}s`);
+            card.dataset.storyIndex = String(index);
 
             const isCompleted = isStoryCompletedForDisplay(story);
             if (isCompleted) {
-                storyBtn.classList.add('is-completed');
+                card.classList.add('is-completed');
             }
-            storyBtn.setAttribute('aria-pressed', isCompleted ? 'true' : 'false');
-            storyBtn.setAttribute('aria-label', `${story.title} — ${isCompleted ? 'déjà lu' : 'à lire'}`);
 
-            const cardTitle = document.createElement('span');
-            cardTitle.className = 'story-card__title';
-            cardTitle.textContent = story.title;
-            storyBtn.appendChild(cardTitle);
+            const header = document.createElement('div');
+            header.className = 'story-card-magic__header';
+            const icon = document.createElement('div');
+            icon.className = 'story-card-magic__icon';
+            icon.textContent = story.icon || '✨';
+            const status = document.createElement('div');
+            status.className = 'story-card-magic__status';
+            status.textContent = isCompleted ? 'Lu' : 'Nouveau';
+            header.append(icon, status);
 
-            const statusBadge = document.createElement('span');
-            statusBadge.className = 'story-card__status';
-            statusBadge.textContent = isCompleted ? '✔ Terminé' : '📖 À lire';
-            storyBtn.appendChild(statusBadge);
+            const cardContent = document.createElement('div');
+            cardContent.className = 'story-card-magic__content';
+            const cardTitle = document.createElement('h3');
+            cardTitle.className = 'story-card-magic__title';
+            cardTitle.textContent = story.bilingualTitle?.fr || story.title;
+            const teaser = document.createElement('p');
+            teaser.className = 'story-card-magic__teaser';
+            teaser.innerHTML = `
+                ${story.theme ? `<span class="story-tag">${story.theme}</span>` : ''}
+                ${story.duration ? `<span class="story-tag">· ${story.duration} min</span>` : ''}
+            `;
+            cardContent.append(cardTitle, teaser);
 
-            storyBtn.addEventListener('click', () => showMagicStory(index));
-
-            slide.appendChild(storyBtn);
-            track.appendChild(slide);
-        });
-
-        viewport.appendChild(track);
-        carousel.appendChild(viewport);
-
-        const navPrev = document.createElement('button');
-        navPrev.type = 'button';
-        navPrev.className = 'story-carousel__nav story-carousel__nav--prev';
-        navPrev.setAttribute('aria-label', 'Voir les contes précédents');
-        navPrev.textContent = '◀';
-
-        const navNext = document.createElement('button');
-        navNext.type = 'button';
-        navNext.className = 'story-carousel__nav story-carousel__nav--next';
-        navNext.setAttribute('aria-label', 'Voir les contes suivants');
-        navNext.textContent = '▶';
-
-        const scrollAmount = () => Math.max(carousel.offsetWidth * 0.7, 280);
-
-        navPrev.addEventListener('click', () => {
-            track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-        });
-        navNext.addEventListener('click', () => {
-            track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-        });
-
-        carousel.appendChild(navPrev);
-        carousel.appendChild(navNext);
-
-        const updateNavState = () => {
-            const maxScroll = track.scrollWidth - track.clientWidth;
-            const epsilon = 4;
-            const showNav = maxScroll > epsilon;
-            navPrev.style.display = showNav ? 'flex' : 'none';
-            navNext.style.display = showNav ? 'flex' : 'none';
-            if (!showNav) { return; }
-            navPrev.disabled = track.scrollLeft <= epsilon;
-            navNext.disabled = track.scrollLeft >= (maxScroll - epsilon);
+            card.append(header, cardContent);
+            card.addEventListener('click', (e) => showStoryReadModeSelection(originalIndex));
+            storyGrid.appendChild(card);
+            });
         };
 
-        track.addEventListener('scroll', () => {
-            window.requestAnimationFrame(updateNavState);
+        searchInput.addEventListener('input', () => {
+            renderCards(searchInput.value, themeFilter.value);
+        });
+        themeFilter.addEventListener('change', () => {
+            renderCards(searchInput.value, themeFilter.value);
         });
 
-        updateNavState();
-        setTimeout(updateNavState, 120);
+        renderCards();
+        content.appendChild(storyGrid);
 
-        content.appendChild(carousel);
+        const navContainer = document.createElement('div');
+        navContainer.className = 'story-library-nav';
+
+        if (activeStorySetIndex > 0) {
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'btn';
+            prevBtn.innerHTML = '<span>&larr;</span> Collection Précédente';
+            prevBtn.onclick = () => showStoryMenu(setActiveStorySet(activeStorySetIndex - 1));
+            navContainer.appendChild(prevBtn);
+        }
+
+        if (activeStorySetIndex < storyCollections.length - 1) {
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'btn';
+            nextBtn.innerHTML = 'Collection Suivante <span>&rarr;</span>';
+            nextBtn.onclick = () => showStoryMenu(setActiveStorySet(activeStorySetIndex + 1));
+            navContainer.appendChild(nextBtn);
+        }
+        content.appendChild(navContainer);
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux sujets', showTopicMenu);
     }
 
-    function showMagicStory(storyIndex) {
-        document.body.classList.add('stage-controls-visible');
+    function showStoryReadModeSelection(storyIndex) {
+        const story = magicStories[storyIndex];
+        content.innerHTML = '';
+        document.body.classList.add('in-story-mode'); // Ensure in-story-mode is present
+        document.body.classList.remove('story-menu-active');
+
+        const title = document.createElement('div');
+        title.className = 'question-prompt story-menu-title fx-bounce-in-down';
+        title.textContent = story.title;
+        content.appendChild(title);
+
+        const selectionBox = document.createElement('div');
+        selectionBox.className = 'story-mode-selection fx-bounce-in-down';
+        selectionBox.style.animationDelay = '0.1s';
+
+        const readToMeBtn = document.createElement('button');
+        readToMeBtn.className = 'btn story-mode-btn';
+        readToMeBtn.innerHTML = '<span>📖</span> Lis-moi l\'histoire';
+        readToMeBtn.onclick = () => showMagicStory(storyIndex);
+        selectionBox.appendChild(readToMeBtn);
+
+        const readMyselfBtn = document.createElement('button');
+        readMyselfBtn.className = 'btn story-mode-btn';
+        readMyselfBtn.innerHTML = '<span>🙋‍♀️</span> Je lis toute seule';
+        readMyselfBtn.onclick = () => showMagicStory(storyIndex);
+        selectionBox.appendChild(readMyselfBtn);
+
+        content.appendChild(selectionBox);
+        configureBackButton('Retour aux contes', showStoryMenu);
+    }
+
+    function showMagicStory(storyIndex, event) {
+        const bookElement = event?.currentTarget;
+        if (bookElement) {
+            const rect = bookElement.getBoundingClientRect();
+            const bookClone = bookElement.cloneNode(true);
+            bookClone.classList.add('story-book--transition');
+            bookClone.style.setProperty('--book-top', `${rect.top}px`);
+            bookClone.style.setProperty('--book-left', `${rect.left}px`);
+            bookClone.style.setProperty('--book-width', `${rect.width}px`);
+            bookClone.style.setProperty('--book-height', `${rect.height}px`);
+            document.body.appendChild(bookClone);
+
+            requestAnimationFrame(() => {
+                bookClone.classList.add('is-opening');
+            });
+
+            setTimeout(() => {
+                loadStoryContent(storyIndex);
+                bookClone.remove();
+            }, 600); // Match CSS transition duration
+        } else {
+            loadStoryContent(storyIndex);
+        }
+    }
+
+    function loadStoryContent(storyIndex) {
+        document.body.classList.remove('story-menu-active');
+        document.body.classList.add('in-story-mode');
         content.innerHTML = '';
         const story = magicStories[storyIndex];
         gameState.currentStoryIndex = storyIndex;
+
         const storyContainer = document.createElement('div');
         storyContainer.className = 'story-container fx-bounce-in-down';
-        const titleEl = document.createElement('h2');
-        titleEl.textContent = story.title;
-        storyContainer.appendChild(titleEl);
 
-        const storyToolbar = document.createElement('div');
-        storyToolbar.className = 'story-toolbar';
+        const titleWrapper = document.createElement('div');
+        titleWrapper.className = 'story-title-wrapper';
+
+        const titleEl = document.createElement('h2');
+        titleEl.className = 'story-title';
+        titleEl.textContent = story.title;
+        titleWrapper.appendChild(titleEl);
 
         const fullStoryText = story.text.join(' ');
         const listenBtn = createAudioButton({
-            label: '📖',
+            label: '▶️',
             ariaLabel: 'Lire le conte en voix haute',
             onClick: () => speakText(`${story.title}. ${fullStoryText}`)
         });
-        if (listenBtn) {
-            listenBtn.classList.add('story-listen-btn');
-            listenBtn.textContent = '📖 Lire le conte';
-            storyToolbar.appendChild(listenBtn);
-            storyContainer.appendChild(storyToolbar);
-        }
+        listenBtn.classList.add('story-title-play-btn');
+        titleWrapper.appendChild(listenBtn);
+
+        storyContainer.appendChild(titleWrapper);
 
         if (story.image) {
             const img = document.createElement('img');
+            img.className = 'story-image';
             img.src = story.image;
             img.alt = story.title;
             storyContainer.appendChild(img);
         }
 
-        story.text.forEach(paragraph => {
+        story.text.forEach((paragraph, pIndex) => {
             const p = document.createElement('p');
+            p.className = 'story-paragraph';
+            p.style.animationDelay = `${pIndex * 0.2 + 0.5}s`;
             p.textContent = paragraph;
             storyContainer.appendChild(p);
         });
-        
+
         for(let i = 0; i < 5; i++) {
           const sparkle = document.createElement('span');
           sparkle.className = 'sparkle';
@@ -5453,14 +5313,15 @@ function generateNumberProblems(sum, count) {
         }
 
         const startQuizBtn = document.createElement('button');
-        startQuizBtn.className = 'btn submit-btn fx-bounce-in-down';
+        startQuizBtn.className = 'submit-btn fx-bounce-in-down';
         startQuizBtn.textContent = 'Commencer le quiz';
         startQuizBtn.style.marginTop = '2rem';
         startQuizBtn.addEventListener('click', () => startStoryQuiz(storyIndex));
-        
+
         content.appendChild(storyContainer);
         content.appendChild(startQuizBtn);
-        
+        setupFairyDustEffect(storyContainer);
+
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour aux contes', showStoryMenu);
@@ -5468,6 +5329,8 @@ function generateNumberProblems(sum, count) {
     
     function startStoryQuiz(storyIndex) {
         const story = magicStories[storyIndex];
+        document.body.classList.remove('story-menu-active');
+        document.body.classList.add('in-story-mode'); // Ensure in-story-mode is present
         document.body.classList.add('story-quiz-active');
         gameState.storyQuiz = story.quiz;
         gameState.currentQuestionIndex = 0;
@@ -5481,7 +5344,7 @@ function generateNumberProblems(sum, count) {
     }
     
     function loadQuizQuestion() {
-        document.body.classList.add('stage-controls-visible');
+        document.body.classList.add('in-story-mode');
         if (gameState.currentQuestionIndex >= gameState.storyQuiz.length) {
             showQuizResults();
             return;
@@ -5580,6 +5443,7 @@ function generateNumberProblems(sum, count) {
     }
 
     function showQuizResults() {
+        document.body.classList.add('in-story-mode'); // Ensure in-story-mode is present
         content.innerHTML = '';
         clearProgressTracker();
         const activeSetBefore = getActiveStorySet();
@@ -5594,11 +5458,13 @@ function generateNumberProblems(sum, count) {
         }
         const prompt = document.createElement('div');
         prompt.className = 'prompt ok fx-pop';
-        let promptMessage = 'Quiz terminé ! 🎉<p>Tu as gagné des étoiles et des pièces !</p>';
+        let promptMessage = '<h2>Quiz terminé ! 🎉</h2><p>Tu as gagné des étoiles et des pièces !</p>';
         if (unlockedNewSet) {
-            promptMessage += '<p>Nouvelle série de contes débloquée ✨</p>';
+            promptMessage += '<p class="new-collection-unlock">Nouvelle collection de contes débloquée ! ✨</p>';
+            showFireworks();
         }
         prompt.innerHTML = promptMessage;
+
         content.appendChild(prompt);
 
         gameState.historyTracker?.endGame({
@@ -5608,32 +5474,18 @@ function generateNumberProblems(sum, count) {
         });
 
         const backBtn = document.createElement('button');
-        backBtn.className = 'btn submit-btn fx-bounce-in-down';
+        backBtn.className = 'submit-btn fx-bounce-in-down';
         backBtn.textContent = 'Retourner aux contes';
         backBtn.addEventListener('click', showStoryMenu);
         content.appendChild(backBtn);
 
-        speakText('Quiz terminé ! Bravo !');
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
         configureBackButton('Retour au Menu Principal', showTopicMenu);
     }
 
-    function ensureSkyElements() {
-        if (document.getElementById('sky-elements')) {
-            return;
-        }
-        const sky = document.createElement('div');
-        sky.id = 'sky-elements';
-        sky.className = 'sky-elements';
-        sky.innerHTML = `
-            <div class="shooting-star"></div>
-            <div class="shooting-star"></div>
-            <div class="shooting-star"></div>`;
-        document.body.appendChild(sky);
-    }
-
     function showMemoryGameMenu() {
+      document.body.classList.remove('in-story-mode'); // Exit story mode
       clearProgressTracker();
       content.innerHTML = '';
 
@@ -5845,7 +5697,6 @@ function generateNumberProblems(sum, count) {
         }
 
         container.appendChild(instructionWrapper);
-        speakText(instruction.textContent);
 
         const zonesWrapper = document.createElement('div');
         zonesWrapper.className = 'sorting-zones';
@@ -6095,7 +5946,6 @@ function generateNumberProblems(sum, count) {
         }
 
         wrapper.appendChild(promptWrapper);
-        speakText(riddleData.prompt);
         updateProgressTracker(gameState.currentQuestionIndex + 1, questions.length);
 
         const optionsContainer = document.createElement('div');
@@ -6436,7 +6286,6 @@ function generateNumberProblems(sum, count) {
         }
 
         container.appendChild(promptWrapper);
-        speakText(title.textContent);
         updateProgressTracker(gameState.currentLevel, sequenceLevels.length);
 
         const sequenceContainer = document.createElement('div');
@@ -6665,7 +6514,6 @@ function generateNumberProblems(sum, count) {
     function win() {
         content.innerHTML = `<div class="question-prompt fx-pop">Tu as complété toutes les questions! 🎉</div>
                             <div class="prompt ok">Ton score final : ${userProgress.userScore.stars} étoiles et ${userProgress.userScore.coins} pièces.</div>`;
-        speakText("Tu as complété toutes les questions! Félicitations pour ton score final.");
         clearProgressTracker();
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
@@ -6719,11 +6567,20 @@ function generateNumberProblems(sum, count) {
 
     async function autoPlayModuleTopic(topic, totalLevels) {
         const cappedLevels = Math.max(0, Number(totalLevels) || 0);
+        const launcher = TOPIC_LAUNCHERS[topic];
         for (let level = 1; level <= cappedLevels; level++) {
             if (autoPlayAbort) { break; }
             autoPlayStatus.level = level;
             const wait = autoPlayRuntime.waitForLevel(topic, level);
-            markLevelCompleted(topic, level);
+            if (launcher) {
+                try {
+                    launcher(level);
+                } catch (e) {
+                    console.warn(`[autoplay] Failed to launch ${topic} level ${level}`, e);
+                }
+            } else {
+                markLevelCompleted(topic, level);
+            }
             await wait;
         }
         autoPlayStatus.level = null;
@@ -6852,4 +6709,5 @@ function generateNumberProblems(sum, count) {
 
     // --- Start Game ---
     init();
+    setupSpeechSynthesis();
 });

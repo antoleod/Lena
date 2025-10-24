@@ -27,7 +27,6 @@
         const displayLevel = context.currentLevel || index + 1;
 
         context.content.innerHTML = '';
-        context.speakText('Distribue correctement les objets pour gagner des étoiles.');
 
         const wrapper = document.createElement('div');
         wrapper.className = 'repartis-wrapper';

@@ -443,11 +443,12 @@
     }
 
     function ensureResultPresent(result, distractors) {
-        const combined = Array.from(new Set([result, ...distractors]));
-        while (combined.length < 4) {
-            combined.push(result + combined.length);
+        const distractorPool = Array.from(new Set(distractors)).filter(d => d !== result);
+        const options = [result];
+        if (distractorPool.length > 0) {
+            options.push(distractorPool[0]);
         }
-        return shuffle(combined).slice(0, 4);
+        return shuffle(options);
     }
 
     function buildSubtractionQuestion(levelConfig, level) {
@@ -905,4 +906,5 @@
         generateQuestion,
         resetCache
     });
+    }
 })(typeof window !== 'undefined' ? window : this);

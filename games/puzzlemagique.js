@@ -138,7 +138,6 @@
         });
 
         container.appendChild(optionsGrid);
-        context.speakText(question.questionText.replace('?', 'combien'));
     }
 
     function handleAnswer(context, state, button, grid) {

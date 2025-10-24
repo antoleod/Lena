@@ -151,8 +151,16 @@
       payload = legacyQuestion(operationKey, levelRef, levelData);
     }
 
-    const choices = payload.options.slice();
-    const answerIndex = Math.max(0, Math.min(choices.length - 1, payload.correct));
+    // Forzar solo 2 opciones: la correcta y una incorrecta.
+    const correctChoice = payload.options[payload.correct];
+    const distractors = payload.options.filter((opt, i) => i !== payload.correct);
+    let finalChoices = [correctChoice];
+    if (distractors.length > 0) {
+        finalChoices.push(distractors[0]);
+    }
+    finalChoices = shuffle(finalChoices);
+    const choices = finalChoices;
+    const answerIndex = choices.indexOf(correctChoice);
 
     return {
       prompt: payload.questionText || 'Résous cette opération magique ✨',

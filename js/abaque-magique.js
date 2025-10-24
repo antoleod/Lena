@@ -1,313 +1,337 @@
 (function () {
     'use strict';
 
-    // --- Configuration des Niveaux ---
-    const GAME_LEVELS = [
-        { level: 1, range: [11, 20], item: '🍓', color: '#a0e1e1' },
-        { level: 2, range: [21, 30], item: '⭐', color: '#caffbf' },
-        { level: 3, range: [31, 40], item: '🍄', color: '#fdffb6' },
-        { level: 4, range: [41, 50], item: '💎', color: '#9bf6ff' },
-        { level: 5, range: [51, 60], item: '🎈', color: '#a0c4ff' },
-        { level: 6, range: [61, 70], item: '🍎', color: '#bdb2ff' },
-        { level: 7, range: [71, 80], item: '🪙', color: '#ffc6ff' },
-        { level: 8, range: [81, 90], item: '🌸', color: '#ffadad' },
-        { level: 9, range: [91, 99], item: '☀️', color: '#ffd6a5' },
-        { level: 10, range: [11, 99], item: '🦄', color: '#fde4ff' } // Niveau final, mélange
-    ];
-    const EXERCISES_PER_LEVEL = 6;
+    const LEVELS = Array.from({ length: 12 }, (_, i) => {
+        const level = i + 1;
+        let range;
+        if (level <= 3) range = [1, 9];
+        else if (level <= 6) range = [10, 39];
+        else if (level <= 9) range = [40, 99];
+        else range = [100, 120];
+        return { level, range, questions: 7 };
+    });
 
-    let context, state;
+    let context, gameState;
 
-    /**
-     * Point d'entrée du jeu, appelé par juego.js
-     * @param {object} ctx - Le contexte du jeu principal.
-     */
     function start(ctx) {
         context = ctx;
-        state = {
-            currentLevel: 1,
-            currentExercise: 0,
-            exercises: [],
-            totalCorrect: 0,
-            useBlocks: true,
-            iconIndex: 0,
+        const savedState = context.loadProgress?.() || {};
+        gameState = {
+            level: context.currentLevel || 1,
+            questionIndex: 0,
+            questions: [],
+            beads: { dizaines: 0, unites: 0 },
+            targetNumber: 0,
+            hintLevel: 0,
+            ...savedState
         };
-        startLevel(state.currentLevel);
+        loadLevel(gameState.level);
     }
 
-    /**
-     * Prépare et lance un nouveau niveau.
-     * @param {number} levelNumber - Le numéro du niveau à démarrer.
-     */
-    function startLevel(levelNumber) {
-        const levelIndex = Math.max(0, Math.min(GAME_LEVELS.length - 1, levelNumber - 1));
-        const levelData = GAME_LEVELS[levelIndex];
-
-        state.currentLevel = levelNumber;
-        state.currentExercise = 0;
-        state.levelData = levelData;
-        state.exercises = generateExercises(levelData.range, EXERCISES_PER_LEVEL);
-
-        renderScene();
-        renderExercise();
+    function loadLevel(level) {
+        gameState.level = level;
+        gameState.questionIndex = 0;
+        const levelData = LEVELS[level - 1] || LEVELS[0];
+        gameState.questions = Array.from({ length: levelData.questions }, () =>
+            randomInt(levelData.range[0], levelData.range[1])
+        );
+        loadQuestion();
     }
 
-    /**
-     * Génère la structure principale de l'interface du jeu.
-     */
-    function renderScene() {
+    function saveState() {
+        context.saveProgress?.(gameState);
+    }
+
+    function loadQuestion() {
+        if (gameState.questionIndex >= gameState.questions.length) {
+            levelComplete();
+            return;
+        }
+        gameState.targetNumber = gameState.questions[gameState.questionIndex];
+        gameState.beads = { dizaines: 0, unites: 0 };
+        gameState.hintLevel = 0;
+        render();
+    }
+
+    function render() {
         context.content.innerHTML = '';
-        context.content.className = 'content-container abaque-container';
+        context.content.className = 'content-container abaque-container-v2';
 
         const wrapper = document.createElement('div');
-        wrapper.className = 'abaque-wrapper fx-bounce-in-down';
-
-        // Barre de progression
-        const progress = document.createElement('div');
-        progress.id = 'abaque-progress';
-        progress.className = 'abaque-progress';
-        wrapper.appendChild(progress);
-
-        // Titre
-        const title = document.createElement('h2');
-        title.className = 'abaque-title';
-        title.id = 'abaque-title';
-        wrapper.appendChild(title);
-
-        // Toolbar: mode toggle + icon select + legend
-        const toolbar = document.createElement('div');
-        toolbar.className = 'abaque-toolbar';
-        const modeBtn = document.createElement('button');
-        modeBtn.className = 'abaque-btn';
-        modeBtn.type = 'button';
-        modeBtn.textContent = state.useBlocks ? '🎨 Mode Emoji' : '🎨 Mode Blocs';
-        modeBtn.addEventListener('click', () => {
-            state.useBlocks = !state.useBlocks;
-            modeBtn.textContent = state.useBlocks ? '🎨 Mode Emoji' : '🎨 Mode Blocs';
-            renderExercise();
-        });
-        const iconSelect = document.createElement('select');
-        iconSelect.className = 'abaque-select';
-        ['🍄','⭐️','🍎'].forEach((icon, i) => {
-            const opt = document.createElement('option');
-            opt.value = String(i);
-            opt.textContent = icon;
-            if (i === state.iconIndex) opt.selected = true;
-            iconSelect.appendChild(opt);
-        });
-        iconSelect.addEventListener('change', () => {
-            state.iconIndex = parseInt(iconSelect.value, 10) || 0;
-            if (!state.useBlocks) renderExercise();
-        });
-        const legend = document.createElement('div');
-        legend.className = 'abaque-legend';
-        legend.textContent = 'D = dizaines (blocs de 10) | U = unités (blocs individuels)';
-        toolbar.append(modeBtn, iconSelect, legend);
-        wrapper.appendChild(toolbar);
-
-        // Consigne
-        const prompt = document.createElement('p');
-        prompt.className = 'abaque-prompt';
-        prompt.textContent = `Observe les objets, puis écris le nombre de dizaines (D) et d'unités (U).`;
-        wrapper.appendChild(prompt);
-
-        // Zone des objets (manquante)
-        const pool = document.createElement('div');
-        pool.id = 'abaque-pool';
-        pool.className = 'abaque-pool';
-        wrapper.appendChild(pool);
-
-        // Zone de réponse
-        const answerArea = document.createElement('div');
-        answerArea.className = 'abaque-answer-area';
-        const tensInputWrapper = createInput('D', 'dizaines-input', 'Dizaines');
-        const unitsInputWrapper = createInput('U', 'unites-input', 'Unités');
-        answerArea.appendChild(tensInputWrapper);
-        answerArea.appendChild(unitsInputWrapper);
-        wrapper.appendChild(answerArea);
-
-        // Boutons de contrôle
-        const controls = document.createElement('div');
-        controls.className = 'abaque-controls';
-        const validateBtn = document.createElement('button');
-        validateBtn.id = 'abaque-validate-btn';
-        validateBtn.className = 'abaque-btn';
-        validateBtn.textContent = 'Vérifier';
-        validateBtn.addEventListener('click', handleValidation);
-        controls.appendChild(validateBtn);
-
-        const restartBtn = document.createElement('button');
-        restartBtn.id = 'abaque-restart-btn';
-        restartBtn.className = 'abaque-btn abaque-btn--secondary';
-        restartBtn.textContent = '🔄 Recommencer';
-        restartBtn.addEventListener('click', () => start(context));
-        controls.appendChild(restartBtn);
-
-        wrapper.appendChild(controls);
-
+        wrapper.className = 'abaque-v2-wrapper fx-pop';
+        wrapper.innerHTML = `
+            <div class="abaque-v2-header">
+                <p class="abaque-v2-progress">Question ${gameState.questionIndex + 1} / ${gameState.questions.length}</p>
+                <p class="abaque-v2-target">Représente le nombre : <strong>${gameState.targetNumber}</strong></p>
+            </div>
+            <div class="abaque-v2-hud">
+                <div class="hud-item">
+                    <span class="hud-label">Dizaines</span>
+                    <span class="hud-icon">⭐</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Unités</span>
+                    <span class="hud-icon">🦄</span>
+                </div>
+                <div class="hud-item hud-item--total">
+                    <span class="hud-label">Total</span>
+                    <span class="hud-value" id="hud-total">0 / ${gameState.targetNumber}</span>
+                </div>
+                <div class="hud-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="hud-progress-bar__fill" id="hud-progress-fill"></div>
+                </div>
+            </div>
+            <div class="abaque-v2-main">
+                ${/* Asegura que la columna de decenas se muestre si el nivel puede alcanzar 10 o más */''}
+                ${(LEVELS[gameState.level - 1]?.range[1] || 0) >= 10 ? createColumnHTML('dizaines') : ''}
+                ${createColumnHTML('unites')}
+            </div>
+            <div class="abaque-v2-controls">
+                <button class="abaque-v2-btn abaque-v2-btn--hint" aria-label="Donner un indice">💡 Indice</button>
+                <button class="abaque-v2-btn abaque-v2-btn--check">Vérifier</button>
+            </div>
+        `;
         context.content.appendChild(wrapper);
-        context.configureBackButton('Retour aux jeux', () => context.goToTopics());
+        attachEventListeners();
+        updateDisplay();
     }
 
-    /**
-     * Affiche un exercice spécifique.
-     */
-    function renderExercise() {
-        const exercise = state.exercises[state.currentExercise];
-        if (!exercise) return;
-
-        // Mise à jour du fond et du titre
-        document.body.style.backgroundColor = state.levelData.color;
-        document.getElementById('abaque-title').textContent = `Niveau ${state.currentLevel}`;
-
-        // Mise à jour de la barre de progression
-        const progressEl = document.getElementById('abaque-progress');
-        progressEl.textContent = `Exercice ${state.currentExercise + 1} / ${EXERCISES_PER_LEVEL} — Niveau ${state.currentLevel}`;
-
-        // Affichage des objets groupés par dizaines
-        const pool = document.getElementById('abaque-pool');
-        pool.innerHTML = '';
-        let totalItemsAnimated = 0;
-
-        for (let i = 0; i < exercise.tens; i++) {
-            const group = document.createElement('div');
-            group.className = 'abaque-tens-group';
-            for (let j = 0; j < 10; j++) {
-                const item = document.createElement('span');
-                item.className = 'abaque-item';
-                item.textContent = state.levelData.item;
-                item.style.animationDelay = `${totalItemsAnimated * 0.04}s`;
-                group.appendChild(item);
-                totalItemsAnimated++;
-            }
-            pool.appendChild(group);
-        }
-
-        if (exercise.units > 0) {
-            const group = document.createElement('div');
-            group.className = 'abaque-units-group';
-            for (let i = 0; i < exercise.units; i++) {
-                const item = document.createElement('span');
-                item.className = 'abaque-item';
-                item.textContent = state.levelData.item;
-                item.style.animationDelay = `${totalItemsAnimated * 0.04}s`;
-                group.appendChild(item);
-                totalItemsAnimated++;
-            }
-            pool.appendChild(group);
-        }
-
-        // Réinitialisation des champs de saisie
-        const tensInput = document.getElementById('dizaines-input');
-        const unitsInput = document.getElementById('unites-input');
-        tensInput.value = '';
-        unitsInput.value = '';
-        tensInput.classList.remove('correct', 'incorrect');
-        unitsInput.classList.remove('correct', 'incorrect');
-        document.getElementById('abaque-validate-btn').disabled = false;
-        tensInput.focus();
-    }
-
-    /**
-     * Crée un champ de saisie avec son label.
-     */
-    function createInput(labelText, id, ariaLabel) {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'abaque-input-wrapper';
-        const label = document.createElement('label');
-        label.className = 'abaque-input-label';
-        label.setAttribute('for', id);
-        label.textContent = labelText;
-        const input = document.createElement('input');
-        input.type = 'tel'; // 'tel' pour un clavier numérique sur mobile
-        input.id = id;
-        input.className = 'abaque-input';
-        input.setAttribute('aria-label', ariaLabel);
-        input.setAttribute('pattern', '[0-9]*');
-        input.setAttribute('maxlength', '1');
-        wrapper.appendChild(label);
-        wrapper.appendChild(input);
-        return wrapper;
-    }
-
-    /**
-     * Gère la validation de la réponse de l'utilisateur.
-     */
-    function handleValidation() {
-        const tensInput = document.getElementById('dizaines-input');
-        const unitsInput = document.getElementById('unites-input');
-        const tensValue = parseInt(tensInput.value, 10);
-        const unitsValue = parseInt(unitsInput.value, 10);
-
-        const exercise = state.exercises[state.currentExercise];
-        const isTensCorrect = tensValue === exercise.tens;
-        const isUnitsCorrect = unitsValue === exercise.units;
-
-        tensInput.classList.toggle('correct', isTensCorrect);
-        tensInput.classList.toggle('incorrect', !isTensCorrect);
-        unitsInput.classList.toggle('correct', isUnitsCorrect);
-        unitsInput.classList.toggle('incorrect', !isUnitsCorrect);
-
-        document.getElementById('abaque-validate-btn').disabled = true;
-
-        if (isTensCorrect && isUnitsCorrect) {
-            context.playPositiveSound();
-            context.showSuccessMessage('Bravo !');
-            context.awardReward(5, 3);
-            context.showConfetti();
-            const nextBtn = document.getElementById('abaque-next-btn');
-            if (nextBtn) nextBtn.disabled = false;
-        } else {
-            context.playNegativeSound();
-            context.showErrorMessage('Essaie encore !', 'Regroupe bien les objets par 10.');
-            context.awardReward(0, -1);
-            setTimeout(() => {
-                document.getElementById('abaque-validate-btn').disabled = false;
-            }, 1000);
-        }
-    }
-
-    /**
-     * Affiche l'écran de victoire final.
-     */
-    function showFinalVictory() {
-        context.content.innerHTML = `
-            <div class="abaque-wrapper fx-bounce-in-down">
-                <h2 class="abaque-title">🎉 Félicitations !</h2>
-                <p class="abaque-prompt" style="font-size: 1.5rem;">Tu maîtrises les nombres jusqu’à 100 !</p>
-                <div class="abaque-controls">
-                    <button id="abaque-restart-btn" class="abaque-btn">🔄 Recommencer</button>
+    function createColumnHTML(type) {
+        const label = type === 'dizaines' ? 'Dizaines' : 'Unités';
+        return `
+            <div class="abaque-v2-column" data-type="${type}">
+                <div class="abaque-v2-beads-container"></div>
+                <div class="abaque-v2-rod"></div>
+                <span class="abaque-v2-label">${label}</span>
+                <div class="abaque-v2-col-controls">
+                    <button class="col-btn col-btn--add" data-action="add" data-type="${type}" aria-label="Ajouter une ${type}">+</button>
+                    <button class="col-btn col-btn--remove" data-action="remove" data-type="${type}" aria-label="Retirer une ${type}">-</button>
                 </div>
             </div>
         `;
-        context.showConfetti();
-        document.getElementById('abaque-restart-btn').addEventListener('click', () => start(context));
     }
 
-    /**
-     * Génère une liste d'exercices uniques pour un niveau.
-     */
-    function generateExercises(range, count) {
-        const exercises = new Set();
-        while (exercises.size < count) {
-            const num = randomInt(range[0], range[1]);
-            exercises.add(num);
+    function attachEventListeners() {
+        document.querySelector('.abaque-v2-btn--check').addEventListener('click', checkAnswer);
+        document.querySelector('.abaque-v2-btn--hint').addEventListener('click', showHint);
+
+        document.querySelectorAll('.col-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                animateButtonPress(btn);
+                const { action, type } = btn.dataset;
+                if (action === 'add') addBead(type, btn); // Corregido: llamada única
+                else removeBead(type);
+            });
+        });
+
+        document.addEventListener('keydown', handleKeyboard);
+        context.configureBackButton('Retour aux niveaux', () => {
+            document.removeEventListener('keydown', handleKeyboard);
+            context.showLevelMenu('abaque-magique');
+        });
+    }
+
+    function handleKeyboard(e) {
+        switch (e.key) {
+            case 'ArrowRight': addBead('unites'); break;
+            case 'ArrowLeft': removeBead('unites'); break;
+            case 'ArrowUp': addBead('dizaines'); break;
+            case 'ArrowDown': removeBead('dizaines'); break;
+            case 'Enter': checkAnswer(); break;
         }
-        return Array.from(exercises).map(num => ({
-            number: num,
-            tens: Math.floor(num / 10),
-            units: num % 10
-        }));
     }
 
-    /**
-     * Génère un entier aléatoire dans un intervalle.
-     */
+    function addBead(type, btn) { // Corregido: definición única de la función
+        const currentTotal = (gameState.beads.dizaines * 10) + gameState.beads.unites;
+        if (currentTotal >= gameState.targetNumber) return;
+
+        
+        if (type === 'unites') {
+            gameState.beads.unites++;
+            // Si se alcanzan 10 unidades, activa la animación de conversión
+            if (gameState.beads.unites === 10) {
+                animateUnitToTenConversion();
+                return; // La animación se encargará de actualizar el estado
+            }
+        } else if (type === 'dizaines') {
+            gameState.beads.dizaines++;
+        }
+
+        context.playPositiveSound?.();
+        updateDisplay();
+    }
+
+    function removeBead(type) {
+        if (type === 'unites' && gameState.beads.unites > 0) {
+            gameState.beads.unites--;
+        } else if (type === 'dizaines' && gameState.beads.dizaines > 0) {
+            gameState.beads.dizaines--;
+        }
+        context.playNegativeSound?.();
+        updateDisplay();
+    }
+
+    function animateButtonPress(button) {
+        button.classList.add('is-pressed');
+        setTimeout(() => button.classList.remove('is-pressed'), 200);
+    }
+
+    function animateUnitToTenConversion() {
+        const unitesColumn = document.querySelector('.abaque-v2-column[data-type="unites"]');
+        const dizainesColumn = document.querySelector('.abaque-v2-column[data-type="dizaines"]');
+
+        if (!unitesColumn || !dizainesColumn) {
+            // Fallback si una columna no existe, realiza la conversión directamente
+            gameState.beads.unites = 0;
+            gameState.beads.dizaines++;
+            updateDisplay();
+            return;
+        }
+
+        // Aplica clases para la animación
+        unitesColumn.classList.add('is-converting');
+        dizainesColumn.classList.add('is-receiving');
+
+        setTimeout(() => {
+            gameState.beads.unites = 0;
+            gameState.beads.dizaines++;
+            updateDisplay(); // Actualiza el estado y la UI
+            dizainesColumn.classList.remove('is-receiving'); // Limpia la clase
+        }, 500); // Duración de la animación
+    }
+
+    function updateDisplay() {
+        const { dizaines, unites } = gameState.beads;
+        const currentTotal = (dizaines * 10) + unites;
+
+        // Update HUD
+        updateHudValue('hud-total', `${currentTotal} / ${gameState.targetNumber}`);
+
+        // Update Progress Bar
+        const progressPercent = (currentTotal / gameState.targetNumber) * 100;
+        const progressBarFill = document.getElementById('hud-progress-fill');
+        progressBarFill.style.width = `${Math.min(100, progressPercent)}%`;
+        progressBarFill.parentElement.setAttribute('aria-valuenow', Math.round(progressPercent));
+
+        // Render Beads
+        renderColumnBeads('dizaines', dizaines);
+        renderColumnBeads('unites', unites);
+        saveState();
+    }
+
+    function renderColumnBeads(type, count) {
+        const container = document.querySelector(`.abaque-v2-column[data-type="${type}"] .abaque-v2-beads-container`);
+        if (!container) return;
+
+        // Limpia la clase de conversión de las unidades cuando se redibuja
+        if (type === 'unites') {
+            container.parentElement.classList.remove('is-converting');
+        }
+        container.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+            const bead = document.createElement('div');
+            bead.className = `abaque-v2-bead abaque-v2-bead--${type}`;
+            bead.style.animationDelay = `${i * 0.05}s`;
+            container.appendChild(bead);
+        }
+    }
+
+    function updateHudValue(elementId, newValue) {
+        const element = document.getElementById(elementId);
+        if (element && element.textContent !== String(newValue)) {
+            element.textContent = newValue;
+            element.classList.add('fx-pop-small');
+            setTimeout(() => element.classList.remove('fx-pop-small'), 200);
+        }
+    }
+
+    function checkAnswer() {
+        const userAnswer = (gameState.beads.dizaines * 10) + gameState.beads.unites;
+        const correctAnswer = gameState.targetNumber;
+        const wrapper = document.querySelector('.abaque-v2-wrapper');
+
+        if (!isNaN(userAnswer) && userAnswer === correctAnswer) {
+            context.awardReward(10, 5);
+            window.ui.toast('Bravo ! ✅', 'success');
+            wrapper.classList.add('correct');
+            gameState.questionIndex++;
+            document.removeEventListener('keydown', handleKeyboard);
+            // Asegurarse de que el avance automático funcione
+            setTimeout(() => {
+                loadQuestion();
+            }, 1500);
+        } else {
+            context.awardReward(0, -1);
+            window.ui.toast('Presque… vérifie tes dizaines et unités.', 'error');
+            wrapper.classList.add('incorrect');
+            setTimeout(() => wrapper.classList.remove('incorrect'), 350);
+        }
+    }
+
+    function showHint() {
+        gameState.hintLevel++;
+        const target = gameState.targetNumber;
+        const d = Math.floor(target / 10);
+        const u = target % 10;
+
+        let msg = '';
+        let highlightColumn = null;
+
+        switch (gameState.hintLevel) {
+            case 1:
+                msg = 'Commence par faire des dizaines (10 unités = 1 dizaine).';
+                highlightColumn = 'dizaines';
+                break;
+            case 2:
+                if (d > 0) {
+                    msg = `Le nombre ${target} a ${d} dizaine(s).`;
+                    highlightColumn = 'dizaines';
+                } else {
+                    msg = `Le nombre ${target} a ${u} unité(s).`;
+                    highlightColumn = 'unites';
+                }
+                break;
+            case 3:
+                msg = `Guide : ${d > 0 ? d + ' dizaine(s) et ' : ''}${u} unité(s).`;
+                highlightColumn = 'unites';
+                break;
+            default:
+                msg = `Solution : ${target} = ${d}D et ${u}U.`;
+                gameState.hintLevel = 0; // Cycle hints
+                break;
+        }
+        window.ui.toast(msg, 'hint');
+
+        if (highlightColumn) {
+            const colEl = document.querySelector(`.abaque-v2-column[data-type="${highlightColumn}"]`);
+            if (colEl) {
+                colEl.classList.add('highlight');
+                setTimeout(() => colEl.classList.remove('highlight'), 1200);
+            }
+        }
+    }
+
+    function levelComplete() {
+        context.markLevelCompleted();
+        window.ui.toast(`Niveau ${gameState.level} terminé !`, 'success');
+        if (gameState.level < LEVELS.length) {
+            loadLevel(gameState.level + 1);
+        } else {
+            context.showSuccessMessage('Tu as terminé tous les niveaux de l\'abaque !');
+            setTimeout(() => context.showLevelMenu('abaque-magique'), 2000);
+        }
+    }
+
+    function getLevelCount() {
+        return LEVELS.length;
+    }
+
     function randomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     window.abaqueMagiqueGame = {
-        start
+        start,
+        getLevelCount,
     };
 })();

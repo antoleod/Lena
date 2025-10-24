@@ -906,6 +906,10 @@ window.storySetOne = [
   {
     id: 'foret-etoilee',
     title: 'La Forêt Étoilée',
+    bilingualTitle: { en: 'The Starry Forest' },
+    theme: 'Aventure',
+    duration: 2,
+    icon: '🌌',
     image: null,
     text: [
       "Léna marche dans une forêt douce et lumineuse.",
@@ -928,6 +932,10 @@ window.storySetOne = [
   {
     id: 'pont-arc-en-ciel',
     title: 'Le Pont Arc‑en‑ciel',
+    bilingualTitle: { en: 'The Rainbow Bridge' },
+    theme: 'Magie',
+    duration: 1,
+    icon: '🌈',
     image: null,
     text: [
       "Un petit pont coloré apparaît au-dessus de la rivière.",
@@ -941,6 +949,208 @@ window.storySetOne = [
         answer: 0
       }
     ]
+  },
+  {
+    id: 'grenier-secret',
+    title: 'Le Secret du Grenier',
+    bilingualTitle: { en: 'The Attic\'s Secret' },
+    theme: 'Mystère',
+    duration: 3,
+    icon: '📦',
+    image: null,
+    text: [
+      "Un jour de pluie, Léna et son chat Yaya montent au grenier.",
+      "Yaya, en explorant, fait tomber une vieille boîte. Dedans, une carte mystérieuse !",
+      "La carte montre une croix dessinée derrière une armoire. \"Allons voir, Yaya !\", dit Léna.",
+      "Derrière l'armoire, ils trouvent un petit coffre rempli de jouets anciens. Le plus beau des trésors !"
+    ],
+    quiz: [
+      {
+        question: "Où Léna et Yaya trouvent-ils la carte ?",
+        options: ["Dans le jardin", "Dans le grenier", "Dans la cuisine"],
+        answer: 1
+      },
+      {
+        question: "Que découvrent-ils grâce à la carte ?",
+        options: ["Un coffre au trésor", "Un passage secret", "Un gâteau au chocolat"],
+        answer: 0
+      }
+    ]
+  },
+  {
+    id: 'jardin-murmures',
+    title: 'Le Jardin des Murmures',
+    bilingualTitle: { en: 'The Whispering Garden' },
+    theme: 'Nature',
+    duration: 2,
+    icon: '🌸',
+    image: null,
+    text: [
+      "Dans le jardin de Léna, les fleurs ne font pas que sentir bon, elles murmurent des secrets.",
+      "Une rose lui chuchote : \"Le plus grand trésor est l'amitié.\"",
+      "Un tournesol ajoute : \"Et le soleil est son plus grand sourire.\"",
+      "Léna sourit, heureuse de connaître le langage des fleurs."
+    ],
+    quiz: [
+      {
+        question: "Que font les fleurs dans le jardin de Léna ?",
+        options: ["Elles chantent", "Elles murmurent des secrets", "Elles dansent"],
+        answer: 1
+      }
+    ]
+  },
+  {
+    id: 'peintre-renard',
+    title: 'Le Renard Peintre',
+    bilingualTitle: { en: 'The Painting Fox' },
+    theme: 'Créativité',
+    duration: 1,
+    icon: '🦊',
+    image: null,
+    text: [
+      "Un petit renard trouve des pots de peinture abandonnés dans la forêt.",
+      "Avec sa queue, il dessine un arc-en-ciel sur une grande pierre.",
+      "Tous les animaux viennent admirer son œuvre d'art colorée."
+    ]
+  },
+  {
+    id: 'nuage-sculpteur',
+    title: 'Le Nuage Sculpteur',
+    bilingualTitle: { en: 'The Cloud Sculptor' },
+    theme: 'Créativité',
+    duration: 2,
+    icon: '☁️',
+    text: [
+      "Dans le ciel, un petit nuage s'ennuie.",
+      "Il décide de se transformer en mouton, puis en dragon, puis en bateau.",
+      "Léna, depuis son jardin, applaudit à chaque nouvelle sculpture."
+    ],
+    quiz: [{
+      question: "En quoi le nuage ne se transforme-t-il PAS ?",
+      options: ["Mouton", "Maison", "Dragon"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'cle-chansons',
+    title: 'La Clé des Chansons',
+    bilingualTitle: { en: 'The Key of Songs' },
+    theme: 'Magie',
+    duration: 2,
+    icon: '🔑',
+    text: [
+      "Léna trouve une clé en or qui ne semble ouvrir aucune porte.",
+      "En la posant sur une fleur, la fleur se met à chanter une douce mélodie.",
+      "La clé magique peut faire chanter n'importe quel objet !"
+    ]
+  },
+  {
+    id: 'gnome-grincheux',
+    title: 'Le Grincheux du Potager',
+    bilingualTitle: { en: 'The Grumpy Gardener' },
+    theme: 'Humour',
+    duration: 2,
+    icon: '😠',
+    text: [
+      "Gnorman le gnome avait un potager. Mais Gnorman était toujours grincheux.",
+      "Ses carottes poussaient avec des visages fâchés. Ses tomates boudaient sur la vigne.",
+      "Un jour, une coccinelle lui raconta une blague. Gnorman éclata de rire !",
+      "Soudain, tous ses légumes se mirent à sourire. Un potager heureux, c'est bien meilleur !"
+    ],
+    quiz: [{
+      question: "Pourquoi les légumes de Gnorman étaient-ils fâchés ?",
+      options: ["Parce qu'il ne pleuvait pas", "Parce que Gnorman était grincheux", "Parce qu'ils n'aimaient pas le soleil"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'chaussette-voleuse',
+    title: 'La Chaussette Voleuse',
+    bilingualTitle: { en: 'The Sock Thief' },
+    theme: 'Humour',
+    duration: 2,
+    icon: '🧦',
+    text: [
+      "Dans la machine à laver de Léna, vivait une chaussette magique nommée Socquette.",
+      "Socquette n'aimait pas être seule. Son jeu préféré ? Manger les autres chaussettes pour leur faire des câlins.",
+      "C'est pour ça qu'il manque toujours une chaussette après la lessive !",
+      "Mais ne t'inquiète pas, elle les relâche quand elles ont eu assez de câlins."
+    ],
+    quiz: [{
+      question: "Quel est le jeu préféré de Socquette ?",
+      options: ["Faire des bulles", "Manger les autres chaussettes", "Se cacher dans les pantalons"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'dragon-peureux',
+    title: 'Le Dragon qui avait peur des Souris',
+    bilingualTitle: { en: 'The Dragon Who Was Afraid of Mice' },
+    theme: 'Humour',
+    duration: 3,
+    icon: '🐲',
+    text: [
+      "Ignis était un grand dragon rouge qui gardait un trésor immense.",
+      "Il n'avait peur de rien... sauf des souris !",
+      "Un jour, une petite souris nommée Pipa entra dans sa grotte. Ignis sauta sur une pile d'or en criant.",
+      "Pipa, voyant le dragon terrifié, lui promit de ne plus entrer s'il partageait une pièce d'or. Ignis accepta aussitôt !"
+    ],
+    quiz: [{
+      question: "De quoi le dragon Ignis a-t-il peur ?",
+      options: ["Des chevaliers", "Des souris", "Du noir"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'mystere-fil-scintillant',
+    title: 'Le Mystère du Fil Scintillant',
+    bilingualTitle: { en: 'The Mystery of the Glimmering Thread' },
+    theme: 'Mystère',
+    duration: 5,
+    icon: '🧵',
+    text: [
+      "Un matin, Yaya le chat découvrit un fil scintillant dans le jardin. Il brillait de mille feux sous le soleil.",
+      "Intrigué, il donna un petit coup de patte. Le fil se déroula, menant vers la maison. Léna, voyant le manège de Yaya, décida de le suivre.",
+      "Le fil les guida sous le canapé, derrière la bibliothèque, puis monta à l'étage. \"Où nous mènes-tu, petit fil ?\" murmura Léna.",
+      "Le fil s'arrêtait devant une petite porte oubliée : celle du grenier. Ensemble, ils montèrent les marches poussiéreuses.",
+      "Là, dans un coin sombre, le fil était attaché à une vieille boîte à musique. Léna l'ouvrit doucement.",
+      "Une douce mélodie s'éleva, remplissant le grenier de magie. Le fil n'était qu'une toile d'araignée capturant la lumière, mais il les avait menés à un véritable trésor de souvenirs."
+    ],
+    quiz: [{
+      question: "Qu'est-ce que Yaya a trouvé dans le jardin ?",
+      options: ["Un os", "Un fil scintillant", "Une fleur magique"],
+      answer: 1
+    }, {
+      question: "Où le fil les a-t-il conduits ?",
+      options: ["À la cuisine", "Au grenier", "Dans la chambre de Léna"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'course-feuilles-automne',
+    title: 'La Course des Feuilles d\'Automne',
+    bilingualTitle: { en: 'The Autumn Leaf Race' },
+    theme: 'Aventure',
+    duration: 6,
+    icon: '🍂',
+    text: [
+      "C'était un jour d'automne venteux. Les feuilles dansaient dans les airs. \"Et si on faisait une course, Yaya ?\" proposa Léna.",
+      "Léna choisit une grande feuille rouge et Yaya une petite feuille jaune. Au signal, ils les lâchèrent.",
+      "Le vent emporta les feuilles à travers le parc. Elles tourbillonnaient, passaient au-dessus des flaques d'eau et se faufilaient entre les arbres.",
+      "La feuille de Léna prit de l'avance, mais celle de Yaya, plus légère, la rattrapa. Le chat miaulait d'excitation en la poursuivant.",
+      "Soudain, la feuille de Yaya se coinça dans une branche basse. Le chat, déçu, s'assit en la regardant.",
+      "Léna, voyant son ami triste, abandonna sa propre course. Elle grimpa sur le banc, libéra la feuille jaune et la rendit à Yaya.",
+      "\"Peu importe qui gagne,\" dit-elle en caressant son chat. \"L'important, c'est de s'amuser ensemble.\" Ils regardèrent les deux feuilles s'envoler, côte à côte, vers le ciel."
+    ],
+    quiz: [{
+      question: "Quelle couleur était la feuille de Léna ?",
+      options: ["Jaune", "Rouge", "Verte"],
+      answer: 1
+    }, {
+      question: "Pourquoi la feuille de Yaya s'est-elle arrêtée ?",
+      options: ["Elle est tombée dans l'eau", "Elle s'est coincée dans une branche", "Le vent s'est arrêté"],
+      answer: 1
+    }]
   }
 ];
 
@@ -948,6 +1158,10 @@ window.storySetTwo = [
   {
     id: 'train-des-reves',
     title: 'Le Train des Rêves',
+    bilingualTitle: { en: 'The Dream Train' },
+    theme: 'Aventure',
+    duration: 2,
+    icon: '🚂',
     image: null,
     text: [
       "Un train tout doux arrive sans bruit.",
@@ -961,6 +1175,226 @@ window.storySetTwo = [
         answer: 0
       }
     ]
+  },
+  {
+    id: 'potion-de-rire',
+    title: 'La Potion de Rire',
+    bilingualTitle: { en: 'The Laughter Potion' },
+    theme: 'Humour',
+    duration: 2,
+    icon: '🧪',
+    image: null,
+    text: [
+      "Léna et Yaya le chat décident de devenir des magiciens. \"Faisons une potion magique, Yaya !\"",
+      "Dans un grand bol, Léna mélange du jus de pomme, de l'eau pétillante et un pétale de rose du jardin.",
+      "Yaya observe, le nez froncé. Il trempe une patte et la lèche. Soudain, il se met à ronronner très fort en riant !",
+      "Léna goûte aussi. La potion est délicieuse et la fait rire aux éclats avec son ami Yaya."
+    ],
+    quiz: [
+      {
+        question: "Quels ingrédients Léna utilise-t-elle ?",
+        options: ["Jus de pomme, eau et rose", "Lait et chocolat", "Jus d'orange et carottes"],
+        answer: 0
+      }
+    ]
+  },
+  {
+    id: 'bibliotheque-etoiles',
+    title: 'La Bibliothèque sous les Étoiles',
+    bilingualTitle: { en: 'The Library Under the Stars' },
+    theme: 'Magie',
+    duration: 2,
+    icon: '📚',
+    image: null,
+    text: [
+      "Une nuit, Léna découvre une bibliothèque en plein air.",
+      "Les livres ont des couvertures qui scintillent comme des étoiles.",
+      "Chaque livre raconte l'histoire d'une constellation."
+    ],
+    quiz: [
+      {
+        question: "De quoi parlent les livres ?",
+        options: ["Des animaux", "Des constellations", "Des recettes"],
+        answer: 1
+      }
+    ]
+  },
+  {
+    id: 'chat-explorateur',
+    title: 'Le Chat Explorateur',
+    bilingualTitle: { en: 'The Explorer Cat' },
+    theme: 'Aventure',
+    duration: 2,
+    icon: '🐾',
+    image: null,
+    text: [
+      "Yaya, le chat de Léna, adore explorer.",
+      "Un jour, il grimpe sur le toit et découvre un nid d'oiseaux abandonné.",
+      "Dedans, il trouve une plume bleue brillante qu'il rapporte fièrement à Léna."
+    ],
+    quiz: [
+      {
+        question: "Que trouve Yaya sur le toit ?",
+        options: ["Une plume bleue", "Un trésor", "Un autre chat"],
+        answer: 0
+      }
+    ]
+  },
+  {
+    id: 'crayon-voyageur',
+    title: 'Le Crayon Voyageur',
+    bilingualTitle: { en: 'The Traveling Pencil' },
+    theme: 'Créativité',
+    duration: 2,
+    icon: '✏️',
+    text: [
+      "Léna a un crayon magique. Tout ce qu'elle dessine prend vie.",
+      "Elle dessine une petite porte sur son mur. La porte s'ouvre sur une plage ensoleillée.",
+      "Elle passe la journée à construire des châteaux de sable avant de redessiner la porte pour rentrer."
+    ],
+    quiz: [{
+      question: "Où la porte dessinée mène-t-elle ?",
+      options: ["Une forêt", "Une plage", "Une montagne"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'goutte-pluie',
+    title: 'La Goutte de Pluie Curieuse',
+    bilingualTitle: { en: 'The Curious Raindrop' },
+    theme: 'Nature',
+    duration: 1,
+    icon: '💧',
+    text: [
+      "Une petite goutte de pluie nommée Plume glisse d'un nuage.",
+      "Elle traverse un arc-en-ciel, se colore de mille feux, puis atterrit sur le pétale d'une tulipe.",
+      "La tulipe la remercie pour sa fraîcheur colorée."
+    ]
+  },
+  {
+    id: 'echo-montagne',
+    title: 'L\'Écho de la Montagne',
+    bilingualTitle: { en: 'The Mountain\'s Echo' },
+    theme: 'Nature',
+    duration: 1,
+    icon: '⛰️',
+    text: [
+        "Léna crie \"Bonjour !\" face à la montagne.",
+        "La montagne lui répond \"Bonjour... jour... our...\"",
+        "Amusée, Léna lui raconte une blague, et la montagne rit avec elle."
+    ]
+  },
+  {
+    id: 'bibliotheque-murmures',
+    title: 'La Bibliothèque des Murmures',
+    bilingualTitle: { en: 'The Library of Whispers' },
+    theme: 'Magie',
+    duration: 2,
+    icon: '🤫',
+    text: [
+        "Au fond du jardin se trouve une bibliothèque où les livres chuchotent leurs histoires.",
+        "Il ne faut pas lire les mots, mais écouter les pages.",
+        "Léna s'assoit et écoute un conte sur un dragon timide."
+    ],
+    quiz: [{
+        question: "Comment faut-il 'lire' les livres dans cette bibliothèque ?",
+        options: ["En les secouant", "En écoutant les pages", "En les regardant de loin"],
+        answer: 1
+    }]
+  },
+  {
+    id: 'fantome-noir',
+    title: 'Le Fantôme qui avait peur du Noir',
+    bilingualTitle: { en: 'The Ghost Who Was Afraid of the Dark' },
+    theme: 'Humour',
+    duration: 2,
+    icon: '👻',
+    text: [
+      "Phosfor était un fantôme très gentil, mais il avait un secret : il avait peur du noir.",
+      "Dès que la nuit tombait, il allumait toutes les lumières du château.",
+      "Les autres fantômes trouvaient ça bizarre, mais au moins, personne ne se cognait dans les couloirs !",
+      "Finalement, une petite luciole devint son amie et sa veilleuse personnelle."
+    ],
+    quiz: [{
+      question: "Quelle est la plus grande peur de Phosfor ?",
+      options: ["Des chats", "Du noir", "Des araignées"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'escargot-presse',
+    title: 'L\'Escargot Trop Pressé',
+    bilingualTitle: { en: 'The Snail in a Hurry' },
+    theme: 'Humour',
+    duration: 2,
+    icon: '🐌',
+    text: [
+      "Turbo l'escargot voulait être le plus rapide du jardin.",
+      "Il essaya de mettre des roulettes à sa coquille, mais il dérapa sur une tomate.",
+      "Il tenta de glisser sur une feuille de salade, mais il finit dans l'assiette du pique-nique.",
+      "Finalement, il comprit que la lenteur avait du bon : il était le seul à voir les jolies fleurs en chemin."
+    ],
+    quiz: [{
+      question: "Qu'est-ce que Turbo a essayé de mettre sur sa coquille ?",
+      options: [
+        "Un moteur",
+        "Des roulettes",
+        "Des ailes"
+      ],
+      answer: 1
+    }]
+  },
+  {
+    id: 'royaume-coussins',
+    title: 'Le Royaume des Coussins',
+    bilingualTitle: { en: 'The Kingdom of Cushions' },
+    theme: 'Créativité',
+    duration: 7,
+    icon: '🏰',
+    text: [
+      "Un après-midi pluvieux, Léna décida de construire le plus grand royaume jamais vu. Son matériau de construction ? Des coussins !",
+      "Avec Yaya comme fidèle architecte, ils empilèrent les coussins du canapé pour former de hautes murailles. Une couverture devint le toit du grand donjon.",
+      "\"Yaya, tu seras le gardien du trésor !\" déclara Léna. Le trésor était une petite balle rebondissante que Yaya adorait.",
+      "Le chat se posta fièrement à l'entrée du fort, observant les alentours. Mais un ennemi redoutable approchait : l'aspirateur, piloté par Papa.",
+      "\"Oh non, le monstre grondant !\" cria Léna en riant. Yaya se hérissa, prêt à défendre son royaume.",
+      "Papa, jouant le jeu, fit semblant d'être effrayé par le courageux gardien. Il éteignit l'aspirateur et s'inclina. \"Pardon, noble sire Yaya. Je ne savais pas que ce château était vôtre.\"",
+      "Léna et Yaya avaient sauvé leur royaume. Ils passèrent le reste de l'après-midi à régner sur leur forteresse de douceur, en dégustant un goûter royal."
+    ],
+    quiz: [{
+      question: "Quel était le trésor gardé par Yaya ?",
+      options: ["Une couronne", "Une balle rebondissante", "Un poisson en plastique"],
+      answer: 1
+    }, {
+      question: "Quel était l'ennemi du royaume des coussins ?",
+      options: ["Un dragon", "L'aspirateur", "Un orage"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'detectives-ombre-perdue',
+    title: 'Les Détectives de l\'Ombre Perdue',
+    bilingualTitle: { en: 'The Detectives of the Lost Shadow' },
+    theme: 'Mystère',
+    duration: 6,
+    icon: '🕵️‍♀️',
+    text: [
+      "Un jour, en jouant dans le jardin, Léna remarqua quelque chose d'étrange. Son ombre avait disparu !",
+      "\"Yaya, nous avons une nouvelle mission ! Nous sommes les détectives de l'ombre perdue !\" Yaya, équipé d'une fausse loupe (un anneau de rideau), semblait prêt.",
+      "Le premier indice : le soleil était caché derrière un gros nuage. \"Aha ! L'ombre n'aime pas quand le soleil se cache,\" nota Léna dans son carnet imaginaire.",
+      "Ils cherchèrent partout. Sous le toboggan ? Non. Derrière le grand chêne ? Toujours pas. Yaya reniflait le sol, cherchant une piste.",
+      "Léna eut une idée. Elle prit une lampe de poche. \"Si le soleil ne veut pas nous aider, créons notre propre lumière !\"",
+      "Elle alluma la lampe et la pointa vers le sol. Aussitôt, une petite ombre apparut à ses pieds, puis grandit. \"On l'a retrouvée !\" s'exclama-t-elle.",
+      "Yaya, fasciné, se mit à pourchasser l'ombre de la lampe, la faisant danser partout. Le mystère était résolu, et un nouveau jeu venait de commencer."
+    ],
+    quiz: [{
+      question: "Pourquoi l'ombre de Léna avait-elle disparu au début ?",
+      options: ["Elle était partie en vacances", "Le soleil était caché par un nuage", "Elle jouait à cache-cache"],
+      answer: 1
+    }, {
+      question: "Comment Léna a-t-elle fait réapparaître son ombre ?",
+      options: ["En attendant le soleil", "En utilisant une lampe de poche", "En demandant à Yaya"],
+      answer: 1
+    }]
   }
 ];
 
@@ -968,6 +1402,10 @@ window.storySetThree = [
   {
     id: 'etoile-qui-chante',
     title: 'L’Étoile qui Chante',
+    bilingualTitle: { en: 'The Singing Star' },
+    theme: 'Magie',
+    duration: 2,
+    icon: '🎶',
     image: null,
     text: [
       "Dans le ciel, une petite étoile fredonne une chanson.",
@@ -981,6 +1419,301 @@ window.storySetThree = [
         answer: 1
       }
     ]
+  },
+  {
+    id: 'voyage-nuage',
+    title: 'Le Voyage sur un Nuage',
+    bilingualTitle: { en: 'The Journey on a Cloud' },
+    theme: 'Aventure',
+    duration: 2,
+    icon: '☁️',
+    image: null,
+    text: [
+      "Léna et Yaya font la sieste sur l'herbe douce du jardin.",
+      "Ils rêvent qu'un nuage cotonneux descend du ciel pour les emporter.",
+      "Ensemble, ils flottent au-dessus des maisons, saluant les oiseaux et les étoiles.",
+      "Le nuage les redépose doucement dans le jardin juste avant le réveil."
+    ],
+    quiz: [
+      {
+        question: "Sur quoi Léna et Yaya voyagent-ils dans leur rêve ?",
+        options: ["Un tapis volant", "Un nuage", "Un dragon"],
+        answer: 1
+      }
+    ]
+  },
+  {
+    id: 'montagne-chocolat',
+    title: 'La Montagne de Chocolat',
+    bilingualTitle: { en: 'The Chocolate Mountain' },
+    theme: 'Gourmandise',
+    duration: 2,
+    icon: '🍫',
+    image: null,
+    text: [
+      "Léna rêve qu'elle escalade une montagne entièrement faite de chocolat.",
+      "Les rochers sont des pépites de chocolat et les rivières du chocolat fondu.",
+      "Au sommet, elle trouve une fontaine de chocolat blanc."
+    ],
+    quiz: [
+      {
+        question: "De quoi est faite la montagne ?",
+        options: ["De pierre", "De chocolat", "De glace"],
+        answer: 1
+      }
+    ]
+  },
+  {
+    id: 'poisson-volant',
+    title: 'Le Poisson Volant',
+    bilingualTitle: { en: 'The Flying Fish' },
+    theme: 'Aventure',
+    duration: 2,
+    icon: '🐠',
+    image: null,
+    text: [
+      "Un petit poisson rouge rêve de voler.",
+      "Une bulle d'air magique l'emporte hors de l'eau.",
+      "Il survole la mer et salue les mouettes avant de replonger doucement."
+    ],
+    quiz: [
+      {
+        question: "Comment le poisson fait-il pour voler ?",
+        options: ["Avec des ailes", "Grâce à une bulle magique", "En sautant très haut"],
+        answer: 1
+      }
+    ]
+  },
+  {
+    id: 'instrument-magique',
+    title: 'L\'Instrument Magique',
+    bilingualTitle: { en: 'The Magical Instrument' },
+    theme: 'Créativité',
+    duration: 2,
+    icon: '🎷',
+    image: null,
+    text: [
+      "Dans une boutique, Léna trouve un instrument étrange.",
+      "Quand elle en joue, il ne produit pas de son, mais des bulles de savon colorées.",
+      "Chaque bulle contient un petit rêve en image."
+    ]
+  },
+  {
+    id: 'murmure-vent',
+    title: 'Le Murmure du Vent',
+    bilingualTitle: { en: 'The Whisper of the Wind' },
+    theme: 'Nature',
+    duration: 1,
+    icon: '🌬️',
+    text: [
+      "Quand le vent souffle, il ne fait pas que faire danser les feuilles.",
+      "Il transporte des messages secrets d'un bout à l'autre du monde.",
+      "Léna tend l'oreille et entend un \"je t'aime\" venu de très loin."
+    ]
+  },
+  {
+    id: 'pierre-chaude',
+    title: 'Le Secret de la Pierre Chaude',
+    bilingualTitle: { en: 'The Secret of the Warm Stone' },
+    theme: 'Nature',
+    duration: 2,
+    icon: '💎',
+    text: [
+      "Sur le chemin, Léna trouve une pierre lisse et chaude, même la nuit.",
+      "La pierre a emmagasiné toute la lumière du soleil de la journée.",
+      "Elle la met dans sa poche pour avoir un peu de soleil avec elle, même dans le noir."
+    ],
+    quiz: [{
+      question: "Pourquoi la pierre est-elle chaude ?",
+      options: ["Elle est magique", "Elle a stocké la lumière du soleil", "Elle sort du feu"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'constellation-animaux',
+    title: 'La Constellation des Animaux',
+    bilingualTitle: { en: 'The Animal Constellation' },
+    theme: 'Nature',
+    duration: 1,
+    icon: '🐻',
+    text: [
+        "La nuit, les étoiles ne forment pas que des figures géométriques.",
+        "Si on regarde bien, on peut voir un grand ours, un lion et même un petit lapin.",
+        "Ils dansent lentement dans le ciel jusqu'au lever du jour."
+    ]
+  },
+  {
+    id: 'bateau-feuille',
+    title: 'Le Bateau de Feuille',
+    bilingualTitle: { en: 'The Leaf Boat' },
+    theme: 'Aventure',
+    duration: 1,
+    icon: '🍂',
+    text: [
+        "Léna pose une grande feuille d'automne sur la rivière.",
+        "Une coccinelle monte à bord, puis une fourmi.",
+        "La feuille devient un bateau de croisière pour les insectes, naviguant vers l'aventure."
+    ]
+  },
+  {
+    id: 'mouton-coiffeur',
+    title: 'Le Mouton Coiffeur',
+    bilingualTitle: { en: 'The Sheep Hairdresser' },
+    theme: 'Humour',
+    duration: 2,
+    icon: '🐑',
+    text: [
+      "Barnabé le mouton avait la laine la plus douce et la plus longue du pré.",
+      "Un jour, il décida d'ouvrir un salon de coiffure pour ses amis.",
+      "Il sculpta des coiffures incroyables aux autres moutons avec sa propre laine.",
+      "Le mouton punk, le mouton à nuage... tout le monde était très stylé !"
+    ],
+    quiz: [{
+      question: "Qu'est-ce que Barnabé utilise pour coiffer ses amis ?",
+      options: ["Des ciseaux", "Sa propre laine", "De la peinture"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'voyage-sous-canape',
+    title: 'Le Voyage sous le Canapé',
+    bilingualTitle: { en: 'The Journey Under the Couch' },
+    theme: 'Aventure',
+    duration: 5,
+    icon: '🛋️',
+    text: [
+      "La petite voiture préférée de Léna avait roulé sous le canapé. \"C'est une mission pour l'exploratrice Léna et son courageux chat Yaya !\" annonça-t-elle.",
+      "Armée d'une lampe de poche, Léna s'allongea sur le ventre. Yaya, curieux, la rejoignit. Le monde sous le canapé était un univers étrange et poussiéreux.",
+      "Des 'montagnes' de moutons de poussière se dressaient devant eux. Un crayon perdu ressemblait à un tronc d'arbre géant.",
+      "\"Regarde, Yaya, une grotte de miettes !\" chuchota Léna. Yaya, lui, avait repéré la voiture, coincée près d'une 'forêt' de pieds de table.",
+      "Le chat, plus agile, se faufila et donna un petit coup de patte à la voiture, la faisant rouler vers Léna.",
+      "Mission accomplie ! Ils sortirent de sous le canapé, victorieux et un peu sales. Léna serra Yaya dans ses bras. \"Tu es le meilleur co-explorateur du monde !\""
+    ],
+    quiz: [{
+      question: "Quel objet était perdu sous le canapé ?",
+      options: ["Une poupée", "Une petite voiture", "Un livre"],
+      answer: 1
+    }, {
+      question: "Qui a récupéré l'objet en premier ?",
+      options: ["Léna", "Papa", "Yaya"],
+      answer: 2
+    }]
+  },
+  {
+    id: 'bain-moussant-magique',
+    title: 'Le Bain Moussant Magique',
+    bilingualTitle: { en: 'The Magical Bubble Bath' },
+    theme: 'Magie',
+    duration: 7,
+    icon: '🛁',
+    text: [
+      "C'était l'heure du bain. Léna versa un produit moussant couleur arc-en-ciel dans la baignoire. La mousse monta, monta, jusqu'à former des montagnes et des nuages colorés.",
+      "Yaya, qui détestait l'eau, observait depuis le tapis de bain, méfiant. Léna prit un peu de mousse et sculpta un petit bateau.",
+      "\"Regarde Yaya, le navire de l'amiral Léna part à l'aventure !\" Le bateau flotta sur l'eau, naviguant entre des icebergs de mousse blanche.",
+      "Soudain, une bulle éclata près du nez de Yaya, le surprenant. Il donna un coup de patte maladroit et tomba dans la mousse ! Mais il n'y avait presque pas d'eau, juste une mer de douceur.",
+      "Au lieu de paniquer, Yaya se mit à jouer, attrapant les bulles avec ses pattes. Il ressemblait à un petit monstre de mousse.",
+      "Léna éclata de rire. Elle sculpta une couronne de mousse sur la tête de Yaya. \"Sire Yaya, le roi du royaume de la Mousse !\"",
+      "Pour la première fois, Yaya semblait apprécier l'heure du bain. C'était bien plus amusant d'être un roi de la mousse qu'un chat qui a peur de l'eau."
+    ],
+    quiz: [{
+      question: "Qu'a sculpté Léna avec la mousse en premier ?",
+      options: ["Un château", "Un bateau", "Un animal"],
+      answer: 1
+    }, {
+      question: "Comment Yaya a-t-il réagi en tombant dans la mousse ?",
+      options: ["Il a eu très peur", "Il s'est mis à jouer", "Il a immédiatement sauté hors du bain"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'jardinier-lune',
+    title: 'Le Jardinier de la Lune',
+    bilingualTitle: { en: 'The Moon Gardener' },
+    theme: 'Magie',
+    duration: 4,
+    icon: '👨‍🚀',
+    text: [
+      "Chaque nuit, un vieil homme nommé Sélénius sort avec son arrosoir d'argent.",
+      "Il ne jardine pas sur Terre, mais sur la Lune. Il grimpe sur une échelle de corde invisible.",
+      "Là-haut, il arrose les cratères avec de la poussière d'étoile. Au matin, des fleurs de lumière y ont poussé.",
+      "Ces fleurs, vues de la Terre, sont les étoiles que nous admirons."
+    ],
+    quiz: [{
+      question: "Avec quoi Sélénius arrose-t-il les cratères ?",
+      options: ["De l'eau de pluie", "De la poussière d'étoile", "Du lait"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'bibliotheque-perdue',
+    title: 'La Bibliothèque Perdue',
+    bilingualTitle: { en: 'The Lost Library' },
+    theme: 'Mystère',
+    duration: 8,
+    icon: '🏛️',
+    text: [
+      "Au cœur de la forêt, une légende parle d'une bibliothèque où les livres n'ont pas de fin.",
+      "Léna, intriguée, suit une vieille carte trouvée dans un livre. Le chemin est gardé par des énigmes.",
+      "Un renard lui demande : 'Qu'est-ce qui a des villes, mais pas de maisons ; des forêts, mais pas d'arbres ; et de l'eau, mais pas de poissons ?'",
+      "Léna réfléchit et répond : 'Une carte !'. Le renard, impressionné, lui montre un passage secret derrière une cascade.",
+      "Derrière, une immense bibliothèque circulaire apparaît. Les livres flottent dans les airs.",
+      "Elle en ouvre un. L'histoire commence, mais à la dernière page, elle est invitée à écrire la suite.",
+      "Chaque lecteur devient l'auteur. C'est pour cela que les histoires ne finissent jamais."
+    ],
+    quiz: [{
+      question: "Quelle est la réponse à l'énigme du renard ?",
+      options: ["Un globe", "Une carte", "Un miroir"],
+      answer: 1
+    }, {
+      question: "Pourquoi les livres de la bibliothèque n'ont-ils pas de fin ?",
+      options: ["Les pages sont infinies", "Les lecteurs écrivent la suite", "Les fins sont effacées"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'capitaine-nuage',
+    title: 'Le Capitaine du Nuage Pirate',
+    bilingualTitle: { en: 'The Captain of the Cloud Pirate' },
+    theme: 'Aventure',
+    duration: 5,
+    icon: '🏴‍☠️',
+    text: [
+      "Le Capitaine Nimbus ne navigue pas sur les mers, mais sur un grand nuage en forme de bateau.",
+      "Son trésor n'est pas de l'or, mais des gouttes de pluie de toutes les couleurs.",
+      "Un jour, son nuage est attaqué par le terrible Vent du Nord, qui veut voler ses précieuses gouttes.",
+      "Nimbus a une idée : il utilise une goutte de pluie rouge pour créer un arc-en-ciel si éblouissant que le Vent du Nord, surpris, s'enfuit.",
+      "Le trésor est sauvé, et le ciel est plus beau que jamais."
+    ],
+    quiz: [{
+      question: "Quel est le trésor du Capitaine Nimbus ?",
+      options: ["Des pièces d'or", "Des gouttes de pluie colorées", "Des coquillages"],
+      answer: 1
+    }]
+  },
+  {
+    id: 'detective-gateau',
+    title: 'Le Mystère du Gâteau Disparu',
+    bilingualTitle: { en: 'The Mystery of the Missing Cake' },
+    theme: 'Mystère',
+    duration: 6,
+    icon: '🕵️',
+    text: [
+      "Le gâteau au chocolat de Léna a disparu de la cuisine ! Qui est le coupable ?",
+      "Léna, en mode détective, cherche des indices. Premier indice : des petites miettes près de la fenêtre.",
+      "Deuxième indice : une petite plume rousse accrochée au rideau. Yaya le chat n'a pas de plumes...",
+      "Troisième indice : des petites empreintes de pattes dans la farine renversée sur le sol.",
+      "Léna suit les empreintes jusqu'au jardin. Derrière un buisson, elle trouve un petit écureuil, le museau couvert de chocolat, qui dort paisiblement.",
+      "Le mystère est résolu ! L'écureuil gourmand a fait un festin. Léna ne peut s'empêcher de sourire."
+    ],
+    quiz: [{
+      question: "Quel est le deuxième indice trouvé par Léna ?",
+      options: ["Des miettes", "Une plume rousse", "Des empreintes"],
+      answer: 1
+    }, {
+      question: "Qui était le coupable ?",
+      options: ["Yaya le chat", "Un oiseau", "Un écureuil"],
+      answer: 2
+    }]
   }
 ];
 

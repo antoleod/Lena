@@ -13,8 +13,8 @@
   --success: #8bc34a;
   --danger: #ef5350;
   --ink: #3f2c85; /* Texte principal sombre */
-  --ink-muted: #6a5acd; /* Texte secondaire */
-  --bg-main: linear-gradient(160deg, #fde4ff, #dcd8ff); /* Fond principal pastel */
+  --ink-muted: #6a5acd; /* Texte secondaire */  
+  --bg-main: linear-gradient(145deg, #f0f7ff, #e3ddff); /* Fond principal pastel (from Maths Sprint) */
   --bg-card: rgba(255, 255, 255, 0.75); /* Fond de carte translucide */
   --border-card: rgba(255, 255, 255, 0.5);
 
@@ -1364,4 +1364,3 @@ body[data-bg-theme] #stageBottom {
 .game-card:active { transform: translateY(-1px); }
 
 @media (prefers-reduced-motion: reduce) { .game-card { transition: none; } .fx-bounce-in-down { animation: none !important; } }
-

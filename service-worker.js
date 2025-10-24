@@ -8,6 +8,6 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-self.addEventListener('fetch', (event) => {
-  // Let the network handle all requests; this SW only exists to satisfy registration.
-});
+// self.addEventListener('fetch', (event) => {
+//   // Let the network handle all requests; this SW only exists to satisfy registration.
+// });
