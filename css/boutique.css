@@ -202,6 +202,7 @@
     border-radius: inherit;
     border: 2px dashed transparent;
     transition: border-color 200ms ease;
+    pointer-events: none;
 }
 
 .item-card:hover::after {
@@ -221,6 +222,7 @@
     background: linear-gradient(120deg, rgba(255, 176, 238, 0.85), rgba(144, 210, 255, 0.85));
     filter: blur(18px);
     z-index: -1;
+    pointer-events: none; /* Permite que los clics pasen a través del brillo */
 }
 
 .item-card img {
@@ -534,4 +536,3 @@
     font-size: 2rem;
     color: #4a3c7d;
 }
-
