@@ -11,6 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
     <link rel="manifest" href="../manifest.json">
+    <meta name="application-name" content="Léna-App">
+    <meta name="apple-mobile-web-app-title" content="Léna-App">
+    <link rel="icon" href="../assets/iconos/icon-32.png" sizes="32x32">
+    <link rel="shortcut icon" href="../assets/iconos/icon-32.png">
+    <link rel="apple-touch-icon" href="../assets/iconos/icon-180.png">
 </head>
 <body class="login-body">
     <div class="login-orb login-orb--pink"></div>
@@ -126,17 +131,81 @@
     <script src="../js/storage.js"></script>
     <script src="../js/login.js"></script>
 <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('../service-worker.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-          console.error('Service Worker registration failed:', error);
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+
+                    // Listen for updates to the service worker.
+                    if (registration.waiting) {
+                        // A new SW is waiting to activate
+                        notifyUpdate(registration);
+                    }
+
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed') {
+                                if (navigator.serviceWorker.controller) {
+                                    // New update available
+                                    notifyUpdate(registration);
+                                }
+                            }
+                        });
+                    });
+
+                    // Ensure that when the user confirms update we tell the SW to skipWaiting
+                    function notifyUpdate(reg) {
+                        const updateBannerId = 'sw-update-banner';
+                        if (document.getElementById(updateBannerId)) return; // already shown
+
+                        const banner = document.createElement('div');
+                        banner.id = updateBannerId;
+                        banner.style.position = 'fixed';
+                        banner.style.left = '0';
+                        banner.style.right = '0';
+                        banner.style.bottom = '0';
+                        banner.style.background = '#fff8e1';
+                        banner.style.borderTop = '1px solid #ffd54f';
+                        banner.style.padding = '12px';
+                        banner.style.display = 'flex';
+                        banner.style.justifyContent = 'space-between';
+                        banner.style.alignItems = 'center';
+                        banner.style.zIndex = '9999';
+
+                        const text = document.createElement('div');
+                        text.textContent = 'Une nouvelle version est disponible.';
+                        const btn = document.createElement('button');
+                        btn.textContent = 'Mettre à jour';
+                        btn.style.marginLeft = '12px';
+                        btn.className = 'btn';
+
+                        btn.addEventListener('click', () => {
+                            if (!reg.waiting) return;
+                            // Send message to SW to skipWaiting
+                            reg.waiting.postMessage('skipWaiting');
+                        });
+
+                        banner.appendChild(text);
+                        banner.appendChild(btn);
+                        document.body.appendChild(banner);
+                    }
+
+                    // When the new service worker activates, reload to take control
+                    let refreshing = false;
+                    navigator.serviceWorker.addEventListener('controllerchange', () => {
+                        if (refreshing) return;
+                        refreshing = true;
+                        window.location.reload();
+                    });
+
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
         });
-    });
-  }
+    }
 </script>
 </body>
 </html>

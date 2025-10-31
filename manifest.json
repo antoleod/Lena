@@ -1,15 +1,30 @@
 {
-  "name": "App de Léna",
-  "short_name": "Léna",
+  "name": "Léna-App",
+  "short_name": "Léna-App",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#8364ff",
   "icons": [
     {
-      "src": "assets/unicorn-favicon.svg",
-      "type": "image/svg+xml",
-      "sizes": "any"
+      "src": "assets/iconos/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/iconos/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "assets/iconos/icon-180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "assets/iconos/icon-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
     }
   ]
 }
