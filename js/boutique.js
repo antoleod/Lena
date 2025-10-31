@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    if (userProfile.avatar?.iconUrl) {
+        const normalizedAvatarIcon = normalizeAssetPath(userProfile.avatar.iconUrl);
+        if (normalizedAvatarIcon && normalizedAvatarIcon !== userProfile.avatar.iconUrl) {
+            userProfile.avatar.iconUrl = normalizedAvatarIcon;
+            storage.saveUserProfile(userProfile);
+        }
+    }
+
     // Assurer que AVATAR_LIBRARY est chargé
     if (typeof window.AVATAR_LIBRARY === 'undefined') {
         console.error('AVATAR_LIBRARY non trouvé. Vérifiez le chargement de avatarData.js');
@@ -101,6 +109,18 @@ document.addEventListener('DOMContentLoaded', () => {
         container.appendChild(empty);
     }
 
+    function normalizeAssetPath(path) {
+        if (!path || typeof path !== 'string') { return ''; }
+        const trimmed = path.trim();
+        if (/^(data:|https?:|blob:)/.test(trimmed)) { return trimmed; }
+        if (trimmed.startsWith('../')) { return trimmed.replace(/\/{2,}/g, '/'); }
+        if (trimmed.startsWith('./')) {
+            return `../${trimmed.slice(2)}`.replace(/\/{2,}/g, '/');
+        }
+        const cleaned = trimmed.replace(/^\/+/, '');
+        return `../${cleaned}`.replace(/\/{2,}/g, '/');
+    }
+
     function setupFilters() {
         if (!filterButtons.length) { return; }
         const defaultButton = filterButtons.find(btn => btn.classList.contains('is-active')) || filterButtons[0] || null;
@@ -143,9 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (avatarIconUrl) {
                 const avatarImg = document.createElement('img');
-                let correctPath = avatarIconUrl.startsWith('..') ? avatarIconUrl : `../${avatarIconUrl}`;
-                correctPath = correctPath.replace(/\/\//g, '/');
-                avatarImg.src = correctPath;
+                const normalizedIcon = normalizeAssetPath(avatarIconUrl) || avatarIconUrl;
+                avatarImg.src = normalizedIcon;
                 avatarImg.alt = avatarName;
                 avatarImg.className = 'user-info__avatar';
                 userInfo.appendChild(avatarImg);
@@ -340,7 +359,11 @@ document.addEventListener('DOMContentLoaded', () => {
         userProgress.ownedItems = userProgress.ownedItems.filter(id => id !== item.id);
 
         if (item.type === 'avatar' && userProfile.avatar?.id === item.id) {
-            userProfile.avatar = { id: 'ananas', name: 'Ananas', iconUrl: 'assets/avatars/ananas.svg' };
+            userProfile.avatar = {
+                id: 'ananas',
+                name: 'Ananas',
+                iconUrl: normalizeAssetPath('../assets/avatars/ananas.svg')
+            };
             storage.saveUserProfile(userProfile);
         }
 
@@ -366,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function useItem(item) {
         if (item.type === 'avatar') {
             const iconSource = item.iconUrl || item.image || '';
-            const normalizedIcon = iconSource.startsWith('../') ? iconSource.replace('../', '') : iconSource;
+            const normalizedIcon = normalizeAssetPath(iconSource);
             userProfile.avatar = { id: item.id, name: item.name, iconUrl: normalizedIcon };
             storage.saveUserProfile(userProfile);
             applyUserTheme(userProfile.color);

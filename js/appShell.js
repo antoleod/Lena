@@ -42,22 +42,23 @@
         {
             id: 'nav-achievements',
             icon: EMOJI.trophy,
-            label: 'Succès',
+            label: 'Succ\u00e8s',
             href: 'logros.html'
         },
         {
             id: 'nav-library',
             icon: EMOJI.book,
-            label: 'Bibliothèque',
-            action: () => console.log('[Navigation] Bibliothèque (démo)')
+            label: 'Biblioth\u00e8que',
+            href: 'juego.html',
+            hash: '#library'
         },
         {
             id: 'nav-back',
             icon: EMOJI.back,
             label: 'Retour',
             action: () => {
-                console.log('[Navigation] Retour (démo)');
-                window.history.length > 1 ? window.history.back() : console.log('Aucune page précédente');
+                console.log('[Navigation] Retour (d\u00e9mo)');
+                window.history.length > 1 ? window.history.back() : console.log('Aucune page pr\u00e9c\u00e9dente');
             }
         },
         {
@@ -214,15 +215,26 @@
 
             if (item.href) {
                 const resolved = resolveAsset(item.href);
-                if (currentPath.endsWith(`/${item.href}`) || currentPath.endsWith(item.href)) {
+                const destination = item.hash ? `${resolved}${item.hash}` : resolved;
+                const isCurrentPage = currentPath.endsWith(`/${item.href}`) || currentPath.endsWith(item.href);
+                const hashMatches = item.hash ? window.location.hash === item.hash : true;
+                if (isCurrentPage && hashMatches) {
                     btn.classList.add('is-active');
                     btn.setAttribute('aria-current', 'page');
                 }
                 btn.addEventListener('click', () => {
-                    console.log(`[Navigation] ${item.label} → ${resolved}`);
+                    console.log(`[Navigation] ${item.label} -> ${destination}`);
                     animatePress(btn);
                     setTimeout(() => {
-                        window.location.href = resolved;
+                        if (isCurrentPage && item.hash) {
+                            if (window.location.hash !== item.hash) {
+                                window.location.hash = item.hash;
+                            }
+                        } else if (item.hash) {
+                            window.location.href = destination;
+                        } else {
+                            window.location.href = resolved;
+                        }
                     }, 120);
                 });
             } else if (typeof item.action === 'function') {

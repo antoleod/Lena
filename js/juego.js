@@ -110,6 +110,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const levelDisplay = document.getElementById('level');
     const btnReadMode = document.getElementById('btnReadMode');
 
+    const LIBRARY_HASH = '#library';
+
+    function ensureLibraryHash() {
+        if ((window.location.hash || '').toLowerCase() === LIBRARY_HASH) {
+            return;
+        }
+        if (window.history && typeof window.history.replaceState === 'function') {
+            const targetUrl = `${window.location.pathname}${window.location.search}${LIBRARY_HASH}`;
+            window.history.replaceState(null, '', targetUrl);
+        } else {
+            window.location.hash = LIBRARY_HASH;
+        }
+    }
+
+    function clearLibraryHash() {
+        if ((window.location.hash || '').toLowerCase() !== LIBRARY_HASH) {
+            return;
+        }
+        if (window.history && typeof window.history.replaceState === 'function') {
+            const targetUrl = `${window.location.pathname}${window.location.search}`;
+            window.history.replaceState(null, '', targetUrl);
+        } else {
+            window.location.hash = '';
+        }
+    }
+
+    function handleLibraryHashNavigation({ isInitial = false } = {}) {
+        const hash = (window.location.hash || '').toLowerCase();
+        if (hash === LIBRARY_HASH) {
+            if (typeof showStoryMenu === 'function') {
+                showStoryMenu();
+            }
+            return true;
+        }
+        if (!isInitial && document.body.classList.contains('story-menu-active') && typeof showTopicMenu === 'function') {
+            clearLibraryHash();
+            showTopicMenu();
+        }
+        return false;
+    }
+
     function setDisplay(target, value) {
         if (target && target.style) {
             target.style.display = value;
@@ -998,6 +1039,7 @@ function resolveLevelTheme(topicId) {
         setupUI();
         setupEventListeners();
         showTopicMenu();
+        handleLibraryHashNavigation({ isInitial: true });
         // Pre-load sounds
     if (SOUND_ENABLED) {
         loadSound('correct', '../sonidos/correct.mp3');
@@ -5055,6 +5097,7 @@ function generateNumberProblems(sum, count) {
         document.body.classList.remove('story-quiz-active');
         clearProgressTracker();
         ensureSkyElements(); // Assure que le fond étoilé est présent
+        ensureLibraryHash();
 
         setActiveStorySet(userProgress.storyProgress?.activeSetIndex || activeStorySetIndex);
         ensureStoryProgressInitialized();
@@ -5198,7 +5241,10 @@ function generateNumberProblems(sum, count) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux sujets', showTopicMenu);
+        configureBackButton('Retour aux sujets', () => {
+            clearLibraryHash();
+            showTopicMenu();
+        });
     }
 
     function showStoryReadModeSelection(storyIndex) {
@@ -6708,6 +6754,10 @@ function generateNumberProblems(sum, count) {
     };
 
     // --- Start Game ---
+    window.addEventListener('hashchange', () => {
+        handleLibraryHashNavigation();
+    });
+
     init();
     setupSpeechSynthesis();
 });
