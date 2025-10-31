@@ -4105,6 +4105,7 @@ function resolveLevelTheme(topicId) {
             { id: 'lecture-magique', icon: '📖', text: 'Lecture Magique' },
             { id: 'raisonnement', icon: '🧠', text: 'Raisonnement' },
             { id: 'mots-outils', icon: '🗣️', text: 'Mots-Outils' },
+            { id: 'grande-aventure-mots', icon: '\u{1F524}', text: 'La Grande Aventure des Mots', href: '../html/grande-aventure-mots/index.html', type: 'external' },
             { id: 'additions', icon: '➕', text: 'Additions' },
             { id: 'soustractions', icon: '➖', text: 'Soustractions' },
             { id: 'multiplications', icon: '✖️', text: 'Multiplications' },

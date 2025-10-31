@@ -350,3 +350,9 @@
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
 }
+
+/* Ocultar contador de progreso y total para simplificar la interfaz */
+.abaque-v2-progress,
+.hud-item--total {
+    display: none;
+}

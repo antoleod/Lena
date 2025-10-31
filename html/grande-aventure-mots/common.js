@@ -197,24 +197,28 @@
     renderLevelCards
   };
 
-  // Ensure global footer is present across all GAM pages
-  function ensureGlobalFooter() {
+  // Ensure shared header/footer shell is loaded on every GAM page
+  function ensureAppShell() {
     try {
-      // 1) Ensure footer mount element exists
-      let mount = document.querySelector('[data-app-footer]');
-      if (!mount) {
-        mount = document.createElement('footer');
-        mount.className = 'global-footer';
-        mount.setAttribute('data-app-footer', '');
-        document.body.appendChild(mount);
+      // Ensure placeholder mounts exist so the shell can hydrate cleanly
+      if (!document.querySelector('[data-lena-header]')) {
+        const header = document.createElement('header');
+        header.setAttribute('data-lena-header', '');
+        document.body.insertAdjacentElement('afterbegin', header);
       }
 
-      // 2) Compute absolute base at /html/
+      if (!document.querySelector('[data-lena-footer]')) {
+        const footer = document.createElement('footer');
+        footer.setAttribute('data-lena-footer', '');
+        document.body.appendChild(footer);
+      }
+
+      // Compute absolute base at /html/
       const path = window.location.pathname || '';
       const htmlIdx = path.indexOf('/html/');
       const base = htmlIdx >= 0 ? path.slice(0, htmlIdx + '/html/'.length) : '/html/';
 
-      // 3) Ensure audioManager is present first (for footer audio button)
+      // Ensure audioManager is present (used by the app shell and footer controls)
       const audioLoaded = Array.from(document.scripts).some(s => (s.src || '').endsWith('/js/audioManager.js'));
       if (!audioLoaded) {
         const audioScript = document.createElement('script');
@@ -223,22 +227,22 @@
         document.head.appendChild(audioScript);
       }
 
-      // 4) If footer.js is not yet loaded, inject it with a robust path
-      const footerLoaded = Array.from(document.scripts).some(s => (s.src || '').endsWith('/js/footer.js'));
-      if (!footerLoaded) {
-        const footerScript = document.createElement('script');
-        footerScript.src = base + '../js/footer.js';
-        footerScript.async = true;
-        document.body.appendChild(footerScript);
+      // Load the shared Lena app shell once (provides header + footer navigation)
+      const shellLoaded = Array.from(document.scripts).some(s => (s.src || '').endsWith('/js/appShell.js'));
+      if (!shellLoaded) {
+        const shellScript = document.createElement('script');
+        shellScript.src = base + '../js/appShell.js';
+        shellScript.defer = true;
+        document.body.appendChild(shellScript);
       }
     } catch (err) {
-      console.warn('ensureGlobalFooter error', err);
+      console.warn('ensureAppShell error', err);
     }
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ensureGlobalFooter);
+    document.addEventListener('DOMContentLoaded', ensureAppShell);
   } else {
-    ensureGlobalFooter();
+    ensureAppShell();
   }
 })();

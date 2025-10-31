@@ -253,581 +253,1526 @@ const gameData = {
     ],
     riddleLevels: [
         {
-            level: 1,
-            theme: "Animaux câlins",
-            completionMessage: "Tu connais les animaux câlins !",
-            questions: [
+            "level": 1,
+            "theme": "Animaux calins",
+            "completionMessage": "Tu connais tous les animaux calins !",
+            "questions": [
                 {
-                    prompt: "Je suis petit, je miaule doucement et j'adore les câlins. Qui suis-je ?",
-                    options: ["Un chaton", "Un lion", "Un hibou"],
-                    answer: 0,
-                    hint: "Je vis souvent dans la maison.",
-                    success: "Oui, le chaton adore les câlins !",
-                    reward: { stars: 6, coins: 4 }
+                    "prompt": "Je suis petit, je ronronne et j'aime boire du lait. Qui suis-je ?",
+                    "options": [
+                        "Un chaton",
+                        "Un veau",
+                        "Un poussin"
+                    ],
+                    "answer": 0,
+                    "hint": "Je dors souvent dans un panier en osier.",
+                    "success": "Bravo, le chaton adore les caresses !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je saute dans la prairie et je grignote des carottes. Qui suis-je ?",
-                    options: ["Un lapin", "Un cheval", "Un poisson"],
-                    answer: 0,
-                    hint: "Mes oreilles sont très longues.",
-                    success: "Le lapin adore bondir !",
-                    reward: { stars: 6, coins: 4 }
+                    "prompt": "Je saute dans le jardin et je grignote des carottes. Qui suis-je ?",
+                    "options": [
+                        "Un lapin",
+                        "Un chiot",
+                        "Un herisson"
+                    ],
+                    "answer": 0,
+                    "hint": "Mes oreilles sont tres longues.",
+                    "success": "Oui, le lapin aime bondir partout !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je porte une carapace et je marche très lentement. Qui suis-je ?",
-                    options: ["Une tortue", "Une souris", "Un chien"],
-                    answer: 0,
-                    hint: "On me voit souvent au soleil.",
-                    success: "Oui, la tortue avance lentement !",
-                    reward: { stars: 6, coins: 4 }
+                    "prompt": "Je marche lentement en portant ma maison sur mon dos. Qui suis-je ?",
+                    "options": [
+                        "Une tortue",
+                        "Un hamster",
+                        "Une coccinelle"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux vivre sur terre et parfois dans l'eau.",
+                    "success": "Exact, la tortue avance a son rythme !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je suis rayé et je ronronne comme un grand chat. Qui suis-je ?",
-                    options: ["Un tigre", "Un panda", "Un pingouin"],
-                    answer: 0,
-                    hint: "Je vis dans la jungle.",
-                    success: "Le tigre est un grand chat rayé !",
-                    reward: { stars: 6, coins: 4 }
+                    "prompt": "Je suis tout jaune, je gazouille et je nage dans la mare. Qui suis-je ?",
+                    "options": [
+                        "Un caneton",
+                        "Un flamant",
+                        "Un merle"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis le bebe d'une cane.",
+                    "success": "Bien joue, le caneton aime barboter !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je dors accroché la tête en bas dans une grotte. Qui suis-je ?",
-                    options: ["Une chauve-souris", "Un renard", "Un mouton"],
-                    answer: 0,
-                    hint: "Je suis un animal de la nuit.",
-                    success: "La chauve-souris dort à l'envers !",
-                    reward: { stars: 6, coins: 4 }
+                    "prompt": "Je suis tout rond, je dors tout l'hiver et je cherche du miel. Qui suis-je ?",
+                    "options": [
+                        "Un ourson",
+                        "Un pingouin",
+                        "Un castor"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis le bebe d'une ourse.",
+                    "success": "Oui, l'ourson reve de miel doux !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis minuscule, je cours dans ma roue et je garde des graines. Qui suis-je ?",
+                    "options": [
+                        "Un hamster",
+                        "Une loutre",
+                        "Un toucan"
+                    ],
+                    "answer": 0,
+                    "hint": "Je vis souvent dans une cage avec des tunnels.",
+                    "success": "C'est bien le hamster tout rapide !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis gris, j'ai une trompe et je suis tres gentil. Qui suis-je ?",
+                    "options": [
+                        "Un bebe elephant",
+                        "Un rhinoceros",
+                        "Un crocodile"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux arroser avec ma trompe.",
+                    "success": "Bravo, le bebe elephant adore l'eau !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis orange, je tourne dans mon bocal et j'aime les bulles. Qui suis-je ?",
+                    "options": [
+                        "Un poisson rouge",
+                        "Un dauphin",
+                        "Un hippocampe"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis un animal de compagnie silencieux.",
+                    "success": "Oui, le poisson rouge aime observer tout le monde !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 }
             ]
         },
         {
-            level: 2,
-            theme: "Fruits colorés",
-            completionMessage: "Tu reconnais les fruits colorés !",
-            questions: [
+            "level": 2,
+            "theme": "Animaux aventuriers",
+            "completionMessage": "Tu as explore la foret des animaux aventuriers !",
+            "questions": [
                 {
-                    prompt: "Je suis jaune et on me pèle avant de me manger. Qui suis-je ?",
-                    options: ["Une banane", "Un kiwi", "Une prune"],
-                    answer: 0,
-                    hint: "On me tient par ma queue.",
-                    success: "La banane est délicieuse !",
-                    reward: { stars: 7, coins: 5 }
+                    "prompt": "Je suis le roi de la savane et je rugis tres fort. Qui suis-je ?",
+                    "options": [
+                        "Un lion",
+                        "Un ours",
+                        "Un zebu"
+                    ],
+                    "answer": 0,
+                    "hint": "Ma criniere brille au soleil.",
+                    "success": "Bravo, le lion protege sa troupe !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je suis verte ou rouge et je croque sous la dent. Qui suis-je ?",
-                    options: ["Une pomme", "Une tomate", "Une cerise"],
-                    answer: 0,
-                    hint: "On me trouve souvent dans les paniers de pique-nique.",
-                    success: "Bravo, la pomme croque !",
-                    reward: { stars: 7, coins: 5 }
+                    "prompt": "Je suis noir et blanc et je croque du bambou toute la journee. Qui suis-je ?",
+                    "options": [
+                        "Un panda",
+                        "Un koala",
+                        "Un tapir"
+                    ],
+                    "answer": 0,
+                    "hint": "Je vis dans une foret de bambous.",
+                    "success": "Exact, le panda adore les pousses tendres !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je suis orange et j'offre un jus plein de vitamine C. Qui suis-je ?",
-                    options: ["Une orange", "Un citron", "Une fraise"],
-                    answer: 0,
-                    hint: "Mon jus te réveille le matin.",
-                    success: "L'orange est pleine d'énergie !",
-                    reward: { stars: 7, coins: 5 }
+                    "prompt": "Je vole la nuit en utilisant un radar magique. Qui suis-je ?",
+                    "options": [
+                        "Une chauve-souris",
+                        "Une chouette",
+                        "Un corbeau"
+                    ],
+                    "answer": 0,
+                    "hint": "Je dors la tete en bas.",
+                    "success": "Oui, la chauve-souris glisse dans le noir !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je suis petite, rouge et j'ai des grains sur ma peau. Qui suis-je ?",
-                    options: ["Une fraise", "Une prune", "Une poire"],
-                    answer: 0,
-                    hint: "Je pousse dans le jardin au printemps.",
-                    success: "La fraise est toute rouge !",
-                    reward: { stars: 7, coins: 5 }
+                    "prompt": "Je suis tres grand, j'ai un long cou pour manger les feuilles. Qui suis-je ?",
+                    "options": [
+                        "Une girafe",
+                        "Un autruche",
+                        "Un lama"
+                    ],
+                    "answer": 0,
+                    "hint": "Je vis sur la savane africaine.",
+                    "success": "Bravo, la girafe atteint les arbres les plus hauts !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "J'ai une couronne piquante mais un cœur doré. Qui suis-je ?",
-                    options: ["Un ananas", "Une mangue", "Une banane"],
-                    answer: 0,
-                    hint: "Je viens souvent des îles.",
-                    success: "L'ananas est royal !",
-                    reward: { stars: 7, coins: 5 }
+                    "prompt": "Je cours tres vite avec mes taches pour me cacher. Qui suis-je ?",
+                    "options": [
+                        "Un guepard",
+                        "Un zepard",
+                        "Un coyote"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis le grand sprinteur de la savane.",
+                    "success": "Quelle vitesse, le guepard file comme le vent !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis noir et blanc, je nage et je glisse sur la banquise. Qui suis-je ?",
+                    "options": [
+                        "Un pingouin",
+                        "Une otarie",
+                        "Un morse"
+                    ],
+                    "answer": 0,
+                    "hint": "Je porte un frac pour plonger dans l'eau glacee.",
+                    "success": "Bien vu, le pingouin adore les plongeons !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis geant, je chante dans l'ocean et je souffle un jet d'eau. Qui suis-je ?",
+                    "options": [
+                        "Une baleine",
+                        "Un requin",
+                        "Un narval"
+                    ],
+                    "answer": 0,
+                    "hint": "Je voyage sur des milliers de kilometres.",
+                    "success": "Oui, la baleine chante pour ses amis !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis ruse, j'ai une queue touffue et j'habite la foret. Qui suis-je ?",
+                    "options": [
+                        "Un renard",
+                        "Un blaireau",
+                        "Un castor"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis souvent rouge flamboyant.",
+                    "success": "Malin comme un renard, bien joue !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 }
             ]
         },
         {
-            level: 3,
-            theme: "Amis de la ferme",
-            completionMessage: "Tu as reconnu tous les animaux de la ferme !",
-            questions: [
+            "level": 3,
+            "theme": "Gouter magique",
+            "completionMessage": "Tu as prepare un gouter enchante !",
+            "questions": [
                 {
-                    prompt: "Je me réveille très tôt et je crie cocorico. Qui suis-je ?",
-                    options: ["Un coq", "Un canard", "Un hibou"],
-                    answer: 0,
-                    hint: "Je réveille toute la ferme.",
-                    success: "Cocorico, bien joué !",
-                    reward: { stars: 8, coins: 5 }
+                    "prompt": "Je suis moelleux, je suis parfois au chocolat et on me souffle pour un anniversaire. Qui suis-je ?",
+                    "options": [
+                        "Un gateau",
+                        "Une salade",
+                        "Une soupe"
+                    ],
+                    "answer": 0,
+                    "hint": "Je porte des bougies et des decorations.",
+                    "success": "Miam, le gateau est pret a etre partage !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je donne du lait blanc et j'aime manger de l'herbe. Qui suis-je ?",
-                    options: ["Une vache", "Une chèvre", "Une poule"],
-                    answer: 0,
-                    hint: "Je me fais traire chaque matin.",
-                    success: "La vache fournit du lait !",
-                    reward: { stars: 8, coins: 5 }
+                    "prompt": "Je suis un fruit rouge avec des pepins, on me trouve en ete. Qui suis-je ?",
+                    "options": [
+                        "Une fraise",
+                        "Une banane",
+                        "Une prune"
+                    ],
+                    "answer": 0,
+                    "hint": "Je me cache dans un petit panier.",
+                    "success": "Bonne idee, la fraise est bien sucree !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je donne de la laine douce pour fabriquer des pulls. Qui suis-je ?",
-                    options: ["Un mouton", "Un cheval", "Un lapin"],
-                    answer: 0,
-                    hint: "On me tond au printemps.",
-                    success: "La laine vient du mouton !",
-                    reward: { stars: 8, coins: 5 }
+                    "prompt": "Je suis tout rond, j'ai une peau orange et je laisse le jus degouliner. Qui suis-je ?",
+                    "options": [
+                        "Une orange",
+                        "Un kiwi",
+                        "Un abricot"
+                    ],
+                    "answer": 0,
+                    "hint": "On me presse pour faire une boisson vitaminee.",
+                    "success": "Bravo, une orange pleine d'energie !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "J'adore me rouler dans la boue pour me rafraîchir. Qui suis-je ?",
-                    options: ["Un cochon", "Un chien", "Un lama"],
-                    answer: 0,
-                    hint: "Je fais groin groin.",
-                    success: "Le cochon adore la boue !",
-                    reward: { stars: 8, coins: 5 }
+                    "prompt": "Je suis croquant, je suis fait de pain et de garnitures. Qui suis-je ?",
+                    "options": [
+                        "Un sandwich",
+                        "Un biscuit",
+                        "Une tarte"
+                    ],
+                    "answer": 0,
+                    "hint": "On me glisse dans une boite a gouter.",
+                    "success": "Super, le sandwich est pret pour le pique-nique !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je porte parfois un jockey pour courir très vite. Qui suis-je ?",
-                    options: ["Un cheval", "Une vache", "Un lapin"],
-                    answer: 0,
-                    hint: "Je galope au haras.",
-                    success: "Le cheval est un champion !",
-                    reward: { stars: 8, coins: 5 }
+                    "prompt": "Je suis glace, je peux avoir trois boules et je fonds vite. Qui suis-je ?",
+                    "options": [
+                        "Une glace",
+                        "Une confiture",
+                        "Un yaourt"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis delicieuse en plein ete.",
+                    "success": "Oui, la glace rafraichit tout le monde !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis un fruit croquant qui peut etre rouge ou vert. Qui suis-je ?",
+                    "options": [
+                        "Une pomme",
+                        "Une figue",
+                        "Un citron"
+                    ],
+                    "answer": 0,
+                    "hint": "Un proverbe dit qu'une par jour garde la sante.",
+                    "success": "La pomme croque sous la dent, bravo !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis doree, legere et je sors d'un grille-pain. Qui suis-je ?",
+                    "options": [
+                        "Une gaufre",
+                        "Une crepe",
+                        "Une tranche de pain"
+                    ],
+                    "answer": 0,
+                    "hint": "On me recouvre parfois de sucre glace.",
+                    "success": "Oui, la gaufre croustille comme il faut !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je suis une boisson chaude que l'on boit le matin avec du lait. Qui suis-je ?",
+                    "options": [
+                        "Un cacao",
+                        "Un soda",
+                        "Un jus de raisin"
+                    ],
+                    "answer": 0,
+                    "hint": "Je sens bon le chocolat.",
+                    "success": "Quel parfum, le cacao rechauffe le gouter !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 }
             ]
         },
         {
-            level: 4,
-            theme: "Fruits tropicaux",
-            completionMessage: "Tes papilles adorent les fruits tropicaux !",
-            questions: [
+            "level": 4,
+            "theme": "Objets de la classe",
+            "completionMessage": "Tu connais chaque outil de la classe magique !",
+            "questions": [
                 {
-                    prompt: "Ma chair est orange, douce et juteuse. Je tombe parfois des arbres en martinique. Qui suis-je ?",
-                    options: ["Une mangue", "Une prune", "Une pêche"],
-                    answer: 0,
-                    hint: "Je suis un fruit tropical qui commence par la lettre M.",
-                    success: "La mangue est un soleil sucré !",
-                    reward: { stars: 9, coins: 6 }
+                    "prompt": "Je dessine et j'efface, je suis souvent bleu ou noir. Qui suis-je ?",
+                    "options": [
+                        "Un feutre",
+                        "Un pinceau",
+                        "Un compas"
+                    ],
+                    "answer": 0,
+                    "hint": "Je vis sur le tableau blanc.",
+                    "success": "Exact, le feutre trace des idees !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je suis verte à l'extérieur, rouge à l'intérieur et je rafraîchis tout l'été. Qui suis-je ?",
-                    options: ["Une pastèque", "Une prune", "Un citron"],
-                    answer: 0,
-                    hint: "Je suis très lourde et pleine de graines.",
-                    success: "La pastèque désaltère tout le monde !",
-                    reward: { stars: 9, coins: 6 }
+                    "prompt": "Je tiens les feuilles sans bouger, je mordille le papier. Qui suis-je ?",
+                    "options": [
+                        "Un trombone",
+                        "Un cutter",
+                        "Une gomme"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis en metal et je me plie facilement.",
+                    "success": "Bravo, le trombone garde les copies ensemble !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je suis petit, brun dehors et vert brillant dedans. Qui suis-je ?",
-                    options: ["Un kiwi", "Une figue", "Une prune"],
-                    answer: 0,
-                    hint: "Je me mange à la cuillère.",
-                    success: "Le kiwi est plein de vitamines !",
-                    reward: { stars: 9, coins: 6 }
+                    "prompt": "Je coupe le papier proprement avec mes deux lames. Qui suis-je ?",
+                    "options": [
+                        "Des ciseaux",
+                        "Une regle",
+                        "Une perforatrice"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis dangereux sans surveillance.",
+                    "success": "Bien joue, les ciseaux decoupent avec soin !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "On me casse pour boire mon eau sucrée au bord de la plage. Qui suis-je ?",
-                    options: ["Une noix de coco", "Un melon", "Une mandarine"],
-                    answer: 0,
-                    hint: "Ma coque est très dure.",
-                    success: "La noix de coco rafraîchit !",
-                    reward: { stars: 9, coins: 6 }
+                    "prompt": "Je calcule et j'affiche des chiffres lumineux. Qui suis-je ?",
+                    "options": [
+                        "Une calculatrice",
+                        "Un dictionnaire",
+                        "Une trousse"
+                    ],
+                    "answer": 0,
+                    "hint": "Je t'aide pendant les devoirs de maths.",
+                    "success": "Oui, la calculatrice donne les bonnes reponses !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 },
                 {
-                    prompt: "Je ressemble à une grosse baie violette et on me croque grain par grain. Qui suis-je ?",
-                    options: ["Une grappe de raisin", "Une myrtille", "Une mûre"],
-                    answer: 0,
-                    hint: "Je suis souvent servi avec du fromage.",
-                    success: "Les raisins sont délicieux !",
-                    reward: { stars: 9, coins: 6 }
+                    "prompt": "Je trace des lignes droites et mesure des centimetres. Qui suis-je ?",
+                    "options": [
+                        "Une regle",
+                        "Un pinceau",
+                        "Un rapporteur"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis transparent et gradue.",
+                    "success": "Super, la regle aide a tout aligner !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je garde les crayons bien ranges. Qui suis-je ?",
+                    "options": [
+                        "Une trousse",
+                        "Un cartable",
+                        "Un sac a dos"
+                    ],
+                    "answer": 0,
+                    "hint": "Je vis souvent dans le cartable.",
+                    "success": "Bravo, la trousse protege les tresors de dessin !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je projette une histoire ou une image sur le mur. Qui suis-je ?",
+                    "options": [
+                        "Un videoprojecteur",
+                        "Un microscope",
+                        "Un sablier"
+                    ],
+                    "answer": 0,
+                    "hint": "Je fonctionne avec un ordinateur.",
+                    "success": "Oui, le videoprojecteur illumine la classe !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
+                },
+                {
+                    "prompt": "Je porte les livres et les cahiers sur mon dos. Qui suis-je ?",
+                    "options": [
+                        "Un cartable",
+                        "Une chaise",
+                        "Un pupitre"
+                    ],
+                    "answer": 0,
+                    "hint": "Je voyage entre la maison et l'ecole.",
+                    "success": "Cartable pret, mission accomplie !",
+                    "reward": {
+                        "stars": 6,
+                        "coins": 4
+                    }
                 }
             ]
         },
         {
-            level: 5,
-            theme: "Animaux malins",
-            completionMessage: "Tu connais bien les animaux malins !",
-            questions: [
+            "level": 5,
+            "theme": "Maison enchantee",
+            "completionMessage": "Tu t'es promene dans toute la maison enchantee !",
+            "questions": [
                 {
-                    prompt: "Je hulule la nuit avec mes grands yeux ronds. Qui suis-je ?",
-                    options: ["Un hibou", "Un manchot", "Un chien"],
-                    answer: 0,
-                    hint: "Je surveille la forêt pendant que tu dors.",
-                    success: "Le hibou observe dans la nuit !",
-                    reward: { stars: 10, coins: 7 }
+                    "prompt": "Je cuis des gateaux dans ma chaleur douce. Qui suis-je ?",
+                    "options": [
+                        "Un four",
+                        "Un frigo",
+                        "Un evier"
+                    ],
+                    "answer": 0,
+                    "hint": "On m'ouvre avec des gants.",
+                    "success": "Bravo, le four fait lever la pate !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis rusé, ma queue est rousse et je vis dans le bois. Qui suis-je ?",
-                    options: ["Un renard", "Un ours", "Un loup"],
-                    answer: 0,
-                    hint: "On me dit parfois voleur de poules.",
-                    success: "Quel renard astucieux !",
-                    reward: { stars: 10, coins: 7 }
+                    "prompt": "Je garde les aliments au frais jour et nuit. Qui suis-je ?",
+                    "options": [
+                        "Un frigo",
+                        "Un four",
+                        "Un lave-vaisselle"
+                    ],
+                    "answer": 0,
+                    "hint": "Je bourdonne doucement.",
+                    "success": "Exact, le frigo conserve les gouts !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je chante coâ coâ près des mares le soir. Qui suis-je ?",
-                    options: ["Une grenouille", "Un cygne", "Un crocodile"],
-                    answer: 0,
-                    hint: "Je saute dans l'eau et j'ai la peau verte.",
-                    success: "La grenouille adore chanter !",
-                    reward: { stars: 10, coins: 7 }
+                    "prompt": "Je lave les vetements avec de la mousse. Qui suis-je ?",
+                    "options": [
+                        "Une machine a laver",
+                        "Un aspirateur",
+                        "Une poubelle"
+                    ],
+                    "answer": 0,
+                    "hint": "Je tourne tres vite en faisant un tourbillon.",
+                    "success": "Bien vu, la machine a laver nettoie tout !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je grimpe aux arbres et je mange des noisettes. Qui suis-je ?",
-                    options: ["Un écureuil", "Un blaireau", "Un hérisson"],
-                    answer: 0,
-                    hint: "Ma queue est en panache.",
-                    success: "L'écureuil est très agile !",
-                    reward: { stars: 10, coins: 7 }
+                    "prompt": "Je balaye le tapis avec un grand bruit. Qui suis-je ?",
+                    "options": [
+                        "Un aspirateur",
+                        "Un balai",
+                        "Un plumeau"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis branche a une prise.",
+                    "success": "Oui, l'aspirateur avale la poussiere !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Quand je suis surpris, je roule sur moi-même en boule piquante. Qui suis-je ?",
-                    options: ["Un hérisson", "Un castor", "Un lapin"],
-                    answer: 0,
-                    hint: "On me trouve parfois dans le jardin.",
-                    success: "Le hérisson se protège bien !",
-                    reward: { stars: 10, coins: 7 }
+                    "prompt": "Je brille au plafond et j'eclaire la piece. Qui suis-je ?",
+                    "options": [
+                        "Une lampe",
+                        "Une television",
+                        "Une plante"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux etre suspendue ou posee sur une table.",
+                    "success": "Super, la lampe illumine la maison !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis douce et moelleuse, on s'assoit sur moi pour lire. Qui suis-je ?",
+                    "options": [
+                        "Un canape",
+                        "Une table",
+                        "Une armoire"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis souvent dans le salon.",
+                    "success": "Parfait, le canape invite a se reposer !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je montre la date et j'entends un tic-tac. Qui suis-je ?",
+                    "options": [
+                        "Une horloge",
+                        "Un miroir",
+                        "Une fenetre"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux sonner toutes les heures.",
+                    "success": "Oui, l'horloge aide a ne pas etre en retard !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis pleine de bulles, on me prend pour se laver en riant. Qui suis-je ?",
+                    "options": [
+                        "Une baignoire",
+                        "Un lavabo",
+                        "Une douche"
+                    ],
+                    "answer": 0,
+                    "hint": "Je deviens un bateau de jouets.",
+                    "success": "Baignoire magique, mission proprete !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 }
             ]
         },
         {
-            level: 6,
-            theme: "Salade de fruits",
-            completionMessage: "Tu as préparé une salade de fruits magique !",
-            questions: [
+            "level": 6,
+            "theme": "Nature mysterieuse",
+            "completionMessage": "Tu as decode tous les secrets de la nature mysterieuse !",
+            "questions": [
                 {
-                    prompt: "Je suis violet et je laisse parfois une moustache colorée sur ta bouche. Qui suis-je ?",
-                    options: ["Une myrtille", "Un citron", "Une poire"],
-                    answer: 0,
-                    hint: "Je suis tout petit et je pousse sur des buissons.",
-                    success: "La myrtille colore la langue !",
-                    reward: { stars: 11, coins: 8 }
+                    "prompt": "Je tombe du ciel, je suis douce au printemps. Qui suis-je ?",
+                    "options": [
+                        "La pluie",
+                        "La neige",
+                        "Le vent"
+                    ],
+                    "answer": 0,
+                    "hint": "Je fais pousser les fleurs.",
+                    "success": "Bravo, la pluie arrose la terre !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis rose à l'extérieur et j'ai un gros noyau. Qui suis-je ?",
-                    options: ["Une pêche", "Une pomme", "Une poire"],
-                    answer: 0,
-                    hint: "Ma peau est toute douce.",
-                    success: "La pêche est veloutée !",
-                    reward: { stars: 11, coins: 8 }
+                    "prompt": "Je brille fort dans le ciel et je rechauffe tout. Qui suis-je ?",
+                    "options": [
+                        "Le soleil",
+                        "La lune",
+                        "Une etoile filante"
+                    ],
+                    "answer": 0,
+                    "hint": "Je disparais la nuit.",
+                    "success": "Oui, le soleil dore la journee !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis jaune, très acide et on m'utilise pour faire de la limonade. Qui suis-je ?",
-                    options: ["Un citron", "Une banane", "Un abricot"],
-                    answer: 0,
-                    hint: "On fait une grimace en me goûtant.",
-                    success: "Le citron pique la langue !",
-                    reward: { stars: 11, coins: 8 }
+                    "prompt": "Je suis une plante qui grimpe et me couvre de ronces. Qui suis-je ?",
+                    "options": [
+                        "Un rosier",
+                        "Un pommier",
+                        "Une herbe"
+                    ],
+                    "answer": 0,
+                    "hint": "Mes fleurs ont des epines.",
+                    "success": "Bien joue, le rosier porte des roses parfumees !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis allongée, verte à l'extérieur et rose avec des pépins noirs à l'intérieur. Qui suis-je ?",
-                    options: ["Une pastèque", "Une papaye", "Une figue"],
-                    answer: 0,
-                    hint: "On me partage en grosses tranches l'été.",
-                    success: "La pastèque rafraîchit !",
-                    reward: { stars: 11, coins: 8 }
+                    "prompt": "Je suis un insecte qui fabrique du miel. Qui suis-je ?",
+                    "options": [
+                        "Une abeille",
+                        "Une fourmi",
+                        "Un grillon"
+                    ],
+                    "answer": 0,
+                    "hint": "Je danse pour avertir mes amies.",
+                    "success": "Exact, l'abeille butine les fleurs !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis petite, jaune et on me trouve souvent en grappe avec mes amis. Qui suis-je ?",
-                    options: ["Un grain de raisin", "Un pois", "Une prune"],
-                    answer: 0,
-                    hint: "On me cueille par grappes.",
-                    success: "Les raisins dorés sont délicieux !",
-                    reward: { stars: 11, coins: 8 }
+                    "prompt": "Je souffle tres fort et fais voler les feuilles. Qui suis-je ?",
+                    "options": [
+                        "Le vent",
+                        "Un orage",
+                        "Le brouillard"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux etre doux ou violent.",
+                    "success": "Oui, le vent siffle entre les arbres !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis un arbre qui perd ses feuilles en automne. Qui suis-je ?",
+                    "options": [
+                        "Un chene",
+                        "Un sapin",
+                        "Un palmier"
+                    ],
+                    "answer": 0,
+                    "hint": "Je produis des glands pour les ecureuils.",
+                    "success": "Bravo, le chene est solide et ancien !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis un caillou brillant que l'on trouve dans la montagne. Qui suis-je ?",
+                    "options": [
+                        "Un cristal",
+                        "Un charbon",
+                        "Une coquille"
+                    ],
+                    "answer": 0,
+                    "hint": "Je scintille a la lumiere.",
+                    "success": "Super, le cristal etincelle comme un tresor !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis un petit cours d'eau qui serpente dans la foret. Qui suis-je ?",
+                    "options": [
+                        "Un ruisseau",
+                        "Une cascade",
+                        "Un ocean"
+                    ],
+                    "answer": 0,
+                    "hint": "Je chante en roulant sur les pierres.",
+                    "success": "Quel calme, le ruisseau raconte une histoire !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 }
             ]
         },
         {
-            level: 7,
-            theme: "Voyage sous la mer",
-            completionMessage: "Tu as exploré l'océan !",
-            questions: [
+            "level": 7,
+            "theme": "Voyage en ville",
+            "completionMessage": "Tu as visite chaque coin de la ville !",
+            "questions": [
                 {
-                    prompt: "Je suis un mammifère qui saute hors de l'eau et j'adore jouer. Qui suis-je ?",
-                    options: ["Un dauphin", "Une baleine", "Un requin"],
-                    answer: 0,
-                    hint: "Je siffle pour parler avec mes amis.",
-                    success: "Le dauphin est très joueur !",
-                    reward: { stars: 12, coins: 9 }
+                    "prompt": "Je transporte de nombreux passagers sur des rails. Qui suis-je ?",
+                    "options": [
+                        "Un tramway",
+                        "Un bus",
+                        "Un taxi"
+                    ],
+                    "answer": 0,
+                    "hint": "Je fais ding ding en tournant.",
+                    "success": "Bravo, le tramway glisse dans les rues !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "J'ai huit bras et je peux changer de couleur. Qui suis-je ?",
-                    options: ["Une pieuvre", "Une sardine", "Une tortue"],
-                    answer: 0,
-                    hint: "Je me cache dans les rochers.",
-                    success: "La pieuvre est caméléon !",
-                    reward: { stars: 12, coins: 9 }
+                    "prompt": "Je distribue des lettres et des colis. Qui suis-je ?",
+                    "options": [
+                        "Le facteur",
+                        "Le pompier",
+                        "Le jardinier"
+                    ],
+                    "answer": 0,
+                    "hint": "Je roule avec une sacoche.",
+                    "success": "Exact, le facteur apporte des nouvelles !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je marche sur le sable de côté avec mes pinces. Qui suis-je ?",
-                    options: ["Un crabe", "Un ours polaire", "Un phoque"],
-                    answer: 0,
-                    hint: "Je laisse des traces en zigzag.",
-                    success: "Le crabe marche de travers !",
-                    reward: { stars: 12, coins: 9 }
+                    "prompt": "Je vends du pain croustillant tres tot le matin. Qui suis-je ?",
+                    "options": [
+                        "La boulangerie",
+                        "La banque",
+                        "La pharmacie"
+                    ],
+                    "answer": 0,
+                    "hint": "Ca sent bon devant ma vitrine.",
+                    "success": "Miam, la boulangerie regale la ville !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis géante, j'ai un jet d'eau sur ma tête et je chante sous l'eau. Qui suis-je ?",
-                    options: ["Une baleine", "Une raie", "Une otarie"],
-                    answer: 0,
-                    hint: "Je suis l'un des plus grands animaux du monde.",
-                    success: "La baleine chante fort !",
-                    reward: { stars: 12, coins: 9 }
+                    "prompt": "Je conduis les gens d'un endroit a un autre sur la route. Qui suis-je ?",
+                    "options": [
+                        "Un bus",
+                        "Un train",
+                        "Un avion"
+                    ],
+                    "answer": 0,
+                    "hint": "Je m'arrete a plusieurs stations.",
+                    "success": "Bien vu, le bus relie les quartiers !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je porte une carapace et je nage longtemps sans me fatiguer. Qui suis-je ?",
-                    options: ["Une tortue de mer", "Un hippopotame", "Une grenouille"],
-                    answer: 0,
-                    hint: "Je pond mes œufs sur le sable.",
-                    success: "La tortue de mer voyage loin !",
-                    reward: { stars: 12, coins: 9 }
+                    "prompt": "Je protege la ville et j'eteins les incendies. Qui suis-je ?",
+                    "options": [
+                        "La caserne des pompiers",
+                        "L'hopital",
+                        "Le musee"
+                    ],
+                    "answer": 0,
+                    "hint": "Je sors des camions rouges.",
+                    "success": "Oui, la caserne veille sur tout le monde !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je garde les livres et je prete des histoires. Qui suis-je ?",
+                    "options": [
+                        "Une bibliotheque",
+                        "Un cinema",
+                        "Un theatre"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis un endroit silencieux.",
+                    "success": "Bravo, la bibliotheque cache mille aventures !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je fais traverser les pietons en toute securite. Qui suis-je ?",
+                    "options": [
+                        "Un feu tricolore",
+                        "Une fontaine",
+                        "Un kiosque"
+                    ],
+                    "answer": 0,
+                    "hint": "Je change de couleur pour donner le signal.",
+                    "success": "Parfait, le feu tricolore guide les passants !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis un endroit vert pour jouer et pique-niquer. Qui suis-je ?",
+                    "options": [
+                        "Un parc",
+                        "Une gare",
+                        "Une usine"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis rempli d'arbres et de bancs.",
+                    "success": "Super, le parc detend toute la ville !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 }
             ]
         },
         {
-            level: 8,
-            theme: "Desserts fruités",
-            completionMessage: "Tes desserts fruités sont prêts !",
-            questions: [
+            "level": 8,
+            "theme": "Instruments et sons",
+            "completionMessage": "Tu as maitrise la musique des instruments magiques !",
+            "questions": [
                 {
-                    prompt: "Je suis petite, rouge foncé et je repose souvent sur un gâteau. Qui suis-je ?",
-                    options: ["Une cerise", "Une framboise", "Une prune"],
-                    answer: 0,
-                    hint: "On me met aussi sur les glaces.",
-                    success: "La cerise embellit les desserts !",
-                    reward: { stars: 13, coins: 10 }
+                    "prompt": "Je suis petit, je fais ding ding et j'aide a garder le rythme. Qui suis-je ?",
+                    "options": [
+                        "Un triangle",
+                        "Un piano",
+                        "Une flute"
+                    ],
+                    "answer": 0,
+                    "hint": "On me frappe avec une baguette.",
+                    "success": "Bravo, le triangle tinte joyeusement !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis rose, pleine de graines et parfaite en sorbet. Qui suis-je ?",
-                    options: ["Une framboise", "Une figue", "Une groseille"],
-                    answer: 0,
-                    hint: "Je pousse en petits buissons.",
-                    success: "La framboise est sucrée !",
-                    reward: { stars: 13, coins: 10 }
+                    "prompt": "Je possede des cordes et je se joue avec un archet. Qui suis-je ?",
+                    "options": [
+                        "Un violon",
+                        "Une guitare",
+                        "Une harpe"
+                    ],
+                    "answer": 0,
+                    "hint": "Je chante sous le menton.",
+                    "success": "Exact, le violon chante dans l'orchestre !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis longue, jaune clair et pleine de petites graines noires à l'intérieur. Qui suis-je ?",
-                    options: ["Une vanille", "Une banane", "Une mangue"],
-                    answer: 0,
-                    hint: "On m'utilise pour parfumer les crèmes.",
-                    success: "La gousse de vanille sent bon !",
-                    reward: { stars: 13, coins: 10 }
+                    "prompt": "Je suis un clavier noir et blanc que l'on touche avec les doigts. Qui suis-je ?",
+                    "options": [
+                        "Un piano",
+                        "Un accordion",
+                        "Un orgue"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux etre droit ou a queue.",
+                    "success": "Oui, le piano remplit la salle de musique !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis verte claire, toute douce et je deviens orange quand je suis cuite dans une tarte. Qui suis-je ?",
-                    options: ["La rhubarbe", "La poire", "Le raisin"],
-                    answer: 0,
-                    hint: "Je suis souvent mélangée avec des fraises.",
-                    success: "La rhubarbe prépare de bonnes tartes !",
-                    reward: { stars: 13, coins: 10 }
+                    "prompt": "Je suis un instrument a vent dore qui brille. Qui suis-je ?",
+                    "options": [
+                        "Une trompette",
+                        "Un harmonica",
+                        "Une clarinette"
+                    ],
+                    "answer": 0,
+                    "hint": "Je fais un son clair et puissant.",
+                    "success": "Bien joue, la trompette reveille tout le monde !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 },
                 {
-                    prompt: "Je suis jaune, sucré et je brille dans les salades de fruits exotiques. Qui suis-je ?",
-                    options: ["Une mangue", "Une poire", "Une papaye"],
-                    answer: 0,
-                    hint: "Je suis très parfumée et juteuse.",
-                    success: "La mangue est un dessert merveilleux !",
-                    reward: { stars: 13, coins: 10 }
+                    "prompt": "Je garde le tempo avec deux baguettes. Qui suis-je ?",
+                    "options": [
+                        "Une batterie",
+                        "Un tambourin",
+                        "Un xylophone"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis compose de plusieurs tambours.",
+                    "success": "Super, la batterie lance le rythme !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis en bois ou en metal, on me souffle pour faire une melodie. Qui suis-je ?",
+                    "options": [
+                        "Une flute",
+                        "Un saxophone",
+                        "Un hautbois"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux etre droite ou traversiere.",
+                    "success": "Oui, la flute chante comme un oiseau !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis un instrument africain avec des lamelles que l'on pince. Qui suis-je ?",
+                    "options": [
+                        "Une kalimba",
+                        "Un banjo",
+                        "Une cornemuse"
+                    ],
+                    "answer": 0,
+                    "hint": "On m'appelle aussi piano a pouce.",
+                    "success": "Bravo, la kalimba tinte doucement !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
+                },
+                {
+                    "prompt": "Je suis electrique et j'accompagne les concerts rock. Qui suis-je ?",
+                    "options": [
+                        "Une guitare electrique",
+                        "Une mandoline",
+                        "Un clavecin"
+                    ],
+                    "answer": 0,
+                    "hint": "Je vibre grace aux amplis.",
+                    "success": "Quelle energie, la guitare electrique fait danser !",
+                    "reward": {
+                        "stars": 7,
+                        "coins": 5
+                    }
                 }
             ]
         },
         {
-            level: 9,
-            theme: "Animaux fantastiques",
-            completionMessage: "Ton encyclopédie magique est remplie d'animaux fantastiques !",
-            questions: [
+            "level": 9,
+            "theme": "Metiers de reve",
+            "completionMessage": "Tu as rencontre tous les metiers de reve !",
+            "questions": [
                 {
-                    prompt: "Je suis un cheval blanc avec une corne scintillante. Qui suis-je ?",
-                    options: ["Une licorne", "Un poney", "Un zèbre"],
-                    answer: 0,
-                    hint: "Je vis dans les contes de fées.",
-                    success: "La licorne est légendaire !",
-                    reward: { stars: 15, coins: 11 }
+                    "prompt": "Je soigne les animaux malades et je les rassure. Qui suis-je ?",
+                    "options": [
+                        "Un veterinaire",
+                        "Un pilote",
+                        "Un jardinier"
+                    ],
+                    "answer": 0,
+                    "hint": "Je porte parfois une blouse blanche.",
+                    "success": "Bravo, le veterinaire protege nos compagnons !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Je crache du feu et je protège des trésors. Qui suis-je ?",
-                    options: ["Un dragon", "Un dinosaure", "Un griffon"],
-                    answer: 0,
-                    hint: "On me voit dans les histoires de chevaliers.",
-                    success: "Le dragon garde ses trésors !",
-                    reward: { stars: 15, coins: 11 }
+                    "prompt": "Je dessine des plans et je construis des maisons. Qui suis-je ?",
+                    "options": [
+                        "Un architecte",
+                        "Un boulanger",
+                        "Un musicien"
+                    ],
+                    "answer": 0,
+                    "hint": "Je travaille avec des maquettes.",
+                    "success": "Exact, l'architecte imagine la ville de demain !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "J'ai le corps d'un lion et des ailes d'aigle. Qui suis-je ?",
-                    options: ["Un griffon", "Un phénix", "Un minotaure"],
-                    answer: 0,
-                    hint: "Je suis un mélange majestueux.",
-                    success: "Le griffon surveille les royaumes !",
-                    reward: { stars: 15, coins: 11 }
+                    "prompt": "Je plante, j'arrose et je fais pousser des legumes. Qui suis-je ?",
+                    "options": [
+                        "Un maraicher",
+                        "Un medecin",
+                        "Un pilote"
+                    ],
+                    "answer": 0,
+                    "hint": "Je travaille dans les champs ou les serres.",
+                    "success": "Oui, le maraicher cultive les saveurs !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Je renais de mes cendres dans un éclat de lumière. Qui suis-je ?",
-                    options: ["Un phénix", "Un hibou", "Un serpent"],
-                    answer: 0,
-                    hint: "Je suis un oiseau de feu.",
-                    success: "Le phénix renaît toujours !",
-                    reward: { stars: 15, coins: 11 }
+                    "prompt": "Je pilote une fusee et j'observe la Terre. Qui suis-je ?",
+                    "options": [
+                        "Un astronaute",
+                        "Un marin",
+                        "Un explorateur"
+                    ],
+                    "answer": 0,
+                    "hint": "Je flotte sans gravite.",
+                    "success": "Quel voyage, l'astronaute voltige dans l'espace !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Je nage comme un poisson mais je chante comme une humaine. Qui suis-je ?",
-                    options: ["Une sirène", "Une baleine", "Un dauphin"],
-                    answer: 0,
-                    hint: "Je vis sous la mer dans les chansons.",
-                    success: "Les sirènes savent chanter !",
-                    reward: { stars: 15, coins: 11 }
+                    "prompt": "Je raconte des histoires avec ma camera. Qui suis-je ?",
+                    "options": [
+                        "Un realisateur",
+                        "Un chirurgien",
+                        "Un pompier"
+                    ],
+                    "answer": 0,
+                    "hint": "Je crie parfois action !",
+                    "success": "Super, le realisateur fait vivre les films !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je joue de la musique devant un public. Qui suis-je ?",
+                    "options": [
+                        "Un musicien",
+                        "Un libraire",
+                        "Un juge"
+                    ],
+                    "answer": 0,
+                    "hint": "Je repete des heures mon instrument.",
+                    "success": "Bravo, le musicien enchante la scene !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je cree des jeux video avec du code. Qui suis-je ?",
+                    "options": [
+                        "Un developpeur",
+                        "Un cuisinier",
+                        "Un pilote"
+                    ],
+                    "answer": 0,
+                    "hint": "Je travaille avec un ordinateur.",
+                    "success": "Genial, le developpeur invente des mondes !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je dessine des vetements sur mesure. Qui suis-je ?",
+                    "options": [
+                        "Un styliste",
+                        "Un menuisier",
+                        "Un coiffeur"
+                    ],
+                    "answer": 0,
+                    "hint": "Je choisis des tissus et des couleurs.",
+                    "success": "Tres chic, le styliste imagine la mode !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 }
             ]
         },
         {
-            level: 10,
-            theme: "Panier surprise",
-            completionMessage: "Tu as résolu toutes les énigmes du panier surprise !",
-            questions: [
+            "level": 10,
+            "theme": "Explorer le temps",
+            "completionMessage": "Tu as mis de l'ordre dans toutes les heures magiques !",
+            "questions": [
                 {
-                    prompt: "Je suis un fruit vert dehors, rouge dedans, et je porte une petite couronne. Qui suis-je ?",
-                    options: ["Une fraise", "Un kiwi", "Une pastèque"],
-                    answer: 0,
-                    hint: "Je suis petite et je pousse près du sol.",
-                    success: "La fraise royale est choisie !",
-                    reward: { stars: 16, coins: 12 }
+                    "prompt": "Je sonne le matin pour reveiller tout le monde. Qui suis-je ?",
+                    "options": [
+                        "Un reveil",
+                        "Une brosse",
+                        "Un parapluie"
+                    ],
+                    "answer": 0,
+                    "hint": "Je fais dring dring a l'aube.",
+                    "success": "Bravo, le reveil annonce le depart de la journee !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Je suis un animal noir et blanc qui mange du bambou. Qui suis-je ?",
-                    options: ["Un panda", "Un zèbre", "Un lynx"],
-                    answer: 0,
-                    hint: "Je vis en Chine et je grimpe dans les arbres.",
-                    success: "Le panda est le roi du bambou !",
-                    reward: { stars: 16, coins: 12 }
+                    "prompt": "Je marque le debut de la rentree scolaire. Quel moment suis-je ?",
+                    "options": [
+                        "Le mois de septembre",
+                        "Le mois de fevrier",
+                        "Le mois de juin"
+                    ],
+                    "answer": 0,
+                    "hint": "Les feuilles commencent a jaunir.",
+                    "success": "Exact, septembre ouvre les cahiers !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Je suis orange, j'ai des crocs et je vis dans la savane. Qui suis-je ?",
-                    options: ["Un lion", "Un renard", "Un tigre"],
-                    answer: 0,
-                    hint: "Je suis surnommé le roi des animaux.",
-                    success: "Le lion règne sur la savane !",
-                    reward: { stars: 16, coins: 12 }
+                    "prompt": "Je suis le moment ou l'on dejeune a l'ecole. Qui suis-je ?",
+                    "options": [
+                        "Le midi",
+                        "Le matin",
+                        "Le soir"
+                    ],
+                    "answer": 0,
+                    "hint": "Le soleil est tout en haut.",
+                    "success": "Bon appetit, le midi redonne des forces !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Je suis un fruit violet, j'ai des graines et je deviens confiture. Qui suis-je ?",
-                    options: ["Une figue", "Une prune", "Une myrtille"],
-                    answer: 0,
-                    hint: "On m'ouvre pour voir plein de graines.",
-                    success: "La figue régale les gourmands !",
-                    reward: { stars: 16, coins: 12 }
+                    "prompt": "Je represente sept jours de suite. Qui suis-je ?",
+                    "options": [
+                        "Une semaine",
+                        "Un trimestre",
+                        "Une annee"
+                    ],
+                    "answer": 0,
+                    "hint": "Je commence souvent par lundi.",
+                    "success": "Parfait, la semaine organise les activites !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Je suis minuscule, j'avance vite en groupe et j'aime le sucre. Qui suis-je ?",
-                    options: ["Une fourmi", "Une abeille", "Un papillon"],
-                    answer: 0,
-                    hint: "On me voit souvent sur les pique-niques.",
-                    success: "Les fourmis sont très organisées !",
-                    reward: { stars: 16, coins: 12 }
+                    "prompt": "Je suis la saison ou les fleurs eclatent de couleur. Qui suis-je ?",
+                    "options": [
+                        "Le printemps",
+                        "L'hiver",
+                        "L'automne"
+                    ],
+                    "answer": 0,
+                    "hint": "Les oiseaux reviennent chanter.",
+                    "success": "Oui, le printemps reveille la nature !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je suis le petit repos apres le dejeuner. Qui suis-je ?",
+                    "options": [
+                        "La sieste",
+                        "Le gouter",
+                        "Le devoir"
+                    ],
+                    "answer": 0,
+                    "hint": "Je dure quelques minutes et detend.",
+                    "success": "Quelle douceur, la sieste apaise les aventuriers !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je marque la fin de la journee de classe. Qui suis-je ?",
+                    "options": [
+                        "La sortie",
+                        "Le reveil",
+                        "Le petit dejeuner"
+                    ],
+                    "answer": 0,
+                    "hint": "La cloche retentit pour rentrer a la maison.",
+                    "success": "Bravo, la sortie annonce le temps libre !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je reviens tous les douze mois avec des cadeaux et des bougies. Qui suis-je ?",
+                    "options": [
+                        "Un anniversaire",
+                        "Un carnaval",
+                        "Un bal"
+                    ],
+                    "answer": 0,
+                    "hint": "On souffle pour faire un voeu.",
+                    "success": "Joyeux anniversaire, mission souvenir !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 }
             ]
         },
         {
-            level: 11,
-            theme: "Exploradores del espacio",
-            completionMessage: "¡Has viajado entre estrellas como un verdadero explorador!",
-            questions: [
+            "level": 11,
+            "theme": "Sciences lumineuses",
+            "completionMessage": "Tu as eclaire tous les secrets scientifiques !",
+            "questions": [
                 {
-                    prompt: "Vuelo con traje plateado y recojo muestras en la luna. ¿Quién soy?",
-                    options: ["Una astronauta", "Una sirena", "Una hada"],
-                    answer: 0,
-                    hint: "Pisa la luna con botas especiales.",
-                    success: "¡Exacto, la astronauta explora la luna!",
-                    reward: { stars: 17, coins: 13 }
+                    "prompt": "Je fais de la lumiere avec une pile et une ampoule. Qui suis-je ?",
+                    "options": [
+                        "Une lampe de poche",
+                        "Un microscope",
+                        "Un telephone"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis utile dans le noir.",
+                    "success": "Bravo, la lampe de poche guide le chemin !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Ilumino el camino de las naves con mi cola brillante. ¿Quién soy?",
-                    options: ["Un cometa", "Un perro", "Un coral"],
-                    answer: 0,
-                    hint: "Cruzo el cielo dejando una estela.",
-                    success: "El cometa es una estrella viajera.",
-                    reward: { stars: 17, coins: 13 }
+                    "prompt": "Je fais tourner les aiguilles d'un aimant. Qui suis-je ?",
+                    "options": [
+                        "Une boussole",
+                        "Un ventilateur",
+                        "Un casque"
+                    ],
+                    "answer": 0,
+                    "hint": "Je montre le nord.",
+                    "success": "Exact, la boussole indique la direction !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Llevo un telescopio y busco nuevos planetas. ¿Quién soy?",
-                    options: ["Un astrónomo", "Un chef", "Un bailarín"],
-                    answer: 0,
-                    hint: "Mira el cielo toda la noche.",
-                    success: "El astrónomo estudia las estrellas.",
-                    reward: { stars: 17, coins: 13 }
+                    "prompt": "Je mesure la temperature. Qui suis-je ?",
+                    "options": [
+                        "Un thermometre",
+                        "Un voltmetre",
+                        "Un telemetre"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux afficher des degres.",
+                    "success": "Bien vu, le thermometre surveille la chaleur !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Soy un robot simpático que arregla antenas en el espacio. ¿Quién soy?",
-                    options: ["Un pulpo", "Un droide mecánico", "Un músico"],
-                    answer: 1,
-                    hint: "Tiene herramientas en sus brazos metálicos.",
-                    success: "¡Sí, el droide mecánico ayuda en las misiones!",
-                    reward: { stars: 17, coins: 13 }
+                    "prompt": "Je rapproche les choses lointaines avec deux lentilles. Qui suis-je ?",
+                    "options": [
+                        "Des jumelles",
+                        "Des lunettes",
+                        "Un periscope"
+                    ],
+                    "answer": 0,
+                    "hint": "On me porte devant les yeux.",
+                    "success": "Oui, les jumelles agrandissent le paysage !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Cuento historias de galaxias y dibujo constelaciones. ¿Quién soy?",
-                    options: ["Un mago de hielo", "Una narradora espacial", "Un carpintero"],
-                    answer: 1,
-                    hint: "Comparte cuentos antes de dormir mirando el cielo.",
-                    success: "Una narradora espacial convierte las estrellas en cuentos.",
-                    reward: { stars: 17, coins: 13 }
+                    "prompt": "Je transforme l'energie du soleil en electricite. Qui suis-je ?",
+                    "options": [
+                        "Un panneau solaire",
+                        "Un radiateur",
+                        "Un ventilateur"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis compose de cellules bleutees.",
+                    "success": "Super, le panneau solaire capte la lumiere !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je fais flotter des objets lourds grace a l'air chaud. Qui suis-je ?",
+                    "options": [
+                        "Une montgolfiere",
+                        "Une fusee",
+                        "Une trottinette"
+                    ],
+                    "answer": 0,
+                    "hint": "Je ressemble a un grand ballon.",
+                    "success": "Bravo, la montgolfiere s'envole doucement !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je melange des liquides dans mon laboratoire. Qui suis-je ?",
+                    "options": [
+                        "Un scientifique",
+                        "Un musicien",
+                        "Un marchand"
+                    ],
+                    "answer": 0,
+                    "hint": "Je porte parfois une blouse et des lunettes.",
+                    "success": "Exact, le scientifique observe des reactions !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je suis une machine qui additionne rapidement. Qui suis-je ?",
+                    "options": [
+                        "Un ordinateur",
+                        "Une imprimante",
+                        "Un casque audio"
+                    ],
+                    "answer": 0,
+                    "hint": "Je peux aussi jouer de la musique.",
+                    "success": "Oui, l'ordinateur calcule a toute vitesse !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 }
             ]
         },
         {
-            level: 12,
-            theme: "Profesiones fantásticas",
-            completionMessage: "¡Conoces a los mejores trabajadores mágicos!",
-            questions: [
+            "level": 12,
+            "theme": "Aventures spatiales",
+            "completionMessage": "Tu as voyage jusqu'aux etoiles !",
+            "questions": [
                 {
-                    prompt: "Preparo pociones de colores para curar dragones. ¿Quién soy?",
-                    options: ["Una alquimista", "Una piloto", "Una escultora"],
-                    answer: 0,
-                    hint: "Mezcla ingredientes burbujeantes.",
-                    success: "La alquimista cuida de los dragones.",
-                    reward: { stars: 18, coins: 14 }
+                    "prompt": "Je suis un satellite naturel qui brille la nuit. Qui suis-je ?",
+                    "options": [
+                        "La lune",
+                        "Mars",
+                        "Venus"
+                    ],
+                    "answer": 0,
+                    "hint": "Je change de forme chaque semaine.",
+                    "success": "Bravo, la lune veille sur la Terre !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Construyo guitarras que lanzan chispas de alegría. ¿Quién soy?",
-                    options: ["Un jardinero", "Un luthier mágico", "Un bombero"],
-                    answer: 1,
-                    hint: "Crea instrumentos especiales para conciertos mágicos.",
-                    success: "¡Un luthier mágico fabrica música brillante!",
-                    reward: { stars: 18, coins: 14 }
+                    "prompt": "Je suis une etoile qui chauffe toutes les planetes. Qui suis-je ?",
+                    "options": [
+                        "Le soleil",
+                        "Jupiter",
+                        "Saturne"
+                    ],
+                    "answer": 0,
+                    "hint": "Je suis au centre du systeme solaire.",
+                    "success": "Exact, le soleil eclaire l'espace !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Coso capas invisibles para héroes tímidos. ¿Quién soy?",
-                    options: ["Una costurera encantada", "Una granjera", "Una panadera"],
-                    answer: 0,
-                    hint: "Trabaja con hilos que desaparecen.",
-                    success: "La costurera encantada crea capas especiales.",
-                    reward: { stars: 18, coins: 14 }
+                    "prompt": "Je suis une pluie de roches lumineuses dans le ciel. Qui suis-je ?",
+                    "options": [
+                        "Une meteorite",
+                        "Un nuage",
+                        "Une etoile fixe"
+                    ],
+                    "answer": 0,
+                    "hint": "On me voit lors des nuits d'ete.",
+                    "success": "Bien joue, la meteorite dessine un trait de feu !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Pinto murales que cobran vida por la noche. ¿Quién soy?",
-                    options: ["Un pintor nocturno", "Un policía", "Un conductor"],
-                    answer: 0,
-                    hint: "Sus cuadros se mueven cuando todos duermen.",
-                    success: "El pintor nocturno llena la ciudad de magia.",
-                    reward: { stars: 18, coins: 14 }
+                    "prompt": "Je suis la planete rouge que les robots explorent. Qui suis-je ?",
+                    "options": [
+                        "Mars",
+                        "Mercure",
+                        "Neptune"
+                    ],
+                    "answer": 0,
+                    "hint": "On y cherche des traces d'eau.",
+                    "success": "Oui, Mars cache encore des mysteres !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 },
                 {
-                    prompt: "Dirijo un tren que viaja entre sueños y canciones. ¿Quién soy?",
-                    options: ["Una maquinista de sueños", "Una astronauta", "Una librera"],
-                    answer: 0,
-                    hint: "Conduce vagones que suenan como melodías.",
-                    success: "La maquinista de sueños lleva música a todos los pasajeros.",
-                    reward: { stars: 18, coins: 14 }
-                }
-            ]
-        },
-        {
-            level: 13,
-            theme: "Bosque encantado",
-            completionMessage: "¡Has descubierto cada secreto del bosque mágico!",
-            questions: [
+                    "prompt": "Je suis un vehicule qui decolle dans un grondement. Qui suis-je ?",
+                    "options": [
+                        "Une fusee",
+                        "Un ballon",
+                        "Un sous-marin"
+                    ],
+                    "answer": 0,
+                    "hint": "Je libere une grande flamme.",
+                    "success": "Super, la fusee met le cap sur l'espace !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
                 {
-                    prompt: "Guardo mapas secretos en mi mochila y guío a los aventureros. ¿Quién soy?",
-                    options: ["Un guía del bosque", "Un panadero", "Un marinero"],
-                    answer: 0,
-                    hint: "Sabe cada sendero y cada escondite.",
-                    success: "El guía del bosque conoce todos los caminos.",
-                    reward: { stars: 19, coins: 15 }
+                    "prompt": "Je suis une combinaison que porte l'astronaute. Qui suis-je ?",
+                    "options": [
+                        "Une combinaison spatiale",
+                        "Un gilet",
+                        "Un uniforme"
+                    ],
+                    "answer": 0,
+                    "hint": "Je le protege du froid et du vide.",
+                    "success": "Bravo, la combinaison permet de respirer dans l'espace !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je suis un grand telescope qui tourne autour de la Terre. Qui suis-je ?",
+                    "options": [
+                        "Un satellite",
+                        "Un bateau",
+                        "Un dirigeable"
+                    ],
+                    "answer": 0,
+                    "hint": "Je prends des photos des galaxies.",
+                    "success": "Exact, le satellite observe les etoiles !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
+                },
+                {
+                    "prompt": "Je suis la maison flottante des astronautes. Qui suis-je ?",
+                    "options": [
+                        "La station spatiale",
+                        "Une cabine",
+                        "Un rover"
+                    ],
+                    "answer": 0,
+                    "hint": "Je tourne autour de la Terre en 90 minutes.",
+                    "success": "Oui, la station spatiale accueille les explorateurs !",
+                    "reward": {
+                        "stars": 8,
+                        "coins": 6
+                    }
                 }
             ]
         }
