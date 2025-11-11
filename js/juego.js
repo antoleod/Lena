@@ -2736,7 +2736,7 @@ function resolveLevelTheme(topicId) {
             confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.4 + 0.1, y: Math.random() - 0.2 } });
             confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.4 + 0.5, y: Math.random() - 0.2 } });
         }, 250);
-        setTimeout(showConfetti, 500); // Add a small burst of regular confetti
+        setTimeout(confetti, 500); // Add a small burst of regular confetti
     }
 
     function ensureSkyElements() {
@@ -4458,7 +4458,7 @@ function resolveLevelTheme(topicId) {
                 ? `${questionData.successMessage}${sticker}`
                 : `${positiveMessages[Math.floor(Math.random() * positiveMessages.length)]}${sticker}`;
             showSuccessMessage(successMessage);
-            showConfetti();
+            showFireworks();
             recordAttempt(true);
             advanceToNext();
             return;
