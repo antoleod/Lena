@@ -40,12 +40,7 @@
   ];
 
   const QUESTION_POOL = [
-    { id: 'digital', minLevel: 1, weight: 3, builder: buildDigitalQuestion },
     { id: 'analog', minLevel: 1, weight: 3, builder: buildAnalogueQuestion },
-    { id: 'duration', minLevel: 3, weight: 2, builder: buildDurationQuestion },
-    { id: 'words', minLevel: 4, weight: 2, builder: buildWordQuestion },
-    { id: 'elapsed', minLevel: 5, weight: 2, builder: buildElapsedQuestion },
-    { id: 'am-pm', minLevel: 6, weight: 1, builder: buildAmPmQuestion }
   ];
 
   function build(level){

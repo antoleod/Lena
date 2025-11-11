@@ -839,14 +839,18 @@
   text-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-/* Contenedor de ventanas */
+/* Contenedor general */
 .windows {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 /* Fila de ventanas */
@@ -854,50 +858,112 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   width: 100%;
 }
 
-/* Ventanas con número o input */
+/* Ventanas base (número o input) */
 .window-number,
 .window-input {
   font-family: var(--font-heading);
   font-size: var(--font-size-large);
-  background: white;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  box-shadow: var(--shadow-small);
-  min-width: 60px;
+  background: linear-gradient(145deg, #ffffff, #f7f7f7);
+  color: var(--text-color, #3E3A39);
+  padding: 0.8rem 1rem;
+  border-radius: 0.75rem;
+  min-width: 70px;
   text-align: center;
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
+  border: 2px solid rgba(255, 211, 105, 0.4);
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.05),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
-/* Ventana “sólo lectura” */
+
+/* Efecto al pasar el cursor */
+.window-number:hover,
+.window-input:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 6px 15px rgba(255, 182, 185, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 182, 185, 0.6);
+}
+
+/* 🔹 Ventana sólo lectura */
 .window-number {
-  background: var(--p2);
-  color: var(--ink);
+  background: var(--p2, #fff7f0);
+  color: var(--ink, #3E3A39);
+  border-radius: 0.75rem;
+  border: 2px solid transparent;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6),
+              0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Ventana editable */
+/* 🔹 Ventana editable base */
 .window-input {
-  background: var(--p3);
-  border: 2px solid var(--p1);
+  background: var(--p3, #ffffff);
+  border: 2px solid var(--p1, #FFD369);
+  border-radius: 0.75rem;
   outline: none;
+  color: var(--ink, #3E3A39);
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
 }
+
+/* 🔸 Efecto al enfocar (input activo) */
 .window-input:focus {
-  border-color: var(--primary-light);
-  transform: scale(1.08);
-  box-shadow: 0 0 0 4px rgba(140, 91, 255, 0.15), var(--shadow-small);
+  border-color: var(--primary-light, #a88bff);
+  background: linear-gradient(145deg, #ffffff, #faf8ff);
+  transform: scale(1.07);
+  box-shadow:
+    0 0 0 6px rgba(168, 139, 255, 0.15),
+    0 5px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 3px rgba(255, 255, 255, 0.9);
 }
+
+/* 🔸 Efecto hover suave */
+.window-input:hover:not(:focus) {
+  transform: scale(1.03);
+  box-shadow:
+    0 3px 10px rgba(255, 211, 105, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 211, 105, 0.6);
+}
+
+/* ✅ Estado correcto */
 .window-input.correct {
-  border-color: var(--success);
-  background: #e6ffec;
-  animation: pulse 0.4s ease;
+  border-color: var(--success, #00C48C);
+  background: linear-gradient(145deg, #e9fff1, #f6fff9);
+  box-shadow:
+    0 0 0 4px rgba(0, 196, 140, 0.15),
+    0 5px 12px rgba(0, 196, 140, 0.25);
+  animation: pulse-correct 0.4s ease;
 }
+
+/* ❌ Estado incorrecto */
 .window-input.incorrect {
-  border-color: var(--danger);
-  background: #ffe6e6;
+  border-color: var(--danger, #FF6B6B);
+  background: linear-gradient(145deg, #fff1f1, #ffeaea);
+  box-shadow:
+    0 0 0 4px rgba(255, 107, 107, 0.15),
+    0 5px 12px rgba(255, 107, 107, 0.25);
+  animation: pulse-error 0.4s ease;
+}
+
+/* 🌈 Animaciones de retroalimentación */
+@keyframes pulse-correct {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse-error {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.06); background-color: #ffeaea; }
+  100% { transform: scale(1); }
 }
 
 /* Símbolos de suma / igual */

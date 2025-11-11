@@ -1,21 +1,40 @@
 ;(function(){
   'use strict';
 
-  const LEVELS = Array.from({length:10},(_,i)=>({ level:i+1, count:6, reward:{stars:10+i, coins:5+Math.floor(i/3)} }));
+  function rand(a,b){ if (a > b) [a,b] = [b,a]; return Math.floor(Math.random()*(b-a+1))+a; }
+
+  const LEVELS = Array.from({length:12},(_,i)=>({ level:i+1, count:rand(6,8), reward:{stars:10+i, coins:5+Math.floor(i/3)} }));
 
   function build(level){
     // arithmetic progression with missing value
-    const start = rand(1, 10 + level);
-    const step = rand(1, Math.max(2, Math.floor(level/2)+2));
+    const start = rand(1, 10 + level * 2);
+    const step = rand(1, Math.max(2, Math.floor(level/2)+1));
     const len = 5;
     const seq = Array.from({length:len}, (_,i)=> start + i*step);
     const missingIndex = rand(1, len-2);
     const answer = seq[missingIndex];
     const shown = seq.map((v,i)=> i===missingIndex ? '…' : v);
     const prompt = `Complète la série: ${shown.join('  ')}`;
+    
     const opts = new Set([answer]);
-    while(opts.size<4){ opts.add(answer + rand(-step, step*2)); }
-    return { prompt, answer, options: shuffle([...opts]) };
+    let safety = 0;
+    while(opts.size < 4 && safety < 50){
+        const delta = rand(1, step * 2);
+        const sign = Math.random() < 0.5 ? -1 : 1;
+        opts.add(answer + delta * sign);
+        safety++;
+    }
+    // Ensure we have 4 distinct options
+    while(opts.size < 4) {
+        opts.add(answer + rand(step + 1, step * 3) * (Math.random() < 0.5 ? -1 : 1));
+    }
+
+    const finalOptions = shuffle([...opts]);
+    if (!finalOptions.includes(answer)) {
+        finalOptions[rand(0, finalOptions.length - 1)] = answer;
+    }
+
+    return { prompt, answer, options: finalOptions.slice(0, 4) };
   }
 
   function start(context){
@@ -47,7 +66,6 @@
 
   function div(c,t){ const d=document.createElement('div'); if(c) d.className=c; if(t!=null) d.textContent=t; return d; }
   function btn(t){ const b=document.createElement('button'); b.type='button'; b.className='puzzle-option-btn'; b.textContent=t; return b; }
-  function rand(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
   function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
 
   window.seriesNumeriquesGame = { start, getLevelCount: ()=>LEVELS.length };

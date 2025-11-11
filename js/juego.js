@@ -1036,6 +1036,7 @@ function resolveLevelTheme(topicId) {
         window.addEventListener('beforeunload', () => historyTracker.trackAppClose());
         schedulePauseReminder();
         initializeQuestions();
+        setupSpeechSynthesis();
         setupUI();
         setupEventListeners();
         showTopicMenu();
@@ -1096,6 +1097,7 @@ function resolveLevelTheme(topicId) {
         const safeColor = color || userProfile.color || '#a890f0';
         document.documentElement.style.setProperty('--primary', safeColor);
         document.documentElement.style.setProperty('--primary-light', lightenColor(safeColor, 0.22));
+        document.documentElement.style.setProperty('--primary-soft', lightenColor(safeColor, 0.4)); // Added this line
         document.documentElement.style.setProperty('--primary-contrast', getReadableTextColor(safeColor));
     }
 
@@ -1730,22 +1732,29 @@ function resolveLevelTheme(topicId) {
                 const found = voices.find(voice => voice.name === priority.name && voice.lang === priority.lang);
                 if (found) {
                     preferredVoice = found;
+                    console.log(`[Speech] Voix sélectionnée: ${preferredVoice.name}`);
                     return;
                 }
             }
 
             // Fallback to any French voice
             preferredVoice = voices.find(voice => voice.lang === 'fr-FR') || null;
+            if (preferredVoice) {
+                console.log(`[Speech] Voix de secours sélectionnée: ${preferredVoice.name}`);
+            } else {
+                console.warn('[Speech] Aucune voix française trouvée.');
+            }
         }
         
-        // L'astuce est d'attendre que les voix soient chargées.
-        if (speechSynthesis.onvoiceschanged !== undefined) {
-            window.speechSynthesis.onvoiceschanged = findFrenchVoice;
+        // The trick is to wait for the voices to be loaded.
+        if (speechSynthesis.getVoices().length > 0) {
+            findFrenchVoice();
+        } else if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = findFrenchVoice;
         } else {
-            // Pour les navigateurs plus anciens, on essaie après un court délai.
-            setTimeout(findFrenchVoice, 200);
+            // For older browsers, try after a short delay.
+            setTimeout(findFrenchVoice, 250);
         }
-        findFrenchVoice(); // Essayer une première fois au cas où elles seraient déjà prêtes.
     }
 
     function speakText(text) {
@@ -4276,106 +4285,110 @@ function resolveLevelTheme(topicId) {
         };
         const totalLevels = getTopicLevelCount(gameState.currentTopic) || maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
         
-        for (let i = 1; i <= totalLevels; i++) {
-            const theme = resolveLevelTheme(gameState.currentTopic);
-            const levelBtn = document.createElement('button');
-            levelBtn.className = 'level-button fx-bounce-in-down';
-            levelBtn.type = 'button';
-            levelBtn.dataset.level = String(i);
-            levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
-            levelBtn.setAttribute('aria-label', `Niveau ${i}`);
-            levelBtn.style.setProperty('--level-accent', theme.accent);
-            levelBtn.style.setProperty('--level-accent-soft', theme.soft);
-            levelBtn.style.setProperty('--level-accent-strong', theme.strong);
-            if (theme.iconColor) {
-                levelBtn.style.setProperty('--level-icon-color', theme.iconColor);
-            }
-
-            const levelIcon = document.createElement('span');
-            levelIcon.className = 'level-button__icon';
-            levelIcon.textContent = theme.icon || '✨';
-
-            const levelNumber = document.createElement('span');
-            levelNumber.className = 'level-button__number';
-            levelNumber.textContent = String(i);
-
-            const levelLabel = document.createElement('span');
-            levelLabel.className = 'level-button__label';
-            levelLabel.textContent = `Niveau ${i}`;
-
-            const statusBadge = document.createElement('span');
-            statusBadge.className = 'level-button__status';
-
-            const applyStatus = (state) => {
-                const STATUS_COPY = {
-                    ready: 'Pr\u00EAt \u00E0 jouer',
-                    'in-progress': 'En cours...',
-                    completed: 'Niveau termin\u00E9',
-                    locked: 'Verrouill\u00E9'
-                };
-                statusBadge.dataset.state = state;
-                statusBadge.textContent = STATUS_COPY[state] || STATUS_COPY.ready;
-                levelBtn.dataset.status = state;
-            };
-
-            applyStatus('ready');
-            levelBtn.append(levelIcon, levelNumber, levelLabel, statusBadge);
-
-            levelBtn.addEventListener('keyup', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    levelBtn.click();
+        if (totalLevels === 0) {
+            levelsContainer.innerHTML = '<p class="story-menu__empty">Aucun niveau disponible pour le moment.</p>';
+        } else {
+            for (let i = 1; i <= totalLevels; i++) {
+                const theme = resolveLevelTheme(gameState.currentTopic);
+                const levelBtn = document.createElement('button');
+                levelBtn.className = 'level-button fx-bounce-in-down';
+                levelBtn.type = 'button';
+                levelBtn.dataset.level = String(i);
+                levelBtn.style.animationDelay = `${Math.random() * 0.5}s`;
+                levelBtn.setAttribute('aria-label', `Niveau ${i}`);
+                levelBtn.style.setProperty('--level-accent', theme.accent);
+                levelBtn.style.setProperty('--level-accent-soft', theme.soft);
+                levelBtn.style.setProperty('--level-accent-strong', theme.strong);
+                if (theme.iconColor) {
+                    levelBtn.style.setProperty('--level-icon-color', theme.iconColor);
                 }
-            });
-            levelBtn.addEventListener('mouseenter', () => {
-                playBufferedSound('hover', 0.2);
-            });
-            const levelKey = `${gameState.currentTopic}-${i}`;
-            if (userProgress.answeredQuestions[levelKey] === 'completed') {
-                levelBtn.classList.add('correct', 'is-completed');
-                applyStatus('completed');
-            } else if (userProgress.answeredQuestions[levelKey] === 'in-progress') {
-                levelBtn.classList.add('is-in-progress');
-                applyStatus('in-progress');
-            }
-            levelBtn.addEventListener('click', () => {
-                gameState.levelStartTime = Date.now();
-                if (levelBtn.dataset.status !== 'completed') {
+
+                const levelIcon = document.createElement('span');
+                levelIcon.className = 'level-button__icon';
+                levelIcon.textContent = theme.icon || '✨';
+
+                const levelNumber = document.createElement('span');
+                levelNumber.className = 'level-button__number';
+                levelNumber.textContent = String(i);
+
+                const levelLabel = document.createElement('span');
+                levelLabel.className = 'level-button__label';
+                levelLabel.textContent = `Niveau ${i}`;
+
+                const statusBadge = document.createElement('span');
+                statusBadge.className = 'level-button__status';
+
+                const applyStatus = (state) => {
+                    const STATUS_COPY = {
+                        ready: 'Pr\u00EAt \u00E0 jouer',
+                        'in-progress': 'En cours...',
+                        completed: 'Niveau termin\u00E9',
+                        locked: 'Verrouill\u00E9'
+                    };
+                    statusBadge.dataset.state = state;
+                    statusBadge.textContent = STATUS_COPY[state] || STATUS_COPY.ready;
+                    levelBtn.dataset.status = state;
+                };
+
+                applyStatus('ready');
+                levelBtn.append(levelIcon, levelNumber, levelLabel, statusBadge);
+
+                levelBtn.addEventListener('keyup', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        levelBtn.click();
+                    }
+                });
+                levelBtn.addEventListener('mouseenter', () => {
+                    playBufferedSound('hover', 0.2);
+                });
+                const levelKey = `${gameState.currentTopic}-${i}`;
+                if (userProgress.answeredQuestions[levelKey] === 'completed') {
+                    levelBtn.classList.add('correct', 'is-completed');
+                    applyStatus('completed');
+                } else if (userProgress.answeredQuestions[levelKey] === 'in-progress') {
                     levelBtn.classList.add('is-in-progress');
                     applyStatus('in-progress');
                 }
-                gameState.currentLevel = i;
-                const skillTag = resolveSkillTag(gameState.currentTopic);
-                gameState.historyTracker?.startGame(gameState.currentTopic, gameState.currentLevel, { skillTag });
-                if (gameState.currentTopic === 'number-houses') { showNumberHousesGame(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'colors') { showColorGame(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'sorting') { showSortingGame(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'vowels') { loadVowelQuestion(gameState.currentLevel - 1); }
-                else if (gameState.currentTopic === 'riddles') { launchRiddleLevel(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'sequences') { loadSequenceQuestion(gameState.currentLevel - 1); }
-                else if (gameState.currentTopic === 'puzzle-magique') { launchPuzzleMagique(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'repartis') { launchRepartisGame(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'dictee') { launchDicteeLevel(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'math-blitz') { launchMathBlitzLevel(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'lecture-magique') { launchLectureMagiqueLevel(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'raisonnement') { launchRaisonnementLevel(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'ecriture-cursive') { launchEcritureCursive(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'abaque-magique') { launchAbaqueMagique(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'mots-outils') { launchMotsOutils(gameState.currentLevel); }
-                // Nouveaux modules jouables
-                else if (gameState.currentTopic === 'problems-magiques') { launchProblemsMagiques(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'fractions-fantastiques') { launchFractionsFantastiques(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'temps-horloges') { launchTempsHorloges(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'tables-defi') { launchTablesDefi(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'mesures-magiques') { launchMesuresMagiques(gameState.currentLevel); }
-                else if (gameState.currentTopic === 'series-numeriques') { launchSeriesNumeriques(gameState.currentLevel); }
-                else if (['emotions-magiques','missions-jour','quiz-jour','respire-repose','expression-soi'].includes(gameState.currentTopic)) { launchCoeurEmotionsGame(gameState.currentTopic, gameState.currentLevel); }
-                // Placeholders
-                else if (['labyrinthe-logique','sudoku-junior','grammaire-magique','conjugaison-magique','genres-accords','lecture-voix-haute','vocabulaire-thematique','atelier-art','decouvre-nature','carte-monde'].includes(gameState.currentTopic)) { showComingSoon(gameState.currentTopic, '✨'); }
-                else if (gameState.currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[gameState.currentLevel - 1]); }
-                else { gameState.currentQuestionIndex = 0; loadQuestion(0); }
-            });
-            levelsContainer.appendChild(levelBtn);
+                levelBtn.addEventListener('click', () => {
+                    gameState.levelStartTime = Date.now();
+                    if (levelBtn.dataset.status !== 'completed') {
+                        levelBtn.classList.add('is-in-progress');
+                        applyStatus('in-progress');
+                    }
+                    gameState.currentLevel = i;
+                    const skillTag = resolveSkillTag(gameState.currentTopic);
+                    gameState.historyTracker?.startGame(gameState.currentTopic, gameState.currentLevel, { skillTag });
+                    if (gameState.currentTopic === 'number-houses') { showNumberHousesGame(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'colors') { showColorGame(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'sorting') { showSortingGame(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'vowels') { loadVowelQuestion(gameState.currentLevel - 1); }
+                    else if (gameState.currentTopic === 'riddles') { launchRiddleLevel(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'sequences') { loadSequenceQuestion(gameState.currentLevel - 1); }
+                    else if (gameState.currentTopic === 'puzzle-magique') { launchPuzzleMagique(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'repartis') { launchRepartisGame(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'dictee') { launchDicteeLevel(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'math-blitz') { launchMathBlitzLevel(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'lecture-magique') { launchLectureMagiqueLevel(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'raisonnement') { launchRaisonnementLevel(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'ecriture-cursive') { launchEcritureCursive(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'abaque-magique') { launchAbaqueMagique(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'mots-outils') { launchMotsOutils(gameState.currentLevel); }
+                    // Nouveaux modules jouables
+                    else if (gameState.currentTopic === 'problems-magiques') { launchProblemsMagiques(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'fractions-fantastiques') { launchFractionsFantastiques(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'temps-horloges') { launchTempsHorloges(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'tables-defi') { launchTablesDefi(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'mesures-magiques') { launchMesuresMagiques(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'series-numeriques') { launchSeriesNumeriques(gameState.currentLevel); }
+                    else if (['emotions-magiques','missions-jour','quiz-jour','respire-repose','expression-soi'].includes(gameState.currentTopic)) { launchCoeurEmotionsGame(gameState.currentTopic, gameState.currentLevel); }
+                    // Placeholders
+                    else if (['labyrinthe-logique','sudoku-junior','grammaire-magique','conjugaison-magique','genres-accords','lecture-voix-haute','vocabulaire-thematique','atelier-art','decouvre-nature','carte-monde'].includes(gameState.currentTopic)) { showComingSoon(gameState.currentTopic, '✨'); }
+                    else if (gameState.currentTopic === 'memory') { showMemoryGame(MEMORY_GAME_LEVELS[gameState.currentLevel - 1]); }
+                    else { gameState.currentQuestionIndex = 0; loadQuestion(0); }
+                });
+                levelsContainer.appendChild(levelBtn);
+            }
         }
         content.appendChild(levelsContainer);
         setDisplay(btnLogros, 'inline-block');
