@@ -188,7 +188,48 @@
     <!-- Sections groupées par thèmes (rendered by JS) -->
     <section id="mm-sections" class="mm-sections"></section>
     <div id="content">
-      <!-- Game content will be loaded here by JavaScript -->
+      <div id="game-shell-root" class="gs-shell" data-game-id="magie-maths">
+        <header class="gs-shell__header">
+          <button class="gs-btn-icon" aria-label="Retour" data-action="back">🏠</button>
+          <div class="gs-header__title">
+            <span class="gs-chip">🪄 Monde Magique</span>
+            <div>
+              <div class="gs-title__text">Niveau <span data-level>1</span> <span data-diff></span></div>
+              <div class="gs-progress">
+                <div class="gs-progress__bar"></div>
+              </div>
+              <div class="gs-progress-chip">🪙 <span data-coins>0</span> · <span data-reward-hint></span></div>
+            </div>
+          </div>
+          <div class="gs-chip">⭐ <span data-stars>☆</span></div>
+        </header>
+        <main class="gs-main">
+          <div class="gs-question">
+            <div class="gs-question__label" data-question>Pret a jouer</div>
+            <p class="gs-hint" data-hint hidden></p>
+          </div>
+          <div class="gs-options" data-options></div>
+          <div class="gs-order" data-order-area hidden></div>
+        </main>
+        <footer class="gs-footer">
+          <button class="gs-action gs-action--ghost" data-action="hint" hidden>💡 Hint</button>
+          <button class="gs-action" data-action="start">▶️ Start</button>
+          <button class="gs-action" data-action="validate" disabled>✅ Valider</button>
+          <button class="gs-action" data-action="next" disabled>⏭️ Suite</button>
+          <button class="gs-action gs-action--ghost" data-action="calm">🌙 Calme</button>
+        </footer>
+        <div class="gs-feedback" hidden>
+          <div class="gs-feedback__card">
+            <div class="gs-feedback__icon" data-feedback-icon>✅</div>
+            <div class="gs-feedback__summary">
+              <span data-feedback-coins></span>
+              <span data-feedback-stars></span>
+            </div>
+            <div data-feedback-summary></div>
+            <button class="gs-action" data-action="next">▶️ Suite</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -244,6 +285,8 @@
   <script src="../js/math/mathEngine.js"></script>
   <script src="../js/mots-outils.js"></script>
   <script src="../js/juego.js"></script>
+  <script type="module" src="../js/game-shell/init.js"></script>
+  <script type="module" src="../js/game-shell/tests.js"></script>
   <script>
   (function(){
     const sectionsData = [
