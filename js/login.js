@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const previewPlayerName = document.getElementById('selected-player-name');
   const errorEl = document.getElementById('login-error');
 
+  const t = (key, fallback) => (window.i18n?.t ? window.i18n.t(key) : fallback);
+
   const defaultColor = colors[0]?.dataset.color || '#ffc6ff';
 
   // Intentar recuperar la selección anterior si existe
@@ -164,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isValidName = name.length >= 1 && name.length <= 12;
     if (!isValidName || !selectedAvatar) {
       if (errorEl) {
-        errorEl.textContent = "Écris ton prénom et choisis un avatar ✨";
+        errorEl.textContent = t('loginError', "Écris ton prénom et choisis un avatar ✨");
         errorEl.hidden = false;
       }
       if (nameWrapper) {
@@ -278,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateSelectionPreview() {
     if (previewAvatarName) {
-      const avatarLabel = selectedAvatar?.name || 'Choisis ton avatar';
+      const avatarLabel = selectedAvatar?.name || t('selectedAvatarPlaceholder', 'Choisis ton avatar');
       previewAvatarName.textContent = avatarLabel;
     }
 
@@ -297,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (previewPlayerName) {
       const trimmed = (nameInput?.value || '').trim();
-      previewPlayerName.textContent = trimmed || 'Écris ton prénom';
+      previewPlayerName.textContent = trimmed || t('selectedNamePlaceholder', 'Écris ton prénom');
     }
   }
 

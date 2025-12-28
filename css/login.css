@@ -160,6 +160,42 @@ html, body {
   width: min(100%, 34rem);
 }
 
+.login-lang {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.login-lang__label {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.login-lang__select {
+  appearance: none;
+  border-radius: 14px;
+  padding: 8px 36px 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.9);
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(131, 100, 255, 0.15);
+  background-image: linear-gradient(45deg, transparent 50%, rgba(45, 37, 87, 0.6) 50%),
+    linear-gradient(135deg, rgba(45, 37, 87, 0.6) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 55%, calc(100% - 12px) 55%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.login-lang__select:focus-visible {
+  outline: 2px solid rgba(131, 100, 255, 0.45);
+  outline-offset: 2px;
+}
+
 .login-headline {
   display: flex;
   flex-direction: column;

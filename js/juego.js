@@ -1037,6 +1037,10 @@ function resolveLevelTheme(topicId) {
         schedulePauseReminder();
         initializeQuestions();
         setupSpeechSynthesis();
+        document.addEventListener('lena:language:change', () => {
+            preferredVoice = null;
+            setupSpeechSynthesis();
+        });
         setupUI();
         setupEventListeners();
         showTopicMenu();
@@ -1700,60 +1704,73 @@ function resolveLevelTheme(topicId) {
     }
     // --- UI & Helpers ---
     let preferredVoice = null;
+    const LANGUAGE_LOCALES = { fr: 'fr-FR', es: 'es-ES', nl: 'nl-NL' };
+
+    function resolveSpeechLang() {
+        if (window.i18n?.getSpeechLang) {
+            return window.i18n.getSpeechLang();
+        }
+        const lang = typeof window.storage?.getLanguage === 'function'
+            ? window.storage.getLanguage()
+            : null;
+        return LANGUAGE_LOCALES[lang] || 'fr-FR';
+    }
 
     function setupSpeechSynthesis() {
         if (!window.speechSynthesis) {
             return;
         }
 
-        function findFrenchVoice() {
+        function findPreferredVoice() {
             const voices = window.speechSynthesis.getVoices();
             if (!voices || voices.length === 0) {
-                console.warn('[Speech] La liste de voix est vide. La sÃ©lection est reportÃ©e.');
+                console.warn('[Speech] La liste de voix est vide. La sélection est reportée.');
                 return;
             }
 
-            const voicePriority = [
-                { name: 'Google franÃ§ais', lang: 'fr-FR' },
-                { name: 'Microsoft Hortense - French (France)', lang: 'fr-FR' },
-                { name: 'Microsoft Julie, Natural - French (France)', lang: 'fr-FR' },
-                { name: 'Amelie', lang: 'fr-CA' },
-                { name: 'Thomas', lang: 'fr-FR' },
-                // Voix gÃ©nÃ©riques de haute qualitÃ©
-                { name: 'fr-FR-Standard-D', lang: 'fr-FR' }, 
-                { name: 'fr-FR-Wavenet-A', lang: 'fr-FR' },
-                { name: 'fr-FR-Wavenet-E', lang: 'fr-FR' },
-                // Voix macOS
-                { name: 'Aurelie', lang: 'fr-FR' },
-                { name: 'Audrey', lang: 'fr-FR' },
-            ];
+            const targetLang = resolveSpeechLang();
+            const baseLang = targetLang.split('-')[0];
+            const voicePriorityByLang = {
+                fr: [
+                    { name: 'Google français', lang: 'fr-FR' },
+                    { name: 'Microsoft Hortense - French (France)', lang: 'fr-FR' },
+                    { name: 'Microsoft Julie, Natural - French (France)', lang: 'fr-FR' },
+                    { name: 'Amelie', lang: 'fr-CA' },
+                    { name: 'Thomas', lang: 'fr-FR' },
+                    { name: 'fr-FR-Standard-D', lang: 'fr-FR' },
+                    { name: 'fr-FR-Wavenet-A', lang: 'fr-FR' },
+                    { name: 'fr-FR-Wavenet-E', lang: 'fr-FR' },
+                    { name: 'Aurelie', lang: 'fr-FR' },
+                    { name: 'Audrey', lang: 'fr-FR' }
+                ]
+            };
 
+            const voicePriority = voicePriorityByLang[baseLang] || [];
             for (const priority of voicePriority) {
                 const found = voices.find(voice => voice.name === priority.name && voice.lang === priority.lang);
                 if (found) {
                     preferredVoice = found;
-                    console.log(`[Speech] Voix sÃ©lectionnÃ©e: ${preferredVoice.name}`);
+                    console.log(`[Speech] Voix sélectionnée: ${preferredVoice.name}`);
                     return;
                 }
             }
 
-            // Fallback to any French voice
-            preferredVoice = voices.find(voice => voice.lang === 'fr-FR') || null;
+            preferredVoice = voices.find(voice => voice.lang === targetLang)
+                || voices.find(voice => voice.lang?.startsWith(baseLang))
+                || null;
             if (preferredVoice) {
-                console.log(`[Speech] Voix de secours sÃ©lectionnÃ©e: ${preferredVoice.name}`);
+                console.log(`[Speech] Voix de secours sélectionnée: ${preferredVoice.name}`);
             } else {
-                console.warn('[Speech] Aucune voix franÃ§aise trouvÃ©e.');
+                console.warn('[Speech] Aucune voix compatible trouvée.');
             }
         }
-        
-        // The trick is to wait for the voices to be loaded.
+
         if (speechSynthesis.getVoices().length > 0) {
-            findFrenchVoice();
+            findPreferredVoice();
         } else if (speechSynthesis.onvoiceschanged !== undefined) {
-            speechSynthesis.onvoiceschanged = findFrenchVoice;
+            speechSynthesis.onvoiceschanged = findPreferredVoice;
         } else {
-            // For older browsers, try after a short delay.
-            setTimeout(findFrenchVoice, 250);
+            setTimeout(findPreferredVoice, 250);
         }
     }
 
@@ -1761,7 +1778,7 @@ function resolveLevelTheme(topicId) {
         if (window.speechSynthesis) {
             const synth = window.speechSynthesis;
             const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'fr-FR';
+            utterance.lang = resolveSpeechLang();
             if (preferredVoice) {
                 utterance.voice = preferredVoice;
             }
@@ -6775,3 +6792,6 @@ function generateNumberProblems(sum, count) {
     init();
     setupSpeechSynthesis();
 });
+
+
+

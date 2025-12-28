@@ -393,7 +393,7 @@
                 return null;
             }
             const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'fr-FR';
+            utterance.lang = window.i18n?.getSpeechLang?.() || 'fr-FR';
             utterance.rate = options.rate || 0.95;
             utterance.pitch = options.pitch || 1;
             if (options.volume !== undefined) {

@@ -42,7 +42,7 @@
     try { synth.cancel(); } catch (error) { logWarning('speech cancel error', error); }
     try {
       const utterance = new SpeechSynthesisUtterance(String(text));
-      utterance.lang = 'fr-FR';
+      utterance.lang = window.i18n?.getSpeechLang?.() || 'fr-FR';
       utterance.rate = 0.95;
       synth.speak(utterance);
     } catch (error) {

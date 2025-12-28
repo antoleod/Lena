@@ -1,6 +1,7 @@
 const USER_PROFILE_KEY = 'mathsLenaUserProfile';
 const SELECTED_AVATAR_KEY = 'mathsLenaSelectedAvatar';
 const USER_NAME_DRAFT_KEY = 'mathsLenaNameDraft';
+const LANGUAGE_KEY = 'mathsLenaLanguage';
 
 const storage = {
     // --- User Profile ---
@@ -38,6 +39,8 @@ const storage = {
     loadNameDraft: () => loadNameDraft(),
     saveNameDraft: (name) => persistNameDraft(name),
     clearNameDraft: () => clearNameDraft(),
+    getLanguage: () => loadLanguage(),
+    setLanguage: (lang) => persistLanguage(lang),
 
     // --- User Progress ---
     saveUserProgress: (userName, progressData) => {
@@ -174,6 +177,12 @@ function normalizeUserProfile(profile) {
     if (!normalized.settings) {
         normalized.settings = {};
     }
+    if (!normalized.settings.language) {
+        const stored = loadLanguage();
+        if (stored) {
+            normalized.settings.language = stored;
+        }
+    }
     return normalized;
 }
 
@@ -233,6 +242,47 @@ function fallbackAvatar(library) {
         name: 'Licorne',
         iconUrl: '../assets/avatars/licorne.svg'
     };
+}
+
+function loadLanguage() {
+    try {
+        const rawProfile = localStorage.getItem(USER_PROFILE_KEY);
+        const storedProfile = rawProfile ? JSON.parse(rawProfile) : null;
+        const profileLang = storedProfile?.settings?.language;
+        if (profileLang) {
+            return profileLang;
+        }
+    } catch (error) {
+        console.warn('Error loading language from profile', error);
+    }
+
+    try {
+        return localStorage.getItem(LANGUAGE_KEY) || 'fr';
+    } catch (error) {
+        console.warn('Error loading language from storage', error);
+        return 'fr';
+    }
+}
+
+function persistLanguage(lang) {
+    if (!lang || typeof lang !== 'string') { return; }
+    const normalized = lang.trim().toLowerCase();
+    if (!normalized) { return; }
+    try {
+        localStorage.setItem(LANGUAGE_KEY, normalized);
+    } catch (error) {
+        console.warn('Error saving language', error);
+    }
+
+    try {
+        const profile = storage?.loadUserProfile ? storage.loadUserProfile() : null;
+        if (profile) {
+            profile.settings = { ...(profile.settings || {}), language: normalized };
+            storage.saveUserProfile(profile);
+        }
+    } catch (error) {
+        console.warn('Error saving language into profile', error);
+    }
 }
 
 if (typeof window !== 'undefined') {

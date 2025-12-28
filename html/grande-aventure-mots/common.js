@@ -2,6 +2,17 @@
   'use strict';
 
   const storageCache = new Map();
+  const LANGUAGE_LOCALES = { fr: 'fr-FR', es: 'es-ES', nl: 'nl-NL' };
+
+  function resolveSpeechLang() {
+    if (window.i18n?.getSpeechLang) {
+      return window.i18n.getSpeechLang();
+    }
+    const lang = typeof window.storage?.getLanguage === 'function'
+      ? window.storage.getLanguage()
+      : null;
+    return LANGUAGE_LOCALES[lang] || 'fr-FR';
+  }
 
   function ensureSpeech() {
     if (!('speechSynthesis' in window)) {
@@ -16,7 +27,7 @@
     try { synth.cancel(); } catch (error) { console.warn('speech cancel error', error); }
 
     const utterance = new SpeechSynthesisUtterance(String(text));
-    utterance.lang = options.lang || 'fr-FR';
+    utterance.lang = options.lang || resolveSpeechLang();
     if (typeof options.rate === 'number') { utterance.rate = options.rate; }
     else { utterance.rate = 0.95; }
     if (typeof options.pitch === 'number') { utterance.pitch = options.pitch; }
@@ -225,6 +236,15 @@
         audioScript.src = base + '../js/audioManager.js';
         audioScript.async = true;
         document.head.appendChild(audioScript);
+      }
+
+      // Ensure i18n is present for language selection + speech locale
+      const i18nLoaded = Array.from(document.scripts).some(s => (s.src || '').endsWith('/js/i18n.js'));
+      if (!i18nLoaded && !window.i18n) {
+        const i18nScript = document.createElement('script');
+        i18nScript.src = base + '../js/i18n.js';
+        i18nScript.defer = true;
+        document.head.appendChild(i18nScript);
       }
 
       // Load the shared Lena app shell once (provides header + footer navigation)

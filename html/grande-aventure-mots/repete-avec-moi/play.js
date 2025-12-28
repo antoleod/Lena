@@ -11,7 +11,7 @@
   }
 
   const recognition = new SpeechRecognition();
-  recognition.lang = 'fr-FR';
+  recognition.lang = window.i18n?.getSpeechLang?.() || 'fr-FR';
   recognition.continuous = false;
   recognition.interimResults = false;
 

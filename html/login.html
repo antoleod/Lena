@@ -25,10 +25,14 @@
     <div id="login-container" role="main">
         <div class="login-header">
             <div class="login-header__card">
-                <span class="login-badge">✨ Choisis ton avatar ✨</span>
+                <span class="login-badge" data-i18n="loginBadge">✨ Choisis ton avatar ✨</span>
+                <div class="login-lang">
+                    <label class="login-lang__label" for="languageSelect" data-i18n="languageLabel">Langue</label>
+                    <select id="languageSelect" class="login-lang__select" data-language-select data-i18n-aria="languageSelectAria"></select>
+                </div>
                 <div class="login-headline">
-                    <h1 class="login-title">Bienvenue dans ton aventure magique</h1>
-                    <p class="login-steps">Sélectionne un avatar, choisis ta couleur préférée et écris ton prénom.</p>
+                    <h1 class="login-title" data-i18n="loginTitle">Bienvenue dans ton aventure magique</h1>
+                    <p class="login-steps" data-i18n="loginSteps">Sélectionne un avatar, choisis ta couleur préférée et écris ton prénom.</p>
                 </div>
             </div>
 
@@ -38,21 +42,21 @@
                     <span id="selected-avatar-placeholder" class="selection-preview__placeholder">✨</span>
                 </div>
                 <div class="selection-preview__details">
-                    <span class="selection-preview__label">Avatar choisi</span>
-                    <span class="selection-preview__value" id="selected-avatar-name">Choisis ton avatar</span>
+                    <span class="selection-preview__label" data-i18n="selectedAvatarLabel">Avatar choisi</span>
+                    <span class="selection-preview__value" id="selected-avatar-name" data-i18n="selectedAvatarPlaceholder">Choisis ton avatar</span>
                 </div>
                 <div class="selection-preview__details">
-                    <span class="selection-preview__label">Ton prénom</span>
-                    <span class="selection-preview__value" id="selected-player-name">Écris ton prénom</span>
+                    <span class="selection-preview__label" data-i18n="selectedNameLabel">Ton prAcnom</span>
+                    <span class="selection-preview__value" id="selected-player-name" data-i18n="selectedNamePlaceholder">A%cris ton prAcnom</span>
                 </div>
             </div>
         </div>
 
         <section class="login-section" aria-labelledby="avatar-section-title">
             <header class="section-header">
-                <h2 id="avatar-section-title">Avatars délicieux</h2>
+                <h2 id="avatar-section-title" data-i18n="avatarSectionTitle">Avatars délicieux</h2>
             </header>
-            <div id="avatar-selection" role="listbox" aria-label="Choisis ton avatar préféré">
+            <div id="avatar-selection" role="listbox" aria-label="Choisis ton avatar prAcfAcrAc" data-i18n-aria="avatarListLabel">
                 <button class="avatar-option" type="button" data-avatar-id="licorne" data-avatar-name="Licorne Arc-en-ciel" data-avatar-icon="../assets/avatars/licorne.svg" data-avatar-color="#ffc6ff" aria-label="Licorne arc-en-ciel">
                     <span class="avatar-emoji">🦄</span>
                     <span class="avatar-label">Licorne</span>
@@ -93,15 +97,15 @@
         <section class="login-section" aria-labelledby="name-section-title">
            <div class="name-input-wrapper">
                 <span class="name-icon" aria-hidden="true">📝</span>
-                <input type="text" id="name-input" placeholder="Écris ton prénom ici..." aria-label="Écris ton prénom" autocapitalize="words" maxlength="12" inputmode="text">
+                <input type="text" id="name-input" data-i18n-placeholder="namePlaceholder" data-i18n-aria="nameAria" placeholder="Écris ton prénom ici..." aria-label="Écris ton prénom" autocapitalize="words" maxlength="12" inputmode="text">
             </div>
         </section>
 
         <section class="login-section" aria-labelledby="color-section-title">
             <header class="section-header">
-                <h2 id="color-section-title">Choisis ta couleur préférée</h2>
+                <h2 id="color-section-title" data-i18n="colorSectionTitle">Choisis ta couleur préférée</h2>
             </header>
-            <div id="color-selection" role="radiogroup" aria-label="Choisis ta couleur préférée">
+            <div id="color-selection" role="radiogroup" aria-label="Choisis ta couleur prAcfAcrAce" data-i18n-aria="colorListLabel">
                 <button class="color-option" type="button" style="--color-base: #ffadad;" data-color="#ffadad" data-tooltip="🌸 Rose pastel" aria-label="Rose pastel"></button>
                 <button class="color-option" type="button" style="--color-base: #ffd6a5;" data-color="#ffd6a5" data-tooltip="🍑 Abricot doux" aria-label="Abricot doux"></button>
                 <button class="color-option" type="button" style="--color-base: #fdffb6;" data-color="#fdffb6" data-tooltip="🍋 Citron léger" aria-label="Citron léger"></button>
@@ -116,7 +120,7 @@
 
         <button id="login-btn" class="btn" type="button">
             <span class="rocket-icon" aria-hidden="true">🚀</span>
-            <span class="btn-label">Entrer dans le monde de Léna</span>
+            <span class="btn-label" data-i18n="loginButton">Entrer dans le monde de Léna</span>
         </button>
 
         <p id="login-error" class="login-error" role="alert" aria-live="assertive" hidden></p>
@@ -129,6 +133,7 @@
     <script src="../js/feedbackSystem.js" defer></script>
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>
+    <script src="../js/i18n.js" defer></script>
     <script src="../js/login.js"></script>
 <script>
     if ('serviceWorker' in navigator) {
@@ -209,3 +214,8 @@
 </script>
 </body>
 </html>
+
+
+
+
+

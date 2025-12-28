@@ -15,8 +15,15 @@
         play: '\u{25B6}'
     };
 
+    function t(key, fallback) {
+        if (window.i18n?.t) {
+            return window.i18n.t(key);
+        }
+        return fallback;
+    }
+
     function logout() {
-        const wantsLogout = window.confirm('Veux-tu vraiment te déconnecter ?');
+        const wantsLogout = window.confirm(t('confirmLogout', 'Veux-tu vraiment te dAcconnecter ?'));
         if (!wantsLogout) { return; }
         try {
             window.localStorage?.removeItem('mathsLenaUserProfile');
@@ -31,24 +38,28 @@
             id: 'nav-home',
             icon: EMOJI.home,
             label: 'Accueil',
+            labelKey: 'navHome',
             href: 'juego.html'
         },
         {
             id: 'nav-shop',
             icon: EMOJI.bag,
             label: 'Boutique',
+            labelKey: 'navShop',
             href: 'boutique.html'
         },
         {
             id: 'nav-achievements',
             icon: EMOJI.trophy,
             label: 'Succ\u00e8s',
+            labelKey: 'navAchievements',
             href: 'logros.html'
         },
         {
             id: 'nav-library',
             icon: EMOJI.book,
             label: 'Biblioth\u00e8que',
+            labelKey: 'navLibrary',
             href: 'juego.html',
             hash: '#library'
         },
@@ -56,6 +67,7 @@
             id: 'nav-back',
             icon: EMOJI.back,
             label: 'Retour',
+            labelKey: 'navBack',
             action: () => {
                 console.log('[Navigation] Retour (d\u00e9mo)');
                 window.history.length > 1 ? window.history.back() : console.log('Aucune page pr\u00e9c\u00e9dente');
@@ -65,6 +77,7 @@
             id: 'nav-logout',
             icon: EMOJI.lock,
             label: 'Sortir',
+            labelKey: 'navLogout',
             action: () => {
                 console.log('[Navigation] Logout');
                 logout();
@@ -75,8 +88,8 @@
     const AUDIO_STATE = {
         iconOn: '\u{1F50A}',
         iconOff: '\u{1F507}',
-        labelOn: 'Son actif',
-        labelOff: 'Son coupé'
+        labelOn: () => t('audioOn', 'Son actif'),
+        labelOff: () => t('audioOff', 'Son coupAc')
     };
 
     let headerEl;
@@ -84,12 +97,14 @@
     let audioBtn;
     let notificationBtn;
     let logoutBtn;
+    let languageSelectEl;
     let userNameEl;
     let avatarImgEl;
     let avatarFallbackEl;
     let starsValueEl;
     let coinsValueEl;
     let levelBadgeEl;
+    let footerEl;
 
     function ready(fn) {
         if (document.readyState === 'loading') {
@@ -122,7 +137,7 @@
             <span id="user-name" class="lena-username">Gean</span>
             <button type="button" class="lena-btn-logout" id="logoutButton">
                 <span aria-hidden="true">${EMOJI.lock}</span>
-                <span class="lena-btn-logout__label">Sortir</span>
+                <span class="lena-btn-logout__label" data-i18n="navLogout">Sortir</span>
             </button>
             <span class="lena-stat" data-stat="stars">
                 <span class="lena-stat__icon" aria-hidden="true">${EMOJI.star}</span>
@@ -133,8 +148,12 @@
                 <span class="lena-stat__value" id="coins">50</span>
             </span>
             <span class="lena-level" id="level">Niveau 1</span>
-            <button type="button" class="lena-icon-btn" id="audioToggleButton" aria-label="${AUDIO_STATE.labelOn}">${AUDIO_STATE.iconOn}</button>
-            <button type="button" class="lena-icon-btn" id="notificationButton" aria-label="Notifications">${EMOJI.bell}</button>
+            <button type="button" class="lena-icon-btn" id="audioToggleButton" aria-label="${AUDIO_STATE.labelOn()}">${AUDIO_STATE.iconOn}</button>
+            <button type="button" class="lena-icon-btn" id="notificationButton" aria-label="${t('notifications', 'Notifications')}">${EMOJI.bell}</button>
+            <label class="lena-lang">
+                <span class="sr-only" data-i18n="languageLabel">Langue</span>
+                <select id="languageSelect" class="lena-lang__select" data-language-select data-i18n-aria="languageSelectAria"></select>
+            </label>
         `;
 
         container.appendChild(headerInner);
@@ -148,10 +167,12 @@
         audioBtn = headerInner.querySelector('#audioToggleButton');
         notificationBtn = headerInner.querySelector('#notificationButton');
         logoutBtn = headerInner.querySelector('#logoutButton');
+        languageSelectEl = headerInner.querySelector('#languageSelect');
 
         setupAudioButton();
         setupNotificationButton();
         setupLogoutButton();
+        setupLanguageSelect();
     }
 
     function setupAudioButton() {
@@ -160,7 +181,7 @@
             const muted = Boolean(window.audioManager?.isMuted);
             audioBtn.classList.toggle('is-muted', muted);
             audioBtn.textContent = muted ? AUDIO_STATE.iconOff : AUDIO_STATE.iconOn;
-            audioBtn.setAttribute('aria-label', muted ? AUDIO_STATE.labelOff : AUDIO_STATE.labelOn);
+            audioBtn.setAttribute('aria-label', muted ? AUDIO_STATE.labelOff() : AUDIO_STATE.labelOn());
         };
         audioBtn.addEventListener('click', () => {
             if (window.audioManager && typeof window.audioManager.toggle === 'function') {
@@ -197,6 +218,13 @@
         });
     }
 
+    function setupLanguageSelect() {
+        if (!languageSelectEl) { return; }
+        if (window.i18n?.bindLanguageSelect) {
+            window.i18n.bindLanguageSelect(languageSelectEl);
+        }
+    }
+
     function buildFooter(container) {
         container.className = 'lena-shell__footer';
         const inner = document.createElement('div');
@@ -204,13 +232,14 @@
 
         const currentPath = window.location.pathname;
         FOOTER_LINKS.forEach(item => {
+            const labelText = item.labelKey ? t(item.labelKey, item.label) : item.label;
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'lena-footer-btn';
             btn.id = item.id;
             btn.innerHTML = `
                 <span class="lena-footer-btn__icon" aria-hidden="true">${item.icon}</span>
-                <span class="lena-footer-btn__label">${item.label}</span>
+                <span class="lena-footer-btn__label">${labelText}</span>
             `;
 
             if (item.href) {
@@ -223,7 +252,7 @@
                     btn.setAttribute('aria-current', 'page');
                 }
                 btn.addEventListener('click', () => {
-                    console.log(`[Navigation] ${item.label} -> ${destination}`);
+                    console.log(`[Navigation] ${labelText} -> ${destination}`);
                     animatePress(btn);
                     setTimeout(() => {
                         if (isCurrentPage && item.hash) {
@@ -301,7 +330,7 @@
     function hydrateUserIdentity(externalProfile) {
         if (!userNameEl || !avatarFallbackEl) { return; }
         const profile = externalProfile || getStoredProfile() || {};
-        const displayName = profile.name || profile.displayName || 'Ami Magique';
+        const displayName = profile.name || profile.displayName || t('fallbackName', 'Ami Magique');
         userNameEl.textContent = displayName;
 
         const avatarInfo = profile.avatar || {};
@@ -339,7 +368,8 @@
         const levelValue = profile.level ?? profile.currentLevel;
         if (levelBadgeEl && (typeof levelValue === 'number' || typeof levelValue === 'string')) {
             const numeric = Number(levelValue);
-            const label = Number.isFinite(numeric) ? `Niveau ${Math.max(1, numeric)}` : String(levelValue);
+            const labelKey = t('levelLabel', 'Niveau');
+            const label = Number.isFinite(numeric) ? `${labelKey} ${Math.max(1, numeric)}` : String(levelValue);
             levelBadgeEl.textContent = label;
         }
     }
@@ -352,7 +382,7 @@
             document.body.insertAdjacentElement('afterbegin', headerEl);
         }
 
-        const footerEl = document.querySelector('[data-lena-footer]') || (() => {
+        footerEl = document.querySelector('[data-lena-footer]') || (() => {
             const created = document.createElement('footer');
             created.setAttribute('data-lena-footer', '');
             document.body.appendChild(created);
@@ -363,10 +393,14 @@
         buildFooter(footerEl);
         handleScrollCompact();
         hydrateUserIdentity();
+        if (window.i18n?.apply) {
+            window.i18n.apply(document);
+        }
 
         document.body.classList.add('has-shell-header', 'has-shell-footer');
         window.lenaShell = window.lenaShell || {};
         window.lenaShell.updateUser = hydrateUserIdentity;
+        window.lenaShell.refreshLanguage = refreshLanguage;
 
         if (window.feedbackSystem?.refreshHud) {
             try {
@@ -386,6 +420,7 @@
         document.addEventListener('lena:exercise:answer', forwardExerciseAnswer);
         document.addEventListener('lena:exercise:hint', forwardExerciseHint);
         document.addEventListener('lena:exercise:level-complete', forwardLevelComplete);
+        document.addEventListener('lena:language:change', refreshLanguage);
 
         function unlockAudio() {
           const silentAudio = new Audio('data:audio/mp3;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaXRyYXRlIHN1cHBsaWVkIGJ5IHRoZSBsYW1lIGxpYnJhcnkuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4s');
@@ -399,6 +434,18 @@
     }
 
     ready(initShell);
+
+    function refreshLanguage() {
+        if (!headerEl || !footerEl) { return; }
+        headerEl.innerHTML = '';
+        footerEl.innerHTML = '';
+        buildHeader(headerEl);
+        buildFooter(footerEl);
+        hydrateUserIdentity();
+        if (window.i18n?.apply) {
+            window.i18n.apply(document);
+        }
+    }
 
     function getFeedbackSystem() {
         return window.feedbackSystem || null;
