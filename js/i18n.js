@@ -13,6 +13,7 @@
     nl: 'nl-NL',
     es: 'es-ES'
   };
+  let currentLanguage = null;
 
   const STRINGS = {
     fr: {
@@ -300,7 +301,11 @@
   }
 
   function getLanguage() {
-    return normalizeLanguage(readStoredLanguage() || DEFAULT_LANGUAGE);
+    const stored = readStoredLanguage();
+    if (stored) {
+      currentLanguage = stored;
+    }
+    return normalizeLanguage(stored || currentLanguage || DEFAULT_LANGUAGE);
   }
 
   function getSpeechLang() {
@@ -310,6 +315,7 @@
 
   function setLanguage(lang) {
     const normalized = normalizeLanguage(lang);
+    currentLanguage = normalized;
     try {
       if (window.storage?.setLanguage) {
         window.storage.setLanguage(normalized);
