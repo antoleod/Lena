@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const calmStatus = document.querySelector('[data-calm-status]');
   const parentAccess = document.getElementById('parent-access');
   const parentPanel = document.getElementById('parent-panel');
+  const parentPanelCard = parentPanel?.querySelector('.parent-panel__card') || null;
   const parentPanelClose = document.getElementById('parent-panel-close');
   const parentReset = document.getElementById('parent-reset');
 
@@ -261,6 +262,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (parentPanelClose) {
     parentPanelClose.addEventListener('click', closeParentPanel);
+  }
+
+  if (parentPanel) {
+    parentPanel.addEventListener('click', (event) => {
+      if (event.target === parentPanel) {
+        closeParentPanel();
+      }
+    });
+  }
+
+  if (parentPanelCard) {
+    parentPanelCard.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
   }
 
   if (parentReset) {
@@ -548,11 +563,25 @@ document.addEventListener('DOMContentLoaded', () => {
   function openParentPanel() {
     if (!parentPanel) { return; }
     parentPanel.hidden = false;
+    parentPanel.setAttribute('aria-hidden', 'false');
+    document.addEventListener('keydown', handleParentKeydown);
+    if (parentPanelClose) {
+      parentPanelClose.focus();
+    }
   }
 
   function closeParentPanel() {
     if (!parentPanel) { return; }
     parentPanel.hidden = true;
+    parentPanel.setAttribute('aria-hidden', 'true');
+    document.removeEventListener('keydown', handleParentKeydown);
+  }
+
+  function handleParentKeydown(event) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeParentPanel();
+    }
   }
 });
 

@@ -21,6 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mathEngine = window.mathEngine || null;
     const t = (key, fallback, params) => (window.i18n?.t ? window.i18n.t(key, params) : fallback);
+    const getLang = () => (window.i18n?.getLanguage ? window.i18n.getLanguage() : 'fr');
+    const resolveText = (value) => {
+        if (value && typeof value === 'object' && !Array.isArray(value)) {
+            const lang = getLang();
+            if (value[lang]) return value[lang];
+            if (value.fr) return value.fr;
+            const fallback = Object.values(value).find(Boolean);
+            return fallback || '';
+        }
+        return typeof value === 'string' || typeof value === 'number' ? String(value) : '';
+    };
+    const resolveArray = (arr) => Array.isArray(arr) ? arr.map(resolveText) : [];
     const COIN_PENALTY_ENABLED = false;
     const labelBackToTopics = () => t('menuBackToTopics', 'Retour aux sujets');
     const labelBackToMenu = () => t('menuBackToMenu', 'Retour au menu principal');
@@ -1057,6 +1069,7 @@ function resolveLevelTheme(topicId) {
         document.addEventListener('lena:language:change', () => {
             preferredVoice = null;
             setupSpeechSynthesis();
+            refreshLanguageView();
         });
         setupUI();
         setupEventListeners();
@@ -1077,6 +1090,53 @@ function resolveLevelTheme(topicId) {
         setPrimaryTheme(userProfile.color);
         updateUI();
         applyActiveCosmetics();
+    }
+
+    function refreshLanguageView() {
+        try {
+            window.i18n?.apply?.(document);
+        } catch (error) {
+            console.warn('[i18n] apply failed', error);
+        }
+
+        if (document.body.classList.contains('story-menu-active')) {
+            showStoryMenu();
+            return;
+        }
+
+        if (document.body.classList.contains('stage-controls-visible')) {
+            try {
+                if (gameState.currentTopic && typeof loadQuestion === 'function' && allQuestions?.[gameState.currentTopic]) {
+                    const index = Number.isFinite(gameState.currentQuestionIndex) ? gameState.currentQuestionIndex : 0;
+                    loadQuestion(index);
+                } else {
+                    updateUI();
+                }
+            } catch (error) {
+                console.warn('[i18n] Unable to refresh current question', error);
+                updateUI();
+            }
+            return;
+        }
+
+        if (gameState.currentTopic) {
+            if (gameState.currentTopic === 'dictee') {
+                showDicteeMenu();
+                return;
+            }
+            if (gameState.currentTopic === 'stories') {
+                showStoryMenu();
+                return;
+            }
+            if (gameState.currentTopic === 'memory') {
+                showMemoryGameMenu();
+                return;
+            }
+            showLevelMenu(gameState.currentTopic);
+            return;
+        }
+
+        showTopicMenu();
     }
 
     function resolveAvatarIcon(iconUrl = '') {
@@ -1747,7 +1807,7 @@ function resolveLevelTheme(topicId) {
     }
     // --- UI & Helpers ---
     let preferredVoice = null;
-    const LANGUAGE_LOCALES = { fr: 'fr-FR', nl: 'nl-NL', en: 'en-GB' };
+    const LANGUAGE_LOCALES = { fr: 'fr-FR', nl: 'nl-NL', en: 'en-GB', es: 'es-ES' };
 
     function resolveSpeechLang() {
         if (window.i18n?.getSpeechLang) {
@@ -1927,7 +1987,7 @@ function resolveLevelTheme(topicId) {
 
         const textSpan = document.createElement('span');
         textSpan.className = 'option-text';
-        textSpan.textContent = String(value);
+        textSpan.textContent = resolveText(value);
 
         element.appendChild(iconSpan);
         element.appendChild(textSpan);
@@ -2425,7 +2485,7 @@ function resolveLevelTheme(topicId) {
         const quiz = story.quiz[Math.floor(Math.random() * story.quiz.length)];
         if (!quiz) { return null; }
         return {
-            questionText: `${story.title} — ${quiz.question}`,
+            questionText: `${resolveStoryTitle(story)} — ${quiz.question}`,
             options: quiz.options,
             correct: quiz.correct,
             explanation: `Souviens-toi de l'histoire : ${quiz.options[quiz.correct]}.`
@@ -3043,11 +3103,12 @@ function resolveLevelTheme(topicId) {
         const instructionWrapper = document.createElement('div');
         instructionWrapper.className = 'prompt-with-audio';
 
+        const resolvedInstruction = resolveText(levelData.instruction);
         const instruction = document.createElement('p');
         instruction.className = 'question-prompt';
         instruction.textContent = level === 1
-            ? `${levelData.instruction} Glisse-les et lâche-les dans le bon panier.`
-            : levelData.instruction;
+            ? `${resolvedInstruction} ${t('sortingDragHint', 'Glisse-les et lâche-les dans le bon panier.')}`
+            : resolvedInstruction;
         instructionWrapper.appendChild(instruction);
 
         const audioBtn = createAudioButton({
@@ -3080,7 +3141,7 @@ function resolveLevelTheme(topicId) {
 
             const header = document.createElement('div');
             header.className = 'sorting-bin-header';
-            header.textContent = category.label;
+            header.textContent = resolveText(category.label);
             bin.appendChild(header);
 
             const dropzone = document.createElement('div');
@@ -3099,7 +3160,7 @@ function resolveLevelTheme(topicId) {
         levelData.items.forEach((item, index) => {
             const token = document.createElement('div');
             token.className = 'sorting-token fx-pop';
-            token.textContent = `${item.emoji} ${item.label}`;
+            token.textContent = `${item.emoji} ${resolveText(item.label)}`;
             token.draggable = true;
             token.dataset.target = item.target;
             token.dataset.id = `${item.id}-${uniqueSuffix}-${index}`;
@@ -3280,6 +3341,9 @@ function resolveLevelTheme(topicId) {
 
         gameState.currentQuestionIndex = questionIndex;
         const riddleData = questions[questionIndex];
+        const resolvedTheme = resolveText(levelData.theme);
+        const resolvedPrompt = resolveText(riddleData.prompt);
+        const resolvedOptions = resolveArray(riddleData.options);
 
         content.innerHTML = '';
         updateUI();
@@ -3289,7 +3353,7 @@ function resolveLevelTheme(topicId) {
 
         const title = document.createElement('div');
         title.className = 'question-prompt';
-        title.textContent = `Niveau ${levelData.level} — ${levelData.theme}`;
+        title.textContent = `Niveau ${levelData.level} — ${resolvedTheme}`;
         wrapper.appendChild(title);
 
         const promptWrapper = document.createElement('div');
@@ -3297,11 +3361,11 @@ function resolveLevelTheme(topicId) {
 
         const promptText = document.createElement('p');
         promptText.className = 'riddle-prompt';
-        promptText.textContent = riddleData.prompt;
+        promptText.textContent = resolvedPrompt;
         promptWrapper.appendChild(promptText);
 
         const audioBtn = createAudioButton({
-            text: riddleData.prompt,
+            text: resolvedPrompt,
             ariaLabel: 'Écouter l\'énigme'
         });
         if (audioBtn) {
@@ -3315,12 +3379,12 @@ function resolveLevelTheme(topicId) {
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
 
-        const shuffledOptions = shuffle([...riddleData.options]);
+        const shuffledOptions = shuffle([...resolvedOptions]);
         shuffledOptions.forEach((opt, i) => {
             const optionEl = document.createElement('button');
             optionEl.className = 'option riddle-option fx-bounce-in-down';
             optionEl.style.animationDelay = `${i * 0.08 + 0.4}s`;
-            const originalIndex = riddleData.options.indexOf(opt);
+            const originalIndex = resolvedOptions.indexOf(opt);
             optionEl.dataset.index = originalIndex;
             optionEl.addEventListener('click', handleRiddleAnswer);
             applyOptionContent(optionEl, opt, i);
@@ -3358,16 +3422,17 @@ function resolveLevelTheme(topicId) {
         const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
         const questions = levelData.questions || [];
         const riddleData = questions[gameState.currentQuestionIndex];
+        const resolvedOptions = resolveArray(riddleData.options);
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctAnswerIndex = riddleData.answer;
-        const correctValue = riddleData.options[correctAnswerIndex];
+        const correctValue = resolvedOptions[correctAnswerIndex];
 
         if (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex) {
             selectedOption.classList.add('correct');
             selectedOption.classList.add('riddle-correct-glow');
             userProgress.userScore.stars += riddleData.reward?.stars || (10 + levelData.level);
             userProgress.userScore.coins += riddleData.reward?.coins || (6 + Math.floor(levelData.level / 2));
-            showSuccessMessage(riddleData.success || 'Bonne réponse !');
+            showSuccessMessage(resolveText(riddleData.success) || t('riddleCorrect', 'Bonne réponse !'));
             showConfetti();
         } else {
             selectedOption.classList.add('wrong');
@@ -3378,8 +3443,9 @@ function resolveLevelTheme(topicId) {
                 correctOption.classList.add('correct');
                 correctOption.classList.add('riddle-correct-glow');
             }
-            const hint = riddleData.hint ? ` Conseil : ${riddleData.hint}` : '';
-            showErrorMessage('Mauvaise réponse.', `${correctValue}.${hint}`);
+            const hintText = resolveText(riddleData.hint);
+            const hint = hintText ? ` ${t('riddleHintPrefix', 'Conseil :')} ${hintText}` : '';
+            showErrorMessage(t('riddleWrong', 'Mauvaise réponse.'), `${correctValue}.${hint}`);
         }
 
         updateUI();
@@ -4148,10 +4214,21 @@ function resolveLevelTheme(topicId) {
         const fallbackMixes = availableMixes.length ? availableMixes : COLOR_MIX_LIBRARY;
         const selectedMix = shuffle([...fallbackMixes])[0];
 
-        const questionText = `Quelle couleur apparaît quand on mélange ${selectedMix.inputs[0]} + ${selectedMix.inputs[1]} ?`;
-        const optionsSet = new Set([selectedMix.result]);
+        const inputA = resolveText(selectedMix.inputs[0]);
+        const inputB = resolveText(selectedMix.inputs[1]);
+        const resultText = resolveText(selectedMix.result);
+        const questionText = t(
+            'colorMixQuestion',
+            `Quelle couleur apparaît quand on mélange ${inputA} + ${inputB} ?`,
+            { a: inputA, b: inputB }
+        );
+        const optionsSet = new Set([resultText]);
 
-        const distractorPool = shuffle(fallbackMixes.filter(mix => mix.result !== selectedMix.result).map(mix => mix.result));
+        const distractorPool = shuffle(
+            fallbackMixes
+                .filter(mix => resolveText(mix.result) !== resultText)
+                .map(mix => resolveText(mix.result))
+        );
         while (optionsSet.size < 3 && distractorPool.length) {
             optionsSet.add(distractorPool.pop());
         }
@@ -4164,14 +4241,14 @@ function resolveLevelTheme(topicId) {
         }
 
         const options = shuffle(Array.from(optionsSet));
-        const correctIndex = options.indexOf(selectedMix.result);
+        const correctIndex = options.indexOf(resultText);
 
         return {
             questionText,
             options,
             correct: correctIndex,
             difficulty: level,
-            explanation: selectedMix.explanation,
+            explanation: resolveText(selectedMix.explanation),
             metaSkill: 'cognition:colors',
             reward: {
                 stars: 12 + level * 2,
@@ -4375,7 +4452,7 @@ function resolveLevelTheme(topicId) {
         const totalLevels = getTopicLevelCount(gameState.currentTopic) || maxLevels[gameState.currentTopic] || LEVELS_PER_TOPIC;
         
         if (totalLevels === 0) {
-            levelsContainer.innerHTML = '<p class="story-menu__empty">Aucun niveau disponible pour le moment.</p>';
+            levelsContainer.innerHTML = `<p class="story-menu__empty">${t('menuNoLevels', 'Aucun niveau disponible pour le moment.')}</p>`;
         } else {
             for (let i = 1; i <= totalLevels; i++) {
                 const theme = resolveLevelTheme(gameState.currentTopic);
@@ -4654,7 +4731,10 @@ function resolveLevelTheme(topicId) {
         const trimmed = limitOptionsToTwo(originalQuestion.options, originalQuestion.correct);
         const displayQuestion = {
             ...originalQuestion,
-            options: trimmed.options,
+            questionText: resolveText(originalQuestion.questionText),
+            detail: resolveText(originalQuestion.detail),
+            explanation: resolveText(originalQuestion.explanation),
+            options: resolveArray(trimmed.options),
             correct: trimmed.correct,
             originalIndex: index
         };
@@ -4781,7 +4861,7 @@ function resolveLevelTheme(topicId) {
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
         if (gameState.currentTopic === 'review' || isReviewPhase) {
-            configureBackButton('Terminer le repaso', showTopicMenu);
+            configureBackButton(t('reviewFinish', 'Terminer la révision'), showTopicMenu);
         } else {
             configureBackButton(labelBackToLevels(), () => showLevelMenu(gameState.currentTopic));
         }
@@ -5127,7 +5207,7 @@ function generateNumberProblems(sum, count) {
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
         if (gameState.currentTopic === 'review') {
-            configureBackButton('Terminer le repaso', showTopicMenu);
+            configureBackButton(t('reviewFinish', 'Terminer la révision'), showTopicMenu);
         } else {
             configureBackButton(labelBackToLevels(), () => showLevelMenu(gameState.currentTopic));
         }
@@ -5197,6 +5277,16 @@ function generateNumberProblems(sum, count) {
         }, 2500);
     }
 
+    function resolveStoryTitle(story) {
+        const lang = window.i18n?.getLanguage ? window.i18n.getLanguage() : 'fr';
+        return story?.bilingualTitle?.[lang] || story?.bilingualTitle?.fr || story?.title || '';
+    }
+
+    function resolveStoryTheme(story) {
+        const lang = window.i18n?.getLanguage ? window.i18n.getLanguage() : 'fr';
+        return story?.bilingualTheme?.[lang] || story?.theme || '';
+    }
+
     function showStoryMenu() {
         document.body.classList.add('story-menu-active', 'in-story-mode');
         document.body.classList.remove('story-quiz-active');
@@ -5221,7 +5311,7 @@ function generateNumberProblems(sum, count) {
 
         const storyHeader = document.createElement('div');
         storyHeader.className = 'question-prompt story-menu-title fx-bounce-in-down';
-        storyHeader.textContent = 'Bibliothèque des Contes Magiques';
+        storyHeader.textContent = t('storyLibraryTitle', 'Bibliothèque des Contes Magiques');
         content.appendChild(storyHeader);
 
         // --- Filtres et recherche ---
@@ -5238,7 +5328,7 @@ function generateNumberProblems(sum, count) {
         searchWrapper.appendChild(searchInput);
         controls.appendChild(searchWrapper);
 
-        const allThemes = ['Tous', ...new Set(magicStories.map(s => s.theme).filter(Boolean))];
+        const allThemes = [t('filterAll', 'Tous'), ...new Set(magicStories.map(s => s.theme).filter(Boolean))];
         const themeFilter = document.createElement('select');
         themeFilter.className = 'btn';
         allThemes.forEach(theme => {
@@ -5257,14 +5347,15 @@ function generateNumberProblems(sum, count) {
         const renderCards = (filterText = '', filterTheme = 'Tous') => {
             storyGrid.innerHTML = '';
             const filteredStories = magicStories.filter(story => {
-                const matchesText = !filterText || story.title.toLowerCase().includes(filterText.toLowerCase());
-                const matchesTheme = filterTheme === 'Tous' || story.theme === filterTheme;
+                const resolvedTitle = resolveStoryTitle(story);
+                const matchesText = !filterText || resolvedTitle.toLowerCase().includes(filterText.toLowerCase());
+                const matchesTheme = filterTheme === t('filterAll', 'Tous') || story.theme === filterTheme;
                 return matchesText && matchesTheme;
             });
 
             if (filteredStories.length === 0) {
                 const noResult = document.createElement('p');
-                noResult.textContent = 'Aucun conte ne correspond à ta recherche.';
+                noResult.textContent = t('storyNoResults', 'Aucun conte ne correspond à ta recherche.');
                 noResult.className = 'story-menu__empty';
                 storyGrid.appendChild(noResult);
                 return;
@@ -5299,11 +5390,11 @@ function generateNumberProblems(sum, count) {
             cardContent.className = 'story-card-magic__content';
             const cardTitle = document.createElement('h3');
             cardTitle.className = 'story-card-magic__title';
-            cardTitle.textContent = story.bilingualTitle?.fr || story.title;
+            cardTitle.textContent = resolveStoryTitle(story);
             const teaser = document.createElement('p');
             teaser.className = 'story-card-magic__teaser';
             teaser.innerHTML = `
-                ${story.theme ? `<span class="story-tag">${story.theme}</span>` : ''}
+                ${resolveStoryTheme(story) ? `<span class="story-tag">${resolveStoryTheme(story)}</span>` : ''}
                 ${story.duration ? `<span class="story-tag">· ${story.duration} min</span>` : ''}
             `;
             cardContent.append(cardTitle, teaser);
@@ -5330,7 +5421,7 @@ function generateNumberProblems(sum, count) {
         if (activeStorySetIndex > 0) {
             const prevBtn = document.createElement('button');
             prevBtn.className = 'btn';
-            prevBtn.innerHTML = '<span>&larr;</span> Collection Précédente';
+            prevBtn.innerHTML = `<span>&larr;</span> ${t('storyPrevCollection', 'Collection Précédente')}`;
             prevBtn.onclick = () => showStoryMenu(setActiveStorySet(activeStorySetIndex - 1));
             navContainer.appendChild(prevBtn);
         }
@@ -5338,7 +5429,7 @@ function generateNumberProblems(sum, count) {
         if (activeStorySetIndex < storyCollections.length - 1) {
             const nextBtn = document.createElement('button');
             nextBtn.className = 'btn';
-            nextBtn.innerHTML = 'Collection Suivante <span>&rarr;</span>';
+            nextBtn.innerHTML = `${t('storyNextCollection', 'Collection Suivante')} <span>&rarr;</span>`;
             nextBtn.onclick = () => showStoryMenu(setActiveStorySet(activeStorySetIndex + 1));
             navContainer.appendChild(nextBtn);
         }
@@ -5360,7 +5451,7 @@ function generateNumberProblems(sum, count) {
 
         const title = document.createElement('div');
         title.className = 'question-prompt story-menu-title fx-bounce-in-down';
-        title.textContent = story.title;
+        title.textContent = resolveStoryTitle(story);
         content.appendChild(title);
 
         const selectionBox = document.createElement('div');
@@ -5369,13 +5460,13 @@ function generateNumberProblems(sum, count) {
 
         const readToMeBtn = document.createElement('button');
         readToMeBtn.className = 'btn story-mode-btn';
-        readToMeBtn.innerHTML = '<span>📖</span> Lis-moi l\'histoire';
+        readToMeBtn.innerHTML = `<span>📖</span> ${t('storyReadToMe', 'Lis-moi l\'histoire')}`;
         readToMeBtn.onclick = () => showMagicStory(storyIndex);
         selectionBox.appendChild(readToMeBtn);
 
         const readMyselfBtn = document.createElement('button');
         readMyselfBtn.className = 'btn story-mode-btn';
-        readMyselfBtn.innerHTML = '<span>🙋‍♀️</span> Je lis toute seule';
+        readMyselfBtn.innerHTML = `<span>🙋‍♀️</span> ${t('storyReadMyself', 'Je lis toute seule')}`;
         readMyselfBtn.onclick = () => showMagicStory(storyIndex);
         selectionBox.appendChild(readMyselfBtn);
 
@@ -5423,14 +5514,14 @@ function generateNumberProblems(sum, count) {
 
         const titleEl = document.createElement('h2');
         titleEl.className = 'story-title';
-        titleEl.textContent = story.title;
+        titleEl.textContent = resolveStoryTitle(story);
         titleWrapper.appendChild(titleEl);
 
         const fullStoryText = story.text.join(' ');
         const listenBtn = createAudioButton({
             label: '▶️',
-            ariaLabel: 'Lire le conte en voix haute',
-            onClick: () => speakText(`${story.title}. ${fullStoryText}`)
+            ariaLabel: t('storyListenAria', 'Lire le conte en voix haute'),
+            onClick: () => speakText(`${resolveStoryTitle(story)}. ${fullStoryText}`)
         });
         listenBtn.classList.add('story-title-play-btn');
         titleWrapper.appendChild(listenBtn);
@@ -5441,7 +5532,7 @@ function generateNumberProblems(sum, count) {
             const img = document.createElement('img');
             img.className = 'story-image';
             img.src = story.image;
-            img.alt = story.title;
+            img.alt = resolveStoryTitle(story);
             storyContainer.appendChild(img);
         }
 
@@ -5489,7 +5580,7 @@ function generateNumberProblems(sum, count) {
         gameState.questionStartTime = performance.now();
         gameState.historyTracker?.startGame('stories', storyIndex + 1, {
             skillTag: gameState.questionSkillTag,
-            storyTitle: story.title
+            storyTitle: resolveStoryTitle(story)
         });
         loadQuizQuestion();
     }
@@ -5503,6 +5594,9 @@ function generateNumberProblems(sum, count) {
         
         content.innerHTML = '';
         const questionData = gameState.storyQuiz[gameState.currentQuestionIndex];
+        const resolvedQuestion = resolveText(questionData.question);
+        const resolvedOptions = resolveArray(questionData.options);
+        const resolvedExplanation = resolveText(questionData.explanation);
         gameState.questionSkillTag = questionData?.metaSkill || gameState.questionSkillTag || resolveSkillTag('stories');
         gameState.questionStartTime = performance.now();
         const fragment = document.createDocumentFragment();
@@ -5512,11 +5606,11 @@ function generateNumberProblems(sum, count) {
 
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
-        title.innerHTML = `Question ${gameState.currentQuestionIndex + 1} / ${gameState.storyQuiz.length}<br>${questionData.question}`;
+        title.innerHTML = `Question ${gameState.currentQuestionIndex + 1} / ${gameState.storyQuiz.length}<br>${resolvedQuestion}`;
         promptWrapper.appendChild(title);
 
         const audioBtn = createAudioButton({
-            text: questionData.question,
+            text: resolvedQuestion,
             ariaLabel: 'Écouter la question du conte'
         });
         if (audioBtn) {
@@ -5524,18 +5618,18 @@ function generateNumberProblems(sum, count) {
         }
 
         fragment.appendChild(promptWrapper);
-        speakText(questionData.question);
+        speakText(resolvedQuestion);
         updateProgressTracker(gameState.currentQuestionIndex + 1, gameState.storyQuiz.length);
         
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
         
-        const shuffledOptions = shuffle([...questionData.options]);
+        const shuffledOptions = shuffle([...resolvedOptions]);
         shuffledOptions.forEach((opt, i) => {
             const optionEl = document.createElement('button');
             optionEl.className = 'option fx-bounce-in-down';
             optionEl.style.animationDelay = `${i * 0.1 + 0.5}s`;
-            const originalIndex = questionData.options.indexOf(opt);
+            const originalIndex = resolvedOptions.indexOf(opt);
             optionEl.dataset.index = originalIndex;
             optionEl.addEventListener('click', handleStoryQuizAnswer);
             applyOptionContent(optionEl, opt, i);
@@ -5560,9 +5654,11 @@ function generateNumberProblems(sum, count) {
         optionNodes.forEach(opt => opt.removeEventListener('click', handleStoryQuizAnswer));
         
         const questionData = gameState.storyQuiz[gameState.currentQuestionIndex];
+        const resolvedOptions = resolveArray(questionData.options);
+        const resolvedExplanation = resolveText(questionData.explanation);
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctAnswerIndex = questionData.correct;
-        const correctValue = questionData.options[correctAnswerIndex];
+        const correctValue = resolvedOptions[correctAnswerIndex];
 
         const isCorrect = !Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex;
 
@@ -5579,7 +5675,7 @@ function generateNumberProblems(sum, count) {
             if (correctOption) {
                 correctOption.classList.add('correct');
             }
-            const explanation = questionData.explanation ? questionData.explanation : 'Mauvaise réponse.';
+            const explanation = resolvedExplanation || 'Mauvaise réponse.';
             showErrorMessage(explanation, correctValue);
         }
         const elapsed = gameState.questionStartTime ? performance.now() - gameState.questionStartTime : 0;
@@ -6154,7 +6250,7 @@ function generateNumberProblems(sum, count) {
             selectedOption.classList.add('riddle-correct-glow');
             userProgress.userScore.stars += riddleData.reward?.stars || (10 + levelData.level);
             userProgress.userScore.coins += riddleData.reward?.coins || (6 + Math.floor(levelData.level / 2));
-            showSuccessMessage(riddleData.success || 'Bonne réponse !');
+            showSuccessMessage(resolveText(riddleData.success) || t('riddleCorrect', 'Bonne réponse !'));
             showConfetti();
         } else { // Respuesta incorrecta
             selectedOption.classList.add('wrong');
@@ -6165,8 +6261,9 @@ function generateNumberProblems(sum, count) {
                 correctOption.classList.add('correct');
                 correctOption.classList.add('riddle-correct-glow');
             }
-            const hint = riddleData.hint ? ` Conseil : ${riddleData.hint}` : '';
-            showErrorMessage('Mauvaise réponse.', `${correctValue}. ${hint}`);
+            const hintText = resolveText(riddleData.hint);
+            const hint = hintText ? ` ${t('riddleHintPrefix', 'Conseil :')} ${hintText}` : '';
+            showErrorMessage(t('riddleWrong', 'Mauvaise réponse.'), `${correctValue}.${hint}`);
         }
 
         updateUI();

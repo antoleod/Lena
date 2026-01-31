@@ -102,7 +102,14 @@
     @media (prefers-reduced-motion:reduce){
       .mm-section-card{transition:none;animation:none}
       .mm-chip::after{transition:none}
-      .magic-scene,.magic-cloud,.magic-firefly,.magic-aurora{animation:none}
+      .magic-scene,.magic-cloud,.magic-firefly,.magic-aurora,.magic-starfall{animation:none}
+    }
+    .calm-mode .magic-scene,
+    .calm-mode .magic-cloud,
+    .calm-mode .magic-firefly,
+    .calm-mode .magic-aurora,
+    .calm-mode .magic-starfall {
+      animation: none !important;
     }
     .magic-scene{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1;background:radial-gradient(circle at 20% 10%,rgba(255,246,253,.85),rgba(255,255,255,0)) ,linear-gradient(180deg,rgba(41,25,82,.35),rgba(255,255,255,0)60%);mix-blend-mode:screen}
     .magic-aurora{position:absolute;inset:-30% -40% auto;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:conic-gradient(from 180deg at 50% 70%, #2d5a62, #3c8c80, #6bbf8f, #a9e29c, #3c8c80, #2d5a62);opacity:.55;transform:rotate(6deg) scale(1.2);animation:auroraDrift 48s ease-in-out infinite alternate}
@@ -297,7 +304,14 @@
   (function(){
     const translate = (key, fallback) => (window.i18n?.t ? window.i18n.t(key) : fallback);
     const t = (key, fallback) => translate(key, fallback);
-    const sectionsData = [
+      const sectionsData = [
+      {
+        title: t('sectionNewGamesTitle', 'Nouveaux Jeux'), emoji: 0x1F680, color: '#FF8FAB',
+        items: [
+          { label: t('baseTenBuildTitle', 'Construis le nombre'), emoji: 0x1F9F1, aliases: [t('baseTenBuildTitle', 'Construis le nombre')] },
+          { label: t('baseTenSubtractTitle', 'Soustraire, c\'est transformer'), emoji: 0x1F501, aliases: [t('baseTenSubtractTitle', 'Soustraire, c\'est transformer')] }
+        ]
+      },
       {
         title: t('sectionMathTitle', 'Mathématiques'), emoji: 0x1F9EE, color: '#4A90E2',
         items: [
@@ -305,8 +319,6 @@
           { label: t('itemSubtractions', 'Soustractions'), emoji: 0x2796 },
           { label: t('itemMultiplications', 'Multiplications'), emoji: 0x2716 },
           { label: t('itemDivisions', 'Divisions'), emoji: 0x2797 },
-          { label: t('baseTenBuildTitle', 'Construis le nombre'), emoji: 0x1F9F1, aliases: [t('baseTenBuildTitle', 'Construis le nombre')] },
-          { label: t('baseTenSubtractTitle', 'Soustraire, c\'est transformer'), emoji: 0x1F9F1, aliases: [t('baseTenSubtractTitle', 'Soustraire, c\'est transformer')] },
           { label: t('itemMathSprint', 'Maths Sprint'), emoji: 0x26A1, aliases: [t('itemMathSprint', 'Maths Sprint')] },
           { label: t('itemAbacus', 'Abaque Magique'), emoji: 0x1F9EE, aliases: [t('itemAbacus', 'Abaque Magique')] },
           { label: t('itemNumberHouses', 'Maisons des Nombres'), emoji: 0x1F3E0, aliases: [t('itemNumberHouses', 'Maisons des Nombres')] },
@@ -471,30 +483,47 @@
 
     document.addEventListener('DOMContentLoaded', buildSections);
     window.addEventListener('load', buildSections);
+    document.addEventListener('lena:language:change', buildSections);
   })();
   </script>
 <script>
-document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth) - 0.5;
-    const y = (e.clientY / window.innerHeight) - 0.5;
+(function(){
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  let pending = false;
+  let lastX = 0;
+  let lastY = 0;
 
-    const aurora = document.querySelector('.magic-aurora');
-    if (aurora) {
-        aurora.style.transform = `translateX(${-x * 40}px) translateY(${-y * 20}px) rotate(6deg) scale(1.2)`;
-    }
+  function shouldSkip() {
+    return document.body.classList.contains('calm-mode') || (reduceMotion && reduceMotion.matches);
+  }
 
-    const clouds = document.querySelectorAll('.magic-cloud');
-    clouds.forEach(cloud => {
+  function onMove(e) {
+    if (shouldSkip()) return;
+    lastX = (e.clientX / window.innerWidth) - 0.5;
+    lastY = (e.clientY / window.innerHeight) - 0.5;
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(() => {
+      pending = false;
+      const aurora = document.querySelector('.magic-aurora');
+      if (aurora) {
+        aurora.style.transform = `translateX(${-lastX * 40}px) translateY(${-lastY * 20}px) rotate(6deg) scale(1.2)`;
+      }
+      const clouds = document.querySelectorAll('.magic-cloud');
+      clouds.forEach(cloud => {
         const speed = cloud.classList.contains('magic-cloud--left') ? 15 : 25;
-        cloud.style.transform = `translateX(${-x * speed}px) translateY(${-y * (speed / 2)}px)`;
-    });
-
-    const fireflies = document.querySelectorAll('.magic-firefly');
-    fireflies.forEach((firefly, index) => {
+        cloud.style.transform = `translateX(${-lastX * speed}px) translateY(${-lastY * (speed / 2)}px)`;
+      });
+      const fireflies = document.querySelectorAll('.magic-firefly');
+      fireflies.forEach((firefly, index) => {
         const speed = 10 + (index * 5);
-        firefly.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+        firefly.style.transform = `translateX(${lastX * speed}px) translateY(${lastY * speed}px)`;
+      });
     });
-});
+  }
+
+  document.addEventListener('mousemove', onMove);
+})();
 </script>
 <script>
   if ('serviceWorker' in navigator) {

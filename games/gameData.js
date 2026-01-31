@@ -1,3 +1,4 @@
+﻿const tr = (fr, en, es, nl) => ({ fr, en, es, nl });
 const gameData = {
     MEMORY_GAME_LEVELS: [
         { level: 1, pairs: 2, grid: '2x2', timeLimit: null, traps: 0 },
@@ -17,239 +18,314 @@ const gameData = {
         {
             level: 1,
             type: 'color',
-            instruction: 'Classe chaque objet dans le panier de la bonne couleur.',
+            instruction: tr(
+                'Classe chaque objet dans le panier de la bonne couleur.',
+                'Sort each object into the basket with the right color.',
+                'Clasifica cada objeto en la cesta del color correcto.',
+                'Sorteer elk voorwerp in het mandje met de juiste kleur.'
+            ),
             categories: [
-                { id: 'red', label: 'Rouge 🔴' },
-                { id: 'blue', label: 'Bleu 🔵' }
+                { id: 'red', label: tr('Rouge 🔴', 'Red 🔴', 'Rojo 🔴', 'Rood 🔴') },
+                { id: 'blue', label: tr('Bleu 🔵', 'Blue 🔵', 'Azul 🔵', 'Blauw 🔵') }
             ],
             items: [
-                { id: 'apple', emoji: '🍎', label: 'Pomme', target: 'red' },
-                { id: 'ball', emoji: '🔵', label: 'Balle', target: 'blue' },
-                { id: 'car', emoji: '🚗', label: 'Voiture', target: 'red' }
+                { id: 'apple', emoji: '🍎', label: tr('Pomme', 'Apple', 'Manzana', 'Appel'), target: 'red' },
+                { id: 'ball', emoji: '🔵', label: tr('Balle', 'Ball', 'Pelota', 'Bal'), target: 'blue' },
+                { id: 'car', emoji: '🚗', label: tr('Voiture', 'Car', 'Coche', 'Auto'), target: 'red' }
             ]
         },
         {
             level: 2,
             type: 'color',
-            instruction: 'Rouge, bleu ou vert ? Trie les objets !',
+            instruction: tr(
+                'Rouge, bleu ou vert ? Trie les objets !',
+                'Red, blue or green? Sort the objects!',
+                '¿Rojo, azul o verde? ¡Clasifica los objetos!',
+                'Rood, blauw of groen? Sorteer de voorwerpen!'
+            ),
             categories: [
-                { id: 'red', label: 'Rouge 🔴' },
-                { id: 'blue', label: 'Bleu 🔵' },
-                { id: 'green', label: 'Vert 🟢' }
+                { id: 'red', label: tr('Rouge 🔴', 'Red 🔴', 'Rojo 🔴', 'Rood 🔴') },
+                { id: 'blue', label: tr('Bleu 🔵', 'Blue 🔵', 'Azul 🔵', 'Blauw 🔵') },
+                { id: 'green', label: tr('Vert 🟢', 'Green 🟢', 'Verde 🟢', 'Groen 🟢') }
             ],
             items: [
-                { id: 'leaf', emoji: '🍃', label: 'Feuille', target: 'green' },
-                { id: 'strawberry', emoji: '🍓', label: 'Fraise', target: 'red' },
-                { id: 'hat', emoji: '🧢', label: 'Casquette', target: 'blue' },
-                { id: 'frog', emoji: '🐸', label: 'Grenouille', target: 'green' }
+                { id: 'leaf', emoji: '🍃', label: tr('Feuille', 'Leaf', 'Hoja', 'Blad'), target: 'green' },
+                { id: 'strawberry', emoji: '🍓', label: tr('Fraise', 'Strawberry', 'Fresa', 'Aardbei'), target: 'red' },
+                { id: 'hat', emoji: '🧢', label: tr('Casquette', 'Cap', 'Gorra', 'Pet'), target: 'blue' },
+                { id: 'frog', emoji: '🐸', label: tr('Grenouille', 'Frog', 'Rana', 'Kikker'), target: 'green' }
             ]
         },
         {
             level: 3,
             type: 'color',
-            instruction: 'Observe bien les couleurs pour tout classer.',
+            instruction: tr(
+                'Observe bien les couleurs pour tout classer.',
+                'Look carefully at the colors to sort everything.',
+                'Observa bien los colores para clasificar todo.',
+                'Kijk goed naar de kleuren om alles te sorteren.'
+            ),
             categories: [
-                { id: 'red', label: 'Rouge 🔴' },
-                { id: 'blue', label: 'Bleu 🔵' },
-                { id: 'green', label: 'Vert 🟢' }
+                { id: 'red', label: tr('Rouge 🔴', 'Red 🔴', 'Rojo 🔴', 'Rood 🔴') },
+                { id: 'blue', label: tr('Bleu 🔵', 'Blue 🔵', 'Azul 🔵', 'Blauw 🔵') },
+                { id: 'green', label: tr('Vert 🟢', 'Green 🟢', 'Verde 🟢', 'Groen 🟢') }
             ],
             items: [
-                { id: 'flower', emoji: '🌹', label: 'Fleur', target: 'red' },
-                { id: 'balloon', emoji: '🎈', label: 'Ballon', target: 'red' },
-                { id: 'whale', emoji: '🐋', label: 'Baleine', target: 'blue' },
-                { id: 'gift', emoji: '🎁', label: 'Cadeau', target: 'blue' }
+                { id: 'flower', emoji: '🌹', label: tr('Fleur', 'Flower', 'Flor', 'Bloem'), target: 'red' },
+                { id: 'balloon', emoji: '🎈', label: tr('Ballon', 'Balloon', 'Globo', 'Ballon'), target: 'red' },
+                { id: 'whale', emoji: '🐋', label: tr('Baleine', 'Whale', 'Ballena', 'Walvis'), target: 'blue' },
+                { id: 'gift', emoji: '🎁', label: tr('Cadeau', 'Gift', 'Regalo', 'Cadeau'), target: 'blue' }
             ]
         },
         {
             level: 4,
             type: 'shape',
-            instruction: 'Carré, rond ou triangle ? Classe selon la forme.',
+            instruction: tr(
+                'Carré, rond ou triangle ? Classe selon la forme.',
+                'Square, circle or triangle? Sort by shape.',
+                '¿Cuadrado, círculo o triángulo? Clasifica por forma.',
+                'Vierkant, rond of driehoek? Sorteer op vorm.'
+            ),
             categories: [
-                { id: 'square', label: 'Carré ⬜' },
-                { id: 'circle', label: 'Rond ⚪' },
-                { id: 'triangle', label: 'Triangle 🔺' }
+                { id: 'square', label: tr('Carré ⬜', 'Square ⬜', 'Cuadrado ⬜', 'Vierkant ⬜') },
+                { id: 'circle', label: tr('Rond ⚫', 'Circle ⚫', 'Círculo ⚫', 'Rond ⚫') },
+                { id: 'triangle', label: tr('Triangle 🔺', 'Triangle 🔺', 'Triángulo 🔺', 'Driehoek 🔺') }
             ],
             items: [
-                { id: 'frame', emoji: '🖼️', label: 'Cadre', target: 'square' },
-                { id: 'clock', emoji: '🕒', label: 'Horloge', target: 'circle' },
-                { id: 'slice', emoji: '🍕', label: 'Pizza', target: 'triangle' },
-                { id: 'giftbox', emoji: '🎁', label: 'Cadeau', target: 'square' }
+                { id: 'frame', emoji: '🖼️', label: tr('Cadre', 'Frame', 'Marco', 'Lijst'), target: 'square' },
+                { id: 'clock', emoji: '🕒', label: tr('Horloge', 'Clock', 'Reloj', 'Klok'), target: 'circle' },
+                { id: 'slice', emoji: '🍕', label: tr('Pizza', 'Pizza', 'Pizza', 'Pizza'), target: 'triangle' },
+                { id: 'giftbox', emoji: '🎁', label: tr('Cadeau', 'Gift', 'Regalo', 'Cadeau'), target: 'square' }
             ]
         },
         {
             level: 5,
             type: 'shape',
-            instruction: 'Nouveau défi de formes, regarde bien !',
+            instruction: tr(
+                'Nouveau défi de formes, regarde bien !',
+                'New shape challenge, look carefully!',
+                'Nuevo reto de formas, ¡mira bien!',
+                'Nieuwe vormuitdaging, kijk goed!'
+            ),
             categories: [
-                { id: 'square', label: 'Carré ⬜' },
-                { id: 'circle', label: 'Rond ⚪' },
-                { id: 'triangle', label: 'Triangle 🔺' }
+                { id: 'square', label: tr('Carré ⬜', 'Square ⬜', 'Cuadrado ⬜', 'Vierkant ⬜') },
+                { id: 'circle', label: tr('Rond ⚫', 'Circle ⚫', 'Círculo ⚫', 'Rond ⚫') },
+                { id: 'triangle', label: tr('Triangle 🔺', 'Triangle 🔺', 'Triángulo 🔺', 'Driehoek 🔺') }
             ],
             items: [
-                { id: 'chocolate', emoji: '🍫', label: 'Chocolat', target: 'square' },
-                { id: 'basketball', emoji: '🏀', label: 'Ballon', target: 'circle' },
-                { id: 'cone', emoji: '🍦', label: 'Glace', target: 'triangle' },
-                { id: 'dice', emoji: '🎲', label: 'Dé', target: 'square' }
+                { id: 'chocolate', emoji: '🍫', label: tr('Chocolat', 'Chocolate', 'Chocolate', 'Chocolade'), target: 'square' },
+                { id: 'basketball', emoji: '🏀', label: tr('Ballon', 'Ball', 'Pelota', 'Bal'), target: 'circle' },
+                { id: 'cone', emoji: '🍦', label: tr('Glace', 'Ice cream', 'Helado', 'IJs'), target: 'triangle' },
+                { id: 'dice', emoji: '🎲', label: tr('Dé', 'Die', 'Dado', 'Dobbelsteen'), target: 'square' }
             ]
         },
         {
             level: 6,
             type: 'shape',
-            instruction: 'Encore plus de formes magiques à classer.',
+            instruction: tr(
+                'Encore plus de formes magiques à classer.',
+                'Even more magical shapes to sort.',
+                'Aún más formas mágicas para clasificar.',
+                'Nog meer magische vormen om te sorteren.'
+            ),
             categories: [
-                { id: 'square', label: 'Carré ⬜' },
-                { id: 'circle', label: 'Rond ⚪' },
-                { id: 'triangle', label: 'Triangle 🔺' }
+                { id: 'square', label: tr('Carré ⬜', 'Square ⬜', 'Cuadrado ⬜', 'Vierkant ⬜') },
+                { id: 'circle', label: tr('Rond ⚫', 'Circle ⚫', 'Círculo ⚫', 'Rond ⚫') },
+                { id: 'triangle', label: tr('Triangle 🔺', 'Triangle 🔺', 'Triángulo 🔺', 'Driehoek 🔺') }
             ],
             items: [
-                { id: 'giftbag', emoji: '🛍️', label: 'Sac', target: 'square' },
-                { id: 'cookie', emoji: '🍪', label: 'Cookie', target: 'circle' },
-                { id: 'cheese', emoji: '🧀', label: 'Fromage', target: 'triangle' },
-                { id: 'present', emoji: '🎁', label: 'Surprise', target: 'square' }
+                { id: 'giftbag', emoji: '🛍️', label: tr('Sac', 'Bag', 'Bolsa', 'Tas'), target: 'square' },
+                { id: 'cookie', emoji: '🍪', label: tr('Cookie', 'Cookie', 'Galleta', 'Koekje'), target: 'circle' },
+                { id: 'cheese', emoji: '🧀', label: tr('Fromage', 'Cheese', 'Queso', 'Kaas'), target: 'triangle' },
+                { id: 'present', emoji: '🎁', label: tr('Surprise', 'Surprise', 'Sorpresa', 'Verrassing'), target: 'square' }
             ]
         },
         {
             level: 7,
             type: 'size',
-            instruction: 'Classe les objets selon leur taille.',
+            instruction: tr(
+                'Classe les objets selon leur taille.',
+                'Sort the objects by their size.',
+                'Clasifica los objetos por su tamaño.',
+                'Sorteer de voorwerpen op grootte.'
+            ),
             categories: [
-                { id: 'big', label: 'Grand 🐘' },
-                { id: 'small', label: 'Petit 🐭' }
+                { id: 'big', label: tr('Grand 🐘', 'Big 🐘', 'Grande 🐘', 'Groot 🐘') },
+                { id: 'small', label: tr('Petit 🐭', 'Small 🐭', 'Pequeño 🐭', 'Klein 🐭') }
             ],
             items: [
-                { id: 'elephant', emoji: '🐘', label: 'Éléphant', target: 'big' },
-                { id: 'mouse', emoji: '🐭', label: 'Souris', target: 'small' },
-                { id: 'mountain', emoji: '⛰️', label: 'Montagne', target: 'big' },
-                { id: 'ladybug', emoji: '🐞', label: 'Coccinelle', target: 'small' }
+                { id: 'elephant', emoji: '🐘', label: tr('Éléphant', 'Elephant', 'Elefante', 'Olifant'), target: 'big' },
+                { id: 'mouse', emoji: '🐭', label: tr('Souris', 'Mouse', 'Ratón', 'Muis'), target: 'small' },
+                { id: 'mountain', emoji: '⛰️', label: tr('Montagne', 'Mountain', 'Montaña', 'Berg'), target: 'big' },
+                { id: 'ladybug', emoji: '🐞', label: tr('Coccinelle', 'Ladybug', 'Mariquita', 'Lieveheersbeestje'), target: 'small' }
             ]
         },
         {
             level: 8,
             type: 'size',
-            instruction: 'Grand ou petit ? Fais-les sauter dans le bon panier.',
+            instruction: tr(
+                'Grand ou petit ? Fais-les sauter dans le bon panier.',
+                'Big or small? Drop them into the right basket.',
+                '¿Grande o pequeño? Lánzalos a la cesta correcta.',
+                'Groot of klein? Gooi ze in het juiste mandje.'
+            ),
             categories: [
-                { id: 'big', label: 'Grand 🦒' },
-                { id: 'small', label: 'Petit 🐣' }
+                { id: 'big', label: tr('Grand 🦒', 'Big 🦒', 'Grande 🦒', 'Groot 🦒') },
+                { id: 'small', label: tr('Petit 🐥', 'Small 🐥', 'Pequeño 🐥', 'Klein 🐥') }
             ],
             items: [
-                { id: 'giraffe', emoji: '🦒', label: 'Girafe', target: 'big' },
-                { id: 'chick', emoji: '🐥', label: 'Poussin', target: 'small' },
-                { id: 'bus', emoji: '🚌', label: 'Bus', target: 'big' },
-                { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'small' }
+                { id: 'giraffe', emoji: '🦒', label: tr('Girafe', 'Giraffe', 'Jirafa', 'Giraffe'), target: 'big' },
+                { id: 'chick', emoji: '🐥', label: tr('Poussin', 'Chick', 'Pollito', 'Kuiken'), target: 'small' },
+                { id: 'bus', emoji: '🚌', label: tr('Bus', 'Bus', 'Autobús', 'Bus'), target: 'big' },
+                { id: 'pencil', emoji: '✏️', label: tr('Crayon', 'Pencil', 'Lápiz', 'Potlood'), target: 'small' }
             ]
         },
         {
             level: 9,
             type: 'mixed',
-            instruction: 'Associe la bonne couleur et la bonne forme.',
+            instruction: tr(
+                'Associe la bonne couleur et la bonne forme.',
+                'Match the right color and the right shape.',
+                'Asocia el color y la forma correctos.',
+                'Combineer de juiste kleur en vorm.'
+            ),
             categories: [
-                { id: 'red-circle', label: 'Rond Rouge 🔴' },
-                { id: 'blue-square', label: 'Carré Bleu 🔷' },
-                { id: 'green-triangle', label: 'Triangle Vert 🟢🔺' }
+                { id: 'red-circle', label: tr('Rond Rouge 🔴', 'Red Circle 🔴', 'Círculo rojo 🔴', 'Rode cirkel 🔴') },
+                { id: 'blue-square', label: tr('Carré Bleu 🟦', 'Blue Square 🟦', 'Cuadrado azul 🟦', 'Blauw vierkant 🟦') },
+                { id: 'green-triangle', label: tr('Triangle Vert 🟢🔺', 'Green Triangle 🟢🔺', 'Triángulo verde 🟢🔺', 'Groene driehoek 🟢🔺') }
             ],
             items: [
-                { id: 'lollipop', emoji: '🍭', label: 'Sucette', target: 'red-circle' },
-                { id: 'giftblue', emoji: '🎁', label: 'Paquet', target: 'blue-square' },
-                { id: 'treeTriangle', emoji: '🎄', label: 'Sapin', target: 'green-triangle' },
-                { id: 'shield', emoji: '🛡️', label: 'Bouclier', target: 'blue-square' }
+                { id: 'lollipop', emoji: '🍭', label: tr('Sucette', 'Lollipop', 'Chupetín', 'Lolly'), target: 'red-circle' },
+                { id: 'giftblue', emoji: '🎁', label: tr('Paquet', 'Gift', 'Paquete', 'Pakket'), target: 'blue-square' },
+                { id: 'treeTriangle', emoji: '🎄', label: tr('Sapin', 'Tree', 'Árbol', 'Boom'), target: 'green-triangle' },
+                { id: 'shield', emoji: '🛡️', label: tr('Bouclier', 'Shield', 'Escudo', 'Schild'), target: 'blue-square' }
             ]
         },
         {
             level: 10,
             type: 'mixed',
-            instruction: 'Dernier défi ! Combine couleur et forme correctement.',
+            instruction: tr(
+                'Dernier défi ! Combine couleur et forme correctement.',
+                'Final challenge! Match color and shape correctly.',
+                '¡Último reto! Combina color y forma correctamente.',
+                'Laatste uitdaging! Combineer kleur en vorm goed.'
+            ),
             categories: [
-                { id: 'yellow-circle', label: 'Rond Jaune 🟡' },
-                { id: 'purple-square', label: 'Carré Violet 🟪' },
-                { id: 'orange-triangle', label: 'Triangle Orange 🟠' }
+                { id: 'yellow-circle', label: tr('Rond Jaune 🟡', 'Yellow Circle 🟡', 'Círculo amarillo 🟡', 'Gele cirkel 🟡') },
+                { id: 'purple-square', label: tr('Carré Violet 🟪', 'Purple Square 🟪', 'Cuadrado morado 🟪', 'Paarse vierkant 🟪') },
+                { id: 'orange-triangle', label: tr('Triangle Orange 🟠', 'Orange Triangle 🟠', 'Triángulo naranja 🟠', 'Oranje driehoek 🟠') }
             ],
             items: [
-                { id: 'sun', emoji: '☀️', label: 'Soleil', target: 'yellow-circle' },
-                { id: 'cheeseTriangle', emoji: '🧀', label: 'Fromage', target: 'orange-triangle' },
-                { id: 'magicBox', emoji: '🎆', label: 'Boîte magique', target: 'purple-square' },
-                { id: 'flowerYellow', emoji: '🌼', label: 'Fleur', target: 'yellow-circle' }
+                { id: 'sun', emoji: '☀️', label: tr('Soleil', 'Sun', 'Sol', 'Zon'), target: 'yellow-circle' },
+                { id: 'cheeseTriangle', emoji: '🧀', label: tr('Fromage', 'Cheese', 'Queso', 'Kaas'), target: 'orange-triangle' },
+                { id: 'magicBox', emoji: '🎁', label: tr('Boîte magique', 'Magic box', 'Caja mágica', 'Magische doos'), target: 'purple-square' },
+                { id: 'flowerYellow', emoji: '🌼', label: tr('Fleur', 'Flower', 'Flor', 'Bloem'), target: 'yellow-circle' }
             ]
         },
         {
             level: 11,
             type: 'category',
-            instruction: 'Trie les animaux : ceux de la ferme et ceux de la savane.',
+            instruction: tr(
+                'Trie les animaux : ceux de la ferme et ceux de la savane.',
+                'Sort the animals: farm or savanna.',
+                'Clasifica los animales: granja o sabana.',
+                'Sorteer de dieren: boerderij of savanne.'
+            ),
             categories: [
-                { id: 'farm', label: 'Ferme 🐔' },
-                { id: 'savanna', label: 'Savane 🦁' }
+                { id: 'farm', label: tr('Ferme 🐔', 'Farm 🐔', 'Granja 🐔', 'Boerderij 🐔') },
+                { id: 'savanna', label: tr('Savane 🦁', 'Savanna 🦁', 'Sabana 🦁', 'Savanne 🦁') }
             ],
             items: [
-                { id: 'cow', emoji: '🐮', label: 'Vache', target: 'farm' },
-                { id: 'lion', emoji: '🦁', label: 'Lion', target: 'savanna' },
-                { id: 'pig', emoji: '🐷', label: 'Cochon', target: 'farm' },
-                { id: 'zebra', emoji: '🦓', label: 'Zèbre', target: 'savanna' },
-                { id: 'chicken', emoji: '🐔', label: 'Poule', target: 'farm' }
+                { id: 'cow', emoji: '🐮', label: tr('Vache', 'Cow', 'Vaca', 'Koe'), target: 'farm' },
+                { id: 'lion', emoji: '🦁', label: tr('Lion', 'Lion', 'León', 'Leeuw'), target: 'savanna' },
+                { id: 'pig', emoji: '🐷', label: tr('Cochon', 'Pig', 'Cerdo', 'Varken'), target: 'farm' },
+                { id: 'zebra', emoji: '🦓', label: tr('Zèbre', 'Zebra', 'Cebra', 'Zebra'), target: 'savanna' },
+                { id: 'chicken', emoji: '🐔', label: tr('Poule', 'Hen', 'Gallina', 'Kip'), target: 'farm' }
             ]
         },
         {
             level: 12,
             type: 'category',
-            instruction: 'Classe les aliments : fruits ou légumes ?',
+            instruction: tr(
+                'Classe les aliments : fruits ou légumes ?',
+                'Sort the foods: fruits or vegetables?',
+                'Clasifica los alimentos: ¿frutas o verduras?',
+                'Sorteer het eten: fruit of groenten?'
+            ),
             categories: [
-                { id: 'fruit', label: 'Fruits 🍓' },
-                { id: 'vegetable', label: 'Légumes 🥕' }
+                { id: 'fruit', label: tr('Fruits 🍓', 'Fruits 🍓', 'Frutas 🍓', 'Fruit 🍓') },
+                { id: 'vegetable', label: tr('Légumes 🥕', 'Vegetables 🥕', 'Verduras 🥕', 'Groenten 🥕') }
             ],
             items: [
-                { id: 'banana', emoji: '🍌', label: 'Banane', target: 'fruit' },
-                { id: 'carrot', emoji: '🥕', label: 'Carotte', target: 'vegetable' },
-                { id: 'grapes', emoji: '🍇', label: 'Raisin', target: 'fruit' },
-                { id: 'broccoli', emoji: '🥦', label: 'Brocoli', target: 'vegetable' },
-                { id: 'orange', emoji: '🍊', label: 'Orange', target: 'fruit' }
+                { id: 'banana', emoji: '🍌', label: tr('Banane', 'Banana', 'Banana', 'Banaan'), target: 'fruit' },
+                { id: 'carrot', emoji: '🥕', label: tr('Carotte', 'Carrot', 'Zanahoria', 'Wortel'), target: 'vegetable' },
+                { id: 'grapes', emoji: '🍇', label: tr('Raisin', 'Grapes', 'Uvas', 'Druiven'), target: 'fruit' },
+                { id: 'broccoli', emoji: '🥦', label: tr('Brocoli', 'Broccoli', 'Brócoli', 'Broccoli'), target: 'vegetable' },
+                { id: 'orange', emoji: '🍊', label: tr('Orange', 'Orange', 'Naranja', 'Sinaasappel'), target: 'fruit' }
             ]
         },
         {
             level: 13,
             type: 'transport',
-            instruction: 'Trie les moyens de transport.',
+            instruction: tr(
+                'Trie les moyens de transport.',
+                'Sort the means of transport.',
+                'Clasifica los medios de transporte.',
+                'Sorteer de vervoermiddelen.'
+            ),
             categories: [
-                { id: 'land', label: 'Sur Terre 🚗' },
-                { id: 'air', label: 'Dans les Airs ✈️' },
-                { id: 'water', label: 'Sur l\'Eau ⛵' }
+                { id: 'land', label: tr('Sur Terre 🚗', 'On land 🚗', 'En tierra 🚗', 'Op land 🚗') },
+                { id: 'air', label: tr('Dans les Airs ✈️', 'In the air ✈️', 'En el aire ✈️', 'In de lucht ✈️') },
+                { id: 'water', label: tr('Sur l\'Eau ⛵', 'On water ⛵', 'En el agua ⛵', 'Op het water ⛵') }
             ],
             items: [
-                { id: 'car', emoji: '🚗', label: 'Voiture', target: 'land' },
-                { id: 'airplane', emoji: '✈️', label: 'Avion', target: 'air' },
-                { id: 'boat', emoji: '⛵', label: 'Bateau', target: 'water' },
-                { id: 'bicycle', emoji: '🚲', label: 'Vélo', target: 'land' },
-                { id: 'helicopter', emoji: '🚁', label: 'Hélicoptère', target: 'air' }
+                { id: 'car', emoji: '🚗', label: tr('Voiture', 'Car', 'Coche', 'Auto'), target: 'land' },
+                { id: 'airplane', emoji: '✈️', label: tr('Avion', 'Airplane', 'Avión', 'Vliegtuig'), target: 'air' },
+                { id: 'boat', emoji: '⛵', label: tr('Bateau', 'Boat', 'Barco', 'Boot'), target: 'water' },
+                { id: 'bicycle', emoji: '🚲', label: tr('Vélo', 'Bicycle', 'Bicicleta', 'Fiets'), target: 'land' },
+                { id: 'helicopter', emoji: '🚁', label: tr('Hélicoptère', 'Helicopter', 'Helicóptero', 'Helikopter'), target: 'air' }
             ]
         },
         {
             level: 14,
             type: 'category',
-            instruction: 'Range les objets : jouets ou fournitures scolaires ?',
+            instruction: tr(
+                'Range les objets : jouets ou fournitures scolaires ?',
+                'Sort the objects: toys or school supplies?',
+                'Ordena los objetos: ¿juguetes o material escolar?',
+                'Sorteer de spullen: speelgoed of schoolspullen?'
+            ),
             categories: [
-                { id: 'toy', label: 'Jouets 🧸' },
-                { id: 'school', label: 'École ✏️' }
+                { id: 'toy', label: tr('Jouets 🧸', 'Toys 🧸', 'Juguetes 🧸', 'Speelgoed 🧸') },
+                { id: 'school', label: tr('École ✏️', 'School ✏️', 'Escuela ✏️', 'School ✏️') }
             ],
             items: [
-                { id: 'teddy', emoji: '🧸', label: 'Nounours', target: 'toy' },
-                { id: 'pencil', emoji: '✏️', label: 'Crayon', target: 'school' },
-                { id: 'ball', emoji: '⚽', label: 'Ballon', target: 'toy' },
-                { id: 'book', emoji: '📖', label: 'Livre', target: 'school' },
-                { id: 'doll', emoji: '🎎', label: 'Poupée', target: 'toy' }
+                { id: 'teddy', emoji: '🧸', label: tr('Nounours', 'Teddy bear', 'Osito', 'Knuffelbeer'), target: 'toy' },
+                { id: 'pencil', emoji: '✏️', label: tr('Crayon', 'Pencil', 'Lápiz', 'Potlood'), target: 'school' },
+                { id: 'ball', emoji: '⚽', label: tr('Ballon', 'Ball', 'Pelota', 'Bal'), target: 'toy' },
+                { id: 'book', emoji: '📖', label: tr('Livre', 'Book', 'Libro', 'Boek'), target: 'school' },
+                { id: 'doll', emoji: '🎎', label: tr('Poupée', 'Doll', 'Muñeca', 'Pop'), target: 'toy' }
             ]
         },
         {
             level: 15,
             type: 'weather',
-            instruction: 'Quel temps fait-il ?',
+            instruction: tr(
+                'Quel temps fait-il ?',
+                'What is the weather like?',
+                '¿Qué tiempo hace?',
+                'Wat voor weer is het?'
+            ),
             categories: [
-                { id: 'sunny', label: 'Soleil ☀️' },
-                { id: 'rainy', label: 'Pluie 🌧️' }
+                { id: 'sunny', label: tr('Soleil ☀️', 'Sunny ☀️', 'Soleado ☀️', 'Zonnig ☀️') },
+                { id: 'rainy', label: tr('Pluie 🌧️', 'Rainy 🌧️', 'Lluvioso 🌧️', 'Regenachtig 🌧️') }
             ],
             items: [
-                { id: 'sun', emoji: '☀️', label: 'Soleil', target: 'sunny' },
-                { id: 'umbrella', emoji: '☔', label: 'Parapluie', target: 'rainy' },
-                { id: 'sunglasses', emoji: '😎', label: 'Lunettes', target: 'sunny' },
-                { id: 'cloud', emoji: '🌧️', label: 'Nuage', target: 'rainy' }
+                { id: 'sun', emoji: '☀️', label: tr('Soleil', 'Sun', 'Sol', 'Zon'), target: 'sunny' },
+                { id: 'umbrella', emoji: '☔', label: tr('Parapluie', 'Umbrella', 'Paraguas', 'Paraplu'), target: 'rainy' },
+                { id: 'sunglasses', emoji: '😎', label: tr('Lunettes', 'Sunglasses', 'Gafas', 'Zonnebril'), target: 'sunny' },
+                { id: 'cloud', emoji: '🌧️', label: tr('Nuage', 'Cloud', 'Nube', 'Wolk'), target: 'rainy' }
             ]
-        },
+        }
     ],
     riddleLevels: [
         {
@@ -1777,66 +1853,127 @@ const gameData = {
             ]
         }
     ],
-    vowelLevels: [
-        { level: 1, masked: 'ch_t', answer: 'a', options: ['a', 'e', 'i'], hint: 'Un animal qui ronronne.' }
+        vowelLevels: [
+        {
+            level: 1,
+            masked: 'ch_t',
+            answer: 'a',
+            options: ['a', 'e', 'i'],
+            hint: tr('Un animal qui ronronne.', 'An animal that purrs.', 'Un animal que ronronea.', 'Een dier dat spint.')
+        }
     ],
     sequenceLevels: [
         { level: 1, sequence: ['1', '2', '3', '?'], options: ['4', '5', '6'], answer: '4', type: 'number' }
+    ], options: ['4', '5', '6'], answer: '4', type: 'number' }
     ]
     ,
-    COLOR_MIX_LIBRARY: [
+        COLOR_MIX_LIBRARY: [
         {
             id: 'mix-blue-yellow',
-            inputs: ['🔵 Bleu', '🟡 Jaune'],
-            result: '🟢 Vert',
+            inputs: [tr('🔵 Bleu', '🔵 Blue', '🔵 Azul', '🔵 Blauw'), tr('🟡 Jaune', '🟡 Yellow', '🟡 Amarillo', '🟡 Geel')],
+            result: tr('🟢 Vert', '🟢 Green', '🟢 Verde', '🟢 Groen'),
+            explanation: tr('Le bleu et le jaune deviennent un joli vert.', 'Blue and yellow become a nice green.', 'El azul y el amarillo se vuelven un bonito verde.', 'Blauw en geel worden samen een mooie groen.'),
+            minLevel: 1,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-red-yellow',
+            inputs: [tr('🔴 Rouge', '🔴 Red', '🔴 Rojo', '🔴 Rood'), tr('🟡 Jaune', '🟡 Yellow', '🟡 Amarillo', '🟡 Geel')],
+            result: tr('🟠 Orange', '🟠 Orange', '🟠 Naranja', '🟠 Oranje'),
+            explanation: tr('Le rouge et le jaune donnent de l orange.', 'Red and yellow make orange.', 'El rojo y el amarillo hacen naranja.', 'Rood en geel maken oranje.'),
+            minLevel: 1,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-red-blue',
+            inputs: [tr('🔴 Rouge', '🔴 Red', '🔴 Rojo', '🔴 Rood'), tr('🔵 Bleu', '🔵 Blue', '🔵 Azul', '🔵 Blauw')],
+            result: tr('🟣 Violet', '🟣 Purple', '🟣 Morado', '🟣 Paars'),
+            explanation: tr('Le rouge et le bleu donnent du violet.', 'Red and blue make purple.', 'El rojo y el azul hacen morado.', 'Rood en blauw maken paars.'),
+            minLevel: 1,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-blue-white',
+            inputs: [tr('🔵 Bleu', '🔵 Blue', '🔵 Azul', '🔵 Blauw'), tr('⚪ Blanc', '⚪ White', '⚪ Blanco', '⚪ Wit')],
+            result: tr('🩵 Bleu clair', '🩵 Light blue', '🩵 Azul claro', '🩵 Lichtblauw'),
+            explanation: tr('Le bleu avec du blanc devient plus clair.', 'Blue mixed with white becomes lighter.', 'El azul con blanco se vuelve más claro.', 'Blauw met wit wordt lichter.'),
+            minLevel: 3,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-red-white',
+            inputs: [tr('🔴 Rouge', '🔴 Red', '🔴 Rojo', '🔴 Rood'), tr('⚪ Blanc', '⚪ White', '⚪ Blanco', '⚪ Wit')],
+            result: tr('💗 Rose', '💗 Pink', '💗 Rosa', '💗 Roze'),
+            explanation: tr('Le rouge avec du blanc devient rose.', 'Red mixed with white becomes pink.', 'El rojo con blanco se vuelve rosa.', 'Rood met wit wordt roze.'),
+            minLevel: 3,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-yellow-white',
+            inputs: [tr('🟡 Jaune', '🟡 Yellow', '🟡 Amarillo', '🟡 Geel'), tr('⚪ Blanc', '⚪ White', '⚪ Blanco', '⚪ Wit')],
+            result: tr('🌼 Jaune clair', '🌼 Light yellow', '🌼 Amarillo claro', '🌼 Lichtgeel'),
+            explanation: tr('Le jaune avec du blanc devient jaune clair.', 'Yellow mixed with white becomes light yellow.', 'El amarillo con blanco se vuelve amarillo claro.', 'Geel met wit wordt lichtgeel.'),
+            minLevel: 3,
+            maxLevel: 12
+        },
+        {
+            id: 'mix-green-white',
+            inputs: [tr('🟢 Vert', '🟢 Green', '🟢 Verde', '🟢 Groen'), tr('⚪ Blanc', '⚪ White', '⚪ Blanco', '⚪ Wit')],
+            result: tr('🍃 Vert clair', '🍃 Light green', '🍃 Verde claro', '🍃 Lichtgroen'),
+            explanation: tr('Le vert avec du blanc devient vert clair.', 'Green mixed with white becomes light green.', 'El verde con blanco se vuelve verde claro.', 'Groen met wit wordt lichtgroen.'),
+            minLevel: 4,
+            maxLevel: 12
+        }
+    ]
+            result: 'ðŸŸ¢ Vert',
             explanation: 'Le bleu et le jaune deviennent un joli vert.',
             minLevel: 1,
             maxLevel: 12
         },
         {
             id: 'mix-red-yellow',
-            inputs: ['🔴 Rouge', '🟡 Jaune'],
-            result: '🟠 Orange',
-            explanation: 'Jaune et rouge créent un orange lumineux.',
+            inputs: ['ðŸ”´ Rouge', 'ðŸŸ¡ Jaune'],
+            result: 'ðŸŸ  Orange',
+            explanation: 'Jaune et rouge crÃ©ent un orange lumineux.',
             minLevel: 1,
             maxLevel: 12
         },
         {
             id: 'mix-blue-red',
-            inputs: ['🔵 Bleu', '🔴 Rouge'],
-            result: '🟣 Violet',
-            explanation: 'Mélanger du bleu et du rouge donne du violet.',
+            inputs: ['ðŸ”µ Bleu', 'ðŸ”´ Rouge'],
+            result: 'ðŸŸ£ Violet',
+            explanation: 'MÃ©langer du bleu et du rouge donne du violet.',
             minLevel: 1,
             maxLevel: 12
         },
         {
             id: 'mix-red-white',
-            inputs: ['🔴 Rouge', '⚪ Blanc'],
-            result: '💗 Rose',
+            inputs: ['ðŸ”´ Rouge', 'âšª Blanc'],
+            result: 'ðŸ’— Rose',
             explanation: 'Un peu de blanc adoucit le rouge en rose.',
             minLevel: 4,
             maxLevel: 12
         },
         {
             id: 'mix-blue-white',
-            inputs: ['🔵 Bleu', '⚪ Blanc'],
-            result: '💧 Bleu Clair',
-            explanation: 'Le bleu devient plus léger avec du blanc.',
+            inputs: ['ðŸ”µ Bleu', 'âšª Blanc'],
+            result: 'ðŸ’§ Bleu Clair',
+            explanation: 'Le bleu devient plus lÃ©ger avec du blanc.',
             minLevel: 4,
             maxLevel: 12
         },
         {
             id: 'mix-green-white',
-            inputs: ['🟢 Vert', '⚪ Blanc'],
-            result: '🍃 Vert Clair',
-            explanation: 'Du blanc rend le vert très doux.',
+            inputs: ['ðŸŸ¢ Vert', 'âšª Blanc'],
+            result: 'ðŸƒ Vert Clair',
+            explanation: 'Du blanc rend le vert trÃ¨s doux.',
             minLevel: 5,
             maxLevel: 12
         },
         {
             id: 'mix-red-black',
-            inputs: ['🔴 Rouge', '⚫ Noir'],
-            result: '🍷 Bordeaux',
+            inputs: ['ðŸ”´ Rouge', 'âš« Noir'],
+            result: 'ðŸ· Bordeaux',
             explanation: 'Noir et rouge foncent la couleur en bordeaux.',
             minLevel: 7,
             maxLevel: 12
@@ -1844,26 +1981,26 @@ const gameData = {
     ]
 };
 
-// Contes Magiques — jeux d’histoires (story sets)
+// Contes Magiques â€” jeux dâ€™histoires (story sets)
 // These were missing, causing the Stories menu to be empty/disabled.
 // Provide three small story sets with title, text, optional image and a short quiz.
 window.storySetOne = [
   {
     id: 'foret-etoilee',
-    title: 'La Forêt Étoilée',
+    title: 'La ForÃªt Ã‰toilÃ©e',
     bilingualTitle: { en: 'The Starry Forest' },
     theme: 'Aventure',
     duration: 2,
-    icon: '🌌',
+    icon: 'ðŸŒŒ',
     image: null,
     text: [
-      "Léna marche dans une forêt douce et lumineuse.",
-      "Des lucioles dessinent des étoiles tout autour d’elle.",
-      "Au loin, une chouette lui murmure un secret: ‘Suis la lumière la plus brillante’."
+      "LÃ©na marche dans une forÃªt douce et lumineuse.",
+      "Des lucioles dessinent des Ã©toiles tout autour dâ€™elle.",
+      "Au loin, une chouette lui murmure un secret: â€˜Suis la lumiÃ¨re la plus brillanteâ€™."
     ],
     quiz: [
       {
-        question: "Que voit Léna autour d’elle ?",
+        question: "Que voit LÃ©na autour dâ€™elle ?",
         options: ["Des lucioles", "Des pingouins", "Des dinosaures"],
         answer: 0
       },
@@ -1876,21 +2013,21 @@ window.storySetOne = [
   },
   {
     id: 'pont-arc-en-ciel',
-    title: 'Le Pont Arc‑en‑ciel',
+    title: 'Le Pont Arcâ€‘enâ€‘ciel',
     bilingualTitle: { en: 'The Rainbow Bridge' },
     theme: 'Magie',
     duration: 1,
-    icon: '🌈',
+    icon: 'ðŸŒˆ',
     image: null,
     text: [
-      "Un petit pont coloré apparaît au-dessus de la rivière.",
-      "Chaque pas de Léna éclaire une nouvelle couleur.",
-      "Tout au bout, une cloche sonne doucement: ding… ding…"
+      "Un petit pont colorÃ© apparaÃ®t au-dessus de la riviÃ¨re.",
+      "Chaque pas de LÃ©na Ã©claire une nouvelle couleur.",
+      "Tout au bout, une cloche sonne doucement: dingâ€¦ dingâ€¦"
     ],
     quiz: [
       {
-        question: "Qu’est‑ce qui apparaît au-dessus de la rivière ?",
-        options: ["Un pont arc‑en‑ciel", "Un château", "Un nuage"],
+        question: "Quâ€™estâ€‘ce qui apparaÃ®t au-dessus de la riviÃ¨re ?",
+        options: ["Un pont arcâ€‘enâ€‘ciel", "Un chÃ¢teau", "Un nuage"],
         answer: 0
       }
     ]
@@ -1899,25 +2036,25 @@ window.storySetOne = [
     id: 'grenier-secret',
     title: 'Le Secret du Grenier',
     bilingualTitle: { en: 'The Attic\'s Secret' },
-    theme: 'Mystère',
+    theme: 'MystÃ¨re',
     duration: 3,
-    icon: '📦',
+    icon: 'ðŸ“¦',
     image: null,
     text: [
-      "Un jour de pluie, Léna et son chat Yaya montent au grenier.",
-      "Yaya, en explorant, fait tomber une vieille boîte. Dedans, une carte mystérieuse !",
-      "La carte montre une croix dessinée derrière une armoire. \"Allons voir, Yaya !\", dit Léna.",
-      "Derrière l'armoire, ils trouvent un petit coffre rempli de jouets anciens. Le plus beau des trésors !"
+      "Un jour de pluie, LÃ©na et son chat Yaya montent au grenier.",
+      "Yaya, en explorant, fait tomber une vieille boÃ®te. Dedans, une carte mystÃ©rieuse !",
+      "La carte montre une croix dessinÃ©e derriÃ¨re une armoire. \"Allons voir, Yaya !\", dit LÃ©na.",
+      "DerriÃ¨re l'armoire, ils trouvent un petit coffre rempli de jouets anciens. Le plus beau des trÃ©sors !"
     ],
     quiz: [
       {
-        question: "Où Léna et Yaya trouvent-ils la carte ?",
+        question: "OÃ¹ LÃ©na et Yaya trouvent-ils la carte ?",
         options: ["Dans le jardin", "Dans le grenier", "Dans la cuisine"],
         answer: 1
       },
       {
-        question: "Que découvrent-ils grâce à la carte ?",
-        options: ["Un coffre au trésor", "Un passage secret", "Un gâteau au chocolat"],
+        question: "Que dÃ©couvrent-ils grÃ¢ce Ã  la carte ?",
+        options: ["Un coffre au trÃ©sor", "Un passage secret", "Un gÃ¢teau au chocolat"],
         answer: 0
       }
     ]
@@ -1928,17 +2065,17 @@ window.storySetOne = [
     bilingualTitle: { en: 'The Whispering Garden' },
     theme: 'Nature',
     duration: 2,
-    icon: '🌸',
+    icon: 'ðŸŒ¸',
     image: null,
     text: [
-      "Dans le jardin de Léna, les fleurs ne font pas que sentir bon, elles murmurent des secrets.",
-      "Une rose lui chuchote : \"Le plus grand trésor est l'amitié.\"",
+      "Dans le jardin de LÃ©na, les fleurs ne font pas que sentir bon, elles murmurent des secrets.",
+      "Une rose lui chuchote : \"Le plus grand trÃ©sor est l'amitiÃ©.\"",
       "Un tournesol ajoute : \"Et le soleil est son plus grand sourire.\"",
-      "Léna sourit, heureuse de connaître le langage des fleurs."
+      "LÃ©na sourit, heureuse de connaÃ®tre le langage des fleurs."
     ],
     quiz: [
       {
-        question: "Que font les fleurs dans le jardin de Léna ?",
+        question: "Que font les fleurs dans le jardin de LÃ©na ?",
         options: ["Elles chantent", "Elles murmurent des secrets", "Elles dansent"],
         answer: 1
       }
@@ -1948,27 +2085,27 @@ window.storySetOne = [
     id: 'peintre-renard',
     title: 'Le Renard Peintre',
     bilingualTitle: { en: 'The Painting Fox' },
-    theme: 'Créativité',
+    theme: 'CrÃ©ativitÃ©',
     duration: 1,
-    icon: '🦊',
+    icon: 'ðŸ¦Š',
     image: null,
     text: [
-      "Un petit renard trouve des pots de peinture abandonnés dans la forêt.",
+      "Un petit renard trouve des pots de peinture abandonnÃ©s dans la forÃªt.",
       "Avec sa queue, il dessine un arc-en-ciel sur une grande pierre.",
-      "Tous les animaux viennent admirer son œuvre d'art colorée."
+      "Tous les animaux viennent admirer son Å“uvre d'art colorÃ©e."
     ]
   },
   {
     id: 'nuage-sculpteur',
     title: 'Le Nuage Sculpteur',
     bilingualTitle: { en: 'The Cloud Sculptor' },
-    theme: 'Créativité',
+    theme: 'CrÃ©ativitÃ©',
     duration: 2,
-    icon: '☁️',
+    icon: 'â˜ï¸',
     text: [
       "Dans le ciel, un petit nuage s'ennuie.",
-      "Il décide de se transformer en mouton, puis en dragon, puis en bateau.",
-      "Léna, depuis son jardin, applaudit à chaque nouvelle sculpture."
+      "Il dÃ©cide de se transformer en mouton, puis en dragon, puis en bateau.",
+      "LÃ©na, depuis son jardin, applaudit Ã  chaque nouvelle sculpture."
     ],
     quiz: [{
       question: "En quoi le nuage ne se transforme-t-il PAS ?",
@@ -1978,15 +2115,15 @@ window.storySetOne = [
   },
   {
     id: 'cle-chansons',
-    title: 'La Clé des Chansons',
+    title: 'La ClÃ© des Chansons',
     bilingualTitle: { en: 'The Key of Songs' },
     theme: 'Magie',
     duration: 2,
-    icon: '🔑',
+    icon: 'ðŸ”‘',
     text: [
-      "Léna trouve une clé en or qui ne semble ouvrir aucune porte.",
-      "En la posant sur une fleur, la fleur se met à chanter une douce mélodie.",
-      "La clé magique peut faire chanter n'importe quel objet !"
+      "LÃ©na trouve une clÃ© en or qui ne semble ouvrir aucune porte.",
+      "En la posant sur une fleur, la fleur se met Ã  chanter une douce mÃ©lodie.",
+      "La clÃ© magique peut faire chanter n'importe quel objet !"
     ]
   },
   {
@@ -1995,16 +2132,16 @@ window.storySetOne = [
     bilingualTitle: { en: 'The Grumpy Gardener' },
     theme: 'Humour',
     duration: 2,
-    icon: '😠',
+    icon: 'ðŸ˜ ',
     text: [
-      "Gnorman le gnome avait un potager. Mais Gnorman était toujours grincheux.",
-      "Ses carottes poussaient avec des visages fâchés. Ses tomates boudaient sur la vigne.",
-      "Un jour, une coccinelle lui raconta une blague. Gnorman éclata de rire !",
-      "Soudain, tous ses légumes se mirent à sourire. Un potager heureux, c'est bien meilleur !"
+      "Gnorman le gnome avait un potager. Mais Gnorman Ã©tait toujours grincheux.",
+      "Ses carottes poussaient avec des visages fÃ¢chÃ©s. Ses tomates boudaient sur la vigne.",
+      "Un jour, une coccinelle lui raconta une blague. Gnorman Ã©clata de rire !",
+      "Soudain, tous ses lÃ©gumes se mirent Ã  sourire. Un potager heureux, c'est bien meilleur !"
     ],
     quiz: [{
-      question: "Pourquoi les légumes de Gnorman étaient-ils fâchés ?",
-      options: ["Parce qu'il ne pleuvait pas", "Parce que Gnorman était grincheux", "Parce qu'ils n'aimaient pas le soleil"],
+      question: "Pourquoi les lÃ©gumes de Gnorman Ã©taient-ils fÃ¢chÃ©s ?",
+      options: ["Parce qu'il ne pleuvait pas", "Parce que Gnorman Ã©tait grincheux", "Parce qu'ils n'aimaient pas le soleil"],
       answer: 1
     }]
   },
@@ -2014,15 +2151,15 @@ window.storySetOne = [
     bilingualTitle: { en: 'The Sock Thief' },
     theme: 'Humour',
     duration: 2,
-    icon: '🧦',
+    icon: 'ðŸ§¦',
     text: [
-      "Dans la machine à laver de Léna, vivait une chaussette magique nommée Socquette.",
-      "Socquette n'aimait pas être seule. Son jeu préféré ? Manger les autres chaussettes pour leur faire des câlins.",
-      "C'est pour ça qu'il manque toujours une chaussette après la lessive !",
-      "Mais ne t'inquiète pas, elle les relâche quand elles ont eu assez de câlins."
+      "Dans la machine Ã  laver de LÃ©na, vivait une chaussette magique nommÃ©e Socquette.",
+      "Socquette n'aimait pas Ãªtre seule. Son jeu prÃ©fÃ©rÃ© ? Manger les autres chaussettes pour leur faire des cÃ¢lins.",
+      "C'est pour Ã§a qu'il manque toujours une chaussette aprÃ¨s la lessive !",
+      "Mais ne t'inquiÃ¨te pas, elle les relÃ¢che quand elles ont eu assez de cÃ¢lins."
     ],
     quiz: [{
-      question: "Quel est le jeu préféré de Socquette ?",
+      question: "Quel est le jeu prÃ©fÃ©rÃ© de Socquette ?",
       options: ["Faire des bulles", "Manger les autres chaussettes", "Se cacher dans les pantalons"],
       answer: 1
     }]
@@ -2033,12 +2170,12 @@ window.storySetOne = [
     bilingualTitle: { en: 'The Dragon Who Was Afraid of Mice' },
     theme: 'Humour',
     duration: 3,
-    icon: '🐲',
+    icon: 'ðŸ²',
     text: [
-      "Ignis était un grand dragon rouge qui gardait un trésor immense.",
+      "Ignis Ã©tait un grand dragon rouge qui gardait un trÃ©sor immense.",
       "Il n'avait peur de rien... sauf des souris !",
-      "Un jour, une petite souris nommée Pipa entra dans sa grotte. Ignis sauta sur une pile d'or en criant.",
-      "Pipa, voyant le dragon terrifié, lui promit de ne plus entrer s'il partageait une pièce d'or. Ignis accepta aussitôt !"
+      "Un jour, une petite souris nommÃ©e Pipa entra dans sa grotte. Ignis sauta sur une pile d'or en criant.",
+      "Pipa, voyant le dragon terrifiÃ©, lui promit de ne plus entrer s'il partageait une piÃ¨ce d'or. Ignis accepta aussitÃ´t !"
     ],
     quiz: [{
       question: "De quoi le dragon Ignis a-t-il peur ?",
@@ -2048,26 +2185,26 @@ window.storySetOne = [
   },
   {
     id: 'mystere-fil-scintillant',
-    title: 'Le Mystère du Fil Scintillant',
+    title: 'Le MystÃ¨re du Fil Scintillant',
     bilingualTitle: { en: 'The Mystery of the Glimmering Thread' },
-    theme: 'Mystère',
+    theme: 'MystÃ¨re',
     duration: 5,
-    icon: '🧵',
+    icon: 'ðŸ§µ',
     text: [
-      "Un matin, Yaya le chat découvrit un fil scintillant dans le jardin. Il brillait de mille feux sous le soleil.",
-      "Intrigué, il donna un petit coup de patte. Le fil se déroula, menant vers la maison. Léna, voyant le manège de Yaya, décida de le suivre.",
-      "Le fil les guida sous le canapé, derrière la bibliothèque, puis monta à l'étage. \"Où nous mènes-tu, petit fil ?\" murmura Léna.",
-      "Le fil s'arrêtait devant une petite porte oubliée : celle du grenier. Ensemble, ils montèrent les marches poussiéreuses.",
-      "Là, dans un coin sombre, le fil était attaché à une vieille boîte à musique. Léna l'ouvrit doucement.",
-      "Une douce mélodie s'éleva, remplissant le grenier de magie. Le fil n'était qu'une toile d'araignée capturant la lumière, mais il les avait menés à un véritable trésor de souvenirs."
+      "Un matin, Yaya le chat dÃ©couvrit un fil scintillant dans le jardin. Il brillait de mille feux sous le soleil.",
+      "IntriguÃ©, il donna un petit coup de patte. Le fil se dÃ©roula, menant vers la maison. LÃ©na, voyant le manÃ¨ge de Yaya, dÃ©cida de le suivre.",
+      "Le fil les guida sous le canapÃ©, derriÃ¨re la bibliothÃ¨que, puis monta Ã  l'Ã©tage. \"OÃ¹ nous mÃ¨nes-tu, petit fil ?\" murmura LÃ©na.",
+      "Le fil s'arrÃªtait devant une petite porte oubliÃ©e : celle du grenier. Ensemble, ils montÃ¨rent les marches poussiÃ©reuses.",
+      "LÃ , dans un coin sombre, le fil Ã©tait attachÃ© Ã  une vieille boÃ®te Ã  musique. LÃ©na l'ouvrit doucement.",
+      "Une douce mÃ©lodie s'Ã©leva, remplissant le grenier de magie. Le fil n'Ã©tait qu'une toile d'araignÃ©e capturant la lumiÃ¨re, mais il les avait menÃ©s Ã  un vÃ©ritable trÃ©sor de souvenirs."
     ],
     quiz: [{
-      question: "Qu'est-ce que Yaya a trouvé dans le jardin ?",
+      question: "Qu'est-ce que Yaya a trouvÃ© dans le jardin ?",
       options: ["Un os", "Un fil scintillant", "Une fleur magique"],
       answer: 1
     }, {
-      question: "Où le fil les a-t-il conduits ?",
-      options: ["À la cuisine", "Au grenier", "Dans la chambre de Léna"],
+      question: "OÃ¹ le fil les a-t-il conduits ?",
+      options: ["Ã€ la cuisine", "Au grenier", "Dans la chambre de LÃ©na"],
       answer: 1
     }]
   },
@@ -2077,23 +2214,23 @@ window.storySetOne = [
     bilingualTitle: { en: 'The Autumn Leaf Race' },
     theme: 'Aventure',
     duration: 6,
-    icon: '🍂',
+    icon: 'ðŸ‚',
     text: [
-      "C'était un jour d'automne venteux. Les feuilles dansaient dans les airs. \"Et si on faisait une course, Yaya ?\" proposa Léna.",
-      "Léna choisit une grande feuille rouge et Yaya une petite feuille jaune. Au signal, ils les lâchèrent.",
-      "Le vent emporta les feuilles à travers le parc. Elles tourbillonnaient, passaient au-dessus des flaques d'eau et se faufilaient entre les arbres.",
-      "La feuille de Léna prit de l'avance, mais celle de Yaya, plus légère, la rattrapa. Le chat miaulait d'excitation en la poursuivant.",
-      "Soudain, la feuille de Yaya se coinça dans une branche basse. Le chat, déçu, s'assit en la regardant.",
-      "Léna, voyant son ami triste, abandonna sa propre course. Elle grimpa sur le banc, libéra la feuille jaune et la rendit à Yaya.",
-      "\"Peu importe qui gagne,\" dit-elle en caressant son chat. \"L'important, c'est de s'amuser ensemble.\" Ils regardèrent les deux feuilles s'envoler, côte à côte, vers le ciel."
+      "C'Ã©tait un jour d'automne venteux. Les feuilles dansaient dans les airs. \"Et si on faisait une course, Yaya ?\" proposa LÃ©na.",
+      "LÃ©na choisit une grande feuille rouge et Yaya une petite feuille jaune. Au signal, ils les lÃ¢chÃ¨rent.",
+      "Le vent emporta les feuilles Ã  travers le parc. Elles tourbillonnaient, passaient au-dessus des flaques d'eau et se faufilaient entre les arbres.",
+      "La feuille de LÃ©na prit de l'avance, mais celle de Yaya, plus lÃ©gÃ¨re, la rattrapa. Le chat miaulait d'excitation en la poursuivant.",
+      "Soudain, la feuille de Yaya se coinÃ§a dans une branche basse. Le chat, dÃ©Ã§u, s'assit en la regardant.",
+      "LÃ©na, voyant son ami triste, abandonna sa propre course. Elle grimpa sur le banc, libÃ©ra la feuille jaune et la rendit Ã  Yaya.",
+      "\"Peu importe qui gagne,\" dit-elle en caressant son chat. \"L'important, c'est de s'amuser ensemble.\" Ils regardÃ¨rent les deux feuilles s'envoler, cÃ´te Ã  cÃ´te, vers le ciel."
     ],
     quiz: [{
-      question: "Quelle couleur était la feuille de Léna ?",
+      question: "Quelle couleur Ã©tait la feuille de LÃ©na ?",
       options: ["Jaune", "Rouge", "Verte"],
       answer: 1
     }, {
-      question: "Pourquoi la feuille de Yaya s'est-elle arrêtée ?",
-      options: ["Elle est tombée dans l'eau", "Elle s'est coincée dans une branche", "Le vent s'est arrêté"],
+      question: "Pourquoi la feuille de Yaya s'est-elle arrÃªtÃ©e ?",
+      options: ["Elle est tombÃ©e dans l'eau", "Elle s'est coincÃ©e dans une branche", "Le vent s'est arrÃªtÃ©"],
       answer: 1
     }]
   }
@@ -2102,16 +2239,16 @@ window.storySetOne = [
 window.storySetTwo = [
   {
     id: 'train-des-reves',
-    title: 'Le Train des Rêves',
+    title: 'Le Train des RÃªves',
     bilingualTitle: { en: 'The Dream Train' },
     theme: 'Aventure',
     duration: 2,
-    icon: '🚂',
+    icon: 'ðŸš‚',
     image: null,
     text: [
       "Un train tout doux arrive sans bruit.",
       "Ses wagons sont remplis de couvertures moelleuses et de livres.",
-      "Léna s’assoit près d’une fenêtre et lit en souriant."
+      "LÃ©na sâ€™assoit prÃ¨s dâ€™une fenÃªtre et lit en souriant."
     ],
     quiz: [
       {
@@ -2127,17 +2264,17 @@ window.storySetTwo = [
     bilingualTitle: { en: 'The Laughter Potion' },
     theme: 'Humour',
     duration: 2,
-    icon: '🧪',
+    icon: 'ðŸ§ª',
     image: null,
     text: [
-      "Léna et Yaya le chat décident de devenir des magiciens. \"Faisons une potion magique, Yaya !\"",
-      "Dans un grand bol, Léna mélange du jus de pomme, de l'eau pétillante et un pétale de rose du jardin.",
-      "Yaya observe, le nez froncé. Il trempe une patte et la lèche. Soudain, il se met à ronronner très fort en riant !",
-      "Léna goûte aussi. La potion est délicieuse et la fait rire aux éclats avec son ami Yaya."
+      "LÃ©na et Yaya le chat dÃ©cident de devenir des magiciens. \"Faisons une potion magique, Yaya !\"",
+      "Dans un grand bol, LÃ©na mÃ©lange du jus de pomme, de l'eau pÃ©tillante et un pÃ©tale de rose du jardin.",
+      "Yaya observe, le nez froncÃ©. Il trempe une patte et la lÃ¨che. Soudain, il se met Ã  ronronner trÃ¨s fort en riant !",
+      "LÃ©na goÃ»te aussi. La potion est dÃ©licieuse et la fait rire aux Ã©clats avec son ami Yaya."
     ],
     quiz: [
       {
-        question: "Quels ingrédients Léna utilise-t-elle ?",
+        question: "Quels ingrÃ©dients LÃ©na utilise-t-elle ?",
         options: ["Jus de pomme, eau et rose", "Lait et chocolat", "Jus d'orange et carottes"],
         answer: 0
       }
@@ -2145,15 +2282,15 @@ window.storySetTwo = [
   },
   {
     id: 'bibliotheque-etoiles',
-    title: 'La Bibliothèque sous les Étoiles',
+    title: 'La BibliothÃ¨que sous les Ã‰toiles',
     bilingualTitle: { en: 'The Library Under the Stars' },
     theme: 'Magie',
     duration: 2,
-    icon: '📚',
+    icon: 'ðŸ“š',
     image: null,
     text: [
-      "Une nuit, Léna découvre une bibliothèque en plein air.",
-      "Les livres ont des couvertures qui scintillent comme des étoiles.",
+      "Une nuit, LÃ©na dÃ©couvre une bibliothÃ¨que en plein air.",
+      "Les livres ont des couvertures qui scintillent comme des Ã©toiles.",
       "Chaque livre raconte l'histoire d'une constellation."
     ],
     quiz: [
@@ -2170,17 +2307,17 @@ window.storySetTwo = [
     bilingualTitle: { en: 'The Explorer Cat' },
     theme: 'Aventure',
     duration: 2,
-    icon: '🐾',
+    icon: 'ðŸ¾',
     image: null,
     text: [
-      "Yaya, le chat de Léna, adore explorer.",
-      "Un jour, il grimpe sur le toit et découvre un nid d'oiseaux abandonné.",
-      "Dedans, il trouve une plume bleue brillante qu'il rapporte fièrement à Léna."
+      "Yaya, le chat de LÃ©na, adore explorer.",
+      "Un jour, il grimpe sur le toit et dÃ©couvre un nid d'oiseaux abandonnÃ©.",
+      "Dedans, il trouve une plume bleue brillante qu'il rapporte fiÃ¨rement Ã  LÃ©na."
     ],
     quiz: [
       {
         question: "Que trouve Yaya sur le toit ?",
-        options: ["Une plume bleue", "Un trésor", "Un autre chat"],
+        options: ["Une plume bleue", "Un trÃ©sor", "Un autre chat"],
         answer: 0
       }
     ]
@@ -2189,17 +2326,17 @@ window.storySetTwo = [
     id: 'crayon-voyageur',
     title: 'Le Crayon Voyageur',
     bilingualTitle: { en: 'The Traveling Pencil' },
-    theme: 'Créativité',
+    theme: 'CrÃ©ativitÃ©',
     duration: 2,
-    icon: '✏️',
+    icon: 'âœï¸',
     text: [
-      "Léna a un crayon magique. Tout ce qu'elle dessine prend vie.",
-      "Elle dessine une petite porte sur son mur. La porte s'ouvre sur une plage ensoleillée.",
-      "Elle passe la journée à construire des châteaux de sable avant de redessiner la porte pour rentrer."
+      "LÃ©na a un crayon magique. Tout ce qu'elle dessine prend vie.",
+      "Elle dessine une petite porte sur son mur. La porte s'ouvre sur une plage ensoleillÃ©e.",
+      "Elle passe la journÃ©e Ã  construire des chÃ¢teaux de sable avant de redessiner la porte pour rentrer."
     ],
     quiz: [{
-      question: "Où la porte dessinée mène-t-elle ?",
-      options: ["Une forêt", "Une plage", "Une montagne"],
+      question: "OÃ¹ la porte dessinÃ©e mÃ¨ne-t-elle ?",
+      options: ["Une forÃªt", "Une plage", "Une montagne"],
       answer: 1
     }]
   },
@@ -2209,78 +2346,78 @@ window.storySetTwo = [
     bilingualTitle: { en: 'The Curious Raindrop' },
     theme: 'Nature',
     duration: 1,
-    icon: '💧',
+    icon: 'ðŸ’§',
     text: [
-      "Une petite goutte de pluie nommée Plume glisse d'un nuage.",
-      "Elle traverse un arc-en-ciel, se colore de mille feux, puis atterrit sur le pétale d'une tulipe.",
-      "La tulipe la remercie pour sa fraîcheur colorée."
+      "Une petite goutte de pluie nommÃ©e Plume glisse d'un nuage.",
+      "Elle traverse un arc-en-ciel, se colore de mille feux, puis atterrit sur le pÃ©tale d'une tulipe.",
+      "La tulipe la remercie pour sa fraÃ®cheur colorÃ©e."
     ]
   },
   {
     id: 'echo-montagne',
-    title: 'L\'Écho de la Montagne',
+    title: 'L\'Ã‰cho de la Montagne',
     bilingualTitle: { en: 'The Mountain\'s Echo' },
     theme: 'Nature',
     duration: 1,
-    icon: '⛰️',
+    icon: 'â›°ï¸',
     text: [
-        "Léna crie \"Bonjour !\" face à la montagne.",
-        "La montagne lui répond \"Bonjour... jour... our...\"",
-        "Amusée, Léna lui raconte une blague, et la montagne rit avec elle."
+        "LÃ©na crie \"Bonjour !\" face Ã  la montagne.",
+        "La montagne lui rÃ©pond \"Bonjour... jour... our...\"",
+        "AmusÃ©e, LÃ©na lui raconte une blague, et la montagne rit avec elle."
     ]
   },
   {
     id: 'bibliotheque-murmures',
-    title: 'La Bibliothèque des Murmures',
+    title: 'La BibliothÃ¨que des Murmures',
     bilingualTitle: { en: 'The Library of Whispers' },
     theme: 'Magie',
     duration: 2,
-    icon: '🤫',
+    icon: 'ðŸ¤«',
     text: [
-        "Au fond du jardin se trouve une bibliothèque où les livres chuchotent leurs histoires.",
-        "Il ne faut pas lire les mots, mais écouter les pages.",
-        "Léna s'assoit et écoute un conte sur un dragon timide."
+        "Au fond du jardin se trouve une bibliothÃ¨que oÃ¹ les livres chuchotent leurs histoires.",
+        "Il ne faut pas lire les mots, mais Ã©couter les pages.",
+        "LÃ©na s'assoit et Ã©coute un conte sur un dragon timide."
     ],
     quiz: [{
-        question: "Comment faut-il 'lire' les livres dans cette bibliothèque ?",
-        options: ["En les secouant", "En écoutant les pages", "En les regardant de loin"],
+        question: "Comment faut-il 'lire' les livres dans cette bibliothÃ¨que ?",
+        options: ["En les secouant", "En Ã©coutant les pages", "En les regardant de loin"],
         answer: 1
     }]
   },
   {
     id: 'fantome-noir',
-    title: 'Le Fantôme qui avait peur du Noir',
+    title: 'Le FantÃ´me qui avait peur du Noir',
     bilingualTitle: { en: 'The Ghost Who Was Afraid of the Dark' },
     theme: 'Humour',
     duration: 2,
-    icon: '👻',
+    icon: 'ðŸ‘»',
     text: [
-      "Phosfor était un fantôme très gentil, mais il avait un secret : il avait peur du noir.",
-      "Dès que la nuit tombait, il allumait toutes les lumières du château.",
-      "Les autres fantômes trouvaient ça bizarre, mais au moins, personne ne se cognait dans les couloirs !",
+      "Phosfor Ã©tait un fantÃ´me trÃ¨s gentil, mais il avait un secret : il avait peur du noir.",
+      "DÃ¨s que la nuit tombait, il allumait toutes les lumiÃ¨res du chÃ¢teau.",
+      "Les autres fantÃ´mes trouvaient Ã§a bizarre, mais au moins, personne ne se cognait dans les couloirs !",
       "Finalement, une petite luciole devint son amie et sa veilleuse personnelle."
     ],
     quiz: [{
       question: "Quelle est la plus grande peur de Phosfor ?",
-      options: ["Des chats", "Du noir", "Des araignées"],
+      options: ["Des chats", "Du noir", "Des araignÃ©es"],
       answer: 1
     }]
   },
   {
     id: 'escargot-presse',
-    title: 'L\'Escargot Trop Pressé',
+    title: 'L\'Escargot Trop PressÃ©',
     bilingualTitle: { en: 'The Snail in a Hurry' },
     theme: 'Humour',
     duration: 2,
-    icon: '🐌',
+    icon: 'ðŸŒ',
     text: [
-      "Turbo l'escargot voulait être le plus rapide du jardin.",
-      "Il essaya de mettre des roulettes à sa coquille, mais il dérapa sur une tomate.",
+      "Turbo l'escargot voulait Ãªtre le plus rapide du jardin.",
+      "Il essaya de mettre des roulettes Ã  sa coquille, mais il dÃ©rapa sur une tomate.",
       "Il tenta de glisser sur une feuille de salade, mais il finit dans l'assiette du pique-nique.",
-      "Finalement, il comprit que la lenteur avait du bon : il était le seul à voir les jolies fleurs en chemin."
+      "Finalement, il comprit que la lenteur avait du bon : il Ã©tait le seul Ã  voir les jolies fleurs en chemin."
     ],
     quiz: [{
-      question: "Qu'est-ce que Turbo a essayé de mettre sur sa coquille ?",
+      question: "Qu'est-ce que Turbo a essayÃ© de mettre sur sa coquille ?",
       options: [
         "Un moteur",
         "Des roulettes",
@@ -2293,51 +2430,51 @@ window.storySetTwo = [
     id: 'royaume-coussins',
     title: 'Le Royaume des Coussins',
     bilingualTitle: { en: 'The Kingdom of Cushions' },
-    theme: 'Créativité',
+    theme: 'CrÃ©ativitÃ©',
     duration: 7,
-    icon: '🏰',
+    icon: 'ðŸ°',
     text: [
-      "Un après-midi pluvieux, Léna décida de construire le plus grand royaume jamais vu. Son matériau de construction ? Des coussins !",
-      "Avec Yaya comme fidèle architecte, ils empilèrent les coussins du canapé pour former de hautes murailles. Une couverture devint le toit du grand donjon.",
-      "\"Yaya, tu seras le gardien du trésor !\" déclara Léna. Le trésor était une petite balle rebondissante que Yaya adorait.",
-      "Le chat se posta fièrement à l'entrée du fort, observant les alentours. Mais un ennemi redoutable approchait : l'aspirateur, piloté par Papa.",
-      "\"Oh non, le monstre grondant !\" cria Léna en riant. Yaya se hérissa, prêt à défendre son royaume.",
-      "Papa, jouant le jeu, fit semblant d'être effrayé par le courageux gardien. Il éteignit l'aspirateur et s'inclina. \"Pardon, noble sire Yaya. Je ne savais pas que ce château était vôtre.\"",
-      "Léna et Yaya avaient sauvé leur royaume. Ils passèrent le reste de l'après-midi à régner sur leur forteresse de douceur, en dégustant un goûter royal."
+      "Un aprÃ¨s-midi pluvieux, LÃ©na dÃ©cida de construire le plus grand royaume jamais vu. Son matÃ©riau de construction ? Des coussins !",
+      "Avec Yaya comme fidÃ¨le architecte, ils empilÃ¨rent les coussins du canapÃ© pour former de hautes murailles. Une couverture devint le toit du grand donjon.",
+      "\"Yaya, tu seras le gardien du trÃ©sor !\" dÃ©clara LÃ©na. Le trÃ©sor Ã©tait une petite balle rebondissante que Yaya adorait.",
+      "Le chat se posta fiÃ¨rement Ã  l'entrÃ©e du fort, observant les alentours. Mais un ennemi redoutable approchait : l'aspirateur, pilotÃ© par Papa.",
+      "\"Oh non, le monstre grondant !\" cria LÃ©na en riant. Yaya se hÃ©rissa, prÃªt Ã  dÃ©fendre son royaume.",
+      "Papa, jouant le jeu, fit semblant d'Ãªtre effrayÃ© par le courageux gardien. Il Ã©teignit l'aspirateur et s'inclina. \"Pardon, noble sire Yaya. Je ne savais pas que ce chÃ¢teau Ã©tait vÃ´tre.\"",
+      "LÃ©na et Yaya avaient sauvÃ© leur royaume. Ils passÃ¨rent le reste de l'aprÃ¨s-midi Ã  rÃ©gner sur leur forteresse de douceur, en dÃ©gustant un goÃ»ter royal."
     ],
     quiz: [{
-      question: "Quel était le trésor gardé par Yaya ?",
+      question: "Quel Ã©tait le trÃ©sor gardÃ© par Yaya ?",
       options: ["Une couronne", "Une balle rebondissante", "Un poisson en plastique"],
       answer: 1
     }, {
-      question: "Quel était l'ennemi du royaume des coussins ?",
+      question: "Quel Ã©tait l'ennemi du royaume des coussins ?",
       options: ["Un dragon", "L'aspirateur", "Un orage"],
       answer: 1
     }]
   },
   {
     id: 'detectives-ombre-perdue',
-    title: 'Les Détectives de l\'Ombre Perdue',
+    title: 'Les DÃ©tectives de l\'Ombre Perdue',
     bilingualTitle: { en: 'The Detectives of the Lost Shadow' },
-    theme: 'Mystère',
+    theme: 'MystÃ¨re',
     duration: 6,
-    icon: '🕵️‍♀️',
+    icon: 'ðŸ•µï¸â€â™€ï¸',
     text: [
-      "Un jour, en jouant dans le jardin, Léna remarqua quelque chose d'étrange. Son ombre avait disparu !",
-      "\"Yaya, nous avons une nouvelle mission ! Nous sommes les détectives de l'ombre perdue !\" Yaya, équipé d'une fausse loupe (un anneau de rideau), semblait prêt.",
-      "Le premier indice : le soleil était caché derrière un gros nuage. \"Aha ! L'ombre n'aime pas quand le soleil se cache,\" nota Léna dans son carnet imaginaire.",
-      "Ils cherchèrent partout. Sous le toboggan ? Non. Derrière le grand chêne ? Toujours pas. Yaya reniflait le sol, cherchant une piste.",
-      "Léna eut une idée. Elle prit une lampe de poche. \"Si le soleil ne veut pas nous aider, créons notre propre lumière !\"",
-      "Elle alluma la lampe et la pointa vers le sol. Aussitôt, une petite ombre apparut à ses pieds, puis grandit. \"On l'a retrouvée !\" s'exclama-t-elle.",
-      "Yaya, fasciné, se mit à pourchasser l'ombre de la lampe, la faisant danser partout. Le mystère était résolu, et un nouveau jeu venait de commencer."
+      "Un jour, en jouant dans le jardin, LÃ©na remarqua quelque chose d'Ã©trange. Son ombre avait disparu !",
+      "\"Yaya, nous avons une nouvelle mission ! Nous sommes les dÃ©tectives de l'ombre perdue !\" Yaya, Ã©quipÃ© d'une fausse loupe (un anneau de rideau), semblait prÃªt.",
+      "Le premier indice : le soleil Ã©tait cachÃ© derriÃ¨re un gros nuage. \"Aha ! L'ombre n'aime pas quand le soleil se cache,\" nota LÃ©na dans son carnet imaginaire.",
+      "Ils cherchÃ¨rent partout. Sous le toboggan ? Non. DerriÃ¨re le grand chÃªne ? Toujours pas. Yaya reniflait le sol, cherchant une piste.",
+      "LÃ©na eut une idÃ©e. Elle prit une lampe de poche. \"Si le soleil ne veut pas nous aider, crÃ©ons notre propre lumiÃ¨re !\"",
+      "Elle alluma la lampe et la pointa vers le sol. AussitÃ´t, une petite ombre apparut Ã  ses pieds, puis grandit. \"On l'a retrouvÃ©e !\" s'exclama-t-elle.",
+      "Yaya, fascinÃ©, se mit Ã  pourchasser l'ombre de la lampe, la faisant danser partout. Le mystÃ¨re Ã©tait rÃ©solu, et un nouveau jeu venait de commencer."
     ],
     quiz: [{
-      question: "Pourquoi l'ombre de Léna avait-elle disparu au début ?",
-      options: ["Elle était partie en vacances", "Le soleil était caché par un nuage", "Elle jouait à cache-cache"],
+      question: "Pourquoi l'ombre de LÃ©na avait-elle disparu au dÃ©but ?",
+      options: ["Elle Ã©tait partie en vacances", "Le soleil Ã©tait cachÃ© par un nuage", "Elle jouait Ã  cache-cache"],
       answer: 1
     }, {
-      question: "Comment Léna a-t-elle fait réapparaître son ombre ?",
-      options: ["En attendant le soleil", "En utilisant une lampe de poche", "En demandant à Yaya"],
+      question: "Comment LÃ©na a-t-elle fait rÃ©apparaÃ®tre son ombre ?",
+      options: ["En attendant le soleil", "En utilisant une lampe de poche", "En demandant Ã  Yaya"],
       answer: 1
     }]
   }
@@ -2346,21 +2483,21 @@ window.storySetTwo = [
 window.storySetThree = [
   {
     id: 'etoile-qui-chante',
-    title: 'L’Étoile qui Chante',
+    title: 'Lâ€™Ã‰toile qui Chante',
     bilingualTitle: { en: 'The Singing Star' },
     theme: 'Magie',
     duration: 2,
-    icon: '🎶',
+    icon: 'ðŸŽ¶',
     image: null,
     text: [
-      "Dans le ciel, une petite étoile fredonne une chanson.",
-      "La mélodie guide Léna jusqu’à un jardin de nuit.",
-      "Les fleurs s’ouvrent en rythme et brillent doucement."
+      "Dans le ciel, une petite Ã©toile fredonne une chanson.",
+      "La mÃ©lodie guide LÃ©na jusquâ€™Ã  un jardin de nuit.",
+      "Les fleurs sâ€™ouvrent en rythme et brillent doucement."
     ],
     quiz: [
       {
         question: "Qui fredonne une chanson ?",
-        options: ["Une fleur", "Une étoile", "Une goutte de pluie"],
+        options: ["Une fleur", "Une Ã©toile", "Une goutte de pluie"],
         answer: 1
       }
     ]
@@ -2371,17 +2508,17 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Journey on a Cloud' },
     theme: 'Aventure',
     duration: 2,
-    icon: '☁️',
+    icon: 'â˜ï¸',
     image: null,
     text: [
-      "Léna et Yaya font la sieste sur l'herbe douce du jardin.",
-      "Ils rêvent qu'un nuage cotonneux descend du ciel pour les emporter.",
-      "Ensemble, ils flottent au-dessus des maisons, saluant les oiseaux et les étoiles.",
-      "Le nuage les redépose doucement dans le jardin juste avant le réveil."
+      "LÃ©na et Yaya font la sieste sur l'herbe douce du jardin.",
+      "Ils rÃªvent qu'un nuage cotonneux descend du ciel pour les emporter.",
+      "Ensemble, ils flottent au-dessus des maisons, saluant les oiseaux et les Ã©toiles.",
+      "Le nuage les redÃ©pose doucement dans le jardin juste avant le rÃ©veil."
     ],
     quiz: [
       {
-        question: "Sur quoi Léna et Yaya voyagent-ils dans leur rêve ?",
+        question: "Sur quoi LÃ©na et Yaya voyagent-ils dans leur rÃªve ?",
         options: ["Un tapis volant", "Un nuage", "Un dragon"],
         answer: 1
       }
@@ -2393,11 +2530,11 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Chocolate Mountain' },
     theme: 'Gourmandise',
     duration: 2,
-    icon: '🍫',
+    icon: 'ðŸ«',
     image: null,
     text: [
-      "Léna rêve qu'elle escalade une montagne entièrement faite de chocolat.",
-      "Les rochers sont des pépites de chocolat et les rivières du chocolat fondu.",
+      "LÃ©na rÃªve qu'elle escalade une montagne entiÃ¨rement faite de chocolat.",
+      "Les rochers sont des pÃ©pites de chocolat et les riviÃ¨res du chocolat fondu.",
       "Au sommet, elle trouve une fontaine de chocolat blanc."
     ],
     quiz: [
@@ -2414,17 +2551,17 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Flying Fish' },
     theme: 'Aventure',
     duration: 2,
-    icon: '🐠',
+    icon: 'ðŸ ',
     image: null,
     text: [
-      "Un petit poisson rouge rêve de voler.",
+      "Un petit poisson rouge rÃªve de voler.",
       "Une bulle d'air magique l'emporte hors de l'eau.",
       "Il survole la mer et salue les mouettes avant de replonger doucement."
     ],
     quiz: [
       {
         question: "Comment le poisson fait-il pour voler ?",
-        options: ["Avec des ailes", "Grâce à une bulle magique", "En sautant très haut"],
+        options: ["Avec des ailes", "GrÃ¢ce Ã  une bulle magique", "En sautant trÃ¨s haut"],
         answer: 1
       }
     ]
@@ -2433,14 +2570,14 @@ window.storySetThree = [
     id: 'instrument-magique',
     title: 'L\'Instrument Magique',
     bilingualTitle: { en: 'The Magical Instrument' },
-    theme: 'Créativité',
+    theme: 'CrÃ©ativitÃ©',
     duration: 2,
-    icon: '🎷',
+    icon: 'ðŸŽ·',
     image: null,
     text: [
-      "Dans une boutique, Léna trouve un instrument étrange.",
-      "Quand elle en joue, il ne produit pas de son, mais des bulles de savon colorées.",
-      "Chaque bulle contient un petit rêve en image."
+      "Dans une boutique, LÃ©na trouve un instrument Ã©trange.",
+      "Quand elle en joue, il ne produit pas de son, mais des bulles de savon colorÃ©es.",
+      "Chaque bulle contient un petit rÃªve en image."
     ]
   },
   {
@@ -2449,11 +2586,11 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Whisper of the Wind' },
     theme: 'Nature',
     duration: 1,
-    icon: '🌬️',
+    icon: 'ðŸŒ¬ï¸',
     text: [
       "Quand le vent souffle, il ne fait pas que faire danser les feuilles.",
-      "Il transporte des messages secrets d'un bout à l'autre du monde.",
-      "Léna tend l'oreille et entend un \"je t'aime\" venu de très loin."
+      "Il transporte des messages secrets d'un bout Ã  l'autre du monde.",
+      "LÃ©na tend l'oreille et entend un \"je t'aime\" venu de trÃ¨s loin."
     ]
   },
   {
@@ -2462,15 +2599,15 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Secret of the Warm Stone' },
     theme: 'Nature',
     duration: 2,
-    icon: '💎',
+    icon: 'ðŸ’Ž',
     text: [
-      "Sur le chemin, Léna trouve une pierre lisse et chaude, même la nuit.",
-      "La pierre a emmagasiné toute la lumière du soleil de la journée.",
-      "Elle la met dans sa poche pour avoir un peu de soleil avec elle, même dans le noir."
+      "Sur le chemin, LÃ©na trouve une pierre lisse et chaude, mÃªme la nuit.",
+      "La pierre a emmagasinÃ© toute la lumiÃ¨re du soleil de la journÃ©e.",
+      "Elle la met dans sa poche pour avoir un peu de soleil avec elle, mÃªme dans le noir."
     ],
     quiz: [{
       question: "Pourquoi la pierre est-elle chaude ?",
-      options: ["Elle est magique", "Elle a stocké la lumière du soleil", "Elle sort du feu"],
+      options: ["Elle est magique", "Elle a stockÃ© la lumiÃ¨re du soleil", "Elle sort du feu"],
       answer: 1
     }]
   },
@@ -2480,10 +2617,10 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Animal Constellation' },
     theme: 'Nature',
     duration: 1,
-    icon: '🐻',
+    icon: 'ðŸ»',
     text: [
-        "La nuit, les étoiles ne forment pas que des figures géométriques.",
-        "Si on regarde bien, on peut voir un grand ours, un lion et même un petit lapin.",
+        "La nuit, les Ã©toiles ne forment pas que des figures gÃ©omÃ©triques.",
+        "Si on regarde bien, on peut voir un grand ours, un lion et mÃªme un petit lapin.",
         "Ils dansent lentement dans le ciel jusqu'au lever du jour."
     ]
   },
@@ -2493,11 +2630,11 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Leaf Boat' },
     theme: 'Aventure',
     duration: 1,
-    icon: '🍂',
+    icon: 'ðŸ‚',
     text: [
-        "Léna pose une grande feuille d'automne sur la rivière.",
-        "Une coccinelle monte à bord, puis une fourmi.",
-        "La feuille devient un bateau de croisière pour les insectes, naviguant vers l'aventure."
+        "LÃ©na pose une grande feuille d'automne sur la riviÃ¨re.",
+        "Une coccinelle monte Ã  bord, puis une fourmi.",
+        "La feuille devient un bateau de croisiÃ¨re pour les insectes, naviguant vers l'aventure."
     ]
   },
   {
@@ -2506,41 +2643,41 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Sheep Hairdresser' },
     theme: 'Humour',
     duration: 2,
-    icon: '🐑',
+    icon: 'ðŸ‘',
     text: [
-      "Barnabé le mouton avait la laine la plus douce et la plus longue du pré.",
-      "Un jour, il décida d'ouvrir un salon de coiffure pour ses amis.",
+      "BarnabÃ© le mouton avait la laine la plus douce et la plus longue du prÃ©.",
+      "Un jour, il dÃ©cida d'ouvrir un salon de coiffure pour ses amis.",
       "Il sculpta des coiffures incroyables aux autres moutons avec sa propre laine.",
-      "Le mouton punk, le mouton à nuage... tout le monde était très stylé !"
+      "Le mouton punk, le mouton Ã  nuage... tout le monde Ã©tait trÃ¨s stylÃ© !"
     ],
     quiz: [{
-      question: "Qu'est-ce que Barnabé utilise pour coiffer ses amis ?",
+      question: "Qu'est-ce que BarnabÃ© utilise pour coiffer ses amis ?",
       options: ["Des ciseaux", "Sa propre laine", "De la peinture"],
       answer: 1
     }]
   },
   {
     id: 'voyage-sous-canape',
-    title: 'Le Voyage sous le Canapé',
+    title: 'Le Voyage sous le CanapÃ©',
     bilingualTitle: { en: 'The Journey Under the Couch' },
     theme: 'Aventure',
     duration: 5,
-    icon: '🛋️',
+    icon: 'ðŸ›‹ï¸',
     text: [
-      "La petite voiture préférée de Léna avait roulé sous le canapé. \"C'est une mission pour l'exploratrice Léna et son courageux chat Yaya !\" annonça-t-elle.",
-      "Armée d'une lampe de poche, Léna s'allongea sur le ventre. Yaya, curieux, la rejoignit. Le monde sous le canapé était un univers étrange et poussiéreux.",
-      "Des 'montagnes' de moutons de poussière se dressaient devant eux. Un crayon perdu ressemblait à un tronc d'arbre géant.",
-      "\"Regarde, Yaya, une grotte de miettes !\" chuchota Léna. Yaya, lui, avait repéré la voiture, coincée près d'une 'forêt' de pieds de table.",
-      "Le chat, plus agile, se faufila et donna un petit coup de patte à la voiture, la faisant rouler vers Léna.",
-      "Mission accomplie ! Ils sortirent de sous le canapé, victorieux et un peu sales. Léna serra Yaya dans ses bras. \"Tu es le meilleur co-explorateur du monde !\""
+      "La petite voiture prÃ©fÃ©rÃ©e de LÃ©na avait roulÃ© sous le canapÃ©. \"C'est une mission pour l'exploratrice LÃ©na et son courageux chat Yaya !\" annonÃ§a-t-elle.",
+      "ArmÃ©e d'une lampe de poche, LÃ©na s'allongea sur le ventre. Yaya, curieux, la rejoignit. Le monde sous le canapÃ© Ã©tait un univers Ã©trange et poussiÃ©reux.",
+      "Des 'montagnes' de moutons de poussiÃ¨re se dressaient devant eux. Un crayon perdu ressemblait Ã  un tronc d'arbre gÃ©ant.",
+      "\"Regarde, Yaya, une grotte de miettes !\" chuchota LÃ©na. Yaya, lui, avait repÃ©rÃ© la voiture, coincÃ©e prÃ¨s d'une 'forÃªt' de pieds de table.",
+      "Le chat, plus agile, se faufila et donna un petit coup de patte Ã  la voiture, la faisant rouler vers LÃ©na.",
+      "Mission accomplie ! Ils sortirent de sous le canapÃ©, victorieux et un peu sales. LÃ©na serra Yaya dans ses bras. \"Tu es le meilleur co-explorateur du monde !\""
     ],
     quiz: [{
-      question: "Quel objet était perdu sous le canapé ?",
-      options: ["Une poupée", "Une petite voiture", "Un livre"],
+      question: "Quel objet Ã©tait perdu sous le canapÃ© ?",
+      options: ["Une poupÃ©e", "Une petite voiture", "Un livre"],
       answer: 1
     }, {
-      question: "Qui a récupéré l'objet en premier ?",
-      options: ["Léna", "Papa", "Yaya"],
+      question: "Qui a rÃ©cupÃ©rÃ© l'objet en premier ?",
+      options: ["LÃ©na", "Papa", "Yaya"],
       answer: 2
     }]
   },
@@ -2550,23 +2687,23 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Magical Bubble Bath' },
     theme: 'Magie',
     duration: 7,
-    icon: '🛁',
+    icon: 'ðŸ›',
     text: [
-      "C'était l'heure du bain. Léna versa un produit moussant couleur arc-en-ciel dans la baignoire. La mousse monta, monta, jusqu'à former des montagnes et des nuages colorés.",
-      "Yaya, qui détestait l'eau, observait depuis le tapis de bain, méfiant. Léna prit un peu de mousse et sculpta un petit bateau.",
-      "\"Regarde Yaya, le navire de l'amiral Léna part à l'aventure !\" Le bateau flotta sur l'eau, naviguant entre des icebergs de mousse blanche.",
-      "Soudain, une bulle éclata près du nez de Yaya, le surprenant. Il donna un coup de patte maladroit et tomba dans la mousse ! Mais il n'y avait presque pas d'eau, juste une mer de douceur.",
-      "Au lieu de paniquer, Yaya se mit à jouer, attrapant les bulles avec ses pattes. Il ressemblait à un petit monstre de mousse.",
-      "Léna éclata de rire. Elle sculpta une couronne de mousse sur la tête de Yaya. \"Sire Yaya, le roi du royaume de la Mousse !\"",
-      "Pour la première fois, Yaya semblait apprécier l'heure du bain. C'était bien plus amusant d'être un roi de la mousse qu'un chat qui a peur de l'eau."
+      "C'Ã©tait l'heure du bain. LÃ©na versa un produit moussant couleur arc-en-ciel dans la baignoire. La mousse monta, monta, jusqu'Ã  former des montagnes et des nuages colorÃ©s.",
+      "Yaya, qui dÃ©testait l'eau, observait depuis le tapis de bain, mÃ©fiant. LÃ©na prit un peu de mousse et sculpta un petit bateau.",
+      "\"Regarde Yaya, le navire de l'amiral LÃ©na part Ã  l'aventure !\" Le bateau flotta sur l'eau, naviguant entre des icebergs de mousse blanche.",
+      "Soudain, une bulle Ã©clata prÃ¨s du nez de Yaya, le surprenant. Il donna un coup de patte maladroit et tomba dans la mousse ! Mais il n'y avait presque pas d'eau, juste une mer de douceur.",
+      "Au lieu de paniquer, Yaya se mit Ã  jouer, attrapant les bulles avec ses pattes. Il ressemblait Ã  un petit monstre de mousse.",
+      "LÃ©na Ã©clata de rire. Elle sculpta une couronne de mousse sur la tÃªte de Yaya. \"Sire Yaya, le roi du royaume de la Mousse !\"",
+      "Pour la premiÃ¨re fois, Yaya semblait apprÃ©cier l'heure du bain. C'Ã©tait bien plus amusant d'Ãªtre un roi de la mousse qu'un chat qui a peur de l'eau."
     ],
     quiz: [{
-      question: "Qu'a sculpté Léna avec la mousse en premier ?",
-      options: ["Un château", "Un bateau", "Un animal"],
+      question: "Qu'a sculptÃ© LÃ©na avec la mousse en premier ?",
+      options: ["Un chÃ¢teau", "Un bateau", "Un animal"],
       answer: 1
     }, {
-      question: "Comment Yaya a-t-il réagi en tombant dans la mousse ?",
-      options: ["Il a eu très peur", "Il s'est mis à jouer", "Il a immédiatement sauté hors du bain"],
+      question: "Comment Yaya a-t-il rÃ©agi en tombant dans la mousse ?",
+      options: ["Il a eu trÃ¨s peur", "Il s'est mis Ã  jouer", "Il a immÃ©diatement sautÃ© hors du bain"],
       answer: 1
     }]
   },
@@ -2576,42 +2713,42 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Moon Gardener' },
     theme: 'Magie',
     duration: 4,
-    icon: '👨‍🚀',
+    icon: 'ðŸ‘¨â€ðŸš€',
     text: [
-      "Chaque nuit, un vieil homme nommé Sélénius sort avec son arrosoir d'argent.",
-      "Il ne jardine pas sur Terre, mais sur la Lune. Il grimpe sur une échelle de corde invisible.",
-      "Là-haut, il arrose les cratères avec de la poussière d'étoile. Au matin, des fleurs de lumière y ont poussé.",
-      "Ces fleurs, vues de la Terre, sont les étoiles que nous admirons."
+      "Chaque nuit, un vieil homme nommÃ© SÃ©lÃ©nius sort avec son arrosoir d'argent.",
+      "Il ne jardine pas sur Terre, mais sur la Lune. Il grimpe sur une Ã©chelle de corde invisible.",
+      "LÃ -haut, il arrose les cratÃ¨res avec de la poussiÃ¨re d'Ã©toile. Au matin, des fleurs de lumiÃ¨re y ont poussÃ©.",
+      "Ces fleurs, vues de la Terre, sont les Ã©toiles que nous admirons."
     ],
     quiz: [{
-      question: "Avec quoi Sélénius arrose-t-il les cratères ?",
-      options: ["De l'eau de pluie", "De la poussière d'étoile", "Du lait"],
+      question: "Avec quoi SÃ©lÃ©nius arrose-t-il les cratÃ¨res ?",
+      options: ["De l'eau de pluie", "De la poussiÃ¨re d'Ã©toile", "Du lait"],
       answer: 1
     }]
   },
   {
     id: 'bibliotheque-perdue',
-    title: 'La Bibliothèque Perdue',
+    title: 'La BibliothÃ¨que Perdue',
     bilingualTitle: { en: 'The Lost Library' },
-    theme: 'Mystère',
+    theme: 'MystÃ¨re',
     duration: 8,
-    icon: '🏛️',
+    icon: 'ðŸ›ï¸',
     text: [
-      "Au cœur de la forêt, une légende parle d'une bibliothèque où les livres n'ont pas de fin.",
-      "Léna, intriguée, suit une vieille carte trouvée dans un livre. Le chemin est gardé par des énigmes.",
-      "Un renard lui demande : 'Qu'est-ce qui a des villes, mais pas de maisons ; des forêts, mais pas d'arbres ; et de l'eau, mais pas de poissons ?'",
-      "Léna réfléchit et répond : 'Une carte !'. Le renard, impressionné, lui montre un passage secret derrière une cascade.",
-      "Derrière, une immense bibliothèque circulaire apparaît. Les livres flottent dans les airs.",
-      "Elle en ouvre un. L'histoire commence, mais à la dernière page, elle est invitée à écrire la suite.",
+      "Au cÅ“ur de la forÃªt, une lÃ©gende parle d'une bibliothÃ¨que oÃ¹ les livres n'ont pas de fin.",
+      "LÃ©na, intriguÃ©e, suit une vieille carte trouvÃ©e dans un livre. Le chemin est gardÃ© par des Ã©nigmes.",
+      "Un renard lui demande : 'Qu'est-ce qui a des villes, mais pas de maisons ; des forÃªts, mais pas d'arbres ; et de l'eau, mais pas de poissons ?'",
+      "LÃ©na rÃ©flÃ©chit et rÃ©pond : 'Une carte !'. Le renard, impressionnÃ©, lui montre un passage secret derriÃ¨re une cascade.",
+      "DerriÃ¨re, une immense bibliothÃ¨que circulaire apparaÃ®t. Les livres flottent dans les airs.",
+      "Elle en ouvre un. L'histoire commence, mais Ã  la derniÃ¨re page, elle est invitÃ©e Ã  Ã©crire la suite.",
       "Chaque lecteur devient l'auteur. C'est pour cela que les histoires ne finissent jamais."
     ],
     quiz: [{
-      question: "Quelle est la réponse à l'énigme du renard ?",
+      question: "Quelle est la rÃ©ponse Ã  l'Ã©nigme du renard ?",
       options: ["Un globe", "Une carte", "Un miroir"],
       answer: 1
     }, {
-      question: "Pourquoi les livres de la bibliothèque n'ont-ils pas de fin ?",
-      options: ["Les pages sont infinies", "Les lecteurs écrivent la suite", "Les fins sont effacées"],
+      question: "Pourquoi les livres de la bibliothÃ¨que n'ont-ils pas de fin ?",
+      options: ["Les pages sont infinies", "Les lecteurs Ã©crivent la suite", "Les fins sont effacÃ©es"],
       answer: 1
     }]
   },
@@ -2621,42 +2758,42 @@ window.storySetThree = [
     bilingualTitle: { en: 'The Captain of the Cloud Pirate' },
     theme: 'Aventure',
     duration: 5,
-    icon: '🏴‍☠️',
+    icon: 'ðŸ´â€â˜ ï¸',
     text: [
       "Le Capitaine Nimbus ne navigue pas sur les mers, mais sur un grand nuage en forme de bateau.",
-      "Son trésor n'est pas de l'or, mais des gouttes de pluie de toutes les couleurs.",
-      "Un jour, son nuage est attaqué par le terrible Vent du Nord, qui veut voler ses précieuses gouttes.",
-      "Nimbus a une idée : il utilise une goutte de pluie rouge pour créer un arc-en-ciel si éblouissant que le Vent du Nord, surpris, s'enfuit.",
-      "Le trésor est sauvé, et le ciel est plus beau que jamais."
+      "Son trÃ©sor n'est pas de l'or, mais des gouttes de pluie de toutes les couleurs.",
+      "Un jour, son nuage est attaquÃ© par le terrible Vent du Nord, qui veut voler ses prÃ©cieuses gouttes.",
+      "Nimbus a une idÃ©e : il utilise une goutte de pluie rouge pour crÃ©er un arc-en-ciel si Ã©blouissant que le Vent du Nord, surpris, s'enfuit.",
+      "Le trÃ©sor est sauvÃ©, et le ciel est plus beau que jamais."
     ],
     quiz: [{
-      question: "Quel est le trésor du Capitaine Nimbus ?",
-      options: ["Des pièces d'or", "Des gouttes de pluie colorées", "Des coquillages"],
+      question: "Quel est le trÃ©sor du Capitaine Nimbus ?",
+      options: ["Des piÃ¨ces d'or", "Des gouttes de pluie colorÃ©es", "Des coquillages"],
       answer: 1
     }]
   },
   {
     id: 'detective-gateau',
-    title: 'Le Mystère du Gâteau Disparu',
+    title: 'Le MystÃ¨re du GÃ¢teau Disparu',
     bilingualTitle: { en: 'The Mystery of the Missing Cake' },
-    theme: 'Mystère',
+    theme: 'MystÃ¨re',
     duration: 6,
-    icon: '🕵️',
+    icon: 'ðŸ•µï¸',
     text: [
-      "Le gâteau au chocolat de Léna a disparu de la cuisine ! Qui est le coupable ?",
-      "Léna, en mode détective, cherche des indices. Premier indice : des petites miettes près de la fenêtre.",
-      "Deuxième indice : une petite plume rousse accrochée au rideau. Yaya le chat n'a pas de plumes...",
-      "Troisième indice : des petites empreintes de pattes dans la farine renversée sur le sol.",
-      "Léna suit les empreintes jusqu'au jardin. Derrière un buisson, elle trouve un petit écureuil, le museau couvert de chocolat, qui dort paisiblement.",
-      "Le mystère est résolu ! L'écureuil gourmand a fait un festin. Léna ne peut s'empêcher de sourire."
+      "Le gÃ¢teau au chocolat de LÃ©na a disparu de la cuisine ! Qui est le coupable ?",
+      "LÃ©na, en mode dÃ©tective, cherche des indices. Premier indice : des petites miettes prÃ¨s de la fenÃªtre.",
+      "DeuxiÃ¨me indice : une petite plume rousse accrochÃ©e au rideau. Yaya le chat n'a pas de plumes...",
+      "TroisiÃ¨me indice : des petites empreintes de pattes dans la farine renversÃ©e sur le sol.",
+      "LÃ©na suit les empreintes jusqu'au jardin. DerriÃ¨re un buisson, elle trouve un petit Ã©cureuil, le museau couvert de chocolat, qui dort paisiblement.",
+      "Le mystÃ¨re est rÃ©solu ! L'Ã©cureuil gourmand a fait un festin. LÃ©na ne peut s'empÃªcher de sourire."
     ],
     quiz: [{
-      question: "Quel est le deuxième indice trouvé par Léna ?",
+      question: "Quel est le deuxiÃ¨me indice trouvÃ© par LÃ©na ?",
       options: ["Des miettes", "Une plume rousse", "Des empreintes"],
       answer: 1
     }, {
-      question: "Qui était le coupable ?",
-      options: ["Yaya le chat", "Un oiseau", "Un écureuil"],
+      question: "Qui Ã©tait le coupable ?",
+      options: ["Yaya le chat", "Un oiseau", "Un Ã©cureuil"],
       answer: 2
     }]
   }
@@ -2666,3 +2803,8 @@ window.storySetThree = [
 if (typeof window !== 'undefined') {
     window.gameData = gameData;
 }
+
+
+
+
+
