@@ -1864,10 +1864,8 @@ const gameData = {
     ],
     sequenceLevels: [
         { level: 1, sequence: ['1', '2', '3', '?'], options: ['4', '5', '6'], answer: '4', type: 'number' }
-    ], options: ['4', '5', '6'], answer: '4', type: 'number' }
-    ]
-    ,
-        COLOR_MIX_LIBRARY: [
+    ],
+    COLOR_MIX_LIBRARY: [
         {
             id: 'mix-blue-yellow',
             inputs: [tr('🔵 Bleu', '🔵 Blue', '🔵 Azul', '🔵 Blauw'), tr('🟡 Jaune', '🟡 Yellow', '🟡 Amarillo', '🟡 Geel')],
@@ -1925,63 +1923,9 @@ const gameData = {
             maxLevel: 12
         }
     ]
-            result: 'ðŸŸ¢ Vert',
-            explanation: 'Le bleu et le jaune deviennent un joli vert.',
-            minLevel: 1,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-red-yellow',
-            inputs: ['ðŸ”´ Rouge', 'ðŸŸ¡ Jaune'],
-            result: 'ðŸŸ  Orange',
-            explanation: 'Jaune et rouge crÃ©ent un orange lumineux.',
-            minLevel: 1,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-blue-red',
-            inputs: ['ðŸ”µ Bleu', 'ðŸ”´ Rouge'],
-            result: 'ðŸŸ£ Violet',
-            explanation: 'MÃ©langer du bleu et du rouge donne du violet.',
-            minLevel: 1,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-red-white',
-            inputs: ['ðŸ”´ Rouge', 'âšª Blanc'],
-            result: 'ðŸ’— Rose',
-            explanation: 'Un peu de blanc adoucit le rouge en rose.',
-            minLevel: 4,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-blue-white',
-            inputs: ['ðŸ”µ Bleu', 'âšª Blanc'],
-            result: 'ðŸ’§ Bleu Clair',
-            explanation: 'Le bleu devient plus lÃ©ger avec du blanc.',
-            minLevel: 4,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-green-white',
-            inputs: ['ðŸŸ¢ Vert', 'âšª Blanc'],
-            result: 'ðŸƒ Vert Clair',
-            explanation: 'Du blanc rend le vert trÃ¨s doux.',
-            minLevel: 5,
-            maxLevel: 12
-        },
-        {
-            id: 'mix-red-black',
-            inputs: ['ðŸ”´ Rouge', 'âš« Noir'],
-            result: 'ðŸ· Bordeaux',
-            explanation: 'Noir et rouge foncent la couleur en bordeaux.',
-            minLevel: 7,
-            maxLevel: 12
-        }
-    ]
 };
 
-// Contes Magiques â€” jeux dâ€™histoires (story sets)
+// Contes Magiques - jeux d'histoires (story sets)
 // These were missing, causing the Stories menu to be empty/disabled.
 // Provide three small story sets with title, text, optional image and a short quiz.
 window.storySetOne = [

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lena-cache-v1';
+const CACHE_NAME = 'lena-cache-v2';
 
 // List of core resources to cache for offline use. Adjust as needed.
 const CORE_ASSETS = [
@@ -13,6 +13,8 @@ const CORE_ASSETS = [
   '/js/avatarData.js',
   '/js/storage.js',
   '/js/login.js',
+  '/games/riddleLevels.js',
+  '/games/storySets.js',
   '/assets/iconos/icon-1024.png',
   '/assets/iconos/icon-512.png',
   '/assets/iconos/icon-384.png',

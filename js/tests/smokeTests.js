@@ -12,7 +12,7 @@
     try {
       log('i18n loaded', Boolean(window.i18n?.t));
       const lang = window.i18n?.getLanguage ? window.i18n.getLanguage() : null;
-      log('i18n language valid', ['fr', 'nl', 'en'].includes(lang || ''));
+      log('i18n language valid', ['fr', 'nl', 'en', 'es'].includes(lang || ''));
     } catch (error) {
       log('i18n loaded', false, error.message);
     }

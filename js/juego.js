@@ -39,11 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const labelBackToLevels = () => t('menuBackToLevels', 'Retour aux niveaux');
     const labelBackToStories = () => t('menuBackToStories', 'Retour aux contes');
     const labelBackToMemory = () => t('menuBackToMemoryLevels', 'Retour aux niveaux de mémoire');
-    const applyCoinPenalty = (amount = 0) => {
-        if (!COIN_PENALTY_ENABLED) { return; }
-        const penalty = Math.max(0, Number(amount) || 0);
-        if (!penalty) { return; }
-        userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - penalty);
+    const applyCoinPenalty = () => {
+        // Penalizations are disabled (positive reinforcement only).
+        return;
     };
 
     function generateMathQuestion(type, level) {
@@ -2484,11 +2482,15 @@ function resolveLevelTheme(topicId) {
         if (!story) { return null; }
         const quiz = story.quiz[Math.floor(Math.random() * story.quiz.length)];
         if (!quiz) { return null; }
+        const resolvedQuestion = resolveText(quiz.question);
+        const resolvedOptions = resolveArray(quiz.options);
+        const correctIndex = Number.isInteger(quiz.correct) ? quiz.correct : quiz.answer;
+        const correctValue = resolvedOptions[correctIndex];
         return {
-            questionText: `${resolveStoryTitle(story)} — ${quiz.question}`,
-            options: quiz.options,
-            correct: quiz.correct,
-            explanation: `Souviens-toi de l'histoire : ${quiz.options[quiz.correct]}.`
+            questionText: `${resolveStoryTitle(story)} — ${resolvedQuestion}`,
+            options: resolvedOptions,
+            correct: correctIndex,
+            explanation: t('storyReviewExplain', 'Souviens-toi de l\'histoire : {{answer}}.', { answer: correctValue })
         };
     }
 
@@ -3373,7 +3375,7 @@ function resolveLevelTheme(topicId) {
         }
 
         wrapper.appendChild(promptWrapper);
-        speakText(riddleData.prompt);
+        speakText(resolvedPrompt);
         updateProgressTracker(gameState.currentQuestionIndex + 1, questions.length);
 
         const optionsContainer = document.createElement('div');
@@ -3400,7 +3402,7 @@ function resolveLevelTheme(topicId) {
     function completeRiddleLevel(levelData) {
         userProgress.answeredQuestions[`riddles-${levelData.level}`] = 'completed';
         saveProgress();
-        showSuccessMessage(levelData.completionMessage || 'Niveau terminé !');
+        showSuccessMessage(resolveText(levelData.completionMessage) || t('menuReviewDone', 'Niveau terminé !'));
         showFireworks();
         updateProgressTracker(levelData.questions.length, levelData.questions.length);
         setTimeout(() => {
@@ -5278,13 +5280,17 @@ function generateNumberProblems(sum, count) {
     }
 
     function resolveStoryTitle(story) {
-        const lang = window.i18n?.getLanguage ? window.i18n.getLanguage() : 'fr';
-        return story?.bilingualTitle?.[lang] || story?.bilingualTitle?.fr || story?.title || '';
+        if (!story) { return ''; }
+        if (story.title) { return resolveText(story.title); }
+        const lang = getLang();
+        return story?.bilingualTitle?.[lang] || story?.bilingualTitle?.fr || '';
     }
 
     function resolveStoryTheme(story) {
-        const lang = window.i18n?.getLanguage ? window.i18n.getLanguage() : 'fr';
-        return story?.bilingualTheme?.[lang] || story?.theme || '';
+        if (!story) { return ''; }
+        if (story.theme) { return resolveText(story.theme); }
+        const lang = getLang();
+        return story?.bilingualTheme?.[lang] || '';
     }
 
     function showStoryMenu() {
@@ -5323,12 +5329,15 @@ function generateNumberProblems(sum, count) {
         searchWrapper.className = 'story-search-wrapper';
         const searchInput = document.createElement('input');
         searchInput.type = 'search';
-        searchInput.placeholder = 'Rechercher un conte...';
+        searchInput.placeholder = t('storySearchPlaceholder', 'Rechercher un conte...');
         searchInput.className = 'story-search-input';
         searchWrapper.appendChild(searchInput);
         controls.appendChild(searchWrapper);
 
-        const allThemes = [t('filterAll', 'Tous'), ...new Set(magicStories.map(s => s.theme).filter(Boolean))];
+        const allThemes = [
+            t('filterAll', 'Tous'),
+            ...new Set(magicStories.map(story => resolveStoryTheme(story)).filter(Boolean))
+        ];
         const themeFilter = document.createElement('select');
         themeFilter.className = 'btn';
         allThemes.forEach(theme => {
@@ -5517,7 +5526,8 @@ function generateNumberProblems(sum, count) {
         titleEl.textContent = resolveStoryTitle(story);
         titleWrapper.appendChild(titleEl);
 
-        const fullStoryText = story.text.join(' ');
+        const storyText = resolveArray(story.text);
+        const fullStoryText = storyText.join(' ');
         const listenBtn = createAudioButton({
             label: '▶️',
             ariaLabel: t('storyListenAria', 'Lire le conte en voix haute'),
@@ -5536,7 +5546,7 @@ function generateNumberProblems(sum, count) {
             storyContainer.appendChild(img);
         }
 
-        story.text.forEach((paragraph, pIndex) => {
+        storyText.forEach((paragraph, pIndex) => {
             const p = document.createElement('p');
             p.className = 'story-paragraph';
             p.style.animationDelay = `${pIndex * 0.2 + 0.5}s`;
@@ -5556,7 +5566,7 @@ function generateNumberProblems(sum, count) {
 
         const startQuizBtn = document.createElement('button');
         startQuizBtn.className = 'submit-btn fx-bounce-in-down';
-        startQuizBtn.textContent = 'Commencer le quiz';
+        startQuizBtn.textContent = t('storyQuizStart', 'Commencer le quiz');
         startQuizBtn.style.marginTop = '2rem';
         startQuizBtn.addEventListener('click', () => startStoryQuiz(storyIndex));
 
@@ -5606,7 +5616,11 @@ function generateNumberProblems(sum, count) {
 
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
-        title.innerHTML = `Question ${gameState.currentQuestionIndex + 1} / ${gameState.storyQuiz.length}<br>${resolvedQuestion}`;
+        const questionLabel = t('storyQuizQuestion', 'Question {{current}} / {{total}}', {
+            current: gameState.currentQuestionIndex + 1,
+            total: gameState.storyQuiz.length
+        });
+        title.innerHTML = `${questionLabel}<br>${resolvedQuestion}`;
         promptWrapper.appendChild(title);
 
         const audioBtn = createAudioButton({
@@ -6173,7 +6187,7 @@ function generateNumberProblems(sum, count) {
 
         const title = document.createElement('div');
         title.className = 'question-prompt';
-        title.textContent = `Niveau ${levelData.level} — ${levelData.theme}`;
+        title.textContent = `${t('levelLabel', 'Niveau')} ${levelData.level} — ${resolvedTheme}`;
         wrapper.appendChild(title);
 
         const promptWrapper = document.createElement('div');
@@ -6181,12 +6195,12 @@ function generateNumberProblems(sum, count) {
 
         const promptText = document.createElement('p');
         promptText.className = 'riddle-prompt';
-        promptText.textContent = riddleData.prompt;
+        promptText.textContent = resolvedPrompt;
         promptWrapper.appendChild(promptText);
 
         const audioBtn = createAudioButton({
-            text: riddleData.prompt,
-            ariaLabel: 'Écouter l\'énigme'
+            text: resolvedPrompt,
+            ariaLabel: t('riddleListenAria', 'Écouter l\'énigme')
         });
         if (audioBtn) {
             promptWrapper.appendChild(audioBtn);
@@ -6198,12 +6212,12 @@ function generateNumberProblems(sum, count) {
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-grid';
 
-        const shuffledOptions = shuffle([...riddleData.options]);
+        const shuffledOptions = shuffle([...resolvedOptions]);
         shuffledOptions.forEach((opt, i) => {
             const optionEl = document.createElement('button');
             optionEl.className = 'option riddle-option fx-bounce-in-down';
             optionEl.style.animationDelay = `${i * 0.08 + 0.4}s`;
-            const originalIndex = riddleData.options.indexOf(opt);
+            const originalIndex = resolvedOptions.indexOf(opt);
             optionEl.dataset.index = originalIndex;
             optionEl.addEventListener('click', handleRiddleAnswer);
             applyOptionContent(optionEl, opt, i);
@@ -6219,7 +6233,7 @@ function generateNumberProblems(sum, count) {
     function completeRiddleLevel(levelData) {
         userProgress.answeredQuestions[`riddles-${levelData.level}`] = 'completed';
         saveProgress();
-        showSuccessMessage(levelData.completionMessage || 'Niveau terminé !'); // Mensaje de éxito
+        showSuccessMessage(resolveText(levelData.completionMessage) || t('menuReviewDone', 'Niveau terminé !'));
         showConfetti();
         updateProgressTracker(levelData.questions.length, levelData.questions.length);
         setTimeout(() => {
@@ -6241,9 +6255,10 @@ function generateNumberProblems(sum, count) {
         const levelData = riddleLevels[gameState.currentRiddleLevelIndex];
         const questions = levelData.questions || [];
         const riddleData = questions[gameState.currentQuestionIndex];
+        const resolvedOptions = resolveArray(riddleData.options);
         const userAnswerIndex = parseInt(selectedOption.dataset.index, 10);
         const correctAnswerIndex = riddleData.answer;
-        const correctValue = riddleData.options[correctAnswerIndex];
+        const correctValue = resolvedOptions[correctAnswerIndex];
 
         if (!Number.isNaN(userAnswerIndex) && userAnswerIndex === correctAnswerIndex) {
             selectedOption.classList.add('correct');
