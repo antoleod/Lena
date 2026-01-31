@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     'use strict';
 
     const EMOJI = {
@@ -23,7 +23,7 @@
     }
 
     function logout() {
-        const wantsLogout = window.confirm(t('confirmLogout', 'Veux-tu vraiment te dAcconnecter ?'));
+        const wantsLogout = window.confirm(t('confirmLogout', 'Veux-tu vraiment te déconnecter ?'));
         if (!wantsLogout) { return; }
         try {
             window.localStorage?.removeItem('mathsLenaUserProfile');
@@ -89,7 +89,7 @@
         iconOn: '\u{1F50A}',
         iconOff: '\u{1F507}',
         labelOn: () => t('audioOn', 'Son actif'),
-        labelOff: () => t('audioOff', 'Son coupAc')
+        labelOff: () => t('audioOff', 'Son coupé')
     };
 
     let headerEl;

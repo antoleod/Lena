@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Appli de Léna - Mes Succès</title>
+    <title data-i18n="navAchievements">Appli de Léna - Mes Succès</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/feedback-system.css">
     <link rel="stylesheet" href="../css/header-footer.css">
@@ -19,7 +19,7 @@
 
     <button id="btnVolver" type="button" class="btn-secondary btn-back">
         <span aria-hidden="true">&#8592;</span>
-        <span>Retour au menu</span>
+        <span data-i18n="shopBackToMenu">Retour au menu</span>
     </button>
 
     <section class="logros-user-panel" aria-label="Profil et portefeuille">
@@ -27,12 +27,12 @@
         <div class="wallet-grid" role="status" aria-live="polite">
             <div class="wallet-item wallet-item--stars">
                 <span class="wallet-icon" aria-hidden="true">✨</span>
-                <span class="wallet-label">Étoiles</span>
+                <span class="wallet-label" data-i18n="starsLabel">Étoiles</span>
                 <span id="scoreStars" class="wallet-value">0</span>
             </div>
             <div class="wallet-item wallet-item--coins">
                 <span class="wallet-icon" aria-hidden="true">🪙</span>
-                <span class="wallet-label">Pièces</span>
+                <span class="wallet-label" data-i18n="coinsLabel">Pièces</span>
                 <span id="scoreCoins" class="wallet-value">0</span>
             </div>
         </div>
@@ -45,6 +45,7 @@
     <footer data-lena-footer></footer>
     <script src="../js/feedbackSystem.js" defer></script>
     <script src="../js/i18n.js" defer></script>
+    <script src="../js/appData.js" defer></script>
     <script src="../js/appShell.js" defer></script>
     <script src="../js/avatarData.js"></script>
     <script src="../js/core/storage.js"></script>

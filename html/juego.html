@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
@@ -66,7 +66,7 @@
       }
     })();
     </script>
-    <title>App de LAcna - Monde Magique</title>
+    <title>App de Léna - Monde Magique</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/feedback-system.css"> <!-- New feedback system CSS -->
     <link rel="stylesheet" href="../css/dictee.css">
@@ -75,13 +75,14 @@
     <link rel="stylesheet" href="../css/juego.css">
     <link rel="stylesheet" href="../css/abaque-magique.css">
     <link rel="stylesheet" href="../css/theme-unicorn.css">
+    <link rel="stylesheet" href="../css/base-ten.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../assets/unicorn-favicon.svg">
     <link rel="manifest" href="../manifest.json">
     <style>
-    /* Sections groupées – cartes grandes + chips enfants */
+    /* Sections groupées — cartes grandes + chips enfants */
     .mm-sections{max-width:1200px;margin:0 auto 1.75rem;padding:0 1.5rem 2rem;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center}
     .mm-section-card{flex:1 1 340px;min-width:300px;border-radius:24px;padding:18px 20px 16px;margin:0;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.78));box-shadow:0 16px 38px rgba(24,20,68,.1), 0 0 20px var(--section-color-soft, rgba(120,90,220,0.1));backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.5);transition:transform 0.3s ease, box-shadow 0.3s ease;}
     .mm-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--section-color-soft, rgba(0,0,0,0.1));}
@@ -190,9 +191,9 @@
     <div id="content">
       <div id="game-shell-root" class="gs-shell" data-game-id="magie-maths">
         <header class="gs-shell__header">
-          <button class="gs-btn-icon" aria-label="Retour" data-i18n-aria="gameBack" data-action="back">🏠</button>
+          <button class="gs-btn-icon" aria-label="Retour" data-i18n-aria="gameBack" data-action="back">⬅️</button>
           <div class="gs-header__title">
-            <span class="gs-chip">🪄 <span data-i18n="gameWorld">Monde Magique</span></span>
+            <span class="gs-chip">✨ <span data-i18n="gameWorld">Monde Magique</span></span>
             <div>
               <div class="gs-title__text"><span data-i18n="levelLabel">Niveau</span> <span data-level>1</span> <span data-diff></span></div>
               <div class="gs-progress">
@@ -201,11 +202,11 @@
               <div class="gs-progress-chip">🪙 <span data-coins>0</span> · <span data-reward-hint></span></div>
             </div>
           </div>
-          <div class="gs-chip">⭐ <span data-stars>☆</span></div>
+          <div class="gs-chip">⭐ <span data-stars>0</span></div>
         </header>
         <main class="gs-main">
           <div class="gs-question">
-            <div class="gs-question__label" data-question data-i18n="gameReady">Pret a jouer</div>
+            <div class="gs-question__label" data-question data-i18n="gameReady">Prêt à jouer</div>
             <p class="gs-hint" data-hint hidden></p>
           </div>
           <div class="gs-options" data-options></div>
@@ -216,17 +217,17 @@
           <button class="gs-action" data-action="start" data-i18n="gameStart">▶️ Start</button>
           <button class="gs-action" data-action="validate" data-i18n="gameValidate" disabled>✅ Valider</button>
           <button class="gs-action" data-action="next" data-i18n="gameNext" disabled>⏭️ Suite</button>
-          <button class="gs-action gs-action--ghost" data-action="calm" data-i18n="gameCalm">🌙 Calme</button>
+          <button class="gs-action gs-action--ghost" data-action="calm" data-i18n="gameCalm">🧘 Calme</button>
         </footer>
         <div class="gs-feedback" hidden>
           <div class="gs-feedback__card">
-            <div class="gs-feedback__icon" data-feedback-icon>✅</div>
+            <div class="gs-feedback__icon" data-feedback-icon>✨</div>
             <div class="gs-feedback__summary">
               <span data-feedback-coins></span>
               <span data-feedback-stars></span>
             </div>
             <div data-feedback-summary></div>
-            <button class="gs-action" data-action="next" data-i18n="gameNext">▶️ Suite</button>
+            <button class="gs-action" data-action="next" data-i18n="gameNext">⏭️ Suite</button>
           </div>
         </div>
       </div>
@@ -237,7 +238,7 @@
     <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
       <div class="shop-modal__header">
         <h2 id="shopModalTitle" data-i18n="shopTitle">Boutique de récompenses</h2>
-        <button id="shopClose" class="shop-modal__close" aria-label="Fermer la boutique" data-i18n-aria="shopClose">×</button>
+        <button id="shopClose" class="shop-modal__close" aria-label="Fermer la boutique" data-i18n-aria="shopClose">✕</button>
       </div>
       <p class="shop-modal__subtitle" data-i18n="shopSubtitle">Échange tes pièces contre des cadeaux magiques ✨</p>
       <div class="shop-modal__content">
@@ -246,7 +247,7 @@
           <ul id="shopList" class="shop-list"></ul>
         </section>
         <section class="shop-section" aria-label="Mes trésors">
-          <h3 data-i18n="shopInventory">Mes trAcsors</h3>
+          <h3 data-i18n="shopInventory">Mes trésors</h3>
           <ul id="inventoryList" class="shop-inventory"></ul>
         </section>
       </div>
@@ -257,6 +258,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
   <script src="../games/gameData.js"></script>
+  <script src="../js/stateMachine.js"></script>
+  <script src="../games/baseTenBuild.js"></script>
+  <script src="../games/baseTenSubtract.js"></script>
   <script src="../games/puzzlemagique.js"></script>
   <script src="../games/repartis.js"></script>
   <script src="../games/dictee.js"></script>
@@ -277,6 +281,7 @@
   <script src="../js/abaque-magique.js"></script>
   <script src="../js/audioManager.js"></script>
   <script src="../js/i18n.js" defer></script>
+  <script src="../js/appData.js" defer></script>
   <script src="../js/feedbackSystem.js" defer></script>  <script src="../js/appShell.js" defer></script>
   <script src="../js/mcqEngine.js"></script>
   <script src="../js/avatarData.js"></script>
@@ -291,67 +296,71 @@
   <script>
   (function(){
     const translate = (key, fallback) => (window.i18n?.t ? window.i18n.t(key) : fallback);
+    const t = (key, fallback) => translate(key, fallback);
     const sectionsData = [
       {
-        title: 'Mathématiques', emoji: 0x1F9EE, color: '#4A90E2',
+        title: t('sectionMathTitle', 'Mathématiques'), emoji: 0x1F9EE, color: '#4A90E2',
         items: [
-          { label: 'Additions', emoji: 0x2795 },
-          { label: 'Soustractions', emoji: 0x2796 },
-          { label: 'Multiplications', emoji: 0x2716 },
-          { label: 'Divisions', emoji: 0x2797 },
-          { label: 'Maths Sprint', emoji: 0x26A1, aliases: ['Maths Sprint', 'Maths Sprint'] },
-          { label: 'Abaque Magique', emoji: 0x1F9EE, aliases: ['Abaque Magique', 'Abaque Magique'] }, // Changed emoji
-          { label: 'Maisons des Nombres', emoji: 0x1F3E0, aliases: ['Maisons des Nombres', 'Maisons des Nombres'] },
-          { label: 'Temps & Horloges', emoji: 0x23F0 },
-          { label: 'Mesures Magiques', emoji: 0x1F4CF, aliases: ['Mesures Magiques', 'Mesures Magiques'] },
-          { label: 'Fractions Fantastiques', emoji: 0x1F355 }
+          { label: t('itemAdditions', 'Additions'), emoji: 0x2795 },
+          { label: t('itemSubtractions', 'Soustractions'), emoji: 0x2796 },
+          { label: t('itemMultiplications', 'Multiplications'), emoji: 0x2716 },
+          { label: t('itemDivisions', 'Divisions'), emoji: 0x2797 },
+          { label: t('baseTenBuildTitle', 'Construis le nombre'), emoji: 0x1F9F1, aliases: [t('baseTenBuildTitle', 'Construis le nombre')] },
+          { label: t('baseTenSubtractTitle', 'Soustraire, c\'est transformer'), emoji: 0x1F9F1, aliases: [t('baseTenSubtractTitle', 'Soustraire, c\'est transformer')] },
+          { label: t('itemMathSprint', 'Maths Sprint'), emoji: 0x26A1, aliases: [t('itemMathSprint', 'Maths Sprint')] },
+          { label: t('itemAbacus', 'Abaque Magique'), emoji: 0x1F9EE, aliases: [t('itemAbacus', 'Abaque Magique')] },
+          { label: t('itemNumberHouses', 'Maisons des Nombres'), emoji: 0x1F3E0, aliases: [t('itemNumberHouses', 'Maisons des Nombres')] },
+          { label: t('itemTime', 'Temps & Horloges'), emoji: 0x23F0 },
+          { label: t('itemMeasures', 'Mesures Magiques'), emoji: 0x1F4CF, aliases: [t('itemMeasures', 'Mesures Magiques')] },
+          { label: t('itemFractions', 'Fractions Fantastiques'), emoji: 0x1F355 }
         ]
       },
       {
-        title: 'Logique & Raisonnement', emoji: 0x1F9E0, color: '#7B2CBF',
+        title: t('sectionLogicTitle', 'Logique & Raisonnement'), emoji: 0x1F9E0, color: '#7B2CBF',
         items: [
-          { label: 'Labyrinthe Logique', emoji: 0x1F9ED },
-          { label: 'Jeu des Séquences', emoji: 0x1F537, aliases: ['Jeu des Séquences', 'Jeu des Séquences'] },
-          { label: 'Tri & Classement', emoji: 0x1F5C2, aliases: ['Tri & Classement', 'Jeu de Tri'] },
-          { label: 'Sudoku Junior', emoji: 0x1F522 },
-          { label: 'Symétrie Magique', emoji: 0x1FA9E },
-          { label: 'Cartes Comparatives', emoji: 0x2696, aliases: ['Cartes Comparatives', 'Cartes Comparatives'] },
-          { label: 'Réseaux de Chemins', emoji: 0x1F517 },
-          { label: 'Logigrammes (Si… Alors…)', emoji: 0x1F9E9, aliases: ['Logigrammes (Si… Alors…)', 'Logigrammes'] },
-          { label: 'Jeu d’énigmes', emoji: 0x1F4A1},
-          { label: 'Répartis & Multiplie', emoji: 0x1F34E }
+          { label: t('itemLabyrinth', 'Labyrinthe Logique'), emoji: 0x1F9ED },
+          { label: t('itemSequences', 'Jeu des Séquences'), emoji: 0x1F537, aliases: [t('itemSequences', 'Jeu des Séquences')] },
+          { label: t('itemSorting', 'Tri & Classement'), emoji: 0x1F5C2, aliases: [t('itemSorting', 'Tri & Classement'), 'Jeu de Tri'] },
+          { label: t('itemMemory', 'Mémoire Magique'), emoji: 0x1F9E0, aliases: [t('itemMemory', 'Mémoire Magique')] },
+          { label: t('itemSudoku', 'Sudoku Junior'), emoji: 0x1F522 },
+          { label: t('itemSymmetry', 'Symétrie Magique'), emoji: 0x1FA9E },
+          { label: t('itemComparisonCards', 'Cartes Comparatives'), emoji: 0x2696, aliases: [t('itemComparisonCards', 'Cartes Comparatives')] },
+          { label: t('itemPathNetworks', 'Réseaux de Chemins'), emoji: 0x1F517 },
+          { label: t('itemLogicgrams', 'Logigrammes (Si... Alors...)'), emoji: 0x1F9E9, aliases: [t('itemLogicgrams', 'Logigrammes (Si... Alors...)'), 'Logigrammes'] },
+          { label: t('itemRiddles', 'Jeu d\'Énigmes'), emoji: 0x1F4A1},
+          { label: t('itemRepartis', 'Répartis & Multiplie'), emoji: 0x1F34E }
         ]
       },
       {
-        title: 'Mots & Lecture', emoji: 0x1F4D6, color: '#F5A623',
+        title: t('sectionWordsTitle', 'Mots & Lecture'), emoji: 0x1F4D6, color: '#F5A623',
         items: [
-          { label: 'Lecture Magique', emoji: 0x1F4D8 },
-          { label: 'La Grande Aventure des Mots', emoji: 0x1F524, aliases: ['La Grande Aventure des Mots', 'Grande Aventure des Mots'] },
-          { label: 'Mots-Outils', emoji: 0x1F5E3, aliases: ['Mots-Outils', 'Mots-Outils'] },
-          { label: 'Jeu des Voyelles', emoji: 0x1F170, aliases: ['Jeu des Voyelles', 'Jeu des Voyelles'] },
-          { label: 'Les Sorcières — Jeu de Mémoire Magique', emoji: 0x1F9D9, aliases: ['Les Sorcières — Jeu de Mémoire Magique', 'Les Sorcières'] },
-          { label: 'Dictée Magique', emoji: 0x270D },
+          { label: t('itemReading', 'Lecture Magique'), emoji: 0x1F4D8 },
+          { label: t('itemBigAdventure', 'La Grande Aventure des Mots'), emoji: 0x1F524, aliases: [t('itemBigAdventure', 'La Grande Aventure des Mots'), 'Grande Aventure des Mots'] },
+          { label: t('itemToolWords', 'Mots-Outils'), emoji: 0x1F5E3, aliases: [t('itemToolWords', 'Mots-Outils')] },
+          { label: t('itemVowels', 'Jeu des Voyelles'), emoji: 0x1F170, aliases: [t('itemVowels', 'Jeu des Voyelles')] },
+          { label: t('itemWitches', 'Les Sorcières - Jeu de Mémoire Magique'), emoji: 0x1F9D9, aliases: [t('itemWitches', 'Les Sorcières - Jeu de Mémoire Magique'), 'Les Sorcières'] },
+          { label: t('itemDictation', 'Dictée Magique'), emoji: 0x270D },
         ]
       },
       {
-        title: 'Créatif & Monde', emoji: 0x1F308, color: '#50E3C2',
+        title: t('sectionCreativeTitle', 'Créatif & Monde'), emoji: 0x1F308, color: '#50E3C2',
         items: [
-          { label: 'Les Couleurs / Atelier d’Art', emoji: 0x1F3A8, aliases: ['Les Couleurs / Atelier d’Art', 'Les Couleurs'] },
-          { label: 'Puzzle Magique', emoji: 0x1F9E9 },
-          { label: 'Carte du Monde Interactive', emoji: 0x1F30D, aliases: ['Carte du Monde Interactive', 'Carte du Monde'] },
-          { label: 'Découvre la Nature', emoji: 0x1F333, aliases: ['Découvre la Nature', 'Découvre la Nature'] },
-          { label: 'J’écris en cursive', emoji: 0x270F },
-          { label: 'Contes Magiques', emoji: 0x1F4D6 }
+          { label: t('itemColors', 'Les Couleurs / Atelier d\'Art'), emoji: 0x1F3A8, aliases: [t('itemColors', 'Les Couleurs / Atelier d\'Art'), 'Les Couleurs'] },
+          { label: t('itemPuzzle', 'Puzzle Magique'), emoji: 0x1F9E9 },
+          { label: t('itemWorldMap', 'Carte du Monde Interactive'), emoji: 0x1F30D, aliases: [t('itemWorldMap', 'Carte du Monde Interactive'), 'Carte du Monde'] },
+          { label: t('itemNature', 'Découvre la Nature'), emoji: 0x1F333, aliases: [t('itemNature', 'Découvre la Nature')] },
+          { label: t('itemCursive', 'J\'écris en cursive'), emoji: 0x270F },
+          { label: t('itemTales', 'Contes Magiques'), emoji: 0x1F4D6 }
         ]
       },
       {
-        title: 'Cœur & Émotions', emoji: 0x1F496, color: '#F783AC',
+        title: t('sectionEmotionsTitle', 'Cœur & Émotions'), emoji: 0x1F496, color: '#F783AC',
         items: [
-          { label: 'Émotions Magiques', emoji: 0x1F60A},
-          { label: 'Missions du Jour', emoji: 0x2705 },
-          { label: 'Quiz du Jour', emoji: 0x1F31E, aliases: ['Quiz du Jour', 'Quiz du Jour'] },
-          { label: 'Respire & Repose-toi', emoji: 0x1F9D8},
-          { label: 'Expression de Soi / Mon Journal', emoji: 0x1F4AC }
+          { label: t('itemEmotions', 'Émotions Magiques'), emoji: 0x1F60A},
+          { label: t('itemDailyMissions', 'Missions du Jour'), emoji: 0x2705 },
+          { label: t('itemDailyQuiz', 'Quiz du Jour'), emoji: 0x1F31E, aliases: [t('itemDailyQuiz', 'Quiz du Jour')] },
+          { label: t('itemBreath', 'Respire & Repose-toi'), emoji: 0x1F9D8},
+          { label: t('itemSelfExpression', 'Expression de Soi / Mon Journal'), emoji: 0x1F4AC }
         ]
       }
     ];

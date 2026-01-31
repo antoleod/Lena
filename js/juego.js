@@ -1,4 +1,4 @@
-console.log("juego.js loaded");
+﻿console.log("juego.js loaded");
 
 function debounce(func, delay) {
     let timeout;
@@ -20,6 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const mathEngine = window.mathEngine || null;
+    const t = (key, fallback, params) => (window.i18n?.t ? window.i18n.t(key, params) : fallback);
+    const COIN_PENALTY_ENABLED = false;
+    const labelBackToTopics = () => t('menuBackToTopics', 'Retour aux sujets');
+    const labelBackToMenu = () => t('menuBackToMenu', 'Retour au menu principal');
+    const labelBackToLevels = () => t('menuBackToLevels', 'Retour aux niveaux');
+    const labelBackToStories = () => t('menuBackToStories', 'Retour aux contes');
+    const labelBackToMemory = () => t('menuBackToMemoryLevels', 'Retour aux niveaux de mémoire');
+    const applyCoinPenalty = (amount = 0) => {
+        if (!COIN_PENALTY_ENABLED) { return; }
+        const penalty = Math.max(0, Number(amount) || 0);
+        if (!penalty) { return; }
+        userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - penalty);
+    };
 
     function generateMathQuestion(type, level) {
         if (mathEngine && typeof mathEngine.generateQuestion === 'function') {
@@ -479,6 +492,8 @@ function resolveLevelTheme(topicId) {
         soustractions: 'math:subtraction',
         multiplications: 'math:multiplication',
         divisions: 'math:division',
+        'base-ten-build': 'math:base-ten-compose',
+        'base-ten-subtract': 'math:base-ten-subtract',
         colors: 'cognition:colors',
         stories: 'reading:comprehension',
         memory: 'memory:matching',
@@ -795,6 +810,8 @@ function resolveLevelTheme(topicId) {
         soustractions: () => MATH_LEVEL_CONFIG.soustractions.length,
         multiplications: () => MATH_LEVEL_CONFIG.multiplications.length,
         divisions: () => MATH_LEVEL_CONFIG.divisions.length,
+        'base-ten-build': () => (window.baseTenBuildGame?.getLevelCount?.() || 10),
+        'base-ten-subtract': () => (window.baseTenSubtractGame?.getLevelCount?.() || 10),
         'number-houses': () => LEVELS_PER_TOPIC,
         colors: () => LEVELS_PER_TOPIC,
         memory: () => (window.gameData?.MEMORY_GAME_LEVELS || []).length,
@@ -1264,7 +1281,7 @@ function resolveLevelTheme(topicId) {
     function clearBackButton() {
         if (btnBack) {
             btnBack.style.display = 'none';
-            btnBack.textContent = 'Retour';
+            btnBack.textContent = t('menuBackToTopics', 'Retour');
             btnBack.onclick = null;
         }
         removeNavBackOverride();
@@ -1631,6 +1648,7 @@ function resolveLevelTheme(topicId) {
 
     function showComingSoon(gameTitle, icon) {
         content.innerHTML = '';
+        const resolvedTitle = resolveTopicLabel(gameTitle);
         const wrapper = document.createElement('div');
         wrapper.className = 'coming-soon-wrapper fx-bounce-in-down';
 
@@ -1641,16 +1659,16 @@ function resolveLevelTheme(topicId) {
 
         const title = document.createElement('h2');
         title.className = 'coming-soon-title';
-        title.textContent = `${gameTitle}`;
+        title.textContent = resolvedTitle || gameTitle || t('comingSoonTitle', 'Bientôt');
         wrapper.appendChild(title);
 
         const message = document.createElement('p');
         message.className = 'coming-soon-message';
-        message.textContent = 'Ce jeu magique sera bientôt disponible !';
+        message.textContent = t('comingSoonMessage', 'Ce jeu magique sera bientôt disponible !');
         wrapper.appendChild(message);
 
         content.appendChild(wrapper);
-        configureBackButton('Retour aux sujets', showTopicMenu);
+        configureBackButton(labelBackToTopics(), showTopicMenu);
     }
 
     function launchEcritureCursive(level) {
@@ -1675,6 +1693,31 @@ function resolveLevelTheme(topicId) {
             window.abaqueMagiqueGame.start(context); // Le module gère maintenant ses propres niveaux
         } else {
             showComingSoon('Abaque Magique', '🔢');
+        }
+    }
+    function launchBaseTenBuild(level) {
+        gameState.currentTopic = 'base-ten-build';
+        gameState.currentLevel = level;
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
+        const context = createGameContext('base-ten-build');
+        if (window.baseTenBuildGame && typeof window.baseTenBuildGame.start === 'function') {
+            window.baseTenBuildGame.start(level, context);
+        } else {
+            showComingSoon('Construis le nombre', '🧱');
+        }
+    }
+
+    function launchBaseTenSubtract(level) {
+        gameState.currentTopic = 'base-ten-subtract';
+        gameState.currentLevel = level;
+        setDisplay(btnLogros, 'inline-block');
+        setDisplay(btnLogout, 'inline-block');
+        const context = createGameContext('base-ten-subtract');
+        if (window.baseTenSubtractGame && typeof window.baseTenSubtractGame.start === 'function') {
+            window.baseTenSubtractGame.start(level, context);
+        } else {
+            showComingSoon('Soustraire, c’est transformer', '🔁');
         }
     }
     function launchMotsOutils(level) {
@@ -1704,7 +1747,7 @@ function resolveLevelTheme(topicId) {
     }
     // --- UI & Helpers ---
     let preferredVoice = null;
-    const LANGUAGE_LOCALES = { fr: 'fr-FR', es: 'es-ES', nl: 'nl-NL' };
+    const LANGUAGE_LOCALES = { fr: 'fr-FR', nl: 'nl-NL', en: 'en-GB' };
 
     function resolveSpeechLang() {
         if (window.i18n?.getSpeechLang) {
@@ -1724,7 +1767,7 @@ function resolveLevelTheme(topicId) {
         function findPreferredVoice() {
             const voices = window.speechSynthesis.getVoices();
             if (!voices || voices.length === 0) {
-                console.warn('[Speech] La liste de voix est vide. La s�lection est report�e.');
+                console.warn('[Speech] La liste de voix est vide. La sélection est reportée.');
                 return;
             }
 
@@ -1732,7 +1775,7 @@ function resolveLevelTheme(topicId) {
             const baseLang = targetLang.split('-')[0];
             const voicePriorityByLang = {
                 fr: [
-                    { name: 'Google fran�ais', lang: 'fr-FR' },
+                    { name: 'Google français', lang: 'fr-FR' },
                     { name: 'Microsoft Hortense - French (France)', lang: 'fr-FR' },
                     { name: 'Microsoft Julie, Natural - French (France)', lang: 'fr-FR' },
                     { name: 'Amelie', lang: 'fr-CA' },
@@ -1750,7 +1793,7 @@ function resolveLevelTheme(topicId) {
                 const found = voices.find(voice => voice.name === priority.name && voice.lang === priority.lang);
                 if (found) {
                     preferredVoice = found;
-                    console.log(`[Speech] Voix s�lectionn�e: ${preferredVoice.name}`);
+                    console.log(`[Speech] Voix sélectionnée: ${preferredVoice.name}`);
                     return;
                 }
             }
@@ -1759,9 +1802,9 @@ function resolveLevelTheme(topicId) {
                 || voices.find(voice => voice.lang?.startsWith(baseLang))
                 || null;
             if (preferredVoice) {
-                console.log(`[Speech] Voix de secours s�lectionn�e: ${preferredVoice.name}`);
+                console.log(`[Speech] Voix de secours sélectionnée: ${preferredVoice.name}`);
             } else {
-                console.warn('[Speech] Aucune voix compatible trouv�e.');
+                console.warn('[Speech] Aucune voix compatible trouvée.');
             }
         }
 
@@ -2043,6 +2086,32 @@ function resolveLevelTheme(topicId) {
 
     function resolveSkillTag(topicId) {
         return TOPIC_SKILL_TAGS[topicId] || `general:${topicId || 'exploration'}`;
+    }
+
+    function resolveTopicLabel(topicId) {
+        const labelMap = {
+            additions: t('itemAdditions', 'Additions'),
+            soustractions: t('itemSubtractions', 'Soustractions'),
+            multiplications: t('itemMultiplications', 'Multiplications'),
+            divisions: t('itemDivisions', 'Divisions'),
+            'base-ten-build': t('baseTenBuildTitle', 'Construis le nombre'),
+            'base-ten-subtract': t('baseTenSubtractTitle', 'Soustraire, c’est transformer'),
+            'math-blitz': t('itemMathSprint', 'Maths Sprint'),
+            'lecture-magique': t('itemReading', 'Lecture Magique'),
+            'mots-outils': t('itemToolWords', 'Mots-Outils'),
+            'number-houses': t('itemNumberHouses', 'Maisons des Nombres'),
+            'abaque-magique': t('itemAbacus', 'Abaque Magique'),
+            'temps-horloges': t('itemTime', 'Temps & Horloges'),
+            'fractions-fantastiques': t('itemFractions', 'Fractions Fantastiques'),
+            stories: t('itemTales', 'Contes Magiques'),
+            riddles: t('itemRiddles', 'Jeu d\'énigmes'),
+            vowels: t('itemVowels', 'Jeu des Voyelles'),
+            sequences: t('itemSequences', 'Jeu des Séquences'),
+            memory: t('itemMemory', 'Mémoire Magique'),
+            colors: t('itemColors', 'Les Couleurs'),
+            dictee: t('itemDictation', 'Dictée Magique')
+        };
+        return labelMap[topicId] || topicId;
     }
 
     function createHistoryTracker(userName) {
@@ -2785,7 +2854,7 @@ function resolveLevelTheme(topicId) {
 
       const title = document.createElement('div');
       title.className = 'question-prompt fx-bounce-in-down';
-      title.textContent = 'Choisis un niveau de mémoire';
+      title.textContent = t('menuChooseLevel', 'Choisis un niveau de mémoire', { topic: t('itemMemory', 'Mémoire Magique') });
       content.appendChild(title);
 
       const levelsGrid = document.createElement('div');
@@ -2802,7 +2871,7 @@ function resolveLevelTheme(topicId) {
 
       setDisplay(btnLogros, 'inline-block');
       setDisplay(btnLogout, 'inline-block');
-      configureBackButton('Retour au Menu Principal', showTopicMenu);
+      configureBackButton(labelBackToMenu(), showTopicMenu);
     }
 
     function showMemoryGame(levelConfig) {
@@ -2938,7 +3007,7 @@ function resolveLevelTheme(topicId) {
                         card2.card.querySelector('span').style.opacity = '0';
                         flippedCards = [];
                         lockBoard = false;
-                        // userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5); // Penalización desactivada
+                        // applyCoinPenalty(5); // Penalización desactivada
                         playBufferedSound('wrong');
                         updateUI(); // Llamada a updateUI()
                         saveProgress();
@@ -2949,7 +3018,7 @@ function resolveLevelTheme(topicId) {
         }
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux niveaux de mémoire', () => {
+        configureBackButton(labelBackToMemory(), () => {
             cleanupGame();
             showMemoryGameMenu();
         });
@@ -3049,7 +3118,7 @@ function resolveLevelTheme(topicId) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux niveaux', () => showLevelMenu('sorting'));
+        configureBackButton(labelBackToLevels(), () => showLevelMenu('sorting'));
 
         function enableSortingToken(token) {
             token.addEventListener('dragstart', () => {
@@ -3261,7 +3330,7 @@ function resolveLevelTheme(topicId) {
         wrapper.appendChild(optionsContainer);
         content.appendChild(wrapper);
 
-        configureBackButton('Retour aux niveaux', () => showLevelMenu('riddles'));
+        configureBackButton(labelBackToLevels(), () => showLevelMenu('riddles'));
     }
 
     function completeRiddleLevel(levelData) {
@@ -3303,7 +3372,7 @@ function resolveLevelTheme(topicId) {
         } else {
             selectedOption.classList.add('wrong');
             selectedOption.classList.add('riddle-wrong-glow');
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            applyCoinPenalty(5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
@@ -3420,7 +3489,7 @@ function resolveLevelTheme(topicId) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux niveaux', () => showLevelMenu('vowels'));
+        configureBackButton(labelBackToLevels(), () => showLevelMenu('vowels'));
     
         gameState.currentVowelLevelData = {
             level: levelData.level,
@@ -3479,7 +3548,7 @@ function resolveLevelTheme(topicId) {
             selectedOption.classList.add('wrong', 'vowel-option-wrong');
             gameState.currentVowelLevelData.displayEl.classList.add('is-error');
             showVowelFeedback('negative', 'Essaie encore !');
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            applyCoinPenalty(5);
             userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = 'in-progress';
             saveProgress();
             updateUI(); // Llamada a updateUI()
@@ -3686,7 +3755,7 @@ function resolveLevelTheme(topicId) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux niveaux', () => showLevelMenu('sequences'));
+        configureBackButton(labelBackToLevels(), () => showLevelMenu('sequences'));
 
         function enableSequenceToken(token) {
             token.addEventListener('dragstart', () => {
@@ -3814,7 +3883,7 @@ function resolveLevelTheme(topicId) {
         clearProgressTracker();
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour au Menu Principal', showTopicMenu);
+        configureBackButton(labelBackToMenu(), showTopicMenu);
     }
 
     
@@ -4118,7 +4187,7 @@ function resolveLevelTheme(topicId) {
         content.innerHTML = '';
         const prompt = document.createElement('div');
         prompt.className = 'question-prompt fx-bounce-in-down';
-        prompt.textContent = 'Sélectionne un sujet pour commencer.';
+        prompt.textContent = t('menuPrompt', 'Sélectionne un sujet pour commencer.');
         content.appendChild(prompt);
 
         maybeSuggestReview(content);
@@ -4127,29 +4196,31 @@ function resolveLevelTheme(topicId) {
         topicsContainer.className = 'options-grid';
         
         const allTopics = [
-            { id: 'math-blitz', icon: '⚡', text: 'Maths Sprint' },
-            { id: 'lecture-magique', icon: '📖', text: 'Lecture Magique' },
-            { id: 'raisonnement', icon: '🧠', text: 'Raisonnement' },
-            { id: 'mots-outils', icon: '🗣️', text: 'Mots-Outils' },
-            { id: 'grande-aventure-mots', icon: '\u{1F524}', text: 'La Grande Aventure des Mots', href: '../html/grande-aventure-mots/index.html', type: 'external' },
-            { id: 'additions', icon: '➕', text: 'Additions' },
-            { id: 'soustractions', icon: '➖', text: 'Soustractions' },
-            { id: 'multiplications', icon: '✖️', text: 'Multiplications' },
-            { id: 'divisions', icon: '➗', text: 'Divisions' }, // Already correct
-            { id: 'sorting', icon: '🧩', text: 'Tri & Classement' },
-            { id: 'memory', icon: '🤔', text: 'Mémoire Magique' },
-            { id: 'abaque-magique', icon: '🔢', text: 'Abaque Magique' },
-            { id: 'number-houses', icon: '🏠', text: 'Maisons des Nombres' },
-            { id: 'repartis', icon: '🍎', text: 'Répartis & Multiplie' },
-            { id: 'stories', icon: '📚', text: 'Contes Magiques' }, // Already correct
-            { id: 'riddles', icon: '❓', text: 'Jeu d\'énigmes' },
-            { id: 'vowels', icon: '🅰️', text: 'Jeu des Voyelles' },
-            { id: 'sequences', icon: '➡️', text: 'Jeu des Séquences' },
-            { id: 'colors', icon: '🎨', text: 'Les Couleurs' },
-            { id: 'dictee', icon: '🧚‍♀️', text: 'Dictée Magique' },
-            { id: 'ecriture-cursive', icon: '✍️', text: 'J’écris en cursive' },
-            { id: 'les-sorcieres', icon: '🧙‍♀️', text: 'Les Sorcières — Jeu de Mémoire Magique', href: '../html/les-sorcieres.html', type: 'external' },
-            { id: 'logigrammes', icon: '🧩', text: 'Logigrammes' },
+            { id: 'math-blitz', icon: '⚡', text: t('itemMathSprint', 'Maths Sprint') },
+            { id: 'lecture-magique', icon: '📖', text: t('itemReading', 'Lecture Magique') },
+            { id: 'raisonnement', icon: '🧠', text: t('sectionLogicTitle', 'Raisonnement') },
+            { id: 'mots-outils', icon: '🗣️', text: t('itemToolWords', 'Mots-Outils') },
+            { id: 'grande-aventure-mots', icon: '\u{1F524}', text: t('itemBigAdventure', 'La Grande Aventure des Mots'), href: '../html/grande-aventure-mots/index.html', type: 'external' },
+            { id: 'additions', icon: '➕', text: t('itemAdditions', 'Additions') },
+            { id: 'soustractions', icon: '➖', text: t('itemSubtractions', 'Soustractions') },
+            { id: 'multiplications', icon: '✖️', text: t('itemMultiplications', 'Multiplications') },
+            { id: 'divisions', icon: '➗', text: t('itemDivisions', 'Divisions') },
+            { id: 'base-ten-build', icon: '🧱', text: t('baseTenBuildTitle', 'Construis le nombre') },
+            { id: 'base-ten-subtract', icon: '🔁', text: t('baseTenSubtractTitle', 'Soustraire, c’est transformer') },
+            { id: 'sorting', icon: '🧩', text: t('itemSorting', 'Tri & Classement') },
+            { id: 'memory', icon: '🤔', text: t('itemMemory', 'Mémoire Magique') },
+            { id: 'abaque-magique', icon: '🔢', text: t('itemAbacus', 'Abaque Magique') },
+            { id: 'number-houses', icon: '🏠', text: t('itemNumberHouses', 'Maisons des Nombres') },
+            { id: 'repartis', icon: '🍎', text: t('itemRepartis', 'Répartis & Multiplie') },
+            { id: 'stories', icon: '📚', text: t('itemTales', 'Contes Magiques') },
+            { id: 'riddles', icon: '❓', text: t('itemRiddles', 'Jeu d\'énigmes') },
+            { id: 'vowels', icon: '🅰️', text: t('itemVowels', 'Jeu des Voyelles') },
+            { id: 'sequences', icon: '➡️', text: t('itemSequences', 'Jeu des Séquences') },
+            { id: 'colors', icon: '🎨', text: t('itemColors', 'Les Couleurs') },
+            { id: 'dictee', icon: '🧚‍♀️', text: t('itemDictation', 'Dictée Magique') },
+            { id: 'ecriture-cursive', icon: '✍️', text: t('itemCursive', 'J’écris en cursive') },
+            { id: 'les-sorcieres', icon: '🧙‍♀️', text: t('itemWitches', 'Les Sorcières — Jeu de Mémoire Magique'), href: '../html/les-sorcieres.html', type: 'external' },
+            { id: 'logigrammes', icon: '🧩', text: t('itemLogicgrams', 'Logigrammes') },
         ];
 
         allTopics.forEach(topic => {
@@ -4193,7 +4264,7 @@ function resolveLevelTheme(topicId) {
         const newTopics = [
             { id: 'problems-magiques', icon: '💡', text: 'Problèmes Magiques' },
             { id: 'fractions-fantastiques', icon: '🍰', text: 'Fractions Fantastiques' },
-            { id: 'temps-horloges', icon: '⏰', text: 'Temps & Horloges' },
+            { id: 'temps-horloges', icon: '⏰', text: t('itemTime', 'Temps & Horloges') },
             { id: 'tables-defi', icon: '✖️', text: 'Tables Défi' },
             { id: 'series-numeriques', icon: '🔢', text: 'Séries Numériques' },
             // Placeholders (affichent bient\u00f4t)
@@ -4206,13 +4277,13 @@ function resolveLevelTheme(topicId) {
             { id: 'lecture-voix-haute', icon: '???', text: 'Lecture \u00e0 Voix Haute' },
             { id: 'vocabulaire-thematique', icon: '??', text: 'Vocabulaire Th\u00e9matique' },
 
-            { id: 'decouvre-nature', icon: '🌳', text: 'Découvre la Nature' },
-            { id: 'carte-monde', icon: '🌍', text: 'Carte du Monde Interactive' },
-            { id: 'emotions-magiques', icon: '😊', text: 'Émotions Magiques' },
-            { id: 'missions-jour', icon: '✅', text: 'Missions du Jour' },
-            { id: 'quiz-jour', icon: '🌞', text: 'Quiz du Jour' },
-            { id: 'respire-repose', icon: '🧘', text: 'Respire & Repose-toi' },
-            { id: 'expression-soi', icon: '💬', text: 'Expression de Soi / Mon Journal' }
+            { id: 'decouvre-nature', icon: '🌳', text: t('itemNature', 'Découvre la Nature') },
+            { id: 'carte-monde', icon: '🌍', text: t('itemWorldMap', 'Carte du Monde Interactive') },
+            { id: 'emotions-magiques', icon: '😊', text: t('itemEmotions', 'Émotions Magiques') },
+            { id: 'missions-jour', icon: '✅', text: t('itemDailyMissions', 'Missions du Jour') },
+            { id: 'quiz-jour', icon: '🌞', text: t('itemDailyQuiz', 'Quiz du Jour') },
+            { id: 'respire-repose', icon: '🧘', text: t('itemBreath', 'Respire & Repose-toi') },
+            { id: 'expression-soi', icon: '💬', text: t('itemSelfExpression', 'Expression de Soi / Mon Journal') }
         ];
         const extraContainer = document.createElement('div');
         extraContainer.className = 'options-grid';
@@ -4248,7 +4319,8 @@ function resolveLevelTheme(topicId) {
         content.innerHTML = '';
         const title = document.createElement('div');
         title.className = 'question-prompt fx-bounce-in-down';
-        title.textContent = `Choisis un niveau pour ${topic}`;
+        const topicLabel = resolveTopicLabel(topic);
+        title.textContent = t('menuChooseLevel', `Choisis un niveau pour ${topicLabel}`, { topic: topicLabel });
         content.appendChild(title);
 
         const levelsContainer = document.createElement('div');
@@ -4391,6 +4463,8 @@ function resolveLevelTheme(topicId) {
                     else if (gameState.currentTopic === 'ecriture-cursive') { launchEcritureCursive(gameState.currentLevel); }
                     else if (gameState.currentTopic === 'abaque-magique') { launchAbaqueMagique(gameState.currentLevel); }
                     else if (gameState.currentTopic === 'mots-outils') { launchMotsOutils(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'base-ten-build') { launchBaseTenBuild(gameState.currentLevel); }
+                    else if (gameState.currentTopic === 'base-ten-subtract') { launchBaseTenSubtract(gameState.currentLevel); }
                     // Nouveaux modules jouables
                     else if (gameState.currentTopic === 'problems-magiques') { launchProblemsMagiques(gameState.currentLevel); }
                     else if (gameState.currentTopic === 'fractions-fantastiques') { launchFractionsFantastiques(gameState.currentLevel); }
@@ -4410,7 +4484,7 @@ function resolveLevelTheme(topicId) {
         content.appendChild(levelsContainer);
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux sujets', showTopicMenu);
+        configureBackButton(labelBackToTopics(), showTopicMenu);
     }
 
     function handleOptionClick(event) {
@@ -4506,7 +4580,7 @@ function resolveLevelTheme(topicId) {
 
         if (!isReviewPhase) {
             enqueueForReview();
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            applyCoinPenalty(5);
             revealCorrectOption();
             showErrorMessage(explanation, correctValue);
             recordAttempt(false);
@@ -4527,7 +4601,7 @@ function resolveLevelTheme(topicId) {
             return;
         }
 
-        userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+        applyCoinPenalty(5);
         revealCorrectOption();
         showErrorMessage(explanation, correctValue);
         recordAttempt(false);
@@ -4546,7 +4620,7 @@ function resolveLevelTheme(topicId) {
         if (!questionsForLevel.length) {
             const emptyMessage = document.createElement('p');
             emptyMessage.className = 'question-prompt';
-            emptyMessage.textContent = 'Aucune question disponible pour ce niveau pour le moment.';
+            emptyMessage.textContent = t('menuNoQuestions', 'Aucune question disponible pour ce niveau pour le moment.');
             content.appendChild(emptyMessage);
             clearProgressTracker();
             return;
@@ -4709,7 +4783,7 @@ function resolveLevelTheme(topicId) {
         if (gameState.currentTopic === 'review' || isReviewPhase) {
             configureBackButton('Terminer le repaso', showTopicMenu);
         } else {
-            configureBackButton('Retour aux niveaux', () => showLevelMenu(gameState.currentTopic));
+            configureBackButton(labelBackToLevels(), () => showLevelMenu(gameState.currentTopic));
         }
 
         gameState.reviewAttemptsRemaining = isReviewPhase ? 2 : 0;
@@ -4868,7 +4942,7 @@ content.appendChild(container);
 
 setDisplay(btnLogros, 'inline-block');
 setDisplay(btnLogout, 'inline-block');
-configureBackButton('Retour aux niveaux', () => showLevelMenu(gameState.currentTopic));
+configureBackButton(labelBackToLevels(), () => showLevelMenu(gameState.currentTopic));
 
 checkBtn.addEventListener('click', handleCheckHouses);
 }
@@ -4900,7 +4974,7 @@ function handleCheckHouses() {
         } else {
             input.classList.add('incorrect', 'fx-shake');
             setTimeout(() => input.classList.remove('fx-shake'), 500);
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            applyCoinPenalty(5);
             incorrectValues.push(`Réponse attendue : ${correctValue}`);
         }
     });
@@ -5002,7 +5076,7 @@ function generateNumberProblems(sum, count) {
         if (!questionsForLevel.length) {
             const empty = document.createElement('p');
             empty.className = 'question-prompt';
-            empty.textContent = 'Aucune question de couleur disponible pour ce niveau.';
+            empty.textContent = t('menuNoQuestions', 'Aucune question disponible pour ce niveau pour le moment.');
             content.appendChild(empty);
             clearProgressTracker();
             return;
@@ -5055,7 +5129,7 @@ function generateNumberProblems(sum, count) {
         if (gameState.currentTopic === 'review') {
             configureBackButton('Terminer le repaso', showTopicMenu);
         } else {
-            configureBackButton('Retour aux niveaux', () => showLevelMenu(gameState.currentTopic));
+            configureBackButton(labelBackToLevels(), () => showLevelMenu(gameState.currentTopic));
         }
     }
     
@@ -5088,7 +5162,7 @@ function generateNumberProblems(sum, count) {
             showConfetti();
         } else { // Respuesta incorrecta
             selectedOption.classList.add('wrong');
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            applyCoinPenalty(5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) { correctOption.classList.add('correct'); }
             const explanation = questionData.explanation
@@ -5272,7 +5346,7 @@ function generateNumberProblems(sum, count) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux sujets', () => {
+        configureBackButton(labelBackToTopics(), () => {
             clearLibraryHash();
             showTopicMenu();
         });
@@ -5306,7 +5380,7 @@ function generateNumberProblems(sum, count) {
         selectionBox.appendChild(readMyselfBtn);
 
         content.appendChild(selectionBox);
-        configureBackButton('Retour aux contes', showStoryMenu);
+        configureBackButton(labelBackToStories(), showStoryMenu);
     }
 
     function showMagicStory(storyIndex, event) {
@@ -5401,7 +5475,7 @@ function generateNumberProblems(sum, count) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux contes', showStoryMenu);
+        configureBackButton(labelBackToStories(), showStoryMenu);
     }
     
     function startStoryQuiz(storyIndex) {
@@ -5472,7 +5546,7 @@ function generateNumberProblems(sum, count) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux contes', showStoryMenu);
+        configureBackButton(labelBackToStories(), showStoryMenu);
     }
     
     function handleStoryQuizAnswer(event) {
@@ -5500,7 +5574,7 @@ function generateNumberProblems(sum, count) {
             showFireworks();
         } else {
             selectedOption.classList.add('wrong');
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            applyCoinPenalty(5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
@@ -5552,13 +5626,13 @@ function generateNumberProblems(sum, count) {
 
         const backBtn = document.createElement('button');
         backBtn.className = 'submit-btn fx-bounce-in-down';
-        backBtn.textContent = 'Retourner aux contes';
+        backBtn.textContent = labelBackToStories();
         backBtn.addEventListener('click', showStoryMenu);
         content.appendChild(backBtn);
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour au Menu Principal', showTopicMenu);
+        configureBackButton(labelBackToMenu(), showTopicMenu);
     }
 
     function showMemoryGameMenu() {
@@ -5568,7 +5642,7 @@ function generateNumberProblems(sum, count) {
 
       const title = document.createElement('div');
       title.className = 'question-prompt fx-bounce-in-down';
-      title.textContent = 'Choisis un niveau de mémoire';
+      title.textContent = t('menuChooseLevel', 'Choisis un niveau de mémoire', { topic: t('itemMemory', 'Mémoire Magique') });
       content.appendChild(title);
 
       const levelsGrid = document.createElement('div');
@@ -5585,7 +5659,7 @@ function generateNumberProblems(sum, count) {
 
       setDisplay(btnLogros, 'inline-block');
       setDisplay(btnLogout, 'inline-block');
-      configureBackButton('Retour au Menu Principal', showTopicMenu);
+      configureBackButton(labelBackToMenu(), showTopicMenu);
     }
 
     function showMemoryGame(levelConfig) {
@@ -5722,7 +5796,7 @@ function generateNumberProblems(sum, count) {
                         card2.card.querySelector('span').style.opacity = '0';
                         flippedCards = [];
                         lockBoard = false;
-                        // userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5); // Penalización desactivada
+                        // applyCoinPenalty(5); // Penalización desactivada
                         playSound('wrong');
                         updateUI(); // Llamada a updateUI()
                         saveProgress();
@@ -5733,7 +5807,7 @@ function generateNumberProblems(sum, count) {
         }
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux niveaux de mémoire', () => {
+        configureBackButton(labelBackToMemory(), () => {
             cleanupGame();
             showMemoryGameMenu();
         });
@@ -5832,7 +5906,7 @@ function generateNumberProblems(sum, count) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux niveaux', () => showLevelMenu('sorting'));
+        configureBackButton(labelBackToLevels(), () => showLevelMenu('sorting'));
 
         function enableSortingToken(token) {
             token.addEventListener('dragstart', () => {
@@ -6043,7 +6117,7 @@ function generateNumberProblems(sum, count) {
         wrapper.appendChild(optionsContainer);
         content.appendChild(wrapper);
 
-        configureBackButton('Retour aux niveaux', () => showLevelMenu('riddles'));
+        configureBackButton(labelBackToLevels(), () => showLevelMenu('riddles'));
     }
 
     function completeRiddleLevel(levelData) {
@@ -6085,7 +6159,7 @@ function generateNumberProblems(sum, count) {
         } else { // Respuesta incorrecta
             selectedOption.classList.add('wrong');
             selectedOption.classList.add('riddle-wrong-glow');
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            applyCoinPenalty(5);
             const correctOption = Array.from(optionNodes).find(opt => parseInt(opt.dataset.index, 10) === correctAnswerIndex);
             if (correctOption) {
                 correctOption.classList.add('correct');
@@ -6202,7 +6276,7 @@ function generateNumberProblems(sum, count) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux niveaux', () => showLevelMenu('vowels'));
+        configureBackButton(labelBackToLevels(), () => showLevelMenu('vowels'));
     
         gameState.currentVowelLevelData = {
             level: levelData.level,
@@ -6261,7 +6335,7 @@ function generateNumberProblems(sum, count) {
             selectedOption.classList.add('wrong', 'vowel-option-wrong');
             gameState.currentVowelLevelData.displayEl.classList.add('is-error');
             showVowelFeedback('negative', 'Essaie encore !');
-            userProgress.userScore.coins = Math.max(0, userProgress.userScore.coins - 5);
+            applyCoinPenalty(5);
             userProgress.answeredQuestions[`vowels-${gameState.currentLevel}`] = 'in-progress';
             saveProgress();
             updateUI(); // Llamada a updateUI()
@@ -6467,7 +6541,7 @@ function generateNumberProblems(sum, count) {
 
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour aux niveaux', () => showLevelMenu('sequences'));
+        configureBackButton(labelBackToLevels(), () => showLevelMenu('sequences'));
 
         function enableSequenceToken(token) {
             token.addEventListener('dragstart', () => {
@@ -6594,7 +6668,7 @@ function generateNumberProblems(sum, count) {
         clearProgressTracker();
         setDisplay(btnLogros, 'inline-block');
         setDisplay(btnLogout, 'inline-block');
-        configureBackButton('Retour au Menu Principal', showTopicMenu);
+        configureBackButton(labelBackToMenu(), showTopicMenu);
     }
 
     const AUTOPLAY_TOPIC_SEQUENCE = [
@@ -6792,6 +6866,9 @@ function generateNumberProblems(sum, count) {
     init();
     setupSpeechSynthesis();
 });
+
+
+
 
 
 

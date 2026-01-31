@@ -15,11 +15,17 @@ function bootstrap(root) {
   const state = createState({ gameId, storage: persistent });
   const buttons = bindButtons(root);
   const feedback = attachFeedback(root);
+  const machineFactory = window.LenaStateMachine?.createStateMachine;
+  const throttleAction = window.LenaStateMachine?.throttleAction || ((fn) => fn);
+  const machine = machineFactory
+    ? machineFactory({ initial: "IDLE", onRender: renderMachine })
+    : null;
   const devMode = new URLSearchParams(window.location.search).get("dev") === "1";
   const legacyProfile = safeLegacyProfile();
   let activeQuestion = null;
   let playerAnswer = null;
   let roundStart = null;
+  let hasHinted = false;
 
   const questions = buildQuestionBank();
 
@@ -42,23 +48,29 @@ function bootstrap(root) {
   function nextQuestion() {
     activeQuestion = pickQuestion(questions, state.getState());
     playerAnswer = null;
+    hasHinted = false;
     setQuestion(root, activeQuestion);
     renderOptions(root, activeQuestion, (answer) => {
       playerAnswer = answer;
-      toggleButtons(buttons, { canValidate: true, canNext: false, canStart: false, showHint: activeQuestion.hintReady });
+      if (machine) {
+        machine.setState("ANSWER_SELECTED");
+      }
     });
-    toggleButtons(buttons, { canValidate: false, canNext: false, canStart: false, showHint: false });
     root.classList.remove("gs-shell--feedback");
     state.resetRound();
     roundStart = performance.now();
+    if (machine) {
+      machine.setState("PLAYING");
+    } else {
+      toggleButtons(buttons, { canValidate: false, canNext: false, canStart: false, showHint: false });
+    }
   }
 
-  buttons.start?.addEventListener("click", () => {
-    toggleButtons(buttons, { canValidate: false, canNext: false, canStart: false, showHint: false });
+  buttons.start?.addEventListener("click", throttleAction(() => {
     nextQuestion();
-  });
+  }));
 
-  buttons.validate?.addEventListener("click", () => {
+  buttons.validate?.addEventListener("click", throttleAction(() => {
     if (playerAnswer === null || activeQuestion === null) return;
     const elapsed = performance.now() - (roundStart || performance.now());
     const correct = checkAnswer(activeQuestion, playerAnswer);
@@ -83,29 +95,44 @@ function bootstrap(root) {
       coins: reward.coins,
       stars: reward.stars
     });
-    toggleButtons(buttons, { canValidate: false, canNext: true, canStart: false, showHint: !correct && activeQuestion?.hint });
-  });
+    if (machine) {
+      machine.setState("VALIDATED");
+    } else {
+      toggleButtons(buttons, { canValidate: false, canNext: true, canStart: false, showHint: !correct && activeQuestion?.hint });
+    }
+  }));
 
-  buttons.next?.addEventListener("click", () => {
+  buttons.next?.addEventListener("click", throttleAction(() => {
     feedback.hide();
     nextQuestion();
-    toggleButtons(buttons, { canValidate: false, canNext: false, canStart: false, showHint: false });
-  });
+    if (machine) {
+      machine.setState("PLAYING");
+    } else {
+      toggleButtons(buttons, { canValidate: false, canNext: false, canStart: false, showHint: false });
+    }
+  }));
 
-  buttons.hint?.addEventListener("click", () => {
-    if (!activeQuestion?.hint) return;
+  buttons.hint?.addEventListener("click", throttleAction(() => {
+    if (!activeQuestion?.hint || hasHinted) return;
+    hasHinted = true;
     const hintArea = root.querySelector("[data-hint]");
     if (hintArea) {
       hintArea.textContent = activeQuestion.hint;
       hintArea.hidden = false;
     }
-  });
+    if (machine) {
+      machine.setState("ANSWER_SELECTED");
+    }
+  }));
 
-  buttons.calm?.addEventListener("click", () => {
+  buttons.calm?.addEventListener("click", throttleAction(() => {
     const current = state.getState().calmMode;
     state.update({ calmMode: !current });
     root.classList.toggle("gs-calm", !current);
-  });
+    if (typeof window.saveAppData === "function") {
+      window.saveAppData({ calmMode: !current });
+    }
+  }));
 
   if (devMode) {
     mountDevPanel(root, state);
@@ -113,7 +140,28 @@ function bootstrap(root) {
 
   // time-to-fun: show first question immediately
   nextQuestion();
-  toggleButtons(buttons, { canValidate: false, canNext: false, canStart: true, showHint: false });
+  if (machine) {
+    machine.setState("PLAYING");
+  } else {
+    toggleButtons(buttons, { canValidate: false, canNext: false, canStart: true, showHint: false });
+  }
+
+  function renderMachine(snapshot) {
+    const stateKey = snapshot.state;
+    const hintReady = Boolean(activeQuestion?.hint && !hasHinted);
+    if (!buttons) { return; }
+    if (stateKey === "IDLE") {
+      toggleButtons(buttons, { canValidate: false, canNext: false, canStart: true, showHint: false });
+    } else if (stateKey === "PLAYING") {
+      toggleButtons(buttons, { canValidate: false, canNext: false, canStart: false, showHint: false });
+    } else if (stateKey === "ANSWER_SELECTED") {
+      toggleButtons(buttons, { canValidate: true, canNext: false, canStart: false, showHint: hintReady });
+    } else if (stateKey === "VALIDATED") {
+      toggleButtons(buttons, { canValidate: false, canNext: true, canStart: false, showHint: hintReady });
+    } else if (stateKey === "NEXT_READY") {
+      toggleButtons(buttons, { canValidate: false, canNext: true, canStart: false, showHint: false });
+    }
+  }
 }
 
 function pickQuestion(bank, state) {

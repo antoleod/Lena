@@ -1,4 +1,4 @@
-console.log("login.js loaded");
+﻿console.log("login.js loaded");
 
 document.addEventListener('DOMContentLoaded', () => {
   const avatars = Array.from(document.querySelectorAll('.avatar-option'));
@@ -12,8 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const previewAvatarName = document.getElementById('selected-avatar-name');
   const previewPlayerName = document.getElementById('selected-player-name');
   const errorEl = document.getElementById('login-error');
+  const calmToggle = document.getElementById('calmToggle');
+  const calmStatus = document.querySelector('[data-calm-status]');
+  const parentAccess = document.getElementById('parent-access');
+  const parentPanel = document.getElementById('parent-panel');
+  const parentPanelClose = document.getElementById('parent-panel-close');
+  const parentReset = document.getElementById('parent-reset');
 
   const t = (key, fallback) => (window.i18n?.t ? window.i18n.t(key) : fallback);
+  const appData = typeof window.loadAppData === 'function' ? window.loadAppData() : {};
 
   const defaultColor = colors[0]?.dataset.color || '#ffc6ff';
 
@@ -28,12 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedAvatar = null;
   let selectedColor = defaultColor;
   let userChoseColor = false;
+  let parentHoldTimer = null;
 
   if (nameInput && storedNameDraft) {
     nameInput.value = storedNameDraft;
   }
 
   updateSelectionPreview();
+  syncCalmToggle(Boolean(appData?.calmMode));
 
 
   function renderOwnedCosmetics(profile) {
@@ -48,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach(item => {
       if (item.type === 'avatar') {
         const div = document.createElement('div'); div.className = 'owned-item';
-        const img = document.createElement('img'); img.alt = item.name || 'Avatar'; img.src = resolveAvatarIcon(item.iconUrl || '');
+        const img = document.createElement('img'); img.alt = item.name || t('avatarAlt', 'Avatar'); img.src = resolveAvatarIcon(item.iconUrl || '');
         const label = document.createElement('div'); label.className = 'owned-item__name'; label.textContent = item.name || item.id;
-        const btn = document.createElement('button'); btn.className = 'owned-item__btn'; btn.type='button'; btn.textContent = 'Utiliser';
+        const btn = document.createElement('button'); btn.className = 'owned-item__btn'; btn.type='button'; btn.textContent = t('ownedAvatarUse', 'Utiliser');
         if (profile.avatar?.id === item.id) { btn.disabled = true; }
         btn.addEventListener('click', () => {
           const newProfile = { ...profile, avatar: { id: item.id, name: item.name, iconUrl: item.iconUrl } };
@@ -61,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
         div.append(img, label, btn); ownedAvatarsEl.appendChild(div);
       } else if (item.type === 'background' || item.type === 'theme') {
         const div = document.createElement('div'); div.className = 'owned-item';
-        const img = document.createElement('img'); img.alt = item.name || 'Fond'; img.src = item.previewUrl || resolveAvatarIcon(profile.avatar?.iconUrl || '');
+        const img = document.createElement('img'); img.alt = item.name || t('backgroundAlt', 'Fond'); img.src = item.previewUrl || resolveAvatarIcon(profile.avatar?.iconUrl || '');
         const label = document.createElement('div'); label.className = 'owned-item__name'; label.textContent = item.name || item.id;
-        const btn = document.createElement('button'); btn.className = 'owned-item__btn'; btn.type='button'; btn.textContent = 'Définir';
+        const btn = document.createElement('button'); btn.className = 'owned-item__btn'; btn.type='button'; btn.textContent = t('ownedBackgroundSet', 'Définir');
         if (activeBg === item.id) { btn.disabled = true; }
         btn.addEventListener('click', () => {
           const prog = storage.loadUserProgress(profile.name);
@@ -162,7 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Clic al botón login
   loginBtn.addEventListener('click', () => {
-    const name = nameInput.value.trim();
+    const fallbackName = t('fallbackName', 'Ami Magique');
+    const name = nameInput.value.trim() || fallbackName;
     const isValidName = name.length >= 1 && name.length <= 12;
     if (!isValidName || !selectedAvatar) {
       if (errorEl) {
@@ -184,9 +194,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const userProfile = {
       name,
       avatar: selectedAvatar,
-      color: selectedColor || defaultColor
+      color: selectedColor || defaultColor,
+      settings: {
+        ...(appData?.settings || {}),
+        calmMode: Boolean(appData?.calmMode)
+      }
     };
     storage.saveUserProfile(userProfile);
+    if (typeof window.saveAppData === 'function') {
+      window.saveAppData({ calmMode: Boolean(appData?.calmMode) });
+    }
     window.location.href = menuPath;
   });
 
@@ -207,6 +224,56 @@ document.addEventListener('DOMContentLoaded', () => {
       loginBtn.click();
     }
   });
+
+  if (calmToggle) {
+    calmToggle.addEventListener('click', () => {
+      const next = calmToggle.getAttribute('aria-checked') !== 'true';
+      syncCalmToggle(next);
+      if (typeof window.saveAppData === 'function') {
+        window.saveAppData({ calmMode: next });
+      }
+    });
+  }
+
+  if (parentAccess) {
+    const clearHold = () => {
+      parentAccess.classList.remove('is-holding');
+      if (parentHoldTimer) {
+        clearTimeout(parentHoldTimer);
+        parentHoldTimer = null;
+      }
+    };
+
+    const startHold = () => {
+      clearHold();
+      parentAccess.classList.add('is-holding');
+      parentHoldTimer = setTimeout(() => {
+        parentHoldTimer = null;
+        openParentPanel();
+      }, 2000);
+    };
+
+    parentAccess.addEventListener('pointerdown', startHold);
+    parentAccess.addEventListener('pointerup', clearHold);
+    parentAccess.addEventListener('pointerleave', clearHold);
+    parentAccess.addEventListener('pointercancel', clearHold);
+  }
+
+  if (parentPanelClose) {
+    parentPanelClose.addEventListener('click', closeParentPanel);
+  }
+
+  if (parentReset) {
+    parentReset.addEventListener('click', () => {
+      if (typeof window.resetAppData === 'function') {
+        const didReset = window.resetAppData();
+        if (didReset) {
+          closeParentPanel();
+          window.location.reload();
+        }
+      }
+    });
+  }
 
   /** Funciones auxiliares abajo **/
 
@@ -229,9 +296,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!el) return null;
     const avatarId = el.dataset.avatarId;
     const libEntry = (window.AVATAR_LIBRARY || {})[avatarId] || {};
+    const nameKey = el.dataset.avatarNameKey;
+    const fallbackName = el.dataset.avatarName || libEntry.name || el.title || 'Avatar';
+    const resolvedName = nameKey ? t(nameKey, fallbackName) : fallbackName;
     return {
       id: avatarId || libEntry.id,
-      name: el.dataset.avatarName || libEntry.name || el.title || 'Avatar',
+      name: resolvedName,
       iconUrl: el.dataset.avatarIcon || libEntry.iconUrl || '',
       defaultPalette: libEntry.defaultPalette || null
     };
@@ -288,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const iconUrl = resolveAvatarIcon(selectedAvatar?.iconUrl);
       if (iconUrl) {
         previewAvatarImg.src = iconUrl;
-        previewAvatarImg.alt = selectedAvatar?.name || 'Avatar sélectionné';
+        previewAvatarImg.alt = selectedAvatar?.name || t('selectedAvatarLabel', 'Avatar choisi');
         previewAvatarWrapper.classList.add('is-active');
       } else {
         previewAvatarImg.removeAttribute('src');
@@ -302,6 +372,17 @@ document.addEventListener('DOMContentLoaded', () => {
       previewPlayerName.textContent = trimmed || t('selectedNamePlaceholder', 'Écris ton prénom');
     }
   }
+
+  document.addEventListener('lena:language:change', () => {
+    if (selectedAvatar?.id) {
+      const avatarEl = avatars.find(a => a.dataset.avatarId === selectedAvatar.id);
+      if (avatarEl) {
+        const data = extractAvatarData(avatarEl);
+        selectedAvatar = { ...selectedAvatar, name: data.name, iconUrl: data.iconUrl };
+      }
+    }
+    updateSelectionPreview();
+  });
 
   function resolveAvatarIcon(iconUrl = '') {
     if (!iconUrl || typeof iconUrl !== 'string') {
@@ -434,6 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const angle = Math.random() * 2 * Math.PI;
       const duration = 0.5 + Math.random() * 0.5;
+      const distance = 50 + Math.random() * 40;
 
       particle.style.setProperty('--angle', angle);
       particle.style.setProperty('--distance', distance);
@@ -443,6 +525,34 @@ document.addEventListener('DOMContentLoaded', () => {
         particle.remove();
       }, duration * 1000);
     }
+  }
+
+  function syncCalmToggle(enabled) {
+    if (!calmToggle) { return; }
+    if (appData) {
+      appData.calmMode = enabled;
+    }
+    calmToggle.setAttribute('aria-checked', enabled ? 'true' : 'false');
+    if (calmStatus) {
+      calmStatus.textContent = enabled
+        ? t('calmModeOn', 'Calme activé')
+        : t('calmModeOff', 'Calme désactivé');
+    }
+    if (window.appData?.applyCalmMode) {
+      window.appData.applyCalmMode(enabled);
+    } else if (typeof window.saveAppData === 'function') {
+      window.saveAppData({ calmMode: enabled });
+    }
+  }
+
+  function openParentPanel() {
+    if (!parentPanel) { return; }
+    parentPanel.hidden = false;
+  }
+
+  function closeParentPanel() {
+    if (!parentPanel) { return; }
+    parentPanel.hidden = true;
   }
 });
 

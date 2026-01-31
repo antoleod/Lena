@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -26,9 +26,18 @@
         <div class="login-header">
             <div class="login-header__card">
                 <span class="login-badge" data-i18n="loginBadge">✨ Choisis ton avatar ✨</span>
-                <div class="login-lang">
-                    <label class="login-lang__label" for="languageSelect" data-i18n="languageLabel">Langue</label>
-                    <select id="languageSelect" class="login-lang__select" data-language-select data-i18n-aria="languageSelectAria"></select>
+                <div class="login-settings">
+                    <div class="login-lang">
+                        <label class="login-lang__label" for="languageSelect" data-i18n="languageLabel">Langue</label>
+                        <select id="languageSelect" class="login-lang__select" data-language-select data-i18n-aria="languageSelectAria"></select>
+                    </div>
+                    <div class="login-calm">
+                        <button id="calmToggle" class="login-calm__toggle" type="button" role="switch" aria-checked="false" data-i18n-aria="calmToggleAria">
+                            <span class="login-calm__label" data-i18n="calmModeLabel">Mode Calme</span>
+                            <span class="login-calm__status" data-calm-status>Off</span>
+                        </button>
+                        <span class="login-calm__desc" data-i18n="calmModeDescription">Moins d'animations et de sons.</span>
+                    </div>
                 </div>
                 <div class="login-headline">
                     <h1 class="login-title" data-i18n="loginTitle">Bienvenue dans ton aventure magique</h1>
@@ -46,8 +55,8 @@
                     <span class="selection-preview__value" id="selected-avatar-name" data-i18n="selectedAvatarPlaceholder">Choisis ton avatar</span>
                 </div>
                 <div class="selection-preview__details">
-                    <span class="selection-preview__label" data-i18n="selectedNameLabel">Ton prAcnom</span>
-                    <span class="selection-preview__value" id="selected-player-name" data-i18n="selectedNamePlaceholder">A%cris ton prAcnom</span>
+                    <span class="selection-preview__label" data-i18n="selectedNameLabel">Ton prénom</span>
+                    <span class="selection-preview__value" id="selected-player-name" data-i18n="selectedNamePlaceholder">Écris ton prénom</span>
                 </div>
             </div>
         </div>
@@ -56,38 +65,38 @@
             <header class="section-header">
                 <h2 id="avatar-section-title" data-i18n="avatarSectionTitle">Avatars délicieux</h2>
             </header>
-            <div id="avatar-selection" role="listbox" aria-label="Choisis ton avatar prAcfAcrAc" data-i18n-aria="avatarListLabel">
-                <button class="avatar-option" type="button" data-avatar-id="licorne" data-avatar-name="Licorne Arc-en-ciel" data-avatar-icon="../assets/avatars/licorne.svg" data-avatar-color="#ffc6ff" aria-label="Licorne arc-en-ciel">
+            <div id="avatar-selection" role="listbox" aria-label="Choisis ton avatar préféré" data-i18n-aria="avatarListLabel">
+                <button class="avatar-option" type="button" data-avatar-id="licorne" data-avatar-name="Licorne Arc-en-ciel" data-avatar-name-key="avatarUnicorn" data-avatar-icon="../assets/avatars/licorne.svg" data-avatar-color="#ffc6ff" aria-label="Licorne" data-i18n-aria="avatarUnicorn">
                     <span class="avatar-emoji">🦄</span>
-                    <span class="avatar-label">Licorne</span>
+                    <span class="avatar-label" data-i18n="avatarUnicorn">Licorne</span>
                 </button>
-                <button class="avatar-option" type="button" data-avatar-id="renard" data-avatar-name="Renard malicieux" data-avatar-icon="../assets/avatars/renard.svg" data-avatar-color="#ffd6a5" aria-label="Renard malicieux">
+                <button class="avatar-option" type="button" data-avatar-id="renard" data-avatar-name="Renard malicieux" data-avatar-name-key="avatarFox" data-avatar-icon="../assets/avatars/renard.svg" data-avatar-color="#ffd6a5" aria-label="Renard" data-i18n-aria="avatarFox">
                     <span class="avatar-emoji">🦊</span>
-                    <span class="avatar-label">Renard</span>
+                    <span class="avatar-label" data-i18n="avatarFox">Renard</span>
                 </button>
-                <button class="avatar-option" type="button" data-avatar-id="panda" data-avatar-name="Panda câlin" data-avatar-icon="../assets/avatars/panda.svg" data-avatar-color="#caffbf" aria-label="Panda câlin">
+                <button class="avatar-option" type="button" data-avatar-id="panda" data-avatar-name="Panda câlin" data-avatar-name-key="avatarPanda" data-avatar-icon="../assets/avatars/panda.svg" data-avatar-color="#caffbf" aria-label="Panda" data-i18n-aria="avatarPanda">
                     <span class="avatar-emoji">🐼</span>
-                    <span class="avatar-label">Panda</span>
+                    <span class="avatar-label" data-i18n="avatarPanda">Panda</span>
                 </button>
-                <button class="avatar-option" type="button" data-avatar-id="hibou" data-avatar-name="Hibou sage" data-avatar-icon="../assets/avatars/hibou.svg" data-avatar-color="#a0c4ff" aria-label="Hibou sage">
+                <button class="avatar-option" type="button" data-avatar-id="hibou" data-avatar-name="Hibou sage" data-avatar-name-key="avatarOwl" data-avatar-icon="../assets/avatars/hibou.svg" data-avatar-color="#a0c4ff" aria-label="Hibou" data-i18n-aria="avatarOwl">
                     <span class="avatar-emoji">🦉</span>
-                    <span class="avatar-label">Hibou</span>
+                    <span class="avatar-label" data-i18n="avatarOwl">Hibou</span>
                 </button>
-                <button class="avatar-option" type="button" data-avatar-id="fraise" data-avatar-name="Fraise pétillante" data-avatar-icon="../assets/avatars/fraise.svg" data-avatar-color="#ffadad" aria-label="Fraise pétillante">
+                <button class="avatar-option" type="button" data-avatar-id="fraise" data-avatar-name="Fraise pétillante" data-avatar-name-key="avatarStrawberry" data-avatar-icon="../assets/avatars/fraise.svg" data-avatar-color="#ffadad" aria-label="Fraise" data-i18n-aria="avatarStrawberry">
                     <span class="avatar-emoji">🍓</span>
-                    <span class="avatar-label">Fraise</span>
+                    <span class="avatar-label" data-i18n="avatarStrawberry">Fraise</span>
                 </button>
-                <button class="avatar-option" type="button" data-avatar-id="pomme" data-avatar-name="Pomme brillante" data-avatar-icon="../assets/avatars/pomme.svg" data-avatar-color="#ffadad" aria-label="Pomme brillante">
+                <button class="avatar-option" type="button" data-avatar-id="pomme" data-avatar-name="Pomme brillante" data-avatar-name-key="avatarApple" data-avatar-icon="../assets/avatars/pomme.svg" data-avatar-color="#ffadad" aria-label="Pomme" data-i18n-aria="avatarApple">
                     <span class="avatar-emoji">🍎</span>
-                    <span class="avatar-label">Pomme</span>
+                    <span class="avatar-label" data-i18n="avatarApple">Pomme</span>
                 </button>
-                <button class="avatar-option" type="button" data-avatar-id="banane" data-avatar-name="Banane rigolote" data-avatar-icon="../assets/avatars/banane.svg" data-avatar-color="#fdffb6" aria-label="Banane rigolote">
+                <button class="avatar-option" type="button" data-avatar-id="banane" data-avatar-name="Banane rigolote" data-avatar-name-key="avatarBanana" data-avatar-icon="../assets/avatars/banane.svg" data-avatar-color="#fdffb6" aria-label="Banane" data-i18n-aria="avatarBanana">
                     <span class="avatar-emoji">🍌</span>
-                    <span class="avatar-label">Banane</span>
+                    <span class="avatar-label" data-i18n="avatarBanana">Banane</span>
                 </button>
-                <button class="avatar-option" type="button" data-avatar-id="ananas" data-avatar-name="Ananas disco" data-avatar-icon="../assets/avatars/ananas.svg" data-avatar-color="#ffd6a5" aria-label="Ananas disco">
+                <button class="avatar-option" type="button" data-avatar-id="ananas" data-avatar-name="Ananas disco" data-avatar-name-key="avatarPineapple" data-avatar-icon="../assets/avatars/ananas.svg" data-avatar-color="#ffd6a5" aria-label="Ananas" data-i18n-aria="avatarPineapple">
                     <span class="avatar-emoji">🍍</span>
-                    <span class="avatar-label">Ananas</span>
+                    <span class="avatar-label" data-i18n="avatarPineapple">Ananas</span>
                 </button>
             </div>
         </section>
@@ -96,7 +105,7 @@
 
         <section class="login-section" aria-labelledby="name-section-title">
            <div class="name-input-wrapper">
-                <span class="name-icon" aria-hidden="true">📝</span>
+                <span class="name-icon" aria-hidden="true">✏️</span>
                 <input type="text" id="name-input" data-i18n-placeholder="namePlaceholder" data-i18n-aria="nameAria" placeholder="Écris ton prénom ici..." aria-label="Écris ton prénom" autocapitalize="words" maxlength="12" inputmode="text">
             </div>
         </section>
@@ -105,23 +114,42 @@
             <header class="section-header">
                 <h2 id="color-section-title" data-i18n="colorSectionTitle">Choisis ta couleur préférée</h2>
             </header>
-            <div id="color-selection" role="radiogroup" aria-label="Choisis ta couleur prAcfAcrAce" data-i18n-aria="colorListLabel">
-                <button class="color-option" type="button" style="--color-base: #ffadad;" data-color="#ffadad" data-tooltip="🌸 Rose pastel" aria-label="Rose pastel"></button>
-                <button class="color-option" type="button" style="--color-base: #ffd6a5;" data-color="#ffd6a5" data-tooltip="🍑 Abricot doux" aria-label="Abricot doux"></button>
-                <button class="color-option" type="button" style="--color-base: #fdffb6;" data-color="#fdffb6" data-tooltip="🍋 Citron léger" aria-label="Citron léger"></button>
-                <button class="color-option" type="button" style="--color-base: #caffbf;" data-color="#caffbf" data-tooltip="🌿 Menthe fraîche" aria-label="Menthe fraîche"></button>
-                <button class="color-option" type="button" style="--color-base: #9bf6ff;" data-color="#9bf6ff" data-tooltip="🌊 Océan clair" aria-label="Océan clair"></button>
-                <button class="color-option" type="button" style="--color-base: #a0c4ff;" data-color="#a0c4ff" data-tooltip="☁️ Ciel calme" aria-label="Ciel calme"></button>
-                <button class="color-option" type="button" style="--color-base: #bdb2ff;" data-color="#bdb2ff" data-tooltip="💜 Lavande" aria-label="Lavande"></button>
-                <button class="color-option" type="button" style="--color-base: #ffc6ff;" data-color="#ffc6ff" data-tooltip="🍓 Framboise légère" aria-label="Framboise légère"></button>
-                <button class="color-option color-option-white" type="button" style="--color-base: #ffffff;" data-color="#ffffff" data-tooltip="✨ Blanc magique" aria-label="Blanc magique"></button>
+            <div id="color-selection" role="radiogroup" aria-label="Choisis ta couleur préférée" data-i18n-aria="colorListLabel">
+                <button class="color-option" type="button" style="--color-base: #ffadad;" data-color="#ffadad" data-tooltip="🌸 Rose pastel" data-i18n-tooltip="colorRoseTooltip" aria-label="Rose pastel" data-i18n-aria="colorRoseLabel"></button>
+                <button class="color-option" type="button" style="--color-base: #ffd6a5;" data-color="#ffd6a5" data-tooltip="🍑 Abricot doux" data-i18n-tooltip="colorApricotTooltip" aria-label="Abricot doux" data-i18n-aria="colorApricotLabel"></button>
+                <button class="color-option" type="button" style="--color-base: #fdffb6;" data-color="#fdffb6" data-tooltip="🍋 Citron léger" data-i18n-tooltip="colorLemonTooltip" aria-label="Citron léger" data-i18n-aria="colorLemonLabel"></button>
+                <button class="color-option" type="button" style="--color-base: #caffbf;" data-color="#caffbf" data-tooltip="🌿 Menthe fraîche" data-i18n-tooltip="colorMintTooltip" aria-label="Menthe fraîche" data-i18n-aria="colorMintLabel"></button>
+                <button class="color-option" type="button" style="--color-base: #9bf6ff;" data-color="#9bf6ff" data-tooltip="🌊 Océan clair" data-i18n-tooltip="colorOceanTooltip" aria-label="Océan clair" data-i18n-aria="colorOceanLabel"></button>
+                <button class="color-option" type="button" style="--color-base: #a0c4ff;" data-color="#a0c4ff" data-tooltip="☁️ Ciel calme" data-i18n-tooltip="colorSkyTooltip" aria-label="Ciel calme" data-i18n-aria="colorSkyLabel"></button>
+                <button class="color-option" type="button" style="--color-base: #bdb2ff;" data-color="#bdb2ff" data-tooltip="💜 Lavande" data-i18n-tooltip="colorLavenderTooltip" aria-label="Lavande" data-i18n-aria="colorLavenderLabel"></button>
+                <button class="color-option" type="button" style="--color-base: #ffc6ff;" data-color="#ffc6ff" data-tooltip="🍓 Framboise légère" data-i18n-tooltip="colorRaspberryTooltip" aria-label="Framboise légère" data-i18n-aria="colorRaspberryLabel"></button>
+                <button class="color-option color-option-white" type="button" style="--color-base: #ffffff;" data-color="#ffffff" data-tooltip="✨ Blanc magique" data-i18n-tooltip="colorWhiteTooltip" aria-label="Blanc magique" data-i18n-aria="colorWhiteLabel"></button>
             </div>
         </section>
 
-        <button id="login-btn" class="btn" type="button">
-            <span class="rocket-icon" aria-hidden="true">🚀</span>
-            <span class="btn-label" data-i18n="loginButton">Entrer dans le monde de Léna</span>
-        </button>
+        <div class="login-actions">
+            <button id="login-btn" class="btn" type="button">
+                <span class="rocket-icon" aria-hidden="true">🚀</span>
+                <span class="btn-label" data-i18n="loginPlayButton">Jouer</span>
+            </button>
+            <button id="parent-access" class="parent-access" type="button" aria-label="Accès parents" data-i18n-aria="loginParentAccess" data-i18n-title="loginParentHold">
+                <span aria-hidden="true">🛡️</span>
+                <span class="parent-access__label" data-i18n="loginParentAccess">Accès parents</span>
+                <span class="parent-access__hint" data-i18n="loginParentHold">Maintiens 2 secondes</span>
+            </button>
+        </div>
+
+        <div id="parent-panel" class="parent-panel" hidden>
+            <div class="parent-panel__card" role="dialog" aria-modal="true" aria-labelledby="parent-panel-title">
+                <header class="parent-panel__header">
+                    <h2 id="parent-panel-title" data-i18n="parentPanelTitle">Espace parents</h2>
+                    <button id="parent-panel-close" type="button" class="parent-panel__close" data-i18n="parentPanelClose">Fermer</button>
+                </header>
+                <div class="parent-panel__content">
+                    <button id="parent-reset" type="button" class="parent-panel__action" data-i18n="parentResetLabel">Réinitialiser les données</button>
+                </div>
+            </div>
+        </div>
 
         <p id="login-error" class="login-error" role="alert" aria-live="assertive" hidden></p>
     </div>
@@ -134,6 +162,7 @@
     <script src="../js/avatarData.js"></script>
     <script src="../js/storage.js"></script>
     <script src="../js/i18n.js" defer></script>
+    <script src="../js/appData.js" defer></script>
     <script src="../js/login.js"></script>
 <script>
     if ('serviceWorker' in navigator) {

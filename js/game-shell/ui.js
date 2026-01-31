@@ -9,6 +9,8 @@ export function bindButtons(root) {
   return buttons;
 }
 
+const t = (key, fallback) => (window.i18n?.t ? window.i18n.t(key) : fallback);
+
 export function renderHud(root, state, meta = {}) {
   const levelEl = root.querySelector("[data-level]");
   const coinsEl = root.querySelector("[data-coins]");
@@ -43,6 +45,7 @@ export function renderOptions(root, question, onSelect) {
       btn.type = "button";
       btn.className = "gs-option";
       btn.textContent = option.label;
+      btn.setAttribute("aria-label", option.label);
       btn.addEventListener("click", () => {
         container.querySelectorAll(".gs-option").forEach((el) => el.dataset.selected = "false");
         btn.dataset.selected = "true";
@@ -58,6 +61,7 @@ export function renderOptions(root, question, onSelect) {
       pill.type = "button";
       pill.className = "gs-order__pill";
       pill.textContent = item.label;
+      pill.setAttribute("aria-label", item.label);
       pill.addEventListener("click", () => {
         pill.dataset.active = pill.dataset.active === "true" ? "false" : "true";
         if (pill.dataset.active === "true") {
@@ -74,7 +78,8 @@ export function renderOptions(root, question, onSelect) {
     const input = document.createElement("input");
     input.type = "text";
     input.className = "gs-option";
-    input.placeholder = " ? ";
+    input.placeholder = t("gameAnswerPlaceholder", "Ta réponse");
+    input.setAttribute("aria-label", t("gameAnswerPlaceholder", "Ta réponse"));
     input.addEventListener("input", () => onSelect(input.value.trim()));
     container.appendChild(input);
   }

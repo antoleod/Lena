@@ -16,10 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Assurer que AVATAR_LIBRARY est chargé
     if (typeof window.AVATAR_LIBRARY === 'undefined') {
         console.error('AVATAR_LIBRARY non trouvé. Vérifiez le chargement de avatarData.js');
+        const t = (key, fallback) => (window.i18n?.t ? window.i18n.t(key) : fallback);
         // Afficher un message d'erreur à l'utilisateur
         const container = document.getElementById('magic-shop-container');
         if (container) {
-            container.innerHTML = '<h1 style="color: red; text-align: center;">Erreur de chargement de la boutique !</h1><p style="text-align: center;">Veuillez vérifier la console pour les erreurs et rafraîchir la page.</p>';
+            const title = t('shopLoadErrorTitle', 'Erreur de chargement de la boutique !');
+            const body = t('shopLoadErrorBody', 'Veuillez vérifier la console pour les erreurs et rafraîchir la page.');
+            container.innerHTML = `<h1 style="color: red; text-align: center;">${title}</h1><p style="text-align: center;">${body}</p>`;
         }
         return; // Bloquer l'exécution pour éviter d'autres erreurs
     }

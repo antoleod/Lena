@@ -1,4 +1,4 @@
-/* merged */
+﻿/* merged */
 /* ========== Variables globales ========== */
 :root {
   --primary: #a890f0;
@@ -115,7 +115,7 @@ html, body {
   animation: fadeIn 0.8s ease-out;
 }
 
-/* Brillos “✨” decorativos en el contenedor */
+/* Brillos ✨ decorativos en el contenedor */
 #login-container::before,
 #login-container::after {
   content: '✨';
@@ -165,6 +165,54 @@ html, body {
   align-items: center;
   gap: 10px;
   margin-top: 12px;
+}
+
+.login-settings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.login-calm {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.login-calm__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.88);
+  color: #3f2c85;
+  box-shadow: 0 8px 18px rgba(74, 59, 135, 0.15);
+  cursor: pointer;
+}
+
+.login-calm__toggle[aria-checked="true"] {
+  background: linear-gradient(135deg, #d7f7e6, #e5f0ff);
+}
+
+.login-calm__status {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(63, 44, 133, 0.1);
+  color: #3f2c85;
+}
+
+.login-calm__desc {
+  font-size: 0.8rem;
+  color: rgba(63, 44, 133, 0.7);
 }
 
 .login-lang__label {
@@ -587,6 +635,91 @@ html, body {
   overflow: hidden;
 }
 
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.parent-access {
+  border: none;
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #4b3b92;
+  box-shadow: 0 10px 22px rgba(81, 62, 151, 0.12);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.parent-access__label {
+  font-size: 0.85rem;
+}
+
+.parent-access__hint {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.parent-access.is-holding {
+  box-shadow: 0 0 0 3px rgba(168, 144, 240, 0.4), 0 12px 26px rgba(81, 62, 151, 0.2);
+}
+
+.parent-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(39, 31, 72, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.parent-panel__card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  width: min(90%, 360px);
+  box-shadow: 0 18px 40px rgba(45, 37, 87, 0.3);
+}
+
+.parent-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.parent-panel__close {
+  border: none;
+  background: transparent;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #3f2c85;
+  cursor: pointer;
+}
+
+.parent-panel__action {
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  background: linear-gradient(135deg, #ffd6a5, #ffadad);
+  color: #5a2f2f;
+  cursor: pointer;
+}
+
   #login-btn:hover,
   #login-btn:focus-visible {
     transform: translateY(-4px) scale(1.02);
@@ -624,7 +757,7 @@ html, body {
   animation: rocketHover 2.4s ease-in-out infinite;
 }
 
-/* Para “sparkles” sueltos que puedas generar dinámicamente */
+/* Para "sparkles" sueltos que puedas generar dinámicamente */
 .btn-sparkle {
   position: absolute;
   width: 10px;
@@ -671,6 +804,19 @@ html, body {
 }
 .login-fireflies span:nth-child(4) {
   animation-delay: 0.9s;
+}
+
+.calm-mode .login-orb,
+.calm-mode .login-fireflies,
+.calm-mode .login-wand,
+.calm-mode #login-btn,
+.calm-mode .rocket-icon {
+  animation: none !important;
+}
+
+.calm-mode #login-container::before,
+.calm-mode #login-container::after {
+  animation: none !important;
 }
 
 /* ========== Animaciones clave ========== */
