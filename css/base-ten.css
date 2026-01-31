@@ -1,0 +1,191 @@
+.base-ten-game {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 36px rgba(42, 30, 84, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.base-ten-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.base-ten-title {
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: #3f2c85;
+  margin: 0;
+}
+
+.base-ten-target {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  font-weight: 700;
+  color: #3f2c85;
+}
+
+.base-ten-instructions {
+  font-size: 0.95rem;
+  color: rgba(63, 44, 133, 0.78);
+}
+
+.base-ten-workspace {
+  display: grid;
+  gap: 1rem;
+}
+
+.base-ten-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.6rem;
+  border-radius: 1rem;
+  background: rgba(250, 249, 255, 0.8);
+  border: 1px dashed rgba(95, 70, 163, 0.25);
+}
+
+.base-ten-row__label {
+  font-weight: 700;
+  color: #51408a;
+  margin-right: 0.5rem;
+}
+
+.base-ten-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.65rem;
+  font-weight: 800;
+  color: #3f2c85;
+  background: linear-gradient(135deg, #ffd6ff, #caffbf);
+  box-shadow: 0 8px 16px rgba(63, 44, 133, 0.15);
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.base-ten-block:active {
+  cursor: grabbing;
+}
+
+.base-ten-block--ten {
+  width: 120px;
+  height: 42px;
+}
+
+.base-ten-block--one {
+  width: 42px;
+  height: 42px;
+}
+
+.base-ten-bank {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.6rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(152, 122, 223, 0.2);
+}
+
+.base-ten-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.base-ten-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.2rem;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, #caffbf, #9bf6ff);
+  color: #2f1d4f;
+  box-shadow: 0 12px 26px rgba(63, 44, 133, 0.18);
+}
+
+.base-ten-btn--ghost {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.base-ten-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.base-ten-feedback {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(152, 122, 223, 0.2);
+  color: #3f2c85;
+  font-weight: 700;
+}
+
+.base-ten-subtract-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.base-ten-subtract-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.base-ten-subtract-row__label {
+  font-weight: 700;
+  color: #4b3b92;
+  min-width: 140px;
+}
+
+.base-ten-result {
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: #3f2c85;
+  font-weight: 700;
+}
+
+.base-ten-block.is-removed {
+  opacity: 0.35;
+  filter: grayscale(0.5);
+}
+
+.calm-mode .base-ten-block,
+.calm-mode .base-ten-btn {
+  transition: none;
+}
+
+@media (max-width: 768px) {
+  .base-ten-game {
+    padding: 1.1rem;
+  }
+  .base-ten-block--ten {
+    width: 100px;
+  }
+  .base-ten-block--one {
+    width: 36px;
+    height: 36px;
+  }
+  .base-ten-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

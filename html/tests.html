@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smoke Tests</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <main style="max-width: 720px; margin: 2rem auto; padding: 1rem;">
+    <h1>Smoke Tests</h1>
+    <p>Ouvre la console pour voir les résultats.</p>
+    <button id="run-tests" type="button" class="btn">Lancer les tests</button>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/appData.js"></script>
+  <script src="../js/stateMachine.js"></script>
+  <script src="../js/tests/smokeTests.js"></script>
+  <script>
+    document.getElementById('run-tests').addEventListener('click', () => {
+      if (window.smokeTests?.run) {
+        window.smokeTests.run();
+      }
+    });
+  </script>
+</body>
+</html>
+
