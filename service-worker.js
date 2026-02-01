@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lena-cache-v2';
+const CACHE_NAME = 'lena-cache-v3';
 
 // List of core resources to cache for offline use. Adjust as needed.
 const CORE_ASSETS = [
@@ -9,12 +9,19 @@ const CORE_ASSETS = [
   '/css/style.css',
   '/css/login.css',
   '/css/feedback-system.css',
+  '/css/new-games.css',
   '/js/feedbackSystem.js',
   '/js/avatarData.js',
   '/js/storage.js',
   '/js/login.js',
+  '/js/new-games/registry.js',
+  '/js/new-games/engine.js',
+  '/js/new-games/qa.js',
   '/games/riddleLevels.js',
   '/games/storySets.js',
+  '/assets/i18n/fr.json',
+  '/assets/i18n/es.json',
+  '/assets/i18n/nl.json',
   '/assets/iconos/icon-1024.png',
   '/assets/iconos/icon-512.png',
   '/assets/iconos/icon-384.png',
@@ -32,7 +39,8 @@ const CORE_ASSETS = [
   '/assets/iconos/icon-48.png',
   '/assets/iconos/icon-32.png',
   '/assets/iconos/icon-16.png',
-  '/offline.html'
+  '/offline.html',
+  '/html/game.html'
 ];
 
 self.addEventListener('install', (event) => {

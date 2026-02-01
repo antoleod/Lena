@@ -11,16 +11,29 @@
     <h1>Smoke Tests</h1>
     <p>Ouvre la console pour voir les résultats.</p>
     <button id="run-tests" type="button" class="btn">Lancer les tests</button>
+    <button id="run-new-games-qa" type="button" class="btn">QA Jeux nouveaux</button>
+    <pre id="qa-output" style="margin-top:1rem; background:#fff; padding:1rem; border-radius:12px;"></pre>
   </main>
 
   <script src="../js/i18n.js"></script>
   <script src="../js/appData.js"></script>
   <script src="../js/stateMachine.js"></script>
   <script src="../js/tests/smokeTests.js"></script>
+  <script src="../js/new-games/registry.js"></script>
+  <script src="../js/new-games/qa.js"></script>
   <script>
     document.getElementById('run-tests').addEventListener('click', () => {
       if (window.smokeTests?.run) {
         window.smokeTests.run();
+      }
+    });
+    document.getElementById('run-new-games-qa').addEventListener('click', () => {
+      const output = document.getElementById('qa-output');
+      if (window.runNewGamesQA) {
+        const report = window.runNewGamesQA();
+        output.textContent = JSON.stringify(report, null, 2);
+      } else {
+        output.textContent = 'QA module not loaded.';
       }
     });
   </script>

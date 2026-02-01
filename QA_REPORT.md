@@ -1,6 +1,6 @@
 ﻿# QA Report
 
-Date: 2026-01-31
+Date: 2026-02-01
 
 ## 1) Diagnóstico inicial
 
@@ -12,47 +12,38 @@ Archivos clave identificados:
 - PWA / Offline: `manifest.json`, `service-worker.js`, `offline.html`
 
 Hallazgos principales:
-- Se detectaron caracteres corruptos (acentos, signos y emojis) en textos de redirección y en nuevos módulos (base ten + tests).
-- Causa probable: archivos guardados en un encoding incorrecto (Latin1/Windows-1252) o conversiones parciales.
-- Solución aplicada: forzar UTF-8 en HTML con `<meta charset="UTF-8">` (ya presente) y normalizar archivos críticos para UTF-8. Correcciones realizadas en `index.html`, `login.html`, `js/appData.js`, `games/baseTenBuild.js`, `games/baseTenSubtract.js`, `js/tests/smokeTests.js` y `html/tests.html`.
+- i18n estaba embebido en `js/i18n.js` y faltaban JSON de idiomas.
+- Chips de “Nouveaux Jeux / New Games” no tenían routing real (dependían de buscar botones por texto).
+- Juegos nuevos sin motor común ni QA de niveles/ejercicios.
 
-## 2) Batería de tests manuales
+## 2) Batería de tests manuales (plan)
 
 | Test | Pasos | Resultado | Evidencia | BugID |
 |---|---|---|---|---|
-| Doble click rápido en Start/Valider/Suite | Abrir juego, hacer doble click rápido en Start/Valider/Suite | Pendiente de ejecución | N/A | QA-001 |
-| Valider sin selección | En juego MCQ, pulsar Valider sin elegir respuesta | Pendiente de ejecución | N/A | QA-002 |
-| Hint no gasta doble | Presionar Hint varias veces seguidas | Pendiente de ejecución | N/A | QA-003 |
-| Tienda: comprar con monedas | Abrir tienda, comprar ítem con monedas suficientes | Pendiente de ejecución | N/A | QA-004 |
-| Tienda: comprar sin monedas | Intentar comprar sin monedas suficientes | Pendiente de ejecución | N/A | QA-005 |
-| Tienda: refresh | Comprar ítem y recargar página | Pendiente de ejecución | N/A | QA-006 |
-| Progreso persiste | Completar nivel, recargar y verificar estrellas/monedas | Pendiente de ejecución | N/A | QA-007 |
-| Mobile: targets grandes / scroll / rotación | Abrir en tablet y rotar | Pendiente de ejecución | N/A | QA-008 |
-| Offline/PWA | Activar modo offline y verificar fallback | Pendiente de ejecución | N/A | QA-009 |
+| i18n FR→ES→NL | Cambiar idioma en login y en game.html; verificar sin strings sueltas | Pendiente de ejecución | N/A | QA-001 |
+| Routing New Games | Clic en cada chip nuevo; abre `game.html?game=ID&level=1` correcto | Pendiente de ejecución | N/A | QA-002 |
+| Gameplay L1 | Build-number L1, Subtract-transform L1, Half-game L1 jugables | Pendiente de ejecución | N/A | QA-003 |
+| Ayuda tras 2 fallos | Subtract-transform: fallar 2 veces -> aparece ayuda | Pendiente de ejecución | N/A | QA-004 |
+| Auto | Activar Auto y verificar validación/avance | Pendiente de ejecución | N/A | QA-005 |
+| Persistencia | Completar ejercicios, recargar y verificar nivel/avance | Pendiente de ejecución | N/A | QA-006 |
+| Accesibilidad | Botones grandes, focus visible, aria-label traducido | Pendiente de ejecución | N/A | QA-007 |
+| PWA cache | Offline fallback y cache versionado | Pendiente de ejecución | N/A | QA-008 |
 
 Nota: pruebas manuales no ejecutadas en este entorno CLI; requieren ejecución en navegador/touch.
 
-## 3) Checks automáticos simples
+## 3) QA automatizado (nuevo)
 
-Smoke tests creados:
-- `js/tests/smokeTests.js` con validaciones:
-  - i18n carga
-  - localStorage funciona
-  - state machine no entra en estado inválido
-  - funciones `loadAppData()`, `saveAppData()`, `resetAppData()` existen
-- `html/tests.html` para ejecutar pruebas desde la consola.
+Módulo de QA:
+- `js/new-games/qa.js` valida:
+  - juegos registrados
+  - 10 niveles por juego
+  - 12 o 10 ejercicios exactos por nivel (según juego)
+  - ejercicios con prompt/type/answer
+- Dev Panel: Ctrl+Shift+D en `html/game.html`.
 
-## 4) Bug crítico: encoding/acentos
+Cómo ejecutar:
+- Abrir `html/game.html?game=build-number&level=1`
+- En consola: `runNewGamesQA()` o Ctrl+Shift+D para panel
 
-Descripción:
-- Se observaron caracteres corruptos en textos (ej. "L'accent", "prénom", "trésors").
-
-Causa:
-- Archivos guardados en encoding no-UTF8 o conversiones parciales.
-
-Solución:
-- Confirmado `<meta charset="UTF-8">` en HTML.
-- Normalización explícita de `index.html`, `login.html`, `js/appData.js`, `games/baseTenBuild.js`, `games/baseTenSubtract.js`, `js/tests/smokeTests.js` y `html/tests.html`.
-- Mantener todo texto en UTF-8 al guardar.
-
-BugID: ENC-001
+Resultado esperado:
+- `status: PASS` en todos los juegos.

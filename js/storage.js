@@ -1,7 +1,8 @@
 const USER_PROFILE_KEY = 'mathsLenaUserProfile';
 const SELECTED_AVATAR_KEY = 'mathsLenaSelectedAvatar';
 const USER_NAME_DRAFT_KEY = 'mathsLenaNameDraft';
-const LANGUAGE_KEY = 'mathsLenaLanguage';
+const LANGUAGE_KEY = 'lang';
+const LEGACY_LANGUAGE_KEY = 'mathsLenaLanguage';
 const LAST_USER_NAME_KEY = 'mathsLenaLastUserName';
 
 const storage = {
@@ -268,7 +269,7 @@ function loadLanguage() {
     }
 
     try {
-        return localStorage.getItem(LANGUAGE_KEY) || 'fr';
+        return localStorage.getItem(LANGUAGE_KEY) || localStorage.getItem(LEGACY_LANGUAGE_KEY) || 'fr';
     } catch (error) {
         console.warn('Error loading language from storage', error);
         return 'fr';
@@ -281,6 +282,7 @@ function persistLanguage(lang) {
     if (!normalized) { return; }
     try {
         localStorage.setItem(LANGUAGE_KEY, normalized);
+        localStorage.setItem(LEGACY_LANGUAGE_KEY, normalized);
     } catch (error) {
         console.warn('Error saving language', error);
     }
