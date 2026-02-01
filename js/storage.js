@@ -2,6 +2,7 @@ const USER_PROFILE_KEY = 'mathsLenaUserProfile';
 const SELECTED_AVATAR_KEY = 'mathsLenaSelectedAvatar';
 const USER_NAME_DRAFT_KEY = 'mathsLenaNameDraft';
 const LANGUAGE_KEY = 'mathsLenaLanguage';
+const LAST_USER_NAME_KEY = 'mathsLenaLastUserName';
 
 const storage = {
     // --- User Profile ---
@@ -10,6 +11,9 @@ const storage = {
             const normalized = normalizeUserProfile(profile);
             localStorage.setItem(USER_PROFILE_KEY, JSON.stringify(normalized));
             persistSelectedAvatar(normalized.avatar);
+            if (normalized.name) {
+                localStorage.setItem(LAST_USER_NAME_KEY, normalized.name);
+            }
             clearNameDraft();
         } catch (e) {
             console.error("Error saving user profile", e);
@@ -41,6 +45,13 @@ const storage = {
     clearNameDraft: () => clearNameDraft(),
     getLanguage: () => loadLanguage(),
     setLanguage: (lang) => persistLanguage(lang),
+    loadLastUserName: () => {
+        try {
+            return localStorage.getItem(LAST_USER_NAME_KEY) || '';
+        } catch (e) {
+            return '';
+        }
+    },
 
     // --- User Progress ---
     saveUserProgress: (userName, progressData) => {

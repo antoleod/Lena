@@ -1,11 +1,9 @@
-﻿console.log("login.js loaded");
+﻿﻿console.log("login.js loaded");
 
 document.addEventListener('DOMContentLoaded', () => {
   const avatars = Array.from(document.querySelectorAll('.avatar-option'));
   const colors = Array.from(document.querySelectorAll('.color-option'));
-  const nameInput = document.getElementById('name-input');
   const loginBtn = document.getElementById('login-btn');
-  const nameWrapper = document.querySelector('.name-input-wrapper');
   const selectionPreview = document.querySelector('.selection-preview');
   const previewAvatarWrapper = document.querySelector('.selection-preview__avatar');
   const previewAvatarImg = document.getElementById('selected-avatar-preview');
@@ -32,14 +30,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const storedNameDraft = (typeof storage.loadNameDraft === 'function')
     ? storage.loadNameDraft()
     : '';
+  const lastUserName = (typeof storage.loadLastUserName === 'function')
+    ? storage.loadLastUserName()
+    : '';
 
   let selectedAvatar = null;
   let selectedColor = defaultColor;
   let userChoseColor = false;
   let parentHoldTimer = null;
 
-  if (nameInput && storedNameDraft) {
-    nameInput.value = storedNameDraft;
+  // Configurar edición directa del nombre
+  if (previewPlayerName) {
+    previewPlayerName.contentEditable = true;
+    previewPlayerName.spellcheck = false;
+    previewPlayerName.setAttribute('data-placeholder', t('selectedNamePlaceholder', 'Écris ton prénom'));
+    
+    // Evitar que i18n sobrescriba el contenido si el usuario ya escribió
+    previewPlayerName.removeAttribute('data-i18n');
+
+    if (storedNameDraft) {
+      previewPlayerName.innerText = storedNameDraft;
+    } else if (lastUserName) {
+      previewPlayerName.innerText = lastUserName;
+    } else {
+      previewPlayerName.innerText = '';
+    }
+
+    previewPlayerName.addEventListener('input', () => {
+      if (typeof storage.saveNameDraft === 'function') {
+        storage.saveNameDraft(previewPlayerName.innerText.trim());
+      }
+      if (errorEl) errorEl.hidden = true;
+    });
+
+    previewPlayerName.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        loginBtn.click();
+      }
+    });
   }
 
   updateSelectionPreview();
@@ -173,16 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Clic al botón login
   loginBtn.addEventListener('click', () => {
     const fallbackName = t('fallbackName', 'Ami Magique');
-    const name = nameInput.value.trim() || fallbackName;
+    const name = (previewPlayerName ? previewPlayerName.innerText.trim() : '') || fallbackName;
     const isValidName = name.length >= 1 && name.length <= 12;
     if (!isValidName || !selectedAvatar) {
       if (errorEl) {
         errorEl.textContent = t('loginError', "Écris ton prénom et choisis un avatar ✨");
         errorEl.hidden = false;
-      }
-      if (nameWrapper) {
-        nameWrapper.classList.add('shake');
-        setTimeout(() => nameWrapper.classList.remove('shake'), 300);
       }
       return;
     }
@@ -208,23 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = menuPath;
   });
 
-  // Efecto visual al escribir el nombre
-  nameInput.addEventListener('input', () => {
-    if (typeof storage.saveNameDraft === 'function') {
-      storage.saveNameDraft(nameInput.value);
-    }
-    updateSelectionPreview();
-    if (errorEl) errorEl.hidden = true;
-    if (!nameWrapper) return;
-    nameWrapper.classList.add('typing');
-    setTimeout(() => nameWrapper.classList.remove('typing'), 350);
-  });
-  nameInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      loginBtn.click();
-    }
-  });
 
   if (calmToggle) {
     calmToggle.addEventListener('click', () => {
@@ -381,11 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
         previewAvatarWrapper.classList.remove('is-active');
       }
     }
-
-    if (previewPlayerName) {
-      const trimmed = (nameInput?.value || '').trim();
-      previewPlayerName.textContent = trimmed || t('selectedNamePlaceholder', 'Écris ton prénom');
-    }
   }
 
   document.addEventListener('lena:language:change', () => {
@@ -395,6 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = extractAvatarData(avatarEl);
         selectedAvatar = { ...selectedAvatar, name: data.name, iconUrl: data.iconUrl };
       }
+    }
+    if (previewPlayerName) {
+        previewPlayerName.setAttribute('data-placeholder', t('selectedNamePlaceholder', 'Écris ton prénom'));
     }
     updateSelectionPreview();
   });
