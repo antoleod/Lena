@@ -224,8 +224,17 @@
         document.body.appendChild(footer);
       }
 
-      // Use root-relative assets so React routes don't break legacy paths.
-      const base = '/';
+      function getBasePath() {
+      const path = window.location.pathname;
+      const marker = '/legacy/';
+      const idx = path.indexOf(marker);
+      if (idx >= 0) return path.slice(0, idx + 1);
+      const segments = path.split('/').filter(Boolean);
+      if (segments.length > 0) return `/${segments[0]}/`;
+      return '/';
+      }
+
+      const base = getBasePath();
 
       // Ensure audioManager is present (used by the app shell and footer controls)
       const audioLoaded = Array.from(document.scripts).some(s => (s.src || '').endsWith('/js/audioManager.js'));

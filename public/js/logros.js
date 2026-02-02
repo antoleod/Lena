@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const userProfile = storage.loadUserProfile();
     if (!userProfile) {
-        window.location.href = '/login';
+        window.location.href = (window.resolveLenaPath ? window.resolveLenaPath('/login') : '/login')
         return;
     }
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnVolver) {
         btnVolver.addEventListener('click', () => {
-            window.location.href = '/login';
+            window.location.href = (window.resolveLenaPath ? window.resolveLenaPath('/login') : '/login')
         });
     }
 

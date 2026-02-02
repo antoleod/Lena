@@ -4092,6 +4092,9 @@
   backdrop-filter: blur(6px);
   z-index: 5;
 }
+.gs-feedback[hidden] {
+  display: none !important;
+}
 .gs-feedback__card {
   background: #fff;
   border-radius: 18px;

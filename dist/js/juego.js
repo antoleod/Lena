@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!userProfile) {
         console.log("Redirecting to /login");
-        window.location.href = '/login';
+        window.location.href = (window.resolveLenaPath ? window.resolveLenaPath('/login') : '/login')
         return;
     }
 
@@ -1187,12 +1187,12 @@ function resolveLevelTheme(topicId) {
             btnLogout.addEventListener('click', () => {
                 gameState.historyTracker?.trackAppClose();
                 localStorage.removeItem('mathsLenaUserProfile');
-                window.location.href = '/login';
+                window.location.href = (window.resolveLenaPath ? window.resolveLenaPath('/login') : '/login')
             });
         }
         if (btnLogros) {
             btnLogros.addEventListener('click', () => {
-                window.location.href = '/logros';
+                window.location.href = (window.resolveLenaPath ? window.resolveLenaPath('/logros') : '/logros')
             });
         }
 
@@ -1208,7 +1208,7 @@ function resolveLevelTheme(topicId) {
 
         if (btnShop) {
             btnShop.addEventListener('click', () => {
-                window.location.href = '/boutique'; // Rediriger vers la boutique
+                window.location.href = (window.resolveLenaPath ? window.resolveLenaPath('/boutique') : '/boutique') // Rediriger vers la boutique
             });
         }
         if (shopCloseBtn) {

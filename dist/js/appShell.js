@@ -22,6 +22,35 @@
         return fallback;
     }
 
+    function getBasePath() {
+        const path = window.location.pathname;
+        const marker = '/legacy/';
+        const idx = path.indexOf(marker);
+        if (idx >= 0) {
+            return path.slice(0, idx + 1);
+        }
+        const segments = path.split('/').filter(Boolean);
+        if (segments.length > 0 && segments[0] !== 'login' && segments[0] !== 'menu') {
+            return `/${segments[0]}/`;
+        }
+        return '/';
+    }
+
+    const BASE_PATH = getBasePath();
+
+    function resolveAppPath(path) {
+        if (!path) return path;
+        if (path.startsWith('http') || path.startsWith('data:') || path.startsWith('blob:')) {
+            return path;
+        }
+        if (path.startsWith('/')) {
+            return `${BASE_PATH}${path.replace(/^\\//, '')}`;
+        }
+        return `${BASE_PATH}${path}`;
+    }
+
+    window.resolveLenaPath = resolveAppPath;
+
     function logout() {
         const wantsLogout = window.confirm(t('confirmLogout', 'Veux-tu vraiment te déconnecter ?'));
         if (!wantsLogout) { return; }
@@ -30,7 +59,7 @@
         } catch (error) {
             console.warn('[LenaShell] Impossible de nettoyer le profil', error);
         }
-        window.location.href = '/login';
+        window.location.href = resolveAppPath('/login');
     }
 
     const FOOTER_LINKS = [
@@ -118,8 +147,11 @@
         if (!path) {
             return path;
         }
-        if (path.startsWith('http') || path.startsWith('data:') || path.startsWith('blob:') || path.startsWith('/')) {
+        if (path.startsWith('http') || path.startsWith('data:') || path.startsWith('blob:')) {
             return path;
+        }
+        if (path.startsWith('/')) {
+            return resolveAppPath(path);
         }
         if (path.startsWith('#')) {
             return path;

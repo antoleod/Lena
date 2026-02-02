@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeUser = getActiveUser();
     
     if (!activeUser) {
-        window.location.href = '/login';
+        window.location.href = (window.resolveLenaPath ? window.resolveLenaPath('/login') : '/login')
         return;
     }
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!userData) {
         alert('No se encontraron los datos del usuario. Por favor, inicia sesión de nuevo.');
-        window.location.href = '/login';
+        window.location.href = (window.resolveLenaPath ? window.resolveLenaPath('/login') : '/login')
         return;
     }
 
