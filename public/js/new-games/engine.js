@@ -119,8 +119,8 @@
     state.answer = answer;
     state.ready = ready;
     if (ui.validateBtn) ui.validateBtn.disabled = !ready;
-    if (state.auto && autoReady) {
-      setTimeout(validateAnswer, 180);
+    if (ready && autoReady) {
+      setTimeout(validateAnswer, 120);
     }
   }
 
@@ -182,8 +182,14 @@
     const renderer = renderers[exercise.type];
     if (!renderer) { return; }
     renderer(ui.options, exercise, setAnswer, onHelpRequest);
-    if (ui.validateBtn) ui.validateBtn.disabled = true;
-    if (ui.nextBtn) ui.nextBtn.disabled = true;
+    if (ui.validateBtn) {
+      ui.validateBtn.disabled = true;
+      ui.validateBtn.hidden = true;
+    }
+    if (ui.nextBtn) {
+      ui.nextBtn.disabled = true;
+      ui.nextBtn.hidden = true;
+    }
   }
 
   function onHelpRequest(messageKey) {
@@ -206,7 +212,7 @@
     const exercise = levelData.exercises[state.index];
     if (!state.ready) { return; }
     const isCorrect = checkAnswer(exercise, state.answer);
-    ui.feedback.hidden = false;
+    if (ui.feedback) ui.feedback.hidden = false;
     if (ui.feedbackIcon) ui.feedbackIcon.textContent = isCorrect ? '✨' : '💡';
     if (ui.feedbackSummary) {
       ui.feedbackSummary.textContent = isCorrect ? t('gameFeedbackCorrect') : t('gameFeedbackRetry');
@@ -215,6 +221,7 @@
       state.wrongStreak = 0;
       if (ui.nextBtn) ui.nextBtn.disabled = false;
       if (ui.validateBtn) ui.validateBtn.disabled = true;
+      setTimeout(nextExercise, 420);
     } else {
       state.wrongStreak += 1;
       if (game.id === 'subtract-transform' && state.wrongStreak >= 2) {

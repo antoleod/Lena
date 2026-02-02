@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import LegacyAutoPage from './LegacyAutoPage.jsx';
 import LegacyPage from './LegacyPage.jsx';
@@ -10,6 +11,33 @@ import GamesCategoryPage from './pages/GamesCategory.jsx';
 const BASE_URL = import.meta.env.BASE_URL;
 
 export default function App() {
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get('clearCache') !== '1') return;
+
+    const cleanUrl = new URL(url.toString());
+    cleanUrl.searchParams.delete('clearCache');
+
+    const tasks = [];
+    if ('serviceWorker' in navigator) {
+      tasks.push(
+        navigator.serviceWorker.getRegistrations()
+          .then((regs) => Promise.all(regs.map((reg) => reg.unregister())))
+          .catch(() => {})
+      );
+    }
+    if ('caches' in window) {
+      tasks.push(
+        caches.keys()
+          .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+          .catch(() => {})
+      );
+    }
+    Promise.all(tasks).finally(() => {
+      window.location.replace(cleanUrl.toString());
+    });
+  }, []);
+
   return (
     <BrowserRouter basename={BASE_URL}>
       <ScrollToTop />

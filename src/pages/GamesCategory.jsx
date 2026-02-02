@@ -4,18 +4,18 @@ import LegacyPage from '../LegacyPage.jsx';
 
 const CATEGORY_CONFIG = {
   segundo: {
-    title: '2º de primaria',
-    subtitle: 'Todas las materias para 2º de primaria.',
+    title: '2Âº de primaria',
+    subtitle: 'Todas las materias para 2Âº de primaria.',
     legacyPath: '/legacy/juego-2do.html?cat=segundo'
   },
   tercero: {
-    title: '3º de primaria',
-    subtitle: 'Retos avanzados para 3º de primaria.',
+    title: '3Âº de primaria',
+    subtitle: 'Retos avanzados para 3Âº de primaria.',
     legacyPath: '/legacy/juego-3ro.html?cat=tercero'
   },
   cuarto: {
-    title: '4º de primaria',
-    subtitle: 'Autonomía y razonamiento para 4º de primaria.',
+    title: '4Âº de primaria',
+    subtitle: 'AutonomÃ­a y razonamiento para 4Âº de primaria.',
     legacyPath: '/legacy/juego-4to.html?cat=cuarto'
   }
 };
@@ -34,4 +34,4 @@ export default function GamesCategoryPage() {
   }
 
   return <LegacyPage legacyPath={config.legacyPath} />;
-}
+}

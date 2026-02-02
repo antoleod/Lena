@@ -79,13 +79,14 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
   if (url.origin !== location.origin) return;
+  if (request.headers.has('range')) return;
 
   event.respondWith(
     caches.match(request).then((cached) => {
       if (cached) {
         // Try network in background to update cache
         fetch(request).then((response) => {
-          if (response && response.ok) {
+          if (response && response.ok && response.status !== 206) {
             caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
           }
         }).catch(() => {});
@@ -93,7 +94,7 @@ self.addEventListener('fetch', (event) => {
       }
       return fetch(request).then((response) => {
         // Put a copy in cache for next time
-        if (response && response.ok) {
+        if (response && response.ok && response.status !== 206) {
           const clone = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
         }

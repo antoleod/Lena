@@ -2,17 +2,17 @@
     'use strict';
 
     const EMOJI = {
-        home: '\u{1F3E0}',
-        bag: '\u{1F6CD}',
-        trophy: '\u{1F3C6}',
-        book: '\u{1F4D6}',
-        back: '\u{21A9}',
-        rainbow: '\u{1F308}',
-        lock: '\u{1F512}',
-        star: '\u{2B50}',
-        coin: '\u{1FA99}',
-        bell: '\u{1F514}',
-        play: '\u{25B6}'
+        home: '\uD83C\uDFE0',
+        bag: '\uD83D\uDED',
+        trophy: '\uD83C\uDFC6',
+        book: '\uD83D\uDCD6',
+        back: '\u21A9',
+        rainbow: '\uD83C\uDF08',
+        lock: '\uD83D\uDD12',
+        star: '\u2B50',
+        coin: '\uD83E\uDE99',
+        bell: '\uD83D\uDD14',
+        play: '\u25B6'
     };
 
     function t(key, fallback) {
@@ -115,8 +115,8 @@
     ];
 
     const AUDIO_STATE = {
-        iconOn: '\u{1F50A}',
-        iconOff: '\u{1F507}',
+        iconOn: '\uD83D\uDD0A',
+        iconOff: '\uD83D\uDD07',
         labelOn: () => t('audioOn', 'Son actif'),
         labelOff: () => t('audioOff', 'Son coupé')
     };

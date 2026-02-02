@@ -59,6 +59,7 @@
       type: 'build',
       target,
       tutorial: level === 1 && index === 0,
+      promptParams: { target },
       promptKey: 'buildNumberPrompt',
       hintKey: level <= 3 ? 'buildNumberHintEasy' : level <= 6 ? 'buildNumberHintMid' : 'buildNumberHintHard'
     }));
@@ -78,6 +79,7 @@
         minuend,
         subtrahend: sub,
         target,
+        promptParams: { minuend, subtrahend: sub },
         promptKey: 'subtractTransformPrompt',
         hintKey: 'subtractTransformHint'
       });

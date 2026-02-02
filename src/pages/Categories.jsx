@@ -5,27 +5,27 @@ import './Categories.css';
 const CATEGORIES = [
   {
     id: 'segundo',
-    title: '2º de primaria',
-    subtitle: 'Matemáticas, lectura, lógica y mundo para 2º de primaria (Bélgica).',
+    title: '2Âº de primaria',
+    subtitle: 'MatemÃ¡ticas, lectura, lÃ³gica y mundo para 2Âº de primaria (BÃ©lgica).',
     route: '/juegos/segundo',
     color: '#7bb8ff',
-    items: ['Cálculo y tablas', 'Lectura y dictado', 'Lógica y puzzles']
+    items: ['CÃ¡lculo y tablas', 'Lectura y dictado', 'LÃ³gica y puzzles']
   },
   {
     id: 'tercero',
-    title: '3º de primaria',
-    subtitle: 'Retos más avanzados: problemas, fracciones, medidas y razonamiento.',
+    title: '3Âº de primaria',
+    subtitle: 'Retos mÃ¡s avanzados: problemas, fracciones, medidas y razonamiento.',
     route: '/juegos/tercero',
     color: '#ff9fb2',
-    items: ['Problemas y fracciones', 'Series y medidas', 'Comprensión y lógica']
+    items: ['Problemas y fracciones', 'Series y medidas', 'ComprensiÃ³n y lÃ³gica']
   },
   {
     id: 'cuarto',
-    title: '4º de primaria',
-    subtitle: 'Autonomía y precisión: textos largos, corrección y explicación simple.',
+    title: '4Âº de primaria',
+    subtitle: 'AutonomÃ­a y precisiÃ³n: textos largos, correcciÃ³n y explicaciÃ³n simple.',
     route: '/juegos/cuarto',
     color: '#8bdba2',
-    items: ['Possessifs en contexte', 'Razonamiento avanzado', 'Corrección de errores']
+    items: ['Possessifs en contexte', 'Razonamiento avanzado', 'CorrecciÃ³n de errores']
   }
 ];
 
@@ -54,7 +54,7 @@ export default function CategoriesPage() {
           <span className="hero-eyebrow">Juegos por curso</span>
           <h1>Elige el curso y entra a jugar</h1>
           <p>
-            Cada curso reúne todas las materias. Así el acceso es más rápido y el contenido está mejor ordenado.
+            Cada curso reÃºne todas las materias. AsÃ­ el acceso es mÃ¡s rÃ¡pido y el contenido estÃ¡ mejor ordenado.
           </p>
           <div className="hero-actions">
             {QUICK_LINKS.map((link) => (
@@ -77,7 +77,7 @@ export default function CategoriesPage() {
             </div>
             <div className="hero-stat">
               <span className="hero-stat__label">Dificultad</span>
-              <span className="hero-stat__value">2º a 4º</span>
+              <span className="hero-stat__value">2Âº a 4Âº</span>
             </div>
           </div>
         </div>
@@ -107,4 +107,4 @@ export default function CategoriesPage() {
       </section>
     </main>
   );
-}
+}

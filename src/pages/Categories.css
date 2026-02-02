@@ -231,7 +231,7 @@
 }
 
 .cat-card__list li::before {
-  content: '•';
+  content: 'â€¢';
   color: var(--card-color);
   margin-right: 0.5rem;
 }
@@ -253,4 +253,4 @@
   .cat-card {
     transition: none;
   }
-}
+}
