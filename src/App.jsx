@@ -4,6 +4,8 @@ import LegacyPage from './LegacyPage.jsx';
 import ScrollToTop from './ScrollToTop.jsx';
 import LoginPage from './pages/Login.jsx';
 import MenuPage from './pages/Menu.jsx';
+import CategoriesPage from './pages/Categories.jsx';
+import GamesCategoryPage from './pages/GamesCategory.jsx';
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/menu" element={<MenuPage />} />
+        <Route path="/juegos" element={<CategoriesPage />} />
+        <Route path="/juegos/:category" element={<GamesCategoryPage />} />
         <Route path="/game" element={<LegacyPage legacyPath="/legacy/game.html" />} />
         <Route path="/juego" element={<LegacyPage legacyPath="/legacy/juego.html" />} />
         <Route path="/boutique" element={<LegacyPage legacyPath="/legacy/boutique.html" />} />

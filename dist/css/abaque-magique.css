@@ -1,0 +1,359 @@
+/* === Abaque Magique V2 Styles === */
+
+.abaque-container-v2 {
+    --abaque-bg: #fdf6fd;
+    --abaque-primary: #a37edc;
+    --abaque-secondary: #ffafcc;
+    --abaque-text: #4a3f7e;
+    --abaque-shadow: rgba(74, 63, 126, 0.1);
+    --bead-dizaines: #a2d2ff;
+    --bead-unites: #ffc6ff;
+    --correct-color: #57cc99;
+    --incorrect-color: #ff6b6b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: var(--abaque-bg);
+}
+
+.abaque-v2-wrapper {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: clamp(1rem, 3vw, 1.5rem);
+    padding: clamp(1rem, 4vw, 2rem);
+    box-shadow: 0 1rem 2rem var(--abaque-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 4vw, 2rem);
+    transition: transform 0.3s ease;
+}
+
+.abaque-v2-wrapper.correct {
+    box-shadow: 0 0 25px 5px var(--correct-color);
+}
+
+.abaque-v2-wrapper.incorrect {
+    animation: shake 0.35s cubic-bezier(.36, .07, .19, .97);
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.abaque-v2-header {
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    margin-bottom: -0.8rem;
+}
+
+.abaque-v2-progress {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: var(--abaque-text);
+    opacity: 0.8;
+}
+
+.abaque-v2-target {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    color: var(--abaque-primary);
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+.abaque-v2-hud {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 1rem;
+    font-family: 'Fredoka', sans-serif;
+    position: relative;
+}
+
+.hud-item {
+    text-align: center;
+}
+
+.hud-label {
+    font-size: clamp(0.8rem, 2.2vw, 1rem);
+    color: var(--abaque-text);
+    opacity: 0.7;
+    font-weight: 500;
+}
+
+.hud-value {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 700;
+    color: var(--abaque-primary);
+    display: inline-block; /* Necesario para la animación de transformación */
+}
+
+.hud-icon {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    display: inline-block;
+}
+
+.hud-progress-bar {
+    grid-column: 1 / -1;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.hud-progress-bar__fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--abaque-secondary), var(--abaque-primary));
+    border-radius: 99px;
+    transition: width 0.3s ease;
+}
+
+.abaque-v2-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(1rem, 5vw, 3rem);
+    justify-content: center;
+}
+
+.abaque-v2-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.abaque-v2-beads-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 6px;
+    height: 280px;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.abaque-v2-rod {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background: #e0d8f0;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.abaque-v2-bead {
+    width: clamp(40px, 10vw, 60px);
+    height: 28px;
+    border-radius: 50%;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.15), 0 2px 4px var(--abaque-shadow);
+    animation: bead-pop-in 0.3s ease-out both;
+}
+
+@keyframes bead-pop-in {
+    from { transform: translateY(20px) scale(0.8); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.abaque-v2-bead--dizaines { background: var(--bead-dizaines); }
+.abaque-v2-bead--unites { background: var(--bead-unites); }
+
+.abaque-v2-label {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--abaque-text);
+}
+
+.abaque-v2-col-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.col-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px var(--abaque-shadow), inset 0 -2px 3px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.col-btn.is-pressed {
+    animation: button-press 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.col-btn--add { background: linear-gradient(145deg, #66bb6a, #43a047); }
+.col-btn--remove { background: linear-gradient(145deg, #ef5350, #e53935); }
+
+.col-btn:hover:not(:disabled) {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15), inset 0 -2px 3px rgba(0,0,0,0.2);
+}
+
+.col-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.abaque-v2-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.abaque-v2-btn {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 99px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 150px;
+}
+
+.abaque-v2-btn--check {
+    background: var(--abaque-primary);
+    color: white;
+    box-shadow: 0 8px 16px rgba(163, 126, 220, 0.3);
+}
+.abaque-v2-btn--check:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(163, 126, 220, 0.4);
+}
+
+.abaque-v2-btn--hint {
+    background: transparent;
+    color: var(--abaque-primary);
+    border: 2px solid var(--abaque-primary);
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+    .abaque-v2-main {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: clamp(0.5rem, 3vw, 1rem);
+    }
+    .hud-icon {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+    }
+    .abaque-v2-beads-container {
+        height: 220px; /* Reducido de 280px */
+    }
+    .abaque-v2-bead {
+        width: clamp(38px, 8vw, 50px);
+        height: 24px;
+    }
+    .col-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.8rem;
+    }
+    .abaque-v2-hud {
+        grid-template-columns: 1fr 1fr;
+    }
+    .hud-item--total {
+        grid-column: 1 / -1;
+        margin-top: 0.5rem;
+    }
+}
+
+/* --- ✨ Animaciones de Conversión, Pistas y UI ✨ --- */
+.abaque-v2-column.is-converting .abaque-v2-bead {
+    animation: fly-out-to-dizaine 0.5s cubic-bezier(0.5, -0.5, 0.25, 1.5) forwards;
+}
+
+.abaque-v2-column.is-receiving {
+    animation: pulse-and-glow 0.5s ease-out;
+}
+
+@keyframes fly-out-to-dizaine {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-150px, -100px) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-and-glow {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0px var(--bead-dizaines));
+    }
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px var(--bead-dizaines));
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0px var(--bead-dizaines));
+    }
+}
+
+/* Ajuste para la animación en pantallas pequeñas */
+@media (max-width: 600px) {
+    @keyframes fly-out-to-dizaine {
+        100% {
+            transform: translate(0, -200px) scale(0);
+            opacity: 0;
+        }
+    }
+}
+
+/* --- 💡 Estilo para resaltar la columna de la pista --- */
+.abaque-v2-column.highlight {
+    background-color: rgba(255, 235, 59, 0.2); /* Amarillo claro */
+    box-shadow: 0 0 20px 5px rgba(255, 235, 59, 0.6);
+    transform: scale(1.03);
+}
+
+/* --- ✨ Nuevas animaciones para botones y texto --- */
+@keyframes button-press {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.85); box-shadow: 0 2px 4px var(--abaque-shadow), inset 0 -1px 2px rgba(0,0,0,0.2); }
+    100% { transform: scale(1); }
+}
+
+.fx-pop-small {
+    animation: pop-small 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop-small {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Ocultar contador de progreso y total para simplificar la interfaz */
+.abaque-v2-progress,
+.hud-item--total {
+    display: none;
+}

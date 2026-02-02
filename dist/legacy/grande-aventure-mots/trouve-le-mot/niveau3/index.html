@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Trouve le mot – Niveau 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <header data-lena-header></header>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🎯</span>Trouve le mot – Niveau 3</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" onclick="window.location.href='../index.html'">⬅ Retour aux niveaux</button>
+        <button class="action-btn" type="button" id="repeatInstructionBtn">🔊 Répéter la consigne</button>
+      </div>
+    </div>
+
+    <section class="section-intro" id="instructionText">
+      Clique sur l’image qui correspond au mot entendu.
+    </section>
+
+    <div class="controls">
+      <div class="progress-counter" id="progressCounter">Exercice 1 / 7</div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+    </div>
+
+    <section class="illustration-container" id="optionsContainer" aria-label="Choisis l’image correspondante">
+      <!-- Options générées par JavaScript -->
+    </section>
+  </main>
+
+  <template id="optionTemplate">
+    <button class="word-option" type="button">
+      <span class="word-option__emoji" aria-hidden="true"></span>
+      <span class="word-option__label"></span>
+    </button>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+    window.TROUVE_LE_MOT_CONFIG = {
+      storageKey: 'gam_trouve_le_mot',
+      levelId: 'niveau3',
+      exercises: [
+            {
+              word: 'pomme',
+              instruction: 'Clique sur la pomme.',
+              options: [
+                { word: 'pomme', emoji: '🍎' },
+                { word: 'banane', emoji: '🍌' },
+                { word: 'orange', emoji: '🍊' },
+                { word: 'fraise', emoji: '🍓' }
+              ]
+            },
+            {
+              word: 'banane',
+              instruction: 'Clique sur la banane.',
+              options: [
+                { word: 'banane', emoji: '🍌' },
+                { word: 'raisin', emoji: '🍇' },
+                { word: 'cerise', emoji: '🍒' },
+                { word: 'ananas', emoji: '🍍' }
+              ]
+            },
+            {
+              word: 'orange',
+              instruction: "Clique sur l'orange.",
+              options: [
+                { word: 'orange', emoji: '🍊' },
+                { word: 'kiwi', emoji: '🥝' },
+                { word: 'melon', emoji: '🍈' },
+                { word: 'pastèque', emoji: '🍉' }
+              ]
+            },
+            {
+              word: 'fraise',
+              instruction: 'Clique sur la fraise.',
+              options: [
+                { word: 'fraise', emoji: '🍓' },
+                { word: 'pêche', emoji: '🍑' },
+                { word: 'poire', emoji: '🍐' },
+                { word: 'mangue', emoji: '🥭' }
+              ]
+            },
+            {
+              word: 'gâteau',
+              instruction: 'Clique sur le gâteau.',
+              options: [
+                { word: 'gâteau', emoji: '🎂' },
+                { word: 'biscuit', emoji: '🍪' },
+                { word: 'donut', emoji: '🍩' },
+                { word: 'chocolat', emoji: '🍫' }
+              ]
+            },
+            {
+              word: 'pizza',
+              instruction: 'Clique sur la pizza.',
+              options: [
+                { word: 'pizza', emoji: '🍕' },
+                { word: 'hamburger', emoji: '🍔' },
+                { word: 'frites', emoji: '🍟' },
+                { word: 'hot-dog', emoji: '🌭' }
+              ]
+            },
+            {
+              word: 'lait',
+              instruction: 'Clique sur le lait.',
+              options: [
+                { word: 'lait', emoji: '🥛' },
+                { word: 'jus', emoji: '🧃' },
+                { word: 'soda', emoji: '🥤' },
+                { word: 'thé', emoji: '🍵' }
+              ]
+            }
+          ]
+    };
+  </script>
+  <script src="../../common.js"></script>
+  <script src="../level.js"></script>
+  <footer data-lena-footer></footer>
+</body>
+</html>

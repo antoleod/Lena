@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="shopTitle">Boutique Magique</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/feedback-system.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/boutique.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.json">
+</head>
+<body class="boutique-body">
+    <header data-lena-header></header>
+
+    <div id="magic-shop-container">
+        <canvas id="magic-particles"></canvas>
+
+        <button id="btnVolver" type="button" class="btn-secondary btn-back">
+            <span aria-hidden="true">&#8592;</span>
+            <span data-i18n="shopBackToMenu">Retour au menu</span>
+        </button>
+
+        <section class="shop-user-panel" aria-label="Profil et portefeuille">
+            <div id="user-info" class="user-info-card"></div>
+            <div class="wallet-grid" role="status" aria-live="polite">
+                <div class="wallet-item wallet-item--stars">
+                    <span class="wallet-icon" aria-hidden="true">⭐</span>
+                    <span class="wallet-label" data-i18n="starsLabel">Étoiles</span>
+                    <span id="scoreStars" class="wallet-value">0</span>
+                </div>
+                <div class="wallet-item wallet-item--coins">
+                    <span class="wallet-icon" aria-hidden="true">🪙</span>
+                    <span class="wallet-label" data-i18n="coinsLabel">Pièces</span>
+                    <span id="scoreCoins" class="wallet-value">0</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="shop-toolbar" role="toolbar" aria-label="Filtres de la boutique">
+            <button type="button" class="filter-btn is-active" data-filter="all" data-i18n="shopFilterAll">Tout</button>
+            <button type="button" class="filter-btn" data-filter="stickers" data-i18n="shopFilterStickers">Stickers</button>
+            <button type="button" class="filter-btn" data-filter="avatar" data-i18n="shopFilterAvatars">Avatars</button>
+            <button type="button" class="filter-btn" data-filter="background" data-i18n="shopFilterBackground">Fonds</button>
+            <button type="button" class="filter-btn" data-filter="sound" data-i18n="shopFilterSound">Sons</button>
+            <button type="button" class="filter-btn" data-filter="owned" data-i18n="shopFilterOwned">Mes trésors</button>
+        </div>
+
+        <div class="shop-header">
+            <h1 data-i18n="shopHeroTitle">✨ Boutique Magique ✨</h1>
+            <p data-i18n="shopHeroSubtitle">Collectionne des trésors scintillants et personnalise ton aventure !</p>
+        </div>
+
+        <!-- Marché Rare -->
+        <div class="shop-section rare-market">
+            <h2 data-i18n="shopRareTitle">🌟 Marché Rare 🌟</h2>
+            <div id="rare-items-container" class="items-grid">
+                <!-- Les objets rares sont insérés ici -->
+            </div>
+        </div>
+
+        <!-- Boutique Principale -->
+        <div class="shop-section">
+            <h2 data-i18n="shopMainTitle">🛍️ Boutique Principale 🛍️</h2>
+            <p class="shop-section__subtitle" data-i18n="shopMainSubtitle">Parcourir tous les accessoires magiques disponibles aujourd'hui.</p>
+            <div id="shop-items-container" class="items-grid">
+                <!-- Les objets normaux sont insérés ici -->
+            </div>
+        </div>
+
+        <!-- Mes Trésors -->
+        <div class="shop-section my-treasures">
+            <h2 data-i18n="shopTreasuresTitle">🎁 Mes Trésors 🎁</h2>
+            <p class="shop-section__subtitle" data-i18n="shopTreasuresSubtitle">Retrouve ici tous les objets que tu possèdes déjà.</p>
+            <div id="my-treasures-container" class="items-grid">
+                <!-- Les objets achetés sont insérés ici -->
+            </div>
+        </div>
+    </div>
+
+    <audio id="buy-sound" src="../assets/sounds/correct.wav"></audio>
+
+    <script src="../js/audioManager.js"></script>
+    <script src="../js/feedbackSystem.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/appData.js" defer></script>
+    <script src="../js/appShell.js" defer></script>
+    <script src="../js/avatarData.js"></script>
+    <script src="../js/core/storage.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/boutiqueData.js"></script>
+    <script src="../js/shopManager.js"></script>
+    <footer data-lena-footer></footer>
+    <script src="../js/boutique.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('../service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Sorcières - Le Poème Magique</title>
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/les-sorcieres-associe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.json">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Les Sorcières - Associe les Émojis !</h1>
+        </header>
+        <main id="game-area">
+            <div id="poem-container">
+                <!-- Les vers du poème seront injectés ici par JavaScript -->
+            </div>
+            <div id="progress-container">
+                <div id="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <span id="progress-label">0%</span>
+            </div>
+            <div id="emoji-bank">
+                <!-- Les emojis disponibles seront injectés ici -->
+            </div>
+            <button id="verify-button" class="hidden">Vérifier</button>
+        </main>
+        <div id="success-message" class="hidden">
+            <div class="success-content">
+                <h2>Bravo, petite sorcière !</h2>
+                <p>Tu connais le poème des sorcières par cœur ! 🧙‍♀️💫</p>
+                <button id="restart-button">Rejouer</button>
+            </div>
+        </div>
+    </div>
+    <div id="confetti-container"></div>
+
+    <script src="../js/audioManager.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../games/les-sorcieres-associe.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('../service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</body>
+</html>

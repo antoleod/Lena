@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Trouve le mot – Niveau 7</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <header data-lena-header></header>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🎯</span>Trouve le mot – Niveau 7</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" onclick="window.location.href='../index.html'">⬅ Retour aux niveaux</button>
+        <button class="action-btn" type="button" id="repeatInstructionBtn">🔊 Répéter la consigne</button>
+      </div>
+    </div>
+
+    <section class="section-intro" id="instructionText">
+      Clique sur l’image qui correspond au mot entendu.
+    </section>
+
+    <div class="controls">
+      <div class="progress-counter" id="progressCounter">Exercice 1 / 7</div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+    </div>
+
+    <section class="illustration-container" id="optionsContainer" aria-label="Choisis l’image correspondante">
+      <!-- Options générées par JavaScript -->
+    </section>
+  </main>
+
+  <template id="optionTemplate">
+    <button class="word-option" type="button">
+      <span class="word-option__emoji" aria-hidden="true"></span>
+      <span class="word-option__label"></span>
+    </button>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+    window.TROUVE_LE_MOT_CONFIG = {
+      storageKey: 'gam_trouve_le_mot',
+      levelId: 'niveau7',
+      exercises: [
+            { word: 'rouge', instruction: 'Clique sur le rouge.', options: [ { word: 'rouge', emoji: '🔴' }, { word: 'bleu', emoji: '🔵' }, { word: 'vert', emoji: '🟢' }, { word: 'jaune', emoji: '🟡' } ] },
+            { word: 'bleu', instruction: 'Clique sur le bleu.', options: [ { word: 'bleu', emoji: '🔵' }, { word: 'orange', emoji: '🟠' }, { word: 'violet', emoji: '🟣' }, { word: 'rose', emoji: '🌸' } ] },
+            { word: 'vert', instruction: 'Clique sur le vert.', options: [ { word: 'vert', emoji: '🟢' }, { word: 'marron', emoji: '🟤' }, { word: 'noir', emoji: '⚫' }, { word: 'blanc', emoji: '⚪' } ] },
+            { word: 'jaune', instruction: 'Clique sur le jaune.', options: [ { word: 'jaune', emoji: '🟡' }, { word: 'gris', emoji: '🌫️' }, { word: 'cyan', emoji: '🌐' }, { word: 'magenta', emoji: '🌺' } ] },
+            { word: 'orange', instruction: "Clique sur l'orange.", options: [ { word: 'orange', emoji: '🟠' }, { word: 'turquoise', emoji: '💠' }, { word: 'indigo', emoji: '🌌' }, { word: 'or', emoji: '📀' } ] },
+            { word: 'violet', instruction: 'Clique sur le violet.', options: [ { word: 'violet', emoji: '🟣' }, { word: 'argent', emoji: '💿' }, { word: 'bronze', emoji: '🥉' }, { word: 'platine', emoji: '💿' } ] },
+            { word: 'rose', instruction: 'Clique sur le rose.', options: [ { word: 'rose', emoji: '🌸' }, { word: 'corail', emoji: '🐠' }, { word: 'saumon', emoji: '🍣' }, { word: 'lavande', emoji: '💐' } ] }
+          ]
+    };
+  </script>
+  <script src="../level.js"></script>
+  <footer data-lena-footer></footer>
+</body>
+</html>

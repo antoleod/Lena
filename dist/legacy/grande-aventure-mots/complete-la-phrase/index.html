@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Complète la phrase – La Grande Aventure des Mots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <header data-lena-header></header>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🧩</span>Complète la phrase</h1>
+      <div class="controls">
+        <button class="back-btn" type="button" onclick="window.location.href='../index.html'">⬅ Retour aux mini-jeux</button>
+      </div>
+    </div>
+
+    <section class="section-intro">
+      Choisis un niveau pour aider Léna à compléter les phrases. Chaque niveau contient 5 exercices progressifs. Termine-les pour gagner des étoiles et découvrir de nouveaux univers.
+    </section>
+
+    <section id="levelGrid" class="grid" aria-label="Liste des niveaux">
+      <!-- Cartes injectées dynamiquement -->
+    </section>
+  </main>
+
+  <script src="../common.js"></script>
+  <script src="levels.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      GAM.renderLevelCards({
+        levels: window.COMPLETE_PHRASE_LEVELS,
+        containerSelector: '#levelGrid',
+        baseHref: 'play.html',
+        storageKey: window.COMPLETE_PHRASE_SETTINGS.storageKey,
+        requireCompletion: false
+      });
+    });
+  </script>
+  <footer data-lena-footer></footer>
+</body>
+</html>

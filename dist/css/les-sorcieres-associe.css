@@ -1,0 +1,247 @@
+/* css/les-sorcieres.css */
+
+:root {
+    --purple-night: #2c2a4a;
+    --midnight-blue: #4f4c7a;
+    --golden-glow: #ffd700;
+    --light-text: #f0f0f0;
+    --card-bg: rgba(79, 76, 122, 0.7);
+    --font-main: 'Quicksand', sans-serif;
+    --font-title: 'Fredoka', sans-serif;
+}
+
+body {
+    background-color: var(--purple-night);
+    color: var(--light-text);
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#game-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-family: var(--font-title);
+    color: var(--golden-glow);
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#poem-container {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.verse {
+    background-color: var(--card-bg);
+    border: 2px solid var(--midnight-blue);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.verse p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.emoji-slot {
+    width: 60px;
+    height: 60px;
+    border: 2px dashed var(--golden-glow);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.emoji-slot.filled {
+    border-style: solid;
+}
+
+.emoji-slot.correct {
+    border-color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.emoji-slot.incorrect {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+#emoji-bank {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--midnight-blue);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-top: 2px solid var(--golden-glow);
+    z-index: 10;
+}
+
+.emoji-bank .emoji {
+    font-size: 45px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.emoji-bank .emoji:hover {
+    transform: scale(1.2);
+}
+
+.emoji.selected {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 5px var(--golden-glow));
+}
+
+#verify-button, #restart-button {
+    background-color: var(--golden-glow);
+    color: var(--purple-night);
+    font-family: var(--font-title);
+    font-size: 1.5em;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#verify-button:hover, #restart-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--golden-glow);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Progress Bar */
+#progress-container {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: var(--midnight-blue);
+    border-radius: 10px;
+    border: 1px solid var(--golden-glow);
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ffafbd, #ffc3a0);
+    background-color: var(--golden-glow);
+    border-radius: 8px;
+    transition: width 0.5s ease-in-out;
+}
+
+#progress-label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--golden-glow);
+}
+
+/* Success Message */
+#success-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.success-content {
+    background-color: var(--purple-night);
+    padding: 40px;
+    border-radius: 20px;
+    border: 3px solid var(--golden-glow);
+    box-shadow: 0 0 30px var(--golden-glow);
+    text-align: center;
+}
+
+/* Animations */
+.smoke-puff {
+    animation: smokePuff 0.7s ease-out forwards;
+}
+
+@keyframes smokePuff {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* Animated Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--purple-night);
+    z-index: -1;
+}
+
+.star {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px white;
+    animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.shooting-star {
+    position: fixed;
+    height: 2px;
+    background: linear-gradient(-45deg, white, rgba(255, 255, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px white);
+    animation: shooting 10s linear infinite;
+}
+
+@keyframes shooting {
+    0% { transform: translateX(0) translateY(0); opacity: 1; }
+    100% { transform: translateX(100vw) translateY(100vh); opacity: 0; }
+}

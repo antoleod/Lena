@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="gemBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3ff"/>
+      <stop offset="100%" stop-color="#48d5ff"/>
+    </linearGradient>
+    <linearGradient id="gemHighlight" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#8de6ff" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="104" height="104" rx="24" fill="#eefbff" stroke="#c7ebff" stroke-width="4"/>
+  <path d="M60 22 88 46 72 96H48L32 46z" fill="url(#gemBase)" stroke="#2ab9e0" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M60 22 72 46 60 96 48 46z" fill="url(#gemHighlight)" stroke="#2ab9e0" stroke-width="2" stroke-linejoin="round" opacity="0.9"/>
+  <circle cx="38" cy="48" r="3.6" fill="#fff" opacity="0.7"/>
+  <circle cx="82" cy="48" r="3.6" fill="#fff" opacity="0.45"/>
+</svg>

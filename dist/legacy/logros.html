@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title data-i18n="navAchievements">Appli de Léna - Mes Succès</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/feedback-system.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/logros.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../css/theme-unicorn.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.json">
+</head>
+<body class="theme-unicorn-rainbow">
+    <header data-lena-header></header>
+
+    <button id="btnVolver" type="button" class="btn-secondary btn-back">
+        <span aria-hidden="true">&#8592;</span>
+        <span data-i18n="shopBackToMenu">Retour au menu</span>
+    </button>
+
+    <section class="logros-user-panel" aria-label="Profil et portefeuille">
+        <div id="user-info" class="user-info-card"></div>
+        <div class="wallet-grid" role="status" aria-live="polite">
+            <div class="wallet-item wallet-item--stars">
+                <span class="wallet-icon" aria-hidden="true">✨</span>
+                <span class="wallet-label" data-i18n="starsLabel">Étoiles</span>
+                <span id="scoreStars" class="wallet-value">0</span>
+            </div>
+            <div class="wallet-item wallet-item--coins">
+                <span class="wallet-icon" aria-hidden="true">🪙</span>
+                <span class="wallet-label" data-i18n="coinsLabel">Pièces</span>
+                <span id="scoreCoins" class="wallet-value">0</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="stageBottom">
+        <div id="logros-container" class="logros-container"></div>
+    </div>
+
+    <footer data-lena-footer></footer>
+    <script src="../js/feedbackSystem.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/appData.js" defer></script>
+    <script src="../js/appShell.js" defer></script>
+    <script src="../js/avatarData.js"></script>
+    <script src="../js/core/storage.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/boutiqueData.js"></script>
+    <script src="../js/logros.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('../service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</body>
+</html>
+
+
