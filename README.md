@@ -1,1 +1,10 @@
-https://antoleod.github.io/Lena/html/login.html
+﻿# Lena
+
+Proyecto migrado a React + Vite.
+
+Rutas principales:
+- /login
+- /juego
+- /boutique
+- /logros
+- /grande-aventure-mots

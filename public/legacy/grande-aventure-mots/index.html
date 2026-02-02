@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>La Grande Aventure des Mots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/grande-aventure-mots.css" />
+</head>
+<body>
+  <header data-lena-header></header>
+  <main class="main-shell" role="main">
+    <div class="top-bar">
+      <h1 class="top-bar__title"><span>🟣</span>La Grande Aventure des Mots</h1>
+      <button class="back-btn" type="button" onclick="window.location.href='/juego'">⬅ Retour au menu principal</button>
+    </div>
+
+    <section class="section-intro">
+      Cette aventure regroupe 10 mini-jeux pour entraîner l’écoute, la prononciation et la compréhension de Léna. Choisis un univers pour commencer. Les jeux verrouillés arriveront bientôt !
+    </section>
+
+    <section class="grid" aria-label="Liste des mini-jeux">
+      <a class="game-card" href="trouve-le-mot/index.html">
+        <span class="game-card__emoji">🎯</span>
+        <h2 class="game-card__title">1. Trouve le mot</h2>
+        <p class="game-card__desc">Écoute le mot et clique sur l’image qui correspond. 10 niveaux progressifs.</p>
+      </a>
+
+      <a class="game-card" href="rimes-magiques/index.html">
+        <span class="game-card__emoji">🎵</span>
+        <h2 class="game-card__title">2. Rimes magiques</h2>
+        <p class="game-card__desc">Trouve les mots qui riment ensemble.</p>
+      </a>
+
+      <a class="game-card" href="complete-la-phrase/index.html">
+        <span class="game-card__emoji">🧩</span>
+        <h2 class="game-card__title">3. Complète la phrase</h2>
+        <p class="game-card__desc">Choisis le mot qui manque dans la phrase magique.</p>
+      </a>
+
+      <a class="game-card" href="remets-histoire-en-ordre/index.html">
+        <span class="game-card__emoji">📚</span>
+        <h2 class="game-card__title">4. Remets l’histoire en ordre</h2>
+        <p class="game-card__desc">Replace les images pour raconter la bonne histoire.</p>
+      </a>
+
+      <a class="game-card" href="devine-le-son/index.html">
+        <span class="game-card__emoji">🔊</span>
+        <h2 class="game-card__title">5. Devine le son</h2>
+        <p class="game-card__desc">Quel bruit entends-tu ? Clique sur l’image correspondante.</p>
+      </a>
+
+      <a class="game-card" href="repete-avec-moi/index.html">
+        <span class="game-card__emoji">🗣️</span>
+        <h2 class="game-card__title">6. Répète avec moi</h2>
+        <p class="game-card__desc">Écoute une phrase et répète-la pour gagner des étoiles.</p>
+      </a>
+
+      <a class="game-card" href="attrape-le-mot/index.html">
+        <span class="game-card__emoji">☄️</span>
+        <h2 class="game-card__title">7. Attrape le mot</h2>
+        <p class="game-card__desc">Clique vite sur le mot entendu avant qu’il ne s’échappe.</p>
+      </a>
+
+      <a class="game-card" href="enquete-grammaticale/index.html">
+        <span class="game-card__emoji">🕵️‍♀️</span>
+        <h2 class="game-card__title">8. Enquête grammaticale</h2>
+        <p class="game-card__desc">Trouve le sujet, le verbe ou le complément dans la phrase.</p>
+      </a>
+
+      <a class="game-card" href="associe-les-idees/index.html">
+        <span class="game-card__emoji">🤝</span>
+        <h2 class="game-card__title">9. Associe les idées</h2>
+        <p class="game-card__desc">Relie les deux mots qui vont ensemble.</p>
+      </a>
+
+      <a class="game-card" href="histoire-interactive/index.html">
+        <span class="game-card__emoji">🌟</span>
+        <h2 class="game-card__title">10. Histoire interactive</h2>
+        <p class="game-card__desc">Choisis les actions du héros pour inventer l’histoire.</p>
+      </a>
+    </section>
+  </main>
+  <script src="common.js"></script>
+  <footer data-lena-footer></footer>
+</body>
+</html>
