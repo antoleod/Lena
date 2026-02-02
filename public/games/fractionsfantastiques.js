@@ -3,15 +3,15 @@
 
   const LEVELS = Array.from({ length: 10 }, (_, i) => ({
     level: i + 1,
-    count: 6,
-    reward: { stars: 11 + i, coins: 5 + Math.floor(i / 2) }
+    count: 8,
+    reward: { stars: 12 + i, coins: 6 + Math.floor(i / 2) }
   }));
 
   const QUESTION_BUILDERS = [
-    { minLevel: 1, weight: 3, builder: buildVisualQuestion },
+    { minLevel: 1, weight: 2, builder: buildVisualQuestion },
     { minLevel: 2, weight: 2, builder: buildWordScenarioQuestion },
-    { minLevel: 4, weight: 2, builder: buildEquivalentQuestion },
-    { minLevel: 5, weight: 2, builder: buildComparisonQuestion }
+    { minLevel: 3, weight: 3, builder: buildEquivalentQuestion },
+    { minLevel: 4, weight: 3, builder: buildComparisonQuestion }
   ];
 
   function build(level){
@@ -221,10 +221,10 @@
   }
 
   function pickDenominator(level){
-    if (level <= 2) return randomFrom([2, 3, 4]);
-    if (level <= 4) return randomFrom([4, 6, 8]);
+    if (level <= 2) return randomFrom([3, 4, 5, 6]);
+    if (level <= 4) return randomFrom([4, 6, 8, 10]);
     if (level <= 7) return randomFrom([6, 8, 10, 12]);
-    return randomFrom([8, 10, 12, 15]);
+    return randomFrom([8, 10, 12, 14, 16]);
   }
 
   function generateFractionOptions(numerator, denominator){

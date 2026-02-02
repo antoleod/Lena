@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirection...</title>
+    <script>
+      (function () {
+        var base = '/Lena/';
+        var pathname = window.location.pathname;
+        var search = window.location.search.replace(/&/g, '~and~');
+        var hash = window.location.hash;
+        if (pathname.startsWith(base)) {
+          pathname = pathname.slice(base.length);
+        }
+        var redirect = base + '?/' + pathname + search + hash;
+        window.location.replace(redirect);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

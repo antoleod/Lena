@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react';
+﻿﻿import { useEffect, useRef, useState } from 'react';
 
 const LEGACY_ATTR = 'data-legacy-managed';
 
@@ -102,6 +102,11 @@ export default function LegacyPage({ legacyPath }) {
 
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
+
+        const gsFeedback = doc.getElementById('gs-feedback');
+        if (gsFeedback) {
+          gsFeedback.remove();
+        }
 
         document.title = doc.title || previous.title;
         document.documentElement.lang = doc.documentElement.lang || previous.lang || 'fr';

@@ -3,35 +3,20 @@ import { Navigate, useParams } from 'react-router-dom';
 import LegacyPage from '../LegacyPage.jsx';
 
 const CATEGORY_CONFIG = {
-  novedades: {
-    title: 'Novedades',
-    subtitle: 'Los retos más recientes.',
-    legacyPath: '/legacy/juego-new.html?cat=new'
+  segundo: {
+    title: '2º de primaria',
+    subtitle: 'Todas las materias para 2º de primaria.',
+    legacyPath: '/legacy/juego-2do.html?cat=segundo'
   },
-  matematicas: {
-    title: 'Matemáticas',
-    subtitle: 'Cálculo, series y números mágicos.',
-    legacyPath: '/legacy/juego-math.html?cat=math'
+  tercero: {
+    title: '3º de primaria',
+    subtitle: 'Retos avanzados para 3º de primaria.',
+    legacyPath: '/legacy/juego-3ro.html?cat=tercero'
   },
-  logica: {
-    title: 'Lógica y Razonamiento',
-    subtitle: 'Secuencias, memoria y estrategia.',
-    legacyPath: '/legacy/juego-logic.html?cat=logic'
-  },
-  lectura: {
-    title: 'Lectura y Palabras',
-    subtitle: 'Historias, vocabulario y comprensión.',
-    legacyPath: '/legacy/juego-words.html?cat=words'
-  },
-  creativo: {
-    title: 'Creativo y Mundo',
-    subtitle: 'Arte, puzzles y exploración.',
-    legacyPath: '/legacy/juego-creative.html?cat=creative'
-  },
-  emociones: {
-    title: 'Emociones y Bienestar',
-    subtitle: 'Respirar, reflexionar y hábitos sanos.',
-    legacyPath: '/legacy/juego-emotions.html?cat=emotions'
+  cuarto: {
+    title: '4º de primaria',
+    subtitle: 'Autonomía y razonamiento para 4º de primaria.',
+    legacyPath: '/legacy/juego-4to.html?cat=cuarto'
   }
 };
 

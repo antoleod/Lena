@@ -11,7 +11,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-CVk5j3y8.js"></script>
+    <script>
+      (function () {
+        if (window.location.search.startsWith('?/')) {
+          var path = window.location.search.slice(2).replace(/~and~/g, '&');
+          var base = '/';
+          window.history.replaceState(null, '', base + path + window.location.hash);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-Ckh4QKJn.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-B6aId-6H.css">
   </head>
   <body>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8"/>
@@ -17,7 +17,7 @@
     <section class="ng-header">
       <div class="ng-header__title">
         <button class="ng-back" type="button" data-action="back" data-i18n-attr="aria-label" data-i18n-key="gameBackToMenu">
-          <span aria-hidden="true">⬅️</span>
+          <span aria-hidden="true">â¬…ï¸</span>
           <span data-i18n="gameBackToMenu"></span>
         </button>
         <div>
@@ -49,21 +49,21 @@
       </main>
       <footer class="gs-footer">
         <button class="gs-action gs-action--ghost" data-action="hint" data-i18n-attr="aria-label" data-i18n-key="gameHint">
-          <span aria-hidden="true">💡</span>
+          <span aria-hidden="true">ðŸ’¡</span>
           <span data-i18n="gameHint"></span>
         </button>
         <button class="gs-action" data-action="validate" data-i18n-attr="aria-label" data-i18n-key="gameValidate" disabled>
-          <span aria-hidden="true">✅</span>
+          <span aria-hidden="true">âœ…</span>
           <span data-i18n="gameValidate"></span>
         </button>
         <button class="gs-action" data-action="next" data-i18n-attr="aria-label" data-i18n-key="gameNext" disabled>
-          <span aria-hidden="true">⏭️</span>
+          <span aria-hidden="true">â­ï¸</span>
           <span data-i18n="gameNext"></span>
         </button>
       </footer>
       <div class="gs-feedback" data-feedback hidden>
         <div class="gs-feedback__card">
-          <div class="gs-feedback__icon" data-feedback-icon>✨</div>
+          <div class="gs-feedback__icon" data-feedback-icon>âœ¨</div>
           <div data-feedback-summary></div>
         </div>
       </div>
@@ -80,8 +80,10 @@
     document.addEventListener('click', (event) => {
       const btn = event.target.closest('[data-action="back"]');
       if (!btn) return;
-      window.location.href = '/juego';
+      window.location.href = '../juegos';
     });
   </script>
 </body>
 </html>
+
+

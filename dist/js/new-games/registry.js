@@ -247,7 +247,146 @@
     return exercises;
   }
 
-  const games = [
+  
+
+  function makePossessiveExercise(sentence, options, answer, hintKey) {
+    return {
+      id: `possessive-${Date.now()}-${Math.floor(Math.random()*1e6)}`,
+      type: 'chips',
+      promptKey: 'possessivePrompt',
+      promptParams: { sentence },
+      answer,
+      options,
+      hintKey
+    };
+  }
+
+  function possessiveLevels(levelCount = 12) {
+    const levels = [];
+
+    const l1 = [
+      makePossessiveExercise('Compl?te : ___ chat est petit.', ['mon','ma','mes'], 'mon', 'possessiveHintSimple'),
+      makePossessiveExercise('Compl?te : ___ s?ur est gentille.', ['mon','ma','mes'], 'ma', 'possessiveHintSimple'),
+      makePossessiveExercise('Compl?te : ___ amis arrivent.', ['mon','ma','mes'], 'mes', 'possessiveHintPlural'),
+      makePossessiveExercise('Compl?te : ___ chien court vite.', ['son','sa','ses'], 'son', 'possessiveHintSimple'),
+      makePossessiveExercise('Compl?te : ___ maison est grande.', ['son','sa','ses'], 'sa', 'possessiveHintSimple'),
+      makePossessiveExercise('Compl?te : ___ jouets sont rang?s.', ['son','sa','ses'], 'ses', 'possessiveHintPlural')
+    ];
+
+    const l2 = [
+      makePossessiveExercise('Choisis : ___ livre (je).', ['mon','ma','mes'], 'mon', 'possessiveHintSimple'),
+      makePossessiveExercise('Choisis : ___ trousse (je).', ['mon','ma','mes'], 'ma', 'possessiveHintSimple'),
+      makePossessiveExercise('Choisis : ___ crayons (je).', ['mon','ma','mes'], 'mes', 'possessiveHintPlural'),
+      makePossessiveExercise('Choisis : ___ ballon (il).', ['son','sa','ses'], 'son', 'possessiveHintSimple'),
+      makePossessiveExercise('Choisis : ___ robe (elle).', ['son','sa','ses'], 'sa', 'possessiveHintSimple'),
+      makePossessiveExercise('Choisis : ___ amis (ils).', ['son','sa','ses'], 'ses', 'possessiveHintPlural')
+    ];
+
+    const l3 = [
+      makePossessiveExercise('Phrase : ___ papa lit une histoire.', ['mon','ma','mes'], 'mon', 'possessiveHintSimple'),
+      makePossessiveExercise('Phrase : ___ maman pr?pare le go?ter.', ['mon','ma','mes'], 'ma', 'possessiveHintSimple'),
+      makePossessiveExercise('Phrase : ___ cousins jouent dehors.', ['mon','ma','mes'], 'mes', 'possessiveHintPlural'),
+      makePossessiveExercise('Phrase : ___ oncle arrive.', ['son','sa','ses'], 'son', 'possessiveHintSimple'),
+      makePossessiveExercise('Phrase : ___ tante sourit.', ['son','sa','ses'], 'sa', 'possessiveHintSimple'),
+      makePossessiveExercise('Phrase : ___ parents sont contents.', ['son','sa','ses'], 'ses', 'possessiveHintPlural')
+    ];
+
+    const l4 = [
+      makePossessiveExercise('Transforme : "mon cahier" ?', ['mes cahiers','mon cahiers','ma cahiers'], 'mes cahiers', 'possessiveHintTransform'),
+      makePossessiveExercise('Transforme : "ma chaussure" ?', ['mes chaussures','ma chaussures','mon chaussures'], 'mes chaussures', 'possessiveHintTransform'),
+      makePossessiveExercise('Transforme : "ses livres" ?', ['son livre','sa livre','ses livre'], 'son livre', 'possessiveHintTransform'),
+      makePossessiveExercise('Transforme : "son ballon" ?', ['ses ballons','sa ballons','son ballons'], 'ses ballons', 'possessiveHintTransform'),
+      makePossessiveExercise('Choisis : "L?a ___ chapeau"', ['son','sa','ses'], 'son', 'possessiveHintSimple'),
+      makePossessiveExercise('Choisis : "L?a ___ chaussures"', ['son','sa','ses'], 'ses', 'possessiveHintPlural')
+    ];
+
+    const l5 = [
+      makePossessiveExercise('Paul et Marie cherchent ___ cl?s.', ['leur','leurs','ses'], 'leurs', 'possessiveHintOwner'),
+      makePossessiveExercise('Les enfants rangent ___ cartable.', ['leur','leurs'], 'leur', 'possessiveHintOwner'),
+      makePossessiveExercise('Nous aimons ___ ?cole.', ['notre','nos'], 'notre', 'possessiveHintPlural'),
+      makePossessiveExercise('Vous rangez ___ livres.', ['votre','vos'], 'vos', 'possessiveHintPlural'),
+      makePossessiveExercise('Lucas et toi pr?tez ___ v?lo.', ['votre','vos'], 'votre', 'possessiveHintOwner'),
+      makePossessiveExercise('Ils montrent ___ dessins.', ['leur','leurs'], 'leurs', 'possessiveHintPlural')
+    ];
+
+    const l6 = [
+      makePossessiveExercise('Accorde : ___ id?e (elle).', ['son','sa','ses'], 'son', 'possessiveHintSimple'),
+      makePossessiveExercise('Accorde : ___ histoire (il).', ['son','sa','ses'], 'son', 'possessiveHintSimple'),
+      makePossessiveExercise('Accorde : ___ instruments (elles).', ['leur','leurs'], 'leurs', 'possessiveHintPlural'),
+      makePossessiveExercise('Accorde : ___ camarade (ils).', ['leur','leurs'], 'leur', 'possessiveHintOwner'),
+      makePossessiveExercise('Accorde : ___ cahiers (nous).', ['notre','nos'], 'nos', 'possessiveHintPlural'),
+      makePossessiveExercise('Accorde : ___ devoir (vous).', ['votre','vos'], 'votre', 'possessiveHintSimple')
+    ];
+
+    const l7 = [
+      makePossessiveExercise('Qui poss?de ? "Les filles ont perdu ___ gants."', ['leur','leurs','ses'], 'leurs', 'possessiveHintOwner'),
+      makePossessiveExercise('Qui poss?de ? "L?a a oubli? ___ trousse."', ['son','sa','ses'], 'sa', 'possessiveHintSimple'),
+      makePossessiveExercise('Qui poss?de ? "Les jumeaux saluent ___ ma?tre."', ['leur','leurs'], 'leur', 'possessiveHintOwner'),
+      makePossessiveExercise('Qui poss?de ? "Je montre ___ dessins."', ['mon','ma','mes'], 'mes', 'possessiveHintPlural'),
+      makePossessiveExercise('Qui poss?de ? "Tu ranges ___ cahier."', ['ton','ta','tes'], 'ton', 'possessiveHintSimple'),
+      makePossessiveExercise('Qui poss?de ? "Vous ouvrez ___ sacs."', ['votre','vos'], 'vos', 'possessiveHintPlural')
+    ];
+
+    const l8 = [
+      makePossessiveExercise('Transforme : "son livre" (possesseur = plusieurs) ?', ['leur livre','leurs livre','leur livres'], 'leur livre', 'possessiveHintOwner'),
+      makePossessiveExercise('Transforme : "sa gomme" (possesseur = plusieurs) ?', ['leur gomme','leurs gomme','leur gommes'], 'leur gomme', 'possessiveHintOwner'),
+      makePossessiveExercise('Transforme : "ses cahiers" (possesseur = plusieurs) ?', ['leurs cahiers','leur cahiers','leurs cahier'], 'leurs cahiers', 'possessiveHintOwner'),
+      makePossessiveExercise('Transforme : "leurs stylos" (possesseur = un seul) ?', ['son stylo','ses stylo','sa stylo'], 'son stylo', 'possessiveHintOwner'),
+      makePossessiveExercise('Transforme : "leurs trousses" (possesseur = un seul) ?', ['sa trousse','ses trousse','son trousse'], 'sa trousse', 'possessiveHintOwner'),
+      makePossessiveExercise('Choisis la bonne phrase :', ['Leur amis arrivent.', 'Leurs amis arrivent.', 'Leur amie arrivent.'], 'Leurs amis arrivent.', 'possessiveHintPlural')
+    ];
+
+    const l9 = [
+      makePossessiveExercise('Corrige : "Son chaussures sont neuves."', ['Ses chaussures sont neuves.', 'Sa chaussures sont neuves.', 'Son chaussures sont neuves.'], 'Ses chaussures sont neuves.', 'possessiveHintPlural'),
+      makePossessiveExercise('Corrige : "Leurs chat dort."', ['Leur chat dort.', 'Leurs chat dort.', 'Leur chats dort.'], 'Leur chat dort.', 'possessiveHintOwner'),
+      makePossessiveExercise('Corrige : "Sa amis jouent."', ['Ses amis jouent.', 'Son amis jouent.', 'Sa amis joue.'], 'Ses amis jouent.', 'possessiveHintPlural'),
+      makePossessiveExercise('Corrige : "Leur voitures sont rouges."', ['Leurs voitures sont rouges.', 'Leur voiture sont rouges.', 'Leur voitures est rouges.'], 'Leurs voitures sont rouges.', 'possessiveHintPlural'),
+      makePossessiveExercise('Compl?te : "Marie et Lina prennent ___ repas."', ['leur','leurs','ses'], 'leur', 'possessiveHintOwner'),
+      makePossessiveExercise('Compl?te : "Les gar?ons ouvrent ___ bo?tes."', ['leur','leurs'], 'leurs', 'possessiveHintPlural')
+    ];
+
+    const l10 = [
+      makePossessiveExercise('Choisis : "Apr?s le sport, L?a range ___ v?tements."', ['son','sa','ses'], 'ses', 'possessiveHintPlural'),
+      makePossessiveExercise('Choisis : "Paul montre ___ dessin ? sa s?ur."', ['son','sa','ses'], 'son', 'possessiveHintSimple'),
+      makePossessiveExercise('Choisis : "Les ?l?ves posent ___ questions."', ['leur','leurs'], 'leurs', 'possessiveHintPlural'),
+      makePossessiveExercise('Choisis : "Les ?l?ves posent ___ question."', ['leur','leurs'], 'leur', 'possessiveHintOwner'),
+      makePossessiveExercise('Choisis : "Nous aimons ___ nouveaux jeux."', ['notre','nos'], 'nos', 'possessiveHintPlural'),
+      makePossessiveExercise('Choisis : "Tu ouvres ___ trousse bleue."', ['ton','ta','tes'], 'ta', 'possessiveHintSimple')
+    ];
+
+    const l11 = [
+      makePossessiveExercise('Pourquoi "leurs" ? "Les enfants rangent leurs sacs."', ['Il y a plusieurs possesseurs.', 'Le nom est f?minin.', 'Le nom est singulier.'], 'Il y a plusieurs possesseurs.', 'possessiveHintJustify'),
+      makePossessiveExercise('Pourquoi "son" ? "L?na prend son v?lo."', ['Le nom est masculin.', 'Il y a plusieurs possesseurs.', 'Le nom est pluriel.'], 'Le nom est masculin.', 'possessiveHintJustify'),
+      makePossessiveExercise('Pourquoi "ses" ? "Paul ferme ses cahiers."', ['Le nom est pluriel.', 'Le nom est f?minin.', 'Il y a plusieurs possesseurs.'], 'Le nom est pluriel.', 'possessiveHintJustify'),
+      makePossessiveExercise('Pourquoi "leur" ? "Les filles cherchent leur amie."', ['Le nom est singulier.', 'Le nom est masculin.', 'Il y a un seul possesseur.'], 'Le nom est singulier.', 'possessiveHintJustify'),
+      makePossessiveExercise('Corrige : "Mon amis arrive."', ['Mes amis arrivent.', 'Mon ami arrive.', 'Mes ami arrive.'], 'Mon ami arrive.', 'possessiveHintPlural'),
+      makePossessiveExercise('Corrige : "Sa trousse sont pr?te."', ['Sa trousse est pr?te.', 'Ses trousses est pr?te.', 'Sa trousses sont pr?tes.'], 'Sa trousse est pr?te.', 'possessiveHintPlural')
+    ];
+
+    const l12 = [
+      makePossessiveExercise('Choisis la meilleure phrase :', ['Leurs cousins est l?.', 'Leurs cousins sont l?.', 'Leur cousins sont l?.'], 'Leurs cousins sont l?.', 'possessiveHintPlural'),
+      makePossessiveExercise('Choisis la meilleure phrase :', ['Son amie est arriv?e.', 'Sa amie est arriv?e.', 'Ses amie est arriv?e.'], 'Son amie est arriv?e.', 'possessiveHintSimple'),
+      makePossessiveExercise('Choisis la meilleure phrase :', ['Leur voyage commence.', 'Leurs voyage commence.', 'Leur voyages commence.'], 'Leur voyage commence.', 'possessiveHintOwner'),
+      makePossessiveExercise('Choisis la meilleure phrase :', ['Ses histoires sont vraies.', 'Sa histoires sont vraies.', 'Son histoires sont vraies.'], 'Ses histoires sont vraies.', 'possessiveHintPlural'),
+      makePossessiveExercise('Choisis la meilleure phrase :', ['Notre classe est pr?te.', 'Nos classe est pr?te.', 'Notre classes sont pr?tes.'], 'Notre classe est pr?te.', 'possessiveHintSimple'),
+      makePossessiveExercise('Choisis la meilleure phrase :', ['Vos cahier est rang?.', 'Votre cahier est rang?.', 'Vos cahiers est rang?.'], 'Votre cahier est rang?.', 'possessiveHintSimple')
+    ];
+
+    const buckets = [l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12];
+    for (let i = 0; i < Math.min(levelCount, buckets.length); i++) {
+      levels.push({ level: i + 1, exercises: buckets[i] });
+    }
+    return levels;
+  }
+
+const games = [
+    {
+      id: 'possessives',
+      titleKey: 'gamePossessivesTitle',
+      subtitleKey: 'gamePossessivesSubtitle',
+      exercisesPerLevel: 6,
+      levels: possessiveLevels(12)
+    },
     {
       id: 'build-number',
       titleKey: 'gameBuildNumberTitle',

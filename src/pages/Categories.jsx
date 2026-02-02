@@ -4,52 +4,28 @@ import './Categories.css';
 
 const CATEGORIES = [
   {
-    id: 'novedades',
-    title: 'Novedades 3º primaria',
-    subtitle: 'Nuevos retos para 3º de primaria (Bélgica): problemas, fracciones y series.',
-    route: '/juegos/novedades',
+    id: 'segundo',
+    title: '2º de primaria',
+    subtitle: 'Matemáticas, lectura, lógica y mundo para 2º de primaria (Bélgica).',
+    route: '/juegos/segundo',
+    color: '#7bb8ff',
+    items: ['Cálculo y tablas', 'Lectura y dictado', 'Lógica y puzzles']
+  },
+  {
+    id: 'tercero',
+    title: '3º de primaria',
+    subtitle: 'Retos más avanzados: problemas, fracciones, medidas y razonamiento.',
+    route: '/juegos/tercero',
     color: '#ff9fb2',
-    items: ['Problemas mágicos', 'Fracciones fantásticas', 'Series numéricas']
+    items: ['Problemas y fracciones', 'Series y medidas', 'Comprensión y lógica']
   },
   {
-    id: 'matematicas',
-    title: 'Matemáticas',
-    subtitle: 'Cálculo, medidas, tiempo y tablas para 3º de primaria.',
-    route: '/juegos/matematicas',
-    color: '#5b9dff',
-    items: ['Multiplicaciones y divisiones', 'Medidas y reloj', 'Tablas y problemas']
-  },
-  {
-    id: 'logica',
-    title: 'Lógica y Razonamiento',
-    subtitle: 'Secuencias, laberintos y pensamiento lógico.',
-    route: '/juegos/logica',
-    color: '#7f58ff',
-    items: ['Secuencias', 'Laberinto lógico', 'Logigramas']
-  },
-  {
-    id: 'lectura',
-    title: 'Lectura y Palabras',
-    subtitle: 'Lectura, dictado, vocabulario y gramática.',
-    route: '/juegos/lectura',
-    color: '#f6a04d',
-    items: ['Lectura mágica', 'Dictado', 'Gramática y vocabulario']
-  },
-  {
-    id: 'creativo',
-    title: 'Creativo y Mundo',
-    subtitle: 'Arte, puzzles y exploración del mundo.',
-    route: '/juegos/creativo',
-    color: '#43c9a3',
-    items: ['Puzzle mágico', 'Colores', 'Mapa del mundo']
-  },
-  {
-    id: 'emociones',
-    title: 'Emociones y Bienestar',
-    subtitle: 'Respirar, reflexionar y misiones diarias.',
-    route: '/juegos/emociones',
-    color: '#f383b3',
-    items: ['Emociones mágicas', 'Misiones del día', 'Respira y relájate']
+    id: 'cuarto',
+    title: '4º de primaria',
+    subtitle: 'Autonomía y precisión: textos largos, corrección y explicación simple.',
+    route: '/juegos/cuarto',
+    color: '#8bdba2',
+    items: ['Possessifs en contexte', 'Razonamiento avanzado', 'Corrección de errores']
   }
 ];
 
@@ -64,7 +40,7 @@ export default function CategoriesPage() {
     const previousBodyClass = document.body.className;
     document.body.className = 'categories-body';
     document.documentElement.lang = 'es';
-    document.title = 'Juegos por categorías - Lena';
+    document.title = 'Juegos por cursos - Lena';
 
     return () => {
       document.body.className = previousBodyClass;
@@ -75,10 +51,10 @@ export default function CategoriesPage() {
     <main className="categories-shell">
       <header className="categories-hero">
         <div className="hero-card">
-          <span className="hero-eyebrow">Tu aventura en secciones</span>
-          <h1>Elige una categoría y empieza a jugar</h1>
+          <span className="hero-eyebrow">Juegos por curso</span>
+          <h1>Elige el curso y entra a jugar</h1>
           <p>
-            Cada página está pensada para concentrarse en un tipo de reto. Así todo se siente más ligero y ordenado.
+            Cada curso reúne todas las materias. Así el acceso es más rápido y el contenido está mejor ordenado.
           </p>
           <div className="hero-actions">
             {QUICK_LINKS.map((link) => (
@@ -92,29 +68,29 @@ export default function CategoriesPage() {
           <div className="hero-panel__glow"></div>
           <div className="hero-panel__content">
             <div className="hero-stat">
-              <span className="hero-stat__label">Categorías</span>
-              <span className="hero-stat__value">6</span>
+              <span className="hero-stat__label">Cursos</span>
+              <span className="hero-stat__value">3</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat__label">Experiencias</span>
-              <span className="hero-stat__value">30+</span>
+              <span className="hero-stat__label">Materias</span>
+              <span className="hero-stat__value">Todas</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat__label">Modos</span>
-              <span className="hero-stat__value">Calma y Rápido</span>
+              <span className="hero-stat__label">Dificultad</span>
+              <span className="hero-stat__value">2º a 4º</span>
             </div>
           </div>
         </div>
       </header>
 
-      <section className="categories-grid" aria-label="Categorías de juegos">
+      <section className="categories-grid" aria-label="Cursos">
         {CATEGORIES.map((category) => (
           <Link
             key={category.id}
             to={category.route}
             className="cat-card"
             style={{ '--card-color': category.color }}
-            aria-label={`Abrir categoría ${category.title}`}
+            aria-label={`Abrir ${category.title}`}
           >
             <div className="cat-card__header">
               <h2>{category.title}</h2>

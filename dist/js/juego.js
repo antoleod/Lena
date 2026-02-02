@@ -4261,30 +4261,39 @@ function resolveLevelTheme(topicId) {
 
     // --- Screen Management ---
     const CATEGORY_TOPIC_FILTERS = {
-        new: new Set([
-            'base-ten-build', 'base-ten-subtract', 'problems-magiques',
-            'fractions-fantastiques', 'temps-horloges', 'tables-defi', 'series-numeriques'
-        ]),
-        math: new Set([
+        segundo: new Set([
             'additions', 'soustractions', 'multiplications', 'divisions',
-            'math-blitz', 'base-ten-build', 'base-ten-subtract', 'abaque-magique',
-            'number-houses', 'repartis', 'problems-magiques', 'fractions-fantastiques',
-            'temps-horloges', 'tables-defi', 'series-numeriques', 'mesures-magiques'
-        ]),
-        logic: new Set([
+            'base-ten-build', 'base-ten-subtract', 'math-blitz',
+            'repartis', 'temps-horloges', 'tables-defi',
+            'lecture-magique', 'dictee', 'mots-outils', 'stories',
+            'grande-aventure-mots', 'ecriture-cursive',
             'raisonnement', 'sorting', 'memory', 'riddles', 'sequences', 'logigrammes',
-            'puzzle-magique', 'labyrinthe-logique', 'sudoku-junior'
+            'puzzle-magique',
+            'decouvre-nature', 'carte-monde',
+            'emotions-magiques', 'missions-jour', 'quiz-jour', 'respire-repose', 'expression-soi'
         ]),
-        words: new Set([
-            'lecture-magique', 'dictee', 'mots-outils', 'stories', 'vowels',
-            'ecriture-cursive', 'grande-aventure-mots', 'les-sorcieres',
-            'grammaire-magique', 'conjugaison-magique', 'genres-accords',
-            'lecture-voix-haute', 'vocabulaire-thematique'
+        tercero: new Set([
+            'multiplications', 'divisions', 'math-blitz',
+            'problems-magiques', 'fractions-fantastiques', 'temps-horloges',
+            'tables-defi', 'series-numeriques', 'mesures-magiques',
+            'repartis',
+            'lecture-magique', 'dictee', 'mots-outils', 'stories',
+            'grande-aventure-mots',
+            'raisonnement', 'riddles', 'sequences', 'logigrammes',
+            'puzzle-magique', 'labyrinthe-logique', 'sudoku-junior',
+            'decouvre-nature', 'carte-monde',
+            'emotions-magiques', 'missions-jour', 'quiz-jour', 'respire-repose', 'expression-soi'
         ]),
-        creative: new Set([
-            'colors', 'puzzle-magique', 'decouvre-nature', 'carte-monde'
-        ]),
-        emotions: new Set([
+        cuarto: new Set([
+            'multiplications', 'divisions', 'math-blitz',
+            'problems-magiques', 'fractions-fantastiques', 'temps-horloges',
+            'tables-defi', 'series-numeriques', 'mesures-magiques',
+            'repartis',
+            'lecture-magique', 'dictee', 'mots-outils', 'stories',
+            'grande-aventure-mots',
+            'raisonnement', 'riddles', 'sequences', 'logigrammes',
+            'puzzle-magique', 'labyrinthe-logique', 'sudoku-junior',
+            'decouvre-nature', 'carte-monde',
             'emotions-magiques', 'missions-jour', 'quiz-jour', 'respire-repose', 'expression-soi'
         ])
     };
@@ -4333,14 +4342,10 @@ function resolveLevelTheme(topicId) {
             { id: 'base-ten-subtract', icon: '🔁', text: t('baseTenSubtractTitle', 'Soustraire, c’est transformer') },
             { id: 'sorting', icon: '🧩', text: t('itemSorting', 'Tri & Classement') },
             { id: 'memory', icon: '🤔', text: t('itemMemory', 'Mémoire Magique') },
-            { id: 'abaque-magique', icon: '🔢', text: t('itemAbacus', 'Abaque Magique') },
-            { id: 'number-houses', icon: '🏠', text: t('itemNumberHouses', 'Maisons des Nombres') },
             { id: 'repartis', icon: '🍎', text: t('itemRepartis', 'Répartis & Multiplie') },
             { id: 'stories', icon: '📚', text: t('itemTales', 'Contes Magiques') },
             { id: 'riddles', icon: '❓', text: t('itemRiddles', 'Jeu d\'énigmes') },
-            { id: 'vowels', icon: '🅰️', text: t('itemVowels', 'Jeu des Voyelles') },
             { id: 'sequences', icon: '➡️', text: t('itemSequences', 'Jeu des Séquences') },
-            { id: 'colors', icon: '🎨', text: t('itemColors', 'Les Couleurs') },
             { id: 'dictee', icon: '🧚‍♀️', text: t('itemDictation', 'Dictée Magique') },
             { id: 'ecriture-cursive', icon: '✍️', text: t('itemCursive', 'J’écris en cursive') },
             { id: 'les-sorcieres', icon: '🧙‍♀️', text: t('itemWitches', 'Les Sorcières — Jeu de Mémoire Magique'), href: '/les-sorcieres', type: 'external' },
@@ -4379,7 +4384,7 @@ function resolveLevelTheme(topicId) {
         content.appendChild(topicsContainer);
 
         // Section: Nouveaux Jeux Logiques et Avancés (3e Primaire)
-        if (!activeCategory || activeCategory === 'logic') {
+        if (!activeCategory || ['segundo', 'tercero'].includes(activeCategory)) {
             if (window.logicGames && typeof window.logicGames.renderSection === 'function') {
             window.logicGames.renderSection(content, (game) => {
                 const ctx = createGameContext(game.id, {});

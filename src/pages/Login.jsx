@@ -1,18 +1,20 @@
 ﻿import { useEffect, useRef } from 'react';
 
+
+const BASE_URL = import.meta.env.BASE_URL;
 const HEAD_LINKS = [
-  '/css/style.css',
-  '/css/login.css',
-  '/css/feedback-system.css'
+  `${BASE_URL}css/style.css`,
+  `${BASE_URL}css/login.css`,
+  `${BASE_URL}css/feedback-system.css`
 ];
 
 const SCRIPT_SOURCES = [
-  '/js/feedbackSystem.js',
-  '/js/avatarData.js',
-  '/js/storage.js',
-  '/js/i18n.js',
-  '/js/appData.js',
-  '/js/login.js'
+  `${BASE_URL}js/feedbackSystem.js`,
+  `${BASE_URL}js/avatarData.js`,
+  `${BASE_URL}js/storage.js`,
+  `${BASE_URL}js/i18n.js`,
+  `${BASE_URL}js/appData.js`,
+  `${BASE_URL}js/login.js`
 ];
 
 function useHeadLinks() {

@@ -1,10 +1,12 @@
 ﻿import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+const BASE_URL = import.meta.env.BASE_URL;
 
 const HEAD_LINKS = [
-  '/css/style.css',
-  '/css/menu.css',
-  '/css/feedback-system.css'
+  `${BASE_URL}css/style.css`,
+  `${BASE_URL}css/menu.css`,
+  `${BASE_URL}css/feedback-system.css`
 ];
 
 function useHeadLinks() {
@@ -83,9 +85,9 @@ export default function MenuPage() {
     async function init() {
       try {
         await Promise.all([
-          ensureScript('/js/storage.js'),
-          ensureScript('/js/avatarData.js'),
-          ensureScript('/js/feedbackSystem.js')
+          ensureScript(`${BASE_URL}js/storage.js`),
+          ensureScript(`${BASE_URL}js/avatarData.js`),
+          ensureScript(`${BASE_URL}js/feedbackSystem.js`)
         ]);
       } catch (error) {
         console.warn('[menu] Failed to load scripts', error);
@@ -299,8 +301,8 @@ export default function MenuPage() {
         </header>
 
         <main className="menu-options">
-          <a href="/juegos" className="btn-main btn-play">¡A Jugar!</a>
-          <a href="/logros" className="btn-secondary">Mis Logros</a>
+          <Link to="/juegos" className="btn-main btn-play">¡A Jugar!</Link>
+          <Link to="/logros" className="btn-secondary">Mis Logros</Link>
           <a href="/les-sorcieres-associe" className="btn-secondary">Les Sorcières - Associe les Émojis</a>
           <button className="btn-secondary" type="button">Opciones</button>
         </main>

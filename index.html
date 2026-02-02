@@ -1,16 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Appli de Lena</title>
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" href="/assets/iconos/icon-32.png" sizes="32x32" />
-    <link rel="shortcut icon" href="/assets/iconos/icon-32.png" />
-    <link rel="apple-touch-icon" href="/assets/iconos/icon-180.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.json" />
+    <link rel="icon" href="%BASE_URL%assets/iconos/icon-32.png" sizes="32x32" />
+    <link rel="shortcut icon" href="%BASE_URL%assets/iconos/icon-32.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%assets/iconos/icon-180.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        if (window.location.search.startsWith('?/')) {
+          var path = window.location.search.slice(2).replace(/~and~/g, '&');
+          var base = '%BASE_URL%';
+          window.history.replaceState(null, '', base + path + window.location.hash);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

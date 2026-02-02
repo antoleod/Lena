@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <!-- Monde Magique CSS (glass + transición por mundo) -->
+    <script>
+    (function(){
+      const blockedEndpoints = [/events\.launchdarkly\.com/i];
+      const matchesBlocked = (url) => {
+        if (!url) return false;
+        try { return blockedEndpoints.some((pattern) => pattern.test(String(url))); } 
+        catch { return false; } 
+      };
+      const createStubResponse = () => new Response('', { status: 204, statusText: 'Local Dev Stub' });
+
+      const originalFetch = window.fetch;
+      if (typeof originalFetch === 'function') {
+        window.fetch = function(input, init) {
+          try {
+            const url = typeof input === 'string' ? input : (input && input.url);
+            if (matchesBlocked(url)) {
+              console.info('[LaunchDarkly] fetch blocked in local mode:', url);
+              return Promise.resolve(createStubResponse());
+            }
+          } catch {} 
+          return originalFetch.apply(this, arguments);
+        };
+      }
+
+      const originalBeacon = navigator.sendBeacon ? navigator.sendBeacon.bind(navigator) : null;
+      if (originalBeacon) {
+        navigator.sendBeacon = function(url, data) {
+          if (matchesBlocked(url)) {
+            console.info('[LaunchDarkly] beacon blocked in local mode:', url);
+            return true;
+          }
+          return originalBeacon(url, data);
+        };
+      }
+
+      const OriginalXHR = window.XMLHttpRequest;
+      if (OriginalXHR) {
+        const originalOpen = OriginalXHR.prototype.open;
+        const originalSend = OriginalXHR.prototype.send;
+        OriginalXHR.prototype.open = function(method, url) {
+          this.__ldBlocked = matchesBlocked(url);
+          return originalOpen.apply(this, arguments);
+        };
+        OriginalXHR.prototype.send = function(body) {
+          if (this.__ldBlocked) {
+            const xhr = this;
+            console.info('[LaunchDarkly] xhr blocked in local mode');
+            setTimeout(function(){
+              Object.defineProperty(xhr, 'readyState', { configurable: true, value: 4 });
+              Object.defineProperty(xhr, 'status', { configurable: true, value: 204 });
+              Object.defineProperty(xhr, 'statusText', { configurable: true, value: 'Local Dev Stub' });
+              Object.defineProperty(xhr, 'responseText', { configurable: true, value: '' });
+              xhr.onreadystatechange && xhr.onreadystatechange();
+              xhr.onload && xhr.onload();
+            }, 0);
+            return;
+          }
+          return originalSend.apply(this, arguments);
+        };
+      }
+    })();
+    </script>
+    <title>App de Léna - Monde Magique</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/feedback-system.css"> <!-- New feedback system CSS -->
+    <link rel="stylesheet" href="../css/dictee.css">
+    <link rel="stylesheet" href="../css/ecriture-cursive.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/juego.css">
+    <link rel="stylesheet" href="../css/abaque-magique.css">
+    <link rel="stylesheet" href="../css/theme-unicorn.css">
+    <link rel="stylesheet" href="../css/base-ten.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/unicorn-favicon.svg">
+    <link rel="manifest" href="../manifest.json">
+    <style>
+    /* Sections groupées — cartes grandes + chips enfants */
+    .mm-sections{max-width:1200px;margin:0 auto 1.75rem;padding:0 1.5rem 2rem;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center}
+    .mm-section-card{flex:1 1 340px;min-width:300px;border-radius:24px;padding:18px 20px 16px;margin:0;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.78));box-shadow:0 16px 38px rgba(24,20,68,.1), 0 0 20px var(--section-color-soft, rgba(120,90,220,0.1));backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.5);transition:transform 0.3s ease, box-shadow 0.3s ease;}
+    .mm-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--section-color-soft, rgba(0,0,0,0.1));}
+    .mm-section-title{display:flex;align-items:center;gap:.6rem;font-family:'Fredoka','Nunito',sans-serif;font-weight:700;font-size:1.3rem;color:var(--section-color, #5b4fcf);}
+    .mm-section-title .mm-emoji{font-size:24px;filter: drop-shadow(0 3px 4px rgba(0,0,0,0.1));}
+    .mm-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;justify-content:center}
+    .mm-chip{border:none;border-radius:16px;padding:12px 16px;background:#fff;box-shadow:0 8px 18px rgba(24,20,68,.07);cursor:pointer;text-align:left;font-weight:800;font-size:1rem;line-height:1.35;color:#513eea;display:flex;align-items:center;gap:.6rem;transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease; position: relative; overflow: hidden;}
+    .mm-chip .mm-emoji{font-size:20px;filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));}
+    .mm-chip:focus-visible{outline:3px solid var(--section-color-soft, rgba(107,91,255,.45));box-shadow:0 12px 24px rgba(24,20,68,.14), 0 0 18px var(--section-color-soft, rgba(81, 62, 234, 0.5));}
+    .mm-chip:hover:not([disabled]){
+        transform:translateY(-4px);
+        box-shadow:0 12px 24px rgba(24,20,68,.14), 0 0 18px var(--section-color-soft, rgba(81, 62, 234, 0.5));
+        background-color: #faf8ff;
+    }
+    .mm-chip[disabled]{opacity:.6;cursor:not-allowed}
+    .mm-hide{display:none!important}
+    @media (prefers-reduced-motion:reduce){
+      .mm-section-card{transition:none;animation:none}
+      .mm-chip::after{transition:none}
+      .magic-scene,.magic-cloud,.magic-firefly,.magic-aurora,.magic-starfall{animation:none}
+    }
+    .calm-mode .magic-scene,
+    .calm-mode .magic-cloud,
+    .calm-mode .magic-firefly,
+    .calm-mode .magic-aurora,
+    .calm-mode .magic-starfall {
+      animation: none !important;
+    }
+    .magic-scene{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1;background:radial-gradient(circle at 20% 10%,rgba(255,246,253,.85),rgba(255,255,255,0)) ,linear-gradient(180deg,rgba(41,25,82,.35),rgba(255,255,255,0)60%);mix-blend-mode:screen}
+    .magic-aurora{position:absolute;inset:-30% -40% auto;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:conic-gradient(from 180deg at 50% 70%, #2d5a62, #3c8c80, #6bbf8f, #a9e29c, #3c8c80, #2d5a62);opacity:.55;transform:rotate(6deg) scale(1.2);animation:auroraDrift 48s ease-in-out infinite alternate}
+    .magic-cloud{position:absolute;width:320px;height:160px;background:rgba(255,255,255,.1);border-radius:50%;filter:blur(10px);box-shadow:-80px 20px 0 -40px rgba(255,255,255,.08),60px 30px 0 -30px rgba(255,255,255,.05),120px 10px 0 -50px rgba(255,255,255,.05)}
+    .magic-cloud--left{top:12%;left:-12%;animation:cloudDrift 60s linear infinite}
+    .magic-cloud--right{top:58%;right:-14%;animation:cloudDrift 70s linear infinite reverse}
+    .magic-firefly{position:absolute;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#fff 0%,rgba(255,231,122,.9)55%,rgba(255,255,255,0)70%);mix-blend-mode:screen;opacity:.65;animation:fireflyDance 20s ease-in-out infinite}
+    .magic-firefly--one{top:18%;left:22%;animation-delay:-2s}
+    .magic-firefly--two{top:30%;left:68%;animation-delay:-5s}
+    .magic-firefly--three{top:68%;left:35%;animation-delay:-8s}
+    .magic-firefly--four{top:75%;left:78%;animation-delay:-3s}
+    .magic-starfall{position:absolute;width:1px;height:100px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.4));filter:blur(.5px);opacity:.75;animation:starCascade 15s linear infinite}
+    .magic-starfall::before{content:'';position:absolute;top:-4px;left:-4px;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,255,255,0));box-shadow:0 0 8px rgba(255,255,255,.9)}
+    .magic-starfall--one{top:-10%;left:18%;animation-delay:-1s}
+    .magic-starfall--two{top:-15%;left:42%;animation-duration:12s;animation-delay:-3s}
+    .magic-starfall--three{top:-12%;right:24%;animation-duration:10s;animation-delay:-2s}
+    .magic-starfall--four{top:-18%;right:8%;animation-duration:14s;animation-delay:-4s}
+    .magic-fog{position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top, rgba(23, 34, 44, 0.8), transparent);pointer-events:none;}
+    #stageBottom{padding-top:96px;padding-bottom:1.5rem}
+    .mm-section-card{animation:cardFloat 14s ease-in-out infinite;animation-delay:calc(var(--card-index,0)*.2s)}
+    .mm-section-card:nth-child(even){animation-direction:reverse}
+    .mm-chip{position:relative;overflow:hidden}
+    .mm-chip::after{content:'';position:absolute;inset:auto -40%;top:110%;width:80%;height:80%;background:linear-gradient(120deg,rgba(255,255,255,.65),rgba(186,170,255,.3));transform:rotate(8deg);transition:top .35s ease}
+    .mm-chip:hover::after{top:-10%}
+    @keyframes cloudDrift{0%{transform:translateX(0)}50%{transform:translateX(40px)}100%{transform:translateX(0)}}
+    @keyframes fireflyDance{0%,100%{transform:translate3d(0,0,0) scale(.8);opacity:.4}50%{transform:translate3d(30px,-15px,0) scale(1);opacity:.8}}
+    @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes auroraDrift{0%{transform:rotate(4deg) scale(1.2)}100%{transform:rotate(8deg) scale(1.3)}}
+    @keyframes starCascade{0%{transform:translateY(0) scaleY(.9);opacity:0}10%{opacity:.6}90%{opacity:.1}100%{transform:translateY(120vh) scaleY(1.1);opacity:0}}
+    @media (max-width:1024px){
+      .mm-sections{padding:0 1.25rem 1.75rem;gap:1rem}
+      .mm-section-card{flex:1 1 45%;min-width:260px;padding:14px 16px 13px;border-radius:18px;box-shadow:0 10px 26px rgba(24,20,68,.08)}
+      .mm-section-title{font-size:1.15rem}
+      .mm-section-title .mm-emoji{font-size:20px}
+      .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+      .mm-chip{font-size:.95rem;padding:10px 12px;gap:.5rem}
+    }
+    @media (max-width:768px){
+      .mm-sections{padding:0 1rem 1.5rem;gap:.9rem}
+      .mm-section-card{flex:1 1 100%;min-width:100%;padding:14px 14px 12px;border-radius:18px}
+      .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+      .mm-chip{font-size:.92rem;padding:9px 11px}
+      .magic-scene{opacity:.55}
+      #stageBottom{padding-top:88px}
+    }
+    @media (max-width:600px){
+      .mm-sections{padding:0 .75rem 1.25rem;gap:.75rem}
+      .mm-section-card{padding:12px 12px 10px;border-radius:17px;box-shadow:0 8px 20px rgba(24,20,68,.07)}
+      .mm-section-title{font-size:1.05rem;gap:.45rem}
+      .mm-section-title .mm-emoji{font-size:19px}
+      .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+      .mm-chip{font-size:.9rem;padding:8px 10px;gap:.4rem;border-radius:12px}
+      .mm-chip .mm-emoji{font-size:16px}
+      #stageBottom{padding-top:84px}
+    }
+    @media (max-width:480px){
+      .mm-sections{padding:0 .5rem 1rem}
+      .mm-section-card{padding:11px 11px 9px;border-radius:16px}
+      .mm-chip-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px}
+      .mm-chip{font-size:.88rem;padding:7px 9px}
+      .magic-scene{opacity:.45}
+      #stageBottom{padding-top:80px}
+    }
+    </style>
+</head>
+<body>
+  <div class="magic-scene" aria-hidden="true">
+    <div class="magic-aurora"></div>
+    <div class="magic-cloud magic-cloud--left"></div>
+    <div class="magic-cloud magic-cloud--right"></div>
+    <div class="magic-firefly magic-firefly--one"></div>
+    <div class="magic-firefly magic-firefly--two"></div>
+    <div class="magic-firefly magic-firefly--three"></div>
+    <div class="magic-firefly magic-firefly--four"></div>
+    <div class="magic-starfall magic-starfall--one"></div>
+    <div class="magic-starfall magic-starfall--two"></div>
+    <div class="magic-starfall magic-starfall--three"></div>
+    <div class="magic-starfall magic-starfall--four"></div>
+    <div class="magic-fog"></div>
+  </div>
+  <header data-lena-header></header>
+
+  <div id="stageBottom">
+    <!-- Sections groupées par thèmes (rendered by JS) -->
+    <section id="mm-sections" class="mm-sections"></section>
+    <div id="content">
+      <div id="game-shell-root" class="gs-shell" data-game-id="magie-maths">
+        <header class="gs-shell__header">
+          <button class="gs-btn-icon" aria-label="Retour" data-i18n-aria="gameBack" data-action="back">⬅️</button>
+          <div class="gs-header__title">
+            <span class="gs-chip">✨ <span data-i18n="gameWorld">Monde Magique</span></span>
+            <div>
+              <div class="gs-title__text"><span data-i18n="levelLabel">Niveau</span> <span data-level>1</span> <span data-diff></span></div>
+              <div class="gs-progress">
+                <div class="gs-progress__bar"></div>
+              </div>
+              <div class="gs-progress-chip">🪙 <span data-coins>0</span> · <span data-reward-hint></span></div>
+            </div>
+          </div>
+          <div class="gs-chip">⭐ <span data-stars>0</span></div>
+        </header>
+        <main class="gs-main">
+          <div class="gs-question">
+            <div class="gs-question__label" data-question data-i18n="gameReady">Prêt à jouer</div>
+            <p class="gs-hint" data-hint hidden></p>
+          </div>
+          <div class="gs-options" data-options></div>
+          <div class="gs-order" data-order-area hidden></div>
+        </main>
+        <footer class="gs-footer">
+          <button class="gs-action gs-action--ghost" data-action="hint" data-i18n="gameHint" hidden>💡 Hint</button>
+          <button class="gs-action" data-action="start" data-i18n="gameStart">▶️ Start</button>
+          <button class="gs-action" data-action="validate" data-i18n="gameValidate" disabled>✅ Valider</button>
+          <button class="gs-action" data-action="next" data-i18n="gameNext" disabled>⏭️ Suite</button>
+          <button class="gs-action gs-action--ghost" data-action="calm" data-i18n="gameCalm">🧘 Calme</button>
+        </footer>
+        <div class="gs-feedback" hidden>
+          <div class="gs-feedback__card">
+            <div class="gs-feedback__icon" data-feedback-icon>✨</div>
+            <div class="gs-feedback__summary">
+              <span data-feedback-coins></span>
+              <span data-feedback-stars></span>
+            </div>
+            <div data-feedback-summary></div>
+            <button class="gs-action" data-action="next" data-i18n="gameNext">⏭️ Suite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="shopModal" class="shop-modal" aria-hidden="true">
+    <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
+      <div class="shop-modal__header">
+        <h2 id="shopModalTitle" data-i18n="shopTitle">Boutique de récompenses</h2>
+        <button id="shopClose" class="shop-modal__close" aria-label="Fermer la boutique" data-i18n-aria="shopClose">✕</button>
+      </div>
+      <p class="shop-modal__subtitle" data-i18n="shopSubtitle">Échange tes pièces contre des cadeaux magiques ✨</p>
+      <div class="shop-modal__content">
+        <section class="shop-section" aria-label="Articles disponibles">
+          <h3 data-i18n="shopAvailable">Articles disponibles</h3>
+          <ul id="shopList" class="shop-list"></ul>
+        </section>
+        <section class="shop-section" aria-label="Mes trésors">
+          <h3 data-i18n="shopInventory">Mes trésors</h3>
+          <ul id="inventoryList" class="shop-inventory"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <footer data-lena-footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+  <script src="../games/gameData.js"></script>
+  <script src="../games/baseTenBuild.js"></script>
+  <script src="../games/baseTenSubtract.js"></script>
+  <script src="../games/mathblitz.js"></script>
+  <script src="../games/tempshorloges.js"></script>
+  <script src="../games/tablesdefi.js"></script>
+  <script src="../games/repartis.js"></script>
+  <script src="../games/lecturemagique.js"></script>
+  <script src="../games/dictee.js"></script>
+  <script src="../games/storySets.js"></script>
+  <script src="../js/mots-outils.js"></script>
+  <script src="../js/ecriture-cursive.js"></script>
+  <script src="../games/logicgames.js"></script>
+  <script src="../games/puzzlemagique.js"></script>
+  <script src="../js/audioManager.js"></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/appData.js" defer></script>
+  <script src="../js/feedbackSystem.js" defer></script>
+  <script src="../js/appShell.js" defer></script>
+  <script src="../js/mcqEngine.js"></script>
+  <script src="../js/avatarData.js"></script>
+  <script src="../js/shopManager.js"></script>
+  <script src="../js/core/storage.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/juego.js"></script>
+  <script type="module" src="../js/game-shell/init.js"></script>
+  <script src="../js/new-games/registry.js" defer></script>  <script src="../js/sectionsMenu.js" defer></script>
+  <script>
+(function(){
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  let pending = false;
+  let lastX = 0;
+  let lastY = 0;
+
+  function shouldSkip() {
+    return document.body.classList.contains('calm-mode') || (reduceMotion && reduceMotion.matches);
+  }
+
+  function onMove(e) {
+    if (shouldSkip()) return;
+    lastX = (e.clientX / window.innerWidth) - 0.5;
+    lastY = (e.clientY / window.innerHeight) - 0.5;
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(() => {
+      pending = false;
+      const aurora = document.querySelector('.magic-aurora');
+      if (aurora) {
+        aurora.style.transform = `translateX(${-lastX * 40}px) translateY(${-lastY * 20}px) rotate(6deg) scale(1.2)`;
+      }
+      const clouds = document.querySelectorAll('.magic-cloud');
+      clouds.forEach(cloud => {
+        const speed = cloud.classList.contains('magic-cloud--left') ? 15 : 25;
+        cloud.style.transform = `translateX(${-lastX * speed}px) translateY(${-lastY * (speed / 2)}px)`;
+      });
+      const fireflies = document.querySelectorAll('.magic-firefly');
+      fireflies.forEach((firefly, index) => {
+        const speed = 10 + (index * 5);
+        firefly.style.transform = `translateX(${lastX * speed}px) translateY(${lastY * speed}px)`;
+      });
+    });
+  }
+
+  document.addEventListener('mousemove', onMove);
+})();
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('../service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

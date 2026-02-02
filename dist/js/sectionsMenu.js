@@ -9,120 +9,123 @@
   function getSectionsData() {
     return [
       {
-        id: 'new',
-        title: t('sectionNewGamesTitle', 'Nouveaux Jeux'),
-        emoji: 0x1f680,
-        color: '#FF8FAB',
+        id: 'segundo',
+        title: '2º primaria',
+        emoji: 0x1f4da,
+        color: '#7bb8ff',
         items: [
-          {
-            label: t('baseTenBuildTitle', 'Construis le nombre'),
-            emoji: 0x1f9f1,
-            aliases: [t('baseTenBuildTitle', 'Construis le nombre')]
-          },
-          {
-            label: t('baseTenSubtractTitle', 'Soustraire, c\u0027est transformer'),
-            emoji: 0x1f501,
-            aliases: [t('baseTenSubtractTitle', 'Soustraire, c\u0027est transformer')]
-          }
-        ]
-      },
-      {
-        id: 'math',
-        title: t('sectionMathTitle', 'Math\u00e9matiques'),
-        emoji: 0x1f9ee,
-        color: '#4A90E2',
-        items: [
+          { label: t('gameBuildNumberTitle', 'Construye el número'), emoji: 0x1f9f1, href: '/game?game=build-number&level=1' },
+          { label: t('gameSubtractTransformTitle', 'Restar es transformar'), emoji: 0x1f501, href: '/game?game=subtract-transform&level=1' },
+          { label: t('gamePlaceValueTitle', 'Decenas y unidades'), emoji: 0x1f522, href: '/game?game=place-value&level=1' },
+          { label: t('gameNumberLineTitle', 'Recta numérica'), emoji: 0x1f4c8, href: '/game?game=number-line&level=1' },
+          { label: t('gameHalfTitle', 'La mitad'), emoji: 0x1f35a, href: '/game?game=half-game&level=1' },
+          { label: t('gamePossessivesTitle', 'Possessifs en contexte'), emoji: 0x1f4ac, href: '/game?game=possessives&level=1' },
+          { label: t('itemMathSprint', 'Maths Sprint'), emoji: 0x26a1, aliases: [t('itemMathSprint', 'Maths Sprint')] },
           { label: t('itemAdditions', 'Additions'), emoji: 0x2795 },
           { label: t('itemSubtractions', 'Soustractions'), emoji: 0x2796 },
           { label: t('itemMultiplications', 'Multiplications'), emoji: 0x2716 },
           { label: t('itemDivisions', 'Divisions'), emoji: 0x2797 },
-          { label: t('itemMathSprint', 'Maths Sprint'), emoji: 0x26a1, aliases: [t('itemMathSprint', 'Maths Sprint')] },
-          { label: t('itemAbacus', 'Abaque Magique'), emoji: 0x1f9ee, aliases: [t('itemAbacus', 'Abaque Magique')] },
-          { label: t('itemNumberHouses', 'Maisons des Nombres'), emoji: 0x1f3e0, aliases: [t('itemNumberHouses', 'Maisons des Nombres')] },
           { label: t('itemTime', 'Temps & Horloges'), emoji: 0x23f0 },
-          { label: t('itemMeasures', 'Mesures Magiques'), emoji: 0x1f4cf, aliases: [t('itemMeasures', 'Mesures Magiques')] },
-          { label: t('itemFractions', 'Fractions Fantastiques'), emoji: 0x1f355 }
-        ]
-      },
-      {
-        id: 'logic',
-        title: t('sectionLogicTitle', 'Logique & Raisonnement'),
-        emoji: 0x1f9e0,
-        color: '#7B2CBF',
-        items: [
-          { label: t('itemLabyrinth', 'Labyrinthe Logique'), emoji: 0x1f9ed },
-          { label: t('itemSequences', 'Jeu des S\u00e9quences'), emoji: 0x1f537, aliases: [t('itemSequences', 'Jeu des S\u00e9quences')] },
-          { label: t('itemSorting', 'Tri & Classement'), emoji: 0x1f5c2, aliases: [t('itemSorting', 'Tri & Classement'), 'Jeu de Tri'] },
-          { label: t('itemMemory', 'M\u00e9moire Magique'), emoji: 0x1f9e0, aliases: [t('itemMemory', 'M\u00e9moire Magique')] },
-          { label: t('itemSudoku', 'Sudoku Junior'), emoji: 0x1f522 },
-          { label: t('itemSymmetry', 'Sym\u00e9trie Magique'), emoji: 0x1fa9e },
-          { label: t('itemComparisonCards', 'Cartes Comparatives'), emoji: 0x2696, aliases: [t('itemComparisonCards', 'Cartes Comparatives')] },
-          { label: t('itemPathNetworks', 'R\u00e9seaux de Chemins'), emoji: 0x1f517 },
-          { label: t('itemLogicgrams', 'Logigrammes (Si... Alors...)'), emoji: 0x1f9e9, aliases: [t('itemLogicgrams', 'Logigrammes (Si... Alors...)'), 'Logigrammes'] },
-          { label: t('itemRiddles', 'Jeu d\u0027\u00c9nigmes'), emoji: 0x1f4a1 },
-          { label: t('itemRepartis', 'R\u00e9partis & Multiplie'), emoji: 0x1f34e }
-        ]
-      },
-      {
-        id: 'words',
-        title: t('sectionWordsTitle', 'Mots & Lecture'),
-        emoji: 0x1f4d6,
-        color: '#F5A623',
-        items: [
+          { label: t('itemRepartis', 'Répartis & Multiplie'), emoji: 0x1f34e, aliases: [t('itemRepartis', 'Répartis & Multiplie')] },
+          { label: 'Tables Défi', emoji: 0x2716, aliases: ['Tables Défi'] },
           { label: t('itemReading', 'Lecture Magique'), emoji: 0x1f4d8 },
-          { label: t('itemBigAdventure', 'La Grande Aventure des Mots'), emoji: 0x1f524, aliases: [t('itemBigAdventure', 'La Grande Aventure des Mots'), 'Grande Aventure des Mots'] },
+          { label: t('itemDictation', 'Dictée Magique'), emoji: 0x270d },
           { label: t('itemToolWords', 'Mots-Outils'), emoji: 0x1f5e3, aliases: [t('itemToolWords', 'Mots-Outils')] },
-          { label: t('itemVowels', 'Jeu des Voyelles'), emoji: 0x1f170, aliases: [t('itemVowels', 'Jeu des Voyelles')] },
-          { label: t('itemWitches', 'Les Sorci\u00e8res - Jeu de M\u00e9moire Magique'), emoji: 0x1f9d9, aliases: [t('itemWitches', 'Les Sorci\u00e8res - Jeu de M\u00e9moire Magique'), 'Les Sorci\u00e8res'] },
-          { label: t('itemDictation', 'Dict\u00e9e Magique'), emoji: 0x270d }
-        ]
-      },
-      {
-        id: 'creative',
-        title: t('sectionCreativeTitle', 'Cr\u00e9atif & Monde'),
-        emoji: 0x1f308,
-        color: '#50E3C2',
-        items: [
-          { label: t('itemColors', 'Les Couleurs / Atelier d\u0027Art'), emoji: 0x1f3a8, aliases: [t('itemColors', 'Les Couleurs / Atelier d\u0027Art'), 'Les Couleurs'] },
+          { label: t('itemTales', 'Contes Magiques'), emoji: 0x1f4d6 },
+          { label: t('itemBigAdventure', 'La Grande Aventure des Mots'), emoji: 0x1f524, aliases: [t('itemBigAdventure', 'La Grande Aventure des Mots'), 'Grande Aventure des Mots'] },
+          { label: t('itemMemory', 'Mémoire Magique'), emoji: 0x1f9e0, aliases: [t('itemMemory', 'Mémoire Magique')] },
+          { label: t('itemSorting', 'Tri & Classement'), emoji: 0x1f5c2, aliases: [t('itemSorting', 'Tri & Classement'), 'Jeu de Tri'] },
+          { label: t('itemSequences', 'Jeu des Séquences'), emoji: 0x1f537, aliases: [t('itemSequences', 'Jeu des Séquences')] },
+          { label: t('itemRiddles', "Jeu d'Énigmes"), emoji: 0x1f4a1 },
+          { label: t('itemLogicgrams', 'Logigrammes'), emoji: 0x1f9e9, aliases: [t('itemLogicgrams', 'Logigrammes')] },
           { label: t('itemPuzzle', 'Puzzle Magique'), emoji: 0x1f9e9 },
+          { label: t('itemNature', 'Découvre la Nature'), emoji: 0x1f333, aliases: [t('itemNature', 'Découvre la Nature')] },
           { label: t('itemWorldMap', 'Carte du Monde Interactive'), emoji: 0x1f30d, aliases: [t('itemWorldMap', 'Carte du Monde Interactive'), 'Carte du Monde'] },
-          { label: t('itemNature', 'D\u00e9couvre la Nature'), emoji: 0x1f333, aliases: [t('itemNature', 'D\u00e9couvre la Nature')] },
-          { label: t('itemCursive', 'J\u0027\u00e9cris en cursive'), emoji: 0x270f },
-          { label: t('itemTales', 'Contes Magiques'), emoji: 0x1f4d6 }
-        ]
-      },
-      {
-        id: 'emotions',
-        title: t('sectionEmotionsTitle', 'C\u0153ur & \u00c9motions'),
-        emoji: 0x1f496,
-        color: '#F783AC',
-        items: [
-          { label: t('itemEmotions', '\u00c9motions Magiques'), emoji: 0x1f60a },
+          { label: t('itemEmotions', 'Émotions Magiques'), emoji: 0x1f60a },
           { label: t('itemDailyMissions', 'Missions du Jour'), emoji: 0x2705 },
           { label: t('itemDailyQuiz', 'Quiz du Jour'), emoji: 0x1f31e, aliases: [t('itemDailyQuiz', 'Quiz du Jour')] },
           { label: t('itemBreath', 'Respire & Repose-toi'), emoji: 0x1f9d8 },
           { label: t('itemSelfExpression', 'Expression de Soi / Mon Journal'), emoji: 0x1f4ac }
+        ]
+      },
+      {
+        id: 'tercero',
+        title: '3º primaria',
+        emoji: 0x1f4d8,
+        color: '#ff9fb2',
+        items: [
+          { label: t('gamePlaceValueTitle', 'Decenas y unidades'), emoji: 0x1f522, href: '/game?game=place-value&level=1' },
+          { label: t('gameNumberLineTitle', 'Recta numérica'), emoji: 0x1f4c8, href: '/game?game=number-line&level=1' },
+          { label: t('gameMultDivTitle', 'Familias × ÷'), emoji: 0x2716, href: '/game?game=mult-div-families&level=1' },
+          { label: t('gameWordProblemsTitle', 'Problemas cortos'), emoji: 0x1f4a1, href: '/game?game=word-problems&level=1' },
+          { label: t('gamePossessivesTitle', 'Possessifs en contexte'), emoji: 0x1f4ac, href: '/game?game=possessives&level=5' },
+          { label: t('itemMultiplications', 'Multiplications'), emoji: 0x2716 },
+          { label: t('itemDivisions', 'Divisions'), emoji: 0x2797 },
+          { label: t('itemMathSprint', 'Maths Sprint'), emoji: 0x26a1, aliases: [t('itemMathSprint', 'Maths Sprint')] },
+          { label: 'Problèmes Magiques', emoji: 0x1f4a1 },
+          { label: 'Fractions Fantastiques', emoji: 0x1f370 },
+          { label: t('itemTime', 'Temps & Horloges'), emoji: 0x23f0 },
+          { label: 'Tables Défi', emoji: 0x2716, aliases: ['Tables Défi'] },
+          { label: 'Séries Numériques', emoji: 0x1f522 },
+          { label: 'Mesures Magiques', emoji: 0x1f4cf },
+          { label: t('itemRepartis', 'Répartis & Multiplie'), emoji: 0x1f34e, aliases: [t('itemRepartis', 'Répartis & Multiplie')] },
+          { label: t('itemReading', 'Lecture Magique'), emoji: 0x1f4d8 },
+          { label: t('itemDictation', 'Dictée Magique'), emoji: 0x270d },
+          { label: t('itemToolWords', 'Mots-Outils'), emoji: 0x1f5e3, aliases: [t('itemToolWords', 'Mots-Outils')] },
+          { label: t('itemTales', 'Contes Magiques'), emoji: 0x1f4d6 },
+          { label: t('itemBigAdventure', 'La Grande Aventure des Mots'), emoji: 0x1f524, aliases: [t('itemBigAdventure', 'La Grande Aventure des Mots'), 'Grande Aventure des Mots'] },
+          { label: t('itemLogicgrams', 'Logigrammes'), emoji: 0x1f9e9, aliases: [t('itemLogicgrams', 'Logigrammes')] },
+          { label: 'Labyrinthe Logique', emoji: 0x1f9ed },
+          { label: 'Sudoku Junior', emoji: 0x1f522 },
+          { label: t('itemPuzzle', 'Puzzle Magique'), emoji: 0x1f9e9 },
+          { label: t('itemEmotions', 'Émotions Magiques'), emoji: 0x1f60a },
+          { label: t('itemDailyMissions', 'Missions du Jour'), emoji: 0x2705 },
+          { label: t('itemDailyQuiz', 'Quiz du Jour'), emoji: 0x1f31e, aliases: [t('itemDailyQuiz', 'Quiz du Jour')] },
+          { label: t('itemBreath', 'Respire & Repose-toi'), emoji: 0x1f9d8 },
+          { label: t('itemSelfExpression', 'Expression de Soi / Mon Journal'), emoji: 0x1f4ac }
+        ]
+      },
+      {
+        id: 'cuarto',
+        title: '4º primaria',
+        emoji: 0x1f4d7,
+        color: '#8bdba2',
+        items: [
+          { label: t('gameMultDivTitle', 'Familias × ÷'), emoji: 0x2716, href: '/game?game=mult-div-families&level=6' },
+          { label: t('gameWordProblemsTitle', 'Problemas cortos'), emoji: 0x1f4a1, href: '/game?game=word-problems&level=7' },
+          { label: t('gamePossessivesTitle', 'Possessifs en contexte'), emoji: 0x1f4ac, href: '/game?game=possessives&level=9' },
+          { label: 'Fractions Fantastiques', emoji: 0x1f370 },
+          { label: 'Problèmes Magiques', emoji: 0x1f4a1 },
+          { label: 'Mesures Magiques', emoji: 0x1f4cf },
+          { label: 'Séries Numériques', emoji: 0x1f522 },
+          { label: 'Tables Défi', emoji: 0x2716, aliases: ['Tables Défi'] },
+          { label: t('itemDivisions', 'Divisions'), emoji: 0x2797 },
+          { label: t('itemMathSprint', 'Maths Sprint'), emoji: 0x26a1, aliases: [t('itemMathSprint', 'Maths Sprint')] },
+          { label: t('itemLogicgrams', 'Logigrammes'), emoji: 0x1f9e9, aliases: [t('itemLogicgrams', 'Logigrammes')] },
+          { label: 'Labyrinthe Logique', emoji: 0x1f9ed },
+          { label: 'Sudoku Junior', emoji: 0x1f522 },
+          { label: t('itemPuzzle', 'Puzzle Magique'), emoji: 0x1f9e9 },
+          { label: t('itemReading', 'Lecture Magique'), emoji: 0x1f4d8 },
+          { label: t('itemDictation', 'Dictée Magique'), emoji: 0x270d },
+          { label: t('itemToolWords', 'Mots-Outils'), emoji: 0x1f5e3, aliases: [t('itemToolWords', 'Mots-Outils')] },
+          { label: t('itemTales', 'Contes Magiques'), emoji: 0x1f4d6 },
+          { label: t('itemBigAdventure', 'La Grande Aventure des Mots'), emoji: 0x1f524, aliases: [t('itemBigAdventure', 'La Grande Aventure des Mots'), 'Grande Aventure des Mots'] },
+          { label: t('itemEmotions', 'Émotions Magiques'), emoji: 0x1f60a }
         ]
       }
     ];
   }
 
   const CATEGORY_FILTERS = {
-    new: ['new'],
-    math: ['math'],
-    logic: ['logic'],
-    words: ['words'],
-    creative: ['creative'],
-    emotions: ['emotions']
+    segundo: ['segundo'],
+    tercero: ['tercero'],
+    cuarto: ['cuarto']
   };
 
   const CATEGORY_TITLES = {
-    new: 'Novedades',
-    math: 'Matem\u00e1ticas',
-    logic: 'L\u00f3gica y Razonamiento',
-    words: 'Lectura y Palabras',
-    creative: 'Creativo y Mundo',
-    emotions: 'Emociones y Bienestar'
+    segundo: '2º primaria',
+    tercero: '3º primaria',
+    cuarto: '4º primaria'
   };
 
   function collectSources() {
@@ -172,9 +175,10 @@
     if (activeCategory && CATEGORY_FILTERS[activeCategory]) {
       sectionsData = sectionsData.filter((section) => CATEGORY_FILTERS[activeCategory].includes(section.id));
       if (CATEGORY_TITLES[activeCategory]) {
-        document.title = `Juegos Â· ${CATEGORY_TITLES[activeCategory]} - Lena`;
+        document.title = `Juegos · ${CATEGORY_TITLES[activeCategory]} - Lena`;
       }
     }
+
     sectionsData.forEach((section, index) => {
       const card = document.createElement('article');
       card.className = 'mm-section-card';
@@ -217,16 +221,22 @@
         labelSpan.textContent = item.label;
         chip.appendChild(labelSpan);
 
-        const target = findSource(item, sources);
-        if (target) {
+        if (item.href) {
           chip.addEventListener('click', () => {
-            if (typeof target.focus === 'function') {
-              target.focus();
-            }
-            target.click();
+            window.location.href = item.href;
           });
         } else {
-          chip.disabled = true;
+          const target = findSource(item, sources);
+          if (target) {
+            chip.addEventListener('click', () => {
+              if (typeof target.focus === 'function') {
+                target.focus();
+              }
+              target.click();
+            });
+          } else {
+            chip.disabled = true;
+          }
         }
 
         grid.appendChild(chip);

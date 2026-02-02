@@ -1,33 +1,87 @@
 ;(function(){
   'use strict';
 
-  const LEVELS = Array.from({length:10}, (_,i)=>({
-    level: i+1,
-    questions: 5,
-    reward: { stars: 8 + i, coins: 4 + Math.floor(i/2) }
-  }));
+  const LEVELS = Array.from({length:10}, (_,i)=>(
+    {
+      level: i+1,
+      questions: 6,
+      reward: { stars: 10 + i, coins: 5 + Math.floor(i/2) }
+    }
+  ));
 
   function buildQuestion(level){
-    // Simple everyday word problems with addition/subtraction
-    const a = rand(3, 9 + level);
-    const b = rand(2, 7 + Math.floor(level/2));
-    const type = Math.random() < 0.5 ? 'add' : 'sub';
-    if (type === 'add') {
-      const answer = a + b;
-      const prompt = `Léna a ${a} billes et elle en reçoit ${b} de plus. Combien a‑t‑elle maintenant ?`;
-      return withOptions(prompt, answer);
-    } else {
-      const big = a + b; // ensure positive
+    const roll = Math.random();
+
+    if (level <= 3) {
+      const a = rand(12, 60);
+      const b = rand(6, 35);
+      if (roll < 0.5) {
+        const answer = a + b;
+        const prompt = `L�na a ${a} billes et elle en re�oit ${b}. Combien en a-t-elle maintenant ?`;
+        return withOptions(prompt, answer, 12);
+      }
+      const big = a + b;
       const answer = big - b;
-      const prompt = `Léna a ${big} autocollants et elle en donne ${b}. Combien lui reste‑t‑il ?`;
-      return withOptions(prompt, answer);
+      const prompt = `L�na a ${big} autocollants et elle en donne ${b}. Combien lui reste-t-il ?`;
+      return withOptions(prompt, answer, 12);
     }
+
+    if (level <= 6) {
+      if (roll < 0.4) {
+        const a = rand(40, 180);
+        const b = rand(15, 120);
+        const answer = a + b;
+        const prompt = `La biblioth�que re�oit ${a} livres le matin et ${b} l'apr�s-midi. Combien de livres au total ?`;
+        return withOptions(prompt, answer, 20);
+      }
+      if (roll < 0.7) {
+        const total = rand(120, 280);
+        const remove = rand(20, 90);
+        const answer = total - remove;
+        const prompt = `Dans la bo�te il y a ${total} cartes. On en retire ${remove}. Combien restent-ils ?`;
+        return withOptions(prompt, answer, 20);
+      }
+      const a = rand(3, 9);
+      const b = rand(4, 9);
+      if (roll < 0.85) {
+        const answer = a * b;
+        const prompt = `Il y a ${a} paquets de ${b} biscuits. Combien de biscuits en tout ?`;
+        return withOptions(prompt, answer, 18);
+      }
+      const product = a * b;
+      const answer = b;
+      const prompt = `${product} billes sont partag�es en ${a} groupes �gaux. Combien de billes par groupe ?`;
+      return withOptions(prompt, answer, 12);
+    }
+
+    if (roll < 0.5) {
+      const packs = rand(3, 7);
+      const perPack = rand(6, 12);
+      const given = rand(4, 18);
+      const total = packs * perPack;
+      const answer = total - given;
+      const prompt = `L�na ach�te ${packs} paquets de ${perPack} autocollants et en offre ${given}. Combien lui en reste-t-il ?`;
+      return withOptions(prompt, answer, 25);
+    }
+    if (roll < 0.8) {
+      const tables = rand(4, 8);
+      const perTable = rand(4, 7);
+      const joined = rand(3, 8);
+      const total = tables * perTable + joined;
+      const prompt = `Dans la classe il y a ${tables} tables avec ${perTable} �l�ves chacune. ${joined} �l�ves arrivent en plus. Combien d'�l�ves maintenant ?`;
+      return withOptions(prompt, total, 30);
+    }
+    const total = rand(60, 120);
+    const groups = rand(3, 6);
+    const answer = Math.floor(total / groups);
+    const prompt = `On partage ${total} cartes en ${groups} groupes �gaux. Combien de cartes par groupe ?`;
+    return withOptions(prompt, answer, 20);
   }
 
-  function withOptions(prompt, answer){
+  function withOptions(prompt, answer, spread = 10){
     const options = new Set([answer]);
     while(options.size < 4){
-      const noise = answer + rand(-4, 8);
+      const noise = answer + rand(-spread, spread);
       if (noise >= 0) options.add(noise);
     }
     const mix = shuffle([...options]);
@@ -40,7 +94,7 @@
     const questions = Array.from({length: levelData.questions}, ()=>buildQuestion(levelData.level));
     if (window.MCQEngine) {
       window.MCQEngine.start(context, {
-        title: `Niveau ${levelData.level} – Problèmes Magiques`,
+        title: `Niveau ${levelData.level} � Probl�mes Magiques`,
         questions,
         reward: levelData.reward,
         onFinish: null
@@ -53,7 +107,7 @@
 
   function render(context, state){
     context.content.innerHTML = '';
-    const title = el('div','question-prompt fx-bounce-in-down',`Niveau ${state.levelData.level} – Problèmes Magiques`);
+    const title = el('div','question-prompt fx-bounce-in-down',`Niveau ${state.levelData.level} � Probl�mes Magiques`);
     const container = el('div','puzzle-question-container');
     context.content.appendChild(title);
     context.content.appendChild(container);
@@ -101,7 +155,7 @@
     state.i++;
     if (state.i >= state.questions.length){
       context.markLevelCompleted();
-      context.showSuccessMessage('Bravo ! Problèmes résolus ✨');
+      context.showSuccessMessage('Bravo ! Probl�mes r�solus ?');
       context.showConfetti();
       setTimeout(()=> context.showLevelMenu(), 1200);
     } else {
