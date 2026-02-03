@@ -252,7 +252,7 @@ function fallbackAvatar(library) {
     return {
         id: 'licorne',
         name: 'Licorne',
-        iconUrl: '../assets/avatars/licorne.svg'
+        iconUrl: 'assets/avatars/licorne.svg'
     };
 }
 

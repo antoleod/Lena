@@ -1078,7 +1078,7 @@ function resolveLevelTheme(topicId) {
         loadSound('correct', '../sonidos/correct.mp3');
         loadSound('wrong', '../sonidos/error.mp3');
         loadSound('coins', '../sonidos/bling.mp3');
-        loadSound('hover', '../assets/sounds/bling.wav');
+        loadSound('hover', 'assets/sounds/bling.wav');
     }
 
     }
@@ -4348,7 +4348,6 @@ function resolveLevelTheme(topicId) {
             { id: 'sequences', icon: '➡️', text: t('itemSequences', 'Jeu des Séquences') },
             { id: 'dictee', icon: '🧚‍♀️', text: t('itemDictation', 'Dictée Magique') },
             { id: 'ecriture-cursive', icon: '✍️', text: t('itemCursive', 'J’écris en cursive') },
-            { id: 'les-sorcieres', icon: '🧙‍♀️', text: t('itemWitches', 'Les Sorcières — Jeu de Mémoire Magique'), href: '/les-sorcieres', type: 'external' },
             { id: 'logigrammes', icon: '🧩', text: t('itemLogicgrams', 'Logigrammes') },
             { id: 'puzzle-magique', icon: '🧩', text: t('itemPuzzle', 'Puzzle Magique') },
         ];

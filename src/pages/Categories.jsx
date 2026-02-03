@@ -19,14 +19,6 @@ const CATEGORIES = [
     color: '#ff9fb2',
     items: ['Problemas y fracciones', 'Series y medidas', 'Comprensión y lógica']
   },
-  {
-    id: 'cuarto',
-    title: '4º de primaria',
-    subtitle: 'Autonomía y precisión: textos largos, corrección y explicación simple.',
-    route: '/juegos/cuarto',
-    color: '#8bdba2',
-    items: ['Possessifs en contexte', 'Razonamiento avanzado', 'Corrección de errores']
-  }
 ];
 
 const QUICK_LINKS = [
@@ -69,7 +61,7 @@ export default function CategoriesPage() {
           <div className="hero-panel__content">
             <div className="hero-stat">
               <span className="hero-stat__label">Cursos</span>
-              <span className="hero-stat__value">3</span>
+              <span className="hero-stat__value">2</span>
             </div>
             <div className="hero-stat">
               <span className="hero-stat__label">Materias</span>
@@ -77,7 +69,7 @@ export default function CategoriesPage() {
             </div>
             <div className="hero-stat">
               <span className="hero-stat__label">Dificultad</span>
-              <span className="hero-stat__value">2º a 4º</span>
+              <span className="hero-stat__value">2º a 3º</span>
             </div>
           </div>
         </div>
@@ -107,4 +99,5 @@ export default function CategoriesPage() {
       </section>
     </main>
   );
-}
+}
+

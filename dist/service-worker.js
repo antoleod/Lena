@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lena-cache-v5';
+const CACHE_NAME = 'lena-cache-v6';
 
 const BASE_PATH = (() => {
   const scope = self.registration?.scope || self.location.origin + '/';
@@ -44,7 +44,6 @@ const CORE_ASSETS = [
   'assets/iconos/icon-32.png',
   'assets/iconos/icon-16.png',
   'offline.html',
-  'legacy/game.html',
   'legacy/juego.html',
   'legacy/grande-aventure-mots/index.html'
 ];

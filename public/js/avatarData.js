@@ -1,5 +1,5 @@
 (function () {
-  const baseAvatarPath = '../assets/avatars/';
+  const baseAvatarPath = 'assets/avatars/';
 
   const backgroundSpecs = {
     licorne: [

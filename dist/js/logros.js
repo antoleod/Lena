@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
         previewWrapper.className = 'inventory-card__preview';
 
         const previewImg = document.createElement('img');
-        previewImg.src = item.previewUrl || item.iconUrl || '../assets/stickers/sticker1.png';
+        previewImg.src = item.previewUrl || item.iconUrl || 'assets/stickers/sticker1.png';
         previewImg.alt = item.name;
         previewWrapper.appendChild(previewImg);
         card.appendChild(previewWrapper);

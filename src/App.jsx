@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import LegacyAutoPage from './LegacyAutoPage.jsx';
-import LegacyPage from './LegacyPage.jsx';
 import ScrollToTop from './ScrollToTop.jsx';
 import LoginPage from './pages/Login.jsx';
 import MenuPage from './pages/Menu.jsx';
@@ -10,7 +8,10 @@ import GamesCategoryPage from './pages/GamesCategory.jsx';
 import AllGamesPage from './pages/AllGames.jsx';
 import LogrosPage from './pages/Logros.jsx';
 import BoutiquePage from './pages/Boutique.jsx';
-import LegacyIframePage from './pages/LegacyIframePage.jsx';
+import GamePage from './pages/Game.jsx';
+import LegacyAutoPage from './LegacyAutoPage.jsx';
+import LegacyPage from './LegacyPage.jsx';
+import NotFoundPage from './pages/NotFound.jsx';
 
 const BASE_URL = import.meta.env.BASE_URL;
 
@@ -51,15 +52,13 @@ export default function App() {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/juegos" element={<CategoriesPage />} />
         <Route path="/juegos/:category" element={<GamesCategoryPage />} />
-        <Route path="/game" element={<LegacyIframePage legacyPath={`${BASE_URL}legacy/game.html`} title="Jeu - Lena" />} />
+        <Route path="/game" element={<GamePage />} />
         <Route path="/juego" element={<AllGamesPage />} />
         <Route path="/boutique" element={<BoutiquePage />} />
         <Route path="/logros" element={<LogrosPage />} />
-        <Route path="/les-sorcieres" element={<LegacyPage legacyPath={`${BASE_URL}legacy/les-sorcieres.html`} />} />
-        <Route path="/les-sorcieres-associe" element={<LegacyPage legacyPath={`${BASE_URL}legacy/les-sorcieres-associe.html`} />} />
         <Route path="/grande-aventure-mots" element={<LegacyPage legacyPath={`${BASE_URL}legacy/grande-aventure-mots/index.html`} />} />
         <Route path="/grande-aventure-mots/*" element={<LegacyAutoPage />} />
-        <Route path="*" element={<LegacyAutoPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

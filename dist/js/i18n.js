@@ -23,13 +23,9 @@
   };
 
   const LANGUAGE_LOCALES = {
-
-    fr: 'Fran\u00e7ais',
-
-    es: 'Espa\u00f1ol',
-
+    fr: 'fr-FR',
+    es: 'es-ES',
     nl: 'nl-NL'
-
   };
 
 
@@ -43,37 +39,25 @@
 
 
   function getBasePath() {
-
     if (document.baseURI) {
-
       const url = new URL(document.baseURI);
-
-      return url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
-
+      let pathname = url.pathname;
+      if (pathname.endsWith('.html')) {
+        pathname = pathname.slice(0, pathname.lastIndexOf('/') + 1);
+      }
+      return pathname.endsWith('/') ? pathname : `${pathname}/`;
     }
-
     const path = window.location.pathname;
-
     const marker = '/legacy/';
-
     const idx = path.indexOf(marker);
-
     if (idx >= 0) {
-
       return path.slice(0, idx + 1);
-
     }
-
     const segments = path.split('/').filter(Boolean);
-
     if (segments.length > 0) {
-
       return `/${segments[0]}/`;
-
     }
-
     return '/';
-
   }
 
 

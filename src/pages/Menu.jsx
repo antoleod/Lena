@@ -303,7 +303,6 @@ export default function MenuPage() {
         <main className="menu-options">
           <Link to="/juegos" className="btn-main btn-play">¡A Jugar!</Link>
           <Link to="/logros" className="btn-secondary">Mis Logros</Link>
-          <a href="/les-sorcieres-associe" className="btn-secondary">Les Sorcières - Associe les Émojis</a>
           <button className="btn-secondary" type="button">Opciones</button>
         </main>
 

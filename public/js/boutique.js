@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const itemImage = document.createElement('img');
-        itemImage.src = item.image || '../assets/stickers/sticker1.png';
+        itemImage.src = item.image || 'assets/stickers/sticker1.png';
         itemImage.alt = item.name;
         itemCard.appendChild(itemImage);
 
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
             userProfile.avatar = {
                 id: 'ananas',
                 name: 'Ananas',
-                iconUrl: normalizeAssetPath('../assets/avatars/ananas.svg')
+                iconUrl: normalizeAssetPath('assets/avatars/ananas.svg')
             };
             storage.saveUserProfile(userProfile);
         }

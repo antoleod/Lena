@@ -3,7 +3,7 @@
 
     const EMOJI = {
         home: '\uD83C\uDFE0',
-        bag: '\uD83D\uDED',
+        bag: '\uD83D\uDECD',
         trophy: '\uD83C\uDFC6',
         book: '\uD83D\uDCD6',
         back: '\u21A9',

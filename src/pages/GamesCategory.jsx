@@ -15,11 +15,6 @@ const CATEGORY_CONFIG = {
     subtitle: 'Retos avanzados para 3º de primaria.',
     legacyPath: `${BASE_URL}legacy/juego-3ro.html?cat=tercero`
   },
-  cuarto: {
-    title: '4º de primaria',
-    subtitle: 'Autonomía y razonamiento para 4º de primaria.',
-    legacyPath: `${BASE_URL}legacy/juego-4to.html?cat=cuarto`
-  }
 };
 
 export default function GamesCategoryPage() {
@@ -36,4 +31,5 @@ export default function GamesCategoryPage() {
   }
 
   return <LegacyPage legacyPath={config.legacyPath} />;
-}
+}
+

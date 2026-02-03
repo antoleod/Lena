@@ -556,11 +556,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  const popSound = createAudio('../assets/sounds/bling.wav');
+  const popSound = createAudio('assets/sounds/bling.wav');
 
 
 
-  const sparkleSound = createAudio('../assets/sounds/correct.wav');
+  const sparkleSound = createAudio('assets/sounds/correct.wav');
 
 
 
