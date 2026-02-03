@@ -2,11 +2,11 @@
     'use strict';
 
     const EMOJI = {
-        home: '\uD83C\uDFE0',
-        bag: '\uD83D\uDECD',
-        trophy: '\uD83C\uDFC6',
-        book: '\uD83D\uDCD6',
-        back: '\u21A9',
+        home: '🏠',
+bag: '🛍️',
+trophy: '🏆',
+book: '📖',
+        back: '↩️',
         rainbow: '\uD83C\uDF08',
         lock: '\uD83D\uDD12',
         star: '\u2B50',
