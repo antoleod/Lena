@@ -110,7 +110,7 @@ export default function MenuPage() {
         selected = library.licorne || {
           id: 'licorne',
           name: 'Licorne',
-          iconUrl: '/assets/avatars/licorne.svg'
+          iconUrl: `${import.meta.env.BASE_URL}assets/avatars/licorne.svg`
         };
         storage.saveSelectedAvatar?.(selected);
       }
@@ -263,7 +263,7 @@ export default function MenuPage() {
           <div id="user-avatar">
             {avatar && (
               <div className="menu-avatar" data-avatar-id={avatar.id} data-avatar={avatar.iconUrl} data-avatar-name={avatar.name}>
-                <img src={avatar.iconUrl || '/assets/avatars/licorne.svg'} alt={avatar.name || 'Avatar'} loading="lazy" />
+                <img src={avatar.iconUrl || `${import.meta.env.BASE_URL}assets/avatars/licorne.svg`} alt={avatar.name || 'Avatar'} loading="lazy" />
                 <span className="menu-avatar__label">{avatar.name}</span>
               </div>
             )}

@@ -2,21 +2,23 @@ import { useEffect, useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import LegacyPage from '../LegacyPage.jsx';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 const CATEGORY_CONFIG = {
   segundo: {
     title: '2º de primaria',
     subtitle: 'Todas las materias para 2º de primaria.',
-    legacyPath: '/legacy/juego-2do.html?cat=segundo'
+    legacyPath: `${BASE_URL}legacy/juego-2do.html?cat=segundo`
   },
   tercero: {
     title: '3º de primaria',
     subtitle: 'Retos avanzados para 3º de primaria.',
-    legacyPath: '/legacy/juego-3ro.html?cat=tercero'
+    legacyPath: `${BASE_URL}legacy/juego-3ro.html?cat=tercero`
   },
   cuarto: {
     title: '4º de primaria',
     subtitle: 'Autonomía y razonamiento para 4º de primaria.',
-    legacyPath: '/legacy/juego-4to.html?cat=cuarto'
+    legacyPath: `${BASE_URL}legacy/juego-4to.html?cat=cuarto`
   }
 };
 

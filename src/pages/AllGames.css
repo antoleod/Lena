@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@500;600;700&display=swap');
+
+:root {
+  --all-ink: #1f1b24;
+  --all-muted: #4f4556;
+  --all-bg: #f6f4f9;
+  --all-card: #ffffff;
+  --all-outline: rgba(31, 27, 36, 0.08);
+}
+
+.allgames-body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 12% 8%, rgba(255, 215, 230, 0.7), transparent 55%),
+    linear-gradient(140deg, #f4f1ff 0%, #f7fbff 50%, #fff3e6 100%);
+  color: var(--all-ink);
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+.allgames-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.allgames-hero {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
+}
+
+.allgames-hero__card {
+  background: var(--all-card);
+  border-radius: 26px;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 24px 50px rgba(32, 25, 58, 0.12);
+  border: 1px solid var(--all-outline);
+}
+
+.allgames-hero__card h1 {
+  font-family: 'Fraunces', 'Georgia', serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin: 0.65rem 0 0.9rem;
+  color: #221a2f;
+}
+
+.allgames-hero__card p {
+  margin: 0 0 1.6rem;
+  color: var(--all-muted);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.allgames-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9b4d6c;
+}
+
+.allgames-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.pill-link {
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid rgba(31, 27, 36, 0.12);
+  background: #fff;
+  color: #342c40;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pill-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(31, 27, 36, 0.1);
+}
+
+.allgames-hero__stats {
+  position: relative;
+  border-radius: 26px;
+  padding: 2.2rem;
+  background: #1f1b24;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 28px 50px rgba(31, 27, 36, 0.25);
+  display: grid;
+  gap: 1.4rem;
+}
+
+.allgames-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.allgames-stat:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.allgames-stat__label {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.allgames-stat__value {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.allgames-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.allgames-section {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.allgames-section__header h2 {
+  margin: 0;
+  font-family: 'Fraunces', 'Georgia', serif;
+  font-size: 1.6rem;
+  color: #221a2f;
+}
+
+.allgames-section__header p {
+  margin: 0.4rem 0 0;
+  color: var(--all-muted);
+}
+
+.allgames-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.allgames-card {
+  background: var(--all-card);
+  border-radius: 18px;
+  padding: 1.3rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--all-outline);
+  box-shadow: 0 16px 30px rgba(31, 27, 36, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.allgames-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 36px rgba(31, 27, 36, 0.12);
+}
+
+.allgames-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.allgames-card__title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.allgames-card__badge {
+  background: #f1ecff;
+  color: #5b4a90;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.allgames-card__desc {
+  margin: 0;
+  color: var(--all-muted);
+}
+
+.allgames-card__cta {
+  margin-top: 0.2rem;
+  font-weight: 700;
+  color: #5b4a90;
+}
+
+@media (max-width: 720px) {
+  .allgames-shell {
+    padding: 2.5rem 1.2rem 3.5rem;
+  }
+
+  .allgames-hero__card,
+  .allgames-hero__stats,
+  .allgames-card {
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .allgames-card,
+  .pill-link {
+    transition: none;
+  }
+}

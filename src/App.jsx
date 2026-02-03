@@ -7,6 +7,9 @@ import LoginPage from './pages/Login.jsx';
 import MenuPage from './pages/Menu.jsx';
 import CategoriesPage from './pages/Categories.jsx';
 import GamesCategoryPage from './pages/GamesCategory.jsx';
+import AllGamesPage from './pages/AllGames.jsx';
+import LogrosPage from './pages/Logros.jsx';
+import BoutiquePage from './pages/Boutique.jsx';
 
 const BASE_URL = import.meta.env.BASE_URL;
 
@@ -48,9 +51,9 @@ export default function App() {
         <Route path="/juegos" element={<CategoriesPage />} />
         <Route path="/juegos/:category" element={<GamesCategoryPage />} />
         <Route path="/game" element={<LegacyPage legacyPath={`${BASE_URL}legacy/game.html`} />} />
-        <Route path="/juego" element={<LegacyPage legacyPath={`${BASE_URL}legacy/juego.html`} />} />
-        <Route path="/boutique" element={<LegacyPage legacyPath={`${BASE_URL}legacy/boutique.html`} />} />
-        <Route path="/logros" element={<LegacyPage legacyPath={`${BASE_URL}legacy/logros.html`} />} />
+        <Route path="/juego" element={<AllGamesPage />} />
+        <Route path="/boutique" element={<BoutiquePage />} />
+        <Route path="/logros" element={<LogrosPage />} />
         <Route path="/les-sorcieres" element={<LegacyPage legacyPath={`${BASE_URL}legacy/les-sorcieres.html`} />} />
         <Route path="/les-sorcieres-associe" element={<LegacyPage legacyPath={`${BASE_URL}legacy/les-sorcieres-associe.html`} />} />
         <Route path="/grande-aventure-mots" element={<LegacyPage legacyPath={`${BASE_URL}legacy/grande-aventure-mots/index.html`} />} />
