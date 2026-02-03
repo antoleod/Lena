@@ -14,8 +14,48 @@ import LegacyPage from './LegacyPage.jsx';
 import NotFoundPage from './pages/NotFound.jsx';
 
 const BASE_URL = import.meta.env.BASE_URL;
+const SHELL_STYLES = [`${BASE_URL}css/header-footer.css`];
+const SHELL_SCRIPTS = [
+  `${BASE_URL}js/storage.js`,
+  `${BASE_URL}js/i18n.js`,
+  `${BASE_URL}js/appShell.js`
+];
+
+function useShellAssets() {
+  useEffect(() => {
+    const addedLinks = [];
+    const addedScripts = [];
+
+    SHELL_STYLES.forEach((href) => {
+      const exists = Array.from(document.head.querySelectorAll('link[rel="stylesheet"]'))
+        .some((link) => link.href.endsWith(href));
+      if (exists) return;
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+      addedLinks.push(link);
+    });
+
+    SHELL_SCRIPTS.forEach((src) => {
+      const exists = Array.from(document.scripts).some((script) => script.src.endsWith(src));
+      if (exists) return;
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = false;
+      document.body.appendChild(script);
+      addedScripts.push(script);
+    });
+
+    return () => {
+      addedLinks.forEach((link) => link.remove());
+      addedScripts.forEach((script) => script.remove());
+    };
+  }, []);
+}
 
 export default function App() {
+  useShellAssets();
   useEffect(() => {
     const url = new URL(window.location.href);
     if (url.searchParams.get('clearCache') !== '1') return;
@@ -45,6 +85,7 @@ export default function App() {
 
   return (
     <BrowserRouter basename={BASE_URL}>
+      <header data-lena-header></header>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
@@ -60,6 +101,7 @@ export default function App() {
         <Route path="/grande-aventure-mots/*" element={<LegacyAutoPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <footer data-lena-footer></footer>
     </BrowserRouter>
   );
 }

@@ -7,7 +7,6 @@ const HEAD_LINKS = [
   `${BASE_URL}css/style.css`,
   `${BASE_URL}css/juego.css`,
   `${BASE_URL}css/base-ten.css`,
-  `${BASE_URL}css/header-footer.css`,
   `${BASE_URL}css/new-games.css`
 ];
 
@@ -68,10 +67,9 @@ export default function GamePage() {
 
   useEffect(() => {
     document.title = 'Jeu - Lena';
-    const previousBodyClass = document.body.className;
-    document.body.className = 'game-react-body';
+    document.body.classList.add('game-react-body');
     return () => {
-      document.body.className = previousBodyClass;
+      document.body.classList.remove('game-react-body');
     };
   }, []);
 
@@ -145,8 +143,6 @@ export default function GamePage() {
 
   return (
     <div className="game-react-shell">
-      <header data-lena-header></header>
-
       <section className="game-hero" aria-labelledby="game-hero-title">
         <div className="game-hero__card">
           <span className="game-hero__eyebrow">Juego rápido</span>
@@ -241,8 +237,6 @@ export default function GamePage() {
           </footer>
         </section>
       </main>
-
-      <footer data-lena-footer></footer>
     </div>
   );
 }

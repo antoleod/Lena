@@ -129,12 +129,11 @@ export default function LoginPage() {
   useEffect(() => {
     document.title = 'Appli de Lena - Bienvenue !';
     document.documentElement.lang = 'fr';
-    const previousBodyClass = document.body.className;
-    document.body.className = 'login-body';
+    document.body.classList.add('login-body');
     registerServiceWorker();
 
     return () => {
-      document.body.className = previousBodyClass;
+      document.body.classList.remove('login-body');
     };
   }, []);
 

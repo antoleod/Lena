@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Categories.css';
 
 const CATEGORIES = [
@@ -27,17 +27,44 @@ const QUICK_LINKS = [
   { label: 'Boutique', route: '/boutique' }
 ];
 
+const USER_PROFILE_KEY = 'mathsLenaUserProfile';
+
+function getPlayerName() {
+  try {
+    const raw = window.localStorage?.getItem(USER_PROFILE_KEY);
+    if (!raw) return 'Aventurera';
+    const parsed = JSON.parse(raw);
+    return parsed?.name || parsed?.displayName || 'Aventurera';
+  } catch (error) {
+    return 'Aventurera';
+  }
+}
+
 export default function CategoriesPage() {
+  const navigate = useNavigate();
+  const [playerName, setPlayerName] = useState(() => getPlayerName());
+
   useEffect(() => {
-    const previousBodyClass = document.body.className;
-    document.body.className = 'categories-body';
+    document.body.classList.add('categories-body');
     document.documentElement.lang = 'es';
     document.title = 'Juegos por cursos - Lena';
 
     return () => {
-      document.body.className = previousBodyClass;
+      document.body.classList.remove('categories-body');
     };
   }, []);
+
+  useEffect(() => {
+    setPlayerName(getPlayerName());
+  }, []);
+
+  function handleBack() {
+    if (window.history.length > 1) {
+      navigate(-1);
+      return;
+    }
+    navigate('/menu');
+  }
 
   return (
     <main className="categories-shell">
@@ -97,6 +124,17 @@ export default function CategoriesPage() {
           </Link>
         ))}
       </section>
+
+      <footer className="categories-footer" aria-label="Estado de juego">
+        <div className="categories-footer__player">
+          <span className="categories-footer__label">Jugando:</span>
+          <span className="categories-footer__name">{playerName}</span>
+        </div>
+        <button className="categories-footer__back" type="button" onClick={handleBack}>
+          <span aria-hidden="true">↩️</span>
+          <span>Ir atras</span>
+        </button>
+      </footer>
     </main>
   );
 }

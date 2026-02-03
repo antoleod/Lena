@@ -26,8 +26,7 @@ export default function LogrosPage() {
   const [progress, setProgress] = useState(null);
 
   useEffect(() => {
-    const previousBodyClass = document.body.className;
-    document.body.className = 'logros-body';
+    document.body.classList.add('logros-body');
     document.documentElement.lang = 'es';
     document.title = 'Mis logros - Lena';
 
@@ -36,7 +35,7 @@ export default function LogrosPage() {
     setProgress(loadProgress(storedProfile?.name));
 
     return () => {
-      document.body.className = previousBodyClass;
+      document.body.classList.remove('logros-body');
     };
   }, []);
 

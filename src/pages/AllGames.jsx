@@ -29,12 +29,11 @@ const GAME_SECTIONS = [
 
 export default function AllGamesPage() {
   useEffect(() => {
-    const previousBodyClass = document.body.className;
-    document.body.className = 'allgames-body';
+    document.body.classList.add('allgames-body');
     document.documentElement.lang = 'es';
     document.title = 'Todos los juegos - Lena';
     return () => {
-      document.body.className = previousBodyClass;
+      document.body.classList.remove('allgames-body');
     };
   }, []);
 

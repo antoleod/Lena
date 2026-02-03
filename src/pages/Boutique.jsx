@@ -10,12 +10,11 @@ const ITEMS = [
 
 export default function BoutiquePage() {
   useEffect(() => {
-    const previousBodyClass = document.body.className;
-    document.body.className = 'boutique-body';
+    document.body.classList.add('boutique-body');
     document.documentElement.lang = 'es';
     document.title = 'Boutique - Lena';
     return () => {
-      document.body.className = previousBodyClass;
+      document.body.classList.remove('boutique-body');
     };
   }, []);
 

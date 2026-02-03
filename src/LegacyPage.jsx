@@ -60,17 +60,27 @@ function copyAttributes(source, target, baseUrl) {
 
 function loadScriptNode(source, baseUrl) {
   return new Promise((resolve, reject) => {
+    const srcAttr = source.getAttribute('src');
+    if (srcAttr) {
+      const resolvedUrl = resolveUrl(srcAttr, baseUrl);
+      const existing = document.querySelector(`script[src="${resolvedUrl}"]`);
+      if (existing) {
+        resolve({ node: existing, isNew: false });
+        return;
+      }
+    }
+
     const script = document.createElement('script');
     copyAttributes(source, script, baseUrl);
     script.setAttribute(LEGACY_ATTR, 'true');
-    if (!source.getAttribute('src')) {
+    if (!srcAttr) {
       script.textContent = source.textContent || '';
       document.body.appendChild(script);
-      resolve(script);
+      resolve({ node: script, isNew: true });
       return;
     }
     script.async = false;
-    script.onload = () => resolve(script);
+    script.onload = () => resolve({ node: script, isNew: true });
     script.onerror = () => reject(new Error(`Failed to load script: ${script.src}`));
     document.body.appendChild(script);
   });
@@ -84,6 +94,7 @@ export default function LegacyPage({ legacyPath }) {
     let active = true;
     const managedNodes = [];
     const baseUrl = new URL(legacyPath, window.location.origin).toString();
+    const shellClasses = Array.from(document.body.classList).filter((cls) => cls.startsWith('has-shell-'));
     const previous = {
       title: document.title,
       bodyClass: document.body.className,
@@ -111,6 +122,7 @@ export default function LegacyPage({ legacyPath }) {
         document.title = doc.title || previous.title;
         document.documentElement.lang = doc.documentElement.lang || previous.lang || 'fr';
         document.body.className = doc.body.className || '';
+        shellClasses.forEach((cls) => document.body.classList.add(cls));
 
         const headNodes = Array.from(doc.head.querySelectorAll('link, style'));
         headNodes.forEach((node) => {
@@ -140,8 +152,14 @@ export default function LegacyPage({ legacyPath }) {
         const scripts = Array.from(doc.querySelectorAll('script'));
         for (const script of scripts) {
           if (!active) return;
-          const node = await loadScriptNode(script, baseUrl);
-          managedNodes.push(node);
+          try {
+            const { node, isNew } = await loadScriptNode(script, baseUrl);
+            if (isNew) {
+              managedNodes.push(node);
+            }
+          } catch (e) {
+            console.warn('Error loading legacy script:', e);
+          }
         }
 
         if (active && document.readyState !== 'loading') {
