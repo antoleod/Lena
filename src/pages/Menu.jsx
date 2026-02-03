@@ -1,6 +1,54 @@
 ﻿import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+
+// Mock useTranslation to avoid react-i18next dependency which causes build errors
+function useTranslation() {
+  const [lang, setLang] = useState(
+    localStorage.getItem('i18nextLng') || document.documentElement.lang || 'es'
+  );
+
+  const t = (key) => {
+    if (window.i18n && typeof window.i18n.t === 'function') {
+      return window.i18n.t(key);
+    }
+    const defaults = {
+      confirmLogout: '¿Cerrar sesión?',
+      navLogout: 'Salir',
+      menuPrompt: '¿Qué quieres practicar hoy?',
+      sectionMathTitle: 'Matemáticas',
+      itemAdditions: 'Sumas',
+      itemSubtractions: 'Restas',
+      itemMultiplications: 'Multiplicación',
+      itemDivisions: 'División',
+      sectionWordsTitle: 'Palabras',
+      itemReading: 'Lectura',
+      itemDictation: 'Dictado',
+      sectionLogicTitle: 'Lógica',
+      itemSequences: 'Secuencias',
+      itemMemory: 'Memoria',
+      sectionCreativeTitle: 'Creatividad',
+      itemColors: 'Colores',
+      itemTime: 'La Hora',
+      languageSelectAria: 'Idioma'
+    };
+    return defaults[key] || key;
+  };
+
+  const i18n = {
+    language: lang,
+    resolvedLanguage: lang,
+    changeLanguage: (newLang) => {
+      if (window.i18n && typeof window.i18n.setLanguage === 'function') {
+        window.i18n.setLanguage(newLang);
+      }
+      document.documentElement.lang = newLang;
+      setLang(newLang);
+      localStorage.setItem('i18nextLng', newLang);
+    }
+  };
+
+  return { t, i18n };
+}
 
 export default function MenuPage() {
   const { t, i18n } = useTranslation();
