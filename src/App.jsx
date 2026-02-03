@@ -10,6 +10,7 @@ import GamesCategoryPage from './pages/GamesCategory.jsx';
 import AllGamesPage from './pages/AllGames.jsx';
 import LogrosPage from './pages/Logros.jsx';
 import BoutiquePage from './pages/Boutique.jsx';
+import LegacyIframePage from './pages/LegacyIframePage.jsx';
 
 const BASE_URL = import.meta.env.BASE_URL;
 
@@ -50,7 +51,7 @@ export default function App() {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/juegos" element={<CategoriesPage />} />
         <Route path="/juegos/:category" element={<GamesCategoryPage />} />
-        <Route path="/game" element={<LegacyPage legacyPath={`${BASE_URL}legacy/game.html`} />} />
+        <Route path="/game" element={<LegacyIframePage legacyPath={`${BASE_URL}legacy/game.html`} title="Jeu - Lena" />} />
         <Route path="/juego" element={<AllGamesPage />} />
         <Route path="/boutique" element={<BoutiquePage />} />
         <Route path="/logros" element={<LogrosPage />} />
