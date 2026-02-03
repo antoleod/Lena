@@ -401,6 +401,7 @@ body.has-shell-footer {
     z-index: 1200;
     height: var(--shell-footer-height);
     pointer-events: none;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .lena-shell__footer-inner {

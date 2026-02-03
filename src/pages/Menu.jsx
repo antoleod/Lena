@@ -1,319 +1,196 @@
-﻿import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
-const BASE_URL = import.meta.env.BASE_URL;
-
-const HEAD_LINKS = [
-  `${BASE_URL}css/style.css`,
-  `${BASE_URL}css/menu.css`,
-  `${BASE_URL}css/feedback-system.css`
-];
-
-function useHeadLinks() {
-  useEffect(() => {
-    const added = [];
-    HEAD_LINKS.forEach((href) => {
-      const existing = Array.from(document.head.querySelectorAll('link[rel="stylesheet"]'))
-        .find((link) => link.href.endsWith(href));
-      if (existing) return;
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = href;
-      document.head.appendChild(link);
-      added.push(link);
-    });
-
-    return () => {
-      added.forEach((link) => link.remove());
-    };
-  }, []);
-}
-
-function waitForGlobal(name, timeoutMs = 2000) {
-  return new Promise((resolve) => {
-    const start = Date.now();
-    const timer = setInterval(() => {
-      if (window[name]) {
-        clearInterval(timer);
-        resolve(window[name]);
-        return;
-      }
-      if (Date.now() - start > timeoutMs) {
-        clearInterval(timer);
-        resolve(null);
-      }
-    }, 50);
-  });
-}
-
-function ensureScript(src) {
-  return new Promise((resolve, reject) => {
-    const existing = Array.from(document.scripts).find((script) => script.src.endsWith(src));
-    if (existing) {
-      resolve(existing);
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = src;
-    script.async = true;
-    script.onload = () => resolve(script);
-    script.onerror = () => reject(new Error(`Failed to load ${src}`));
-    document.body.appendChild(script);
-  });
-}
+import { useTranslation } from 'react-i18next';
 
 export default function MenuPage() {
-  useHeadLinks();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const starsRef = useRef(null);
-  const canvasRef = useRef(null);
-  const [profile, setProfile] = useState(null);
-  const [progress, setProgress] = useState(null);
-  const [avatar, setAvatar] = useState(null);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const avatarList = Object.values(window.AVATAR_LIBRARY || {});
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    document.title = 'Menu Principal - MathsWebLena';
-    document.documentElement.lang = 'es';
-  }, []);
-
-  useEffect(() => {
-    let active = true;
-
-    async function init() {
+    const stored = localStorage.getItem('userProfile');
+    if (stored) {
       try {
-        await Promise.all([
-          ensureScript(`${BASE_URL}js/storage.js`),
-          ensureScript(`${BASE_URL}js/avatarData.js`),
-          ensureScript(`${BASE_URL}js/feedbackSystem.js`)
-        ]);
-      } catch (error) {
-        console.warn('[menu] Failed to load scripts', error);
+        setUser(JSON.parse(stored));
+      } catch {
+        // ignore error
       }
-
-      const storage = await waitForGlobal('storage');
-      if (!storage || !active) return;
-
-      const currentProfile = storage.loadUserProfile?.() || null;
-      if (!currentProfile?.name) {
-        navigate('/login', { replace: true });
-        return;
-      }
-
-      const currentProgress = storage.loadUserProgress?.(currentProfile.name) || null;
-
-      const library = window.AVATAR_LIBRARY || {};
-      let selected = storage.loadSelectedAvatar?.() || null;
-      if (!selected) {
-        selected = library.licorne || {
-          id: 'licorne',
-          name: 'Licorne',
-          iconUrl: `${import.meta.env.BASE_URL}assets/avatars/licorne.svg`
-        };
-        storage.saveSelectedAvatar?.(selected);
-      }
-      const resolvedAvatar = library[selected.id] || selected;
-
-      if (currentProfile?.color) {
-        document.body.style.setProperty('--primary-color', currentProfile.color);
-      }
-
-      if (!active) return;
-      setProfile(currentProfile);
-      setProgress(currentProgress);
-      setAvatar(resolvedAvatar);
-    }
-
-    init();
-
-    return () => {
-      active = false;
-    };
-  }, [navigate]);
-
-  useEffect(() => {
-    const starsContainer = starsRef.current;
-    if (!starsContainer) return;
-
-    starsContainer.innerHTML = '';
-    const numberOfStars = 100;
-    for (let i = 0; i < numberOfStars; i += 1) {
-      const star = document.createElement('div');
-      star.classList.add('star');
-      const size = `${Math.random() * 3}px`;
-      star.style.width = size;
-      star.style.height = size;
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.left = `${Math.random() * 100}%`;
-      star.style.animationDelay = `${Math.random() * 2}s`;
-      starsContainer.appendChild(star);
     }
   }, []);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return undefined;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return undefined;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let animationId = null;
-    let hue = 180;
-    let particles = [];
-    const mouse = { x: null, y: null };
-
-    function onMouseMove(event) {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
-      for (let i = 0; i < 2; i += 1) {
-        particles.push(new Particle());
-      }
+    const savedLang = localStorage.getItem('i18nextLng');
+    if (savedLang && i18n.language !== savedLang) {
+      i18n.changeLanguage(savedLang);
     }
+  }, [i18n]);
 
-    function onResize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+  const handleLogout = () => {
+    if (window.confirm(t('confirmLogout'))) {
+      localStorage.removeItem('userProfile');
+      navigate('/login');
     }
+  };
 
-    class Particle {
-      constructor() {
-        this.x = mouse.x;
-        this.y = mouse.y;
-        this.size = Math.random() * 2.5 + 1;
-        this.speedX = Math.random() * 3 - 1.5;
-        this.speedY = Math.random() * 3 - 1.5;
-        this.color = `hsl(${hue + Math.random() * 30 - 15}, 100%, 70%)`;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.size > 0.1) this.size -= 0.04;
-      }
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function handleParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles = particles.filter((p) => p.size > 0.1);
-      particles.forEach((p) => {
-        p.update();
-        p.draw();
-      });
-      hue = (hue + 0.6) % 360;
-      animationId = requestAnimationFrame(handleParticles);
-    }
-
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('resize', onResize);
-    handleParticles();
-
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('resize', onResize);
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-  }, []);
-
-  function handleAvatarSelect(nextAvatar) {
-    if (!nextAvatar) return;
-    const storage = window.storage;
-    storage?.saveSelectedAvatar?.(nextAvatar);
-    if (profile) {
-      const updated = {
-        ...profile,
-        avatar: {
-          id: nextAvatar.id,
-          name: nextAvatar.name,
-          iconUrl: nextAvatar.iconUrl
-        }
-      };
-      storage?.saveUserProfile?.(updated);
-      setProfile(updated);
-    }
-    setAvatar(nextAvatar);
-    setModalOpen(false);
-  }
+  const changeLanguage = (e) => {
+    const lang = e.target.value;
+    i18n.changeLanguage(lang);
+    localStorage.setItem('i18nextLng', lang);
+  };
 
   return (
-    <div className="menu-root">
-      <canvas
-        id="particle-trail"
-        ref={canvasRef}
-        style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1000 }}
-      />
-      <div className="sun"></div>
-      <div className="moon"></div>
-      <div className="stars" ref={starsRef}></div>
-
-      <div className="menu-container">
-        <header className="menu-header">
-          <div id="user-greeting">{profile?.name ? `¡Hola, ${profile.name}!` : '¡Hola, aventurera!'}</div>
-          <div id="user-avatar">
-            {avatar && (
-              <div className="menu-avatar" data-avatar-id={avatar.id} data-avatar={avatar.iconUrl} data-avatar-name={avatar.name}>
-                <img src={avatar.iconUrl || `${import.meta.env.BASE_URL}assets/avatars/licorne.svg`} alt={avatar.name || 'Avatar'} loading="lazy" />
-                <span className="menu-avatar__label">{avatar.name}</span>
+    <div className="game-shell">
+      <header className="game-header">
+        <div className="game-header__primary">
+          <div className="game-header__profile">
+            {user && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                {user.avatar && (
+                  <div className="btn-icon" style={{ background: user.color || '#eee', fontSize: '1.5rem' }}>
+                    {user.avatar.icon}
+                  </div>
+                )}
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontWeight: '800', color: '#3b2a75', fontSize: '1.1rem' }}>
+                    {user.name}
+                  </span>
+                  <div className="stat-pill stat-pill--stars" style={{ padding: '0.15rem 0.5rem', fontSize: '0.8rem', minHeight: 'auto' }}>
+                    <span>⭐</span>
+                    <span>{user.stars || 0}</span>
+                  </div>
+                </div>
               </div>
             )}
           </div>
-          <button id="change-avatar-btn" className="btn-secondary" type="button" onClick={() => setModalOpen(true)}>
-            Cambiar Avatar
-          </button>
 
-          {modalOpen && (
-            <div id="avatar-selection-modal" className="modal" role="dialog" aria-modal="true">
-              <div className="modal-content">
-                <button className="close-button" type="button" onClick={() => setModalOpen(false)} aria-label="Cerrar">
-                  &times;
-                </button>
-                <h2>Selecciona tu Avatar</h2>
-                <div id="avatar-options-container">
-                  {avatarList.map((item) => (
-                    <button
-                      key={item.id}
-                      className={`avatar-option${avatar?.id === item.id ? ' selected' : ''}`}
-                      type="button"
-                      data-avatar-id={item.id}
-                      data-avatar={item.iconUrl}
-                      data-name={item.name}
-                      onClick={() => handleAvatarSelect(item)}
-                    >
-                      <img src={item.iconUrl} alt={item.name} loading="lazy" />
-                      <span>{item.name}</span>
-                    </button>
-                  ))}
+          <div className="game-header__actions" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <select
+              value={i18n.resolvedLanguage}
+              onChange={changeLanguage}
+              aria-label={t('languageSelectAria')}
+              style={{
+                padding: '0.5rem 0.8rem',
+                borderRadius: '12px',
+                border: '1px solid rgba(0,0,0,0.1)',
+                background: 'rgba(255,255,255,0.9)',
+                fontFamily: 'inherit',
+                fontWeight: '700',
+                color: '#3b2a75',
+                cursor: 'pointer',
+                boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+              }}
+            >
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="en">English</option>
+            </select>
+
+            <button
+              onClick={handleLogout}
+              className="btn btn-danger"
+              style={{
+                border: 'none',
+                borderRadius: '12px',
+                padding: '0.5rem 1rem',
+                fontWeight: '700',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}
+            >
+              <span>🚪</span>
+              <span>{t('navLogout')}</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main className="game-main">
+        <div id="stageBottom">
+          <h2 style={{ color: '#3b2a75', marginBottom: '1.5rem', fontSize: '1.8rem' }}>{t('menuPrompt')}</h2>
+
+          <div className="mm-sections">
+            {/* Section Math */}
+            <div className="mm-section-card" style={{ '--section-color': '#5b4fcf', '--section-color-soft': 'rgba(91, 79, 207, 0.15)' }}>
+              <div className="mm-section-header">
+                <div className="mm-section-title">
+                  <span className="mm-emoji">🧮</span>
+                  {t('sectionMathTitle')}
                 </div>
               </div>
+              <div className="mm-chip-grid">
+                <Link to="/juegos/math" className="mm-chip">
+                  <span className="mm-emoji">➕</span> {t('itemAdditions')}
+                </Link>
+                <Link to="/juegos/math" className="mm-chip">
+                  <span className="mm-emoji">➖</span> {t('itemSubtractions')}
+                </Link>
+                <Link to="/juegos/tercero" className="mm-chip">
+                  <span className="mm-emoji">✖️</span> {t('itemMultiplications')}
+                </Link>
+                <Link to="/juegos/tercero" className="mm-chip">
+                  <span className="mm-emoji">➗</span> {t('itemDivisions')}
+                </Link>
+              </div>
             </div>
-          )}
-        </header>
 
-        <main className="menu-options">
-          <Link to="/juegos" className="btn-main btn-play">¡A Jugar!</Link>
-          <Link to="/logros" className="btn-secondary">Mis Logros</Link>
-          <button className="btn-secondary" type="button">Opciones</button>
-        </main>
+            {/* Section Words */}
+            <div className="mm-section-card" style={{ '--section-color': '#ff5b8f', '--section-color-soft': 'rgba(255, 91, 143, 0.15)' }}>
+              <div className="mm-section-header">
+                <div className="mm-section-title">
+                  <span className="mm-emoji">📚</span>
+                  {t('sectionWordsTitle')}
+                </div>
+              </div>
+              <div className="mm-chip-grid">
+                <Link to="/juegos/segundo" className="mm-chip">
+                  <span className="mm-emoji">📖</span> {t('itemReading')}
+                </Link>
+                <Link to="/juegos/segundo" className="mm-chip">
+                  <span className="mm-emoji">✍️</span> {t('itemDictation')}
+                </Link>
+              </div>
+            </div>
 
-        <div className="progress-overview">
-          <h3>Tu Progreso</h3>
-          <p>Niveles completados: <span id="levels-completed">{progress?.levelsCompleted?.length || 0}</span></p>
-          <p>Tiempo total de juego: <span id="time-played">{Math.floor((progress?.timePlayed || 0) / 60)}</span> minutos</p>
+            {/* Section Logic */}
+            <div className="mm-section-card" style={{ '--section-color': '#00b894', '--section-color-soft': 'rgba(0, 184, 148, 0.15)' }}>
+              <div className="mm-section-header">
+                <div className="mm-section-title">
+                  <span className="mm-emoji">🧩</span>
+                  {t('sectionLogicTitle')}
+                </div>
+              </div>
+              <div className="mm-chip-grid">
+                <Link to="/juegos/tercero" className="mm-chip">
+                  <span className="mm-emoji">🔢</span> {t('itemSequences')}
+                </Link>
+                <Link to="/juegos/segundo" className="mm-chip">
+                  <span className="mm-emoji">🧠</span> {t('itemMemory')}
+                </Link>
+              </div>
+            </div>
+
+            {/* Section Creative */}
+            <div className="mm-section-card" style={{ '--section-color': '#fdcb6e', '--section-color-soft': 'rgba(253, 203, 110, 0.15)' }}>
+              <div className="mm-section-header">
+                <div className="mm-section-title">
+                  <span className="mm-emoji">🎨</span>
+                  {t('sectionCreativeTitle')}
+                </div>
+              </div>
+              <div className="mm-chip-grid">
+                <Link to="/juegos/segundo" className="mm-chip">
+                  <span className="mm-emoji">🌈</span> {t('itemColors')}
+                </Link>
+                <Link to="/juegos/segundo" className="mm-chip">
+                  <span className="mm-emoji">⏰</span> {t('itemTime')}
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <p className="motivational-quote">“¡Un paso más cerca de tu meta!”</p>
-      </div>
+      </main>
     </div>
   );
 }

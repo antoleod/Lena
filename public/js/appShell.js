@@ -121,6 +121,12 @@ book: '📖',
         labelOff: () => t('audioOff', 'Son coupé')
     };
 
+    const FALLBACK_LANGS = [
+        { code: 'fr', label: 'FR' },
+        { code: 'es', label: 'ES' },
+        { code: 'nl', label: 'NL' }
+    ];
+
     let headerEl;
     let headerInner;
     let audioBtn;
@@ -261,7 +267,31 @@ book: '📖',
         if (!languageSelectEl) { return; }
         if (window.i18n?.bindLanguageSelect) {
             window.i18n.bindLanguageSelect(languageSelectEl);
+            return;
         }
+        languageSelectEl.innerHTML = '';
+        FALLBACK_LANGS.forEach(lang => {
+            const option = document.createElement('option');
+            option.value = lang.code;
+            option.textContent = lang.label;
+            languageSelectEl.appendChild(option);
+        });
+        const stored = (window.storage?.getLanguage && window.storage.getLanguage()) || window.localStorage?.getItem('lang') || 'fr';
+        languageSelectEl.value = stored;
+        languageSelectEl.addEventListener('change', (event) => {
+            const next = event.target.value;
+            if (window.storage?.setLanguage) {
+                window.storage.setLanguage(next);
+            } else {
+                try {
+                    window.localStorage?.setItem('lang', next);
+                } catch (error) {
+                    // ignore
+                }
+            }
+            document.documentElement.lang = next;
+            document.dispatchEvent(new CustomEvent('lena:language:change', { detail: { lang: next } }));
+        });
     }
 
     function buildFooter(container) {
