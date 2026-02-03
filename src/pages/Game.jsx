@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Game.css';
 
 const BASE_URL = import.meta.env.BASE_URL;
@@ -62,6 +63,7 @@ function ensureScript(src) {
 
 export default function GamePage() {
   useHeadLinks();
+  const navigate = useNavigate();
   const [lang, setLang] = useState('fr');
   const scriptsRef = useRef([]);
 
@@ -123,7 +125,7 @@ export default function GamePage() {
       const button = event.target.closest('[data-action="back"]');
       if (!button) return;
       event.preventDefault();
-      window.location.href = `${BASE_URL}juegos`;
+      navigate('/juegos');
     };
 
     document.addEventListener('click', handleClick);
