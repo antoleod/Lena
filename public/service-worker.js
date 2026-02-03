@@ -1,55 +1,63 @@
-const CACHE_NAME = 'lena-cache-v4';
+const CACHE_NAME = 'lena-cache-v5';
+
+const BASE_PATH = (() => {
+  const scope = self.registration?.scope || self.location.origin + '/';
+  const url = new URL(scope);
+  return url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
+})();
 
 // List of core resources to cache for offline use. Adjust as needed.
 const CORE_ASSETS = [
-  '/',
-  '/index.html',
-  '/login',
-  '/menu',
-  '/manifest.json',
-  '/css/style.css',
-  '/css/login.css',
-  '/css/feedback-system.css',
-  '/css/new-games.css',
-  '/js/feedbackSystem.js',
-  '/js/avatarData.js',
-  '/js/storage.js',
-  '/js/login.js',
-  '/js/new-games/registry.js',
-  '/js/new-games/engine.js',
-  '/js/new-games/qa.js',
-  '/games/riddleLevels.js',
-  '/games/storySets.js',
-  '/assets/i18n/fr.json',
-  '/assets/i18n/es.json',
-  '/assets/i18n/nl.json',
-  '/assets/iconos/icon-1024.png',
-  '/assets/iconos/icon-512.png',
-  '/assets/iconos/icon-384.png',
-  '/assets/iconos/icon-256.png',
-  '/assets/iconos/icon-192.png',
-  '/assets/iconos/icon-180.png',
-  '/assets/iconos/icon-167.png',
-  '/assets/iconos/icon-152.png',
-  '/assets/iconos/icon-144.png',
-  '/assets/iconos/icon-128.png',
-  '/assets/iconos/icon-120.png',
-  '/assets/iconos/icon-96.png',
-  '/assets/iconos/icon-72.png',
-  '/assets/iconos/icon-64.png',
-  '/assets/iconos/icon-48.png',
-  '/assets/iconos/icon-32.png',
-  '/assets/iconos/icon-16.png',
-  '/offline.html',
-  '/legacy/game.html',
-  '/legacy/juego.html',
-  '/legacy/grande-aventure-mots/index.html'
+  'index.html',
+  'manifest.json',
+  'css/style.css',
+  'css/login.css',
+  'css/feedback-system.css',
+  'css/new-games.css',
+  'js/feedbackSystem.js',
+  'js/avatarData.js',
+  'js/storage.js',
+  'js/login.js',
+  'js/new-games/registry.js',
+  'js/new-games/engine.js',
+  'js/new-games/qa.js',
+  'games/riddleLevels.js',
+  'games/storySets.js',
+  'assets/i18n/fr.json',
+  'assets/i18n/es.json',
+  'assets/i18n/nl.json',
+  'assets/iconos/icon-1024.png',
+  'assets/iconos/icon-512.png',
+  'assets/iconos/icon-384.png',
+  'assets/iconos/icon-256.png',
+  'assets/iconos/icon-192.png',
+  'assets/iconos/icon-180.png',
+  'assets/iconos/icon-167.png',
+  'assets/iconos/icon-152.png',
+  'assets/iconos/icon-144.png',
+  'assets/iconos/icon-128.png',
+  'assets/iconos/icon-120.png',
+  'assets/iconos/icon-96.png',
+  'assets/iconos/icon-72.png',
+  'assets/iconos/icon-64.png',
+  'assets/iconos/icon-48.png',
+  'assets/iconos/icon-32.png',
+  'assets/iconos/icon-16.png',
+  'offline.html',
+  'legacy/game.html',
+  'legacy/juego.html',
+  'legacy/grande-aventure-mots/index.html'
 ];
+
+function withBase(path) {
+  return new URL(path, self.location.origin + BASE_PATH).toString();
+}
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(CORE_ASSETS);
+      const assets = CORE_ASSETS.map(withBase);
+      return cache.addAll(assets);
     }).then(() => self.skipWaiting())
   );
 });
@@ -102,7 +110,7 @@ self.addEventListener('fetch', (event) => {
       }).catch(() => {
         // Fallbacks for navigation requests
         if (request.mode === 'navigate' || (request.headers.get('accept') || '').includes('text/html')) {
-          return caches.match('/index.html');
+          return caches.match(withBase('index.html'));
         }
         return new Response('Offline', { status: 503, statusText: 'Offline' });
       });

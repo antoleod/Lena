@@ -2,21 +2,23 @@
 import { useLocation } from 'react-router-dom';
 import LegacyPage from './LegacyPage.jsx';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 function buildCandidates(pathname) {
   if (!pathname || pathname === '/') {
-    return ['/legacy/login.html'];
+    return [`${BASE_URL}legacy/login.html`];
   }
 
   const normalized = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
   const candidates = [];
 
   if (normalized.endsWith('.html')) {
-    candidates.push(`/legacy${normalized}`);
+    candidates.push(`${BASE_URL}legacy${normalized}`);
     return candidates;
   }
 
-  candidates.push(`/legacy${normalized}.html`);
-  candidates.push(`/legacy${normalized}/index.html`);
+  candidates.push(`${BASE_URL}legacy${normalized}.html`);
+  candidates.push(`${BASE_URL}legacy${normalized}/index.html`);
   return candidates;
 }
 

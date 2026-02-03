@@ -56,7 +56,7 @@ function ensureScript(src) {
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}service-worker.js`)
       .then((registration) => {
         if (registration.waiting) {
           notifyUpdate(registration);
