@@ -6,8 +6,8 @@
   const DEFAULT_LANGUAGE = 'fr';
   const SUPPORTED_LANGS = ['fr', 'es', 'nl'];
   const LANGUAGE_LABELS = {
-    fr: 'Français',
-    es: 'Español',
+    fr: 'FranÃ§ais',
+    es: 'EspaÃ±ol',
     nl: 'Nederlands'
   };
   const LANGUAGE_LOCALES = {
@@ -18,6 +18,25 @@
 
   let strings = {};
   let currentLanguage = null;
+
+
+  function getBasePath() {
+    if (document.baseURI) {
+      const url = new URL(document.baseURI);
+      return url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
+    }
+    const path = window.location.pathname;
+    const marker = '/legacy/';
+    const idx = path.indexOf(marker);
+    if (idx >= 0) {
+      return path.slice(0, idx + 1);
+    }
+    const segments = path.split('/').filter(Boolean);
+    if (segments.length > 0) {
+      return `/${segments[0]}/`;
+    }
+    return '/';
+  }
 
   function logDebug(...args) {
     if (window.DEBUG) {
@@ -198,7 +217,9 @@
     const loaded = {};
     await Promise.all(langs.map(async (lang) => {
       try {
-        const response = await fetch(`/assets/i18n/${lang}.json`, { cache: 'no-cache' });
+        const base = getBasePath();
+        const url = new URL(`assets/i18n/${lang}.json`, window.location.origin + base).toString();
+        const response = await fetch(url, { cache: 'no-cache' });
         if (!response.ok) { throw new Error(`HTTP ${response.status}`); }
         loaded[lang] = await response.json();
       } catch (error) {

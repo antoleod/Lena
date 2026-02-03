@@ -223,35 +223,35 @@ export default function LoginPage() {
             <h2 id="avatar-section-title" data-i18n="avatarSectionTitle">Avatars délicieux</h2>
           </header>
           <div id="avatar-selection" role="listbox" aria-label="Choisis ton avatar préféré" data-i18n-aria="avatarListLabel">
-            <button className="avatar-option" type="button" data-avatar-id="licorne" data-avatar-name="Licorne Arc-en-ciel" data-avatar-name-key="avatarUnicorn" data-avatar-icon="../assets/avatars/licorne.svg" aria-label="Licorne" data-i18n-aria="avatarUnicorn">
+            <button className="avatar-option" type="button" data-avatar-id="licorne" data-avatar-name="Licorne Arc-en-ciel" data-avatar-name-key="avatarUnicorn" data-avatar-icon={`${BASE_URL}assets/avatars/licorne.svg`} aria-label="Licorne" data-i18n-aria="avatarUnicorn">
               <span className="avatar-emoji">🦄</span>
               <span className="avatar-label" data-i18n="avatarUnicorn">Licorne</span>
             </button>
-            <button className="avatar-option" type="button" data-avatar-id="renard" data-avatar-name="Renard malicieux" data-avatar-name-key="avatarFox" data-avatar-icon="../assets/avatars/renard.svg" aria-label="Renard" data-i18n-aria="avatarFox">
+            <button className="avatar-option" type="button" data-avatar-id="renard" data-avatar-name="Renard malicieux" data-avatar-name-key="avatarFox" data-avatar-icon={`${BASE_URL}assets/avatars/renard.svg`} aria-label="Renard" data-i18n-aria="avatarFox">
               <span className="avatar-emoji">🦊</span>
               <span className="avatar-label" data-i18n="avatarFox">Renard</span>
             </button>
-            <button className="avatar-option" type="button" data-avatar-id="panda" data-avatar-name="Panda câlin" data-avatar-name-key="avatarPanda" data-avatar-icon="../assets/avatars/panda.svg" aria-label="Panda" data-i18n-aria="avatarPanda">
+            <button className="avatar-option" type="button" data-avatar-id="panda" data-avatar-name="Panda câlin" data-avatar-name-key="avatarPanda" data-avatar-icon={`${BASE_URL}assets/avatars/panda.svg`} aria-label="Panda" data-i18n-aria="avatarPanda">
               <span className="avatar-emoji">🐼</span>
               <span className="avatar-label" data-i18n="avatarPanda">Panda</span>
             </button>
-            <button className="avatar-option" type="button" data-avatar-id="hibou" data-avatar-name="Hibou sage" data-avatar-name-key="avatarOwl" data-avatar-icon="../assets/avatars/hibou.svg" aria-label="Hibou" data-i18n-aria="avatarOwl">
+            <button className="avatar-option" type="button" data-avatar-id="hibou" data-avatar-name="Hibou sage" data-avatar-name-key="avatarOwl" data-avatar-icon={`${BASE_URL}assets/avatars/hibou.svg`} aria-label="Hibou" data-i18n-aria="avatarOwl">
               <span className="avatar-emoji">🦉</span>
               <span className="avatar-label" data-i18n="avatarOwl">Hibou</span>
             </button>
-            <button className="avatar-option" type="button" data-avatar-id="fraise" data-avatar-name="Fraise pétillante" data-avatar-name-key="avatarStrawberry" data-avatar-icon="../assets/avatars/fraise.svg" aria-label="Fraise" data-i18n-aria="avatarStrawberry">
+            <button className="avatar-option" type="button" data-avatar-id="fraise" data-avatar-name="Fraise pétillante" data-avatar-name-key="avatarStrawberry" data-avatar-icon={`${BASE_URL}assets/avatars/fraise.svg`} aria-label="Fraise" data-i18n-aria="avatarStrawberry">
               <span className="avatar-emoji">🍓</span>
               <span className="avatar-label" data-i18n="avatarStrawberry">Fraise</span>
             </button>
-            <button className="avatar-option" type="button" data-avatar-id="pomme" data-avatar-name="Pomme brillante" data-avatar-name-key="avatarApple" data-avatar-icon="../assets/avatars/pomme.svg" aria-label="Pomme" data-i18n-aria="avatarApple">
+            <button className="avatar-option" type="button" data-avatar-id="pomme" data-avatar-name="Pomme brillante" data-avatar-name-key="avatarApple" data-avatar-icon={`${BASE_URL}assets/avatars/pomme.svg`} aria-label="Pomme" data-i18n-aria="avatarApple">
               <span className="avatar-emoji">🍎</span>
               <span className="avatar-label" data-i18n="avatarApple">Pomme</span>
             </button>
-            <button className="avatar-option" type="button" data-avatar-id="banane" data-avatar-name="Banane rigolote" data-avatar-name-key="avatarBanana" data-avatar-icon="../assets/avatars/banane.svg" aria-label="Banane" data-i18n-aria="avatarBanana">
+            <button className="avatar-option" type="button" data-avatar-id="banane" data-avatar-name="Banane rigolote" data-avatar-name-key="avatarBanana" data-avatar-icon={`${BASE_URL}assets/avatars/banane.svg`} aria-label="Banane" data-i18n-aria="avatarBanana">
               <span className="avatar-emoji">🍌</span>
               <span className="avatar-label" data-i18n="avatarBanana">Banane</span>
             </button>
-            <button className="avatar-option" type="button" data-avatar-id="ananas" data-avatar-name="Ananas disco" data-avatar-name-key="avatarPineapple" data-avatar-icon="../assets/avatars/ananas.svg" aria-label="Ananas" data-i18n-aria="avatarPineapple">
+            <button className="avatar-option" type="button" data-avatar-id="ananas" data-avatar-name="Ananas disco" data-avatar-name-key="avatarPineapple" data-avatar-icon={`${BASE_URL}assets/avatars/ananas.svg`} aria-label="Ananas" data-i18n-aria="avatarPineapple">
               <span className="avatar-emoji">🍍</span>
               <span className="avatar-label" data-i18n="avatarPineapple">Ananas</span>
             </button>
