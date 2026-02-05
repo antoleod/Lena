@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redirection...</title>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
     <script>
-      (function () {
-        var base = '/Lena/';
-        var pathname = window.location.pathname;
-        var search = window.location.search.replace(/&/g, '~and~');
-        var hash = window.location.hash;
-        if (pathname.startsWith(base)) {
-          pathname = pathname.slice(base.length);
-        }
-        var redirect = base + '?/' + pathname + search + hash;
-        window.location.replace(redirect);
-      })();
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafrex/spa-github-pages
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
     </script>
   </head>
-  <body></body>
+  <body>
+  </body>
 </html>

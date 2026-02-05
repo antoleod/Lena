@@ -1,5 +1,7 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { PRACTICES } from '../data/practices.js';
+import './Menu.css';
 
 // Mock useTranslation to avoid react-i18next dependency which causes build errors
 function useTranslation() {
@@ -15,20 +17,6 @@ function useTranslation() {
       confirmLogout: '¿Cerrar sesión?',
       navLogout: 'Salir',
       menuPrompt: '¿Qué quieres practicar hoy?',
-      sectionMathTitle: 'Matemáticas',
-      itemAdditions: 'Sumas',
-      itemSubtractions: 'Restas',
-      itemMultiplications: 'Multiplicación',
-      itemDivisions: 'División',
-      sectionWordsTitle: 'Palabras',
-      itemReading: 'Lectura',
-      itemDictation: 'Dictado',
-      sectionLogicTitle: 'Lógica',
-      itemSequences: 'Secuencias',
-      itemMemory: 'Memoria',
-      sectionCreativeTitle: 'Creatividad',
-      itemColors: 'Colores',
-      itemTime: 'La Hora',
       languageSelectAria: 'Idioma'
     };
     return defaults[key] || key;
@@ -56,6 +44,14 @@ export default function MenuPage() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    document.body.classList.add('menu-body');
+    document.title = 'Menu - Lena';
+    return () => {
+      document.body.classList.remove('menu-body');
+    };
+  }, []);
+
+  useEffect(() => {
     const stored = localStorage.getItem('userProfile');
     if (stored) {
       try {
@@ -73,6 +69,8 @@ export default function MenuPage() {
     }
   }, [i18n]);
 
+  const featuredPractices = useMemo(() => PRACTICES.slice(0, 4), []);
+
   const handleLogout = () => {
     if (window.confirm(t('confirmLogout'))) {
       localStorage.removeItem('userProfile');
@@ -87,158 +85,109 @@ export default function MenuPage() {
   };
 
   return (
-    <div className="game-shell">
-      <header className="game-header">
-        <div className="game-header__primary">
-          <div className="game-header__profile">
-            {user && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                {user.avatar && (
-                  <div className="btn-icon" style={{ background: user.color || '#eee', fontSize: '1.5rem' }}>
-                    {user.avatar.icon}
-                  </div>
-                )}
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <span style={{ fontWeight: '800', color: '#3b2a75', fontSize: '1.1rem' }}>
-                    {user.name}
-                  </span>
-                  <div className="stat-pill stat-pill--stars" style={{ padding: '0.15rem 0.5rem', fontSize: '0.8rem', minHeight: 'auto' }}>
-                    <span>⭐</span>
-                    <span>{user.stars || 0}</span>
-                  </div>
-                </div>
-              </div>
-            )}
+    <div className="menu-shell">
+      <header className="menu-hero">
+        <div className="menu-hero__intro">
+          <span className="menu-eyebrow">{t('menuPrompt')}</span>
+          <h1>Menu principal</h1>
+          <p>
+            Selecciona una ruta de practica o entra directamente a los juegos
+            por curso. Todo esta organizado para avanzar sin fricciones.
+          </p>
+          <div className="menu-actions">
+            <Link className="pill-link" to="/practicas">Ir a practicas</Link>
+            <Link className="pill-link" to="/juegos">Juegos por curso</Link>
+            <Link className="pill-link" to="/juego">Todos los juegos</Link>
           </div>
+        </div>
 
-          <div className="game-header__actions" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-            <select
-              value={i18n.resolvedLanguage}
-              onChange={changeLanguage}
-              aria-label={t('languageSelectAria')}
-              style={{
-                padding: '0.5rem 0.8rem',
-                borderRadius: '12px',
-                border: '1px solid rgba(0,0,0,0.1)',
-                background: 'rgba(255,255,255,0.9)',
-                fontFamily: 'inherit',
-                fontWeight: '700',
-                color: '#3b2a75',
-                cursor: 'pointer',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
-              }}
-            >
-              <option value="fr">Français</option>
-              <option value="es">Español</option>
-              <option value="en">English</option>
-            </select>
+        <div className="menu-hero__panel">
+          {user ? (
+            <div className="menu-profile">
+              <div className="menu-profile__avatar" style={{ background: user.color || '#e2e8f0' }}>
+                {user.avatar?.icon || '👩‍🚀'}
+              </div>
+              <div>
+                <strong>{user.name}</strong>
+                <span>Estrellas: {user.stars || 0}</span>
+              </div>
+            </div>
+          ) : (
+            <div className="menu-profile">
+              <div className="menu-profile__avatar">✨</div>
+              <div>
+                <strong>Invitada</strong>
+                <span>Configura tu perfil</span>
+              </div>
+            </div>
+          )}
 
-            <button
-              onClick={handleLogout}
-              className="btn btn-danger"
-              style={{
-                border: 'none',
-                borderRadius: '12px',
-                padding: '0.5rem 1rem',
-                fontWeight: '700',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem'
-              }}
-            >
-              <span>🚪</span>
-              <span>{t('navLogout')}</span>
+          <div className="menu-panel__controls">
+            <label className="menu-lang">
+              <span>{t('languageSelectAria')}</span>
+              <select value={i18n.resolvedLanguage} onChange={changeLanguage}>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="en">English</option>
+              </select>
+            </label>
+            <button className="menu-logout" type="button" onClick={handleLogout}>
+              {t('navLogout')}
             </button>
           </div>
         </div>
       </header>
 
-      <main className="game-main">
-        <div id="stageBottom">
-          <h2 style={{ color: '#3b2a75', marginBottom: '1.5rem', fontSize: '1.8rem' }}>{t('menuPrompt')}</h2>
-
-          <div className="mm-sections">
-            {/* Section Math */}
-            <div className="mm-section-card" style={{ '--section-color': '#5b4fcf', '--section-color-soft': 'rgba(91, 79, 207, 0.15)' }}>
-              <div className="mm-section-header">
-                <div className="mm-section-title">
-                  <span className="mm-emoji">🧮</span>
-                  {t('sectionMathTitle')}
-                </div>
-              </div>
-              <div className="mm-chip-grid">
-                <Link to="/juegos/math" className="mm-chip">
-                  <span className="mm-emoji">➕</span> {t('itemAdditions')}
-                </Link>
-                <Link to="/juegos/math" className="mm-chip">
-                  <span className="mm-emoji">➖</span> {t('itemSubtractions')}
-                </Link>
-                <Link to="/juegos/tercero" className="mm-chip">
-                  <span className="mm-emoji">✖️</span> {t('itemMultiplications')}
-                </Link>
-                <Link to="/juegos/tercero" className="mm-chip">
-                  <span className="mm-emoji">➗</span> {t('itemDivisions')}
-                </Link>
-              </div>
-            </div>
-
-            {/* Section Words */}
-            <div className="mm-section-card" style={{ '--section-color': '#ff5b8f', '--section-color-soft': 'rgba(255, 91, 143, 0.15)' }}>
-              <div className="mm-section-header">
-                <div className="mm-section-title">
-                  <span className="mm-emoji">📚</span>
-                  {t('sectionWordsTitle')}
-                </div>
-              </div>
-              <div className="mm-chip-grid">
-                <Link to="/juegos/segundo" className="mm-chip">
-                  <span className="mm-emoji">📖</span> {t('itemReading')}
-                </Link>
-                <Link to="/juegos/segundo" className="mm-chip">
-                  <span className="mm-emoji">✍️</span> {t('itemDictation')}
-                </Link>
-              </div>
-            </div>
-
-            {/* Section Logic */}
-            <div className="mm-section-card" style={{ '--section-color': '#00b894', '--section-color-soft': 'rgba(0, 184, 148, 0.15)' }}>
-              <div className="mm-section-header">
-                <div className="mm-section-title">
-                  <span className="mm-emoji">🧩</span>
-                  {t('sectionLogicTitle')}
-                </div>
-              </div>
-              <div className="mm-chip-grid">
-                <Link to="/juegos/tercero" className="mm-chip">
-                  <span className="mm-emoji">🔢</span> {t('itemSequences')}
-                </Link>
-                <Link to="/juegos/segundo" className="mm-chip">
-                  <span className="mm-emoji">🧠</span> {t('itemMemory')}
-                </Link>
-              </div>
-            </div>
-
-            {/* Section Creative */}
-            <div className="mm-section-card" style={{ '--section-color': '#fdcb6e', '--section-color-soft': 'rgba(253, 203, 110, 0.15)' }}>
-              <div className="mm-section-header">
-                <div className="mm-section-title">
-                  <span className="mm-emoji">🎨</span>
-                  {t('sectionCreativeTitle')}
-                </div>
-              </div>
-              <div className="mm-chip-grid">
-                <Link to="/juegos/segundo" className="mm-chip">
-                  <span className="mm-emoji">🌈</span> {t('itemColors')}
-                </Link>
-                <Link to="/juegos/segundo" className="mm-chip">
-                  <span className="mm-emoji">⏰</span> {t('itemTime')}
-                </Link>
-              </div>
-            </div>
+      <section className="menu-featured" aria-label="Practicas destacadas">
+        <div className="section-header">
+          <div>
+            <h2>Practicas destacadas</h2>
+            <p>Rutas recomendadas para empezar.</p>
           </div>
         </div>
-      </main>
+        <div className="menu-grid">
+          {featuredPractices.map((practice) => (
+            <Link
+              key={practice.id}
+              className="menu-card"
+              to={`/practicas/${practice.id}`}
+              style={{ '--card-accent': practice.accent }}
+            >
+              <div className="menu-card__top">
+                <span className="menu-card__tag">{practice.category}</span>
+                <span className="menu-card__meta">{practice.levelRange}</span>
+              </div>
+              <h3>{practice.title}</h3>
+              <p>{practice.description}</p>
+              <span className="menu-card__cta">Ver niveles</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="menu-links" aria-label="Accesos directos">
+        <div className="menu-link-card">
+          <div>
+            <h3>Practicas guiadas</h3>
+            <p>Planes claros con niveles y tiempos estimados.</p>
+          </div>
+          <Link to="/practicas">Explorar practicas</Link>
+        </div>
+        <div className="menu-link-card">
+          <div>
+            <h3>Juegos por curso</h3>
+            <p>Ordenados por nivel escolar para encontrar rapido.</p>
+          </div>
+          <Link to="/juegos">Abrir catalogo</Link>
+        </div>
+        <div className="menu-link-card">
+          <div>
+            <h3>Logros y boutique</h3>
+            <p>Revisa tus avances y personaliza la experiencia.</p>
+          </div>
+          <Link to="/logros">Ver logros</Link>
+        </div>
+      </section>
     </div>
   );
 }

@@ -6,6 +6,8 @@ import MenuPage from './pages/Menu.jsx';
 import CategoriesPage from './pages/Categories.jsx';
 import GamesCategoryPage from './pages/GamesCategory.jsx';
 import AllGamesPage from './pages/AllGames.jsx';
+import PracticesPage from './pages/Practices.jsx';
+import PracticeDetailPage from './pages/PracticeDetail.jsx';
 import LogrosPage from './pages/Logros.jsx';
 import BoutiquePage from './pages/Boutique.jsx';
 import GamePage from './pages/Game.jsx';
@@ -91,6 +93,8 @@ export default function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/menu" element={<MenuPage />} />
+        <Route path="/practicas" element={<PracticesPage />} />
+        <Route path="/practicas/:practiceId" element={<PracticeDetailPage />} />
         <Route path="/juegos" element={<CategoriesPage />} />
         <Route path="/juegos/:category" element={<GamesCategoryPage />} />
         <Route path="/game" element={<GamePage />} />

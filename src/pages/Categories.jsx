@@ -131,8 +131,8 @@ export default function CategoriesPage() {
           <span className="categories-footer__name">{playerName}</span>
         </div>
         <button className="categories-footer__back" type="button" onClick={handleBack}>
-          <span aria-hidden="true">↩️</span>
-          <span>Ir atras</span>
+          <span aria-hidden="true">←</span>
+          <span>Ir atrás</span>
         </button>
       </footer>
     </main>

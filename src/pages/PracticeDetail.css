@@ -1,0 +1,187 @@
+.practice-detail-body {
+  background: radial-gradient(circle at top, #f9fbff 0%, #eef2f8 60%, #e8ecf4 100%);
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+.practice-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  font-family: 'Nunito', 'Fredoka', sans-serif;
+}
+
+.practice-detail__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.practice-detail__info {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2.4rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.practice-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.practice-detail__category {
+  display: inline-flex;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.9rem;
+}
+
+.practice-detail__info h1 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(2rem, 2.6vw, 2.6rem);
+}
+
+.practice-detail__info p {
+  margin: 0 0 1.6rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.practice-detail__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.practice-detail__meta span {
+  display: block;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.practice-detail__meta strong {
+  font-size: 1.1rem;
+}
+
+.practice-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.cta-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.2);
+}
+
+.cta-secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.practice-detail__panel {
+  background: linear-gradient(150deg, rgba(15, 23, 42, 0.9), rgba(37, 99, 235, 0.85));
+  color: #fff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+}
+
+.practice-detail__panel h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.practice-detail__focus {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.practice-detail__focus span {
+  background: rgba(255, 255, 255, 0.18);
+  padding: 0.5rem 0.9rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.practice-detail__note {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.practice-levels__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.practice-detail .section-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.practice-detail .section-header p {
+  margin: 0.2rem 0 0;
+  color: #64748b;
+}
+
+.practice-level {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.1rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.practice-level:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+.practice-level.is-recommended {
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  background: linear-gradient(140deg, rgba(37, 99, 235, 0.12), #fff);
+}
+
+.practice-level__badge {
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.practice-level__text {
+  color: #64748b;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .practice-detail__hero {
+    grid-template-columns: 1fr;
+  }
+}
