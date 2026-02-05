@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "build:gh": "cross-env GITHUB_PAGES=true vite build",
+    "dev": "node scripts/generate-mpa.js && vite",
+    "build": "node scripts/generate-mpa.js && vite build",
+    "build:gh": "cross-env GITHUB_PAGES=true node scripts/generate-mpa.js && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

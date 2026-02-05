@@ -1,30 +1,90 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appli de Lena</title>
-    <base href="/Lena/" />
-    <link rel="manifest" href="/Lena/manifest.json" />
-    <link rel="icon" href="/Lena/assets/iconos/icon-32.png" sizes="32x32" />
-    <link rel="shortcut icon" href="/Lena/assets/iconos/icon-32.png" />
-    <link rel="apple-touch-icon" href="/Lena/assets/iconos/icon-180.png" />
+    <title>Home | Lena</title>
+    <meta name="description" content="Home principal de Lena" />
+    <base href="/" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/assets/iconos/icon-32.png" sizes="32x32" />
+    <link rel="shortcut icon" href="/assets/iconos/icon-32.png" />
+    <link rel="apple-touch-icon" href="/assets/iconos/icon-180.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-    <script>
-      (function () {
-        if (window.location.search.startsWith('?/')) {
-          var path = window.location.search.slice(2).replace(/~and~/g, '&');
-          var base = '/Lena/';
-          window.history.replaceState(null, '', base + path + window.location.hash);
-        }
-      })();
-    </script>
-    <script type="module" crossorigin src="/Lena/assets/index-DcB_tRPv.js"></script>
-    <link rel="stylesheet" crossorigin href="/Lena/assets/index-Beytvbqx.css">
+    
+    <script type="module" crossorigin src="/assets/site-XPVCys_c.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/site-hRSmBH__.css">
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="page-home" data-nav="home">
+    <div class="site-shell">
+      
+    <header class="site-header">
+      <div class="site-brand">
+        <span class="brand-mark">L</span>
+        <div>
+          <strong>Lena</strong>
+          <span>Aprender jugando</span>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="Principal">
+        <a class="nav-link is-active" href="/">Home</a><a class="nav-link" href="/juegos/">Juegos</a><a class="nav-link" href="/juegos/segundo/">2o ano</a><a class="nav-link" href="/juegos/tercero/">3o ano</a>
+      </nav>
+    </header>
+  
+      
+    <main class="home-hero">
+      <section class="hero-card">
+        <span class="eyebrow">Bienvenida</span>
+        <h1>Explora practicas y juegos por nivel</h1>
+        <p>
+          Accede a rutas claras por ano y a juegos individuales con niveles
+          para practicar cada dia.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="/juegos/">Explorar juegos</a>
+          <a class="btn-secondary" href="/juegos/segundo/">Ver 2o ano</a>
+        </div>
+      </section>
+      <section class="hero-panel">
+        <div>
+          <span>Juegos</span>
+          <strong>8</strong>
+        </div>
+        <div>
+          <span>Niveles</span>
+          <strong>10+</strong>
+        </div>
+        <div>
+          <span>Anos</span>
+          <strong>2</strong>
+        </div>
+      </section>
+    </main>
+    <section class="home-years">
+      <h2>Accesos por ano</h2>
+      <div class="card-grid">
+        
+          <a class="year-card" href="/juegos/segundo/">
+            <span>2o de primaria</span>
+            <p>Matematicas, lectura y logica para 2o de primaria.</p>
+            <strong>Entrar</strong>
+          </a>
+        
+          <a class="year-card" href="/juegos/tercero/">
+            <span>3o de primaria</span>
+            <p>Retos avanzados con problemas, fracciones y razonamiento.</p>
+            <strong>Entrar</strong>
+          </a>
+        
+      </div>
+    </section>
+  
+      <footer class="site-footer">
+        <span>Hecho con cuidado para aprender en casa y en clase.</span>
+      </footer>
+    </div>
+    
   </body>
 </html>
