@@ -24,9 +24,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run build
-        env:
-          GITHUB_PAGES: "true"
+      - run: npm run build:gh
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

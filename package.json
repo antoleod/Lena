@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:gh": "cross-env GITHUB_PAGES=true vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+    "cross-env": "^7.0.3",
     "vite": "^5.4.2"
   }
 }
