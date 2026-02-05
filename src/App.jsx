@@ -11,6 +11,7 @@ import PracticeDetailPage from './pages/PracticeDetail.jsx';
 import LogrosPage from './pages/Logros.jsx';
 import BoutiquePage from './pages/Boutique.jsx';
 import GamePage from './pages/Game.jsx';
+import LegacyGamesPage from './pages/LegacyGames.jsx';
 import LegacyAutoPage from './LegacyAutoPage.jsx';
 import LegacyPage from './LegacyPage.jsx';
 import NotFoundPage from './pages/NotFound.jsx';
@@ -99,6 +100,7 @@ export default function App() {
         <Route path="/juegos/:category" element={<GamesCategoryPage />} />
         <Route path="/game" element={<GamePage />} />
         <Route path="/juego" element={<AllGamesPage />} />
+        <Route path="/legacy" element={<LegacyGamesPage />} />
         <Route path="/boutique" element={<BoutiquePage />} />
         <Route path="/logros" element={<LogrosPage />} />
         <Route path="/grande-aventure-mots" element={<LegacyPage legacyPath={`${BASE_URL}legacy/grande-aventure-mots/index.html`} />} />

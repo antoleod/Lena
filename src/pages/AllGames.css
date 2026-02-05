@@ -6,6 +6,10 @@
   --all-bg: #f6f4f9;
   --all-card: #ffffff;
   --all-outline: rgba(31, 27, 36, 0.08);
+  --all-accent: #f26b8a;
+  --all-accent-soft: rgba(242, 107, 138, 0.16);
+  --all-legacy: #7b5dff;
+  --all-legacy-soft: rgba(123, 93, 255, 0.18);
 }
 
 .allgames-body {
@@ -53,6 +57,72 @@
   color: var(--all-muted);
   line-height: 1.6;
   font-size: 1.05rem;
+}
+
+.allgames-toolbar {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.allgames-search {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #2c2238;
+}
+
+.allgames-search__label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9b4d6c;
+}
+
+.allgames-search input {
+  border-radius: 14px;
+  border: 1px solid rgba(31, 27, 36, 0.15);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  background: #fff;
+  color: var(--all-ink);
+  box-shadow: 0 8px 16px rgba(31, 27, 36, 0.08);
+}
+
+.allgames-search input:focus {
+  outline: 2px solid var(--all-accent-soft);
+  border-color: var(--all-accent);
+  box-shadow: 0 12px 24px rgba(242, 107, 138, 0.18);
+}
+
+.allgames-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.filter-pill {
+  border-radius: 999px;
+  border: 1px solid rgba(31, 27, 36, 0.15);
+  padding: 0.45rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  color: #3b2f4a;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(31, 27, 36, 0.12);
+}
+
+.filter-pill.is-active {
+  background: var(--all-accent);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 22px rgba(242, 107, 138, 0.35);
 }
 
 .allgames-eyebrow {
@@ -125,6 +195,12 @@
   font-weight: 700;
 }
 
+.allgames-stat--hint {
+  border-bottom: none;
+  padding-bottom: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .allgames-grid {
   display: grid;
   gap: 2rem;
@@ -172,6 +248,14 @@
   box-shadow: 0 20px 36px rgba(31, 27, 36, 0.12);
 }
 
+.allgames-card--legacy {
+  border-color: rgba(123, 93, 255, 0.25);
+}
+
+.allgames-card--new {
+  border-color: rgba(242, 107, 138, 0.25);
+}
+
 .allgames-card__top {
   display: flex;
   justify-content: space-between;
@@ -193,6 +277,35 @@
   font-weight: 700;
 }
 
+.allgames-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.allgames-card__tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.allgames-card__tag--new {
+  background: var(--all-accent-soft);
+  color: #b82446;
+}
+
+.allgames-card__tag--legacy {
+  background: var(--all-legacy-soft);
+  color: #4a2fc6;
+}
+
+.allgames-card__tag--group {
+  background: rgba(31, 27, 36, 0.08);
+  color: #3b2f4a;
+}
+
 .allgames-card__desc {
   margin: 0;
   color: var(--all-muted);
@@ -202,6 +315,25 @@
   margin-top: 0.2rem;
   font-weight: 700;
   color: #5b4a90;
+}
+
+.allgames-empty {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px dashed rgba(31, 27, 36, 0.2);
+  color: var(--all-muted);
+}
+
+.allgames-empty h3 {
+  margin: 0 0 0.4rem;
+  font-family: 'Fraunces', 'Georgia', serif;
+  color: #221a2f;
+}
+
+.allgames-empty p {
+  margin: 0;
 }
 
 @media (max-width: 720px) {
@@ -214,11 +346,16 @@
   .allgames-card {
     border-radius: 18px;
   }
+
+  .allgames-search input {
+    font-size: 0.95rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .allgames-card,
-  .pill-link {
+  .pill-link,
+  .filter-pill {
     transition: none;
   }
 }

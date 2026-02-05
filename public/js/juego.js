@@ -1072,7 +1072,10 @@ function resolveLevelTheme(topicId) {
         setupUI();
         setupEventListeners();
         showTopicMenu();
-        handleLibraryHashNavigation({ isInitial: true });
+        const libraryHandled = handleLibraryHashNavigation({ isInitial: true });
+        if (!libraryHandled) {
+            setTimeout(() => launchTopicFromQuery(), 0);
+        }
         // Pre-load sounds
     if (SOUND_ENABLED) {
         loadSound('correct', '../sonidos/correct.mp3');
@@ -4298,6 +4301,50 @@ function resolveLevelTheme(topicId) {
         ])
     };
 
+    const DEEP_LINK_TOPICS = new Set([
+        'math-blitz',
+        'lecture-magique',
+        'raisonnement',
+        'mots-outils',
+        'grande-aventure-mots',
+        'additions',
+        'soustractions',
+        'multiplications',
+        'divisions',
+        'base-ten-build',
+        'base-ten-subtract',
+        'sorting',
+        'memory',
+        'repartis',
+        'stories',
+        'riddles',
+        'sequences',
+        'dictee',
+        'ecriture-cursive',
+        'logigrammes',
+        'puzzle-magique',
+        'problems-magiques',
+        'fractions-fantastiques',
+        'temps-horloges',
+        'tables-defi',
+        'series-numeriques',
+        'mesures-magiques',
+        'labyrinthe-logique',
+        'sudoku-junior',
+        'grammaire-magique',
+        'conjugaison-magique',
+        'genres-accords',
+        'lecture-voix-haute',
+        'vocabulaire-thematique',
+        'decouvre-nature',
+        'carte-monde',
+        'emotions-magiques',
+        'missions-jour',
+        'quiz-jour',
+        'respire-repose',
+        'expression-soi'
+    ]);
+
     function getActiveCategory() {
         try {
             const params = new URLSearchParams(window.location.search);
@@ -4312,6 +4359,46 @@ function resolveLevelTheme(topicId) {
         if (!category) return topics;
         const allowed = CATEGORY_TOPIC_FILTERS[category];
         return topics.filter((topic) => allowed && allowed.has(topic.id));
+    }
+
+    function isTopicAllowedForCategory(topicId, category) {
+        if (!category) return true;
+        const allowed = CATEGORY_TOPIC_FILTERS[category];
+        return Boolean(allowed && allowed.has(topicId));
+    }
+
+    function launchTopicById(topicId) {
+        if (topicId === 'grande-aventure-mots') {
+            window.location.href = '/grande-aventure-mots';
+            return true;
+        }
+        if (topicId === 'dictee') { showDicteeMenu(); return true; }
+        if (topicId === 'stories') { showStoryMenu(); return true; }
+        if (topicId === 'memory') { showMemoryGameMenu(); return true; }
+        if (topicId === 'ecriture-cursive') { launchEcritureCursive(1); return true; }
+        if (topicId === 'repartis') { showLevelMenu('repartis'); return true; }
+        if (topicId === 'mots-outils') { launchMotsOutils(1); return true; }
+        showLevelMenu(topicId);
+        return true;
+    }
+
+    function launchTopicFromQuery() {
+        let params;
+        try {
+            params = new URLSearchParams(window.location.search);
+        } catch {
+            return false;
+        }
+        const topicId = params.get('topic');
+        if (!topicId || !DEEP_LINK_TOPICS.has(topicId)) {
+            return false;
+        }
+        const category = getActiveCategory();
+        if (!isTopicAllowedForCategory(topicId, category)) {
+            return false;
+        }
+        gameState.currentTopic = topicId;
+        return launchTopicById(topicId);
     }
 
     function showTopicMenu() {

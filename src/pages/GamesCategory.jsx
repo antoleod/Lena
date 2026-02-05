@@ -6,15 +6,20 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 const CATEGORY_CONFIG = {
   segundo: {
-    title: '2º de primaria',
-    subtitle: 'Todas las materias para 2º de primaria.',
+    title: '2Âº de primaria',
+    subtitle: 'Todas las materias para 2Âº de primaria.',
     legacyPath: `${BASE_URL}legacy/juego-2do.html?cat=segundo`
   },
   tercero: {
-    title: '3º de primaria',
-    subtitle: 'Retos avanzados para 3º de primaria.',
+    title: '3Âº de primaria',
+    subtitle: 'Retos avanzados para 3Âº de primaria.',
     legacyPath: `${BASE_URL}legacy/juego-3ro.html?cat=tercero`
   },
+  cuarto: {
+    title: '4Âº de primaria',
+    subtitle: 'ConsolidaciÃ³n de operaciones, lÃ³gica y comprensiÃ³n.',
+    legacyPath: `${BASE_URL}legacy/juego-new.html?cat=cuarto`
+  }
 };
 
 export default function GamesCategoryPage() {
@@ -32,4 +37,3 @@ export default function GamesCategoryPage() {
 
   return <LegacyPage legacyPath={config.legacyPath} />;
 }
-

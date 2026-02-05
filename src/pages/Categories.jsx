@@ -5,20 +5,28 @@ import './Categories.css';
 const CATEGORIES = [
   {
     id: 'segundo',
-    title: '2º de primaria',
-    subtitle: 'Matemáticas, lectura, lógica y mundo para 2º de primaria (Bélgica).',
+    title: '2Âº de primaria',
+    subtitle: 'MatemÃ¡ticas, lectura, lÃ³gica y mundo para 2Âº de primaria (BÃ©lgica).',
     route: '/juegos/segundo',
     color: '#7bb8ff',
-    items: ['Cálculo y tablas', 'Lectura y dictado', 'Lógica y puzzles']
+    items: ['CÃ¡lculo y tablas', 'Lectura y dictado', 'LÃ³gica y puzzles']
   },
   {
     id: 'tercero',
-    title: '3º de primaria',
-    subtitle: 'Retos más avanzados: problemas, fracciones, medidas y razonamiento.',
+    title: '3Âº de primaria',
+    subtitle: 'Retos mÃ¡s avanzados: problemas, fracciones, medidas y razonamiento.',
     route: '/juegos/tercero',
     color: '#ff9fb2',
-    items: ['Problemas y fracciones', 'Series y medidas', 'Comprensión y lógica']
+    items: ['Problemas y fracciones', 'Series y medidas', 'ComprensiÃ³n y lÃ³gica']
   },
+  {
+    id: 'cuarto',
+    title: '4Âº de primaria',
+    subtitle: 'Consolida operaciones, lÃ³gica y comprensiÃ³n lectora.',
+    route: '/juegos/cuarto',
+    color: '#7fd0c4',
+    items: ['Operaciones y fracciones', 'LÃ³gica y deducciÃ³n', 'Lectura y expresiÃ³n']
+  }
 ];
 
 const QUICK_LINKS = [
@@ -73,7 +81,7 @@ export default function CategoriesPage() {
           <span className="hero-eyebrow">Juegos por curso</span>
           <h1>Elige el curso y entra a jugar</h1>
           <p>
-            Cada curso reúne todas las materias. Así el acceso es más rápido y el contenido está mejor ordenado.
+            Cada curso reÃºne todas las materias. AsÃ­ el acceso es mÃ¡s rÃ¡pido y el contenido estÃ¡ mejor ordenado.
           </p>
           <div className="hero-actions">
             {QUICK_LINKS.map((link) => (
@@ -88,7 +96,7 @@ export default function CategoriesPage() {
           <div className="hero-panel__content">
             <div className="hero-stat">
               <span className="hero-stat__label">Cursos</span>
-              <span className="hero-stat__value">2</span>
+              <span className="hero-stat__value">3</span>
             </div>
             <div className="hero-stat">
               <span className="hero-stat__label">Materias</span>
@@ -96,7 +104,7 @@ export default function CategoriesPage() {
             </div>
             <div className="hero-stat">
               <span className="hero-stat__label">Dificultad</span>
-              <span className="hero-stat__value">2º a 3º</span>
+              <span className="hero-stat__value">2Âº a 4Âº</span>
             </div>
           </div>
         </div>
@@ -131,11 +139,10 @@ export default function CategoriesPage() {
           <span className="categories-footer__name">{playerName}</span>
         </div>
         <button className="categories-footer__back" type="button" onClick={handleBack}>
-          <span aria-hidden="true">←</span>
-          <span>Ir atrás</span>
+          <span aria-hidden="true">â†</span>
+          <span>Ir atrÃ¡s</span>
         </button>
       </footer>
     </main>
   );
 }
-
