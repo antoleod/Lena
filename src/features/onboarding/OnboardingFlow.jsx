@@ -84,6 +84,9 @@ export default function OnboardingFlow() {
     setLocale(profile.language);
     setThemeId(profile.themeId || 'theme-candy');
     navigate('/', { replace: true });
+    window.setTimeout(() => {
+      window.location.assign(import.meta.env.BASE_URL || '/');
+    }, 40);
   }
 
   return (
@@ -145,7 +148,7 @@ export default function OnboardingFlow() {
           ) : null}
 
           {step === 2 ? (
-            <div className="choice-grid choice-grid--onboarding">
+            <div className="choice-grid choice-grid--onboarding choice-grid--identity">
               {identityOptions.map((option) => (
                 <button
                   key={option.id}
@@ -191,7 +194,7 @@ export default function OnboardingFlow() {
           ) : null}
 
           {step === 5 ? (
-            <div className="choice-grid choice-grid--onboarding">
+            <div className="choice-grid choice-grid--onboarding choice-grid--themes">
               {themeChoices.slice(0, 6).map((themeId) => (
                 <button
                   key={themeId}

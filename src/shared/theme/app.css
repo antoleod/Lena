@@ -938,7 +938,7 @@ button {
 
 .onboarding-modal {
   position: relative;
-  width: min(100%, 640px);
+  width: min(100%, 860px);
   min-height: min(92vh, 760px);
   display: grid;
   grid-template-rows: auto auto auto 1fr auto;
@@ -1140,6 +1140,14 @@ button {
 
 .choice-grid--onboarding {
   grid-template-columns: 1fr;
+}
+
+.choice-grid--identity {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.choice-grid--themes {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .choice-grid--age {
@@ -1885,7 +1893,7 @@ button {
   }
 
   .onboarding-modal {
-    width: min(100%, 540px);
+    width: min(100%, 700px);
     min-height: min(90vh, 700px);
   }
 }
@@ -1946,6 +1954,11 @@ button {
 
   .choice-grid--age {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .choice-grid--identity,
+  .choice-grid--themes {
+    grid-template-columns: 1fr;
   }
 
   .onboarding-flow {
