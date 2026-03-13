@@ -24,7 +24,6 @@ import { reasoningGrade3Modules } from '../../content/reasoning/grade-3/modules.
 import { storiesSubject, storyActivities } from '../../content/stories/activities.js';
 import { storiesGrade2Modules } from '../../content/stories/grade-2/modules.js';
 import { storiesGrade3Modules } from '../../content/stories/grade-3/modules.js';
-import { buildLegacyContentContracts } from '../../content/adapters/index.js';
 
 export const subjects = [
   mathematicsSubject,
@@ -70,12 +69,6 @@ export const modules = [
   ...storiesGrade3Modules
 ];
 
-export const legacyContentContracts = buildLegacyContentContracts({
-  subjects,
-  modules,
-  activities
-});
-
 export function getSubjectById(subjectId) {
   return subjects.find((subject) => subject.id === subjectId) || null;
 }
@@ -120,8 +113,4 @@ export function getCurriculumStats() {
     grades: 'P2-P6',
     engines: 4
   };
-}
-
-export function getLegacyContentContracts() {
-  return legacyContentContracts;
 }
