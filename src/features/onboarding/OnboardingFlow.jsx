@@ -4,10 +4,17 @@ import { saveProfile, getProfile } from '../../services/storage/profileStore.js'
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 
+const localeOptions = [
+  { id: 'fr', label: 'Francais' },
+  { id: 'nl', label: 'Nederlands' },
+  { id: 'en', label: 'English' },
+  { id: 'es', label: 'Espanol' }
+];
+
 const identityOptions = [
-  { id: 'boy', labelKey: 'profileBoy', icon: 'Star' },
-  { id: 'girl', labelKey: 'profileGirl', icon: 'Moon' },
-  { id: 'child', labelKey: 'profileNeutral', icon: 'Sky' }
+  { id: 'boy', labelKey: 'profileBoy', icon: 'Star', avatarId: 'avatar-fox' },
+  { id: 'girl', labelKey: 'profileGirl', icon: 'Moon', avatarId: 'avatar-unicorn' },
+  { id: 'child', labelKey: 'profileNeutral', icon: 'Sky', avatarId: 'avatar-panda' }
 ];
 
 const ageOptions = [7, 8, 9, 10];
@@ -26,14 +33,25 @@ function getStepMeta(step, t) {
     { id: 1, title: t('onboardingStep4Subtitle'), text: t('onboardingStep4Text') },
     { id: 2, title: t('onboardingStep1Subtitle'), text: t('onboardingStep1Text') },
     { id: 3, title: t('onboardingStep2Subtitle'), text: t('onboardingStep2Text') },
-    { id: 4, title: t('onboardingAgeTitle') || 'Quel age as-tu ?', text: t('onboardingAgeText') || 'Choisis ton age pour adapter les exercices.' },
-    { id: 5, title: t('onboardingStep3Subtitle'), text: t('onboardingStep3Text') }
+    { id: 4, title: t('onboardingAgeTitle') || 'Quel age as tu ?', text: t('onboardingAgeText') || 'Choisis ton age pour adapter les exercices.' },
+    { id: 5, title: t('onboardingStep3Subtitle'), text: t('onboardingStep3Text') },
+    { id: 6, title: t('onboardingWelcomeTitle'), text: t('continueStep') }
   ].find((item) => item.id === step);
+}
+
+function resolveThemeId(visualTheme) {
+  if (['ocean', 'nature'].includes(visualTheme)) {
+    return 'theme-ocean';
+  }
+  if (['adventure', 'vehicles', 'dinosaurs', 'explorers'].includes(visualTheme)) {
+    return 'theme-sunset';
+  }
+  return 'theme-candy';
 }
 
 export default function OnboardingFlow() {
   const navigate = useNavigate();
-  const { locale, setLocale, t, supportedLocales = ['fr', 'nl', 'en', 'es'] } = useLocale();
+  const { locale, setLocale, t } = useLocale();
   const { setThemeId } = useTheme();
   const [existing] = useState(() => getProfile());
 
@@ -48,14 +66,15 @@ export default function OnboardingFlow() {
     if (!existing) {
       return;
     }
-    setName(existing.name || '');
     setIdentity(existing.identity || 'child');
+    setName(existing.name || '');
     setAge(existing.age || 8);
     setVisualTheme(existing.visualTheme || 'fantasy');
     setLanguage(existing.language || locale || 'fr');
   }, [existing, locale]);
 
-  const progressPercent = Math.round((step / 5) * 100);
+  const totalSteps = 6;
+  const progressPercent = Math.round((step / totalSteps) * 100);
   const themeChoices = useMemo(() => buildThemeChips(identity), [identity]);
   const previewName = name.trim() || t('defaultChildName');
   const previewThemeLabel = t(`visualTheme.${visualTheme}`);
@@ -63,26 +82,39 @@ export default function OnboardingFlow() {
   const previewIdentityLabel = t(previewIdentity.labelKey);
   const stepMeta = getStepMeta(step, t);
 
+  function goToStep(nextStep) {
+    setStep(Math.max(1, Math.min(totalSteps, nextStep)));
+  }
+
   function next() {
-    setStep((current) => Math.min(5, current + 1));
+    goToStep(step + 1);
   }
 
   function back() {
-    setStep((current) => Math.max(1, current - 1));
+    goToStep(step - 1);
+  }
+
+  function autoAdvance(callback) {
+    callback();
+    window.setTimeout(() => {
+      setStep((current) => Math.min(totalSteps, current + 1));
+    }, 180);
   }
 
   function handleComplete() {
-    const baseAvatar = identity === 'girl' ? 'avatar-panda' : 'avatar-unicorn';
+    const themeId = resolveThemeId(visualTheme);
     const profile = saveProfile({
       name: previewName,
       age,
       identity,
       visualTheme,
       language,
-      avatarId: existing.avatarId || baseAvatar
+      themeId,
+      avatarId: existing.avatarId || previewIdentity.avatarId
     });
+
     setLocale(profile.language);
-    setThemeId(profile.themeId || 'theme-candy');
+    setThemeId(themeId);
     navigate('/', { replace: true });
     window.setTimeout(() => {
       window.location.assign(import.meta.env.BASE_URL || '/');
@@ -98,12 +130,12 @@ export default function OnboardingFlow() {
           <p>{t('onboardingWelcomeText')}</p>
         </header>
 
-        <div className="onboarding-progress onboarding-progress--compact" aria-label={`${t('onboardingStep')} ${step} / 5`}>
+        <div className="onboarding-progress onboarding-progress--compact" aria-label={`${t('onboardingStep')} ${step} / ${totalSteps}`}>
           <div className="onboarding-progress__track">
             <span className="onboarding-progress__fill" style={{ width: `${progressPercent}%` }}></span>
           </div>
           <div className="onboarding-progress__steps">
-            {[1, 2, 3, 4, 5].map((value) => (
+            {Array.from({ length: totalSteps }, (_, index) => index + 1).map((value) => (
               <span
                 key={value}
                 className={`onboarding-progress__dot${value <= step ? ' is-active' : ''}${value === step ? ' is-current' : ''}`}
@@ -133,17 +165,21 @@ export default function OnboardingFlow() {
           </div>
 
           {step === 1 ? (
-            <div className="form-field">
-              <label htmlFor="ui-language">{t('uiLanguage')}</label>
-              <select
-                id="ui-language"
-                value={language}
-                onChange={(event) => setLanguage(event.target.value)}
-              >
-                {supportedLocales.map((code) => (
-                  <option key={code} value={code}>{code.toUpperCase()}</option>
-                ))}
-              </select>
+            <div className="choice-grid choice-grid--onboarding choice-grid--languages">
+              {localeOptions.map((option) => (
+                <button
+                  key={option.id}
+                  type="button"
+                  className={`choice-button choice-button--large${language === option.id ? ' is-selected' : ''}`}
+                  onClick={() => autoAdvance(() => {
+                    setLanguage(option.id);
+                    setLocale(option.id);
+                  })}
+                >
+                  <span className="choice-icon">{option.id.toUpperCase()}</span>
+                  <span>{option.label}</span>
+                </button>
+              ))}
             </div>
           ) : null}
 
@@ -154,7 +190,7 @@ export default function OnboardingFlow() {
                   key={option.id}
                   type="button"
                   className={`choice-button choice-button--large${identity === option.id ? ' is-selected' : ''}`}
-                  onClick={() => setIdentity(option.id)}
+                  onClick={() => autoAdvance(() => setIdentity(option.id))}
                 >
                   <span aria-hidden="true" className="choice-icon">{option.icon}</span>
                   <span>{t(option.labelKey)}</span>
@@ -164,7 +200,15 @@ export default function OnboardingFlow() {
           ) : null}
 
           {step === 3 ? (
-            <div className="form-field">
+            <form
+              className="form-field"
+              onSubmit={(event) => {
+                event.preventDefault();
+                if (name.trim()) {
+                  next();
+                }
+              }}
+            >
               <label htmlFor="child-name">{t('onboardingChildName')}</label>
               <input
                 id="child-name"
@@ -172,16 +216,13 @@ export default function OnboardingFlow() {
                 maxLength={20}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' && name.trim()) {
-                    event.preventDefault();
-                    next();
-                  }
-                }}
                 placeholder={t('onboardingChildNamePlaceholder')}
                 autoFocus
               />
-            </div>
+              <button type="submit" className="primary-action" disabled={!name.trim()}>
+                {t('continue')}
+              </button>
+            </form>
           ) : null}
 
           {step === 4 ? (
@@ -191,7 +232,7 @@ export default function OnboardingFlow() {
                   key={value}
                   type="button"
                   className={`choice-button choice-button--chip${age === value ? ' is-selected' : ''}`}
-                  onClick={() => setAge(value)}
+                  onClick={() => autoAdvance(() => setAge(value))}
                 >
                   {value} {t('yearsLabel') || 'ans'}
                 </button>
@@ -206,12 +247,45 @@ export default function OnboardingFlow() {
                   key={themeId}
                   type="button"
                   className={`choice-button choice-button--theme${visualTheme === themeId ? ' is-selected' : ''}`}
-                  onClick={() => setVisualTheme(themeId)}
+                  onClick={() => autoAdvance(() => setVisualTheme(themeId))}
                 >
                   <span className="pill">{t('theme')}</span>
                   <span>{t(`visualTheme.${themeId}`)}</span>
                 </button>
               ))}
+            </div>
+          ) : null}
+
+          {step === 6 ? (
+            <div className="onboarding-summary">
+              <div className="onboarding-summary__hero">
+                <div className={`onboarding-stage-mini__avatar onboarding-stage-mini__avatar--${identity}`}>
+                  <span>{previewIdentity.icon}</span>
+                </div>
+                <div>
+                  <strong>{previewName}</strong>
+                  <p>{t('startAdventure')}</p>
+                </div>
+              </div>
+
+              <div className="onboarding-summary__grid">
+                <div className="onboarding-summary__item">
+                  <span>{t('uiLanguage')}</span>
+                  <strong>{language.toUpperCase()}</strong>
+                </div>
+                <div className="onboarding-summary__item">
+                  <span>{t('onboardingAgeTitle')}</span>
+                  <strong>{age} {t('yearsLabel') || 'ans'}</strong>
+                </div>
+                <div className="onboarding-summary__item">
+                  <span>{t('theme')}</span>
+                  <strong>{previewThemeLabel}</strong>
+                </div>
+                <div className="onboarding-summary__item">
+                  <span>{t('onboardingStep1Subtitle')}</span>
+                  <strong>{previewIdentityLabel}</strong>
+                </div>
+              </div>
             </div>
           ) : null}
         </section>
@@ -223,7 +297,7 @@ export default function OnboardingFlow() {
             </button>
           ) : <span />}
 
-          {step < 5 ? (
+          {step < totalSteps ? (
             <button
               type="button"
               className="primary-action"

@@ -1,55 +1,75 @@
-# Lena (MPA + Vite)
+# Lena
 
-Sitio multi-page (MPA) para GitHub Pages bajo base `/Lena/`.
+Lena is a React educational platform for primary school children with:
 
-## Rutas principales
-- `/Lena/`
-- `/Lena/juegos/`
-- `/Lena/juegos/segundo/`
-- `/Lena/juegos/tercero/`
-- `/Lena/juegos/<slug>/` (una por juego)
+- onboarding and child profile
+- a world map with missions and levels
+- adaptive exercises
+- local progress and rewards
+- multilingual UI
+- curriculum content for mathematics, French, Dutch, English, Spanish, reasoning and stories
 
-## Como correr
-```
+## Tech stack
+
+- React
+- React Router
+- Vite
+- localStorage for profile, progress and rewards
+
+## Run locally
+
+```bash
 npm run dev
 ```
 
-## Build
-```
+## Production build
+
+```bash
 npm run build
 ```
 
-Para GitHub Pages:
+## Main folders
+
+```text
+src/
+  app/                 app shell, routing, providers
+  content/             curriculum content and world data
+  engines/             renderers, generators, validation
+  features/            onboarding, home, map, activity, shop, history, settings
+  services/            storage and session services
+  shared/              theme, i18n, gameplay helpers, shared types
+docs/                  architecture and contribution guides
+public/assets/         visual assets used by activities and cosmetics
 ```
-npm run build:gh
+
+## Product flow
+
+```text
+Onboarding
+-> Home dashboard
+-> World map
+-> World
+-> Mission
+-> Level
+-> Activity
+-> Mission reward
+-> Next mission
 ```
 
-## Data model (juegos y anos)
-Fuente unica de verdad:
-`src/data/games.js`
+## Current content model
 
-Cada juego incluye:
-`id`, `slug`, `year`, `title`, `description`, `tags`, `mode`
+- subjects live in `src/content/*`
+- grade modules live in `src/content/<subject>/grade-*/modules.js`
+- manual activities live in `src/content/<subject>/activities.js`
+- generated activity descriptors live in `src/content/<subject>/generatedActivities.js`
+- world and mission routing data lives in `src/content/worlds/`
 
-## Como agregar un juego nuevo
-1. Edita `src/data/games.js` y agrega un objeto en `GAMES`.
-2. Asegura `slug` unico y `id` existente en el motor de juegos.
-3. Ejecuta `npm run build` o `npm run build:gh`.
+## Documentation
 
-El build genera automaticamente:
-- `/juegos/<slug>/index.html`
-- Cards en `/juegos/` y en el ano correspondiente.
-
-## Como agregar un nuevo ano
-1. Agrega el ano en `YEARS` dentro de `src/data/games.js`.
-2. Usa el `id` nuevo en los juegos que correspondan.
-3. Ejecuta `npm run build`.
-
-Se genera automaticamente:
-- `/juegos/<slug-del-ano>/index.html`
-- Links en el header y en el hub.
-
-## Notas de arquitectura
-- `scripts/generate-mpa.js` crea los HTML reales (MPA).
-- `vite.config.js` usa entradas multiples por pagina.
-- Los juegos cargan el motor compartido en `public/js/new-games/*`.
+- [Architecture](docs/ARCHITECTURE.md)
+- [Content model](docs/CONTENT_MODEL.md)
+- [Adding content](docs/ADDING_CONTENT.md)
+- [I18n guide](docs/I18N_GUIDE.md)
+- [QA checklist](docs/QA_CHECKLIST.md)
+- [Migration plan](docs/MIGRATION_PLAN.md)
+- [Migration audit](docs/migration-audit.md)

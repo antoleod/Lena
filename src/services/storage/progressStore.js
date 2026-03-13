@@ -17,9 +17,11 @@ function defaultQuestionState() {
 function defaultStore() {
   return {
     activities: {},
+    levels: {},
     questions: {},
     meta: {
       lastActivityId: null,
+      lastLevelId: null,
       lastPlayedAt: null,
       streakCurrent: 0,
       streakBest: 0,
@@ -37,6 +39,7 @@ function readStore() {
       ...defaultStore(),
       ...parsed,
       activities: parsed.activities || {},
+      levels: parsed.levels || {},
       questions: parsed.questions || {},
       meta: {
         ...defaultStore().meta,
@@ -102,6 +105,18 @@ export function getActivityProgress(activityId) {
     bestScore: 0,
     lastScore: 0,
     updatedAt: null
+  };
+}
+
+export function getLevelProgress(levelId) {
+  const store = readStore();
+  return store.levels[levelId] || {
+    attempts: 0,
+    completed: false,
+    bestScore: 0,
+    lastScore: 0,
+    updatedAt: null,
+    activityId: null
   };
 }
 
@@ -172,6 +187,33 @@ export function saveActivityProgress(activityId, patch) {
   store.meta = {
     ...meta,
     lastActivityId: activityId,
+    lastPlayedAt: Date.now()
+  };
+  writeStore(store);
+  return next;
+}
+
+export function saveLevelProgress(levelId, patch) {
+  const store = readStore();
+  const previous = store.levels[levelId] || getLevelProgress(levelId);
+  const score = patch.bestScore ?? patch.lastScore ?? 0;
+  const next = {
+    ...previous,
+    ...patch,
+    levelId,
+    attempts: previous.attempts + 1,
+    bestScore: Math.max(previous.bestScore || 0, score),
+    lastScore: patch.lastScore ?? previous.lastScore,
+    updatedAt: Date.now()
+  };
+
+  const meta = updateStreak(store.meta);
+
+  store.levels[levelId] = next;
+  store.meta = {
+    ...meta,
+    lastLevelId: levelId,
+    lastActivityId: patch.activityId || store.meta.lastActivityId,
     lastPlayedAt: Date.now()
   };
   writeStore(store);

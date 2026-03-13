@@ -1,3 +1,5 @@
+import { assertGeneratedExercise } from '../activity-engine/index.js';
+
 const GRADE_LABELS = {
   P2: '2nd_grade',
   P3: '3rd_grade',
@@ -648,36 +650,53 @@ export function generateExercise(input) {
   const difficulty = resolveDifficulty(grade, input.difficulty);
   const params = { grade, difficulty, language };
 
+  let exercise;
+
   switch (input.topic) {
     case 'addition':
-      return generateAdditionExercise(params);
+      exercise = generateAdditionExercise(params);
+      break;
     case 'subtraction':
-      return generateSubtractionExercise(params);
+      exercise = generateSubtractionExercise(params);
+      break;
     case 'multiplication':
-      return generateMultiplicationExercise(params);
+      exercise = generateMultiplicationExercise(params);
+      break;
     case 'division':
-      return generateDivisionExercise(params);
+      exercise = generateDivisionExercise(params);
+      break;
     case 'comparison':
-      return generateComparisonExercise(params);
+      exercise = generateComparisonExercise(params);
+      break;
     case 'word-problem':
-      return generateWordProblemExercise(params);
+      exercise = generateWordProblemExercise(params);
+      break;
     case 'logic-sequence':
-      return generateLogicSequenceExercise(params);
+      exercise = generateLogicSequenceExercise(params);
+      break;
     case 'fractions':
-      return generateFractionsExercise(params);
+      exercise = generateFractionsExercise(params);
+      break;
     case 'decimals':
-      return generateDecimalsExercise(params);
+      exercise = generateDecimalsExercise(params);
+      break;
     case 'mixed-operations':
-      return generateMixedOperationsExercise(params);
+      exercise = generateMixedOperationsExercise(params);
+      break;
     case 'reading-comprehension':
-      return generateReadingComprehensionExercise(params);
+      exercise = generateReadingComprehensionExercise(params);
+      break;
     case 'sentence-completion':
-      return generateSentenceCompletionExercise(params);
+      exercise = generateSentenceCompletionExercise(params);
+      break;
     case 'vocabulary':
-      return generateSentenceCompletionExercise(params);
+      exercise = generateSentenceCompletionExercise(params);
+      break;
     default:
-      return generateAdditionExercise(params);
+      exercise = generateAdditionExercise(params);
   }
+
+  return assertGeneratedExercise(exercise);
 }
 
 export function generateExerciseSet(input) {

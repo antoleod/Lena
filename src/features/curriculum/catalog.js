@@ -10,9 +10,11 @@ import { dutchActivities, dutchSubject } from '../../content/dutch/activities.js
 import { generatedDutchActivities } from '../../content/dutch/generatedActivities.js';
 import { dutchGrade2Modules } from '../../content/dutch/grade-2/modules.js';
 import { dutchGrade3Modules } from '../../content/dutch/grade-3/modules.js';
+import { englishActivities } from '../../content/english/activities.js';
 import { englishSubject, generatedEnglishActivities } from '../../content/english/generatedActivities.js';
 import { englishGrade2Modules } from '../../content/english/grade-2/modules.js';
 import { englishGrade3Modules } from '../../content/english/grade-3/modules.js';
+import { spanishActivities } from '../../content/spanish/activities.js';
 import { generatedSpanishActivities, spanishSubject } from '../../content/spanish/generatedActivities.js';
 import { spanishGrade2Modules } from '../../content/spanish/grade-2/modules.js';
 import { spanishGrade3Modules } from '../../content/spanish/grade-3/modules.js';
@@ -22,6 +24,7 @@ import { reasoningGrade3Modules } from '../../content/reasoning/grade-3/modules.
 import { storiesSubject, storyActivities } from '../../content/stories/activities.js';
 import { storiesGrade2Modules } from '../../content/stories/grade-2/modules.js';
 import { storiesGrade3Modules } from '../../content/stories/grade-3/modules.js';
+import { buildLegacyContentContracts } from '../../content/adapters/index.js';
 
 export const subjects = [
   mathematicsSubject,
@@ -40,7 +43,9 @@ export const activities = [
   ...generatedFrenchActivities,
   ...dutchActivities,
   ...generatedDutchActivities,
+  ...englishActivities,
   ...generatedEnglishActivities,
+  ...spanishActivities,
   ...generatedSpanishActivities,
   ...generatedReasoningActivities,
   ...storyActivities
@@ -64,6 +69,12 @@ export const modules = [
   ...storiesGrade2Modules,
   ...storiesGrade3Modules
 ];
+
+export const legacyContentContracts = buildLegacyContentContracts({
+  subjects,
+  modules,
+  activities
+});
 
 export function getSubjectById(subjectId) {
   return subjects.find((subject) => subject.id === subjectId) || null;
@@ -109,4 +120,8 @@ export function getCurriculumStats() {
     grades: 'P2-P6',
     engines: 4
   };
+}
+
+export function getLegacyContentContracts() {
+  return legacyContentContracts;
 }

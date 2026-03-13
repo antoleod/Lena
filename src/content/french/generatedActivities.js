@@ -11,7 +11,16 @@ function createGeneratedFrenchActivity({
   hints,
   featured = false
 }) {
-  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
+  const generatorGrade = gradeBand.includes('P6')
+    ? 'P6'
+    : gradeBand.includes('P5')
+      ? 'P5'
+      : gradeBand.includes('P4')
+        ? 'P4'
+        : gradeBand.includes('P3') && !gradeBand.includes('P2')
+          ? 'P3'
+          : 'P2';
+
   return {
     id,
     slug,
@@ -36,20 +45,8 @@ function createGeneratedFrenchActivity({
       language: 'fr',
       difficulty: 'adaptive',
       sections: [
-        {
-          id: 'practice',
-          title: 'Lecture ou langage',
-          kind: 'practice',
-          description: '10 exercices generes selon le niveau.',
-          count: 10
-        },
-        {
-          id: 'exam',
-          title: 'Mini examen',
-          kind: 'exam',
-          description: '4 nouvelles questions pour verifier la notion.',
-          count: 4
-        }
+        { id: 'practice', title: 'Lecture ou langage', kind: 'practice', description: '10 exercices generes selon le niveau.', count: 10 },
+        { id: 'exam', title: 'Mini examen', kind: 'exam', description: '4 nouvelles questions pour verifier la notion.', count: 4 }
       ]
     }
   };
@@ -76,6 +73,26 @@ export const generatedFrenchActivities = [
     gradeBand: ['P2', 'P3'],
     instructions: 'Le systeme cree de nouvelles phrases a completer.',
     hints: ['Cherche le mot qui donne du sens a la phrase.']
+  }),
+  createGeneratedFrenchActivity({
+    id: 'generated-french-vocabulary',
+    slug: 'vocabulaire-dynamique-fr',
+    title: 'Vocabulaire du quotidien',
+    subskill: 'vocabulary',
+    topic: 'vocabulary',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Retrouve des mots simples et leurs bons indices.',
+    hints: ['Lis toutes les reponses avant de choisir.']
+  }),
+  createGeneratedFrenchActivity({
+    id: 'generated-french-grammar-p3',
+    slug: 'grammaire-dynamique-fr-p3',
+    title: 'Grammaire et accords',
+    subskill: 'grammar',
+    topic: 'sentence-completion',
+    gradeBand: ['P3'],
+    instructions: 'Accords, nature des mots et phrases utiles.',
+    hints: ['Observe la phrase complete avant de choisir.']
   }),
   createGeneratedFrenchActivity({
     id: 'generated-french-reading-p4',

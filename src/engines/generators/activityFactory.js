@@ -1,4 +1,5 @@
 import { generateExerciseSet } from './exerciseGenerators.js';
+import { assertGeneratedExercise } from '../activity-engine/index.js';
 
 function fallbackProgress() {
   return {
@@ -33,6 +34,7 @@ function normalizeDifficulty(difficulty, progress, expectedQuestions) {
 }
 
 function mapGeneratedExerciseToLesson(exercise, index) {
+  assertGeneratedExercise(exercise);
   return {
     id: `${exercise.type}-${index + 1}`,
     prompt: exercise.question,

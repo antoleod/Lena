@@ -27,10 +27,26 @@ export const dutchGrade2Modules = [
     summary: 'Kies het juiste woord en lees heel korte teksten.',
     goal: 'Van losse woorden naar begrip gaan.',
     demo: 'We tonen eerst hoe je naar sleutelwoorden zoekt.',
-    guidedActivityIds: ['generated-dutch-vocabulary'],
+    guidedActivityIds: ['generated-dutch-sentences', 'generated-dutch-vocabulary'],
     independentActivityIds: ['generated-dutch-reading'],
     challengeActivityId: 'generated-dutch-reading',
-    examActivityId: 'generated-dutch-vocabulary',
+    examActivityId: 'generated-dutch-sentences',
     suggestedReviewIds: ['dutch-school-words']
+  }),
+  createModule({
+    id: 'dutch-g2-school-life',
+    subjectId: 'dutch',
+    gradeId: 'P2',
+    domainId: 'schoolleven',
+    domainLabel: 'Schoolleven',
+    title: 'School, acties en routine',
+    summary: 'Herkennen wat je op school ziet en doet.',
+    goal: 'Meer routinewoorden leren in context.',
+    demo: 'Een voorbeeld laat zien hoe woord en situatie samen horen.',
+    guidedActivityIds: ['dutch-picture-words', 'generated-dutch-sentences'],
+    independentActivityIds: ['generated-dutch-vocabulary'],
+    challengeActivityId: 'generated-dutch-vocabulary',
+    examActivityId: 'generated-dutch-reading',
+    suggestedReviewIds: ['dutch-picture-words']
   })
 ];

@@ -7,7 +7,7 @@ function resolveActivities(ids = []) {
   return ids.map((activityId) => getActivityById(activityId)).filter(Boolean);
 }
 
-function buildPlayableSections(module) {
+function buildPlayableSections(module, t) {
   const sections = [];
   const guided = resolveActivities(module.phases.guidedPractice);
   const independent = resolveActivities(module.phases.independentPractice);
@@ -16,19 +16,19 @@ function buildPlayableSections(module) {
   const review = resolveActivities(module.phases.suggestedReview);
 
   if (guided.length) {
-    sections.push({ id: 'guided', title: 'Guided practice', activities: guided });
+    sections.push({ id: 'guided', title: t('practiceMode'), activities: guided });
   }
   if (independent.length) {
-    sections.push({ id: 'independent', title: 'Independent practice', activities: independent });
+    sections.push({ id: 'independent', title: t('continueStep'), activities: independent });
   }
   if (challenge) {
-    sections.push({ id: 'challenge', title: 'Mini challenge', activities: [challenge] });
+    sections.push({ id: 'challenge', title: t('missionChallengeLabel'), activities: [challenge] });
   }
   if (exam && exam.id !== challenge?.id) {
-    sections.push({ id: 'exam', title: 'Mini exam', activities: [exam] });
+    sections.push({ id: 'exam', title: t('missionExamLabel'), activities: [exam] });
   }
   if (review.length) {
-    sections.push({ id: 'review', title: 'Review', activities: review });
+    sections.push({ id: 'review', title: t('reinforceLabel'), activities: review });
   }
 
   return sections;
@@ -39,6 +39,7 @@ function buildLevelPlan(sections) {
   if (!activities.length) {
     return [];
   }
+
   return Array.from({ length: 10 }, (_, index) => {
     const activity = activities[index % activities.length];
     return {
@@ -63,7 +64,7 @@ export default function ModulePage() {
     );
   }
 
-  const sections = buildPlayableSections(module);
+  const sections = buildPlayableSections(module, t);
   const firstActivity = sections[0]?.activities[0] || null;
   const levelPlan = buildLevelPlan(sections);
 
@@ -80,12 +81,12 @@ export default function ModulePage() {
         <p className="panel__copy">{module.summary}</p>
         <div className="detail-list">
           <div className="detail-list__row">
-            <span>Goal</span>
+            <span>{t('goalLabel')}</span>
             <strong>{module.phases.introduction}</strong>
           </div>
           {module.phases.demonstration ? (
             <div className="detail-list__row">
-              <span>Hint</span>
+              <span>{t('hint')}</span>
               <strong>{module.phases.demonstration}</strong>
             </div>
           ) : null}
@@ -130,7 +131,7 @@ export default function ModulePage() {
           <div className="panel__header">
             <div>
               <span className="eyebrow">{module.domainLabel}</span>
-              <h3>10 levels</h3>
+              <h3>{t('levelsSummaryLabel')}</h3>
             </div>
           </div>
           <div className="level-grid">
@@ -140,7 +141,7 @@ export default function ModulePage() {
                 className="level-card level-card--active"
                 to={`/activities/${entry.activity.id}?module=${module.id}&level=${entry.level}`}
               >
-                <span className="level-card__order">Level {entry.level}</span>
+                <span className="level-card__order">{t('level')} {entry.level}</span>
                 <strong>{entry.activity.title}</strong>
                 <small>{entry.activity.estimatedDurationMin} min</small>
               </Link>

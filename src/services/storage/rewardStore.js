@@ -137,6 +137,7 @@ function defaultStore() {
     inventory: [],
     purchases: [],
     rewardsByActivity: {},
+    missionRewards: {},
     equippedThemeId: 'theme-candy',
     equippedEffectId: 'effect-rainbow'
   };
@@ -145,7 +146,9 @@ function defaultStore() {
 function readStore() {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    return raw ? { ...defaultStore(), ...JSON.parse(raw) } : defaultStore();
+    return raw
+      ? { ...defaultStore(), ...JSON.parse(raw), missionRewards: JSON.parse(raw).missionRewards || {} }
+      : defaultStore();
   } catch {
     return defaultStore();
   }
@@ -182,6 +185,30 @@ export function rewardActivityCompletion(activityId, result) {
 
   return {
     awarded: delta,
+    balance: store.balance
+  };
+}
+
+export function rewardMissionCompletion(missionKey, { perfect = false } = {}) {
+  const store = readStore();
+  if (store.missionRewards[missionKey]) {
+    return {
+      awarded: 0,
+      balance: store.balance
+    };
+  }
+
+  const crystals = perfect ? 24 : 18;
+  store.balance += crystals;
+  store.missionRewards[missionKey] = {
+    awarded: crystals,
+    perfect,
+    completedAt: Date.now()
+  };
+  writeStore(store);
+
+  return {
+    awarded: crystals,
     balance: store.balance
   };
 }

@@ -5,8 +5,7 @@ import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 
 function buildLevelPreview(module, subjectId, gradeId) {
-  const total = 10;
-  return Array.from({ length: total }, (_, index) => ({
+  return Array.from({ length: 10 }, (_, index) => ({
     id: `${module.id}-${index + 1}`,
     label: index + 1,
     to: `/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`,
@@ -49,7 +48,7 @@ export default function GradePage() {
           <Link className="text-link" to={`/subjects/${subjectId}`}>{t('back')}</Link>
         </div>
         <p className="panel__copy">
-          {modules.length ? `${modules.length} modules jouables` : `${gradeActivities.length} activites jouables`}
+          {modules.length ? `${modules.length} ${t('playableModulesLabel')}` : `${gradeActivities.length} ${t('generatedLabel').toLowerCase()}`}
         </p>
       </section>
 
@@ -67,6 +66,7 @@ export default function GradePage() {
                 .concat(module.phases.independentPractice || [])
                 .filter((activityId) => progress.activities[activityId]?.completed).length;
               const preview = buildLevelPreview(module, subjectId, gradeId);
+
               return (
                 <article key={module.id} className="module-lane__card" style={{ animationDelay: `${(domainIndex * 2 + index) * 80}ms` }}>
                   <div className="module-lane__card-head">
@@ -74,7 +74,7 @@ export default function GradePage() {
                       <strong>{module.title}</strong>
                       <p>{module.summary}</p>
                     </div>
-                    <span className="pill">{relatedDone} done</span>
+                    <span className="pill">{relatedDone} {t('completed').toLowerCase()}</span>
                   </div>
                   <div className="module-lane__levels">
                     {preview.map((level) => (
@@ -84,7 +84,7 @@ export default function GradePage() {
                     ))}
                   </div>
                   <div className="module-lane__footer">
-                    <small>10 levels · 10 exercises each</small>
+                    <small>{t('levelsSummaryLabel')}</small>
                     <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`}>
                       {t('launch')}
                     </Link>
@@ -120,7 +120,7 @@ export default function GradePage() {
                   ))}
                 </div>
                 <div className="module-lane__footer">
-                  <small>10 exercises generated</small>
+                  <small>{t('generatedExercisesLabel')}</small>
                   <Link className="primary-action" to={`/activities/${activity.id}`}>
                     {t('launch')}
                   </Link>

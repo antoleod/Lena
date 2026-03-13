@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
-import { getRewardState } from '../../services/storage/rewardStore.js';
-import { getProfile, logoutProfile } from '../../services/storage/profileStore.js';
+import { logoutProfile } from '../../services/storage/profileStore.js';
+import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 import { useEffect, useMemo, useState } from 'react';
 
 function getInitial(name, fallback) {
@@ -11,8 +11,7 @@ function getInitial(name, fallback) {
 
 export default function AppShell() {
   const { t } = useLocale();
-  const [rewardState, setRewardState] = useState(() => getRewardState());
-  const [profile, setProfile] = useState(() => getProfile());
+  const [session, setSession] = useState(() => getSessionSnapshot());
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,29 +23,25 @@ export default function AppShell() {
   ]), [t]);
 
   useEffect(() => {
-    function syncRewards() {
-      setRewardState(getRewardState());
-    }
-    function syncProfile() {
-      setProfile(getProfile());
-    }
     function handleLogout() {
       navigate('/onboarding');
     }
 
-    window.addEventListener('lena-rewards-change', syncRewards);
-    window.addEventListener('lena-profile-change', syncProfile);
+    const unsubscribe = subscribeToSessionChanges(setSession);
     window.addEventListener('lena-profile-logout', handleLogout);
     return () => {
-      window.removeEventListener('lena-rewards-change', syncRewards);
-      window.removeEventListener('lena-profile-change', syncProfile);
+      unsubscribe();
       window.removeEventListener('lena-profile-logout', handleLogout);
     };
   }, [navigate]);
 
   useEffect(() => {
-    document.documentElement.dataset.effect = rewardState.equippedEffectId || 'effect-rainbow';
-  }, [rewardState.equippedEffectId]);
+    document.documentElement.dataset.effect = session.rewards.equippedEffectId || 'effect-rainbow';
+  }, [session.rewards.equippedEffectId]);
+
+  useEffect(() => {
+    rememberLastVisitedRoute(`${location.pathname}${location.search}`);
+  }, [location.pathname, location.search]);
 
   return (
     <div className="app-shell app-shell--game">
@@ -77,7 +72,7 @@ export default function AppShell() {
 
         <div className="topbar-tools">
           <button type="button" className="wallet-compact" onClick={() => navigate('/shop')}>
-            <span>{rewardState.balance}</span>
+            <span>{session.rewards.balance}</span>
             <small>{t('crystals')}</small>
           </button>
 
@@ -85,10 +80,10 @@ export default function AppShell() {
             type="button"
             className="profile-inline"
             onClick={() => navigate('/settings')}
-            title={profile.name || t('defaultChildName')}
+            title={session.profile.name || t('defaultChildName')}
           >
-            <span className="profile-inline__avatar">{getInitial(profile.name, t('defaultChildName'))}</span>
-            <span className="profile-inline__name">{profile.name || t('defaultChildName')}</span>
+            <span className="profile-inline__avatar">{getInitial(session.profile.name, t('defaultChildName'))}</span>
+            <span className="profile-inline__name">{session.profile.name || t('defaultChildName')}</span>
           </button>
 
           <button type="button" className="icon-link" onClick={() => navigate('/settings')}>

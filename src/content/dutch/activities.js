@@ -1,3 +1,5 @@
+import { createVisualWordQuestion } from '../language-packs/visualVocabulary.js';
+
 function buildSections(practice, exam, practiceTitle = 'Oefenen', examTitle = 'Mini toets') {
   return [
     {
@@ -20,80 +22,80 @@ function buildSections(practice, exam, practiceTitle = 'Oefenen', examTitle = 'M
 export const dutchSubject = {
   id: 'dutch',
   label: 'Nederlands',
-  description: 'Découverte du néerlandais: vocabulaire débutant, école et phrases simples.',
+  description: 'Beginnen met Nederlands: woordenschat, schoolwoorden en eenvoudige zinnen.',
   color: '#2fa57d',
   accent: '#d6f4e9',
   grades: ['P2', 'P3', 'P4', 'P5', 'P6'],
   roadmap: [
-    'Vocabulaire de l’école',
-    'Association mot-image',
-    'Compréhension très simple'
+    'Schoolwoorden en beeld',
+    'Woord en beeld koppelen',
+    'Heel eenvoudige tekstjes'
   ]
 };
 
 export const dutchActivities = [
   {
     id: 'dutch-school-words',
-    slug: 'mots-de-l-ecole',
-    title: 'Mots de l’école',
+    slug: 'schoolwoorden',
+    title: 'Schoolwoorden',
     subject: 'dutch',
     subskill: 'beginner-vocabulary',
     gradeBand: ['P2'],
     language: 'nl',
     difficulty: 'starter',
     estimatedDurationMin: 6,
-    instructions: 'Découvre les mots de l’école en néerlandais puis passe le mini test.',
+    instructions: 'Kijk naar de afbeelding en kies het juiste Nederlandse woord.',
     correctionType: 'multiple-choice',
-    hints: ['Écoute ou répète le mot à voix haute.'],
-    tags: ['débutant', 'école', 'vocabulaire'],
-    accessibility: ['mots courts'],
+    hints: ['Kijk goed naar beeld en woord.'],
+    tags: ['beginner', 'school', 'woordenschat', 'visual-pack'],
+    accessibility: ['korte woorden', 'beeldsteun'],
     originRepo: 'new',
     engineType: 'multiple-choice',
     sections: buildSections(
       [
-        { prompt: 'Comment dit-on “livre” en néerlandais ?', choices: ['boek', 'stoel', 'jas'], answer: 'boek', explanation: 'Boek = livre.' },
-        { prompt: 'Comment dit-on “chaise” en néerlandais ?', choices: ['stoel', 'boek', 'water'], answer: 'stoel', explanation: 'Stoel = chaise.' },
-        { prompt: 'Comment dit-on “école” en néerlandais ?', choices: ['school', 'brood', 'kat'], answer: 'school', explanation: 'School ressemble au mot français.' },
-        { prompt: 'Comment dit-on “eau” en néerlandais ?', choices: ['water', 'boek', 'appel'], answer: 'water', explanation: 'Water = eau.' }
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Kies het juiste woord bij de afbeelding.', answerConceptId: 'book', distractorConceptIds: ['house', 'water'], explanation: 'Boek is het juiste woord.' }),
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Welk woord hoort bij het juiste beeld?', answerConceptId: 'school', distractorConceptIds: ['cat', 'apple'], explanation: 'School is het juiste woord.' }),
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Lees en kies het goede woord.', answerConceptId: 'water', distractorConceptIds: ['book', 'house'], explanation: 'Water is het juiste woord.' }),
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Kijk goed en kies.', answerConceptId: 'house', distractorConceptIds: ['school', 'cat'], explanation: 'Huis is het juiste woord.' })
       ],
       [
-        { prompt: 'Comment dit-on “veste” en néerlandais ?', choices: ['jas', 'school', 'vis'], answer: 'jas', explanation: 'Jas = veste.' },
-        { prompt: 'Comment dit-on “pain” en néerlandais ?', choices: ['brood', 'stoel', 'huis'], answer: 'brood', explanation: 'Brood = pain.' }
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Mini toets: kies het juiste woord.', answerConceptId: 'book', distractorConceptIds: ['apple', 'water'], explanation: 'Boek is correct.' }),
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Mini toets: welk woord klopt?', answerConceptId: 'school', distractorConceptIds: ['house', 'cat'], explanation: 'School is correct.' })
       ],
-      'Mots de classe',
-      'Mini test de vocabulaire'
+      'Schoolwoorden',
+      'Mini toets woordenschat'
     )
   },
   {
     id: 'dutch-picture-words',
-    slug: 'images-et-mots-neerlandais',
-    title: 'Images et mots néerlandais',
+    slug: 'beeld-en-woord',
+    title: 'Beeld en woord',
     subject: 'dutch',
     subskill: 'word-image-association',
     gradeBand: ['P2', 'P3'],
     language: 'nl',
     difficulty: 'starter',
     estimatedDurationMin: 6,
-    instructions: 'Associe l’image au mot néerlandais puis termine par une mini vérification.',
+    instructions: 'Koppel beeld en Nederlands woord en rond af met een mini controle.',
     correctionType: 'multiple-choice',
-    hints: ['Observe bien l’image.'],
-    tags: ['image', 'vocabulaire'],
-    accessibility: ['support visuel'],
+    hints: ['Observeer eerst alle keuzes.'],
+    tags: ['beeld', 'woordenschat', 'visual-pack'],
+    accessibility: ['beeldsteun'],
     originRepo: 'new',
     engineType: 'multiple-choice',
     sections: buildSections(
       [
-        { prompt: 'Quel mot correspond à 🍎 ?', choices: ['appel', 'peer', 'vis'], answer: 'appel', explanation: 'Appel = pomme.' },
-        { prompt: 'Quel mot correspond à 🐟 ?', choices: ['vis', 'boek', 'huis'], answer: 'vis', explanation: 'Vis = poisson.' },
-        { prompt: 'Quel mot correspond à 🏡 ?', choices: ['huis', 'school', 'stoel'], answer: 'huis', explanation: 'Huis = maison.' },
-        { prompt: 'Quel mot correspond à 🍐 ?', choices: ['peer', 'appel', 'water'], answer: 'peer', explanation: 'Peer = poire.' }
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Welk woord past bij de afbeelding?', answerConceptId: 'apple', distractorConceptIds: ['book', 'house'], explanation: 'Appel is het juiste woord.' }),
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Kies het goede woord bij het beeld.', answerConceptId: 'cat', distractorConceptIds: ['water', 'school'], explanation: 'Kat is het juiste woord.' }),
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Zoek de goede combinatie.', answerConceptId: 'house', distractorConceptIds: ['apple', 'book'], explanation: 'Huis is het juiste woord.' }),
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Lees en kies de juiste optie.', answerConceptId: 'book', distractorConceptIds: ['cat', 'water'], explanation: 'Boek is het juiste woord.' })
       ],
       [
-        { prompt: 'Quel mot correspond à 🐱 ?', choices: ['kat', 'brood', 'stoel'], answer: 'kat', explanation: 'Kat = chat.' },
-        { prompt: 'Quel mot correspond à 📘 ?', choices: ['boek', 'jas', 'huis'], answer: 'boek', explanation: 'Boek = livre.' }
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Mini toets: kies het woord dat past.', answerConceptId: 'apple', distractorConceptIds: ['school', 'book'], explanation: 'Appel is correct.' }),
+        createVisualWordQuestion({ locale: 'nl', prompt: 'Mini toets: wat hoort bij het beeld?', answerConceptId: 'cat', distractorConceptIds: ['house', 'water'], explanation: 'Kat is correct.' })
       ],
-      'Images et mots',
-      'Mini test image-mot'
+      'Beeld en woord',
+      'Mini toets beeld en woord'
     )
   }
 ];

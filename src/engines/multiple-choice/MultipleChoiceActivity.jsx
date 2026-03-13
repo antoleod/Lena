@@ -47,6 +47,49 @@ function getFutureRepeats(queue, currentIndex, sourceId) {
   return queue.slice(currentIndex + 1).filter((entry) => entry.sourceId === sourceId).length;
 }
 
+function normalizeOption(choice, index) {
+  if (choice && typeof choice === 'object') {
+    return {
+      id: choice.id || `option-${index + 1}`,
+      value: String(choice.value ?? choice.label ?? choice.text ?? choice.id ?? index + 1),
+      label: String(choice.label ?? choice.text ?? choice.value ?? ''),
+      description: choice.description || '',
+      media: choice.media || null
+    };
+  }
+
+  const value = String(choice);
+  return {
+    id: `option-${index + 1}`,
+    value,
+    label: value,
+    description: '',
+    media: null
+  };
+}
+
+function normalizeContextSlot(slot, index) {
+  if (slot && typeof slot === 'object') {
+    return {
+      id: slot.id || `context-${index + 1}`,
+      kind: slot.kind || (slot.src ? 'image' : 'text'),
+      text: slot.text || '',
+      src: slot.src || '',
+      alt: slot.alt || '',
+      caption: slot.caption || ''
+    };
+  }
+
+  return {
+    id: `context-${index + 1}`,
+    kind: 'text',
+    text: String(slot),
+    src: '',
+    alt: '',
+    caption: ''
+  };
+}
+
 export default function MultipleChoiceActivity({ activity, progress, onComplete }) {
   const { t } = useLocale();
   const initialQuestionStates = useMemo(() => getActivityQuestionStates(activity.id), [activity.id]);
@@ -62,6 +105,23 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
   const current = queue[currentIndex];
   const total = queue.length;
   const progressPercent = total ? Math.round((currentIndex / total) * 100) : 0;
+  const currentOptions = useMemo(
+    () => (current?.choices || []).map((choice, index) => normalizeOption(choice, index)),
+    [current]
+  );
+  const currentContextSlots = useMemo(
+    () => {
+      const rawContext = current?.contextSlots?.length ? current.contextSlots : current?.context || [];
+      return rawContext.map((slot, index) => normalizeContextSlot(slot, index));
+    },
+    [current]
+  );
+  const correctOptionId = useMemo(() => {
+    if (!current) {
+      return '';
+    }
+    return currentOptions.find((option) => option.value === String(current.answer))?.id || '';
+  }, [current, currentOptions]);
 
   useEffect(() => () => {
     if (timerRef.current) {
@@ -112,10 +172,10 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     setFeedback(null);
   }
 
-  function handleChoiceClick(choice) {
+  function handleChoiceClick(option) {
     if (feedback) return;
 
-    const isCorrect = choice === current.answer;
+    const isCorrect = option.id === correctOptionId || option.value === String(current.answer);
     const questionState = recordQuestionOutcome(activity.id, current.sourceId, isCorrect);
     const nextScore = score + (isCorrect ? 1 : 0);
     const nextQueue = [...queue];
@@ -140,7 +200,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     }
 
     setQueue(nextQueue);
-    setSelected(choice);
+    setSelected(option.id);
     setScore(nextScore);
     setFeedback({
       isCorrect,
@@ -191,19 +251,32 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
         <strong>{currentIndex + 1}/{total}</strong>
       </div>
 
-      {current.context?.length ? (
+      {currentContextSlots.length ? (
         <div className="question-context question-context--compact">
-          {current.context.map((line) => (
-            <p key={line}>{line}</p>
+          {currentContextSlots.map((slot) => (
+            <div key={slot.id} className={`question-context__slot question-context__slot--${slot.kind}`}>
+              {slot.kind === 'image' && slot.src ? (
+                <>
+                  <img src={slot.src} alt={slot.alt || ''} />
+                  {slot.caption ? <small>{slot.caption}</small> : null}
+                </>
+              ) : slot.kind === 'audio' && slot.src ? (
+                <audio controls preload="none">
+                  <source src={slot.src} />
+                </audio>
+              ) : (
+                <p>{slot.text}</p>
+              )}
+            </div>
           ))}
         </div>
       ) : null}
 
       <p className="engine-prompt engine-prompt--compact">{current.prompt}</p>
-      <div className="choice-grid choice-grid--compact">
-        {current.choices.map((choice) => {
-          const isSelected = selected === choice;
-          const isAnswer = choice === current.answer;
+      <div className={`choice-grid choice-grid--compact${currentOptions.some((option) => option.media?.src) ? ' choice-grid--media' : ''}`}>
+        {currentOptions.map((option) => {
+          const isSelected = selected === option.id;
+          const isAnswer = option.id === correctOptionId;
           const resultClass = feedback
             ? isAnswer
               ? ' is-correct'
@@ -214,13 +287,23 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
 
           return (
             <button
-              key={choice}
-              className={`choice-button choice-button--compact${isSelected ? ' is-selected' : ''}${resultClass}`}
+              key={option.id}
+              className={`choice-button choice-button--compact${option.media?.src ? ' choice-button--visual' : ''}${isSelected ? ' is-selected' : ''}${resultClass}`}
               disabled={Boolean(feedback)}
               type="button"
-              onClick={() => handleChoiceClick(choice)}
+              onClick={() => handleChoiceClick(option)}
             >
-              {choice}
+              <span className="choice-button__inner">
+                {option.media?.src ? (
+                  <span className="choice-button__media">
+                    <img src={option.media.src} alt={option.media.alt || option.label} />
+                  </span>
+                ) : null}
+                <span className="choice-button__text">
+                  <strong>{option.label}</strong>
+                  {option.description ? <small>{option.description}</small> : null}
+                </span>
+              </span>
             </button>
           );
         })}

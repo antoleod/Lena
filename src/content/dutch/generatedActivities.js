@@ -11,7 +11,16 @@ function createGeneratedDutchActivity({
   hints,
   featured = false
 }) {
-  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
+  const generatorGrade = gradeBand.includes('P6')
+    ? 'P6'
+    : gradeBand.includes('P5')
+      ? 'P5'
+      : gradeBand.includes('P4')
+        ? 'P4'
+        : gradeBand.includes('P3') && !gradeBand.includes('P2')
+          ? 'P3'
+          : 'P2';
+
   return {
     id,
     slug,
@@ -36,20 +45,8 @@ function createGeneratedDutchActivity({
       language: 'nl',
       difficulty: 'adaptive',
       sections: [
-        {
-          id: 'practice',
-          title: 'Oefenen',
-          kind: 'practice',
-          description: '10 nieuwe oefeningen per sessie.',
-          count: 10
-        },
-        {
-          id: 'exam',
-          title: 'Mini toets',
-          kind: 'exam',
-          description: '4 extra vragen om te controleren.',
-          count: 4
-        }
+        { id: 'practice', title: 'Oefenen', kind: 'practice', description: '10 nieuwe oefeningen per sessie.', count: 10 },
+        { id: 'exam', title: 'Mini toets', kind: 'exam', description: '4 extra vragen om te controleren.', count: 4 }
       ]
     }
   };
@@ -78,9 +75,19 @@ export const generatedDutchActivities = [
     hints: ['Lees de zinnen nog een keer voor je antwoordt.']
   }),
   createGeneratedDutchActivity({
+    id: 'generated-dutch-sentences',
+    slug: 'zinnen-dynamisch-nl',
+    title: 'Zinnen afmaken',
+    subskill: 'sentence-building',
+    topic: 'sentence-completion',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Vul korte zinnen aan met de juiste keuze.',
+    hints: ['Kies het woord dat de zin volledig maakt.']
+  }),
+  createGeneratedDutchActivity({
     id: 'generated-dutch-sentences-p4',
     slug: 'zinnen-dynamisch-nl-p4',
-    title: 'Zinnen afmaken',
+    title: 'Zinnen afmaken plus',
     subskill: 'sentence-building',
     topic: 'sentence-completion',
     gradeBand: ['P4', 'P5'],

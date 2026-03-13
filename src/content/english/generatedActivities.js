@@ -11,7 +11,16 @@ function createGeneratedEnglishActivity({
   hints,
   featured = false
 }) {
-  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
+  const generatorGrade = gradeBand.includes('P6')
+    ? 'P6'
+    : gradeBand.includes('P5')
+      ? 'P5'
+      : gradeBand.includes('P4')
+        ? 'P4'
+        : gradeBand.includes('P3') && !gradeBand.includes('P2')
+          ? 'P3'
+          : 'P2';
+
   return {
     id,
     slug,
@@ -36,20 +45,8 @@ function createGeneratedEnglishActivity({
       language: 'en',
       difficulty: 'adaptive',
       sections: [
-        {
-          id: 'practice',
-          title: 'Practice',
-          kind: 'practice',
-          description: '10 new exercises in each session.',
-          count: 10
-        },
-        {
-          id: 'exam',
-          title: 'Mini check',
-          kind: 'exam',
-          description: '4 extra questions to check progress.',
-          count: 4
-        }
+        { id: 'practice', title: 'Practice', kind: 'practice', description: '10 new exercises in each session.', count: 10 },
+        { id: 'exam', title: 'Mini check', kind: 'exam', description: '4 extra questions to check progress.', count: 4 }
       ]
     }
   };
@@ -64,16 +61,8 @@ export const englishSubject = {
   color: '#ffb347',
   accent: '#fff0d6',
   grades: ['P2', 'P3', 'P4', 'P5', 'P6'],
-  roadmap: [
-    'Vocabulaire du quotidien',
-    'Petites phrases',
-    'Mini lecture'
-  ],
-  roadmapNl: [
-    'Dagelijkse woordenschat',
-    'Kleine zinnen',
-    'Mini lezen'
-  ]
+  roadmap: ['Vocabulaire du quotidien', 'Petites phrases', 'Mini lecture'],
+  roadmapNl: ['Dagelijkse woordenschat', 'Kleine zinnen', 'Mini lezen']
 };
 
 export const generatedEnglishActivities = [
@@ -99,9 +88,19 @@ export const generatedEnglishActivities = [
     hints: ['Read the text one more time before choosing.']
   }),
   createGeneratedEnglishActivity({
+    id: 'generated-english-sentences',
+    slug: 'anglais-sentences-dynamique',
+    title: 'Sentence builder',
+    subskill: 'sentence-building',
+    topic: 'sentence-completion',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Complete simple English sentences with a new set each time.',
+    hints: ['Choose the word that makes the sentence sound natural.']
+  }),
+  createGeneratedEnglishActivity({
     id: 'generated-english-sentences-p4',
     slug: 'anglais-sentences-dynamique-p4',
-    title: 'Sentence builder',
+    title: 'Sentence builder plus',
     subskill: 'sentence-building',
     topic: 'sentence-completion',
     gradeBand: ['P4', 'P5'],

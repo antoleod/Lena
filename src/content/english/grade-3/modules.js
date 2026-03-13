@@ -11,10 +11,10 @@ export const englishGrade3Modules = [
     summary: 'Build confidence with simple English patterns and choices.',
     goal: 'Move from isolated vocabulary to sentence understanding.',
     demo: 'The demo shows how to read the whole sentence before choosing.',
-    guidedActivityIds: ['generated-english-vocabulary'],
+    guidedActivityIds: ['english-sentence-choices', 'generated-english-sentences'],
     independentActivityIds: ['generated-english-reading'],
-    challengeActivityId: 'generated-english-reading',
-    examActivityId: 'generated-english-vocabulary',
+    challengeActivityId: 'generated-english-sentences',
+    examActivityId: 'generated-english-sentences',
     suggestedReviewIds: ['generated-english-vocabulary']
   }),
   createModule({
@@ -27,10 +27,26 @@ export const englishGrade3Modules = [
     summary: 'Read a short scene, understand it, then answer.',
     goal: 'Prepare for later listening and dictation modules.',
     demo: 'The demo isolates who speaks and what each sentence means.',
-    guidedActivityIds: ['generated-english-reading'],
+    guidedActivityIds: ['generated-english-reading', 'generated-english-sentences'],
     independentActivityIds: ['generated-english-vocabulary'],
     challengeActivityId: 'generated-english-reading',
     examActivityId: 'generated-english-reading',
-    suggestedReviewIds: ['generated-english-vocabulary']
+    suggestedReviewIds: ['english-sentence-choices']
+  }),
+  createModule({
+    id: 'english-g3-questions',
+    subjectId: 'english',
+    gradeId: 'P3',
+    domainId: 'questions',
+    domainLabel: 'Question and answer',
+    title: 'Question, answer and review',
+    summary: 'Recognise simple answers and return to key vocabulary.',
+    goal: 'Make reading and answering feel automatic.',
+    demo: 'The demo shows how to spot the important answer word.',
+    guidedActivityIds: ['generated-english-vocabulary', 'generated-english-reading'],
+    independentActivityIds: ['english-sentence-choices'],
+    challengeActivityId: 'generated-english-reading',
+    examActivityId: 'generated-english-vocabulary',
+    suggestedReviewIds: ['english-visual-words']
   })
 ];

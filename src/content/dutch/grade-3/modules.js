@@ -11,7 +11,7 @@ export const dutchGrade3Modules = [
     summary: 'Korte teksten lezen en begrijpen wat belangrijk is.',
     goal: 'Meer zelfstandigheid in Nederlands opbouwen.',
     demo: 'Een voorbeeld laat zien hoe je de vraag koppelt aan een zin in de tekst.',
-    guidedActivityIds: ['generated-dutch-reading'],
+    guidedActivityIds: ['generated-dutch-reading', 'generated-dutch-sentences'],
     independentActivityIds: ['generated-dutch-vocabulary'],
     challengeActivityId: 'generated-dutch-reading',
     examActivityId: 'generated-dutch-reading',
@@ -27,10 +27,26 @@ export const dutchGrade3Modules = [
     summary: 'Oefenen met basiswoorden, vragen en kleine dialogen.',
     goal: 'Woorden sneller herkennen in context.',
     demo: 'We tonen eerst de routinewoorden die terugkomen in de zinnen.',
-    guidedActivityIds: ['generated-dutch-vocabulary'],
+    guidedActivityIds: ['generated-dutch-sentences', 'generated-dutch-vocabulary'],
     independentActivityIds: ['generated-dutch-reading'],
-    challengeActivityId: 'generated-dutch-vocabulary',
+    challengeActivityId: 'generated-dutch-sentences',
     examActivityId: 'generated-dutch-reading',
     suggestedReviewIds: ['generated-dutch-vocabulary']
+  }),
+  createModule({
+    id: 'dutch-g3-review',
+    subjectId: 'dutch',
+    gradeId: 'P3',
+    domainId: 'evaluatie',
+    domainLabel: 'Mini evaluaties',
+    title: 'Mini evaluaties en herhaling',
+    summary: 'Woorden, korte zinnen en begrip blijven herhalen.',
+    goal: 'Meer zekerheid krijgen door kleine evaluaties.',
+    demo: 'Een demonstratie laat zien hoe je rustig terugleest voor je antwoordt.',
+    guidedActivityIds: ['dutch-school-words', 'generated-dutch-reading'],
+    independentActivityIds: ['generated-dutch-sentences'],
+    challengeActivityId: 'generated-dutch-reading',
+    examActivityId: 'generated-dutch-sentences',
+    suggestedReviewIds: ['dutch-picture-words']
   })
 ];

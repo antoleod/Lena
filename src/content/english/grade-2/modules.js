@@ -11,11 +11,27 @@ export const englishGrade2Modules = [
     summary: 'Discover simple English words with image and choice tasks.',
     goal: 'Learn first words before reading longer sentences.',
     demo: 'A small visual demo reads and shows each word first.',
-    guidedActivityIds: ['generated-english-vocabulary'],
-    independentActivityIds: ['generated-english-vocabulary'],
+    guidedActivityIds: ['english-visual-words', 'generated-english-vocabulary'],
+    independentActivityIds: ['english-visual-words', 'generated-english-vocabulary'],
     challengeActivityId: 'generated-english-vocabulary',
     examActivityId: 'generated-english-vocabulary',
-    suggestedReviewIds: ['generated-english-vocabulary']
+    suggestedReviewIds: ['english-visual-words']
+  }),
+  createModule({
+    id: 'english-g2-sentences',
+    subjectId: 'english',
+    gradeId: 'P2',
+    domainId: 'sentences',
+    domainLabel: 'Sentences',
+    title: 'Simple sentences and meaning',
+    summary: 'Read short sentences and choose the correct word.',
+    goal: 'Move from isolated vocabulary to sentence meaning.',
+    demo: 'The demo shows how to read the whole sentence before choosing.',
+    guidedActivityIds: ['english-sentence-choices', 'generated-english-sentences'],
+    independentActivityIds: ['generated-english-vocabulary'],
+    challengeActivityId: 'english-sentence-choices',
+    examActivityId: 'generated-english-sentences',
+    suggestedReviewIds: ['english-visual-words']
   }),
   createModule({
     id: 'english-g2-reading',
@@ -27,8 +43,8 @@ export const englishGrade2Modules = [
     summary: 'Read short texts and answer a clear question.',
     goal: 'Connect word learning to simple understanding.',
     demo: 'The demo highlights the useful sentence before answering.',
-    guidedActivityIds: ['generated-english-reading'],
-    independentActivityIds: ['generated-english-vocabulary'],
+    guidedActivityIds: ['generated-english-reading', 'generated-english-sentences'],
+    independentActivityIds: ['english-sentence-choices'],
     challengeActivityId: 'generated-english-reading',
     examActivityId: 'generated-english-reading',
     suggestedReviewIds: ['generated-english-vocabulary']

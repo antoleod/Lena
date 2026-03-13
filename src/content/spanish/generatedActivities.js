@@ -11,7 +11,16 @@ function createGeneratedSpanishActivity({
   hints,
   featured = false
 }) {
-  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
+  const generatorGrade = gradeBand.includes('P6')
+    ? 'P6'
+    : gradeBand.includes('P5')
+      ? 'P5'
+      : gradeBand.includes('P4')
+        ? 'P4'
+        : gradeBand.includes('P3') && !gradeBand.includes('P2')
+          ? 'P3'
+          : 'P2';
+
   return {
     id,
     slug,
@@ -36,20 +45,8 @@ function createGeneratedSpanishActivity({
       language: 'es',
       difficulty: 'adaptive',
       sections: [
-        {
-          id: 'practice',
-          title: 'Practica',
-          kind: 'practice',
-          description: '10 ejercicios nuevos en cada partida.',
-          count: 10
-        },
-        {
-          id: 'exam',
-          title: 'Mini prueba',
-          kind: 'exam',
-          description: '4 preguntas extra para comprobar el progreso.',
-          count: 4
-        }
+        { id: 'practice', title: 'Practica', kind: 'practice', description: '10 ejercicios nuevos en cada partida.', count: 10 },
+        { id: 'exam', title: 'Mini prueba', kind: 'exam', description: '4 preguntas extra para comprobar el progreso.', count: 4 }
       ]
     }
   };
@@ -64,16 +61,8 @@ export const spanishSubject = {
   color: '#ff8f70',
   accent: '#ffe2d8',
   grades: ['P2', 'P3', 'P4', 'P5', 'P6'],
-  roadmap: [
-    'Mots du quotidien',
-    'Petites phrases',
-    'Mini lecture'
-  ],
-  roadmapNl: [
-    'Dagelijkse woorden',
-    'Kleine zinnen',
-    'Mini lezen'
-  ]
+  roadmap: ['Mots du quotidien', 'Petites phrases', 'Mini lecture'],
+  roadmapNl: ['Dagelijkse woorden', 'Kleine zinnen', 'Mini lezen']
 };
 
 export const generatedSpanishActivities = [
@@ -84,8 +73,8 @@ export const generatedSpanishActivities = [
     subskill: 'vocabulary',
     topic: 'vocabulary',
     gradeBand: ['P2', 'P3'],
-    instructions: 'Nouvelles palabras en chaque session.',
-    hints: ['Observe bien toutes les reponses.'],
+    instructions: 'Nuevas palabras en cada sesion.',
+    hints: ['Observa bien todas las respuestas.'],
     featured: true
   }),
   createGeneratedSpanishActivity({
@@ -95,13 +84,23 @@ export const generatedSpanishActivities = [
     subskill: 'reading-comprehension',
     topic: 'reading-comprehension',
     gradeBand: ['P2', 'P3'],
-    instructions: 'Petits textes avec de nouvelles questions a chaque partie.',
-    hints: ['Relis le texte avant de choisir.']
+    instructions: 'Textos cortos con nuevas preguntas en cada parte.',
+    hints: ['Vuelve a leer el texto antes de elegir.']
+  }),
+  createGeneratedSpanishActivity({
+    id: 'generated-spanish-sentences',
+    slug: 'espagnol-phrases-dynamiques',
+    title: 'Frases utiles',
+    subskill: 'sentence-building',
+    topic: 'sentence-completion',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Completa frases utiles con nuevo vocabulario.',
+    hints: ['Busca la palabra que da sentido a toda la frase.']
   }),
   createGeneratedSpanishActivity({
     id: 'generated-spanish-sentences-p4',
     slug: 'espagnol-phrases-dynamiques-p4',
-    title: 'Frases utiles',
+    title: 'Frases utiles plus',
     subskill: 'sentence-building',
     topic: 'sentence-completion',
     gradeBand: ['P4', 'P5'],
