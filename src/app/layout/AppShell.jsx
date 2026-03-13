@@ -44,8 +44,19 @@ export default function AppShell() {
     };
   }, [navigate]);
 
+  useEffect(() => {
+    document.documentElement.dataset.effect = rewardState.equippedEffectId || 'effect-rainbow';
+  }, [rewardState.equippedEffectId]);
+
   return (
     <div className="app-shell app-shell--game">
+      <div className="scene-effects" aria-hidden="true">
+        <span className="scene-effects__rain"></span>
+        <span className="scene-effects__rain scene-effects__rain--b"></span>
+        <span className="scene-effects__snow"></span>
+        <span className="scene-effects__snow scene-effects__snow--b"></span>
+        <span className="scene-effects__rainbow"></span>
+      </div>
       <header className="app-topbar">
         <button type="button" className="brand-inline" onClick={() => navigate('/settings')}>
           <span className="brand-inline__mark">L</span>

@@ -25,7 +25,7 @@ export default function MapPage() {
 
   return (
     <div className="page-stack page-stack--compact">
-      <section className="panel panel--tight">
+      <section className="panel panel--tight panel--subject-map">
         <div className="panel__header">
           <div>
             <span className="eyebrow">{t('missions')}</span>
@@ -33,14 +33,18 @@ export default function MapPage() {
           </div>
           <Link className="text-link" to="/">{t('backHome')}</Link>
         </div>
-
-        <div className="world-ribbon">
+        <div className="world-map-track">
           {worldMap.map((world, index) => {
             const progressInfo = getWorldProgress(world, progress);
             const state = getWorldState(world, progress);
             return (
-              <Link key={world.id} className={`world-compact world-compact--${state}`} to={`/map/${world.id}`}>
-                <span className="world-compact__order">{index + 1}</span>
+              <Link
+                key={world.id}
+                className={`world-map-track__node world-map-track__node--${state}`}
+                to={`/map/${world.id}`}
+                style={{ animationDelay: `${index * 70}ms` }}
+              >
+                <span className="world-map-track__number">{world.order}</span>
                 <strong>{world.name}</strong>
                 <small>{progressInfo.completed}/{progressInfo.total}</small>
               </Link>

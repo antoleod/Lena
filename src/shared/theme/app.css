@@ -100,6 +100,71 @@ button {
   overflow: hidden;
 }
 
+.scene-effects {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.scene-effects__rain,
+.scene-effects__snow,
+.scene-effects__rainbow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.scene-effects__rain {
+  background-image: linear-gradient(transparent 0%, rgba(120, 166, 255, 0.18) 100%);
+  mask-image: repeating-linear-gradient(100deg, transparent 0 16px, rgba(0,0,0,0.9) 16px 18px);
+  animation: rain-fall 9s linear infinite;
+}
+
+.scene-effects__rain--b {
+  animation-duration: 11s;
+}
+
+.scene-effects__snow {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.75) 0 2px, transparent 2px) 0 0/70px 70px,
+    radial-gradient(circle, rgba(255,255,255,0.55) 0 2px, transparent 2px) 35px 20px/90px 90px;
+  animation: snow-fall 18s linear infinite;
+}
+
+.scene-effects__snow--b {
+  animation-duration: 22s;
+}
+
+.scene-effects__rainbow {
+  top: auto;
+  bottom: -30px;
+  left: 50%;
+  width: 70vw;
+  height: 45vh;
+  transform: translateX(-50%);
+  border-radius: 100% 100% 0 0;
+  background:
+    radial-gradient(circle at 50% 100%, transparent 54%, rgba(255, 143, 198, 0.14) 54% 58%, rgba(255, 207, 116, 0.12) 58% 62%, rgba(120, 166, 255, 0.11) 62% 66%, transparent 66%);
+  filter: blur(1px);
+}
+
+:root[data-effect='effect-rain'] .scene-effects__rain,
+:root[data-effect='effect-rain'] .scene-effects__rain--b {
+  opacity: 0.55;
+}
+
+:root[data-effect='effect-snow'] .scene-effects__snow,
+:root[data-effect='effect-snow'] .scene-effects__snow--b {
+  opacity: 0.5;
+}
+
+:root[data-effect='effect-rainbow'] .scene-effects__rainbow {
+  opacity: 1;
+}
+
 .fantasy-orb,
 .fantasy-spark,
 .fantasy-ribbon {
@@ -1695,6 +1760,51 @@ button {
   background: rgba(139, 220, 195, 0.22);
 }
 
+.world-map-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.world-map-track--missions {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.world-map-track__node {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(144,118,166,0.12);
+  box-shadow: var(--shadow-soft);
+  animation: map-card-in 0.45s ease both;
+}
+
+.world-map-track__node--locked {
+  opacity: 0.5;
+}
+
+.world-map-track__node--active {
+  outline: 2px solid rgba(120, 166, 255, 0.32);
+}
+
+.world-map-track__node--perfect {
+  background: rgba(139, 220, 195, 0.22);
+}
+
+.world-map-track__number {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--theme-gradient);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
 .module-grid-compact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1969,7 +2079,8 @@ button {
   .module-grid-compact,
   .reward-grid--compact,
   .mission-list,
-  .level-grid {
+  .level-grid,
+  .world-map-track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2011,6 +2122,16 @@ button {
 @keyframes map-card-in {
   from { opacity: 0; transform: translateY(14px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes rain-fall {
+  0% { transform: translateY(-8%); }
+  100% { transform: translateY(8%); }
+}
+
+@keyframes snow-fall {
+  0% { transform: translateY(-6%); }
+  100% { transform: translateY(6%); }
 }
 
 @keyframes ribbon-wave {
@@ -2183,7 +2304,8 @@ button {
   .level-grid,
   .subject-grid--compact,
   .module-grid-compact,
-  .reward-grid--compact {
+  .reward-grid--compact,
+  .world-map-track {
     grid-template-columns: 1fr;
   }
 

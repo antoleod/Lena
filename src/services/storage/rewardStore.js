@@ -26,6 +26,30 @@ const rewardCatalog = [
     preview: ['#ff9a76', '#ffd670', '#ff8fc6']
   },
   {
+    id: 'effect-rain',
+    type: 'effect',
+    name: 'Pluie douce',
+    nameNl: 'Zachte regen',
+    price: 38,
+    preview: ['rain']
+  },
+  {
+    id: 'effect-rainbow',
+    type: 'effect',
+    name: 'Arc en ciel',
+    nameNl: 'Regenboog',
+    price: 44,
+    preview: ['rainbow']
+  },
+  {
+    id: 'effect-snow',
+    type: 'effect',
+    name: 'Neige legere',
+    nameNl: 'Lichte sneeuw',
+    price: 40,
+    preview: ['snow']
+  },
+  {
     id: 'sticker-rainbow',
     type: 'sticker',
     name: 'Arc en ciel',
@@ -113,7 +137,8 @@ function defaultStore() {
     inventory: [],
     purchases: [],
     rewardsByActivity: {},
-    equippedThemeId: 'theme-candy'
+    equippedThemeId: 'theme-candy',
+    equippedEffectId: 'effect-rainbow'
   };
 }
 
@@ -206,4 +231,14 @@ export function equipTheme(themeId) {
   store.equippedThemeId = themeId;
   writeStore(store);
   return { ok: true, themeId };
+}
+
+export function equipEffect(effectId) {
+  const store = readStore();
+  if (effectId !== 'effect-rainbow' && !store.inventory.includes(effectId)) {
+    return { ok: false, reason: 'effect-not-owned' };
+  }
+  store.equippedEffectId = effectId;
+  writeStore(store);
+  return { ok: true, effectId };
 }

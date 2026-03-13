@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getProfile, saveProfile } from '../../services/storage/profileStore.js';
-import { getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
+import { equipEffect, getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 
 function assetUrl(path) {
@@ -16,6 +16,7 @@ export default function SettingsPage() {
   const [draftName, setDraftName] = useState(() => getProfile().name || '');
   const avatarItems = getRewardCatalog().filter((item) => item.type === 'avatar');
   const themeItems = getRewardCatalog().filter((item) => item.type === 'theme');
+  const effectItems = getRewardCatalog().filter((item) => item.type === 'effect');
 
   useEffect(() => {
     function sync() {
@@ -44,6 +45,11 @@ export default function SettingsPage() {
   function chooseTheme(themeId) {
     setThemeId(themeId);
     setProfile(saveProfile({ themeId }));
+  }
+
+  function chooseEffect(effectId) {
+    equipEffect(effectId);
+    setRewardState(getRewardState());
   }
 
   return (
@@ -90,6 +96,35 @@ export default function SettingsPage() {
               <option value="es">ES</option>
             </select>
           </div>
+        </div>
+      </section>
+
+      <section className="panel panel--tight">
+        <div className="panel__header">
+          <div>
+            <span className="eyebrow">Effects</span>
+            <h3>Background effects</h3>
+          </div>
+        </div>
+        <div className="reward-grid reward-grid--compact">
+          {effectItems.map((item) => {
+            const owned = item.id === 'effect-rainbow' || rewardState.inventory.includes(item.id);
+            const active = rewardState.equippedEffectId === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                className={`reward-card reward-card--effect${active ? ' is-active' : ''}`}
+                onClick={() => owned && chooseEffect(item.id)}
+              >
+                <div className={`effect-preview effect-preview--${item.id.replace('effect-', '')}`}></div>
+                <div className="reward-card__body">
+                  <h4>{locale === 'nl' ? item.nameNl || item.name : item.name}</h4>
+                  <p>{owned ? 'Use' : `${item.price} ${t('crystals')}`}</p>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </section>
 

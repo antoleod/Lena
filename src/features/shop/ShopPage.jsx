@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { buyReward, equipTheme, getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
+import { buyReward, equipEffect, equipTheme, getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 
@@ -14,7 +14,8 @@ export default function ShopPage() {
   const [message, setMessage] = useState('');
   const catalog = getRewardCatalog();
   const themes = catalog.filter((item) => item.type === 'theme');
-  const rewards = catalog.filter((item) => item.type !== 'theme');
+  const effects = catalog.filter((item) => item.type === 'effect');
+  const rewards = catalog.filter((item) => item.type !== 'theme' && item.type !== 'effect');
 
   useEffect(() => {
     function sync() {
@@ -46,6 +47,14 @@ export default function ShopPage() {
     }
   }
 
+  function handleEquipEffect(itemId) {
+    const result = equipEffect(itemId);
+    if (result.ok) {
+      setShopState(getRewardState());
+      setMessage(t('shopThemeApplied'));
+    }
+  }
+
   return (
     <div className="page-stack page-stack--compact">
       <section className="panel panel--tight">
@@ -58,6 +67,41 @@ export default function ShopPage() {
         </div>
         <p className="panel__copy">{t('shopText')}</p>
         {message ? <div className="feedback-strip is-success"><strong>{message}</strong></div> : null}
+      </section>
+
+      <section className="panel panel--tight">
+        <div className="panel__header">
+          <div>
+            <span className="eyebrow">Effects</span>
+            <h3>Background effects</h3>
+          </div>
+        </div>
+        <div className="reward-grid reward-grid--compact">
+          {effects.map((item) => {
+            const owned = item.id === 'effect-rainbow' || shopState.inventory.includes(item.id);
+            const active = shopState.equippedEffectId === item.id;
+            const label = locale === 'nl' ? item.nameNl || item.name : item.name;
+
+            return (
+              <article key={item.id} className="reward-card reward-card--effect">
+                <div className={`effect-preview effect-preview--${item.id.replace('effect-', '')}`}></div>
+                <div className="reward-card__body">
+                  <h4>{label}</h4>
+                  <p>{item.price} {t('crystals')}</p>
+                </div>
+                {!owned ? (
+                  <button className="primary-action" type="button" onClick={() => handleBuy(item.id)}>
+                    {t('shopBuy')}
+                  </button>
+                ) : (
+                  <button className={active ? 'secondary-action' : 'primary-action'} type="button" onClick={() => handleEquipEffect(item.id)}>
+                    {active ? t('shopEquipped') : t('shopEquip')}
+                  </button>
+                )}
+              </article>
+            );
+          })}
+        </div>
       </section>
 
       <section className="panel panel--tight">

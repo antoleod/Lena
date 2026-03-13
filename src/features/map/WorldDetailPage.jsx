@@ -33,30 +33,32 @@ export default function WorldDetailPage() {
     );
   }
 
+  const worldProgress = getWorldProgress(world, progress);
+
   return (
     <div className="page-stack page-stack--compact">
-      <section className="panel panel--tight">
+      <section className="panel panel--tight panel--subject-map">
         <div className="panel__header">
           <div>
             <span className="eyebrow">{t('missions')}</span>
             <h2>{world.name}</h2>
           </div>
-          <Link className="text-link" to="/map">{t('missions')}</Link>
+          <span className="pill">{worldProgress.completed}/{worldProgress.total}</span>
         </div>
-
-        <div className="mission-list">
-          {world.missions.map((mission) => {
+        <div className="world-map-track world-map-track--missions">
+          {world.missions.map((mission, index) => {
             const missionProgress = getMissionProgress(mission, progress);
             const unlocked = isMissionUnlocked(world, mission.order, progress);
             return (
               <Link
                 key={mission.id}
-                className={`mission-row${unlocked ? '' : ' is-locked'}`}
+                className={`world-map-track__node${unlocked ? '' : ' world-map-track__node--locked'}`}
                 to={unlocked ? `/map/${world.id}/missions/${mission.id}` : '/map'}
+                style={{ animationDelay: `${index * 60}ms` }}
               >
+                <span className="world-map-track__number">{mission.order}</span>
                 <strong>{t('missions')} {mission.order}</strong>
-                <span>{missionProgress.completed}/{missionProgress.total}</span>
-                <small>{mission.title}</small>
+                <small>{missionProgress.completed}/{missionProgress.total}</small>
               </Link>
             );
           })}

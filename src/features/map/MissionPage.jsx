@@ -37,21 +37,29 @@ export default function MissionPage() {
           <Link className="text-link" to={`/map/${world.id}`}>{t('back')}</Link>
         </div>
 
-        <div className="level-grid">
-          {mission.levels.map((level) => {
-            const state = getLevelState(progress.activities[level.activityId]);
-            return (
-              <Link
-                key={level.id}
-                className={`level-card level-card--${state}`}
-                to={`/activities/${level.activityId}?world=${world.id}&mission=${mission.id}&level=${level.order}`}
-              >
-                <span className="level-card__order">{level.order}</span>
-                <strong>{level.title}</strong>
-                <small>{level.gradeId} · {level.estimatedDurationMin} min</small>
-              </Link>
-            );
-          })}
+        <div className="module-lane">
+          <article className="module-lane__card">
+            <div className="module-lane__card-head">
+              <div>
+                <strong>Route</strong>
+                <p>10 levels to clear this mission.</p>
+              </div>
+            </div>
+            <div className="module-lane__levels">
+              {mission.levels.map((level) => {
+                const state = getLevelState(progress.activities[level.activityId]);
+                return (
+                  <Link
+                    key={level.id}
+                    className={`module-level-dot module-level-dot--${state}`}
+                    to={`/activities/${level.activityId}?world=${world.id}&mission=${mission.id}&level=${level.order}`}
+                  >
+                    {level.order}
+                  </Link>
+                );
+              })}
+            </div>
+          </article>
         </div>
       </section>
     </div>
