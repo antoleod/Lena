@@ -2,12 +2,25 @@ import { Link, useParams } from 'react-router-dom';
 import { activities, getGradeProgression, getSubjectById } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel, getSubjectRoadmap } from '../../shared/i18n/contentLocalization.js';
+import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+
+function getGradeStats(subjectId, grade, progress) {
+  const gradeActivities = activities.filter((activity) => activity.subject === subjectId && activity.gradeBand.includes(grade.gradeId));
+  const completed = gradeActivities.filter((activity) => progress.activities[activity.id]?.completed).length;
+  const percent = gradeActivities.length ? Math.round((completed / gradeActivities.length) * 100) : 0;
+  return {
+    totalActivities: gradeActivities.length,
+    completed,
+    percent
+  };
+}
 
 export default function SubjectPage() {
   const { locale, t } = useLocale();
   const { subjectId } = useParams();
   const subject = getSubjectById(subjectId);
   const gradeProgression = getGradeProgression(subjectId);
+  const progress = getProgressSnapshot();
 
   if (!subject) {
     return (
@@ -21,16 +34,20 @@ export default function SubjectPage() {
   const grades = subject.grades.map((gradeId) => {
     const activityList = activities.filter((activity) => activity.subject === subjectId && activity.gradeBand.includes(gradeId));
     const gradeEntry = gradeProgression.find((entry) => entry.gradeId === gradeId);
-    return {
+    const grade = {
       gradeId,
       modules: gradeEntry?.modules || [],
       activities: activityList
+    };
+    return {
+      ...grade,
+      stats: getGradeStats(subjectId, grade, progress)
     };
   }).filter((entry) => entry.activities.length || entry.modules.length);
 
   return (
     <div className="page-stack page-stack--compact">
-      <section className="panel panel--tight" style={{ '--subject-accent': subject.accent }}>
+      <section className="panel panel--tight panel--subject-map" style={{ '--subject-accent': subject.accent, '--subject-color': subject.color }}>
         <div className="panel__header">
           <div>
             <span className="eyebrow">{subject.grades.join(' / ')}</span>
@@ -39,9 +56,12 @@ export default function SubjectPage() {
           <Link className="text-link" to="/subjects">{t('subjectsLabel') || 'Subjects'}</Link>
         </div>
         <p className="panel__copy">{getSubjectDescription(subject, locale)}</p>
-        <div className="tag-list">
-          {getSubjectRoadmap(subject, locale).map((item) => (
-            <span key={item} className="tag-chip tag-chip--static">{item}</span>
+        <div className="subject-road-strip">
+          {getSubjectRoadmap(subject, locale).map((item, index) => (
+            <div key={item} className="subject-road-strip__item" style={{ animationDelay: `${index * 80}ms` }}>
+              <span>{index + 1}</span>
+              <strong>{item}</strong>
+            </div>
           ))}
         </div>
       </section>
@@ -53,19 +73,30 @@ export default function SubjectPage() {
             <h3>{t('chooseLevel')}</h3>
           </div>
         </div>
-        <div className="grade-row-list">
-          {grades.map((grade) => {
+        <div className="grade-map">
+          {grades.map((grade, index) => {
             const launchTo = grade.modules.length
               ? `/subjects/${subjectId}/grades/${grade.gradeId}`
               : `/activities/${grade.activities[0].id}`;
 
             return (
-              <article key={grade.gradeId} className="grade-row-card">
-                <div>
+              <article key={grade.gradeId} className="grade-map__node" style={{ animationDelay: `${index * 90}ms` }}>
+                <div className="grade-map__node-head">
                   <strong>{grade.gradeId}</strong>
                   <span>{grade.modules.length ? `${grade.modules.length} modules` : `${grade.activities.length} activities`}</span>
                 </div>
-                <small>{grade.activities.slice(0, 3).map((activity) => activity.title).join(' · ')}</small>
+                <div className="grade-map__progress">
+                  <i style={{ width: `${Math.max(grade.stats.percent, grade.activities.length ? 8 : 0)}%` }}></i>
+                </div>
+                <div className="grade-map__meta">
+                  <small>{grade.stats.completed}/{grade.stats.totalActivities} done</small>
+                  <small>{grade.stats.percent}%</small>
+                </div>
+                <div className="grade-map__preview">
+                  {grade.activities.slice(0, 4).map((activity) => (
+                    <span key={activity.id} className="tag-chip tag-chip--static">{activity.title}</span>
+                  ))}
+                </div>
                 <Link className="primary-action" to={launchTo}>{t('launch')}</Link>
               </article>
             );

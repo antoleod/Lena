@@ -10,7 +10,7 @@ function getInitial(name, fallback) {
 }
 
 export default function AppShell() {
-  const { locale, setLocale, t } = useLocale();
+  const { t } = useLocale();
   const [rewardState, setRewardState] = useState(() => getRewardState());
   const [profile, setProfile] = useState(() => getProfile());
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ export default function AppShell() {
   return (
     <div className="app-shell app-shell--game">
       <header className="app-topbar">
-        <button type="button" className="brand-inline" onClick={() => navigate('/')}>
+        <button type="button" className="brand-inline" onClick={() => navigate('/settings')}>
           <span className="brand-inline__mark">L</span>
           <span className="brand-inline__name">Lena</span>
         </button>
@@ -70,26 +70,17 @@ export default function AppShell() {
             <small>{t('crystals')}</small>
           </button>
 
-          <label className="locale-inline">
-            <select value={locale} onChange={(event) => setLocale(event.target.value)} aria-label={t('uiLanguage')}>
-              <option value="fr">FR</option>
-              <option value="nl">NL</option>
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-            </select>
-          </label>
-
           <button
             type="button"
             className="profile-inline"
-            onClick={() => navigate('/onboarding')}
+            onClick={() => navigate('/settings')}
             title={profile.name || t('defaultChildName')}
           >
             <span className="profile-inline__avatar">{getInitial(profile.name, t('defaultChildName'))}</span>
             <span className="profile-inline__name">{profile.name || t('defaultChildName')}</span>
           </button>
 
-          <button type="button" className="icon-link" onClick={() => navigate('/onboarding')}>
+          <button type="button" className="icon-link" onClick={() => navigate('/settings')}>
             {t('settingsLabel') || 'Settings'}
           </button>
           <button

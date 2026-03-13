@@ -172,6 +172,12 @@ export default function OnboardingFlow() {
                 maxLength={20}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' && name.trim()) {
+                    event.preventDefault();
+                    next();
+                  }
+                }}
                 placeholder={t('onboardingChildNamePlaceholder')}
                 autoFocus
               />

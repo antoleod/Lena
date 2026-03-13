@@ -2,6 +2,17 @@ import { Link, useParams } from 'react-router-dom';
 import { getActivitiesBySubjectAndGrade, getModulesBySubjectAndGrade, getSubjectById } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
+import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+
+function buildLevelPreview(module, subjectId, gradeId) {
+  const total = 10;
+  return Array.from({ length: total }, (_, index) => ({
+    id: `${module.id}-${index + 1}`,
+    label: index + 1,
+    to: `/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`,
+    status: index === 0 ? 'active' : 'available'
+  }));
+}
 
 export default function GradePage() {
   const { subjectId, gradeId } = useParams();
@@ -9,6 +20,7 @@ export default function GradePage() {
   const subject = getSubjectById(subjectId);
   const modules = getModulesBySubjectAndGrade(subjectId, gradeId);
   const gradeActivities = getActivitiesBySubjectAndGrade(subjectId, gradeId);
+  const progress = getProgressSnapshot();
 
   if (!subject) {
     return (
@@ -28,7 +40,7 @@ export default function GradePage() {
 
   return (
     <div className="page-stack page-stack--compact">
-      <section className="panel panel--tight">
+      <section className="panel panel--tight panel--subject-map">
         <div className="panel__header">
           <div>
             <span className="eyebrow">{gradeId}</span>
@@ -41,7 +53,7 @@ export default function GradePage() {
         </p>
       </section>
 
-      {modules.length ? Object.entries(groupedModules).map(([domain, domainModules]) => (
+      {modules.length ? Object.entries(groupedModules).map(([domain, domainModules], domainIndex) => (
         <section key={domain} className="panel panel--tight">
           <div className="panel__header">
             <div>
@@ -49,19 +61,37 @@ export default function GradePage() {
               <h3>{domain}</h3>
             </div>
           </div>
-          <div className="module-grid-compact">
-            {domainModules.map((module) => (
-              <article key={module.id} className="module-card-compact">
-                <strong>{module.title}</strong>
-                <p>{module.summary}</p>
-                <small>
-                  {(module.phases.guidedPractice?.length || 0) + (module.phases.independentPractice?.length || 0)} activities
-                </small>
-                <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`}>
-                  {t('launch')}
-                </Link>
-              </article>
-            ))}
+          <div className="module-lane">
+            {domainModules.map((module, index) => {
+              const relatedDone = (module.phases.guidedPractice || [])
+                .concat(module.phases.independentPractice || [])
+                .filter((activityId) => progress.activities[activityId]?.completed).length;
+              const preview = buildLevelPreview(module, subjectId, gradeId);
+              return (
+                <article key={module.id} className="module-lane__card" style={{ animationDelay: `${(domainIndex * 2 + index) * 80}ms` }}>
+                  <div className="module-lane__card-head">
+                    <div>
+                      <strong>{module.title}</strong>
+                      <p>{module.summary}</p>
+                    </div>
+                    <span className="pill">{relatedDone} done</span>
+                  </div>
+                  <div className="module-lane__levels">
+                    {preview.map((level) => (
+                      <Link key={level.id} className={`module-level-dot module-level-dot--${level.status}`} to={level.to}>
+                        {level.label}
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="module-lane__footer">
+                    <small>10 levels · 10 exercises each</small>
+                    <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`}>
+                      {t('launch')}
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
       )) : (
@@ -72,15 +102,29 @@ export default function GradePage() {
               <h3>{t('generatedLabel')}</h3>
             </div>
           </div>
-          <div className="module-grid-compact">
-            {gradeActivities.map((activity) => (
-              <article key={activity.id} className="module-card-compact">
-                <strong>{activity.title}</strong>
-                <p>{activity.instructions}</p>
-                <small>{activity.estimatedDurationMin} min</small>
-                <Link className="primary-action" to={`/activities/${activity.id}`}>
-                  {t('launch')}
-                </Link>
+          <div className="module-lane">
+            {gradeActivities.map((activity, index) => (
+              <article key={activity.id} className="module-lane__card" style={{ animationDelay: `${index * 80}ms` }}>
+                <div className="module-lane__card-head">
+                  <div>
+                    <strong>{activity.title}</strong>
+                    <p>{activity.instructions}</p>
+                  </div>
+                  <span className="pill">{activity.estimatedDurationMin} min</span>
+                </div>
+                <div className="module-lane__levels">
+                  {Array.from({ length: 10 }, (_, levelIndex) => (
+                    <Link key={`${activity.id}-${levelIndex + 1}`} className="module-level-dot module-level-dot--available" to={`/activities/${activity.id}`}>
+                      {levelIndex + 1}
+                    </Link>
+                  ))}
+                </div>
+                <div className="module-lane__footer">
+                  <small>10 exercises generated</small>
+                  <Link className="primary-action" to={`/activities/${activity.id}`}>
+                    {t('launch')}
+                  </Link>
+                </div>
               </article>
             ))}
           </div>

@@ -34,6 +34,21 @@ function buildPlayableSections(module) {
   return sections;
 }
 
+function buildLevelPlan(sections) {
+  const activities = sections.flatMap((section) => section.activities);
+  if (!activities.length) {
+    return [];
+  }
+  return Array.from({ length: 10 }, (_, index) => {
+    const activity = activities[index % activities.length];
+    return {
+      id: `${activity.id}-level-${index + 1}`,
+      level: index + 1,
+      activity
+    };
+  });
+}
+
 export default function ModulePage() {
   const { locale, t } = useLocale();
   const { subjectId, gradeId, moduleId } = useParams();
@@ -50,6 +65,7 @@ export default function ModulePage() {
 
   const sections = buildPlayableSections(module);
   const firstActivity = sections[0]?.activities[0] || null;
+  const levelPlan = buildLevelPlan(sections);
 
   return (
     <div className="page-stack page-stack--compact">
@@ -108,6 +124,30 @@ export default function ModulePage() {
           </div>
         </section>
       ))}
+
+      {levelPlan.length ? (
+        <section className="panel panel--tight">
+          <div className="panel__header">
+            <div>
+              <span className="eyebrow">{module.domainLabel}</span>
+              <h3>10 levels</h3>
+            </div>
+          </div>
+          <div className="level-grid">
+            {levelPlan.map((entry) => (
+              <Link
+                key={entry.id}
+                className="level-card level-card--active"
+                to={`/activities/${entry.activity.id}?module=${module.id}&level=${entry.level}`}
+              >
+                <span className="level-card__order">Level {entry.level}</span>
+                <strong>{entry.activity.title}</strong>
+                <small>{entry.activity.estimatedDurationMin} min</small>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

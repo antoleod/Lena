@@ -72,6 +72,38 @@ const rewardCatalog = [
     nameNl: 'Kleine draak',
     price: 36,
     assetPath: 'assets/avatars/dragon.svg'
+  },
+  {
+    id: 'avatar-owl',
+    type: 'avatar',
+    name: 'Petit hibou',
+    nameNl: 'Kleine uil',
+    price: 30,
+    assetPath: 'assets/avatars/hibou.svg'
+  },
+  {
+    id: 'avatar-fox',
+    type: 'avatar',
+    name: 'Petit renard',
+    nameNl: 'Kleine vos',
+    price: 34,
+    assetPath: 'assets/avatars/renard.svg'
+  },
+  {
+    id: 'avatar-lion',
+    type: 'avatar',
+    name: 'Petit lion',
+    nameNl: 'Kleine leeuw',
+    price: 34,
+    assetPath: 'assets/avatars/lion.svg'
+  },
+  {
+    id: 'avatar-dolphin',
+    type: 'avatar',
+    name: 'Dauphin',
+    nameNl: 'Dolfijn',
+    price: 32,
+    assetPath: 'assets/avatars/dauphin.svg'
   }
 ];
 

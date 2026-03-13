@@ -1291,6 +1291,7 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .topbar-nav {
@@ -1313,6 +1314,7 @@ button {
   border-radius: 14px;
   font-weight: 800;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .topbar-link.is-active,
@@ -1549,6 +1551,150 @@ button {
   box-shadow: var(--shadow-soft);
 }
 
+.panel--subject-map {
+  background:
+    radial-gradient(circle at top right, rgba(255, 207, 116, 0.22), transparent 22%),
+    radial-gradient(circle at bottom left, rgba(120, 166, 255, 0.14), transparent 26%),
+    rgba(255, 255, 255, 0.9);
+}
+
+.subject-road-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.subject-road-strip__item {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(144, 118, 166, 0.12);
+  box-shadow: var(--shadow-soft);
+  animation: map-card-in 0.45s ease both;
+}
+
+.subject-road-strip__item span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--theme-gradient);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.grade-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.grade-map__node {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(144, 118, 166, 0.12);
+  box-shadow: var(--shadow-soft);
+  animation: map-card-in 0.45s ease both;
+}
+
+.grade-map__node-head,
+.grade-map__meta,
+.module-lane__card-head,
+.module-lane__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.grade-map__node-head {
+  align-items: start;
+}
+
+.grade-map__progress {
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(120, 166, 255, 0.12);
+}
+
+.grade-map__progress i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--theme-gradient);
+}
+
+.grade-map__preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.module-lane {
+  display: grid;
+  gap: 14px;
+}
+
+.module-lane__card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,248,252,0.94));
+  border: 1px solid rgba(144, 118, 166, 0.12);
+  box-shadow: var(--shadow-soft);
+  animation: map-card-in 0.45s ease both;
+}
+
+.module-lane__card-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.module-lane__levels {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.module-level-dot {
+  display: grid;
+  place-items: center;
+  min-height: 38px;
+  border-radius: 14px;
+  border: 1px solid rgba(144, 118, 166, 0.12);
+  background: rgba(255, 255, 255, 0.96);
+  font-weight: 900;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.module-level-dot:hover {
+  transform: translateY(-2px);
+}
+
+.module-level-dot--active {
+  background: var(--theme-gradient);
+  color: white;
+  border-color: transparent;
+}
+
+.module-level-dot--available {
+  background: rgba(255,255,255,0.95);
+}
+
+.module-level-dot--completed {
+  background: rgba(139, 220, 195, 0.22);
+}
+
 .module-grid-compact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1568,6 +1714,45 @@ button {
 .module-card-compact p {
   margin: 0;
   color: var(--muted);
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.avatar-option {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  padding: 14px 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(144, 118, 166, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}
+
+.avatar-option img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.avatar-option.is-active {
+  border-color: var(--secondary);
+  background: rgba(120, 166, 255, 0.12);
+}
+
+.avatar-option.is-locked {
+  opacity: 0.55;
 }
 
 .grade-row-card {
@@ -1787,6 +1972,10 @@ button {
   .level-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .module-lane__levels {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 @keyframes twinkle {
@@ -1817,6 +2006,11 @@ button {
 @keyframes rise-in {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes map-card-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes ribbon-wave {
@@ -1886,6 +2080,10 @@ button {
   .activity-topline__meta {
     flex-wrap: wrap;
     justify-content: start;
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
   }
 
   .mini-metrics {
@@ -1989,6 +2187,12 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .subject-road-strip,
+  .grade-map,
+  .module-lane__levels {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .history-row--compact,
   .grade-row-card,
   .detail-list__row,
@@ -2004,5 +2208,32 @@ button {
 
   .profile-inline__name {
     display: none;
+  }
+
+  .app-topbar {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .topbar-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .topbar-link,
+  .icon-link,
+  .profile-inline,
+  .wallet-compact {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .topbar-tools {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
   }
 }

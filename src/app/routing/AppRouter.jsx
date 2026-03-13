@@ -12,6 +12,7 @@ import MapPage from '../../features/map/MapPage.jsx';
 import WorldDetailPage from '../../features/map/WorldDetailPage.jsx';
 import MissionPage from '../../features/map/MissionPage.jsx';
 import HistoryPage from '../../features/history/HistoryPage.jsx';
+import SettingsPage from '../../features/settings/SettingsPage.jsx';
 import { isProfileComplete } from '../../services/storage/profileStore.js';
 
 export default function AppRouter() {
@@ -32,6 +33,7 @@ export default function AppRouter() {
         <Route path="/activities/:activityId" element={<ActivityPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/history" element={<HistoryPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="*" element={<Navigate to={needsOnboarding ? '/onboarding' : '/'} replace />} />
       </Route>
     </Routes>
