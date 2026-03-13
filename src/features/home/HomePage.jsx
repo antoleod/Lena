@@ -1,24 +1,34 @@
 import { Link } from 'react-router-dom';
-import { getCurriculumStats, getFeaturedActivities, subjects } from '../curriculum/catalog.js';
+import { activities, getCurriculumStats, getFeaturedActivities, modules, subjects } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel, getSubjectRoadmap } from '../../shared/i18n/contentLocalization.js';
+import { getProgressOverview, getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getRewardState } from '../../services/storage/rewardStore.js';
 import { useEffect, useState } from 'react';
 
 export default function HomePage() {
   const { locale, t } = useLocale();
   const [rewardState, setRewardState] = useState(() => getRewardState());
+  const [progressState, setProgressState] = useState(() => getProgressOverview(activities, modules));
   const stats = getCurriculumStats();
   const featured = getFeaturedActivities();
   const rainbowSticker = `${import.meta.env.BASE_URL}assets/stickers/sticker-arcenciel.svg`;
+  const snapshot = getProgressSnapshot();
+  const continueActivityId = snapshot.meta.lastActivityId;
+  const nextModules = modules.slice(0, 4);
 
   useEffect(() => {
-    function syncRewards() {
+    function syncStores() {
       setRewardState(getRewardState());
+      setProgressState(getProgressOverview(activities, modules));
     }
 
-    window.addEventListener('lena-rewards-change', syncRewards);
-    return () => window.removeEventListener('lena-rewards-change', syncRewards);
+    window.addEventListener('lena-rewards-change', syncStores);
+    window.addEventListener('lena-progress-change', syncStores);
+    return () => {
+      window.removeEventListener('lena-rewards-change', syncStores);
+      window.removeEventListener('lena-progress-change', syncStores);
+    };
   }, []);
 
   return (
@@ -34,8 +44,11 @@ export default function HomePage() {
             <span className="pill">{t('heroBadge3')}</span>
           </div>
           <div className="hero-actions">
-            <Link className="primary-action" to="/subjects/mathematics">{t('enterMath')}</Link>
-            <Link className="secondary-action" to="/subjects/french">{t('seeFrench')}</Link>
+            {continueActivityId ? (
+              <Link className="primary-action" to={`/activities/${continueActivityId}`}>{t('continue')}</Link>
+            ) : (
+              <Link className="primary-action" to="/subjects/mathematics">{t('enterMath')}</Link>
+            )}
             <Link className="secondary-action" to="/shop">{t('shop')}</Link>
           </div>
           <img className="hero-sticker" src={rainbowSticker} alt="" />
@@ -50,17 +63,46 @@ export default function HomePage() {
             <strong>{stats.activities}</strong>
           </div>
           <div className="stat-card">
-            <span>{t('classes')}</span>
-            <strong>{stats.grades}</strong>
-          </div>
-          <div className="stat-card">
-            <span>{t('rhythm')}</span>
-            <strong>{t('practiceExam')}</strong>
-          </div>
-          <div className="stat-card">
             <span>{t('crystals')}</span>
             <strong>{rewardState.balance}</strong>
           </div>
+          <div className="stat-card">
+            <span>Streak</span>
+            <strong>{progressState.streakCurrent}</strong>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-block">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">Dashboard</span>
+            <h3>Continuer et progres global</h3>
+          </div>
+        </div>
+        <div className="activity-preview-grid">
+          <article className="preview-card">
+            <span className="pill">Continue</span>
+            <h4>Derniere activite</h4>
+            <p>{continueActivityId ? continueActivityId : 'Aucune activite lancee pour le moment.'}</p>
+            {continueActivityId ? <Link className="text-link" to={`/activities/${continueActivityId}`}>{t('continue')}</Link> : null}
+          </article>
+          <article className="preview-card">
+            <span className="pill">Progression</span>
+            <h4>Activites terminees</h4>
+            <p>{progressState.completedActivities} / {progressState.totalActivities}</p>
+          </article>
+          <article className="preview-card">
+            <span className="pill">Modules</span>
+            <h4>Base curriculaire</h4>
+            <p>{stats.modules} modules structures pour les niveaux P2 a P3, avec base P4-P6.</p>
+          </article>
+          <article className="preview-card">
+            <span className="pill">Recompenses</span>
+            <h4>Boutique et debloque</h4>
+            <p>{rewardState.inventory.length} objets debloques et themes applicables.</p>
+            <Link className="text-link" to="/shop">{t('shop')}</Link>
+          </article>
         </div>
       </section>
 
@@ -83,7 +125,7 @@ export default function HomePage() {
               }}
               to={`/subjects/${subject.id}`}
             >
-              <span className="pill">{subject.grades.join(' • ')}</span>
+              <span className="pill">{subject.grades.slice(0, 2).join(' • ')}</span>
               <h4>{getSubjectLabel(subject, locale, t)}</h4>
               <p>{getSubjectDescription(subject, locale)}</p>
               <ul className="roadmap-list">
@@ -99,21 +141,22 @@ export default function HomePage() {
       <section className="section-block">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">{t('favoriteMissions')}</span>
-            <h3>{t('startAdventure')}</h3>
+            <span className="eyebrow">Prochains modules</span>
+            <h3>Apprendre puis evaluer</h3>
           </div>
         </div>
         <div className="activity-preview-grid">
-          {featured.map((activity) => (
-            <article key={activity.id} className="preview-card">
-              <span className="pill">{activity.originRepo}</span>
-              <h4>{activity.title}</h4>
-              <p>{activity.instructions}</p>
-              <div className="preview-meta">
-                <span>{activity.gradeBand.join(' • ')}</span>
-                <span>{activity.estimatedDurationMin} min</span>
-              </div>
-              <Link className="text-link" to={`/activities/${activity.id}`}>{t('openActivity')}</Link>
+          {nextModules.map((module) => (
+            <article key={module.id} className="preview-card">
+              <span className="pill">{module.gradeId}</span>
+              <h4>{module.title}</h4>
+              <p>{module.summary}</p>
+              <Link
+                className="text-link"
+                to={`/subjects/${module.subjectId}/grades/${module.gradeId}/modules/${module.id}`}
+              >
+                {t('startAdventure')}
+              </Link>
             </article>
           ))}
         </div>

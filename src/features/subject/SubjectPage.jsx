@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getActivitiesBySubject, getSubjectById } from '../curriculum/catalog.js';
+import { getGradeProgression, getSubjectById } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel, getSubjectRoadmap } from '../../shared/i18n/contentLocalization.js';
 
@@ -7,7 +7,7 @@ export default function SubjectPage() {
   const { locale, t } = useLocale();
   const { subjectId } = useParams();
   const subject = getSubjectById(subjectId);
-  const activities = getActivitiesBySubject(subjectId);
+  const grades = getGradeProgression(subjectId);
 
   if (!subject) {
     return (
@@ -42,26 +42,24 @@ export default function SubjectPage() {
       <section className="section-block">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">{t('missions')}</span>
+            <span className="eyebrow">{t('classes')}</span>
             <h3>{t('chooseLevel')}</h3>
           </div>
         </div>
-        <div className="activity-list">
-          {activities.map((activity) => (
-            <article key={activity.id} className="activity-row">
-              <div>
-                <div className="preview-meta">
-                  <span>{activity.subskill}</span>
-                  <span>{activity.gradeBand.join(' • ')}</span>
-                  <span>{activity.originRepo}</span>
-                </div>
-                <h4>{activity.title}</h4>
-                <p>{activity.instructions}</p>
-              </div>
-              <div className="activity-row__meta">
-                <span>{activity.estimatedDurationMin} min</span>
-                <Link className="primary-action" to={`/activities/${activity.id}`}>{t('launch')}</Link>
-              </div>
+        <div className="subject-grid">
+          {grades.map((grade) => (
+            <article key={grade.gradeId} className="subject-card">
+              <span className="pill">{grade.gradeId}</span>
+              <h4>{grade.modules.length} modules</h4>
+              <p>{t('practiceExam')}</p>
+              <ul className="roadmap-list">
+                {grade.modules.slice(0, 3).map((module) => (
+                  <li key={module.id}>{module.title}</li>
+                ))}
+              </ul>
+              <Link className="primary-action" to={`/subjects/${subjectId}/grades/${grade.gradeId}`}>
+                {t('launch')}
+              </Link>
             </article>
           ))}
         </div>

@@ -14,6 +14,8 @@ export default function AppShell() {
     { to: '/subjects/dutch', label: t('dutch') },
     { to: '/subjects/english', label: t('english') },
     { to: '/subjects/spanish', label: t('spanish') },
+    { to: '/subjects/reasoning', label: locale === 'nl' ? 'Redeneren' : 'Raisonnement' },
+    { to: '/subjects/stories', label: t('stories') },
     { to: '/shop', label: t('shop') }
   ];
 
