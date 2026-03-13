@@ -933,9 +933,11 @@ button {
   place-items: center;
   min-height: 100vh;
   padding: 20px 12px;
+  background: rgba(76, 61, 95, 0.22);
 }
 
 .onboarding-modal {
+  position: relative;
   width: min(100%, 640px);
   min-height: min(92vh, 760px);
   display: grid;
@@ -949,10 +951,26 @@ button {
   backdrop-filter: blur(18px);
 }
 
+.onboarding-modal--game::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(255, 207, 116, 0.16), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(120, 166, 255, 0.12), transparent 24%);
+}
+
+.onboarding-modal > * {
+  position: relative;
+  z-index: 1;
+}
+
 .onboarding-modal__header h1 {
   margin: 6px 0 8px;
   font-family: 'Fredoka', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(1.55rem, 3.4vw, 2.35rem);
   line-height: 1;
 }
 
@@ -1044,24 +1062,48 @@ button {
   color: white;
 }
 
-.onboarding-modal__preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.onboarding-preview-pill {
-  display: inline-flex;
+.onboarding-stage-mini {
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  min-height: 32px;
-  padding: 0 12px;
-  border-radius: 999px;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(144, 118, 166, 0.12);
-  color: var(--text);
-  font-size: 0.85rem;
-  font-weight: 800;
   box-shadow: var(--shadow-soft);
+}
+
+.onboarding-stage-mini__avatar {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background: var(--theme-gradient);
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.onboarding-stage-mini__meta {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.onboarding-stage-mini__meta strong,
+.onboarding-stage-mini__meta span,
+.onboarding-stage-mini__meta small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.onboarding-stage-mini__meta span,
+.onboarding-stage-mini__meta small {
+  color: var(--muted);
 }
 
 .section-intro {
@@ -1880,6 +1922,20 @@ button {
     border-radius: 22px;
   }
 
+  .onboarding-modal__header p {
+    font-size: 0.92rem;
+  }
+
+  .onboarding-progress__steps {
+    gap: 6px;
+  }
+
+  .onboarding-progress__dot {
+    width: 30px;
+    height: 30px;
+    font-size: 0.76rem;
+  }
+
   .onboarding-modal__footer {
     flex-direction: column-reverse;
   }
@@ -1894,6 +1950,11 @@ button {
 
   .onboarding-flow {
     padding: 10px;
+  }
+
+  .onboarding-stage-mini {
+    grid-template-columns: 1fr;
+    justify-items: start;
   }
 
   .app-shell--game {

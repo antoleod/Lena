@@ -41,7 +41,7 @@ export default function OnboardingFlow() {
   const [identity, setIdentity] = useState(existing.identity || 'child');
   const [name, setName] = useState(existing.name || '');
   const [age, setAge] = useState(existing.age || 8);
-  const [visualTheme, setVisualTheme] = useState(existing.visualTheme || 'forest');
+  const [visualTheme, setVisualTheme] = useState(existing.visualTheme || 'fantasy');
   const [language, setLanguage] = useState(existing.language || locale || 'fr');
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function OnboardingFlow() {
       setName(existing.name || '');
       setIdentity(existing.identity || 'child');
       setAge(existing.age || 8);
-      setVisualTheme(existing.visualTheme || 'forest');
+      setVisualTheme(existing.visualTheme || 'fantasy');
       setLanguage(existing.language || locale || 'fr');
     }
   }, [existing, locale]);
@@ -87,7 +87,7 @@ export default function OnboardingFlow() {
 
   return (
     <div className="onboarding-flow">
-      <section className="onboarding-modal">
+      <section className="onboarding-modal onboarding-modal--game">
         <header className="onboarding-modal__header">
           <span className="eyebrow">{t('onboardingWelcomeTag')}</span>
           <h1>{t('onboardingWelcomeTitle')}</h1>
@@ -110,12 +110,15 @@ export default function OnboardingFlow() {
           </div>
         </div>
 
-        <div className="onboarding-modal__preview">
-          <span className="onboarding-preview-pill">{previewName}</span>
-          <span className="onboarding-preview-pill">{age} {t('yearsLabel') || 'ans'}</span>
-          <span className="onboarding-preview-pill">{previewIdentityLabel}</span>
-          <span className="onboarding-preview-pill">{previewThemeLabel}</span>
-          <span className="onboarding-preview-pill">{language.toUpperCase()}</span>
+        <div className="onboarding-stage-mini">
+          <div className={`onboarding-stage-mini__avatar onboarding-stage-mini__avatar--${identity}`}>
+            <span>{previewIdentity.icon}</span>
+          </div>
+          <div className="onboarding-stage-mini__meta">
+            <strong>{previewName}</strong>
+            <span>{age} {t('yearsLabel') || 'ans'} · {language.toUpperCase()}</span>
+            <small>{previewIdentityLabel} · {previewThemeLabel}</small>
+          </div>
         </div>
 
         <section className="onboarding-question-card" key={step}>

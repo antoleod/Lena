@@ -8,7 +8,7 @@ function defaultProfile() {
     identity: 'child', // 'child' is neutral; can be 'boy' | 'girl' for cosmetics
     avatarId: 'avatar-unicorn',
     themeId: 'theme-candy',
-    visualTheme: 'forest', // starting world-style theme
+    visualTheme: 'fantasy',
     language: 'fr',
     sessionActive: true,
     createdAt: Date.now(),
