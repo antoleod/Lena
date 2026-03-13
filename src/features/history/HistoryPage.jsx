@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { activities } from '../curriculum/catalog.js';
-import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import { getProgressOverview, getProgressSnapshot } from '../../services/storage/progressStore.js';
+import { modules } from '../curriculum/catalog.js';
 
 export default function HistoryPage() {
   const { t } = useLocale();
   const snapshot = getProgressSnapshot();
+  const overview = getProgressOverview(activities, modules);
   const entries = Object.entries(snapshot.activities)
     .map(([activityId, record]) => {
       const activity = activities.find((item) => item.id === activityId);
-      if (!activity) {
-        return null;
-      }
+      if (!activity) return null;
       return {
         id: activityId,
         title: activity.title,
@@ -24,44 +24,52 @@ export default function HistoryPage() {
       };
     })
     .filter(Boolean)
-    .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0))
-    .slice(0, 30);
-
-  if (!entries.length) {
-    return (
-      <section className="section-block">
-        <h2>{t('historyTitle') || 'Historique'}</h2>
-        <p>{t('historyEmpty') || 'Aucune activite pour le moment.'}</p>
-      </section>
-    );
-  }
+    .sort((left, right) => (right.updatedAt || 0) - (left.updatedAt || 0))
+    .slice(0, 24);
 
   return (
-    <div className="page-stack">
-      <section className="section-block">
-        <div className="section-heading">
+    <div className="page-stack page-stack--compact">
+      <section className="panel panel--tight">
+        <div className="panel__header">
           <div>
-            <span className="eyebrow">Log</span>
-            <h3>{t('historyTitle') || 'Historique recent'}</h3>
+            <span className="eyebrow">{t('historyTitle') || 'History'}</span>
+            <h2>{t('globalProgressLabel') || 'Global progress'}</h2>
           </div>
         </div>
-        <div className="history-list">
-          {entries.map((entry) => (
-            <article key={entry.id} className="history-row">
-              <div>
-                <h4>{entry.title}</h4>
-                <p>{entry.subject} • {entry.completed ? t('completed') : t('inProgress')}</p>
-              </div>
-              <div className="history-row__meta">
-                <span>{t('scoreSaved')}: {entry.bestScore}</span>
-                <span>{t('missions')}: {entry.attempts}</span>
-                <Link className="text-link" to={`/activities/${entry.id}`}>{t('openActivity')}</Link>
-              </div>
-            </article>
-          ))}
+        <div className="mini-metrics">
+          <div><span>Completed</span><strong>{overview.completedActivities}</strong></div>
+          <div><span>Mastered</span><strong>{overview.mastery?.mastered || 0}</strong></div>
+          <div><span>Failed</span><strong>{overview.mastery?.failed || 0}</strong></div>
         </div>
+      </section>
+
+      <section className="panel panel--tight">
+        <div className="panel__header">
+          <div>
+            <span className="eyebrow">Recent</span>
+            <h3>{t('historyTitle') || 'Recent activity'}</h3>
+          </div>
+        </div>
+        {!entries.length ? (
+          <p className="panel__copy">{t('historyEmpty') || 'No activity yet.'}</p>
+        ) : (
+          <div className="history-list history-list--compact">
+            {entries.map((entry) => (
+              <article key={entry.id} className="history-row history-row--compact">
+                <div>
+                  <strong>{entry.title}</strong>
+                  <p>{entry.subject} · {entry.completed ? t('completed') : t('inProgress')}</p>
+                </div>
+                <div className="history-row__meta">
+                  <span>Best {entry.bestScore}</span>
+                  <span>Try {entry.attempts}</span>
+                  <Link className="text-link" to={`/activities/${entry.id}`}>{t('openActivity')}</Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );
 }
-

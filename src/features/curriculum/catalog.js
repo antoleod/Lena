@@ -85,6 +85,10 @@ export function getModulesBySubjectAndGrade(subjectId, gradeId) {
   return modules.filter((module) => module.subjectId === subjectId && module.gradeId === gradeId);
 }
 
+export function getActivitiesBySubjectAndGrade(subjectId, gradeId) {
+  return activities.filter((activity) => activity.subject === subjectId && (activity.gradeBand || []).includes(gradeId));
+}
+
 export function getModuleById(moduleId) {
   return modules.find((module) => module.id === moduleId) || null;
 }
@@ -92,8 +96,9 @@ export function getModuleById(moduleId) {
 export function getGradeProgression(subjectId) {
   return gradeCatalog.map((gradeId) => ({
     gradeId,
-    modules: getModulesBySubjectAndGrade(subjectId, gradeId)
-  })).filter((entry) => entry.modules.length > 0);
+    modules: getModulesBySubjectAndGrade(subjectId, gradeId),
+    activities: getActivitiesBySubjectAndGrade(subjectId, gradeId)
+  })).filter((entry) => entry.modules.length > 0 || entry.activities.length > 0);
 }
 
 export function getCurriculumStats() {

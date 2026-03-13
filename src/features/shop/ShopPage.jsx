@@ -20,25 +20,21 @@ export default function ShopPage() {
     function sync() {
       setShopState(getRewardState());
     }
-
     window.addEventListener('lena-rewards-change', sync);
     return () => window.removeEventListener('lena-rewards-change', sync);
   }, []);
 
   function handleBuy(itemId) {
     const result = buyReward(itemId);
-
     if (result.ok) {
       setShopState(getRewardState());
       setMessage(t('shopBought'));
       return;
     }
-
     if (result.reason === 'owned-item') {
       setMessage(t('shopOwned'));
       return;
     }
-
     setMessage(t('shopNeedMore'));
   }
 
@@ -51,39 +47,27 @@ export default function ShopPage() {
   }
 
   return (
-    <div className="page-stack">
-      <section className="hero-grid">
-        <div className="hero-panel hero-panel--primary">
-          <span className="eyebrow">{t('shop')}</span>
-          <h2>{t('shopTitle')}</h2>
-          <p>{t('shopText')}</p>
-          <div className="hero-badges">
-            <span className="pill">{t('crystals')}: {shopState.balance}</span>
-            <span className="pill">{t('shopOwnedItems')}: {shopState.inventory.length}</span>
-            <span className="pill">{t('theme')}: {themeId}</span>
+    <div className="page-stack page-stack--compact">
+      <section className="panel panel--tight">
+        <div className="panel__header">
+          <div>
+            <span className="eyebrow">{t('shop')}</span>
+            <h2>{t('shopTitle')}</h2>
           </div>
-          {message ? <div className="feedback-panel is-success"><p>{message}</p></div> : null}
+          <span className="pill">{shopState.balance} {t('crystals')}</span>
         </div>
-        <div className="hero-panel hero-panel--stats">
-          <div className="stat-card">
-            <span>{t('crystals')}</span>
-            <strong>{shopState.balance}</strong>
-          </div>
-          <div className="stat-card">
-            <span>{t('shopOwnedItems')}</span>
-            <strong>{shopState.inventory.length}</strong>
-          </div>
-        </div>
+        <p className="panel__copy">{t('shopText')}</p>
+        {message ? <div className="feedback-strip is-success"><strong>{message}</strong></div> : null}
       </section>
 
-      <section className="section-block">
-        <div className="section-heading">
+      <section className="panel panel--tight">
+        <div className="panel__header">
           <div>
             <span className="eyebrow">{t('shopThemes')}</span>
-            <h3>{t('shopChooseReward')}</h3>
+            <h3>{t('theme')}</h3>
           </div>
         </div>
-        <div className="reward-grid">
+        <div className="reward-grid reward-grid--compact">
           {themes.map((item) => {
             const owned = item.id === 'theme-candy' || shopState.inventory.includes(item.id);
             const active = themeId === item.id;
@@ -97,7 +81,6 @@ export default function ShopPage() {
                   ))}
                 </div>
                 <div className="reward-card__body">
-                  <span className="pill">{t('theme')}</span>
                   <h4>{label}</h4>
                   <p>{item.price} {t('crystals')}</p>
                 </div>
@@ -106,11 +89,7 @@ export default function ShopPage() {
                     {t('shopBuy')}
                   </button>
                 ) : (
-                  <button
-                    className={active ? 'secondary-action' : 'primary-action'}
-                    type="button"
-                    onClick={() => handleEquip(item.id)}
-                  >
+                  <button className={active ? 'secondary-action' : 'primary-action'} type="button" onClick={() => handleEquip(item.id)}>
                     {active ? t('shopEquipped') : t('shopEquip')}
                   </button>
                 )}
@@ -120,31 +99,26 @@ export default function ShopPage() {
         </div>
       </section>
 
-      <section className="section-block">
-        <div className="section-heading">
+      <section className="panel panel--tight">
+        <div className="panel__header">
           <div>
             <span className="eyebrow">{t('shop')}</span>
             <h3>{t('shopChooseReward')}</h3>
           </div>
         </div>
-        <div className="reward-grid">
+        <div className="reward-grid reward-grid--compact">
           {rewards.map((item) => {
             const owned = shopState.inventory.includes(item.id);
             const label = locale === 'nl' ? item.nameNl || item.name : item.name;
 
             return (
-              <article key={item.id} className="reward-card">
+              <article key={item.id} className="reward-card reward-card--compact">
                 <img className="reward-card__image" src={assetUrl(item.assetPath)} alt="" />
                 <div className="reward-card__body">
-                  <span className="pill">{item.type}</span>
                   <h4>{label}</h4>
                   <p>{item.price} {t('crystals')}</p>
                 </div>
-                <button
-                  className={owned ? 'secondary-action' : 'primary-action'}
-                  type="button"
-                  onClick={() => handleBuy(item.id)}
-                >
+                <button className={owned ? 'secondary-action' : 'primary-action'} type="button" onClick={() => handleBuy(item.id)}>
                   {owned ? t('shopOwned') : t('shopBuy')}
                 </button>
               </article>

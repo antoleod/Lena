@@ -4,6 +4,7 @@ function defaultProfile() {
   return {
     id: 'default',
     name: '',
+    age: 8,
     identity: 'child', // 'child' is neutral; can be 'boy' | 'girl' for cosmetics
     avatarId: 'avatar-unicorn',
     themeId: 'theme-candy',
