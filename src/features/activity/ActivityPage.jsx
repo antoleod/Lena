@@ -64,28 +64,32 @@ export default function ActivityPage() {
   return (
     <div className="page-stack">
       <section className="activity-shell activity-shell--focused">
-        <aside className="activity-sidebar">
-          <Link className="text-link" to={module ? `/subjects/${module.subjectId}/grades/${module.gradeId}/modules/${module.id}` : `/subjects/${activity.subject}`}>
-            ← {module ? module.title : t('backSubject')}
-          </Link>
-          <span className="pill">{subject ? getSubjectLabel(subject, locale, t) : ''}</span>
-          <h2>{activity.title}</h2>
-          <p>{activity.instructions}</p>
-          <div className="meta-stack">
-            <div className="meta-card">
-              <span>{t('level')}</span>
-              <strong>{activity.gradeBand.join(' • ')}</strong>
-            </div>
-            <div className="meta-card">
-              <span>{t('duration')}</span>
-              <strong>{activity.estimatedDurationMin} min</strong>
-            </div>
-            <div className="meta-card">
-              <span>{t('mode')}</span>
-              <strong>{activity.generated ? `${t('generatedMode')} ${activity.resolvedDifficulty}` : activity.engineType}</strong>
+        <header className="activity-header">
+          <div className="activity-header__left">
+            <Link className="text-link" to={module ? `/subjects/${module.subjectId}/grades/${module.gradeId}/modules/${module.id}` : `/subjects/${activity.subject}`}>
+              ← {module ? module.title : t('backSubject')}
+            </Link>
+            <span className="pill">{subject ? getSubjectLabel(subject, locale, t) : ''}</span>
+            <h2>{activity.title}</h2>
+            <p>{activity.instructions}</p>
+          </div>
+          <div className="activity-header__right">
+            <div className="meta-stack">
+              <div className="meta-card">
+                <span>{t('level')}</span>
+                <strong>{activity.gradeBand.join(' • ')}</strong>
+              </div>
+              <div className="meta-card">
+                <span>{t('duration')}</span>
+                <strong>{activity.estimatedDurationMin} min</strong>
+              </div>
+              <div className="meta-card">
+                <span>{t('mode')}</span>
+                <strong>{activity.generated ? `${t('generatedMode')} ${activity.resolvedDifficulty}` : activity.engineType}</strong>
+              </div>
             </div>
           </div>
-        </aside>
+        </header>
         <div className="activity-engine">
           {renderEngine(activity, progress, handleComplete)}
         </div>

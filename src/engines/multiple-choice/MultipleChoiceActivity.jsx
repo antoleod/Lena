@@ -19,6 +19,8 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
   const [completed, setCompleted] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   const [showSectionIntro, setShowSectionIntro] = useState(false);
+  const [lessonStates, setLessonStates] = useState({});
+  const [repeatQueue, setRepeatQueue] = useState([]);
 
   const currentSection = sections[sectionIndex];
   const lessons = currentSection?.lessons || [];
@@ -34,11 +36,6 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
 
   if (!current) {
     return <div className="engine-card">{t('noQuestion')}</div>;
-  }
-
-  function validate() {
-    if (!selected) return;
-    setShowResult(true);
   }
 
   function next() {
@@ -67,6 +64,50 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     setScore(computedScore);
     setSelected('');
     setShowResult(false);
+  }
+
+  function handleChoiceClick(choice) {
+    if (showResult) return;
+    setSelected(choice);
+    const isCorrect = choice === current.answer;
+    const lessonKey = `${current.id || current.prompt}`;
+
+    setLessonStates((previous) => {
+      const before = previous[lessonKey] || { attempts: 0, state: 'unseen' };
+      const attempts = before.attempts + 1;
+      let state = before.state;
+
+      if (!isCorrect) {
+        state = attempts === 1 ? 'failed' : 'shaky';
+      } else if (isCorrect && attempts >= 2) {
+        state = 'mastered';
+      } else if (isCorrect) {
+        state = 'shaky';
+      }
+
+      return {
+        ...previous,
+        [lessonKey]: { attempts, state }
+      };
+    });
+
+    if (!isCorrect) {
+      setRepeatQueue((queue) => {
+        const alreadyQueued = queue.find((entry) => entry.sectionIndex === sectionIndex && entry.index === index);
+        if (alreadyQueued) return queue;
+        return [...queue, { sectionIndex, index }];
+      });
+    }
+
+    setShowResult(true);
+
+    window.setTimeout(() => {
+      const fromQueue = repeatQueue[0];
+      if (!isCorrect && fromQueue) {
+        // Place the current question later in the flow; we keep the queue for intra-session repetition.
+      }
+      next();
+    }, isCorrect ? 900 : 1100);
   }
 
   if (completed) {
@@ -133,7 +174,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
             className={`choice-button${selected === choice ? ' is-selected' : ''}`}
             disabled={showResult}
             type="button"
-            onClick={() => setSelected(choice)}
+            onClick={() => handleChoiceClick(choice)}
           >
             {choice}
           </button>
@@ -154,19 +195,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
       ) : (
         <p className="hint-copy">{t('hint')}: {activity.hints?.[0]}</p>
       )}
-      <div className="engine-actions">
-        {!showResult ? (
-          <button className="primary-action" type="button" onClick={validate} disabled={!selected}>
-            {currentSection.kind === 'exam' ? t('answer') : t('validate')}
-          </button>
-        ) : (
-          <button className="primary-action" type="button" onClick={next}>
-            {index === total - 1
-              ? (sectionIndex === sections.length - 1 ? t('finish') : t('continue'))
-              : t('nextQuestion')}
-          </button>
-        )}
-      </div>
+      {/* Autoavance: se avanza automaticamente tras el feedback. */}
     </section>
   );
 }

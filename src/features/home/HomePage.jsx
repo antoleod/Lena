@@ -4,6 +4,7 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel, getSubjectRoadmap } from '../../shared/i18n/contentLocalization.js';
 import { getProgressOverview, getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getRewardState } from '../../services/storage/rewardStore.js';
+import { findPositionForModule } from '../../shared/gameplay/worldMap.js';
 import { useEffect, useState } from 'react';
 
 export default function HomePage() {
@@ -16,6 +17,16 @@ export default function HomePage() {
   const snapshot = getProgressSnapshot();
   const continueActivityId = snapshot.meta.lastActivityId;
   const nextModules = modules.slice(0, 4);
+
+  const continueModule = continueActivityId
+    ? modules.find((module) =>
+        module.phases?.guidedPractice?.includes(continueActivityId)
+        || module.phases?.independentPractice?.includes(continueActivityId)
+        || module.phases?.miniChallenge === continueActivityId
+        || module.phases?.miniExam === continueActivityId
+      )
+    : null;
+  const currentPosition = continueModule ? findPositionForModule(continueModule.id) : null;
 
   useEffect(() => {
     function syncStores() {
@@ -47,9 +58,9 @@ export default function HomePage() {
             {continueActivityId ? (
               <Link className="primary-action" to={`/activities/${continueActivityId}`}>{t('continue')}</Link>
             ) : (
-              <Link className="primary-action" to="/subjects/mathematics">{t('enterMath')}</Link>
+              <Link className="primary-action" to="/map">{t('startAdventure')}</Link>
             )}
-            <Link className="secondary-action" to="/shop">{t('shop')}</Link>
+            <Link className="secondary-action" to="/map">{t('missions')}</Link>
           </div>
           <img className="hero-sticker" src={rainbowSticker} alt="" />
         </div>
@@ -87,6 +98,21 @@ export default function HomePage() {
             <p>{continueActivityId ? continueActivityId : 'Aucune activite lancee pour le moment.'}</p>
             {continueActivityId ? <Link className="text-link" to={`/activities/${continueActivityId}`}>{t('continue')}</Link> : null}
           </article>
+          {currentPosition ? (
+            <article className="preview-card">
+              <span className="pill">Parcours</span>
+              <h4>Monde actuel</h4>
+              <p>{currentPosition.worldName} • Mission {currentPosition.missionOrder}</p>
+              <Link className="text-link" to={`/map/${currentPosition.worldId}`}>{t('missions')}</Link>
+            </article>
+          ) : (
+            <article className="preview-card">
+              <span className="pill">Carte</span>
+              <h4>Explorer la carte</h4>
+              <p>Choisis un monde et une mission adaptes a ton niveau.</p>
+              <Link className="text-link" to="/map">{t('startAdventure')}</Link>
+            </article>
+          )}
           <article className="preview-card">
             <span className="pill">Progression</span>
             <h4>Activites terminees</h4>
