@@ -22,7 +22,8 @@ export function ThemeProvider({ children }) {
 
   const value = useMemo(() => ({
     themeId,
-    setTheme: (nextThemeId) => equipTheme(nextThemeId)
+    setTheme: (nextThemeId) => equipTheme(nextThemeId),
+    setThemeId: (nextThemeId) => equipTheme(nextThemeId)
   }), [themeId]);
 
   return (
