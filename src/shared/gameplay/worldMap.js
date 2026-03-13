@@ -1,151 +1,68 @@
-// World, mission and level definition for the global adventure map.
-// Each level links to a concrete module/activity so there are no empty nodes.
-import { modules } from '../../features/curriculum/catalog.js';
+import { activities } from '../../features/curriculum/catalog.js';
 
-const WORLDS = [
-  {
-    id: 'world-1',
-    order: 1,
-    name: 'Découvrir',
-    theme: 'forest-soft',
-    subjectBias: ['mathematics', 'french'],
-    grades: ['P2'],
-    icon: '🌱'
-  },
-  {
-    id: 'world-2',
-    order: 2,
-    name: 'Construire',
-    theme: 'village',
-    subjectBias: ['mathematics'],
-    grades: ['P2'],
-    icon: '🧱'
-  },
-  {
-    id: 'world-3',
-    order: 3,
-    name: 'Vie quotidienne',
-    theme: 'city',
-    subjectBias: ['mathematics', 'dutch', 'english', 'spanish'],
-    grades: ['P2'],
-    icon: '🏙️'
-  },
-  {
-    id: 'world-4',
-    order: 4,
-    name: 'Explorateurs',
-    theme: 'maps',
-    subjectBias: ['stories', 'french'],
-    grades: ['P2', 'P3'],
-    icon: '🗺️'
-  },
-  {
-    id: 'world-5',
-    order: 5,
-    name: 'Penser',
-    theme: 'lab',
-    subjectBias: ['reasoning'],
-    grades: ['P2', 'P3'],
-    icon: '🧠'
-  },
-  {
-    id: 'world-6',
-    order: 6,
-    name: 'Scientifiques',
-    theme: 'space',
-    subjectBias: ['mathematics', 'reasoning'],
-    grades: ['P3'],
-    icon: '🧪'
-  },
-  {
-    id: 'world-7',
-    order: 7,
-    name: 'Aventuriers',
-    theme: 'islands',
-    subjectBias: ['stories', 'french'],
-    grades: ['P3'],
-    icon: '🏝️'
-  },
-  {
-    id: 'world-8',
-    order: 8,
-    name: 'Défis',
-    theme: 'mountain',
-    subjectBias: ['mathematics', 'reasoning'],
-    grades: ['P3'],
-    icon: '⛰️'
-  },
-  {
-    id: 'world-9',
-    order: 9,
-    name: 'Grands problèmes',
-    theme: 'big-city',
-    subjectBias: ['mathematics'],
-    grades: ['P3'],
-    icon: '🏗️'
-  },
-  {
-    id: 'world-10',
-    order: 10,
-    name: 'Stratégie',
-    theme: 'puzzle',
-    subjectBias: ['reasoning'],
-    grades: ['P3'],
-    icon: '♟️'
-  },
-  {
-    id: 'world-11',
-    order: 11,
-    name: 'Maîtrise',
-    theme: 'sky',
-    subjectBias: ['mathematics', 'french', 'reasoning'],
-    grades: ['P2', 'P3'],
-    icon: '🌌'
-  },
-  {
-    id: 'world-12',
-    order: 12,
-    name: 'Grand final',
-    theme: 'castle',
-    subjectBias: ['mathematics', 'french', 'dutch', 'english', 'spanish', 'reasoning', 'stories'],
-    grades: ['P2', 'P3'],
-    icon: '🏰'
-  }
+const WORLD_BLUEPRINTS = [
+  { id: 'world-1', order: 1, name: 'Premiers pas', icon: '1', grades: ['P2'], subjects: ['mathematics', 'french'] },
+  { id: 'world-2', order: 2, name: 'Nombres et mots', icon: '2', grades: ['P2'], subjects: ['mathematics', 'french', 'dutch'] },
+  { id: 'world-3', order: 3, name: 'Vie quotidienne', icon: '3', grades: ['P2'], subjects: ['mathematics', 'english', 'spanish'] },
+  { id: 'world-4', order: 4, name: 'Lire et comprendre', icon: '4', grades: ['P2', 'P3'], subjects: ['french', 'stories'] },
+  { id: 'world-5', order: 5, name: 'Logique douce', icon: '5', grades: ['P2', 'P3'], subjects: ['reasoning', 'mathematics'] },
+  { id: 'world-6', order: 6, name: 'Calcul rapide', icon: '6', grades: ['P3'], subjects: ['mathematics'] },
+  { id: 'world-7', order: 7, name: 'Langues du monde', icon: '7', grades: ['P3', 'P4'], subjects: ['dutch', 'english', 'spanish'] },
+  { id: 'world-8', order: 8, name: 'Multiplications', icon: '8', grades: ['P3', 'P4'], subjects: ['mathematics'] },
+  { id: 'world-9', order: 9, name: 'Problemes et strategie', icon: '9', grades: ['P3', 'P4', 'P5'], subjects: ['mathematics', 'reasoning'] },
+  { id: 'world-10', order: 10, name: 'Precision', icon: '10', grades: ['P4', 'P5'], subjects: ['french', 'english', 'spanish'] },
+  { id: 'world-11', order: 11, name: 'Maitrise', icon: '11', grades: ['P5', 'P6'], subjects: ['mathematics', 'reasoning', 'stories'] },
+  { id: 'world-12', order: 12, name: 'Grand voyage', icon: '12', grades: ['P6', 'P5', 'P4', 'P3', 'P2'], subjects: ['mathematics', 'french', 'dutch', 'english', 'spanish', 'reasoning', 'stories'] }
 ];
 
-function pickModulesForWorld(world) {
-  const filtered = modules.filter((module) => {
-    return world.subjectBias.includes(module.subjectId) && world.grades.includes(module.gradeId);
-  });
-  return filtered;
+function getGradeRank(gradeId) {
+  return Number(String(gradeId).replace('P', '')) || 0;
 }
 
-function buildWorldNodes(world) {
-  const sourceModules = pickModulesForWorld(world);
-  // Ensure we always have some real modules; if not, world will be hidden in the map UI.
-  if (!sourceModules.length) {
+function sortActivitiesByGradeAndSubject(list) {
+  return [...list].sort((left, right) => {
+    const gradeDelta = getGradeRank(left.gradeBand?.[0]) - getGradeRank(right.gradeBand?.[0]);
+    if (gradeDelta !== 0) return gradeDelta;
+    return left.subject.localeCompare(right.subject);
+  });
+}
+
+function getPoolForWorld(world) {
+  const filtered = activities.filter((activity) => {
+    const activityGrades = activity.gradeBand || [];
+    const hasGrade = activityGrades.some((gradeId) => world.grades.includes(gradeId));
+    return hasGrade && world.subjects.includes(activity.subject);
+  });
+  return sortActivitiesByGradeAndSubject(filtered);
+}
+
+function createLevelsFromPool(worldId, missionOrder, pool, offset) {
+  return Array.from({ length: 10 }, (_, index) => {
+    const source = pool[(offset + index) % pool.length];
+    return {
+      id: `${worldId}-mission-${missionOrder}-level-${index + 1}`,
+      order: index + 1,
+      activityId: source.id,
+      subjectId: source.subject,
+      gradeId: source.gradeBand?.[0] || 'P2',
+      title: source.title,
+      estimatedDurationMin: source.estimatedDurationMin || 8
+    };
+  });
+}
+
+function buildWorld(world) {
+  const pool = getPoolForWorld(world);
+  if (!pool.length) {
     return { ...world, missions: [] };
   }
 
-  // Build 10 missions per world, each mission cycles through existing modules.
-  const missions = Array.from({ length: 10 }, (_, missionIndex) => {
-    const missionId = `${world.id}-mission-${missionIndex + 1}`;
-    const missionModules = [];
-    for (let index = 0; index < 10; index += 1) {
-      const module = sourceModules[(missionIndex * 10 + index) % sourceModules.length];
-      missionModules.push({
-        id: `${missionId}-level-${index + 1}`,
-        moduleId: module.id,
-        subjectId: module.subjectId,
-        gradeId: module.gradeId
-      });
-    }
-    return {
-      id: missionId,
-      order: missionIndex + 1,
-      levels: missionModules
-    };
-  });
+  const missions = Array.from({ length: 10 }, (_, index) => ({
+    id: `${world.id}-mission-${index + 1}`,
+    order: index + 1,
+    title: `${world.name} ${index + 1}`,
+    levels: createLevelsFromPool(world.id, index + 1, pool, index * 3)
+  }));
 
   return {
     ...world,
@@ -153,7 +70,7 @@ function buildWorldNodes(world) {
   };
 }
 
-export const worldMap = WORLDS.map(buildWorldNodes);
+export const worldMap = WORLD_BLUEPRINTS.map(buildWorld);
 
 export function getWorldById(worldId) {
   return worldMap.find((world) => world.id === worldId) || null;
@@ -165,18 +82,19 @@ export function getMission(worldId, missionId) {
   return world.missions.find((mission) => mission.id === missionId) || null;
 }
 
-export function findPositionForModule(moduleId) {
+export function findPositionForActivity(activityId) {
   for (const world of worldMap) {
     for (const mission of world.missions) {
-      const index = mission.levels.findIndex((level) => level.moduleId === moduleId);
-      if (index !== -1) {
+      const level = mission.levels.find((entry) => entry.activityId === activityId);
+      if (level) {
         return {
           worldId: world.id,
           worldOrder: world.order,
           worldName: world.name,
           missionId: mission.id,
           missionOrder: mission.order,
-          levelIndex: index
+          levelOrder: level.order,
+          activityId
         };
       }
     }
@@ -184,4 +102,27 @@ export function findPositionForModule(moduleId) {
   return null;
 }
 
+export function isMissionCompleted(mission, progress) {
+  return mission.levels.every((level) => progress.activities[level.activityId]?.completed);
+}
 
+export function getMissionProgress(mission, progress) {
+  const completed = mission.levels.filter((level) => progress.activities[level.activityId]?.completed).length;
+  const perfect = mission.levels.filter((level) => (progress.activities[level.activityId]?.bestScore || 0) >= 10).length;
+  return {
+    completed,
+    perfect,
+    total: mission.levels.length
+  };
+}
+
+export function getWorldProgress(world, progress) {
+  const levels = world.missions.flatMap((mission) => mission.levels);
+  const completed = levels.filter((level) => progress.activities[level.activityId]?.completed).length;
+  const perfect = levels.filter((level) => (progress.activities[level.activityId]?.bestScore || 0) >= 10).length;
+  return {
+    completed,
+    perfect,
+    total: levels.length
+  };
+}

@@ -1,83 +1,67 @@
 import { Link, useParams } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
-import { worldMap, getWorldById } from '../../shared/gameplay/worldMap.js';
+import { getWorldById, getMissionProgress, getWorldProgress, worldMap } from '../../shared/gameplay/worldMap.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
-import { getProfile } from '../../services/storage/profileStore.js';
-import { getModuleById } from '../curriculum/catalog.js';
 
-function levelState(level, progress) {
-  const activity = progress.activities[level.moduleId];
-  if (!activity) return 'available';
-  if (activity.completed && activity.bestScore >= 0.9 * 10) {
-    return 'perfect';
+function isMissionUnlocked(world, missionOrder, progress) {
+  if (world.order === 1 && missionOrder === 1) {
+    return true;
   }
-  if (activity.completed) {
-    return 'completed';
+  if (missionOrder === 1) {
+    const previousWorld = worldMap.find((entry) => entry.order === world.order - 1);
+    const previousWorldProgress = previousWorld ? getWorldProgress(previousWorld, progress) : null;
+    return !previousWorldProgress || previousWorldProgress.completed >= 40;
   }
-  return 'in_progress';
+
+  const previousMission = world.missions.find((entry) => entry.order === missionOrder - 1);
+  const previousMissionProgress = previousMission ? getMissionProgress(previousMission, progress) : null;
+  return !previousMissionProgress || previousMissionProgress.completed >= 7;
 }
 
 export default function WorldDetailPage() {
   const { t } = useLocale();
   const { worldId } = useParams();
   const world = getWorldById(worldId);
-  const profile = getProfile();
   const progress = getProgressSnapshot();
 
-  if (!world || !world.missions.length) {
+  if (!world) {
     return (
-      <section className="section-block">
+      <section className="panel panel--tight">
         <h2>{t('activityNotFound')}</h2>
         <Link className="text-link" to="/map">{t('backHome')}</Link>
       </section>
     );
   }
 
-  const unlocked = profile.worldsUnlocked.includes(world.id);
-  if (!unlocked) {
-    return (
-      <section className="section-block">
-        <h2>{world.name}</h2>
-        <p>🔒 {t('activityNotFound')}</p>
-        <Link className="text-link" to="/map">{t('backHome')}</Link>
-      </section>
-    );
-  }
-
   return (
-    <div className="page-stack">
-      <section className="section-block">
-        <div className="section-heading">
+    <div className="page-stack page-stack--compact">
+      <section className="panel panel--tight">
+        <div className="panel__header">
           <div>
-            <span className="eyebrow">{world.order} / 12</span>
-            <h3>{world.name}</h3>
+            <span className="eyebrow">{t('missions')}</span>
+            <h2>{world.name}</h2>
           </div>
+          <Link className="text-link" to="/map">{t('missions')}</Link>
         </div>
-        <div className="mission-path">
-          {world.missions.map((mission) => (
-            <div key={mission.id} className="mission-strip">
-              <h4>{t('missions')} {mission.order}</h4>
-              <div className="level-strip">
-                {mission.levels.map((level) => {
-                  const module = getModuleById(level.moduleId);
-                  const state = levelState(level, progress);
-                  const nodeClass = `level-node level-node--${state}`;
-                  return (
-                    <Link
-                      key={level.id}
-                      to={`/subjects/${module.subjectId}/grades/${module.gradeId}/modules/${module.id}`}
-                      className={nodeClass}
-                    >
-                      <span aria-hidden="true">●</span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+
+        <div className="mission-list">
+          {world.missions.map((mission) => {
+            const missionProgress = getMissionProgress(mission, progress);
+            const unlocked = isMissionUnlocked(world, mission.order, progress);
+            return (
+              <Link
+                key={mission.id}
+                className={`mission-row${unlocked ? '' : ' is-locked'}`}
+                to={unlocked ? `/map/${world.id}/missions/${mission.id}` : '/map'}
+              >
+                <strong>{t('missions')} {mission.order}</strong>
+                <span>{missionProgress.completed}/{missionProgress.total}</span>
+                <small>{mission.title}</small>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </div>
   );
 }
-

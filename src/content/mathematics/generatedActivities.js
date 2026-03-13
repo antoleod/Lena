@@ -11,6 +11,7 @@ function createGeneratedMathActivity({
   instructions,
   hints
 }) {
+  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
   return {
     id,
     slug,
@@ -29,7 +30,7 @@ function createGeneratedMathActivity({
     originRepo,
     engineType: 'multiple-choice',
     generatorConfig: {
-      grade: gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2',
+      grade: generatorGrade,
       topic,
       language: 'fr',
       difficulty,
@@ -113,5 +114,45 @@ export const generatedMathematicsActivities = [
     topic: 'logic-sequence',
     instructions: 'Complete des suites qui changent a chaque essai.',
     hints: ['Cherche la regle qui se repete.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-division-p4',
+    slug: 'divisions-dynamiques-p4',
+    title: 'Divisions progressives',
+    subskill: 'division',
+    gradeBand: ['P4', 'P5'],
+    topic: 'division',
+    instructions: 'Des divisions simples qui changent a chaque session.',
+    hints: ['Cherche combien de groupes egaux on peut former.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-fractions-p4',
+    slug: 'fractions-dynamiques-p4',
+    title: 'Fractions visuelles',
+    subskill: 'fractions',
+    gradeBand: ['P4', 'P5'],
+    topic: 'fractions',
+    instructions: 'Observe des parts et choisis la bonne fraction.',
+    hints: ['Regarde le nombre total de parts, puis les parts choisies.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-decimals-p5',
+    slug: 'decimaux-dynamiques-p5',
+    title: 'Decimaux essentiels',
+    subskill: 'decimals',
+    gradeBand: ['P5', 'P6'],
+    topic: 'decimals',
+    instructions: 'Calcule avec des nombres decimaux simples.',
+    hints: ['Aligne bien les dixiemes.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-mixed-operations-p6',
+    slug: 'operations-mixtes-dynamiques-p6',
+    title: 'Operations mixtes',
+    subskill: 'mixed-operations',
+    gradeBand: ['P6'],
+    topic: 'mixed-operations',
+    instructions: 'Combine multiplication et soustraction en une meme question.',
+    hints: ['Commence par la multiplication.']
   })
 ];

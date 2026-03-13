@@ -11,6 +11,7 @@ function createGeneratedFrenchActivity({
   hints,
   featured = false
 }) {
+  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
   return {
     id,
     slug,
@@ -30,7 +31,7 @@ function createGeneratedFrenchActivity({
     engineType: 'multiple-choice',
     featured,
     generatorConfig: {
-      grade: gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2',
+      grade: generatorGrade,
       topic,
       language: 'fr',
       difficulty: 'adaptive',
@@ -75,5 +76,25 @@ export const generatedFrenchActivities = [
     gradeBand: ['P2', 'P3'],
     instructions: 'Le systeme cree de nouvelles phrases a completer.',
     hints: ['Cherche le mot qui donne du sens a la phrase.']
+  }),
+  createGeneratedFrenchActivity({
+    id: 'generated-french-reading-p4',
+    slug: 'lecture-comprehension-dynamique-fr-p4',
+    title: 'Lecture active',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P4', 'P5'],
+    instructions: 'Textes courts, indices explicites et implicites.',
+    hints: ['Repere ce qui est dit clairement et ce qui doit etre deduit.']
+  }),
+  createGeneratedFrenchActivity({
+    id: 'generated-french-language-p6',
+    slug: 'langage-dynamique-fr-p6',
+    title: 'Langue et grammaire',
+    subskill: 'grammar',
+    topic: 'sentence-completion',
+    gradeBand: ['P6'],
+    instructions: 'Phrases plus riches avec accords et structure.',
+    hints: ['Observe le sens global de la phrase avant de choisir.']
   })
 ];

@@ -9,6 +9,7 @@ function defaultProfile() {
     themeId: 'theme-candy',
     visualTheme: 'forest', // starting world-style theme
     language: 'fr',
+    sessionActive: true,
     createdAt: Date.now(),
     updatedAt: Date.now(),
     worldsUnlocked: ['world-1'],
@@ -56,6 +57,7 @@ export function saveProfile(patch) {
   const next = {
     ...current,
     ...patch,
+    sessionActive: true,
     updatedAt: Date.now()
   };
   writeStore(next);
@@ -64,7 +66,7 @@ export function saveProfile(patch) {
 
 export function isProfileComplete() {
   const profile = readStore();
-  return Boolean(profile.name && profile.avatarId && profile.themeId && profile.language);
+  return Boolean(profile.sessionActive && profile.name && profile.avatarId && profile.themeId && profile.language);
 }
 
 export function trackStudySession({ minutes = 0, activitiesCompleted = 0, examsCompleted = 0 }) {
@@ -99,5 +101,19 @@ export function unlockMission(missionKey) {
   };
   writeStore(next);
   return next;
+}
+
+export function logoutProfile() {
+  const profile = readStore();
+  writeStore({
+    ...profile,
+    sessionActive: false,
+    updatedAt: Date.now()
+  });
+  try {
+    window.dispatchEvent(new Event('lena-profile-logout'));
+  } catch {
+    // ignore dispatch failures
+  }
 }
 

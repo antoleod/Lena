@@ -23,7 +23,7 @@ export const mathematicsSubject = {
   description: 'Numération, opérations, logique, calcul mental et problèmes pour 2e et 3e primaire.',
   color: '#ff8a5b',
   accent: '#ffe1cf',
-  grades: ['P2', 'P3'],
+  grades: ['P2', 'P3', 'P4', 'P5', 'P6'],
   roadmap: [
     'Nombres et valeur de position',
     'Additions et soustractions',

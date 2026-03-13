@@ -1,191 +1,179 @@
 import { Link } from 'react-router-dom';
-import { activities, getCurriculumStats, getFeaturedActivities, modules, subjects } from '../curriculum/catalog.js';
+import { activities, modules, subjects } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
-import { getSubjectDescription, getSubjectLabel, getSubjectRoadmap } from '../../shared/i18n/contentLocalization.js';
+import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressOverview, getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getRewardState } from '../../services/storage/rewardStore.js';
-import { findPositionForModule } from '../../shared/gameplay/worldMap.js';
-import { useEffect, useState } from 'react';
+import { getProfile } from '../../services/storage/profileStore.js';
+import { findPositionForActivity, getWorldById, getMission } from '../../shared/gameplay/worldMap.js';
+import { useEffect, useMemo, useState } from 'react';
+
+function formatMinutes(minutes) {
+  if (!minutes) return '0 min';
+  if (minutes < 60) return `${minutes} min`;
+  const hours = Math.floor(minutes / 60);
+  const rest = minutes % 60;
+  return rest ? `${hours} h ${rest} min` : `${hours} h`;
+}
 
 export default function HomePage() {
   const { locale, t } = useLocale();
   const [rewardState, setRewardState] = useState(() => getRewardState());
+  const [profile, setProfile] = useState(() => getProfile());
   const [progressState, setProgressState] = useState(() => getProgressOverview(activities, modules));
-  const stats = getCurriculumStats();
-  const featured = getFeaturedActivities();
-  const rainbowSticker = `${import.meta.env.BASE_URL}assets/stickers/sticker-arcenciel.svg`;
-  const snapshot = getProgressSnapshot();
-  const continueActivityId = snapshot.meta.lastActivityId;
-  const nextModules = modules.slice(0, 4);
-
-  const continueModule = continueActivityId
-    ? modules.find((module) =>
-        module.phases?.guidedPractice?.includes(continueActivityId)
-        || module.phases?.independentPractice?.includes(continueActivityId)
-        || module.phases?.miniChallenge === continueActivityId
-        || module.phases?.miniExam === continueActivityId
-      )
-    : null;
-  const currentPosition = continueModule ? findPositionForModule(continueModule.id) : null;
 
   useEffect(() => {
     function syncStores() {
       setRewardState(getRewardState());
+      setProfile(getProfile());
       setProgressState(getProgressOverview(activities, modules));
     }
 
     window.addEventListener('lena-rewards-change', syncStores);
     window.addEventListener('lena-progress-change', syncStores);
+    window.addEventListener('lena-profile-change', syncStores);
     return () => {
       window.removeEventListener('lena-rewards-change', syncStores);
       window.removeEventListener('lena-progress-change', syncStores);
+      window.removeEventListener('lena-profile-change', syncStores);
     };
   }, []);
 
+  const snapshot = getProgressSnapshot();
+  const continueActivityId = snapshot.meta.lastActivityId;
+  const currentPosition = continueActivityId ? findPositionForActivity(continueActivityId) : null;
+  const currentWorld = currentPosition ? getWorldById(currentPosition.worldId) : null;
+  const currentMission = currentPosition ? getMission(currentPosition.worldId, currentPosition.missionId) : null;
+
+  const weakSubjects = useMemo(() => {
+    return Object.entries(progressState.subjectProgress || {})
+      .map(([subjectId, entry]) => ({
+        subjectId,
+        completion: entry.total ? entry.completed / entry.total : 0
+      }))
+      .sort((left, right) => left.completion - right.completion)
+      .slice(0, 3);
+  }, [progressState.subjectProgress]);
+
+  const recentSubjects = subjects.slice(0, 6);
+  const currentActivity = continueActivityId ? activities.find((activity) => activity.id === continueActivityId) : null;
+
   return (
-    <div className="page-stack">
-      <section className="hero-grid">
-        <div className="hero-panel hero-panel--primary">
-          <span className="eyebrow">{t('heroEyebrow')}</span>
-          <h2>{t('heroTitle')}</h2>
-          <p>{t('heroText')}</p>
-          <div className="hero-badges">
-            <span className="pill">{t('heroBadge1')}</span>
-            <span className="pill">{t('heroBadge2')}</span>
-            <span className="pill">{t('heroBadge3')}</span>
+    <div className="page-stack page-stack--compact">
+      <section className="dashboard-grid">
+        <article className="panel panel--hero-compact">
+          <div className="panel__header">
+            <div>
+              <span className="eyebrow">{t('learningAdventure')}</span>
+              <h2>{profile.name || t('defaultChildName')}</h2>
+            </div>
+            <span className="progress-badge">{progressState.streakCurrent} streak</span>
           </div>
-          <div className="hero-actions">
-            {continueActivityId ? (
-              <Link className="primary-action" to={`/activities/${continueActivityId}`}>{t('continue')}</Link>
-            ) : (
-              <Link className="primary-action" to="/map">{t('startAdventure')}</Link>
-            )}
+          <p className="panel__copy">{t('heroText')}</p>
+          <div className="dashboard-actions">
+            <Link className="primary-action" to={continueActivityId ? `/activities/${continueActivityId}` : '/map'}>
+              {continueActivityId ? t('continue') : t('startAdventure')}
+            </Link>
             <Link className="secondary-action" to="/map">{t('missions')}</Link>
           </div>
-          <img className="hero-sticker" src={rainbowSticker} alt="" />
-        </div>
-        <div className="hero-panel hero-panel--stats">
-          <div className="stat-card">
-            <span>{t('universes')}</span>
-            <strong>{stats.subjects}</strong>
+          <div className="mini-metrics">
+            <div><span>{t('crystals')}</span><strong>{rewardState.balance}</strong></div>
+            <div><span>{t('progression')}</span><strong>{progressState.completedActivities}/{progressState.totalActivities}</strong></div>
+            <div><span>{t('studyTimeLabel') || 'Study'}</span><strong>{formatMinutes(profile.totalStudyMinutes)}</strong></div>
           </div>
-          <div className="stat-card">
-            <span>{t('missions')}</span>
-            <strong>{stats.activities}</strong>
-          </div>
-          <div className="stat-card">
-            <span>{t('crystals')}</span>
-            <strong>{rewardState.balance}</strong>
-          </div>
-          <div className="stat-card">
-            <span>Streak</span>
-            <strong>{progressState.streakCurrent}</strong>
-          </div>
-        </div>
-      </section>
+        </article>
 
-      <section className="section-block">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">Dashboard</span>
-            <h3>Continuer et progres global</h3>
+        <article className="panel panel--tight">
+          <div className="panel__header">
+            <div>
+              <span className="eyebrow">{t('continue')}</span>
+              <h3>{t('continueJourneyLabel') || 'Continue journey'}</h3>
+            </div>
           </div>
-        </div>
-        <div className="activity-preview-grid">
-          <article className="preview-card">
-            <span className="pill">Continue</span>
-            <h4>Derniere activite</h4>
-            <p>{continueActivityId ? continueActivityId : 'Aucune activite lancee pour le moment.'}</p>
-            {continueActivityId ? <Link className="text-link" to={`/activities/${continueActivityId}`}>{t('continue')}</Link> : null}
-          </article>
+          <div className="detail-list">
+            <div className="detail-list__row">
+              <span>{t('currentWorldLabel') || 'Current world'}</span>
+              <strong>{currentWorld?.name || '-'}</strong>
+            </div>
+            <div className="detail-list__row">
+              <span>{t('currentMissionLabel') || 'Current mission'}</span>
+              <strong>{currentMission ? `${t('missions')} ${currentMission.order}` : '-'}</strong>
+            </div>
+            <div className="detail-list__row">
+              <span>{t('exercise')}</span>
+              <strong>{currentActivity?.title || '-'}</strong>
+            </div>
+          </div>
           {currentPosition ? (
-            <article className="preview-card">
-              <span className="pill">Parcours</span>
-              <h4>Monde actuel</h4>
-              <p>{currentPosition.worldName} • Mission {currentPosition.missionOrder}</p>
-              <Link className="text-link" to={`/map/${currentPosition.worldId}`}>{t('missions')}</Link>
-            </article>
-          ) : (
-            <article className="preview-card">
-              <span className="pill">Carte</span>
-              <h4>Explorer la carte</h4>
-              <p>Choisis un monde et une mission adaptes a ton niveau.</p>
-              <Link className="text-link" to="/map">{t('startAdventure')}</Link>
-            </article>
-          )}
-          <article className="preview-card">
-            <span className="pill">Progression</span>
-            <h4>Activites terminees</h4>
-            <p>{progressState.completedActivities} / {progressState.totalActivities}</p>
-          </article>
-          <article className="preview-card">
-            <span className="pill">Modules</span>
-            <h4>Base curriculaire</h4>
-            <p>{stats.modules} modules structures pour les niveaux P2 a P3, avec base P4-P6.</p>
-          </article>
-          <article className="preview-card">
-            <span className="pill">Recompenses</span>
-            <h4>Boutique et debloque</h4>
-            <p>{rewardState.inventory.length} objets debloques et themes applicables.</p>
-            <Link className="text-link" to="/shop">{t('shop')}</Link>
-          </article>
-        </div>
-      </section>
-
-      <section className="section-block">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">{t('byDomain')}</span>
-            <h3>{t('chooseUniverse')}</h3>
-          </div>
-        </div>
-        <div className="subject-grid">
-          {subjects.map((subject, index) => (
-            <Link
-              key={subject.id}
-              className="subject-card subject-card--animated"
-              style={{
-                '--subject-color': subject.color,
-                '--subject-accent': subject.accent,
-                animationDelay: `${index * 90}ms`
-              }}
-              to={`/subjects/${subject.id}`}
-            >
-              <span className="pill">{subject.grades.slice(0, 2).join(' • ')}</span>
-              <h4>{getSubjectLabel(subject, locale, t)}</h4>
-              <p>{getSubjectDescription(subject, locale)}</p>
-              <ul className="roadmap-list">
-                {getSubjectRoadmap(subject, locale).slice(0, 3).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+            <Link className="text-link" to={`/map/${currentPosition.worldId}/missions/${currentPosition.missionId}`}>
+              {t('openMapLabel') || 'Open mission'}
             </Link>
-          ))}
-        </div>
+          ) : (
+            <Link className="text-link" to="/map">{t('startAdventure')}</Link>
+          )}
+        </article>
       </section>
 
-      <section className="section-block">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">Prochains modules</span>
-            <h3>Apprendre puis evaluer</h3>
+      <section className="dashboard-grid dashboard-grid--secondary">
+        <article className="panel panel--tight">
+          <div className="panel__header">
+            <div>
+              <span className="eyebrow">{t('progression')}</span>
+              <h3>{t('globalProgressLabel') || 'Global progress'}</h3>
+            </div>
           </div>
-        </div>
-        <div className="activity-preview-grid">
-          {nextModules.map((module) => (
-            <article key={module.id} className="preview-card">
-              <span className="pill">{module.gradeId}</span>
-              <h4>{module.title}</h4>
-              <p>{module.summary}</p>
-              <Link
-                className="text-link"
-                to={`/subjects/${module.subjectId}/grades/${module.gradeId}/modules/${module.id}`}
-              >
-                {t('startAdventure')}
-              </Link>
-            </article>
-          ))}
-        </div>
+          <div className="subject-progress-list">
+            {recentSubjects.map((subject) => {
+              const entry = progressState.subjectProgress?.[subject.id] || { total: 0, completed: 0 };
+              const percent = entry.total ? Math.round((entry.completed / entry.total) * 100) : 0;
+              return (
+                <Link key={subject.id} className="subject-progress-row" to={`/subjects/${subject.id}`}>
+                  <span>{getSubjectLabel(subject, locale, t)}</span>
+                  <div className="subject-progress-row__bar">
+                    <i style={{ width: `${percent}%`, background: subject.color }}></i>
+                  </div>
+                  <strong>{percent}%</strong>
+                </Link>
+              );
+            })}
+          </div>
+        </article>
+
+        <article className="panel panel--tight">
+          <div className="panel__header">
+            <div>
+              <span className="eyebrow">{t('smartTraining')}</span>
+              <h3>{t('reinforceLabel') || 'Topics to reinforce'}</h3>
+            </div>
+          </div>
+          <div className="tag-list">
+            {weakSubjects.map(({ subjectId }) => {
+              const subject = subjects.find((entry) => entry.id === subjectId);
+              if (!subject) return null;
+              return (
+                <Link key={subjectId} className="tag-chip" to={`/subjects/${subjectId}`}>
+                  {getSubjectLabel(subject, locale, t)}
+                </Link>
+              );
+            })}
+            <Link className="tag-chip" to="/history">{t('historyTitle') || 'History'}</Link>
+            <Link className="tag-chip" to="/shop">{t('shop')}</Link>
+          </div>
+          <div className="detail-list">
+            <div className="detail-list__row">
+              <span>Mastered</span>
+              <strong>{progressState.mastery?.mastered || 0}</strong>
+            </div>
+            <div className="detail-list__row">
+              <span>Shaky</span>
+              <strong>{progressState.mastery?.shaky || 0}</strong>
+            </div>
+            <div className="detail-list__row">
+              <span>Failed</span>
+              <strong>{progressState.mastery?.failed || 0}</strong>
+            </div>
+          </div>
+        </article>
       </section>
     </div>
   );

@@ -1,6 +1,9 @@
 const GRADE_LABELS = {
   P2: '2nd_grade',
-  P3: '3rd_grade'
+  P3: '3rd_grade',
+  P4: '4th_grade',
+  P5: '5th_grade',
+  P6: '6th_grade'
 };
 
 const FRENCH_NAMES = ['Lina', 'Nora', 'Milo', 'Adam', 'Sara', 'Yanis'];
@@ -247,11 +250,17 @@ function resolveDifficulty(grade, difficulty) {
     return difficulty;
   }
 
-  return grade === 'P3' ? 'medium' : 'easy';
+  if (grade === 'P2') {
+    return 'easy';
+  }
+  if (grade === 'P3' || grade === 'P4') {
+    return 'medium';
+  }
+  return 'hard';
 }
 
 function additionRange(grade, difficulty) {
-  if (grade === 'P3') {
+  if (grade !== 'P2') {
     if (difficulty === 'hard') return [20, 80];
     if (difficulty === 'medium') return [10, 60];
     return [5, 30];
@@ -263,7 +272,7 @@ function additionRange(grade, difficulty) {
 }
 
 function subtractionRange(grade, difficulty) {
-  if (grade === 'P3') {
+  if (grade !== 'P2') {
     if (difficulty === 'hard') return [30, 90];
     if (difficulty === 'medium') return [15, 70];
     return [8, 40];
@@ -278,6 +287,12 @@ function multiplicationRange(grade, difficulty) {
   if (grade === 'P2') {
     if (difficulty === 'hard') return [2, 5];
     return [2, 3];
+  }
+
+  if (grade === 'P5' || grade === 'P6') {
+    if (difficulty === 'hard') return [6, 12];
+    if (difficulty === 'medium') return [4, 10];
+    return [3, 8];
   }
 
   if (difficulty === 'hard') return [4, 9];
@@ -497,6 +512,66 @@ function generateLogicSequenceExercise({ grade, difficulty, language }) {
   });
 }
 
+function generateFractionsExercise({ grade }) {
+  const denominators = grade === 'P4' ? [2, 4, 8] : [2, 3, 4, 5, 8, 10];
+  const denominator = sample(denominators);
+  const numerator = randomInt(1, denominator - 1);
+  const correct = `${numerator}/${denominator}`;
+  const equivalent = `${numerator * 2}/${denominator * 2}`;
+  const wrong = [
+    `${numerator + 1}/${denominator}`,
+    `${Math.max(1, numerator - 1)}/${denominator}`,
+    equivalent
+  ];
+
+  return createExercise({
+    question: `Quelle fraction correspond a la partie coloriee ?`,
+    options: uniqueOptions(correct, wrong),
+    correct,
+    type: 'math_fraction',
+    level: gradeToLabel(grade),
+    context: [`Imagine ${denominator} parts egales et ${numerator} parts choisies.`],
+    explanation: `${numerator} parts sur ${denominator} donnent ${correct}.`
+  });
+}
+
+function generateDecimalsExercise({ grade }) {
+  const left = Number((randomInt(1, grade === 'P6' ? 25 : 12) / 10).toFixed(1));
+  const right = Number((randomInt(1, grade === 'P6' ? 18 : 9) / 10).toFixed(1));
+  const correct = Number((left + right).toFixed(1));
+  const wrong = [
+    Number((correct + 0.1).toFixed(1)),
+    Number((correct - 0.1).toFixed(1)),
+    Number((left + right + 1).toFixed(1))
+  ];
+
+  return createExercise({
+    question: `${left} + ${right} = ?`,
+    options: uniqueOptions(correct, wrong),
+    correct,
+    type: 'math_decimal',
+    level: gradeToLabel(grade),
+    explanation: `${left} + ${right} = ${correct}.`
+  });
+}
+
+function generateMixedOperationsExercise({ grade, difficulty }) {
+  const first = randomInt(4, grade === 'P6' ? 18 : 12);
+  const second = randomInt(2, 9);
+  const third = randomInt(2, difficulty === 'hard' ? 12 : 8);
+  const correct = first * second - third;
+  const wrong = [first + second - third, first * second + third, first + second + third];
+
+  return createExercise({
+    question: `${first} x ${second} - ${third} = ?`,
+    options: uniqueOptions(correct, wrong),
+    correct,
+    type: 'math_mixed_operations',
+    level: gradeToLabel(grade),
+    explanation: `On calcule d abord ${first} x ${second}, puis on retire ${third}.`
+  });
+}
+
 function generateReadingComprehensionExercise({ grade, language }) {
   const passages = language === 'nl'
     ? DUTCH_PASSAGES
@@ -588,6 +663,12 @@ export function generateExercise(input) {
       return generateWordProblemExercise(params);
     case 'logic-sequence':
       return generateLogicSequenceExercise(params);
+    case 'fractions':
+      return generateFractionsExercise(params);
+    case 'decimals':
+      return generateDecimalsExercise(params);
+    case 'mixed-operations':
+      return generateMixedOperationsExercise(params);
     case 'reading-comprehension':
       return generateReadingComprehensionExercise(params);
     case 'sentence-completion':

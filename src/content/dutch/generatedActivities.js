@@ -11,6 +11,7 @@ function createGeneratedDutchActivity({
   hints,
   featured = false
 }) {
+  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
   return {
     id,
     slug,
@@ -30,7 +31,7 @@ function createGeneratedDutchActivity({
     engineType: 'multiple-choice',
     featured,
     generatorConfig: {
-      grade: gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2',
+      grade: generatorGrade,
       topic,
       language: 'nl',
       difficulty: 'adaptive',
@@ -75,5 +76,25 @@ export const generatedDutchActivities = [
     gradeBand: ['P2', 'P3'],
     instructions: 'Korte teksten met nieuwe vragen elke keer.',
     hints: ['Lees de zinnen nog een keer voor je antwoordt.']
+  }),
+  createGeneratedDutchActivity({
+    id: 'generated-dutch-sentences-p4',
+    slug: 'zinnen-dynamisch-nl-p4',
+    title: 'Zinnen afmaken',
+    subskill: 'sentence-building',
+    topic: 'sentence-completion',
+    gradeBand: ['P4', 'P5'],
+    instructions: 'Vul korte zinnen aan met de juiste keuze.',
+    hints: ['Kies het woord dat de zin volledig maakt.']
+  }),
+  createGeneratedDutchActivity({
+    id: 'generated-dutch-reading-p6',
+    slug: 'leesbegrip-dynamisch-nl-p6',
+    title: 'Leesbegrip plus',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P6'],
+    instructions: 'Compacte leesopdrachten met fijnere vragen.',
+    hints: ['Zoek het precieze stukje tekst dat het antwoord geeft.']
   })
 ];

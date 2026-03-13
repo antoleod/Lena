@@ -11,6 +11,7 @@ function createGeneratedEnglishActivity({
   hints,
   featured = false
 }) {
+  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
   return {
     id,
     slug,
@@ -30,7 +31,7 @@ function createGeneratedEnglishActivity({
     engineType: 'multiple-choice',
     featured,
     generatorConfig: {
-      grade: gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2',
+      grade: generatorGrade,
       topic,
       language: 'en',
       difficulty: 'adaptive',
@@ -62,7 +63,7 @@ export const englishSubject = {
   descriptionNl: 'Eerste woorden en korte leesteksten in het Engels.',
   color: '#ffb347',
   accent: '#fff0d6',
-  grades: ['P2', 'P3'],
+  grades: ['P2', 'P3', 'P4', 'P5', 'P6'],
   roadmap: [
     'Vocabulaire du quotidien',
     'Petites phrases',
@@ -96,5 +97,25 @@ export const generatedEnglishActivities = [
     gradeBand: ['P2', 'P3'],
     instructions: 'Short reading texts with fresh questions every time.',
     hints: ['Read the text one more time before choosing.']
+  }),
+  createGeneratedEnglishActivity({
+    id: 'generated-english-sentences-p4',
+    slug: 'anglais-sentences-dynamique-p4',
+    title: 'Sentence builder',
+    subskill: 'sentence-building',
+    topic: 'sentence-completion',
+    gradeBand: ['P4', 'P5'],
+    instructions: 'Build stronger sentences with changing prompts.',
+    hints: ['Choose the word that makes the sentence sound natural.']
+  }),
+  createGeneratedEnglishActivity({
+    id: 'generated-english-reading-p6',
+    slug: 'anglais-reading-dynamique-p6',
+    title: 'Reading challenge',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P6'],
+    instructions: 'A compact reading challenge with new questions each run.',
+    hints: ['Look for the exact clue in the text before answering.']
   })
 ];

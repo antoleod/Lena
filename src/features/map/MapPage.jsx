@@ -1,63 +1,48 @@
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
-import { worldMap } from '../../shared/gameplay/worldMap.js';
+import { worldMap, getWorldProgress } from '../../shared/gameplay/worldMap.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
-import { getProfile } from '../../services/storage/profileStore.js';
 
-function computeWorldState(world, progress, profile) {
-  const unlocked = profile.worldsUnlocked.includes(world.id);
-  if (!world.missions.length) {
-    return 'locked';
+function getWorldState(world, progress) {
+  const worldProgress = getWorldProgress(world, progress);
+  if (world.order === 1) {
+    return worldProgress.completed ? 'in-progress' : 'active';
   }
 
-  const allLevels = world.missions.flatMap((mission) => mission.levels);
-  const completedCount = allLevels.filter((level) => {
-    const activity = progress.activities[level.moduleId];
-    return activity?.completed;
-  }).length;
+  const previousWorld = worldMap.find((entry) => entry.order === world.order - 1);
+  const previousProgress = previousWorld ? getWorldProgress(previousWorld, progress) : null;
+  const unlocked = !previousProgress || previousProgress.completed >= 40;
 
-  if (!unlocked) {
-    return 'locked';
-  }
-  if (completedCount === 0) {
-    return 'available';
-  }
-  if (completedCount === allLevels.length) {
-    return 'perfect';
-  }
-  return 'in_progress';
+  if (!unlocked) return 'locked';
+  if (worldProgress.completed === 0) return 'active';
+  if (worldProgress.completed === worldProgress.total) return 'perfect';
+  return 'in-progress';
 }
 
 export default function MapPage() {
   const { t } = useLocale();
   const progress = getProgressSnapshot();
-  const profile = getProfile();
-
-  const visibleWorlds = worldMap.filter((world) => world.missions.length > 0);
 
   return (
-    <div className="page-stack">
-      <section className="section-block">
-        <div className="section-heading">
+    <div className="page-stack page-stack--compact">
+      <section className="panel panel--tight">
+        <div className="panel__header">
           <div>
             <span className="eyebrow">{t('missions')}</span>
-            <h3>{t('chooseUniverse')}</h3>
+            <h2>{t('worldMapTitle') || 'Adventure map'}</h2>
           </div>
+          <Link className="text-link" to="/">{t('backHome')}</Link>
         </div>
-        <div className="world-map-grid">
-          {visibleWorlds.map((world) => {
-            const state = computeWorldState(world, progress, profile);
-            const className = `world-node world-node--${state}`;
 
+        <div className="world-ribbon">
+          {worldMap.map((world, index) => {
+            const progressInfo = getWorldProgress(world, progress);
+            const state = getWorldState(world, progress);
             return (
-              <Link
-                key={world.id}
-                to={`/map/${world.id}`}
-                className={className}
-              >
-                <span className="world-node__icon" aria-hidden="true">{world.icon}</span>
-                <h4>{world.name}</h4>
-                <p>{state === 'locked' ? '🔒' : ''}</p>
+              <Link key={world.id} className={`world-compact world-compact--${state}`} to={`/map/${world.id}`}>
+                <span className="world-compact__order">{index + 1}</span>
+                <strong>{world.name}</strong>
+                <small>{progressInfo.completed}/{progressInfo.total}</small>
               </Link>
             );
           })}
@@ -66,4 +51,3 @@ export default function MapPage() {
     </div>
   );
 }
-

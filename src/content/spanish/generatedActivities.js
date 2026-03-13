@@ -11,6 +11,7 @@ function createGeneratedSpanishActivity({
   hints,
   featured = false
 }) {
+  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
   return {
     id,
     slug,
@@ -30,7 +31,7 @@ function createGeneratedSpanishActivity({
     engineType: 'multiple-choice',
     featured,
     generatorConfig: {
-      grade: gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2',
+      grade: generatorGrade,
       topic,
       language: 'es',
       difficulty: 'adaptive',
@@ -62,7 +63,7 @@ export const spanishSubject = {
   descriptionNl: 'Eerste woorden en korte leesteksten in het Spaans.',
   color: '#ff8f70',
   accent: '#ffe2d8',
-  grades: ['P2', 'P3'],
+  grades: ['P2', 'P3', 'P4', 'P5', 'P6'],
   roadmap: [
     'Mots du quotidien',
     'Petites phrases',
@@ -96,5 +97,25 @@ export const generatedSpanishActivities = [
     gradeBand: ['P2', 'P3'],
     instructions: 'Petits textes avec de nouvelles questions a chaque partie.',
     hints: ['Relis le texte avant de choisir.']
+  }),
+  createGeneratedSpanishActivity({
+    id: 'generated-spanish-sentences-p4',
+    slug: 'espagnol-phrases-dynamiques-p4',
+    title: 'Frases utiles',
+    subskill: 'sentence-building',
+    topic: 'sentence-completion',
+    gradeBand: ['P4', 'P5'],
+    instructions: 'Completa frases utiles con nuevo vocabulario.',
+    hints: ['Busca la palabra que da sentido a toda la frase.']
+  }),
+  createGeneratedSpanishActivity({
+    id: 'generated-spanish-reading-p6',
+    slug: 'espagnol-reading-dynamique-p6',
+    title: 'Lectura reto',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P6'],
+    instructions: 'Lecturas cortas con comprension mas fina.',
+    hints: ['Lee otra vez la informacion importante antes de elegir.']
   })
 ];

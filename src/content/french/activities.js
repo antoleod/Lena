@@ -23,7 +23,7 @@ export const frenchSubject = {
   description: 'Lecture, vocabulaire, orthographe, grammaire et compréhension, centrés sur le français du primaire.',
   color: '#4f8df7',
   accent: '#dce8ff',
-  grades: ['P2', 'P3'],
+  grades: ['P2', 'P3', 'P4', 'P5', 'P6'],
   roadmap: [
     'Vocabulaire et association image-mot',
     'Phrases à compléter',

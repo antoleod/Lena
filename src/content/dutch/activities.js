@@ -23,7 +23,7 @@ export const dutchSubject = {
   description: 'Découverte du néerlandais: vocabulaire débutant, école et phrases simples.',
   color: '#2fa57d',
   accent: '#d6f4e9',
-  grades: ['P2', 'P3'],
+  grades: ['P2', 'P3', 'P4', 'P5', 'P6'],
   roadmap: [
     'Vocabulaire de l’école',
     'Association mot-image',

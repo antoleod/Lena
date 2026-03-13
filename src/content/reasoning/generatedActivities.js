@@ -4,10 +4,12 @@ function createGeneratedReasoningActivity({
   id,
   slug,
   title,
+  topic = 'logic-sequence',
   gradeBand,
   instructions,
   hints
 }) {
+  const generatorGrade = gradeBand.includes('P6') ? 'P6' : gradeBand.includes('P5') ? 'P5' : gradeBand.includes('P4') ? 'P4' : gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2';
   return {
     id,
     slug,
@@ -26,8 +28,8 @@ function createGeneratedReasoningActivity({
     originRepo,
     engineType: 'multiple-choice',
     generatorConfig: {
-      grade: gradeBand.includes('P3') && !gradeBand.includes('P2') ? 'P3' : 'P2',
-      topic: 'logic-sequence',
+      grade: generatorGrade,
+      topic,
       language: 'fr',
       difficulty: 'adaptive',
       sections: [
@@ -89,5 +91,21 @@ export const generatedReasoningActivities = [
     gradeBand: ['P3'],
     instructions: 'Suites plus riches, deduction simple et mini examen final.',
     hints: ['Observe la regle avant de choisir.']
+  }),
+  createGeneratedReasoningActivity({
+    id: 'generated-reasoning-p4',
+    slug: 'raisonnement-dynamique-p4',
+    title: 'Matrices et suites',
+    gradeBand: ['P4', 'P5'],
+    instructions: 'Des suites plus longues et des choix plus proches.',
+    hints: ['Compare chaque etape de la suite avant de decider.']
+  }),
+  createGeneratedReasoningActivity({
+    id: 'generated-reasoning-p6',
+    slug: 'raisonnement-dynamique-p6',
+    title: 'Strategie logique',
+    gradeBand: ['P6'],
+    instructions: 'Entrainement logique plus dense avec repetition adaptative.',
+    hints: ['Cherche la transformation ou la relation cachee.']
   })
 ];

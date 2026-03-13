@@ -5,13 +5,20 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 
 const identityOptions = [
-  { id: 'boy', labelKey: 'profileBoy', icon: '🚀' },
-  { id: 'girl', labelKey: 'profileGirl', icon: '✨' },
-  { id: 'child', labelKey: 'profileNeutral', icon: '🌈' }
+  { id: 'boy', labelKey: 'profileBoy', icon: 'Star' },
+  { id: 'girl', labelKey: 'profileGirl', icon: 'Moon' },
+  { id: 'child', labelKey: 'profileNeutral', icon: 'Sky' }
 ];
 
 const boyThemes = ['astronaut', 'dinosaurs', 'robots', 'explorers', 'superpowers', 'space', 'vehicles', 'adventure'];
 const girlThemes = ['animals', 'magic', 'nature', 'ocean', 'stars', 'fantasy', 'enchanted-forest', 'magic-creatures'];
+
+const stepOrder = [
+  { id: 1, summary: 'Profil' },
+  { id: 2, summary: 'Nom' },
+  { id: 3, summary: 'Univers' },
+  { id: 4, summary: 'Langue' }
+];
 
 function buildThemeChips(identity) {
   if (identity === 'boy') return boyThemes;
@@ -53,10 +60,15 @@ export default function OnboardingFlow() {
       setVisualTheme(existing.visualTheme || 'forest');
       setLanguage(existing.language || locale || 'fr');
     }
-  }, []);
+  }, [existing, locale]);
 
   const progressPercent = Math.round((step / 4) * 100);
   const themeChoices = useMemo(() => buildThemeChips(identity), [identity]);
+  const currentStep = stepOrder.find((item) => item.id === step) || stepOrder[0];
+  const previewName = name.trim() || t('defaultChildName');
+  const previewThemeLabel = t(`visualTheme.${visualTheme}`);
+  const previewIdentity = identityOptions.find((option) => option.id === identity) || identityOptions[2];
+  const previewIdentityLabel = t(previewIdentity.labelKey);
 
   function next() {
     setStep((current) => Math.min(4, current + 1));
@@ -69,7 +81,7 @@ export default function OnboardingFlow() {
   function handleComplete() {
     const baseAvatar = identity === 'girl' ? 'avatar-panda' : 'avatar-unicorn';
     const profile = saveProfile({
-      name: name.trim() || t('defaultChildName'),
+      name: previewName,
       identity,
       visualTheme,
       language,
@@ -87,28 +99,41 @@ export default function OnboardingFlow() {
           <span className="eyebrow">{t('onboardingWelcomeTag')}</span>
           <h2>{t('onboardingWelcomeTitle')}</h2>
           <p>{t('onboardingWelcomeText')}</p>
+          <div className="onboarding-step-banner">
+            <span className="onboarding-step-banner__label">{t('onboardingStep')}</span>
+            <strong>{currentStep.id} / 4</strong>
+            <span>{currentStep.summary}</span>
+          </div>
           <div className="hero-badges">
             <span className="pill">{t('onboardingBadgeProfile')}</span>
             <span className="pill">{t('onboardingBadgeAdventure')}</span>
             <span className="pill">{t('onboardingBadgeWorlds')}</span>
           </div>
-          <div className="onboarding-progress">
+          <div className="onboarding-progress" aria-label={`${t('onboardingStep')} ${step} / 4`}>
             <div className="onboarding-progress__track">
               <span className="onboarding-progress__fill" style={{ width: `${progressPercent}%` }}></span>
             </div>
             <div className="onboarding-progress__steps">
-              {[1, 2, 3, 4].map((value) => (
+              {stepOrder.map((item) => (
                 <span
-                  key={value}
-                  className={`onboarding-progress__dot${value <= step ? ' is-active' : ''}${value === step ? ' is-current' : ''}`}
+                  key={item.id}
+                  className={`onboarding-progress__dot${item.id <= step ? ' is-active' : ''}${item.id === step ? ' is-current' : ''}`}
                 >
-                  {value}
+                  {item.id}
                 </span>
               ))}
             </div>
           </div>
         </div>
         <div className="hero-panel hero-panel--stats onboarding-preview">
+          <div className={`onboarding-preview__scene onboarding-preview__scene--${identity}`}>
+            <span className="onboarding-preview__cloud onboarding-preview__cloud--a"></span>
+            <span className="onboarding-preview__cloud onboarding-preview__cloud--b"></span>
+            <span className="onboarding-preview__trail"></span>
+            <div className="onboarding-preview__avatar">
+              <span>{previewIdentity.icon}</span>
+            </div>
+          </div>
           <div className="stat-card">
             <span>{t('onboardingStep')}</span>
             <strong>{step} / 4</strong>
@@ -119,16 +144,21 @@ export default function OnboardingFlow() {
           </div>
           <div className="stat-card">
             <span>Profil</span>
-            <strong>{name.trim() || t('defaultChildName')}</strong>
+            <strong>{previewName}</strong>
           </div>
           <div className="stat-card">
             <span>{t('theme')}</span>
-            <strong>{visualTheme}</strong>
+            <strong>{previewThemeLabel}</strong>
+          </div>
+          <div className="onboarding-preview__summary">
+            <p>{previewName}</p>
+            <span>{previewIdentityLabel}</span>
+            <strong>{previewThemeLabel}</strong>
           </div>
         </div>
       </section>
 
-      <div className="onboarding-stage">
+      <div className="onboarding-stage" key={step}>
         {step === 1 && (
           <StepCard
             title={t('onboardingStep1Title')}
@@ -148,6 +178,7 @@ export default function OnboardingFlow() {
                 </button>
               ))}
             </div>
+            <p className="onboarding-helper-copy">{previewIdentityLabel}</p>
           </StepCard>
         )}
 
@@ -169,6 +200,7 @@ export default function OnboardingFlow() {
                 autoFocus
               />
             </div>
+            <p className="onboarding-helper-copy">{previewName}</p>
           </StepCard>
         )}
 
@@ -191,6 +223,7 @@ export default function OnboardingFlow() {
                 </button>
               ))}
             </div>
+            <p className="onboarding-helper-copy">{previewThemeLabel}</p>
           </StepCard>
         )}
 
@@ -212,6 +245,7 @@ export default function OnboardingFlow() {
                 ))}
               </select>
             </div>
+            <p className="onboarding-helper-copy">{language.toUpperCase()}</p>
           </StepCard>
         )}
       </div>
