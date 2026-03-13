@@ -23,11 +23,11 @@ function buildThemeChips(identity) {
 
 function getStepMeta(step, t) {
   return [
-    { id: 1, title: t('onboardingStep2Subtitle'), text: t('onboardingStep2Text') },
-    { id: 2, title: t('onboardingAgeTitle') || 'Quel age as-tu ?', text: t('onboardingAgeText') || 'Choisis ton age pour adapter les exercices.' },
-    { id: 3, title: t('onboardingStep1Subtitle'), text: t('onboardingStep1Text') },
-    { id: 4, title: t('onboardingStep3Subtitle'), text: t('onboardingStep3Text') },
-    { id: 5, title: t('onboardingStep4Subtitle'), text: t('onboardingStep4Text') }
+    { id: 1, title: t('onboardingStep4Subtitle'), text: t('onboardingStep4Text') },
+    { id: 2, title: t('onboardingStep1Subtitle'), text: t('onboardingStep1Text') },
+    { id: 3, title: t('onboardingStep2Subtitle'), text: t('onboardingStep2Text') },
+    { id: 4, title: t('onboardingAgeTitle') || 'Quel age as-tu ?', text: t('onboardingAgeText') || 'Choisis ton age pour adapter les exercices.' },
+    { id: 5, title: t('onboardingStep3Subtitle'), text: t('onboardingStep3Text') }
   ].find((item) => item.id === step);
 }
 
@@ -35,7 +35,7 @@ export default function OnboardingFlow() {
   const navigate = useNavigate();
   const { locale, setLocale, t, supportedLocales = ['fr', 'nl', 'en', 'es'] } = useLocale();
   const { setThemeId } = useTheme();
-  const existing = getProfile();
+  const [existing] = useState(() => getProfile());
 
   const [step, setStep] = useState(1);
   const [identity, setIdentity] = useState(existing.identity || 'child');
@@ -45,13 +45,14 @@ export default function OnboardingFlow() {
   const [language, setLanguage] = useState(existing.language || locale || 'fr');
 
   useEffect(() => {
-    if (existing) {
-      setName(existing.name || '');
-      setIdentity(existing.identity || 'child');
-      setAge(existing.age || 8);
-      setVisualTheme(existing.visualTheme || 'fantasy');
-      setLanguage(existing.language || locale || 'fr');
+    if (!existing) {
+      return;
     }
+    setName(existing.name || '');
+    setIdentity(existing.identity || 'child');
+    setAge(existing.age || 8);
+    setVisualTheme(existing.visualTheme || 'fantasy');
+    setLanguage(existing.language || locale || 'fr');
   }, [existing, locale]);
 
   const progressPercent = Math.round((step / 5) * 100);
@@ -130,35 +131,20 @@ export default function OnboardingFlow() {
 
           {step === 1 ? (
             <div className="form-field">
-              <label htmlFor="child-name">{t('onboardingChildName')}</label>
-              <input
-                id="child-name"
-                type="text"
-                maxLength={20}
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                placeholder={t('onboardingChildNamePlaceholder')}
-                autoFocus
-              />
+              <label htmlFor="ui-language">{t('uiLanguage')}</label>
+              <select
+                id="ui-language"
+                value={language}
+                onChange={(event) => setLanguage(event.target.value)}
+              >
+                {supportedLocales.map((code) => (
+                  <option key={code} value={code}>{code.toUpperCase()}</option>
+                ))}
+              </select>
             </div>
           ) : null}
 
           {step === 2 ? (
-            <div className="choice-grid choice-grid--age">
-              {ageOptions.map((value) => (
-                <button
-                  key={value}
-                  type="button"
-                  className={`choice-button choice-button--chip${age === value ? ' is-selected' : ''}`}
-                  onClick={() => setAge(value)}
-                >
-                  {value} {t('yearsLabel') || 'ans'}
-                </button>
-              ))}
-            </div>
-          ) : null}
-
-          {step === 3 ? (
             <div className="choice-grid choice-grid--onboarding">
               {identityOptions.map((option) => (
                 <button
@@ -174,7 +160,37 @@ export default function OnboardingFlow() {
             </div>
           ) : null}
 
+          {step === 3 ? (
+            <div className="form-field">
+              <label htmlFor="child-name">{t('onboardingChildName')}</label>
+              <input
+                id="child-name"
+                type="text"
+                maxLength={20}
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                placeholder={t('onboardingChildNamePlaceholder')}
+                autoFocus
+              />
+            </div>
+          ) : null}
+
           {step === 4 ? (
+            <div className="choice-grid choice-grid--age">
+              {ageOptions.map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  className={`choice-button choice-button--chip${age === value ? ' is-selected' : ''}`}
+                  onClick={() => setAge(value)}
+                >
+                  {value} {t('yearsLabel') || 'ans'}
+                </button>
+              ))}
+            </div>
+          ) : null}
+
+          {step === 5 ? (
             <div className="choice-grid choice-grid--onboarding">
               {themeChoices.slice(0, 6).map((themeId) => (
                 <button
@@ -187,21 +203,6 @@ export default function OnboardingFlow() {
                   <span>{t(`visualTheme.${themeId}`)}</span>
                 </button>
               ))}
-            </div>
-          ) : null}
-
-          {step === 5 ? (
-            <div className="form-field">
-              <label htmlFor="ui-language">{t('uiLanguage')}</label>
-              <select
-                id="ui-language"
-                value={language}
-                onChange={(event) => setLanguage(event.target.value)}
-              >
-                {supportedLocales.map((code) => (
-                  <option key={code} value={code}>{code.toUpperCase()}</option>
-                ))}
-              </select>
             </div>
           ) : null}
         </section>
@@ -218,7 +219,7 @@ export default function OnboardingFlow() {
               type="button"
               className="primary-action"
               onClick={next}
-              disabled={step === 1 && !name.trim()}
+              disabled={step === 3 && !name.trim()}
             >
               {t('continue')}
             </button>
