@@ -1,11 +1,14 @@
-﻿{
-  "name": "Léna-App",
-  "short_name": "Léna",
+{
+  "name": "Lena Learning Adventure",
+  "short_name": "Lena",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#8364ff",
+  "orientation": "portrait-primary",
+  "background_color": "#fff8fd",
+  "theme_color": "#ff8fc6",
+  "description": "Interactive learning adventure for primary school children.",
+  "categories": ["education", "kids", "games"],
   "icons": [
     {
       "src": "assets/iconos/icon-192.png",
@@ -15,7 +18,8 @@
     {
       "src": "assets/iconos/icon-512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     },
     {
       "src": "assets/iconos/icon-180.png",

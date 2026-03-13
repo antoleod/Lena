@@ -210,37 +210,6 @@ export default function ActivityPage() {
           {renderEngine(activity, progress, handleComplete)}
         </div>
       </section>
-
-      <section className="context-footer context-footer--compact">
-        <div className="context-footer__item">
-          <span>{t('level')}</span>
-          <strong>{level || activity.gradeBand[0]}</strong>
-        </div>
-        <div className="context-footer__item">
-          <span>{t('mode')}</span>
-          <strong>{activity.generated ? t('generatedMode') : activity.engineType}</strong>
-        </div>
-        <div className="context-footer__item">
-          <span>{t('hint')}</span>
-          <strong>{activity.hints?.[0]}</strong>
-        </div>
-        <div className="context-footer__item">
-          <span>Score</span>
-          <strong>{resultState.score || progress?.bestScore || 0}</strong>
-        </div>
-        <div className="context-footer__item">
-          <span>{t('crystals')}</span>
-          <strong>+{resultState.crystals}</strong>
-        </div>
-        <div className="context-footer__item">
-          <span>Bloc</span>
-          <strong>{mission ? `${t('missions')} ${mission.order}` : activity.subskill}</strong>
-        </div>
-        <div className="context-footer__item">
-          <span>{t('progression')}</span>
-          <strong>{progress?.completed ? 'Done' : 'Play'}</strong>
-        </div>
-      </section>
     </div>
   );
 }

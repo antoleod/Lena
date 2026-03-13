@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getProfile, saveProfile } from '../../services/storage/profileStore.js';
-import { equipEffect, getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
+import { equipEffect, equipWallpaper, getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 
 function assetUrl(path) {
@@ -17,6 +17,7 @@ export default function SettingsPage() {
   const avatarItems = getRewardCatalog().filter((item) => item.type === 'avatar');
   const themeItems = getRewardCatalog().filter((item) => item.type === 'theme');
   const effectItems = getRewardCatalog().filter((item) => item.type === 'effect');
+  const wallpaperItems = getRewardCatalog().filter((item) => item.type === 'wallpaper');
 
   useEffect(() => {
     function sync() {
@@ -49,6 +50,11 @@ export default function SettingsPage() {
 
   function chooseEffect(effectId) {
     equipEffect(effectId);
+    setRewardState(getRewardState());
+  }
+
+  function chooseWallpaper(wallpaperId) {
+    equipWallpaper(wallpaperId);
     setRewardState(getRewardState());
   }
 
@@ -131,6 +137,40 @@ export default function SettingsPage() {
       <section className="panel panel--tight">
         <div className="panel__header">
           <div>
+            <span className="eyebrow">Wallpapers</span>
+            <h3>Backgrounds</h3>
+          </div>
+        </div>
+        <div className="reward-grid reward-grid--compact">
+          {wallpaperItems.map((item) => {
+            const owned = item.id === 'wallpaper-dreamy-sky' || rewardState.inventory.includes(item.id);
+            const active = rewardState.equippedWallpaperId === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                className={`reward-card reward-card--theme${active ? ' is-active' : ''}`}
+                onClick={() => owned && chooseWallpaper(item.id)}
+              >
+                <div className="theme-preview theme-preview--wallpaper">
+                  <span className="theme-preview__icon">{item.icon}</span>
+                  {item.preview.map((color) => (
+                    <span key={color} style={{ backgroundColor: color }}></span>
+                  ))}
+                </div>
+                <div className="reward-card__body">
+                  <h4>{locale === 'nl' ? item.nameNl || item.name : item.name}</h4>
+                  <p>{owned ? (t('shopEquip') || 'Use') : `${item.price} ${t('crystals')}`}</p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="panel panel--tight">
+        <div className="panel__header">
+          <div>
             <span className="eyebrow">Avatar</span>
             <h3>{t('shopChooseReward')}</h3>
           </div>
@@ -172,6 +212,7 @@ export default function SettingsPage() {
                 onClick={() => owned && chooseTheme(item.id)}
               >
                 <div className="theme-preview">
+                  <span className="theme-preview__icon">{item.icon}</span>
                   {item.preview.map((color) => (
                     <span key={color} style={{ backgroundColor: color }}></span>
                   ))}

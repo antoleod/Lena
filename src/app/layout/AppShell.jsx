@@ -40,6 +40,10 @@ export default function AppShell() {
   }, [session.rewards.equippedEffectId]);
 
   useEffect(() => {
+    document.documentElement.dataset.wallpaper = session.rewards.equippedWallpaperId || 'wallpaper-dreamy-sky';
+  }, [session.rewards.equippedWallpaperId]);
+
+  useEffect(() => {
     rememberLastVisitedRoute(`${location.pathname}${location.search}`);
   }, [location.pathname, location.search]);
 

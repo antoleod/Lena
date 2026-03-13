@@ -1,51 +1,22 @@
-const CACHE_NAME = 'lena-cache-v6';
+const CACHE_NAME = 'lena-cache-v7';
 
 const BASE_PATH = (() => {
-  const scope = self.registration?.scope || self.location.origin + '/';
+  const scope = self.registration?.scope || `${self.location.origin}/`;
   const url = new URL(scope);
   return url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
 })();
 
-// List of core resources to cache for offline use. Adjust as needed.
 const CORE_ASSETS = [
   'index.html',
   'manifest.json',
-  'css/style.css',
-  'css/login.css',
-  'css/feedback-system.css',
-  'css/new-games.css',
-  'js/feedbackSystem.js',
-  'js/avatarData.js',
-  'js/storage.js',
-  'js/login.js',
-  'js/new-games/registry.js',
-  'js/new-games/engine.js',
-  'js/new-games/qa.js',
-  'games/riddleLevels.js',
-  'games/storySets.js',
+  'offline.html',
   'assets/i18n/fr.json',
   'assets/i18n/es.json',
   'assets/i18n/nl.json',
-  'assets/iconos/icon-1024.png',
   'assets/iconos/icon-512.png',
-  'assets/iconos/icon-384.png',
-  'assets/iconos/icon-256.png',
   'assets/iconos/icon-192.png',
   'assets/iconos/icon-180.png',
-  'assets/iconos/icon-167.png',
-  'assets/iconos/icon-152.png',
-  'assets/iconos/icon-144.png',
-  'assets/iconos/icon-128.png',
-  'assets/iconos/icon-120.png',
-  'assets/iconos/icon-96.png',
-  'assets/iconos/icon-72.png',
-  'assets/iconos/icon-64.png',
-  'assets/iconos/icon-48.png',
-  'assets/iconos/icon-32.png',
-  'assets/iconos/icon-16.png',
-  'offline.html',
-  'legacy/juego.html',
-  'legacy/grande-aventure-mots/index.html'
+  'assets/iconos/icon-32.png'
 ];
 
 function withBase(path) {
@@ -54,65 +25,58 @@ function withBase(path) {
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      const assets = CORE_ASSETS.map(withBase);
-      return cache.addAll(assets);
-    }).then(() => self.skipWaiting())
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(CORE_ASSETS.map(withBase)))
+      .then(() => self.skipWaiting())
   );
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) => Promise.all(
-      keys.map((key) => {
-        if (key !== CACHE_NAME) return caches.delete(key);
-        return null;
-      })
-    )).then(() => self.clients.claim())
+    caches.keys()
+      .then((keys) => Promise.all(keys.map((key) => (key !== CACHE_NAME ? caches.delete(key) : null))))
+      .then(() => self.clients.claim())
   );
 });
 
-// Allow the page to trigger skipWaiting via postMessage
 self.addEventListener('message', (event) => {
-  if (!event.data) return;
   if (event.data === 'skipWaiting') {
     self.skipWaiting();
   }
 });
 
-// Cache-first strategy with network fallback. If network succeeds, update cache.
 self.addEventListener('fetch', (event) => {
-  // Only handle same-origin requests
   const request = event.request;
   const url = new URL(request.url);
-  if (url.origin !== location.origin) return;
-  if (request.headers.has('range')) return;
+
+  if (url.origin !== self.location.origin || request.headers.has('range')) {
+    return;
+  }
 
   event.respondWith(
     caches.match(request).then((cached) => {
       if (cached) {
-        // Try network in background to update cache
         fetch(request).then((response) => {
-          if (response && response.ok && response.status !== 206) {
+          if (response?.ok && response.status !== 206) {
             caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
           }
         }).catch(() => {});
         return cached;
       }
-      return fetch(request).then((response) => {
-        // Put a copy in cache for next time
-        if (response && response.ok && response.status !== 206) {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-        }
-        return response;
-      }).catch(() => {
-        // Fallbacks for navigation requests
-        if (request.mode === 'navigate' || (request.headers.get('accept') || '').includes('text/html')) {
-          return caches.match(withBase('index.html'));
-        }
-        return new Response('Offline', { status: 503, statusText: 'Offline' });
-      });
+
+      return fetch(request)
+        .then((response) => {
+          if (response?.ok && response.status !== 206) {
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
+          }
+          return response;
+        })
+        .catch(() => {
+          if (request.mode === 'navigate' || (request.headers.get('accept') || '').includes('text/html')) {
+            return caches.match(withBase('index.html'));
+          }
+          return new Response('Offline', { status: 503, statusText: 'Offline' });
+        });
     })
   );
 });
