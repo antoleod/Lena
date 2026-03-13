@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { getActivityById, getSubjectById } from '../curriculum/catalog.js';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { getActivityById, getModuleById, getSubjectById } from '../curriculum/catalog.js';
 import { getActivityProgress, saveActivityProgress } from '../../services/storage/progressStore.js';
 import { rewardActivityCompletion } from '../../services/storage/rewardStore.js';
 import { materializeActivity } from '../../engines/generators/activityFactory.js';
@@ -9,7 +9,7 @@ import BaseTenActivity from '../../engines/base-ten/BaseTenActivity.jsx';
 import StoryActivity from '../../engines/story/StoryActivity.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
-import { getMission, getWorldById } from '../../shared/gameplay/worldMap.js';
+import { getMission, getNextMissionTarget, getWorldById } from '../../shared/gameplay/worldMap.js';
 import { trackStudySession } from '../../services/storage/profileStore.js';
 
 function renderEngine(activity, progress, onComplete) {
@@ -26,10 +26,12 @@ function renderEngine(activity, progress, onComplete) {
 
 export default function ActivityPage() {
   const { locale, t } = useLocale();
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { activityId } = useParams();
   const worldId = searchParams.get('world');
   const missionId = searchParams.get('mission');
+  const moduleId = searchParams.get('module');
   const level = searchParams.get('level');
   const world = worldId ? getWorldById(worldId) : null;
   const mission = worldId && missionId ? getMission(worldId, missionId) : null;
@@ -62,6 +64,60 @@ export default function ActivityPage() {
 
   const subject = getSubjectById(activity.subject);
 
+  function buildModuleLevelPlan(module) {
+    if (!module) {
+      return [];
+    }
+
+    const phaseActivityIds = [
+      ...(module.phases.guidedPractice || []),
+      ...(module.phases.independentPractice || []),
+      ...(module.phases.miniChallenge ? [module.phases.miniChallenge] : []),
+      ...(module.phases.miniExam ? [module.phases.miniExam] : []),
+      ...(module.phases.suggestedReview || [])
+    ].filter(Boolean);
+
+    const moduleActivities = phaseActivityIds
+      .map((id) => getActivityById(id))
+      .filter(Boolean);
+
+    if (!moduleActivities.length) {
+      return [];
+    }
+
+    return Array.from({ length: 10 }, (_, index) => {
+      const entry = moduleActivities[index % moduleActivities.length];
+      return {
+        order: index + 1,
+        activityId: entry.id
+      };
+    });
+  }
+
+  function resolveNextRoute() {
+    const parsedLevel = Number(level || 0);
+
+    if (world && mission && parsedLevel) {
+      const nextTarget = getNextMissionTarget(world.id, mission.id, parsedLevel);
+      if (nextTarget) {
+        return `/activities/${nextTarget.activityId}?world=${nextTarget.worldId}&mission=${nextTarget.missionId}&level=${nextTarget.levelOrder}`;
+      }
+      return `/map/${world.id}`;
+    }
+
+    if (moduleId && parsedLevel) {
+      const module = getModuleById(moduleId);
+      const plan = buildModuleLevelPlan(module);
+      const nextEntry = plan.find((entry) => entry.order === parsedLevel + 1);
+      if (nextEntry) {
+        return `/activities/${nextEntry.activityId}?module=${moduleId}&level=${nextEntry.order}`;
+      }
+      return module ? `/subjects/${module.subjectId}/grades/${module.gradeId}/modules/${module.id}` : null;
+    }
+
+    return null;
+  }
+
   function handleComplete(result) {
     saveActivityProgress(activity.id, result);
     const reward = rewardActivityCompletion(activity.id, result);
@@ -74,6 +130,13 @@ export default function ActivityPage() {
       crystals: reward.awarded,
       score: result.lastScore || 0
     });
+
+    const nextRoute = resolveNextRoute();
+    if (nextRoute) {
+      window.setTimeout(() => {
+        navigate(nextRoute);
+      }, 900);
+    }
   }
 
   return (

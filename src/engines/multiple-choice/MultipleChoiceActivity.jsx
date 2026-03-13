@@ -1,9 +1,30 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   getActivityQuestionStates,
   recordQuestionOutcome
 } from '../../services/storage/progressStore.js';
+
+function shuffleChoices(choices = []) {
+  const list = [...choices];
+  for (let index = list.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [list[index], list[swapIndex]] = [list[swapIndex], list[index]];
+  }
+  return list;
+}
+
+function createQueueEntry(section, lesson, index, queueKey) {
+  return {
+    ...lesson,
+    choices: shuffleChoices(lesson.choices || []),
+    sourceId: lesson.id || `${section.id}-${index}-${lesson.prompt}`,
+    sectionId: section.id,
+    sectionTitle: section.title,
+    sectionKind: section.kind,
+    queueKey
+  };
+}
 
 function buildQueue(activity) {
   const sections = activity.sections || [
@@ -16,14 +37,9 @@ function buildQueue(activity) {
   ];
 
   return sections.flatMap((section) =>
-    (section.lessons || []).map((lesson, index) => ({
-      ...lesson,
-      sourceId: lesson.id || `${section.id}-${index}-${lesson.prompt}`,
-      sectionId: section.id,
-      sectionTitle: section.title,
-      sectionKind: section.kind,
-      queueKey: `${section.id}-${lesson.id || index}-${index}`
-    }))
+    (section.lessons || []).map((lesson, index) =>
+      createQueueEntry(section, lesson, index, `${section.id}-${lesson.id || index}-${index}`)
+    )
   );
 }
 
@@ -40,10 +56,36 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
   const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState(0);
   const [completed, setCompleted] = useState(false);
+  const pendingAdvanceRef = useRef(null);
+  const timerRef = useRef(null);
 
   const current = queue[currentIndex];
   const total = queue.length;
   const progressPercent = total ? Math.round((currentIndex / total) * 100) : 0;
+
+  useEffect(() => () => {
+    if (timerRef.current) {
+      window.clearTimeout(timerRef.current);
+    }
+  }, []);
+
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key !== 'Enter' || !pendingAdvanceRef.current) {
+        return;
+      }
+      event.preventDefault();
+      if (timerRef.current) {
+        window.clearTimeout(timerRef.current);
+      }
+      const pending = pendingAdvanceRef.current;
+      pendingAdvanceRef.current = null;
+      goNext(pending.score, pending.queue);
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentIndex, queue, score]);
 
   if (!current) {
     return <section className="engine-card engine-card--compact">{t('noQuestion')}</section>;
@@ -82,8 +124,18 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     if (!isCorrect && futureRepeats < 2) {
       const insertAt = Math.min(nextQueue.length, currentIndex + 2 + questionState.failures);
       nextQueue.splice(insertAt, 0, {
-        ...current,
-        queueKey: `${current.queueKey}-repeat-${questionState.failures}-${Date.now()}`
+        ...createQueueEntry(
+          {
+            id: current.sectionId,
+            title: current.sectionTitle,
+            kind: current.sectionKind
+          },
+          current,
+          currentIndex,
+          `${current.queueKey}-repeat-${questionState.failures}-${Date.now()}`
+        ),
+        explanation: current.explanation,
+        context: current.context
       });
     }
 
@@ -100,7 +152,12 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
       status: questionState.status
     });
 
-    window.setTimeout(() => {
+    pendingAdvanceRef.current = {
+      score: nextScore,
+      queue: nextQueue
+    };
+    timerRef.current = window.setTimeout(() => {
+      pendingAdvanceRef.current = null;
       goNext(nextScore, nextQueue);
     }, isCorrect ? 700 : 1100);
   }

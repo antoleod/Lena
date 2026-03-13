@@ -82,6 +82,36 @@ export function getMission(worldId, missionId) {
   return world.missions.find((mission) => mission.id === missionId) || null;
 }
 
+export function getNextMissionTarget(worldId, missionId, levelOrder) {
+  const world = getWorldById(worldId);
+  if (!world) return null;
+
+  const mission = world.missions.find((entry) => entry.id === missionId);
+  if (!mission) return null;
+
+  const nextLevel = mission.levels.find((entry) => entry.order === levelOrder + 1);
+  if (nextLevel) {
+    return {
+      worldId: world.id,
+      missionId: mission.id,
+      levelOrder: nextLevel.order,
+      activityId: nextLevel.activityId
+    };
+  }
+
+  const nextMission = world.missions.find((entry) => entry.order === mission.order + 1);
+  if (!nextMission?.levels?.length) {
+    return null;
+  }
+
+  return {
+    worldId: world.id,
+    missionId: nextMission.id,
+    levelOrder: nextMission.levels[0].order,
+    activityId: nextMission.levels[0].activityId
+  };
+}
+
 export function findPositionForActivity(activityId) {
   for (const world of worldMap) {
     for (const mission of world.missions) {
