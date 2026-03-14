@@ -28,28 +28,14 @@ function createQueueEntry(section, lesson, index, queueKey) {
 }
 
 function resolveCorrectValues(entry) {
-  if (entry.correctOptionIds?.length) {
-    return entry.correctOptionIds.map((value) => String(value));
-  }
-  if (entry.acceptedValues?.length) {
-    return entry.acceptedValues.map((value) => String(value));
-  }
-  if (entry.answer !== undefined && entry.answer !== null) {
-    return [String(entry.answer)];
-  }
+  if (entry.correctOptionIds?.length) return entry.correctOptionIds.map((value) => String(value));
+  if (entry.acceptedValues?.length) return entry.acceptedValues.map((value) => String(value));
+  if (entry.answer !== undefined && entry.answer !== null) return [String(entry.answer)];
   return [];
 }
 
 function buildQueue(activity) {
-  const sections = activity.sections || [
-    {
-      id: 'practice',
-      title: 'Practice',
-      kind: 'practice',
-      lessons: activity.lessons || []
-    }
-  ];
-
+  const sections = activity.sections || [{ id: 'practice', title: 'Practice', kind: 'practice', lessons: activity.lessons || [] }];
   return sections.flatMap((section) =>
     (section.lessons || []).map((lesson, index) =>
       createQueueEntry(section, lesson, index, `${section.id}-${lesson.id || index}-${index}`)
@@ -71,15 +57,8 @@ function normalizeOption(choice, index) {
       media: choice.media || null
     };
   }
-
   const value = String(choice);
-  return {
-    id: `option-${index + 1}`,
-    value,
-    label: value,
-    description: '',
-    media: null
-  };
+  return { id: `option-${index + 1}`, value, label: value, description: '', media: null };
 }
 
 function normalizeContextSlot(slot, index) {
@@ -93,15 +72,20 @@ function normalizeContextSlot(slot, index) {
       caption: slot.caption || ''
     };
   }
+  return { id: `context-${index + 1}`, kind: 'text', text: String(slot), src: '', alt: '', caption: '' };
+}
 
-  return {
-    id: `context-${index + 1}`,
-    kind: 'text',
-    text: String(slot),
-    src: '',
-    alt: '',
-    caption: ''
-  };
+// Positive feedback messages
+const CORRECT_MESSAGES = [
+  '¡Perfecto! 🌟', '¡Genial! 💪', '¡Muy bien! ✨', '¡Correcto! 🎉',
+  '¡Excelente! 🏆', '¡Increíble! ⭐', '¡Fantástico! 🚀',
+];
+const WRONG_MESSAGES = [
+  'Casi, intenta de nuevo', 'No pasa nada, sigue', '¡Tú puedes!', 'Inténtalo otra vez 💡',
+];
+
+function randomFrom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 export default function MultipleChoiceActivity({ activity, progress, onComplete }) {
@@ -114,6 +98,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
   const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState(0);
   const [completed, setCompleted] = useState(false);
+  const [feedbackMsg, setFeedbackMsg] = useState('');
   const pendingAdvanceRef = useRef(null);
   const timerRef = useRef(null);
 
@@ -129,36 +114,23 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     return rawContext.map((slot, index) => normalizeContextSlot(slot, index));
   }, [current]);
   const correctOptionId = useMemo(() => {
-    if (!current) {
-      return '';
-    }
-    if (current.correctOptionIds?.length) {
-      return current.correctOptionIds[0];
-    }
+    if (!current) return '';
+    if (current.correctOptionIds?.length) return current.correctOptionIds[0];
     const correctValues = resolveCorrectValues(current);
     return currentOptions.find((option) => correctValues.includes(option.value) || correctValues.includes(option.id))?.id || '';
   }, [current, currentOptions]);
 
-  useEffect(() => () => {
-    if (timerRef.current) {
-      window.clearTimeout(timerRef.current);
-    }
-  }, []);
+  useEffect(() => () => { if (timerRef.current) window.clearTimeout(timerRef.current); }, []);
 
   useEffect(() => {
     function handleKeyDown(event) {
-      if (event.key !== 'Enter' || !pendingAdvanceRef.current) {
-        return;
-      }
+      if (event.key !== 'Enter' || !pendingAdvanceRef.current) return;
       event.preventDefault();
-      if (timerRef.current) {
-        window.clearTimeout(timerRef.current);
-      }
+      if (timerRef.current) window.clearTimeout(timerRef.current);
       const pending = pendingAdvanceRef.current;
       pendingAdvanceRef.current = null;
       goNext(pending.score, pending.queue);
     }
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [currentIndex, queue, score]);
@@ -169,28 +141,20 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
 
   function finalize(nextScore, finalQueueLength) {
     setCompleted(true);
-    onComplete({
-      completed: true,
-      lastScore: nextScore,
-      bestScore: Math.max(progress.bestScore || 0, nextScore),
-      totalQuestions: finalQueueLength
-    });
+    onComplete({ completed: true, lastScore: nextScore, bestScore: Math.max(progress.bestScore || 0, nextScore), totalQuestions: finalQueueLength });
   }
 
   function goNext(nextScore, nextQueue) {
     const nextIndex = currentIndex + 1;
-    if (nextIndex >= nextQueue.length) {
-      finalize(nextScore, nextQueue.length);
-      return;
-    }
+    if (nextIndex >= nextQueue.length) { finalize(nextScore, nextQueue.length); return; }
     setCurrentIndex(nextIndex);
     setSelected('');
     setFeedback(null);
+    setFeedbackMsg('');
   }
 
   function handleChoiceClick(option) {
     if (feedback) return;
-
     const correctValues = resolveCorrectValues(current);
     const isCorrect = option.id === correctOptionId || correctValues.includes(option.value) || correctValues.includes(option.id);
     const questionState = recordQuestionOutcome(activity.id, current.sourceId, isCorrect);
@@ -202,13 +166,8 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
       const insertAt = Math.min(nextQueue.length, currentIndex + 2 + questionState.failures);
       nextQueue.splice(insertAt, 0, {
         ...createQueueEntry(
-          {
-            id: current.sectionId,
-            title: current.sectionTitle,
-            kind: current.sectionKind
-          },
-          current,
-          currentIndex,
+          { id: current.sectionId, title: current.sectionTitle, kind: current.sectionKind },
+          current, currentIndex,
           `${current.queueKey}-repeat-${questionState.failures}-${Date.now()}`
         ),
         explanation: current.explanation,
@@ -216,9 +175,11 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
       });
     }
 
+    const msg = isCorrect ? randomFrom(CORRECT_MESSAGES) : randomFrom(WRONG_MESSAGES);
     setQueue(nextQueue);
     setSelected(option.id);
     setScore(nextScore);
+    setFeedbackMsg(msg);
     setFeedback({
       isCorrect,
       explanation: !isCorrect && questionState.failures >= 2
@@ -229,28 +190,20 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
       status: questionState.status
     });
 
-    pendingAdvanceRef.current = {
-      score: nextScore,
-      queue: nextQueue
-    };
+    pendingAdvanceRef.current = { score: nextScore, queue: nextQueue };
     timerRef.current = window.setTimeout(() => {
       pendingAdvanceRef.current = null;
       goNext(nextScore, nextQueue);
-    }, isCorrect ? 700 : 1100);
+    }, isCorrect ? 900 : 1400);
   }
 
   if (completed) {
     return (
       <section className="engine-card engine-card--compact">
-        <div className="completion-banner completion-banner--compact celebration-shell">
-          <div className="celebration-stars" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <span className="pill">{t('activityDone')}</span>
-          <h3>{activity.title}</h3>
-          <p>{score}/{queue.length}</p>
+        <div className="mc-complete">
+          <span className="mc-complete__emoji" aria-hidden="true">🎉</span>
+          <h3 className="mc-complete__title">{activity.title}</h3>
+          <p className="mc-complete__score">{score}/{queue.length}</p>
         </div>
       </section>
     );
@@ -258,108 +211,111 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
 
   const currentState = initialQuestionStates[current.sourceId]?.status || 'unseen';
   const speechText = [current.prompt, ...currentContextSlots.filter((slot) => slot.kind === 'text' && slot.text).map((slot) => slot.text)].join('. ');
+  const hasMedia = currentOptions.some((option) => option.media?.src);
 
   return (
     <section className="engine-card engine-card--compact">
-      <div className="activity-rail">
-        <span className="activity-rail__tag">{current.sectionTitle}</span>
-        <div className="activity-rail__progress">
-          <i style={{ width: `${Math.max(progressPercent, 4)}%` }}></i>
+      {/* Progress rail */}
+      <div className="mc-progress-rail">
+        <span className="mc-progress-rail__label">{current.sectionTitle}</span>
+        <div className="mc-progress-rail__bar">
+          <div className="mc-progress-rail__fill" style={{ width: `${Math.max(progressPercent, 3)}%` }} />
         </div>
-        <strong>{currentIndex + 1}/{total}</strong>
+        <strong className="mc-progress-rail__counter">{currentIndex + 1}/{total}</strong>
       </div>
 
-      {currentContextSlots.length ? (
-        <div className="question-context question-context--compact">
+      {/* Context slots */}
+      {currentContextSlots.length > 0 && (
+        <div className="mc-context">
           {currentContextSlots.map((slot) => (
-            <div key={slot.id} className={`question-context__slot question-context__slot--${slot.kind}`}>
+            <div key={slot.id} className={`mc-context__slot mc-context__slot--${slot.kind}`}>
               {slot.kind === 'image' && slot.src ? (
                 <>
-                  <img src={slot.src} alt={slot.alt || ''} />
-                  {slot.caption ? <small>{slot.caption}</small> : null}
+                  <img src={slot.src} alt={slot.alt || ''} className="mc-context__img" />
+                  {slot.caption && <small className="mc-context__caption">{slot.caption}</small>}
                 </>
               ) : slot.kind === 'audio' && slot.src ? (
-                <audio controls preload="none">
-                  <source src={slot.src} />
-                </audio>
+                <audio controls preload="none"><source src={slot.src} /></audio>
               ) : (
-                <p>{slot.text}</p>
+                <p className="mc-context__text">{slot.text}</p>
               )}
             </div>
           ))}
         </div>
-      ) : null}
+      )}
 
-      <div className="feedback-strip">
-        <strong>{t('friendlyQuestionLead') || 'Lis bien et choisis calmement.'}</strong>
-        <span>{t('friendlyQuestionSupport') || 'Prends ton temps, tu peux y arriver.'}</span>
-      </div>
-
-      <div className="prompt-tools">
-        <p className="engine-prompt engine-prompt--compact">{current.prompt}</p>
-        {speechSupported ? (
+      {/* Question prompt */}
+      <div className="mc-prompt-area">
+        <p className="mc-prompt">{current.prompt}</p>
+        {speechSupported && (
           <button
             type="button"
-            className={`audio-action${speaking ? ' is-playing' : ''}`}
-            onClick={() => (speaking ? stop() : speak(speechText))}
+            className={`mc-speak-btn${speaking ? ' is-playing' : ''}`}
+            onClick={() => speaking ? stop() : speak(speechText)}
             data-testid="play-question"
-            aria-label={speaking ? 'Arreter la lecture' : 'Lire la question'}
+            aria-label={speaking ? 'Detener lectura' : 'Leer pregunta'}
           >
-            <span aria-hidden="true">{speaking ? '■' : '▶'}</span>
+            <span aria-hidden="true">{speaking ? '■' : '🔊'}</span>
           </button>
-        ) : null}
+        )}
       </div>
 
-      <div className={`choice-grid choice-grid--compact${currentOptions.some((option) => option.media?.src) ? ' choice-grid--media' : ''}`}>
+      {/* Hint strip */}
+      {!feedback && currentState === 'failed' && current.explanation && (
+        <div className="mc-hint">
+          <span aria-hidden="true">💡</span>
+          <span>{current.explanation}</span>
+        </div>
+      )}
+
+      {/* Choices */}
+      <div className={`mc-choices${hasMedia ? ' mc-choices--media' : ''}`}>
         {currentOptions.map((option) => {
           const isSelected = selected === option.id;
           const isAnswer = option.id === correctOptionId;
-          const resultClass = feedback
-            ? isAnswer
-              ? ' is-correct'
-              : isSelected
-                ? ' is-wrong'
-                : ''
-            : '';
+          const stateClass = feedback
+            ? isAnswer ? ' mc-choice--correct' : isSelected ? ' mc-choice--wrong' : ''
+            : isSelected ? ' mc-choice--selected' : '';
 
           return (
             <button
               key={option.id}
-              className={`choice-button choice-button--compact${option.media?.src ? ' choice-button--visual' : ''}${isSelected ? ' is-selected' : ''}${resultClass}`}
+              className={`mc-choice${stateClass}`}
               disabled={Boolean(feedback)}
               type="button"
               onClick={() => handleChoiceClick(option)}
               data-testid={`choice-${option.id}`}
             >
-              <span className="choice-button__inner">
-                {option.media?.src ? (
-                  <span className="choice-button__media">
-                    <img src={option.media.src} alt={option.media.alt || option.label} />
-                  </span>
-                ) : null}
-                <span className="choice-button__text">
-                  <strong>{option.label}</strong>
-                  {option.description ? <small>{option.description}</small> : null}
+              {option.media?.src && (
+                <span className="mc-choice__media">
+                  <img src={option.media.src} alt={option.media.alt || option.label} />
                 </span>
+              )}
+              <span className="mc-choice__text">
+                <strong>{option.label}</strong>
+                {option.description && <small>{option.description}</small>}
               </span>
+              {feedback && isAnswer && <span className="mc-choice__check" aria-hidden="true">✓</span>}
+              {feedback && isSelected && !isAnswer && <span className="mc-choice__check" aria-hidden="true">✗</span>}
             </button>
           );
         })}
       </div>
 
-      <div className={`feedback-strip${feedback ? ` is-${feedback.isCorrect ? 'success' : 'warning'}` : ''}`}>
-        {feedback ? (
-          <>
-            <strong>{feedback.isCorrect ? t('correctAnswer') : t('reviewTogether')}</strong>
-            <span>{feedback.explanation}</span>
-          </>
-        ) : (
-          <>
-            <strong>{t('hint')}</strong>
-            <span>{currentState === 'failed' ? current.explanation : activity.hints?.[0]}</span>
-          </>
-        )}
-      </div>
+      {/* Feedback strip */}
+      {feedback && (
+        <div className={`mc-feedback mc-feedback--${feedback.isCorrect ? 'correct' : 'wrong'}`}>
+          <div className="mc-feedback__top">
+            <span className="mc-feedback__icon" aria-hidden="true">
+              {feedback.isCorrect ? '✅' : '💡'}
+            </span>
+            <strong className="mc-feedback__msg">{feedbackMsg}</strong>
+          </div>
+          {feedback.explanation && (
+            <p className="mc-feedback__detail">{feedback.explanation}</p>
+          )}
+        </div>
+      )}
     </section>
   );
 }
