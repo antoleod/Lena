@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getProfile, logoutProfile, saveProfile } from '../../services/storage/profileStore.js';
-import { getRewardState } from '../../services/storage/rewardStore.js';
+import { getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 
 export default function SettingsPage() {
@@ -12,6 +12,7 @@ export default function SettingsPage() {
   const [profile, setProfile] = useState(() => getProfile());
   const [draftName, setDraftName] = useState(() => getProfile().name || '');
   const [rewardState, setRewardState] = useState(() => getRewardState());
+  const themeOptions = getRewardCatalog().filter((item) => item.type === 'theme');
 
   useEffect(() => {
     function sync() {
@@ -33,6 +34,10 @@ export default function SettingsPage() {
   function handleThemeChange(themeId) {
     setThemeId(themeId);
     setProfile(saveProfile({ themeId }));
+  }
+
+  function isThemeOwned(themeId) {
+    return themeId === 'theme-candy' || rewardState.inventory.includes(themeId);
   }
 
   return (
@@ -85,9 +90,11 @@ export default function SettingsPage() {
               value={profile.themeId || 'theme-candy'}
               onChange={(event) => handleThemeChange(event.target.value)}
             >
-              <option value="theme-candy">Candy</option>
-              <option value="theme-ocean">Ocean</option>
-              <option value="theme-sunset">Sunset</option>
+              {themeOptions.map((theme) => (
+                <option key={theme.id} value={theme.id} disabled={!isThemeOwned(theme.id)}>
+                  {theme.name}{isThemeOwned(theme.id) ? '' : ' - Shop'}
+                </option>
+              ))}
             </select>
           </div>
         </div>
