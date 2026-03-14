@@ -11,10 +11,10 @@ export const storiesGrade3Modules = [
     summary: 'Lire une mini histoire puis repondre a des questions plus fines.',
     goal: 'Renforcer la comprehension narrative et les details implicites.',
     demo: 'Une demonstration montre comment retrouver le bon passage.',
-    guidedActivityIds: ['magic-library', 'generated-french-reading'],
-    independentActivityIds: ['magic-library'],
-    challengeActivityId: 'magic-library',
+    guidedActivityIds: ['magic-library', 'campfire-tales'],
+    independentActivityIds: ['castle-chronicles'],
+    challengeActivityId: 'campfire-tales',
     examActivityId: 'generated-french-reading',
-    suggestedReviewIds: ['magic-library']
+    suggestedReviewIds: ['magic-library', 'castle-chronicles']
   })
 ];

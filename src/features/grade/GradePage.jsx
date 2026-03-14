@@ -37,6 +37,11 @@ export default function GradePage() {
     return accumulator;
   }, {});
 
+  const moduleActivityIds = new Set(
+    gradeJourney.moduleJourneys.flatMap((journey) => journey.activities.map((activity) => activity.id))
+  );
+  const bonusActivities = gradeActivities.filter((activity) => !moduleActivityIds.has(activity.id));
+
   const totalJourneyActivities = gradeJourney.moduleJourneys.reduce((sum, journey) => sum + journey.activities.length, 0);
   const completedModules = gradeJourney.moduleJourneys.filter((journey) => {
     const total = journey.activities.length;
@@ -45,7 +50,7 @@ export default function GradePage() {
   }).length;
 
   return (
-    <div className="page-stack page-stack--compact">
+    <div className="page-stack page-stack--compact" data-testid={`grade-page-${subjectId}-${gradeId}`}>
       <section className="panel panel--tight panel--subject-map">
         <div className="panel__header">
           <div>
@@ -87,7 +92,7 @@ export default function GradePage() {
       </section>
 
       {modules.length ? Object.entries(groupedModules).map(([domain, domainModules], domainIndex) => (
-        <section key={domain} className="panel panel--tight">
+        <section key={domain} className="panel panel--tight" data-testid={`grade-domain-${domainIndex}`}>
           <div className="panel__header">
             <div>
               <span className="eyebrow">{gradeId}</span>
@@ -102,7 +107,7 @@ export default function GradePage() {
               const progressPercent = totalActivities ? Math.round((relatedDone / totalActivities) * 100) : 0;
 
               return (
-                <article key={module.id} className="module-lane__card" style={{ animationDelay: `${(domainIndex * 2 + index) * 80}ms` }}>
+                <article key={module.id} className="module-lane__card" style={{ animationDelay: `${(domainIndex * 2 + index) * 80}ms` }} data-testid={`module-card-${module.id}`}>
                   <div className="module-lane__card-head">
                     <div>
                       <small>{module.domainLabel || domain}</small>
@@ -126,7 +131,7 @@ export default function GradePage() {
 
                   <div className="module-lane__footer">
                     <small>{progressPercent}% · {totalActivities} {t('exercise').toLowerCase()}</small>
-                    <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`}>
+                    <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`} data-testid={`module-launch-${module.id}`}>
                       <span className="button-icon" aria-hidden="true">🎯</span>
                       <span>{t('launch')}</span>
                     </Link>
@@ -136,7 +141,40 @@ export default function GradePage() {
             })}
           </div>
         </section>
-      )) : gradeActivities.length ? (
+      )) : null}
+
+      {bonusActivities.length ? (
+        <section className="panel panel--tight" data-testid={`bonus-activities-${subjectId}-${gradeId}`}>
+          <div className="panel__header">
+            <div>
+              <span className="eyebrow">{gradeId}</span>
+              <h3>Ateliers bonus</h3>
+            </div>
+          </div>
+          <div className="module-lane">
+            {bonusActivities.map((activity, index) => (
+              <article key={activity.id} className="module-lane__card" style={{ animationDelay: `${index * 60}ms` }} data-testid={`bonus-activity-${activity.id}`}>
+                <div className="module-lane__card-head">
+                  <div>
+                    <strong>{activity.title}</strong>
+                    <p>{activity.instructions}</p>
+                  </div>
+                  <span className="pill">{activity.estimatedDurationMin} min</span>
+                </div>
+                <div className="module-lane__footer">
+                  <small>{activity.subskill || activity.subject}</small>
+                  <Link className="primary-action" to={`/activities/${activity.id}`} data-testid={`bonus-launch-${activity.id}`}>
+                    <span className="button-icon" aria-hidden="true">▶</span>
+                    <span>{t('launch')}</span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {!modules.length && gradeActivities.length ? (
         <section className="panel panel--tight">
           <div className="panel__header">
             <div>
@@ -165,7 +203,9 @@ export default function GradePage() {
             ))}
           </div>
         </section>
-      ) : (
+      ) : null}
+
+      {!modules.length && !gradeActivities.length ? (
         <section className="panel panel--tight">
           <div className="panel__header">
             <div>
@@ -180,7 +220,7 @@ export default function GradePage() {
             </Link>
           </div>
         </section>
-      )}
+      ) : null}
     </div>
   );
 }

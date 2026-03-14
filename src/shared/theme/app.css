@@ -1792,6 +1792,29 @@ button {
   box-shadow: var(--shadow-soft);
 }
 
+.subject-tile--rich {
+  align-content: start;
+  gap: 10px;
+}
+
+.subject-tile__hero {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subject-tile__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(144, 118, 166, 0.12);
+  box-shadow: var(--shadow-soft);
+  font-size: 1.2rem;
+}
+
 .panel--subject-map {
   background:
     radial-gradient(circle at top right, rgba(255, 207, 116, 0.22), transparent 22%),

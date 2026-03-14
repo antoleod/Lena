@@ -42,6 +42,29 @@ export async function seedProfile(page, { name = 'Lina', age = 8, language = 'fr
       equippedEffectId: 'effect-rainbow',
       equippedWallpaperId: 'wallpaper-dreamy-sky'
     }));
+
+    window.localStorage.setItem('lena:migration:progress:v3', JSON.stringify({
+      activities: {
+        'generated-addition-p2': {
+          attempts: 1,
+          completed: true,
+          bestScore: 8,
+          lastScore: 8,
+          updatedAt: Date.now()
+        }
+      },
+      levels: {},
+      questions: {},
+      meta: {
+        lastActivityId: 'generated-addition-p2',
+        lastLevelId: null,
+        lastPlayedAt: Date.now(),
+        streakCurrent: 2,
+        streakBest: 2,
+        totalCorrect: 8,
+        totalWrong: 2
+      }
+    }));
   }, { seededName: name, seededAge: age, seededLanguage: language });
 }
 

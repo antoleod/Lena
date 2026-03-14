@@ -36,7 +36,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="page-stack page-stack--compact">
+    <div className="page-stack page-stack--compact" data-testid="settings-page">
       <section className="panel panel--tight">
         <div className="panel__header">
           <div>
@@ -55,7 +55,7 @@ export default function SettingsPage() {
               value={draftName}
               onChange={(event) => setDraftName(event.target.value)}
             />
-            <button type="button" className="primary-action" onClick={handleSaveProfile}>
+            <button type="button" className="primary-action" onClick={handleSaveProfile} data-testid="settings-save">
               <span className="button-icon" aria-hidden="true">💾</span>
               <span>Save</span>
             </button>
@@ -112,6 +112,7 @@ export default function SettingsPage() {
           <button
             type="button"
             className="secondary-action"
+            data-testid="settings-logout"
             onClick={() => {
               logoutProfile();
               navigate('/onboarding', { replace: true });

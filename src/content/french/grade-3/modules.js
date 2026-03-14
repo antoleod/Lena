@@ -48,10 +48,10 @@ export const frenchGrade3Modules = [
     goal: 'Lire, trier et choisir avec plus d autonomie.',
     demo: 'Une demonstration montre comment chercher l indice utile dans la phrase.',
     guidedActivityIds: ['generated-french-vocabulary-p3', 'generated-french-grammar-p3'],
-    independentActivityIds: ['intrus-lecture'],
+    independentActivityIds: ['intrus-lecture', 'generated-french-vocabulary'],
     challengeActivityId: 'possessives',
     examActivityId: 'generated-french-grammar-p3',
-    suggestedReviewIds: ['generated-french-vocabulary-p2'],
+    suggestedReviewIds: ['generated-french-vocabulary-p2', 'generated-french-vocabulary'],
     missionTitle: 'Mission langue P3',
     missionSummary: 'Mieux comprendre les mots, les accords et les types de phrases simples.'
   }),

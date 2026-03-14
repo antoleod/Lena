@@ -88,12 +88,12 @@ export default function ModulePage() {
 
         <div className="dashboard-actions">
           {resumeActivity ? (
-            <Link className="primary-action" to={`/activities/${resumeActivity.id}?module=${module.id}`}>
+            <Link className="primary-action" to={`/activities/${resumeActivity.id}?module=${module.id}`} data-testid="module-primary-cta">
               <span className="button-icon" aria-hidden="true">{completedActivities > 0 ? '▶' : '✨'}</span>
               <span>{primaryLabel}</span>
             </Link>
           ) : (
-            <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}`}>
+            <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}`} data-testid="module-primary-cta">
               <span className="button-icon" aria-hidden="true">📚</span>
               <span>{t('back')}</span>
             </Link>
@@ -153,7 +153,7 @@ export default function ModulePage() {
             {nextActivity ? (
               <div className="module-lane__footer">
                 <small>{nextActivity.estimatedDurationMin} min</small>
-                <Link className="primary-action" to={`/activities/${nextActivity.id}?module=${module.id}`}>
+                <Link className="primary-action" to={`/activities/${nextActivity.id}?module=${module.id}`} data-testid={`module-stage-${stage.id}`}>
                   <span className="button-icon" aria-hidden="true">{status.completed >= status.total ? '🔁' : '▶'}</span>
                   <span>{status.completed >= status.total ? t('launch') : stateLabel}</span>
                 </Link>

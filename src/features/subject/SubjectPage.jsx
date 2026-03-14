@@ -46,7 +46,7 @@ export default function SubjectPage() {
   }).filter((entry) => (entry.gradeId === 'P2' || entry.gradeId === 'P3') && (entry.activities.length || entry.modules.length));
 
   return (
-    <div className="page-stack page-stack--compact">
+    <div className="page-stack page-stack--compact" data-testid={`subject-page-${subjectId}`}>
       <section className="panel panel--tight panel--subject-map" style={{ '--subject-accent': subject.accent, '--subject-color': subject.color }}>
         <div className="panel__header">
           <div>
@@ -86,9 +86,10 @@ export default function SubjectPage() {
             const launchTo = grade.modules.length
               ? `/subjects/${subjectId}/grades/${grade.gradeId}`
               : `/activities/${grade.activities[0].id}`;
+            const modulePreview = grade.modules.slice(0, 5);
 
             return (
-              <article key={grade.gradeId} className="grade-map__node" style={{ animationDelay: `${index * 90}ms` }}>
+              <article key={grade.gradeId} className="grade-map__node" style={{ animationDelay: `${index * 90}ms` }} data-testid={`subject-grade-${grade.gradeId}`}>
                 <div className="grade-map__node-head">
                   <strong>{grade.gradeId}</strong>
                   <span>{grade.modules.length ? `${grade.modules.length} modules` : `${grade.activities.length} activities`}</span>
@@ -101,11 +102,13 @@ export default function SubjectPage() {
                   <small>{grade.stats.percent}%</small>
                 </div>
                 <div className="grade-map__preview">
-                  {grade.activities.slice(0, 4).map((activity) => (
+                  {modulePreview.length ? modulePreview.map((module) => (
+                    <span key={module.id} className="tag-chip tag-chip--static">{module.title}</span>
+                  )) : grade.activities.slice(0, 4).map((activity) => (
                     <span key={activity.id} className="tag-chip tag-chip--static">{activity.title}</span>
                   ))}
                 </div>
-                <Link className="primary-action" to={launchTo}>
+                <Link className="primary-action" to={launchTo} data-testid={`subject-grade-launch-${grade.gradeId}`}>
                   <span className="button-icon" aria-hidden="true">📘</span>
                   <span>{t('launch')}</span>
                 </Link>

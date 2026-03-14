@@ -28,7 +28,7 @@ export default function HistoryPage() {
     .slice(0, 12);
 
   return (
-    <div className="page-stack page-stack--compact">
+    <div className="page-stack page-stack--compact" data-testid="history-page">
       <section className="panel panel--tight">
         <div className="panel__header">
           <div>
@@ -71,7 +71,7 @@ export default function HistoryPage() {
                     <span>{t('bestLabel')} {entry.bestScore}</span>
                     <span>{t('attemptsLabel')} {entry.attempts}</span>
                     <span>{entry.completed ? t('completed') : t('inProgress')}</span>
-                    <Link className="text-link" to={`/activities/${entry.id}`}>{t('openActivity')}</Link>
+                    <Link className="text-link" to={`/activities/${entry.id}`} data-testid={`history-open-${entry.id}`}>{t('openActivity')}</Link>
                   </div>
                 </article>
               );
