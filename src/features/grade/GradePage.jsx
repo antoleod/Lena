@@ -4,6 +4,7 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getGradeJourney } from '../../shared/gameplay/moduleJourney.js';
+import FloatingBackButton from '../../shared/ui/FloatingBackButton.jsx';
 
 export default function GradePage() {
   const { subjectId, gradeId } = useParams();
@@ -51,13 +52,12 @@ export default function GradePage() {
 
   return (
     <div className="page-stack page-stack--compact" data-testid={`grade-page-${subjectId}-${gradeId}`}>
-      <section className="panel panel--tight panel--subject-map">
-        <div className="panel__header">
-          <div>
-            <span className="eyebrow">{gradeId}</span>
-            <h2>{getSubjectLabel(subject, locale, t)}</h2>
-          </div>
-          <Link className="text-link" to={`/subjects/${subjectId}`}>{t('back')}</Link>
+      <FloatingBackButton to={`/subjects/${subjectId}`} label={t('back')} storageKey={`floating-back-grade-${subjectId}-${gradeId}`} />
+
+      <section className="panel panel--tight">
+        <div className="world-detail-hero">
+          <span className="eyebrow">{gradeId}</span>
+          <h2>{getSubjectLabel(subject, locale, t)}</h2>
         </div>
 
         <div className="tag-list">

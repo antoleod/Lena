@@ -5,6 +5,7 @@ import {
   recordQuestionOutcome
 } from '../../services/storage/progressStore.js';
 import { useSpeechPlayer } from '../../shared/hooks/useSpeechPlayer.js';
+import { getProfile } from '../../services/storage/profileStore.js';
 
 function shuffleChoices(choices = []) {
   const list = [...choices];
@@ -99,8 +100,10 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
   const [score, setScore] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [feedbackMsg, setFeedbackMsg] = useState('');
+  const [isLocked, setIsLocked] = useState(false);
   const pendingAdvanceRef = useRef(null);
   const timerRef = useRef(null);
+  const feedbackPreferences = getProfile().feedbackPreferences || {};
 
   const current = queue[currentIndex];
   const total = queue.length;
@@ -151,10 +154,11 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     setSelected('');
     setFeedback(null);
     setFeedbackMsg('');
+    setIsLocked(false);
   }
 
   function handleChoiceClick(option) {
-    if (feedback) return;
+    if (feedback || isLocked) return;
     const correctValues = resolveCorrectValues(current);
     const isCorrect = option.id === correctOptionId || correctValues.includes(option.value) || correctValues.includes(option.id);
     const questionState = recordQuestionOutcome(activity.id, current.sourceId, isCorrect);
@@ -179,8 +183,16 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     setQueue(nextQueue);
     setSelected(option.id);
     setScore(nextScore);
+    const shouldShowFeedback = isCorrect
+      ? feedbackPreferences.showCorrect !== false
+      : feedbackPreferences.showWrong !== false;
+    const feedbackDuration = isCorrect
+      ? Number(feedbackPreferences.correctDurationMs || 1000)
+      : Number(feedbackPreferences.wrongDurationMs || 2000);
+
     setFeedbackMsg(msg);
-    setFeedback({
+    setIsLocked(true);
+    setFeedback(shouldShowFeedback ? {
       isCorrect,
       explanation: !isCorrect && questionState.failures >= 2
         ? current.explanation
@@ -188,13 +200,13 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
           ? current.explanation
           : activity.hints?.[0],
       status: questionState.status
-    });
+    } : null);
 
     pendingAdvanceRef.current = { score: nextScore, queue: nextQueue };
     timerRef.current = window.setTimeout(() => {
       pendingAdvanceRef.current = null;
       goNext(nextScore, nextQueue);
-    }, isCorrect ? 900 : 1400);
+    }, shouldShowFeedback ? feedbackDuration : 120);
   }
 
   if (completed) {
@@ -212,6 +224,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
   const currentState = initialQuestionStates[current.sourceId]?.status || 'unseen';
   const speechText = [current.prompt, ...currentContextSlots.filter((slot) => slot.kind === 'text' && slot.text).map((slot) => slot.text)].join('. ');
   const hasMedia = currentOptions.some((option) => option.media?.src);
+  const compactChoices = hasMedia || currentOptions.every((option) => option.label.length <= 24 && !option.description);
 
   return (
     <section className="engine-card engine-card--compact">
@@ -269,7 +282,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
       )}
 
       {/* Choices */}
-      <div className={`mc-choices${hasMedia ? ' mc-choices--media' : ''}`}>
+      <div className={`mc-choices${hasMedia ? ' mc-choices--media' : ''}${compactChoices ? ' mc-choices--compact' : ''}`}>
         {currentOptions.map((option) => {
           const isSelected = selected === option.id;
           const isAnswer = option.id === correctOptionId;
@@ -280,8 +293,8 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
           return (
             <button
               key={option.id}
-              className={`mc-choice${stateClass}`}
-              disabled={Boolean(feedback)}
+              className={`mc-choice${hasMedia ? ' mc-choice--visual' : ''}${compactChoices ? ' mc-choice--compact' : ''}${stateClass}`}
+              disabled={Boolean(feedback) || isLocked}
               type="button"
               onClick={() => handleChoiceClick(option)}
               data-testid={`choice-${option.id}`}

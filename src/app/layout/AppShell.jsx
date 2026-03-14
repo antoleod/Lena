@@ -4,16 +4,15 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { logoutProfile } from '../../services/storage/profileStore.js';
 import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 
-function getInitial(name, fallback) {
-  const value = String(name || fallback || 'L').trim();
-  return value ? value[0].toUpperCase() : 'L';
-}
-
 export default function AppShell() {
   const { t } = useLocale();
   const [session, setSession] = useState(() => getSessionSnapshot());
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Dynamic branding: use saved name or fallback to default
+  const displayName = session.profile?.name || t('defaultChildName') || 'Kid';
+  const displayInitial = displayName.charAt(0).toUpperCase();
 
   const navItems = useMemo(() => ([
     { to: '/map', label: t('startAdventure') || 'Adventure', icon: '🗺' },
@@ -57,9 +56,9 @@ export default function AppShell() {
         <span className="scene-effects__rainbow"></span>
       </div>
       <header className="app-topbar" data-testid="app-shell">
-        <button type="button" className="brand-inline" onClick={() => navigate('/settings')} data-testid="shell-brand">
-          <span className="brand-inline__mark">L</span>
-          <span className="brand-inline__name">Lena</span>
+        <button type="button" className="brand-inline" onClick={() => navigate('/')} data-testid="shell-brand">
+          <span className="brand-inline__mark">{displayInitial}</span>
+          <span className="brand-inline__name">{displayName}</span>
         </button>
 
         <nav className="topbar-nav" aria-label="Primary">
@@ -70,7 +69,7 @@ export default function AppShell() {
               to={item.to}
               data-testid={`nav-${item.to.replace('/', '') || 'home'}`}
             >
-              <span aria-hidden="true">{item.icon}</span>
+              <span className="topbar-link__icon" aria-hidden="true">{item.icon}</span>
               <span>{item.label}</span>
             </NavLink>
           ))}
@@ -85,12 +84,12 @@ export default function AppShell() {
           <button
             type="button"
             className="profile-inline"
-            onClick={() => navigate('/settings')}
-            title={session.profile.name || t('defaultChildName')}
+            onClick={() => navigate('/')}
+            title={displayName}
             data-testid="shell-profile"
           >
-            <span className="profile-inline__avatar">{getInitial(session.profile.name, t('defaultChildName'))}</span>
-            <span className="profile-inline__name">{session.profile.name || t('defaultChildName')}</span>
+            <span className="profile-inline__avatar">{displayInitial}</span>
+            <span className="profile-inline__name">{displayName}</span>
           </button>
 
           <button type="button" className="icon-link" onClick={() => navigate('/shop')} data-testid="shell-shop">

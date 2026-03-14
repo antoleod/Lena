@@ -36,6 +36,14 @@ export default function SettingsPage() {
     setProfile(saveProfile({ themeId }));
   }
 
+  function handleFeedbackPreference(key, value) {
+    const nextPreferences = {
+      ...(profile.feedbackPreferences || {}),
+      [key]: value
+    };
+    setProfile(saveProfile({ feedbackPreferences: nextPreferences }));
+  }
+
   function isThemeOwned(themeId) {
     return themeId === 'theme-candy' || rewardState.inventory.includes(themeId);
   }
@@ -95,6 +103,61 @@ export default function SettingsPage() {
                   {theme.name}{isThemeOwned(theme.id) ? '' : ' - Shop'}
                 </option>
               ))}
+            </select>
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="settings-feedback-correct-toggle">Feedback correcto</label>
+            <select
+              id="settings-feedback-correct-toggle"
+              value={profile.feedbackPreferences?.showCorrect ? 'on' : 'off'}
+              onChange={(event) => handleFeedbackPreference('showCorrect', event.target.value === 'on')}
+            >
+              <option value="on">Activado</option>
+              <option value="off">Desactivado</option>
+            </select>
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="settings-feedback-correct-time">Tiempo correcto</label>
+            <select
+              id="settings-feedback-correct-time"
+              value={String(profile.feedbackPreferences?.correctDurationMs || 1000)}
+              onChange={(event) => handleFeedbackPreference('correctDurationMs', Number(event.target.value))}
+              disabled={!profile.feedbackPreferences?.showCorrect}
+            >
+              <option value="700">0.7 s</option>
+              <option value="1000">1 s</option>
+              <option value="1500">1.5 s</option>
+              <option value="2000">2 s</option>
+            </select>
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="settings-feedback-wrong-toggle">Feedback error</label>
+            <select
+              id="settings-feedback-wrong-toggle"
+              value={profile.feedbackPreferences?.showWrong ? 'on' : 'off'}
+              onChange={(event) => handleFeedbackPreference('showWrong', event.target.value === 'on')}
+            >
+              <option value="on">Activado</option>
+              <option value="off">Desactivado</option>
+            </select>
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="settings-feedback-wrong-time">Tiempo error</label>
+            <select
+              id="settings-feedback-wrong-time"
+              value={String(profile.feedbackPreferences?.wrongDurationMs || 2000)}
+              onChange={(event) => handleFeedbackPreference('wrongDurationMs', Number(event.target.value))}
+              disabled={!profile.feedbackPreferences?.showWrong}
+            >
+              <option value="1000">1 s</option>
+              <option value="1500">1.5 s</option>
+              <option value="2000">2 s</option>
+              <option value="3000">3 s</option>
+              <option value="4000">4 s</option>
             </select>
           </div>
         </div>

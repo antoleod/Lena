@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getActivitiesBySubject, getGradeProgression, subjects } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
@@ -69,6 +69,7 @@ function getSubjectTileData(subject, progress) {
 }
 
 function SubjectCard({ subject, locale, t, progress, index }) {
+  const navigate = useNavigate();
   const config = SUBJECT_CONFIG[subject.id] || {
     icon: '🎮',
     gradient: 'linear-gradient(135deg, #a8edea, #fed6e3)',
@@ -77,10 +78,30 @@ function SubjectCard({ subject, locale, t, progress, index }) {
     color: '#a8edea',
   };
   const data = getSubjectTileData(subject, progress);
+  const subjectRoute = `/subjects/${subject.id}`;
+
+  function handleCardNavigation() {
+    navigate(subjectRoute);
+  }
+
+  function handleCardKeyDown(event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    navigate(subjectRoute);
+  }
+
+  function stopNestedNavigation(event) {
+    event.stopPropagation();
+  }
 
   return (
     <article
       className="subject-card-v2"
+      role="link"
+      tabIndex={0}
+      aria-label={`${getSubjectLabel(subject, locale, t)} ${t('subjectsLabel') || 'subject'}`}
+      onClick={handleCardNavigation}
+      onKeyDown={handleCardKeyDown}
       style={{
         '--card-gradient': config.gradient,
         '--card-accent': config.accent,
@@ -129,7 +150,8 @@ function SubjectCard({ subject, locale, t, progress, index }) {
       <div className="subject-card-v2__footer">
         <Link
           className="subject-card-v2__cta"
-          to={`/subjects/${subject.id}`}
+          to={subjectRoute}
+          onClick={stopNestedNavigation}
           data-testid={`subject-launch-${subject.id}`}
           style={{ background: config.gradient }}
         >
@@ -141,6 +163,7 @@ function SubjectCard({ subject, locale, t, progress, index }) {
             key={grade.gradeId}
             className="subject-card-v2__grade-cta"
             to={`/subjects/${subject.id}/grades/${grade.gradeId}`}
+            onClick={stopNestedNavigation}
             data-testid={`subject-grade-direct-${subject.id}-${grade.gradeId}`}
           >
             {grade.gradeId}

@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getMissionProgress, getWorldById, getWorldProgress, worldMap } from '../../shared/gameplay/worldMap.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import FloatingBackButton from '../../shared/ui/FloatingBackButton.jsx';
 
 const NODE_TYPE_LABELS = {
   lesson: 'Lecon',
@@ -46,13 +47,12 @@ export default function WorldDetailPage() {
 
   return (
     <div className="page-stack page-stack--compact">
-      <section className="panel panel--tight panel--subject-map">
-        <div className="panel__header">
-          <div>
-            <span className="eyebrow">Monde</span>
-            <h2>{world.title}</h2>
-          </div>
-          <Link className="text-link" to="/map">Retour a la carte</Link>
+      <FloatingBackButton to="/map" label="Retour" storageKey={`floating-back-world-${worldId}`} />
+
+      <section className="panel panel--tight">
+        <div className="world-detail-hero">
+          <span className="eyebrow">Monde</span>
+          <h2>{world.title}</h2>
         </div>
 
         <div className="detail-list">
@@ -75,8 +75,8 @@ export default function WorldDetailPage() {
             const missionProgress = getMissionProgress(mission, progress);
             const unlocked = isMissionUnlocked(world, mission.order, progress);
             const completed = missionProgress.completed >= missionProgress.total;
-            const active = unlocked && !completed && missionProgress.completed > 0;
-            const stateLabel = !unlocked ? 'Bloquee' : completed ? 'Terminee' : active ? 'En cours' : 'A jouer';
+            const active = !completed && missionProgress.completed > 0;
+            const stateLabel = completed ? 'Terminee' : active ? 'En cours' : unlocked ? 'A jouer' : 'Disponible';
             const reward = mission.nodeType === 'checkpoint' || mission.nodeType === 'reward' ? '+25 crystals' : mission.nodeType === 'boss' ? '+1 etoile' : '+10 crystals';
 
             const content = (
@@ -90,25 +90,13 @@ export default function WorldDetailPage() {
               </>
             );
 
-            if (!unlocked) {
-              return (
-                <article
-                  key={mission.id}
-                  className="world-map-track__node world-map-track__node--locked"
-                  style={{ animationDelay: `${index * 60}ms` }}
-                  title="Termine la mission precedente pour ouvrir celle-ci."
-                >
-                  {content}
-                </article>
-              );
-            }
-
             return (
               <Link
                 key={mission.id}
-                className={`world-map-track__node${active ? ' world-map-track__node--in-progress' : completed ? ' world-map-track__node--completed' : ''}`}
+                className={`world-map-track__node${active ? ' world-map-track__node--in-progress' : completed ? ' world-map-track__node--completed' : ''}${!unlocked ? ' world-map-track__node--preview' : ''}`}
                 to={`/map/${world.id}/missions/${mission.id}`}
                 style={{ animationDelay: `${index * 60}ms` }}
+                title={!unlocked ? 'Le contenu existe deja. Tu peux l ouvrir meme avant de terminer la mission precedente.' : mission.title}
               >
                 {content}
               </Link>

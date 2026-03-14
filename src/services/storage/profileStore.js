@@ -20,7 +20,13 @@ function defaultProfile() {
     totalActivitiesCompleted: 0,
     totalExamsCompleted: 0,
     streakCurrent: 0,
-    streakBest: 0
+    streakBest: 0,
+    feedbackPreferences: {
+      showCorrect: true,
+      showWrong: true,
+      correctDurationMs: 1000,
+      wrongDurationMs: 2000
+    }
   };
 }
 
@@ -32,6 +38,10 @@ function readStore() {
     return {
       ...defaultProfile(),
       ...parsed,
+      feedbackPreferences: {
+        ...defaultProfile().feedbackPreferences,
+        ...(parsed.feedbackPreferences || {})
+      },
       worldsUnlocked: parsed.worldsUnlocked || ['world-1'],
       missionsUnlocked: parsed.missionsUnlocked || []
     };

@@ -3,6 +3,7 @@ import { activities, getGradeProgression, getSubjectById } from '../curriculum/c
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel, getSubjectRoadmap } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import FloatingBackButton from '../../shared/ui/FloatingBackButton.jsx';
 
 function getGradeStats(subjectId, grade, progress) {
   const gradeActivities = activities.filter((activity) => activity.subject === subjectId && activity.gradeBand.includes(grade.gradeId));
@@ -47,15 +48,14 @@ export default function SubjectPage() {
 
   return (
     <div className="page-stack page-stack--compact" data-testid={`subject-page-${subjectId}`}>
-      <section className="panel panel--tight panel--subject-map" style={{ '--subject-accent': subject.accent, '--subject-color': subject.color }}>
-        <div className="panel__header">
-          <div>
-            <span className="eyebrow">P2 / P3</span>
-            <h2>{getSubjectLabel(subject, locale, t)}</h2>
-          </div>
-          <Link className="text-link" to="/subjects">{t('subjectsLabel') || 'Subjects'}</Link>
+      <FloatingBackButton to="/subjects" label={t('subjectsLabel') || 'Subjects'} storageKey={`floating-back-subject-${subjectId}`} />
+
+      <section className="subject-overview" style={{ '--subject-accent': subject.accent, '--subject-color': subject.color }}>
+        <div className="subject-overview__head">
+          <span className="eyebrow">P2 / P3</span>
+          <h2>{getSubjectLabel(subject, locale, t)}</h2>
         </div>
-        <p className="panel__copy">{getSubjectDescription(subject, locale)}</p>
+        <p className="subject-overview__copy">{getSubjectDescription(subject, locale)}</p>
         <div className="subject-road-strip">
           {getSubjectRoadmap(subject, locale).map((item, index) => (
             <div key={item} className="subject-road-strip__item" style={{ animationDelay: `${index * 80}ms` }}>
