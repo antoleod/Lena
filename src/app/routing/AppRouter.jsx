@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from '../layout/AppShell.jsx';
 import HomePage from '../../features/home/HomePage.jsx';
@@ -16,7 +17,21 @@ import SettingsPage from '../../features/settings/SettingsPage.jsx';
 import { isProfileComplete } from '../../services/storage/profileStore.js';
 
 export default function AppRouter() {
-  const needsOnboarding = typeof window !== 'undefined' && !isProfileComplete();
+  const [needsOnboarding, setNeedsOnboarding] = useState(() => typeof window !== 'undefined' && !isProfileComplete());
+
+  useEffect(() => {
+    function syncProfile() {
+      setNeedsOnboarding(!isProfileComplete());
+    }
+
+    syncProfile();
+    window.addEventListener('lena-profile-change', syncProfile);
+    window.addEventListener('lena-profile-logout', syncProfile);
+    return () => {
+      window.removeEventListener('lena-profile-change', syncProfile);
+      window.removeEventListener('lena-profile-logout', syncProfile);
+    };
+  }, []);
 
   return (
     <Routes>

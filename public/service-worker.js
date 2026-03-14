@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lena-cache-v7';
+const CACHE_NAME = 'lena-cache-v8';
 
 const BASE_PATH = (() => {
   const scope = self.registration?.scope || `${self.location.origin}/`;
@@ -49,7 +49,25 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
 
-  if (url.origin !== self.location.origin || request.headers.has('range')) {
+  if (request.method !== 'GET' || url.origin !== self.location.origin || request.headers.has('range')) {
+    return;
+  }
+
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response?.ok) {
+            const cacheCopy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(withBase('index.html'), cacheCopy));
+          }
+          return response;
+        })
+        .catch(async () => {
+          const cached = await caches.match(withBase('index.html'));
+          return cached || fetch(withBase('index.html'));
+        })
+    );
     return;
   }
 
@@ -58,7 +76,8 @@ self.addEventListener('fetch', (event) => {
       if (cached) {
         fetch(request).then((response) => {
           if (response?.ok && response.status !== 206) {
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
+            const cacheCopy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, cacheCopy));
           }
         }).catch(() => {});
         return cached;
@@ -67,16 +86,12 @@ self.addEventListener('fetch', (event) => {
       return fetch(request)
         .then((response) => {
           if (response?.ok && response.status !== 206) {
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
+            const cacheCopy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, cacheCopy));
           }
           return response;
         })
-        .catch(() => {
-          if (request.mode === 'navigate' || (request.headers.get('accept') || '').includes('text/html')) {
-            return caches.match(withBase('index.html'));
-          }
-          return new Response('Offline', { status: 503, statusText: 'Offline' });
-        });
+        .catch(() => new Response('Offline', { status: 503, statusText: 'Offline' }));
     })
   );
 });

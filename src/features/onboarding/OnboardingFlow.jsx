@@ -13,9 +13,9 @@ const localeOptions = [
 
 const ageOptions = [7, 8, 9, 10];
 const themeOptions = [
-  { id: 'fantasy', label: 'Fantasy', themeId: 'theme-candy' },
-  { id: 'ocean', label: 'Ocean', themeId: 'theme-ocean' },
-  { id: 'adventure', label: 'Adventure', themeId: 'theme-sunset' }
+  { id: 'fantasy', label: 'Fantasy', themeId: 'theme-candy', icon: '🦄' },
+  { id: 'ocean', label: 'Ocean', themeId: 'theme-ocean', icon: '🌊' },
+  { id: 'adventure', label: 'Adventure', themeId: 'theme-sunset', icon: '🧭' }
 ];
 
 export default function OnboardingFlow() {
@@ -38,6 +38,7 @@ export default function OnboardingFlow() {
 
   const totalSteps = 3;
   const progressPercent = Math.round((step / totalSteps) * 100);
+  const isNextDisabled = step === 2 && !name.trim();
 
   function handleComplete() {
     const selectedTheme = themeOptions.find((option) => option.id === visualTheme) || themeOptions[0];
@@ -55,9 +56,22 @@ export default function OnboardingFlow() {
     navigate('/', { replace: true });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (step < totalSteps) {
+      if (!isNextDisabled) {
+        setStep((value) => Math.min(totalSteps, value + 1));
+      }
+      return;
+    }
+
+    handleComplete();
+  }
+
   return (
     <div className="onboarding-flow">
-      <section className="onboarding-modal onboarding-modal--game">
+      <form className="onboarding-modal onboarding-modal--game" onSubmit={handleSubmit}>
         <header className="onboarding-modal__header">
           <span className="eyebrow">{t('onboardingWelcomeTag')}</span>
           <h1>{t('onboardingWelcomeTitle')}</h1>
@@ -131,8 +145,13 @@ export default function OnboardingFlow() {
                   className={`choice-button choice-button--theme${visualTheme === option.id ? ' is-selected' : ''}`}
                   onClick={() => setVisualTheme(option.id)}
                 >
-                  <span className="pill">{t('theme')}</span>
-                  <span>{option.label}</span>
+                  <span className="choice-button__inner">
+                    <span className="choice-button__media" aria-hidden="true">{option.icon}</span>
+                    <span className="choice-button__text">
+                      <strong>{option.label}</strong>
+                      <small>{t('theme')}</small>
+                    </span>
+                  </span>
                 </button>
               ))}
             </div>
@@ -148,23 +167,18 @@ export default function OnboardingFlow() {
           ) : <span />}
 
           {step < totalSteps ? (
-            <button
-              type="button"
-              className="primary-action"
-              onClick={() => setStep((value) => value + 1)}
-              disabled={step === 2 && !name.trim()}
-            >
+            <button type="submit" className="primary-action" disabled={isNextDisabled}>
               <span className="button-icon" aria-hidden="true">▶</span>
               <span>{t('continue')}</span>
             </button>
           ) : (
-            <button type="button" className="primary-action" onClick={handleComplete}>
+            <button type="submit" className="primary-action">
               <span className="button-icon" aria-hidden="true">✨</span>
               <span>{t('onboardingFinish')}</span>
             </button>
           )}
         </footer>
-      </section>
+      </form>
     </div>
   );
 }
