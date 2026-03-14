@@ -1,6 +1,6 @@
-import { generateExerciseSet } from './exerciseGenerators.js';
 import { assertGeneratedExercise } from '../activity-engine/index.js';
 import { describeActivity, describeLesson } from '../activity-engine/activityDescriptor.js';
+import { composeLesson } from '../learning/lessonComposer.js';
 
 function fallbackProgress() {
   return {
@@ -34,6 +34,44 @@ function normalizeDifficulty(difficulty, progress, expectedQuestions) {
   return 'easy';
 }
 
+function normalizeSectionCounts(sections = [], targetCount = 10) {
+  const safeTarget = Math.max(1, targetCount || 10);
+  const sourceCounts = sections.map((section) => Math.max(section.count || 0, (section.seedLessons || []).length || 0));
+  const totalSource = sourceCounts.reduce((sum, count) => sum + count, 0);
+
+  if (!totalSource || totalSource === safeTarget) {
+    return sourceCounts;
+  }
+
+  const scaled = sourceCounts.map((count, index) => {
+    const seedFloor = (sections[index].seedLessons || []).length;
+    const proportional = Math.round((count / totalSource) * safeTarget);
+    return Math.max(seedFloor, proportional);
+  });
+
+  let totalScaled = scaled.reduce((sum, count) => sum + count, 0);
+
+  while (totalScaled > safeTarget) {
+    const index = scaled.findIndex((count, position) => count > ((sections[position].seedLessons || []).length || 0));
+    if (index === -1) {
+      break;
+    }
+    scaled[index] -= 1;
+    totalScaled -= 1;
+  }
+
+  while (totalScaled < safeTarget) {
+    const index = scaled.findIndex(() => true);
+    if (index === -1) {
+      break;
+    }
+    scaled[index] += 1;
+    totalScaled += 1;
+  }
+
+  return scaled;
+}
+
 function mapGeneratedExerciseToLesson(exercise, index) {
   assertGeneratedExercise(exercise);
   return {
@@ -55,13 +93,20 @@ function buildSection(sectionConfig, activity, difficulty) {
   const seedLessons = sectionConfig.seedLessons || [];
   const targetCount = sectionConfig.count || seedLessons.length;
   const missingCount = Math.max(0, targetCount - seedLessons.length);
-  const generatedLessons = generateExerciseSet({
-    grade: sectionConfig.grade || activity.generatorConfig.grade,
-    topic: sectionConfig.topic || activity.generatorConfig.topic,
-    language: sectionConfig.language || activity.generatorConfig.language || activity.language || 'fr',
-    difficulty,
-    count: missingCount
-  }).map(mapGeneratedExerciseToLesson);
+  const composedLesson = missingCount > 0
+    ? composeLesson({
+        subject: activity.subject,
+        skill: activity.subskill,
+        skillTags: activity.skillTags,
+        topic: sectionConfig.topic || activity.generatorConfig.topic,
+        grade: sectionConfig.grade || activity.generatorConfig.grade,
+        locale: sectionConfig.language || activity.generatorConfig.language || activity.language || 'fr',
+        difficulty,
+        exerciseCount: missingCount,
+        lessonId: `${activity.id}:${sectionConfig.id}`
+      })
+    : null;
+  const generatedLessons = (composedLesson?.exercises || []).map(mapGeneratedExerciseToLesson);
 
   return {
     id: sectionConfig.id,
@@ -86,12 +131,19 @@ export function materializeActivity(baseActivity, progressInput) {
 
   const progress = progressInput || fallbackProgress();
   const generatorConfig = baseActivity.generatorConfig;
-  const expectedQuestions = generatorConfig.sections.reduce((sum, section) => sum + section.count, 0);
+  const sectionPlan = generatorConfig.sections || [];
+  const targetQuestionCount = generatorConfig.targetQuestionCount || 10;
+  const normalizedCounts = normalizeSectionCounts(sectionPlan, targetQuestionCount);
+  const normalizedSections = sectionPlan.map((section, index) => ({
+    ...section,
+    count: normalizedCounts[index]
+  }));
+  const expectedQuestions = normalizedSections.reduce((sum, section) => sum + section.count, 0);
   const difficulty = normalizeDifficulty(generatorConfig.difficulty, progress, expectedQuestions);
 
   return {
     ...activityDescriptor,
-    sections: generatorConfig.sections.map((section) => buildSection(section, activityDescriptor, difficulty)),
+    sections: normalizedSections.map((section) => buildSection(section, activityDescriptor, difficulty)),
     generated: true,
     resolvedDifficulty: difficulty
   };

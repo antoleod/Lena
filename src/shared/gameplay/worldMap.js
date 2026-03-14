@@ -1,11 +1,9 @@
-import { getActivityById } from '../../features/curriculum/catalog.js';
 import { defineLevel } from '../types/index.js';
 import { worldJourneyData } from '../../content/worlds/index.js';
+import { resolveExistingActivities } from '../utils/contentResolution.js';
 
 function resolveMissionLevels(worldId, mission, activityIds) {
-  const resolvedActivities = activityIds
-    .map((activityId) => getActivityById(activityId))
-    .filter(Boolean);
+  const resolvedActivities = resolveExistingActivities(activityIds, `world:${worldId}:${mission.id}`);
 
   if (!resolvedActivities.length) {
     return [];
@@ -35,8 +33,9 @@ export const worldMap = worldJourneyData.map((world) => ({
   ...world,
   missions: world.missions.map((mission) => ({
     ...mission,
+    activityIds: resolveExistingActivities(world.missionActivityMap[mission.id] || [], `world:${world.id}:${mission.id}`).map((activity) => activity.id),
     levels: resolveMissionLevels(world.id, mission, world.missionActivityMap[mission.id] || [])
-  }))
+  })).filter((mission) => mission.levels.length > 0)
 }));
 
 export function getWorldById(worldId) {

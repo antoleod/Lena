@@ -310,6 +310,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
               disabled={Boolean(feedback)}
               type="button"
               onClick={() => handleChoiceClick(option)}
+              data-testid={`choice-${option.id}`}
             >
               <span className="choice-button__inner">
                 {option.media?.src ? (

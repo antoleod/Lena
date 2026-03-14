@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getActivityById } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSessionSnapshot, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
-import { findPositionForActivity, findPositionForLevel, getMission, getWorldById } from '../../shared/gameplay/worldMap.js';
+import { getAdventureDashboard } from '../../shared/gameplay/adventureProgress.js';
 
 function formatMinutes(minutes) {
   if (!minutes) return '0 min';
@@ -13,86 +12,54 @@ function formatMinutes(minutes) {
   return rest ? `${hours} h ${rest} min` : `${hours} h`;
 }
 
-function buildContinueRoute(position, activityId) {
-  if (position) {
-    return `/activities/${position.activityId}?world=${position.worldId}&mission=${position.missionId}&level=${position.levelOrder}`;
-  }
-
-  if (activityId) {
-    return `/activities/${activityId}`;
-  }
-
-  return '/map';
-}
-
 export default function HomePage() {
   const { t } = useLocale();
   const [session, setSession] = useState(() => getSessionSnapshot());
 
   useEffect(() => subscribeToSessionChanges(setSession), []);
 
-  const snapshot = session.progress;
   const profile = session.profile;
   const rewards = session.rewards;
   const overview = session.overview;
-  const continueActivityId = snapshot.meta.lastActivityId;
-  const continueLevelId = snapshot.meta.lastLevelId;
-  const currentPosition = continueLevelId
-    ? findPositionForLevel(continueLevelId)
-    : continueActivityId
-      ? findPositionForActivity(continueActivityId)
-      : null;
-  const continueRoute = buildContinueRoute(currentPosition, continueActivityId);
-  const currentWorld = currentPosition ? getWorldById(currentPosition.worldId) : null;
-  const currentMission = currentPosition ? getMission(currentPosition.worldId, currentPosition.missionId) : null;
-  const currentActivity = continueActivityId ? getActivityById(continueActivityId) : null;
-  const primaryLabel = currentPosition || continueActivityId ? t('continue') : t('startAdventure');
+  const adventure = getAdventureDashboard(session.progress);
+  const nextTarget = adventure.nextTarget;
+  const primaryRoute = nextTarget?.route || '/map';
+  const primaryLabel = nextTarget ? 'Continuer ma mission' : t('startAdventure');
+  const totalProgress = adventure.totalNodes ? Math.round((adventure.completedNodes / adventure.totalNodes) * 100) : 0;
 
-  const profileRows = useMemo(() => ([
-    {
-      label: t('progression'),
-      value: `${overview.completedActivities}/${overview.totalActivities || 0}`
-    },
-    {
-      label: t('streakLabel'),
-      value: String(overview.streakCurrent || 0)
-    },
-    {
-      label: t('crystals'),
-      value: String(rewards.balance || 0)
-    },
-    {
-      label: t('studyTimeLabel') || 'Study',
-      value: formatMinutes(profile.totalStudyMinutes)
-    }
-  ]), [overview.completedActivities, overview.streakCurrent, overview.totalActivities, profile.totalStudyMinutes, rewards.balance, t]);
+  const progressRows = useMemo(() => ([
+    { label: 'Progression', value: `${totalProgress}%` },
+    { label: t('streakLabel'), value: String(overview.streakCurrent || 0) },
+    { label: t('crystals'), value: String(rewards.balance || 0) },
+    { label: 'Noeuds finis', value: `${adventure.completedNodes}/${adventure.totalNodes || 0}` }
+  ]), [adventure.completedNodes, adventure.totalNodes, overview.streakCurrent, rewards.balance, t, totalProgress]);
 
   return (
-    <div className="page-stack page-stack--compact">
+    <div className="page-stack page-stack--compact" data-testid="home-page">
       <section className="panel panel--hero-compact">
         <div className="panel__header">
           <div>
-            <span className="eyebrow">{t('learningAdventure')}</span>
+            <span className="eyebrow">Tableau de bord</span>
             <h2>{profile.name || t('defaultChildName')}</h2>
           </div>
           <span className="progress-badge">{overview.streakCurrent || 0} {t('streakLabel')}</span>
         </div>
 
         <p className="panel__copy">
-          {currentWorld
-            ? `${currentWorld.name} · ${t('missions')} ${currentMission?.order || 1}`
-            : t('heroText')}
+          {nextTarget
+            ? `${nextTarget.world.title} · mission ${nextTarget.mission.order} · ${nextTarget.activity?.title || 'prochaine lecon'}`
+            : 'Ta prochaine aventure est prete sur la carte.'}
         </p>
 
         <div className="dashboard-actions">
-          <Link className="primary-action" to={continueRoute}>
-            <span className="button-icon" aria-hidden="true">{currentPosition || continueActivityId ? '▶' : '✨'}</span>
+          <Link className="primary-action" to={primaryRoute} data-testid="home-primary-cta">
+            <span className="button-icon" aria-hidden="true">{nextTarget ? '▶' : '✨'}</span>
             <span>{primaryLabel}</span>
           </Link>
         </div>
 
         <div className="mini-metrics">
-          {profileRows.map((item) => (
+          {progressRows.map((item) => (
             <div key={item.label}>
               <span>{item.label}</span>
               <strong>{item.value}</strong>
@@ -105,22 +72,51 @@ export default function HomePage() {
         <article className="panel panel--tight">
           <div className="panel__header">
             <div>
-              <span className="eyebrow">{t('continueJourneyLabel') || 'Continue journey'}</span>
-              <h3>{currentActivity?.title || t('startAdventure')}</h3>
+              <span className="eyebrow">Mission actuelle</span>
+              <h3>{nextTarget?.mission?.title || 'Commencer'}</h3>
             </div>
           </div>
           <div className="detail-list">
             <div className="detail-list__row">
-              <span>{t('currentWorldLabel') || 'Current world'}</span>
-              <strong>{currentWorld?.name || '-'}</strong>
+              <span>Monde</span>
+              <strong>{nextTarget?.world?.title || '-'}</strong>
             </div>
             <div className="detail-list__row">
-              <span>{t('currentMissionLabel') || 'Current mission'}</span>
-              <strong>{currentMission ? `${t('missions')} ${currentMission.order}` : '-'}</strong>
+              <span>Lecon</span>
+              <strong>{nextTarget?.activity?.title || '-'}</strong>
             </div>
             <div className="detail-list__row">
-              <span>{t('exercise')}</span>
-              <strong>{currentActivity?.title || '-'}</strong>
+              <span>Recompense</span>
+              <strong>+10 {t('crystals')}</strong>
+            </div>
+          </div>
+          <div className="dashboard-actions">
+            <Link className="primary-action" to={primaryRoute}>
+              <span className="button-icon" aria-hidden="true">🎯</span>
+              <span>Continuer ma mission</span>
+            </Link>
+          </div>
+        </article>
+
+        <article className="panel panel--tight">
+          <div className="panel__header">
+            <div>
+              <span className="eyebrow">Resume</span>
+              <h3>Ou aller maintenant</h3>
+            </div>
+          </div>
+          <div className="detail-list">
+            <div className="detail-list__row">
+              <span>Prochain noeud</span>
+              <strong>{nextTarget ? `Niveau ${nextTarget.level.order}` : '-'}</strong>
+            </div>
+            <div className="detail-list__row">
+              <span>Temps</span>
+              <strong>{formatMinutes(profile.totalStudyMinutes)}</strong>
+            </div>
+            <div className="detail-list__row">
+              <span>Meilleure habitude</span>
+              <strong>{overview.streakCurrent ? `${overview.streakCurrent} jours` : 'Nouvelle serie'}</strong>
             </div>
           </div>
         </article>
@@ -128,26 +124,26 @@ export default function HomePage() {
         <article className="panel panel--tight">
           <div className="panel__header">
             <div>
-              <span className="eyebrow">{t('missions')}</span>
-              <h3>{t('chooseUniverse')}</h3>
+              <span className="eyebrow">Acces rapides</span>
+              <h3>Faire quelque chose</h3>
             </div>
           </div>
           <div className="subject-grid subject-grid--compact dashboard-quick-links">
-            <Link className="subject-tile" to="/map">
-              <strong>🗺 {t('missions')}</strong>
-              <span>{t('openMapLabel') || 'Open map'}</span>
+            <Link className="subject-tile" to="/map" data-testid="home-link-map">
+              <strong>🗺 Grand Voyage</strong>
+              <span>Voir le chemin et les noeuds</span>
             </Link>
-            <Link className="subject-tile" to="/subjects">
-              <strong>📚 {t('subjectsLabel')}</strong>
-              <span>{t('chooseUniverse')}</span>
+            <Link className="subject-tile" to="/subjects" data-testid="home-link-subjects">
+              <strong>📚 Matieres</strong>
+              <span>Choisir une competence a jouer</span>
             </Link>
-            <Link className="subject-tile" to="/history">
-              <strong>📈 {t('historyTitle')}</strong>
-              <span>{t('progression')}</span>
+            <Link className="subject-tile" to="/history" data-testid="home-link-history">
+              <strong>📈 Historique</strong>
+              <span>Voir les dernieres lecons</span>
             </Link>
-            <Link className="subject-tile" to="/shop">
-              <strong>🛍 {t('shop')}</strong>
-              <span>{t('crystals')} {rewards.balance}</span>
+            <Link className="subject-tile" to="/shop" data-testid="home-link-shop">
+              <strong>🛍 Boutique</strong>
+              <span>{rewards.balance} {t('crystals')}</span>
             </Link>
           </div>
         </article>

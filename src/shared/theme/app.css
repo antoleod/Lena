@@ -1940,6 +1940,7 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 12px;
+  position: relative;
 }
 
 .world-map-track--missions {
@@ -1955,6 +1956,8 @@ button {
   border: 1px solid rgba(144,118,166,0.12);
   box-shadow: var(--shadow-soft);
   animation: map-card-in 0.45s ease both;
+  position: relative;
+  overflow: hidden;
 }
 
 .world-map-track__node--locked {
@@ -1963,10 +1966,51 @@ button {
 
 .world-map-track__node--active {
   outline: 2px solid rgba(120, 166, 255, 0.32);
+  transform: translateY(-2px);
 }
 
 .world-map-track__node--perfect {
   background: rgba(139, 220, 195, 0.22);
+}
+
+.world-map-track__node--available::after,
+.world-map-track__node--in-progress::after,
+.world-map-track__node--completed::after,
+.world-map-track__node--active::after {
+  content: '';
+  position: absolute;
+  inset: auto -18% -38% auto;
+  width: 88px;
+  height: 88px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.world-map-track__node--available {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247, 252, 255, 0.94));
+}
+
+.world-map-track__node--in-progress {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(239, 248, 255, 0.96));
+  border-color: rgba(120, 166, 255, 0.2);
+}
+
+.world-map-track__node--completed {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(240, 255, 249, 0.96));
+  border-color: rgba(139, 220, 195, 0.24);
+}
+
+.world-map-track__node--active {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255, 244, 252, 0.98));
+}
+
+.world-map-track__node:hover {
+  transform: translateY(-3px);
+}
+
+.world-map-track__node--locked:hover {
+  transform: none;
 }
 
 .world-map-track__number {

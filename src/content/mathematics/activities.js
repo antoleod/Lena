@@ -46,6 +46,16 @@ function createTableLesson(table, factor) {
   };
 }
 
+function createDivisionTableLesson(table, multiplier) {
+  const dividend = table * multiplier;
+  return {
+    prompt: `Combien font ${dividend} / ${table} ?`,
+    choices: createChoices(multiplier, [multiplier + 1, Math.max(0, multiplier - 1), table]),
+    answer: multiplier,
+    explanation: `${dividend} / ${table} = ${multiplier}.`
+  };
+}
+
 function createTableActivity(table) {
   const gradeBand = table <= 5 ? ['P2', 'P3'] : ['P3', 'P4', 'P5', 'P6'];
   const practice = Array.from({ length: 10 }, (_, index) => createTableLesson(table, index + 1));
@@ -75,6 +85,39 @@ function createTableActivity(table) {
       exam,
       `Entrainement de la table du ${table}`,
       `Mini examen de la table du ${table}`
+    )
+  };
+}
+
+function createDivisionTableActivity(table) {
+  const gradeBand = table <= 5 ? ['P2', 'P3'] : ['P3', 'P4', 'P5', 'P6'];
+  const practice = Array.from({ length: 10 }, (_, index) => createDivisionTableLesson(table, index + 1));
+  const examMultipliers = [2, 4, 7, 10];
+  const exam = examMultipliers.map((multiplier) => createDivisionTableLesson(table, multiplier));
+
+  return {
+    id: `division-table-${table}`,
+    slug: `table-de-division-${table}`,
+    title: `Table de division par ${table}`,
+    subject: 'mathematics',
+    subskill: 'division',
+    gradeBand,
+    language: 'fr',
+    difficulty: 'progressive',
+    estimatedDurationMin: 12,
+    instructions: `Commence par 10 exercices de division par ${table}, puis passe au mini examen.`,
+    correctionType: 'multiple-choice',
+    hints: [`La division par ${table} suit la meme famille que la table de ${table}.`],
+    tags: ['division', `table-${table}`, 'automatismes'],
+    accessibility: ['une seule consigne a la fois'],
+    originRepo: 'Lena+Val',
+    engineType: 'multiple-choice',
+    featured: table === 2 || table === 10,
+    sections: buildSections(
+      practice,
+      exam,
+      `Entrainement de la division par ${table}`,
+      `Mini examen de la division par ${table}`
     )
   };
 }
@@ -420,6 +463,7 @@ const coreActivities = [
   }
 ];
 
-const multiplicationTableActivities = Array.from({ length: 19 }, (_, index) => createTableActivity(index + 2));
+const multiplicationTableActivities = Array.from({ length: 11 }, (_, index) => createTableActivity(index + 2));
+const divisionTableActivities = Array.from({ length: 11 }, (_, index) => createDivisionTableActivity(index + 2));
 
-export const mathematicsActivities = [...coreActivities, ...multiplicationTableActivities];
+export const mathematicsActivities = [...coreActivities, ...multiplicationTableActivities, ...divisionTableActivities];

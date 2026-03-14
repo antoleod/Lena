@@ -230,17 +230,18 @@ function shuffle(list) {
 
 function uniqueOptions(correct, wrongOptions) {
   const seen = new Set([String(correct)]);
-  const result = [correct];
+  const result = [];
+  const wrong = [];
 
   wrongOptions.forEach((option) => {
     const key = String(option);
     if (!seen.has(key)) {
       seen.add(key);
-      result.push(option);
+      wrong.push(option);
     }
   });
 
-  return shuffle(result).slice(0, 4);
+  return shuffle([correct, ...shuffle(wrong).slice(0, 3)]);
 }
 
 function gradeToLabel(grade) {
@@ -307,7 +308,9 @@ function createExercise(base) {
     ...base,
     prompt: base.question,
     choices: base.options,
-    answer: base.correct
+    answer: base.correct,
+    renderType: base.renderType || 'multiple-choice',
+    engineType: base.engineType || 'multiple-choice'
   };
 }
 

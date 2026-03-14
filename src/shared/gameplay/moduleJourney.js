@@ -1,7 +1,8 @@
-import { getActivityById, getActivitiesBySubjectAndGrade, getModuleById, getModulesBySubjectAndGrade } from '../../features/curriculum/catalog.js';
+import { getActivitiesBySubjectAndGrade, getModuleById, getModulesBySubjectAndGrade } from '../../features/curriculum/catalog.js';
+import { resolveExistingActivities } from '../utils/contentResolution.js';
 
 function resolveActivities(ids = []) {
-  return ids.map((activityId) => getActivityById(activityId)).filter(Boolean);
+  return resolveExistingActivities(ids, 'module-journey');
 }
 
 function createModuleStage(id, title, kind, activities) {

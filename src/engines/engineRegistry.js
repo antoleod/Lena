@@ -9,6 +9,11 @@ const registry = Object.freeze({
   ordering: { id: 'ordering', component: MultipleChoiceActivity },
   matching: { id: 'matching', component: MultipleChoiceActivity },
   fill: { id: 'fill', component: MultipleChoiceActivity },
+  'fill-word': { id: 'fill-word', component: MultipleChoiceActivity },
+  'fill-sentence': { id: 'fill-sentence', component: MultipleChoiceActivity },
+  'fill-number': { id: 'fill-number', component: MultipleChoiceActivity },
+  comparison: { id: 'comparison', component: MultipleChoiceActivity },
+  sequence: { id: 'sequence', component: MultipleChoiceActivity },
   'drag-drop': { id: 'drag-drop', component: MultipleChoiceActivity },
   'visual-logic': { id: 'visual-logic', component: MultipleChoiceActivity }
 });

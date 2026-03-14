@@ -18,7 +18,9 @@ export default function ShopPage() {
     { key: 'avatar', title: locale === 'en' ? 'Avatars' : 'Avatars', items: catalog.filter((item) => item.type === 'avatar').slice(0, 6) },
     { key: 'theme', title: t('shopThemes'), items: catalog.filter((item) => item.type === 'theme').slice(0, 4) },
     { key: 'wallpaper', title: locale === 'en' ? 'Backgrounds' : 'Backgrounds', items: catalog.filter((item) => item.type === 'wallpaper').slice(0, 4) },
-    { key: 'effect', title: locale === 'en' ? 'Effects' : 'Effects', items: catalog.filter((item) => item.type === 'effect').slice(0, 3) }
+    { key: 'effect', title: locale === 'en' ? 'Effects' : 'Effects', items: catalog.filter((item) => item.type === 'effect').slice(0, 3) },
+    { key: 'sticker', title: locale === 'en' ? 'Stickers' : 'Stickers', items: catalog.filter((item) => item.type === 'sticker').slice(0, 6) },
+    { key: 'pet', title: locale === 'en' ? 'Companions' : 'Compagnons', items: catalog.filter((item) => item.type === 'pet').slice(0, 4) }
   ]), [catalog, locale, t]);
 
   useEffect(() => {
@@ -88,7 +90,7 @@ export default function ShopPage() {
   }
 
   return (
-    <div className="page-stack page-stack--compact">
+    <div className="page-stack page-stack--compact" data-testid="shop-page">
       <section className="panel panel--tight">
         <div className="panel__header">
           <div>
@@ -101,7 +103,7 @@ export default function ShopPage() {
       </section>
 
       {sections.map((section) => (
-        <section key={section.key} className="panel panel--tight">
+        <section key={section.key} className="panel panel--tight" data-testid={`shop-section-${section.key}`}>
           <div className="panel__header">
             <div>
               <span className="eyebrow">{section.title}</span>
@@ -118,7 +120,7 @@ export default function ShopPage() {
               const icon = !owned ? '💎' : active ? '✅' : canEquip ? '✨' : '🎁';
 
               return (
-                <article key={item.id} className={`reward-card reward-card--compact${active ? ' is-active' : ''}`}>
+                <article key={item.id} className={`reward-card reward-card--compact${active ? ' is-active' : ''}`} data-testid={`shop-item-${item.id}`}>
                   {renderVisual(item)}
                   <div className="reward-card__body">
                     <h4>{getLabel(item)}</h4>
@@ -129,6 +131,7 @@ export default function ShopPage() {
                     type="button"
                     onClick={() => handleItemAction(item)}
                     disabled={disabled}
+                    data-testid={`shop-action-${item.id}`}
                   >
                     <span className="button-icon" aria-hidden="true">{icon}</span>
                     <span>{label}</span>

@@ -1,11 +1,12 @@
 import { defineMission, defineWorld } from '../../shared/types/index.js';
 
-function mission(order, title, activityIds, description = '') {
+function mission(order, title, activityIds, description = '', nodeType = 'lesson') {
   return {
     order,
     title,
     activityIds,
-    description
+    description,
+    nodeType
   };
 }
 
@@ -27,89 +28,89 @@ const WORLD_SPECS = [
   world({
     id: 'world-1',
     order: 1,
-    title: 'Premiers pas',
+    title: 'Prairie des nombres',
     icon: '1',
     theme: 'forest',
-    description: 'Premiers nombres, premiers mots et premiers succes.',
+    description: 'Compter, reconnaitre et comparer les nombres en douceur.',
     gradeIds: ['P2'],
     subjectIds: ['mathematics', 'french'],
     missions: [
-      mission(1, 'Compter et construire', ['build-number', 'place-value', 'generated-comparison-p2']),
-      mission(2, 'Comparer et lire', ['place-value', 'generated-comparison-p2', 'build-number']),
-      mission(3, 'Premieres additions', ['generated-addition-p2', 'number-line']),
-      mission(4, 'Premieres soustractions', ['generated-subtraction-p2', 'number-line']),
-      mission(5, 'Images et mots', ['associe-image-mot', 'phrase-a-trous']),
-      mission(6, 'Lire la bonne phrase', ['phrase-a-trous', 'intrus-lecture']),
-      mission(7, 'Petits problemes', ['generated-word-problems', 'number-line']),
-      mission(8, 'Suites douces', ['generated-logic-sequences', 'generated-comparison-p2']),
-      mission(9, 'Revision nombres', ['build-number', 'place-value', 'generated-addition-p2']),
-      mission(10, 'Defi de depart', ['generated-addition-p2', 'associe-image-mot', 'generated-word-problems'])
+      mission(1, 'Compter et construire', ['build-number', 'place-value', 'generated-comparison-p2'], '', 'lesson'),
+      mission(2, 'Comparer et lire', ['place-value', 'generated-comparison-p2', 'build-number'], '', 'lesson'),
+      mission(3, 'Premieres additions', ['generated-addition-p2', 'number-line'], '', 'lesson'),
+      mission(4, 'Premieres soustractions', ['generated-subtraction-p2', 'number-line'], '', 'lesson'),
+      mission(5, 'Images et mots', ['associe-image-mot', 'phrase-a-trous'], '', 'checkpoint'),
+      mission(6, 'Lire la bonne phrase', ['phrase-a-trous', 'intrus-lecture'], '', 'lesson'),
+      mission(7, 'Petits problemes', ['generated-word-problems', 'number-line'], '', 'lesson'),
+      mission(8, 'Suites douces', ['generated-logic-sequences', 'generated-comparison-p2'], '', 'reward'),
+      mission(9, 'Revision nombres', ['build-number', 'place-value', 'generated-addition-p2'], '', 'revision'),
+      mission(10, 'Defi de depart', ['generated-addition-p2', 'associe-image-mot', 'generated-word-problems'], '', 'boss')
     ]
   }),
   world({
     id: 'world-2',
     order: 2,
-    title: 'Nombres et mots',
+    title: 'Foret des additions',
     icon: '2',
     theme: 'village',
-    description: 'On assemble des nombres et du vocabulaire.',
+    description: 'Ajouter, reculer et consolider les premieres operations.',
     gradeIds: ['P2'],
     subjectIds: ['mathematics', 'french', 'dutch'],
     missions: [
-      mission(1, 'Valeur de position', ['place-value', 'build-number']),
-      mission(2, 'Bonds numeriques', ['number-line', 'generated-addition-p2', 'generated-subtraction-p2']),
-      mission(3, 'Mots de l ecole', ['associe-image-mot', 'dutch-school-words']),
-      mission(4, 'Associer image et mot', ['associe-image-mot', 'dutch-picture-words']),
-      mission(5, 'Phrases simples', ['phrase-a-trous', 'generated-french-sentences']),
-      mission(6, 'Premiers mots neerlandais', ['dutch-school-words', 'generated-dutch-vocabulary']),
-      mission(7, 'Observer et choisir', ['intrus-lecture', 'generated-comparison-p2']),
-      mission(8, 'Calcul et lecture', ['generated-addition-p2', 'associe-image-mot']),
-      mission(9, 'Petites histoires de mots', ['generated-french-reading', 'generated-dutch-reading']),
-      mission(10, 'Mission melangee', ['place-value', 'generated-dutch-vocabulary', 'generated-french-sentences'])
+      mission(1, 'Valeur de position', ['place-value', 'build-number'], '', 'lesson'),
+      mission(2, 'Bonds numeriques', ['number-line', 'generated-addition-p2', 'generated-subtraction-p2'], '', 'lesson'),
+      mission(3, 'Mots de l ecole', ['associe-image-mot', 'dutch-school-words'], '', 'lesson'),
+      mission(4, 'Associer image et mot', ['associe-image-mot', 'dutch-picture-words'], '', 'lesson'),
+      mission(5, 'Phrases simples', ['phrase-a-trous', 'generated-french-sentences'], '', 'checkpoint'),
+      mission(6, 'Premiers mots neerlandais', ['dutch-school-words', 'generated-dutch-vocabulary'], '', 'lesson'),
+      mission(7, 'Observer et choisir', ['intrus-lecture', 'generated-comparison-p2'], '', 'lesson'),
+      mission(8, 'Calcul et lecture', ['generated-addition-p2', 'associe-image-mot'], '', 'reward'),
+      mission(9, 'Petites histoires de mots', ['generated-french-reading', 'generated-dutch-reading'], '', 'revision'),
+      mission(10, 'Mission melangee', ['place-value', 'generated-dutch-vocabulary', 'generated-french-sentences'], '', 'boss')
     ]
   }),
   world({
     id: 'world-3',
     order: 3,
-    title: 'Vie quotidienne',
+    title: 'Vallee des mots',
     icon: '3',
     theme: 'city',
-    description: 'Vocabulaire, situations du quotidien et calcul utile.',
+    description: 'Vocabulaire, phrases simples et premieres lectures.',
     gradeIds: ['P2'],
     subjectIds: ['mathematics', 'english', 'spanish'],
     missions: [
-      mission(1, 'Courses et quantites', ['generated-word-problems', 'generated-addition-p2']),
-      mission(2, 'Maison et objets', ['generated-english-vocabulary', 'generated-spanish-vocabulary']),
-      mission(3, 'Compter dans la vie', ['generated-comparison-p2', 'generated-subtraction-p2']),
-      mission(4, 'Premieres lectures', ['generated-english-reading', 'generated-spanish-reading']),
-      mission(5, 'Questions du quotidien', ['generated-word-problems', 'generated-english-reading']),
-      mission(6, 'Lire une consigne', ['generated-english-vocabulary', 'generated-spanish-vocabulary']),
-      mission(7, 'Choisir la bonne reponse', ['generated-comparison-p2', 'generated-english-reading']),
-      mission(8, 'Petits dialogues', ['generated-english-reading', 'generated-spanish-reading']),
-      mission(9, 'Calcul rapide du jour', ['generated-addition-p2', 'generated-subtraction-p2']),
-      mission(10, 'Ville complete', ['generated-word-problems', 'generated-english-vocabulary', 'generated-spanish-vocabulary'])
+      mission(1, 'Courses et quantites', ['generated-word-problems', 'generated-addition-p2'], '', 'lesson'),
+      mission(2, 'Maison et objets', ['generated-english-vocabulary', 'generated-spanish-vocabulary'], '', 'lesson'),
+      mission(3, 'Compter dans la vie', ['generated-comparison-p2', 'generated-subtraction-p2'], '', 'lesson'),
+      mission(4, 'Premieres lectures', ['generated-english-reading', 'generated-spanish-reading'], '', 'lesson'),
+      mission(5, 'Questions du quotidien', ['generated-word-problems', 'generated-english-reading'], '', 'checkpoint'),
+      mission(6, 'Lire une consigne', ['generated-english-vocabulary', 'generated-spanish-vocabulary'], '', 'lesson'),
+      mission(7, 'Choisir la bonne reponse', ['generated-comparison-p2', 'generated-english-reading'], '', 'lesson'),
+      mission(8, 'Petits dialogues', ['generated-english-reading', 'generated-spanish-reading'], '', 'reward'),
+      mission(9, 'Calcul rapide du jour', ['generated-addition-p2', 'generated-subtraction-p2'], '', 'revision'),
+      mission(10, 'Ville complete', ['generated-word-problems', 'generated-english-vocabulary', 'generated-spanish-vocabulary'], '', 'boss')
     ]
   }),
   world({
     id: 'world-4',
     order: 4,
-    title: 'Lire et comprendre',
+    title: 'Ile de logique douce',
     icon: '4',
     theme: 'explorer',
-    description: 'Recits courts, lecture attentive et comprehension.',
+    description: 'Suites, reperage, tri et petits raisonnements rassurants.',
     gradeIds: ['P2', 'P3'],
     subjectIds: ['french', 'stories'],
     missions: [
-      mission(1, 'Mots et images', ['associe-image-mot', 'generated-french-reading']),
-      mission(2, 'Completer une phrase', ['phrase-a-trous', 'generated-french-sentences']),
-      mission(3, 'Lire un recit', ['magic-library', 'generated-french-reading']),
-      mission(4, 'Trouver les indices', ['generated-french-reading', 'intrus-lecture']),
-      mission(5, 'Histoires magiques', ['magic-library']),
-      mission(6, 'Comprendre le texte', ['generated-french-reading', 'magic-library']),
-      mission(7, 'Lire entre les lignes', ['generated-french-reading', 'possessives']),
-      mission(8, 'Choisir le bon mot', ['phrase-a-trous', 'intrus-lecture']),
-      mission(9, 'Recit et questions', ['magic-library', 'generated-french-reading']),
-      mission(10, 'Grande lecture', ['magic-library', 'generated-french-reading', 'generated-french-sentences'])
+      mission(1, 'Mots et images', ['associe-image-mot', 'generated-french-reading'], '', 'lesson'),
+      mission(2, 'Completer une phrase', ['phrase-a-trous', 'generated-french-sentences'], '', 'lesson'),
+      mission(3, 'Lire un recit', ['magic-library', 'generated-french-reading'], '', 'lesson'),
+      mission(4, 'Trouver les indices', ['generated-french-reading', 'intrus-lecture'], '', 'lesson'),
+      mission(5, 'Histoires magiques', ['magic-library'], '', 'checkpoint'),
+      mission(6, 'Comprendre le texte', ['generated-french-reading', 'magic-library'], '', 'lesson'),
+      mission(7, 'Lire entre les lignes', ['generated-french-reading', 'possessives'], '', 'lesson'),
+      mission(8, 'Choisir le bon mot', ['phrase-a-trous', 'intrus-lecture'], '', 'reward'),
+      mission(9, 'Recit et questions', ['magic-library', 'generated-french-reading'], '', 'revision'),
+      mission(10, 'Grande lecture', ['magic-library', 'generated-french-reading', 'generated-french-sentences'], '', 'boss')
     ]
   }),
   world({
@@ -122,16 +123,16 @@ const WORLD_SPECS = [
     gradeIds: ['P2', 'P3'],
     subjectIds: ['reasoning', 'mathematics'],
     missions: [
-      mission(1, 'Suites simples', ['generated-logic-sequences', 'generated-reasoning-p2']),
-      mission(2, 'Chercher la regle', ['generated-logic-sequences', 'generated-reasoning-p3']),
-      mission(3, 'Classer et choisir', ['generated-reasoning-p2', 'generated-comparison-p2']),
-      mission(4, 'Observer avant d agir', ['generated-reasoning-p3', 'generated-word-problems']),
-      mission(5, 'Memoire douce', ['generated-reasoning-p2', 'generated-reasoning-p3']),
-      mission(6, 'Mini deduction', ['generated-reasoning-p3', 'generated-logic-sequences']),
-      mission(7, 'Problemes logiques', ['generated-word-problems', 'generated-reasoning-p3']),
-      mission(8, 'Calcul raisonne', ['generated-comparison-p2', 'generated-logic-sequences']),
-      mission(9, 'Serie avancee', ['generated-reasoning-p3', 'generated-reasoning-p2']),
-      mission(10, 'Defi logique', ['generated-reasoning-p3', 'generated-word-problems', 'generated-logic-sequences'])
+      mission(1, 'Suites simples', ['generated-logic-sequences', 'generated-reasoning-p2'], '', 'lesson'),
+      mission(2, 'Chercher la regle', ['generated-logic-sequences', 'generated-reasoning-p3'], '', 'lesson'),
+      mission(3, 'Classer et choisir', ['generated-reasoning-p2', 'generated-comparison-p2'], '', 'lesson'),
+      mission(4, 'Observer avant d agir', ['generated-reasoning-p3', 'generated-word-problems'], '', 'lesson'),
+      mission(5, 'Memoire douce', ['generated-reasoning-p2', 'generated-reasoning-p3'], '', 'checkpoint'),
+      mission(6, 'Mini deduction', ['generated-reasoning-p3', 'generated-logic-sequences'], '', 'lesson'),
+      mission(7, 'Problemes logiques', ['generated-word-problems', 'generated-reasoning-p3'], '', 'lesson'),
+      mission(8, 'Calcul raisonne', ['generated-comparison-p2', 'generated-logic-sequences'], '', 'reward'),
+      mission(9, 'Serie avancee', ['generated-reasoning-p3', 'generated-reasoning-p2'], '', 'revision'),
+      mission(10, 'Defi logique', ['generated-reasoning-p3', 'generated-word-problems', 'generated-logic-sequences'], '', 'boss')
     ]
   }),
   world({
@@ -290,13 +291,14 @@ const WORLD_SPECS = [
   })
 ];
 
-function buildLevelIds(worldId, missionOrder) {
-  return Array.from({ length: 10 }, (_, index) => `${worldId}-mission-${missionOrder}-level-${index + 1}`);
+function buildLevelIds(worldId, missionOrder, activityCount) {
+  const count = Math.max(1, activityCount);
+  return Array.from({ length: count }, (_, index) => `${worldId}-mission-${missionOrder}-level-${index + 1}`);
 }
 
 export const worldJourneyData = WORLD_SPECS.map((spec) => {
   const missionDefinitions = spec.missions.map((entry) => {
-    const levelIds = buildLevelIds(spec.id, entry.order);
+    const levelIds = buildLevelIds(spec.id, entry.order, entry.activityIds.length);
     return defineMission({
       id: `${spec.id}-mission-${entry.order}`,
       worldId: spec.id,
@@ -304,8 +306,8 @@ export const worldJourneyData = WORLD_SPECS.map((spec) => {
       title: entry.title,
       description: entry.description,
       levelIds,
-      challengeLevelId: levelIds[8],
-      examLevelId: levelIds[9],
+      challengeLevelId: levelIds[Math.max(0, levelIds.length - 2)] || null,
+      examLevelId: levelIds[levelIds.length - 1] || null,
       tags: [...spec.subjectIds, ...spec.gradeIds]
     });
   });
@@ -325,7 +327,11 @@ export const worldJourneyData = WORLD_SPECS.map((spec) => {
     ...worldDefinition,
     name: spec.title,
     icon: spec.icon,
-    missions: missionDefinitions,
+    missions: missionDefinitions.map((missionDefinition, index) => ({
+      ...missionDefinition,
+      nodeType: spec.missions[index]?.nodeType || 'lesson',
+      activityIds: [...(spec.missions[index]?.activityIds || [])]
+    })),
     missionActivityMap: Object.freeze(
       Object.fromEntries(
         spec.missions.map((entry) => [`${spec.id}-mission-${entry.order}`, [...entry.activityIds]])
@@ -333,4 +339,3 @@ export const worldJourneyData = WORLD_SPECS.map((spec) => {
     )
   });
 });
-

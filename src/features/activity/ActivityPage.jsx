@@ -1,38 +1,24 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { getActivityById, getModuleById, getSubjectById } from '../curriculum/catalog.js';
+import { getModuleById, getSubjectById } from '../curriculum/catalog.js';
 import { getActivityProgress, getLevelProgress, getProgressSnapshot, saveActivityProgress, saveLevelProgress } from '../../services/storage/progressStore.js';
 import { rewardActivityCompletion, rewardMissionCompletion } from '../../services/storage/rewardStore.js';
 import { materializeActivity } from '../../engines/generators/activityFactory.js';
 import MultipleChoiceActivity from '../../engines/multiple-choice/MultipleChoiceActivity.jsx';
-import BaseTenActivity from '../../engines/base-ten/BaseTenActivity.jsx';
-import StoryActivity from '../../engines/story/StoryActivity.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getMission, getMissionProgress, getNextMissionTarget, getWorldById } from '../../shared/gameplay/worldMap.js';
-import { trackStudySession } from '../../services/storage/profileStore.js';
+import { trackStudySession, unlockMission, unlockWorld } from '../../services/storage/profileStore.js';
 import { getModuleActivityPlan } from '../../shared/gameplay/moduleJourney.js';
-
-const ENGINE_COMPONENTS = {
-  'base-ten': BaseTenActivity,
-  story: StoryActivity,
-  'multiple-choice': MultipleChoiceActivity,
-  ordering: MultipleChoiceActivity,
-  matching: MultipleChoiceActivity,
-  'fill-sentence': MultipleChoiceActivity,
-  'fill-word': MultipleChoiceActivity,
-  comparison: MultipleChoiceActivity,
-  sequence: MultipleChoiceActivity,
-  'visual-logic': MultipleChoiceActivity,
-  'drag-drop': MultipleChoiceActivity
-};
+import { resolveActivity } from '../../content/registry/activityRegistry.js';
+import { getEngineDefinition } from '../../engines/engineRegistry.js';
 
 function resolveEngineKey(activity) {
   if (!activity) {
     return 'multiple-choice';
   }
 
-  if (activity.engineType && ENGINE_COMPONENTS[activity.engineType]) {
+  if (activity.engineType && getEngineDefinition(activity.engineType)) {
     return activity.engineType;
   }
 
@@ -47,7 +33,7 @@ function resolveEngineKey(activity) {
 
 function renderEngine(activity, progress, onComplete) {
   const engineKey = resolveEngineKey(activity);
-  const Component = ENGINE_COMPONENTS[engineKey] || MultipleChoiceActivity;
+  const Component = getEngineDefinition(engineKey)?.component || MultipleChoiceActivity;
   return <Component activity={activity} progress={progress} onComplete={onComplete} />;
 }
 
@@ -83,7 +69,7 @@ export default function ActivityPage() {
   const moduleActivityIndex = moduleJourney?.activities.findIndex((entry) => entry.id === activityId) ?? -1;
   const resolvedModuleOrder = moduleActivityIndex >= 0 ? moduleActivityIndex + 1 : levelOrder;
   const currentLevelId = missionLevel?.id || (moduleId && resolvedModuleOrder ? `${moduleId}::activity-${resolvedModuleOrder}` : null);
-  const baseActivity = getActivityById(activityId);
+  const baseActivity = resolveActivity(activityId);
   const [activity, setActivity] = useState(null);
   const [completion, setCompletion] = useState(null);
   const [status, setStatus] = useState(baseActivity ? 'loading' : 'not-found');
@@ -167,6 +153,7 @@ export default function ActivityPage() {
 
     const reward = rewardActivityCompletion(activity.id, result);
     let missionReward = 0;
+    let nextRoute = resolveNextRoute();
 
     if (world && mission && levelOrder === mission.levels.length) {
       const missionSnapshot = getProgressSnapshot();
@@ -174,6 +161,16 @@ export default function ActivityPage() {
       missionReward = rewardMissionCompletion(`${world.id}::${mission.id}`, {
         perfect: missionProgress.perfect === missionProgress.total
       }).awarded;
+
+      unlockMission(`${world.id}::${mission.id}`);
+      const nextTarget = getNextMissionTarget(world.id, mission.id, levelOrder);
+      if (nextTarget) {
+        unlockMission(`${nextTarget.worldId}::${nextTarget.missionId}`);
+        unlockWorld(nextTarget.worldId);
+        nextRoute = `/map/${world.id}/missions/${mission.id}?complete=1&reward=${missionReward}`;
+      } else {
+        nextRoute = `/map/${world.id}/missions/${mission.id}?complete=1&reward=${missionReward}`;
+      }
     }
 
     trackStudySession({
@@ -186,7 +183,7 @@ export default function ActivityPage() {
       score: result.lastScore || 0,
       crystals: reward.awarded,
       missionCrystals: missionReward,
-      nextRoute: resolveNextRoute(),
+      nextRoute,
       backRoute
     });
     setStatus('completed');
@@ -194,7 +191,7 @@ export default function ActivityPage() {
 
   if (status === 'loading') {
     return (
-      <section className="panel panel--tight">
+      <section className="panel panel--tight" data-testid="activity-page">
         <h2>{t('continueJourneyLabel') || 'Loading activity'}</h2>
       </section>
     );
@@ -202,7 +199,7 @@ export default function ActivityPage() {
 
   if (status === 'not-found') {
     return (
-      <section className="panel panel--tight">
+      <section className="panel panel--tight" data-testid="activity-page">
         <h2>{t('activityNotFound')}</h2>
         <Link className="text-link" to={backRoute}>{t('back')}</Link>
       </section>
@@ -211,7 +208,7 @@ export default function ActivityPage() {
 
   if (status === 'error') {
     return (
-      <section className="panel panel--tight">
+      <section className="panel panel--tight" data-testid="activity-page">
         <h2>{t('activityNotFound')}</h2>
         <p>{t('reviewTogether')}</p>
         <Link className="text-link" to={backRoute}>{t('back')}</Link>
@@ -221,7 +218,7 @@ export default function ActivityPage() {
 
   if (!activity || !baseActivity || !progress) {
     return (
-      <section className="panel panel--tight">
+      <section className="panel panel--tight" data-testid="activity-page">
         <h2>{t('noQuestion')}</h2>
         <Link className="text-link" to={backRoute}>{t('back')}</Link>
       </section>
@@ -230,7 +227,7 @@ export default function ActivityPage() {
 
   if (status === 'completed' && completion) {
     return (
-      <div className="page-stack page-stack--compact">
+      <div className="page-stack page-stack--compact" data-testid="activity-complete">
         <section className="panel panel--tight">
           <div className="panel__header">
             <div>
@@ -248,12 +245,12 @@ export default function ActivityPage() {
 
           <div className="dashboard-actions">
             {completion.nextRoute ? (
-              <Link className="primary-action" to={completion.nextRoute}>
+              <Link className="primary-action" to={completion.nextRoute} data-testid="activity-continue">
                 <span className="button-icon" aria-hidden="true">▶</span>
                 <span>{t('continue')}</span>
               </Link>
             ) : null}
-            <Link className="secondary-action" to={completion.backRoute}>
+            <Link className="secondary-action" to={completion.backRoute} data-testid="activity-back">
               <span className="button-icon" aria-hidden="true">↩</span>
               <span>{moduleId ? t('back') : t('missions')}</span>
             </Link>
@@ -264,7 +261,7 @@ export default function ActivityPage() {
   }
 
   return (
-    <div className="page-stack page-stack--compact">
+    <div className="page-stack page-stack--compact" data-testid="activity-page">
       <section className="activity-screen">
         <header className="activity-topline">
           <div className="activity-topline__copy">

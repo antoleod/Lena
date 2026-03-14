@@ -67,6 +67,7 @@ Onboarding
 ## Documentation
 
 - [Architecture](docs/ARCHITECTURE.md)
+- [Project documentation](docs/PROJECT_DOCUMENTATION.md)
 - [Content model](docs/CONTENT_MODEL.md)
 - [Adding content](docs/ADDING_CONTENT.md)
 - [I18n guide](docs/I18N_GUIDE.md)
