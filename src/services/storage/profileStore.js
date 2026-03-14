@@ -9,6 +9,16 @@ function defaultProfile() {
     avatarId: 'avatar-unicorn',
     themeId: 'theme-candy',
     visualTheme: 'fantasy',
+    settings: {
+      soundEnabled: true,
+      notificationsEnabled: true
+    },
+    feedbackPreferences: {
+      showCorrect: true,
+      showWrong: true,
+      correctDurationMs: 1000,
+      wrongDurationMs: 2000
+    },
     language: 'fr',
     sessionActive: true,
     createdAt: Date.now(),
@@ -20,13 +30,7 @@ function defaultProfile() {
     totalActivitiesCompleted: 0,
     totalExamsCompleted: 0,
     streakCurrent: 0,
-    streakBest: 0,
-    feedbackPreferences: {
-      showCorrect: true,
-      showWrong: true,
-      correctDurationMs: 1000,
-      wrongDurationMs: 2000
-    }
+    streakBest: 0
   };
 }
 
@@ -34,12 +38,17 @@ function readStore() {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultProfile();
+    const defaults = defaultProfile();
     const parsed = JSON.parse(raw);
     return {
-      ...defaultProfile(),
+      ...defaults,
       ...parsed,
+      settings: {
+        ...defaults.settings,
+        ...(parsed.settings || {})
+      },
       feedbackPreferences: {
-        ...defaultProfile().feedbackPreferences,
+        ...defaults.feedbackPreferences,
         ...(parsed.feedbackPreferences || {})
       },
       worldsUnlocked: parsed.worldsUnlocked || ['world-1'],
@@ -127,4 +136,3 @@ export function logoutProfile() {
     // ignore dispatch failures
   }
 }
-

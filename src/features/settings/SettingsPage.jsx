@@ -44,13 +44,21 @@ export default function SettingsPage() {
     setProfile(saveProfile({ feedbackPreferences: nextPreferences }));
   }
 
+  function handleSettingPreference(key, value) {
+    const nextSettings = {
+      ...(profile.settings || {}),
+      [key]: value
+    };
+    setProfile(saveProfile({ settings: nextSettings }));
+  }
+
   function isThemeOwned(themeId) {
     return themeId === 'theme-candy' || rewardState.inventory.includes(themeId);
   }
 
   return (
     <div className="page-stack page-stack--compact" data-testid="settings-page">
-      <section className="panel panel--tight">
+      <section className="panel panel--tight settings-shell">
         <div className="panel__header">
           <div>
             <span className="eyebrow">{t('settingsLabel') || 'Settings'}</span>
@@ -59,107 +67,139 @@ export default function SettingsPage() {
           <span className="pill">{rewardState.balance} {t('crystals')}</span>
         </div>
 
-        <div className="settings-grid">
-          <div className="form-field">
-            <label htmlFor="settings-name">{t('onboardingChildName')}</label>
-            <input
-              id="settings-name"
-              type="text"
-              value={draftName}
-              onChange={(event) => setDraftName(event.target.value)}
-            />
-            <button type="button" className="primary-action" onClick={handleSaveProfile} data-testid="settings-save">
-              <span className="button-icon" aria-hidden="true">💾</span>
-              <span>Save</span>
-            </button>
-          </div>
+        <div className="settings-stack">
+          <section className="settings-card">
+            <div className="settings-card__head">
+              <div>
+                <span className="eyebrow">Perfil</span>
+                <h3>Cuenta y apariencia</h3>
+              </div>
+            </div>
+            <div className="settings-grid">
+              <div className="form-field">
+                <label htmlFor="settings-name">{t('onboardingChildName')}</label>
+                <input
+                  id="settings-name"
+                  type="text"
+                  value={draftName}
+                  onChange={(event) => setDraftName(event.target.value)}
+                />
+                <button type="button" className="primary-action" onClick={handleSaveProfile} data-testid="settings-save">
+                  <span className="button-icon" aria-hidden="true">OK</span>
+                  <span>Guardar</span>
+                </button>
+              </div>
 
-          <div className="form-field">
-            <label htmlFor="settings-language">{t('uiLanguage')}</label>
-            <select
-              id="settings-language"
-              value={locale}
-              onChange={(event) => {
-                setLocale(event.target.value);
-                setProfile(saveProfile({ language: event.target.value }));
-              }}
-            >
-              <option value="fr">FR</option>
-              <option value="nl">NL</option>
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-            </select>
-          </div>
+              <div className="form-field">
+                <label htmlFor="settings-language">{t('uiLanguage')}</label>
+                <select
+                  id="settings-language"
+                  value={locale}
+                  onChange={(event) => {
+                    setLocale(event.target.value);
+                    setProfile(saveProfile({ language: event.target.value }));
+                  }}
+                >
+                  <option value="fr">FR</option>
+                  <option value="nl">NL</option>
+                  <option value="en">EN</option>
+                  <option value="es">ES</option>
+                </select>
+              </div>
 
-          <div className="form-field">
-            <label htmlFor="settings-theme">{t('theme')}</label>
-            <select
-              id="settings-theme"
-              value={profile.themeId || 'theme-candy'}
-              onChange={(event) => handleThemeChange(event.target.value)}
-            >
-              {themeOptions.map((theme) => (
-                <option key={theme.id} value={theme.id} disabled={!isThemeOwned(theme.id)}>
-                  {theme.name}{isThemeOwned(theme.id) ? '' : ' - Shop'}
-                </option>
-              ))}
-            </select>
-          </div>
+              <div className="form-field">
+                <label htmlFor="settings-theme">{t('theme')}</label>
+                <select
+                  id="settings-theme"
+                  value={profile.themeId || 'theme-candy'}
+                  onChange={(event) => handleThemeChange(event.target.value)}
+                >
+                  {themeOptions.map((theme) => (
+                    <option key={theme.id} value={theme.id} disabled={!isThemeOwned(theme.id)}>
+                      {theme.name}{isThemeOwned(theme.id) ? '' : ' - Shop'}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-          <div className="form-field">
-            <label htmlFor="settings-feedback-correct-toggle">Feedback correcto</label>
-            <select
-              id="settings-feedback-correct-toggle"
-              value={profile.feedbackPreferences?.showCorrect ? 'on' : 'off'}
-              onChange={(event) => handleFeedbackPreference('showCorrect', event.target.value === 'on')}
-            >
-              <option value="on">Activado</option>
-              <option value="off">Desactivado</option>
-            </select>
-          </div>
+              <div className="form-field">
+                <label htmlFor="settings-sound-toggle">Sonidos</label>
+                <select
+                  id="settings-sound-toggle"
+                  value={profile.settings?.soundEnabled ? 'on' : 'off'}
+                  onChange={(event) => handleSettingPreference('soundEnabled', event.target.value === 'on')}
+                >
+                  <option value="on">Activados</option>
+                  <option value="off">Silencio</option>
+                </select>
+              </div>
+            </div>
+          </section>
 
-          <div className="form-field">
-            <label htmlFor="settings-feedback-correct-time">Tiempo correcto</label>
-            <select
-              id="settings-feedback-correct-time"
-              value={String(profile.feedbackPreferences?.correctDurationMs || 1000)}
-              onChange={(event) => handleFeedbackPreference('correctDurationMs', Number(event.target.value))}
-              disabled={!profile.feedbackPreferences?.showCorrect}
-            >
-              <option value="700">0.7 s</option>
-              <option value="1000">1 s</option>
-              <option value="1500">1.5 s</option>
-              <option value="2000">2 s</option>
-            </select>
-          </div>
+          <section className="settings-card">
+            <div className="settings-card__head">
+              <div>
+                <span className="eyebrow">Feedback</span>
+                <h3>Mensajes y tiempos</h3>
+              </div>
+            </div>
+            <div className="settings-grid">
+              <div className="form-field">
+                <label htmlFor="settings-feedback-correct-toggle">Feedback correcto</label>
+                <select
+                  id="settings-feedback-correct-toggle"
+                  value={profile.feedbackPreferences?.showCorrect ? 'on' : 'off'}
+                  onChange={(event) => handleFeedbackPreference('showCorrect', event.target.value === 'on')}
+                >
+                  <option value="on">Activado</option>
+                  <option value="off">Desactivado</option>
+                </select>
+              </div>
 
-          <div className="form-field">
-            <label htmlFor="settings-feedback-wrong-toggle">Feedback error</label>
-            <select
-              id="settings-feedback-wrong-toggle"
-              value={profile.feedbackPreferences?.showWrong ? 'on' : 'off'}
-              onChange={(event) => handleFeedbackPreference('showWrong', event.target.value === 'on')}
-            >
-              <option value="on">Activado</option>
-              <option value="off">Desactivado</option>
-            </select>
-          </div>
+              <div className="form-field">
+                <label htmlFor="settings-feedback-correct-time">Tiempo correcto</label>
+                <select
+                  id="settings-feedback-correct-time"
+                  value={String(profile.feedbackPreferences?.correctDurationMs || 1000)}
+                  onChange={(event) => handleFeedbackPreference('correctDurationMs', Number(event.target.value))}
+                  disabled={!profile.feedbackPreferences?.showCorrect}
+                >
+                  <option value="700">0.7 s</option>
+                  <option value="1000">1 s</option>
+                  <option value="1500">1.5 s</option>
+                  <option value="2000">2 s</option>
+                </select>
+              </div>
 
-          <div className="form-field">
-            <label htmlFor="settings-feedback-wrong-time">Tiempo error</label>
-            <select
-              id="settings-feedback-wrong-time"
-              value={String(profile.feedbackPreferences?.wrongDurationMs || 2000)}
-              onChange={(event) => handleFeedbackPreference('wrongDurationMs', Number(event.target.value))}
-              disabled={!profile.feedbackPreferences?.showWrong}
-            >
-              <option value="1000">1 s</option>
-              <option value="1500">1.5 s</option>
-              <option value="2000">2 s</option>
-              <option value="3000">3 s</option>
-              <option value="4000">4 s</option>
-            </select>
-          </div>
+              <div className="form-field">
+                <label htmlFor="settings-feedback-wrong-toggle">Feedback error</label>
+                <select
+                  id="settings-feedback-wrong-toggle"
+                  value={profile.feedbackPreferences?.showWrong ? 'on' : 'off'}
+                  onChange={(event) => handleFeedbackPreference('showWrong', event.target.value === 'on')}
+                >
+                  <option value="on">Activado</option>
+                  <option value="off">Desactivado</option>
+                </select>
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="settings-feedback-wrong-time">Tiempo error</label>
+                <select
+                  id="settings-feedback-wrong-time"
+                  value={String(profile.feedbackPreferences?.wrongDurationMs || 2000)}
+                  onChange={(event) => handleFeedbackPreference('wrongDurationMs', Number(event.target.value))}
+                  disabled={!profile.feedbackPreferences?.showWrong}
+                >
+                  <option value="1000">1 s</option>
+                  <option value="1500">1.5 s</option>
+                  <option value="2000">2 s</option>
+                  <option value="3000">3 s</option>
+                  <option value="4000">4 s</option>
+                </select>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 

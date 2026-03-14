@@ -13,6 +13,7 @@ export default function AppShell() {
   // Dynamic branding: use saved name or fallback to default
   const displayName = session.profile?.name || t('defaultChildName') || 'Kid';
   const displayInitial = displayName.charAt(0).toUpperCase();
+  const notificationsEnabled = session.profile?.settings?.notificationsEnabled ?? true;
 
   const navItems = useMemo(() => ([
     { to: '/map', label: t('startAdventure') || 'Adventure', icon: '🗺' },
@@ -92,9 +93,12 @@ export default function AppShell() {
             <span className="profile-inline__name">{displayName}</span>
           </button>
 
-          <button type="button" className="icon-link" onClick={() => navigate('/shop')} data-testid="shell-shop">
+          <button type="button" className="icon-link" onClick={() => navigate('/shop')} data-testid="shell-shop" title={t('shop')}>
             <span aria-hidden="true">🛍</span>
             <span>{t('shop')}</span>
+            {session.rewards.balance > 50 && (
+              <span className={`notification-badge ${notificationsEnabled ? '' : 'no-blink'}`} />
+            )}
           </button>
           <button
             type="button"

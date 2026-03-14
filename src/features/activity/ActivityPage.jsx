@@ -12,6 +12,7 @@ import { trackStudySession, unlockMission, unlockWorld } from '../../services/st
 import { getModuleActivityPlan } from '../../shared/gameplay/moduleJourney.js';
 import { resolveActivity } from '../../content/registry/activityRegistry.js';
 import { getEngineDefinition } from '../../engines/engineRegistry.js';
+import { playRewardSound } from '../../services/sound/soundService.js';
 
 function resolveEngineKey(activity) {
   if (!activity) return 'multiple-choice';
@@ -111,6 +112,11 @@ export default function ActivityPage() {
       setStatus('ready');
     } catch { setActivity(null); setStatus('error'); }
   }, [activityId, baseActivity]);
+
+  useEffect(() => {
+    if (status !== 'completed' || !completion?.missionCrystals) return;
+    playRewardSound();
+  }, [status, completion?.missionCrystals]);
 
   const progress = useMemo(() => {
     if (!baseActivity) return null;
