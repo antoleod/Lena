@@ -85,6 +85,26 @@ export const generatedMathematicsActivities = [
     hints: ['Tu peux compter en arriere.']
   }),
   createGeneratedMathActivity({
+    id: 'generated-multiplication-p2',
+    slug: 'groupes-egaux-p2',
+    title: 'Groupes egaux P2',
+    subskill: 'multiplication',
+    gradeBand: ['P2'],
+    topic: 'multiplication',
+    instructions: 'Premieres multiplications avec paquets egaux et petits resultats.',
+    hints: ['Compte les groupes puis les objets dans chaque groupe.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-division-p2',
+    slug: 'partages-simples-p2',
+    title: 'Partages simples P2',
+    subskill: 'division',
+    gradeBand: ['P2'],
+    topic: 'division',
+    instructions: 'Premiers partages egaux avec nombres tres simples.',
+    hints: ['Cherche combien d objets il y a dans chaque groupe.']
+  }),
+  createGeneratedMathActivity({
     id: 'generated-comparison-p2',
     slug: 'comparaison-de-nombres-p2',
     title: 'Comparer des nombres P2',

@@ -80,6 +80,24 @@ export const mathematicsGrade2Modules = [
     missionSummary: 'Chercher une regle simple, classer et continuer un motif.'
   }),
   createModule({
+    id: 'math-g2-groups-sharing',
+    subjectId: 'mathematics',
+    gradeId: 'P2',
+    domainId: 'multiplication-division',
+    domainLabel: 'Groupes et partages',
+    title: 'Groupes egaux et partages simples',
+    summary: 'Decouvrir multiplication et division avec images mentales tres simples.',
+    goal: 'Comprendre d abord les groupes egaux et les partages avant les automatismes.',
+    demo: 'Une demonstration montre des paquets egaux puis un partage entre plusieurs enfants.',
+    guidedActivityIds: ['generated-multiplication-p2', 'generated-division-p2'],
+    independentActivityIds: ['multiplication-table-2'],
+    challengeActivityId: 'word-problems',
+    examActivityId: 'generated-division-p2',
+    suggestedReviewIds: ['generated-multiplication-p2'],
+    missionTitle: 'Mission groupes et partages P2',
+    missionSummary: 'Observer des paquets egaux, partager et faire le lien avec les premieres tables.'
+  }),
+  createModule({
     id: 'math-g2-problems',
     subjectId: 'mathematics',
     gradeId: 'P2',

@@ -92,13 +92,29 @@ export default function ModulePage() {
               <span className="button-icon" aria-hidden="true">{completedActivities > 0 ? '▶' : '✨'}</span>
               <span>{primaryLabel}</span>
             </Link>
-          ) : null}
+          ) : (
+            <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}`}>
+              <span className="button-icon" aria-hidden="true">📚</span>
+              <span>{t('back')}</span>
+            </Link>
+          )}
           <Link className="secondary-action" to={`/subjects/${subjectId}/grades/${gradeId}`}>
             <span className="button-icon" aria-hidden="true">↩</span>
             <span>{t('back')}</span>
           </Link>
         </div>
       </section>
+
+      {!journey.stages.length ? (
+        <section className="panel panel--tight">
+          <div className="dashboard-actions">
+            <Link className="primary-action" to="/map">
+              <span className="button-icon" aria-hidden="true">🗺</span>
+              <span>{t('startAdventure')}</span>
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       {journey.stages.map((stage) => {
         const status = getStageStatus(stage, progress);

@@ -73,6 +73,14 @@ export default function SubjectPage() {
             <h3>{t('chooseLevel')}</h3>
           </div>
         </div>
+        {!grades.length ? (
+          <div className="dashboard-actions">
+            <Link className="primary-action" to="/map">
+              <span className="button-icon" aria-hidden="true">🗺</span>
+              <span>{t('startAdventure')}</span>
+            </Link>
+          </div>
+        ) : null}
         <div className="grade-map">
           {grades.map((grade, index) => {
             const launchTo = grade.modules.length

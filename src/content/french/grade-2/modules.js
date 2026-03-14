@@ -54,5 +54,23 @@ export const frenchGrade2Modules = [
     suggestedReviewIds: ['phrase-a-trous'],
     missionTitle: 'Mission lecture P2',
     missionSummary: 'Lire des mots et des phrases courtes pour comprendre une idee simple.'
+  }),
+  createModule({
+    id: 'french-g2-stories',
+    subjectId: 'french',
+    gradeId: 'P2',
+    domainId: 'stories',
+    domainLabel: 'Contes et recits',
+    title: 'Petites histoires a lire',
+    summary: 'Entrer dans de petits recits avec personnages, lieux et actions faciles a suivre.',
+    goal: 'Lire une histoire courte et retrouver une information claire.',
+    demo: 'Une demonstration montre comment reperer qui fait quoi dans un petit recit.',
+    guidedActivityIds: ['generated-french-stories-p2', 'generated-french-reading-p2'],
+    independentActivityIds: ['generated-french-reading'],
+    challengeActivityId: 'generated-french-stories-p2',
+    examActivityId: 'generated-french-reading-p2',
+    suggestedReviewIds: ['generated-french-sentences-p2'],
+    missionTitle: 'Mission recits P2',
+    missionSummary: 'Lire une petite histoire, suivre les personnages et comprendre l idee principale.'
   })
 ];

@@ -25,7 +25,7 @@ export const spanishGrade3Modules = [
     domainLabel: 'Gramatica',
     title: 'Sujeto, verbo y orden de frases',
     summary: 'Trabajar sentido, orden y lectura funcional.',
-    goal: 'Facilitar escritura guiada futura.',
+    goal: 'Dar una base clara para ordenar y entender frases.',
     demo: 'Una demostracion explica que palabra da la accion.',
     guidedActivityIds: ['spanish-basic-sentences', 'generated-spanish-sentences'],
     independentActivityIds: ['generated-spanish-reading'],

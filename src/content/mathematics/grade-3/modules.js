@@ -74,6 +74,24 @@ export const mathematicsGrade3Modules = [
     missionSummary: 'Tables, familles d operations et groupes egaux.'
   }),
   createModule({
+    id: 'math-g3-division',
+    subjectId: 'mathematics',
+    gradeId: 'P3',
+    domainId: 'division',
+    domainLabel: 'Division',
+    title: 'Partager, verifier et relier aux tables',
+    summary: 'Partager en groupes egaux, verifier un quotient et faire le lien avec la multiplication.',
+    goal: 'Installer les premieres divisions comme une operation comprise.',
+    demo: 'Une demonstration montre comment repartir puis verifier avec la multiplication.',
+    guidedActivityIds: ['generated-division-p3', 'mult-div-families'],
+    independentActivityIds: ['generated-multiplication-p3'],
+    challengeActivityId: 'generated-word-problems',
+    examActivityId: 'generated-division-p3',
+    suggestedReviewIds: ['generated-multiplication-p3'],
+    missionTitle: 'Mission divisions P3',
+    missionSummary: 'Partager, verifier et utiliser les liens entre multiplication et division.'
+  }),
+  createModule({
     id: 'math-g3-problems',
     subjectId: 'mathematics',
     gradeId: 'P3',

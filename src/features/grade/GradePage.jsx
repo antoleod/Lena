@@ -136,7 +136,7 @@ export default function GradePage() {
             })}
           </div>
         </section>
-      )) : (
+      )) : gradeActivities.length ? (
         <section className="panel panel--tight">
           <div className="panel__header">
             <div>
@@ -163,6 +163,21 @@ export default function GradePage() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+      ) : (
+        <section className="panel panel--tight">
+          <div className="panel__header">
+            <div>
+              <span className="eyebrow">{gradeId}</span>
+              <h3>{t('startAdventure')}</h3>
+            </div>
+          </div>
+          <div className="dashboard-actions">
+            <Link className="primary-action" to="/map">
+              <span className="button-icon" aria-hidden="true">🗺</span>
+              <span>{t('startAdventure')}</span>
+            </Link>
           </div>
         </section>
       )}

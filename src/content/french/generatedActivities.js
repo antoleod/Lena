@@ -9,7 +9,9 @@ function createGeneratedFrenchActivity({
   gradeBand,
   instructions,
   hints,
-  featured = false
+  featured = false,
+  sections,
+  focusWords
 }) {
   const generatorGrade = gradeBand.includes('P6')
     ? 'P6'
@@ -39,16 +41,36 @@ function createGeneratedFrenchActivity({
     originRepo,
     engineType: 'multiple-choice',
     featured,
+    focusWords: focusWords || [],
     generatorConfig: {
       grade: generatorGrade,
       topic,
       language: 'fr',
       difficulty: 'adaptive',
-      sections: [
+      sections: sections || [
         { id: 'practice', title: 'Lecture ou langage', kind: 'practice', description: '10 exercices generes selon le niveau.', count: 10 },
         { id: 'exam', title: 'Mini examen', kind: 'exam', description: '4 nouvelles questions pour verifier la notion.', count: 4 }
       ]
     }
+  };
+}
+
+const COMMON_FRENCH_VERBS = [
+  'etre', 'avoir', 'aller', 'faire', 'dire',
+  'pouvoir', 'voir', 'vouloir', 'venir', 'prendre',
+  'parler', 'aimer', 'manger', 'jouer', 'lire',
+  'ecrire', 'donner', 'trouver', 'regarder', 'finir'
+];
+
+function seedLesson(prompt, answer, distractors, explanation) {
+  return {
+    prompt,
+    choices: [answer, ...distractors],
+    answer,
+    explanation,
+    type: 'multiple-choice',
+    renderType: 'multiple-choice',
+    engineType: 'multiple-choice'
   };
 }
 
@@ -155,6 +177,43 @@ export const generatedFrenchActivities = [
     hints: ['Observe la phrase complete avant de choisir.']
   }),
   createGeneratedFrenchActivity({
+    id: 'generated-french-conjugation-p2',
+    slug: 'verbes-utiles-fr-p2',
+    title: 'Verbes tres frequents P2',
+    subskill: 'conjugation',
+    topic: 'sentence-completion',
+    gradeBand: ['P2'],
+    instructions: 'Premiers verbes tres utilises dans des phrases courtes et concretes.',
+    hints: ['Cherche le verbe qui garde la phrase correcte.'],
+    focusWords: COMMON_FRENCH_VERBS,
+    sections: [
+      {
+        id: 'practice',
+        title: 'Verbes du quotidien',
+        kind: 'practice',
+        description: 'Des phrases courtes avec les verbes les plus utiles.',
+        count: 8,
+        seedLessons: [
+          seedLesson('Je ___ a l ecole.', 'vais', ['es', 'a'], 'Avec je, on dit je vais.'),
+          seedLesson('Tu ___ un livre.', 'lis', ['lit', 'lire'], 'Avec tu, on dit tu lis.'),
+          seedLesson('Il ___ avec son ballon.', 'joue', ['joues', 'jouer'], 'Avec il, on dit il joue.'),
+          seedLesson('Nous ___ le gouter.', 'mangeons', ['manges', 'mangent'], 'Avec nous, on dit nous mangeons.')
+        ]
+      },
+      {
+        id: 'exam',
+        title: 'Mini verification',
+        kind: 'exam',
+        description: 'Verifier quelques verbes tres frequents.',
+        count: 4,
+        seedLessons: [
+          seedLesson('Vous ___ la maitresse.', 'regardez', ['regarde', 'regardons'], 'Avec vous, on dit vous regardez.'),
+          seedLesson('Ils ___ en classe.', 'parlent', ['parle', 'parlons'], 'Avec ils, on dit ils parlent.')
+        ]
+      }
+    ]
+  }),
+  createGeneratedFrenchActivity({
     id: 'generated-french-word-order-p3',
     slug: 'ordre-des-mots-fr-p3',
     title: 'Ordre des mots P3',
@@ -163,6 +222,64 @@ export const generatedFrenchActivities = [
     gradeBand: ['P3'],
     instructions: 'Reperer l ordre correct des mots dans une phrase simple.',
     hints: ['Commence par le groupe qui peut ouvrir la phrase.']
+  }),
+  createGeneratedFrenchActivity({
+    id: 'generated-french-conjugation-p3',
+    slug: 'conjugaison-fr-p3',
+    title: 'Conjugaison utile P3',
+    subskill: 'conjugation',
+    topic: 'sentence-completion',
+    gradeBand: ['P3'],
+    instructions: 'Conjuguer les 20 verbes les plus frequents dans des phrases simples.',
+    hints: ['Repere le sujet avant de choisir la bonne forme du verbe.'],
+    focusWords: COMMON_FRENCH_VERBS,
+    sections: [
+      {
+        id: 'practice',
+        title: 'Verbes frequents',
+        kind: 'practice',
+        description: 'Conjugaison du quotidien avec sujets simples.',
+        count: 10,
+        seedLessons: [
+          seedLesson('Je ___ mon cahier.', 'prends', ['prenons', 'prend'], 'Avec je, on dit je prends.'),
+          seedLesson('Tu ___ ton ami.', 'vois', ['voit', 'voyons'], 'Avec tu, on dit tu vois.'),
+          seedLesson('Elle ___ dessiner.', 'aime', ['aimes', 'aimons'], 'Avec elle, on dit elle aime.'),
+          seedLesson('Nous ___ a la maison.', 'venons', ['vient', 'venez'], 'Avec nous, on dit nous venons.'),
+          seedLesson('Ils ___ finir le travail.', 'veulent', ['veut', 'voulons'], 'Avec ils, on dit ils veulent.')
+        ]
+      },
+      {
+        id: 'exam',
+        title: 'Mini examen verbes',
+        kind: 'exam',
+        description: 'Verifier les verbes les plus utiles.',
+        count: 4,
+        seedLessons: [
+          seedLesson('Vous ___ aider la classe.', 'pouvez', ['peut', 'pouvons'], 'Avec vous, on dit vous pouvez.'),
+          seedLesson('Elle ___ une histoire.', 'ecrit', ['ecrivent', 'ecris'], 'Avec elle, on dit elle ecrit.')
+        ]
+      }
+    ]
+  }),
+  createGeneratedFrenchActivity({
+    id: 'generated-french-stories-p2',
+    slug: 'petits-recits-fr-p2',
+    title: 'Petits recits P2',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P2'],
+    instructions: 'Histoires tres courtes avec questions directes et vocabulaire simple.',
+    hints: ['Relis la phrase qui parle du personnage principal.']
+  }),
+  createGeneratedFrenchActivity({
+    id: 'generated-french-stories-p3',
+    slug: 'recits-fr-p3',
+    title: 'Recits et questions P3',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P3'],
+    instructions: 'Petits contes et recits courts avec questions de comprehension.',
+    hints: ['Cherche les indices dans tout le texte avant de choisir.']
   }),
   createGeneratedFrenchActivity({
     id: 'generated-french-reading-p4',

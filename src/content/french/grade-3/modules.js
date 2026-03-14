@@ -54,5 +54,41 @@ export const frenchGrade3Modules = [
     suggestedReviewIds: ['generated-french-vocabulary-p2'],
     missionTitle: 'Mission langue P3',
     missionSummary: 'Mieux comprendre les mots, les accords et les types de phrases simples.'
+  }),
+  createModule({
+    id: 'french-g3-conjugation',
+    subjectId: 'french',
+    gradeId: 'P3',
+    domainId: 'conjugation',
+    domainLabel: 'Conjugaison',
+    title: 'Les 20 verbes les plus utiles',
+    summary: 'Conjuguer les verbes les plus frequents dans des phrases simples et utiles.',
+    goal: 'Installer des reperes solides sur les verbes du quotidien.',
+    demo: 'Une demonstration montre comment regarder le sujet avant de choisir la bonne forme.',
+    guidedActivityIds: ['generated-french-conjugation-p2', 'generated-french-conjugation-p3'],
+    independentActivityIds: ['generated-french-sentences-p3-base'],
+    challengeActivityId: 'generated-french-grammar-p3',
+    examActivityId: 'generated-french-conjugation-p3',
+    suggestedReviewIds: ['generated-french-conjugation-p2'],
+    missionTitle: 'Mission conjugaison P3',
+    missionSummary: 'Conjuguer les verbes les plus frequents dans des phrases courtes et utiles.'
+  }),
+  createModule({
+    id: 'french-g3-stories',
+    subjectId: 'french',
+    gradeId: 'P3',
+    domainId: 'stories',
+    domainLabel: 'Recits',
+    title: 'Contes courts et questions',
+    summary: 'Lire de petits contes et repondre a des questions de comprehension simples.',
+    goal: 'Passer de la phrase isolee au petit recit suivi.',
+    demo: 'Une demonstration montre comment retrouver un indice dans une histoire courte.',
+    guidedActivityIds: ['generated-french-stories-p3', 'generated-french-reading-p3-base'],
+    independentActivityIds: ['generated-french-reading'],
+    challengeActivityId: 'generated-french-stories-p3',
+    examActivityId: 'generated-french-reading',
+    suggestedReviewIds: ['generated-french-stories-p2'],
+    missionTitle: 'Mission recits P3',
+    missionSummary: 'Lire un petit conte, retrouver des indices et comprendre le sens general.'
   })
 ];

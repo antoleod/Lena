@@ -25,7 +25,7 @@ export const englishGrade3Modules = [
     domainLabel: 'Dialogues',
     title: 'Short dialogues and mini checks',
     summary: 'Read a short scene, understand it, then answer.',
-    goal: 'Prepare for later listening and dictation modules.',
+    goal: 'Build confidence with short dialogues and clear answers.',
     demo: 'The demo isolates who speaks and what each sentence means.',
     guidedActivityIds: ['generated-english-reading', 'generated-english-sentences'],
     independentActivityIds: ['generated-english-vocabulary'],

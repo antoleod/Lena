@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useParams, useSearchParams } from 'react-router-dom';
 import AppShell from '../layout/AppShell.jsx';
 import HomePage from '../../features/home/HomePage.jsx';
 import SubjectPage from '../../features/subject/SubjectPage.jsx';
@@ -14,7 +14,26 @@ import WorldDetailPage from '../../features/map/WorldDetailPage.jsx';
 import MissionPage from '../../features/map/MissionPage.jsx';
 import HistoryPage from '../../features/history/HistoryPage.jsx';
 import SettingsPage from '../../features/settings/SettingsPage.jsx';
+import { getActivityById } from '../../features/curriculum/catalog.js';
 import { isProfileComplete } from '../../services/storage/profileStore.js';
+
+function LegacyModuleActivityRedirect() {
+  const { moduleId, activityId } = useParams();
+  const [searchParams] = useSearchParams();
+  const activity = activityId ? getActivityById(activityId) : null;
+
+  if (!activity) {
+    return <Navigate to="/" replace />;
+  }
+
+  const nextParams = new URLSearchParams(searchParams);
+  if (moduleId && !nextParams.has('module')) {
+    nextParams.set('module', moduleId);
+  }
+
+  const query = nextParams.toString();
+  return <Navigate to={`/activities/${activity.id}${query ? `?${query}` : ''}`} replace />;
+}
 
 export default function AppRouter() {
   const [needsOnboarding, setNeedsOnboarding] = useState(() => typeof window !== 'undefined' && !isProfileComplete());
@@ -45,6 +64,7 @@ export default function AppRouter() {
         <Route path="/subjects/:subjectId" element={<SubjectPage />} />
         <Route path="/subjects/:subjectId/grades/:gradeId" element={<GradePage />} />
         <Route path="/subjects/:subjectId/grades/:gradeId/modules/:moduleId" element={<ModulePage />} />
+        <Route path="/subjects/:subjectId/grades/:gradeId/modules/:moduleId/:activityId" element={<LegacyModuleActivityRedirect />} />
         <Route path="/activities/:activityId" element={<ActivityPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/history" element={<HistoryPage />} />
