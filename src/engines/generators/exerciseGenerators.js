@@ -13,6 +13,7 @@ import { generateVocabularyExercise } from './vocabularyGenerator.js';
 import { generateSentenceBuilderExercise } from './sentenceBuilderGenerator.js';
 import { generateReadingQuestionExercise } from './readingQuestionGenerator.js';
 import { generateLogicExercise } from './logicGenerator.js';
+import { generateWordProblemExercise } from './wordProblemGenerator.js';
 
 function resolveDifficulty(grade, difficulty) {
   if (difficulty && difficulty !== 'adaptive') {
@@ -81,6 +82,9 @@ export function generateExercise(input) {
       break;
     case 'logic':
       exercise = generateLogicExercise(params);
+      break;
+    case 'word-problems':
+      exercise = generateWordProblemExercise(params);
       break;
     default:
       exercise = generateAdditionExercise(params);

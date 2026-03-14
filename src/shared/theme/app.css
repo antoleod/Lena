@@ -3339,3 +3339,172 @@ button {
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.98);
 }
+
+/* ============================================================
+   DUOLINGO STYLE MAP
+   ============================================================ */
+
+@keyframes slideFadeInUp {
+  0% { opacity: 0; transform: translateY(40px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.duo-path-container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  gap: 30px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+
+.duo-node-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  /* staggered animation */
+  opacity: 0;
+  animation: slideFadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.duo-node-wrapper--left {
+  transform: translateX(-35px);
+}
+
+.duo-node-wrapper--right {
+  transform: translateX(35px);
+}
+
+.duo-path-line {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 10px;
+  height: 50px;
+  background-color: rgba(210, 200, 220, 0.5);
+  transform: translateX(-50%);
+  z-index: 0;
+  border-radius: 10px;
+}
+.duo-node-wrapper:last-child .duo-path-line {
+  display: none;
+}
+.duo-node-wrapper--left .duo-path-line {
+  transform: translate(25px, -10px) rotate(-35deg);
+  height: 60px;
+}
+.duo-node-wrapper--right .duo-path-line {
+  transform: translate(-35px, -10px) rotate(35deg);
+  height: 60px;
+}
+
+.duo-world-node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.duo-world-node:hover {
+  transform: scale(1.05);
+}
+
+.duo-world-core {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15), 0 15px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 4px solid white;
+}
+.duo-world-node.is-completed .duo-world-core {
+  border-color: #ffd700;
+  box-shadow: 0 8px 0 #d4af37, 0 15px 25px rgba(255, 215, 0, 0.3);
+}
+
+.duo-emoji {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.duo-stars {
+  position: absolute;
+  bottom: -15px;
+  display: flex;
+  gap: 2px;
+  background: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.duo-stars span {
+  font-size: 1rem;
+}
+.star-on {
+  color: #ffca28;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.star-off {
+  color: #e0e0e0;
+}
+
+.duo-current-target {
+  position: absolute;
+  top: -25px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  animation: bounceSoft 2s infinite ease-in-out;
+  box-shadow: 0 4px 12px rgba(255, 94, 98, 0.4);
+}
+
+.duo-world-info {
+  background: white;
+  padding: 10px 16px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  min-width: 160px;
+  margin-top: 10px;
+}
+.duo-world-info h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  font-family: 'Fredoka', sans-serif;
+  color: var(--text);
+}
+.duo-progress-pill {
+  height: 8px;
+  background: rgba(144, 118, 166, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.duo-progress-fill {
+  height: 100%;
+  background: var(--theme-gradient);
+  border-radius: inherit;
+}
+.duo-progress-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+}
