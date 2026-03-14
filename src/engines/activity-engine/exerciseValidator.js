@@ -15,7 +15,7 @@ export function validateRenderableExercise(exercise) {
   if (!exercise.prompt) issues.push('missing-prompt');
   if (hasDuplicateValues(optionIds)) issues.push('duplicate-option-ids');
 
-  if (renderType === 'multiple-choice' || renderType === 'single-choice' || renderType === 'story') {
+  if (renderType === 'multiple-choice' || renderType === 'single-choice' || renderType === 'story' || renderType === 'matching' || renderType === 'ordering' || renderType === 'drag-drop') {
     if ((exercise.options || []).length < 2) issues.push('not-enough-options');
     if (!correctIds.length) issues.push('missing-correct-option');
     if (correctIds.some((id) => !optionIds.includes(id))) issues.push('unknown-correct-option-id');
@@ -27,6 +27,10 @@ export function validateRenderableExercise(exercise) {
     if (!hasAcceptedValues && !hasCorrectOptionIds) {
       issues.push('missing-expected-answer');
     }
+  }
+
+  if ((renderType === 'ordering' || renderType === 'matching' || renderType === 'drag-drop') && (exercise.options || []).length < 2) {
+    issues.push('not-enough-interactive-options');
   }
 
   return {
@@ -49,6 +53,7 @@ export function validateGeneratedExercise(exercise) {
 
   if (!exercise.question) issues.push('missing-question');
   if (!exercise.type) issues.push('missing-type');
+  if (!exercise.engineType && !exercise.renderType) issues.push('missing-runtime-type');
   if (!exercise.level) issues.push('missing-level');
   if (options.length < 2) issues.push('not-enough-options');
   if (!options.some((option) => String(option) === String(exercise.correct))) {
@@ -71,4 +76,3 @@ export function assertGeneratedExercise(exercise) {
   }
   return exercise;
 }
-

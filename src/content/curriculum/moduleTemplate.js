@@ -12,8 +12,25 @@ export function createModule({
   independentActivityIds,
   challengeActivityId,
   examActivityId,
-  suggestedReviewIds = []
+  suggestedReviewIds = [],
+  missionTitle,
+  missionSummary,
+  levelTitles = {}
 }) {
+  const levelActivityIds = [
+    ...(guidedActivityIds || []),
+    ...(independentActivityIds || []),
+    ...(challengeActivityId ? [challengeActivityId] : []),
+    ...(examActivityId ? [examActivityId] : [])
+  ];
+
+  const levels = levelActivityIds.map((activityId, index) => ({
+    id: `${id}::level-${index + 1}`,
+    order: index + 1,
+    title: levelTitles[activityId] || `Level ${index + 1}`,
+    activityId
+  }));
+
   return {
     id,
     subjectId,
@@ -22,6 +39,12 @@ export function createModule({
     domainLabel,
     title,
     summary,
+    mission: {
+      id: `${id}::mission`,
+      title: missionTitle || title,
+      summary: missionSummary || summary,
+      levels
+    },
     phases: {
       introduction: `${summary} ${goal}`,
       demonstration: demo,

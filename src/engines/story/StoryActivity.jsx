@@ -98,7 +98,8 @@ export default function StoryActivity({ activity, progress, onComplete }) {
           </div>
           <div className="engine-actions">
             <button className="primary-action" type="button" disabled={!selected} onClick={chooseAnswer}>
-              {t('validateAnswer')}
+              <span className="button-icon" aria-hidden="true">✅</span>
+              <span>{t('validateAnswer')}</span>
             </button>
           </div>
         </>

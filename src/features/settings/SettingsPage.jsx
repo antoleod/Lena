@@ -1,23 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
-import { getProfile, saveProfile } from '../../services/storage/profileStore.js';
-import { equipEffect, equipWallpaper, getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
+import { getProfile, logoutProfile, saveProfile } from '../../services/storage/profileStore.js';
+import { getRewardState } from '../../services/storage/rewardStore.js';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 
-function assetUrl(path) {
-  return `${import.meta.env.BASE_URL}${path}`;
-}
-
 export default function SettingsPage() {
+  const navigate = useNavigate();
   const { locale, setLocale, t } = useLocale();
   const { setThemeId } = useTheme();
   const [profile, setProfile] = useState(() => getProfile());
-  const [rewardState, setRewardState] = useState(() => getRewardState());
   const [draftName, setDraftName] = useState(() => getProfile().name || '');
-  const avatarItems = getRewardCatalog().filter((item) => item.type === 'avatar');
-  const themeItems = getRewardCatalog().filter((item) => item.type === 'theme');
-  const effectItems = getRewardCatalog().filter((item) => item.type === 'effect');
-  const wallpaperItems = getRewardCatalog().filter((item) => item.type === 'wallpaper');
+  const [rewardState, setRewardState] = useState(() => getRewardState());
 
   useEffect(() => {
     function sync() {
@@ -32,30 +26,13 @@ export default function SettingsPage() {
     };
   }, []);
 
-  function saveName() {
-    const next = saveProfile({ name: draftName.trim() || t('defaultChildName') });
-    setProfile(next);
+  function handleSaveProfile() {
+    setProfile(saveProfile({ name: draftName.trim() || t('defaultChildName') }));
   }
 
-  function chooseAvatar(avatarId) {
-    const owned = avatarId === 'avatar-unicorn' || rewardState.inventory.includes(avatarId);
-    if (!owned) return;
-    setProfile(saveProfile({ avatarId }));
-  }
-
-  function chooseTheme(themeId) {
+  function handleThemeChange(themeId) {
     setThemeId(themeId);
     setProfile(saveProfile({ themeId }));
-  }
-
-  function chooseEffect(effectId) {
-    equipEffect(effectId);
-    setRewardState(getRewardState());
-  }
-
-  function chooseWallpaper(wallpaperId) {
-    equipWallpaper(wallpaperId);
-    setRewardState(getRewardState());
   }
 
   return (
@@ -68,6 +45,7 @@ export default function SettingsPage() {
           </div>
           <span className="pill">{rewardState.balance} {t('crystals')}</span>
         </div>
+
         <div className="settings-grid">
           <div className="form-field">
             <label htmlFor="settings-name">{t('onboardingChildName')}</label>
@@ -76,14 +54,11 @@ export default function SettingsPage() {
               type="text"
               value={draftName}
               onChange={(event) => setDraftName(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter') {
-                  event.preventDefault();
-                  saveName();
-                }
-              }}
             />
-            <button type="button" className="primary-action" onClick={saveName}>Save</button>
+            <button type="button" className="primary-action" onClick={handleSaveProfile}>
+              <span className="button-icon" aria-hidden="true">💾</span>
+              <span>Save</span>
+            </button>
           </div>
 
           <div className="form-field">
@@ -102,128 +77,49 @@ export default function SettingsPage() {
               <option value="es">ES</option>
             </select>
           </div>
+
+          <div className="form-field">
+            <label htmlFor="settings-theme">{t('theme')}</label>
+            <select
+              id="settings-theme"
+              value={profile.themeId || 'theme-candy'}
+              onChange={(event) => handleThemeChange(event.target.value)}
+            >
+              <option value="theme-candy">Candy</option>
+              <option value="theme-ocean">Ocean</option>
+              <option value="theme-sunset">Sunset</option>
+            </select>
+          </div>
         </div>
       </section>
 
       <section className="panel panel--tight">
         <div className="panel__header">
           <div>
-            <span className="eyebrow">Effects</span>
-            <h3>Background effects</h3>
+            <span className="eyebrow">{t('historyTitle')}</span>
+            <h3>{t('globalProgressLabel')}</h3>
           </div>
         </div>
-        <div className="reward-grid reward-grid--compact">
-          {effectItems.map((item) => {
-            const owned = item.id === 'effect-rainbow' || rewardState.inventory.includes(item.id);
-            const active = rewardState.equippedEffectId === item.id;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                className={`reward-card reward-card--effect${active ? ' is-active' : ''}`}
-                onClick={() => owned && chooseEffect(item.id)}
-              >
-                <div className={`effect-preview effect-preview--${item.id.replace('effect-', '')}`}></div>
-                <div className="reward-card__body">
-                  <h4>{locale === 'nl' ? item.nameNl || item.name : item.name}</h4>
-                  <p>{owned ? 'Use' : `${item.price} ${t('crystals')}`}</p>
-                </div>
-              </button>
-            );
-          })}
+        <div className="mini-metrics">
+          <div><span>{t('studyTimeLabel') || 'Study'}</span><strong>{profile.totalStudyMinutes || 0}</strong></div>
+          <div><span>{t('completed')}</span><strong>{profile.totalActivitiesCompleted || 0}</strong></div>
+          <div><span>{t('streakLabel')}</span><strong>{profile.streakCurrent || 0}</strong></div>
         </div>
       </section>
 
       <section className="panel panel--tight">
-        <div className="panel__header">
-          <div>
-            <span className="eyebrow">Wallpapers</span>
-            <h3>Backgrounds</h3>
-          </div>
-        </div>
-        <div className="reward-grid reward-grid--compact">
-          {wallpaperItems.map((item) => {
-            const owned = item.id === 'wallpaper-dreamy-sky' || rewardState.inventory.includes(item.id);
-            const active = rewardState.equippedWallpaperId === item.id;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                className={`reward-card reward-card--theme${active ? ' is-active' : ''}`}
-                onClick={() => owned && chooseWallpaper(item.id)}
-              >
-                <div className="theme-preview theme-preview--wallpaper">
-                  <span className="theme-preview__icon">{item.icon}</span>
-                  {item.preview.map((color) => (
-                    <span key={color} style={{ backgroundColor: color }}></span>
-                  ))}
-                </div>
-                <div className="reward-card__body">
-                  <h4>{locale === 'nl' ? item.nameNl || item.name : item.name}</h4>
-                  <p>{owned ? (t('shopEquip') || 'Use') : `${item.price} ${t('crystals')}`}</p>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="panel panel--tight">
-        <div className="panel__header">
-          <div>
-            <span className="eyebrow">Avatar</span>
-            <h3>{t('shopChooseReward')}</h3>
-          </div>
-        </div>
-        <div className="avatar-grid">
-          {avatarItems.map((item) => {
-            const owned = item.id === 'avatar-unicorn' || rewardState.inventory.includes(item.id);
-            const active = profile.avatarId === item.id;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                className={`avatar-option${active ? ' is-active' : ''}${owned ? '' : ' is-locked'}`}
-                onClick={() => chooseAvatar(item.id)}
-              >
-                <img src={assetUrl(item.assetPath)} alt="" />
-                <span>{locale === 'nl' ? item.nameNl || item.name : item.name}</span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="panel panel--tight">
-        <div className="panel__header">
-          <div>
-            <span className="eyebrow">{t('theme')}</span>
-            <h3>{t('shopThemes')}</h3>
-          </div>
-        </div>
-        <div className="reward-grid reward-grid--compact">
-          {themeItems.map((item) => {
-            const owned = item.id === 'theme-candy' || rewardState.inventory.includes(item.id);
-            return (
-              <button
-                key={item.id}
-                type="button"
-                className={`reward-card reward-card--theme${profile.themeId === item.id ? ' is-active' : ''}`}
-                onClick={() => owned && chooseTheme(item.id)}
-              >
-                <div className="theme-preview">
-                  <span className="theme-preview__icon">{item.icon}</span>
-                  {item.preview.map((color) => (
-                    <span key={color} style={{ backgroundColor: color }}></span>
-                  ))}
-                </div>
-                <div className="reward-card__body">
-                  <h4>{locale === 'nl' ? item.nameNl || item.name : item.name}</h4>
-                  <p>{owned ? (t('shopEquip') || 'Use') : `${item.price} ${t('crystals')}`}</p>
-                </div>
-              </button>
-            );
-          })}
+        <div className="dashboard-actions">
+          <button
+            type="button"
+            className="secondary-action"
+            onClick={() => {
+              logoutProfile();
+              navigate('/onboarding', { replace: true });
+            }}
+          >
+            <span className="button-icon" aria-hidden="true">↩</span>
+            <span>{t('logoutLabel') || 'Logout'}</span>
+          </button>
         </div>
       </section>
     </div>

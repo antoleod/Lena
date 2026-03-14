@@ -43,14 +43,14 @@ export default function SubjectPage() {
       ...grade,
       stats: getGradeStats(subjectId, grade, progress)
     };
-  }).filter((entry) => entry.activities.length || entry.modules.length);
+  }).filter((entry) => (entry.gradeId === 'P2' || entry.gradeId === 'P3') && (entry.activities.length || entry.modules.length));
 
   return (
     <div className="page-stack page-stack--compact">
       <section className="panel panel--tight panel--subject-map" style={{ '--subject-accent': subject.accent, '--subject-color': subject.color }}>
         <div className="panel__header">
           <div>
-            <span className="eyebrow">{subject.grades.join(' / ')}</span>
+            <span className="eyebrow">P2 / P3</span>
             <h2>{getSubjectLabel(subject, locale, t)}</h2>
           </div>
           <Link className="text-link" to="/subjects">{t('subjectsLabel') || 'Subjects'}</Link>
@@ -97,7 +97,10 @@ export default function SubjectPage() {
                     <span key={activity.id} className="tag-chip tag-chip--static">{activity.title}</span>
                   ))}
                 </div>
-                <Link className="primary-action" to={launchTo}>{t('launch')}</Link>
+                <Link className="primary-action" to={launchTo}>
+                  <span className="button-icon" aria-hidden="true">📘</span>
+                  <span>{t('launch')}</span>
+                </Link>
               </article>
             );
           })}

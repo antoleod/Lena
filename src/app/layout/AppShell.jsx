@@ -16,10 +16,10 @@ export default function AppShell() {
   const location = useLocation();
 
   const navItems = useMemo(() => ([
-    { to: '/map', label: t('missions') },
-    { to: '/subjects', label: t('subjectsLabel') || 'Subjects' },
-    { to: '/history', label: t('historyTitle') || 'History' },
-    { to: '/shop', label: t('shop') }
+    { to: '/map', label: t('startAdventure') || 'Adventure', icon: '🗺' },
+    { to: '/subjects', label: t('subjectsLabel') || 'Subjects', icon: '📚' },
+    { to: '/history', label: t('historyTitle') || 'History', icon: '📈' },
+    { to: '/settings', label: t('settingsLabel') || 'Settings', icon: '⚙' }
   ]), [t]);
 
   useEffect(() => {
@@ -69,7 +69,8 @@ export default function AppShell() {
               className={({ isActive }) => `topbar-link${isActive ? ' is-active' : ''}`}
               to={item.to}
             >
-              {item.label}
+              <span aria-hidden="true">{item.icon}</span>
+              <span>{item.label}</span>
             </NavLink>
           ))}
         </nav>
@@ -90,8 +91,9 @@ export default function AppShell() {
             <span className="profile-inline__name">{session.profile.name || t('defaultChildName')}</span>
           </button>
 
-          <button type="button" className="icon-link" onClick={() => navigate('/settings')}>
-            {t('settingsLabel') || 'Settings'}
+          <button type="button" className="icon-link" onClick={() => navigate('/shop')}>
+            <span aria-hidden="true">🛍</span>
+            <span>{t('shop')}</span>
           </button>
           <button
             type="button"
@@ -101,7 +103,8 @@ export default function AppShell() {
               navigate('/onboarding', { replace: true, state: { from: location.pathname } });
             }}
           >
-            {t('logoutLabel') || 'Logout'}
+            <span aria-hidden="true">↩</span>
+            <span>{t('logoutLabel') || 'Logout'}</span>
           </button>
         </div>
       </header>

@@ -62,12 +62,19 @@ export default function MissionPage() {
                   className="primary-action"
                   to={`/activities/${nextTarget.activityId}?world=${nextTarget.worldId}&mission=${nextTarget.missionId}&level=${nextTarget.levelOrder}`}
                 >
-                  {t('continue')}
+                  <span className="button-icon" aria-hidden="true">▶</span>
+                  <span>{t('continue')}</span>
                 </Link>
               ) : (
-                <Link className="primary-action" to={`/map/${world.id}`}>{t('missions')}</Link>
+                <Link className="primary-action" to={`/map/${world.id}`}>
+                  <span className="button-icon" aria-hidden="true">🗺</span>
+                  <span>{t('missions')}</span>
+                </Link>
               )}
-              <Link className="secondary-action" to={`/map/${world.id}`}>{t('back')}</Link>
+              <Link className="secondary-action" to={`/map/${world.id}`}>
+                <span className="button-icon" aria-hidden="true">↩</span>
+                <span>{t('back')}</span>
+              </Link>
             </div>
           </div>
         ) : null}
@@ -83,7 +90,8 @@ export default function MissionPage() {
             className="primary-action"
             to={`/activities/${nextPlayableLevel.activityId}?world=${world.id}&mission=${mission.id}&level=${nextPlayableLevel.order}`}
           >
-            {completedMission ? t('start') : t('continue')}
+            <span className="button-icon" aria-hidden="true">{completedMission ? '🔁' : '▶'}</span>
+            <span>{completedMission ? t('start') : t('continue')}</span>
           </Link>
         </div>
 

@@ -1,53 +1,25 @@
 import { Link, useParams } from 'react-router-dom';
-import { getActivityById, getModuleById, getSubjectById } from '../curriculum/catalog.js';
+import { getModuleById, getSubjectById } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
+import { getModuleJourney } from '../../shared/gameplay/moduleJourney.js';
+import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 
-function resolveActivities(ids = []) {
-  return ids.map((activityId) => getActivityById(activityId)).filter(Boolean);
+function getStageStatus(stage, progress) {
+  const total = stage.activities.length;
+  const completed = stage.activities.filter((activity) => progress.activities[activity.id]?.completed).length;
+
+  if (!completed) {
+    return { total, completed, state: 'available' };
+  }
+  if (completed >= total) {
+    return { total, completed, state: 'completed' };
+  }
+  return { total, completed, state: 'in-progress' };
 }
 
-function buildPlayableSections(module, t) {
-  const sections = [];
-  const guided = resolveActivities(module.phases.guidedPractice);
-  const independent = resolveActivities(module.phases.independentPractice);
-  const challenge = getActivityById(module.phases.miniChallenge);
-  const exam = getActivityById(module.phases.miniExam);
-  const review = resolveActivities(module.phases.suggestedReview);
-
-  if (guided.length) {
-    sections.push({ id: 'guided', title: t('practiceMode'), activities: guided });
-  }
-  if (independent.length) {
-    sections.push({ id: 'independent', title: t('continueStep'), activities: independent });
-  }
-  if (challenge) {
-    sections.push({ id: 'challenge', title: t('missionChallengeLabel'), activities: [challenge] });
-  }
-  if (exam && exam.id !== challenge?.id) {
-    sections.push({ id: 'exam', title: t('missionExamLabel'), activities: [exam] });
-  }
-  if (review.length) {
-    sections.push({ id: 'review', title: t('reinforceLabel'), activities: review });
-  }
-
-  return sections;
-}
-
-function buildLevelPlan(sections) {
-  const activities = sections.flatMap((section) => section.activities);
-  if (!activities.length) {
-    return [];
-  }
-
-  return Array.from({ length: 10 }, (_, index) => {
-    const activity = activities[index % activities.length];
-    return {
-      id: `${activity.id}-level-${index + 1}`,
-      level: index + 1,
-      activity
-    };
-  });
+function getResumeActivity(activities, progress) {
+  return activities.find((activity) => !progress.activities[activity.id]?.completed) || activities[0] || null;
 }
 
 export default function ModulePage() {
@@ -55,6 +27,7 @@ export default function ModulePage() {
   const { subjectId, gradeId, moduleId } = useParams();
   const subject = getSubjectById(subjectId);
   const module = getModuleById(moduleId);
+  const progress = getProgressSnapshot();
 
   if (!subject || !module) {
     return (
@@ -64,9 +37,19 @@ export default function ModulePage() {
     );
   }
 
-  const sections = buildPlayableSections(module, t);
-  const firstActivity = sections[0]?.activities[0] || null;
-  const levelPlan = buildLevelPlan(sections);
+  const journey = getModuleJourney(module, {
+    guided: t('practiceMode'),
+    independent: t('continueStep'),
+    challenge: t('missionChallengeLabel'),
+    exam: t('missionExamLabel'),
+    review: t('reinforceLabel')
+  });
+
+  const totalActivities = journey.activities.length;
+  const completedActivities = journey.activities.filter((activity) => progress.activities[activity.id]?.completed).length;
+  const progressPercent = totalActivities ? Math.round((completedActivities / totalActivities) * 100) : 0;
+  const resumeActivity = getResumeActivity(journey.activities, progress);
+  const primaryLabel = completedActivities > 0 ? t('continue') : t('startAdventure');
 
   return (
     <div className="page-stack page-stack--compact">
@@ -78,77 +61,91 @@ export default function ModulePage() {
           </div>
           <span className="pill">{getSubjectLabel(subject, locale, t)}</span>
         </div>
+
         <p className="panel__copy">{module.summary}</p>
+
         <div className="detail-list">
           <div className="detail-list__row">
             <span>{t('goalLabel')}</span>
             <strong>{module.phases.introduction}</strong>
           </div>
-          {module.phases.demonstration ? (
-            <div className="detail-list__row">
-              <span>{t('hint')}</span>
-              <strong>{module.phases.demonstration}</strong>
-            </div>
-          ) : null}
+          <div className="detail-list__row">
+            <span>{t('progression')}</span>
+            <strong>{completedActivities}/{totalActivities || 0}</strong>
+          </div>
         </div>
-        {firstActivity ? (
-          <div className="dashboard-actions">
-            <Link className="primary-action" to={`/activities/${firstActivity.id}?module=${module.id}`}>
-              {t('startAdventure')}
-            </Link>
-            <Link className="secondary-action" to={`/subjects/${subjectId}/grades/${gradeId}`}>
-              {t('back')}
-            </Link>
+
+        {module.phases.demonstration ? (
+          <div className="feedback-strip">
+            <strong>{t('hint')}</strong>
+            <span>{module.phases.demonstration}</span>
           </div>
         ) : null}
+
+        <div className="grade-map__progress">
+          <i style={{ width: `${Math.max(progressPercent, completedActivities ? 12 : 0)}%` }}></i>
+        </div>
+
+        <div className="dashboard-actions">
+          {resumeActivity ? (
+            <Link className="primary-action" to={`/activities/${resumeActivity.id}?module=${module.id}`}>
+              <span className="button-icon" aria-hidden="true">{completedActivities > 0 ? '▶' : '✨'}</span>
+              <span>{primaryLabel}</span>
+            </Link>
+          ) : null}
+          <Link className="secondary-action" to={`/subjects/${subjectId}/grades/${gradeId}`}>
+            <span className="button-icon" aria-hidden="true">↩</span>
+            <span>{t('back')}</span>
+          </Link>
+        </div>
       </section>
 
-      {sections.map((section) => (
-        <section key={section.id} className="panel panel--tight">
-          <div className="panel__header">
-            <div>
-              <span className="eyebrow">{module.domainLabel}</span>
-              <h3>{section.title}</h3>
-            </div>
-          </div>
-          <div className="module-grid-compact">
-            {section.activities.map((activity) => (
-              <article key={activity.id} className="module-card-compact">
-                <strong>{activity.title}</strong>
-                <p>{activity.instructions}</p>
-                <small>{activity.gradeBand.join(' / ')} · {activity.estimatedDurationMin} min</small>
-                <Link className="primary-action" to={`/activities/${activity.id}?module=${module.id}`}>
-                  {t('launch')}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-      ))}
+      {journey.stages.map((stage) => {
+        const status = getStageStatus(stage, progress);
+        const nextActivity = getResumeActivity(stage.activities, progress);
+        const stateLabel = status.state === 'completed'
+          ? t('completed')
+          : status.state === 'in-progress'
+            ? t('continue')
+            : t('start');
 
-      {levelPlan.length ? (
-        <section className="panel panel--tight">
-          <div className="panel__header">
-            <div>
-              <span className="eyebrow">{module.domainLabel}</span>
-              <h3>{t('levelsSummaryLabel')}</h3>
+        return (
+          <section key={stage.id} className="panel panel--tight">
+            <div className="panel__header">
+              <div>
+                <span className="eyebrow">{module.domainLabel}</span>
+                <h3>{stage.title}</h3>
+              </div>
+              <span className="pill">{status.completed}/{status.total}</span>
             </div>
-          </div>
-          <div className="level-grid">
-            {levelPlan.map((entry) => (
-              <Link
-                key={entry.id}
-                className="level-card level-card--active"
-                to={`/activities/${entry.activity.id}?module=${module.id}&level=${entry.level}`}
-              >
-                <span className="level-card__order">{t('level')} {entry.level}</span>
-                <strong>{entry.activity.title}</strong>
-                <small>{entry.activity.estimatedDurationMin} min</small>
-              </Link>
-            ))}
-          </div>
-        </section>
-      ) : null}
+
+            <div className="detail-list">
+              <div className="detail-list__row">
+                <span>{t('exercise')}</span>
+                <strong>{stage.activities.map((activity) => activity.title).join(' · ')}</strong>
+              </div>
+              <div className="detail-list__row">
+                <span>{t('progression')}</span>
+                <strong>{stateLabel}</strong>
+              </div>
+            </div>
+
+            <div className="grade-map__progress">
+              <i style={{ width: `${status.total ? Math.max(Math.round((status.completed / status.total) * 100), status.completed ? 14 : 0) : 0}%` }}></i>
+            </div>
+
+            {nextActivity ? (
+              <div className="module-lane__footer">
+                <small>{nextActivity.estimatedDurationMin} min</small>
+                <Link className="primary-action" to={`/activities/${nextActivity.id}?module=${module.id}`}>
+                  <span className="button-icon" aria-hidden="true">{status.completed >= status.total ? '🔁' : '▶'}</span>
+                  <span>{status.completed >= status.total ? t('launch') : stateLabel}</span>
+                </Link>
+              </div>
+            ) : null}
+          </section>
+        );
+      })}
     </div>
   );
 }

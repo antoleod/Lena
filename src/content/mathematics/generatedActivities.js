@@ -168,6 +168,36 @@ export const generatedMathematicsActivities = [
     hints: ['Cherche la regle qui se repete.']
   }),
   createGeneratedMathActivity({
+    id: 'generated-mental-math-p2',
+    slug: 'calcul-mental-p2',
+    title: 'Calcul mental P2',
+    subskill: 'mental-calculation',
+    gradeBand: ['P2'],
+    topic: 'addition',
+    instructions: 'Petits calculs rapides adaptes au debut du primaire.',
+    hints: ['Cherche d abord les doubles et les presque doubles.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-patterns-p2',
+    slug: 'motifs-et-suites-p2',
+    title: 'Motifs et suites P2',
+    subskill: 'patterns',
+    gradeBand: ['P2'],
+    topic: 'logic-sequence',
+    instructions: 'Des suites tres lisibles pour chercher une regle simple.',
+    hints: ['Observe ce qui change a chaque etape.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-classification-p2',
+    slug: 'classer-et-comparer-p2',
+    title: 'Classer et comparer P2',
+    subskill: 'classification',
+    gradeBand: ['P2'],
+    topic: 'comparison',
+    instructions: 'Classer des nombres et reperer le plus grand ou le plus petit.',
+    hints: ['Regarde d abord les dizaines, puis les unites.']
+  }),
+  createGeneratedMathActivity({
     id: 'generated-division-p4',
     slug: 'divisions-dynamiques-p4',
     title: 'Divisions progressives',
@@ -176,6 +206,39 @@ export const generatedMathematicsActivities = [
     topic: 'division',
     instructions: 'Des divisions simples qui changent a chaque session.',
     hints: ['Cherche combien de groupes egaux on peut former.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-mental-math-p3',
+    slug: 'calcul-mental-p3',
+    title: 'Calcul mental P3',
+    subskill: 'mental-calculation',
+    gradeBand: ['P3'],
+    topic: 'addition',
+    difficulty: 'medium',
+    instructions: 'Calcul mental plus rapide avec nombres plus grands.',
+    hints: ['Cherche les dizaines utiles avant de calculer.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-patterns-p3',
+    slug: 'motifs-et-suites-p3',
+    title: 'Suites et patrons P3',
+    subskill: 'patterns',
+    gradeBand: ['P3'],
+    topic: 'logic-sequence',
+    difficulty: 'medium',
+    instructions: 'Suites plus riches et patrons numeriques plus longs.',
+    hints: ['Teste une regle puis verifie-la sur toute la suite.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-classification-p3',
+    slug: 'classer-et-ordonner-p3',
+    title: 'Classer et ordonner P3',
+    subskill: 'classification',
+    gradeBand: ['P3'],
+    topic: 'comparison',
+    difficulty: 'medium',
+    instructions: 'Classer, ranger et comparer des nombres a trois chiffres.',
+    hints: ['Commence toujours par les centaines.']
   }),
   createGeneratedMathActivity({
     id: 'generated-fractions-p4',

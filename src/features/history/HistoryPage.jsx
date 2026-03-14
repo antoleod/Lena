@@ -16,16 +16,16 @@ export default function HistoryPage() {
         id: activityId,
         title: activity.title,
         subject: activity.subject,
-        lastScore: record.lastScore,
-        bestScore: record.bestScore,
-        attempts: record.attempts,
-        completed: record.completed,
-        updatedAt: record.updatedAt
+        lastScore: record.lastScore || 0,
+        bestScore: record.bestScore || 0,
+        attempts: record.attempts || 0,
+        completed: Boolean(record.completed),
+        updatedAt: record.updatedAt || 0
       };
     })
     .filter(Boolean)
-    .sort((left, right) => (right.updatedAt || 0) - (left.updatedAt || 0))
-    .slice(0, 24);
+    .sort((left, right) => right.updatedAt - left.updatedAt)
+    .slice(0, 12);
 
   return (
     <div className="page-stack page-stack--compact">
@@ -39,7 +39,7 @@ export default function HistoryPage() {
         <div className="mini-metrics">
           <div><span>{t('completed')}</span><strong>{overview.completedActivities}</strong></div>
           <div><span>{t('masteredLabel')}</span><strong>{overview.mastery?.mastered || 0}</strong></div>
-          <div><span>{t('failedLabel')}</span><strong>{overview.mastery?.failed || 0}</strong></div>
+          <div><span>{t('streakLabel')}</span><strong>{overview.streakCurrent || 0}</strong></div>
         </div>
       </section>
 
@@ -51,7 +51,12 @@ export default function HistoryPage() {
           </div>
         </div>
         {!entries.length ? (
-          <p className="panel__copy">{t('historyEmpty')}</p>
+          <div className="detail-list">
+            <div className="detail-list__row">
+              <span>{t('historyEmpty')}</span>
+              <strong><Link className="text-link" to="/map">{t('startAdventure')}</Link></strong>
+            </div>
+          </div>
         ) : (
           <div className="history-list history-list--compact">
             {entries.map((entry) => {
@@ -60,11 +65,12 @@ export default function HistoryPage() {
                 <article key={entry.id} className="history-row history-row--compact">
                   <div>
                     <strong>{entry.title}</strong>
-                    <p>{subject ? getSubjectLabel(subject, locale, t) : entry.subject} · {entry.completed ? t('completed') : t('inProgress')}</p>
+                    <p>{subject ? getSubjectLabel(subject, locale, t) : entry.subject}</p>
                   </div>
                   <div className="history-row__meta">
                     <span>{t('bestLabel')} {entry.bestScore}</span>
                     <span>{t('attemptsLabel')} {entry.attempts}</span>
+                    <span>{entry.completed ? t('completed') : t('inProgress')}</span>
                     <Link className="text-link" to={`/activities/${entry.id}`}>{t('openActivity')}</Link>
                   </div>
                 </article>

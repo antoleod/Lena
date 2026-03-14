@@ -28,6 +28,31 @@ function cloneList(list) {
  */
 
 /**
+ * @typedef {"multiple-choice"|"ordering"|"matching"|"fill-word"|"fill-sentence"|"fill-number"|"drag-drop"|"visual-logic"|"story"|"builder"} ActivityType
+ */
+
+/**
+ * @typedef {"multiple-choice"|"base-ten"|"story"|"ordering"|"matching"|"fill"|"drag-drop"|"visual-logic"} EngineType
+ */
+
+/**
+ * @typedef {Object} ActivityDefinition
+ * @property {string} id
+ * @property {string} title
+ * @property {string} subject
+ * @property {string[]} gradeBand
+ * @property {ActivityType} [activityType]
+ * @property {EngineType} [engineType]
+ * @property {string[]} [skillTags]
+ * @property {string} [subskill]
+ * @property {string} [difficulty]
+ * @property {string} [instructions]
+ * @property {string} [correctionType]
+ * @property {Object[]} [sections]
+ * @property {Object|null} [generatorConfig]
+ */
+
+/**
  * @typedef {Object} ModuleDefinition
  * @property {string} id
  * @property {string} subjectId
@@ -183,3 +208,26 @@ export function defineLevel(input) {
   return Object.freeze(value);
 }
 
+export function defineActivity(input) {
+  const value = {
+    id: '',
+    title: '',
+    subject: '',
+    gradeBand: [],
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
+    skillTags: [],
+    subskill: '',
+    difficulty: 'easy',
+    instructions: '',
+    correctionType: '',
+    sections: [],
+    generatorConfig: null,
+    ...input,
+    gradeBand: cloneList(input?.gradeBand),
+    skillTags: cloneList(input?.skillTags),
+    sections: cloneList(input?.sections)
+  };
+  assertRequiredFields('ActivityDefinition', value, ['id', 'title', 'subject']);
+  return Object.freeze(value);
+}

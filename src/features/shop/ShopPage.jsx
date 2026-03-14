@@ -13,14 +13,12 @@ export default function ShopPage() {
   const [shopState, setShopState] = useState(() => getRewardState());
   const [message, setMessage] = useState('');
   const catalog = getRewardCatalog();
+
   const sections = useMemo(() => ([
-    { key: 'wallpaper', title: locale === 'nl' ? 'Achtergronden' : locale === 'es' ? 'Fondos' : locale === 'en' ? 'Wallpapers' : 'Fonds', items: catalog.filter((item) => item.type === 'wallpaper') },
-    { key: 'theme', title: t('shopThemes'), items: catalog.filter((item) => item.type === 'theme') },
-    { key: 'effect', title: locale === 'nl' ? 'Effecten' : locale === 'es' ? 'Efectos' : locale === 'en' ? 'Effects' : 'Effets', items: catalog.filter((item) => item.type === 'effect') },
-    { key: 'avatar', title: locale === 'nl' ? 'Avatars' : locale === 'es' ? 'Avatares' : locale === 'en' ? 'Avatars' : 'Avatars', items: catalog.filter((item) => item.type === 'avatar') },
-    { key: 'accessory', title: locale === 'nl' ? 'Accessoires' : locale === 'es' ? 'Accesorios' : locale === 'en' ? 'Accessories' : 'Accessoires', items: catalog.filter((item) => item.type === 'accessory') },
-    { key: 'pet', title: locale === 'nl' ? 'Vriendjes' : locale === 'es' ? 'Mascotas' : locale === 'en' ? 'Pets' : 'Compagnons', items: catalog.filter((item) => item.type === 'pet') },
-    { key: 'sticker', title: locale === 'nl' ? 'Stickers' : locale === 'es' ? 'Pegatinas' : locale === 'en' ? 'Stickers' : 'Stickers', items: catalog.filter((item) => item.type === 'sticker') }
+    { key: 'avatar', title: locale === 'en' ? 'Avatars' : 'Avatars', items: catalog.filter((item) => item.type === 'avatar').slice(0, 6) },
+    { key: 'theme', title: t('shopThemes'), items: catalog.filter((item) => item.type === 'theme').slice(0, 4) },
+    { key: 'wallpaper', title: locale === 'en' ? 'Backgrounds' : 'Backgrounds', items: catalog.filter((item) => item.type === 'wallpaper').slice(0, 4) },
+    { key: 'effect', title: locale === 'en' ? 'Effects' : 'Effects', items: catalog.filter((item) => item.type === 'effect').slice(0, 3) }
   ]), [catalog, locale, t]);
 
   useEffect(() => {
@@ -30,44 +28,6 @@ export default function ShopPage() {
     window.addEventListener('lena-rewards-change', sync);
     return () => window.removeEventListener('lena-rewards-change', sync);
   }, []);
-
-  function handleBuy(itemId) {
-    const result = buyReward(itemId);
-    if (result.ok) {
-      setShopState(getRewardState());
-      setMessage(t('shopBought'));
-      return;
-    }
-    if (result.reason === 'owned-item') {
-      setMessage(t('shopOwned'));
-      return;
-    }
-    setMessage(t('shopNeedMore'));
-  }
-
-  function handleEquip(itemId) {
-    const result = equipTheme(itemId);
-    if (result.ok) {
-      setShopState(getRewardState());
-      setMessage(t('shopThemeApplied'));
-    }
-  }
-
-  function handleEquipEffect(itemId) {
-    const result = equipEffect(itemId);
-    if (result.ok) {
-      setShopState(getRewardState());
-      setMessage(t('shopThemeApplied'));
-    }
-  }
-
-  function handleEquipWallpaper(itemId) {
-    const result = equipWallpaper(itemId);
-    if (result.ok) {
-      setShopState(getRewardState());
-      setMessage(t('shopThemeApplied'));
-    }
-  }
 
   function getLabel(item) {
     return locale === 'nl' ? item.nameNl || item.name : item.name;
@@ -81,27 +41,30 @@ export default function ShopPage() {
   }
 
   function isActive(item) {
-    if (item.type === 'theme') {
-      return themeId === item.id;
-    }
-    if (item.type === 'effect') {
-      return shopState.equippedEffectId === item.id;
-    }
-    if (item.type === 'wallpaper') {
-      return shopState.equippedWallpaperId === item.id;
-    }
+    if (item.type === 'theme') return themeId === item.id;
+    if (item.type === 'effect') return shopState.equippedEffectId === item.id;
+    if (item.type === 'wallpaper') return shopState.equippedWallpaperId === item.id;
     return false;
   }
 
-  function handleUse(item) {
-    if (item.type === 'theme') {
-      handleEquip(item.id);
-    } else if (item.type === 'effect') {
-      handleEquipEffect(item.id);
-    } else if (item.type === 'wallpaper') {
-      handleEquipWallpaper(item.id);
-    } else {
-      handleBuy(item.id);
+  function handleItemAction(item) {
+    if (!isOwned(item)) {
+      const result = buyReward(item.id);
+      setMessage(result.ok ? t('shopBought') : result.reason === 'owned-item' ? t('shopOwned') : t('shopNeedMore'));
+      if (result.ok) {
+        setShopState(getRewardState());
+      }
+      return;
+    }
+
+    let result = { ok: false };
+    if (item.type === 'theme') result = equipTheme(item.id);
+    if (item.type === 'effect') result = equipEffect(item.id);
+    if (item.type === 'wallpaper') result = equipWallpaper(item.id);
+
+    if (result.ok) {
+      setShopState(getRewardState());
+      setMessage(t('shopThemeApplied'));
     }
   }
 
@@ -114,18 +77,14 @@ export default function ShopPage() {
       return <div className={`effect-preview effect-preview--${item.id.replace('effect-', '')}`}></div>;
     }
 
-    if (item.type === 'theme' || item.type === 'wallpaper') {
-      return (
-        <div className={`theme-preview${item.type === 'wallpaper' ? ' theme-preview--wallpaper' : ''}`}>
-          <span className="theme-preview__icon">{item.icon}</span>
-          {item.preview.map((color) => (
-            <span key={color} style={{ backgroundColor: color }}></span>
-          ))}
-        </div>
-      );
-    }
-
-    return <div className="reward-card__icon">{item.icon || '✨'}</div>;
+    return (
+      <div className={`theme-preview${item.type === 'wallpaper' ? ' theme-preview--wallpaper' : ''}`}>
+        <span className="theme-preview__icon">{item.icon}</span>
+        {(item.preview || []).map((color) => (
+          <span key={color} style={{ backgroundColor: color }}></span>
+        ))}
+      </div>
+    );
   }
 
   return (
@@ -138,7 +97,6 @@ export default function ShopPage() {
           </div>
           <span className="pill">{shopState.balance} {t('crystals')}</span>
         </div>
-        <p className="panel__copy">{t('shopText')}</p>
         {message ? <div className="feedback-strip is-success"><strong>{message}</strong></div> : null}
       </section>
 
@@ -149,27 +107,31 @@ export default function ShopPage() {
               <span className="eyebrow">{section.title}</span>
               <h3>{section.title}</h3>
             </div>
-            <span className="pill">{section.items.length}</span>
           </div>
           <div className="reward-grid reward-grid--compact">
             {section.items.map((item) => {
               const owned = isOwned(item);
               const active = isActive(item);
-              const equipable = item.type === 'theme' || item.type === 'effect' || item.type === 'wallpaper';
+              const canEquip = item.type === 'theme' || item.type === 'effect' || item.type === 'wallpaper';
+              const disabled = owned && !canEquip;
+              const label = !owned ? t('shopBuy') : active ? t('shopEquipped') : canEquip ? t('shopEquip') : t('shopOwned');
+              const icon = !owned ? '💎' : active ? '✅' : canEquip ? '✨' : '🎁';
+
               return (
-                <article key={item.id} className={`reward-card reward-card--compact reward-card--${item.type}${active ? ' is-active' : ''}`}>
+                <article key={item.id} className={`reward-card reward-card--compact${active ? ' is-active' : ''}`}>
                   {renderVisual(item)}
                   <div className="reward-card__body">
                     <h4>{getLabel(item)}</h4>
-                    <p>{item.price} {t('crystals')}</p>
+                    <p>{owned ? label : `${item.price} ${t('crystals')}`}</p>
                   </div>
                   <button
-                    className={owned ? (active ? 'secondary-action' : 'primary-action') : 'primary-action'}
+                    className={owned && active ? 'secondary-action' : 'primary-action'}
                     type="button"
-                    onClick={() => (owned && !equipable ? null : handleUse(item))}
-                    disabled={owned && !equipable}
+                    onClick={() => handleItemAction(item)}
+                    disabled={disabled}
                   >
-                    {!owned ? t('shopBuy') : active ? t('shopEquipped') : (equipable ? t('shopEquip') : t('shopOwned'))}
+                    <span className="button-icon" aria-hidden="true">{icon}</span>
+                    <span>{label}</span>
                   </button>
                 </article>
               );

@@ -26,6 +26,19 @@ function createQueueEntry(section, lesson, index, queueKey) {
   };
 }
 
+function resolveCorrectValues(entry) {
+  if (entry.correctOptionIds?.length) {
+    return entry.correctOptionIds.map((value) => String(value));
+  }
+  if (entry.acceptedValues?.length) {
+    return entry.acceptedValues.map((value) => String(value));
+  }
+  if (entry.answer !== undefined && entry.answer !== null) {
+    return [String(entry.answer)];
+  }
+  return [];
+}
+
 function buildQueue(activity) {
   const sections = activity.sections || [
     {
@@ -120,7 +133,11 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     if (!current) {
       return '';
     }
-    return currentOptions.find((option) => option.value === String(current.answer))?.id || '';
+    if (current.correctOptionIds?.length) {
+      return current.correctOptionIds[0];
+    }
+    const correctValues = resolveCorrectValues(current);
+    return currentOptions.find((option) => correctValues.includes(option.value) || correctValues.includes(option.id))?.id || '';
   }, [current, currentOptions]);
 
   useEffect(() => () => {
@@ -175,7 +192,8 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
   function handleChoiceClick(option) {
     if (feedback) return;
 
-    const isCorrect = option.id === correctOptionId || option.value === String(current.answer);
+    const correctValues = resolveCorrectValues(current);
+    const isCorrect = option.id === correctOptionId || correctValues.includes(option.value) || correctValues.includes(option.id);
     const questionState = recordQuestionOutcome(activity.id, current.sourceId, isCorrect);
     const nextScore = score + (isCorrect ? 1 : 0);
     const nextQueue = [...queue];

@@ -49,16 +49,34 @@ export default function WorldDetailPage() {
           {world.missions.map((mission, index) => {
             const missionProgress = getMissionProgress(mission, progress);
             const unlocked = isMissionUnlocked(world, mission.order, progress);
-            return (
-              <Link
-                key={mission.id}
-                className={`world-map-track__node${unlocked ? '' : ' world-map-track__node--locked'}`}
-                to={unlocked ? `/map/${world.id}/missions/${mission.id}` : '/map'}
-                style={{ animationDelay: `${index * 60}ms` }}
-              >
+            const content = (
+              <>
                 <span className="world-map-track__number">{mission.order}</span>
                 <strong>{t('missions')} {mission.order}</strong>
                 <small>{missionProgress.completed}/{missionProgress.total}</small>
+              </>
+            );
+
+            if (!unlocked) {
+              return (
+                <article
+                  key={mission.id}
+                  className="world-map-track__node world-map-track__node--locked"
+                  style={{ animationDelay: `${index * 60}ms` }}
+                >
+                  {content}
+                </article>
+              );
+            }
+
+            return (
+              <Link
+                key={mission.id}
+                className="world-map-track__node"
+                to={`/map/${world.id}/missions/${mission.id}`}
+                style={{ animationDelay: `${index * 60}ms` }}
+              >
+                {content}
               </Link>
             );
           })}

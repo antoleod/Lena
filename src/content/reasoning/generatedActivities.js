@@ -85,12 +85,48 @@ export const generatedReasoningActivities = [
     hints: ['Cherche ce qui se repete ou ce qui change.']
   }),
   createGeneratedReasoningActivity({
+    id: 'generated-sequences-p2',
+    slug: 'suites-visuelles-p2',
+    title: 'Suites visuelles P2',
+    topic: 'logic-sequence',
+    gradeBand: ['P2'],
+    instructions: 'Repeter une regle simple dans des suites tres lisibles.',
+    hints: ['Observe la transformation entre deux cases voisines.']
+  }),
+  createGeneratedReasoningActivity({
+    id: 'generated-classification-reasoning-p2',
+    slug: 'classer-et-trier-p2',
+    title: 'Classer et trier P2',
+    topic: 'comparison',
+    gradeBand: ['P2'],
+    instructions: 'Classer, comparer et trouver l intrus avec des criteres simples.',
+    hints: ['Cherche ce qui va ensemble avant de choisir.']
+  }),
+  createGeneratedReasoningActivity({
     id: 'generated-reasoning-p3',
     slug: 'raisonnement-dynamique-p3',
     title: 'Logique et deduction',
     gradeBand: ['P3'],
     instructions: 'Suites plus riches, deduction simple et mini examen final.',
     hints: ['Observe la regle avant de choisir.']
+  }),
+  createGeneratedReasoningActivity({
+    id: 'generated-patterns-reasoning-p3',
+    slug: 'patrons-logiques-p3',
+    title: 'Patrons et matrices P3',
+    topic: 'logic-sequence',
+    gradeBand: ['P3'],
+    instructions: 'Suites, motifs et organisations visuelles plus riches.',
+    hints: ['Compare chaque ligne ou chaque groupe avant de decider.']
+  }),
+  createGeneratedReasoningActivity({
+    id: 'generated-memory-reasoning-p3',
+    slug: 'memoire-et-attention-p3',
+    title: 'Memoire et attention P3',
+    topic: 'comparison',
+    gradeBand: ['P3'],
+    instructions: 'Retenir, comparer et retrouver la bonne relation.',
+    hints: ['Observe tout, puis cherche ce qui manque ou ce qui change.']
   }),
   createGeneratedReasoningActivity({
     id: 'generated-reasoning-p4',

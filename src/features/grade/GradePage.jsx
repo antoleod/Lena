@@ -1,25 +1,25 @@
 import { Link, useParams } from 'react-router-dom';
-import { getActivitiesBySubjectAndGrade, getModulesBySubjectAndGrade, getSubjectById } from '../curriculum/catalog.js';
+import { getSubjectById } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
-
-function buildLevelPreview(module, subjectId, gradeId) {
-  return Array.from({ length: 10 }, (_, index) => ({
-    id: `${module.id}-${index + 1}`,
-    label: index + 1,
-    to: `/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`,
-    status: index === 0 ? 'active' : 'available'
-  }));
-}
+import { getGradeJourney } from '../../shared/gameplay/moduleJourney.js';
 
 export default function GradePage() {
   const { subjectId, gradeId } = useParams();
   const { locale, t } = useLocale();
   const subject = getSubjectById(subjectId);
-  const modules = getModulesBySubjectAndGrade(subjectId, gradeId);
-  const gradeActivities = getActivitiesBySubjectAndGrade(subjectId, gradeId);
   const progress = getProgressSnapshot();
+  const gradeOptions = ['P2', 'P3'].filter((entry) => subject?.grades?.includes(entry));
+  const gradeJourney = getGradeJourney(subjectId, gradeId, {
+    guided: t('practiceMode'),
+    independent: t('continueStep'),
+    challenge: t('missionChallengeLabel'),
+    exam: t('missionExamLabel'),
+    review: t('reinforceLabel')
+  });
+  const modules = gradeJourney.modules;
+  const gradeActivities = gradeJourney.standaloneActivities;
 
   if (!subject) {
     return (
@@ -37,6 +37,13 @@ export default function GradePage() {
     return accumulator;
   }, {});
 
+  const totalJourneyActivities = gradeJourney.moduleJourneys.reduce((sum, journey) => sum + journey.activities.length, 0);
+  const completedModules = gradeJourney.moduleJourneys.filter((journey) => {
+    const total = journey.activities.length;
+    const done = journey.activities.filter((activity) => progress.activities[activity.id]?.completed).length;
+    return total > 0 && done >= total;
+  }).length;
+
   return (
     <div className="page-stack page-stack--compact">
       <section className="panel panel--tight panel--subject-map">
@@ -47,9 +54,36 @@ export default function GradePage() {
           </div>
           <Link className="text-link" to={`/subjects/${subjectId}`}>{t('back')}</Link>
         </div>
+
+        <div className="tag-list">
+          {gradeOptions.map((entry) => (
+            entry === gradeId ? (
+              <span key={entry} className="tag-chip tag-chip--static">
+                {entry}
+              </span>
+            ) : (
+              <Link
+                key={entry}
+                className="tag-chip"
+                to={`/subjects/${subjectId}/grades/${entry}`}
+              >
+                {entry}
+              </Link>
+            )
+          ))}
+        </div>
+
         <p className="panel__copy">
-          {modules.length ? `${modules.length} ${t('playableModulesLabel')}` : `${gradeActivities.length} ${t('generatedLabel').toLowerCase()}`}
+          {modules.length
+            ? `${modules.length} ${t('playableModulesLabel')}`
+            : `${gradeActivities.length} ${t('generatedLabel').toLowerCase()}`}
         </p>
+
+        <div className="mini-metrics">
+          <div><span>{t('completed')}</span><strong>{completedModules}/{modules.length || 0}</strong></div>
+          <div><span>{t('exercise')}</span><strong>{totalJourneyActivities || gradeActivities.length}</strong></div>
+          <div><span>{t('classes')}</span><strong>{gradeId}</strong></div>
+        </div>
       </section>
 
       {modules.length ? Object.entries(groupedModules).map(([domain, domainModules], domainIndex) => (
@@ -62,31 +96,39 @@ export default function GradePage() {
           </div>
           <div className="module-lane">
             {domainModules.map((module, index) => {
-              const relatedDone = (module.phases.guidedPractice || [])
-                .concat(module.phases.independentPractice || [])
-                .filter((activityId) => progress.activities[activityId]?.completed).length;
-              const preview = buildLevelPreview(module, subjectId, gradeId);
+              const journey = gradeJourney.moduleJourneys.find((entry) => entry.module.id === module.id);
+              const totalActivities = journey?.activities.length || 0;
+              const relatedDone = (journey?.activities || []).filter((activity) => progress.activities[activity.id]?.completed).length;
+              const progressPercent = totalActivities ? Math.round((relatedDone / totalActivities) * 100) : 0;
 
               return (
                 <article key={module.id} className="module-lane__card" style={{ animationDelay: `${(domainIndex * 2 + index) * 80}ms` }}>
                   <div className="module-lane__card-head">
                     <div>
+                      <small>{module.domainLabel || domain}</small>
                       <strong>{module.title}</strong>
                       <p>{module.summary}</p>
                     </div>
-                    <span className="pill">{relatedDone} {t('completed').toLowerCase()}</span>
+                    <span className="pill">{relatedDone}/{totalActivities || 0}</span>
                   </div>
-                  <div className="module-lane__levels">
-                    {preview.map((level) => (
-                      <Link key={level.id} className={`module-level-dot module-level-dot--${level.status}`} to={level.to}>
-                        {level.label}
-                      </Link>
+
+                  <div className="grade-map__progress">
+                    <i style={{ width: `${Math.max(progressPercent, relatedDone ? 12 : 0)}%` }}></i>
+                  </div>
+
+                  <div className="tag-list">
+                    {(journey?.stages || []).map((stage) => (
+                      <span key={stage.id} className="tag-chip tag-chip--static">
+                        {stage.title} · {stage.activities.length}
+                      </span>
                     ))}
                   </div>
+
                   <div className="module-lane__footer">
-                    <small>{t('levelsSummaryLabel')}</small>
+                    <small>{progressPercent}% · {totalActivities} {t('exercise').toLowerCase()}</small>
                     <Link className="primary-action" to={`/subjects/${subjectId}/grades/${gradeId}/modules/${module.id}`}>
-                      {t('launch')}
+                      <span className="button-icon" aria-hidden="true">🎯</span>
+                      <span>{t('launch')}</span>
                     </Link>
                   </div>
                 </article>
@@ -112,17 +154,11 @@ export default function GradePage() {
                   </div>
                   <span className="pill">{activity.estimatedDurationMin} min</span>
                 </div>
-                <div className="module-lane__levels">
-                  {Array.from({ length: 10 }, (_, levelIndex) => (
-                    <Link key={`${activity.id}-${levelIndex + 1}`} className="module-level-dot module-level-dot--available" to={`/activities/${activity.id}`}>
-                      {levelIndex + 1}
-                    </Link>
-                  ))}
-                </div>
                 <div className="module-lane__footer">
                   <small>{t('generatedExercisesLabel')}</small>
                   <Link className="primary-action" to={`/activities/${activity.id}`}>
-                    {t('launch')}
+                    <span className="button-icon" aria-hidden="true">🎯</span>
+                    <span>{t('launch')}</span>
                   </Link>
                 </div>
               </article>

@@ -1,5 +1,6 @@
 import { generateExerciseSet } from './exerciseGenerators.js';
 import { assertGeneratedExercise } from '../activity-engine/index.js';
+import { describeActivity, describeLesson } from '../activity-engine/activityDescriptor.js';
 
 function fallbackProgress() {
   return {
@@ -42,12 +43,15 @@ function mapGeneratedExerciseToLesson(exercise, index) {
     answer: exercise.correct,
     explanation: exercise.explanation,
     type: exercise.type,
+    renderType: exercise.renderType || exercise.type,
+    engineType: exercise.engineType || 'multiple-choice',
     level: exercise.level,
     context: exercise.context || []
   };
 }
 
 function buildSection(sectionConfig, activity, difficulty) {
+  const activityDescriptor = describeActivity(activity);
   const seedLessons = sectionConfig.seedLessons || [];
   const targetCount = sectionConfig.count || seedLessons.length;
   const missingCount = Math.max(0, targetCount - seedLessons.length);
@@ -64,13 +68,20 @@ function buildSection(sectionConfig, activity, difficulty) {
     title: sectionConfig.title,
     kind: sectionConfig.kind,
     description: sectionConfig.description,
-    lessons: [...seedLessons, ...generatedLessons]
+    lessons: [...seedLessons, ...generatedLessons].map((lesson) => describeLesson(lesson, activityDescriptor, sectionConfig))
   };
 }
 
 export function materializeActivity(baseActivity, progressInput) {
+  const activityDescriptor = describeActivity(baseActivity);
   if (!baseActivity?.generatorConfig) {
-    return baseActivity;
+    return {
+      ...activityDescriptor,
+      sections: (baseActivity.sections || []).map((section) => ({
+        ...section,
+        lessons: (section.lessons || []).map((lesson) => describeLesson(lesson, activityDescriptor, section))
+      }))
+    };
   }
 
   const progress = progressInput || fallbackProgress();
@@ -79,8 +90,8 @@ export function materializeActivity(baseActivity, progressInput) {
   const difficulty = normalizeDifficulty(generatorConfig.difficulty, progress, expectedQuestions);
 
   return {
-    ...baseActivity,
-    sections: generatorConfig.sections.map((section) => buildSection(section, baseActivity, difficulty)),
+    ...activityDescriptor,
+    sections: generatorConfig.sections.map((section) => buildSection(section, activityDescriptor, difficulty)),
     generated: true,
     resolvedDifficulty: difficulty
   };

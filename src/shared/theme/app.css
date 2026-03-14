@@ -545,6 +545,7 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 38px;
   padding: 0 14px;
   border-radius: 16px;
@@ -577,6 +578,14 @@ button {
 .text-link {
   color: var(--secondary);
   font-weight: 900;
+}
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .hero-panel--stats {

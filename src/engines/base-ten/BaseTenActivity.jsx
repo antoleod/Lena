@@ -115,7 +115,8 @@ export default function BaseTenActivity({ activity, progress, onComplete }) {
           {t('breakTen')}
         </button>
         <button className="primary-action" type="button" onClick={check}>
-          {t('verify')}
+          <span className="button-icon" aria-hidden="true">✅</span>
+          <span>{t('verify')}</span>
         </button>
       </div>
       {message.text ? (
