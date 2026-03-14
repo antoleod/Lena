@@ -4,6 +4,7 @@ import {
   getActivityQuestionStates,
   recordQuestionOutcome
 } from '../../services/storage/progressStore.js';
+import { useSpeechPlayer } from '../../shared/hooks/useSpeechPlayer.js';
 
 function shuffleChoices(choices = []) {
   const list = [...choices];
@@ -105,6 +106,7 @@ function normalizeContextSlot(slot, index) {
 
 export default function MultipleChoiceActivity({ activity, progress, onComplete }) {
   const { t } = useLocale();
+  const { supported: speechSupported, speaking, speak, stop } = useSpeechPlayer(activity.language || 'fr');
   const initialQuestionStates = useMemo(() => getActivityQuestionStates(activity.id), [activity.id]);
   const [queue, setQueue] = useState(() => buildQueue(activity));
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -122,13 +124,10 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     () => (current?.choices || []).map((choice, index) => normalizeOption(choice, index)),
     [current]
   );
-  const currentContextSlots = useMemo(
-    () => {
-      const rawContext = current?.contextSlots?.length ? current.contextSlots : current?.context || [];
-      return rawContext.map((slot, index) => normalizeContextSlot(slot, index));
-    },
-    [current]
-  );
+  const currentContextSlots = useMemo(() => {
+    const rawContext = current?.contextSlots?.length ? current.contextSlots : current?.context || [];
+    return rawContext.map((slot, index) => normalizeContextSlot(slot, index));
+  }, [current]);
   const correctOptionId = useMemo(() => {
     if (!current) {
       return '';
@@ -258,6 +257,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
   }
 
   const currentState = initialQuestionStates[current.sourceId]?.status || 'unseen';
+  const speechText = [current.prompt, ...currentContextSlots.filter((slot) => slot.kind === 'text' && slot.text).map((slot) => slot.text)].join('. ');
 
   return (
     <section className="engine-card engine-card--compact">
@@ -290,7 +290,26 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
         </div>
       ) : null}
 
-      <p className="engine-prompt engine-prompt--compact">{current.prompt}</p>
+      <div className="feedback-strip">
+        <strong>{t('friendlyQuestionLead') || 'Lis bien et choisis calmement.'}</strong>
+        <span>{t('friendlyQuestionSupport') || 'Prends ton temps, tu peux y arriver.'}</span>
+      </div>
+
+      <div className="prompt-tools">
+        <p className="engine-prompt engine-prompt--compact">{current.prompt}</p>
+        {speechSupported ? (
+          <button
+            type="button"
+            className={`audio-action${speaking ? ' is-playing' : ''}`}
+            onClick={() => (speaking ? stop() : speak(speechText))}
+            data-testid="play-question"
+            aria-label={speaking ? 'Arreter la lecture' : 'Lire la question'}
+          >
+            <span aria-hidden="true">{speaking ? '■' : '▶'}</span>
+          </button>
+        ) : null}
+      </div>
+
       <div className={`choice-grid choice-grid--compact${currentOptions.some((option) => option.media?.src) ? ' choice-grid--media' : ''}`}>
         {currentOptions.map((option) => {
           const isSelected = selected === option.id;

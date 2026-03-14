@@ -42,3 +42,27 @@ test('french subject shows conjugation, sentence and story modules in navigation
   await expect(page.getByTestId('module-card-french-g3-conjugation')).toBeVisible();
   await expect(page.getByTestId('module-card-french-g3-stories')).toBeVisible();
 });
+
+test('english, spanish and stories expose the richer modules in visible navigation', async ({ page }) => {
+  await page.goto('/subjects');
+
+  await page.getByTestId('subject-launch-english').click();
+  await expect(page.getByTestId('subject-page-english')).toBeVisible();
+  await expect(page.getByTestId('subject-grade-P2')).toContainText('Daily life and school routine');
+  await expect(page.getByTestId('subject-grade-P3')).toContainText('Story time and questions');
+  await page.getByTestId('subject-grade-launch-P3').click();
+  await expect(page.getByTestId('grade-page-english-P3')).toBeVisible();
+  await expect(page.getByTestId('module-card-english-g3-stories')).toBeVisible();
+
+  await page.goto('/subjects');
+  await page.getByTestId('subject-launch-spanish').click();
+  await expect(page.getByTestId('subject-page-spanish')).toBeVisible();
+  await expect(page.getByTestId('subject-grade-P2')).toContainText('Rutinas y palabras utiles');
+  await expect(page.getByTestId('subject-grade-P3')).toContainText('Historias cortas y comprension');
+
+  await page.goto('/subjects');
+  await page.getByTestId('subject-launch-stories').click();
+  await expect(page.getByTestId('subject-page-stories')).toBeVisible();
+  await expect(page.getByTestId('subject-grade-P2')).toContainText('Amis, ecole et promenade');
+  await expect(page.getByTestId('subject-grade-P3')).toContainText('Feu de camp et chateau');
+});

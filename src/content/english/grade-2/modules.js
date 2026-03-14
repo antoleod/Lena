@@ -48,5 +48,21 @@ export const englishGrade2Modules = [
     challengeActivityId: 'generated-english-reading',
     examActivityId: 'generated-english-reading',
     suggestedReviewIds: ['generated-english-vocabulary']
+  }),
+  createModule({
+    id: 'english-g2-daily-life',
+    subjectId: 'english',
+    gradeId: 'P2',
+    domainId: 'daily-life',
+    domainLabel: 'Daily life',
+    title: 'Daily life and school routine',
+    summary: 'Use English for routine, emotions, food and school moments.',
+    goal: 'Make English useful and visible in familiar situations.',
+    demo: 'The demo groups words by theme before starting the questions.',
+    guidedActivityIds: ['generated-english-daily-life', 'generated-english-vocabulary'],
+    independentActivityIds: ['english-sentence-choices'],
+    challengeActivityId: 'generated-english-stories',
+    examActivityId: 'generated-english-daily-life',
+    suggestedReviewIds: ['english-visual-words']
   })
 ];

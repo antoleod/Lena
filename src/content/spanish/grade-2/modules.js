@@ -48,5 +48,21 @@ export const spanishGrade2Modules = [
     challengeActivityId: 'generated-spanish-reading',
     examActivityId: 'generated-spanish-reading',
     suggestedReviewIds: ['generated-spanish-vocabulary']
+  }),
+  createModule({
+    id: 'spanish-g2-daily-life',
+    subjectId: 'spanish',
+    gradeId: 'P2',
+    domainId: 'vida-diaria',
+    domainLabel: 'Vida diaria',
+    title: 'Rutinas y palabras utiles',
+    summary: 'Escuela, emociones, comida y pequenas acciones del dia.',
+    goal: 'Conectar el espanol con situaciones muy concretas.',
+    demo: 'La demostracion agrupa primero las palabras por tema.',
+    guidedActivityIds: ['generated-spanish-daily-life', 'generated-spanish-vocabulary'],
+    independentActivityIds: ['spanish-basic-sentences'],
+    challengeActivityId: 'generated-spanish-stories',
+    examActivityId: 'generated-spanish-daily-life',
+    suggestedReviewIds: ['spanish-visual-words']
   })
 ];

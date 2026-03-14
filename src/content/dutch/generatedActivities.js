@@ -85,6 +85,26 @@ export const generatedDutchActivities = [
     hints: ['Kies het woord dat de zin volledig maakt.']
   }),
   createGeneratedDutchActivity({
+    id: 'generated-dutch-daily-life',
+    slug: 'dagelijks-leven-dynamisch-nl',
+    title: 'Dagelijks leven',
+    subskill: 'daily-vocabulary',
+    topic: 'vocabulary',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Routinewoorden, gevoelens en schooltaal in nieuwe sets.',
+    hints: ['Zoek eerst de juiste categorie voor je kiest.']
+  }),
+  createGeneratedDutchActivity({
+    id: 'generated-dutch-stories',
+    slug: 'verhalen-dynamisch-nl',
+    title: 'Mini verhalen',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Kleine verhalen met nieuwe vragen en duidelijke aanwijzingen.',
+    hints: ['Lees het hele verhaaltje nog eens na voor je antwoordt.']
+  }),
+  createGeneratedDutchActivity({
     id: 'generated-dutch-sentences-p4',
     slug: 'zinnen-dynamisch-nl-p4',
     title: 'Zinnen afmaken plus',

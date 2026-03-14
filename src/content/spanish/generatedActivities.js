@@ -98,6 +98,26 @@ export const generatedSpanishActivities = [
     hints: ['Busca la palabra que da sentido a toda la frase.']
   }),
   createGeneratedSpanishActivity({
+    id: 'generated-spanish-daily-life',
+    slug: 'vida-diaria-dinamica-es',
+    title: 'Vida diaria',
+    subskill: 'daily-vocabulary',
+    topic: 'vocabulary',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Escuela, comida, emociones y rutinas con nuevas variaciones.',
+    hints: ['Piensa primero en la categoria correcta.']
+  }),
+  createGeneratedSpanishActivity({
+    id: 'generated-spanish-stories',
+    slug: 'historias-dinamicas-es',
+    title: 'Historias cortas',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Lecturas cortas con preguntas de comprension y orden.',
+    hints: ['Lee el texto completo antes de responder.']
+  }),
+  createGeneratedSpanishActivity({
     id: 'generated-spanish-sentences-p4',
     slug: 'espagnol-phrases-dynamiques-p4',
     title: 'Frases utiles plus',

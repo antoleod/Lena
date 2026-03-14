@@ -11,6 +11,7 @@ test('mathematics P2 and P3 expose multiplication and division modules in the ca
   assert.ok(grade2.includes('Groupes egaux et partages simples'));
   assert.ok(grade3.includes('Tables et paquets egaux'));
   assert.ok(grade3.includes('Partager, verifier et relier aux tables'));
+  assert.ok(grade3.includes('Consolider les tables 2 a 5'));
 });
 
 test('french P2 and P3 expose vocabulary, sentence, reading, conjugation and stories modules', () => {
@@ -28,17 +29,13 @@ test('french P2 and P3 expose vocabulary, sentence, reading, conjugation and sto
   assert.ok(grade3.includes('Contes courts et questions'));
 });
 
-test('visible standalone activities remain explicitly reachable in grade journeys', () => {
-  const mathP2 = getGradeJourney('mathematics', 'P2');
-  const mathP2ModuleIds = new Set(mathP2.moduleJourneys.flatMap((journey) => journey.activities.map((activity) => activity.id)));
-  const mathP2Bonus = mathP2.standaloneActivities.filter((activity) => !mathP2ModuleIds.has(activity.id)).map((activity) => activity.id);
-
-  assert.deepEqual(mathP2Bonus, []);
-
-  const mathP3 = getGradeJourney('mathematics', 'P3');
-  const mathP3ModuleIds = new Set(mathP3.moduleJourneys.flatMap((journey) => journey.activities.map((activity) => activity.id)));
-  const mathP3Bonus = mathP3.standaloneActivities.filter((activity) => !mathP3ModuleIds.has(activity.id)).map((activity) => activity.id);
-
-  assert.ok(mathP3Bonus.includes('multiplication-table-5'));
-  assert.ok(mathP3Bonus.includes('division-table-5'));
+test('P2 and P3 focus subjects do not leave hidden standalone activities outside visible module journeys', () => {
+  ['mathematics', 'french', 'dutch', 'english', 'spanish', 'reasoning', 'stories'].forEach((subjectId) => {
+    ['P2', 'P3'].forEach((gradeId) => {
+      const journey = getGradeJourney(subjectId, gradeId);
+      const moduleIds = new Set(journey.moduleJourneys.flatMap((entry) => entry.activities.map((activity) => activity.id)));
+      const hidden = journey.standaloneActivities.filter((activity) => !moduleIds.has(activity.id)).map((activity) => activity.id);
+      assert.deepEqual(hidden, [], `${subjectId} ${gradeId} still hides standalone activities: ${hidden.join(', ')}`);
+    });
+  });
 });

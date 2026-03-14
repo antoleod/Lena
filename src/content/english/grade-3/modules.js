@@ -48,5 +48,21 @@ export const englishGrade3Modules = [
     challengeActivityId: 'generated-english-reading',
     examActivityId: 'generated-english-vocabulary',
     suggestedReviewIds: ['english-visual-words']
+  }),
+  createModule({
+    id: 'english-g3-stories',
+    subjectId: 'english',
+    gradeId: 'P3',
+    domainId: 'stories',
+    domainLabel: 'Stories',
+    title: 'Story time and questions',
+    summary: 'Read tiny stories and answer clear who, what and where questions.',
+    goal: 'Strengthen reading confidence with narrative context.',
+    demo: 'The demo points to the sentence that gives the clue before answering.',
+    guidedActivityIds: ['generated-english-stories', 'generated-english-reading'],
+    independentActivityIds: ['generated-english-sentences', 'generated-english-daily-life'],
+    challengeActivityId: 'generated-english-stories',
+    examActivityId: 'generated-english-reading',
+    suggestedReviewIds: ['generated-english-vocabulary']
   })
 ];

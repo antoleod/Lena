@@ -48,5 +48,21 @@ export const dutchGrade2Modules = [
     challengeActivityId: 'generated-dutch-vocabulary',
     examActivityId: 'generated-dutch-reading',
     suggestedReviewIds: ['dutch-picture-words']
+  }),
+  createModule({
+    id: 'dutch-g2-routine',
+    subjectId: 'dutch',
+    gradeId: 'P2',
+    domainId: 'routine',
+    domainLabel: 'Routine',
+    title: 'Dagelijks leven en gevoel',
+    summary: 'Woorden over routine, eten, gevoelens en klasmomenten.',
+    goal: 'Taal van elke dag sneller herkennen en gebruiken.',
+    demo: 'We tonen eerst een kleine routine met de kernwoorden erbij.',
+    guidedActivityIds: ['generated-dutch-daily-life', 'generated-dutch-vocabulary'],
+    independentActivityIds: ['generated-dutch-sentences'],
+    challengeActivityId: 'generated-dutch-stories',
+    examActivityId: 'generated-dutch-daily-life',
+    suggestedReviewIds: ['dutch-picture-words']
   })
 ];

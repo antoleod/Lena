@@ -35,6 +35,24 @@ export const reasoningGrade2Modules = [
     examActivityId: 'generated-classification-reasoning-p2',
     suggestedReviewIds: ['generated-sequences-p2'],
     missionTitle: 'Mission tri P2',
-    missionSummary: 'Classer des objets ou des nombres et repérer un intrus simple.'
+    missionSummary: 'Classer des objets ou des nombres et reperer un intrus simple.'
+  }),
+  createModule({
+    id: 'reasoning-g2-soft-logic',
+    subjectId: 'reasoning',
+    gradeId: 'P2',
+    domainId: 'soft-logic',
+    domainLabel: 'Logique douce',
+    title: 'Intrus, categories et petites deductions',
+    summary: 'Un vrai bloc de logique douce pour completer les suites et les tris.',
+    goal: 'Faire de la logique une matiere vivante et non un simple bonus.',
+    demo: 'La demonstration montre comment comparer deux groupes avant de choisir.',
+    guidedActivityIds: ['generated-logic-p2', 'generated-reasoning-p2'],
+    independentActivityIds: ['generated-classification-reasoning-p2'],
+    challengeActivityId: 'generated-logic-sequences',
+    examActivityId: 'generated-logic-p2',
+    suggestedReviewIds: ['generated-sequences-p2'],
+    missionTitle: 'Mission logique douce P2',
+    missionSummary: 'Intrus, categories et petites deductions tres lisibles.'
   })
 ];

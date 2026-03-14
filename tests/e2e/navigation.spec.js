@@ -42,3 +42,19 @@ test('map worlds and shop sections render actionable content', async ({ page }) 
   await expect(firstAction).toBeVisible();
   await expect(firstAction.locator('.button-icon')).not.toHaveText('');
 });
+
+test('module buttons and shop actions stay functional', async ({ page }) => {
+  await page.goto('/subjects/mathematics/grades/P3/modules/math-g3-multiplication');
+  await expect(page.getByTestId('module-primary-cta')).toBeVisible();
+  await page.getByTestId('module-primary-cta').click();
+  await expect(page).toHaveURL(/\/activities\//);
+  await expect(page.getByTestId('activity-page')).toBeVisible();
+
+  await page.goto('/shop');
+  await expect(page.getByTestId('shop-section-badge')).toBeVisible();
+  await expect(page.getByTestId('shop-section-frame')).toBeVisible();
+  const buyButton = page.getByTestId('shop-action-badge-kind-heart');
+  await expect(buyButton).toBeVisible();
+  await buyButton.click();
+  await expect(page.getByTestId('shop-action-badge-kind-heart')).toContainText(/Deja|Al in|Already|Ya|Equip|Appli|Acti|🎁/i);
+});

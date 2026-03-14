@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+import { useSpeechPlayer } from '../../shared/hooks/useSpeechPlayer.js';
 
 export default function StoryActivity({ activity, progress, onComplete }) {
   const { t } = useLocale();
+  const { supported: speechSupported, speaking, speak, stop } = useSpeechPlayer(activity.language || 'fr');
   const stories = activity.stories || [];
   const [storyIndex, setStoryIndex] = useState(0);
   const [quizIndex, setQuizIndex] = useState(0);
@@ -12,6 +14,7 @@ export default function StoryActivity({ activity, progress, onComplete }) {
 
   const story = stories[storyIndex];
   const question = story?.quiz?.[quizIndex];
+  const storySpeechText = story ? [...story.text, question?.prompt].filter(Boolean).join('. ') : '';
 
   if (!story) {
     return <div className="engine-card">{t('noStory')}</div>;
@@ -74,6 +77,21 @@ export default function StoryActivity({ activity, progress, onComplete }) {
         </div>
         <strong>{story.theme}</strong>
       </div>
+
+      {speechSupported ? (
+        <div className="dashboard-actions">
+          <button
+            type="button"
+            className={`secondary-action audio-action-inline${speaking ? ' is-playing' : ''}`}
+            onClick={() => (speaking ? stop() : speak(storySpeechText))}
+            data-testid="play-question"
+          >
+            <span className="button-icon" aria-hidden="true">{speaking ? '■' : '▶'}</span>
+            <span>{speaking ? 'Arreter la lecture' : 'Lire l histoire'}</span>
+          </button>
+        </div>
+      ) : null}
+
       <div className="story-copy">
         {story.text.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
@@ -98,7 +116,7 @@ export default function StoryActivity({ activity, progress, onComplete }) {
           </div>
           <div className="engine-actions">
             <button className="primary-action" type="button" disabled={!selected} onClick={chooseAnswer}>
-              <span className="button-icon" aria-hidden="true">✅</span>
+              <span className="button-icon" aria-hidden="true">✓</span>
               <span>{t('validateAnswer')}</span>
             </button>
           </div>

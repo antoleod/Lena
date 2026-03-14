@@ -48,5 +48,21 @@ export const dutchGrade3Modules = [
     challengeActivityId: 'generated-dutch-reading',
     examActivityId: 'generated-dutch-sentences',
     suggestedReviewIds: ['dutch-picture-words']
+  }),
+  createModule({
+    id: 'dutch-g3-stories',
+    subjectId: 'dutch',
+    gradeId: 'P3',
+    domainId: 'stories',
+    domainLabel: 'Verhalen',
+    title: 'Mini verhalen en begrijpen',
+    summary: 'Kleine verhalen lezen en de juiste informatie terugvinden.',
+    goal: 'Meer vertrouwen geven bij korte Nederlandse teksten.',
+    demo: 'We tonen hoe je een vraag koppelt aan een stukje tekst.',
+    guidedActivityIds: ['generated-dutch-stories', 'generated-dutch-reading'],
+    independentActivityIds: ['generated-dutch-sentences', 'generated-dutch-daily-life'],
+    challengeActivityId: 'generated-dutch-stories',
+    examActivityId: 'generated-dutch-reading',
+    suggestedReviewIds: ['generated-dutch-vocabulary']
   })
 ];

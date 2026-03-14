@@ -1,14 +1,56 @@
 {
   "name": "Lena Learning Adventure",
   "short_name": "Lena",
+  "id": "/",
+  "lang": "fr",
+  "dir": "ltr",
   "start_url": "./",
   "scope": "./",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#fff8fd",
   "theme_color": "#ff8fc6",
   "description": "Interactive learning adventure for primary school children.",
   "categories": ["education", "kids", "games"],
+  "shortcuts": [
+    {
+      "name": "Continuer",
+      "short_name": "Continuer",
+      "url": "./continue",
+      "icons": [
+        {
+          "src": "assets/iconos/icon-192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Grand Voyage",
+      "short_name": "Carte",
+      "url": "./map",
+      "icons": [
+        {
+          "src": "assets/iconos/icon-192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Matieres",
+      "short_name": "Matieres",
+      "url": "./subjects",
+      "icons": [
+        {
+          "src": "assets/iconos/icon-192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
   "icons": [
     {
       "src": "assets/iconos/icon-192.png",

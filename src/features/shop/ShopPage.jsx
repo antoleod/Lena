@@ -1,10 +1,31 @@
 import { useEffect, useMemo, useState } from 'react';
-import { buyReward, equipEffect, equipTheme, equipWallpaper, getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
+import {
+  buyReward,
+  equipEffect,
+  equipTheme,
+  equipWallpaper,
+  getRewardCatalog,
+  getRewardState
+} from '../../services/storage/rewardStore.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 
 function assetUrl(path) {
   return `${import.meta.env.BASE_URL}${path}`;
+}
+
+function getSectionTitle(key, t) {
+  return {
+    avatar: t('shopSectionAvatars'),
+    theme: t('shopSectionThemes'),
+    wallpaper: t('shopSectionWallpapers'),
+    effect: t('shopSectionEffects'),
+    sticker: t('shopSectionStickers'),
+    accessory: t('shopSectionAccessories'),
+    badge: t('shopSectionBadges'),
+    frame: t('shopSectionFrames'),
+    pet: t('shopSectionPets')
+  }[key];
 }
 
 export default function ShopPage() {
@@ -15,13 +36,16 @@ export default function ShopPage() {
   const catalog = getRewardCatalog();
 
   const sections = useMemo(() => ([
-    { key: 'avatar', title: locale === 'en' ? 'Avatars' : 'Avatars', items: catalog.filter((item) => item.type === 'avatar').slice(0, 6) },
-    { key: 'theme', title: t('shopThemes'), items: catalog.filter((item) => item.type === 'theme').slice(0, 4) },
-    { key: 'wallpaper', title: locale === 'en' ? 'Backgrounds' : 'Backgrounds', items: catalog.filter((item) => item.type === 'wallpaper').slice(0, 4) },
-    { key: 'effect', title: locale === 'en' ? 'Effects' : 'Effects', items: catalog.filter((item) => item.type === 'effect').slice(0, 3) },
-    { key: 'sticker', title: locale === 'en' ? 'Stickers' : 'Stickers', items: catalog.filter((item) => item.type === 'sticker').slice(0, 6) },
-    { key: 'pet', title: locale === 'en' ? 'Companions' : 'Compagnons', items: catalog.filter((item) => item.type === 'pet').slice(0, 4) }
-  ]), [catalog, locale, t]);
+    { key: 'avatar', items: catalog.filter((item) => item.type === 'avatar').slice(0, 8) },
+    { key: 'theme', items: catalog.filter((item) => item.type === 'theme').slice(0, 6) },
+    { key: 'wallpaper', items: catalog.filter((item) => item.type === 'wallpaper').slice(0, 6) },
+    { key: 'effect', items: catalog.filter((item) => item.type === 'effect').slice(0, 4) },
+    { key: 'sticker', items: catalog.filter((item) => item.type === 'sticker').slice(0, 8) },
+    { key: 'accessory', items: catalog.filter((item) => item.type === 'accessory').slice(0, 8) },
+    { key: 'badge', items: catalog.filter((item) => item.type === 'badge').slice(0, 6) },
+    { key: 'frame', items: catalog.filter((item) => item.type === 'frame').slice(0, 6) },
+    { key: 'pet', items: catalog.filter((item) => item.type === 'pet').slice(0, 6) }
+  ]).filter((section) => section.items.length), [catalog]);
 
   useEffect(() => {
     function sync() {
@@ -32,7 +56,10 @@ export default function ShopPage() {
   }, []);
 
   function getLabel(item) {
-    return locale === 'nl' ? item.nameNl || item.name : item.name;
+    if (locale === 'nl') {
+      return item.nameNl || item.name;
+    }
+    return item.name;
   }
 
   function isOwned(item) {
@@ -99,6 +126,7 @@ export default function ShopPage() {
           </div>
           <span className="pill">{shopState.balance} {t('crystals')}</span>
         </div>
+        <p className="panel__copy">{t('shopText')}</p>
         {message ? <div className="feedback-strip is-success"><strong>{message}</strong></div> : null}
       </section>
 
@@ -106,8 +134,8 @@ export default function ShopPage() {
         <section key={section.key} className="panel panel--tight" data-testid={`shop-section-${section.key}`}>
           <div className="panel__header">
             <div>
-              <span className="eyebrow">{section.title}</span>
-              <h3>{section.title}</h3>
+              <span className="eyebrow">{getSectionTitle(section.key, t)}</span>
+              <h3>{getSectionTitle(section.key, t)}</h3>
             </div>
           </div>
           <div className="reward-grid reward-grid--compact">
@@ -117,7 +145,7 @@ export default function ShopPage() {
               const canEquip = item.type === 'theme' || item.type === 'effect' || item.type === 'wallpaper';
               const disabled = owned && !canEquip;
               const label = !owned ? t('shopBuy') : active ? t('shopEquipped') : canEquip ? t('shopEquip') : t('shopOwned');
-              const icon = !owned ? '💎' : active ? '✅' : canEquip ? '✨' : '🎁';
+              const icon = !owned ? '💎' : active ? '✓' : canEquip ? '✨' : '🎁';
 
               return (
                 <article key={item.id} className={`reward-card reward-card--compact${active ? ' is-active' : ''}`} data-testid={`shop-item-${item.id}`}>

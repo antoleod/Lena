@@ -103,6 +103,15 @@ export const generatedReasoningActivities = [
     hints: ['Cherche ce qui va ensemble avant de choisir.']
   }),
   createGeneratedReasoningActivity({
+    id: 'generated-logic-p2',
+    slug: 'logique-douce-p2',
+    title: 'Logique douce P2',
+    topic: 'logic',
+    gradeBand: ['P2'],
+    instructions: 'Petits intrus, categories et mini problemes logiques tres accessibles.',
+    hints: ['Commence par ce qui va ensemble.']
+  }),
+  createGeneratedReasoningActivity({
     id: 'generated-reasoning-p3',
     slug: 'raisonnement-dynamique-p3',
     title: 'Logique et deduction',
@@ -127,6 +136,15 @@ export const generatedReasoningActivities = [
     gradeBand: ['P3'],
     instructions: 'Retenir, comparer et retrouver la bonne relation.',
     hints: ['Observe tout, puis cherche ce qui manque ou ce qui change.']
+  }),
+  createGeneratedReasoningActivity({
+    id: 'generated-logic-p3',
+    slug: 'logique-douce-p3',
+    title: 'Logique douce P3',
+    topic: 'logic',
+    gradeBand: ['P3'],
+    instructions: 'Tri, intrus, deduction et petites matrices plus ambitieuses.',
+    hints: ['Teste une regle puis elimine les reponses qui ne conviennent pas.']
   }),
   createGeneratedReasoningActivity({
     id: 'generated-reasoning-p4',

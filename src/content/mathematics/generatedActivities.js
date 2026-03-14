@@ -208,6 +208,46 @@ export const generatedMathematicsActivities = [
     hints: ['Observe ce qui change a chaque etape.']
   }),
   createGeneratedMathActivity({
+    id: 'generated-place-value-p2',
+    slug: 'valeur-positionnelle-p2',
+    title: 'Dizaines et unites P2',
+    subskill: 'place-value',
+    gradeBand: ['P2'],
+    topic: 'place-value',
+    instructions: 'Lire, decomposer et reconstruire des nombres a deux chiffres.',
+    hints: ['Commence par reperer les dizaines.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-time-p2',
+    slug: 'heure-simple-p2',
+    title: 'Heure simple P2',
+    subskill: 'time',
+    gradeBand: ['P2'],
+    topic: 'time',
+    instructions: 'Lire des heures en point et demie dans des scenes du quotidien.',
+    hints: ['Observe d abord l heure pleine puis la demi-heure.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-money-p2',
+    slug: 'monnaie-simple-p2',
+    title: 'Monnaie simple P2',
+    subskill: 'money',
+    gradeBand: ['P2'],
+    topic: 'money',
+    instructions: 'Compter des pieces simples et additionner de petites sommes.',
+    hints: ['Additionne les valeurs une par une.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-geometry-p2',
+    slug: 'formes-et-cotes-p2',
+    title: 'Formes et cotes P2',
+    subskill: 'geometry',
+    gradeBand: ['P2'],
+    topic: 'geometry',
+    instructions: 'Reconnaitre les formes, leurs cotes et leurs proprietes simples.',
+    hints: ['Observe le nombre de cotes avant de choisir.']
+  }),
+  createGeneratedMathActivity({
     id: 'generated-classification-p2',
     slug: 'classer-et-comparer-p2',
     title: 'Classer et comparer P2',
@@ -259,6 +299,46 @@ export const generatedMathematicsActivities = [
     difficulty: 'medium',
     instructions: 'Classer, ranger et comparer des nombres a trois chiffres.',
     hints: ['Commence toujours par les centaines.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-place-value-p3',
+    slug: 'valeur-positionnelle-p3',
+    title: 'Centaines, dizaines et unites',
+    subskill: 'place-value',
+    gradeBand: ['P3'],
+    topic: 'place-value',
+    instructions: 'Decomposer des nombres a trois chiffres et mieux les lire.',
+    hints: ['Observe centaines, dizaines et unites dans cet ordre.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-time-p3',
+    slug: 'heure-et-duree-p3',
+    title: 'Heure et duree P3',
+    subskill: 'time',
+    gradeBand: ['P3'],
+    topic: 'time',
+    instructions: 'Lire l heure, la demi-heure et de petites durees.',
+    hints: ['Pense a ce qui se passe 30 minutes plus tard.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-money-p3',
+    slug: 'monnaie-et-rendu-p3',
+    title: 'Monnaie et rendu P3',
+    subskill: 'money',
+    gradeBand: ['P3'],
+    topic: 'money',
+    instructions: 'Compter, payer et calculer une monnaie rendue simple.',
+    hints: ['Calcule le total, puis compare avec la somme donnee.']
+  }),
+  createGeneratedMathActivity({
+    id: 'generated-geometry-p3',
+    slug: 'figures-et-proprietes-p3',
+    title: 'Figures et proprietes P3',
+    subskill: 'geometry',
+    gradeBand: ['P3'],
+    topic: 'geometry',
+    instructions: 'Comparer des figures et reperer leurs proprietes utiles.',
+    hints: ['Observe les cotes, les angles et les ressemblances.']
   }),
   createGeneratedMathActivity({
     id: 'generated-fractions-p4',

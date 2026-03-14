@@ -16,5 +16,21 @@ export const storiesGrade3Modules = [
     challengeActivityId: 'campfire-tales',
     examActivityId: 'generated-french-reading',
     suggestedReviewIds: ['magic-library', 'castle-chronicles']
+  }),
+  createModule({
+    id: 'stories-g3-night-market',
+    subjectId: 'stories',
+    gradeId: 'P3',
+    domainId: 'night-market',
+    domainLabel: 'Aventures',
+    title: 'Feu de camp et chateau',
+    summary: 'Deux aventures plus marquees pour travailler comprehension et ordre des evenements.',
+    goal: 'Donner plus de relief a Stories avec de vrais parcours narratifs.',
+    demo: 'La demonstration relie les indices du texte a la bonne question.',
+    guidedActivityIds: ['campfire-tales', 'castle-chronicles'],
+    independentActivityIds: ['magic-library'],
+    challengeActivityId: 'castle-chronicles',
+    examActivityId: 'campfire-tales',
+    suggestedReviewIds: ['magic-library']
   })
 ];

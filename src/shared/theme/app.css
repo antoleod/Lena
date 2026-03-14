@@ -2275,6 +2275,43 @@ button {
   border-color: rgba(255, 207, 116, 0.3);
 }
 
+.prompt-tools {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.audio-action,
+.audio-action-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.audio-action:hover,
+.audio-action-inline:hover {
+  transform: translateY(-2px);
+}
+
+.audio-action.is-playing,
+.audio-action-inline.is-playing {
+  background: rgba(120, 166, 255, 0.14);
+  border-color: rgba(120, 166, 255, 0.35);
+}
+
 .completion-banner--compact {
   margin-top: 0;
 }
@@ -2465,6 +2502,11 @@ button {
 
   .engine-prompt {
     font-size: 1.2rem;
+  }
+
+  .prompt-tools {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .section-heading h3 {

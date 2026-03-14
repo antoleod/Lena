@@ -48,5 +48,21 @@ export const spanishGrade3Modules = [
     challengeActivityId: 'generated-spanish-reading',
     examActivityId: 'generated-spanish-sentences',
     suggestedReviewIds: ['spanish-visual-words']
+  }),
+  createModule({
+    id: 'spanish-g3-stories',
+    subjectId: 'spanish',
+    gradeId: 'P3',
+    domainId: 'stories',
+    domainLabel: 'Historias',
+    title: 'Historias cortas y comprension',
+    summary: 'Leer mini historias y contestar preguntas de quien, donde y que paso.',
+    goal: 'Dar mas contexto y mas ganas de leer en espanol.',
+    demo: 'Se muestra primero como buscar la pista en el texto.',
+    guidedActivityIds: ['generated-spanish-stories', 'generated-spanish-reading'],
+    independentActivityIds: ['generated-spanish-sentences', 'generated-spanish-daily-life'],
+    challengeActivityId: 'generated-spanish-stories',
+    examActivityId: 'generated-spanish-reading',
+    suggestedReviewIds: ['generated-spanish-vocabulary']
   })
 ];

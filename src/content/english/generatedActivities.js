@@ -98,6 +98,26 @@ export const generatedEnglishActivities = [
     hints: ['Choose the word that makes the sentence sound natural.']
   }),
   createGeneratedEnglishActivity({
+    id: 'generated-english-daily-life',
+    slug: 'english-daily-life',
+    title: 'Daily life English',
+    subskill: 'daily-vocabulary',
+    topic: 'vocabulary',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'School, food, emotions and routine words in fresh rounds.',
+    hints: ['Look for the category before choosing the word.']
+  }),
+  createGeneratedEnglishActivity({
+    id: 'generated-english-stories',
+    slug: 'english-stories',
+    title: 'English story quiz',
+    subskill: 'reading-comprehension',
+    topic: 'reading-comprehension',
+    gradeBand: ['P2', 'P3'],
+    instructions: 'Small stories with comprehension questions and clear clues.',
+    hints: ['Read the whole mini story before answering.']
+  }),
+  createGeneratedEnglishActivity({
     id: 'generated-english-sentences-p4',
     slug: 'anglais-sentences-dynamique-p4',
     title: 'Sentence builder plus',
