@@ -44,7 +44,7 @@ export default function SubjectPage() {
       ...grade,
       stats: getGradeStats(subjectId, grade, progress)
     };
-  }).filter((entry) => (entry.gradeId === 'P2' || entry.gradeId === 'P3') && (entry.activities.length || entry.modules.length));
+  }).filter((entry) => entry.activities.length || entry.modules.length);
 
   return (
     <div className="page-stack page-stack--compact" data-testid={`subject-page-${subjectId}`}>
@@ -52,7 +52,7 @@ export default function SubjectPage() {
 
       <section className="subject-overview" style={{ '--subject-accent': subject.accent, '--subject-color': subject.color }}>
         <div className="subject-overview__head">
-          <span className="eyebrow">P2 / P3</span>
+          <span className="eyebrow">{grades.map(g => g.gradeId).join(' / ')}</span>
           <h2>{getSubjectLabel(subject, locale, t)}</h2>
         </div>
         <p className="subject-overview__copy">{getSubjectDescription(subject, locale)}</p>

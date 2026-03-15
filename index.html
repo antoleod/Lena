@@ -19,6 +19,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+    <script>
+      (function normalizeSpaRedirect() {
+        var redirect = window.location.search;
+        if (!redirect || redirect.indexOf('/?') !== -1 || redirect.indexOf('?/') === -1) return;
+
+        var decoded = redirect
+          .slice(1)
+          .replace(/^\/?\?\/?/, '/')
+          .replace(/~and~/g, '&');
+
+        var target = window.location.pathname.replace(/\/$/, '') + decoded + window.location.hash;
+        window.history.replaceState(null, '', target);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getSubjectById } from '../curriculum/catalog.js';
+import { getSubjectById, gradeCatalog } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
@@ -11,7 +11,7 @@ export default function GradePage() {
   const { locale, t } = useLocale();
   const subject = getSubjectById(subjectId);
   const progress = getProgressSnapshot();
-  const gradeOptions = ['P2', 'P3'].filter((entry) => subject?.grades?.includes(entry));
+  const gradeOptions = gradeCatalog.filter((entry) => subject?.grades?.includes(entry));
   const gradeJourney = getGradeJourney(subjectId, gradeId, {
     guided: t('practiceMode'),
     independent: t('continueStep'),
