@@ -2,6 +2,7 @@ import { generateCountAnglesExercise, generateCountSidesExercise, generateShapeR
 import { generateColoringExercise } from '../../engines/generators/coloringGenerator.js';
 import { generateObservationExercise } from '../../engines/generators/observationGenerator.js';
 import { generateTableExercise } from '../../engines/generators/tableGenerator.js';
+import { SHAPE_SVG_MARKUP } from '../../shared/ui/ShapeSvg.jsx';
 
 function asLesson(exercise, index, sectionId) {
   return {
@@ -84,135 +85,175 @@ function manualMultipleChoiceLesson({ prompt, choices, answer, explanation = '' 
 }
 
 const LOGIQUE_LESSONS = [
-  manualMultipleChoiceLesson({
-    prompt: 'Quel objet va avec les couleurs ?',
-    choices: ['Un triangle', 'Une règle', 'Un ballon'],
-    answer: 'Un triangle',
-    explanation: 'Dans cette activité, on choisit une figure parmi des choix simples.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Quelle suite continue le même dessin ?',
-    choices: ['Triangle, rectangle, cercle', 'Rectangle, cercle, triangle', 'Cercle, triangle, triangle'],
-    answer: 'Triangle, rectangle, cercle',
-    explanation: 'On continue en gardant le même ordre.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Choisis l intrus (ce qui ne va pas).',
-    choices: ['Carre', 'Rectangle', 'Cercle'],
-    answer: 'Rectangle',
-    explanation: 'Deux figures ont des côtés égaux de façon simple, tandis que celle-ci a une propriété différente.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Quel choix est le plus grand ?',
-    choices: ['3', '5', '4'],
-    answer: '5',
-    explanation: '5 est le plus grand.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Quel lien va ensemble ?',
-    choices: ['Cercle → roue', 'Carré → soleil', 'Triangle → bateau'],
-    answer: 'Cercle → roue',
-    explanation: 'Le cercle ressemble à une roue.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Qu est-ce qui ressemble le plus ?',
-    choices: ['Rectangle', 'Cercle', 'Carre'],
-    answer: 'Carre',
-    explanation: 'Ici, on choisit la forme qui a 4 côtés égaux.'
-  })
+  {
+    id: 'logique-1',
+    prompt: 'Combien de côtés a cette figure ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'une figure' }],
+    choices: ['2', '3', '4'],
+    answer: '3',
+    explanation: 'Un triangle a 3 côtés et 3 angles.'
+  },
+  {
+    id: 'logique-2',
+    prompt: 'Quelle figure ressemble à une fenêtre ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'une figure' }],
+    choices: ['Un cercle', 'Un carré', 'Un triangle'],
+    answer: 'Un carré',
+    explanation: 'Un carré a 4 côtés égaux, comme une fenêtre.'
+  },
+  {
+    id: 'logique-3',
+    prompt: 'Quel objet ressemble à cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'une figure' }],
+    choices: ['Une balle', 'Un livre', 'Une boîte'],
+    answer: 'Une balle',
+    explanation: 'Un cercle ressemble à une balle ou une roue.'
+  },
+  {
+    id: 'logique-4',
+    prompt: 'Combien de côtés a un rectangle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'une figure' }],
+    choices: ['2', '3', '4'],
+    answer: '4',
+    explanation: 'Un rectangle a 4 côtés : 2 courts et 2 longs.'
+  },
+  {
+    id: 'logique-5',
+    prompt: 'Laquelle n\'a pas d\'angles ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'une figure' }],
+    choices: ['Carré', 'Cercle', 'Triangle'],
+    answer: 'Cercle',
+    explanation: 'Un cercle est rond, sans angles. Les autres figures ont des angles.'
+  },
+  {
+    id: 'logique-6',
+    prompt: 'Quelle figure a le plus de côtés ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'une figure' }],
+    choices: ['Triangle', 'Carré', 'Pentagone'],
+    answer: 'Pentagone',
+    explanation: 'Un pentagone a 5 côtés. C\'est plus que le triangle (3) et le carré (4).'
+  }
 ];
 
 const LECTURE_LESSONS = [
-  manualMultipleChoiceLesson({
-    prompt: 'Choisis le mot qui correspond à l image (triangle).',
+  {
+    id: 'lecture-1',
+    prompt: 'Quel est le nom de cette figure ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'une figure' }],
     choices: ['triangle', 'cercle', 'rectangle'],
     answer: 'triangle',
-    explanation: 'Triangle est le bon mot.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Choisis le mot qui correspond à la forme (cercle).',
-    choices: ['triangle', 'cercle', 'carre'],
+    explanation: 'C\'est un triangle. Il a 3 côtés.'
+  },
+  {
+    id: 'lecture-2',
+    prompt: 'Quel est le nom de cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'une figure' }],
+    choices: ['triangle', 'cercle', 'carré'],
     answer: 'cercle',
-    explanation: 'Cercle est le bon mot.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Choisis le bon mot pour compléter : « Je vois un ____ ».',
-    choices: ['carre', 'rectangle', 'cercle'],
+    explanation: 'C\'est un cercle. C\'est une forme ronde.'
+  },
+  {
+    id: 'lecture-3',
+    prompt: 'Comment s\'appelle cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'une figure' }],
+    choices: ['carré', 'rectangle', 'triangle'],
+    answer: 'carré',
+    explanation: 'C\'est un carré. Il a 4 côtés égaux.'
+  },
+  {
+    id: 'lecture-4',
+    prompt: 'Quel mot décrit cette figure ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'une figure' }],
+    choices: ['carré', 'rectangle', 'cercle'],
     answer: 'rectangle',
-    explanation: 'Rectangle complète la phrase.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Quel mot va avec « carré » ?',
-    choices: ['carre', 'triangle', 'cercle'],
-    answer: 'carre',
-    explanation: 'Carré est le bon choix.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Choisis le mot : « rectangle ».',
-    choices: ['carre', 'rectangle', 'cercle'],
-    answer: 'rectangle',
-    explanation: 'Rectangle est correct.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Complète : « Je vois un ____ ».',
-    choices: ['triangle', 'etoile', 'carré'],
-    answer: 'triangle',
-    explanation: 'On voit un triangle.'
-  })
+    explanation: 'C\'est un rectangle. Il a 4 côtés mais pas tous égaux.'
+  },
+  {
+    id: 'lecture-5',
+    prompt: 'Quel est le nom de cette figure avec 5 côtés ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'une figure' }],
+    choices: ['carré', 'pentagone', 'cercle'],
+    answer: 'pentagone',
+    explanation: 'C\'est un pentagone. Il a 5 côtés.'
+  },
+  {
+    id: 'lecture-6',
+    prompt: 'Comment s\'appelle cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.diamond, alt: 'une figure' }],
+    choices: ['carré', 'losange', 'triangle'],
+    answer: 'losange',
+    explanation: 'C\'est un losange. Il ressemble à un carré tourné.'
+  }
 ];
 
 const ECOUTE_LESSONS = [
-  manualMultipleChoiceLesson({
-    prompt: 'Écoute la consigne : choisis le cercle.',
-    choices: ['cercle', 'triangle', 'rectangle'],
+  {
+    id: 'ecoute-1',
+    prompt: 'Laquelle est un cercle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'une figure' }],
+    choices: ['rectangle', 'cercle', 'carré'],
     answer: 'cercle',
-    explanation: 'Le cercle est le bon choix.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Écoute la consigne : choisis le triangle.',
-    choices: ['rectangle', 'triangle', 'carre'],
-    answer: 'triangle',
-    explanation: 'Le triangle est le bon choix.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Écoute la consigne : choisis le carré.',
-    choices: ['carre', 'cercle', 'rectangle'],
-    answer: 'carre',
-    explanation: 'Le carré est le bon choix.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Écoute la consigne : choisis le rectangle.',
+    explanation: 'Un cercle est rond, sans angles.'
+  },
+  {
+    id: 'ecoute-2',
+    prompt: 'Laquelle est un triangle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'une figure' }],
     choices: ['rectangle', 'triangle', 'cercle'],
+    answer: 'triangle',
+    explanation: 'Un triangle a 3 côtés et 3 angles.'
+  },
+  {
+    id: 'ecoute-3',
+    prompt: 'Quelle est cette forme à 4 côtés égaux ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'une figure' }],
+    choices: ['carré', 'rectangle', 'triangle'],
+    answer: 'carré',
+    explanation: 'Un carré a 4 côtés égaux et 4 angles égaux.'
+  },
+  {
+    id: 'ecoute-4',
+    prompt: 'Quelle figure ressemble à une boîte plate ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'une figure' }],
+    choices: ['carré', 'triangle', 'rectangle'],
     answer: 'rectangle',
-    explanation: 'Le rectangle est le bon choix.'
-  })
+    explanation: 'Un rectangle ressemble à une boîte ou un drapeau.'
+  }
 ];
 
 const TRACE_LESSONS = [
-  manualMultipleChoiceLesson({
-    prompt: 'Trace dans ton esprit la ligne : quel chemin va avec la consigne « droite » ?',
-    choices: ['une ligne droite', 'un rond', 'des zigzags'],
+  {
+    id: 'trace-1',
+    prompt: 'Quel chemin va tout droit ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_straight, alt: 'une ligne' }],
+    choices: ['une ligne droite', 'une courbe', 'des zigzags'],
     answer: 'une ligne droite',
-    explanation: 'Une ligne droite va tout droit.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Trace encore : quel chemin est « vers le haut » ?',
-    choices: ['un chemin vers le haut', 'un chemin vers le bas', 'un chemin qui tourne'],
-    answer: 'un chemin vers le haut',
-    explanation: 'Vers le haut veut dire monter.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Trace à nouveau : quel mouvement est « vers la droite » ?',
-    choices: ['vers la droite', 'vers la gauche', 'en bas'],
+    explanation: 'Une ligne droite ne tourne pas, elle va tout droit.'
+  },
+  {
+    id: 'trace-2',
+    prompt: 'Quel chemin monte vers le haut ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.arrow_up, alt: 'une flèche' }],
+    choices: ['vers le bas', 'vers le haut', 'vers le côté'],
+    answer: 'vers le haut',
+    explanation: 'Vers le haut signifie monter, comme une flèche qui monte.'
+  },
+  {
+    id: 'trace-3',
+    prompt: 'Quel chemin va vers la droite ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.arrow_right, alt: 'une flèche' }],
+    choices: ['vers la gauche', 'vers la droite', 'vers le bas'],
     answer: 'vers la droite',
-    explanation: 'Vers la droite avance de gauche à droite.'
-  }),
-  manualMultipleChoiceLesson({
-    prompt: 'Trace encore : quel chemin est le plus simple ?',
-    choices: ['la ligne simple', 'une courbe compliquée', 'une ligne cassée'],
-    answer: 'la ligne simple',
-    explanation: 'La ligne simple est plus facile.'
-  })
+    explanation: 'Vers la droite signifie avancer de gauche à droite.'
+  },
+  {
+    id: 'trace-4',
+    prompt: 'Quel chemin est le plus facile à tracer ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_straight, alt: 'une ligne' }],
+    choices: ['une courbe', 'une ligne droite', 'des zigzags'],
+    answer: 'une ligne droite',
+    explanation: 'Une ligne droite est plus facile que les courbes ou les zigzags.'
+  }
 ];
 
 export const renforcementActivities = [

@@ -284,6 +284,8 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
                   <img src={slot.src} alt={slot.alt || ''} className="mc-context__img" />
                   {slot.caption && <small className="mc-context__caption">{slot.caption}</small>}
                 </>
+              ) : slot.kind === 'svg' && slot.markup ? (
+                <div className="mc-context__svg" dangerouslySetInnerHTML={{ __html: slot.markup }} aria-label={slot.alt || ''} />
               ) : slot.kind === 'audio' && slot.src ? (
                 <audio controls preload="none"><source src={slot.src} /></audio>
               ) : (
