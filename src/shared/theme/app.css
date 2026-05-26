@@ -1564,7 +1564,7 @@ button {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 6px 8px;
+  gap: 10px 12px;
   max-width: 1240px;
   margin: 0 auto 10px;
   padding: 5px 8px;
@@ -1598,13 +1598,15 @@ button {
 .brand-inline__mark {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   background: var(--theme-gradient);
   color: white;
   box-shadow: var(--shadow-soft);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 900;
+  flex-shrink: 0;
 }
 
 .brand-inline__name {
@@ -1619,7 +1621,7 @@ button {
 .topbar-tools {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: nowrap;
   min-width: 0;
 }
@@ -1627,6 +1629,11 @@ button {
 .topbar-nav {
   overflow-x: auto;
   scrollbar-width: none;
+}
+
+.topbar-tools {
+  border-left: 1.5px solid var(--line);
+  padding-left: 10px;
 }
 
 .topbar-nav::-webkit-scrollbar {
@@ -1653,10 +1660,21 @@ button {
   touch-action: manipulation;
 }
 
-.topbar-link.is-active,
+.topbar-link.is-active {
+  background: var(--primary);
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.topbar-link.is-active .topbar-link__icon {
+  transform: scale(1.15);
+}
+
 .topbar-link:hover,
 .icon-link:hover {
   background: rgba(120, 166, 255, 0.12);
+  border-radius: 12px;
 }
 
 .topbar-link__icon,
@@ -1669,11 +1687,13 @@ button {
 }
 
 .wallet-compact {
-  display: grid;
-  justify-items: center;
-  min-width: 60px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  min-width: 70px;
   min-height: 44px;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 12px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 216, 0.96));
   border: 1px solid var(--line);
@@ -1681,15 +1701,24 @@ button {
   touch-action: manipulation;
 }
 
-.wallet-compact span {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 0.95rem;
+.wallet-compact > span:first-child {
+  font-size: 1.2em;
   line-height: 1;
+}
+
+.wallet-compact > span:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .wallet-compact small {
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 900;
   line-height: 1;
 }
@@ -2897,31 +2926,39 @@ button {
   }
 
   .app-topbar {
-    gap: 6px;
-    padding: 6px;
+    gap: 8px;
+    padding: 8px;
+    grid-template-columns: 1fr;
   }
 
   .topbar-nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
-    overflow: visible;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
     width: 100%;
+    scrollbar-width: none;
+  }
+
+  .topbar-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .topbar-link,
-  .icon-link,
-  .profile-inline,
-  .wallet-compact {
-    width: 100%;
+  .icon-link {
+    flex: 1;
+    min-width: 80px;
     justify-content: center;
   }
 
   .topbar-tools {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     width: 100%;
+    border-left: none;
+    padding-left: 0;
   }
 }
 

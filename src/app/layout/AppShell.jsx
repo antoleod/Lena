@@ -83,25 +83,10 @@ export default function AppShell() {
         </nav>
 
         <div className="topbar-tools">
-          <button type="button" className="wallet-compact" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-wallet">
+          <button type="button" className="wallet-compact" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-wallet" title={t('shop')}>
+            <span aria-hidden="true">🛍</span>
             <span>{session.rewards.balance}</span>
             <small>{t('crystals')}</small>
-          </button>
-
-          <button
-            type="button"
-            className="profile-inline"
-            onClick={() => { playTapSound(); navigate('/'); }}
-            title={displayName}
-            data-testid="shell-profile"
-          >
-            <span className="profile-inline__avatar">{displayInitial}</span>
-            <span className="profile-inline__name">{displayName}</span>
-          </button>
-
-          <button type="button" className="icon-link" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-shop" title={t('shop')}>
-            <span aria-hidden="true">🛍</span>
-            <span>{t('shop')}</span>
             {session.rewards.balance > 50 && (
               <span className={`notification-badge ${notificationsEnabled ? '' : 'no-blink'}`} />
             )}
@@ -118,7 +103,7 @@ export default function AppShell() {
 
           <button
             type="button"
-            className="icon-link"
+            className="icon-link icon-link--logout"
             data-testid="shell-logout"
             onClick={() => {
               playTapSound();
