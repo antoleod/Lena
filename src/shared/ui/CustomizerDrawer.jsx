@@ -1,0 +1,212 @@
+import { useEffect, useState } from 'react';
+import { useLocale } from '../i18n/LocaleContext.jsx';
+import { useTheme } from '../theme/ThemeContext.jsx';
+import { getProfile, saveProfile } from '../../services/storage/profileStore.js';
+import { 
+  getRewardState, 
+  getRewardCatalog, 
+  equipTheme, 
+  equipEffect, 
+  equipWallpaper 
+} from '../../services/storage/rewardStore.js';
+
+export default function CustomizerDrawer({ isOpen, onClose }) {
+  const { t } = useLocale();
+  const { themeId: activeThemeId, setThemeId } = useTheme();
+  const [profile, setProfile] = useState(() => getProfile());
+  const [rewards, setRewards] = useState(() => getRewardState());
+  const [draftName, setDraftName] = useState(() => getProfile().name || '');
+
+  const catalog = getRewardCatalog();
+  const themeOptions = catalog.filter((item) => item.type === 'theme');
+  const wallpaperOptions = catalog.filter((item) => item.type === 'wallpaper');
+  const effectOptions = catalog.filter((item) => item.type === 'effect');
+
+  useEffect(() => {
+    function sync() {
+      setProfile(getProfile());
+      setRewards(getRewardState());
+    }
+    window.addEventListener('lena-profile-change', sync);
+    window.addEventListener('lena-rewards-change', sync);
+    return () => {
+      window.removeEventListener('lena-profile-change', sync);
+      window.removeEventListener('lena-rewards-change', sync);
+    };
+  }, []);
+
+  function handleNameSave() {
+    const trimmed = draftName.trim();
+    if (trimmed && trimmed !== profile.name) {
+      saveProfile({ name: trimmed });
+    }
+  }
+
+  function handleThemeClick(themeOption) {
+    if (themeOption.id === 'theme-candy' || rewards.inventory.includes(themeOption.id)) {
+      setThemeId(themeOption.id);
+      saveProfile({ themeId: themeOption.id });
+    }
+  }
+
+  function handleWallpaperClick(wallpaperId) {
+    if (wallpaperId === 'wallpaper-dreamy-sky' || rewards.inventory.includes(wallpaperId)) {
+      equipWallpaper(wallpaperId);
+    }
+  }
+
+  function handleEffectClick(effectId) {
+    if (effectId === 'effect-rainbow' || rewards.inventory.includes(effectId)) {
+      equipEffect(effectId);
+    }
+  }
+
+  function handleSoundToggle(e) {
+    const nextSettings = {
+      ...(profile.settings || {}),
+      soundEnabled: e.target.checked
+    };
+    saveProfile({ settings: nextSettings });
+  }
+
+  const isThemeOwned = (id) => id === 'theme-candy' || rewards.inventory.includes(id);
+  const isWallpaperOwned = (id) => id === 'wallpaper-dreamy-sky' || rewards.inventory.includes(id);
+  const isEffectOwned = (id) => id === 'effect-rainbow' || rewards.inventory.includes(id);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="drawer-overlay" onClick={onClose} aria-modal="true" role="dialog">
+      <div className="customizer-drawer" onClick={(e) => e.stopPropagation()}>
+        <header className="drawer-header">
+          <div className="drawer-header__title">
+            <span className="eyebrow">LENA 🎨 Customizer</span>
+            <h2>¡Personaliza tu mundo!</h2>
+          </div>
+          <button type="button" className="drawer-close" onClick={onClose} aria-label="Cerrar panel">
+            ✕
+          </button>
+        </header>
+
+        <div className="drawer-content">
+          {/* Quick profile name edit */}
+          <section className="drawer-section">
+            <h3 className="drawer-section__title">📝 Tu nombre</h3>
+            <div className="drawer-name-field">
+              <input
+                type="text"
+                maxLength={18}
+                value={draftName}
+                onChange={(e) => setDraftName(e.target.value)}
+                onBlur={handleNameSave}
+                placeholder={t('onboardingChildNamePlaceholder')}
+              />
+              <button type="button" className="primary-action" onClick={handleNameSave}>
+                OK
+              </button>
+            </div>
+          </section>
+
+          {/* Sound settings */}
+          <section className="drawer-section">
+            <h3 className="drawer-section__title">🔊 Efectos de sonido</h3>
+            <div className="drawer-switch-row">
+              <span>Sonidos interactivos</span>
+              <label className="switch-toggle">
+                <input
+                  type="checkbox"
+                  checked={profile.settings?.soundEnabled !== false}
+                  onChange={handleSoundToggle}
+                />
+                <span className="switch-slider" />
+              </label>
+            </div>
+          </section>
+
+          {/* Theme/Color palettes */}
+          <section className="drawer-section">
+            <h3 className="drawer-section__title">🌈 Paleta de colores</h3>
+            <div className="drawer-options-grid drawer-options-grid--themes">
+              {themeOptions.map((theme) => {
+                const owned = isThemeOwned(theme.id);
+                const active = activeThemeId === theme.id;
+                
+                return (
+                  <button
+                    key={theme.id}
+                    type="button"
+                    className={`drawer-theme-btn ${active ? 'is-active' : ''} ${!owned ? 'is-locked' : ''}`}
+                    onClick={() => handleThemeClick(theme)}
+                    title={theme.name}
+                  >
+                    <span className="drawer-theme-icon">{theme.icon}</span>
+                    <div className="drawer-theme-colors">
+                      {theme.preview.map((color, i) => (
+                        <span key={i} style={{ backgroundColor: color }} />
+                      ))}
+                    </div>
+                    {!owned && (
+                      <span className="drawer-item-lock">🔒 {theme.price}💎</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Weather Effects */}
+          <section className="drawer-section">
+            <h3 className="drawer-section__title">❄️ Efectos del clima</h3>
+            <div className="drawer-options-grid">
+              {effectOptions.map((effect) => {
+                const owned = isEffectOwned(effect.id);
+                const active = rewards.equippedEffectId === effect.id;
+
+                return (
+                  <button
+                    key={effect.id}
+                    type="button"
+                    className={`drawer-rect-btn ${active ? 'is-active' : ''} ${!owned ? 'is-locked' : ''}`}
+                    onClick={() => handleEffectClick(effect.id)}
+                  >
+                    <span className="drawer-rect-icon">{effect.icon}</span>
+                    <span className="drawer-rect-label">{effect.name}</span>
+                    {!owned && (
+                      <span className="drawer-item-lock">🔒 {effect.price}💎</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Wallpapers */}
+          <section className="drawer-section">
+            <h3 className="drawer-section__title">🖼️ Fondos de pantalla</h3>
+            <div className="drawer-options-grid">
+              {wallpaperOptions.map((wall) => {
+                const owned = isWallpaperOwned(wall.id);
+                const active = rewards.equippedWallpaperId === wall.id;
+
+                return (
+                  <button
+                    key={wall.id}
+                    type="button"
+                    className={`drawer-rect-btn ${active ? 'is-active' : ''} ${!owned ? 'is-locked' : ''}`}
+                    onClick={() => handleWallpaperClick(wall.id)}
+                  >
+                    <span className="drawer-rect-icon">{wall.icon}</span>
+                    <span className="drawer-rect-label">{wall.name}</span>
+                    {!owned && (
+                      <span className="drawer-item-lock">🔒 {wall.price}💎</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+}
