@@ -3396,6 +3396,15 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-greeting__icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .home-hero__name {
@@ -3432,10 +3441,12 @@ button {
   min-width: max-content;
 }
 
-.streak-flame span:first-child {
-  font-size: 1.6rem;
+.streak-flame__icon {
+  width: 32px;
+  height: 32px;
   line-height: 1;
   display: block;
+  object-fit: contain;
 }
 
 .streak-flame strong {
@@ -3474,9 +3485,11 @@ button {
 }
 
 .home-cta__icon {
-  font-size: 1.4rem;
+  width: 28px;
+  height: 28px;
   line-height: 1;
   display: inline-block;
+  object-fit: contain;
 }
 
 .home-cta__label {
@@ -3487,9 +3500,11 @@ button {
 }
 
 .home-cta__arrow {
-  font-size: 1.2rem;
+  width: 20px;
+  height: 20px;
   opacity: 0.8;
   display: inline-block;
+  object-fit: contain;
 }
 
 .home-hero__progress-wrap {
@@ -3577,9 +3592,11 @@ button {
 }
 
 .home-stat-card__icon {
-  font-size: 1.5rem;
+  width: 32px;
+  height: 32px;
   line-height: 1;
   display: block;
+  object-fit: contain;
 }
 
 .home-stat-card__value {
@@ -3629,10 +3646,12 @@ button {
 }
 
 .home-quick-card__icon {
-  font-size: 1.6rem;
+  width: 36px;
+  height: 36px;
   line-height: 1;
   flex-shrink: 0;
   display: block;
+  object-fit: contain;
 }
 
 .home-quick-card>div {

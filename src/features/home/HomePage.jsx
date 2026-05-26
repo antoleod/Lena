@@ -32,9 +32,9 @@ export default function HomePage() {
 
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting('☀️');
-    else if (hour < 17) setGreeting('🌤️');
-    else setGreeting('🌙');
+    if (hour < 12) setGreeting('icon-sun');
+    else if (hour < 17) setGreeting('icon-cloud');
+    else setGreeting('icon-moon');
   }, []);
 
   const profile = session.profile;
@@ -57,10 +57,10 @@ export default function HomePage() {
   ], [t, rewards.balance]);
 
   const stats = useMemo(() => [
-    { icon: '⭐', label: t('progression'), value: `${totalProgress}%` },
-    { icon: '🔥', label: t('streakLabel'), value: `${overview.streakCurrent || 0}` },
-    { icon: '💎', label: t('crystals'), value: `${rewards.balance || 0}` },
-    { icon: '✅', label: t('homeCompletedNodes'), value: `${adventure.completedNodes}/${adventure.totalNodes || 0}` },
+    { icon: 'icon-star', label: t('progression'), value: `${totalProgress}%` },
+    { icon: 'badge-fire', label: t('streakLabel'), value: `${overview.streakCurrent || 0}` },
+    { icon: 'icon-gem', label: t('crystals'), value: `${rewards.balance || 0}` },
+    { icon: 'icon-check', label: t('homeCompletedNodes'), value: `${adventure.completedNodes}/${adventure.totalNodes || 0}` },
   ], [adventure.completedNodes, adventure.totalNodes, overview.streakCurrent, rewards.balance, t, totalProgress]);
 
   return (
@@ -71,7 +71,10 @@ export default function HomePage() {
         <div className="home-hero__content">
           <div className="home-hero__top">
             <div>
-              <p className="home-hero__greeting">{greeting} {t('homeDashboardEyebrow')}</p>
+              <p className="home-hero__greeting">
+                {greeting && <img src={`/assets/icons/${greeting}.svg`} alt="" className="hero-greeting__icon" />}
+                {t('homeDashboardEyebrow')}
+              </p>
               <h1 className="home-hero__name">{profile.name || t('defaultChildName')}</h1>
               {nextTarget && (
                 <p className="home-hero__path">
@@ -85,9 +88,9 @@ export default function HomePage() {
           </div>
 
           <Link className="home-cta" to={primaryRoute} data-testid="home-primary-cta">
-            <span className="home-cta__icon" aria-hidden="true">{nextTarget ? '▶' : '✨'}</span>
+            <img src={`/assets/icons/${nextTarget ? 'icon-play' : 'icon-star'}.svg`} alt="" className="home-cta__icon" />
             <span className="home-cta__label">{nextTarget ? t('homeContinueMission') : t('startAdventure')}</span>
-            <span className="home-cta__arrow" aria-hidden="true">→</span>
+            <img src="/assets/icons/icon-arrow-right.svg" alt="" className="home-cta__arrow" />
           </Link>
         </div>
 
@@ -127,7 +130,7 @@ export default function HomePage() {
       <section className="home-stats" aria-label="Estadísticas">
         {stats.map((stat) => (
           <div key={stat.label} className="home-stat-card">
-            <span className="home-stat-card__icon" aria-hidden="true">{stat.icon}</span>
+            <img src={`/assets/${stat.icon.includes('badge') ? 'stickers' : 'icons'}/${stat.icon}.svg`} alt="" className="home-stat-card__icon" />
             <strong className="home-stat-card__value">{stat.value}</strong>
             <span className="home-stat-card__label">{stat.label}</span>
           </div>
@@ -145,7 +148,7 @@ export default function HomePage() {
         <div className="home-quick-grid">
           {quickLinks.map((link) => (
             <Link key={link.to} className="home-quick-card" to={link.to} data-testid={`home-link-${link.to.replace('/', '')}`}>
-              <span className="home-quick-card__icon" aria-hidden="true">{link.icon}</span>
+              <img src={`/assets/icons/${link.icon}.svg`} alt="" className="home-quick-card__icon" />
               <div>
                 <strong>{link.label}</strong>
                 <span>{link.sub}</span>
@@ -184,11 +187,11 @@ export default function HomePage() {
           </div>
           <div className="dashboard-actions" style={{ marginTop: 14 }}>
             <Link className="primary-action" to={primaryRoute}>
-              <span className="button-icon" aria-hidden="true">🎯</span>
+              <img src="/assets/icons/icon-play.svg" alt="" className="button-icon" />
               <span>{t('homeContinueMission')}</span>
             </Link>
             <Link className="secondary-action" to="/map">
-              <span className="button-icon" aria-hidden="true">🗺️</span>
+              <img src="/assets/icons/icon-home.svg" alt="" className="button-icon" />
               <span>{t('homeMapCardTitle')}</span>
             </Link>
           </div>

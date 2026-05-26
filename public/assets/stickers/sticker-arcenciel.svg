@@ -24,10 +24,16 @@
     </g>
 
     <!-- Nubes 3D -->
-    <circle cx="30" cy="65" r="12" fill="white" />
-    <circle cx="70" cy="65" r="12" fill="white" />
-    <circle cx="30" cy="67" r="10" fill="#E1F5FE" opacity="0.5" />
-    <circle cx="70" cy="67" r="10" fill="#E1F5FE" opacity="0.5" />
+    <g>
+      <circle cx="30" cy="65" r="12" fill="white" />
+      <circle cx="30" cy="67" r="10" fill="#E1F5FE" opacity="0.5" />
+      <animateTransform attributeName="transform" type="translate" values="0,0; -1.5,1; 0,0" dur="3s" repeatCount="indefinite" />
+    </g>
+    <g>
+      <circle cx="70" cy="65" r="12" fill="white" />
+      <circle cx="70" cy="67" r="10" fill="#E1F5FE" opacity="0.5" />
+      <animateTransform attributeName="transform" type="translate" values="0,0; 1.5,-1; 0,0" dur="4s" repeatCount="indefinite" />
+    </g>
 
     <!-- Reflejo de cristal -->
     <path d="M 15 45 A 40 40 0 0 1 85 30 A 45 45 0 0 0 15 45" fill="url(#surfaceGloss)" />
