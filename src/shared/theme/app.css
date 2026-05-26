@@ -1545,6 +1545,281 @@ button {
   line-height: 1.2;
 }
 
+/* Hero band */
+.ob-hero-band {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--gold, #ffc048) 60%, var(--mint, #8bdcc3) 100%);
+  border-radius: 18px 18px 0 0;
+  margin: -22px -22px 0;
+  overflow: hidden;
+  min-height: 120px;
+}
+
+.ob-hero-band__copy {
+  flex: 1;
+  color: white;
+}
+
+.ob-hero-band__copy .eyebrow {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ob-hero-band__copy h1 {
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  margin: 4px 0;
+  color: white;
+  line-height: 1.25;
+}
+
+.ob-hero-band__copy p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  color: white;
+  margin: 0;
+}
+
+.ob-hero-band__mascot {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  animation: floaty 4.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Step dots */
+.ob-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 0 4px;
+}
+
+.ob-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: all 0.3s ease;
+}
+
+.ob-dot.is-done {
+  background: var(--primary);
+  opacity: 0.5;
+}
+
+.ob-dot.is-current {
+  width: 24px;
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+/* Language cards (step 1) */
+.ob-lang-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.ob-lang-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 12px;
+  border-radius: 18px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid var(--line);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  min-height: 80px;
+}
+
+.ob-lang-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.ob-lang-card.is-selected {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+  transform: scale(1.04);
+}
+
+.ob-lang-card__flag {
+  font-size: 1.8rem;
+}
+
+.ob-lang-card__label {
+  display: block;
+}
+
+/* Name step (step 2) */
+.ob-name-wrap {
+  display: grid;
+  gap: 14px;
+  padding: 8px 0;
+}
+
+.ob-step-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0;
+  text-align: center;
+}
+
+.ob-step-sub {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 0;
+}
+
+.ob-name-input {
+  font-size: 1.3rem;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: 2px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.ob-name-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.ob-name-greeting {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  animation: rise-in 0.3s ease;
+  margin: 0;
+}
+
+.ob-skip-link {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px;
+  text-align: center;
+}
+
+/* World cards (step 3) */
+.ob-worlds-wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.ob-world-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.ob-world-card {
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.ob-world-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.ob-world-card.is-selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(144, 118, 166, 0.15);
+}
+
+.ob-world-card__art {
+  height: 80px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.ob-world-card__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ob-world-card__body {
+  padding: 10px 12px;
+  display: grid;
+  gap: 2px;
+}
+
+.ob-world-card__icon {
+  font-size: 1.2rem;
+}
+
+.ob-world-card__name {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.ob-world-card__desc {
+  font-size: 0.7rem;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+/* Speech bubble */
+.ob-bubble {
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  animation: rise-in 0.3s ease;
+}
+
+/* Animations */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .history-list {
   display: grid;
   gap: 14px;
@@ -2950,6 +3225,29 @@ button {
   .onboarding-modal {
     width: min(100%, 700px);
     min-height: min(90vh, 700px);
+  }
+
+  .ob-hero-band {
+    margin: -16px -16px 0;
+    min-height: 100px;
+    padding: 16px;
+  }
+
+  .ob-hero-band__mascot {
+    width: 70px;
+    height: 70px;
+  }
+
+  .ob-hero-band__copy h1 {
+    font-size: 1.1rem;
+  }
+
+  .ob-world-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ob-world-card__art {
+    height: 60px;
   }
 }
 
@@ -6539,5 +6837,123 @@ label {
   .icon-link > span:first-child {
     font-size: 1.1em;
   }
+}
+
+/* =========================================================
+   RICH ANIMATIONS — level-up, rewards, world unlock, XP
+   ========================================================= */
+
+/* Level-up flash overlay */
+@keyframes level-up-flash {
+  0%   { opacity: 0; transform: scale(0.6); }
+  30%  { opacity: 1; transform: scale(1.12); }
+  60%  { opacity: 1; transform: scale(1); }
+  85%  { opacity: 0.7; transform: scale(1.04); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+.anim-level-up {
+  animation: level-up-flash 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Score / XP pop */
+@keyframes score-pop {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.7); }
+  45%  { opacity: 1; transform: translateY(-14px) scale(1.15); }
+  75%  { transform: translateY(-18px) scale(1); }
+  100% { opacity: 0; transform: translateY(-28px) scale(0.9); }
+}
+
+.anim-score-pop {
+  animation: score-pop 1s ease-out forwards;
+}
+
+/* World / mission unlock pulse */
+@keyframes world-unlock {
+  0%   { box-shadow: 0 0 0 0 rgba(var(--primary-rgb, 255,143,198), 0.7); transform: scale(1); }
+  40%  { box-shadow: 0 0 0 18px rgba(var(--primary-rgb, 255,143,198), 0); transform: scale(1.06); }
+  70%  { transform: scale(0.97); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb, 255,143,198), 0); transform: scale(1); }
+}
+
+.anim-world-unlock {
+  animation: world-unlock 0.8s ease-out forwards;
+}
+
+/* Coin / star spin */
+@keyframes coin-spin {
+  0%   { transform: rotateY(0deg) scale(1); }
+  40%  { transform: rotateY(180deg) scale(1.2); }
+  80%  { transform: rotateY(360deg) scale(1); }
+  100% { transform: rotateY(360deg) scale(1); }
+}
+
+.anim-coin-spin {
+  animation: coin-spin 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Particle burst (staggered via nth-child) */
+@keyframes particle-burst {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  80%  { opacity: 0.6; }
+  100% { opacity: 0; transform: translate(var(--tx, 40px), var(--ty, -40px)) scale(0.3); }
+}
+
+.anim-particle {
+  animation: particle-burst 0.6s ease-out forwards;
+}
+.anim-particle:nth-child(1)  { --tx: 44px;  --ty: -20px; animation-delay: 0s; }
+.anim-particle:nth-child(2)  { --tx: -38px; --ty: -30px; animation-delay: 0.04s; }
+.anim-particle:nth-child(3)  { --tx: 10px;  --ty: -48px; animation-delay: 0.08s; }
+.anim-particle:nth-child(4)  { --tx: 50px;  --ty: 18px;  animation-delay: 0.02s; }
+.anim-particle:nth-child(5)  { --tx: -46px; --ty: 14px;  animation-delay: 0.06s; }
+.anim-particle:nth-child(6)  { --tx: -14px; --ty: 50px;  animation-delay: 0.10s; }
+
+/* Streak flame flicker */
+@keyframes flame-flicker {
+  0%, 100% { transform: scaleY(1) rotate(-2deg); opacity: 1; }
+  25%       { transform: scaleY(1.08) rotate(2deg); opacity: 0.9; }
+  50%       { transform: scaleY(0.94) rotate(-1deg); opacity: 1; }
+  75%       { transform: scaleY(1.04) rotate(1deg); opacity: 0.95; }
+}
+
+.anim-flame {
+  animation: flame-flicker 0.9s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Reward chest open */
+@keyframes chest-open {
+  0%   { transform: scaleY(1); }
+  20%  { transform: scaleY(0.88) scaleX(1.06); }
+  50%  { transform: scaleY(1.14) scaleX(0.96); }
+  75%  { transform: scaleY(0.97) scaleX(1.02); }
+  100% { transform: scaleY(1); }
+}
+
+.anim-chest-open {
+  animation: chest-open 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Progress bar fill */
+@keyframes progress-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.anim-progress-fill {
+  transform-origin: left center;
+  animation: progress-fill 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Gentle idle float for decorative world icons */
+@keyframes world-idle-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%       { transform: translateY(-6px) rotate(1.5deg); }
+  66%       { transform: translateY(-3px) rotate(-1deg); }
+}
+
+.anim-world-idle {
+  animation: world-idle-float 4s ease-in-out infinite;
 }
 

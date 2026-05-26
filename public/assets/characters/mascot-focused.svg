@@ -1,28 +1,90 @@
-<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="mascotFocusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#64b5f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2196f3;stop-opacity:1" />
+    <radialGradient id="headGrad" cx="35%" cy="35%">
+      <stop offset="0%" style="stop-color:#ffb3d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff85b8;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="hornGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="30%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ffed4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0a000;stop-opacity:1" />
     </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.25"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
+
   <!-- Body -->
-  <circle cx="60" cy="70" r="35" fill="url(#mascotFocusGrad)" opacity="0.9"/>
+  <ellipse cx="100" cy="170" rx="42" ry="50" fill="#ffb3d9" opacity="0.85"/>
+  <ellipse cx="100" cy="160" rx="38" ry="30" fill="#ffcceb" opacity="0.5"/>
+
   <!-- Head -->
-  <circle cx="60" cy="35" r="25" fill="url(#mascotFocusGrad)" opacity="0.95"/>
-  <!-- Eyes - focused -->
-  <circle cx="50" cy="32" r="3.5" fill="#FFF"/>
-  <circle cx="70" cy="32" r="3.5" fill="#FFF"/>
-  <circle cx="50" cy="32" r="2" fill="#000" opacity="0.9"/>
-  <circle cx="70" cy="32" r="2" fill="#000" opacity="0.9"/>
-  <!-- Eyebrows - concentrated -->
-  <path d="M 45 25 Q 50 23 55 25" stroke="#FFF" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-  <path d="M 65 25 Q 70 23 75 25" stroke="#FFF" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-  <!-- Neutral mouth -->
-  <line x1="48" y1="42" x2="72" y2="42" stroke="#FFF" stroke-width="1.5" opacity="0.6"/>
-  <!-- Arms -->
-  <rect x="25" y="60" width="15" height="30" rx="7" fill="url(#mascotFocusGrad)" opacity="0.85"/>
-  <rect x="80" y="60" width="15" height="30" rx="7" fill="url(#mascotFocusGrad)" opacity="0.85"/>
-  <!-- Hands -->
-  <circle cx="32" cy="92" r="8" fill="url(#mascotFocusGrad)" opacity="0.9"/>
-  <circle cx="88" cy="92" r="8" fill="url(#mascotFocusGrad)" opacity="0.9"/>
+  <circle cx="100" cy="85" r="55" fill="url(#headGrad)" filter="url(#shadow)"/>
+
+  <!-- Head shine (3D effect) -->
+  <ellipse cx="70" cy="60" rx="25" ry="30" fill="#ffcceb" opacity="0.5"/>
+
+  <!-- Left ear back -->
+  <ellipse cx="60" cy="40" rx="16" ry="28" fill="#ff85b8" transform="rotate(-30 60 40)"/>
+  <!-- Left ear front -->
+  <ellipse cx="60" cy="42" rx="10" ry="20" fill="#ffcceb" transform="rotate(-30 60 42)"/>
+
+  <!-- Right ear back -->
+  <ellipse cx="140" cy="40" rx="16" ry="28" fill="#ff85b8" transform="rotate(30 140 40)"/>
+  <!-- Right ear front -->
+  <ellipse cx="140" cy="42" rx="10" ry="20" fill="#ffcceb" transform="rotate(30 140 42)"/>
+
+  <!-- Horn -->
+  <polygon points="100,15 94,75 106,75" fill="url(#hornGrad)" filter="url(#shadow)"/>
+  <!-- Horn shine line -->
+  <polygon points="100,20 99,65 101,65" fill="#ffffff" opacity="0.6"/>
+
+  <!-- Left eye white -->
+  <circle cx="78" cy="78" r="11" fill="#ffffff" filter="url(#shadow)"/>
+  <!-- Left eye iris -->
+  <circle cx="78" cy="80" r="8" fill="#4a3a5f"/>
+  <!-- Left eye highlight -->
+  <circle cx="80" cy="76" r="3.5" fill="#ffffff"/>
+
+  <!-- Right eye white -->
+  <circle cx="122" cy="78" r="11" fill="#ffffff" filter="url(#shadow)"/>
+  <!-- Right eye iris -->
+  <circle cx="122" cy="80" r="8" fill="#4a3a5f"/>
+  <!-- Right eye highlight -->
+  <circle cx="124" cy="76" r="3.5" fill="#ffffff"/>
+
+  <!-- Nose (pink triangle) -->
+  <polygon points="100,105 96,113 104,113" fill="#ff69b4" filter="url(#shadow)"/>
+
+  <!-- Mouth (focused - straight line) -->
+  <path d="M 100 113 Q 85 128 70 125" stroke="#ff69b4" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 100 113 Q 115 128 130 125" stroke="#ff69b4" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Left whiskers -->
+  <line x1="48" y1="85" x2="15" y2="80" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="48" y1="98" x2="15" y2="105" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="48" y1="111" x2="15" y2="125" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Right whiskers -->
+  <line x1="152" y1="85" x2="185" y2="80" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="152" y1="98" x2="185" y2="105" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="152" y1="111" x2="185" y2="125" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Left blush -->
+  <circle cx="50" cy="95" r="9" fill="#ff69b4" opacity="0.35" filter="url(#shadow)"/>
+  <!-- Right blush -->
+  <circle cx="150" cy="95" r="9" fill="#ff69b4" opacity="0.35" filter="url(#shadow)"/>
+
+  <!-- Eyebrows (focused) -->
+  <path d="M 70 68 Q 78 64 86 68" stroke="#ff85b8" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 114 68 Q 122 64 130 68" stroke="#ff85b8" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
 </svg>
