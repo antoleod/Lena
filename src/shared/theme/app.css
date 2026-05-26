@@ -1435,6 +1435,18 @@ button {
   gap: 12px;
 }
 
+.onboarding-profile-form {
+  display: grid;
+  gap: 20px;
+}
+
+.onboarding-theme-section {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+}
+
 .choice-grid--onboarding {
   grid-template-columns: 1fr;
 }
@@ -1450,7 +1462,7 @@ button {
 }
 
 .choice-grid--themes {
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -3173,6 +3185,19 @@ button {
 
   .profile-inline__name {
     font-size: 0.75rem;
+  }
+
+  .onboarding-profile-form {
+    gap: 16px;
+  }
+
+  .onboarding-theme-section {
+    padding-top: 0;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    padding: 14px 0 0;
   }
 }
 

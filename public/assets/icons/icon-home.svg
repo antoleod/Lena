@@ -1,3 +1,21 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 15 55 L 50 25 L 85 55 V 80 Q 85 85 80 85 L 65 85 L 65 65 Q 65 60 60 60 L 40 60 Q 35 60 35 65 L 35 85 L 20 85 Q 15 85 15 80 Z" fill="currentColor" opacity="0.9"/>
+  <title>Casa 3D Minimalista</title>
+  <defs>
+    <filter id="homeShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2" flood-opacity="0.2"/>
+    </filter>
+    <linearGradient id="homeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8DB6FF" />
+      <stop offset="100%" stop-color="#4A90E2" />
+    </linearGradient>
+  </defs>
+  <g filter="url(#homeShadow)">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0" dur="3s" repeatCount="indefinite" />
+    <!-- Base de la casa con volumen -->
+    <path d="M 15 55 L 50 25 L 85 55 V 80 Q 85 85 80 85 L 20 85 Q 15 85 15 80 Z" fill="url(#homeGrad)"/>
+    <!-- Detalle de puerta con profundidad -->
+    <path d="M 42 85 V 68 Q 42 63 47 63 H 53 Q 58 63 58 68 V 85" fill="#3167B1" opacity="0.4" />
+    <!-- Brillo superior del techo -->
+    <path d="M 15 55 L 50 25 L 85 55 L 50 35 Z" fill="white" opacity="0.3" />
+  </g>
 </svg>

@@ -147,7 +147,7 @@ export default function OnboardingFlow() {
           ) : null}
 
           {step === 2 ? (
-            <div className="settings-grid" data-testid="onboarding-step-profile">
+            <div className="onboarding-profile-form" data-testid="onboarding-step-profile">
               <div className="form-field">
                 <label htmlFor="child-name">{t('onboardingChildName')}</label>
                 <input
@@ -161,7 +161,7 @@ export default function OnboardingFlow() {
                   autoFocus
                 />
               </div>
-              <div className="form-field">
+              <div className="form-field onboarding-theme-section">
                 <label>{t('theme')}</label>
                 <div className="choice-grid choice-grid--onboarding choice-grid--themes">
                   {themeOptions.map((option) => (

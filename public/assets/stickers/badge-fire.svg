@@ -42,9 +42,13 @@
     <circle cx="50" cy="53" r="48" fill="#911F00" /> <!-- Sombra de contacto -->
     <circle cx="50" cy="50" r="48" fill="#FFFFFF" /> <!-- Borde troquelado (Die-cut) -->
     <circle cx="50" cy="50" r="44" fill="url(#badgeBody)" /> <!-- Fondo vibrante -->
-    <!-- Llama mejorada -->
-    <path d="M 50 18 C 40 40 32 55 35 70 C 38 85 62 85 65 70 C 68 55 60 40 50 18 Z" fill="#FFEA00" filter="url(#elementGlowFire)" /> 
-    <path d="M 50 35 C 45 50 40 60 42 72 C 45 80 55 80 58 72 C 60 60 55 50 50 35 Z" fill="white" opacity="0.8" />
+    <!-- Llama con animación de parpadeo -->
+    <g>
+      <path d="M 50 18 C 40 40 32 55 35 70 C 38 85 62 85 65 70 C 68 55 60 40 50 18 Z" fill="#FFEA00" filter="url(#elementGlowFire)" /> 
+      <path d="M 50 35 C 45 50 40 60 42 72 C 45 80 55 80 58 72 C 60 60 55 50 50 35 Z" fill="white" opacity="0.8" />
+      <animateTransform attributeName="transform" type="scale" values="1,1; 1.05,0.95; 1,1" dur="0.8s" repeatCount="indefinite" additive="sum" pivot="50,75" />
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="1s" repeatCount="indefinite" />
+    </g>
     <path d="M 12 40 A 40 40 0 0 1 80 20 A 44 44 0 0 0 12 40" fill="url(#surfaceGloss)" /> <!-- Reflejo de cristal -->
   </g>
 </svg>

@@ -16,7 +16,9 @@
       <stop offset="100%" stop-color="#F57F17" />
     </radialGradient>
   </defs>
-  <polygon points="50,15 35,45 50,45 35,85 65,35 50,35 65,15" fill="url(#boltBody)" filter="url(#boltGlow)"/>
+  <polygon points="50,15 35,45 50,45 35,85 65,35 50,35 65,15" fill="url(#boltBody)" filter="url(#boltGlow)">
+    <animate attributeName="opacity" values="1;0.7;1" dur="0.2s" repeatCount="indefinite" />
+  </polygon>
   <!-- Highlight -->
   <path d="M 50 15 L 35 45 L 50 45 L 43 65 L 65 15 Z" fill="white" opacity="0.4" />
 </svg>
