@@ -8,7 +8,13 @@ const ACTIVITY_TYPE_BY_ENGINE = Object.freeze({
   matching: 'matching',
   fill: 'fill-sentence',
   'drag-drop': 'drag-drop',
-  'visual-logic': 'visual-logic'
+  'visual-logic': 'visual-logic',
+  // Renforcement (moteurs UI dédiés) : on réutilise des layouts “compatibles”
+  // pour que les leçons restent des objets question/choix/answer.
+  coloring: 'multiple-choice',
+  trace: 'builder',
+  grid: 'builder',
+  'spot-difference': 'multiple-choice'
 });
 
 const ENGINE_BY_CORRECTION = Object.freeze({

@@ -16,23 +16,58 @@ function normalizeDifficulty(difficulty, progress, expectedQuestions) {
     return difficulty;
   }
 
+  // Determine child's global difficulty bias based on recent achievements
+  let globalDifficultyBias = 'easy';
+  try {
+    const storeSnapshot = window.localStorage.getItem('lena:migration:progress:v3');
+    if (storeSnapshot) {
+      const store = JSON.parse(storeSnapshot);
+      const activities = Object.values(store.activities || {});
+      
+      if (activities.length > 0) {
+        // Filter activities that have been played
+        const played = activities.filter(act => act.completed || act.attempts > 0);
+        if (played.length > 0) {
+          // Sort by last updated to analyze the 3 most recent
+          played.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+          const recent = played.slice(0, 3);
+          const totalRecentRatio = recent.reduce((sum, act) => {
+            const actRatio = (act.bestScore || 0) / (act.totalQuestions || 10);
+            return sum + actRatio;
+          }, 0) / recent.length;
+          
+          if (totalRecentRatio >= 0.82) {
+            globalDifficultyBias = 'hard';
+          } else if (totalRecentRatio >= 0.58) {
+            globalDifficultyBias = 'medium';
+          }
+        }
+      }
+    }
+  } catch (e) {
+    // Fail silently, fallback to 'easy'
+  }
+
+  // If this specific activity has never been attempted, default to global adaptive level instead of resetting to easy
   if (!progress || progress.attempts === 0) {
-    return 'easy';
+    return globalDifficultyBias;
   }
 
   const score = progress.bestScore || progress.lastScore || 0;
   const ratio = expectedQuestions > 0 ? score / expectedQuestions : 0;
 
+  // Granular scaling rules based on current node performance
   if (ratio >= 0.85) {
     return 'hard';
   }
-
-  if (ratio >= 0.5) {
+  if (ratio >= 0.55) {
     return 'medium';
   }
 
-  return 'easy';
+  // Preserve global bias if they do okay, otherwise fall back to easy
+  return ratio >= 0.25 ? globalDifficultyBias : 'easy';
 }
+
 
 function normalizeSectionCounts(sections = [], targetCount = 10) {
   const safeTarget = Math.max(1, targetCount || 10);

@@ -5111,3 +5111,546 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   LENA UI/UX OVERHAUL - INTERACTIVE & PREMIUM STYLES
+   ========================================================================== */
+
+/* 1. Glowing Hover Effects on Nodes & Choices */
+.duo-world-node {
+  transition: transform 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.28s ease, border-color 0.28s ease !important;
+}
+.duo-world-node:hover {
+  transform: scale(1.04) translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(120, 166, 255, 0.25), 0 0 20px rgba(120, 166, 255, 0.15) !important;
+  border-color: var(--primary) !important;
+}
+.duo-world-core {
+  transition: transform 0.28s ease !important;
+}
+.duo-world-node:hover .duo-world-core {
+  transform: rotate(3deg) scale(1.05);
+}
+
+.mc-choice {
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease !important;
+}
+.mc-choice:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.015) !important;
+  box-shadow: 0 10px 24px rgba(144, 118, 166, 0.16), 0 0 12px rgba(120, 166, 255, 0.1) !important;
+  border-color: var(--primary) !important;
+}
+.mc-choice:active:not(:disabled) {
+  transform: translateY(-1px) scale(0.99) !important;
+}
+
+/* 2. Glassmorphic Customizer Drawer */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 20, 60, 0.22);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  animation: fade-in 0.25s ease-out;
+}
+
+.customizer-drawer {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(25px);
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: -12px 0 45px rgba(40, 20, 60, 0.12);
+  display: flex;
+  flex-direction: column;
+  animation: slide-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.drawer-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.drawer-header h2 {
+  margin: 4px 0 0;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.45rem;
+  color: var(--text);
+}
+
+.drawer-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--muted);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.drawer-close:hover {
+  transform: rotate(90deg) scale(1.05);
+  background: var(--bg-pink);
+  color: var(--primary-strong);
+}
+
+.drawer-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.drawer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.drawer-section__title {
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.drawer-name-field {
+  display: flex;
+  gap: 8px;
+}
+
+.drawer-name-field input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 2px solid var(--line);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.85);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.drawer-name-field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(244, 109, 177, 0.18);
+}
+
+.drawer-switch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* Switch styling */
+.switch-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(144, 118, 166, 0.18);
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 34px;
+}
+
+.switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.switch-toggle input:checked + .switch-slider {
+  background-color: var(--mint);
+}
+
+.switch-toggle input:checked + .switch-slider:before {
+  transform: translateX(22px);
+}
+
+/* Customizer Grids */
+.drawer-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.drawer-options-grid--themes {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.drawer-theme-btn {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  border: 2px solid var(--line);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.drawer-theme-btn:hover:not(.is-locked) {
+  transform: scale(1.08) translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 6px 14px rgba(144, 118, 166, 0.15);
+}
+
+.drawer-theme-btn.is-active {
+  border-color: var(--primary-strong);
+  background: rgba(244, 109, 177, 0.06);
+  box-shadow: 0 0 10px rgba(244, 109, 177, 0.2);
+}
+
+.drawer-theme-icon {
+  font-size: 1.25rem;
+}
+
+.drawer-theme-colors {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+  justify-content: center;
+}
+
+.drawer-theme-colors span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.drawer-rect-btn {
+  position: relative;
+  padding: 12px;
+  border-radius: 16px;
+  border: 2px solid var(--line);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--text);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: left;
+}
+
+.drawer-rect-btn:hover:not(.is-locked) {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 6px 14px rgba(144, 118, 166, 0.1);
+}
+
+.drawer-rect-btn.is-active {
+  border-color: var(--secondary);
+  background: rgba(120, 166, 255, 0.06);
+}
+
+.drawer-rect-icon {
+  font-size: 1.2rem;
+}
+
+.drawer-rect-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-theme-btn.is-locked,
+.drawer-rect-btn.is-locked {
+  opacity: 0.65;
+  cursor: not-allowed;
+  background: rgba(240, 240, 240, 0.5);
+}
+
+.drawer-item-lock {
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 20, 60, 0.68);
+  border-radius: inherit;
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.drawer-theme-btn.is-locked:hover .drawer-item-lock,
+.drawer-rect-btn.is-locked:hover .drawer-item-lock {
+  opacity: 1;
+}
+
+/* Customizer Button pulsate style */
+.icon-link--customizer span[aria-hidden="true"] {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.icon-link--customizer:hover span[aria-hidden="true"] {
+  transform: rotate(15deg) scale(1.2);
+}
+
+/* 3. Floating Interactive Mascot "Lena" */
+.interactive-mascot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.mascot-bubble {
+  position: relative;
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 20px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  max-width: 200px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  animation: bubble-float 4s ease-in-out infinite alternate;
+}
+
+.mascot-bubble p {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.bubble-arrow {
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 10px;
+  background: white;
+  border-bottom: 2px solid var(--line);
+  border-right: 2px solid var(--line);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.mascot-character {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.mascot-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fffdfc 0%, #ffebf5 60%, #ffcbe5 100%);
+  border: 3px solid var(--line);
+  box-shadow: inset 0 -4px 10px rgba(244, 109, 177, 0.15), 0 8px 20px rgba(150, 121, 188, 0.12);
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mascot-character:hover .mascot-body {
+  transform: scale(1.08) translateY(-4px);
+  border-color: var(--primary);
+  background: radial-gradient(circle at 35% 35%, #fffdfc 0%, #ffeef8 60%, #ffb8df 100%);
+}
+
+.mascot-face {
+  font-size: 3.2rem;
+  user-select: none;
+}
+
+.mascot-shadow {
+  position: absolute;
+  bottom: -4px;
+  left: 10%;
+  width: 80%;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(150, 121, 188, 0.2);
+  filter: blur(1.5px);
+  z-index: 1;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mascot-character:hover ~ .mascot-shadow {
+  transform: scale(0.85);
+  opacity: 0.6;
+}
+
+/* Floating sparkles around mascot */
+.mascot-sparkle {
+  position: absolute;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.mascot-sparkle--a {
+  top: 10%;
+  left: -5%;
+  animation: sparkle-drift-a 3.5s ease-in-out infinite;
+}
+
+.mascot-sparkle--b {
+  bottom: 20%;
+  right: -5%;
+  animation: sparkle-drift-b 3.2s ease-in-out infinite 0.7s;
+}
+
+@keyframes sparkle-drift-a {
+  0% { transform: translateY(0) scale(0.5) rotate(0); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-18px) scale(1) rotate(180deg); opacity: 0; }
+}
+
+@keyframes sparkle-drift-b {
+  0% { transform: translateY(0) scale(0.5) rotate(0); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-15px) scale(0.9) rotate(-120deg); opacity: 0; }
+}
+
+@keyframes bubble-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+/* Mascot states and keyframes */
+.mascot--bounce .mascot-body {
+  animation: mascot-bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mascot--shake .mascot-body {
+  animation: mascot-shake 0.4s ease-in-out;
+}
+
+.mascot--jump .mascot-body {
+  animation: mascot-jump 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+@keyframes mascot-bounce {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.15, 0.85); }
+  50% { transform: scale(0.9, 1.1) translateY(-14px); }
+  70% { transform: scale(1.05, 0.95) translateY(0); }
+}
+
+@keyframes mascot-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px) rotate(-3deg); }
+  75% { transform: translateX(8px) rotate(3deg); }
+}
+
+@keyframes mascot-jump {
+  0%, 100% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(-16px) scale(1.05, 0.95) rotate(5deg); }
+  70% { transform: translateY(0) scale(0.98, 1.02); }
+}
+
+/* 4. Activity Layout grid with Mascot integration */
+.activity-layout-with-mascot {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.activity-mascot-sidebar {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 20px;
+}
+
+@media (min-width: 992px) {
+  .activity-layout-with-mascot {
+    grid-template-columns: 3.2fr 1fr;
+  }
+  
+  .activity-mascot-sidebar {
+    position: sticky;
+    top: 100px;
+    padding-top: 40px;
+  }
+}
+
+.completion-mascot-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  transform: scale(1.1);
+}
+

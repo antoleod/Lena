@@ -3,12 +3,16 @@ import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { logoutProfile } from '../../services/storage/profileStore.js';
 import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
+import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
+
 
 export default function AppShell() {
   const { t } = useLocale();
   const [session, setSession] = useState(() => getSessionSnapshot());
   const navigate = useNavigate();
   const location = useLocation();
+  const [customizerOpen, setCustomizerOpen] = useState(false);
+
 
   // Dynamic branding: use saved name or fallback to default
   const displayName = session.profile?.name || t('defaultChildName') || 'Kid';
@@ -102,6 +106,16 @@ export default function AppShell() {
           </button>
           <button
             type="button"
+            className="icon-link icon-link--customizer"
+            onClick={() => setCustomizerOpen(true)}
+            title="Personalizar mundo"
+          >
+            <span aria-hidden="true">🎨</span>
+            <span>Personalizar</span>
+          </button>
+
+          <button
+            type="button"
             className="icon-link"
             data-testid="shell-logout"
             onClick={() => {
@@ -114,6 +128,9 @@ export default function AppShell() {
           </button>
         </div>
       </header>
+
+      <CustomizerDrawer isOpen={customizerOpen} onClose={() => setCustomizerOpen(false)} />
+
 
       <main className="app-main app-main--game">
         <Outlet />

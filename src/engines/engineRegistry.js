@@ -1,6 +1,10 @@
 import BaseTenActivity from './base-ten/BaseTenActivity.jsx';
 import MultipleChoiceActivity from './multiple-choice/MultipleChoiceActivity.jsx';
 import StoryActivity from './story/StoryActivity.jsx';
+import ColoringActivity from './renforcement/coloring/ColoringActivity.jsx';
+import TraceActivity from './renforcement/trace/TraceActivity.jsx';
+import GridActivity from './renforcement/grid/GridActivity.jsx';
+import SpotDifferenceActivity from './renforcement/observe/SpotDifferenceActivity.jsx';
 
 const registry = Object.freeze({
   'multiple-choice': { id: 'multiple-choice', component: MultipleChoiceActivity },
@@ -15,7 +19,11 @@ const registry = Object.freeze({
   comparison: { id: 'comparison', component: MultipleChoiceActivity },
   sequence: { id: 'sequence', component: MultipleChoiceActivity },
   'drag-drop': { id: 'drag-drop', component: MultipleChoiceActivity },
-  'visual-logic': { id: 'visual-logic', component: MultipleChoiceActivity }
+  'visual-logic': { id: 'visual-logic', component: MultipleChoiceActivity },
+  coloring: { id: 'coloring', component: ColoringActivity },
+  trace: { id: 'trace', component: TraceActivity },
+  grid: { id: 'grid', component: GridActivity },
+  'spot-difference': { id: 'spot-difference', component: SpotDifferenceActivity }
 });
 
 export function getEngineRegistry() {

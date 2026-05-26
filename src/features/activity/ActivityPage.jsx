@@ -13,6 +13,8 @@ import { getModuleActivityPlan } from '../../shared/gameplay/moduleJourney.js';
 import { resolveActivity } from '../../content/registry/activityRegistry.js';
 import { getEngineDefinition } from '../../engines/engineRegistry.js';
 import { playRewardSound } from '../../services/sound/soundService.js';
+import Mascot from '../../shared/ui/Mascot.jsx';
+
 
 function resolveEngineKey(activity) {
   if (!activity) return 'multiple-choice';
@@ -25,11 +27,12 @@ function resolveEngineKey(activity) {
   return 'multiple-choice';
 }
 
-function renderEngine(activity, progress, onComplete) {
+function renderEngine(activity, progress, onComplete, onAnswerStateChange) {
   const engineKey = resolveEngineKey(activity);
   const Component = getEngineDefinition(engineKey)?.component || MultipleChoiceActivity;
-  return <Component activity={activity} progress={progress} onComplete={onComplete} />;
+  return <Component activity={activity} progress={progress} onComplete={onComplete} onAnswerStateChange={onAnswerStateChange} />;
 }
+
 
 function buildBackRoute({ moduleId, moduleJourney, world, mission }) {
   if (world && mission) return `/map/${world.id}/missions/${mission.id}`;
@@ -102,6 +105,8 @@ export default function ActivityPage() {
   const [activity, setActivity] = useState(null);
   const [completion, setCompletion] = useState(null);
   const [status, setStatus] = useState(baseActivity ? 'loading' : 'not-found');
+  const [mascotStatus, setMascotStatus] = useState('idle');
+
 
   useEffect(() => {
     if (!baseActivity) { setActivity(null); setStatus('not-found'); return; }
@@ -109,9 +114,11 @@ export default function ActivityPage() {
       const nextActivity = materializeActivity(baseActivity, getActivityProgress(baseActivity.id));
       setActivity(nextActivity);
       setCompletion(null);
+      setMascotStatus('idle');
       setStatus('ready');
     } catch { setActivity(null); setStatus('error'); }
   }, [activityId, baseActivity]);
+
 
   useEffect(() => {
     if (status !== 'completed' || !completion?.missionCrystals) return;
@@ -182,6 +189,7 @@ export default function ActivityPage() {
       activitiesCompleted: 1,
       examsCompleted: activity.engineType === 'story' ? 0 : 1,
     });
+    setMascotStatus('completed');
     setCompletion({
       score: result.lastScore || 0,
       totalQuestions: result.totalQuestions || 0,
@@ -192,6 +200,7 @@ export default function ActivityPage() {
     });
     setStatus('completed');
   }
+
 
   // Loading / error states
   if (status === 'loading') {
@@ -235,26 +244,37 @@ export default function ActivityPage() {
     const percent = Math.round((completion.score / total) * 100);
     const isPerfect = percent === 100;
     const isGood = percent >= 60;
-    const message = isPerfect
-      ? '¡Perfecto! ¡Eres increíble! 🌟'
-      : isGood
-        ? '¡Muy bien hecho! 💪'
-        : '¡Buen intento! Sigue practicando 💡';
+    const isRenforcement = activity?.subject === 'renforcement';
+    const message = isRenforcement
+      ? (isPerfect
+        ? 'Bravo, tu es vraiment tres fort ! 🌟'
+        : isGood
+          ? 'Tres bien ! On continue ensemble 🌱'
+          : 'Super ! On regarde encore ensemble 💡')
+      : (isPerfect
+        ? '¡Perfecto! ¡Eres increíble! 🌟'
+        : isGood
+          ? '¡Muy bien hecho! 💪'
+          : '¡Buen intento! Sigue practicando 💡');
 
     return (
       <div className="page-stack page-stack--compact" data-testid="activity-complete">
         <section className="completion-screen">
           <Confetti />
           <div className="completion-screen__inner">
+            <div className="completion-mascot-row">
+              <Mascot status="completed" />
+            </div>
             <ScoreStars score={completion.score} total={total} />
             <h1 className="completion-screen__msg">{message}</h1>
             <p className="completion-screen__activity">{activity.title}</p>
+
 
             <div className="completion-rewards">
               <div className="completion-reward">
                 <span aria-hidden="true">🏆</span>
                 <strong>{completion.score}/{total}</strong>
-                <small>Respuestas</small>
+                <small>{isRenforcement ? 'Reponses' : 'Respuestas'}</small>
               </div>
               <div className="completion-reward">
                 <span aria-hidden="true">💎</span>
@@ -265,7 +285,7 @@ export default function ActivityPage() {
                 <div className="completion-reward">
                   <span aria-hidden="true">🎯</span>
                   <strong>+{completion.missionCrystals}</strong>
-                  <small>Misión</small>
+                  <small>{isRenforcement ? 'Missions' : 'Mision'}</small>
                 </div>
               )}
               <div className="completion-reward">
@@ -319,10 +339,16 @@ export default function ActivityPage() {
           )}
         </header>
 
-        <div className="activity-engine activity-engine--full">
-          {renderEngine(activity, progress, handleComplete)}
+        <div className="activity-layout-with-mascot">
+          <div className="activity-engine">
+            {renderEngine(activity, progress, handleComplete, setMascotStatus)}
+          </div>
+          <div className="activity-mascot-sidebar">
+            <Mascot status={mascotStatus} />
+          </div>
         </div>
       </section>
     </div>
   );
 }
+

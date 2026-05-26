@@ -6,6 +6,8 @@ import {
 } from '../../services/storage/progressStore.js';
 import { useSpeechPlayer } from '../../shared/hooks/useSpeechPlayer.js';
 import { getProfile } from '../../services/storage/profileStore.js';
+import { playCorrectSound, playWrongSound } from '../../services/sound/soundService.js';
+
 
 function shuffleChoices(choices = []) {
   const list = [...choices];
@@ -85,12 +87,27 @@ const WRONG_MESSAGES = [
   'Casi, intenta de nuevo', 'No pasa nada, sigue', '¡Tú puedes!', 'Inténtalo otra vez 💡',
 ];
 
+// Renforcement: feedback 100% en francais et doux
+const CORRECT_MESSAGES_FR = [
+  'Bravo 🌟',
+  'Super ! ✨',
+  'Tu progresses 🌱',
+  'Très bien ! 🎉'
+];
+const WRONG_MESSAGES_FR = [
+  'Très bien essayé',
+  'On regarde encore ensemble',
+  'Tu y es presque',
+  'Encore une, en douceur'
+];
+
 function randomFrom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export default function MultipleChoiceActivity({ activity, progress, onComplete }) {
+export default function MultipleChoiceActivity({ activity, progress, onComplete, onAnswerStateChange }) {
   const { t } = useLocale();
+
   const { supported: speechSupported, speaking, speak, stop } = useSpeechPlayer(activity.language || 'fr');
   const initialQuestionStates = useMemo(() => getActivityQuestionStates(activity.id), [activity.id]);
   const [queue, setQueue] = useState(() => buildQueue(activity));
@@ -155,7 +172,11 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
     setFeedback(null);
     setFeedbackMsg('');
     setIsLocked(false);
+    if (onAnswerStateChange) {
+      onAnswerStateChange('thinking');
+    }
   }
+
 
   function handleChoiceClick(option) {
     if (feedback || isLocked) return;
@@ -179,7 +200,10 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
       });
     }
 
-    const msg = isCorrect ? randomFrom(CORRECT_MESSAGES) : randomFrom(WRONG_MESSAGES);
+    const isRenforcement = activity?.subject === 'renforcement';
+    const msg = isCorrect
+      ? randomFrom(isRenforcement ? CORRECT_MESSAGES_FR : CORRECT_MESSAGES)
+      : randomFrom(isRenforcement ? WRONG_MESSAGES_FR : WRONG_MESSAGES);
     setQueue(nextQueue);
     setSelected(option.id);
     setScore(nextScore);
@@ -190,8 +214,21 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete 
       ? Number(feedbackPreferences.correctDurationMs || 1000)
       : Number(feedbackPreferences.wrongDurationMs || 2000);
 
+    if (isCorrect) {
+      playCorrectSound();
+      if (onAnswerStateChange) {
+        onAnswerStateChange('correct');
+      }
+    } else {
+      playWrongSound();
+      if (onAnswerStateChange) {
+        onAnswerStateChange('wrong');
+      }
+    }
+
     setFeedbackMsg(msg);
     setIsLocked(true);
+
     setFeedback(shouldShowFeedback ? {
       isCorrect,
       explanation: !isCorrect && questionState.failures >= 2

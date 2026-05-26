@@ -49,3 +49,48 @@ export async function playRewardSound() {
   scheduleTone(context, 'triangle', 659.25, start + 0.12, 0.2, 0.07);
   scheduleTone(context, 'sine', 783.99, start + 0.24, 0.28, 0.08);
 }
+
+export async function playCorrectSound() {
+  const profile = getProfile();
+  if (profile.settings?.soundEnabled === false) return;
+
+  const context = getAudioContext();
+  if (!context) return;
+
+  if (context.state === 'suspended') {
+    try {
+      await context.resume();
+    } catch {
+      return;
+    }
+  }
+
+  const start = context.currentTime + 0.01;
+  // Upbeat ascending arpeggio (C5 -> E5 -> G5 -> C6)
+  scheduleTone(context, 'sine', 523.25, start, 0.08, 0.05);
+  scheduleTone(context, 'sine', 659.25, start + 0.07, 0.08, 0.05);
+  scheduleTone(context, 'sine', 783.99, start + 0.14, 0.08, 0.05);
+  scheduleTone(context, 'sine', 1046.50, start + 0.21, 0.18, 0.06);
+}
+
+export async function playWrongSound() {
+  const profile = getProfile();
+  if (profile.settings?.soundEnabled === false) return;
+
+  const context = getAudioContext();
+  if (!context) return;
+
+  if (context.state === 'suspended') {
+    try {
+      await context.resume();
+    } catch {
+      return;
+    }
+  }
+
+  const start = context.currentTime + 0.01;
+  // Low-pitched gentle warning arpeggio (G3 -> D3)
+  scheduleTone(context, 'triangle', 196.00, start, 0.12, 0.05);
+  scheduleTone(context, 'triangle', 146.83, start + 0.09, 0.20, 0.05);
+}
+

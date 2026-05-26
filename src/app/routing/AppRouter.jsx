@@ -19,6 +19,8 @@ import { resolveMissionById } from '../../content/registry/worldRegistry.js';
 import { isProfileComplete } from '../../services/storage/profileStore.js';
 import { getNextAdventureTarget } from '../../shared/gameplay/adventureProgress.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import RenforcementHubPage from '../../features/renforcement/RenforcementHubPage.jsx';
+import RenforcementSectionPage from '../../features/renforcement/RenforcementSectionPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -104,6 +106,8 @@ export default function AppRouter() {
         <Route path="/lesson/:lessonId" element={<LessonRedirect />} />
         <Route path="/mission/:missionId" element={<MissionRedirect />} />
         <Route path="/activities/:activityId" element={<ActivityPage />} />
+        <Route path="/renforcement" element={<RenforcementHubPage />} />
+        <Route path="/renforcement/:sectionId" element={<RenforcementSectionPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/settings" element={<SettingsPage />} />

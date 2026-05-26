@@ -49,6 +49,7 @@ export default function HomePage() {
   const quickLinks = useMemo(() => [
     { to: '/map', icon: '🗺️', label: t('homeMapCardTitle'), sub: t('homeMapCardCopy') },
     { to: '/subjects', icon: '📚', label: t('homeSubjectsCardTitle'), sub: t('homeSubjectsCardCopy') },
+    { to: '/renforcement', icon: '🌟', label: 'Renforcement', sub: 'Des exercices doux, une consigne a la fois.' },
     { to: '/history', icon: '📈', label: t('homeHistoryCardTitle'), sub: t('homeHistoryCardCopy') },
     { to: '/shop', icon: '🛍️', label: t('homeShopCardTitle'), sub: `${rewards.balance || 0} ${t('crystals')}` },
   ], [t, rewards.balance]);
