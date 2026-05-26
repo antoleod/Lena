@@ -89,6 +89,48 @@ const TOPIC_DEFINITIONS = Object.freeze({
     activityType: 'multiple-choice',
     engineType: 'multiple-choice',
     skillTags: ['decimals']
+  },
+  shapes: {
+    domain: 'math',
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
+    skillTags: ['shapes', 'geometry', 'observation']
+  },
+  colors: {
+    domain: 'logic',
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
+    skillTags: ['colors', 'observation']
+  },
+  observation: {
+    domain: 'logic',
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
+    skillTags: ['observation', 'attention']
+  },
+  tracing: {
+    domain: 'logic',
+    activityType: 'builder',
+    engineType: 'trace',
+    skillTags: ['tracing', 'motor-skills']
+  },
+  tables: {
+    domain: 'math',
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
+    skillTags: ['tables', 'multiplication']
+  },
+  measurement: {
+    domain: 'math',
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
+    skillTags: ['measurement', 'units', 'length', 'volume', 'mass']
+  },
+  geometry: {
+    domain: 'math',
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
+    skillTags: ['geometry', 'shapes', 'area', 'perimeter', 'angles']
   }
 });
 
@@ -112,7 +154,21 @@ const SKILL_TO_TOPIC = Object.freeze({
   comprehension: 'reading-comprehension',
   sentences: 'sentence-completion',
   'sentence-building': 'sentence-completion',
-  'fill-in': 'sentence-completion'
+  'fill-in': 'sentence-completion',
+  shapes: 'geometry',
+  colors: 'colors',
+  observation: 'observation',
+  tracing: 'tracing',
+  tables: 'tables',
+  measurement: 'measurement',
+  mesure: 'measurement',
+  length: 'measurement',
+  volume: 'measurement',
+  mass: 'measurement',
+  geometry: 'geometry',
+  geometrie: 'geometry',
+  'figuras-geometricas': 'geometry',
+  'geometric-shapes': 'geometry'
 });
 
 function normalizeKey(value) {

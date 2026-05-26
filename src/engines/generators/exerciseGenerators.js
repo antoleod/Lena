@@ -9,6 +9,7 @@ import { generatePlaceValueExercise } from './placeValueGenerator.js';
 import { generateTimeExercise } from './timeGenerator.js';
 import { generateMoneyExercise } from './moneyGenerator.js';
 import { generateGeometryExercise } from './geometryGenerator.js';
+import { generateMeasurementExercise } from './measurementGenerator.js';
 import { generateVocabularyExercise } from './vocabularyGenerator.js';
 import { generateSentenceBuilderExercise } from './sentenceBuilderGenerator.js';
 import { generateReadingQuestionExercise } from './readingQuestionGenerator.js';
@@ -20,6 +21,32 @@ function resolveDifficulty(grade, difficulty) {
     return difficulty;
   }
 
+  // Calculate dynamic adaptive difficulty from global profile achievements
+  try {
+    const raw = window.localStorage.getItem('lena:migration:progress:v3');
+    if (raw) {
+      const store = JSON.parse(raw);
+      const activities = Object.values(store.activities || {});
+      if (activities.length > 0) {
+        const played = activities.filter(act => act.completed || act.attempts > 0);
+        if (played.length > 0) {
+          played.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+          const recent = played.slice(0, 3);
+          const avgRatio = recent.reduce((sum, act) => {
+            const actRatio = (act.bestScore || 0) / (act.totalQuestions || 10);
+            return sum + actRatio;
+          }, 0) / recent.length;
+          
+          if (avgRatio >= 0.82) return 'hard';
+          if (avgRatio >= 0.58) return 'medium';
+          return 'easy';
+        }
+      }
+    }
+  } catch (e) {
+    // Fall back to grade-based logic on storage failures
+  }
+
   if (grade === 'P2') {
     return 'easy';
   }
@@ -28,6 +55,7 @@ function resolveDifficulty(grade, difficulty) {
   }
   return 'hard';
 }
+
 
 function resolveParams(input) {
   const grade = input.grade || 'P2';
@@ -70,6 +98,9 @@ export function generateExercise(input) {
       break;
     case 'geometry':
       exercise = generateGeometryExercise(params);
+      break;
+    case 'measurement':
+      exercise = generateMeasurementExercise(params);
       break;
     case 'reading-comprehension':
       exercise = generateReadingQuestionExercise(params);

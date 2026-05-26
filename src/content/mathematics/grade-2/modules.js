@@ -125,7 +125,7 @@ export const mathematicsGrade2Modules = [
     summary: 'Deux ateliers utiles du quotidien qui etaient jouables mais peu visibles.',
     goal: 'Faire exister heure, formes et symetrie dans le parcours principal.',
     demo: 'Une demonstration montre comment lire une heure simple puis reconnaitre une forme.',
-    guidedActivityIds: ['read-time-p2', 'generated-time-p2', 'shapes-symmetry-p2'],
+    guidedActivityIds: ['read-time-p2', 'generated-time-p2', 'shapes-symmetry-p2', 'mesures-longueur-p2', 'mesures-contenance-p2'],
     independentActivityIds: ['money-simple', 'generated-money-p2', 'generated-geometry-p2'],
     challengeActivityId: 'read-time-p2',
     examActivityId: 'generated-geometry-p2',

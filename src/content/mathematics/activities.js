@@ -463,7 +463,148 @@ const coreActivities = [
   }
 ];
 
+const measurementGeometryActivities = [
+  {
+    id: 'mesures-longueur-p2',
+    slug: 'mesures-longueur-p2',
+    title: 'Mesures de longueur',
+    subject: 'mathematics',
+    subskill: 'measurement',
+    gradeBand: ['P2', 'P3'],
+    language: 'fr',
+    difficulty: 'guided',
+    estimatedDurationMin: 10,
+    instructions: 'Apprends a mesurer des longueurs en cm, dm et m, puis reussis le mini examen.',
+    correctionType: 'multiple-choice',
+    hints: ['1 m = 100 cm. 1 dm = 10 cm.'],
+    tags: ['mesure', 'longueur', 'cm', 'm'],
+    accessibility: ['situations concretes'],
+    originRepo: 'Lena',
+    engineType: 'multiple-choice',
+    sections: buildSections(
+      [
+        { prompt: 'Une regle mesure 30 cm. Combien de millimetres ?', choices: ['300 mm', '30 mm', '3 mm'], answer: '300 mm', explanation: '1 cm = 10 mm, donc 30 cm = 300 mm.' },
+        { prompt: 'Une porte mesure 2 m. Combien de centimetres ?', choices: ['200 cm', '20 cm', '2 000 cm'], answer: '200 cm', explanation: '1 m = 100 cm, donc 2 m = 200 cm.' },
+        { prompt: 'Un crayon mesure 15 cm et une gomme 5 cm. Quelle longueur totale ?', choices: ['20 cm', '10 cm', '25 cm'], answer: '20 cm', explanation: '15 + 5 = 20 cm.' },
+        { prompt: 'Un ruban de 50 cm est coupe en 2 parts egales. Quelle longueur chaque part ?', choices: ['25 cm', '20 cm', '30 cm'], answer: '25 cm', explanation: '50 / 2 = 25 cm.' },
+        { prompt: '1 km vaut combien de metres ?', choices: ['1 000 m', '100 m', '10 000 m'], answer: '1 000 m', explanation: '1 km = 1 000 m.' },
+        { prompt: 'Un fil mesure 3 m. On en coupe 80 cm. Combien reste-t-il en cm ?', choices: ['220 cm', '200 cm', '230 cm'], answer: '220 cm', explanation: '300 cm - 80 cm = 220 cm.' }
+      ],
+      [
+        { prompt: 'Un couloir mesure 4 m. Combien de cm ?', choices: ['400 cm', '40 cm', '4 000 cm'], answer: '400 cm', explanation: '4 m = 400 cm.' },
+        { prompt: 'Tom marche 250 m. Quelle fraction de km a-t-il parcouru ?', choices: ['1/4 de km', '1/2 km', '3/4 de km'], answer: '1/4 de km', explanation: '250 m = 1/4 de 1 000 m.' },
+        { prompt: 'Une corde de 6 m est coupee en morceaux de 2 m. Combien de morceaux ?', choices: ['3', '4', '2'], answer: '3', explanation: '6 / 2 = 3 morceaux.' }
+      ],
+      'Atelier longueurs',
+      'Mini examen longueurs'
+    )
+  },
+  {
+    id: 'mesures-contenance-p2',
+    slug: 'mesures-contenance-p2',
+    title: 'Contenances : ml, cl et L',
+    subject: 'mathematics',
+    subskill: 'measurement',
+    gradeBand: ['P2', 'P3'],
+    language: 'fr',
+    difficulty: 'guided',
+    estimatedDurationMin: 9,
+    instructions: 'Decouvre les unites de contenance et choisis les bonnes reponses.',
+    correctionType: 'multiple-choice',
+    hints: ['1 L = 100 cl = 1 000 ml.'],
+    tags: ['mesure', 'contenance', 'ml', 'cl', 'litre'],
+    accessibility: ['contexte quotidien'],
+    originRepo: 'Lena',
+    engineType: 'multiple-choice',
+    sections: buildSections(
+      [
+        { prompt: 'Un grand verre contient 250 ml. Combien de ml dans 4 verres ?', choices: ['1 000 ml', '500 ml', '750 ml'], answer: '1 000 ml', explanation: '4 x 250 = 1 000 ml = 1 L.' },
+        { prompt: '1 litre vaut combien de millilitres ?', choices: ['1 000 ml', '100 ml', '10 ml'], answer: '1 000 ml', explanation: '1 L = 1 000 ml.' },
+        { prompt: 'Une bouteille a 500 ml. On en boit 200 ml. Combien reste-t-il ?', choices: ['300 ml', '250 ml', '350 ml'], answer: '300 ml', explanation: '500 - 200 = 300 ml.' },
+        { prompt: '1 L est-il plus grand ou plus petit que 750 ml ?', choices: ['Plus grand', 'Plus petit', 'Egal'], answer: 'Plus grand', explanation: '1 L = 1 000 ml > 750 ml.' },
+        { prompt: '2 L font combien de millilitres ?', choices: ['2 000 ml', '200 ml', '20 000 ml'], answer: '2 000 ml', explanation: '2 x 1 000 ml = 2 000 ml.' }
+      ],
+      [
+        { prompt: 'Un bol contient 150 ml. Combien de ml dans 3 bols ?', choices: ['450 ml', '300 ml', '600 ml'], answer: '450 ml', explanation: '3 x 150 = 450 ml.' },
+        { prompt: 'Une bouteille de 1,5 L vaut combien de ml ?', choices: ['1 500 ml', '150 ml', '15 000 ml'], answer: '1 500 ml', explanation: '1,5 x 1 000 = 1 500 ml.' }
+      ],
+      'Atelier contenances',
+      'Mini examen contenances'
+    )
+  },
+  {
+    id: 'geometrie-figures-p3',
+    slug: 'geometrie-figures-p3',
+    title: 'Figures et perimetres',
+    subject: 'mathematics',
+    subskill: 'geometry',
+    gradeBand: ['P3', 'P4'],
+    language: 'fr',
+    difficulty: 'progressive',
+    estimatedDurationMin: 11,
+    instructions: 'Identifie les figures, calcule les perimetres et reussis le mini examen.',
+    correctionType: 'multiple-choice',
+    hints: ['Perimetre = somme de tous les cotes.'],
+    tags: ['geometrie', 'perimetre', 'polygone'],
+    accessibility: ['calculs simples'],
+    originRepo: 'Lena',
+    engineType: 'multiple-choice',
+    sections: buildSections(
+      [
+        { prompt: 'Un carre a un cote de 5 cm. Quel est son perimetre ?', choices: ['20 cm', '25 cm', '10 cm'], answer: '20 cm', explanation: '4 x 5 = 20 cm.' },
+        { prompt: 'Un rectangle mesure 8 cm x 3 cm. Quel est son perimetre ?', choices: ['22 cm', '24 cm', '11 cm'], answer: '22 cm', explanation: 'P = 2 x (8 + 3) = 22 cm.' },
+        { prompt: 'Un triangle equilateral a un cote de 6 cm. Quel est son perimetre ?', choices: ['18 cm', '12 cm', '24 cm'], answer: '18 cm', explanation: '3 x 6 = 18 cm.' },
+        { prompt: 'La somme des angles d\'un triangle est ?', choices: ['180 degres', '360 degres', '90 degres'], answer: '180 degres', explanation: 'La somme des angles interieurs d\'un triangle est toujours 180 degres.' },
+        { prompt: 'Un hexagone regulier a 6 cotes de 3 cm. Quel perimetre ?', choices: ['18 cm', '12 cm', '24 cm'], answer: '18 cm', explanation: '6 x 3 = 18 cm.' },
+        { prompt: 'Un carre a un perimetre de 36 cm. Quelle est la longueur d\'un cote ?', choices: ['9 cm', '6 cm', '12 cm'], answer: '9 cm', explanation: '36 / 4 = 9 cm.' }
+      ],
+      [
+        { prompt: 'Un rectangle a un perimetre de 28 cm et une longueur de 9 cm. Quelle est sa largeur ?', choices: ['5 cm', '10 cm', '7 cm'], answer: '5 cm', explanation: '28 = 2 x (9 + L) => L = 5 cm.' },
+        { prompt: 'Un triangle a des angles de 60 et 80 degres. Quel est le troisieme angle ?', choices: ['40 degres', '50 degres', '60 degres'], answer: '40 degres', explanation: '180 - 60 - 80 = 40 degres.' },
+        { prompt: 'Un pentagone regulier a des cotes de 7 cm. Quel est son perimetre ?', choices: ['35 cm', '28 cm', '42 cm'], answer: '35 cm', explanation: '5 x 7 = 35 cm.' }
+      ],
+      'Atelier perimetres',
+      'Mini examen perimetres'
+    )
+  },
+  {
+    id: 'geometrie-aires-p4',
+    slug: 'geometrie-aires-p4',
+    title: 'Aires et angles',
+    subject: 'mathematics',
+    subskill: 'geometry',
+    gradeBand: ['P4', 'P5', 'P6'],
+    language: 'fr',
+    difficulty: 'progressive',
+    estimatedDurationMin: 12,
+    instructions: 'Calcule des aires, identifie des angles et reussis le mini examen.',
+    correctionType: 'multiple-choice',
+    hints: ['Aire carre = cote2. Aire rectangle = longueur x largeur. Aire triangle = (base x hauteur) / 2.'],
+    tags: ['geometrie', 'aire', 'angle', 'cm2'],
+    accessibility: ['formules rappelees'],
+    originRepo: 'Lena',
+    engineType: 'multiple-choice',
+    sections: buildSections(
+      [
+        { prompt: 'Quelle est l\'aire d\'un carre de 7 cm de cote ?', choices: ['49 cm2', '28 cm2', '14 cm2'], answer: '49 cm2', explanation: '7 x 7 = 49 cm2.' },
+        { prompt: 'Un rectangle de 10 cm x 4 cm. Quelle est son aire ?', choices: ['40 cm2', '28 cm2', '20 cm2'], answer: '40 cm2', explanation: '10 x 4 = 40 cm2.' },
+        { prompt: 'Un triangle a une base de 8 cm et une hauteur de 6 cm. Quelle est son aire ?', choices: ['24 cm2', '48 cm2', '14 cm2'], answer: '24 cm2', explanation: '(8 x 6) / 2 = 24 cm2.' },
+        { prompt: 'Quelle est la somme des angles interieurs d\'un quadrilatere ?', choices: ['360 degres', '180 degres', '270 degres'], answer: '360 degres', explanation: 'Tout quadrilatere a une somme d\'angles de 360 degres.' },
+        { prompt: 'Un cercle a un diametre de 10 cm. Quel est son rayon ?', choices: ['5 cm', '10 cm', '20 cm'], answer: '5 cm', explanation: 'Rayon = diametre / 2 = 10 / 2 = 5 cm.' },
+        { prompt: 'Quelle est l\'aire d\'un carre de 9 cm ?', choices: ['81 cm2', '36 cm2', '18 cm2'], answer: '81 cm2', explanation: '9 x 9 = 81 cm2.' }
+      ],
+      [
+        { prompt: 'Un triangle a des angles de 90 et 45 degres. Quel est le troisieme ?', choices: ['45 degres', '90 degres', '60 degres'], answer: '45 degres', explanation: '180 - 90 - 45 = 45 degres.' },
+        { prompt: 'Un rectangle a une aire de 60 cm2 et une largeur de 5 cm. Quelle est sa longueur ?', choices: ['12 cm', '10 cm', '15 cm'], answer: '12 cm', explanation: '60 / 5 = 12 cm.' },
+        { prompt: 'Un carre a un perimetre de 48 cm. Quelle est son aire ?', choices: ['144 cm2', '96 cm2', '48 cm2'], answer: '144 cm2', explanation: 'Cote = 48 / 4 = 12 cm => 12 x 12 = 144 cm2.' }
+      ],
+      'Atelier aires et angles',
+      'Mini examen aires et angles'
+    )
+  }
+];
+
 const multiplicationTableActivities = Array.from({ length: 11 }, (_, index) => createTableActivity(index + 2));
 const divisionTableActivities = Array.from({ length: 11 }, (_, index) => createDivisionTableActivity(index + 2));
 
-export const mathematicsActivities = [...coreActivities, ...multiplicationTableActivities, ...divisionTableActivities];
+export const mathematicsActivities = [...coreActivities, ...measurementGeometryActivities, ...multiplicationTableActivities, ...divisionTableActivities];
