@@ -4,6 +4,7 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { logoutProfile } from '../../services/storage/profileStore.js';
 import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
+import { playTapSound } from '../../services/sound/soundService.js';
 
 
 export default function AppShell() {
@@ -61,7 +62,7 @@ export default function AppShell() {
         <span className="scene-effects__rainbow"></span>
       </div>
       <header className="app-topbar" data-testid="app-shell">
-        <button type="button" className="brand-inline" onClick={() => navigate('/')} data-testid="shell-brand">
+        <button type="button" className="brand-inline" onClick={() => { playTapSound(); navigate('/'); }} data-testid="shell-brand">
           <span className="brand-inline__mark">{displayInitial}</span>
           <span className="brand-inline__name">{displayName}</span>
         </button>
@@ -72,6 +73,7 @@ export default function AppShell() {
               key={item.to}
               className={({ isActive }) => `topbar-link${isActive ? ' is-active' : ''}`}
               to={item.to}
+              onClick={playTapSound}
               data-testid={`nav-${item.to.replace('/', '') || 'home'}`}
             >
               <span className="topbar-link__icon" aria-hidden="true">{item.icon}</span>
@@ -81,7 +83,7 @@ export default function AppShell() {
         </nav>
 
         <div className="topbar-tools">
-          <button type="button" className="wallet-compact" onClick={() => navigate('/shop')} data-testid="shell-wallet">
+          <button type="button" className="wallet-compact" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-wallet">
             <span>{session.rewards.balance}</span>
             <small>{t('crystals')}</small>
           </button>
@@ -89,7 +91,7 @@ export default function AppShell() {
           <button
             type="button"
             className="profile-inline"
-            onClick={() => navigate('/')}
+            onClick={() => { playTapSound(); navigate('/'); }}
             title={displayName}
             data-testid="shell-profile"
           >
@@ -97,7 +99,7 @@ export default function AppShell() {
             <span className="profile-inline__name">{displayName}</span>
           </button>
 
-          <button type="button" className="icon-link" onClick={() => navigate('/shop')} data-testid="shell-shop" title={t('shop')}>
+          <button type="button" className="icon-link" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-shop" title={t('shop')}>
             <span aria-hidden="true">🛍</span>
             <span>{t('shop')}</span>
             {session.rewards.balance > 50 && (
@@ -107,7 +109,7 @@ export default function AppShell() {
           <button
             type="button"
             className="icon-link icon-link--customizer"
-            onClick={() => setCustomizerOpen(true)}
+            onClick={() => { playTapSound(); setCustomizerOpen(true); }}
             title="Personalizar mundo"
           >
             <span aria-hidden="true">🎨</span>
@@ -119,6 +121,7 @@ export default function AppShell() {
             className="icon-link"
             data-testid="shell-logout"
             onClick={() => {
+              playTapSound();
               logoutProfile();
               navigate('/onboarding', { replace: true, state: { from: location.pathname } });
             }}

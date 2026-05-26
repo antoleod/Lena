@@ -94,3 +94,27 @@ export async function playWrongSound() {
   scheduleTone(context, 'triangle', 146.83, start + 0.09, 0.20, 0.05);
 }
 
+/**
+ * Soft tap sound — a single short sine blip for general UI interactions.
+ * Much quieter and shorter than answer sounds; won't disrupt activity flow.
+ */
+export async function playTapSound() {
+  const profile = getProfile();
+  if (profile.settings?.soundEnabled === false) return;
+
+  const context = getAudioContext();
+  if (!context) return;
+
+  if (context.state === 'suspended') {
+    try {
+      await context.resume();
+    } catch {
+      return;
+    }
+  }
+
+  const start = context.currentTime + 0.01;
+  // Single gentle blip: A4 (440Hz), sine, very short and quiet
+  scheduleTone(context, 'sine', 440, start, 0.06, 0.03);
+}
+

@@ -517,12 +517,15 @@ button {
 
 .nav-chip,
 .pill {
-  padding: 10px 14px;
+  min-height: 44px;
+  padding: 10px 18px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--line);
   color: var(--muted);
   font-weight: 800;
+  font-size: 0.95rem;
+  touch-action: manipulation;
 }
 
 .nav-chip.is-active {
@@ -631,13 +634,14 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 38px;
-  padding: 0 14px;
+  min-height: 48px;
+  padding: 0 20px;
   border-radius: 16px;
   border: none;
   cursor: pointer;
   font-weight: 900;
-  font-size: 0.92rem;
+  font-size: 1rem;
+  touch-action: manipulation;
 }
 
 .primary-action {
@@ -865,12 +869,14 @@ button {
 .phase-link {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
-  padding: 10px 12px;
+  min-height: 48px;
+  padding: 12px 16px;
   border-radius: 14px;
   background: rgba(120, 166, 255, 0.1);
   color: var(--text);
   font-weight: 800;
+  font-size: 1rem;
+  touch-action: manipulation;
 }
 
 .reward-card--theme {
@@ -1634,15 +1640,17 @@ button {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  min-height: 28px;
-  padding: 0 7px;
-  border-radius: 9px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
   font-weight: 800;
   cursor: pointer;
   white-space: nowrap;
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   line-height: 1;
   flex: 0 0 auto;
+  /* Larger tap target for kids on touch screens */
+  touch-action: manipulation;
 }
 
 .topbar-link.is-active,
@@ -1663,24 +1671,25 @@ button {
 .wallet-compact {
   display: grid;
   justify-items: center;
-  min-width: 56px;
-  min-height: 28px;
-  padding: 2px 6px;
-  border-radius: 9px;
+  min-width: 60px;
+  min-height: 44px;
+  padding: 4px 10px;
+  border-radius: 12px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 216, 0.96));
   border: 1px solid var(--line);
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .wallet-compact span {
   font-family: 'Fredoka', sans-serif;
-  font-size: 0.86rem;
+  font-size: 0.95rem;
   line-height: 1;
 }
 
 .wallet-compact small {
   color: var(--muted);
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 900;
   line-height: 1;
 }
@@ -1699,29 +1708,30 @@ button {
   display: flex;
   align-items: center;
   gap: 6px;
-  min-height: 28px;
-  padding: 0 6px 0 3px;
-  border-radius: 9px;
+  min-height: 44px;
+  padding: 0 10px 0 6px;
+  border-radius: 12px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.92);
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .profile-inline__avatar {
   display: grid;
   place-items: center;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border-radius: 999px;
   background: var(--theme-gradient);
   color: white;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 900;
 }
 
 .profile-inline__name {
   font-weight: 800;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   line-height: 1;
 }
 
@@ -1982,17 +1992,18 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 34px;
-  padding: 0 12px;
+  min-height: 44px;
+  padding: 0 16px;
   border-radius: 999px;
   border: 1px solid rgba(144, 118, 166, 0.16);
   background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow-soft);
   color: var(--text);
   font-weight: 800;
+  font-size: 0.95rem;
   text-decoration: none;
   backdrop-filter: blur(12px);
-  touch-action: none;
+  touch-action: manipulation;
   user-select: none;
   white-space: nowrap;
   max-width: calc(100vw - 24px);
@@ -2083,13 +2094,15 @@ button {
 .module-level-dot {
   display: grid;
   place-items: center;
-  min-height: 38px;
+  min-height: 48px;
   border-radius: 14px;
   border: 1px solid rgba(144, 118, 166, 0.12);
   background: rgba(255, 255, 255, 0.96);
   font-weight: 900;
+  font-size: 1rem;
   box-shadow: var(--shadow-soft);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  touch-action: manipulation;
 }
 
 .module-level-dot:hover {
@@ -2777,7 +2790,7 @@ button {
   }
 
   .engine-prompt {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .prompt-tools {
@@ -3976,7 +3989,7 @@ button {
 .mc-prompt {
   flex: 1;
   margin: 0;
-  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
   font-weight: 800;
   color: var(--text);
   line-height: 1.35;
@@ -4041,8 +4054,8 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-height: 70px;
-  padding: 14px 16px;
+  min-height: 72px;
+  padding: 16px 18px;
   border-radius: 18px;
   border: 2px solid rgba(144, 118, 166, 0.15);
   background: rgba(255, 255, 255, 0.96);
@@ -4052,6 +4065,9 @@ button {
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
   box-shadow: 0 4px 12px rgba(150, 121, 188, 0.08);
   width: 100%;
+  touch-action: manipulation;
+  /* Readable font size for ages 6-12 */
+  font-size: 1rem;
 }
 
 .mc-choice:hover:not(:disabled) {
@@ -4082,8 +4098,8 @@ button {
 }
 
 .mc-choice--compact {
-  min-height: 56px;
-  padding: 10px 12px;
+  min-height: 64px;
+  padding: 12px 14px;
   border-radius: 16px;
 }
 
@@ -4121,14 +4137,14 @@ button {
 }
 
 .mc-choice__text strong {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--text);
   line-height: 1.3;
 }
 
 .mc-choice__text small {
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   color: var(--muted);
   font-weight: 700;
 }
@@ -4310,7 +4326,7 @@ button {
   }
 
   .mc-choice {
-    min-height: 60px;
+    min-height: 68px;
   }
 
   .completion-rewards {
@@ -4464,14 +4480,16 @@ button {
 .history-entry__cta {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
   background: var(--theme-gradient);
   color: white;
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-decoration: none;
   transition: transform 0.15s ease;
+  touch-action: manipulation;
+  flex-shrink: 0;
 }
 
 .history-entry__cta:hover {
@@ -4508,10 +4526,10 @@ button {
 
 .primary-action,
 .secondary-action {
-  min-height: 44px;
-  padding: 0 18px;
-  border-radius: 14px;
-  font-size: 0.95rem;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 16px;
+  font-size: 1rem;
 }
 
 .primary-action:hover {
@@ -4745,14 +4763,14 @@ button {
   .icon-link,
   .profile-inline,
   .wallet-compact {
-    min-height: 28px;
-    border-radius: 9px;
-    font-size: 0.78rem;
+    min-height: 44px;
+    border-radius: 12px;
+    font-size: 0.85rem;
   }
 
   .wallet-compact {
-    min-width: 54px;
-    padding: 2px 6px;
+    min-width: 58px;
+    padding: 4px 8px;
   }
 
   .page-stack--compact,
@@ -4885,10 +4903,10 @@ button {
 
   .primary-action,
   .secondary-action {
-    min-height: 40px;
-    padding: 0 14px;
-    border-radius: 13px;
-    font-size: 0.88rem;
+    min-height: 48px;
+    padding: 0 18px;
+    border-radius: 14px;
+    font-size: 0.95rem;
   }
 
   .button-icon {
@@ -4999,12 +5017,12 @@ button {
   }
 
   .mc-prompt {
-    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
   }
 
   .mc-choice {
-    min-height: 62px;
-    padding: 12px 14px;
+    min-height: 68px;
+    padding: 14px 16px;
     border-radius: 16px;
   }
 
@@ -5087,8 +5105,9 @@ button {
 
   .topbar-link,
   .icon-link {
-    padding: 0 7px;
-    font-size: 0.8rem;
+    padding: 0 10px;
+    font-size: 0.85rem;
+    /* Preserve 44px min-height — do not shrink for touch */
   }
 
   .profile-inline__name {
@@ -5100,9 +5119,9 @@ button {
 
 @media (max-width: 767px) {
   .floating-back-button {
-    min-height: 32px;
-    padding: 0 10px;
-    font-size: 0.82rem;
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 0.9rem;
   }
 
   .subject-road-strip,
@@ -5197,8 +5216,8 @@ button {
 }
 
 .drawer-close {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid var(--line);
   background: white;
@@ -5206,9 +5225,10 @@ button {
   cursor: pointer;
   display: grid;
   place-items: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   transition: transform 0.2s ease, background-color 0.2s ease;
+  touch-action: manipulation;
 }
 
 .drawer-close:hover {
@@ -5506,6 +5526,9 @@ button {
   cursor: pointer;
   padding: 0;
   outline: none;
+  touch-action: manipulation;
+  /* Focus ring for accessibility */
+  border-radius: 50%;
 }
 
 .mascot-body {
@@ -5652,5 +5675,262 @@ button {
   justify-content: center;
   margin-bottom: 24px;
   transform: scale(1.1);
+}
+
+/* ==========================================================================
+   KID-FRIENDLY UX — Touch, Feedback, Readability, Navigation Clarity
+   ========================================================================== */
+
+/* --- Global touch-action on all interactive elements ------------------- */
+button,
+a,
+[role="button"],
+select,
+input[type="checkbox"],
+input[type="radio"],
+label {
+  touch-action: manipulation;
+}
+
+/* --- :active press feedback (instant visual response on tap) ----------- */
+.primary-action:active,
+.secondary-action:active {
+  transform: scale(0.96) translateY(1px) !important;
+  box-shadow: none !important;
+}
+
+.nav-chip:active,
+.topbar-link:active,
+.icon-link:active {
+  transform: scale(0.95) !important;
+  background: rgba(120, 166, 255, 0.2) !important;
+}
+
+.mc-choice:active:not(:disabled) {
+  transform: translateY(0) scale(0.98) !important;
+  box-shadow: 0 2px 8px rgba(150, 121, 188, 0.1) !important;
+}
+
+.world-card:active:not(.world-card--locked),
+.subject-card-v2:active,
+.home-quick-card:active,
+.home-cta:active,
+.map-hero__cta:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+.duo-world-node:active:not(.is-locked) .duo-world-core {
+  transform: scale(0.95) !important;
+}
+
+/* --- :focus-visible rings for keyboard and screen-reader users --------- */
+.primary-action:focus-visible,
+.secondary-action:focus-visible,
+.nav-chip:focus-visible,
+.topbar-link:focus-visible,
+.icon-link:focus-visible,
+.wallet-compact:focus-visible,
+.profile-inline:focus-visible,
+.mc-choice:focus-visible,
+.choice-button:focus-visible,
+.world-card:focus-visible,
+.subject-card-v2:focus-visible,
+.home-quick-card:focus-visible,
+.home-cta:focus-visible,
+.map-hero__cta:focus-visible,
+.module-level-dot:focus-visible,
+.mascot-character:focus-visible,
+.drawer-close:focus-visible,
+.drawer-theme-btn:focus-visible,
+.drawer-rect-btn:focus-visible,
+.floating-back-button:focus-visible,
+.activity-back-btn:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* --- Active nav tab — clear gradient highlight for kids ---------------- */
+.topbar-link.is-active {
+  background: linear-gradient(135deg, rgba(255, 143, 198, 0.18), rgba(120, 166, 255, 0.16));
+  color: var(--text);
+  border: 1px solid rgba(120, 166, 255, 0.22);
+  border-radius: 12px;
+}
+
+.topbar-link.is-active .topbar-link__icon {
+  font-size: 1.15em;
+}
+
+/* --- base-ten action buttons — bump from 42px to 48px ----------------- */
+.base-ten-actions button {
+  min-height: 48px;
+  font-size: 1rem;
+  touch-action: manipulation;
+}
+
+/* --- world-map nodes — touch-action ------------------------------------ */
+.world-map-track__node,
+.duo-world-node,
+.world-card,
+.home-quick-card {
+  touch-action: manipulation;
+}
+
+/* --- subject cards — touch-action -------------------------------------- */
+.subject-card-v2,
+.map-hero__cta,
+.home-cta {
+  touch-action: manipulation;
+}
+
+/* --- avatar selection options ----------------------------------------- */
+.avatar-option {
+  touch-action: manipulation;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.avatar-option:hover:not(.is-locked) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(150, 121, 188, 0.14);
+}
+
+.avatar-option:active:not(.is-locked) {
+  transform: scale(0.97);
+}
+
+/* --- activity back button tap target ----------------------------------- */
+.activity-back-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+/* --- Reinforcement section card --------------------------------------- */
+.renforcement-section-card {
+  display: block;
+  text-decoration: none;
+  padding: 18px 20px;
+  min-height: 80px;
+  border-radius: 20px;
+  border: 1.5px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  color: var(--text);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  touch-action: manipulation;
+}
+
+.renforcement-section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(150, 121, 188, 0.16);
+  border-color: rgba(120, 166, 255, 0.3);
+}
+
+.renforcement-section-card:active {
+  transform: scale(0.98) translateY(0);
+  box-shadow: var(--shadow-soft);
+}
+
+.renforcement-section-card:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.renforcement-section-card__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.renforcement-section-card__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.renforcement-section-card__desc {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.renforcement-section-card__arrow {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  color: var(--muted);
+  align-self: center;
+  transition: transform 0.2s ease;
+}
+
+.renforcement-section-card:hover .renforcement-section-card__arrow {
+  transform: translateX(4px);
+}
+
+.renforcement-section-card__badge {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* --- Mobile (phone) — largest tap targets, biggest fonts -------------- */
+@media (max-width: 480px) {
+  .topbar-link,
+  .icon-link,
+  .wallet-compact,
+  .profile-inline {
+    min-height: 48px;
+  }
+
+  .primary-action,
+  .secondary-action {
+    min-height: 52px;
+    font-size: 1.05rem;
+  }
+
+  .mc-choice {
+    min-height: 72px;
+    padding: 16px 18px;
+  }
+
+  .mc-prompt {
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+  }
+
+  .mc-choice__text strong {
+    font-size: 1.08rem;
+  }
+
+  .renforcement-section-card {
+    min-height: 88px;
+    padding: 20px;
+  }
+
+  .floating-back-button {
+    min-height: 48px;
+  }
+
+  .activity-back-btn {
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+
+  .module-level-dot {
+    min-height: 52px;
+  }
+}
+
+/* --- Topbar icon size bump on mobile ----------------------------------- */
+@media (max-width: 640px) {
+  .topbar-link__icon,
+  .icon-link > span:first-child {
+    font-size: 1.1em;
+  }
 }
 
