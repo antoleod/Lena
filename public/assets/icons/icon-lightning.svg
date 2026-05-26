@@ -1,0 +1,10 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lightningGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb700;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <polygon points="50,15 35,45 50,45 35,85 65,35 50,35 65,15" fill="url(#lightningGrad)" opacity="0.9"/>
+  <polygon points="50,20 40,45 50,50 40,80 60,40 50,40 60,20" fill="#FFF" opacity="0.3"/>
+</svg>

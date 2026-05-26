@@ -1,0 +1,50 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <title>Insignia de Fuego Master 3D</title>
+  <defs>
+    <!-- Resplandor dinámico para el elemento central -->
+    <filter id="elementGlowFire" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feFlood flood-color="#FFD600" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Sombra proyectada con oclusión ambiental -->
+    <filter id="stickerShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1" flood-opacity="0.2"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Brillo de superficie (Efecto Lacado) -->
+    <linearGradient id="surfaceGloss" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="white" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Gradiente vibrante para el cuerpo -->
+    <radialGradient id="badgeBody" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FFAB40" />
+      <stop offset="70%" stop-color="#FF3D00" />
+      <stop offset="100%" stop-color="#D50000" />
+    </radialGradient>
+
+    <!-- Efecto de profundidad interna -->
+    <filter id="innerBevel">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g filter="url(#stickerShadow)">
+    <circle cx="50" cy="53" r="48" fill="#911F00" /> <!-- Sombra de contacto -->
+    <circle cx="50" cy="50" r="48" fill="#FFFFFF" /> <!-- Borde troquelado (Die-cut) -->
+    <circle cx="50" cy="50" r="44" fill="url(#badgeBody)" /> <!-- Fondo vibrante -->
+    <!-- Llama mejorada -->
+    <path d="M 50 18 C 40 40 32 55 35 70 C 38 85 62 85 65 70 C 68 55 60 40 50 18 Z" fill="#FFEA00" filter="url(#elementGlowFire)" /> 
+    <path d="M 50 35 C 45 50 40 60 42 72 C 45 80 55 80 58 72 C 60 60 55 50 50 35 Z" fill="white" opacity="0.8" />
+    <path d="M 12 40 A 40 40 0 0 1 80 20 A 44 44 0 0 0 12 40" fill="url(#surfaceGloss)" /> <!-- Reflejo de cristal -->
+  </g>
+</svg>

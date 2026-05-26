@@ -56,6 +56,592 @@ function buildSingleSectionActivity({
   };
 }
 
+// ============================================
+// LOGIQUE (Logic) - 10 levels × 7 exercises = 70
+// ============================================
+
+const LOGIQUE_LESSONS = [
+  // NIVEAU 1: Identifier les formes simples
+  {
+    id: 'logique-1-1',
+    prompt: 'Quel est le nom de cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'forme' }],
+    choices: ['Triangle', 'Cercle', 'Carré'],
+    answer: 'Triangle',
+    explanation: 'C\'est un triangle, une forme avec 3 côtés.'
+  },
+  {
+    id: 'logique-1-2',
+    prompt: 'Quel est le nom de cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'forme' }],
+    choices: ['Triangle', 'Carré', 'Cercle'],
+    answer: 'Carré',
+    explanation: 'C\'est un carré, une forme avec 4 côtés égaux.'
+  },
+  {
+    id: 'logique-1-3',
+    prompt: 'Quel est le nom de cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'forme' }],
+    choices: ['Carré', 'Cercle', 'Triangle'],
+    answer: 'Cercle',
+    explanation: 'C\'est un cercle, une forme ronde.'
+  },
+  {
+    id: 'logique-1-4',
+    prompt: 'Quel est le nom de cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'forme' }],
+    choices: ['Rectangle', 'Triangle', 'Cercle'],
+    answer: 'Rectangle',
+    explanation: 'C\'est un rectangle, une forme avec 4 côtés.'
+  },
+  {
+    id: 'logique-1-5',
+    prompt: 'Lequel est un triangle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'forme' }],
+    choices: ['Carré', 'Triangle', 'Cercle'],
+    answer: 'Triangle',
+    explanation: 'Le triangle est la forme pointue avec 3 côtés.'
+  },
+  {
+    id: 'logique-1-6',
+    prompt: 'Lequel est un cercle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'forme' }],
+    choices: ['Triangle', 'Carré', 'Cercle'],
+    answer: 'Cercle',
+    explanation: 'Le cercle est la forme ronde sans angles.'
+  },
+  {
+    id: 'logique-1-7',
+    prompt: 'Lequel est un carré ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'forme' }],
+    choices: ['Cercle', 'Carré', 'Triangle'],
+    answer: 'Carré',
+    explanation: 'Le carré est la forme avec 4 côtés égaux.'
+  },
+
+  // NIVEAU 2: Compter les côtés
+  {
+    id: 'logique-2-1',
+    prompt: 'Combien de côtés a cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triangle' }],
+    choices: ['2', '3', '4'],
+    answer: '3',
+    explanation: 'Un triangle a 3 côtés.'
+  },
+  {
+    id: 'logique-2-2',
+    prompt: 'Combien de côtés a cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'carré' }],
+    choices: ['2', '3', '4'],
+    answer: '4',
+    explanation: 'Un carré a 4 côtés.'
+  },
+  {
+    id: 'logique-2-3',
+    prompt: 'Combien de côtés a cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'rectangle' }],
+    choices: ['3', '4', '5'],
+    answer: '4',
+    explanation: 'Un rectangle a 4 côtés.'
+  },
+  {
+    id: 'logique-2-4',
+    prompt: 'Combien de côtés a cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentagone' }],
+    choices: ['3', '4', '5'],
+    answer: '5',
+    explanation: 'Un pentagone a 5 côtés.'
+  },
+  {
+    id: 'logique-2-5',
+    prompt: 'Combien de côtés a un cercle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'cercle' }],
+    choices: ['0', '1', '2'],
+    answer: '0',
+    explanation: 'Un cercle n\'a pas de côtés, c\'est une courbe.'
+  },
+  {
+    id: 'logique-2-6',
+    prompt: 'Quelle forme a 3 côtés ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triangle' }],
+    choices: ['Carré', 'Triangle', 'Cercle'],
+    answer: 'Triangle',
+    explanation: 'Seul le triangle a 3 côtés.'
+  },
+  {
+    id: 'logique-2-7',
+    prompt: 'Quelle forme a le plus de côtés ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentagone' }],
+    choices: ['Triangle', 'Carré', 'Pentagone'],
+    answer: 'Pentagone',
+    explanation: 'Le pentagone a 5 côtés, c\'est le plus.'
+  },
+
+  // NIVEAU 3: Compter les angles
+  {
+    id: 'logique-3-1',
+    prompt: 'Combien d\'angles a cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triangle' }],
+    choices: ['2', '3', '4'],
+    answer: '3',
+    explanation: 'Un triangle a 3 angles aux 3 coins.'
+  },
+  {
+    id: 'logique-3-2',
+    prompt: 'Combien d\'angles a cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'carré' }],
+    choices: ['3', '4', '5'],
+    answer: '4',
+    explanation: 'Un carré a 4 angles à chaque coin.'
+  },
+  {
+    id: 'logique-3-3',
+    prompt: 'Combien d\'angles a cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'rectangle' }],
+    choices: ['3', '4', '5'],
+    answer: '4',
+    explanation: 'Un rectangle a 4 angles.'
+  },
+  {
+    id: 'logique-3-4',
+    prompt: 'Combien d\'angles a cette forme ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentagone' }],
+    choices: ['4', '5', '6'],
+    answer: '5',
+    explanation: 'Un pentagone a 5 angles.'
+  },
+  {
+    id: 'logique-3-5',
+    prompt: 'Combien d\'angles a un cercle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'cercle' }],
+    choices: ['0', '1', '2'],
+    answer: '0',
+    explanation: 'Un cercle n\'a pas d\'angles, c\'est lisse.'
+  },
+  {
+    id: 'logique-3-6',
+    prompt: 'Quelle forme a 4 angles ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'carré' }],
+    choices: ['Triangle', 'Carré', 'Cercle'],
+    answer: 'Carré',
+    explanation: 'Le carré (et rectangle) ont 4 angles.'
+  },
+  {
+    id: 'logique-3-7',
+    prompt: 'Quelle forme n\'a pas d\'angles ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'cercle' }],
+    choices: ['Triangle', 'Carré', 'Cercle'],
+    answer: 'Cercle',
+    explanation: 'Le cercle est la seule forme sans angles.'
+  },
+
+  // NIVEAU 4: Propriétés (égalité des côtés)
+  {
+    id: 'logique-4-1',
+    prompt: 'Tous les côtés sont égaux... laquelle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'carré' }],
+    choices: ['Rectangle', 'Carré', 'Triangle'],
+    answer: 'Carré',
+    explanation: 'Le carré a tous ses côtés de la même longueur.'
+  },
+  {
+    id: 'logique-4-2',
+    prompt: 'Lequel a des côtés différents ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'rectangle' }],
+    choices: ['Carré', 'Rectangle', 'Triangle'],
+    answer: 'Rectangle',
+    explanation: 'Le rectangle a 2 côtés longs et 2 côtés courts.'
+  },
+  {
+    id: 'logique-4-3',
+    prompt: 'Quelle différence entre carré et rectangle ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'rectangle' }],
+    choices: ['Pas différent', 'Côtés différents', 'Formes opposées'],
+    answer: 'Côtés différents',
+    explanation: 'Rectangle: côtés différents. Carré: côtés égaux.'
+  },
+  {
+    id: 'logique-4-4',
+    prompt: 'Lequel a 4 côtés égaux ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.diamond, alt: 'losange' }],
+    choices: ['Triangle', 'Rectangle', 'Losange'],
+    answer: 'Losange',
+    explanation: 'Le losange a 4 côtés égaux, comme le carré mais tourné.'
+  },
+  {
+    id: 'logique-4-5',
+    prompt: 'Tous les côtés égaux, combien ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triangle' }],
+    choices: ['2', '3', '4'],
+    answer: '3',
+    explanation: 'Un triangle a 3 côtés qui peuvent être égaux.'
+  },
+  {
+    id: 'logique-4-6',
+    prompt: 'Quelle forme est symétrique ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'carré' }],
+    choices: ['Triangle', 'Carré', 'Ligne'],
+    answer: 'Carré',
+    explanation: 'Le carré est parfaitement symétrique de tous les côtés.'
+  },
+  {
+    id: 'logique-4-7',
+    prompt: 'Plus de côtés = ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentagone' }],
+    choices: ['Plus pointu', 'Plus proche du cercle', 'Plus grand'],
+    answer: 'Plus proche du cercle',
+    explanation: 'Plus une forme a de côtés, plus elle ressemble à un cercle.'
+  },
+
+  // NIVEAU 5: Comparaisons et tailles
+  {
+    id: 'logique-5-1',
+    prompt: 'Laquelle est plus grande ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'carré' }],
+    choices: ['Plus de côtés', 'Plus grand', 'Plus rond'],
+    answer: 'Plus grand',
+    explanation: 'La taille dépend de la longueur des côtés.'
+  },
+  {
+    id: 'logique-5-2',
+    prompt: 'Triangle vs Carré: laquelle a moins de côtés ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triangle' }],
+    choices: ['Triangle', 'Carré', 'Égal'],
+    answer: 'Triangle',
+    explanation: 'Triangle = 3 côtés. Carré = 4 côtés. Triangle en a moins.'
+  },
+  {
+    id: 'logique-5-3',
+    prompt: 'Ordre du moins au plus de côtés ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentagone' }],
+    choices: ['Cercle, Triangle, Carré, Pentagone', 'Triangle, Carré, Pentagone, Cercle', 'Pentagone, Carré, Triangle, Cercle'],
+    answer: 'Cercle, Triangle, Carré, Pentagone',
+    explanation: 'Cercle(0) < Triangle(3) < Carré(4) < Pentagone(5).'
+  },
+  {
+    id: 'logique-5-4',
+    prompt: 'Combien de côtés total: Triangle + Carré ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triangle' }],
+    choices: ['5', '6', '7'],
+    answer: '7',
+    explanation: '3 (triangle) + 4 (carré) = 7 côtés.'
+  },
+  {
+    id: 'logique-5-5',
+    prompt: 'Combien de côtés total: Carré + Carré ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'carré' }],
+    choices: ['6', '8', '10'],
+    answer: '8',
+    explanation: '4 + 4 = 8 côtés.'
+  },
+  {
+    id: 'logique-5-6',
+    prompt: 'Si Triangle a 3 et Carré a 4, Pentagone a ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentagone' }],
+    choices: ['5', '6', '7'],
+    answer: '5',
+    explanation: 'Pentagone = 5 côtés. Un de plus que le carré.'
+  },
+  {
+    id: 'logique-5-7',
+    prompt: 'Ordre de côtés: Pentagone, Triangle, Carré',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentagone' }],
+    choices: ['3, 4, 5', '5, 3, 4', '4, 5, 3'],
+    answer: '5, 3, 4',
+    explanation: 'Pentagone(5), Triangle(3), Carré(4).'
+  },
+
+  // NIVEL 6: Objetos del mundo real
+  {
+    id: 'logique-6-1',
+    prompt: 'Qué objeto parece un círculo ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Libro', 'Pelota', 'Caja'],
+    answer: 'Pelota',
+    explanation: 'Una pelota es redonda como un círculo.'
+  },
+  {
+    id: 'logique-6-2',
+    prompt: 'Qué objeto parece un triángulo ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triángulo' }],
+    choices: ['Rebanada de pizza', 'Vaso', 'Plato'],
+    answer: 'Rebanada de pizza',
+    explanation: 'Una rebanada de pizza tiene forma de triángulo.'
+  },
+  {
+    id: 'logique-6-3',
+    prompt: 'Qué objeto parece un cuadrado ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'cuadrado' }],
+    choices: ['Balón de fútbol', 'Ventana', 'Pelota'],
+    answer: 'Ventana',
+    explanation: 'Las ventanas a menudo tienen forma de cuadrado.'
+  },
+  {
+    id: 'logique-6-4',
+    prompt: 'Qué objeto parece un rectángulo ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'rectángulo' }],
+    choices: ['Pelota', 'Libro', 'Dado'],
+    answer: 'Libro',
+    explanation: 'Los libros tienen forma rectangular.'
+  },
+  {
+    id: 'logique-6-5',
+    prompt: 'Qué objeto parece un pentágono ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentágono' }],
+    choices: ['Balón de fútbol', 'Casa pequeña', 'Plato hondo'],
+    answer: 'Casa pequeña',
+    explanation: 'Una casa vista de frente puede parecer un pentágono.'
+  },
+  {
+    id: 'logique-6-6',
+    prompt: 'Qué forma tiene una moneda ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Cuadrada', 'Triangular', 'Redonda'],
+    answer: 'Redonda',
+    explanation: 'Las monedas son redondas como un círculo.'
+  },
+  {
+    id: 'logique-6-7',
+    prompt: 'Qué forma tiene una estrella ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.star, alt: 'estrella' }],
+    choices: ['Cuadrada', 'Con puntas', 'Redonda'],
+    answer: 'Con puntas',
+    explanation: 'Una estrella tiene puntas puntiagudas.'
+  },
+
+  // NIVEL 7: Combinaciones lógicas
+  {
+    id: 'logique-7-1',
+    prompt: 'Triángulo + Carré = ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triángulo' }],
+    choices: ['6 lados', '7 lados', '8 lados'],
+    answer: '7 lados',
+    explanation: '3 (triangle) + 4 (carré) = 7 lados.'
+  },
+  {
+    id: 'logique-7-2',
+    prompt: 'Si cuento todos los ángulos... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'cuadrado' }],
+    choices: ['4', '5', '6'],
+    answer: '4',
+    explanation: 'Un cuadrado tiene 4 ángulos en las 4 esquinas.'
+  },
+  {
+    id: 'logique-7-3',
+    prompt: 'Forma sin ángulos ni lados... cuál ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Triángulo', 'Rectángulo', 'Círculo'],
+    answer: 'Círculo',
+    explanation: 'El círculo es la única forma sin ángulos ni lados.'
+  },
+  {
+    id: 'logique-7-4',
+    prompt: 'Cuadrado girado = ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.diamond, alt: 'rombo' }],
+    choices: ['Rombo', 'Triángulo', 'Rectángulo'],
+    answer: 'Rombo',
+    explanation: 'Un cuadrado girado 45 grados se ve como un rombo.'
+  },
+  {
+    id: 'logique-7-5',
+    prompt: 'Pentagono tiene más de 4 lados? Verdadero',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentágono' }],
+    choices: ['Verdadero', 'Falso', 'No es una forma'],
+    answer: 'Verdadero',
+    explanation: 'Pentágono = 5 lados, que es más que 4.'
+  },
+  {
+    id: 'logique-7-6',
+    prompt: 'Rectángulo = Cuadrado? ',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'rectángulo' }],
+    choices: ['Sí', 'No', 'A veces'],
+    answer: 'No',
+    explanation: 'No son iguales. Rectángulo tiene lados diferentes, cuadrado tiene iguales.'
+  },
+  {
+    id: 'logique-7-7',
+    prompt: 'Todas las formas con 4 lados son... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.diamond, alt: 'rombo' }],
+    choices: ['Cuadrados', 'Diferentes', 'Rectángulos'],
+    answer: 'Diferentes',
+    explanation: 'Hay muchos tipos de formas con 4 lados (cuadrado, rectángulo, rombo, trapecio).'
+  },
+
+  // NIVEL 8: Patrones y secuencias
+  {
+    id: 'logique-8-1',
+    prompt: '3 lados, 4 lados, ? lados',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentágono' }],
+    choices: ['5 lados', '6 lados', '7 lados'],
+    answer: '5 lados',
+    explanation: 'La secuencia aumenta de 1 en 1: 3, 4, 5...'
+  },
+  {
+    id: 'logique-8-2',
+    prompt: 'Patrón: círculo (0), triángulo (3), ? ',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'cuadrado' }],
+    choices: ['Cuadrado (4)', 'Rectángulo (4)', 'Pentagono (5)'],
+    answer: 'Cuadrado (4)',
+    explanation: '0, 3, 4 sigue una lógica creciente.'
+  },
+  {
+    id: 'logique-8-3',
+    prompt: 'Si aumentamos lados, la forma se parece más a... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentágono' }],
+    choices: ['Un triángulo', 'Un círculo', 'Una línea'],
+    answer: 'Un círculo',
+    explanation: 'Mientras más lados, más se parece a un círculo redondo.'
+  },
+  {
+    id: 'logique-8-4',
+    prompt: 'Orden: círculo, ?, ?, cuadrado (lógica de lados)',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Triángulo, Pentagono', 'Pentagono, Triángulo', 'Línea, Punto'],
+    answer: 'Triángulo, Pentagono',
+    explanation: 'Orden lógico: 0 lados (círculo), 3 (triángulo), 5 (pentágono), infinitos (círculo).'
+  },
+  {
+    id: 'logique-8-5',
+    prompt: 'Todas las formas con ángulos excepto ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Triángulo', 'Círculo', 'Rectángulo'],
+    answer: 'Círculo',
+    explanation: 'Todas las formas poligonales (triángulo, cuadrado, etc.) tienen ángulos, excepto el círculo.'
+  },
+  {
+    id: 'logique-8-6',
+    prompt: 'Patrón de lados: 3, 4, 5, ?, ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentágono' }],
+    choices: ['6, 7', '5, 5', '4, 3'],
+    answer: '6, 7',
+    explanation: 'La secuencia sigue: +1 cada vez: 3, 4, 5, 6, 7...'
+  },
+  {
+    id: 'logique-8-7',
+    prompt: 'Menor a mayor: Triángulo, Carré, ? ',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentágono' }],
+    choices: ['Círculo', 'Pentágono', 'Rectángulo'],
+    answer: 'Pentágono',
+    explanation: 'Orden por número de lados: 3 (triángulo), 4 (carré), 5 (pentágono).'
+  },
+
+  // NIVEL 9: Razonamiento deductivo
+  {
+    id: 'logique-9-1',
+    prompt: 'Una forma con 4 ángulos, ¿cuántos lados tiene?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'cuadrado' }],
+    choices: ['3', '4', '5'],
+    answer: '4',
+    explanation: 'Si hay 4 ángulos, hay 4 lados (uno en cada esquina).'
+  },
+  {
+    id: 'logique-9-2',
+    prompt: 'Una forma redonda sin ángulos es... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Triángulo', 'Círculo', 'Cuadrado'],
+    answer: 'Círculo',
+    explanation: 'Solo el círculo es redondo y sin ángulos.'
+  },
+  {
+    id: 'logique-9-3',
+    prompt: 'Si una forma tiene 3 ángulos, tiene cuántos lados ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triángulo' }],
+    choices: ['2', '3', '4'],
+    answer: '3',
+    explanation: 'Ángulos = Lados en polígonos. 3 ángulos = 3 lados.'
+  },
+  {
+    id: 'logique-9-4',
+    prompt: 'Una forma con todos los lados iguales es... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.diamond, alt: 'rombo' }],
+    choices: ['Rectángulo', 'Rombo', 'Triángulo'],
+    answer: 'Rombo',
+    explanation: 'El rombo y el cuadrado tienen todos los lados iguales.'
+  },
+  {
+    id: 'logique-9-5',
+    prompt: 'Una forma con ángulos desiguales es más... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triángulo' }],
+    choices: ['Regular', 'Irregular', 'Simetrica'],
+    answer: 'Irregular',
+    explanation: 'Si los ángulos no son iguales, la forma es irregular.'
+  },
+  {
+    id: 'logique-9-6',
+    prompt: 'Conclusión: Círculo es diferente de polígonos porque... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['No tiene ángulos', 'No tiene lados', 'No es ronda'],
+    answer: 'No tiene ángulos',
+    explanation: 'Los polígonos (formas con lados) tienen ángulos. El círculo no.'
+  },
+  {
+    id: 'logique-9-7',
+    prompt: 'Un cuadrado es un caso especial de... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'cuadrado' }],
+    choices: ['Triángulo', 'Rectángulo', 'Círculo'],
+    answer: 'Rectángulo',
+    explanation: 'El cuadrado es un rectángulo donde todos los lados son iguales.'
+  },
+
+  // NIVEL 10: Pensamiento abstracto
+  {
+    id: 'logique-10-1',
+    prompt: 'Si combino triángulo + cuadrado, tengo... lados',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'triángulo' }],
+    choices: ['7', '8', '12'],
+    answer: '7',
+    explanation: '3 (triángulo) + 4 (cuadrado) = 7 lados en total.'
+  },
+  {
+    id: 'logique-10-2',
+    prompt: 'Una forma sin fin de lados es... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Triángulo', 'Círculo', 'Polígono'],
+    answer: 'Círculo',
+    explanation: 'El círculo tiene infinitos lados microscópicos (es la curva infinita).'
+  },
+  {
+    id: 'logique-10-3',
+    prompt: 'La forma más eficiente para rol/movimiento es... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Cuadrado', 'Triángulo', 'Círculo'],
+    answer: 'Círculo',
+    explanation: 'El círculo es la forma más redonda y rueda sin esfuerzo.'
+  },
+  {
+    id: 'logique-10-4',
+    prompt: 'La forma más estable con 4 puntos de contacto es... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'cuadrado' }],
+    choices: ['Triángulo', 'Cuadrado', 'Círculo'],
+    answer: 'Cuadrado',
+    explanation: 'El cuadrado es estable en una mesa con sus 4 esquinas.'
+  },
+  {
+    id: 'logique-10-5',
+    prompt: 'Si aumentas infinitamente los lados de un polígono, se convierte en... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'pentágono' }],
+    choices: ['Triángulo', 'Círculo', 'Línea'],
+    answer: 'Círculo',
+    explanation: 'Cuando un polígono tiene infinitos lados pequeños, se ve como un círculo.'
+  },
+  {
+    id: 'logique-10-6',
+    prompt: 'Las simetrias en un cuadrado... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'cuadrado' }],
+    choices: ['2', '4', '8'],
+    answer: '4',
+    explanation: 'Un cuadrado tiene 4 ejes de simetría (horizontal, vertical, 2 diagonales).'
+  },
+  {
+    id: 'logique-10-7',
+    prompt: 'Una forma que caben infinitas dentro de otra... ?',
+    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'círculo' }],
+    choices: ['Dos cuadrados', 'Triángulos en un círculo', 'Nada en un triángulo'],
+    answer: 'Triángulos en un círculo',
+    explanation: 'Puedes encajar infinitos triángulos pequeños dentro de un círculo.'
+  }
+];
+
 const FORME_LESSONS = [
   generateShapeRecognitionExercise({ grade: 'P2' }),
   generateCountSidesExercise({ grade: 'P2' }),
@@ -74,558 +660,40 @@ const OBSERVER_LESSONS = Array.from({ length: 6 }, (_, idx) => generateObservati
 const CALCUL_LESSONS = Array.from({ length: 6 }, (_, idx) => generateTableExercise({ grade: idx % 2 ? 'P3' : 'P2' }))
   .map((ex, idx) => asLesson(ex, idx, 'calcul'));
 
-function manualMultipleChoiceLesson({ prompt, choices, answer, explanation = '' }) {
-  return {
-    id: `manual-${prompt.slice(0, 20).replace(/\s+/g, '-')}`,
-    prompt,
-    choices,
-    answer,
-    explanation
-  };
-}
-
-const LOGIQUE_LESSONS = [
-  // NIVEAU 1: Compter les côtés (basique)
-  {
-    id: 'logique-1',
-    prompt: 'Combien de côtés a cette figure ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['2', '3', '4'],
-    answer: '3',
-    explanation: 'Un triangle a 3 côtés et 3 angles.'
-  },
-  {
-    id: 'logique-2',
-    prompt: 'Combien de côtés a cette figure ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'un carré' }],
-    choices: ['3', '4', '5'],
-    answer: '4',
-    explanation: 'Un carré a 4 côtés égaux.'
-  },
-  {
-    id: 'logique-3',
-    prompt: 'Combien de côtés a cette figure ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'un rectangle' }],
-    choices: ['3', '4', '5'],
-    answer: '4',
-    explanation: 'Un rectangle a 4 côtés.'
-  },
-  {
-    id: 'logique-4',
-    prompt: 'Combien d\'angles a cette figure ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['2', '3', '4'],
-    answer: '3',
-    explanation: 'Un triangle a 3 angles, un à chaque coin.'
-  },
-  {
-    id: 'logique-5',
-    prompt: 'Combien d\'angles a cette figure ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'un pentagone' }],
-    choices: ['4', '5', '6'],
-    answer: '5',
-    explanation: 'Un pentagone a 5 angles.'
-  },
-
-  // NIVEAU 2: Propriétés et comparaisons
-  {
-    id: 'logique-6',
-    prompt: 'Laquelle n\'a pas d\'angles ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'un cercle' }],
-    choices: ['Carré', 'Cercle', 'Triangle'],
-    answer: 'Cercle',
-    explanation: 'Un cercle est rond, sans angles. Les autres figures ont des angles.'
-  },
-  {
-    id: 'logique-7',
-    prompt: 'Quel carré et rectangle différent ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'un rectangle' }],
-    choices: ['Tous les côtés égaux', 'Côtés différents', 'Sans angles'],
-    answer: 'Côtés différents',
-    explanation: 'Le rectangle a 2 côtés longs et 2 côtés courts. Le carré a tous les côtés égaux.'
-  },
-  {
-    id: 'logique-8',
-    prompt: 'Quelle figure a tous les côtés égaux ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'un carré' }],
-    choices: ['Triangle', 'Rectangle', 'Carré'],
-    answer: 'Carré',
-    explanation: 'Le carré a 4 côtés parfaitement égaux.'
-  },
-  {
-    id: 'logique-9',
-    prompt: 'Quelle figure a le plus de côtés ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'un pentagone' }],
-    choices: ['Triangle (3)', 'Carré (4)', 'Pentagone (5)'],
-    answer: 'Pentagone (5)',
-    explanation: 'Le pentagone a 5 côtés. C\'est plus que le triangle et le carré.'
-  },
-
-  // NIVEAU 3: Objets réels et associations
-  {
-    id: 'logique-10',
-    prompt: 'Quel objet ressemble à cette forme ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'un cercle' }],
-    choices: ['Une balle', 'Un livre', 'Une boîte'],
-    answer: 'Une balle',
-    explanation: 'Un cercle ressemble à une balle, une roue ou une assiette.'
-  },
-  {
-    id: 'logique-11',
-    prompt: 'Quelle forme ressemble à une fenêtre ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'un carré' }],
-    choices: ['Triangle', 'Carré', 'Cercle'],
-    answer: 'Carré',
-    explanation: 'Une fenêtre ressemble souvent à un carré avec 4 côtés égaux.'
-  },
-  {
-    id: 'logique-12',
-    prompt: 'Quelle forme ressemble à une pizza coupée ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['Triangle', 'Cercle', 'Rectangle'],
-    answer: 'Triangle',
-    explanation: 'Une part de pizza ressemble à un triangle.'
-  },
-  {
-    id: 'logique-13',
-    prompt: 'Quel objet a la même forme ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'un rectangle' }],
-    choices: ['Une balle', 'Un livre', 'Un chapeau'],
-    answer: 'Un livre',
-    explanation: 'Un livre a souvent une forme rectangulaire.'
-  },
-
-  // NIVEAU 4: Logique combinée
-  {
-    id: 'logique-14',
-    prompt: 'Laquelle a 4 côtés ET tous différents ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.diamond, alt: 'un losange' }],
-    choices: ['Carré', 'Losange', 'Triangle'],
-    answer: 'Losange',
-    explanation: 'Un losange est comme un carré tourné avec 4 côtés égaux mais angles différents.'
-  },
-  {
-    id: 'logique-15',
-    prompt: 'Quel groupe a figures avec angles ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['Cercle, triangle', 'Carré, cercle', 'Triangle, carré, pentagone'],
-    answer: 'Triangle, carré, pentagone',
-    explanation: 'Le triangle, carré et pentagone ont tous des angles. Le cercle n\'en a pas.'
-  },
-  {
-    id: 'logique-16',
-    prompt: 'Si je compte les côtés: 3 + 4 = ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['6', '7', '8'],
-    answer: '7',
-    explanation: 'Triangle (3 côtés) + Carré (4 côtés) = 7 côtés en total.'
-  }
-];
-
-const LECTURE_LESSONS = [
-  // NIVEAU 1: Nommer les formes basiques
-  {
-    id: 'lecture-1',
-    prompt: 'Quel est le nom de cette figure ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'une figure' }],
-    choices: ['triangle', 'cercle', 'rectangle'],
-    answer: 'triangle',
-    explanation: 'C\'est un triangle. Il a 3 côtés.'
-  },
-  {
-    id: 'lecture-2',
-    prompt: 'Quel est le nom de cette forme ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'une figure' }],
-    choices: ['triangle', 'cercle', 'carré'],
-    answer: 'cercle',
-    explanation: 'C\'est un cercle. C\'est une forme ronde.'
-  },
-  {
-    id: 'lecture-3',
-    prompt: 'Comment s\'appelle cette forme ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'une figure' }],
-    choices: ['carré', 'rectangle', 'triangle'],
-    answer: 'carré',
-    explanation: 'C\'est un carré. Il a 4 côtés égaux.'
-  },
-  {
-    id: 'lecture-4',
-    prompt: 'Quel mot décrit cette figure ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'une figure' }],
-    choices: ['carré', 'rectangle', 'cercle'],
-    answer: 'rectangle',
-    explanation: 'C\'est un rectangle. Il a 4 côtés mais pas tous égaux.'
-  },
-
-  // NIVEAU 2: Formes plus complexes
-  {
-    id: 'lecture-5',
-    prompt: 'Quel est le nom de cette figure avec 5 côtés ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'une figure' }],
-    choices: ['carré', 'pentagone', 'cercle'],
-    answer: 'pentagone',
-    explanation: 'C\'est un pentagone. Il a 5 côtés.'
-  },
-  {
-    id: 'lecture-6',
-    prompt: 'Comment s\'appelle cette forme ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.diamond, alt: 'une figure' }],
-    choices: ['carré', 'losange', 'triangle'],
-    answer: 'losange',
-    explanation: 'C\'est un losange. Il ressemble à un carré tourné.'
-  },
-  {
-    id: 'lecture-7',
-    prompt: 'Quel est le nom de cette étoile ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.star, alt: 'une étoile' }],
-    choices: ['carré', 'étoile', 'cercle'],
-    answer: 'étoile',
-    explanation: 'C\'est une étoile. Elle a plusieurs points.'
-  },
-
-  // NIVEAU 3: Décrire les propriétés
-  {
-    id: 'lecture-8',
-    prompt: 'Cette figure est... comment ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['ronde', 'pointue', 'carrée'],
-    answer: 'pointue',
-    explanation: 'Un triangle est pointu, avec 3 angles.'
-  },
-  {
-    id: 'lecture-9',
-    prompt: 'Cette figure est... comment ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'un cercle' }],
-    choices: ['pointue', 'ronde', 'carrée'],
-    answer: 'ronde',
-    explanation: 'Un cercle est rond, sans angles.'
-  },
-  {
-    id: 'lecture-10',
-    prompt: 'Cette figure a... comment les côtés ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'un carré' }],
-    choices: ['différents', 'égaux', 'courbes'],
-    answer: 'égaux',
-    explanation: 'Un carré a tous les côtés égaux.'
-  },
-  {
-    id: 'lecture-11',
-    prompt: 'Cette figure a... comment les côtés ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'un rectangle' }],
-    choices: ['égaux', 'différents', 'courbes'],
-    answer: 'différents',
-    explanation: 'Un rectangle a 2 côtés longs et 2 côtés courts.'
-  },
-
-  // NIVEAU 4: Contexte et usage
-  {
-    id: 'lecture-12',
-    prompt: 'Une fenêtre ressemble à un... ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'un carré' }],
-    choices: ['triangle', 'carré', 'cercle'],
-    answer: 'carré',
-    explanation: 'Les fenêtres ont souvent une forme carrée.'
-  },
-  {
-    id: 'lecture-13',
-    prompt: 'Une part de pizza ressemble à un... ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['carré', 'cercle', 'triangle'],
-    answer: 'triangle',
-    explanation: 'Une part de pizza a une forme triangulaire.'
-  },
-  {
-    id: 'lecture-14',
-    prompt: 'Un ballon ressemble à un... ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'un cercle' }],
-    choices: ['carré', 'triangle', 'cercle'],
-    answer: 'cercle',
-    explanation: 'Un ballon a une forme circulaire/ronde.'
-  },
-  {
-    id: 'lecture-15',
-    prompt: 'Complète: Un livre ressemble à un... ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'un rectangle' }],
-    choices: ['carré', 'triangle', 'rectangle'],
-    answer: 'rectangle',
-    explanation: 'Les livres ont généralement une forme rectangulaire.'
-  }
-];
-
-const ECOUTE_LESSONS = [
-  // NIVEAU 1: Identifier par description simple
-  {
-    id: 'ecoute-1',
-    prompt: 'Laquelle est un cercle ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'une figure ronde' }],
-    choices: ['rectangle', 'cercle', 'carré'],
-    answer: 'cercle',
-    explanation: 'Un cercle est rond, sans angles.'
-  },
-  {
-    id: 'ecoute-2',
-    prompt: 'Laquelle est un triangle ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'une figure pointue' }],
-    choices: ['rectangle', 'triangle', 'cercle'],
-    answer: 'triangle',
-    explanation: 'Un triangle a 3 côtés et 3 angles.'
-  },
-  {
-    id: 'ecoute-3',
-    prompt: 'Quelle est cette forme à 4 côtés égaux ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'un carré' }],
-    choices: ['carré', 'rectangle', 'triangle'],
-    answer: 'carré',
-    explanation: 'Un carré a 4 côtés égaux et 4 angles égaux.'
-  },
-  {
-    id: 'ecoute-4',
-    prompt: 'Quelle figure ressemble à une boîte plate ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'un rectangle' }],
-    choices: ['carré', 'triangle', 'rectangle'],
-    answer: 'rectangle',
-    explanation: 'Un rectangle ressemble à une boîte ou un drapeau.'
-  },
-
-  // NIVEAU 2: Propriétés multiples
-  {
-    id: 'ecoute-5',
-    prompt: 'Quelle figure a 5 côtés ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.pentagon, alt: 'un pentagone' }],
-    choices: ['carré', 'triangle', 'pentagone'],
-    answer: 'pentagone',
-    explanation: 'Un pentagone a 5 côtés et 5 angles.'
-  },
-  {
-    id: 'ecoute-6',
-    prompt: 'Laquelle est un losange ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.diamond, alt: 'un losange' }],
-    choices: ['carré', 'losange', 'triangle'],
-    answer: 'losange',
-    explanation: 'Un losange ressemble à un carré tourné.'
-  },
-  {
-    id: 'ecoute-7',
-    prompt: 'Laquelle n\'a pas d\'angles ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'un cercle' }],
-    choices: ['triangle', 'cercle', 'carré'],
-    answer: 'cercle',
-    explanation: 'Un cercle est une courbe sans angles.'
-  },
-  {
-    id: 'ecoute-8',
-    prompt: 'Quelle figure a le moins de côtés ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['carré', 'triangle', 'pentagone'],
-    answer: 'triangle',
-    explanation: 'Un triangle a 3 côtés. C\'est le moins.'
-  },
-
-  // NIVEAU 3: Comparaisons
-  {
-    id: 'ecoute-9',
-    prompt: 'Carré et rectangle... quelle différence ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.rectangle, alt: 'un rectangle' }],
-    choices: ['Même taille', 'Côtés différents', 'Pas d\'angles'],
-    answer: 'Côtés différents',
-    explanation: 'Le carré a tous côtés égaux. Le rectangle a 2 longs et 2 courts.'
-  },
-  {
-    id: 'ecoute-10',
-    prompt: 'Laquelle est pointue ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle pointu' }],
-    choices: ['cercle', 'triangle', 'rectangle'],
-    answer: 'triangle',
-    explanation: 'Un triangle a des angles pointus.'
-  },
-  {
-    id: 'ecoute-11',
-    prompt: 'Laquelle est très ronde ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.circle, alt: 'un cercle' }],
-    choices: ['carré', 'triangle', 'cercle'],
-    answer: 'cercle',
-    explanation: 'Un cercle est parfaitement rond.'
-  }
-];
-
-const TRACE_LESSONS = [
-  // NIVEAU 1: Directions simples
-  {
-    id: 'trace-1',
-    prompt: 'Quel chemin va tout droit ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_straight, alt: 'une ligne droite' }],
-    choices: ['une ligne droite', 'une courbe', 'des zigzags'],
-    answer: 'une ligne droite',
-    explanation: 'Une ligne droite ne tourne pas, elle va tout droit.'
-  },
-  {
-    id: 'trace-2',
-    prompt: 'Quel chemin monte vers le haut ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.arrow_up, alt: 'une flèche vers le haut' }],
-    choices: ['vers le bas', 'vers le haut', 'vers le côté'],
-    answer: 'vers le haut',
-    explanation: 'Vers le haut signifie monter, comme une flèche qui monte.'
-  },
-  {
-    id: 'trace-3',
-    prompt: 'Quel chemin va vers la droite ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.arrow_right, alt: 'une flèche vers la droite' }],
-    choices: ['vers la gauche', 'vers la droite', 'vers le bas'],
-    answer: 'vers la droite',
-    explanation: 'Vers la droite signifie avancer de gauche à droite.'
-  },
-  {
-    id: 'trace-4',
-    prompt: 'Quelle ligne est courbe ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_curve, alt: 'une courbe' }],
-    choices: ['droite', 'courbe', 'zigzag'],
-    answer: 'courbe',
-    explanation: 'Une courbe tourne graduellement, comme une arc.'
-  },
-  {
-    id: 'trace-5',
-    prompt: 'Quel chemin a beaucoup de zigzags ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_zigzag, alt: 'des zigzags' }],
-    choices: ['droite', 'courbe', 'zigzag'],
-    answer: 'zigzag',
-    explanation: 'Un zigzag monte et descend rapidement.'
-  },
-
-  // NIVEAU 2: Comparer les chemins
-  {
-    id: 'trace-6',
-    prompt: 'Quel chemin est le plus facile à tracer ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_straight, alt: 'une ligne droite' }],
-    choices: ['une courbe', 'une ligne droite', 'des zigzags'],
-    answer: 'une ligne droite',
-    explanation: 'Une ligne droite est plus facile que les courbes ou les zigzags.'
-  },
-  {
-    id: 'trace-7',
-    prompt: 'Quel chemin est le plus difficile à tracer ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_zigzag, alt: 'des zigzags' }],
-    choices: ['droite', 'courbe', 'zigzag'],
-    answer: 'zigzag',
-    explanation: 'Les zigzags sont difficiles car il faut changer de direction plusieurs fois.'
-  },
-  {
-    id: 'trace-8',
-    prompt: 'Quelle direction est contraire (opposée) à monter ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.arrow_up, alt: 'une flèche' }],
-    choices: ['vers la droite', 'vers le bas', 'vers la gauche'],
-    answer: 'vers le bas',
-    explanation: 'Si vous montez (haut), le contraire est descendre (bas).'
-  },
-
-  // NIVEAU 3: Logique de directions
-  {
-    id: 'trace-9',
-    prompt: 'Si tu vas DROITE puis HAUT, tu as tracé quoi ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_straight, alt: 'deux lignes' }],
-    choices: ['un rectangle', 'un L', 'un carré'],
-    answer: 'un L',
-    explanation: 'Droite puis haut crée une forme en L.'
-  },
-  {
-    id: 'trace-10',
-    prompt: 'Si tu vas DROITE, HAUT, GAUCHE, puis BAS, tu crées quoi ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'un carré' }],
-    choices: ['un triangle', 'un carré', 'un cercle'],
-    answer: 'un carré',
-    explanation: 'Ces 4 mouvements créent un carré fermé.'
-  },
-  {
-    id: 'trace-11',
-    prompt: 'Quel chemin crée un triangle ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.triangle, alt: 'un triangle' }],
-    choices: ['droite, droite, fermer', 'droite, haut, bas', 'droite, diagonale, fermer'],
-    answer: 'droite, diagonale, fermer',
-    explanation: 'Un triangle a 3 côtés qui se referment.'
-  },
-
-  // NIVEAU 4: Séquences complexes
-  {
-    id: 'trace-12',
-    prompt: 'Quel est le meilleur ordre pour tracer un carré ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.square, alt: 'un carré' }],
-    choices: ['haut, bas, gauche, droite', 'droite, haut, gauche, bas', 'zigzag partout'],
-    answer: 'droite, haut, gauche, bas',
-    explanation: 'Cette séquence crée un carré parfait dans l\'ordre.'
-  },
-  {
-    id: 'trace-13',
-    prompt: 'Si tu traces une ligne et puis tu reviens, tu as... ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_straight, alt: 'une ligne' }],
-    choices: ['un triangle', 'un aller-retour', 'un cercle'],
-    answer: 'un aller-retour',
-    explanation: 'Aller et revenir crée un aller-retour sur la même ligne.'
-  },
-  {
-    id: 'trace-14',
-    prompt: 'Quel chemin suit une courbe régulière ?',
-    contextSlots: [{ kind: 'svg', markup: SHAPE_SVG_MARKUP.line_curve, alt: 'une courbe' }],
-    choices: ['zigzag', 'courbe lisse', 'escalier'],
-    answer: 'courbe lisse',
-    explanation: 'Une courbe régulière tourne graduellement et lissement.'
-  }
-];
-
 export const renforcementActivities = [
+  buildSingleSectionActivity({
+    id: 'renforcement-logique',
+    title: 'Logique',
+    engineType: 'multiple-choice',
+    instructions: 'Aujourd\'hui, on travaille la logique des formes. Une consigne à la fois.',
+    lessons: LOGIQUE_LESSONS
+  }),
   buildSingleSectionActivity({
     id: 'renforcement-formes',
     title: 'Formes',
     engineType: 'multiple-choice',
-    instructions: 'Aujourd’hui, on travaille les figures. Une consigne à la fois.',
+    instructions: 'Aujourd\'hui, on travaille les figures. Une consigne à la fois.',
     lessons: FORME_LESSONS
   }),
   buildSingleSectionActivity({
     id: 'renforcement-couleurs',
     title: 'Couleurs',
     engineType: 'coloring',
-    instructions: 'Aujourd’hui, on choisit et on colorie avec douceur. Une consigne à la fois.',
+    instructions: 'Colorie les formes correctement.',
     lessons: COULEUR_LESSONS
-  }),
-  buildSingleSectionActivity({
-    id: 'renforcement-tracer',
-    title: 'Tracer',
-    engineType: 'trace',
-    instructions: 'Aujourd’hui, on trace calmement. Une consigne à la fois.',
-    lessons: TRACE_LESSONS
-  }),
-  buildSingleSectionActivity({
-    id: 'renforcement-logique',
-    title: 'Logique',
-    engineType: 'multiple-choice',
-    instructions: 'Aujourd’hui, on cherche ensemble des liens visuels. Une consigne à la fois.',
-    lessons: LOGIQUE_LESSONS
-  }),
-  buildSingleSectionActivity({
-    id: 'renforcement-calcul',
-    title: 'Calcul',
-    engineType: 'grid',
-    instructions: 'Aujourd’hui, on complète la table. Une consigne à la fois.',
-    lessons: CALCUL_LESSONS
-  }),
-  buildSingleSectionActivity({
-    id: 'renforcement-lecture',
-    title: 'Lecture',
-    engineType: 'multiple-choice',
-    instructions: 'Aujourd’hui, on lit et on relie. Une consigne à la fois.',
-    lessons: LECTURE_LESSONS
   }),
   buildSingleSectionActivity({
     id: 'renforcement-observer',
     title: 'Observer',
-    engineType: 'spot-difference',
-    instructions: 'Aujourd’hui, on observe attentivement. Une consigne à la fois.',
+    engineType: 'multiple-choice',
+    instructions: 'Observe bien et réponds aux questions.',
     lessons: OBSERVER_LESSONS
   }),
   buildSingleSectionActivity({
-    id: 'renforcement-ecoute',
-    title: 'Ecoute',
+    id: 'renforcement-calcul',
+    title: 'Calcul',
     engineType: 'multiple-choice',
-    instructions: 'Aujourd’hui, on écoute et on répond tranquillement. Une consigne à la fois.',
-    lessons: ECOUTE_LESSONS
+    instructions: 'Complète les calculs correctement.',
+    lessons: CALCUL_LESSONS
   })
 ];
-

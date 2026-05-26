@@ -1,0 +1,37 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gardenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7fe2bf;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4fc59c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#gardenGrad)" opacity="0.9"/>
+
+  <!-- Flowers -->
+  <!-- Flower 1 -->
+  <circle cx="60" cy="80" r="4" fill="#FF69B4" opacity="0.8"/>
+  <circle cx="55" cy="75" r="3" fill="#FF69B4" opacity="0.7"/>
+  <circle cx="65" cy="75" r="3" fill="#FF69B4" opacity="0.7"/>
+  <circle cx="55" cy="85" r="3" fill="#FF69B4" opacity="0.7"/>
+  <circle cx="65" cy="85" r="3" fill="#FF69B4" opacity="0.7"/>
+  <rect x="58" y="80" width="2" height="15" fill="#2D5A47" opacity="0.6"/>
+
+  <!-- Flower 2 -->
+  <circle cx="140" cy="95" r="4" fill="#FFD670" opacity="0.8"/>
+  <circle cx="135" cy="90" r="3" fill="#FFD670" opacity="0.7"/>
+  <circle cx="145" cy="90" r="3" fill="#FFD670" opacity="0.7"/>
+  <circle cx="135" cy="100" r="3" fill="#FFD670" opacity="0.7"/>
+  <circle cx="145" cy="100" r="3" fill="#FFD670" opacity="0.7"/>
+  <rect x="138" y="95" width="2" height="18" fill="#2D5A47" opacity="0.6"/>
+
+  <!-- Flower 3 -->
+  <circle cx="100" cy="130" r="4" fill="#FF5A7E" opacity="0.8"/>
+  <circle cx="95" cy="125" r="3" fill="#FF5A7E" opacity="0.7"/>
+  <circle cx="105" cy="125" r="3" fill="#FF5A7E" opacity="0.7"/>
+  <circle cx="95" cy="135" r="3" fill="#FF5A7E" opacity="0.7"/>
+  <circle cx="105" cy="135" r="3" fill="#FF5A7E" opacity="0.7"/>
+  <rect x="98" y="130" width="2" height="20" fill="#2D5A47" opacity="0.6"/>
+
+  <!-- Grass -->
+  <path d="M 30,160 Q 50,155 70,160 T 110,160 T 150,160 T 190,160 L 190,200 L 30,200 Z" fill="#1a4d3a" opacity="0.4"/>
+</svg>

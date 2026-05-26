@@ -1,0 +1,18 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="errorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef9a9a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e57373;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#errorGrad)" opacity="0.2"/>
+  <!-- Alert triangle -->
+  <polygon points="100,40 160,150 40,150" fill="none" stroke="#e57373" stroke-width="3" stroke-linejoin="round" opacity="0.7"/>
+  <!-- Exclamation mark -->
+  <circle cx="100" cy="125" r="5" fill="#e57373" opacity="0.8"/>
+  <line x1="100" y1="85" x2="100" y2="110" stroke="#e57373" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <!-- Decorative X -->
+  <line x1="75" y1="65" x2="85" y2="75" stroke="#e57373" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="85" y1="65" x2="75" y2="75" stroke="#e57373" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+</svg>

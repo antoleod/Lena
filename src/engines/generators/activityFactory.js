@@ -1,6 +1,7 @@
 import { assertGeneratedExercise } from '../activity-engine/index.js';
 import { describeActivity, describeLesson } from '../activity-engine/activityDescriptor.js';
 import { composeLesson } from '../learning/lessonComposer.js';
+import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
 
 function fallbackProgress() {
   return {
@@ -16,14 +17,30 @@ function normalizeDifficulty(difficulty, progress, expectedQuestions) {
     return difficulty;
   }
 
-  // Determine child's global difficulty bias based on recent achievements
+  // Step 1: Determine base difficulty from global level
   let globalDifficultyBias = 'easy';
+  try {
+    const profileRaw = window.localStorage.getItem('lena:profile:v1');
+    if (profileRaw) {
+      const profile = JSON.parse(profileRaw);
+      const lvl = computeGlobalLevel(profile.totalActivitiesCompleted || 0);
+      if (lvl >= 8) {
+        globalDifficultyBias = 'hard';
+      } else if (lvl >= 4) {
+        globalDifficultyBias = 'medium';
+      }
+    }
+  } catch (_) {
+    // fallback to 'easy'
+  }
+
+  // Step 2: Layer recent achievement adjustment on top of level-based bias
   try {
     const storeSnapshot = window.localStorage.getItem('lena:migration:progress:v3');
     if (storeSnapshot) {
       const store = JSON.parse(storeSnapshot);
       const activities = Object.values(store.activities || {});
-      
+
       if (activities.length > 0) {
         // Filter activities that have been played
         const played = activities.filter(act => act.completed || act.attempts > 0);
@@ -35,17 +52,21 @@ function normalizeDifficulty(difficulty, progress, expectedQuestions) {
             const actRatio = (act.bestScore || 0) / (act.totalQuestions || 10);
             return sum + actRatio;
           }, 0) / recent.length;
-          
+
           if (totalRecentRatio >= 0.82) {
             globalDifficultyBias = 'hard';
-          } else if (totalRecentRatio >= 0.58) {
+          } else if (totalRecentRatio >= 0.58 && globalDifficultyBias !== 'hard') {
+            globalDifficultyBias = 'medium';
+          }
+          // If very poor recent scores, demote hard players to medium (but not to easy)
+          if (totalRecentRatio < 0.30 && globalDifficultyBias === 'hard') {
             globalDifficultyBias = 'medium';
           }
         }
       }
     }
   } catch (e) {
-    // Fail silently, fallback to 'easy'
+    // Fail silently, preserve globalDifficultyBias from level
   }
 
   // If this specific activity has never been attempted, default to global adaptive level instead of resetting to easy

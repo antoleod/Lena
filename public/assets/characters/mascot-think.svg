@@ -1,0 +1,30 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mascotThinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffb74d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffa726;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Body -->
+  <circle cx="60" cy="70" r="35" fill="url(#mascotThinkGrad)" opacity="0.9"/>
+  <!-- Head -->
+  <circle cx="60" cy="35" r="25" fill="url(#mascotThinkGrad)" opacity="0.95"/>
+  <!-- Eyes -->
+  <circle cx="50" cy="30" r="4" fill="#FFF"/>
+  <circle cx="70" cy="30" r="4" fill="#FFF"/>
+  <circle cx="50" cy="31" r="2.5" fill="#000" opacity="0.8"/>
+  <circle cx="70" cy="31" r="2.5" fill="#000" opacity="0.8"/>
+  <!-- Thinking pose - chin on hand -->
+  <path d="M 48 42 Q 48 48 50 50" stroke="#FFF" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <!-- Thought bubble -->
+  <circle cx="95" cy="20" r="8" fill="url(#mascotThinkGrad)" opacity="0.7" stroke="#FFF" stroke-width="1" opacity="0.6"/>
+  <circle cx="100" cy="18" r="4" fill="url(#mascotThinkGrad)" opacity="0.7" stroke="#FFF" stroke-width="1" opacity="0.6"/>
+  <!-- Arms -->
+  <rect x="25" y="60" width="15" height="30" rx="7" fill="url(#mascotThinkGrad)" opacity="0.85"/>
+  <rect x="80" y="60" width="15" height="30" rx="7" fill="url(#mascotThinkGrad)" opacity="0.85"/>
+  <!-- Left hand up -->
+  <path d="M 32 60 L 32 45" stroke="url(#mascotThinkGrad)" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="32" cy="45" r="7" fill="url(#mascotThinkGrad)" opacity="0.9"/>
+  <!-- Right hand down -->
+  <circle cx="88" cy="92" r="8" fill="url(#mascotThinkGrad)" opacity="0.9"/>
+</svg>

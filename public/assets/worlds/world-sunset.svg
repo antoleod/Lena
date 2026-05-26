@@ -1,0 +1,22 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunsetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9a76;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f06b6b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#sunsetGrad)" opacity="0.9"/>
+
+  <!-- Sun -->
+  <circle cx="100" cy="60" r="30" fill="#FFD670" opacity="0.85"/>
+  <circle cx="100" cy="60" r="28" fill="#FFC700" opacity="0.6"/>
+
+  <!-- Desert hills -->
+  <path d="M 30,140 Q 70,100 100,130 Q 130,110 170,145 L 170,200 L 30,200 Z" fill="#C4732F" opacity="0.7"/>
+  <path d="M 20,155 Q 60,125 100,150 Q 140,120 180,160 L 180,200 L 20,200 Z" fill="#A85C2B" opacity="0.6"/>
+
+  <!-- Cactus silhouette -->
+  <rect x="90" y="145" width="8" height="35" fill="#4A3A2A" opacity="0.8"/>
+  <circle cx="82" cy="160" r="5" fill="#4A3A2A" opacity="0.8"/>
+  <circle cx="116" cy="165" r="5" fill="#4A3A2A" opacity="0.8"/>
+</svg>

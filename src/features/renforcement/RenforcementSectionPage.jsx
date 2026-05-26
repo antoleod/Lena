@@ -5,6 +5,8 @@ import { getRenforcementSection } from '../../content/renforcement/sections.js';
 
 import { renforcementActivities } from '../../content/renforcement/activities.js';
 import SoftFeedback from './components/SoftFeedback.jsx';
+import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
+import { getProfile } from '../../services/storage/profileStore.js';
 
 export default function RenforcementSectionPage() {
   const { t } = useLocale();
@@ -13,6 +15,8 @@ export default function RenforcementSectionPage() {
   const section = getRenforcementSection(resolvedId);
   const activityId = section?.activityId;
   const activity = renforcementActivities.find((a) => a.id === activityId) || null;
+  const profile = getProfile();
+  const recommendedLevel = computeGlobalLevel(profile.totalActivitiesCompleted || 0);
 
   if (!section || !activity) {
     return (
@@ -44,6 +48,10 @@ export default function RenforcementSectionPage() {
         </div>
         <p className="panel__copy" style={{ marginBottom: 12, color: 'var(--muted)' }}>
           {activity.instructions || 'Une consigne à la fois. Tu peux réessayer.'}
+        </p>
+
+        <p className="panel__copy" style={{ fontSize: '0.85rem', color: 'var(--muted)', marginBottom: 16 }}>
+          Pour toi aujourd'hui : niveaux {recommendedLevel}–{Math.min(recommendedLevel + 1, 10)}.
         </p>
 
         <Link

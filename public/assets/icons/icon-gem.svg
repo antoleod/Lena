@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <title>Icono Gema Master 3D</title>
+  <defs>
+    <linearGradient id="gemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E1BEE7" />
+      <stop offset="50%" stop-color="#BA68C8" />
+      <stop offset="100%" stop-color="#7B1FA2" />
+    </linearGradient>
+    <filter id="crystalGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Sombra de contacto -->
+  <ellipse cx="50" cy="85" rx="25" ry="5" fill="black" opacity="0.1" />
+  
+  <!-- Cuerpo de la gema -->
+  <path d="M 50 15 L 85 40 L 50 85 L 15 40 Z" fill="url(#gemGrad)" filter="url(#crystalGlow)" />
+  
+  <!-- Facetas de brillo -->
+  <path d="M 50 15 L 85 40 L 50 45 Z" fill="white" opacity="0.3" />
+  <path d="M 50 15 L 15 40 L 50 45 Z" fill="white" opacity="0.5" />
+</svg>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSessionSnapshot, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 import { getAdventureDashboard } from '../../shared/gameplay/adventureProgress.js';
+import { getLevelProgress } from '../../services/learning/levelSystem.js';
 
 function formatMinutes(minutes) {
   if (!minutes) return '0 min';
@@ -16,7 +17,7 @@ function StreakFlame({ count }) {
   if (!count) return null;
   return (
     <span className="streak-flame">
-      <span aria-hidden="true">🔥</span>
+      <img src="/assets/stickers/badge-fire.svg" alt="" className="streak-flame__icon" />
       <strong>{count}</strong>
     </span>
   );
@@ -45,13 +46,14 @@ export default function HomePage() {
   const totalProgress = adventure.totalNodes
     ? Math.round((adventure.completedNodes / adventure.totalNodes) * 100)
     : 0;
+  const levelInfo = getLevelProgress(profile.totalActivitiesCompleted || 0);
 
   const quickLinks = useMemo(() => [
-    { to: '/map', icon: '🗺️', label: t('homeMapCardTitle'), sub: t('homeMapCardCopy') },
-    { to: '/subjects', icon: '📚', label: t('homeSubjectsCardTitle'), sub: t('homeSubjectsCardCopy') },
-    { to: '/renforcement', icon: '🌟', label: 'Renforcement', sub: 'Des exercices doux, une consigne a la fois.' },
-    { to: '/history', icon: '📈', label: t('homeHistoryCardTitle'), sub: t('homeHistoryCardCopy') },
-    { to: '/shop', icon: '🛍️', label: t('homeShopCardTitle'), sub: `${rewards.balance || 0} ${t('crystals')}` },
+    { to: '/map', icon: 'icon-home', label: t('homeMapCardTitle'), sub: t('homeMapCardCopy') },
+    { to: '/subjects', icon: 'icon-book', label: t('homeSubjectsCardTitle'), sub: t('homeSubjectsCardCopy') },
+    { to: '/renforcement', icon: 'icon-star', label: 'Renforcement', sub: 'Des exercices doux, une consigne a la fois.' },
+    { to: '/history', icon: 'icon-star', label: t('homeHistoryCardTitle'), sub: t('homeHistoryCardCopy') },
+    { to: '/shop', icon: 'icon-gem', label: t('homeShopCardTitle'), sub: `${rewards.balance || 0} ${t('crystals')}` },
   ], [t, rewards.balance]);
 
   const stats = useMemo(() => [
@@ -98,6 +100,26 @@ export default function HomePage() {
             />
           </div>
           <span className="home-hero__progress-label">{totalProgress}% {t('progression')}</span>
+        </div>
+
+        {/* Level progress bar */}
+        <div className="home-hero__level-wrap">
+          <div className="home-hero__level-row">
+            <span className="home-hero__level-label">
+              ⭐ Niveau {levelInfo.level}
+              {levelInfo.level < 10 && levelInfo.nextLevelAt && (
+                <span className="home-hero__level-hint">
+                  {' · '}{levelInfo.nextLevelAt - (profile.totalActivitiesCompleted || 0)} activités pour Niv. {levelInfo.level + 1}
+                </span>
+              )}
+            </span>
+          </div>
+          <div className="home-hero__level-bar">
+            <div
+              className="home-hero__level-fill"
+              style={{ width: `${Math.round(levelInfo.progress * 100)}%` }}
+            />
+          </div>
         </div>
       </section>
 

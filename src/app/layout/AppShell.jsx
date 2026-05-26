@@ -5,6 +5,7 @@ import { logoutProfile } from '../../services/storage/profileStore.js';
 import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
+import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
 
 
 export default function AppShell() {
@@ -19,12 +20,13 @@ export default function AppShell() {
   const displayName = session.profile?.name || t('defaultChildName') || 'Kid';
   const displayInitial = displayName.charAt(0).toUpperCase();
   const notificationsEnabled = session.profile?.settings?.notificationsEnabled ?? true;
+  const globalLevel = computeGlobalLevel(session.profile?.totalActivitiesCompleted || 0);
 
   const navItems = useMemo(() => ([
-    { to: '/map', label: t('startAdventure') || 'Adventure', icon: '🗺' },
-    { to: '/subjects', label: t('subjectsLabel') || 'Subjects', icon: '📚' },
-    { to: '/history', label: t('historyTitle') || 'History', icon: '📈' },
-    { to: '/settings', label: t('settingsLabel') || 'Settings', icon: '⚙' }
+    { to: '/map', label: t('startAdventure') || 'Adventure', icon: 'icon-home' },
+    { to: '/subjects', label: t('subjectsLabel') || 'Subjects', icon: 'icon-book' },
+    { to: '/history', label: t('historyTitle') || 'History', icon: 'icon-star' },
+    { to: '/settings', label: t('settingsLabel') || 'Settings', icon: 'icon-settings' }
   ]), [t]);
 
   useEffect(() => {
@@ -76,15 +78,20 @@ export default function AppShell() {
               onClick={playTapSound}
               data-testid={`nav-${item.to.replace('/', '') || 'home'}`}
             >
-              <span className="topbar-link__icon" aria-hidden="true">{item.icon}</span>
+              <img src={`/assets/icons/${item.icon}.svg`} alt={item.label} className="topbar-link__icon" />
               <span>{item.label}</span>
             </NavLink>
           ))}
         </nav>
 
         <div className="topbar-tools">
+          <div className="level-pill" aria-label={`Niveau ${globalLevel}`}>
+            <img src="/assets/icons/icon-star.svg" alt="" className="level-pill__icon" />
+            <span>Niv. {globalLevel}</span>
+          </div>
+
           <button type="button" className="wallet-compact" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-wallet" title={t('shop')}>
-            <span aria-hidden="true">🛍</span>
+            <img src="/assets/icons/icon-gem.svg" alt="" className="wallet-compact__icon" />
             <span>{session.rewards.balance}</span>
             <small>{t('crystals')}</small>
             {session.rewards.balance > 50 && (
@@ -97,7 +104,7 @@ export default function AppShell() {
             onClick={() => { playTapSound(); setCustomizerOpen(true); }}
             title="Personalizar mundo"
           >
-            <span aria-hidden="true">🎨</span>
+            <img src="/assets/icons/icon-settings.svg" alt="" className="icon-link__icon" />
             <span>Personalizar</span>
           </button>
 
@@ -111,7 +118,7 @@ export default function AppShell() {
               navigate('/onboarding', { replace: true, state: { from: location.pathname } });
             }}
           >
-            <span aria-hidden="true">↩</span>
+            <img src="/assets/icons/icon-close.svg" alt="" className="icon-link__icon" />
             <span>{t('logoutLabel') || 'Logout'}</span>
           </button>
         </div>

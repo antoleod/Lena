@@ -5,6 +5,11 @@ import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getGradeJourney } from '../../shared/gameplay/moduleJourney.js';
 import FloatingBackButton from '../../shared/ui/FloatingBackButton.jsx';
+import { inferLevelNumFromGrade } from '../../services/learning/levelSystem.js';
+
+function getLevelNum(activity) {
+  return activity.levelNum ?? inferLevelNumFromGrade(activity);
+}
 
 export default function GradePage() {
   const { subjectId, gradeId } = useParams();
@@ -143,67 +148,143 @@ export default function GradePage() {
         </section>
       )) : null}
 
-      {bonusActivities.length ? (
-        <section className="panel panel--tight" data-testid={`bonus-activities-${subjectId}-${gradeId}`}>
-          <div className="panel__header">
-            <div>
-              <span className="eyebrow">{gradeId}</span>
-              <h3>Ateliers bonus</h3>
-            </div>
-          </div>
-          <div className="module-lane">
-            {bonusActivities.map((activity, index) => (
-              <article key={activity.id} className="module-lane__card" style={{ animationDelay: `${index * 60}ms` }} data-testid={`bonus-activity-${activity.id}`}>
-                <div className="module-lane__card-head">
+      {bonusActivities.length ? (() => {
+        const foundationActivities = bonusActivities.filter(a => getLevelNum(a) <= 5);
+        const advancedActivities = bonusActivities.filter(a => getLevelNum(a) > 5);
+        return (
+          <>
+            {foundationActivities.length > 0 && (
+              <section className="panel panel--tight" data-testid={`bonus-activities-foundation-${subjectId}-${gradeId}`}>
+                <div className="panel__header">
                   <div>
-                    <strong>{activity.title}</strong>
-                    <p>{activity.instructions}</p>
+                    <span className="eyebrow">Niveaux 1–5</span>
+                    <h3>{t('exercisesLabel') || 'Activités de base'}</h3>
                   </div>
-                  <span className="pill">{activity.estimatedDurationMin} min</span>
                 </div>
-                <div className="module-lane__footer">
-                  <small>{activity.subskill || activity.subject}</small>
-                  <Link className="primary-action" to={`/activities/${activity.id}`} data-testid={`bonus-launch-${activity.id}`}>
-                    <span className="button-icon" aria-hidden="true">▶</span>
-                    <span>{t('launch')}</span>
-                  </Link>
+                <div className="module-lane">
+                  {foundationActivities.map((activity, index) => (
+                    <article key={activity.id} className="module-lane__card" style={{ animationDelay: `${index * 60}ms` }} data-testid={`bonus-activity-${activity.id}`}>
+                      <div className="module-lane__card-head">
+                        <div>
+                          <strong>{activity.title}</strong>
+                          <p>{activity.instructions}</p>
+                        </div>
+                        <span className="pill">Niv. {getLevelNum(activity)}</span>
+                      </div>
+                      <div className="module-lane__footer">
+                        <small>{activity.subskill || activity.subject}</small>
+                        <Link className="primary-action" to={`/activities/${activity.id}`} data-testid={`bonus-launch-${activity.id}`}>
+                          <span className="button-icon" aria-hidden="true">▶</span>
+                          <span>{t('launch')}</span>
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      ) : null}
+              </section>
+            )}
+            {advancedActivities.length > 0 && (
+              <section className="panel panel--tight" data-testid={`bonus-activities-advanced-${subjectId}-${gradeId}`}>
+                <div className="panel__header">
+                  <div>
+                    <span className="eyebrow">Niveaux 6–10</span>
+                    <h3>{t('exercisesLabel') || 'Activités avancées'}</h3>
+                  </div>
+                </div>
+                <div className="module-lane">
+                  {advancedActivities.map((activity, index) => (
+                    <article key={activity.id} className="module-lane__card" style={{ animationDelay: `${index * 60}ms` }} data-testid={`bonus-activity-${activity.id}`}>
+                      <div className="module-lane__card-head">
+                        <div>
+                          <strong>{activity.title}</strong>
+                          <p>{activity.instructions}</p>
+                        </div>
+                        <span className="pill">Niv. {getLevelNum(activity)}</span>
+                      </div>
+                      <div className="module-lane__footer">
+                        <small>{activity.subskill || activity.subject}</small>
+                        <Link className="primary-action" to={`/activities/${activity.id}`} data-testid={`bonus-launch-${activity.id}`}>
+                          <span className="button-icon" aria-hidden="true">▶</span>
+                          <span>{t('launch')}</span>
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
+          </>
+        );
+      })() : null}
 
-      {!modules.length && gradeActivities.length ? (
-        <section className="panel panel--tight">
-          <div className="panel__header">
-            <div>
-              <span className="eyebrow">{gradeId}</span>
-              <h3>{t('generatedLabel')}</h3>
-            </div>
-          </div>
-          <div className="module-lane">
-            {gradeActivities.map((activity, index) => (
-              <article key={activity.id} className="module-lane__card" style={{ animationDelay: `${index * 80}ms` }}>
-                <div className="module-lane__card-head">
+      {!modules.length && gradeActivities.length ? (() => {
+        const foundationActivities = gradeActivities.filter(a => getLevelNum(a) <= 5);
+        const advancedActivities = gradeActivities.filter(a => getLevelNum(a) > 5);
+        return (
+          <>
+            {foundationActivities.length > 0 && (
+              <section className="panel panel--tight">
+                <div className="panel__header">
                   <div>
-                    <strong>{activity.title}</strong>
-                    <p>{activity.instructions}</p>
+                    <span className="eyebrow">Niveaux 1–5</span>
+                    <h3>{t('generatedLabel')}</h3>
                   </div>
-                  <span className="pill">{activity.estimatedDurationMin} min</span>
                 </div>
-                <div className="module-lane__footer">
-                  <small>{t('generatedExercisesLabel')}</small>
-                  <Link className="primary-action" to={`/activities/${activity.id}`}>
-                    <span className="button-icon" aria-hidden="true">🎯</span>
-                    <span>{t('launch')}</span>
-                  </Link>
+                <div className="module-lane">
+                  {foundationActivities.map((activity, index) => (
+                    <article key={activity.id} className="module-lane__card" style={{ animationDelay: `${index * 80}ms` }}>
+                      <div className="module-lane__card-head">
+                        <div>
+                          <strong>{activity.title}</strong>
+                          <p>{activity.instructions}</p>
+                        </div>
+                        <span className="pill">Niv. {getLevelNum(activity)}</span>
+                      </div>
+                      <div className="module-lane__footer">
+                        <small>{t('generatedExercisesLabel')}</small>
+                        <Link className="primary-action" to={`/activities/${activity.id}`}>
+                          <span className="button-icon" aria-hidden="true">🎯</span>
+                          <span>{t('launch')}</span>
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      ) : null}
+              </section>
+            )}
+            {advancedActivities.length > 0 && (
+              <section className="panel panel--tight">
+                <div className="panel__header">
+                  <div>
+                    <span className="eyebrow">Niveaux 6–10</span>
+                    <h3>{t('generatedLabel')}</h3>
+                  </div>
+                </div>
+                <div className="module-lane">
+                  {advancedActivities.map((activity, index) => (
+                    <article key={activity.id} className="module-lane__card" style={{ animationDelay: `${index * 80}ms` }}>
+                      <div className="module-lane__card-head">
+                        <div>
+                          <strong>{activity.title}</strong>
+                          <p>{activity.instructions}</p>
+                        </div>
+                        <span className="pill">Niv. {getLevelNum(activity)}</span>
+                      </div>
+                      <div className="module-lane__footer">
+                        <small>{t('generatedExercisesLabel')}</small>
+                        <Link className="primary-action" to={`/activities/${activity.id}`}>
+                          <span className="button-icon" aria-hidden="true">🎯</span>
+                          <span>{t('launch')}</span>
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
+          </>
+        );
+      })() : null}
 
       {!modules.length && !gradeActivities.length ? (
         <section className="panel panel--tight">

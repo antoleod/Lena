@@ -1,0 +1,25 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mascotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9ff3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff7ce5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Body -->
+  <circle cx="60" cy="70" r="35" fill="url(#mascotGrad)" opacity="0.9"/>
+  <!-- Head -->
+  <circle cx="60" cy="35" r="25" fill="url(#mascotGrad)" opacity="0.95"/>
+  <!-- Eyes -->
+  <circle cx="50" cy="30" r="4" fill="#FFF"/>
+  <circle cx="70" cy="30" r="4" fill="#FFF"/>
+  <circle cx="50" cy="30" r="2.5" fill="#000" opacity="0.8"/>
+  <circle cx="70" cy="30" r="2.5" fill="#000" opacity="0.8"/>
+  <!-- Smile -->
+  <path d="M 48 40 Q 60 48 72 40" stroke="#FFF" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <!-- Arms -->
+  <rect x="25" y="60" width="15" height="30" rx="7" fill="url(#mascotGrad)" opacity="0.85"/>
+  <rect x="80" y="60" width="15" height="30" rx="7" fill="url(#mascotGrad)" opacity="0.85"/>
+  <!-- Hands -->
+  <circle cx="32" cy="92" r="8" fill="url(#mascotGrad)" opacity="0.9"/>
+  <circle cx="88" cy="92" r="8" fill="url(#mascotGrad)" opacity="0.9"/>
+</svg>

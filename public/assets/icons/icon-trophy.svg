@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="trophyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffa500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8c00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path d="M 25 30 L 25 45 Q 25 55 35 55 L 45 55 L 45 70 L 55 70 L 55 55 L 65 55 Q 75 55 75 45 L 75 30 Z" fill="url(#trophyGrad)" opacity="0.9"/>
+  <rect x="40" y="70" width="20" height="8" fill="url(#trophyGrad)" opacity="0.8"/>
+  <circle cx="32" cy="40" r="5" fill="#FFF" opacity="0.5"/>
+  <circle cx="68" cy="40" r="5" fill="#FFF" opacity="0.5"/>
+</svg>

@@ -1,0 +1,38 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <title>Insignia de Estrella Master 3D</title>
+  <defs>
+    <filter id="elementGlowStar" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feFlood flood-color="#FFF176" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="stickerShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1" flood-opacity="0.2"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-opacity="0.3"/>
+    </filter>
+    <linearGradient id="surfaceGloss" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="white" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id="badgeBodyStar" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FFEB3B" />
+      <stop offset="70%" stop-color="#F9A825" />
+      <stop offset="100%" stop-color="#EF6C00" />
+    </radialGradient>
+  </defs>
+
+  <g filter="url(#stickerShadow)">
+    <circle cx="50" cy="53" r="48" fill="#A85D00" /> 
+    <circle cx="50" cy="50" r="48" fill="#FFFFFF" />
+    <circle cx="50" cy="50" r="44" fill="url(#badgeBodyStar)" />
+    <!-- Estrella -->
+    <path d="M 50 20 L 58 38 L 78 41 L 64 55 L 67 75 L 50 65 L 33 75 L 36 55 L 22 41 L 42 38 Z" 
+          fill="#FFF176" filter="url(#elementGlowStar)" />
+    <path d="M 50 30 L 54 42 L 67 44 L 58 52 L 60 65 L 50 58 L 40 65 L 42 52 L 33 44 L 46 42 Z" fill="white" opacity="0.6" />
+    <path d="M 12 40 A 40 40 0 0 1 80 20 A 44 44 0 0 0 12 40" fill="url(#surfaceGloss)" />
+  </g>
+</svg>

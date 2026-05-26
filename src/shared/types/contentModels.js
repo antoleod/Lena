@@ -46,6 +46,7 @@ function cloneList(list) {
  * @property {string[]} [skillTags]
  * @property {string} [subskill]
  * @property {string} [difficulty]
+ * @property {number|null} [levelNum]
  * @property {string} [instructions]
  * @property {string} [correctionType]
  * @property {Object[]} [sections]
@@ -219,6 +220,7 @@ export function defineActivity(input) {
     skillTags: [],
     subskill: '',
     difficulty: 'easy',
+    levelNum: null,
     instructions: '',
     correctionType: '',
     sections: [],

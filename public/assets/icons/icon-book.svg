@@ -1,0 +1,13 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bookGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8c42;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff5f4a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path d="M 25 20 L 50 25 L 75 20 L 75 75 Q 75 80 70 80 L 50 80 L 30 80 Q 25 80 25 75 Z" fill="url(#bookGrad)" opacity="0.8"/>
+  <path d="M 75 20 L 50 25 L 50 80 L 70 80 Q 75 80 75 75 Z" fill="url(#bookGrad)" opacity="0.9"/>
+  <line x1="50" y1="25" x2="50" y2="80" stroke="#FFF" stroke-width="1.5" opacity="0.4"/>
+  <line x1="35" y1="40" x2="65" y2="40" stroke="#FFF" stroke-width="1" opacity="0.3"/>
+  <line x1="35" y1="55" x2="65" y2="55" stroke="#FFF" stroke-width="1" opacity="0.3"/>
+</svg>
