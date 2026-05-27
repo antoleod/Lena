@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { LESSONS_CATALOG } from '../../content/lessons/lessonsCatalog.js';
+import { getLessonProgress } from '../../services/storage/progressStore.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 
 const SUBJECT_LABELS = {
@@ -12,6 +14,13 @@ const SUBJECT_LABELS = {
 
 export default function LessonsHubPage() {
   const { t } = useLocale();
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    const handler = () => setTick(n => n + 1);
+    window.addEventListener('lena-progress-change', handler);
+    return () => window.removeEventListener('lena-progress-change', handler);
+  }, []);
 
   return (
     <div className="lp-hub" data-testid="lessons-hub-page">
@@ -28,7 +37,9 @@ export default function LessonsHubPage() {
       </p>
 
       <div className="lp-hub__grid">
-        {LESSONS_CATALOG.map((lesson, i) => (
+        {LESSONS_CATALOG.map((lesson, i) => {
+          const prog = getLessonProgress(lesson.id);
+          return (
           <Link
             key={lesson.id}
             to={`/lessons/${lesson.id}`}
@@ -43,6 +54,7 @@ export default function LessonsHubPage() {
           >
             <div className="lp-card__sky">
               <span className="lp-card__emoji">{lesson.emoji}</span>
+              {prog.completed && <span className="lp-card__done-badge">✓ Terminé</span>}
               <div className="lp-card__grade-chips">
                 {lesson.grade.map(g => (
                   <span key={g} className="lp-card__grade-chip">{g}</span>
@@ -60,7 +72,8 @@ export default function LessonsHubPage() {
             </div>
             <div className="lp-card__cta">▶ Commencer</div>
           </Link>
-        ))}
+          );
+        })}
       </div>
 
       {LESSONS_CATALOG.length === 0 && (

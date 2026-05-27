@@ -95,9 +95,13 @@ function MissionNode({ mission, missionProg, unlocked, index, col, isActive }) {
     </div>
   );
 
+  const target = mission.lessonId
+    ? `/lessons/${mission.lessonId}?returnTo=/map/${mission._worldId}`
+    : `/map/${mission._worldId}/missions/${mission.id}`;
+
   return (
     <div className="cc-node-slot">
-      <Link to={`/map/${mission._worldId}/missions/${mission.id}`} className="cc-node-link" title={mission.title}>
+      <Link to={target} className="cc-node-link" title={mission.title}>
         {body}
         <span className="cc-node__title">{mission.title}</span>
       </Link>

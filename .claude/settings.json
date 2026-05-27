@@ -16,7 +16,9 @@
       "Bash(pkill -f vite)",
       "Bash(npx vite *)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5210/)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5215/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5215/)",
+      "Bash(del public\\\\service-worker.js)",
+      "Bash(del public\\\\manifest.json)"
     ]
   }
 }

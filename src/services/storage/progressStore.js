@@ -19,6 +19,7 @@ function defaultStore() {
     activities: {},
     levels: {},
     questions: {},
+    lessons: {},
     meta: {
       lastActivityId: null,
       lastLevelId: null,
@@ -41,6 +42,7 @@ function readStore() {
       activities: parsed.activities || {},
       levels: parsed.levels || {},
       questions: parsed.questions || {},
+      lessons: parsed.lessons || {},
       meta: {
         ...defaultStore().meta,
         ...(parsed.meta || {})
@@ -218,6 +220,24 @@ export function saveLevelProgress(levelId, patch) {
   };
   writeStore(store);
   return next;
+}
+
+export function getLessonProgress(lessonId) {
+  const store = readStore();
+  return store.lessons[lessonId] || { completed: false, completedAt: null, attempts: 0 };
+}
+
+export function saveLessonProgress(lessonId) {
+  const store = readStore();
+  const prev = store.lessons[lessonId] || getLessonProgress(lessonId);
+  const meta = updateStreak(store.meta);
+  store.lessons[lessonId] = {
+    completed: true,
+    completedAt: Date.now(),
+    attempts: prev.attempts + 1
+  };
+  store.meta = { ...meta, lastPlayedAt: Date.now() };
+  writeStore(store);
 }
 
 export function getProgressOverview(activityList, moduleList) {

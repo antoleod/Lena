@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { getLessonById } from '../../content/lessons/lessonsCatalog.js';
+import { saveLessonProgress } from '../../services/storage/progressStore.js';
 
 // Render markdown-lite: **bold**, \n as <br>
 function RichText({ text }) {
@@ -116,6 +117,8 @@ function ActivitySlide({ slide }) {
 export default function LessonPlayerPage() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const returnTo = searchParams.get('returnTo') || '/lessons';
   const lesson = getLessonById(lessonId);
 
   const [index, setIndex] = useState(0);
@@ -142,6 +145,7 @@ export default function LessonPlayerPage() {
 
   function handleNext() {
     if (isLast) {
+      saveLessonProgress(lesson.id);
       setFinished(true);
       return;
     }
@@ -169,7 +173,7 @@ export default function LessonPlayerPage() {
             <button className="lp-btn lp-btn--primary" onClick={() => { setIndex(0); setFinished(false); setQuestionAnswered(false); }}>
               🔄 Recommencer
             </button>
-            <Link className="lp-btn lp-btn--secondary" to="/lessons">← Autres leçons</Link>
+            <Link className="lp-btn lp-btn--secondary" to={returnTo}>← Retour</Link>
           </div>
         </div>
       </div>
@@ -180,7 +184,7 @@ export default function LessonPlayerPage() {
     <div className="lp-player" style={{ '--lp-color': lesson.color, '--lp-shadow': lesson.shadow, '--lp-bg': lesson.bg }}>
       {/* Topbar */}
       <div className="lp-topbar">
-        <Link className="cc-back-btn" to="/lessons">←</Link>
+        <Link className="cc-back-btn" to={returnTo}>←</Link>
         <div className="lp-topbar__title">{lesson.title}</div>
         <span className="lp-topbar__count">{index + 1}/{total}</span>
       </div>

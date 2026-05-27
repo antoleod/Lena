@@ -9424,3 +9424,89 @@ label {
   max-width: 320px;
 }
 
+/* ── Lesson hub — completion badge ── */
+.lp-card__done-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #22c55e;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+/* ── Grade page — contextual lessons strip ── */
+.sw-grade-lessons {
+  padding: 20px 16px 24px;
+}
+.sw-grade-lessons__eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+.sw-grade-lessons__strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+.sw-grade-lessons__strip::-webkit-scrollbar { display: none; }
+.sw-grade-lesson-card {
+  flex: 0 0 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--lp-bg);
+  border-radius: 16px;
+  padding: 12px;
+  text-decoration: none;
+  position: relative;
+  box-shadow: 0 4px 0 var(--lp-shadow, #333);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.sw-grade-lesson-card:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--lp-shadow, #333);
+}
+.sw-grade-lesson-card__emoji { font-size: 2rem; flex-shrink: 0; }
+.sw-grade-lesson-card__body { flex: 1; min-width: 0; }
+.sw-grade-lesson-card__title {
+  display: block;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sw-grade-lesson-card__meta {
+  display: block;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.72rem;
+  margin-top: 4px;
+}
+.sw-grade-lesson-card__done {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: #22c55e;
+  color: #fff;
+  border-radius: 999px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+

@@ -2,7 +2,8 @@ import { Link, useParams } from 'react-router-dom';
 import { getSubjectById, gradeCatalog } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
-import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import { getProgressSnapshot, getLessonProgress } from '../../services/storage/progressStore.js';
+import { getLessonsByContext } from '../../content/lessons/lessonsCatalog.js';
 import { getGradeJourney } from '../../shared/gameplay/moduleJourney.js';
 import { inferLevelNumFromGrade } from '../../services/learning/levelSystem.js';
 import { getSubjectUniverse, getGradeWorld, getDomainTheme } from '../../shared/gameplay/subjectThemes.js';
@@ -76,6 +77,7 @@ export default function GradePage() {
   });
 
   const activeNodeId = allNodes.find(n => n.pct < 100)?.id || null;
+  const contextLessons = getLessonsByContext(subjectId, gradeId);
 
   return (
     <div
@@ -193,6 +195,34 @@ export default function GradePage() {
           )}
         </div>
       </div>
+
+      {contextLessons.length > 0 && (
+        <div className="sw-grade-lessons">
+          <div className="sw-grade-lessons__header">
+            <span className="sw-grade-lessons__eyebrow">📚 Leçons disponibles</span>
+          </div>
+          <div className="sw-grade-lessons__strip">
+            {contextLessons.map(lesson => {
+              const prog = getLessonProgress(lesson.id);
+              return (
+                <Link
+                  key={lesson.id}
+                  to={`/lessons/${lesson.id}`}
+                  className="sw-grade-lesson-card"
+                  style={{ '--lp-color': lesson.color, '--lp-shadow': lesson.shadow, '--lp-bg': lesson.bg }}
+                >
+                  <span className="sw-grade-lesson-card__emoji">{lesson.emoji}</span>
+                  <div className="sw-grade-lesson-card__body">
+                    <strong className="sw-grade-lesson-card__title">{lesson.title}</strong>
+                    <span className="sw-grade-lesson-card__meta">{lesson.duration} · {lesson.slides.length} étapes</span>
+                  </div>
+                  {prog.completed && <span className="sw-grade-lesson-card__done">✓</span>}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

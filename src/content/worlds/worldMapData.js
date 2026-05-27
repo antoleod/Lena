@@ -1,12 +1,13 @@
 import { defineMission, defineWorld } from '../../shared/types/index.js';
 
-function mission(order, title, activityIds, description = '', nodeType = 'lesson') {
+function mission(order, title, activityIds, description = '', nodeType = 'lesson', lessonId = null) {
   return {
     order,
     title,
     activityIds,
     description,
-    nodeType
+    nodeType,
+    lessonId
   };
 }
 
@@ -35,7 +36,7 @@ const WORLD_SPECS = [
     gradeIds: ['P2'],
     subjectIds: ['mathematics', 'french'],
     missions: [
-      mission(1, 'Compter et construire', ['build-number', 'place-value', 'generated-comparison-p2'], '', 'lesson'),
+      mission(1, 'Compter et construire', ['build-number', 'place-value', 'generated-comparison-p2'], '', 'lesson', 'la-regle'),
       mission(2, 'Comparer et lire', ['place-value', 'generated-comparison-p2', 'build-number'], '', 'lesson'),
       mission(3, 'Premieres additions', ['generated-addition-p2', 'number-line'], '', 'lesson'),
       mission(4, 'Premieres soustractions', ['generated-subtraction-p2', 'number-line'], '', 'lesson'),
@@ -396,6 +397,7 @@ export const worldJourneyData = WORLD_SPECS.map((spec) => {
     missions: missionDefinitions.map((missionDefinition, index) => ({
       ...missionDefinition,
       nodeType: spec.missions[index]?.nodeType || 'lesson',
+      lessonId: spec.missions[index]?.lessonId || null,
       activityIds: [...(spec.missions[index]?.activityIds || [])]
     })),
     missionActivityMap: Object.freeze(
