@@ -211,8 +211,8 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
       ? feedbackPreferences.showCorrect !== false
       : feedbackPreferences.showWrong !== false;
     const feedbackDuration = isCorrect
-      ? Number(feedbackPreferences.correctDurationMs || 1000)
-      : Number(feedbackPreferences.wrongDurationMs || 2000);
+      ? Number(feedbackPreferences.correctDurationMs || 1500)
+      : Number(feedbackPreferences.wrongDurationMs || 2500);
 
     if (isCorrect) {
       playCorrectSound();
@@ -244,6 +244,14 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
       pendingAdvanceRef.current = null;
       goNext(nextScore, nextQueue);
     }, shouldShowFeedback ? feedbackDuration : 120);
+  }
+
+  function handleContinueClick() {
+    if (!pendingAdvanceRef.current) return;
+    if (timerRef.current) window.clearTimeout(timerRef.current);
+    const pending = pendingAdvanceRef.current;
+    pendingAdvanceRef.current = null;
+    goNext(pending.score, pending.queue);
   }
 
   if (completed) {
@@ -362,6 +370,14 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
               {feedback.isCorrect ? '✅' : '💡'}
             </span>
             <strong className="mc-feedback__msg">{feedbackMsg}</strong>
+            <button
+              type="button"
+              className="mc-feedback__continue"
+              onClick={handleContinueClick}
+              aria-label="Continuer"
+            >
+              ▶
+            </button>
           </div>
           {feedback.explanation && (
             <p className="mc-feedback__detail">{feedback.explanation}</p>

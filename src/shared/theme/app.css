@@ -2865,9 +2865,9 @@ button {
 
 .cc-act-header__instructions {
   margin: 0;
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.4;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.45;
 }
 
 .cc-act-header__mascot {
@@ -2945,6 +2945,24 @@ button {
 .cc-activity-shell h2,
 .cc-activity-shell h3 {
   color: white;
+}
+
+/* Progress rail & feedback legibility inside dark shell */
+.cc-activity-shell .mc-progress-rail__label {
+  color: rgba(255,255,255,0.5);
+}
+.cc-activity-shell .mc-progress-rail__counter {
+  color: rgba(255,255,255,0.85);
+}
+.cc-activity-shell .mc-feedback__msg {
+  color: var(--text);
+}
+.cc-activity-shell .mc-feedback__continue {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+.cc-activity-shell .mc-feedback--correct .mc-feedback__continue {
+  background: rgba(53, 196, 144, 0.3);
 }
 
 /* ── Stars ── */
@@ -5607,17 +5625,47 @@ button {
 }
 
 .mc-feedback__msg {
+  flex: 1;
   font-family: 'Fredoka', sans-serif;
   font-size: 1.1rem;
   color: var(--text);
+}
+
+.mc-feedback__continue {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(120, 166, 255, 0.18);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.mc-feedback--correct .mc-feedback__continue {
+  background: rgba(53, 196, 144, 0.22);
+}
+
+.mc-feedback__continue:hover {
+  transform: scale(1.08);
+}
+
+.mc-feedback__continue:active {
+  transform: scale(0.96);
 }
 
 .mc-feedback__detail {
   margin: 0;
   padding-left: 32px;
   color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.4;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .mc-complete {
@@ -9508,5 +9556,106 @@ label {
   justify-content: center;
   font-size: 0.7rem;
   font-weight: 700;
+}
+
+/* ── Completion: suggested activities ── */
+.cc-completion__suggestions {
+  width: 100%;
+  margin-top: 4px;
+}
+.cc-completion__suggestions-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0 0 8px;
+}
+.cc-completion__suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cc-completion__suggestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 10px 14px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.cc-completion__suggestion:hover {
+  background: rgba(255,255,255,0.14);
+}
+.cc-completion__suggestion strong {
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+.cc-completion__suggestion small {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.72rem;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+/* ── Responsive: compact layout on small screens ── */
+@media (max-height: 680px) {
+  .cc-completion {
+    gap: 8px;
+    padding: 12px 16px 20px;
+  }
+  .cc-completion__world-badge {
+    width: 56px;
+    height: 56px;
+    font-size: 1.7rem;
+  }
+  .cc-completion__mascot {
+    display: none;
+  }
+  .cc-act-stars {
+    margin: 4px 0;
+  }
+  .cc-act-star {
+    font-size: 1.7rem;
+  }
+  .cc-completion__msg {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+  }
+  .cc-completion__suggestions {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .cc-act-engine {
+    padding: 4px 8px 12px;
+  }
+  .engine-card--compact {
+    padding: 12px;
+  }
+  .mc-prompt {
+    font-size: 0.95rem;
+  }
+  .mc-choices--compact {
+    gap: 6px;
+  }
+  .cc-act-header__mascot {
+    display: none;
+  }
+  .cc-act-header {
+    grid-template-columns: 38px 1fr;
+  }
+  .cc-completion {
+    gap: 8px;
+    padding: 16px 12px 20px;
+  }
+  .cc-completion__reward {
+    padding: 8px 10px;
+    min-width: 60px;
+  }
 }
 

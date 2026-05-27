@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { getModuleById, getSubjectById } from '../curriculum/catalog.js';
+import { getActivitiesBySubject, getModuleById, getSubjectById } from '../curriculum/catalog.js';
 import { getActivityProgress, getLevelProgress, getProgressSnapshot, saveActivityProgress, saveLevelProgress } from '../../services/storage/progressStore.js';
 import { rewardActivityCompletion, rewardMissionCompletion } from '../../services/storage/rewardStore.js';
 import { materializeActivity } from '../../engines/generators/activityFactory.js';
@@ -72,6 +72,31 @@ function Confetti() {
           }}
         />
       ))}
+    </div>
+  );
+}
+
+function SuggestedActivities({ currentId, subject }) {
+  const suggestions = useMemo(() => {
+    if (!subject) return [];
+    return getActivitiesBySubject(subject)
+      .filter((a) => a.id !== currentId && !a.id.startsWith('generated-'))
+      .slice(0, 3);
+  }, [currentId, subject]);
+
+  if (!suggestions.length) return null;
+
+  return (
+    <div className="cc-completion__suggestions">
+      <p className="cc-completion__suggestions-label">À faire ensuite</p>
+      <div className="cc-completion__suggestions-list">
+        {suggestions.map((a) => (
+          <Link key={a.id} className="cc-completion__suggestion" to={`/activities/${a.id}`}>
+            <strong>{a.title}</strong>
+            {a.estimatedDurationMin && <small>{a.estimatedDurationMin} min</small>}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
@@ -282,6 +307,8 @@ export default function ActivityPage() {
               ↩ {moduleId ? t('back') : t('missions')}
             </Link>
           </div>
+
+          <SuggestedActivities currentId={activity.id} subject={activity.subject} />
         </div>
       </div>
     );

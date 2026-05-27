@@ -142,6 +142,80 @@ export const frenchActivities = [
     )
   },
   {
+    id: 'contraires-p2',
+    slug: 'trouver-les-contraires',
+    title: 'Les contraires',
+    subject: 'french',
+    subskill: 'vocabulary',
+    gradeBand: ['P2', 'P3'],
+    language: 'fr',
+    difficulty: 'progressive',
+    estimatedDurationMin: 8,
+    instructions: 'Trouve le contraire de chaque mot.',
+    correctionType: 'multiple-choice',
+    hints: ['Le contraire est le mot qui dit le contraire.'],
+    tags: ['vocabulaire', 'contraires', 'langue'],
+    accessibility: ['feedback cible'],
+    originRepo: 'new',
+    engineType: 'multiple-choice',
+    featured: true,
+    sections: buildSections(
+      [
+        { prompt: 'Le contraire de "grand" est...', choices: ['petit', 'gros', 'fort'], answer: 'petit', explanation: 'Grand ↔ petit.' },
+        { prompt: 'Le contraire de "chaud" est...', choices: ['froid', 'tiede', 'sec'], answer: 'froid', explanation: 'Chaud ↔ froid.' },
+        { prompt: 'Le contraire de "rapide" est...', choices: ['lent', 'silencieux', 'triste'], answer: 'lent', explanation: 'Rapide ↔ lent.' },
+        { prompt: 'Le contraire de "jour" est...', choices: ['nuit', 'soir', 'apres-midi'], answer: 'nuit', explanation: 'Jour ↔ nuit.' },
+        { prompt: 'Le contraire de "ouvert" est...', choices: ['ferme', 'casse', 'dur'], answer: 'ferme', explanation: 'Ouvert ↔ ferme.' },
+        { prompt: 'Le contraire de "propre" est...', choices: ['sale', 'mouille', 'lourd'], answer: 'sale', explanation: 'Propre ↔ sale.' },
+        { prompt: 'Le contraire de "devant" est...', choices: ['derriere', 'dessous', 'a cote'], answer: 'derriere', explanation: 'Devant ↔ derriere.' },
+        { prompt: 'Le contraire de "monter" est...', choices: ['descendre', 'avancer', 'tourner'], answer: 'descendre', explanation: 'Monter ↔ descendre.' }
+      ],
+      [
+        { prompt: 'Le contraire de "rire" est...', choices: ['pleurer', 'dormir', 'courir'], answer: 'pleurer', explanation: 'Rire ↔ pleurer.' },
+        { prompt: 'Le contraire de "vieux" est...', choices: ['jeune', 'petit', 'leger'], answer: 'jeune', explanation: 'Vieux ↔ jeune.' },
+        { prompt: 'Le contraire de "leger" est...', choices: ['lourd', 'dur', 'lent'], answer: 'lourd', explanation: 'Leger ↔ lourd.' }
+      ],
+      'Atelier des contraires',
+      'Mini examen contraires'
+    )
+  },
+  {
+    id: 'categories-p2',
+    slug: 'trier-par-categories',
+    title: 'Trier par categories',
+    subject: 'french',
+    subskill: 'vocabulary',
+    gradeBand: ['P2', 'P3'],
+    language: 'fr',
+    difficulty: 'guided',
+    estimatedDurationMin: 7,
+    instructions: 'Dans quelle categorie appartient ce mot ?',
+    correctionType: 'multiple-choice',
+    hints: ['Demande-toi a quel groupe ce mot appartient.'],
+    tags: ['vocabulaire', 'categories', 'tri'],
+    accessibility: ['choix clairs'],
+    originRepo: 'new',
+    engineType: 'multiple-choice',
+    featured: false,
+    sections: buildSections(
+      [
+        { prompt: 'Dans quelle categorie est "lion" ?', choices: ['animal', 'fruit', 'meuble'], answer: 'animal', explanation: 'Le lion est un animal.' },
+        { prompt: 'Dans quelle categorie est "banane" ?', choices: ['fruit', 'legume', 'animal'], answer: 'fruit', explanation: 'La banane est un fruit.' },
+        { prompt: 'Dans quelle categorie est "chaise" ?', choices: ['meuble', 'vetement', 'outil'], answer: 'meuble', explanation: 'La chaise est un meuble.' },
+        { prompt: 'Dans quelle categorie est "carotte" ?', choices: ['legume', 'fruit', 'jouet'], answer: 'legume', explanation: 'La carotte est un legume.' },
+        { prompt: 'Dans quelle categorie est "rouge" ?', choices: ['couleur', 'forme', 'animal'], answer: 'couleur', explanation: 'Rouge est une couleur.' },
+        { prompt: 'Dans quelle categorie est "triangle" ?', choices: ['forme', 'couleur', 'fruit'], answer: 'forme', explanation: 'Le triangle est une forme.' }
+      ],
+      [
+        { prompt: 'Dans quelle categorie est "manteau" ?', choices: ['vetement', 'meuble', 'fruit'], answer: 'vetement', explanation: 'Le manteau est un vetement.' },
+        { prompt: 'Dans quelle categorie est "janvier" ?', choices: ['mois', 'jour', 'saison'], answer: 'mois', explanation: 'Janvier est un mois.' },
+        { prompt: 'Dans quelle categorie est "ete" ?', choices: ['saison', 'mois', 'couleur'], answer: 'saison', explanation: 'L ete est une saison.' }
+      ],
+      'Atelier tri',
+      'Mini examen des categories'
+    )
+  },
+  {
     id: 'intrus-lecture',
     slug: 'trouver-l-intrus',
     title: 'Trouver l intrus',

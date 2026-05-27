@@ -67,6 +67,43 @@ export const dutchActivities = [
     )
   },
   {
+    id: 'dutch-family-words',
+    slug: 'familiewoorden',
+    title: 'Familiewoorden',
+    subject: 'dutch',
+    subskill: 'vocabulary',
+    gradeBand: ['P2', 'P3'],
+    language: 'nl',
+    difficulty: 'starter',
+    estimatedDurationMin: 8,
+    instructions: 'Kies het juiste Nederlandse woord voor elk familielid.',
+    correctionType: 'multiple-choice',
+    hints: ['Denk aan wie je familie zijn.'],
+    tags: ['familie', 'woordenschat', 'beginner'],
+    accessibility: ['korte woorden', 'vertrouwd thema'],
+    originRepo: 'new',
+    engineType: 'multiple-choice',
+    featured: true,
+    sections: buildSections(
+      [
+        { prompt: 'Wie is de vader in het Nederlands?', choices: ['papa', 'mama', 'broer'], answer: 'papa', explanation: 'Papa = vader in het Nederlands.' },
+        { prompt: 'Wie is de moeder in het Nederlands?', choices: ['mama', 'papa', 'oma'], answer: 'mama', explanation: 'Mama = moeder in het Nederlands.' },
+        { prompt: 'Hoe noem je de broer van je vader?', choices: ['oom', 'neef', 'opa'], answer: 'oom', explanation: 'De broer van je vader is je oom.' },
+        { prompt: 'Hoe noem je de zus van je moeder?', choices: ['tante', 'oma', 'nicht'], answer: 'tante', explanation: 'De zus van je moeder is je tante.' },
+        { prompt: 'Wie is ouder dan je vader?', choices: ['opa', 'broer', 'neef'], answer: 'opa', explanation: 'Opa is de vader van je vader of moeder.' },
+        { prompt: 'Wie is het kind van je oom?', choices: ['neef', 'broer', 'opa'], answer: 'neef', explanation: 'Het kind van je oom is je neef.' },
+        { prompt: 'Hoe heet een jonger familielid dat bij je thuis woont?', choices: ['broer of zus', 'opa', 'oom'], answer: 'broer of zus', explanation: 'Je broer of zus woont samen met jou.' }
+      ],
+      [
+        { prompt: 'Mini toets: wie is de moeder van je mama?', choices: ['oma', 'tante', 'nicht'], answer: 'oma', explanation: 'De moeder van je mama is je oma.' },
+        { prompt: 'Mini toets: hoe heet de zus van je vader?', choices: ['tante', 'oma', 'neef'], answer: 'tante', explanation: 'De zus van je vader is je tante.' },
+        { prompt: 'Mini toets: wie is een broer of zus?', choices: ['gezinslid', 'buur', 'vriend'], answer: 'gezinslid', explanation: 'Je broer of zus is een gezinslid.' }
+      ],
+      'Familiewoorden oefenen',
+      'Mini toets familie'
+    )
+  },
+  {
     id: 'dutch-picture-words',
     slug: 'beeld-en-woord',
     title: 'Beeld en woord',
