@@ -1,30 +1,68 @@
-<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="mascotThinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffb74d;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ffa726;stop-opacity:1" />
-    </linearGradient>
+    <radialGradient id="headGradThink" cx="35%" cy="35%">
+      <stop offset="0%" style="stop-color:#ffd180;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffb74d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e68a00;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="bodyGradThink" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#ffe0b2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb74d;stop-opacity:1" />
+    </radialGradient>
+    <style>
+      .shine { transition: transform 0.4s ease-out; }
+      svg:hover .shine { transform: translate(2px, -2px); }
+      .character-body {
+        animation: breathe 4.2s ease-in-out infinite;
+        transform-origin: 75px 135px;
+      }
+      @keyframes breathe {
+        0%, 100% { transform: scale(1) translateY(0); }
+        50% { transform: scale(1.02, 1.04) translateY(-2px); }
+      }
+    </style>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.3"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+  <g class="character-body">
   <!-- Body -->
-  <circle cx="60" cy="70" r="35" fill="url(#mascotThinkGrad)" opacity="0.9"/>
+  <circle cx="75" cy="95" r="40" fill="url(#bodyGradThink)" filter="url(#softShadow)"/>
+  <ellipse cx="75" cy="90" rx="30" ry="20" fill="#ffffff" opacity="0.2"/>
+
   <!-- Head -->
-  <circle cx="60" cy="35" r="25" fill="url(#mascotThinkGrad)" opacity="0.95"/>
+  <circle cx="75" cy="45" r="35" fill="url(#headGradThink)" filter="url(#softShadow)"/>
+  <ellipse class="shine" cx="62" cy="30" rx="15" ry="10" fill="#ffffff" opacity="0.25" transform="rotate(-15 62 30)"/>
+
   <!-- Eyes -->
-  <circle cx="50" cy="30" r="4" fill="#FFF"/>
-  <circle cx="70" cy="30" r="4" fill="#FFF"/>
-  <circle cx="50" cy="31" r="2.5" fill="#000" opacity="0.8"/>
-  <circle cx="70" cy="31" r="2.5" fill="#000" opacity="0.8"/>
+  <circle cx="62" cy="40" r="7" fill="#ffffff"/>
+  <circle cx="62" cy="41" r="4" fill="#2a1a00"/>
+  <circle class="shine" cx="63" cy="38" r="2" fill="#ffffff"/>
+
+  <circle cx="88" cy="40" r="7" fill="#ffffff"/>
+  <circle cx="88" cy="41" r="4" fill="#2a1a00"/>
+  <circle class="shine" cx="89" cy="38" r="2" fill="#ffffff"/>
+
   <!-- Thinking pose - chin on hand -->
-  <path d="M 48 42 Q 48 48 50 50" stroke="#FFF" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path d="M 65 65 Q 75 70 85 65" stroke="#e68a00" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+
   <!-- Thought bubble -->
-  <circle cx="95" cy="20" r="8" fill="url(#mascotThinkGrad)" opacity="0.7" stroke="#FFF" stroke-width="1" opacity="0.6"/>
-  <circle cx="100" cy="18" r="4" fill="url(#mascotThinkGrad)" opacity="0.7" stroke="#FFF" stroke-width="1" opacity="0.6"/>
+  <g filter="url(#softShadow)">
+    <circle cx="125" cy="25" r="12" fill="url(#headGradThink)"/>
+    <circle cx="128" cy="22" r="4" fill="#ffffff" opacity="0.3" class="shine"/>
+    <circle cx="110" cy="35" r="5" fill="url(#headGradThink)"/>
+    <circle cx="100" cy="45" r="3" fill="url(#headGradThink)"/>
+  </g>
+
   <!-- Arms -->
-  <rect x="25" y="60" width="15" height="30" rx="7" fill="url(#mascotThinkGrad)" opacity="0.85"/>
-  <rect x="80" y="60" width="15" height="30" rx="7" fill="url(#mascotThinkGrad)" opacity="0.85"/>
-  <!-- Left hand up -->
-  <path d="M 32 60 L 32 45" stroke="url(#mascotThinkGrad)" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
-  <circle cx="32" cy="45" r="7" fill="url(#mascotThinkGrad)" opacity="0.9"/>
-  <!-- Right hand down -->
-  <circle cx="88" cy="92" r="8" fill="url(#mascotThinkGrad)" opacity="0.9"/>
+  <rect x="40" y="85" width="12" height="35" rx="6" fill="url(#bodyGradThink)" transform="rotate(20 40 85)"/>
+  <rect x="98" y="85" width="12" height="35" rx="6" fill="url(#bodyGradThink)" transform="rotate(-20 98 85)"/>
+
+  <!-- Hands -->
+  <circle cx="65" cy="65" r="8" fill="url(#headGradThink)" filter="url(#softShadow)"/>
+  <circle cx="115" cy="120" r="8" fill="url(#headGradThink)" filter="url(#softShadow)"/>
+  </g>
 </svg>

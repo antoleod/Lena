@@ -1,14 +1,18 @@
 <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="headGradHappy" cx="35%" cy="35%">
-      <stop offset="0%" style="stop-color:#ffb3d9;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ffd1ea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffb3d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e66a9d;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="bodyGradHappy" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#ffcceb;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#ff85b8;stop-opacity:1" />
     </radialGradient>
     <linearGradient id="hornGradHappy" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
       <stop offset="30%" style="stop-color:#ffd700;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#ffed4e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f0a000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc8800;stop-opacity:1" />
     </linearGradient>
     <style>
       .shine {
@@ -17,12 +21,20 @@
       svg:hover .shine {
         transform: translate(3px, -3px);
       }
+      .character-body {
+        animation: breathe 4s ease-in-out infinite;
+        transform-origin: 100px 220px;
+      }
+      @keyframes breathe {
+        0%, 100% { transform: scale(1) translateY(0); }
+        50% { transform: scale(1.02, 1.05) translateY(-3px); }
+      }
     </style>
-    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="0" dy="3" result="offsetblur"/>
+    <filter id="softShadow" x="-50%" y="-50%" width="250%" height="250%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.25"/>
+        <feFuncA type="linear" slope="0.3"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/>
@@ -31,15 +43,18 @@
     </filter>
   </defs>
 
+  <g class="character-body">
   <!-- Body -->
-  <ellipse cx="100" cy="170" rx="42" ry="50" fill="#ffb3d9" opacity="0.85"/>
-  <ellipse cx="100" cy="160" rx="38" ry="30" fill="#ffcceb" opacity="0.5"/>
+  <ellipse cx="100" cy="170" rx="42" ry="50" fill="url(#bodyGradHappy)" filter="url(#softShadow)"/>
+  <!-- Belly Light (Subtle 3D volume) -->
+  <ellipse cx="100" cy="165" rx="32" ry="22" fill="#ffffff" opacity="0.25"/>
 
   <!-- Head -->
   <circle cx="100" cy="85" r="55" fill="url(#headGradHappy)" filter="url(#softShadow)"/>
 
   <!-- Head shine (3D effect) -->
-  <ellipse class="shine" cx="70" cy="60" rx="25" ry="30" fill="#ffcceb" opacity="0.5"/>
+  <ellipse class="shine" cx="82" cy="55" rx="28" ry="18" fill="#ffffff" opacity="0.25" transform="rotate(-15 82 55)"/>
+  <circle class="shine" cx="72" cy="50" r="6" fill="#ffffff" opacity="0.4"/>
 
   <!-- Left ear back -->
   <ellipse cx="60" cy="40" rx="16" ry="28" fill="#ff85b8" transform="rotate(-30 60 40)"/>
@@ -54,23 +69,23 @@
   <!-- Horn -->
   <polygon points="100,15 94,75 106,75" fill="url(#hornGradHappy)" filter="url(#softShadow)"/>
   <!-- Horn shine line -->
-  <polygon class="shine" points="100,20 98,65 102,65" fill="#ffffff" opacity="0.7"/>
+  <polygon class="shine" points="100,20 98,65 102,65" fill="#ffffff" opacity="0.8"/>
 
   <!-- Left eye white -->
   <circle cx="78" cy="78" r="11" fill="#ffffff" filter="url(#softShadow)"/>
   <!-- Left eye iris -->
-  <circle cx="78" cy="80" r="7" fill="#2a1a3f"/>
+  <circle cx="78" cy="80" r="7" fill="#1a0a2f"/>
   <!-- Left eye highlight -->
   <circle class="shine" cx="80" cy="76" r="3.5" fill="#ffffff"/>
-  <circle class="shine" cx="76" cy="82" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle class="shine" cx="76" cy="81" r="1.2" fill="#ffffff" opacity="0.5"/>
 
   <!-- Right eye white -->
   <circle cx="122" cy="78" r="11" fill="#ffffff" filter="url(#softShadow)"/>
   <!-- Right eye iris -->
-  <circle cx="122" cy="80" r="7" fill="#2a1a3f"/>
+  <circle cx="122" cy="80" r="7" fill="#1a0a2f"/>
   <!-- Right eye highlight -->
   <circle class="shine" cx="124" cy="76" r="3.5" fill="#ffffff"/>
-  <circle class="shine" cx="120" cy="82" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle class="shine" cx="120" cy="81" r="1.2" fill="#ffffff" opacity="0.5"/>
 
   <!-- Left eye squint (happy) -->
   <path d="M 70 90 Q 78 92 86 88" stroke="#ffb3d9" stroke-width="2" fill="none" opacity="0.6"/>
@@ -103,4 +118,5 @@
   <!-- Happy eyebrows -->
   <path d="M 70 68 Q 78 62 86 68" stroke="#ff85b8" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
   <path d="M 114 68 Q 122 62 130 68" stroke="#ff85b8" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  </g>
 </svg>

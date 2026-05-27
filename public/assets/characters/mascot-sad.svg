@@ -1,0 +1,91 @@
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="headGradSad" cx="35%" cy="35%">
+      <stop offset="0%" style="stop-color:#ffb3d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d966a0;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="hornGradSad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.7" />
+      <stop offset="30%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ffed4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0a000;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadowSad" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.22"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Body (slightly slouched) -->
+  <ellipse cx="100" cy="173" rx="40" ry="48" fill="#ffb3d9" opacity="0.78"/>
+  <ellipse cx="100" cy="163" rx="36" ry="28" fill="#ffcceb" opacity="0.4"/>
+
+  <!-- Head (very slightly tilted) -->
+  <circle cx="100" cy="87" r="55" fill="url(#headGradSad)" filter="url(#shadowSad)" transform="rotate(3 100 87)"/>
+
+  <!-- Head shine -->
+  <ellipse cx="70" cy="62" rx="24" ry="28" fill="#ffcceb" opacity="0.38" transform="rotate(3 70 62)"/>
+
+  <!-- Left ear back -->
+  <ellipse cx="60" cy="40" rx="15" ry="27" fill="#d966a0" transform="rotate(-30 60 40) rotate(3 60 40)"/>
+  <!-- Left ear front -->
+  <ellipse cx="60" cy="42" rx="9" ry="19" fill="#ffcceb" transform="rotate(-30 60 42) rotate(3 60 42)"/>
+
+  <!-- Right ear back (slightly drooped) -->
+  <ellipse cx="140" cy="40" rx="15" ry="27" fill="#d966a0" transform="rotate(30 140 40) rotate(3 140 40)"/>
+  <!-- Right ear front -->
+  <ellipse cx="140" cy="42" rx="9" ry="19" fill="#ffcceb" transform="rotate(30 140 42) rotate(3 140 42)"/>
+
+  <!-- Horn (slightly tilted) -->
+  <polygon points="100,18 94,75 106,75" fill="url(#hornGradSad)" filter="url(#shadowSad)" transform="rotate(3 100 45)"/>
+  <polygon points="100,22 99,68 101,68" fill="#ffffff" opacity="0.5" transform="rotate(3 100 45)"/>
+
+  <!-- Left eye white -->
+  <circle cx="78" cy="80" r="11" fill="#ffffff" filter="url(#shadowSad)"/>
+  <!-- Left eye iris (slightly downcast) -->
+  <circle cx="77" cy="83" r="8" fill="#4a3a5f"/>
+  <!-- Left eye highlight -->
+  <circle cx="75" cy="79" r="3" fill="#ffffff"/>
+
+  <!-- Right eye white -->
+  <circle cx="122" cy="80" r="11" fill="#ffffff" filter="url(#shadowSad)"/>
+  <!-- Right eye iris (slightly downcast) -->
+  <circle cx="123" cy="83" r="8" fill="#4a3a5f"/>
+  <!-- Right eye highlight -->
+  <circle cx="121" cy="79" r="3" fill="#ffffff"/>
+
+  <!-- Nose -->
+  <polygon points="100,107 96,115 104,115" fill="#ff69b4" filter="url(#shadowSad)"/>
+
+  <!-- Sad mouth (frown) -->
+  <path d="M 82 130 Q 100 120 118 130" stroke="#ff69b4" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Left whiskers -->
+  <line x1="48" y1="87" x2="14" y2="82" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="48" y1="100" x2="14" y2="107" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="48" y1="113" x2="14" y2="128" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Right whiskers -->
+  <line x1="152" y1="87" x2="186" y2="82" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="152" y1="100" x2="186" y2="107" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="152" y1="113" x2="186" y2="128" stroke="#ffcceb" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Blush (soft) -->
+  <circle cx="50" cy="97" r="11" fill="#ff69b4" opacity="0.22"/>
+  <circle cx="150" cy="97" r="11" fill="#ff69b4" opacity="0.22"/>
+
+  <!-- Sad eyebrows (inner corner raised = sad V) -->
+  <path d="M 70 72 Q 78 62 86 68" stroke="#c85090" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <path d="M 114 68 Q 122 62 130 72" stroke="#c85090" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+
+  <!-- Tear drops (subtle) -->
+  <ellipse cx="69" cy="100" rx="3" ry="5" fill="#b8d8ff" opacity="0.55"/>
+  <ellipse cx="131" cy="100" rx="3" ry="5" fill="#b8d8ff" opacity="0.55"/>
+</svg>

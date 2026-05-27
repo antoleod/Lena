@@ -1,20 +1,67 @@
 <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="headGrad" cx="35%" cy="35%">
-      <stop offset="0%" style="stop-color:#ffb3d9;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#fff5f9;stop-opacity:1" />
+      <stop offset="35%" style="stop-color:#ffd1ea;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ffb3d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e66a9d;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="bodyGrad" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#ffecf5;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#ffcceb;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#ff85b8;stop-opacity:1" />
     </radialGradient>
     <linearGradient id="hornGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
-      <stop offset="30%" style="stop-color:#ffd700;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#ffed4e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f0a000;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="15%" style="stop-color:#fffacd;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ffed4e;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#cc8800;stop-opacity:1" />
     </linearGradient>
-    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="0" dy="3" result="offsetblur"/>
+
+    <!-- Filtros mágicos -->
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strongGlow" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .shine { transition: transform 0.4s ease-out; }
+      svg:hover .shine { transform: translate(3px, -3px); }
+      .character-body {
+        animation: breathe 3.8s ease-in-out infinite;
+        transform-origin: 100px 220px;
+      }
+      @keyframes breathe {
+        0%, 100% { transform: scale(1) translateY(0); }
+        50% { transform: scale(1.01, 1.04) translateY(-2px); }
+      }
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 0.8; }
+      }
+      @keyframes magicPulse {
+        0%, 100% { opacity: 0.25; }
+        50% { opacity: 0.5; }
+      }
+      .magic-twinkle { animation: twinkle 2s ease-in-out infinite; }
+      .magic-pulse { animation: magicPulse 2.5s ease-in-out infinite; }
+    </style>
+    <filter id="shadow" x="-50%" y="-50%" width="250%" height="250%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.25"/>
+        <feFuncA type="linear" slope="0.3"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/>
@@ -23,15 +70,27 @@
     </filter>
   </defs>
 
+  <g class="character-body">
+  <!-- Aura mágica sutil -->
+  <circle cx="100" cy="100" r="62" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.2" class="magic-pulse"/>
+  <circle cx="100" cy="100" r="58" fill="none" stroke="#ffcceb" stroke-width="1" opacity="0.15" class="magic-pulse"/>
+
+  <!-- Partículas mágicas flotantes -->
+  <circle cx="30" cy="60" r="1.5" fill="#ffd700" class="magic-twinkle" opacity="0.5"/>
+  <circle cx="170" cy="75" r="1.5" fill="#ffcceb" class="magic-twinkle" opacity="0.5"/>
+  <circle cx="50" cy="140" r="1" fill="#ffed4e" class="magic-twinkle" opacity="0.4"/>
+  <circle cx="150" cy="130" r="1" fill="#ff69b4" class="magic-twinkle" opacity="0.4"/>
+
   <!-- Body -->
-  <ellipse cx="100" cy="170" rx="42" ry="50" fill="#ffb3d9" opacity="0.85"/>
-  <ellipse cx="100" cy="160" rx="38" ry="30" fill="#ffcceb" opacity="0.5"/>
+  <ellipse cx="100" cy="170" rx="42" ry="50" fill="url(#bodyGrad)" filter="url(#shadow)" class="character-body"/>
+  <ellipse cx="100" cy="165" rx="32" ry="22" fill="#ffffff" opacity="0.3" filter="url(#glow)"/>
 
   <!-- Head -->
-  <circle cx="100" cy="85" r="55" fill="url(#headGrad)" filter="url(#shadow)"/>
+  <circle cx="100" cy="85" r="55" fill="url(#headGrad)" filter="url(#shadow)" class="character-body"/>
 
   <!-- Head shine (3D effect) -->
-  <ellipse cx="70" cy="60" rx="25" ry="30" fill="#ffcceb" opacity="0.5"/>
+  <ellipse class="shine" cx="82" cy="55" rx="28" ry="18" fill="#ffffff" opacity="0.25" transform="rotate(-15 82 55)"/>
+  <circle class="shine" cx="72" cy="50" r="6" fill="#ffffff" opacity="0.4"/>
 
   <!-- Left ear back -->
   <ellipse cx="60" cy="40" rx="16" ry="28" fill="#ff85b8" transform="rotate(-30 60 40)"/>
@@ -46,24 +105,24 @@
   <!-- Horn -->
   <polygon points="100,15 94,75 106,75" fill="url(#hornGrad)" filter="url(#shadow)"/>
   <!-- Horn shine line -->
-  <polygon points="100,20 99,65 101,65" fill="#ffffff" opacity="0.6"/>
+  <polygon class="shine" points="100,20 98,65 102,65" fill="#ffffff" opacity="0.8"/>
 
   <!-- Left eye white -->
   <circle cx="78" cy="78" r="11" fill="#ffffff" filter="url(#shadow)"/>
   <!-- Left eye iris -->
-  <circle cx="78" cy="80" r="8" fill="#4a3a5f"/>
+  <circle cx="78" cy="80" r="8" fill="#1a0a2f"/>
   <!-- Left eye highlight -->
-  <circle cx="80" cy="76" r="3.5" fill="#ffffff"/>
+  <circle class="shine" cx="80" cy="76" r="3.5" fill="#ffffff"/>
 
   <!-- Right eye white -->
   <circle cx="122" cy="78" r="11" fill="#ffffff" filter="url(#shadow)"/>
   <!-- Right eye iris -->
-  <circle cx="122" cy="80" r="8" fill="#4a3a5f"/>
+  <circle cx="122" cy="80" r="8" fill="#1a0a2f"/>
   <!-- Right eye highlight -->
-  <circle cx="124" cy="76" r="3.5" fill="#ffffff"/>
+  <circle class="shine" cx="124" cy="76" r="3.5" fill="#ffffff"/>
 
   <!-- Nose (pink triangle) -->
-  <polygon points="100,105 96,113 104,113" fill="#ff69b4" filter="url(#shadow)"/>
+  <polygon points="100,105 96,113 104,113" fill="#ff4d94" filter="url(#shadow)"/>
 
   <!-- Mouth (focused - straight line) -->
   <path d="M 100 113 Q 85 128 70 125" stroke="#ff69b4" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
@@ -87,4 +146,5 @@
   <!-- Eyebrows (focused) -->
   <path d="M 70 68 Q 78 64 86 68" stroke="#ff85b8" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
   <path d="M 114 68 Q 122 64 130 68" stroke="#ff85b8" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  </g>
 </svg>

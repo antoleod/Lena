@@ -1,20 +1,36 @@
 <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="headGradCeleb" cx="35%" cy="35%">
-      <stop offset="0%" style="stop-color:#ffb3d9;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ffd1ea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffb3d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e66a9d;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="bodyGradCeleb" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#ffcceb;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#ff85b8;stop-opacity:1" />
     </radialGradient>
     <linearGradient id="hornGradCeleb" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
       <stop offset="30%" style="stop-color:#ffd700;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#ffed4e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f0a000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc8800;stop-opacity:1" />
     </linearGradient>
-    <filter id="shadowCeleb" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="0" dy="3" result="offsetblur"/>
+    <style>
+      .shine { transition: transform 0.4s ease-out; }
+      svg:hover .shine { transform: translate(4px, -4px); }
+      .character-body {
+        animation: breathe 3.2s ease-in-out infinite;
+        transform-origin: 100px 220px;
+      }
+      @keyframes breathe {
+        0%, 100% { transform: scale(1) translateY(0); }
+        50% { transform: scale(1.04, 1.06) translateY(-4px); }
+      }
+    </style>
+    <filter id="shadowCeleb" x="-50%" y="-50%" width="250%" height="250%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.25"/>
+        <feFuncA type="linear" slope="0.3"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/>
@@ -30,6 +46,7 @@
   <circle cx="150" cy="15" r="3" fill="#ff85b8" opacity="0.7"/>
   <circle cx="100" cy="5" r="3" fill="#ffd700" opacity="0.7"/>
 
+  <g class="character-body">
   <!-- Body (tilted slightly) -->
   <ellipse cx="100" cy="170" rx="42" ry="50" fill="#ffb3d9" opacity="0.85" transform="rotate(-5 100 170)"/>
   <ellipse cx="100" cy="160" rx="38" ry="30" fill="#ffcceb" opacity="0.5" transform="rotate(-5 100 160)"/>
@@ -112,4 +129,5 @@
   <path d="M 145 145 Q 160 110 165 50" stroke="#ffb3d9" stroke-width="12" fill="none" stroke-linecap="round" opacity="0.8" filter="url(#shadowCeleb)"/>
   <!-- Right hand -->
   <circle cx="168" cy="45" r="10" fill="#ffb3d9" opacity="0.85" filter="url(#shadowCeleb)"/>
+  </g>
 </svg>
