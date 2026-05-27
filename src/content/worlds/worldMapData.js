@@ -288,6 +288,72 @@ const WORLD_SPECS = [
       mission(9, 'Tour des langues', ['generated-dutch-reading', 'generated-english-reading', 'generated-spanish-reading']),
       mission(10, 'Grande finale', ['generated-word-problems', 'magic-library', 'generated-reasoning-p6', 'generated-mixed-operations-p6'])
     ]
+  }),
+  world({
+    id: 'world-13',
+    order: 13,
+    title: 'Académie des fractions',
+    icon: '13',
+    theme: 'garden',
+    description: 'Fractions, décimaux et leurs relations : comprendre pour maîtriser.',
+    gradeIds: ['P4', 'P5'],
+    subjectIds: ['mathematics'],
+    missions: [
+      mission(1, 'Identifier une fraction', ['generated-fractions-p4'], 'Lire et écrire des fractions simples.', 'lesson'),
+      mission(2, 'Comparer des fractions', ['generated-fractions-p4', 'generated-comparison-p2'], 'Trouver la plus grande fraction.', 'lesson'),
+      mission(3, 'Fractions équivalentes', ['generated-fractions-p4'], 'Reconnaître les fractions égales.', 'lesson'),
+      mission(4, 'Simplifier une fraction', ['generated-fractions-p4', 'generated-word-problems'], 'Réduire une fraction à sa forme simple.', 'lesson'),
+      mission(5, 'Dixièmes et centièmes', ['generated-decimals-p5'], 'Lire les nombres décimaux.', 'checkpoint'),
+      mission(6, 'Comparer des décimaux', ['generated-decimals-p5', 'generated-comparison-p2'], 'Ordonner des nombres à virgule.', 'lesson'),
+      mission(7, 'Valeur de position décimale', ['generated-decimals-p5'], 'Identifier les dixièmes et centièmes.', 'lesson'),
+      mission(8, 'Fractions ↔ Décimaux', ['generated-fractions-p4', 'generated-decimals-p5'], 'Convertir entre fractions et décimaux.', 'reward'),
+      mission(9, 'Problèmes de partage', ['generated-fractions-p4', 'generated-word-problems'], 'Appliquer les fractions en contexte.', 'revision'),
+      mission(10, 'Défi fractions-décimaux', ['generated-fractions-p4', 'generated-decimals-p5', 'generated-word-problems'], 'Grand défi de synthèse.', 'boss')
+    ]
+  }),
+  world({
+    id: 'world-14',
+    order: 14,
+    title: 'Olympe des opérations',
+    icon: '14',
+    theme: 'comet',
+    description: 'Opérations mixtes, priorités et problèmes à plusieurs étapes.',
+    gradeIds: ['P5', 'P6'],
+    subjectIds: ['mathematics', 'reasoning'],
+    missions: [
+      mission(1, 'Addition de décimaux', ['generated-decimals-p5', 'generated-addition-p2'], 'Additionner des nombres à virgule.', 'lesson'),
+      mission(2, 'Soustraction de décimaux', ['generated-decimals-p5', 'generated-subtraction-p2'], 'Soustraire des nombres à virgule.', 'lesson'),
+      mission(3, 'Enchaîner les opérations', ['generated-mixed-operations-p6'], 'Addition puis soustraction en séquence.', 'lesson'),
+      mission(4, 'Multiplier puis ajouter', ['generated-mixed-operations-p6', 'generated-multiplication-p3'], 'Respecter la priorité des opérations.', 'lesson'),
+      mission(5, 'Ordre des opérations', ['generated-mixed-operations-p6'], 'Multiplication avant addition.', 'checkpoint'),
+      mission(6, 'Problèmes à deux étapes', ['generated-mixed-operations-p6', 'generated-word-problems'], 'Résoudre en deux calculs successifs.', 'lesson'),
+      mission(7, 'Répartition et reste', ['generated-mixed-operations-p6', 'generated-division-p4'], 'Division avec restes et contexte.', 'lesson'),
+      mission(8, 'Calcul express', ['generated-mixed-operations-p6', 'generated-reasoning-p6'], 'Rapidité et précision combinées.', 'reward'),
+      mission(9, 'Révision opérations', ['generated-mixed-operations-p6', 'generated-decimals-p5', 'generated-fractions-p4'], 'Bilan de toutes les opérations.', 'revision'),
+      mission(10, 'Grand défi olympique', ['generated-mixed-operations-p6', 'generated-reasoning-p6', 'generated-word-problems'], 'Le plus grand défi de calcul.', 'boss')
+    ]
+  }),
+  world({
+    id: 'world-15',
+    order: 15,
+    title: 'Sommet des champions',
+    icon: '15',
+    theme: 'galaxy',
+    description: 'Le défi ultime : toutes matières, tous niveaux, pour les vrais champions.',
+    gradeIds: ['P2', 'P3', 'P4', 'P5', 'P6'],
+    subjectIds: ['mathematics', 'french', 'dutch', 'english', 'spanish', 'reasoning', 'stories'],
+    missions: [
+      mission(1, 'Nombres et opérations', ['generated-addition-p2', 'generated-subtraction-p2', 'generated-multiplication-p3'], 'Maîtrise des opérations fondamentales.', 'lesson'),
+      mission(2, 'Fractions et décimaux', ['generated-fractions-p4', 'generated-decimals-p5'], 'Les nombres au-delà des entiers.', 'lesson'),
+      mission(3, 'Opérations mixtes avancées', ['generated-mixed-operations-p6', 'generated-division-p4'], 'Combiner toutes les opérations.', 'lesson'),
+      mission(4, 'Raisonnement logique', ['generated-reasoning-p6', 'generated-logic-sequences'], 'Déduction et suites complexes.', 'lesson'),
+      mission(5, 'Lecture et compréhension', ['magic-library', 'generated-french-reading-p4'], 'Lire et analyser des textes riches.', 'checkpoint'),
+      mission(6, 'Langues du monde', ['generated-dutch-vocabulary', 'generated-english-vocabulary', 'generated-spanish-vocabulary'], 'Vocabulaire dans trois langues.', 'lesson'),
+      mission(7, 'Problèmes experts', ['generated-word-problems', 'generated-reasoning-p6'], 'Résoudre les défis les plus complexes.', 'lesson'),
+      mission(8, 'Science et géométrie', ['generated-geometry', 'generated-measurement'], 'Formes, mesures et espace.', 'reward'),
+      mission(9, 'Tour complet', ['generated-mixed-operations-p6', 'generated-fractions-p4', 'generated-reasoning-p6', 'magic-library'], 'Synthèse de tout le parcours.', 'revision'),
+      mission(10, 'Couronnement des champions', ['generated-mixed-operations-p6', 'generated-reasoning-p6', 'generated-word-problems', 'magic-library'], 'La mission finale des légendes.', 'boss')
+    ]
   })
 ];
 

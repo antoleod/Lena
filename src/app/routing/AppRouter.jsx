@@ -21,6 +21,7 @@ import { getNextAdventureTarget } from '../../shared/gameplay/adventureProgress.
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import RenforcementHubPage from '../../features/renforcement/RenforcementHubPage.jsx';
 import RenforcementSectionPage from '../../features/renforcement/RenforcementSectionPage.jsx';
+import PracticePage from '../../features/practice/PracticePage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -108,6 +109,7 @@ export default function AppRouter() {
         <Route path="/activities/:activityId" element={<ActivityPage />} />
         <Route path="/renforcement" element={<RenforcementHubPage />} />
         <Route path="/renforcement/:sectionId" element={<RenforcementSectionPage />} />
+        <Route path="/practice" element={<PracticePage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/settings" element={<SettingsPage />} />

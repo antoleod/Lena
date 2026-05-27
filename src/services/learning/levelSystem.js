@@ -3,7 +3,28 @@
  * Computes levels based on total activities completed
  */
 
-export const LEVEL_THRESHOLDS = [0, 5, 12, 22, 35, 52, 72, 97, 127, 162];
+export const LEVEL_THRESHOLDS = [
+  0,   // Level 1
+  5,   // Level 2
+  12,  // Level 3
+  22,  // Level 4
+  35,  // Level 5
+  52,  // Level 6
+  72,  // Level 7
+  97,  // Level 8
+  127, // Level 9
+  162, // Level 10
+  202, // Level 11
+  248, // Level 12
+  300, // Level 13
+  359, // Level 14
+  425, // Level 15
+  500, // Level 16
+  585, // Level 17
+  680, // Level 18
+  786, // Level 19
+  905  // Level 20
+];
 
 export function computeGlobalLevel(totalActivitiesCompleted) {
   const n = totalActivitiesCompleted || 0;

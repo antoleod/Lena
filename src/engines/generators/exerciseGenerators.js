@@ -15,6 +15,9 @@ import { generateSentenceBuilderExercise } from './sentenceBuilderGenerator.js';
 import { generateReadingQuestionExercise } from './readingQuestionGenerator.js';
 import { generateLogicExercise } from './logicGenerator.js';
 import { generateWordProblemExercise } from './wordProblemGenerator.js';
+import { generateFractionsExercise } from './fractionsGenerator.js';
+import { generateDecimalsExercise } from './decimalsGenerator.js';
+import { generateMixedOperationsExercise } from './mixedOperationsGenerator.js';
 
 function resolveDifficulty(grade, difficulty) {
   if (difficulty && difficulty !== 'adaptive') {
@@ -116,6 +119,15 @@ export function generateExercise(input) {
       break;
     case 'word-problems':
       exercise = generateWordProblemExercise(params);
+      break;
+    case 'fractions':
+      exercise = generateFractionsExercise(params);
+      break;
+    case 'decimals':
+      exercise = generateDecimalsExercise(params);
+      break;
+    case 'mixed-operations':
+      exercise = generateMixedOperationsExercise(params);
       break;
     default:
       exercise = generateAdditionExercise(params);
