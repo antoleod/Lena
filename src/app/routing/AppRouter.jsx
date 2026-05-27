@@ -22,6 +22,8 @@ import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import RenforcementHubPage from '../../features/renforcement/RenforcementHubPage.jsx';
 import RenforcementSectionPage from '../../features/renforcement/RenforcementSectionPage.jsx';
 import PracticePage from '../../features/practice/PracticePage.jsx';
+import LessonsHubPage from '../../features/lessons/LessonsHubPage.jsx';
+import LessonPlayerPage from '../../features/lessons/LessonPlayerPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -110,6 +112,8 @@ export default function AppRouter() {
         <Route path="/renforcement" element={<RenforcementHubPage />} />
         <Route path="/renforcement/:sectionId" element={<RenforcementSectionPage />} />
         <Route path="/practice" element={<PracticePage />} />
+        <Route path="/lessons" element={<LessonsHubPage />} />
+        <Route path="/lessons/:lessonId" element={<LessonPlayerPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/settings" element={<SettingsPage />} />

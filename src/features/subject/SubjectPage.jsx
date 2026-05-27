@@ -3,17 +3,21 @@ import { activities, getGradeProgression, getSubjectById } from '../curriculum/c
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel, getSubjectRoadmap } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
-import FloatingBackButton from '../../shared/ui/FloatingBackButton.jsx';
+import { getSubjectUniverse, getGradeWorld } from '../../shared/gameplay/subjectThemes.js';
 
-function getGradeStats(subjectId, grade, progress) {
-  const gradeActivities = activities.filter((activity) => activity.subject === subjectId && activity.gradeBand.includes(grade.gradeId));
-  const completed = gradeActivities.filter((activity) => progress.activities[activity.id]?.completed).length;
-  const percent = gradeActivities.length ? Math.round((completed / gradeActivities.length) * 100) : 0;
-  return {
-    totalActivities: gradeActivities.length,
-    completed,
-    percent
-  };
+function getGradeStats(subjectId, gradeId, progress) {
+  const acts = activities.filter(a => a.subject === subjectId && a.gradeBand.includes(gradeId));
+  const completed = acts.filter(a => progress.activities[a.id]?.completed).length;
+  return { total: acts.length, completed, percent: acts.length ? Math.round((completed / acts.length) * 100) : 0 };
+}
+
+function Stars({ percent }) {
+  const stars = percent >= 100 ? 3 : percent >= 60 ? 2 : percent > 0 ? 1 : 0;
+  return (
+    <div className="cc-stars">
+      {[1,2,3].map(i => <span key={i} className={i <= stars ? 'cc-star cc-star--on' : 'cc-star cc-star--off'}>★</span>)}
+    </div>
+  );
 }
 
 export default function SubjectPage() {
@@ -24,99 +28,132 @@ export default function SubjectPage() {
   const progress = getProgressSnapshot();
 
   if (!subject) {
-    return (
-      <section className="panel panel--tight">
-        <h2>{t('subjectNotFound')}</h2>
-        <Link className="text-link" to="/">{t('backHome')}</Link>
-      </section>
-    );
+    return <section className="panel panel--tight"><h2>{t('subjectNotFound')}</h2><Link className="text-link" to="/">{t('backHome')}</Link></section>;
   }
 
-  const grades = subject.grades.map((gradeId) => {
-    const activityList = activities.filter((activity) => activity.subject === subjectId && activity.gradeBand.includes(gradeId));
-    const gradeEntry = gradeProgression.find((entry) => entry.gradeId === gradeId);
-    const grade = {
-      gradeId,
-      modules: gradeEntry?.modules || [],
-      activities: activityList
-    };
-    return {
-      ...grade,
-      stats: getGradeStats(subjectId, grade, progress)
-    };
-  }).filter((entry) => entry.activities.length || entry.modules.length);
+  const universe = getSubjectUniverse(subjectId);
+  const grades = subject.grades.map(gradeId => {
+    const activityList = activities.filter(a => a.subject === subjectId && a.gradeBand.includes(gradeId));
+    const gradeEntry = gradeProgression.find(e => e.gradeId === gradeId);
+    const world = getGradeWorld(subjectId, gradeId);
+    const stats = getGradeStats(subjectId, gradeId, progress);
+    return { gradeId, modules: gradeEntry?.modules || [], activities: activityList, world, stats };
+  }).filter(g => g.activities.length || g.modules.length);
+
+  const roadmap = getSubjectRoadmap(subject, locale);
+  const totalDone = grades.reduce((s, g) => s + g.stats.completed, 0);
+  const totalActs = grades.reduce((s, g) => s + g.stats.total, 0);
+  const overallPct = totalActs ? Math.round((totalDone / totalActs) * 100) : 0;
 
   return (
-    <div className="page-stack page-stack--compact" data-testid={`subject-page-${subjectId}`}>
-      <FloatingBackButton to="/subjects" label={t('subjectsLabel') || 'Subjects'} storageKey={`floating-back-subject-${subjectId}`} />
-
-      <section className="subject-overview" style={{ '--subject-accent': subject.accent, '--subject-color': subject.color }}>
-        <div className="subject-overview__head">
-          <span className="eyebrow">{grades.map(g => g.gradeId).join(' / ')}</span>
-          <h2>{getSubjectLabel(subject, locale, t)}</h2>
+    <div
+      className="sw-universe"
+      style={{
+        '--uni-accent':  universe.accent,
+        '--uni-shadow':  universe.accentShadow,
+        '--uni-bg':      universe.accentBg,
+        '--uni-sky-top': universe.skyTop,
+        '--uni-sky-bot': universe.skyBottom,
+      }}
+      data-testid={`subject-page-${subjectId}`}
+    >
+      {/* Topbar */}
+      <div className="cc-topbar">
+        <Link className="cc-back-btn" to="/subjects">←</Link>
+        <div className="cc-topbar__title">{universe.icon} {universe.name}</div>
+        <div className="cc-topbar__progress">
+          <div className="cc-xp-bar"><div className="cc-xp-fill" style={{ width: `${overallPct}%` }} /></div>
+          <span className="cc-xp-text">{overallPct}%</span>
         </div>
-        <p className="subject-overview__copy">{getSubjectDescription(subject, locale)}</p>
-        <div className="subject-road-strip">
-          {getSubjectRoadmap(subject, locale).map((item, index) => (
-            <div key={item} className="subject-road-strip__item" style={{ animationDelay: `${index * 80}ms` }}>
-              <span>{index + 1}</span>
-              <strong>{item}</strong>
-            </div>
+      </div>
+
+      {/* Universe hero */}
+      <div className="sw-universe__hero">
+        <div className="sw-universe__hero-orb">
+          <span>{universe.icon}</span>
+          {[...Array(8)].map((_, i) => (
+            <span key={i} className="sw-universe__hero-particle" style={{ '--i': i }}>{universe.particle}</span>
           ))}
         </div>
-      </section>
-
-      <section className="panel panel--tight">
-        <div className="panel__header">
-          <div>
-            <span className="eyebrow">{t('classes')}</span>
-            <h3>{t('chooseLevel')}</h3>
+        <div className="sw-universe__hero-info">
+          <h2 className="sw-universe__hero-name">{getSubjectLabel(subject, locale, t)}</h2>
+          <p className="sw-universe__hero-desc">{getSubjectDescription(subject, locale)}</p>
+          <div className="sw-universe__hero-stats">
+            <span>{totalDone} / {totalActs} actividades</span>
+            <span>·</span>
+            <span>{grades.length} mundos</span>
           </div>
         </div>
-        {!grades.length ? (
-          <div className="dashboard-actions">
-            <Link className="primary-action" to="/map">
-              <span className="button-icon" aria-hidden="true">🗺</span>
-              <span>{t('startAdventure')}</span>
-            </Link>
+      </div>
+
+      {/* Roadmap scroll */}
+      {roadmap.length > 0 && (
+        <div className="sw-roadmap">
+          <span className="sw-roadmap__label">Ruta de aprendizaje</span>
+          <div className="sw-roadmap__track">
+            {roadmap.map((item, i) => (
+              <div key={item} className="sw-roadmap__step" style={{ animationDelay: `${i * 60}ms` }}>
+                <span className="sw-roadmap__step-num">{i + 1}</span>
+                <span className="sw-roadmap__step-text">{item}</span>
+              </div>
+            ))}
           </div>
-        ) : null}
-        <div className="grade-map">
+        </div>
+      )}
+
+      {/* Worlds — one per grade */}
+      <div className="sw-worlds">
+        <h3 className="sw-worlds__heading">Mundos dentro del universo</h3>
+        <div className="sw-worlds__grid">
           {grades.map((grade, index) => {
+            const w = grade.world;
             const launchTo = grade.modules.length
               ? `/subjects/${subjectId}/grades/${grade.gradeId}`
-              : `/activities/${grade.activities[0].id}`;
-            const modulePreview = grade.modules.slice(0, 5);
+              : grade.activities[0] ? `/activities/${grade.activities[0].id}` : `/subjects/${subjectId}/grades/${grade.gradeId}`;
 
             return (
-              <article key={grade.gradeId} className="grade-map__node" style={{ animationDelay: `${index * 90}ms` }} data-testid={`subject-grade-${grade.gradeId}`}>
-                <div className="grade-map__node-head">
-                  <strong>{grade.gradeId}</strong>
-                  <span>{grade.modules.length ? `${grade.modules.length} modules` : `${grade.activities.length} activities`}</span>
+              <Link
+                key={grade.gradeId}
+                to={launchTo}
+                className="sw-world-card"
+                style={{
+                  '--w-color':  w.color,
+                  '--w-shadow': w.shadow,
+                  '--w-bg':     w.bg,
+                  '--w-sky':    w.sky,
+                  animationDelay: `${index * 80}ms`,
+                }}
+                data-testid={`subject-grade-${grade.gradeId}`}
+              >
+                {/* Sky */}
+                <div className="sw-world-card__sky" aria-hidden="true">
+                  <span className="sw-world-card__grade-badge">{grade.gradeId}</span>
                 </div>
-                <div className="grade-map__progress">
-                  <i style={{ width: `${Math.max(grade.stats.percent, grade.activities.length ? 8 : 0)}%` }}></i>
+
+                {/* Planet */}
+                <div className="sw-world-card__planet">
+                  <span className="sw-world-card__emoji">{w.emoji}</span>
+                  {grade.stats.percent === 100 && <div className="sw-world-card__check">✓</div>}
+                  <Stars percent={grade.stats.percent} />
                 </div>
-                <div className="grade-map__meta">
-                  <small>{grade.stats.completed}/{grade.stats.totalActivities} done</small>
-                  <small>{grade.stats.percent}%</small>
+
+                {/* Info */}
+                <div className="sw-world-card__body">
+                  <strong className="sw-world-card__name">{w.name}</strong>
+                  <span className="sw-world-card__meta">
+                    {grade.modules.length ? `${grade.modules.length} módulos` : `${grade.activities.length} actividades`}
+                  </span>
+                  <div className="sw-world-card__bar">
+                    <div className="sw-world-card__fill" style={{ width: `${grade.stats.percent}%` }} />
+                  </div>
                 </div>
-                <div className="grade-map__preview">
-                  {modulePreview.length ? modulePreview.map((module) => (
-                    <span key={module.id} className="tag-chip tag-chip--static">{module.title}</span>
-                  )) : grade.activities.slice(0, 4).map((activity) => (
-                    <span key={activity.id} className="tag-chip tag-chip--static">{activity.title}</span>
-                  ))}
-                </div>
-                <Link className="primary-action" to={launchTo} data-testid={`subject-grade-launch-${grade.gradeId}`}>
-                  <span className="button-icon" aria-hidden="true">📘</span>
-                  <span>{t('launch')}</span>
-                </Link>
-              </article>
+
+                <div className="sw-world-card__cta">▶ Explorar</div>
+              </Link>
             );
           })}
         </div>
-      </section>
+      </div>
     </div>
   );
 }

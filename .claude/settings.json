@@ -4,7 +4,19 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\X1\\\\Documents\\\\Lena\" -Recurse -Include \"*.tsx\", \"*.ts\", \"*.jsx\", \"*.js\", \"*.css\", \"*.scss\" -File)",
       "Bash(Select-Object -First 30)",
       "Bash(curl -s http://localhost:5173)",
-      "Bash(npx playwright *)"
+      "Bash(npx playwright *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\X1\\\\Documents\\\\Lena\\\\src\" -Recurse -Filter \"*map*\" -ErrorAction SilentlyContinue)",
+      "Bash(curl -s http://localhost:5199/)",
+      "Read(//tmp/**)",
+      "Read(//c/tmp/**)",
+      "Bash(pkill -f \"vite --port 5199\")",
+      "Bash(pkill -f \"vite\")",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\X1\\\\Documents\\\\Lena\" -Recurse -Directory | Select-Object -First 30 | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\X1\\\\Documents\\\\Lena\\\\src\" -File | ForEach-Object { $_.Name })",
+      "Bash(pkill -f vite)",
+      "Bash(npx vite *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5210/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5215/)"
     ]
   }
 }

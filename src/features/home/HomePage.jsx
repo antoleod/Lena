@@ -52,6 +52,7 @@ export default function HomePage() {
     { to: '/map', icon: 'icon-home', label: t('homeMapCardTitle'), sub: t('homeMapCardCopy') },
     { to: '/subjects', icon: 'icon-book', label: t('homeSubjectsCardTitle'), sub: t('homeSubjectsCardCopy') },
     { to: '/practice', icon: 'icon-star', label: 'Pratique guidée', sub: 'Tables × ÷ et soustraction avec tutoriel.' },
+    { to: '/lessons', icon: 'icon-book', label: 'Mini-leçons', sub: 'Explications claires, étape par étape. 📚' },
     { to: '/renforcement', icon: 'icon-star', label: 'Renforcement', sub: 'Des exercices doux, une consigne a la fois.' },
     { to: '/history', icon: 'icon-star', label: t('homeHistoryCardTitle'), sub: t('homeHistoryCardCopy') },
     { to: '/shop', icon: 'icon-gem', label: t('homeShopCardTitle'), sub: `${rewards.balance || 0} ${t('crystals')}` },

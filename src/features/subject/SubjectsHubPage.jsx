@@ -1,208 +1,96 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { getActivitiesBySubject, getGradeProgression, subjects } from '../curriculum/catalog.js';
+import { Link } from 'react-router-dom';
+import { getActivitiesBySubject, subjects } from '../curriculum/catalog.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import { getSubjectUniverse } from '../../shared/gameplay/subjectThemes.js';
 
-const SUBJECT_CONFIG = {
-  mathematics: {
-    icon: '🔢',
-    gradient: 'linear-gradient(135deg, #667eea, #764ba2)',
-    accent: '#764ba2',
-    topics: ['Sumas', 'Restas', 'Tablas'],
-    color: '#667eea',
-  },
-  french: {
-    icon: '✍️',
-    gradient: 'linear-gradient(135deg, #f093fb, #f5576c)',
-    accent: '#f5576c',
-    topics: ['Vocabulaire', 'Phrases', 'Récits'],
-    color: '#f093fb',
-  },
-  dutch: {
-    icon: '🗣️',
-    gradient: 'linear-gradient(135deg, #4facfe, #00f2fe)',
-    accent: '#4facfe',
-    topics: ['Woorden', 'Zinnen', 'Lezen'],
-    color: '#4facfe',
-  },
-  english: {
-    icon: '🌍',
-    gradient: 'linear-gradient(135deg, #43e97b, #38f9d7)',
-    accent: '#43e97b',
-    topics: ['Words', 'Sentences', 'Reading'],
-    color: '#43e97b',
-  },
-  spanish: {
-    icon: '🌞',
-    gradient: 'linear-gradient(135deg, #fa709a, #fee140)',
-    accent: '#fa709a',
-    topics: ['Palabras', 'Frases', 'Lectura'],
-    color: '#fa709a',
-  },
-  reasoning: {
-    icon: '🧩',
-    gradient: 'linear-gradient(135deg, #a18cd1, #fbc2eb)',
-    accent: '#a18cd1',
-    topics: ['Lógica', 'Secuencias', 'Estrategia'],
-    color: '#a18cd1',
-  },
-  stories: {
-    icon: '📖',
-    gradient: 'linear-gradient(135deg, #ffecd2, #fcb69f)',
-    accent: '#fcb69f',
-    topics: ['Mini-récits', 'Compréhension', 'Questions'],
-    color: '#ffecd2',
-  },
-};
-
-function getSubjectTileData(subject, progress) {
-  const activities = getActivitiesBySubject(subject.id).filter((activity) =>
-    activity.gradeBand?.some((gradeId) => gradeId === 'P2' || gradeId === 'P3')
-  );
-  const completed = activities.filter((activity) => progress.activities[activity.id]?.completed).length;
-  const total = activities.length;
-  const percent = total ? Math.round((completed / total) * 100) : 0;
-  const grades = getGradeProgression(subject.id).filter((entry) => entry.gradeId === 'P2' || entry.gradeId === 'P3');
-
-  return { completed, total, percent, grades };
+function getSubjectProgress(subjectId, progress) {
+  const acts = getActivitiesBySubject(subjectId).filter(a => a.gradeBand?.some(g => g === 'P2' || g === 'P3'));
+  const completed = acts.filter(a => progress.activities[a.id]?.completed).length;
+  const total = acts.length;
+  return { completed, total, percent: total ? Math.round((completed / total) * 100) : 0 };
 }
 
-function SubjectCard({ subject, locale, t, progress, index }) {
-  const navigate = useNavigate();
-  const config = SUBJECT_CONFIG[subject.id] || {
-    icon: '🎮',
-    gradient: 'linear-gradient(135deg, #a8edea, #fed6e3)',
-    accent: '#a8edea',
-    topics: [],
-    color: '#a8edea',
-  };
-  const data = getSubjectTileData(subject, progress);
-  const subjectRoute = `/subjects/${subject.id}`;
-
-  function handleCardNavigation() {
-    navigate(subjectRoute);
-  }
-
-  function handleCardKeyDown(event) {
-    if (event.key !== 'Enter' && event.key !== ' ') return;
-    event.preventDefault();
-    navigate(subjectRoute);
-  }
-
-  function stopNestedNavigation(event) {
-    event.stopPropagation();
-  }
+function SubjectPortal({ subject, locale, t, progress, index }) {
+  const universe = getSubjectUniverse(subject.id);
+  const data = getSubjectProgress(subject.id, progress);
+  const grades = subject.grades.filter(g => g === 'P2' || g === 'P3' || g === 'P4' || g === 'P5' || g === 'P6');
 
   return (
-    <article
-      className="subject-card-v2"
-      role="link"
-      tabIndex={0}
-      aria-label={`${getSubjectLabel(subject, locale, t)} ${t('subjectsLabel') || 'subject'}`}
-      onClick={handleCardNavigation}
-      onKeyDown={handleCardKeyDown}
+    <Link
+      to={`/subjects/${subject.id}`}
+      className="sw-portal"
       style={{
-        '--card-gradient': config.gradient,
-        '--card-accent': config.accent,
-        animationDelay: `${index * 60}ms`,
+        '--uni-accent':  universe.accent,
+        '--uni-shadow':  universe.accentShadow,
+        '--uni-bg':      universe.accentBg,
+        '--uni-sky-top': universe.skyTop,
+        '--uni-sky-bot': universe.skyBottom,
+        animationDelay: `${index * 70}ms`,
       }}
       data-testid={`subject-tile-${subject.id}`}
     >
-      {/* Header */}
-      <div className="subject-card-v2__header">
-        <span className="subject-card-v2__icon" aria-hidden="true">{config.icon}</span>
-        <div className="subject-card-v2__titles">
-          <strong className="subject-card-v2__name">{getSubjectLabel(subject, locale, t)}</strong>
-          <span className="subject-card-v2__desc">{getSubjectDescription(subject, locale)}</span>
-        </div>
-        <span className="subject-card-v2__grade">
-          {subject.grades.filter((g) => g === 'P2' || g === 'P3').join(' · ')}
-        </span>
+      {/* Sky background */}
+      <div className="sw-portal__sky" aria-hidden="true">
+        {/* Floating particles */}
+        {[...Array(6)].map((_, i) => (
+          <span key={i} className="sw-portal__particle" style={{ '--i': i }}>{universe.particle}</span>
+        ))}
       </div>
 
-      {/* Topics */}
-      {config.topics.length > 0 && (
-        <div className="subject-card-v2__topics">
-          {config.topics.map((topic) => (
-            <span key={topic} className="subject-card-v2__topic">{topic}</span>
+      {/* Planet / icon orb */}
+      <div className="sw-portal__planet">
+        <span className="sw-portal__planet-icon">{universe.icon}</span>
+        {data.percent === 100 && <div className="sw-portal__crown">👑</div>}
+      </div>
+
+      {/* Info */}
+      <div className="sw-portal__info">
+        <h3 className="sw-portal__name">{getSubjectLabel(subject, locale, t)}</h3>
+        <p className="sw-portal__desc">{getSubjectDescription(subject, locale)}</p>
+
+        {/* Grade chips */}
+        <div className="sw-portal__grades">
+          {grades.map(g => (
+            <span key={g} className="sw-portal__grade-chip">{g}</span>
           ))}
         </div>
-      )}
 
-      {/* Progress */}
-      <div className="subject-card-v2__progress">
-        <div className="subject-card-v2__progress-bar">
-          <div
-            className="subject-card-v2__progress-fill"
-            style={{
-              width: `${Math.max(data.percent, data.completed ? 6 : 0)}%`,
-              background: config.gradient,
-            }}
-          />
+        {/* Progress bar */}
+        <div className="sw-portal__progress">
+          <div className="sw-portal__progress-fill" style={{ width: `${data.percent}%` }} />
         </div>
-        <span className="subject-card-v2__progress-label">
-          {data.completed}/{data.total || 0}
-        </span>
+        <span className="sw-portal__progress-label">{data.completed}/{data.total}</span>
       </div>
 
       {/* CTA */}
-      <div className="subject-card-v2__footer">
-        <Link
-          className="subject-card-v2__cta"
-          to={subjectRoute}
-          onClick={stopNestedNavigation}
-          data-testid={`subject-launch-${subject.id}`}
-          style={{ background: config.gradient }}
-        >
-          <span>Comenzar</span>
-          <span aria-hidden="true">→</span>
-        </Link>
-        {data.grades.map((grade) => (
-          <Link
-            key={grade.gradeId}
-            className="subject-card-v2__grade-cta"
-            to={`/subjects/${subject.id}/grades/${grade.gradeId}`}
-            onClick={stopNestedNavigation}
-            data-testid={`subject-grade-direct-${subject.id}-${grade.gradeId}`}
-          >
-            {grade.gradeId}
-          </Link>
-        ))}
-      </div>
-    </article>
+      <div className="sw-portal__cta">▶ Entrar</div>
+    </Link>
   );
 }
 
 export default function SubjectsHubPage() {
   const { locale, t } = useLocale();
   const progress = getProgressSnapshot();
-  const activeSubjects = subjects.filter(
-    (subject) => subject.grades.includes('P2') || subject.grades.includes('P3')
-  );
+  const activeSubjects = subjects.filter(s => s.grades.some(g => ['P2','P3','P4','P5','P6'].includes(g)));
 
   return (
-    <div className="page-stack page-stack--compact" data-testid="subjects-page">
-      <section className="panel panel--tight">
-        <div className="panel__header">
-          <div>
-            <span className="eyebrow">{t('subjectsLabel') || 'Subjects'}</span>
-            <h1 style={{ margin: '4px 0 0', fontFamily: "'Fredoka', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
-              {t('chooseUniverse')}
-            </h1>
-          </div>
-          <span className="home-badge home-badge--blue">
-            {activeSubjects.length} {t('subjectsLabel') || 'materias'}
-          </span>
+    <div className="sw-hub" data-testid="subjects-page">
+      {/* Header */}
+      <div className="sw-hub__header">
+        <Link className="cc-back-btn" to="/">←</Link>
+        <div className="sw-hub__header-text">
+          <span className="sw-hub__eyebrow">Explorar</span>
+          <h1 className="sw-hub__title">Tus Universos</h1>
         </div>
-        <p style={{ margin: 0, color: 'var(--muted)', fontSize: '0.95rem' }}>
-          Elige una materia para explorar los módulos y las actividades.
-        </p>
-      </section>
+        <span className="sw-hub__count">{activeSubjects.length}</span>
+      </div>
 
-      <div className="subjects-grid-v2">
+      {/* Portal grid */}
+      <div className="sw-hub__grid">
         {activeSubjects.map((subject, index) => (
-          <SubjectCard
+          <SubjectPortal
             key={subject.id}
             subject={subject}
             locale={locale}
