@@ -68,7 +68,7 @@ export default ({ mode }) => {
           ],
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2,json,wav}'],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2,wav}'],
           navigateFallback: 'index.html',
           navigateFallbackDenylist: [/^\/offline\.html$/],
           runtimeCaching: [

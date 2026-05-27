@@ -3,6 +3,7 @@ import { worldMap } from '../../shared/gameplay/worldMap.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getAdventureDashboard, getWorldNodeSummary } from '../../shared/gameplay/adventureProgress.js';
 import { WORLD_STYLES } from '../../shared/gameplay/worldThemes.js';
+import { isWorldBlocked } from '../../services/storage/parentalStore.js';
 
 // Candy Crush winding path: column positions per row index
 // 0=left, 1=center, 2=right
@@ -157,7 +158,7 @@ export default function MapPage() {
             const style = WORLD_STYLES[(world.order - 1) % WORLD_STYLES.length];
             const summary = getWorldNodeSummary(world, progress);
             const isCurrent = world.id === currentWorldId;
-            const isLocked = world.order > currentWorldOrder + 1;
+            const isLocked = world.order > currentWorldOrder + 1 || isWorldBlocked(world.id);
             const nextCol = index < worldMap.length - 1 ? PATH_COLS[(index + 1) % PATH_COLS.length] : null;
 
             return (

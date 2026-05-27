@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getProfile, logoutProfile, saveProfile } from '../../services/storage/profileStore.js';
 import { getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
@@ -214,6 +214,24 @@ export default function SettingsPage() {
           <div><span>{t('studyTimeLabel') || 'Study'}</span><strong>{profile.totalStudyMinutes || 0}</strong></div>
           <div><span>{t('completed')}</span><strong>{profile.totalActivitiesCompleted || 0}</strong></div>
           <div><span>{t('streakLabel')}</span><strong>{profile.streakCurrent || 0}</strong></div>
+        </div>
+      </section>
+
+      <section className="panel panel--tight">
+        <div className="panel__header">
+          <div>
+            <span className="eyebrow">Parents</span>
+            <h3>Contrôle parental</h3>
+          </div>
+        </div>
+        <p style={{ padding: '0 4px 12px', fontSize: '0.875rem', color: 'var(--text-secondary, #666)' }}>
+          Suivez les progrès de votre enfant, bloquez des mondes et gérez un code PIN.
+        </p>
+        <div className="dashboard-actions">
+          <Link className="primary-action" to="/parental" data-testid="settings-parental">
+            <span className="button-icon" aria-hidden="true">🔒</span>
+            <span>Espace parents</span>
+          </Link>
         </div>
       </section>
 

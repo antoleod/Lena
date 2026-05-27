@@ -24,6 +24,7 @@ import RenforcementSectionPage from '../../features/renforcement/RenforcementSec
 import PracticePage from '../../features/practice/PracticePage.jsx';
 import LessonsHubPage from '../../features/lessons/LessonsHubPage.jsx';
 import LessonPlayerPage from '../../features/lessons/LessonPlayerPage.jsx';
+import ParentalPage from '../../features/parental/ParentalPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -117,6 +118,7 @@ export default function AppRouter() {
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/parental" element={<ParentalPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

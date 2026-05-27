@@ -351,9 +351,31 @@ const WORLD_SPECS = [
       mission(5, 'Lecture et compréhension', ['magic-library', 'generated-french-reading-p4'], 'Lire et analyser des textes riches.', 'checkpoint'),
       mission(6, 'Langues du monde', ['generated-dutch-vocabulary', 'generated-english-vocabulary', 'generated-spanish-vocabulary'], 'Vocabulaire dans trois langues.', 'lesson'),
       mission(7, 'Problèmes experts', ['generated-word-problems', 'generated-reasoning-p6'], 'Résoudre les défis les plus complexes.', 'lesson'),
-      mission(8, 'Science et géométrie', ['generated-geometry', 'generated-measurement'], 'Formes, mesures et espace.', 'reward'),
+      mission(8, 'Géométrie et espace', ['generated-geometry-p2', 'generated-geometry-p3'], 'Formes, figures et espace.', 'reward'),
       mission(9, 'Tour complet', ['generated-mixed-operations-p6', 'generated-fractions-p4', 'generated-reasoning-p6', 'magic-library'], 'Synthèse de tout le parcours.', 'revision'),
       mission(10, 'Couronnement des champions', ['generated-mixed-operations-p6', 'generated-reasoning-p6', 'generated-word-problems', 'magic-library'], 'La mission finale des légendes.', 'boss')
+    ]
+  }),
+  world({
+    id: 'world-16',
+    order: 16,
+    title: 'Île de la logique',
+    icon: '16',
+    theme: 'ice',
+    description: 'Suites, classifications, déductions et raisonnement pur.',
+    gradeIds: ['P2', 'P3', 'P4'],
+    subjectIds: ['reasoning', 'mathematics'],
+    missions: [
+      mission(1, 'Intrus et familles', ['generated-classification-p2', 'generated-classification-reasoning-p2'], 'Trouver ce qui ne va pas avec les autres.', 'lesson'),
+      mission(2, 'Suites de formes', ['generated-sequences-p2', 'generated-logic-sequences'], 'Reconnaître et compléter des motifs.', 'lesson'),
+      mission(3, 'Suites de nombres', ['generated-logic-sequences', 'generated-logic-p2'], 'Règles numériques simples.', 'lesson'),
+      mission(4, 'Classement et groupes', ['generated-classification-p3', 'generated-classification-p2'], 'Organiser selon des critères.', 'checkpoint'),
+      mission(5, 'Analogies', ['generated-logic-p2', 'generated-reasoning-p2'], 'Trouver la relation cachée.', 'lesson'),
+      mission(6, 'Déductions simples', ['generated-reasoning-p2', 'generated-logic-p2'], 'Raisonner étape par étape.', 'lesson'),
+      mission(7, 'Patterns avancés', ['generated-patterns-p2', 'generated-patterns-p3'], 'Compléter des suites complexes.', 'lesson'),
+      mission(8, 'Mémoire et raisonnement', ['generated-memory-reasoning-p3', 'generated-patterns-reasoning-p3'], 'Observer, mémoriser, déduire.', 'reward'),
+      mission(9, 'Logique P3', ['generated-logic-p3', 'generated-reasoning-p3'], 'Problèmes plus complexes.', 'revision'),
+      mission(10, 'Grand défi logique', ['generated-logic-p3', 'generated-reasoning-p4', 'generated-logic-sequences'], 'La plus grande épreuve de raisonnement.', 'boss')
     ]
   })
 ];

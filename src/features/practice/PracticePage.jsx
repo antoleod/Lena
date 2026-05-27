@@ -5,6 +5,9 @@ import { playTapSound } from '../../services/sound/soundService.js';
 import { generateMultiplicationExercise } from '../../engines/generators/multiplicationGenerator.js';
 import { generateDivisionExercise } from '../../engines/generators/divisionGenerator.js';
 import { generateSubtractionExercise } from '../../engines/generators/subtractionGenerator.js';
+import { generateAdditionExercise } from '../../engines/generators/additionGenerator.js';
+import { generateFractionsExercise } from '../../engines/generators/fractionsGenerator.js';
+import { generateLogicExercise } from '../../engines/generators/logicGenerator.js';
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 
@@ -45,10 +48,14 @@ function makeQuestion(topic, tableNum) {
       : generateMultiplicationExercise({ grade: 'P3', difficulty: 'medium' });
   }
   if (topic === 'division') return generateDivisionExercise({ grade: 'P3', difficulty: 'medium' });
+  if (topic === 'subtraction') return generateSubtractionExercise({ grade: 'P3', difficulty: 'medium' });
+  if (topic === 'addition') return generateAdditionExercise({ grade: 'P3', difficulty: 'medium' });
+  if (topic === 'fractions') return generateFractionsExercise({ grade: 'P4', difficulty: 'easy' });
+  if (topic === 'logic') return generateLogicExercise({ grade: 'P2', difficulty: 'medium' });
   return generateSubtractionExercise({ grade: 'P3', difficulty: 'medium' });
 }
 
-const TOTAL = 10;
+const TOTAL = 15;
 
 // ─── topics ─────────────────────────────────────────────────────────────────
 
@@ -56,6 +63,9 @@ const TOPICS = [
   { id: 'multiplication', symbol: '×', label: 'Tables de multiplication', sub: 'Choisis une table ou mixte', color: '#ffcf74', ring: 'rgba(255,207,116,0.18)' },
   { id: 'division',       symbol: '÷', label: 'Division',                 sub: 'Partager en groupes égaux',  color: '#8bdcc3', ring: 'rgba(139,220,195,0.18)' },
   { id: 'subtraction',    symbol: '−', label: 'Soustraction',             sub: 'Enlever une quantité',       color: '#78a6ff', ring: 'rgba(120,166,255,0.18)' },
+  { id: 'addition',       symbol: '+', label: 'Addition',                 sub: 'Calculer des sommes',        color: '#ff8fc6', ring: 'rgba(255,143,198,0.18)' },
+  { id: 'fractions',      symbol: '½', label: 'Fractions',                sub: 'Partager en parts égales',   color: '#a689ff', ring: 'rgba(166,137,255,0.18)' },
+  { id: 'logic',          symbol: '🧩', label: 'Logique',                  sub: 'Suites, intrus, déduction',  color: '#ff9966', ring: 'rgba(255,153,102,0.18)' },
 ];
 
 // ─── visual sub-components ───────────────────────────────────────────────────
@@ -205,6 +215,102 @@ const TUTORIALS = {
       body: '12 points, on en enlève 5. Il reste 7. Bravo si tu l\'as trouvé !',
       Visual: null,
       tryIt: { q: '12 − 5 = ?', a: 7, hint: 'Enlève 5 des 12 points' },
+    },
+  ],
+  addition: [
+    {
+      title: 'Additionner = regrouper des quantités',
+      mascotMsg: 'Ajouter, c\'est mettre ensemble 🌈',
+      body: '7 + 5 = ? On place d\'abord 7, puis on ajoute 5 de plus. On compte : 8, 9, 10, 11, 12.',
+      Visual: () => (
+        <div style={{ textAlign: 'center' }}>
+          <DotGrid rows={2} cols={6} />
+          <div style={{ marginTop: 8, fontWeight: 900, fontSize: '1.1rem', color: 'var(--text)' }}>7 + 5 = 12</div>
+        </div>
+      ),
+    },
+    {
+      title: 'Astuce : décomposer pour additionner',
+      mascotMsg: 'On peut décomposer le plus grand ! 💡',
+      body: '38 + 14 = ? Sépare 14 en 10 + 4. D\'abord 38 + 10 = 48. Ensuite 48 + 4 = 52 !',
+      Visual: () => <StepBreakdown steps={['38 + 14', '= 38 + 10 + 4', '= 48 + 4', '= 52 ✓']} />,
+    },
+    {
+      title: 'À toi d\'essayer !',
+      mascotMsg: 'On commence, montre ce que tu sais ! 🚀',
+      body: '6 + 9 = ? Compte à partir de 9 : 10, 11, 12, 13, 14, 15.',
+      Visual: null,
+      tryIt: { q: '6 + 9 = ?', a: 15, hint: 'Commence à 9, ajoute 6' },
+    },
+  ],
+  fractions: [
+    {
+      title: 'Une fraction = une part d\'un tout',
+      mascotMsg: 'Imagine une pizza coupée en parts égales 🍕',
+      body: '½ veut dire 1 part sur 2. ¼ veut dire 1 part sur 4. Le bas (dénominateur) = combien de parts au total.',
+      Visual: () => (
+        <div style={{ display: 'flex', gap: 20, justifyContent: 'center', alignItems: 'center' }}>
+          {[['½', 2], ['¼', 4], ['⅓', 3]].map(([label, n]) => (
+            <div key={n} style={{ textAlign: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', width: 40, gap: 2, margin: '0 auto 4px' }}>
+                {Array.from({ length: n }, (_, i) => (
+                  <div key={i} style={{ width: i === 0 ? '100%' : `calc(${100/n}% - 2px)`, height: 10, borderRadius: 3, background: i === 0 ? 'var(--primary)' : 'var(--line)' }} />
+                ))}
+              </div>
+              <span style={{ fontWeight: 900, fontSize: '1.1rem' }}>{label}</span>
+            </div>
+          ))}
+        </div>
+      ),
+    },
+    {
+      title: 'Comparer des fractions',
+      mascotMsg: 'Plus le bas est grand, plus chaque part est petite ! 🍰',
+      body: '½ > ¼ car couper en 2 parts donne de plus grosses parts que couper en 4.',
+      Visual: () => <StepBreakdown steps={['½ = 1 part sur 2', '¼ = 1 part sur 4', '½ est plus grand que ¼']} />,
+    },
+    {
+      title: 'À toi d\'essayer !',
+      mascotMsg: 'C\'est parti pour les fractions ! 🎯',
+      body: 'Quelle fraction est la plus grande : ½ ou ⅓ ? La réponse : ½ (moins de parts = parts plus grandes).',
+      Visual: null,
+      tryIt: { q: 'Laquelle est plus grande : ½ ou ⅓ ?', a: '½', hint: 'Moins on coupe, plus les parts sont grandes' },
+    },
+  ],
+  logic: [
+    {
+      title: 'La logique = chercher la règle cachée',
+      mascotMsg: 'Ton cerveau adore les puzzles ! 🧩',
+      body: 'En logique, on cherche ce qui relie les éléments. Ex : 2, 4, 6, 8 → on ajoute toujours 2 !',
+      Visual: () => (
+        <div style={{ display: 'flex', gap: 10, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+          {[2, 4, 6, 8, '?'].map((n, i) => (
+            <div key={i} style={{ width: 42, height: 42, borderRadius: 10, background: n === '?' ? 'var(--primary)' : 'var(--surface-strong)', border: '2px solid var(--line)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '1.1rem', color: n === '?' ? 'white' : 'var(--text)' }}>
+              {n}
+            </div>
+          ))}
+          <div style={{ fontWeight: 900, color: 'var(--primary-strong)', fontSize: '1.2rem' }}>→ 10 !</div>
+        </div>
+      ),
+    },
+    {
+      title: 'Trouver l\'intrus',
+      mascotMsg: 'Un élément ne va pas avec les autres ! 🔍',
+      body: 'Ex : chat, chien, lapin, guitare → guitare est l\'intrus ! C\'est un instrument, pas un animal.',
+      Visual: () => (
+        <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
+          {['🐱 chat', '🐶 chien', '🐰 lapin', '🎸 guitare'].map((w, i) => (
+            <div key={i} style={{ padding: '8px 14px', borderRadius: 10, background: i === 3 ? 'rgba(255,100,100,0.12)' : 'var(--surface-strong)', border: `2px solid ${i === 3 ? '#ff6464' : 'var(--line)'}`, fontWeight: 700, fontSize: '0.85rem' }}>{w}</div>
+          ))}
+        </div>
+      ),
+    },
+    {
+      title: 'À toi d\'essayer !',
+      mascotMsg: 'Maintenant c\'est ton tour de réfléchir ! 🦄',
+      body: 'Prêt(e) pour des suites de nombres et des intrus ? Cherche toujours la règle !',
+      Visual: null,
+      tryIt: { q: '1, 3, 5, 7 … quel nombre vient après ?', a: 9, hint: 'On ajoute 2 à chaque fois' },
     },
   ],
 };
