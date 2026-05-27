@@ -27,7 +27,8 @@ function defaultStore() {
       streakCurrent: 0,
       streakBest: 0,
       totalCorrect: 0,
-      totalWrong: 0
+      totalWrong: 0,
+      totalStudySeconds: 0
     }
   };
 }
@@ -238,6 +239,26 @@ export function saveLessonProgress(lessonId) {
   };
   store.meta = { ...meta, lastPlayedAt: Date.now() };
   writeStore(store);
+}
+
+export function recordStudyTime(seconds) {
+  const store = readStore();
+  store.meta = {
+    ...store.meta,
+    totalStudySeconds: (store.meta.totalStudySeconds || 0) + Math.max(0, Math.round(seconds))
+  };
+  writeStore(store);
+}
+
+export function getStudyStats() {
+  const meta = readStore().meta;
+  return {
+    totalStudySeconds: meta.totalStudySeconds || 0,
+    totalCorrect: meta.totalCorrect || 0,
+    totalWrong: meta.totalWrong || 0,
+    streakCurrent: meta.streakCurrent || 0,
+    streakBest: meta.streakBest || 0
+  };
 }
 
 export function getProgressOverview(activityList, moduleList) {

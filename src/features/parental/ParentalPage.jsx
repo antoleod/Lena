@@ -9,7 +9,7 @@ import {
   toggleWorldBlock,
   setDailyLimit
 } from '../../services/storage/parentalStore.js';
-import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import { getProgressSnapshot, getStudyStats } from '../../services/storage/progressStore.js';
 import { worldMap, getWorldProgress } from '../../shared/gameplay/worldMap.js';
 import { WORLD_STYLES } from '../../shared/gameplay/worldThemes.js';
 
@@ -75,8 +75,16 @@ function PinKeypad({ title, subtitle, onConfirm, error, onBack }) {
 
 // ── Progress tab ────────────────────────────────────────────────────────────
 
+function formatStudyTime(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  if (hours > 0) return `${hours}h ${minutes}min`;
+  return `${minutes}min`;
+}
+
 function ProgressTab() {
   const progress = getProgressSnapshot();
+  const studyStats = getStudyStats();
   const worlds = worldMap;
 
   const recentActivities = Object.entries(progress.activities || {})
@@ -107,6 +115,30 @@ function ProgressTab() {
         <div className="parental-stat">
           <strong>{progress.meta?.streakCurrent || 0}</strong>
           <span>Série actuelle</span>
+        </div>
+      </div>
+
+      <h3 className="parental-section-title">Temps d'étude</h3>
+      <div className="parental-stat-row">
+        <div className="parental-stat">
+          <strong>{formatStudyTime(studyStats.totalStudySeconds)}</strong>
+          <span>Temps total</span>
+        </div>
+        <div className="parental-stat">
+          <strong>
+            {studyStats.totalCorrect + studyStats.totalWrong > 0
+              ? Math.round((studyStats.totalCorrect / (studyStats.totalCorrect + studyStats.totalWrong)) * 100)
+              : 0}%
+          </strong>
+          <span>Taux de réussite</span>
+        </div>
+        <div className="parental-stat">
+          <strong>{studyStats.streakCurrent}</strong>
+          <span>Série actuelle</span>
+        </div>
+        <div className="parental-stat">
+          <strong>{studyStats.streakBest}</strong>
+          <span>Meilleure série</span>
         </div>
       </div>
 

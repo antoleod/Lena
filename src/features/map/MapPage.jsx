@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { worldMap } from '../../shared/gameplay/worldMap.js';
+import { worldMap, getWorldProgress } from '../../shared/gameplay/worldMap.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getAdventureDashboard, getWorldNodeSummary } from '../../shared/gameplay/adventureProgress.js';
 import { WORLD_STYLES } from '../../shared/gameplay/worldThemes.js';
@@ -52,7 +52,29 @@ function PathSegment({ fromCol, toCol }) {
   );
 }
 
-function WorldNode({ world, summary, style, index, col, isCurrent, isLocked }) {
+function ProgressRing({ pct }) {
+  const R = 44;
+  const circ = 2 * Math.PI * R;
+  const offset = circ - (pct / 100) * circ;
+  if (pct <= 0) return null;
+  return (
+    <svg className="cc-node__ring" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r={R} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" />
+      <circle
+        cx="50" cy="50" r={R}
+        fill="none"
+        stroke="rgba(255,255,255,0.85)"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeDasharray={circ}
+        strokeDashoffset={offset}
+        style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%', transition: 'stroke-dashoffset 0.8s ease' }}
+      />
+    </svg>
+  );
+}
+
+function WorldNode({ world, summary, progressPct, style, index, col, isCurrent, isLocked }) {
   const shape = NODE_SHAPES[index % NODE_SHAPES.length];
   const colClass = ['cc-col--left', 'cc-col--center', 'cc-col--right'][col];
   const stateClass = isCurrent ? 'cc-node--current' : isLocked ? 'cc-node--locked' : summary.stars === 3 ? 'cc-node--complete' : '';
@@ -60,6 +82,8 @@ function WorldNode({ world, summary, style, index, col, isCurrent, isLocked }) {
   const inner = (
     <div className={`cc-node ${stateClass} cc-node--${shape} ${colClass}`} style={{ '--node-color': style.color, '--node-shadow': style.shadow, '--node-bg': style.bg, animationDelay: `${index * 80}ms` }}>
       {isCurrent && <div className="cc-node__arrow">▼</div>}
+
+      <ProgressRing pct={progressPct} />
 
       <div className="cc-node__body">
         {isLocked
@@ -110,9 +134,6 @@ export default function MapPage() {
   const totalNodes = adventure.totalNodes;
   const overallPercent = totalNodes ? Math.round((totalCompleted / totalNodes) * 100) : 0;
 
-  // Determine which worlds are locked (past current in sequence)
-  const currentWorldOrder = worldMap.find(w => w.id === currentWorldId)?.order ?? 999;
-
   return (
     <div className="cc-map-page" data-testid="map-page">
       {/* Floating top bar */}
@@ -158,7 +179,9 @@ export default function MapPage() {
             const style = WORLD_STYLES[(world.order - 1) % WORLD_STYLES.length];
             const summary = getWorldNodeSummary(world, progress);
             const isCurrent = world.id === currentWorldId;
-            const isLocked = world.order > currentWorldOrder + 1 || isWorldBlocked(world.id);
+            const isLocked = isWorldBlocked(world.id);
+            const wp = getWorldProgress(world, progress);
+            const progressPct = wp.total ? Math.round((wp.completed / wp.total) * 100) : 0;
             const nextCol = index < worldMap.length - 1 ? PATH_COLS[(index + 1) % PATH_COLS.length] : null;
 
             return (
@@ -166,6 +189,7 @@ export default function MapPage() {
                 <WorldNode
                   world={world}
                   summary={summary}
+                  progressPct={progressPct}
                   style={style}
                   index={index}
                   col={col}

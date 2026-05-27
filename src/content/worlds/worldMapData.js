@@ -377,6 +377,28 @@ const WORLD_SPECS = [
       mission(9, 'Logique P3', ['generated-logic-p3', 'generated-reasoning-p3'], 'Problèmes plus complexes.', 'revision'),
       mission(10, 'Grand défi logique', ['generated-logic-p3', 'generated-reasoning-p4', 'generated-logic-sequences'], 'La plus grande épreuve de raisonnement.', 'boss')
     ]
+  }),
+  world({
+    id: 'world-17',
+    order: 17,
+    title: 'Arène des examens',
+    icon: '17',
+    theme: 'volcano',
+    description: 'Teste tes connaissances en mode chrono, défi ou relax.',
+    gradeIds: ['P2', 'P3', 'P4', 'P5', 'P6'],
+    subjectIds: ['mathematics', 'reasoning', 'french'],
+    missions: [
+      mission(1, 'Examen addition', ['generated-addition-p2', 'generated-addition-p3'], 'Addition sous pression !', 'lesson'),
+      mission(2, 'Examen soustraction', ['generated-subtraction-p2', 'generated-subtraction-p3'], 'Soustraction en vitesse.', 'lesson'),
+      mission(3, 'Examen multiplication', ['generated-multiplication-p2', 'generated-multiplication-p3'], 'Tables à toute vitesse.', 'checkpoint'),
+      mission(4, 'Examen division', ['generated-division-p3', 'generated-division-p4'], 'Division express.', 'lesson'),
+      mission(5, 'Examen fractions', ['generated-fractions-p4'], 'Fractions contre la montre.', 'lesson'),
+      mission(6, 'Examen opérations mixtes', ['generated-mixed-operations-p6'], 'Tout mélangé !', 'checkpoint'),
+      mission(7, 'Examen logique', ['generated-logic-p2', 'generated-logic-p3'], 'Raisonnement rapide.', 'lesson'),
+      mission(8, 'Examen problèmes', ['generated-word-problems'], 'Problèmes en temps limité.', 'reward'),
+      mission(9, 'Défi total', ['generated-mixed-operations-p6', 'generated-reasoning-p6', 'generated-word-problems'], 'Toutes matières, chrono serré.', 'revision'),
+      mission(10, 'Championnat final', ['generated-mixed-operations-p6', 'generated-reasoning-p6', 'generated-logic-p3', 'generated-word-problems'], 'Le boss des examens.', 'boss')
+    ]
   })
 ];
 

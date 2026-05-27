@@ -54,6 +54,7 @@ export default function HomePage() {
     { to: '/practice', icon: 'icon-star', label: 'Pratique guidée', sub: 'Tables × ÷ et soustraction avec tutoriel.' },
     { to: '/lessons', icon: 'icon-book', label: 'Mini-leçons', sub: 'Explications claires, étape par étape. 📚' },
     { to: '/renforcement', icon: 'icon-star', label: 'Renforcement', sub: 'Des exercices doux, une consigne a la fois.' },
+    { to: '/exam', icon: 'icon-star', label: 'Examens & défis', sub: 'Relax · Chrono · Défi 🏆' },
     { to: '/history', icon: 'icon-star', label: t('homeHistoryCardTitle'), sub: t('homeHistoryCardCopy') },
     { to: '/shop', icon: 'icon-gem', label: t('homeShopCardTitle'), sub: `${rewards.balance || 0} ${t('crystals')}` },
   ], [t, rewards.balance]);
