@@ -63,6 +63,71 @@ export default function AppShell() {
         <span className="scene-effects__snow scene-effects__snow--b"></span>
         <span className="scene-effects__rainbow"></span>
       </div>
+
+      {/* Sidebar nav — visible on tablet/desktop (≥768px) via CSS */}
+      <aside className="app-sidebar" aria-label="Navigation principale">
+        <button type="button" className="brand-inline app-sidebar__brand" onClick={() => { playTapSound(); navigate('/'); }} data-testid="shell-brand-sidebar">
+          <span className="brand-inline__mark">{displayInitial}</span>
+          <span className="brand-inline__name">{displayName}</span>
+        </button>
+
+        <nav className="sidebar-nav" aria-label="Primary">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              className={({ isActive }) => `sidebar-link${isActive ? ' is-active' : ''}`}
+              to={item.to}
+              onClick={playTapSound}
+              data-testid={`nav-sidebar-${item.to.replace('/', '') || 'home'}`}
+            >
+              <img src={`/assets/icons/${item.icon}.svg`} alt="" className="sidebar-link__icon" />
+              <span>{item.label}</span>
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="sidebar-tools">
+          <div className="level-pill" aria-label={`Niveau ${globalLevel}`}>
+            <img src="/assets/icons/icon-star.svg" alt="" className="level-pill__icon" />
+            <span>Niv. {globalLevel}</span>
+          </div>
+
+          <button type="button" className="wallet-compact sidebar-wallet" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-wallet-sidebar" title={t('shop')}>
+            <img src="/assets/icons/icon-gem.svg" alt="" className="wallet-compact__icon" />
+            <span>{session.rewards.balance}</span>
+            <small>{t('crystals')}</small>
+            {session.rewards.balance > 50 && (
+              <span className={`notification-badge ${notificationsEnabled ? '' : 'no-blink'}`} />
+            )}
+          </button>
+
+          <button
+            type="button"
+            className="icon-link icon-link--customizer"
+            onClick={() => { playTapSound(); setCustomizerOpen(true); }}
+            title="Personalizar mundo"
+          >
+            <img src="/assets/icons/icon-settings.svg" alt="" className="icon-link__icon" />
+            <span>Personalizar</span>
+          </button>
+
+          <button
+            type="button"
+            className="icon-link icon-link--logout"
+            data-testid="shell-logout-sidebar"
+            onClick={() => {
+              playTapSound();
+              logoutProfile();
+              navigate('/onboarding', { replace: true, state: { from: location.pathname } });
+            }}
+          >
+            <img src="/assets/icons/icon-close.svg" alt="" className="icon-link__icon" />
+            <span>{t('logoutLabel') || 'Logout'}</span>
+          </button>
+        </div>
+      </aside>
+
+      {/* Topbar — visible on mobile (<768px) via CSS */}
       <header className="app-topbar" data-testid="app-shell">
         <button type="button" className="brand-inline" onClick={() => { playTapSound(); navigate('/'); }} data-testid="shell-brand">
           <span className="brand-inline__mark">{displayInitial}</span>
@@ -125,7 +190,6 @@ export default function AppShell() {
       </header>
 
       <CustomizerDrawer isOpen={customizerOpen} onClose={() => setCustomizerOpen(false)} />
-
 
       <main className="app-main app-main--game">
         <Outlet />

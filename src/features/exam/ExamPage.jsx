@@ -44,6 +44,7 @@ const TOPIC_LABELS = {
   'mixed-operations': 'Opérations mixtes',
   logic: 'Logique',
   'word-problems': 'Problèmes',
+  'general-knowledge': 'Culture générale',
 };
 
 const TOPIC_GRADES = {
@@ -55,6 +56,7 @@ const TOPIC_GRADES = {
   'mixed-operations': 'P5',
   logic: 'P3',
   'word-problems': 'P3',
+  'general-knowledge': 'P3',
 };
 
 function formatTime(seconds) {

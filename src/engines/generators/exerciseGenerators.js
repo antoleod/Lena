@@ -18,6 +18,7 @@ import { generateWordProblemExercise } from './wordProblemGenerator.js';
 import { generateFractionsExercise } from './fractionsGenerator.js';
 import { generateDecimalsExercise } from './decimalsGenerator.js';
 import { generateMixedOperationsExercise } from './mixedOperationsGenerator.js';
+import { generateGeneralKnowledgeExercise } from './generalKnowledgeGenerator.js';
 
 function resolveDifficulty(grade, difficulty) {
   if (difficulty && difficulty !== 'adaptive') {
@@ -128,6 +129,9 @@ export function generateExercise(input) {
       break;
     case 'mixed-operations':
       exercise = generateMixedOperationsExercise(params);
+      break;
+    case 'general-knowledge':
+      exercise = generateGeneralKnowledgeExercise(params);
       break;
     default:
       exercise = generateAdditionExercise(params);

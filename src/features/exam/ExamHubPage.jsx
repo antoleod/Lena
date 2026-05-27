@@ -10,6 +10,7 @@ const SUBJECTS = [
   { topic: 'mixed-operations', label: 'Opérations mixtes', emoji: '🔢', grade: 'P5' },
   { topic: 'logic', label: 'Logique', emoji: '🧠', grade: 'P3' },
   { topic: 'word-problems', label: 'Problèmes', emoji: '📖', grade: 'P3' },
+  { topic: 'general-knowledge', label: 'Culture générale', emoji: '🌍', grade: 'P3' },
 ];
 
 const MODES = [

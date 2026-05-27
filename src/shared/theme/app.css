@@ -10444,3 +10444,365 @@ label {
   justify-content: center;
   margin-top: 8px;
 }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   iPad 11-inch optimizations
+   Portrait : 820–834px wide   →  @media (min-width: 768px)
+   Landscape: 1180–1194px wide →  @media (min-width: 1024px)
+   All rules are ADDITIVE — mobile styles above are never overridden here.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Sidebar nav (hidden on mobile, shown on tablet) ───────────────────────── */
+
+/* Hide the sidebar entirely on mobile */
+.app-sidebar {
+  display: none;
+}
+
+/* Hide the mobile topbar on tablet */
+@media (min-width: 768px) {
+  .app-topbar {
+    display: none;
+  }
+}
+
+/* Restore topbar on mobile */
+@media (max-width: 767px) {
+  .app-sidebar {
+    display: none !important;
+  }
+  .app-topbar {
+    display: grid !important;
+  }
+}
+
+@media (min-width: 768px) {
+  /* ── Typography ────────────────────────────────────────────────────────── */
+  :root {
+    font-size: 17px;
+  }
+
+  .home-hero__name {
+    font-size: 2.2rem;
+  }
+
+  .home-cta {
+    padding: 18px 28px;
+    font-size: 1.05rem;
+  }
+
+  /* ── Shell layout: sidebar + content side by side ──────────────────────── */
+  .app-shell--game {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    min-height: 100dvh;
+  }
+
+  /* Sidebar */
+  .app-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 220px;
+    flex-shrink: 0;
+    min-height: 100dvh;
+    position: sticky;
+    top: 0;
+    padding: 20px 12px 24px;
+    background: rgba(255, 255, 255, 0.88);
+    border-right: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+    z-index: 10;
+    overflow-y: auto;
+  }
+
+  .app-sidebar__brand {
+    margin-bottom: 10px;
+    padding: 8px 4px;
+    border-radius: 14px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .app-sidebar__brand:hover {
+    background: rgba(120, 166, 255, 0.1);
+  }
+
+  /* Sidebar nav items */
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .sidebar-link:hover {
+    background: rgba(120, 166, 255, 0.12);
+  }
+
+  .sidebar-link.is-active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(244, 109, 177, 0.25);
+  }
+
+  .sidebar-link.is-active .sidebar-link__icon {
+    filter: brightness(0) invert(1);
+    transform: scale(1.1);
+  }
+
+  .sidebar-link__icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08));
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+
+  /* Sidebar tools (level pill, wallet, customizer, logout) */
+  .sidebar-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+
+  .sidebar-tools .level-pill {
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 12px;
+  }
+
+  .sidebar-wallet {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: rgba(255, 207, 116, 0.12);
+    border: 1px solid rgba(255, 207, 116, 0.3);
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .sidebar-tools .icon-link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 14px;
+    border-radius: 14px;
+    min-height: 44px;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .sidebar-tools .icon-link__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Main content area offset by sidebar width */
+  .app-main--game {
+    flex: 1;
+    min-width: 0;
+    padding: 20px 24px 32px;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* ── Home page ─────────────────────────────────────────────────────────── */
+
+  /* Stats: 4 columns */
+  .home-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* Quick links: 3 columns */
+  .home-quick-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  /* ── Map page ──────────────────────────────────────────────────────────── */
+
+  /* Wider path canvas */
+  .cc-path-canvas {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Wider grid container */
+  .cc-grid {
+    max-width: 460px;
+  }
+
+  /* Nodes 10% bigger */
+  .cc-node {
+    width: 92px;
+    height: 92px;
+  }
+
+  .cc-node__body {
+    width: 86px;
+    height: 86px;
+  }
+
+  .cc-node__pulse {
+    width: 86px;
+    height: 86px;
+  }
+
+  /* World title always visible — no truncation */
+  .cc-node__title {
+    max-width: 110px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    font-size: 0.82rem;
+  }
+
+  /* ── Exam page ─────────────────────────────────────────────────────────── */
+
+  /* Exam hub: centered, wider */
+  .exam-hub-page {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Subject grid: 4 columns */
+  .exam-subject-grid {
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+  }
+
+  /* Question card: centered, max-width, larger text */
+  .exam-question-card {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 28px 24px;
+  }
+
+  .exam-question-text {
+    font-size: 1.25rem;
+  }
+
+  /* Choices: 2×2 grid with larger tap targets */
+  .exam-choices {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 14px;
+  }
+
+  .exam-choice {
+    min-height: 64px;
+    font-size: 1.05rem;
+    padding: 18px 14px;
+  }
+
+  /* ── Practice page ─────────────────────────────────────────────────────── */
+
+  /* Topic list: 3 columns */
+  .practice-topic-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  /* Practice question: centered, larger */
+  .practice-question {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    padding: 24px 20px;
+  }
+
+  /* Practice choices: 2×2 grid, bigger */
+  .practice-choices {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .practice-choice {
+    min-height: 64px;
+    font-size: 1.15rem;
+    padding: 18px 10px;
+  }
+
+  /* Practice session panel: centered */
+  .practice-session,
+  .practice-tutorial {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── General panel improvements ────────────────────────────────────────── */
+
+  /* Home page container: max-width, centered */
+  .home-page {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Page stacks get more breathing room */
+  .page-stack,
+  .page-stack--compact {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ── Landscape iPad (1024px+): even more space ─────────────────────────────── */
+@media (min-width: 1024px) {
+  .app-sidebar {
+    width: 240px;
+    padding: 24px 16px 28px;
+  }
+
+  .app-main--game {
+    padding: 24px 32px 40px;
+  }
+
+  .home-quick-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .exam-subject-grid {
+    grid-template-columns: repeat(4, minmax(240px, 1fr));
+  }
+
+  .home-page {
+    max-width: 1100px;
+  }
+
+  .page-stack,
+  .page-stack--compact {
+    max-width: 1000px;
+  }
+}
