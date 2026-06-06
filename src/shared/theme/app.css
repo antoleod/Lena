@@ -5352,11 +5352,17 @@ button {
 }
 
 .mc-context__img {
+  display: block;
   width: 100%;
-  max-height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
+  max-width: 220px;
+  height: 180px;
+  margin: 0 auto;
+  object-fit: contain;          /* show the whole icon, never crop/stretch */
+  padding: 16px;
+  border-radius: 20px;
+  background: #fff;
   border: 1px solid var(--line);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
 }
 
 .mc-context__caption {

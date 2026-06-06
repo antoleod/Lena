@@ -49,10 +49,16 @@ export function createVisualWordChoice(conceptId, locale) {
 }
 
 export function createVisualWordQuestion({ locale, prompt, answerConceptId, distractorConceptIds, explanation }) {
+  // Show the TARGET image once (as context), and offer the words as plain text
+  // options. The child looks at the picture and picks the matching word.
+  const answer = createVisualWordChoice(answerConceptId, locale);
+  const words = [answerConceptId, ...distractorConceptIds]
+    .map((conceptId) => createVisualWordChoice(conceptId, locale).value);
   return {
     prompt,
-    choices: [answerConceptId, ...distractorConceptIds].map((conceptId) => createVisualWordChoice(conceptId, locale)),
-    answer: createVisualWordChoice(answerConceptId, locale).value,
+    contextSlots: [{ kind: 'image', src: answer.media.src, alt: answer.media.alt }],
+    choices: words,
+    answer: answer.value,
     explanation
   };
 }
