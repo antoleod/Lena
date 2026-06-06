@@ -45,7 +45,7 @@ const UI = {
     explicationBtn: '📖 Explication', reessayer: '🔄 Réessayer', voirSolution: '👀 Voir la solution',
     exerciceSuivant: '➡️ Exercice suivant', conseil: '💡 Conseil', solution: 'Solution',
     pasGrave: 'Ce n’est pas grave, on regarde ensemble.', aide: '💡 Aide',
-    corrigerPapa: '👨‍👧 Corriger avec papa', papaTitle: 'On corrige ensemble',
+    corrigerPapa: '👨‍👧 Corriger avec papa', papaTitle: 'On corrige ensemble', aRetravailler: 'À retravailler', aRetravaillerTitle: 'Mes points à renforcer', rienARetravailler: 'Rien à retravailler pour l’instant. Bravo !', retravaillerIntro: 'Choisis un point à renforcer : je te prépare des exercices similaires.',
   },
   nl: {
     monCahier: 'Mijn schrift', monCahierTitle: 'Mijn oefenschrift',
@@ -77,7 +77,7 @@ const UI = {
     explicationBtn: '📖 Uitleg', reessayer: '🔄 Opnieuw', voirSolution: '👀 Toon de oplossing',
     exerciceSuivant: '➡️ Volgende oefening', conseil: '💡 Tip', solution: 'Oplossing',
     pasGrave: 'Geen probleem, we kijken samen.', aide: '💡 Hulp',
-    corrigerPapa: '👨‍👧 Verbeteren met papa', papaTitle: 'We verbeteren samen',
+    corrigerPapa: '👨‍👧 Verbeteren met papa', papaTitle: 'We verbeteren samen', aRetravailler: 'Te oefenen', aRetravaillerTitle: 'Mijn aandachtspunten', rienARetravailler: 'Niets te oefenen voor nu. Goed gedaan!', retravaillerIntro: 'Kies een punt om te versterken: ik maak gelijkaardige oefeningen.',
   },
   en: {
     monCahier: 'My notebook', monCahierTitle: 'My exercise notebook',
@@ -109,7 +109,7 @@ const UI = {
     explicationBtn: '📖 Explanation', reessayer: '🔄 Try again', voirSolution: '👀 See the solution',
     exerciceSuivant: '➡️ Next exercise', conseil: '💡 Tip', solution: 'Solution',
     pasGrave: 'It’s okay, let’s look together.', aide: '💡 Help',
-    corrigerPapa: '👨‍👧 Correct with dad', papaTitle: 'Let’s correct together',
+    corrigerPapa: '👨‍👧 Correct with dad', papaTitle: 'Let’s correct together', aRetravailler: 'To practise', aRetravaillerTitle: 'My weak points', rienARetravailler: 'Nothing to practise yet. Well done!', retravaillerIntro: 'Pick a point to strengthen: I’ll make similar exercises.',
   },
   es: {
     monCahier: 'Mi cuaderno', monCahierTitle: 'Mi cuaderno de ejercicios',
@@ -141,7 +141,7 @@ const UI = {
     explicationBtn: '📖 Explicación', reessayer: '🔄 Reintentar', voirSolution: '👀 Ver la solución',
     exerciceSuivant: '➡️ Siguiente ejercicio', conseil: '💡 Consejo', solution: 'Solución',
     pasGrave: 'No pasa nada, lo miramos juntos.', aide: '💡 Ayuda',
-    corrigerPapa: '👨‍👧 Corregir con papá', papaTitle: 'Corregimos juntos',
+    corrigerPapa: '👨‍👧 Corregir con papá', papaTitle: 'Corregimos juntos', aRetravailler: 'Para repasar', aRetravaillerTitle: 'Mis puntos a reforzar', rienARetravailler: 'Nada que repasar por ahora. ¡Bravo!', retravaillerIntro: 'Elige un punto a reforzar: te preparo ejercicios parecidos.',
   },
 };
 

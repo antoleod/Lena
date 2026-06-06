@@ -146,6 +146,13 @@ function mathMul(level, i) {
     testQuestion: mq('×', t, b),
     answer: String(answer),
     explanation: `${t} × ${b} = ${answer}. (${t} rangées de ${b})`,
+    method: `${t} × ${b} = ${b}${t > 1 ? ` + ${b}`.repeat(t - 1) : ''} = ${answer}`,
+    improvementTip: 'Apprends tes tables par cœur, c’est très utile !',
+    hints: [
+      `C’est ${t} fois le nombre ${b}.`,
+      `Additionne ${b} ${t} fois.`,
+      `${t} × ${b}, pense à ta table de ${b}.`,
+    ],
     inputType: 'number',
     visual: buildArrayVisual(t, b),
   });
@@ -160,6 +167,13 @@ function mathDiv(level, i) {
     testQuestion: mq('÷', a, b),
     answer: String(q),
     explanation: `${a} ÷ ${b} = ${q}, car ${b} × ${q} = ${a}.`,
+    method: `Combien de fois ${b} dans ${a} ? ${b} × ${q} = ${a}, donc ${a} ÷ ${b} = ${q}.`,
+    improvementTip: 'La division, c’est l’inverse de la multiplication.',
+    hints: [
+      `Combien de fois ${b} entre dans ${a} ?`,
+      `Cherche dans la table de ${b}.`,
+      `${b} × ? = ${a}.`,
+    ],
     inputType: 'number',
   });
 }
@@ -199,6 +213,13 @@ function mathMeasure(level, i) {
     question: `${q} ……`,
     testQuestion: q,
     answer, acceptedAnswers: accepted, explanation,
+    method: explanation,
+    improvementTip: 'Retiens les conversions clés : 1 cm = 10 mm, 1 m = 100 cm, 1 € = 100 centimes.',
+    hints: [
+      'Rappelle-toi la règle de conversion.',
+      'Multiplie par 10, 100 ou 1000 selon l’unité.',
+      explanation,
+    ],
     inputType: 'text',
   });
 }
@@ -231,6 +252,13 @@ function mathProbleme(level, i) {
     testQuestion: q,
     answer: String(answer),
     explanation,
+    method: explanation,
+    improvementTip: 'Souligne les nombres et cherche le mot qui dit quoi faire (donne, perd, en tout).',
+    hints: [
+      'Relis bien le problème, lentement.',
+      'Quels sont les nombres ? Que faut-il faire avec ?',
+      `Pose le calcul : ${explanation}`,
+    ],
     inputType: 'number',
   });
 }
@@ -257,6 +285,8 @@ function frCompleter(level, i) {
     answer: item.a,
     options: shuffle(item.opts),
     explanation: `La bonne phrase : ${item.s.replace('……', item.a)}`,
+    method: `La phrase complète : ${item.s.replace('……', item.a)}`,
+    improvementTip: 'Relis la phrase entière avec chaque mot pour entendre celui qui va bien.',
     hints: item.h,
     inputType: 'choice',
   });
@@ -279,6 +309,8 @@ function frBonMot(level, i) {
     answer: item.a,
     options: shuffle(item.opts),
     explanation: `On écrit « ${item.a} ».`,
+    improvementTip: 'Lis le mot dans ta tête : la bonne orthographe « sonne » juste.',
+    hints: ['Prononce chaque mot doucement.', 'Lequel ressemble à ce que tu connais ?', `Le bon mot commence par « ${item.a[0]} ».`],
     inputType: 'choice',
   });
 }
@@ -301,6 +333,8 @@ function frComprehension(level, i) {
     answer: item.a,
     options: shuffle(item.opts),
     explanation: `Réponse : ${item.a}.`,
+    improvementTip: 'La réponse est toujours cachée dans le texte : relis-le calmement.',
+    hints: ['Relis le texte une deuxième fois.', 'Cherche la phrase qui parle de la question.', 'La réponse est écrite dans le texte.'],
     inputType: 'choice',
   });
 }
@@ -322,6 +356,8 @@ function frVocab(level, i) {
     answer: item.a,
     options: shuffle(item.opts),
     explanation: `Réponse : ${item.a}.`,
+    improvementTip: 'Pense à des phrases où tu utilises ces mots.',
+    hints: ['Relis bien la question.', 'Élimine les mots qui ne vont pas.', `La réponse commence par « ${item.a[0]} ».`],
     inputType: 'choice',
   });
 }
@@ -344,6 +380,8 @@ function frGrammaire(level, i) {
       answer: item.plur,
       acceptedAnswers: [item.plur],
       explanation: `Au pluriel : ${item.plur} (on ajoute un « s »).`,
+      improvementTip: 'Au pluriel, on ajoute souvent un « s » à la fin.',
+      hints: ['Le pluriel, c’est plusieurs.', 'Change « un/une » en « des ».', 'Ajoute un « s » à la fin du mot.'],
       inputType: 'text',
     });
   }
@@ -354,6 +392,8 @@ function frGrammaire(level, i) {
     answer: item.m ? 'masculin' : 'féminin',
     options: shuffle(['masculin', 'féminin']),
     explanation: `« ${item.sing} » est ${item.m ? 'masculin (un)' : 'féminin (une)'}.`,
+    improvementTip: '« un » → masculin, « une » → féminin.',
+    hints: ['Regarde le petit mot devant.', 'Dit-on « un » ou « une » ?', `On dit « ${item.sing.split(' ')[0]} ».`],
     inputType: 'choice',
   });
 }
@@ -378,6 +418,8 @@ function dicteeMots(level, i) {
     testQuestion: 'Écris le mot que tu as entendu :',
     answer: word,
     explanation: `Le mot était : « ${word} ».`,
+    improvementTip: 'Découpe le mot en syllabes pour bien l’écrire.',
+    hints: ['Écoute encore le mot.', 'Découpe-le en syllabes.', `Le mot commence par « ${word[0]} ».`],
     inputType: 'text',
     dictation: word,
   });
@@ -391,6 +433,8 @@ function dicteePhrases(level, i) {
     testQuestion: 'Écris la phrase que tu as entendue :',
     answer: phrase,
     explanation: `La phrase était : « ${phrase} ».`,
+    improvementTip: 'N’oublie pas la majuscule au début et le point à la fin.',
+    hints: ['Réécoute la phrase en entier.', 'Écris mot après mot.', 'Pense à la majuscule et au point.'],
     inputType: 'text',
     dictation: phrase,
   });

@@ -45,6 +45,7 @@ export default function TestView({ exercises, onBack, onFinish }) {
       recordError({
         topic: ex.subject || 'cahier', question: ex.testQuestion || ex.question,
         correctAnswer: String(ex.answer ?? ex.correctAnswer), userAnswer: String(value), source: 'cahier-test',
+        practiceKey: `${ex.subject}:${ex.type}`, level: ex.level,
       });
     }
   }

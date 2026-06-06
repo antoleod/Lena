@@ -74,6 +74,17 @@ test('no duplicate questions on a sheet; math has progressive hints + method', (
   assert.ok(fr.every((e) => Array.isArray(e.hints) && e.hints.length === 3));
 });
 
+test('every exercise type carries hints + improvementTip (teacher support)', () => {
+  for (const s of SUBJECTS) {
+    for (const t of s.types) {
+      for (const ex of generateExercises({ subject: s.id, type: t.id, level: 'medium', count: 3 })) {
+        assert.ok(Array.isArray(ex.hints) && ex.hints.length >= 1, `${s.id}:${t.id} missing hints`);
+        assert.ok(ex.improvementTip, `${s.id}:${t.id} missing improvementTip`);
+      }
+    }
+  }
+});
+
 test('normalizeAnswer + flexible matching', () => {
   assert.equal(normalizeAnswer('  Bonjour. '), 'bonjour');
   assert.equal(normalizeAnswer('ÉCOLE'), 'ecole');

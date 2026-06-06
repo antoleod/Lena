@@ -256,6 +256,11 @@
 .explain-item__step { font-family: 'Nunito', monospace; font-weight: 700; }
 .explain-item__exp { margin: 8px 0 0; font-size: .92rem; color: #2980b9; }
 
+.retravailler-count {
+  background: rgba(231,76,60,.9); color: #fff; border-radius: 999px;
+  padding: 1px 8px; font-size: .72rem; font-weight: 800;
+}
+
 .cahier-empty { text-align: center; color: #fff; padding: 40px 20px; }
 .cahier-empty__emoji { font-size: 3rem; display: block; margin-bottom: 10px; }
 

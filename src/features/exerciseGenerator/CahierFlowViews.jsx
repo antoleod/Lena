@@ -10,6 +10,8 @@
 
 import { useState } from 'react';
 import { useCahierT } from './cahierI18n.js';
+import { getType } from './exerciseTypes.js';
+import { getWeakAreas } from '../../services/storage/errorHistoryStore.js';
 
 function answerLabel(ex) {
   if (ex.inputType === 'true_false') return ex.answer ? 'Vrai' : 'Faux';
@@ -40,6 +42,43 @@ export function VerificationView({ subject, onBack, onSeeAnswers, onSeeExplanati
         )}
         <button type="button" className="cahier-cta cahier-cta--soft" onClick={onBack}>{L.t('continuerCahier')}</button>
       </div>
+    </div>
+  );
+}
+
+// ── "À retravailler" — entraînement adaptatif basé sur les erreurs ───────────
+export function RetravaillerView({ onBack, onPractice }) {
+  const L = useCahierT();
+  const areas = getWeakAreas().slice(0, 8);
+  return (
+    <div className="cahier-page">
+      <div className="cahier-header cahier-header--slim">
+        <button type="button" className="exam-back-btn" onClick={onBack}>←</button>
+        <div><span className="eyebrow">💪 {L.t('aRetravailler')}</span><h1>{L.t('aRetravaillerTitle')}</h1></div>
+      </div>
+
+      {areas.length === 0 ? (
+        <div className="cahier-empty">
+          <span className="cahier-empty__emoji">🌟</span>
+          <p>{L.t('rienARetravailler')}</p>
+        </div>
+      ) : (
+        <>
+          <p className="cahier-instruction">{L.t('retravaillerIntro')}</p>
+          <div className="cahier-choice-grid">
+            {areas.map((a) => {
+              const tp = getType(a.subject, a.type);
+              return (
+                <button key={a.key} type="button" className="cahier-chip cahier-chip--big" onClick={() => onPractice(a)}>
+                  <span className="cahier-chip__emoji">{tp?.emoji || '✏️'}</span>
+                  <span>{tp?.label || a.type}</span>
+                  <span className="retravailler-count">{a.count} ✗</span>
+                </button>
+              );
+            })}
+          </div>
+        </>
+      )}
     </div>
   );
 }

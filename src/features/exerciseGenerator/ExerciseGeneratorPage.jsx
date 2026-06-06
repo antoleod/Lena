@@ -7,7 +7,7 @@ import NotebookView from './NotebookView.jsx';
 import TestView from './TestView.jsx';
 import ResultsView from './ResultsView.jsx';
 import ErrorReviewView from './ErrorReviewView.jsx';
-import { VerificationView, AnswersTableView, ExplanationsView, PapaModeView } from './CahierFlowViews.jsx';
+import { VerificationView, AnswersTableView, ExplanationsView, PapaModeView, RetravaillerView } from './CahierFlowViews.jsx';
 import { useCahierT } from './cahierI18n.js';
 import './cahier.css';
 
@@ -40,6 +40,16 @@ export default function ExerciseGeneratorPage() {
 
   function startNotebook() {
     const list = generateExercises({ subject, type, level, count, digits: isMath ? digits : null, locale: L.locale });
+    if (list.length === 0) return;
+    setExercises(list);
+    setGraded([]);
+    setPhase('notebook');
+  }
+
+  // Adaptive practice: regenerate 5 similar exercises for a weak area.
+  function startTargeted(area) {
+    setSubject(area.subject); setType(area.type); setLevel(area.level); setDigits(null); setCount(5);
+    const list = generateExercises({ subject: area.subject, type: area.type, level: area.level, count: 5, locale: L.locale });
     if (list.length === 0) return;
     setExercises(list);
     setGraded([]);
@@ -87,6 +97,9 @@ export default function ExerciseGeneratorPage() {
   }
   if (phase === 'papa') {
     return <PapaModeView exercises={exercises} onBack={() => setPhase('verify')} />;
+  }
+  if (phase === 'retravailler') {
+    return <RetravaillerView onBack={() => setPhase('setup')} onPractice={startTargeted} />;
   }
   if (phase === 'answers') {
     return (
@@ -168,6 +181,9 @@ export default function ExerciseGeneratorPage() {
           </button>
           <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/calculs-melanges')}>
             <span className="cahier-chip__emoji">🧩</span><span>Calculs à composer</span>
+          </button>
+          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => setPhase('retravailler')}>
+            <span className="cahier-chip__emoji">💪</span><span>{L.t('aRetravailler')}</span>
           </button>
         </div>
       </section>
