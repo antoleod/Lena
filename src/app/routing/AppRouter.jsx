@@ -30,6 +30,10 @@ import ExamPage from '../../features/exam/ExamPage.jsx';
 import LectureHubPage from '../../features/exam/LectureHubPage.jsx';
 import LectureReaderPage from '../../features/exam/LectureReaderPage.jsx';
 import ErrorReviewPage from '../../features/exam/ErrorReviewPage.jsx';
+import ExamLibraryHubPage from '../../features/exam/library/ExamLibraryHubPage.jsx';
+import ExamLibraryCategoryPage from '../../features/exam/library/ExamLibraryCategoryPage.jsx';
+import ExamRunnerPage from '../../features/exam/library/ExamRunnerPage.jsx';
+import ExerciseGeneratorPage from '../../features/exerciseGenerator/ExerciseGeneratorPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -129,6 +133,10 @@ export default function AppRouter() {
         <Route path="/exam/lecture" element={<LectureHubPage />} />
         <Route path="/exam/lecture/play" element={<LectureReaderPage />} />
         <Route path="/exam/errors" element={<ErrorReviewPage />} />
+        <Route path="/exam/library" element={<ExamLibraryHubPage />} />
+        <Route path="/exam/library/play" element={<ExamRunnerPage />} />
+        <Route path="/exam/library/:categoryId" element={<ExamLibraryCategoryPage />} />
+        <Route path="/cahier" element={<ExerciseGeneratorPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

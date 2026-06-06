@@ -10027,6 +10027,8 @@ label {
 .exam-choice:hover {
   transform: scale(1.02);
 }
+/* Text inputs reusing .exam-choice (e.g. fill-blank) must not scale while typing */
+input.exam-choice:hover { transform: none; }
 .exam-choice--correct {
   animation: pop-correct 0.45s ease both;
 }
@@ -10279,6 +10281,7 @@ label {
   align-items: center;
   gap: 3px;
   padding: 10px 6px;
+  min-height: 44px;
   border-radius: 12px;
   border: none;
   cursor: pointer;
@@ -10847,9 +10850,9 @@ label {
     margin-right: auto;
   }
 
-  /* Subject grid: 4 columns */
+  /* Subject grid: auto-fit so it never overflows narrow tablet portrait widths */
   .exam-subject-grid {
-    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
   /* Question card: centered, max-width, larger text */

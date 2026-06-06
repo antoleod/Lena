@@ -1,0 +1,443 @@
+{
+  "id": "comprehension-lecture-05",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "La sortie au parc",
+  "emoji": "🌳",
+  "order": 5,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Aujourd'hui est un jour spécial : toute la classe part en sortie au grand parc de la ville. Dès le matin, tout le monde est content et impatient !",
+            "keywords": [
+              "sortie",
+              "classe",
+              "parc",
+              "content"
+            ]
+          },
+          {
+            "text": "Avant de partir, le maître distribue à chaque enfant une casquette rouge. « Comme ça, je vous verrai bien et personne ne se perdra », explique-t-il.",
+            "keywords": [
+              "maître",
+              "casquettes",
+              "rouges",
+              "perdra"
+            ]
+          },
+          {
+            "text": "Arrivés au parc, les enfants courent vers les jeux. Ils glissent sur les toboggans et montent très haut sur les balançoires.",
+            "keywords": [
+              "jeux",
+              "toboggans",
+              "balançoires"
+            ]
+          },
+          {
+            "text": "Quand le soleil est haut, à midi, le maître appelle tout le monde. Les enfants s'assoient en cercle sur l'herbe fraîche pour le pique-nique.",
+            "keywords": [
+              "midi",
+              "herbe",
+              "pique-nique"
+            ]
+          },
+          {
+            "text": "Dans les paniers, il y a des sandwichs au fromage, des fruits bien mûrs et des jus de pomme frais. Tout le monde se régale.",
+            "keywords": [
+              "sandwichs",
+              "fruits",
+              "jus de pomme"
+            ]
+          },
+          {
+            "text": "L'après-midi passe vite. Sur le chemin du retour vers l'école, fatigués mais joyeux, les enfants chantent une chanson tous ensemble.",
+            "keywords": [
+              "retour",
+              "fatigués",
+              "chantent",
+              "chanson"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Où va la classe ?",
+          "options": [
+            "Au parc",
+            "À la piscine",
+            "Au musée"
+          ],
+          "answer": "Au parc",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur sont les casquettes ?",
+          "options": [
+            "Rouges",
+            "Bleues",
+            "Jaunes"
+          ],
+          "answer": "Rouges",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q2"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Les enfants jouent sur des toboggans.",
+          "answer": true,
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Quand mangent-ils ?",
+          "options": [
+            "À midi",
+            "Le matin",
+            "Le soir"
+          ],
+          "answer": "À midi",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qu'y a-t-il à boire ?",
+          "options": [
+            "Du jus de pomme",
+            "Du lait",
+            "De la limonade"
+          ],
+          "answer": "Du jus de pomme",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui distribue les casquettes ?",
+          "options": [
+            "Le maître",
+            "La maman",
+            "Le directeur"
+          ],
+          "answer": "Le maître",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Aujourd'hui est un jour spécial : toute la classe part en sortie au grand parc de la ville. Dès le matin, tout le monde est content et impatient !",
+            "keywords": [
+              "sortie",
+              "classe",
+              "parc",
+              "content"
+            ]
+          },
+          {
+            "text": "Avant de partir, le maître distribue à chaque enfant une casquette rouge. « Comme ça, je vous verrai bien et personne ne se perdra », explique-t-il.",
+            "keywords": [
+              "maître",
+              "casquettes",
+              "rouges",
+              "perdra"
+            ]
+          },
+          {
+            "text": "Arrivés au parc, les enfants courent vers les jeux. Ils glissent sur les toboggans et montent très haut sur les balançoires.",
+            "keywords": [
+              "jeux",
+              "toboggans",
+              "balançoires"
+            ]
+          },
+          {
+            "text": "Quand le soleil est haut, à midi, le maître appelle tout le monde. Les enfants s'assoient en cercle sur l'herbe fraîche pour le pique-nique.",
+            "keywords": [
+              "midi",
+              "herbe",
+              "pique-nique"
+            ]
+          },
+          {
+            "text": "Dans les paniers, il y a des sandwichs au fromage, des fruits bien mûrs et des jus de pomme frais. Tout le monde se régale.",
+            "keywords": [
+              "sandwichs",
+              "fruits",
+              "jus de pomme"
+            ]
+          },
+          {
+            "text": "L'après-midi passe vite. Sur le chemin du retour vers l'école, fatigués mais joyeux, les enfants chantent une chanson tous ensemble.",
+            "keywords": [
+              "retour",
+              "fatigués",
+              "chantent",
+              "chanson"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Où va la classe ?",
+          "options": [
+            "Au parc",
+            "À la piscine",
+            "Au musée"
+          ],
+          "answer": "Au parc",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur sont les casquettes ?",
+          "options": [
+            "Rouges",
+            "Bleues",
+            "Jaunes"
+          ],
+          "answer": "Rouges",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q2"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Les enfants jouent sur des toboggans.",
+          "answer": true,
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Quand mangent-ils ?",
+          "options": [
+            "À midi",
+            "Le matin",
+            "Le soir"
+          ],
+          "answer": "À midi",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qu'y a-t-il à boire ?",
+          "options": [
+            "Du jus de pomme",
+            "Du lait",
+            "De la limonade"
+          ],
+          "answer": "Du jus de pomme",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui distribue les casquettes ?",
+          "options": [
+            "Le maître",
+            "La maman",
+            "Le directeur"
+          ],
+          "answer": "Le maître",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q6"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Les enfants pleurent au retour.",
+          "answer": false,
+          "correction": "Page 6 : ils chantent.",
+          "pageRef": "p6",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi des casquettes rouges ?",
+          "options": [
+            "Pour ne pas se perdre",
+            "Pour avoir chaud",
+            "Pour jouer"
+          ],
+          "answer": "Pour ne pas se perdre",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Aujourd'hui est un jour spécial : toute la classe part en sortie au grand parc de la ville. Dès le matin, tout le monde est content et impatient !",
+            "keywords": [
+              "sortie",
+              "classe",
+              "parc",
+              "content"
+            ]
+          },
+          {
+            "text": "Avant de partir, le maître distribue à chaque enfant une casquette rouge. « Comme ça, je vous verrai bien et personne ne se perdra », explique-t-il.",
+            "keywords": [
+              "maître",
+              "casquettes",
+              "rouges",
+              "perdra"
+            ]
+          },
+          {
+            "text": "Arrivés au parc, les enfants courent vers les jeux. Ils glissent sur les toboggans et montent très haut sur les balançoires.",
+            "keywords": [
+              "jeux",
+              "toboggans",
+              "balançoires"
+            ]
+          },
+          {
+            "text": "Quand le soleil est haut, à midi, le maître appelle tout le monde. Les enfants s'assoient en cercle sur l'herbe fraîche pour le pique-nique.",
+            "keywords": [
+              "midi",
+              "herbe",
+              "pique-nique"
+            ]
+          },
+          {
+            "text": "Dans les paniers, il y a des sandwichs au fromage, des fruits bien mûrs et des jus de pomme frais. Tout le monde se régale.",
+            "keywords": [
+              "sandwichs",
+              "fruits",
+              "jus de pomme"
+            ]
+          },
+          {
+            "text": "L'après-midi passe vite. Sur le chemin du retour vers l'école, fatigués mais joyeux, les enfants chantent une chanson tous ensemble.",
+            "keywords": [
+              "retour",
+              "fatigués",
+              "chantent",
+              "chanson"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "true_false",
+          "prompt": "Les enfants pleurent au retour.",
+          "answer": false,
+          "correction": "Page 6 : ils chantent.",
+          "pageRef": "p6",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi des casquettes rouges ?",
+          "options": [
+            "Pour ne pas se perdre",
+            "Pour avoir chaud",
+            "Pour jouer"
+          ],
+          "answer": "Pour ne pas se perdre",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que mangent-ils au pique-nique ?",
+          "options": [
+            "Des sandwichs et des fruits",
+            "Des pizzas",
+            "Des frites"
+          ],
+          "answer": "Des sandwichs et des fruits",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Tout le monde est content au début.",
+          "answer": true,
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que font les enfants au retour ?",
+          "options": [
+            "Ils chantent",
+            "Ils dorment",
+            "Ils courent"
+          ],
+          "answer": "Ils chantent",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Ils mangent sur l’ ___ .",
+          "answer": "herbe",
+          "correction": "Page 4 : sur l’herbe.",
+          "pageRef": "p4",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Pique-nique » veut dire :",
+          "options": [
+            "Repas pris dehors",
+            "Jeu de ballon",
+            "Promenade"
+          ],
+          "answer": "Repas pris dehors",
+          "correction": "Un repas que l’on mange dehors.",
+          "pageRef": "p4",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La sortie se passe bien.",
+          "answer": true,
+          "correction": "Les enfants sont contents.",
+          "pageRef": "p6",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}

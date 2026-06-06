@@ -1,0 +1,351 @@
+{
+  "id": "decouverte-monde-10",
+  "category": "decouverte-monde",
+  "categoryLabel": "Découverte du monde",
+  "categoryEmoji": "🌍",
+  "categoryOrder": 13,
+  "title": "Le monde autour de moi 10",
+  "emoji": "🌍",
+  "order": 10,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "En hiver, il fait :",
+          "options": [
+            "froid",
+            "très chaud",
+            "lourd"
+          ],
+          "answer": "froid",
+          "correction": "En hiver il fait froid."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "options": [
+            "soleil et eau",
+            "chocolat",
+            "jouets"
+          ],
+          "answer": "soleil et eau",
+          "correction": "Soleil + eau."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "On voit avec les :",
+          "options": [
+            "yeux",
+            "oreilles",
+            "genoux"
+          ],
+          "answer": "yeux",
+          "correction": "On voit avec les yeux."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "La vache nous donne :",
+          "options": [
+            "du lait",
+            "des œufs",
+            "de la laine"
+          ],
+          "answer": "du lait",
+          "correction": "La vache donne du lait."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "On respire avec les :",
+          "options": [
+            "poumons",
+            "mains",
+            "pieds"
+          ],
+          "answer": "poumons",
+          "correction": "On respire avec les poumons."
+        },
+        {
+          "id": "q12",
+          "type": "true_false",
+          "prompt": "Le soleil se lève le matin.",
+          "answer": true,
+          "correction": "Oui, le matin."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le boulanger fait le :",
+          "options": [
+            "pain",
+            "lait",
+            "bois"
+          ],
+          "answer": "pain",
+          "correction": "Le boulanger fait le pain."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "On entend avec les :",
+          "options": [
+            "oreilles",
+            "yeux",
+            "mains"
+          ],
+          "answer": "oreilles",
+          "correction": "On entend avec les oreilles."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "L’abeille fabrique le ___ .",
+          "answer": "miel",
+          "accept": [
+            "miel"
+          ],
+          "correction": "L’abeille fait le miel."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "En hiver, il fait :",
+          "options": [
+            "froid",
+            "très chaud",
+            "lourd"
+          ],
+          "answer": "froid",
+          "correction": "En hiver il fait froid."
+        },
+        {
+          "id": "q6",
+          "type": "true_false",
+          "prompt": "Le soleil se lève le matin.",
+          "answer": true,
+          "correction": "Oui, le matin."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le docteur soigne les :",
+          "options": [
+            "malades",
+            "voitures",
+            "maisons"
+          ],
+          "answer": "malades",
+          "correction": "Le docteur soigne les malades."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "La poule pond des :",
+          "options": [
+            "œufs",
+            "plumes",
+            "fruits"
+          ],
+          "answer": "œufs",
+          "correction": "La poule pond des œufs."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quand il pleut, on prend un :",
+          "options": [
+            "parapluie",
+            "ballon",
+            "livre"
+          ],
+          "answer": "parapluie",
+          "correction": "Contre la pluie : le parapluie."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "options": [
+            "soleil et eau",
+            "chocolat",
+            "jouets"
+          ],
+          "answer": "soleil et eau",
+          "correction": "Soleil + eau."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "On respire avec les :",
+          "options": [
+            "poumons",
+            "mains",
+            "pieds"
+          ],
+          "answer": "poumons",
+          "correction": "On respire avec les poumons."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "La vache nous donne :",
+          "options": [
+            "du lait",
+            "des œufs",
+            "de la laine"
+          ],
+          "answer": "du lait",
+          "correction": "La vache donne du lait."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le boulanger fait le :",
+          "options": [
+            "pain",
+            "lait",
+            "bois"
+          ],
+          "answer": "pain",
+          "correction": "Le boulanger fait le pain."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "options": [
+            "soleil et eau",
+            "chocolat",
+            "jouets"
+          ],
+          "answer": "soleil et eau",
+          "correction": "Soleil + eau."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "En hiver, il fait :",
+          "options": [
+            "froid",
+            "très chaud",
+            "lourd"
+          ],
+          "answer": "froid",
+          "correction": "En hiver il fait froid."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quand il pleut, on prend un :",
+          "options": [
+            "parapluie",
+            "ballon",
+            "livre"
+          ],
+          "answer": "parapluie",
+          "correction": "Contre la pluie : le parapluie."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "En automne, les feuilles :",
+          "options": [
+            "tombent",
+            "poussent",
+            "gèlent"
+          ],
+          "answer": "tombent",
+          "correction": "En automne, les feuilles tombent."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le pompier éteint :",
+          "options": [
+            "le feu",
+            "la pluie",
+            "le vent"
+          ],
+          "answer": "le feu",
+          "correction": "Le pompier éteint le feu."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "On voit avec les :",
+          "options": [
+            "yeux",
+            "oreilles",
+            "genoux"
+          ],
+          "answer": "yeux",
+          "correction": "On voit avec les yeux."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "La poule pond des :",
+          "options": [
+            "œufs",
+            "plumes",
+            "fruits"
+          ],
+          "answer": "œufs",
+          "correction": "La poule pond des œufs."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le docteur soigne les :",
+          "options": [
+            "malades",
+            "voitures",
+            "maisons"
+          ],
+          "answer": "malades",
+          "correction": "Le docteur soigne les malades."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "La vache nous donne :",
+          "options": [
+            "du lait",
+            "des œufs",
+            "de la laine"
+          ],
+          "answer": "du lait",
+          "correction": "La vache donne du lait."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "On entend avec les :",
+          "options": [
+            "oreilles",
+            "yeux",
+            "mains"
+          ],
+          "answer": "oreilles",
+          "correction": "On entend avec les oreilles."
+        }
+      ]
+    }
+  }
+}

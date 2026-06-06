@@ -1,0 +1,380 @@
+{
+  "id": "logique-04",
+  "category": "logique",
+  "categoryLabel": "Logique",
+  "categoryEmoji": "🧠",
+  "categoryOrder": 10,
+  "title": "Réfléchis bien 4",
+  "emoji": "🧠",
+  "order": 4,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Continue la suite : 9, 11, 13, 15, …",
+          "options": [
+            "17",
+            "14",
+            "18",
+            "21"
+          ],
+          "answer": "17",
+          "correction": "On ajoute 2 à chaque fois : 17."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Continue la suite : 6, 8, 10, 12, …",
+          "options": [
+            "17",
+            "16",
+            "13",
+            "14"
+          ],
+          "answer": "14",
+          "correction": "On ajoute 2 à chaque fois : 14."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Continue la suite : 8, 11, 14, 17, …",
+          "options": [
+            "20",
+            "21",
+            "25",
+            "15"
+          ],
+          "answer": "20",
+          "correction": "On ajoute 3 à chaque fois : 20."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Continue la suite : 5, 8, 11, 14, …",
+          "options": [
+            "12",
+            "13",
+            "22",
+            "17"
+          ],
+          "answer": "17",
+          "correction": "On ajoute 3 à chaque fois : 17."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Continue la suite : 7, 8, 9, 10, …",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "14"
+          ],
+          "answer": "11",
+          "correction": "On ajoute 1 à chaque fois : 11."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "options": [
+            "voiture",
+            "pomme",
+            "fraise"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture n’est pas un fruit."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "options": [
+            "chien",
+            "rouge",
+            "vert"
+          ],
+          "answer": "chien",
+          "correction": "Le chien n’est pas une couleur."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "options": [
+            "2, 5, 8",
+            "8, 5, 2",
+            "5, 2, 8"
+          ],
+          "answer": "2, 5, 8",
+          "correction": "Ordre croissant : 2, 5, 8."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Continue la suite : 3, 6, 9, 12, …",
+          "options": [
+            "19",
+            "14",
+            "15",
+            "11"
+          ],
+          "answer": "15",
+          "correction": "On ajoute 3 à chaque fois : 15."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Continue la suite : 12, 15, 18, 21, …",
+          "options": [
+            "28",
+            "25",
+            "24",
+            "20"
+          ],
+          "answer": "24",
+          "correction": "On ajoute 3 à chaque fois : 24."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Continue la suite : 8, 10, 12, 14, …",
+          "options": [
+            "14",
+            "12",
+            "16",
+            "20"
+          ],
+          "answer": "16",
+          "correction": "On ajoute 2 à chaque fois : 16."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Continue la suite : 1, 2, 3, 4, …",
+          "options": [
+            "4",
+            "5",
+            "8",
+            "3"
+          ],
+          "answer": "5",
+          "correction": "On ajoute 1 à chaque fois : 5."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Continue la suite : 6, 8, 10, 12, …",
+          "options": [
+            "16",
+            "15",
+            "14",
+            "18"
+          ],
+          "answer": "14",
+          "correction": "On ajoute 2 à chaque fois : 14."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Continue la suite : 12, 16, 20, 24, …",
+          "options": [
+            "28",
+            "31",
+            "24",
+            "30"
+          ],
+          "answer": "28",
+          "correction": "On ajoute 4 à chaque fois : 28."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "options": [
+            "2, 5, 8",
+            "8, 5, 2",
+            "5, 2, 8"
+          ],
+          "answer": "2, 5, 8",
+          "correction": "Ordre croissant : 2, 5, 8."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "options": [
+            "voiture",
+            "pomme",
+            "fraise"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture n’est pas un fruit."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "options": [
+            "pomme",
+            "lundi",
+            "jeudi"
+          ],
+          "answer": "pomme",
+          "correction": "La pomme n’est pas un jour."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "options": [
+            "chien",
+            "rouge",
+            "vert"
+          ],
+          "answer": "chien",
+          "correction": "Le chien n’est pas une couleur."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Continue la suite : 12, 17, 22, 27, …",
+          "options": [
+            "33",
+            "32",
+            "30",
+            "29"
+          ],
+          "answer": "32",
+          "correction": "On ajoute 5 à chaque fois : 32."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Continue la suite : 14, 17, 20, 23, …",
+          "options": [
+            "25",
+            "21",
+            "24",
+            "26"
+          ],
+          "answer": "26",
+          "correction": "On ajoute 3 à chaque fois : 26."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Continue la suite : 16, 17, 18, 19, …",
+          "options": [
+            "20",
+            "18",
+            "23",
+            "17"
+          ],
+          "answer": "20",
+          "correction": "On ajoute 1 à chaque fois : 20."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Continue la suite : 21, 23, 25, 27, …",
+          "options": [
+            "25",
+            "30",
+            "29",
+            "32"
+          ],
+          "answer": "29",
+          "correction": "On ajoute 2 à chaque fois : 29."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Continue la suite : 10, 11, 12, 13, …",
+          "options": [
+            "12",
+            "14",
+            "15",
+            "11"
+          ],
+          "answer": "14",
+          "correction": "On ajoute 1 à chaque fois : 14."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Continue la suite : 20, 22, 24, 26, …",
+          "options": [
+            "27",
+            "29",
+            "28",
+            "24"
+          ],
+          "answer": "28",
+          "correction": "On ajoute 2 à chaque fois : 28."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "options": [
+            "pomme",
+            "lundi",
+            "jeudi"
+          ],
+          "answer": "pomme",
+          "correction": "La pomme n’est pas un jour."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "options": [
+            "table",
+            "chat",
+            "lapin"
+          ],
+          "answer": "table",
+          "correction": "La table n’est pas un animal."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "options": [
+            "chien",
+            "rouge",
+            "vert"
+          ],
+          "answer": "chien",
+          "correction": "Le chien n’est pas une couleur."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Quel nombre est le plus grand ?",
+          "options": [
+            "9",
+            "4",
+            "7"
+          ],
+          "answer": "9",
+          "correction": "9 est le plus grand."
+        }
+      ]
+    }
+  }
+}

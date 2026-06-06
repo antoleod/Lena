@@ -1,0 +1,377 @@
+{
+  "id": "mesures-06",
+  "category": "mesures",
+  "categoryLabel": "Mesures",
+  "categoryEmoji": "📏",
+  "categoryOrder": 12,
+  "title": "Mesurer 6",
+  "emoji": "📏",
+  "order": 6,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Convertis 9 cm en mm.",
+          "options": [
+            "90",
+            "89",
+            "84",
+            "82"
+          ],
+          "answer": "90",
+          "correction": "1 cm = 10 mm → 90 mm."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Convertis 9 cm en mm.",
+          "answer": "90",
+          "accept": [
+            "90",
+            "90 mm"
+          ],
+          "correction": "1 cm = 10 mm → 90 mm."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Convertis 7 cm en mm.",
+          "options": [
+            "71",
+            "62",
+            "77",
+            "70"
+          ],
+          "answer": "70",
+          "correction": "1 cm = 10 mm → 70 mm."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Convertis 9 cm en mm.",
+          "options": [
+            "92",
+            "98",
+            "108",
+            "90"
+          ],
+          "answer": "90",
+          "correction": "1 cm = 10 mm → 90 mm."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Convertis 3 cm en mm.",
+          "answer": "30",
+          "accept": [
+            "30",
+            "30 mm"
+          ],
+          "correction": "1 cm = 10 mm → 30 mm."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Convertis 1 cm en mm.",
+          "options": [
+            "9",
+            "12",
+            "11",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "1 cm = 10 mm → 10 mm."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Convertis 7 cm en mm.",
+          "options": [
+            "84",
+            "77",
+            "79",
+            "70"
+          ],
+          "answer": "70",
+          "correction": "1 cm = 10 mm → 70 mm."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Convertis 8 cm en mm.",
+          "answer": "80",
+          "accept": [
+            "80",
+            "80 mm"
+          ],
+          "correction": "1 cm = 10 mm → 80 mm."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Convertis 3 € en centimes.",
+          "options": [
+            "337",
+            "312",
+            "300",
+            "256"
+          ],
+          "answer": "300",
+          "correction": "1 € = 100 c → 300 centimes."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Convertis 8 € en centimes.",
+          "answer": "800",
+          "accept": [
+            "800",
+            "800 centimes",
+            "800 c"
+          ],
+          "correction": "1 € = 100 c → 800 centimes."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Convertis 3 € en centimes.",
+          "options": [
+            "301",
+            "338",
+            "300",
+            "349"
+          ],
+          "answer": "300",
+          "correction": "1 € = 100 c → 300 centimes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Convertis 1 m en cm.",
+          "options": [
+            "90",
+            "101",
+            "120",
+            "100"
+          ],
+          "answer": "100",
+          "correction": "1 m = 100 cm → 100 cm."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Convertis 7 € en centimes.",
+          "answer": "700",
+          "accept": [
+            "700",
+            "700 centimes",
+            "700 c"
+          ],
+          "correction": "1 € = 100 c → 700 centimes."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Convertis 4 € en centimes.",
+          "options": [
+            "400",
+            "407",
+            "475",
+            "377"
+          ],
+          "answer": "400",
+          "correction": "1 € = 100 c → 400 centimes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Convertis 4 € en centimes.",
+          "options": [
+            "400",
+            "444",
+            "385",
+            "456"
+          ],
+          "answer": "400",
+          "correction": "1 € = 100 c → 400 centimes."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Convertis 4 m en cm.",
+          "answer": "400",
+          "accept": [
+            "400",
+            "400 cm"
+          ],
+          "correction": "1 m = 100 cm → 400 cm."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Convertis 1 € en centimes.",
+          "options": [
+            "107",
+            "105",
+            "100",
+            "118"
+          ],
+          "answer": "100",
+          "correction": "1 € = 100 c → 100 centimes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Convertis 9 € en centimes.",
+          "options": [
+            "822",
+            "782",
+            "900",
+            "1071"
+          ],
+          "answer": "900",
+          "correction": "1 € = 100 c → 900 centimes."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Convertis 9 m en cm.",
+          "options": [
+            "983",
+            "900",
+            "741",
+            "808"
+          ],
+          "answer": "900",
+          "correction": "1 m = 100 cm → 900 cm."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Convertis 3 € en centimes.",
+          "answer": "300",
+          "accept": [
+            "300",
+            "300 centimes",
+            "300 c"
+          ],
+          "correction": "1 € = 100 c → 300 centimes."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Convertis 3 € en centimes.",
+          "options": [
+            "338",
+            "356",
+            "336",
+            "300"
+          ],
+          "answer": "300",
+          "correction": "1 € = 100 c → 300 centimes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Convertis 1 cm en mm.",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "8"
+          ],
+          "answer": "10",
+          "correction": "1 cm = 10 mm → 10 mm."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Convertis 8 heure(s) en minutes.",
+          "answer": "480",
+          "accept": [
+            "480",
+            "480 min"
+          ],
+          "correction": "1 h = 60 min → 480 min."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Convertis 4 m en cm.",
+          "options": [
+            "347",
+            "473",
+            "400",
+            "363"
+          ],
+          "answer": "400",
+          "correction": "1 m = 100 cm → 400 cm."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Convertis 2 kg en g.",
+          "options": [
+            "2161",
+            "1919",
+            "2367",
+            "2000"
+          ],
+          "answer": "2000",
+          "correction": "1 kg = 1000 g → 2000 g."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Convertis 1 € en centimes.",
+          "answer": "100",
+          "accept": [
+            "100",
+            "100 centimes",
+            "100 c"
+          ],
+          "correction": "1 € = 100 c → 100 centimes."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Convertis 1 heure(s) en minutes.",
+          "options": [
+            "62",
+            "60",
+            "52",
+            "50"
+          ],
+          "answer": "60",
+          "correction": "1 h = 60 min → 60 min."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Convertis 9 m en cm.",
+          "options": [
+            "922",
+            "900",
+            "991",
+            "1020"
+          ],
+          "answer": "900",
+          "correction": "1 m = 100 cm → 900 cm."
+        }
+      ]
+    }
+  }
+}

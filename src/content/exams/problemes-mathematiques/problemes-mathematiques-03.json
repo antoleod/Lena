@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-03",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les images",
+  "emoji": "📖",
+  "order": 3,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 7 images. On lui en donne 7. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "14",
+            "18",
+            "13",
+            "17"
+          ],
+          "answer": "14",
+          "correction": "7 + 7 = 14 images."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Nina a 4 images. On lui en donne 8. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "12",
+            "8",
+            "9",
+            "14"
+          ],
+          "answer": "12",
+          "correction": "4 + 8 = 12 images."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 12 images. Nina en perd 4. Combien en reste-t-il ?",
+          "answer": "8",
+          "correction": "12 − 4 = 8 images."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Tom a 4 images. On lui en donne 4. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "5",
+            "11",
+            "8",
+            "12"
+          ],
+          "answer": "8",
+          "correction": "4 + 4 = 8 images."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Hugo a 12 images. Hugo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "2",
+            "9",
+            "4",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "12 − 8 = 4 images."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Maya a 12 images. Maya en perd 6. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "12 − 6 = 6 images."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Léa a 10 images. Léa en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "10",
+            "9",
+            "5",
+            "13"
+          ],
+          "answer": "9",
+          "correction": "10 − 1 = 9 images."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 4 images. On lui en donne 5. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "9",
+            "4",
+            "7",
+            "14"
+          ],
+          "answer": "9",
+          "correction": "4 + 5 = 9 images."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Hugo a 12 images. Hugo en perd 5. Combien en reste-t-il ?",
+          "answer": "7",
+          "correction": "12 − 5 = 7 images."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Théo a 10 images. Théo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "7",
+            "8",
+            "4"
+          ],
+          "answer": "8",
+          "correction": "10 − 2 = 8 images."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Léa a 23 images. Léa en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "15",
+            "30",
+            "20",
+            "18"
+          ],
+          "answer": "20",
+          "correction": "23 − 3 = 20 images."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 4 boîtes de 2 images. Combien de images en tout ?",
+          "options": [
+            "8",
+            "12",
+            "14",
+            "3"
+          ],
+          "answer": "8",
+          "correction": "4 × 2 = 8 images."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Emma a 13 images. Emma en perd 9. Combien en reste-t-il ?",
+          "answer": "4",
+          "correction": "13 − 9 = 4 images."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 3 boîtes de 4 images. Combien de images en tout ?",
+          "options": [
+            "19",
+            "12",
+            "5",
+            "3"
+          ],
+          "answer": "12",
+          "correction": "3 × 4 = 12 images."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Sami a 19 images. Sami en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "8",
+            "12",
+            "9",
+            "13"
+          ],
+          "answer": "12",
+          "correction": "19 − 7 = 12 images."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Nina a 14 images. Nina en perd 7. Combien en reste-t-il ?",
+          "answer": "7",
+          "correction": "14 − 7 = 7 images."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Sami a 11 images. On lui en donne 1. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "12",
+            "20",
+            "8",
+            "7"
+          ],
+          "answer": "12",
+          "correction": "11 + 1 = 12 images."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 9 images. On lui en donne 15. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "24",
+            "14",
+            "32",
+            "34"
+          ],
+          "answer": "24",
+          "correction": "9 + 15 = 24 images."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Sami a 2 boîtes de 2 images. Combien de images en tout ?",
+          "answer": "4",
+          "correction": "2 × 2 = 4 images."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 19 images. Emma en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "12",
+            "9",
+            "17",
+            "20"
+          ],
+          "answer": "17",
+          "correction": "19 − 2 = 17 images."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Léa a 3 boîtes de 5 images. Combien de images en tout ?",
+          "options": [
+            "15",
+            "7",
+            "1",
+            "5"
+          ],
+          "answer": "15",
+          "correction": "3 × 5 = 15 images."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Nina a 4 boîtes de 2 images. Combien de images en tout ?",
+          "options": [
+            "1",
+            "8",
+            "22",
+            "3"
+          ],
+          "answer": "8",
+          "correction": "4 × 2 = 8 images."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Tom a 4 boîtes de 4 images. Combien de images en tout ?",
+          "answer": "16",
+          "correction": "4 × 4 = 16 images."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 12 images. Sami en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "21",
+            "18",
+            "6",
+            "16"
+          ],
+          "answer": "6",
+          "correction": "12 − 6 = 6 images."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Tom a 35 images. Tom en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "14",
+            "34",
+            "43",
+            "29"
+          ],
+          "answer": "29",
+          "correction": "35 − 6 = 29 images."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Hugo a 35 images. Hugo en perd 7. Combien en reste-t-il ?",
+          "answer": "28",
+          "correction": "35 − 7 = 28 images."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Tom a 35 images. Tom en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "26",
+            "35",
+            "23",
+            "30"
+          ],
+          "answer": "26",
+          "correction": "35 − 9 = 26 images."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Théo a 25 images. Théo en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "15",
+            "22",
+            "34",
+            "13"
+          ],
+          "answer": "22",
+          "correction": "25 − 3 = 22 images."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Emma a 4 boîtes de 2 images. Combien de images en tout ?",
+          "answer": "8",
+          "correction": "4 × 2 = 8 images."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Sami a 20 images. Sami en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "25",
+            "12",
+            "15",
+            "27"
+          ],
+          "answer": "12",
+          "correction": "20 − 8 = 12 images."
+        }
+      ]
+    }
+  }
+}

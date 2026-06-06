@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-07",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les livres",
+  "emoji": "📖",
+  "order": 7,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 8 livres. On lui en donne 6. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "12",
+            "16",
+            "14",
+            "11"
+          ],
+          "answer": "14",
+          "correction": "8 + 6 = 14 livres."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 12 livres. Théo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "12",
+            "6",
+            "10",
+            "11"
+          ],
+          "answer": "10",
+          "correction": "12 − 2 = 10 livres."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 10 livres. Nina en perd 4. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "10 − 4 = 6 livres."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 3 livres. On lui en donne 1. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "1",
+            "4",
+            "2",
+            "8"
+          ],
+          "answer": "4",
+          "correction": "3 + 1 = 4 livres."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Emma a 11 livres. Emma en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "3",
+            "8",
+            "6"
+          ],
+          "answer": "6",
+          "correction": "11 − 5 = 6 livres."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Nina a 11 livres. Nina en perd 8. Combien en reste-t-il ?",
+          "answer": "3",
+          "correction": "11 − 8 = 3 livres."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Maya a 12 livres. Maya en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "3",
+            "8",
+            "6",
+            "7"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 livres."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Théo a 12 livres. Théo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "11",
+            "5",
+            "10",
+            "14"
+          ],
+          "answer": "10",
+          "correction": "12 − 2 = 10 livres."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Tom a 6 livres. On lui en donne 9. Combien en a-t-Tom maintenant ?",
+          "answer": "15",
+          "correction": "6 + 9 = 15 livres."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Théo a 5 livres. On lui en donne 5. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "9",
+            "11",
+            "5",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "5 + 5 = 10 livres."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Nina a 18 livres. On lui en donne 2. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "30",
+            "20",
+            "29",
+            "23"
+          ],
+          "answer": "20",
+          "correction": "18 + 2 = 20 livres."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Léa a 5 boîtes de 4 livres. Combien de livres en tout ?",
+          "options": [
+            "28",
+            "14",
+            "20",
+            "13"
+          ],
+          "answer": "20",
+          "correction": "5 × 4 = 20 livres."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Maya a 11 livres. Maya en perd 2. Combien en reste-t-il ?",
+          "answer": "9",
+          "correction": "11 − 2 = 9 livres."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 14 livres. Hugo en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "17",
+            "13",
+            "9",
+            "4"
+          ],
+          "answer": "9",
+          "correction": "14 − 5 = 9 livres."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 21 livres. Léa en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "20",
+            "17",
+            "28",
+            "27"
+          ],
+          "answer": "20",
+          "correction": "21 − 1 = 20 livres."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Sami a 19 livres. Sami en perd 8. Combien en reste-t-il ?",
+          "answer": "11",
+          "correction": "19 − 8 = 11 livres."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Hugo a 13 livres. Hugo en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "10",
+            "11",
+            "8",
+            "6"
+          ],
+          "answer": "10",
+          "correction": "13 − 3 = 10 livres."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Léa a 10 livres. On lui en donne 11. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "21",
+            "13",
+            "14",
+            "12"
+          ],
+          "answer": "21",
+          "correction": "10 + 11 = 21 livres."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Hugo a 21 livres. Hugo en perd 7. Combien en reste-t-il ?",
+          "answer": "14",
+          "correction": "21 − 7 = 14 livres."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Maya a 2 boîtes de 6 livres. Combien de livres en tout ?",
+          "options": [
+            "6",
+            "12",
+            "18",
+            "11"
+          ],
+          "answer": "12",
+          "correction": "2 × 6 = 12 livres."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 2 boîtes de 2 livres. Combien de livres en tout ?",
+          "options": [
+            "6",
+            "4",
+            "8",
+            "11"
+          ],
+          "answer": "4",
+          "correction": "2 × 2 = 4 livres."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 10 livres. On lui en donne 16. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "38",
+            "41",
+            "36",
+            "26"
+          ],
+          "answer": "26",
+          "correction": "10 + 16 = 26 livres."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Tom a 20 livres. On lui en donne 18. Combien en a-t-Tom maintenant ?",
+          "answer": "38",
+          "correction": "20 + 18 = 38 livres."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Tom a 3 livres. On lui en donne 9. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "14",
+            "12",
+            "20",
+            "13"
+          ],
+          "answer": "12",
+          "correction": "3 + 9 = 12 livres."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Hugo a 5 boîtes de 4 livres. Combien de livres en tout ?",
+          "options": [
+            "21",
+            "18",
+            "9",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "5 × 4 = 20 livres."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 3 boîtes de 2 livres. Combien de livres en tout ?",
+          "answer": "6",
+          "correction": "3 × 2 = 6 livres."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Théo a 14 livres. Théo en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "0",
+            "8",
+            "5",
+            "4"
+          ],
+          "answer": "5",
+          "correction": "14 − 9 = 5 livres."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Sami a 4 boîtes de 3 livres. Combien de livres en tout ?",
+          "options": [
+            "27",
+            "7",
+            "12",
+            "25"
+          ],
+          "answer": "12",
+          "correction": "4 × 3 = 12 livres."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Tom a 20 livres. Tom en perd 2. Combien en reste-t-il ?",
+          "answer": "18",
+          "correction": "20 − 2 = 18 livres."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Sami a 23 livres. Sami en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "20",
+            "9",
+            "29",
+            "14"
+          ],
+          "answer": "14",
+          "correction": "23 − 9 = 14 livres."
+        }
+      ]
+    }
+  }
+}

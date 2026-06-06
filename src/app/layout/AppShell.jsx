@@ -26,6 +26,7 @@ export default function AppShell() {
     { to: '/map',      label: t('startAdventure') || 'Aventure',   icon: 'icon-home' },
     { to: '/subjects', label: t('subjectsLabel')  || 'Matières',   icon: 'icon-book' },
     { to: '/exam',     label: 'Examens',                           icon: 'icon-trophy' },
+    { to: '/cahier',   label: 'Mon cahier',                        icon: 'icon-book' },
     { to: '/history',  label: t('historyTitle')   || 'Historique', icon: 'icon-star' },
     { to: '/settings', label: t('settingsLabel')  || 'Réglages',   icon: 'icon-settings' },
   ]), [t]);

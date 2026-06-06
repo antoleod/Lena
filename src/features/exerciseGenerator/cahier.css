@@ -1,0 +1,237 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   "Mon cahier d'exercices" — kid-friendly, calm, high-contrast, big targets.
+   Designed for an 8-year-old: soft colors, little text, large buttons.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.cahier-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cahier-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cahier-header h1 { margin: 2px 0 0; font-size: 1.5rem; color: #fff; }
+.cahier-header .eyebrow { color: #ffd166; font-weight: 700; font-size: .8rem; letter-spacing: .04em; }
+.cahier-sub { margin: 4px 0 0; color: rgba(255,255,255,.7); font-size: .95rem; }
+.cahier-header--slim h1 { font-size: 1.25rem; }
+
+.cahier-errors-cta {
+  margin-left: auto;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: rgba(231,76,60,.2);
+  border: 1px solid rgba(231,76,60,.45);
+  color: #fff; border-radius: 14px; padding: 8px 14px;
+  min-height: 44px;
+  font-weight: 700; cursor: pointer; font-size: .9rem;
+}
+.cahier-badge {
+  background: #e74c3c; color: #fff; border-radius: 999px;
+  min-width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
+  font-size: .8rem; padding: 0 6px;
+}
+
+/* ── Selection ─────────────────────────────────────────────────────────────── */
+.cahier-section { display: flex; flex-direction: column; gap: 10px; }
+.cahier-section__title { margin: 0; color: #fff; font-size: 1.05rem; }
+
+.cahier-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+.cahier-choice-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.cahier-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.1);
+  border: 2px solid rgba(255,255,255,.18);
+  color: #fff; border-radius: 16px; padding: 12px 16px;
+  font-size: 1rem; font-weight: 600; cursor: pointer;
+  transition: transform .12s, background .15s, border-color .15s;
+  min-height: 52px;
+}
+.cahier-chip:active { transform: scale(.96); }
+.cahier-chip.is-selected {
+  background: rgba(46,204,113,.28);
+  border-color: #2ecc71;
+  box-shadow: 0 0 0 3px rgba(46,204,113,.25);
+}
+.cahier-chip--big { flex-direction: column; text-align: center; padding: 16px; }
+.cahier-chip--count { font-size: 1.4rem; font-weight: 800; min-width: 70px; justify-content: center; }
+.cahier-chip__emoji { font-size: 1.4rem; }
+
+.cahier-cta {
+  margin-top: 4px;
+  background: linear-gradient(135deg, #ff8fc6, #c86dd7);
+  border: none; color: #fff; font-weight: 800; font-size: 1.15rem;
+  border-radius: 18px; padding: 18px 20px; cursor: pointer;
+  box-shadow: 0 8px 20px rgba(200,109,215,.35);
+  transition: transform .12s, filter .15s;
+}
+.cahier-cta:active { transform: scale(.97); }
+.cahier-cta:disabled { opacity: .5; cursor: default; }
+.cahier-cta--go { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 8px 20px rgba(39,174,96,.35); }
+.cahier-cta--soft { background: rgba(255,255,255,.14); box-shadow: none; }
+.cahier-cta--inline { padding: 12px 18px; font-size: 1rem; margin: 0; white-space: nowrap; }
+
+.cahier-actions { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── Notebook sheet ────────────────────────────────────────────────────────── */
+.cahier-instruction {
+  background: rgba(255,255,255,.12);
+  border-radius: 14px; padding: 12px 16px; margin: 0;
+  color: #fff; font-size: 1rem; text-align: center;
+}
+
+.notebook-sheet {
+  background: #fdf9ef;                 /* beige paper */
+  border-radius: 14px;
+  padding: 22px 22px 22px 56px;        /* room for red margin */
+  position: relative;
+  color: #2c3e50;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  overflow: hidden;
+  /* horizontal ruled lines */
+  background-image: repeating-linear-gradient(
+    to bottom, transparent, transparent 33px, #cfe3f5 33px, #cfe3f5 34px
+  );
+  background-position: 0 8px;
+}
+.notebook-sheet::before {              /* red left margin */
+  content: '';
+  position: absolute; top: 0; bottom: 0; left: 38px;
+  width: 2px; background: #e8a0a0;
+}
+.notebook-sheet__title {
+  margin: 0 0 14px; font-size: 1.15rem; color: #c0392b;
+  font-weight: 800;
+}
+.notebook-list { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 16px; }
+.notebook-item { line-height: 34px; }
+.notebook-item__q { display: flex; }
+.notebook-item__text { font-size: 1.15rem; font-weight: 600; white-space: pre-line; }
+.notebook-item__hint { display: block; font-size: .82rem; color: #7f8c8d; line-height: 1.3; margin-top: 2px; }
+.notebook-item__blank { display: block; height: 34px; }
+
+.cahier-ready { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+.cahier-ready__msg { text-align: center; color: #fff; margin: 0; font-weight: 600; }
+
+/* ── Dictée ────────────────────────────────────────────────────────────────── */
+.dictee-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.dictee-audio, .dictee-toggle {
+  border: 2px solid rgba(52,152,219,.5);
+  background: rgba(52,152,219,.12);
+  color: #2c3e50; border-radius: 12px; padding: 10px 14px;
+  min-height: 44px; display: inline-flex; align-items: center;
+  font-weight: 700; cursor: pointer; font-size: .9rem;
+}
+.dictee-audio--big { font-size: 1.05rem; padding: 12px 18px; color: #fff; background: rgba(52,152,219,.3); }
+.dictee-text { font-weight: 700; color: #c0392b; }
+
+/* ── Test ──────────────────────────────────────────────────────────────────── */
+.cahier-progress {
+  height: 10px; border-radius: 999px; background: rgba(255,255,255,.18); overflow: hidden;
+}
+.cahier-progress__fill { height: 100%; background: linear-gradient(90deg,#2ecc71,#27ae60); transition: width .3s; }
+
+.test-card {
+  background: #fff; border-radius: 16px; padding: 24px 20px;
+  text-align: center; color: #2c3e50; box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  display: flex; flex-direction: column; gap: 14px; align-items: center;
+}
+.test-card__question { margin: 0; font-size: 1.3rem; font-weight: 700; white-space: pre-line; }
+
+.test-answer { display: flex; flex-direction: column; gap: 12px; }
+.test-choice {
+  background: #fff; border: 2px solid #dfe6e9; color: #2c3e50;
+  border-radius: 16px; padding: 18px; font-size: 1.2rem; font-weight: 700; cursor: pointer;
+  transition: transform .1s, border-color .15s;
+}
+.test-choice:active { transform: scale(.97); }
+.test-choice--sm { padding: 12px; font-size: 1rem; }
+.test-input-row { display: flex; gap: 10px; align-items: stretch; }
+.test-input {
+  flex: 1; border: 2px solid #dfe6e9; border-radius: 16px;
+  padding: 16px; font-size: 1.3rem; text-align: center; color: #2c3e50;
+}
+
+/* ── Results / Errors ──────────────────────────────────────────────────────── */
+.results-score {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: rgba(255,255,255,.12); border-radius: 18px; padding: 20px;
+}
+.results-score__emoji { font-size: 3rem; }
+.results-score__num { font-size: 1.8rem; font-weight: 800; color: #fff; }
+.results-score__pct { color: #ffd166; font-weight: 700; }
+
+.results-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.results-item { border-radius: 14px; padding: 14px 16px; background: #fff; color: #2c3e50; }
+.results-item--ok { border-left: 6px solid #2ecc71; }
+.results-item--ko { border-left: 6px solid #e74c3c; }
+.results-item__head { display: flex; gap: 10px; align-items: flex-start; }
+.results-item__mark { font-size: 1.2rem; }
+.results-item__q { font-weight: 700; white-space: pre-line; }
+.results-item__body { display: flex; flex-direction: column; gap: 3px; margin: 8px 0 0 30px; font-size: .92rem; }
+.results-item__exp { color: #2980b9; font-style: italic; }
+
+.error-retry { margin: 10px 0 0 30px; display: flex; flex-direction: column; gap: 8px; }
+.error-feedback { margin: 8px 0 0 30px; font-size: .92rem; font-weight: 600; }
+.error-feedback--ok { color: #27ae60; }
+.error-feedback--ko { color: #c0392b; }
+
+.cahier-empty { text-align: center; color: #fff; padding: 40px 20px; }
+.cahier-empty__emoji { font-size: 3rem; display: block; margin-bottom: 10px; }
+
+.exam-back-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.4rem; color: #fff; line-height: 1;
+  padding: 10px 12px; min-height: 44px; min-width: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .cahier-header h1 { font-size: 1.3rem; }
+  .notebook-sheet { padding-left: 48px; }
+  .test-card__question { font-size: 1.15rem; }
+}
+
+/* ── iPad 11" and larger tablets (2360×1640 ≈ 1194×834 pt) ─────────────────── */
+@media (min-width: 768px) {
+  .cahier-page { max-width: 920px; padding: 24px 32px 64px; gap: 22px; }
+  .cahier-section__title { font-size: 1.2rem; }
+  .cahier-choice-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+  .cahier-chip { font-size: 1.1rem; min-height: 60px; }
+  .cahier-chip--count { font-size: 1.6rem; min-width: 86px; }
+  .cahier-cta { font-size: 1.3rem; padding: 20px 24px; }
+
+  .notebook-sheet {
+    padding: 30px 34px 30px 72px;
+    /* taller ruled lines so handwriting space feels generous on a big screen */
+    background-image: repeating-linear-gradient(
+      to bottom, transparent, transparent 47px, #cfe3f5 47px, #cfe3f5 48px
+    );
+  }
+  .notebook-sheet__title { font-size: 1.35rem; }
+  .notebook-item { line-height: 48px; }
+  .notebook-item__text { font-size: 1.3rem; }
+  .notebook-item__blank { height: 48px; }
+
+  .test-card { padding: 34px 28px; }
+  .test-card__question { font-size: 1.55rem; }
+  .test-choice { font-size: 1.3rem; padding: 22px; }
+  .test-input { font-size: 1.5rem; }
+  .results-score__num { font-size: 2.1rem; }
+}
+
+/* iPad landscape / desktop: a touch wider, calmer reading width */
+@media (min-width: 1024px) {
+  .cahier-page { max-width: 980px; }
+}

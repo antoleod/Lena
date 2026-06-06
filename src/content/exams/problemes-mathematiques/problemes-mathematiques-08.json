@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-08",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les autocollants",
+  "emoji": "📖",
+  "order": 8,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 12 autocollants. Sami en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "12",
+            "4",
+            "6",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 autocollants."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 6 autocollants. On lui en donne 4. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "14",
+            "15",
+            "10",
+            "7"
+          ],
+          "answer": "10",
+          "correction": "6 + 4 = 10 autocollants."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Hugo a 4 autocollants. On lui en donne 9. Combien en a-t-Hugo maintenant ?",
+          "answer": "13",
+          "correction": "4 + 9 = 13 autocollants."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 10 autocollants. Sami en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "1",
+            "0",
+            "6"
+          ],
+          "answer": "1",
+          "correction": "10 − 9 = 1 autocollants."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Tom a 4 autocollants. On lui en donne 6. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "9",
+            "10",
+            "12",
+            "11"
+          ],
+          "answer": "10",
+          "correction": "4 + 6 = 10 autocollants."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Théo a 5 autocollants. On lui en donne 3. Combien en a-t-Théo maintenant ?",
+          "answer": "8",
+          "correction": "5 + 3 = 8 autocollants."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Tom a 7 autocollants. On lui en donne 3. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "14",
+            "6",
+            "10",
+            "8"
+          ],
+          "answer": "10",
+          "correction": "7 + 3 = 10 autocollants."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 12 autocollants. Tom en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "8",
+            "9",
+            "6",
+            "7"
+          ],
+          "answer": "6",
+          "correction": "12 − 6 = 6 autocollants."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Léa a 11 autocollants. Léa en perd 5. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "11 − 5 = 6 autocollants."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Tom a 2 autocollants. On lui en donne 2. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "4",
+            "7",
+            "1",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "2 + 2 = 4 autocollants."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 19 autocollants. Sami en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "17",
+            "11",
+            "10",
+            "13"
+          ],
+          "answer": "10",
+          "correction": "19 − 9 = 10 autocollants."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 4 boîtes de 3 autocollants. Combien de autocollants en tout ?",
+          "options": [
+            "20",
+            "12",
+            "17",
+            "8"
+          ],
+          "answer": "12",
+          "correction": "4 × 3 = 12 autocollants."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Tom a 5 boîtes de 5 autocollants. Combien de autocollants en tout ?",
+          "answer": "25",
+          "correction": "5 × 5 = 25 autocollants."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 2 boîtes de 5 autocollants. Combien de autocollants en tout ?",
+          "options": [
+            "8",
+            "2",
+            "10",
+            "4"
+          ],
+          "answer": "10",
+          "correction": "2 × 5 = 10 autocollants."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Maya a 6 autocollants. On lui en donne 5. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "17",
+            "20",
+            "18",
+            "11"
+          ],
+          "answer": "11",
+          "correction": "6 + 5 = 11 autocollants."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Léa a 17 autocollants. On lui en donne 3. Combien en a-t-Léa maintenant ?",
+          "answer": "20",
+          "correction": "17 + 3 = 20 autocollants."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Léa a 3 autocollants. On lui en donne 4. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "1",
+            "7",
+            "10",
+            "5"
+          ],
+          "answer": "7",
+          "correction": "3 + 4 = 7 autocollants."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 5 boîtes de 6 autocollants. Combien de autocollants en tout ?",
+          "options": [
+            "38",
+            "40",
+            "30",
+            "26"
+          ],
+          "answer": "30",
+          "correction": "5 × 6 = 30 autocollants."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nina a 16 autocollants. On lui en donne 5. Combien en a-t-Nina maintenant ?",
+          "answer": "21",
+          "correction": "16 + 5 = 21 autocollants."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 4 boîtes de 3 autocollants. Combien de autocollants en tout ?",
+          "options": [
+            "11",
+            "2",
+            "12",
+            "5"
+          ],
+          "answer": "12",
+          "correction": "4 × 3 = 12 autocollants."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 4 boîtes de 6 autocollants. Combien de autocollants en tout ?",
+          "options": [
+            "26",
+            "30",
+            "18",
+            "24"
+          ],
+          "answer": "24",
+          "correction": "4 × 6 = 24 autocollants."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Nina a 36 autocollants. Nina en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "37",
+            "18",
+            "41",
+            "33"
+          ],
+          "answer": "33",
+          "correction": "36 − 3 = 33 autocollants."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Tom a 13 autocollants. On lui en donne 18. Combien en a-t-Tom maintenant ?",
+          "answer": "31",
+          "correction": "13 + 18 = 31 autocollants."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Maya a 18 autocollants. On lui en donne 17. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "26",
+            "39",
+            "42",
+            "35"
+          ],
+          "answer": "35",
+          "correction": "18 + 17 = 35 autocollants."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 12 autocollants. Léa en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "9",
+            "6",
+            "15"
+          ],
+          "answer": "4",
+          "correction": "12 − 8 = 4 autocollants."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Léa a 24 autocollants. On lui en donne 15. Combien en a-t-Léa maintenant ?",
+          "answer": "39",
+          "correction": "24 + 15 = 39 autocollants."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nina a 21 autocollants. On lui en donne 23. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "57",
+            "44",
+            "30",
+            "59"
+          ],
+          "answer": "44",
+          "correction": "21 + 23 = 44 autocollants."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Maya a 27 autocollants. Maya en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "24",
+            "20",
+            "8",
+            "25"
+          ],
+          "answer": "20",
+          "correction": "27 − 7 = 20 autocollants."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nina a 25 autocollants. Nina en perd 6. Combien en reste-t-il ?",
+          "answer": "19",
+          "correction": "25 − 6 = 19 autocollants."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Théo a 11 autocollants. On lui en donne 5. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "7",
+            "23",
+            "16",
+            "26"
+          ],
+          "answer": "16",
+          "correction": "11 + 5 = 16 autocollants."
+        }
+      ]
+    }
+  }
+}

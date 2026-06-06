@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-09",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les billes",
+  "emoji": "📖",
+  "order": 9,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 3 billes. On lui en donne 8. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "11",
+            "16",
+            "10",
+            "9"
+          ],
+          "answer": "11",
+          "correction": "3 + 8 = 11 billes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 12 billes. Emma en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "10",
+            "4",
+            "7",
+            "8"
+          ],
+          "answer": "7",
+          "correction": "12 − 5 = 7 billes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Théo a 10 billes. Théo en perd 9. Combien en reste-t-il ?",
+          "answer": "1",
+          "correction": "10 − 9 = 1 billes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Nina a 9 billes. On lui en donne 3. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "7",
+            "14",
+            "11",
+            "12"
+          ],
+          "answer": "12",
+          "correction": "9 + 3 = 12 billes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 6 billes. On lui en donne 9. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "12",
+            "10",
+            "15",
+            "14"
+          ],
+          "answer": "15",
+          "correction": "6 + 9 = 15 billes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Léa a 11 billes. Léa en perd 3. Combien en reste-t-il ?",
+          "answer": "8",
+          "correction": "11 − 3 = 8 billes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nina a 5 billes. On lui en donne 1. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "8",
+            "4",
+            "6",
+            "11"
+          ],
+          "answer": "6",
+          "correction": "5 + 1 = 6 billes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Théo a 12 billes. Théo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "7",
+            "4",
+            "8",
+            "2"
+          ],
+          "answer": "4",
+          "correction": "12 − 8 = 4 billes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Maya a 9 billes. On lui en donne 1. Combien en a-t-Maya maintenant ?",
+          "answer": "10",
+          "correction": "9 + 1 = 10 billes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Nina a 4 billes. On lui en donne 7. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "14",
+            "13",
+            "10",
+            "11"
+          ],
+          "answer": "11",
+          "correction": "4 + 7 = 11 billes."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 20 billes. Tom en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "14",
+            "7",
+            "13",
+            "11"
+          ],
+          "answer": "11",
+          "correction": "20 − 9 = 11 billes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Hugo a 15 billes. On lui en donne 13. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "22",
+            "27",
+            "33",
+            "28"
+          ],
+          "answer": "28",
+          "correction": "15 + 13 = 28 billes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Sami a 5 boîtes de 6 billes. Combien de billes en tout ?",
+          "answer": "30",
+          "correction": "5 × 6 = 30 billes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Emma a 3 boîtes de 6 billes. Combien de billes en tout ?",
+          "options": [
+            "20",
+            "10",
+            "18",
+            "26"
+          ],
+          "answer": "18",
+          "correction": "3 × 6 = 18 billes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 5 boîtes de 6 billes. Combien de billes en tout ?",
+          "options": [
+            "25",
+            "20",
+            "24",
+            "30"
+          ],
+          "answer": "30",
+          "correction": "5 × 6 = 30 billes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Théo a 3 boîtes de 3 billes. Combien de billes en tout ?",
+          "answer": "9",
+          "correction": "3 × 3 = 9 billes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Sami a 2 boîtes de 2 billes. Combien de billes en tout ?",
+          "options": [
+            "5",
+            "12",
+            "4",
+            "14"
+          ],
+          "answer": "4",
+          "correction": "2 × 2 = 4 billes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 17 billes. Emma en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "3",
+            "10",
+            "15",
+            "1"
+          ],
+          "answer": "10",
+          "correction": "17 − 7 = 10 billes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Tom a 8 billes. On lui en donne 16. Combien en a-t-Tom maintenant ?",
+          "answer": "24",
+          "correction": "8 + 16 = 24 billes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Maya a 17 billes. Maya en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "14",
+            "12",
+            "11"
+          ],
+          "answer": "12",
+          "correction": "17 − 5 = 12 billes."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 11 billes. On lui en donne 1. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "4",
+            "27",
+            "21",
+            "12"
+          ],
+          "answer": "12",
+          "correction": "11 + 1 = 12 billes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 19 billes. On lui en donne 12. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "31",
+            "22",
+            "24",
+            "32"
+          ],
+          "answer": "31",
+          "correction": "19 + 12 = 31 billes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Emma a 4 boîtes de 2 billes. Combien de billes en tout ?",
+          "answer": "8",
+          "correction": "4 × 2 = 8 billes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Tom a 25 billes. On lui en donne 9. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "34",
+            "21",
+            "35",
+            "31"
+          ],
+          "answer": "34",
+          "correction": "25 + 9 = 34 billes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Emma a 16 billes. Emma en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "13",
+            "28",
+            "22",
+            "15"
+          ],
+          "answer": "15",
+          "correction": "16 − 1 = 15 billes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Emma a 2 billes. On lui en donne 25. Combien en a-t-Emma maintenant ?",
+          "answer": "27",
+          "correction": "2 + 25 = 27 billes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Hugo a 4 boîtes de 6 billes. Combien de billes en tout ?",
+          "options": [
+            "34",
+            "32",
+            "24",
+            "28"
+          ],
+          "answer": "24",
+          "correction": "4 × 6 = 24 billes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Théo a 18 billes. Théo en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "22",
+            "17",
+            "11",
+            "5"
+          ],
+          "answer": "11",
+          "correction": "18 − 7 = 11 billes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Léa a 10 billes. Léa en perd 3. Combien en reste-t-il ?",
+          "answer": "7",
+          "correction": "10 − 3 = 7 billes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Maya a 13 billes. On lui en donne 7. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "22",
+            "6",
+            "23",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "13 + 7 = 20 billes."
+        }
+      ]
+    }
+  }
+}

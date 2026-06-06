@@ -1,0 +1,443 @@
+{
+  "id": "comprehension-lecture-10",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "Le match de Sami",
+  "emoji": "⚽",
+  "order": 10,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce samedi est un grand jour : Sami joue son tout premier match de football avec son club. Il est un peu nerveux mais très impatient.",
+            "keywords": [
+              "samedi",
+              "Sami",
+              "football",
+              "match"
+            ]
+          },
+          {
+            "text": "Dans les vestiaires, il enfile son maillot bleu tout neuf. Dans son dos brille le numéro sept, son chiffre porte-bonheur.",
+            "keywords": [
+              "maillot",
+              "bleu",
+              "numéro",
+              "sept"
+            ]
+          },
+          {
+            "text": "Le match commence. L'équipe adverse attaque très vite et marque un but. Au tableau, l'équipe de Sami perd un à zéro.",
+            "keywords": [
+              "équipe",
+              "perd",
+              "but"
+            ]
+          },
+          {
+            "text": "Sami ne baisse pas les bras. Il reçoit le ballon, court très vite le long du terrain et tire de toutes ses forces : but ! Le score est un partout.",
+            "keywords": [
+              "court",
+              "ballon",
+              "but",
+              "score"
+            ]
+          },
+          {
+            "text": "Les deux équipes se battent jusqu'à la dernière minute. Et là, son ami Léo récupère le ballon et marque le deuxième but pour leur équipe !",
+            "keywords": [
+              "Léo",
+              "deuxième",
+              "but"
+            ]
+          },
+          {
+            "text": "L'arbitre siffle la fin du match. L'équipe de Sami gagne deux à un. Sur le terrain, tous les joueurs sautent de joie et se serrent dans les bras.",
+            "keywords": [
+              "arbitre",
+              "gagne",
+              "joie"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quel jour a lieu le match ?",
+          "options": [
+            "Samedi",
+            "Dimanche",
+            "Lundi"
+          ],
+          "answer": "Samedi",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "À quel sport joue Sami ?",
+          "options": [
+            "Au football",
+            "Au tennis",
+            "Au basket"
+          ],
+          "answer": "Au football",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur est son maillot ?",
+          "options": [
+            "Bleu",
+            "Rouge",
+            "Vert"
+          ],
+          "answer": "Bleu",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Quel numéro porte Sami ?",
+          "options": [
+            "Sept",
+            "Cinq",
+            "Dix"
+          ],
+          "answer": "Sept",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q4"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Au début, l’équipe de Sami perd.",
+          "answer": true,
+          "correction": "Page 3 : un à zéro.",
+          "pageRef": "p3",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que fait Sami ?",
+          "options": [
+            "Il marque un but",
+            "Il tombe",
+            "Il sort"
+          ],
+          "answer": "Il marque un but",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce samedi est un grand jour : Sami joue son tout premier match de football avec son club. Il est un peu nerveux mais très impatient.",
+            "keywords": [
+              "samedi",
+              "Sami",
+              "football",
+              "match"
+            ]
+          },
+          {
+            "text": "Dans les vestiaires, il enfile son maillot bleu tout neuf. Dans son dos brille le numéro sept, son chiffre porte-bonheur.",
+            "keywords": [
+              "maillot",
+              "bleu",
+              "numéro",
+              "sept"
+            ]
+          },
+          {
+            "text": "Le match commence. L'équipe adverse attaque très vite et marque un but. Au tableau, l'équipe de Sami perd un à zéro.",
+            "keywords": [
+              "équipe",
+              "perd",
+              "but"
+            ]
+          },
+          {
+            "text": "Sami ne baisse pas les bras. Il reçoit le ballon, court très vite le long du terrain et tire de toutes ses forces : but ! Le score est un partout.",
+            "keywords": [
+              "court",
+              "ballon",
+              "but",
+              "score"
+            ]
+          },
+          {
+            "text": "Les deux équipes se battent jusqu'à la dernière minute. Et là, son ami Léo récupère le ballon et marque le deuxième but pour leur équipe !",
+            "keywords": [
+              "Léo",
+              "deuxième",
+              "but"
+            ]
+          },
+          {
+            "text": "L'arbitre siffle la fin du match. L'équipe de Sami gagne deux à un. Sur le terrain, tous les joueurs sautent de joie et se serrent dans les bras.",
+            "keywords": [
+              "arbitre",
+              "gagne",
+              "joie"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quel jour a lieu le match ?",
+          "options": [
+            "Samedi",
+            "Dimanche",
+            "Lundi"
+          ],
+          "answer": "Samedi",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "À quel sport joue Sami ?",
+          "options": [
+            "Au football",
+            "Au tennis",
+            "Au basket"
+          ],
+          "answer": "Au football",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur est son maillot ?",
+          "options": [
+            "Bleu",
+            "Rouge",
+            "Vert"
+          ],
+          "answer": "Bleu",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Quel numéro porte Sami ?",
+          "options": [
+            "Sept",
+            "Cinq",
+            "Dix"
+          ],
+          "answer": "Sept",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q4"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Au début, l’équipe de Sami perd.",
+          "answer": true,
+          "correction": "Page 3 : un à zéro.",
+          "pageRef": "p3",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que fait Sami ?",
+          "options": [
+            "Il marque un but",
+            "Il tombe",
+            "Il sort"
+          ],
+          "answer": "Il marque un but",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui marque le deuxième but ?",
+          "options": [
+            "Son ami Léo",
+            "Sami",
+            "Le gardien"
+          ],
+          "answer": "Son ami Léo",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "L’équipe de Sami gagne le match.",
+          "answer": true,
+          "correction": "Page 6 : deux à un.",
+          "pageRef": "p6",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce samedi est un grand jour : Sami joue son tout premier match de football avec son club. Il est un peu nerveux mais très impatient.",
+            "keywords": [
+              "samedi",
+              "Sami",
+              "football",
+              "match"
+            ]
+          },
+          {
+            "text": "Dans les vestiaires, il enfile son maillot bleu tout neuf. Dans son dos brille le numéro sept, son chiffre porte-bonheur.",
+            "keywords": [
+              "maillot",
+              "bleu",
+              "numéro",
+              "sept"
+            ]
+          },
+          {
+            "text": "Le match commence. L'équipe adverse attaque très vite et marque un but. Au tableau, l'équipe de Sami perd un à zéro.",
+            "keywords": [
+              "équipe",
+              "perd",
+              "but"
+            ]
+          },
+          {
+            "text": "Sami ne baisse pas les bras. Il reçoit le ballon, court très vite le long du terrain et tire de toutes ses forces : but ! Le score est un partout.",
+            "keywords": [
+              "court",
+              "ballon",
+              "but",
+              "score"
+            ]
+          },
+          {
+            "text": "Les deux équipes se battent jusqu'à la dernière minute. Et là, son ami Léo récupère le ballon et marque le deuxième but pour leur équipe !",
+            "keywords": [
+              "Léo",
+              "deuxième",
+              "but"
+            ]
+          },
+          {
+            "text": "L'arbitre siffle la fin du match. L'équipe de Sami gagne deux à un. Sur le terrain, tous les joueurs sautent de joie et se serrent dans les bras.",
+            "keywords": [
+              "arbitre",
+              "gagne",
+              "joie"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Qui marque le deuxième but ?",
+          "options": [
+            "Son ami Léo",
+            "Sami",
+            "Le gardien"
+          ],
+          "answer": "Son ami Léo",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q1"
+        },
+        {
+          "type": "true_false",
+          "prompt": "L’équipe de Sami gagne le match.",
+          "answer": true,
+          "correction": "Page 6 : deux à un.",
+          "pageRef": "p6",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Quel est le score final ?",
+          "options": [
+            "Deux à un",
+            "Un à zéro",
+            "Trois à deux"
+          ],
+          "answer": "Deux à un",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "C’est le premier match de Sami.",
+          "answer": true,
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi tout le monde saute de joie ?",
+          "options": [
+            "L’équipe a gagné",
+            "Il pleut",
+            "C’est fini"
+          ],
+          "answer": "L’équipe a gagné",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Sami marque un ___ .",
+          "answer": "but",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Une équipe » est :",
+          "options": [
+            "Un groupe de joueurs",
+            "Un seul joueur",
+            "Un ballon"
+          ],
+          "answer": "Un groupe de joueurs",
+          "correction": "Une équipe = plusieurs joueurs ensemble.",
+          "pageRef": "p3",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Sami et Léo jouent ensemble.",
+          "answer": true,
+          "correction": "Ils sont dans la même équipe.",
+          "pageRef": "p5",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "id": "calcul-mental-02",
+  "category": "calcul-mental",
+  "categoryLabel": "Calcul mental",
+  "categoryEmoji": "🔢",
+  "categoryOrder": 2,
+  "title": "Additions jusqu’à 20",
+  "emoji": "🔢",
+  "order": 2,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "4 + 3 = ?",
+          "options": [
+            "9",
+            "8",
+            "10",
+            "7"
+          ],
+          "answer": "7",
+          "correction": "4 + 3 = 7."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "6 + 8 = ?",
+          "options": [
+            "14",
+            "11",
+            "13",
+            "9"
+          ],
+          "answer": "14",
+          "correction": "6 + 8 = 14."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "19 + 0 = ?",
+          "answer": 19,
+          "correction": "19 + 0 = 19."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "4 + 14 = ?",
+          "options": [
+            "19",
+            "18",
+            "20",
+            "17"
+          ],
+          "answer": "18",
+          "correction": "4 + 14 = 18."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "4 + 15 = ?",
+          "options": [
+            "20",
+            "19",
+            "18",
+            "23"
+          ],
+          "answer": "19",
+          "correction": "4 + 15 = 19."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "18 + 0 = ?",
+          "answer": 18,
+          "correction": "18 + 0 = 18."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "12 + 5 = ?",
+          "options": [
+            "16",
+            "19",
+            "17",
+            "22"
+          ],
+          "answer": "17",
+          "correction": "12 + 5 = 17."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "13 + 3 = ?",
+          "options": [
+            "15",
+            "14",
+            "20",
+            "16"
+          ],
+          "answer": "16",
+          "correction": "13 + 3 = 16."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "5 + 2 = ?",
+          "answer": 7,
+          "correction": "5 + 2 = 7."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "17 + 3 = ?",
+          "options": [
+            "21",
+            "16",
+            "20",
+            "25"
+          ],
+          "answer": "20",
+          "correction": "17 + 3 = 20."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "31 + 1 = ?",
+          "options": [
+            "39",
+            "32",
+            "35",
+            "26"
+          ],
+          "answer": "32",
+          "correction": "31 + 1 = 32."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "3 + 27 = ?",
+          "options": [
+            "35",
+            "30",
+            "22",
+            "31"
+          ],
+          "answer": "30",
+          "correction": "3 + 27 = 30."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "13 + 7 = ?",
+          "answer": 20,
+          "correction": "13 + 7 = 20."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "29 + 0 = ?",
+          "options": [
+            "37",
+            "21",
+            "29",
+            "22"
+          ],
+          "answer": "29",
+          "correction": "29 + 0 = 29."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "31 + 1 = ?",
+          "options": [
+            "38",
+            "32",
+            "29",
+            "36"
+          ],
+          "answer": "32",
+          "correction": "31 + 1 = 32."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "1 + 23 = ?",
+          "answer": 24,
+          "correction": "1 + 23 = 24."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "19 + 4 = ?",
+          "options": [
+            "15",
+            "29",
+            "31",
+            "23"
+          ],
+          "answer": "23",
+          "correction": "19 + 4 = 23."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "1 + 28 = ?",
+          "options": [
+            "33",
+            "21",
+            "26",
+            "29"
+          ],
+          "answer": "29",
+          "correction": "1 + 28 = 29."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "25 + 5 = ?",
+          "answer": 30,
+          "correction": "25 + 5 = 30."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "2 + 16 = ?",
+          "options": [
+            "23",
+            "18",
+            "17",
+            "14"
+          ],
+          "answer": "18",
+          "correction": "2 + 16 = 18."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "19 + 25 = ?",
+          "options": [
+            "46",
+            "44",
+            "36",
+            "53"
+          ],
+          "answer": "44",
+          "correction": "19 + 25 = 44."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "21 + 25 = ?",
+          "options": [
+            "39",
+            "46",
+            "54",
+            "40"
+          ],
+          "answer": "46",
+          "correction": "21 + 25 = 46."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "7 + 6 = ?",
+          "answer": 13,
+          "correction": "7 + 6 = 13."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "0 + 36 = ?",
+          "options": [
+            "38",
+            "36",
+            "27",
+            "39"
+          ],
+          "answer": "36",
+          "correction": "0 + 36 = 36."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "48 + 0 = ?",
+          "options": [
+            "59",
+            "41",
+            "46",
+            "48"
+          ],
+          "answer": "48",
+          "correction": "48 + 0 = 48."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "48 + 0 = ?",
+          "answer": 48,
+          "correction": "48 + 0 = 48."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "35 + 4 = ?",
+          "options": [
+            "51",
+            "38",
+            "42",
+            "39"
+          ],
+          "answer": "39",
+          "correction": "35 + 4 = 39."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "23 + 4 = ?",
+          "options": [
+            "31",
+            "39",
+            "27",
+            "23"
+          ],
+          "answer": "27",
+          "correction": "23 + 4 = 27."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "25 + 6 = ?",
+          "answer": 31,
+          "correction": "25 + 6 = 31."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "26 + 6 = ?",
+          "options": [
+            "32",
+            "42",
+            "34",
+            "22"
+          ],
+          "answer": "32",
+          "correction": "26 + 6 = 32."
+        }
+      ]
+    }
+  }
+}

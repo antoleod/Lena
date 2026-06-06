@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-02",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les bonbons",
+  "emoji": "📖",
+  "order": 2,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 10 bonbons. Emma en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "1",
+            "2",
+            "6"
+          ],
+          "answer": "2",
+          "correction": "10 − 8 = 2 bonbons."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 10 bonbons. Maya en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "1",
+            "7",
+            "6",
+            "2"
+          ],
+          "answer": "2",
+          "correction": "10 − 8 = 2 bonbons."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Emma a 12 bonbons. Emma en perd 1. Combien en reste-t-il ?",
+          "answer": "11",
+          "correction": "12 − 1 = 11 bonbons."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Léa a 2 bonbons. On lui en donne 8. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "7",
+            "6",
+            "12",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "2 + 8 = 10 bonbons."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Tom a 9 bonbons. On lui en donne 6. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "11",
+            "20",
+            "13",
+            "15"
+          ],
+          "answer": "15",
+          "correction": "9 + 6 = 15 bonbons."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Nina a 7 bonbons. On lui en donne 3. Combien en a-t-Nina maintenant ?",
+          "answer": "10",
+          "correction": "7 + 3 = 10 bonbons."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nina a 12 bonbons. Nina en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "9",
+            "12",
+            "10",
+            "5"
+          ],
+          "answer": "10",
+          "correction": "12 − 2 = 10 bonbons."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Sami a 3 bonbons. On lui en donne 7. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "14",
+            "10",
+            "13",
+            "8"
+          ],
+          "answer": "10",
+          "correction": "3 + 7 = 10 bonbons."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Sami a 7 bonbons. On lui en donne 9. Combien en a-t-Sami maintenant ?",
+          "answer": "16",
+          "correction": "7 + 9 = 16 bonbons."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Tom a 12 bonbons. Tom en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "9",
+            "11",
+            "13",
+            "8"
+          ],
+          "answer": "9",
+          "correction": "12 − 3 = 9 bonbons."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 18 bonbons. Emma en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "17",
+            "12",
+            "18",
+            "8"
+          ],
+          "answer": "12",
+          "correction": "18 − 6 = 12 bonbons."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 3 boîtes de 3 bonbons. Combien de bonbons en tout ?",
+          "options": [
+            "10",
+            "2",
+            "9",
+            "17"
+          ],
+          "answer": "9",
+          "correction": "3 × 3 = 9 bonbons."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Emma a 16 bonbons. Emma en perd 4. Combien en reste-t-il ?",
+          "answer": "12",
+          "correction": "16 − 4 = 12 bonbons."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Tom a 11 bonbons. Tom en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "9",
+            "8",
+            "2"
+          ],
+          "answer": "4",
+          "correction": "11 − 7 = 4 bonbons."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Emma a 10 bonbons. On lui en donne 4. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "12",
+            "14",
+            "23",
+            "4"
+          ],
+          "answer": "14",
+          "correction": "10 + 4 = 14 bonbons."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 4 bonbons. On lui en donne 13. Combien en a-t-Tom maintenant ?",
+          "answer": "17",
+          "correction": "4 + 13 = 17 bonbons."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Hugo a 22 bonbons. Hugo en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "25",
+            "15",
+            "17",
+            "19"
+          ],
+          "answer": "19",
+          "correction": "22 − 3 = 19 bonbons."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 4 boîtes de 5 bonbons. Combien de bonbons en tout ?",
+          "options": [
+            "22",
+            "30",
+            "28",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20 bonbons."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Théo a 4 boîtes de 5 bonbons. Combien de bonbons en tout ?",
+          "answer": "20",
+          "correction": "4 × 5 = 20 bonbons."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Tom a 23 bonbons. Tom en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "19",
+            "16",
+            "21",
+            "18"
+          ],
+          "answer": "19",
+          "correction": "23 − 4 = 19 bonbons."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 35 bonbons. Emma en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "26",
+            "18",
+            "13",
+            "38"
+          ],
+          "answer": "26",
+          "correction": "35 − 9 = 26 bonbons."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 8 bonbons. On lui en donne 7. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "10",
+            "8",
+            "21",
+            "15"
+          ],
+          "answer": "15",
+          "correction": "8 + 7 = 15 bonbons."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Emma a 17 bonbons. On lui en donne 2. Combien en a-t-Emma maintenant ?",
+          "answer": "19",
+          "correction": "17 + 2 = 19 bonbons."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 31 bonbons. Hugo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "28",
+            "12",
+            "36",
+            "23"
+          ],
+          "answer": "23",
+          "correction": "31 − 8 = 23 bonbons."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Théo a 11 bonbons. On lui en donne 9. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "20",
+            "24",
+            "31",
+            "18"
+          ],
+          "answer": "20",
+          "correction": "11 + 9 = 20 bonbons."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 12 bonbons. On lui en donne 4. Combien en a-t-Tom maintenant ?",
+          "answer": "16",
+          "correction": "12 + 4 = 16 bonbons."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Hugo a 2 boîtes de 3 bonbons. Combien de bonbons en tout ?",
+          "options": [
+            "10",
+            "1",
+            "6",
+            "0"
+          ],
+          "answer": "6",
+          "correction": "2 × 3 = 6 bonbons."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hugo a 19 bonbons. Hugo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "17",
+            "22",
+            "25",
+            "2"
+          ],
+          "answer": "17",
+          "correction": "19 − 2 = 17 bonbons."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Emma a 9 bonbons. On lui en donne 16. Combien en a-t-Emma maintenant ?",
+          "answer": "25",
+          "correction": "9 + 16 = 25 bonbons."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Sami a 21 bonbons. Sami en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "3",
+            "12",
+            "18"
+          ],
+          "answer": "18",
+          "correction": "21 − 3 = 18 bonbons."
+        }
+      ]
+    }
+  }
+}

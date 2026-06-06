@@ -1,0 +1,473 @@
+{
+  "id": "comprehension-lecture-01",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "L'anniversaire de Léo",
+  "emoji": "🎂",
+  "order": 1,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce matin, Léo se réveille tout content. Aujourd'hui, c'est son anniversaire ! Il part à l'école avec un petit sac bleu serré contre lui.",
+            "keywords": [
+              "matin",
+              "anniversaire",
+              "école",
+              "sac",
+              "bleu"
+            ]
+          },
+          {
+            "text": "Sur le chemin, Léo croise son ami Hugo. « Qu'est-ce que tu caches dans ton sac ? » demande Hugo, curieux. Léo sourit mais ne dit rien.",
+            "keywords": [
+              "chemin",
+              "Hugo",
+              "sac"
+            ]
+          },
+          {
+            "text": "Dans la classe, Léo ouvre enfin son sac bleu. À l'intérieur, il y a un grand gâteau au chocolat préparé par sa maman.",
+            "keywords": [
+              "classe",
+              "gâteau",
+              "chocolat",
+              "maman"
+            ]
+          },
+          {
+            "text": "« Je veux partager mon gâteau avec tous mes amis ! » dit Léo très fort. Toute la classe applaudit de joie.",
+            "keywords": [
+              "partager",
+              "amis",
+              "classe"
+            ]
+          },
+          {
+            "text": "La maîtresse prend un grand couteau. Elle coupe doucement le gâteau en huit parts égales, une pour chaque enfant de la table.",
+            "keywords": [
+              "maîtresse",
+              "couteau",
+              "huit",
+              "parts"
+            ]
+          },
+          {
+            "text": "Chacun reçoit sa part. Le chocolat est moelleux et sucré. Hugo se lèche les doigts en riant.",
+            "keywords": [
+              "part",
+              "chocolat",
+              "Hugo"
+            ]
+          },
+          {
+            "text": "Pour finir, toute la classe se lève et chante très fort : « Joyeux anniversaire, Léo ! » Léo est le plus heureux des enfants.",
+            "keywords": [
+              "classe",
+              "chante",
+              "anniversaire",
+              "heureux"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Où arrive Léo ?",
+          "options": [
+            "À l'école",
+            "Au parc",
+            "À la piscine"
+          ],
+          "answer": "À l'école",
+          "correction": "Page 1 : Léo arrive à l'école.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur est le sac ?",
+          "options": [
+            "Bleu",
+            "Rouge",
+            "Vert"
+          ],
+          "answer": "Bleu",
+          "correction": "Page 1 : un petit sac bleu.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qu'y a-t-il dans le sac ?",
+          "options": [
+            "Un gâteau",
+            "Un ballon",
+            "Un livre"
+          ],
+          "answer": "Un gâteau",
+          "correction": "Page 2 : il y a un gâteau.",
+          "pageRef": "p2",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Le gâteau est au chocolat.",
+          "answer": true,
+          "correction": "Page 2 : le gâteau est au chocolat.",
+          "pageRef": "p2",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Avec qui Léo veut-il partager ?",
+          "options": [
+            "Ses amis",
+            "Son chien",
+            "Le facteur"
+          ],
+          "answer": "Ses amis",
+          "correction": "Page 3 : partager avec ses amis.",
+          "pageRef": "p3",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "En combien de parts coupe-t-elle le gâteau ?",
+          "options": [
+            "Huit",
+            "Cinq",
+            "Dix"
+          ],
+          "answer": "Huit",
+          "correction": "Page 4 : huit parts.",
+          "pageRef": "p4",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce matin, Léo se réveille tout content. Aujourd'hui, c'est son anniversaire ! Il part à l'école avec un petit sac bleu serré contre lui.",
+            "keywords": [
+              "matin",
+              "anniversaire",
+              "école",
+              "sac",
+              "bleu"
+            ]
+          },
+          {
+            "text": "Sur le chemin, Léo croise son ami Hugo. « Qu'est-ce que tu caches dans ton sac ? » demande Hugo, curieux. Léo sourit mais ne dit rien.",
+            "keywords": [
+              "chemin",
+              "Hugo",
+              "sac"
+            ]
+          },
+          {
+            "text": "Dans la classe, Léo ouvre enfin son sac bleu. À l'intérieur, il y a un grand gâteau au chocolat préparé par sa maman.",
+            "keywords": [
+              "classe",
+              "gâteau",
+              "chocolat",
+              "maman"
+            ]
+          },
+          {
+            "text": "« Je veux partager mon gâteau avec tous mes amis ! » dit Léo très fort. Toute la classe applaudit de joie.",
+            "keywords": [
+              "partager",
+              "amis",
+              "classe"
+            ]
+          },
+          {
+            "text": "La maîtresse prend un grand couteau. Elle coupe doucement le gâteau en huit parts égales, une pour chaque enfant de la table.",
+            "keywords": [
+              "maîtresse",
+              "couteau",
+              "huit",
+              "parts"
+            ]
+          },
+          {
+            "text": "Chacun reçoit sa part. Le chocolat est moelleux et sucré. Hugo se lèche les doigts en riant.",
+            "keywords": [
+              "part",
+              "chocolat",
+              "Hugo"
+            ]
+          },
+          {
+            "text": "Pour finir, toute la classe se lève et chante très fort : « Joyeux anniversaire, Léo ! » Léo est le plus heureux des enfants.",
+            "keywords": [
+              "classe",
+              "chante",
+              "anniversaire",
+              "heureux"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Où arrive Léo ?",
+          "options": [
+            "À l'école",
+            "Au parc",
+            "À la piscine"
+          ],
+          "answer": "À l'école",
+          "correction": "Page 1 : Léo arrive à l'école.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur est le sac ?",
+          "options": [
+            "Bleu",
+            "Rouge",
+            "Vert"
+          ],
+          "answer": "Bleu",
+          "correction": "Page 1 : un petit sac bleu.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qu'y a-t-il dans le sac ?",
+          "options": [
+            "Un gâteau",
+            "Un ballon",
+            "Un livre"
+          ],
+          "answer": "Un gâteau",
+          "correction": "Page 2 : il y a un gâteau.",
+          "pageRef": "p2",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Le gâteau est au chocolat.",
+          "answer": true,
+          "correction": "Page 2 : le gâteau est au chocolat.",
+          "pageRef": "p2",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Avec qui Léo veut-il partager ?",
+          "options": [
+            "Ses amis",
+            "Son chien",
+            "Le facteur"
+          ],
+          "answer": "Ses amis",
+          "correction": "Page 3 : partager avec ses amis.",
+          "pageRef": "p3",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "En combien de parts coupe-t-elle le gâteau ?",
+          "options": [
+            "Huit",
+            "Cinq",
+            "Dix"
+          ],
+          "answer": "Huit",
+          "correction": "Page 4 : huit parts.",
+          "pageRef": "p4",
+          "id": "q6"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La classe chante pour Léo.",
+          "answer": true,
+          "correction": "Page 5 : toute la classe chante.",
+          "pageRef": "p5",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi la classe chante-t-elle ?",
+          "options": [
+            "C'est l'anniversaire de Léo",
+            "C'est la récréation",
+            "Il pleut"
+          ],
+          "answer": "C'est l'anniversaire de Léo",
+          "correction": "Page 5 : joyeux anniversaire Léo !",
+          "pageRef": "p5",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce matin, Léo se réveille tout content. Aujourd'hui, c'est son anniversaire ! Il part à l'école avec un petit sac bleu serré contre lui.",
+            "keywords": [
+              "matin",
+              "anniversaire",
+              "école",
+              "sac",
+              "bleu"
+            ]
+          },
+          {
+            "text": "Sur le chemin, Léo croise son ami Hugo. « Qu'est-ce que tu caches dans ton sac ? » demande Hugo, curieux. Léo sourit mais ne dit rien.",
+            "keywords": [
+              "chemin",
+              "Hugo",
+              "sac"
+            ]
+          },
+          {
+            "text": "Dans la classe, Léo ouvre enfin son sac bleu. À l'intérieur, il y a un grand gâteau au chocolat préparé par sa maman.",
+            "keywords": [
+              "classe",
+              "gâteau",
+              "chocolat",
+              "maman"
+            ]
+          },
+          {
+            "text": "« Je veux partager mon gâteau avec tous mes amis ! » dit Léo très fort. Toute la classe applaudit de joie.",
+            "keywords": [
+              "partager",
+              "amis",
+              "classe"
+            ]
+          },
+          {
+            "text": "La maîtresse prend un grand couteau. Elle coupe doucement le gâteau en huit parts égales, une pour chaque enfant de la table.",
+            "keywords": [
+              "maîtresse",
+              "couteau",
+              "huit",
+              "parts"
+            ]
+          },
+          {
+            "text": "Chacun reçoit sa part. Le chocolat est moelleux et sucré. Hugo se lèche les doigts en riant.",
+            "keywords": [
+              "part",
+              "chocolat",
+              "Hugo"
+            ]
+          },
+          {
+            "text": "Pour finir, toute la classe se lève et chante très fort : « Joyeux anniversaire, Léo ! » Léo est le plus heureux des enfants.",
+            "keywords": [
+              "classe",
+              "chante",
+              "anniversaire",
+              "heureux"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "true_false",
+          "prompt": "La classe chante pour Léo.",
+          "answer": true,
+          "correction": "Page 5 : toute la classe chante.",
+          "pageRef": "p5",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi la classe chante-t-elle ?",
+          "options": [
+            "C'est l'anniversaire de Léo",
+            "C'est la récréation",
+            "Il pleut"
+          ],
+          "answer": "C'est l'anniversaire de Léo",
+          "correction": "Page 5 : joyeux anniversaire Léo !",
+          "pageRef": "p5",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui coupe le gâteau ?",
+          "options": [
+            "La maîtresse",
+            "Léo",
+            "La maman"
+          ],
+          "answer": "La maîtresse",
+          "correction": "Page 4 : la maîtresse coupe le gâteau.",
+          "pageRef": "p4",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Léo garde tout le gâteau pour lui.",
+          "answer": false,
+          "correction": "Page 3 : il veut partager.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que ressent Léo, à ton avis ?",
+          "options": [
+            "Il est content",
+            "Il est fâché",
+            "Il a peur"
+          ],
+          "answer": "Il est content",
+          "correction": "C'est son anniversaire et il partage : il est content.",
+          "pageRef": "p5",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Le gâteau est au ___ .",
+          "answer": "chocolat",
+          "correction": "Page 2 : un gâteau au chocolat.",
+          "pageRef": "p2",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le mot « partager » veut dire :",
+          "options": [
+            "Donner une part à chacun",
+            "Tout garder",
+            "Jeter"
+          ],
+          "answer": "Donner une part à chacun",
+          "correction": "Partager = donner une part aux autres.",
+          "pageRef": "p3",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Léo arrive à l’école le matin.",
+          "answer": true,
+          "correction": "Page 1 : ce matin, Léo arrive.",
+          "pageRef": "p1",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}

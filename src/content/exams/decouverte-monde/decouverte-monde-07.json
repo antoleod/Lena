@@ -1,0 +1,353 @@
+{
+  "id": "decouverte-monde-07",
+  "category": "decouverte-monde",
+  "categoryLabel": "Découverte du monde",
+  "categoryEmoji": "🌍",
+  "categoryOrder": 13,
+  "title": "Le monde autour de moi 7",
+  "emoji": "🌍",
+  "order": 7,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "La poule pond des :",
+          "options": [
+            "œufs",
+            "plumes",
+            "fruits"
+          ],
+          "answer": "œufs",
+          "correction": "La poule pond des œufs."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "On voit avec les :",
+          "options": [
+            "yeux",
+            "oreilles",
+            "genoux"
+          ],
+          "answer": "yeux",
+          "correction": "On voit avec les yeux."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "On met le papier dans la poubelle :",
+          "options": [
+            "de recyclage",
+            "normale",
+            "à compost"
+          ],
+          "answer": "de recyclage",
+          "correction": "Le papier se recycle."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le boulanger fait le :",
+          "options": [
+            "pain",
+            "lait",
+            "bois"
+          ],
+          "answer": "pain",
+          "correction": "Le boulanger fait le pain."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "On entend avec les :",
+          "options": [
+            "oreilles",
+            "yeux",
+            "mains"
+          ],
+          "answer": "oreilles",
+          "correction": "On entend avec les oreilles."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "En automne, les feuilles :",
+          "options": [
+            "tombent",
+            "poussent",
+            "gèlent"
+          ],
+          "answer": "tombent",
+          "correction": "En automne, les feuilles tombent."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "En hiver, il fait :",
+          "options": [
+            "froid",
+            "très chaud",
+            "lourd"
+          ],
+          "answer": "froid",
+          "correction": "En hiver il fait froid."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quand il pleut, on prend un :",
+          "options": [
+            "parapluie",
+            "ballon",
+            "livre"
+          ],
+          "answer": "parapluie",
+          "correction": "Contre la pluie : le parapluie."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le docteur soigne les :",
+          "options": [
+            "malades",
+            "voitures",
+            "maisons"
+          ],
+          "answer": "malades",
+          "correction": "Le docteur soigne les malades."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "La poule pond des :",
+          "options": [
+            "œufs",
+            "plumes",
+            "fruits"
+          ],
+          "answer": "œufs",
+          "correction": "La poule pond des œufs."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "On voit avec les :",
+          "options": [
+            "yeux",
+            "oreilles",
+            "genoux"
+          ],
+          "answer": "yeux",
+          "correction": "On voit avec les yeux."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "En hiver, il fait :",
+          "options": [
+            "froid",
+            "très chaud",
+            "lourd"
+          ],
+          "answer": "froid",
+          "correction": "En hiver il fait froid."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "options": [
+            "soleil et eau",
+            "chocolat",
+            "jouets"
+          ],
+          "answer": "soleil et eau",
+          "correction": "Soleil + eau."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "On met le papier dans la poubelle :",
+          "options": [
+            "de recyclage",
+            "normale",
+            "à compost"
+          ],
+          "answer": "de recyclage",
+          "correction": "Le papier se recycle."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Quand il pleut, on prend un :",
+          "options": [
+            "parapluie",
+            "ballon",
+            "livre"
+          ],
+          "answer": "parapluie",
+          "correction": "Contre la pluie : le parapluie."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "La vache nous donne :",
+          "options": [
+            "du lait",
+            "des œufs",
+            "de la laine"
+          ],
+          "answer": "du lait",
+          "correction": "La vache donne du lait."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "En automne, les feuilles :",
+          "options": [
+            "tombent",
+            "poussent",
+            "gèlent"
+          ],
+          "answer": "tombent",
+          "correction": "En automne, les feuilles tombent."
+        },
+        {
+          "id": "q20",
+          "type": "true_false",
+          "prompt": "Le soleil se lève le matin.",
+          "answer": true,
+          "correction": "Oui, le matin."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le docteur soigne les :",
+          "options": [
+            "malades",
+            "voitures",
+            "maisons"
+          ],
+          "answer": "malades",
+          "correction": "Le docteur soigne les malades."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quand il pleut, on prend un :",
+          "options": [
+            "parapluie",
+            "ballon",
+            "livre"
+          ],
+          "answer": "parapluie",
+          "correction": "Contre la pluie : le parapluie."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "En automne, les feuilles :",
+          "options": [
+            "tombent",
+            "poussent",
+            "gèlent"
+          ],
+          "answer": "tombent",
+          "correction": "En automne, les feuilles tombent."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "La poule pond des :",
+          "options": [
+            "œufs",
+            "plumes",
+            "fruits"
+          ],
+          "answer": "œufs",
+          "correction": "La poule pond des œufs."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "On respire avec les :",
+          "options": [
+            "poumons",
+            "mains",
+            "pieds"
+          ],
+          "answer": "poumons",
+          "correction": "On respire avec les poumons."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "La vache nous donne :",
+          "options": [
+            "du lait",
+            "des œufs",
+            "de la laine"
+          ],
+          "answer": "du lait",
+          "correction": "La vache donne du lait."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "On met le papier dans la poubelle :",
+          "options": [
+            "de recyclage",
+            "normale",
+            "à compost"
+          ],
+          "answer": "de recyclage",
+          "correction": "Le papier se recycle."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "On voit avec les :",
+          "options": [
+            "yeux",
+            "oreilles",
+            "genoux"
+          ],
+          "answer": "yeux",
+          "correction": "On voit avec les yeux."
+        },
+        {
+          "id": "q18",
+          "type": "true_false",
+          "prompt": "Le soleil se lève le matin.",
+          "answer": true,
+          "correction": "Oui, le matin."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "On entend avec les :",
+          "options": [
+            "oreilles",
+            "yeux",
+            "mains"
+          ],
+          "answer": "oreilles",
+          "correction": "On entend avec les oreilles."
+        }
+      ]
+    }
+  }
+}

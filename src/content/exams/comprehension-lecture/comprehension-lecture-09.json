@@ -1,0 +1,437 @@
+{
+  "id": "comprehension-lecture-09",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "Le livre rouge",
+  "emoji": "📖",
+  "order": 9,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Un mercredi après-midi, Théo entre pour la première fois à la bibliothèque de son quartier. Il pousse la grande porte sans faire de bruit.",
+            "keywords": [
+              "mercredi",
+              "Théo",
+              "bibliothèque",
+              "porte"
+            ]
+          },
+          {
+            "text": "À l'intérieur, c'est immense. Des centaines de livres sont rangés sur de grandes étagères de bois qui montent jusqu'au plafond.",
+            "keywords": [
+              "livres",
+              "étagères",
+              "bois"
+            ]
+          },
+          {
+            "text": "En levant les yeux, Théo remarque un petit livre rouge posé tout en haut d'une étagère. Cette couleur vive l'attire aussitôt.",
+            "keywords": [
+              "rouge",
+              "livre",
+              "étagère"
+            ]
+          },
+          {
+            "text": "La gentille bibliothécaire prend une échelle et attrape le livre pour lui. Sur la couverture, on voit un magnifique dragon qui crache du feu.",
+            "keywords": [
+              "bibliothécaire",
+              "couverture",
+              "dragon"
+            ]
+          },
+          {
+            "text": "Théo s'installe dans le coin lecture, sur un gros coussin moelleux, et commence à lire. L'histoire est si captivante qu'il ne voit pas le temps passer.",
+            "keywords": [
+              "coin lecture",
+              "coussin",
+              "lire"
+            ]
+          },
+          {
+            "text": "Avant de partir, Théo décide d'emprunter le livre rouge pour finir l'histoire à la maison. Il rentre chez lui en serrant le livre contre lui, tout content.",
+            "keywords": [
+              "emprunte",
+              "livre",
+              "content"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Où va Théo ?",
+          "options": [
+            "À la bibliothèque",
+            "À la piscine",
+            "À l’école"
+          ],
+          "answer": "À la bibliothèque",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Sur quoi sont rangés les livres ?",
+          "options": [
+            "Des étagères",
+            "Le sol",
+            "Une table"
+          ],
+          "answer": "Des étagères",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur est le livre spécial ?",
+          "options": [
+            "Rouge",
+            "Bleu",
+            "Vert"
+          ],
+          "answer": "Rouge",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La couverture montre un dragon.",
+          "answer": true,
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui donne le livre à Théo ?",
+          "options": [
+            "La bibliothécaire",
+            "La maîtresse",
+            "Sa maman"
+          ],
+          "answer": "La bibliothécaire",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Où s’assoit Théo pour lire ?",
+          "options": [
+            "Le coin lecture",
+            "La cour",
+            "La cuisine"
+          ],
+          "answer": "Le coin lecture",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Un mercredi après-midi, Théo entre pour la première fois à la bibliothèque de son quartier. Il pousse la grande porte sans faire de bruit.",
+            "keywords": [
+              "mercredi",
+              "Théo",
+              "bibliothèque",
+              "porte"
+            ]
+          },
+          {
+            "text": "À l'intérieur, c'est immense. Des centaines de livres sont rangés sur de grandes étagères de bois qui montent jusqu'au plafond.",
+            "keywords": [
+              "livres",
+              "étagères",
+              "bois"
+            ]
+          },
+          {
+            "text": "En levant les yeux, Théo remarque un petit livre rouge posé tout en haut d'une étagère. Cette couleur vive l'attire aussitôt.",
+            "keywords": [
+              "rouge",
+              "livre",
+              "étagère"
+            ]
+          },
+          {
+            "text": "La gentille bibliothécaire prend une échelle et attrape le livre pour lui. Sur la couverture, on voit un magnifique dragon qui crache du feu.",
+            "keywords": [
+              "bibliothécaire",
+              "couverture",
+              "dragon"
+            ]
+          },
+          {
+            "text": "Théo s'installe dans le coin lecture, sur un gros coussin moelleux, et commence à lire. L'histoire est si captivante qu'il ne voit pas le temps passer.",
+            "keywords": [
+              "coin lecture",
+              "coussin",
+              "lire"
+            ]
+          },
+          {
+            "text": "Avant de partir, Théo décide d'emprunter le livre rouge pour finir l'histoire à la maison. Il rentre chez lui en serrant le livre contre lui, tout content.",
+            "keywords": [
+              "emprunte",
+              "livre",
+              "content"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Où va Théo ?",
+          "options": [
+            "À la bibliothèque",
+            "À la piscine",
+            "À l’école"
+          ],
+          "answer": "À la bibliothèque",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Sur quoi sont rangés les livres ?",
+          "options": [
+            "Des étagères",
+            "Le sol",
+            "Une table"
+          ],
+          "answer": "Des étagères",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur est le livre spécial ?",
+          "options": [
+            "Rouge",
+            "Bleu",
+            "Vert"
+          ],
+          "answer": "Rouge",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La couverture montre un dragon.",
+          "answer": true,
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui donne le livre à Théo ?",
+          "options": [
+            "La bibliothécaire",
+            "La maîtresse",
+            "Sa maman"
+          ],
+          "answer": "La bibliothécaire",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Où s’assoit Théo pour lire ?",
+          "options": [
+            "Le coin lecture",
+            "La cour",
+            "La cuisine"
+          ],
+          "answer": "Le coin lecture",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q6"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Théo laisse le livre à la bibliothèque.",
+          "answer": false,
+          "correction": "Page 6 : il l’emprunte.",
+          "pageRef": "p6",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que fait Théo à la fin ?",
+          "options": [
+            "Il emprunte le livre",
+            "Il déchire le livre",
+            "Il le cache"
+          ],
+          "answer": "Il emprunte le livre",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Un mercredi après-midi, Théo entre pour la première fois à la bibliothèque de son quartier. Il pousse la grande porte sans faire de bruit.",
+            "keywords": [
+              "mercredi",
+              "Théo",
+              "bibliothèque",
+              "porte"
+            ]
+          },
+          {
+            "text": "À l'intérieur, c'est immense. Des centaines de livres sont rangés sur de grandes étagères de bois qui montent jusqu'au plafond.",
+            "keywords": [
+              "livres",
+              "étagères",
+              "bois"
+            ]
+          },
+          {
+            "text": "En levant les yeux, Théo remarque un petit livre rouge posé tout en haut d'une étagère. Cette couleur vive l'attire aussitôt.",
+            "keywords": [
+              "rouge",
+              "livre",
+              "étagère"
+            ]
+          },
+          {
+            "text": "La gentille bibliothécaire prend une échelle et attrape le livre pour lui. Sur la couverture, on voit un magnifique dragon qui crache du feu.",
+            "keywords": [
+              "bibliothécaire",
+              "couverture",
+              "dragon"
+            ]
+          },
+          {
+            "text": "Théo s'installe dans le coin lecture, sur un gros coussin moelleux, et commence à lire. L'histoire est si captivante qu'il ne voit pas le temps passer.",
+            "keywords": [
+              "coin lecture",
+              "coussin",
+              "lire"
+            ]
+          },
+          {
+            "text": "Avant de partir, Théo décide d'emprunter le livre rouge pour finir l'histoire à la maison. Il rentre chez lui en serrant le livre contre lui, tout content.",
+            "keywords": [
+              "emprunte",
+              "livre",
+              "content"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "true_false",
+          "prompt": "Théo laisse le livre à la bibliothèque.",
+          "answer": false,
+          "correction": "Page 6 : il l’emprunte.",
+          "pageRef": "p6",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que fait Théo à la fin ?",
+          "options": [
+            "Il emprunte le livre",
+            "Il déchire le livre",
+            "Il le cache"
+          ],
+          "answer": "Il emprunte le livre",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Est-ce la première fois que Théo vient ?",
+          "options": [
+            "Oui",
+            "Non",
+            "On ne sait pas"
+          ],
+          "answer": "Oui",
+          "correction": "Page 1 : pour la première fois.",
+          "pageRef": "p1",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Théo aime le livre.",
+          "answer": true,
+          "correction": "Il l’emprunte, content.",
+          "pageRef": "p6",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi Théo emprunte-t-il le livre ?",
+          "options": [
+            "Pour le lire chez lui",
+            "Pour le vendre",
+            "Pour le jeter"
+          ],
+          "answer": "Pour le lire chez lui",
+          "correction": "Il rentre content avec le livre.",
+          "pageRef": "p6",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Le livre montre un ___ .",
+          "answer": "dragon",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Emprunter » un livre veut dire :",
+          "options": [
+            "Le prendre puis le rendre",
+            "Le garder pour toujours",
+            "L’acheter"
+          ],
+          "answer": "Le prendre puis le rendre",
+          "correction": "On emprunte puis on rend.",
+          "pageRef": "p6",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "L’histoire se passe à la bibliothèque.",
+          "answer": true,
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}

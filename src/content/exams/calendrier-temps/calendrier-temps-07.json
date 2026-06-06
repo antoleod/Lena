@@ -1,0 +1,348 @@
+{
+  "id": "calendrier-temps-07",
+  "category": "calendrier-temps",
+  "categoryLabel": "Calendrier & temps",
+  "categoryEmoji": "📅",
+  "categoryOrder": 4,
+  "title": "Le temps qui passe 7",
+  "emoji": "📅",
+  "order": 7,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Combien de mois dans une année ?",
+          "options": [
+            "12",
+            "10",
+            "7"
+          ],
+          "answer": "12",
+          "correction": "Une année = 12 mois."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quelle saison vient après le printemps ?",
+          "options": [
+            "été",
+            "hiver",
+            "automne"
+          ],
+          "answer": "été",
+          "correction": "Après le printemps vient l’été."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quel mois vient après janvier ?",
+          "options": [
+            "février",
+            "mars",
+            "décembre"
+          ],
+          "answer": "février",
+          "correction": "Après janvier vient février."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quel jour vient après lundi ?",
+          "options": [
+            "mardi",
+            "dimanche",
+            "jeudi"
+          ],
+          "answer": "mardi",
+          "correction": "Après lundi vient mardi."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Au printemps, les fleurs :",
+          "options": [
+            "poussent",
+            "tombent",
+            "gèlent"
+          ],
+          "answer": "poussent",
+          "correction": "Au printemps les fleurs poussent."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Le dernier mois de l’année est :",
+          "options": [
+            "décembre",
+            "janvier",
+            "juin"
+          ],
+          "answer": "décembre",
+          "correction": "Décembre est le 12e mois."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "En quelle saison neige-t-il souvent ?",
+          "options": [
+            "hiver",
+            "été",
+            "printemps"
+          ],
+          "answer": "hiver",
+          "correction": "Il neige en hiver."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Noël est au mois de :",
+          "options": [
+            "décembre",
+            "juillet",
+            "mars"
+          ],
+          "answer": "décembre",
+          "correction": "Noël est le 25 décembre."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Les vacances d’été sont en :",
+          "options": [
+            "juillet",
+            "janvier",
+            "novembre"
+          ],
+          "answer": "juillet",
+          "correction": "L’été : juillet-août."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le jour avant samedi est :",
+          "options": [
+            "vendredi",
+            "dimanche",
+            "lundi"
+          ],
+          "answer": "vendredi",
+          "correction": "Avant samedi : vendredi."
+        },
+        {
+          "id": "q6",
+          "type": "true_false",
+          "prompt": "Le mois de décembre est en hiver.",
+          "answer": true,
+          "correction": "Décembre est un mois d’hiver."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "En quelle saison neige-t-il souvent ?",
+          "options": [
+            "hiver",
+            "été",
+            "printemps"
+          ],
+          "answer": "hiver",
+          "correction": "Il neige en hiver."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le week-end, ce sont les jours :",
+          "options": [
+            "samedi et dimanche",
+            "lundi et mardi",
+            "jeudi et vendredi"
+          ],
+          "answer": "samedi et dimanche",
+          "correction": "Le week-end : samedi et dimanche."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Combien de mois dans une année ?",
+          "options": [
+            "12",
+            "10",
+            "7"
+          ],
+          "answer": "12",
+          "correction": "Une année = 12 mois."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Au printemps, les fleurs :",
+          "options": [
+            "poussent",
+            "tombent",
+            "gèlent"
+          ],
+          "answer": "poussent",
+          "correction": "Au printemps les fleurs poussent."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "Le premier mois de l’année est ___ .",
+          "answer": "janvier",
+          "correction": "L’année commence en janvier."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Quelle saison vient après le printemps ?",
+          "options": [
+            "été",
+            "hiver",
+            "automne"
+          ],
+          "answer": "été",
+          "correction": "Après le printemps vient l’été."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Combien de saisons y a-t-il ?",
+          "options": [
+            "4",
+            "2",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "Il y a 4 saisons."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le dernier mois de l’année est :",
+          "options": [
+            "décembre",
+            "janvier",
+            "juin"
+          ],
+          "answer": "décembre",
+          "correction": "Décembre est le 12e mois."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "En quelle saison neige-t-il souvent ?",
+          "options": [
+            "hiver",
+            "été",
+            "printemps"
+          ],
+          "answer": "hiver",
+          "correction": "Il neige en hiver."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Noël est au mois de :",
+          "options": [
+            "décembre",
+            "juillet",
+            "mars"
+          ],
+          "answer": "décembre",
+          "correction": "Noël est le 25 décembre."
+        },
+        {
+          "id": "q8",
+          "type": "true_false",
+          "prompt": "Le mois de décembre est en hiver.",
+          "answer": true,
+          "correction": "Décembre est un mois d’hiver."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quelle saison vient après le printemps ?",
+          "options": [
+            "été",
+            "hiver",
+            "automne"
+          ],
+          "answer": "été",
+          "correction": "Après le printemps vient l’été."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Le jour avant samedi est :",
+          "options": [
+            "vendredi",
+            "dimanche",
+            "lundi"
+          ],
+          "answer": "vendredi",
+          "correction": "Avant samedi : vendredi."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Quel jour vient après lundi ?",
+          "options": [
+            "mardi",
+            "dimanche",
+            "jeudi"
+          ],
+          "answer": "mardi",
+          "correction": "Après lundi vient mardi."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Combien de saisons y a-t-il ?",
+          "options": [
+            "4",
+            "2",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "Il y a 4 saisons."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Combien de mois dans une année ?",
+          "options": [
+            "12",
+            "10",
+            "7"
+          ],
+          "answer": "12",
+          "correction": "Une année = 12 mois."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Les vacances d’été sont en :",
+          "options": [
+            "juillet",
+            "janvier",
+            "novembre"
+          ],
+          "answer": "juillet",
+          "correction": "L’été : juillet-août."
+        }
+      ]
+    }
+  }
+}

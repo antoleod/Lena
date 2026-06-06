@@ -1,0 +1,443 @@
+{
+  "id": "comprehension-lecture-08",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "Les vacances à la mer",
+  "emoji": "🏖️",
+  "order": 8,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "C'est l'été ! Les écoles sont fermées et Hugo part en vacances à la mer avec ses parents. Dans la voiture, il chante tout le long du voyage.",
+            "keywords": [
+              "été",
+              "Hugo",
+              "mer",
+              "vacances"
+            ]
+          },
+          {
+            "text": "Dès le premier jour, Hugo court sur la plage. Avec son seau et sa pelle, il construit un grand château de sable avec quatre tours.",
+            "keywords": [
+              "plage",
+              "château",
+              "sable",
+              "tours"
+            ]
+          },
+          {
+            "text": "En se promenant au bord de l'eau, il ramasse de jolis coquillages nacrés. Soudain, il découvre aussi un petit crabe rouge qui se cache sous une pierre.",
+            "keywords": [
+              "coquillages",
+              "crabe",
+              "rouge"
+            ]
+          },
+          {
+            "text": "L'après-midi, quand il fait bien chaud, Hugo met son maillot et se baigne dans l'eau bleue et fraîche. Les vagues le font rire.",
+            "keywords": [
+              "baigne",
+              "eau",
+              "bleue",
+              "vagues"
+            ]
+          },
+          {
+            "text": "Le soir, pour le récompenser, ses parents lui offrent une grande glace à la fraise. Hugo la déguste lentement face au coucher de soleil.",
+            "keywords": [
+              "soir",
+              "glace",
+              "fraise"
+            ]
+          },
+          {
+            "text": "De retour à l'appartement, Hugo bâille très fort. Il est fatigué, mais il est vraiment très heureux de ses vacances à la mer.",
+            "keywords": [
+              "fatigué",
+              "heureux",
+              "vacances"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "À quelle saison part Hugo ?",
+          "options": [
+            "En été",
+            "En hiver",
+            "Au printemps"
+          ],
+          "answer": "En été",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Où part Hugo ?",
+          "options": [
+            "À la mer",
+            "À la montagne",
+            "À la campagne"
+          ],
+          "answer": "À la mer",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que construit Hugo ?",
+          "options": [
+            "Un château de sable",
+            "Une cabane",
+            "Un bateau"
+          ],
+          "answer": "Un château de sable",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que ramasse-t-il ?",
+          "options": [
+            "Des coquillages",
+            "Des cailloux",
+            "Des feuilles"
+          ],
+          "answer": "Des coquillages",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Hugo trouve un crabe rouge.",
+          "answer": true,
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que fait Hugo l’après-midi ?",
+          "options": [
+            "Il se baigne",
+            "Il dort",
+            "Il lit"
+          ],
+          "answer": "Il se baigne",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "C'est l'été ! Les écoles sont fermées et Hugo part en vacances à la mer avec ses parents. Dans la voiture, il chante tout le long du voyage.",
+            "keywords": [
+              "été",
+              "Hugo",
+              "mer",
+              "vacances"
+            ]
+          },
+          {
+            "text": "Dès le premier jour, Hugo court sur la plage. Avec son seau et sa pelle, il construit un grand château de sable avec quatre tours.",
+            "keywords": [
+              "plage",
+              "château",
+              "sable",
+              "tours"
+            ]
+          },
+          {
+            "text": "En se promenant au bord de l'eau, il ramasse de jolis coquillages nacrés. Soudain, il découvre aussi un petit crabe rouge qui se cache sous une pierre.",
+            "keywords": [
+              "coquillages",
+              "crabe",
+              "rouge"
+            ]
+          },
+          {
+            "text": "L'après-midi, quand il fait bien chaud, Hugo met son maillot et se baigne dans l'eau bleue et fraîche. Les vagues le font rire.",
+            "keywords": [
+              "baigne",
+              "eau",
+              "bleue",
+              "vagues"
+            ]
+          },
+          {
+            "text": "Le soir, pour le récompenser, ses parents lui offrent une grande glace à la fraise. Hugo la déguste lentement face au coucher de soleil.",
+            "keywords": [
+              "soir",
+              "glace",
+              "fraise"
+            ]
+          },
+          {
+            "text": "De retour à l'appartement, Hugo bâille très fort. Il est fatigué, mais il est vraiment très heureux de ses vacances à la mer.",
+            "keywords": [
+              "fatigué",
+              "heureux",
+              "vacances"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "À quelle saison part Hugo ?",
+          "options": [
+            "En été",
+            "En hiver",
+            "Au printemps"
+          ],
+          "answer": "En été",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Où part Hugo ?",
+          "options": [
+            "À la mer",
+            "À la montagne",
+            "À la campagne"
+          ],
+          "answer": "À la mer",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que construit Hugo ?",
+          "options": [
+            "Un château de sable",
+            "Une cabane",
+            "Un bateau"
+          ],
+          "answer": "Un château de sable",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que ramasse-t-il ?",
+          "options": [
+            "Des coquillages",
+            "Des cailloux",
+            "Des feuilles"
+          ],
+          "answer": "Des coquillages",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Hugo trouve un crabe rouge.",
+          "answer": true,
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que fait Hugo l’après-midi ?",
+          "options": [
+            "Il se baigne",
+            "Il dort",
+            "Il lit"
+          ],
+          "answer": "Il se baigne",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Quelle glace mange Hugo ?",
+          "options": [
+            "À la fraise",
+            "Au chocolat",
+            "À la vanille"
+          ],
+          "answer": "À la fraise",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "L’eau est bleue.",
+          "answer": true,
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "C'est l'été ! Les écoles sont fermées et Hugo part en vacances à la mer avec ses parents. Dans la voiture, il chante tout le long du voyage.",
+            "keywords": [
+              "été",
+              "Hugo",
+              "mer",
+              "vacances"
+            ]
+          },
+          {
+            "text": "Dès le premier jour, Hugo court sur la plage. Avec son seau et sa pelle, il construit un grand château de sable avec quatre tours.",
+            "keywords": [
+              "plage",
+              "château",
+              "sable",
+              "tours"
+            ]
+          },
+          {
+            "text": "En se promenant au bord de l'eau, il ramasse de jolis coquillages nacrés. Soudain, il découvre aussi un petit crabe rouge qui se cache sous une pierre.",
+            "keywords": [
+              "coquillages",
+              "crabe",
+              "rouge"
+            ]
+          },
+          {
+            "text": "L'après-midi, quand il fait bien chaud, Hugo met son maillot et se baigne dans l'eau bleue et fraîche. Les vagues le font rire.",
+            "keywords": [
+              "baigne",
+              "eau",
+              "bleue",
+              "vagues"
+            ]
+          },
+          {
+            "text": "Le soir, pour le récompenser, ses parents lui offrent une grande glace à la fraise. Hugo la déguste lentement face au coucher de soleil.",
+            "keywords": [
+              "soir",
+              "glace",
+              "fraise"
+            ]
+          },
+          {
+            "text": "De retour à l'appartement, Hugo bâille très fort. Il est fatigué, mais il est vraiment très heureux de ses vacances à la mer.",
+            "keywords": [
+              "fatigué",
+              "heureux",
+              "vacances"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quelle glace mange Hugo ?",
+          "options": [
+            "À la fraise",
+            "Au chocolat",
+            "À la vanille"
+          ],
+          "answer": "À la fraise",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q1"
+        },
+        {
+          "type": "true_false",
+          "prompt": "L’eau est bleue.",
+          "answer": true,
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Avec qui Hugo part-il ?",
+          "options": [
+            "Ses parents",
+            "Ses amis",
+            "Sa classe"
+          ],
+          "answer": "Ses parents",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Hugo est triste à la fin.",
+          "answer": false,
+          "correction": "Page 6 : il est heureux.",
+          "pageRef": "p6",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Comment se sent Hugo à la fin ?",
+          "options": [
+            "Fatigué mais heureux",
+            "En colère",
+            "Malade"
+          ],
+          "answer": "Fatigué mais heureux",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Hugo construit un château de ___ .",
+          "answer": "sable",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Se baigner » veut dire :",
+          "options": [
+            "Aller dans l’eau",
+            "Se sécher",
+            "Manger"
+          ],
+          "answer": "Aller dans l’eau",
+          "correction": "Se baigner = entrer dans l’eau.",
+          "pageRef": "p4",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "L’histoire se passe pendant les vacances.",
+          "answer": true,
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}

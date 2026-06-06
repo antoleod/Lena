@@ -1,0 +1,363 @@
+{
+  "id": "calcul-mental-09",
+  "category": "calcul-mental",
+  "categoryLabel": "Calcul mental",
+  "categoryEmoji": "🔢",
+  "categoryOrder": 2,
+  "title": "Le nombre manquant (−)",
+  "emoji": "🔢",
+  "order": 9,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "___ − 9 = 1",
+          "options": [
+            "9",
+            "5",
+            "7",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "1 + 9 = 10."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "___ − 5 = 15",
+          "options": [
+            "16",
+            "20",
+            "19",
+            "18"
+          ],
+          "answer": "20",
+          "correction": "15 + 5 = 20."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "___ − 3 = 14",
+          "answer": 17,
+          "correction": "14 + 3 = 17."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "___ − 2 = 11",
+          "options": [
+            "13",
+            "12",
+            "17",
+            "16"
+          ],
+          "answer": "13",
+          "correction": "11 + 2 = 13."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "___ − 8 = 4",
+          "options": [
+            "14",
+            "12",
+            "8",
+            "10"
+          ],
+          "answer": "12",
+          "correction": "4 + 8 = 12."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "___ − 0 = 0",
+          "answer": 0,
+          "correction": "0 + 0 = 0."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "___ − 0 = 0",
+          "options": [
+            "1",
+            "5",
+            "2",
+            "0"
+          ],
+          "answer": "0",
+          "correction": "0 + 0 = 0."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "___ − 2 = 9",
+          "options": [
+            "11",
+            "12",
+            "16",
+            "15"
+          ],
+          "answer": "11",
+          "correction": "9 + 2 = 11."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "___ − 4 = 7",
+          "answer": 11,
+          "correction": "7 + 4 = 11."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "___ − 17 = 1",
+          "options": [
+            "15",
+            "16",
+            "18",
+            "22"
+          ],
+          "answer": "18",
+          "correction": "1 + 17 = 18."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "___ − 7 = 10",
+          "options": [
+            "17",
+            "15",
+            "19",
+            "18"
+          ],
+          "answer": "17",
+          "correction": "10 + 7 = 17."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "___ − 22 = 0",
+          "options": [
+            "14",
+            "27",
+            "16",
+            "22"
+          ],
+          "answer": "22",
+          "correction": "0 + 22 = 22."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "___ − 22 = 7",
+          "answer": 29,
+          "correction": "7 + 22 = 29."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "___ − 12 = 9",
+          "options": [
+            "20",
+            "19",
+            "17",
+            "21"
+          ],
+          "answer": "21",
+          "correction": "9 + 12 = 21."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "___ − 1 = 16",
+          "options": [
+            "17",
+            "12",
+            "20",
+            "9"
+          ],
+          "answer": "17",
+          "correction": "16 + 1 = 17."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "___ − 0 = 2",
+          "answer": 2,
+          "correction": "2 + 0 = 2."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "___ − 17 = 9",
+          "options": [
+            "26",
+            "31",
+            "29",
+            "19"
+          ],
+          "answer": "26",
+          "correction": "9 + 17 = 26."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "___ − 7 = 14",
+          "options": [
+            "17",
+            "21",
+            "14",
+            "18"
+          ],
+          "answer": "21",
+          "correction": "14 + 7 = 21."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "___ − 5 = 12",
+          "answer": 17,
+          "correction": "12 + 5 = 17."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "___ − 7 = 1",
+          "options": [
+            "12",
+            "14",
+            "4",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "1 + 7 = 8."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "___ − 18 = 25",
+          "options": [
+            "35",
+            "37",
+            "43",
+            "36"
+          ],
+          "answer": "43",
+          "correction": "25 + 18 = 43."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "___ − 1 = 1",
+          "options": [
+            "14",
+            "6",
+            "13",
+            "2"
+          ],
+          "answer": "2",
+          "correction": "1 + 1 = 2."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "___ − 4 = 19",
+          "answer": 23,
+          "correction": "19 + 4 = 23."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "___ − 37 = 3",
+          "options": [
+            "40",
+            "36",
+            "49",
+            "34"
+          ],
+          "answer": "40",
+          "correction": "3 + 37 = 40."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "___ − 25 = 9",
+          "options": [
+            "34",
+            "46",
+            "41",
+            "44"
+          ],
+          "answer": "34",
+          "correction": "9 + 25 = 34."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "___ − 0 = 5",
+          "answer": 5,
+          "correction": "5 + 0 = 5."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "___ − 3 = 31",
+          "options": [
+            "34",
+            "37",
+            "43",
+            "38"
+          ],
+          "answer": "34",
+          "correction": "31 + 3 = 34."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "___ − 0 = 16",
+          "options": [
+            "23",
+            "16",
+            "17",
+            "25"
+          ],
+          "answer": "16",
+          "correction": "16 + 0 = 16."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "___ − 0 = 29",
+          "answer": 29,
+          "correction": "29 + 0 = 29."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "___ − 44 = 3",
+          "options": [
+            "37",
+            "47",
+            "35",
+            "39"
+          ],
+          "answer": "47",
+          "correction": "3 + 44 = 47."
+        }
+      ]
+    }
+  }
+}

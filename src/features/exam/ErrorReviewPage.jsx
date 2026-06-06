@@ -287,7 +287,7 @@ export default function ErrorReviewPage() {
           style={{ width: '100%', background: confirmClear ? '#e74c3c' : 'rgba(231,76,60,.2)', border: '1px solid rgba(231,76,60,.4)', color: '#fff' }}
           onClick={handleClear}
         >
-          {confirmClear ? '⚠️ Confirmer : vider l'historique' : '🗑️ Vider l'historique'}
+          {confirmClear ? "⚠️ Confirmer : vider l'historique" : "🗑️ Vider l'historique"}
         </button>
         {confirmClear && (
           <button type="button" className="reader-btn reader-btn--prev" style={{ width: '100%' }} onClick={() => setConfirmClear(false)}>

@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-05",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les crayons",
+  "emoji": "📖",
+  "order": 5,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 6 crayons. On lui en donne 4. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "6",
+            "15",
+            "13",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "6 + 4 = 10 crayons."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tom a 12 crayons. Tom en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "8",
+            "3",
+            "13",
+            "4"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 crayons."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Sami a 12 crayons. Sami en perd 2. Combien en reste-t-il ?",
+          "answer": "10",
+          "correction": "12 − 2 = 10 crayons."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Tom a 12 crayons. Tom en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "8",
+            "3",
+            "2"
+          ],
+          "answer": "3",
+          "correction": "12 − 9 = 3 crayons."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Tom a 11 crayons. Tom en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "11",
+            "8",
+            "5",
+            "9"
+          ],
+          "answer": "8",
+          "correction": "11 − 3 = 8 crayons."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Théo a 11 crayons. Théo en perd 9. Combien en reste-t-il ?",
+          "answer": "2",
+          "correction": "11 − 9 = 2 crayons."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Hugo a 11 crayons. Hugo en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "1",
+            "6",
+            "10"
+          ],
+          "answer": "6",
+          "correction": "11 − 5 = 6 crayons."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Nina a 3 crayons. On lui en donne 6. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "10",
+            "9",
+            "12",
+            "8"
+          ],
+          "answer": "9",
+          "correction": "3 + 6 = 9 crayons."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nina a 10 crayons. Nina en perd 7. Combien en reste-t-il ?",
+          "answer": "3",
+          "correction": "10 − 7 = 3 crayons."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Nina a 12 crayons. Nina en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "10",
+            "8",
+            "5"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 crayons."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 13 crayons. Tom en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "7",
+            "9",
+            "3"
+          ],
+          "answer": "4",
+          "correction": "13 − 9 = 4 crayons."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Hugo a 5 boîtes de 5 crayons. Combien de crayons en tout ?",
+          "options": [
+            "15",
+            "25",
+            "24",
+            "19"
+          ],
+          "answer": "25",
+          "correction": "5 × 5 = 25 crayons."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 4 boîtes de 2 crayons. Combien de crayons en tout ?",
+          "answer": "8",
+          "correction": "4 × 2 = 8 crayons."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Maya a 4 boîtes de 5 crayons. Combien de crayons en tout ?",
+          "options": [
+            "20",
+            "12",
+            "22",
+            "30"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20 crayons."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Théo a 8 crayons. On lui en donne 8. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "7",
+            "23",
+            "16",
+            "6"
+          ],
+          "answer": "16",
+          "correction": "8 + 8 = 16 crayons."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Théo a 3 boîtes de 3 crayons. Combien de crayons en tout ?",
+          "answer": "9",
+          "correction": "3 × 3 = 9 crayons."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Maya a 5 boîtes de 6 crayons. Combien de crayons en tout ?",
+          "options": [
+            "30",
+            "36",
+            "40",
+            "35"
+          ],
+          "answer": "30",
+          "correction": "5 × 6 = 30 crayons."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 21 crayons. Tom en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "16",
+            "15",
+            "23"
+          ],
+          "answer": "16",
+          "correction": "21 − 5 = 16 crayons."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Théo a 4 boîtes de 3 crayons. Combien de crayons en tout ?",
+          "answer": "12",
+          "correction": "4 × 3 = 12 crayons."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 11 crayons. On lui en donne 2. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "22",
+            "7",
+            "18",
+            "13"
+          ],
+          "answer": "13",
+          "correction": "11 + 2 = 13 crayons."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Nina a 31 crayons. Nina en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "24",
+            "37",
+            "10",
+            "25"
+          ],
+          "answer": "25",
+          "correction": "31 − 6 = 25 crayons."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Sami a 27 crayons. On lui en donne 2. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "37",
+            "15",
+            "29",
+            "42"
+          ],
+          "answer": "29",
+          "correction": "27 + 2 = 29 crayons."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 26 crayons. Nina en perd 7. Combien en reste-t-il ?",
+          "answer": "19",
+          "correction": "26 − 7 = 19 crayons."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Maya a 14 crayons. On lui en donne 7. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "9",
+            "21",
+            "33",
+            "27"
+          ],
+          "answer": "21",
+          "correction": "14 + 7 = 21 crayons."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Tom a 5 boîtes de 5 crayons. Combien de crayons en tout ?",
+          "options": [
+            "38",
+            "31",
+            "25",
+            "11"
+          ],
+          "answer": "25",
+          "correction": "5 × 5 = 25 crayons."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Emma a 33 crayons. Emma en perd 7. Combien en reste-t-il ?",
+          "answer": "26",
+          "correction": "33 − 7 = 26 crayons."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Emma a 15 crayons. Emma en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "24",
+            "12",
+            "16",
+            "2"
+          ],
+          "answer": "12",
+          "correction": "15 − 3 = 12 crayons."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 4 boîtes de 2 crayons. Combien de crayons en tout ?",
+          "options": [
+            "22",
+            "20",
+            "0",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "4 × 2 = 8 crayons."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Sami a 3 boîtes de 6 crayons. Combien de crayons en tout ?",
+          "answer": "18",
+          "correction": "3 × 6 = 18 crayons."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 14 crayons. On lui en donne 27. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "46",
+            "43",
+            "41",
+            "54"
+          ],
+          "answer": "41",
+          "correction": "14 + 27 = 41 crayons."
+        }
+      ]
+    }
+  }
+}

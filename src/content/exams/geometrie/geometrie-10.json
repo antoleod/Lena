@@ -1,0 +1,337 @@
+{
+  "id": "geometrie-10",
+  "category": "geometrie",
+  "categoryLabel": "Géométrie",
+  "categoryEmoji": "📐",
+  "categoryOrder": 11,
+  "title": "Les formes 10",
+  "emoji": "📐",
+  "order": 10,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un rectangle a combien de côtés ?",
+          "options": [
+            "4",
+            "3",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "Le rectangle a 4 côtés."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Combien de côtés a un carré ?",
+          "options": [
+            "4",
+            "3",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "Le carré a 4 côtés égaux."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "La forme ronde s’appelle le ___ .",
+          "answer": "cercle",
+          "accept": [
+            "cercle"
+          ],
+          "correction": "C’est le cercle."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le rectangle a :",
+          "options": [
+            "des côtés longs et courts",
+            "tous les côtés égaux",
+            "aucun côté"
+          ],
+          "answer": "des côtés longs et courts",
+          "correction": "Rectangle : longs et courts."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quelle forme a 3 coins ?",
+          "options": [
+            "le triangle",
+            "le carré",
+            "le cercle"
+          ],
+          "answer": "le triangle",
+          "correction": "Le triangle a 3 coins."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Combien de côtés a un triangle ?",
+          "options": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "3",
+          "correction": "Le triangle a 3 côtés."
+        },
+        {
+          "id": "q14",
+          "type": "true_false",
+          "prompt": "Un carré a tous ses côtés égaux.",
+          "answer": true,
+          "correction": "Oui, 4 côtés égaux."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quelle forme n’a pas de coin ?",
+          "options": [
+            "le cercle",
+            "le carré",
+            "le triangle"
+          ],
+          "answer": "le cercle",
+          "correction": "Le cercle est rond, sans coin."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Une fenêtre a souvent la forme d’un :",
+          "options": [
+            "rectangle",
+            "cercle",
+            "triangle"
+          ],
+          "answer": "rectangle",
+          "correction": "Souvent un rectangle."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le rectangle a :",
+          "options": [
+            "des côtés longs et courts",
+            "tous les côtés égaux",
+            "aucun côté"
+          ],
+          "answer": "des côtés longs et courts",
+          "correction": "Rectangle : longs et courts."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quelle forme n’a pas de coin ?",
+          "options": [
+            "le cercle",
+            "le carré",
+            "le triangle"
+          ],
+          "answer": "le cercle",
+          "correction": "Le cercle est rond, sans coin."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Combien de côtés a un triangle ?",
+          "options": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "3",
+          "correction": "Le triangle a 3 côtés."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un rectangle a combien de côtés ?",
+          "options": [
+            "4",
+            "3",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "Le rectangle a 4 côtés."
+        },
+        {
+          "id": "q12",
+          "type": "true_false",
+          "prompt": "Un triangle a 4 côtés.",
+          "answer": false,
+          "correction": "Le triangle a 3 côtés."
+        },
+        {
+          "id": "q14",
+          "type": "true_false",
+          "prompt": "Un carré a tous ses côtés égaux.",
+          "answer": true,
+          "correction": "Oui, 4 côtés égaux."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Une balle a la forme d’un :",
+          "options": [
+            "cercle",
+            "carré",
+            "triangle"
+          ],
+          "answer": "cercle",
+          "correction": "La balle est ronde."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Combien de côtés a un carré ?",
+          "options": [
+            "4",
+            "3",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "Le carré a 4 côtés égaux."
+        },
+        {
+          "id": "q20",
+          "type": "fill_blank",
+          "prompt": "La forme ronde s’appelle le ___ .",
+          "answer": "cercle",
+          "accept": [
+            "cercle"
+          ],
+          "correction": "C’est le cercle."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le rectangle a :",
+          "options": [
+            "des côtés longs et courts",
+            "tous les côtés égaux",
+            "aucun côté"
+          ],
+          "answer": "des côtés longs et courts",
+          "correction": "Rectangle : longs et courts."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quelle forme n’a pas de coin ?",
+          "options": [
+            "le cercle",
+            "le carré",
+            "le triangle"
+          ],
+          "answer": "le cercle",
+          "correction": "Le cercle est rond, sans coin."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un rectangle a combien de côtés ?",
+          "options": [
+            "4",
+            "3",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "Le rectangle a 4 côtés."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Combien de côtés a un carré ?",
+          "options": [
+            "4",
+            "3",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "Le carré a 4 côtés égaux."
+        },
+        {
+          "id": "q10",
+          "type": "true_false",
+          "prompt": "Un carré a tous ses côtés égaux.",
+          "answer": true,
+          "correction": "Oui, 4 côtés égaux."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Combien de côtés a un triangle ?",
+          "options": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "3",
+          "correction": "Le triangle a 3 côtés."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Une balle a la forme d’un :",
+          "options": [
+            "cercle",
+            "carré",
+            "triangle"
+          ],
+          "answer": "cercle",
+          "correction": "La balle est ronde."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "La forme ronde s’appelle le ___ .",
+          "answer": "cercle",
+          "accept": [
+            "cercle"
+          ],
+          "correction": "C’est le cercle."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Quelle forme a 3 coins ?",
+          "options": [
+            "le triangle",
+            "le carré",
+            "le cercle"
+          ],
+          "answer": "le triangle",
+          "correction": "Le triangle a 3 coins."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Combien de coins a un carré ?",
+          "options": [
+            "4",
+            "3",
+            "0"
+          ],
+          "answer": "4",
+          "correction": "Le carré a 4 coins."
+        }
+      ]
+    }
+  }
+}

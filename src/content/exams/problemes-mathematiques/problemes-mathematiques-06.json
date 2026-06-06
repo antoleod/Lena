@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-06",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les fleurs",
+  "emoji": "📖",
+  "order": 6,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 7 fleurs. On lui en donne 6. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "8",
+            "13",
+            "11",
+            "10"
+          ],
+          "answer": "13",
+          "correction": "7 + 6 = 13 fleurs."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 4 fleurs. On lui en donne 5. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "9",
+            "14",
+            "8",
+            "5"
+          ],
+          "answer": "9",
+          "correction": "4 + 5 = 9 fleurs."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Maya a 4 fleurs. On lui en donne 5. Combien en a-t-Maya maintenant ?",
+          "answer": "9",
+          "correction": "4 + 5 = 9 fleurs."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Tom a 10 fleurs. Tom en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "10",
+            "7",
+            "11",
+            "3"
+          ],
+          "answer": "7",
+          "correction": "10 − 3 = 7 fleurs."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Sami a 12 fleurs. Sami en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "8",
+            "4",
+            "6",
+            "3"
+          ],
+          "answer": "3",
+          "correction": "12 − 9 = 3 fleurs."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Hugo a 5 fleurs. On lui en donne 4. Combien en a-t-Hugo maintenant ?",
+          "answer": "9",
+          "correction": "5 + 4 = 9 fleurs."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Hugo a 11 fleurs. Hugo en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "13",
+            "14",
+            "8",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "11 − 1 = 10 fleurs."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Léa a 8 fleurs. On lui en donne 8. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "21",
+            "16",
+            "15",
+            "19"
+          ],
+          "answer": "16",
+          "correction": "8 + 8 = 16 fleurs."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Maya a 11 fleurs. Maya en perd 3. Combien en reste-t-il ?",
+          "answer": "8",
+          "correction": "11 − 3 = 8 fleurs."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 9 fleurs. On lui en donne 4. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "13",
+            "12",
+            "11",
+            "18"
+          ],
+          "answer": "13",
+          "correction": "9 + 4 = 13 fleurs."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 10 fleurs. Tom en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "8",
+            "9",
+            "2"
+          ],
+          "answer": "8",
+          "correction": "10 − 2 = 8 fleurs."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 21 fleurs. Emma en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "17",
+            "13",
+            "18",
+            "10"
+          ],
+          "answer": "17",
+          "correction": "21 − 4 = 17 fleurs."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 3 boîtes de 6 fleurs. Combien de fleurs en tout ?",
+          "answer": "18",
+          "correction": "3 × 6 = 18 fleurs."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 6 fleurs. On lui en donne 16. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "25",
+            "14",
+            "22",
+            "15"
+          ],
+          "answer": "22",
+          "correction": "6 + 16 = 22 fleurs."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 13 fleurs. Léa en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "14",
+            "5",
+            "8"
+          ],
+          "answer": "6",
+          "correction": "13 − 7 = 6 fleurs."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Sami a 2 boîtes de 4 fleurs. Combien de fleurs en tout ?",
+          "answer": "8",
+          "correction": "2 × 4 = 8 fleurs."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Emma a 5 boîtes de 5 fleurs. Combien de fleurs en tout ?",
+          "options": [
+            "33",
+            "21",
+            "25",
+            "30"
+          ],
+          "answer": "25",
+          "correction": "5 × 5 = 25 fleurs."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hugo a 13 fleurs. On lui en donne 10. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "23",
+            "28",
+            "15",
+            "22"
+          ],
+          "answer": "23",
+          "correction": "13 + 10 = 23 fleurs."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nina a 10 fleurs. On lui en donne 17. Combien en a-t-Nina maintenant ?",
+          "answer": "27",
+          "correction": "10 + 17 = 27 fleurs."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 5 boîtes de 4 fleurs. Combien de fleurs en tout ?",
+          "options": [
+            "17",
+            "22",
+            "26",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "5 × 4 = 20 fleurs."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Léa a 5 boîtes de 6 fleurs. Combien de fleurs en tout ?",
+          "options": [
+            "31",
+            "32",
+            "30",
+            "44"
+          ],
+          "answer": "30",
+          "correction": "5 × 6 = 30 fleurs."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 19 fleurs. Emma en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "13",
+            "11",
+            "8",
+            "17"
+          ],
+          "answer": "17",
+          "correction": "19 − 2 = 17 fleurs."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 4 boîtes de 3 fleurs. Combien de fleurs en tout ?",
+          "answer": "12",
+          "correction": "4 × 3 = 12 fleurs."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Emma a 28 fleurs. Emma en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "22",
+            "13",
+            "24",
+            "27"
+          ],
+          "answer": "22",
+          "correction": "28 − 6 = 22 fleurs."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Sami a 8 fleurs. On lui en donne 13. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "13",
+            "21",
+            "34",
+            "24"
+          ],
+          "answer": "21",
+          "correction": "8 + 13 = 21 fleurs."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Hugo a 2 boîtes de 4 fleurs. Combien de fleurs en tout ?",
+          "answer": "8",
+          "correction": "2 × 4 = 8 fleurs."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Maya a 2 boîtes de 2 fleurs. Combien de fleurs en tout ?",
+          "options": [
+            "4",
+            "12",
+            "10",
+            "19"
+          ],
+          "answer": "4",
+          "correction": "2 × 2 = 4 fleurs."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hugo a 29 fleurs. Hugo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "39",
+            "27",
+            "21",
+            "29"
+          ],
+          "answer": "27",
+          "correction": "29 − 2 = 27 fleurs."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Sami a 7 fleurs. On lui en donne 21. Combien en a-t-Sami maintenant ?",
+          "answer": "28",
+          "correction": "7 + 21 = 28 fleurs."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Sami a 23 fleurs. On lui en donne 26. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "37",
+            "59",
+            "49",
+            "63"
+          ],
+          "answer": "49",
+          "correction": "23 + 26 = 49 fleurs."
+        }
+      ]
+    }
+  }
+}

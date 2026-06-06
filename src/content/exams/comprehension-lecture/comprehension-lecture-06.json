@@ -1,0 +1,443 @@
+{
+  "id": "comprehension-lecture-06",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "Le dessin de la forêt",
+  "emoji": "🎨",
+  "order": 6,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Lucie adore dessiner. Chaque soir, après ses devoirs, elle ouvre son grand cahier vert et laisse courir ses crayons sur le papier.",
+            "keywords": [
+              "soir",
+              "Lucie",
+              "cahier",
+              "vert",
+              "crayons"
+            ]
+          },
+          {
+            "text": "Un matin, la maîtresse arrive avec une grande nouvelle : « Nous allons organiser un concours de dessin sur le thème de la nature ! »",
+            "keywords": [
+              "maîtresse",
+              "concours",
+              "dessin",
+              "nature"
+            ]
+          },
+          {
+            "text": "Lucie sait tout de suite quoi dessiner. Elle imagine une forêt magique, pleine de papillons aux ailes colorées qui volent entre les branches.",
+            "keywords": [
+              "forêt",
+              "papillons",
+              "colorés"
+            ]
+          },
+          {
+            "text": "Page après page, elle ajoute des détails : un grand arbre au tronc épais, une rivière qui brille au soleil et des fleurs partout.",
+            "keywords": [
+              "arbre",
+              "rivière",
+              "fleurs"
+            ]
+          },
+          {
+            "text": "Le jour du concours arrive enfin. Le cœur battant, Lucie remet son dessin à la maîtresse avec un grand sourire.",
+            "keywords": [
+              "concours",
+              "remet",
+              "sourire"
+            ]
+          },
+          {
+            "text": "La maîtresse regarde tous les dessins, puis elle annonce la gagnante : « C'est Lucie ! » Toute la classe applaudit très fort.",
+            "keywords": [
+              "gagnante",
+              "Lucie",
+              "applaudit"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quand Lucie dessine-t-elle ?",
+          "options": [
+            "Chaque soir",
+            "Le matin",
+            "À la récréation"
+          ],
+          "answer": "Chaque soir",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur est son cahier ?",
+          "options": [
+            "Vert",
+            "Rouge",
+            "Bleu"
+          ],
+          "answer": "Vert",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que dessine Lucie pour le concours ?",
+          "options": [
+            "Une forêt",
+            "La mer",
+            "Un château"
+          ],
+          "answer": "Une forêt",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que met-elle dans la forêt ?",
+          "options": [
+            "Des papillons",
+            "Des avions",
+            "Des voitures"
+          ],
+          "answer": "Des papillons",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Lucie gagne le concours.",
+          "answer": true,
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui annonce le concours ?",
+          "options": [
+            "La maîtresse",
+            "Le directeur",
+            "La maman"
+          ],
+          "answer": "La maîtresse",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Lucie adore dessiner. Chaque soir, après ses devoirs, elle ouvre son grand cahier vert et laisse courir ses crayons sur le papier.",
+            "keywords": [
+              "soir",
+              "Lucie",
+              "cahier",
+              "vert",
+              "crayons"
+            ]
+          },
+          {
+            "text": "Un matin, la maîtresse arrive avec une grande nouvelle : « Nous allons organiser un concours de dessin sur le thème de la nature ! »",
+            "keywords": [
+              "maîtresse",
+              "concours",
+              "dessin",
+              "nature"
+            ]
+          },
+          {
+            "text": "Lucie sait tout de suite quoi dessiner. Elle imagine une forêt magique, pleine de papillons aux ailes colorées qui volent entre les branches.",
+            "keywords": [
+              "forêt",
+              "papillons",
+              "colorés"
+            ]
+          },
+          {
+            "text": "Page après page, elle ajoute des détails : un grand arbre au tronc épais, une rivière qui brille au soleil et des fleurs partout.",
+            "keywords": [
+              "arbre",
+              "rivière",
+              "fleurs"
+            ]
+          },
+          {
+            "text": "Le jour du concours arrive enfin. Le cœur battant, Lucie remet son dessin à la maîtresse avec un grand sourire.",
+            "keywords": [
+              "concours",
+              "remet",
+              "sourire"
+            ]
+          },
+          {
+            "text": "La maîtresse regarde tous les dessins, puis elle annonce la gagnante : « C'est Lucie ! » Toute la classe applaudit très fort.",
+            "keywords": [
+              "gagnante",
+              "Lucie",
+              "applaudit"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quand Lucie dessine-t-elle ?",
+          "options": [
+            "Chaque soir",
+            "Le matin",
+            "À la récréation"
+          ],
+          "answer": "Chaque soir",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "De quelle couleur est son cahier ?",
+          "options": [
+            "Vert",
+            "Rouge",
+            "Bleu"
+          ],
+          "answer": "Vert",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que dessine Lucie pour le concours ?",
+          "options": [
+            "Une forêt",
+            "La mer",
+            "Un château"
+          ],
+          "answer": "Une forêt",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que met-elle dans la forêt ?",
+          "options": [
+            "Des papillons",
+            "Des avions",
+            "Des voitures"
+          ],
+          "answer": "Des papillons",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Lucie gagne le concours.",
+          "answer": true,
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui annonce le concours ?",
+          "options": [
+            "La maîtresse",
+            "Le directeur",
+            "La maman"
+          ],
+          "answer": "La maîtresse",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que dessine-t-elle aussi ?",
+          "options": [
+            "Un arbre et une rivière",
+            "Un robot",
+            "Une fusée"
+          ],
+          "answer": "Un arbre et une rivière",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Lucie est triste à la fin.",
+          "answer": false,
+          "correction": "Elle gagne, tout le monde applaudit.",
+          "pageRef": "p6",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Lucie adore dessiner. Chaque soir, après ses devoirs, elle ouvre son grand cahier vert et laisse courir ses crayons sur le papier.",
+            "keywords": [
+              "soir",
+              "Lucie",
+              "cahier",
+              "vert",
+              "crayons"
+            ]
+          },
+          {
+            "text": "Un matin, la maîtresse arrive avec une grande nouvelle : « Nous allons organiser un concours de dessin sur le thème de la nature ! »",
+            "keywords": [
+              "maîtresse",
+              "concours",
+              "dessin",
+              "nature"
+            ]
+          },
+          {
+            "text": "Lucie sait tout de suite quoi dessiner. Elle imagine une forêt magique, pleine de papillons aux ailes colorées qui volent entre les branches.",
+            "keywords": [
+              "forêt",
+              "papillons",
+              "colorés"
+            ]
+          },
+          {
+            "text": "Page après page, elle ajoute des détails : un grand arbre au tronc épais, une rivière qui brille au soleil et des fleurs partout.",
+            "keywords": [
+              "arbre",
+              "rivière",
+              "fleurs"
+            ]
+          },
+          {
+            "text": "Le jour du concours arrive enfin. Le cœur battant, Lucie remet son dessin à la maîtresse avec un grand sourire.",
+            "keywords": [
+              "concours",
+              "remet",
+              "sourire"
+            ]
+          },
+          {
+            "text": "La maîtresse regarde tous les dessins, puis elle annonce la gagnante : « C'est Lucie ! » Toute la classe applaudit très fort.",
+            "keywords": [
+              "gagnante",
+              "Lucie",
+              "applaudit"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Que dessine-t-elle aussi ?",
+          "options": [
+            "Un arbre et une rivière",
+            "Un robot",
+            "Une fusée"
+          ],
+          "answer": "Un arbre et une rivière",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q1"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Lucie est triste à la fin.",
+          "answer": false,
+          "correction": "Elle gagne, tout le monde applaudit.",
+          "pageRef": "p6",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Comment remet-elle son dessin ?",
+          "options": [
+            "Avec un sourire",
+            "En pleurant",
+            "En courant"
+          ],
+          "answer": "Avec un sourire",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Le dessin montre la nature.",
+          "answer": true,
+          "correction": "Forêt, papillons, rivière, fleurs.",
+          "pageRef": "p4",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi Lucie gagne-t-elle, à ton avis ?",
+          "options": [
+            "Son dessin est très beau",
+            "Elle court vite",
+            "Elle est grande"
+          ],
+          "answer": "Son dessin est très beau",
+          "correction": "Elle a fait un beau dessin de forêt.",
+          "pageRef": "p6",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Lucie dessine une ___ pleine de papillons.",
+          "answer": "forêt",
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Colorés » veut dire :",
+          "options": [
+            "De plusieurs couleurs",
+            "Très grands",
+            "Très rapides"
+          ],
+          "answer": "De plusieurs couleurs",
+          "correction": "Colorés = avec des couleurs.",
+          "pageRef": "p3",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Lucie aime dessiner la nature.",
+          "answer": true,
+          "correction": "Elle dessine forêt et fleurs.",
+          "pageRef": "p3",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}

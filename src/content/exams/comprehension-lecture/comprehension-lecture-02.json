@@ -1,0 +1,456 @@
+{
+  "id": "comprehension-lecture-02",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "Le cartable oublié",
+  "emoji": "🎒",
+  "order": 2,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce matin, le réveil sonne très tôt. Emma se lève vite, avale son bol de lait et se dépêche pour ne pas être en retard à l'école.",
+            "keywords": [
+              "matin",
+              "Emma",
+              "tôt",
+              "école"
+            ]
+          },
+          {
+            "text": "Elle court si vite qu'elle ne regarde même pas sur la table de l'entrée. La porte claque derrière elle.",
+            "keywords": [
+              "court",
+              "table",
+              "porte"
+            ]
+          },
+          {
+            "text": "Arrivée en classe, Emma veut sortir ses cahiers. Mais quand elle ouvre son cartable… il est complètement vide !",
+            "keywords": [
+              "classe",
+              "cartable",
+              "vide"
+            ]
+          },
+          {
+            "text": "Emma devient toute triste. Elle comprend qu'elle a oublié son vrai cartable à la maison, sur la table de l'entrée.",
+            "keywords": [
+              "triste",
+              "oublié",
+              "maison"
+            ]
+          },
+          {
+            "text": "Soudain, on frappe à la porte de la classe. C'est sa maman, essoufflée, qui tient le cartable dans ses bras. Elle sourit gentiment à Emma.",
+            "keywords": [
+              "porte",
+              "maman",
+              "cartable",
+              "sourit"
+            ]
+          },
+          {
+            "text": "« Merci beaucoup, maman ! » dit Emma, soulagée. Toute la classe applaudit la maman d'Emma.",
+            "keywords": [
+              "merci",
+              "maman",
+              "applaudit"
+            ]
+          },
+          {
+            "text": "Emma ouvre enfin son cartable et sort ses crayons de couleur. Elle est contente et prête à travailler.",
+            "keywords": [
+              "crayons",
+              "contente"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Que fait Emma le matin ?",
+          "options": [
+            "Elle se dépêche",
+            "Elle dort",
+            "Elle joue"
+          ],
+          "answer": "Elle se dépêche",
+          "correction": "Page 1 : elle se dépêche.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Le cartable d'Emma est vide.",
+          "answer": true,
+          "correction": "Page 2 : son cartable est vide.",
+          "pageRef": "p2",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Comment se sent Emma quand son cartable est vide ?",
+          "options": [
+            "Triste",
+            "Joyeuse",
+            "Fâchée"
+          ],
+          "answer": "Triste",
+          "correction": "Page 3 : Emma est triste.",
+          "pageRef": "p3",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Où Emma a-t-elle oublié son cartable ?",
+          "options": [
+            "À la maison",
+            "Dans le bus",
+            "Au parc"
+          ],
+          "answer": "À la maison",
+          "correction": "Page 3 : oublié à la maison.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui apporte le cartable ?",
+          "options": [
+            "Sa maman",
+            "Son papa",
+            "La maîtresse"
+          ],
+          "answer": "Sa maman",
+          "correction": "Page 4 : sa maman arrive.",
+          "pageRef": "p4",
+          "id": "q5"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La classe applaudit Emma.",
+          "answer": true,
+          "correction": "Page 5 : la classe applaudit.",
+          "pageRef": "p5",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce matin, le réveil sonne très tôt. Emma se lève vite, avale son bol de lait et se dépêche pour ne pas être en retard à l'école.",
+            "keywords": [
+              "matin",
+              "Emma",
+              "tôt",
+              "école"
+            ]
+          },
+          {
+            "text": "Elle court si vite qu'elle ne regarde même pas sur la table de l'entrée. La porte claque derrière elle.",
+            "keywords": [
+              "court",
+              "table",
+              "porte"
+            ]
+          },
+          {
+            "text": "Arrivée en classe, Emma veut sortir ses cahiers. Mais quand elle ouvre son cartable… il est complètement vide !",
+            "keywords": [
+              "classe",
+              "cartable",
+              "vide"
+            ]
+          },
+          {
+            "text": "Emma devient toute triste. Elle comprend qu'elle a oublié son vrai cartable à la maison, sur la table de l'entrée.",
+            "keywords": [
+              "triste",
+              "oublié",
+              "maison"
+            ]
+          },
+          {
+            "text": "Soudain, on frappe à la porte de la classe. C'est sa maman, essoufflée, qui tient le cartable dans ses bras. Elle sourit gentiment à Emma.",
+            "keywords": [
+              "porte",
+              "maman",
+              "cartable",
+              "sourit"
+            ]
+          },
+          {
+            "text": "« Merci beaucoup, maman ! » dit Emma, soulagée. Toute la classe applaudit la maman d'Emma.",
+            "keywords": [
+              "merci",
+              "maman",
+              "applaudit"
+            ]
+          },
+          {
+            "text": "Emma ouvre enfin son cartable et sort ses crayons de couleur. Elle est contente et prête à travailler.",
+            "keywords": [
+              "crayons",
+              "contente"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Que fait Emma le matin ?",
+          "options": [
+            "Elle se dépêche",
+            "Elle dort",
+            "Elle joue"
+          ],
+          "answer": "Elle se dépêche",
+          "correction": "Page 1 : elle se dépêche.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Le cartable d'Emma est vide.",
+          "answer": true,
+          "correction": "Page 2 : son cartable est vide.",
+          "pageRef": "p2",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Comment se sent Emma quand son cartable est vide ?",
+          "options": [
+            "Triste",
+            "Joyeuse",
+            "Fâchée"
+          ],
+          "answer": "Triste",
+          "correction": "Page 3 : Emma est triste.",
+          "pageRef": "p3",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Où Emma a-t-elle oublié son cartable ?",
+          "options": [
+            "À la maison",
+            "Dans le bus",
+            "Au parc"
+          ],
+          "answer": "À la maison",
+          "correction": "Page 3 : oublié à la maison.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui apporte le cartable ?",
+          "options": [
+            "Sa maman",
+            "Son papa",
+            "La maîtresse"
+          ],
+          "answer": "Sa maman",
+          "correction": "Page 4 : sa maman arrive.",
+          "pageRef": "p4",
+          "id": "q5"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La classe applaudit Emma.",
+          "answer": true,
+          "correction": "Page 5 : la classe applaudit.",
+          "pageRef": "p5",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que sort Emma de son cartable ?",
+          "options": [
+            "Ses crayons",
+            "Son goûter",
+            "Un livre"
+          ],
+          "answer": "Ses crayons",
+          "correction": "Page 6 : elle sort ses crayons.",
+          "pageRef": "p6",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Emma se lève tard.",
+          "answer": false,
+          "correction": "Page 1 : Emma se lève tôt.",
+          "pageRef": "p1",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Ce matin, le réveil sonne très tôt. Emma se lève vite, avale son bol de lait et se dépêche pour ne pas être en retard à l'école.",
+            "keywords": [
+              "matin",
+              "Emma",
+              "tôt",
+              "école"
+            ]
+          },
+          {
+            "text": "Elle court si vite qu'elle ne regarde même pas sur la table de l'entrée. La porte claque derrière elle.",
+            "keywords": [
+              "court",
+              "table",
+              "porte"
+            ]
+          },
+          {
+            "text": "Arrivée en classe, Emma veut sortir ses cahiers. Mais quand elle ouvre son cartable… il est complètement vide !",
+            "keywords": [
+              "classe",
+              "cartable",
+              "vide"
+            ]
+          },
+          {
+            "text": "Emma devient toute triste. Elle comprend qu'elle a oublié son vrai cartable à la maison, sur la table de l'entrée.",
+            "keywords": [
+              "triste",
+              "oublié",
+              "maison"
+            ]
+          },
+          {
+            "text": "Soudain, on frappe à la porte de la classe. C'est sa maman, essoufflée, qui tient le cartable dans ses bras. Elle sourit gentiment à Emma.",
+            "keywords": [
+              "porte",
+              "maman",
+              "cartable",
+              "sourit"
+            ]
+          },
+          {
+            "text": "« Merci beaucoup, maman ! » dit Emma, soulagée. Toute la classe applaudit la maman d'Emma.",
+            "keywords": [
+              "merci",
+              "maman",
+              "applaudit"
+            ]
+          },
+          {
+            "text": "Emma ouvre enfin son cartable et sort ses crayons de couleur. Elle est contente et prête à travailler.",
+            "keywords": [
+              "crayons",
+              "contente"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Que sort Emma de son cartable ?",
+          "options": [
+            "Ses crayons",
+            "Son goûter",
+            "Un livre"
+          ],
+          "answer": "Ses crayons",
+          "correction": "Page 6 : elle sort ses crayons.",
+          "pageRef": "p6",
+          "id": "q1"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Emma se lève tard.",
+          "answer": false,
+          "correction": "Page 1 : Emma se lève tôt.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que dit Emma à sa maman ?",
+          "options": [
+            "Merci",
+            "Au revoir",
+            "Pardon"
+          ],
+          "answer": "Merci",
+          "correction": "Page 5 : Emma dit merci.",
+          "pageRef": "p5",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Comment se sent Emma à la fin ?",
+          "options": [
+            "Contente",
+            "Triste",
+            "En colère"
+          ],
+          "answer": "Contente",
+          "correction": "Page 6 : elle est contente.",
+          "pageRef": "p6",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi la maman sourit-elle ?",
+          "options": [
+            "Elle a aidé Emma",
+            "Elle est fâchée",
+            "Elle a froid"
+          ],
+          "answer": "Elle a aidé Emma",
+          "correction": "Elle apporte le cartable oublié : elle aide Emma.",
+          "pageRef": "p4",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Emma a ___ son cartable à la maison.",
+          "answer": "oublié",
+          "correction": "Page 3 : elle a oublié son cartable.",
+          "pageRef": "p3",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le mot « vide » est le contraire de :",
+          "options": [
+            "Plein",
+            "Petit",
+            "Lourd"
+          ],
+          "answer": "Plein",
+          "correction": "Vide ↔ plein.",
+          "pageRef": "p2",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Emma reste triste jusqu’à la fin.",
+          "answer": false,
+          "correction": "Page 6 : elle redevient contente.",
+          "pageRef": "p6",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "id": "vocabulaire-03",
+  "category": "vocabulaire",
+  "categoryLabel": "Vocabulaire",
+  "categoryEmoji": "💬",
+  "categoryOrder": 5,
+  "title": "Les mots 3",
+  "emoji": "💬",
+  "order": 3,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le contraire de « ouvert » :",
+          "options": [
+            "fermé",
+            "grand",
+            "vide"
+          ],
+          "answer": "fermé",
+          "correction": "ouvert ↔ fermé."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un animal de la ferme :",
+          "options": [
+            "vache",
+            "lion",
+            "requin"
+          ],
+          "answer": "vache",
+          "correction": "La vache vit à la ferme."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Le contraire de « monter » est de ___ .",
+          "answer": "descendre",
+          "accept": [
+            "descendre"
+          ],
+          "correction": "monter ↔ descendre."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un synonyme de « joli » :",
+          "options": [
+            "beau",
+            "laid",
+            "vieux"
+          ],
+          "answer": "beau",
+          "correction": "joli = beau."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un synonyme de « regarder » :",
+          "options": [
+            "observer",
+            "manger",
+            "courir"
+          ],
+          "answer": "observer",
+          "correction": "regarder = observer."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le contraire de « jour » :",
+          "options": [
+            "nuit",
+            "soir",
+            "matin"
+          ],
+          "answer": "nuit",
+          "correction": "jour ↔ nuit."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le contraire de « chaud » :",
+          "options": [
+            "froid",
+            "tiède",
+            "doux"
+          ],
+          "answer": "froid",
+          "correction": "chaud ↔ froid."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le contraire de « rapide » :",
+          "options": [
+            "lent",
+            "vite",
+            "fort"
+          ],
+          "answer": "lent",
+          "correction": "rapide ↔ lent."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le contraire de « plein » :",
+          "options": [
+            "vide",
+            "lourd",
+            "grand"
+          ],
+          "answer": "vide",
+          "correction": "plein ↔ vide."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le contraire de « chaud » :",
+          "options": [
+            "froid",
+            "tiède",
+            "doux"
+          ],
+          "answer": "froid",
+          "correction": "chaud ↔ froid."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un synonyme de « regarder » :",
+          "options": [
+            "observer",
+            "manger",
+            "courir"
+          ],
+          "answer": "observer",
+          "correction": "regarder = observer."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un fruit :",
+          "options": [
+            "banane",
+            "carotte",
+            "chaise"
+          ],
+          "answer": "banane",
+          "correction": "La banane est un fruit."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le contraire de « jour » :",
+          "options": [
+            "nuit",
+            "soir",
+            "matin"
+          ],
+          "answer": "nuit",
+          "correction": "jour ↔ nuit."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Un animal de la ferme :",
+          "options": [
+            "vache",
+            "lion",
+            "requin"
+          ],
+          "answer": "vache",
+          "correction": "La vache vit à la ferme."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Le contraire de « propre » :",
+          "options": [
+            "sale",
+            "mouillé",
+            "neuf"
+          ],
+          "answer": "sale",
+          "correction": "propre ↔ sale."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Un légume :",
+          "options": [
+            "carotte",
+            "fraise",
+            "banane"
+          ],
+          "answer": "carotte",
+          "correction": "La carotte est un légume."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le contraire de « ouvert » :",
+          "options": [
+            "fermé",
+            "grand",
+            "vide"
+          ],
+          "answer": "fermé",
+          "correction": "ouvert ↔ fermé."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Une couleur :",
+          "options": [
+            "rouge",
+            "pomme",
+            "table"
+          ],
+          "answer": "rouge",
+          "correction": "Le rouge est une couleur."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un synonyme de « regarder » :",
+          "options": [
+            "observer",
+            "manger",
+            "courir"
+          ],
+          "answer": "observer",
+          "correction": "regarder = observer."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le contraire de « plein » :",
+          "options": [
+            "vide",
+            "lourd",
+            "grand"
+          ],
+          "answer": "vide",
+          "correction": "plein ↔ vide."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un animal de la ferme :",
+          "options": [
+            "vache",
+            "lion",
+            "requin"
+          ],
+          "answer": "vache",
+          "correction": "La vache vit à la ferme."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Un fruit :",
+          "options": [
+            "banane",
+            "carotte",
+            "chaise"
+          ],
+          "answer": "banane",
+          "correction": "La banane est un fruit."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Un synonyme de « joli » :",
+          "options": [
+            "beau",
+            "laid",
+            "vieux"
+          ],
+          "answer": "beau",
+          "correction": "joli = beau."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Le contraire de « jour » :",
+          "options": [
+            "nuit",
+            "soir",
+            "matin"
+          ],
+          "answer": "nuit",
+          "correction": "jour ↔ nuit."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le contraire de « chaud » :",
+          "options": [
+            "froid",
+            "tiède",
+            "doux"
+          ],
+          "answer": "froid",
+          "correction": "chaud ↔ froid."
+        }
+      ]
+    }
+  }
+}

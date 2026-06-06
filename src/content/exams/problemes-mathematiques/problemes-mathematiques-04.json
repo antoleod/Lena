@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-04",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les pommes",
+  "emoji": "📖",
+  "order": 4,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Théo a 12 pommes. Théo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "9",
+            "8",
+            "14",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "12 − 2 = 10 pommes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 6 pommes. On lui en donne 1. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "7",
+            "3",
+            "12",
+            "4"
+          ],
+          "answer": "7",
+          "correction": "6 + 1 = 7 pommes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 11 pommes. Léa en perd 6. Combien en reste-t-il ?",
+          "answer": "5",
+          "correction": "11 − 6 = 5 pommes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Théo a 4 pommes. On lui en donne 4. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "3",
+            "11",
+            "8",
+            "12"
+          ],
+          "answer": "8",
+          "correction": "4 + 4 = 8 pommes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Maya a 2 pommes. On lui en donne 7. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "9",
+            "6",
+            "5",
+            "4"
+          ],
+          "answer": "9",
+          "correction": "2 + 7 = 9 pommes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Maya a 3 pommes. On lui en donne 4. Combien en a-t-Maya maintenant ?",
+          "answer": "7",
+          "correction": "3 + 4 = 7 pommes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Sami a 10 pommes. Sami en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "2",
+            "0",
+            "7",
+            "5"
+          ],
+          "answer": "2",
+          "correction": "10 − 8 = 2 pommes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Nina a 12 pommes. Nina en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "7",
+            "8",
+            "5",
+            "6"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 pommes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Tom a 2 pommes. On lui en donne 7. Combien en a-t-Tom maintenant ?",
+          "answer": "9",
+          "correction": "2 + 7 = 9 pommes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Théo a 8 pommes. On lui en donne 3. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "11",
+            "13",
+            "16",
+            "12"
+          ],
+          "answer": "11",
+          "correction": "8 + 3 = 11 pommes."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 14 pommes. On lui en donne 5. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "29",
+            "23",
+            "18",
+            "19"
+          ],
+          "answer": "19",
+          "correction": "14 + 5 = 19 pommes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Sami a 24 pommes. Sami en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "21",
+            "17",
+            "22",
+            "31"
+          ],
+          "answer": "22",
+          "correction": "24 − 2 = 22 pommes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 10 pommes. On lui en donne 12. Combien en a-t-Nina maintenant ?",
+          "answer": "22",
+          "correction": "10 + 12 = 22 pommes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 5 pommes. On lui en donne 18. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "24",
+            "27",
+            "23",
+            "17"
+          ],
+          "answer": "23",
+          "correction": "5 + 18 = 23 pommes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Hugo a 14 pommes. Hugo en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "2",
+            "10",
+            "6"
+          ],
+          "answer": "10",
+          "correction": "14 − 4 = 10 pommes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 8 pommes. On lui en donne 17. Combien en a-t-Tom maintenant ?",
+          "answer": "25",
+          "correction": "8 + 17 = 25 pommes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Sami a 24 pommes. Sami en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "22",
+            "16",
+            "23",
+            "29"
+          ],
+          "answer": "22",
+          "correction": "24 − 2 = 22 pommes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 17 pommes. Emma en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "11",
+            "13",
+            "7",
+            "10"
+          ],
+          "answer": "13",
+          "correction": "17 − 4 = 13 pommes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nina a 9 pommes. On lui en donne 10. Combien en a-t-Nina maintenant ?",
+          "answer": "19",
+          "correction": "9 + 10 = 19 pommes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Maya a 2 boîtes de 5 pommes. Combien de pommes en tout ?",
+          "options": [
+            "0",
+            "13",
+            "20",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "2 × 5 = 10 pommes."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 25 pommes. Sami en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "34",
+            "32",
+            "21",
+            "16"
+          ],
+          "answer": "21",
+          "correction": "25 − 4 = 21 pommes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tom a 2 boîtes de 5 pommes. Combien de pommes en tout ?",
+          "options": [
+            "25",
+            "24",
+            "15",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "2 × 5 = 10 pommes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 9 pommes. On lui en donne 27. Combien en a-t-Nina maintenant ?",
+          "answer": "36",
+          "correction": "9 + 27 = 36 pommes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Nina a 25 pommes. On lui en donne 10. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "41",
+            "35",
+            "37",
+            "31"
+          ],
+          "answer": "35",
+          "correction": "25 + 10 = 35 pommes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Tom a 32 pommes. Tom en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "23",
+            "38",
+            "20",
+            "25"
+          ],
+          "answer": "23",
+          "correction": "32 − 9 = 23 pommes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Maya a 13 pommes. On lui en donne 21. Combien en a-t-Maya maintenant ?",
+          "answer": "34",
+          "correction": "13 + 21 = 34 pommes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nina a 2 boîtes de 3 pommes. Combien de pommes en tout ?",
+          "options": [
+            "13",
+            "6",
+            "18",
+            "1"
+          ],
+          "answer": "6",
+          "correction": "2 × 3 = 6 pommes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 25 pommes. On lui en donne 23. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "48",
+            "61",
+            "59",
+            "45"
+          ],
+          "answer": "48",
+          "correction": "25 + 23 = 48 pommes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Tom a 13 pommes. Tom en perd 8. Combien en reste-t-il ?",
+          "answer": "5",
+          "correction": "13 − 8 = 5 pommes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Maya a 30 pommes. Maya en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "30",
+            "34",
+            "11",
+            "25"
+          ],
+          "answer": "25",
+          "correction": "30 − 5 = 25 pommes."
+        }
+      ]
+    }
+  }
+}

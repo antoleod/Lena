@@ -1,0 +1,443 @@
+{
+  "id": "comprehension-lecture-03",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "Le goûter partagé",
+  "emoji": "🍪",
+  "order": 3,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "À dix heures, la cloche sonne la récréation. Tom sort dans la cour avec un grand sac rempli de biscuits dorés.",
+            "keywords": [
+              "récréation",
+              "cour",
+              "Tom",
+              "biscuits"
+            ]
+          },
+          {
+            "text": "Tom s'assoit sur un banc. Il regarde le sac : il y a vraiment trop de biscuits pour lui tout seul. Pendant ce temps, ses amis jouent au ballon.",
+            "keywords": [
+              "banc",
+              "trop",
+              "biscuits",
+              "amis"
+            ]
+          },
+          {
+            "text": "Tom réfléchit un instant, puis il a une idée. Il appelle Lola, Hugo et Mia : « Venez, j'ai des biscuits pour tout le monde ! »",
+            "keywords": [
+              "idée",
+              "Lola",
+              "Hugo",
+              "Mia"
+            ]
+          },
+          {
+            "text": "Les trois amis arrivent en courant. Ils sont très contents et disent tous « merci » à Tom.",
+            "keywords": [
+              "amis",
+              "contents",
+              "merci"
+            ]
+          },
+          {
+            "text": "Ils s'assoient ensemble sous le grand arbre de la cour et mangent les biscuits en discutant et en riant.",
+            "keywords": [
+              "arbre",
+              "mangent",
+              "rient"
+            ]
+          },
+          {
+            "text": "De loin, la maîtresse voit toute la scène. Elle sourit et pense tout bas : « Partager, c'est beau ! »",
+            "keywords": [
+              "maîtresse",
+              "sourit",
+              "partager"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quand arrive Tom avec ses biscuits ?",
+          "options": [
+            "À la récréation",
+            "Au déjeuner",
+            "Le matin"
+          ],
+          "answer": "À la récréation",
+          "correction": "Page 1 : à la récréation.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que ramène Tom ?",
+          "options": [
+            "Des biscuits",
+            "Des bonbons",
+            "Des pommes"
+          ],
+          "answer": "Des biscuits",
+          "correction": "Page 1 : un sac de biscuits.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Tom a trop de biscuits pour lui seul.",
+          "answer": true,
+          "correction": "Page 2 : trop de biscuits pour lui tout seul.",
+          "pageRef": "p2",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Combien d'amis Tom appelle-t-il ?",
+          "options": [
+            "Trois",
+            "Deux",
+            "Quatre"
+          ],
+          "answer": "Trois",
+          "correction": "Page 3 : Lola, Hugo et Mia.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que disent les amis à Tom ?",
+          "options": [
+            "Merci",
+            "Pardon",
+            "Bravo"
+          ],
+          "answer": "Merci",
+          "correction": "Page 4 : ils disent merci.",
+          "pageRef": "p4",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Où s'assoient-ils pour manger ?",
+          "options": [
+            "Sous l'arbre",
+            "En classe",
+            "Sur les marches"
+          ],
+          "answer": "Sous l'arbre",
+          "correction": "Page 5 : sous l'arbre.",
+          "pageRef": "p5",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "À dix heures, la cloche sonne la récréation. Tom sort dans la cour avec un grand sac rempli de biscuits dorés.",
+            "keywords": [
+              "récréation",
+              "cour",
+              "Tom",
+              "biscuits"
+            ]
+          },
+          {
+            "text": "Tom s'assoit sur un banc. Il regarde le sac : il y a vraiment trop de biscuits pour lui tout seul. Pendant ce temps, ses amis jouent au ballon.",
+            "keywords": [
+              "banc",
+              "trop",
+              "biscuits",
+              "amis"
+            ]
+          },
+          {
+            "text": "Tom réfléchit un instant, puis il a une idée. Il appelle Lola, Hugo et Mia : « Venez, j'ai des biscuits pour tout le monde ! »",
+            "keywords": [
+              "idée",
+              "Lola",
+              "Hugo",
+              "Mia"
+            ]
+          },
+          {
+            "text": "Les trois amis arrivent en courant. Ils sont très contents et disent tous « merci » à Tom.",
+            "keywords": [
+              "amis",
+              "contents",
+              "merci"
+            ]
+          },
+          {
+            "text": "Ils s'assoient ensemble sous le grand arbre de la cour et mangent les biscuits en discutant et en riant.",
+            "keywords": [
+              "arbre",
+              "mangent",
+              "rient"
+            ]
+          },
+          {
+            "text": "De loin, la maîtresse voit toute la scène. Elle sourit et pense tout bas : « Partager, c'est beau ! »",
+            "keywords": [
+              "maîtresse",
+              "sourit",
+              "partager"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quand arrive Tom avec ses biscuits ?",
+          "options": [
+            "À la récréation",
+            "Au déjeuner",
+            "Le matin"
+          ],
+          "answer": "À la récréation",
+          "correction": "Page 1 : à la récréation.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que ramène Tom ?",
+          "options": [
+            "Des biscuits",
+            "Des bonbons",
+            "Des pommes"
+          ],
+          "answer": "Des biscuits",
+          "correction": "Page 1 : un sac de biscuits.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Tom a trop de biscuits pour lui seul.",
+          "answer": true,
+          "correction": "Page 2 : trop de biscuits pour lui tout seul.",
+          "pageRef": "p2",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Combien d'amis Tom appelle-t-il ?",
+          "options": [
+            "Trois",
+            "Deux",
+            "Quatre"
+          ],
+          "answer": "Trois",
+          "correction": "Page 3 : Lola, Hugo et Mia.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que disent les amis à Tom ?",
+          "options": [
+            "Merci",
+            "Pardon",
+            "Bravo"
+          ],
+          "answer": "Merci",
+          "correction": "Page 4 : ils disent merci.",
+          "pageRef": "p4",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Où s'assoient-ils pour manger ?",
+          "options": [
+            "Sous l'arbre",
+            "En classe",
+            "Sur les marches"
+          ],
+          "answer": "Sous l'arbre",
+          "correction": "Page 5 : sous l'arbre.",
+          "pageRef": "p5",
+          "id": "q6"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La maîtresse est fâchée.",
+          "answer": false,
+          "correction": "Page 6 : la maîtresse sourit.",
+          "pageRef": "p6",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que dit la maîtresse ?",
+          "options": [
+            "Partager, c'est beau !",
+            "Allez en classe !",
+            "Bravo Tom !"
+          ],
+          "answer": "Partager, c'est beau !",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "À dix heures, la cloche sonne la récréation. Tom sort dans la cour avec un grand sac rempli de biscuits dorés.",
+            "keywords": [
+              "récréation",
+              "cour",
+              "Tom",
+              "biscuits"
+            ]
+          },
+          {
+            "text": "Tom s'assoit sur un banc. Il regarde le sac : il y a vraiment trop de biscuits pour lui tout seul. Pendant ce temps, ses amis jouent au ballon.",
+            "keywords": [
+              "banc",
+              "trop",
+              "biscuits",
+              "amis"
+            ]
+          },
+          {
+            "text": "Tom réfléchit un instant, puis il a une idée. Il appelle Lola, Hugo et Mia : « Venez, j'ai des biscuits pour tout le monde ! »",
+            "keywords": [
+              "idée",
+              "Lola",
+              "Hugo",
+              "Mia"
+            ]
+          },
+          {
+            "text": "Les trois amis arrivent en courant. Ils sont très contents et disent tous « merci » à Tom.",
+            "keywords": [
+              "amis",
+              "contents",
+              "merci"
+            ]
+          },
+          {
+            "text": "Ils s'assoient ensemble sous le grand arbre de la cour et mangent les biscuits en discutant et en riant.",
+            "keywords": [
+              "arbre",
+              "mangent",
+              "rient"
+            ]
+          },
+          {
+            "text": "De loin, la maîtresse voit toute la scène. Elle sourit et pense tout bas : « Partager, c'est beau ! »",
+            "keywords": [
+              "maîtresse",
+              "sourit",
+              "partager"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "true_false",
+          "prompt": "La maîtresse est fâchée.",
+          "answer": false,
+          "correction": "Page 6 : la maîtresse sourit.",
+          "pageRef": "p6",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que dit la maîtresse ?",
+          "options": [
+            "Partager, c'est beau !",
+            "Allez en classe !",
+            "Bravo Tom !"
+          ],
+          "answer": "Partager, c'est beau !",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Comment sont les amis quand Tom propose les biscuits ?",
+          "options": [
+            "Très contents",
+            "Tristes",
+            "Fatigués"
+          ],
+          "answer": "Très contents",
+          "correction": "Page 4 : très contents.",
+          "pageRef": "p4",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Tom mange tous les biscuits seul.",
+          "answer": false,
+          "correction": "Page 3-5 : il partage.",
+          "pageRef": "p3",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi Tom partage-t-il ?",
+          "options": [
+            "Il en a trop pour lui seul",
+            "Il n’aime pas les biscuits",
+            "On le lui demande"
+          ],
+          "answer": "Il en a trop pour lui seul",
+          "correction": "Page 2 : trop pour lui tout seul.",
+          "pageRef": "p2",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Les amis disent ___ à Tom.",
+          "answer": "merci",
+          "correction": "Page 4 : ils disent merci.",
+          "pageRef": "p4",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Partager » veut dire :",
+          "options": [
+            "Donner aux autres",
+            "Cacher",
+            "Vendre"
+          ],
+          "answer": "Donner aux autres",
+          "correction": "Partager = donner une part.",
+          "pageRef": "p6",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Cette histoire parle de l’amitié.",
+          "answer": true,
+          "correction": "Tom partage avec ses amis.",
+          "pageRef": "p6",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}

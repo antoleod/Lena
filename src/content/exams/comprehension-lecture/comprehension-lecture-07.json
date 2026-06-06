@@ -1,0 +1,456 @@
+{
+  "id": "comprehension-lecture-07",
+  "category": "comprehension-lecture",
+  "categoryLabel": "Compréhension lecture",
+  "categoryEmoji": "📖",
+  "categoryOrder": 1,
+  "title": "Le dimanche en famille",
+  "emoji": "👨‍👩‍👧",
+  "order": 7,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Le dimanche est le jour préféré de Maya. Ce matin, elle enfile son tablier et prépare des crêpes avec sa maman dans la cuisine.",
+            "keywords": [
+              "dimanche",
+              "Maya",
+              "crêpes",
+              "maman",
+              "cuisine"
+            ]
+          },
+          {
+            "text": "Chacun aide à sa façon. Son papa met la table avec soin, et son petit frère apporte le sucre en marchant tout doucement.",
+            "keywords": [
+              "papa",
+              "table",
+              "frère",
+              "sucre"
+            ]
+          },
+          {
+            "text": "Quand tout est prêt, toute la famille s'installe et mange les crêpes encore chaudes. Elles sentent bon le beurre et le sucre.",
+            "keywords": [
+              "famille",
+              "crêpes",
+              "mange"
+            ]
+          },
+          {
+            "text": "L'après-midi, ils mettent leurs bottes et vont faire une longue promenade dans la forêt. Maya ramasse des feuilles de toutes les couleurs.",
+            "keywords": [
+              "promenade",
+              "forêt",
+              "feuilles"
+            ]
+          },
+          {
+            "text": "Le soir, on sonne à la porte : c'est mamie ! Elle arrive avec un délicieux gâteau aux pommes encore tiède.",
+            "keywords": [
+              "soir",
+              "mamie",
+              "gâteau",
+              "pommes"
+            ]
+          },
+          {
+            "text": "Avant de se coucher, Maya pense à sa journée. Elle adore vraiment les dimanches passés avec toute sa famille.",
+            "keywords": [
+              "adore",
+              "dimanches",
+              "famille"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quel jour se passe l’histoire ?",
+          "options": [
+            "Dimanche",
+            "Lundi",
+            "Samedi"
+          ],
+          "answer": "Dimanche",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que prépare Maya ?",
+          "options": [
+            "Des crêpes",
+            "Une pizza",
+            "Une soupe"
+          ],
+          "answer": "Des crêpes",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Avec qui prépare-t-elle les crêpes ?",
+          "options": [
+            "Sa maman",
+            "Son papa",
+            "Mamie"
+          ],
+          "answer": "Sa maman",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que fait le papa ?",
+          "options": [
+            "Il met la table",
+            "Il dort",
+            "Il joue"
+          ],
+          "answer": "Il met la table",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qu’apporte le petit frère ?",
+          "options": [
+            "Le sucre",
+            "Le pain",
+            "Le sel"
+          ],
+          "answer": "Le sucre",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q5"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La famille mange dans la cuisine.",
+          "answer": true,
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q6"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Le dimanche est le jour préféré de Maya. Ce matin, elle enfile son tablier et prépare des crêpes avec sa maman dans la cuisine.",
+            "keywords": [
+              "dimanche",
+              "Maya",
+              "crêpes",
+              "maman",
+              "cuisine"
+            ]
+          },
+          {
+            "text": "Chacun aide à sa façon. Son papa met la table avec soin, et son petit frère apporte le sucre en marchant tout doucement.",
+            "keywords": [
+              "papa",
+              "table",
+              "frère",
+              "sucre"
+            ]
+          },
+          {
+            "text": "Quand tout est prêt, toute la famille s'installe et mange les crêpes encore chaudes. Elles sentent bon le beurre et le sucre.",
+            "keywords": [
+              "famille",
+              "crêpes",
+              "mange"
+            ]
+          },
+          {
+            "text": "L'après-midi, ils mettent leurs bottes et vont faire une longue promenade dans la forêt. Maya ramasse des feuilles de toutes les couleurs.",
+            "keywords": [
+              "promenade",
+              "forêt",
+              "feuilles"
+            ]
+          },
+          {
+            "text": "Le soir, on sonne à la porte : c'est mamie ! Elle arrive avec un délicieux gâteau aux pommes encore tiède.",
+            "keywords": [
+              "soir",
+              "mamie",
+              "gâteau",
+              "pommes"
+            ]
+          },
+          {
+            "text": "Avant de se coucher, Maya pense à sa journée. Elle adore vraiment les dimanches passés avec toute sa famille.",
+            "keywords": [
+              "adore",
+              "dimanches",
+              "famille"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Quel jour se passe l’histoire ?",
+          "options": [
+            "Dimanche",
+            "Lundi",
+            "Samedi"
+          ],
+          "answer": "Dimanche",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que prépare Maya ?",
+          "options": [
+            "Des crêpes",
+            "Une pizza",
+            "Une soupe"
+          ],
+          "answer": "Des crêpes",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Avec qui prépare-t-elle les crêpes ?",
+          "options": [
+            "Sa maman",
+            "Son papa",
+            "Mamie"
+          ],
+          "answer": "Sa maman",
+          "correction": "Page 1.",
+          "pageRef": "p1",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que fait le papa ?",
+          "options": [
+            "Il met la table",
+            "Il dort",
+            "Il joue"
+          ],
+          "answer": "Il met la table",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qu’apporte le petit frère ?",
+          "options": [
+            "Le sucre",
+            "Le pain",
+            "Le sel"
+          ],
+          "answer": "Le sucre",
+          "correction": "Page 2.",
+          "pageRef": "p2",
+          "id": "q5"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La famille mange dans la cuisine.",
+          "answer": true,
+          "correction": "Page 3.",
+          "pageRef": "p3",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Que font-ils l’après-midi ?",
+          "options": [
+            "Une promenade",
+            "La sieste",
+            "Du vélo"
+          ],
+          "answer": "Une promenade",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui vient le soir ?",
+          "options": [
+            "Mamie",
+            "Le voisin",
+            "La maîtresse"
+          ],
+          "answer": "Mamie",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q8"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "story": {
+        "pages": [
+          {
+            "text": "Le dimanche est le jour préféré de Maya. Ce matin, elle enfile son tablier et prépare des crêpes avec sa maman dans la cuisine.",
+            "keywords": [
+              "dimanche",
+              "Maya",
+              "crêpes",
+              "maman",
+              "cuisine"
+            ]
+          },
+          {
+            "text": "Chacun aide à sa façon. Son papa met la table avec soin, et son petit frère apporte le sucre en marchant tout doucement.",
+            "keywords": [
+              "papa",
+              "table",
+              "frère",
+              "sucre"
+            ]
+          },
+          {
+            "text": "Quand tout est prêt, toute la famille s'installe et mange les crêpes encore chaudes. Elles sentent bon le beurre et le sucre.",
+            "keywords": [
+              "famille",
+              "crêpes",
+              "mange"
+            ]
+          },
+          {
+            "text": "L'après-midi, ils mettent leurs bottes et vont faire une longue promenade dans la forêt. Maya ramasse des feuilles de toutes les couleurs.",
+            "keywords": [
+              "promenade",
+              "forêt",
+              "feuilles"
+            ]
+          },
+          {
+            "text": "Le soir, on sonne à la porte : c'est mamie ! Elle arrive avec un délicieux gâteau aux pommes encore tiède.",
+            "keywords": [
+              "soir",
+              "mamie",
+              "gâteau",
+              "pommes"
+            ]
+          },
+          {
+            "text": "Avant de se coucher, Maya pense à sa journée. Elle adore vraiment les dimanches passés avec toute sa famille.",
+            "keywords": [
+              "adore",
+              "dimanches",
+              "famille"
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "type": "mcq",
+          "prompt": "Que font-ils l’après-midi ?",
+          "options": [
+            "Une promenade",
+            "La sieste",
+            "Du vélo"
+          ],
+          "answer": "Une promenade",
+          "correction": "Page 4.",
+          "pageRef": "p4",
+          "id": "q1"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Qui vient le soir ?",
+          "options": [
+            "Mamie",
+            "Le voisin",
+            "La maîtresse"
+          ],
+          "answer": "Mamie",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Quel gâteau apporte mamie ?",
+          "options": [
+            "Aux pommes",
+            "Au chocolat",
+            "À la fraise"
+          ],
+          "answer": "Aux pommes",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q3"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Maya déteste les dimanches.",
+          "answer": false,
+          "correction": "Page 6 : elle adore.",
+          "pageRef": "p6",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Combien de personnes de la famille sont citées ?",
+          "options": [
+            "Cinq",
+            "Deux",
+            "Trois"
+          ],
+          "answer": "Cinq",
+          "correction": "Maya, maman, papa, frère, mamie.",
+          "pageRef": "p5",
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "Le soir, mamie apporte un ___ aux pommes.",
+          "answer": "gâteau",
+          "correction": "Page 5.",
+          "pageRef": "p5",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Pourquoi Maya adore le dimanche ?",
+          "options": [
+            "Elle est avec sa famille",
+            "Il n’y a pas école",
+            "Il fait chaud"
+          ],
+          "answer": "Elle est avec sa famille",
+          "correction": "Page 6.",
+          "pageRef": "p6",
+          "id": "q7"
+        },
+        {
+          "type": "true_false",
+          "prompt": "Chacun aide à la maison.",
+          "answer": true,
+          "correction": "Papa, frère, maman, Maya aident.",
+          "pageRef": "p2",
+          "id": "q8"
+        }
+      ]
+    }
+  }
+}
