@@ -62,8 +62,40 @@ function ArrayDots({ rows, cols }) {
   );
 }
 
+function PlaceValueBlocks({ tens, units }) {
+  const cell = 7, gap = 6;
+  const rodW = cell, rodH = cell * 10;
+  const rods = [];
+  for (let t = 0; t < tens; t++) {
+    const x = t * (rodW + 3);
+    const cubes = [];
+    for (let k = 0; k < 10; k++) cubes.push(
+      <rect key={k} x={x} y={k * cell} width={cell - 1} height={cell - 1} rx={1} fill="#5dade2" stroke="#2e86c1" strokeWidth={0.5} />
+    );
+    rods.push(<g key={`r${t}`}>{cubes}</g>);
+  }
+  const unitsX = tens * (rodW + 3) + gap;
+  const cubes = [];
+  for (let u = 0; u < units; u++) {
+    const col = u % 1, row = u; // single column of unit cubes
+    cubes.push(<rect key={u} x={unitsX} y={row * cell} width={cell - 1} height={cell - 1} rx={1} fill="#f5b041" stroke="#d68910" strokeWidth={0.5} />);
+  }
+  const w = unitsX + cell + 2;
+  return (
+    <span className="math-visual__group">
+      <svg viewBox={`0 0 ${w} ${rodH}`} width={Math.min(220, w * 2.2)} height={rodH * 2.2} role="img" aria-label={`${tens} dizaines et ${units} unités`}>
+        {rods}{cubes}
+      </svg>
+      <span className="math-visual__caption">{tens} dizaine(s) + {units} unité(s)</span>
+    </span>
+  );
+}
+
 export default function MathVisualSvg({ visual }) {
   if (!visual) return null;
+  if (visual.kind === 'placevalue') {
+    return <div className="math-visual"><PlaceValueBlocks tens={visual.tens} units={visual.units} /></div>;
+  }
   if (visual.kind === 'array') {
     return (
       <div className="math-visual" aria-hidden="false">

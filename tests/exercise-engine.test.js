@@ -104,6 +104,22 @@ test('number size and number of operands are independent', () => {
   }
 });
 
+test('math explanations decompose into dizaines + unités (primary level)', () => {
+  for (let k = 0; k < 10; k++) {
+    const [add] = generateExercises({ subject: 'math', type: 'additions', level: 'medium', count: 1, digits: 2 });
+    assert.match(add.method, /dizaines/);
+    assert.match(add.method, /unités/);
+    assert.match(add.method, /Résultat/);
+    const [sub] = generateExercises({ subject: 'math', type: 'soustractions', level: 'medium', count: 1, digits: 2 });
+    assert.match(sub.method, /dizaines/);
+    assert.match(sub.method, /unités/);
+  }
+  // localized keywords
+  const [en] = generateExercises({ subject: 'math', type: 'additions', level: 'easy', count: 1, digits: 2, locale: 'en' });
+  assert.match(en.method, /tens/);
+  assert.match(en.method, /units/);
+});
+
 test('normalizeAnswer + flexible matching', () => {
   assert.equal(normalizeAnswer('  Bonjour. '), 'bonjour');
   assert.equal(normalizeAnswer('ÉCOLE'), 'ecole');

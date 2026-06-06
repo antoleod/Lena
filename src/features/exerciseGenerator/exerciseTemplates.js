@@ -17,7 +17,7 @@
 // Generators use plain Math.random — generation is live, not reproducible.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { buildDotsVisual as dotsVisual, buildArrayVisual } from './mathVisualUtils.js';
+import { buildDotsVisual as dotsVisual, buildArrayVisual, placeValueVisual } from './mathVisualUtils.js';
 
 // Active locale for generated statements (set by the engine before generating).
 let _locale = 'fr';
@@ -88,30 +88,71 @@ function operandRange(level, digits) {
   return [1, level === 'easy' ? 10 : level === 'medium' ? 50 : 100];
 }
 
+// ── Primary-level explanation: decompose into dizaines (tens) + unités (units) ─
+const DU = {
+  fr: { d: 'dizaines', u: 'unités', D: 'Dizaines', U: 'Unités', R: 'Résultat', take: 'On prend une dizaine' },
+  nl: { d: 'tientallen', u: 'eenheden', D: 'Tientallen', U: 'Eenheden', R: 'Resultaat', take: 'We nemen een tiental' },
+  en: { d: 'tens', u: 'units', D: 'Tens', U: 'Units', R: 'Result', take: 'We take one ten' },
+  es: { d: 'decenas', u: 'unidades', D: 'Decenas', U: 'Unidades', R: 'Resultado', take: 'Tomamos una decena' },
+};
+const tens = (n) => Math.floor(n / 10);
+const units = (n) => n % 10;
+
+// Step-by-step tens/units method for an addition of N numbers.
+function decompAdd(nums) {
+  const L = DU[_locale] || DU.fr;
+  const lines = nums.map((n) => `${n} = ${tens(n)} ${L.d} + ${units(n)} ${L.u}`);
+  const t = nums.reduce((s, n) => s + tens(n), 0);
+  const u = nums.reduce((s, n) => s + units(n), 0);
+  const total = nums.reduce((s, n) => s + n, 0);
+  lines.push(`${L.D} : ${nums.map(tens).join(' + ')} = ${t} ${L.d} = ${t * 10}`);
+  lines.push(`${L.U} : ${nums.map(units).join(' + ')} = ${u} ${L.u} = ${u}`);
+  lines.push(`${L.R} : ${t * 10} + ${u} = ${total}`);
+  return lines.join('\n');
+}
+
+// Step-by-step tens/units method for a − b (borrow-aware, primary style).
+function decompSubPair(a, b) {
+  const L = DU[_locale] || DU.fr;
+  let at = tens(a), au = units(a);
+  const bt = tens(b), bu = units(b);
+  const out = [
+    `${a} = ${at} ${L.d} + ${au} ${L.u}`,
+    `${b} = ${bt} ${L.d} + ${bu} ${L.u}`,
+  ];
+  if (au < bu) { out.push(`${L.take} : ${at} ${L.d} → ${at - 1}, ${au} ${L.u} → ${au + 10}`); at -= 1; au += 10; }
+  out.push(`${L.U} : ${au} − ${bu} = ${au - bu}`);
+  out.push(`${L.D} : ${at} − ${bt} = ${at - bt} = ${(at - bt) * 10}`);
+  out.push(`${L.R} : ${(at - bt) * 10} + ${au - bu} = ${a - b}`);
+  return out;
+}
+function decompSub(a, subs) {
+  const lines = [];
+  let cur = a;
+  for (const b of subs) { lines.push(...decompSubPair(cur, b)); cur -= b; }
+  return lines.join('\n');
+}
+
 function mathAdd(level, i, opts = {}) {
   const terms = Math.max(2, Number(opts.terms) || autoTerms(level));
   const [lo, hi] = operandRange(level, opts.digits);
   const nums = Array.from({ length: terms }, () => rint(Math.max(1, lo), hi));
   const answer = nums.reduce((s, n) => s + n, 0);
-  // progressive method: running sum, step by step
-  const steps = [];
-  let run = nums[0];
-  for (let k = 1; k < terms; k++) { steps.push(`${run} + ${nums[k]} = ${run + nums[k]}`); run += nums[k]; }
   const expr = nums.join(' + ');
   return base('math', 'additions', level, i, {
     question: `${expr} = ……`,
     testQuestion: mqx(expr),
     answer: String(answer),
     explanation: `${expr} = ${answer}.`,
-    method: steps.join('\n') || `${expr} = ${answer}`,
-    improvementTip: 'Additionne deux nombres à la fois, de gauche à droite.',
+    method: decompAdd(nums), // dizaines + unités, étape par étape
+    improvementTip: 'Sépare les dizaines et les unités, puis regroupe.',
     hints: [
-      'Additionne les deux premiers nombres d’abord.',
-      `Commence par ${nums[0]} + ${nums[1]} = ${nums[0] + nums[1]}.`,
-      'Continue en ajoutant un nombre à la fois.',
+      'Sépare chaque nombre en dizaines et unités.',
+      'Additionne d’abord les dizaines, puis les unités.',
+      'Regroupe : les dizaines plus les unités.',
     ],
     inputType: 'number',
-    visual: dotsVisual(nums, Array(terms - 1).fill('+')),
+    visual: dotsVisual(nums, Array(terms - 1).fill('+')) || placeValueVisual(answer),
   });
 }
 
@@ -123,28 +164,26 @@ function mathSub(level, i, opts = {}) {
   const subs = [];
   let run = a;
   for (let k = 1; k < terms; k++) {
-    const s = rint(1, Math.max(1, Math.min(hi, run)));
+    if (run <= 1) break;            // nothing left to take → keep result >= 0
+    const s = rint(1, run);          // s <= run, so the running total never goes negative
     subs.push(s); run -= s;
   }
   const answer = run;
-  const steps = [];
-  let acc = a;
-  for (const s of subs) { steps.push(`${acc} − ${s} = ${acc - s}`); acc -= s; }
   const expr = `${a}` + subs.map((s) => ` − ${s}`).join('');
   return base('math', 'soustractions', level, i, {
     question: `${expr} = ……`,
     testQuestion: mqx(expr),
     answer: String(answer),
     explanation: `${expr} = ${answer}.`,
-    method: steps.join('\n') || `${expr} = ${answer}`,
-    improvementTip: 'Enlève un nombre à la fois, de gauche à droite.',
+    method: decompSub(a, subs), // dizaines + unités (avec retenue si besoin)
+    improvementTip: 'Sépare les dizaines et les unités ; si besoin, prends une dizaine.',
     hints: [
-      'Commence par enlever le premier nombre.',
-      `${a} − ${subs[0]} = ${a - subs[0]}.`,
-      'Continue à enlever un nombre à la fois.',
+      'Sépare chaque nombre en dizaines et unités.',
+      'Regarde les unités : peux-tu enlever directement ?',
+      'Sinon, prends une dizaine, puis enlève les unités et les dizaines.',
     ],
     inputType: 'number',
-    visual: dotsVisual([a, ...subs], Array(terms - 1).fill('−')),
+    visual: dotsVisual([a, ...subs], Array(terms - 1).fill('−')) || placeValueVisual(answer),
   });
 }
 

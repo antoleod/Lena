@@ -16,3 +16,10 @@ export function buildArrayVisual(rows, cols) {
   if (rows < 1 || cols < 1 || rows > 6 || cols > 6) return null;
   return { kind: 'array', rows, cols };
 }
+
+/** Base-ten blocks: rods of 10 (dizaines) + unit cubes (unités). 2-digit only. */
+export function placeValueVisual(value) {
+  const v = Number(value);
+  if (!Number.isInteger(v) || v < 10 || v > 99) return null;
+  return { kind: 'placevalue', tens: Math.floor(v / 10), units: v % 10, value: v };
+}
