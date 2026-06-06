@@ -47,6 +47,12 @@ import JeuxHubPage from '../../features/jeux/JeuxHubPage.jsx';
 import MemoryGamePage from '../../features/jeux/MemoryGamePage.jsx';
 import SpeedMathPage from '../../features/jeux/SpeedMathPage.jsx';
 import WordScramblePage from '../../features/jeux/WordScramblePage.jsx';
+import MotsCachesPage from '../../features/jeux/MotsCachesPage.jsx';
+import DevinettesPage from '../../features/jeux/DevinettesPage.jsx';
+import CompleteLaPhrasePage from '../../features/jeux/CompleteLaPhrasePage.jsx';
+import TrouveIntrusPage from '../../features/jeux/TrouveIntrusPage.jsx';
+import CourseMathsPage from '../../features/jeux/CourseMathsPage.jsx';
+import DetectiveHistoiresPage from '../../features/jeux/DetectiveHistoiresPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -162,6 +168,12 @@ export default function AppRouter() {
         <Route path="/jeux/memory" element={<MemoryGamePage />} />
         <Route path="/jeux/calcul-rapide" element={<SpeedMathPage />} />
         <Route path="/jeux/mots-melanges" element={<WordScramblePage />} />
+        <Route path="/jeux/mots-caches" element={<MotsCachesPage />} />
+        <Route path="/jeux/devinettes" element={<DevinettesPage />} />
+        <Route path="/jeux/complete-phrase" element={<CompleteLaPhrasePage />} />
+        <Route path="/jeux/intrus" element={<TrouveIntrusPage />} />
+        <Route path="/jeux/course-maths" element={<CourseMathsPage />} />
+        <Route path="/jeux/detective-histoires" element={<DetectiveHistoiresPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

@@ -1,0 +1,274 @@
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './jeux.css';
+
+const GRID_SIZE = 8;
+const WORDS_PER_ROUND = 5;
+const TIMER_MAX = 180;
+
+const WORD_BANKS = {
+  animaux:    ['CHAT', 'CHIEN', 'LAPIN', 'OISEAU', 'LION', 'TIGRE', 'OURS', 'LOUP', 'CERF', 'RENARD'],
+  ecole:      ['LIVRE', 'STYLO', 'CRAYON', 'CAHIER', 'ECOLE', 'CLASSE', 'ELEVE', 'TABLE', 'CHAISE', 'GOMME'],
+  couleurs:   ['ROUGE', 'BLEU', 'VERT', 'NOIR', 'BLANC', 'ROSE', 'JAUNE', 'VIOLET', 'ORANGE', 'GRIS'],
+  nourriture: ['POMME', 'PAIN', 'LAIT', 'OEUF', 'SOUPE', 'GATEAU', 'PIZZA', 'SALADE', 'BEURRE', 'FROMAGE'],
+};
+
+const THEME_LABELS = { animaux: '🐾 Animaux', ecole: '📚 Ecole', couleurs: '🎨 Couleurs', nourriture: '🍎 Nourriture' };
+
+const DIRECTIONS = [
+  [0, 1], [1, 0], [1, 1], [-1, 1], [0, -1], [-1, 0], [-1, -1], [1, -1],
+];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildGrid(words) {
+  const grid = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(''));
+  const placed = [];
+
+  for (const word of words) {
+    let success = false;
+    for (let attempt = 0; attempt < 200 && !success; attempt++) {
+      const [dr, dc] = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
+      const r = Math.floor(Math.random() * GRID_SIZE);
+      const c = Math.floor(Math.random() * GRID_SIZE);
+      const cells = [];
+      let ok = true;
+      for (let i = 0; i < word.length; i++) {
+        const nr = r + dr * i;
+        const nc = c + dc * i;
+        if (nr < 0 || nr >= GRID_SIZE || nc < 0 || nc >= GRID_SIZE) { ok = false; break; }
+        if (grid[nr][nc] !== '' && grid[nr][nc] !== word[i]) { ok = false; break; }
+        cells.push([nr, nc]);
+      }
+      if (ok) {
+        cells.forEach(([nr, nc], i) => { grid[nr][nc] = word[i]; });
+        placed.push({ word, cells });
+        success = true;
+      }
+    }
+  }
+
+  const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  for (let r = 0; r < GRID_SIZE; r++) {
+    for (let c = 0; c < GRID_SIZE; c++) {
+      if (grid[r][c] === '') grid[r][c] = ALPHA[Math.floor(Math.random() * ALPHA.length)];
+    }
+  }
+
+  return { grid, placed };
+}
+
+function cellKey(r, c) { return `${r},${c}`; }
+
+function getCellsBetween(r1, c1, r2, c2) {
+  const dr = r2 - r1, dc = c2 - c1;
+  const len = Math.max(Math.abs(dr), Math.abs(dc));
+  if (len === 0) return [[r1, c1]];
+  const sr = Math.sign(dr), sc = Math.sign(dc);
+  if (dr !== 0 && dc !== 0 && Math.abs(dr) !== Math.abs(dc)) return null;
+  const cells = [];
+  for (let i = 0; i <= len; i++) cells.push([r1 + sr * i, c1 + sc * i]);
+  return cells;
+}
+
+function calcStars(found, total) {
+  const ratio = found / total;
+  if (ratio === 1) return 3;
+  if (ratio >= 0.6) return 2;
+  return 1;
+}
+
+export default function MotsCachesPage() {
+  const [phase, setPhase] = useState('setup');
+  const [theme, setTheme] = useState('animaux');
+  const [grid, setGrid] = useState([]);
+  const [words, setWords] = useState([]);
+  const [placedWords, setPlacedWords] = useState([]);
+  const [foundWords, setFoundWords] = useState(new Set());
+  const [foundCells, setFoundCells] = useState(new Map()); // cellKey -> color
+  const [selecting, setSelecting] = useState(false);
+  const [selStart, setSelStart] = useState(null);
+  const [selEnd, setSelEnd] = useState(null);
+  const [timeLeft, setTimeLeft] = useState(TIMER_MAX);
+  const [flash, setFlash] = useState(null); // 'ok' | 'bad'
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (phase !== 'play') return;
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) { clearInterval(timerRef.current); setPhase('results'); return 0; }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [phase]);
+
+  useEffect(() => () => clearInterval(timerRef.current), []);
+
+  function startGame() {
+    const bank = shuffle(WORD_BANKS[theme]).slice(0, WORDS_PER_ROUND);
+    const { grid: g, placed } = buildGrid(bank);
+    setGrid(g);
+    setWords(bank);
+    setPlacedWords(placed);
+    setFoundWords(new Set());
+    setFoundCells(new Map());
+    setSelStart(null);
+    setSelEnd(null);
+    setSelecting(false);
+    setTimeLeft(TIMER_MAX);
+    setPhase('play');
+  }
+
+  const selCells = selStart && selEnd
+    ? (getCellsBetween(selStart[0], selStart[1], selEnd[0], selEnd[1]) || [])
+    : (selStart ? [[selStart[0], selStart[1]]] : []);
+  const selKeys = new Set(selCells.map(([r, c]) => cellKey(r, c)));
+
+  const handlePointerDown = useCallback((r, c, e) => {
+    e.preventDefault();
+    setSelecting(true);
+    setSelStart([r, c]);
+    setSelEnd([r, c]);
+  }, []);
+
+  const handlePointerEnter = useCallback((r, c) => {
+    if (!selecting) return;
+    setSelEnd([r, c]);
+  }, [selecting]);
+
+  const handlePointerUp = useCallback(() => {
+    if (!selecting || !selStart || !selEnd) { setSelecting(false); return; }
+    setSelecting(false);
+
+    const cells = getCellsBetween(selStart[0], selStart[1], selEnd[0], selEnd[1]);
+    if (!cells) { setSelStart(null); setSelEnd(null); return; }
+
+    const selectedWord = cells.map(([r, c]) => grid[r][c]).join('');
+    const selectedWordRev = selectedWord.split('').reverse().join('');
+
+    const match = placedWords.find(pw =>
+      !foundWords.has(pw.word) && (pw.word === selectedWord || pw.word === selectedWordRev)
+    );
+
+    if (match) {
+      const colors = ['#22c55e', '#6366f1', '#f59e0b', '#ec4899', '#06b6d4'];
+      const color = colors[foundWords.size % colors.length];
+      const newFoundCells = new Map(foundCells);
+      match.cells.forEach(([r, c]) => newFoundCells.set(cellKey(r, c), color));
+      setFoundCells(newFoundCells);
+      const newFound = new Set(foundWords);
+      newFound.add(match.word);
+      setFoundWords(newFound);
+      setFlash('ok');
+      setTimeout(() => setFlash(null), 400);
+      if (newFound.size === words.length) {
+        clearInterval(timerRef.current);
+        setTimeout(() => setPhase('results'), 600);
+      }
+    } else {
+      setFlash('bad');
+      setTimeout(() => setFlash(null), 400);
+    }
+
+    setSelStart(null);
+    setSelEnd(null);
+  }, [selecting, selStart, selEnd, grid, placedWords, foundWords, foundCells, words]);
+
+  if (phase === 'setup') {
+    return (
+      <div className="mc-page">
+        <Link to="/jeux" className="exam-back-btn">←</Link>
+        <h1 className="mc-title">🔍 Mots Caches</h1>
+        <p className="mc-subtitle">Trouve les mots caches dans la grille !</p>
+        <div className="mc-themes">
+          {Object.keys(WORD_BANKS).map(t => (
+            <button
+              key={t}
+              className={`mc-theme-btn${theme === t ? ' is-selected' : ''}`}
+              onPointerDown={e => { e.preventDefault(); setTheme(t); }}
+            >
+              {THEME_LABELS[t]}
+            </button>
+          ))}
+        </div>
+        <button className="mc-cta" onPointerDown={e => { e.preventDefault(); startGame(); }}>
+          ▶ Jouer
+        </button>
+      </div>
+    );
+  }
+
+  if (phase === 'results') {
+    const stars = calcStars(foundWords.size, words.length);
+    const starStr = '★'.repeat(stars) + '☆'.repeat(3 - stars);
+    return (
+      <div className="mc-page">
+        <h2 className="mc-result-title">{stars === 3 ? '🎉 Bravo !' : stars === 2 ? '👍 Bien joue !' : '📚 Continue !'}</h2>
+        <div className="jeux-stars">{starStr}</div>
+        <div className="jeux-result-stat"><span>Mots trouves</span><span>{foundWords.size} / {words.length}</span></div>
+        <div className="jeux-result-stat"><span>Temps restant</span><span>{timeLeft}s</span></div>
+        <div style={{ marginTop: 20, display: 'flex', gap: 12 }}>
+          <button className="mc-cta" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); startGame(); }}>Rejouer</button>
+          <button className="mc-cta mc-cta--soft" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); setPhase('setup'); }}>Themes</button>
+        </div>
+      </div>
+    );
+  }
+
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+  const timerStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  const urgent = timeLeft <= 30;
+
+  return (
+    <div className="mc-page" style={{ touchAction: 'none', userSelect: 'none' }}>
+      <Link to="/jeux" className="exam-back-btn">←</Link>
+      <div className="mc-hud">
+        <span className={`mc-timer${urgent ? ' mc-timer--urgent' : ''}`}>⏱ {timerStr}</span>
+        <span className="mc-progress">{foundWords.size} / {words.length} mots</span>
+      </div>
+
+      <div className={`mc-grid-wrap${flash === 'ok' ? ' flash-ok' : flash === 'bad' ? ' flash-bad' : ''}`}>
+        <div
+          className="mc-grid"
+          onPointerLeave={() => { if (selecting) handlePointerUp(); }}
+          onPointerUp={handlePointerUp}
+        >
+          {grid.map((row, r) =>
+            row.map((letter, c) => {
+              const key = cellKey(r, c);
+              const foundColor = foundCells.get(key);
+              const inSel = selKeys.has(key);
+              return (
+                <div
+                  key={key}
+                  className={`mc-cell${inSel ? ' mc-cell--sel' : ''}`}
+                  style={foundColor ? { background: foundColor, color: '#fff' } : undefined}
+                  onPointerDown={e => handlePointerDown(r, c, e)}
+                  onPointerEnter={() => handlePointerEnter(r, c)}
+                >
+                  {letter}
+                </div>
+              );
+            })
+          )}
+        </div>
+      </div>
+
+      <div className="mc-word-list">
+        {words.map(w => (
+          <span key={w} className={`mc-word${foundWords.has(w) ? ' mc-word--found' : ''}`}>{w}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
