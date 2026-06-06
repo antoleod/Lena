@@ -7,9 +7,11 @@ import NotebookView from './NotebookView.jsx';
 import TestView from './TestView.jsx';
 import ResultsView from './ResultsView.jsx';
 import ErrorReviewView from './ErrorReviewView.jsx';
+import { VerificationView, AnswersTableView, ExplanationsView } from './CahierFlowViews.jsx';
 import './cahier.css';
 
-// Phases: 'setup' → 'notebook' → 'test' → 'results' ; plus 'errors'
+// Flow: setup → notebook → verify → (answers | test) → [results] → explanations
+// plus 'errors'. Solutions are revealed ONLY after the child finishes her cahier.
 export default function ExerciseGeneratorPage() {
   const navigate = useNavigate();
   const [phase, setPhase] = useState('setup');
@@ -47,7 +49,7 @@ export default function ExerciseGeneratorPage() {
     setPhase('results');
   }
 
-  // ── Notebook / Test / Results / Errors phases ──────────────────────────────
+  // ── Notebook → Vérification → (réponses | test) → explications ─────────────
   if (phase === 'notebook') {
     return (
       <NotebookView
@@ -55,7 +57,26 @@ export default function ExerciseGeneratorPage() {
         subject={currentSubject}
         level={level}
         onBack={() => setPhase('setup')}
-        onStartTest={() => setPhase('test')}
+        onDone={() => setPhase('verify')}
+      />
+    );
+  }
+  if (phase === 'verify') {
+    return (
+      <VerificationView
+        subject={subject}
+        onBack={() => setPhase('notebook')}
+        onSeeAnswers={() => setPhase('answers')}
+        onDoTest={() => setPhase('test')}
+      />
+    );
+  }
+  if (phase === 'answers') {
+    return (
+      <AnswersTableView
+        exercises={exercises}
+        onBack={() => setPhase('verify')}
+        onSeeExplanations={() => setPhase('explanations')}
       />
     );
   }
@@ -63,7 +84,7 @@ export default function ExerciseGeneratorPage() {
     return (
       <TestView
         exercises={exercises}
-        onBack={() => setPhase('notebook')}
+        onBack={() => setPhase('verify')}
         onFinish={finishTest}
       />
     );
@@ -75,7 +96,18 @@ export default function ExerciseGeneratorPage() {
         onRetryAll={startNotebook}
         onNewBatch={() => setPhase('setup')}
         onSeeErrors={() => setPhase('errors')}
+        onSeeExplanations={() => setPhase('explanations')}
         errorCount={errorCount}
+      />
+    );
+  }
+  if (phase === 'explanations') {
+    return (
+      <ExplanationsView
+        exercises={exercises}
+        subject={subject}
+        onBack={() => setPhase(graded.length ? 'results' : 'answers')}
+        onRestart={() => setPhase('setup')}
       />
     );
   }

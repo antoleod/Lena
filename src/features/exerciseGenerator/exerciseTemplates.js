@@ -48,11 +48,16 @@ function mathAdd(level, i) {
   let a = rint(1, max), b = rint(1, max);
   if (level === 'easy') b = rint(0, Math.max(0, max - a)); // no carry-friendly small sums
   const answer = a + b;
+  const bt = Math.floor(b / 10) * 10, bu = b % 10;
+  const method = (bt > 0 && bu > 0)
+    ? `${a} + ${bt} = ${a + bt}\n${a + bt} + ${bu} = ${answer}`
+    : `${a} + ${b} = ${answer}`;
   return base('math', 'additions', level, i, {
     question: `${a} + ${b} = ……`,
     testQuestion: `Combien font ${a} + ${b} ?`,
     answer: String(answer),
     explanation: `${a} + ${b} = ${answer}.`,
+    method,
     inputType: 'number',
     visual: dotsVisual([a, b], ['+']),
   });
@@ -62,11 +67,16 @@ function mathSub(level, i) {
   const max = level === 'easy' ? 10 : level === 'medium' ? 50 : 100;
   const a = rint(2, max), b = rint(1, a);
   const answer = a - b;
+  const bt = Math.floor(b / 10) * 10, bu = b % 10;
+  const method = (bt > 0 && bu > 0)
+    ? `${a} − ${bt} = ${a - bt}\n${a - bt} − ${bu} = ${answer}`
+    : `${a} − ${b} = ${answer}`;
   return base('math', 'soustractions', level, i, {
     question: `${a} − ${b} = ……`,
     testQuestion: `Combien font ${a} − ${b} ?`,
     answer: String(answer),
     explanation: `${a} − ${b} = ${answer}.`,
+    method,
     inputType: 'number',
     visual: dotsVisual([a, b], ['−']),
   });

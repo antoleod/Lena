@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import MathVisualSvg from './MathVisualSvg.jsx';
 
-// Notebook phase — the child solves these by hand. NO inputs here on purpose.
-export default function NotebookView({ exercises, subject, level, onBack, onStartTest }) {
-  const [doneInNotebook, setDoneInNotebook] = useState(false);
-
+// Notebook phase — the child solves these by hand. NO inputs, NO answers shown.
+export default function NotebookView({ exercises, subject, level, onBack, onDone }) {
   function speak(text) {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
@@ -50,18 +48,9 @@ export default function NotebookView({ exercises, subject, level, onBack, onStar
         </ol>
       </div>
 
-      {!doneInNotebook ? (
-        <button type="button" className="cahier-cta" onClick={() => setDoneInNotebook(true)}>
-          ✅ J'ai terminé dans mon cahier
-        </button>
-      ) : (
-        <div className="cahier-ready">
-          <p className="cahier-ready__msg">Super ! Tu peux maintenant vérifier tes réponses. 🌟</p>
-          <button type="button" className="cahier-cta cahier-cta--go" onClick={onStartTest}>
-            ▶️ Commencer le test
-          </button>
-        </div>
-      )}
+      <button type="button" className="cahier-cta" onClick={onDone}>
+        ✅ J'ai terminé mon cahier
+      </button>
     </div>
   );
 }

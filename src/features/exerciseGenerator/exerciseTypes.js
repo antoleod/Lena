@@ -52,6 +52,25 @@ export const SUBJECTS = [
   },
 ];
 
+// "Comment réfléchir ?" — thinking strategies shown with the explanations.
+export const THINKING_TIPS = {
+  math: [
+    'Commence par les unités.',
+    'Regarde les dizaines ensuite.',
+    'Découpe le calcul en petites étapes.',
+  ],
+  french: [
+    'Lis toute la phrase d’abord.',
+    'Cherche le mot qui sonne juste.',
+    'Relis une deuxième fois pour vérifier.',
+  ],
+  dictee: [
+    'Écoute bien le mot en entier.',
+    'Découpe le mot en syllabes.',
+    'Relis ce que tu as écrit.',
+  ],
+};
+
 export function getSubject(subjectId) {
   return SUBJECTS.find((s) => s.id === subjectId) || null;
 }

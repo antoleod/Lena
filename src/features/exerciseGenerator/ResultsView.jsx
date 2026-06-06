@@ -9,7 +9,7 @@ const ENCOURAGE = [
   'Continue à t’entraîner, tu progresses !',
 ];
 
-export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeErrors, errorCount }) {
+export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeErrors, onSeeExplanations, errorCount }) {
   const total = graded.length;
   const correct = graded.filter((g) => g.correct).length;
   const pct = total ? Math.round((correct / total) * 100) : 0;
@@ -50,6 +50,9 @@ export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeError
       </ul>
 
       <div className="cahier-actions">
+        {onSeeExplanations && (
+          <button type="button" className="cahier-cta cahier-cta--go" onClick={onSeeExplanations}>📖 Voir les explications</button>
+        )}
         <button type="button" className="cahier-cta" onClick={onRetryAll}>🔄 Refaire un cahier</button>
         {errorCount > 0 && (
           <button type="button" className="cahier-cta cahier-cta--soft" onClick={onSeeErrors}>

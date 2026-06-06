@@ -14,7 +14,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function assetUrl(path) {
-  const base = import.meta.env.BASE_URL || '/';
+  // import.meta.env is undefined outside Vite (e.g. Node test runner) — guard it.
+  const base = (import.meta.env && import.meta.env.BASE_URL) || '/';
   const clean = String(path ?? '').replace(/^\/+/, '');
   return `${base}${clean}`;
 }
