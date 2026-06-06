@@ -1,13 +1,13 @@
 import { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SUBJECTS, LEVELS, COUNTS, getSubject } from './exerciseTypes.js';
-import { generateExercises, gradeExercises } from './exerciseEngine.js';
+import { generateExercises } from './exerciseEngine.js';
 import { saveSession, getErrorCount } from './exerciseStorage.js';
 import NotebookView from './NotebookView.jsx';
 import TestView from './TestView.jsx';
 import ResultsView from './ResultsView.jsx';
 import ErrorReviewView from './ErrorReviewView.jsx';
-import { VerificationView, AnswersTableView, ExplanationsView } from './CahierFlowViews.jsx';
+import { VerificationView, AnswersTableView, ExplanationsView, PapaModeView } from './CahierFlowViews.jsx';
 import { useCahierT } from './cahierI18n.js';
 import './cahier.css';
 
@@ -46,10 +46,15 @@ export default function ExerciseGeneratorPage() {
     setPhase('notebook');
   }
 
-  function finishTest(answers) {
-    const result = gradeExercises(exercises, answers);
-    saveSession({ subject, type, level, count }, result);
-    setGraded(result);
+  // TestView now returns { [id]: { correct } } (first-try correctness).
+  function finishTest(resultMap) {
+    const graded = exercises.map((ex) => ({
+      exercise: ex,
+      userAnswer: resultMap[ex.id]?.correct ? String(ex.answer ?? ex.correctAnswer) : '—',
+      correct: !!resultMap[ex.id]?.correct,
+    }));
+    saveSession({ subject, type, level, count }, graded);
+    setGraded(graded);
     setErrorCount(getErrorCount());
     setPhase('results');
   }
@@ -70,11 +75,18 @@ export default function ExerciseGeneratorPage() {
     return (
       <VerificationView
         subject={subject}
+        errorCount={errorCount}
         onBack={() => setPhase('notebook')}
         onSeeAnswers={() => setPhase('answers')}
+        onSeeExplanations={() => setPhase('explanations')}
         onDoTest={() => setPhase('test')}
+        onPapa={() => setPhase('papa')}
+        onSeeErrors={() => setPhase('errors')}
       />
     );
+  }
+  if (phase === 'papa') {
+    return <PapaModeView exercises={exercises} onBack={() => setPhase('verify')} />;
   }
   if (phase === 'answers') {
     return (
@@ -112,7 +124,7 @@ export default function ExerciseGeneratorPage() {
       <ExplanationsView
         exercises={exercises}
         subject={subject}
-        onBack={() => setPhase(graded.length ? 'results' : 'answers')}
+        onBack={() => setPhase(graded.length ? 'results' : 'verify')}
         onRestart={() => setPhase('setup')}
         onContinue={startNotebook}
       />

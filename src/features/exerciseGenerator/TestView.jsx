@@ -1,17 +1,29 @@
 import { useState } from 'react';
 import MathVisualSvg from './MathVisualSvg.jsx';
 import { useCahierT } from './cahierI18n.js';
+import { checkAnswer } from './exerciseEngine.js';
+import { recordError } from '../../services/storage/errorHistoryStore.js';
 
-// Test phase — one exercise at a time, the child answers in the app.
+// Test phase — one exercise at a time. PEDAGOGICAL RULE: a wrong answer does
+// NOT advance. We stop, offer progressive help (hint → method → explanation →
+// solution) and let the child retry until she understands.
 export default function TestView({ exercises, onBack, onFinish }) {
   const L = useCahierT();
   const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [results, setResults] = useState({});   // { [id]: { correct } } first-try score
   const [draft, setDraft] = useState('');
+  const [feedback, setFeedback] = useState(null); // 'correct' | 'wrong' | null
+  const [selected, setSelected] = useState(null);
+  const [hintLevel, setHintLevel] = useState(0); // how many hints revealed
+  const [showMethod, setShowMethod] = useState(false);
+  const [showExpl, setShowExpl] = useState(false);
+  const [revealed, setRevealed] = useState(false); // solution shown → may continue
+  const [firstTryWrong, setFirstTryWrong] = useState(false);
 
   const ex = exercises[index];
   const total = exercises.length;
   const isLast = index === total - 1;
+  const hints = ex.hints && ex.hints.length ? ex.hints : (ex.hint ? [ex.hint] : []);
 
   function speak(text) {
     if (!window.speechSynthesis) return;
@@ -21,19 +33,36 @@ export default function TestView({ exercises, onBack, onFinish }) {
     window.speechSynthesis.speak(u);
   }
 
-  function commit(value) {
-    const next = { ...answers, [ex.id]: value };
-    setAnswers(next);
-    setDraft('');
-    if (isLast) onFinish(next);
-    else setIndex((i) => i + 1);
+  function evaluate(value) {
+    if (feedback === 'correct') return;
+    setSelected(value);
+    const ok = checkAnswer(ex, value);
+    if (ok) {
+      setFeedback('correct');
+    } else {
+      setFeedback('wrong');
+      setFirstTryWrong(true);
+      recordError({
+        topic: ex.subject || 'cahier', question: ex.testQuestion || ex.question,
+        correctAnswer: String(ex.answer ?? ex.correctAnswer), userAnswer: String(value), source: 'cahier-test',
+      });
+    }
   }
 
-  function submitDraft(e) {
-    e?.preventDefault();
-    if (draft.trim() === '') return;
-    commit(draft.trim());
+  function retry() {
+    setFeedback(null); setSelected(null); setDraft('');
   }
+
+  function advance() {
+    const next = { ...results, [ex.id]: { correct: !firstTryWrong } };
+    if (isLast) { onFinish(next); return; }
+    setResults(next);
+    setIndex((i) => i + 1);
+    setDraft(''); setFeedback(null); setSelected(null);
+    setHintLevel(0); setShowMethod(false); setShowExpl(false); setRevealed(false); setFirstTryWrong(false);
+  }
+
+  const canContinue = feedback === 'correct' || revealed;
 
   return (
     <div className="cahier-page">
@@ -51,37 +80,95 @@ export default function TestView({ exercises, onBack, onFinish }) {
 
       <div className="test-card">
         {ex.dictation && (
-          <button type="button" className="dictee-audio dictee-audio--big" onClick={() => speak(ex.dictation)}>
-            🔊 Réécouter
-          </button>
+          <button type="button" className="dictee-audio dictee-audio--big" onClick={() => speak(ex.dictation)}>🔊 Réécouter</button>
         )}
         <p className="test-card__question">{ex.testQuestion || ex.question}</p>
         {ex.visual && <MathVisualSvg visual={ex.visual} />}
       </div>
 
-      <div className="test-answer">
-        {ex.inputType === 'choice' && (ex.options || []).map((opt) => (
-          <button key={opt} type="button" className="test-choice" onClick={() => commit(opt)}>
-            {opt}
-          </button>
-        ))}
+      {/* Answer input (locked once correct or solution revealed) */}
+      {!canContinue && (
+        <div className="test-answer">
+          {ex.inputType === 'choice' && (ex.options || []).map((opt) => {
+            const wrongPick = feedback === 'wrong' && opt === selected;
+            return (
+              <button key={opt} type="button" className="test-choice" style={wrongPick ? { background: '#e74c3c', color: '#fff' } : {}} onClick={() => evaluate(opt)}>
+                {opt}
+              </button>
+            );
+          })}
 
-        {ex.inputType !== 'choice' && (
-          <form onSubmit={submitDraft} className="test-input-row">
-            <input
-              className="test-input"
-              inputMode={ex.inputType === 'number' ? 'numeric' : 'text'}
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              placeholder={L.t('taReponse')}
-              autoFocus
-            />
-            <button type="submit" className="cahier-cta cahier-cta--inline" disabled={draft.trim() === ''}>
-              {isLast ? L.t('terminer') : L.t('suivant')}
-            </button>
-          </form>
-        )}
-      </div>
+          {ex.inputType !== 'choice' && (
+            <form onSubmit={(e) => { e.preventDefault(); if (draft.trim()) evaluate(draft.trim()); }} className="test-input-row">
+              <input
+                className="test-input"
+                inputMode={ex.inputType === 'number' ? 'numeric' : 'text'}
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                placeholder={L.t('taReponse')}
+                autoFocus
+              />
+              <button type="submit" className="cahier-cta cahier-cta--inline" disabled={draft.trim() === ''}>
+                {L.t('verifier')}
+              </button>
+            </form>
+          )}
+        </div>
+      )}
+
+      {/* WRONG — block progression, progressive help */}
+      {feedback === 'wrong' && (
+        <div className="test-help">
+          <p className="test-help__head test-help__head--ko">❌ {L.t('notCorrect')} {L.t('pasGrave')}</p>
+
+          {hints.slice(0, hintLevel).map((h, k) => (
+            <p key={k} className="test-help__hint">💡 {h}</p>
+          ))}
+          <div className="test-help__actions">
+            {hintLevel < hints.length && (
+              <button type="button" className="geo-hint-btn" onClick={() => setHintLevel((n) => n + 1)}>{L.t('indice')}</button>
+            )}
+            {ex.method && !showMethod && (
+              <button type="button" className="geo-hint-btn" onClick={() => setShowMethod(true)}>{L.t('methodeBtn')}</button>
+            )}
+            {ex.explanation && !showExpl && (
+              <button type="button" className="geo-hint-btn" onClick={() => setShowExpl(true)}>{L.t('explicationBtn')}</button>
+            )}
+          </div>
+
+          {showMethod && ex.method && (
+            <div className="test-help__method">
+              <strong>{L.t('methodeBtn')}</strong>
+              {String(ex.method).split('\n').map((line, k) => <span key={k} className="explain-item__step">{line}</span>)}
+            </div>
+          )}
+          {showExpl && ex.explanation && <p className="test-help__expl">📖 {ex.explanation}</p>}
+
+          <div className="cahier-actions">
+            <button type="button" className="cahier-cta cahier-cta--go" onClick={retry}>{L.t('reessayer')}</button>
+            {!revealed && (
+              <button type="button" className="cahier-cta cahier-cta--soft" onClick={() => setRevealed(true)}>{L.t('voirSolution')}</button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Solution revealed (gave up) — allow continue, counted as not first-try */}
+      {feedback === 'wrong' && revealed && (
+        <div className="test-help test-help--solution">
+          <p>{L.t('solution')} : <strong>{ex.inputType === 'true_false' ? (ex.answer ? 'Vrai' : 'Faux') : String(ex.answer ?? ex.correctAnswer)}</strong></p>
+          <button type="button" className="cahier-cta" onClick={advance}>{isLast ? L.t('voirResultat') : L.t('exerciceSuivant')}</button>
+        </div>
+      )}
+
+      {/* CORRECT */}
+      {feedback === 'correct' && (
+        <div className="test-help test-help--ok">
+          <p className="test-help__head test-help__head--ok">✅ {L.t('goodAnswer')} {firstTryWrong ? '' : L.t('felicitations')}</p>
+          {ex.improvementTip && <p className="test-help__tip">{L.t('conseil')} : {ex.improvementTip}</p>}
+          <button type="button" className="cahier-cta" onClick={advance}>{isLast ? L.t('voirResultat') : L.t('exerciceSuivant')}</button>
+        </div>
+      )}
     </div>
   );
 }

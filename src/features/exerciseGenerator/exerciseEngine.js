@@ -16,7 +16,16 @@ export function generateExercises({ subject, type, level = 'easy', count = 10, d
   }
   setGenLocale(locale);
   const n = Math.max(1, Number(count) || 10);
-  return Array.from({ length: n }, (_, i) => gen(level, i, { digits }));
+  // Generate WITHOUT duplicate questions on the same sheet (regenerate clashes).
+  const list = [];
+  const seen = new Set();
+  for (let i = 0; i < n; i++) {
+    let ex = gen(level, i, { digits });
+    let tries = 0;
+    while (ex && seen.has(ex.question) && tries++ < 25) ex = gen(level, i, { digits });
+    if (ex) { seen.add(ex.question); list.push(ex); }
+  }
+  return list;
 }
 
 /** Flexible normalization for answer comparison. */

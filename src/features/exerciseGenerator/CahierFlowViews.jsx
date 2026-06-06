@@ -8,6 +8,7 @@
 // she finishes her notebook. We never reveal solutions during solving.
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { useState } from 'react';
 import { useCahierT } from './cahierI18n.js';
 
 function answerLabel(ex) {
@@ -16,7 +17,7 @@ function answerLabel(ex) {
 }
 
 // ── Étape : "J'ai terminé" → Vérification ────────────────────────────────────
-export function VerificationView({ subject, onBack, onSeeAnswers, onDoTest }) {
+export function VerificationView({ subject, onBack, onSeeAnswers, onSeeExplanations, onDoTest, onPapa, onSeeErrors, errorCount }) {
   const L = useCahierT();
   return (
     <div className="cahier-page">
@@ -30,9 +31,51 @@ export function VerificationView({ subject, onBack, onSeeAnswers, onDoTest }) {
       </div>
 
       <div className="cahier-actions">
-        <button type="button" className="cahier-cta" onClick={onSeeAnswers}>{L.t('voirReponses')}</button>
+        <button type="button" className="cahier-cta" onClick={onSeeAnswers}>👀 {L.t('voirReponses')}</button>
+        <button type="button" className="cahier-cta" onClick={onSeeExplanations}>{L.t('voirExplications')}</button>
         <button type="button" className="cahier-cta cahier-cta--go" onClick={onDoTest}>{L.t('faireTest')}</button>
+        <button type="button" className="cahier-cta" onClick={onPapa} style={{ background: 'linear-gradient(135deg,#5dade2,#2e86c1)' }}>{L.t('corrigerPapa')}</button>
+        {errorCount > 0 && (
+          <button type="button" className="cahier-cta cahier-cta--soft" onClick={onSeeErrors}>🎯 {L.t('mesErreurs')} ({errorCount})</button>
+        )}
         <button type="button" className="cahier-cta cahier-cta--soft" onClick={onBack}>{L.t('continuerCahier')}</button>
+      </div>
+    </div>
+  );
+}
+
+// ── Mode "Corriger avec papa" — guidé, une question à la fois ────────────────
+export function PapaModeView({ exercises, onBack }) {
+  const L = useCahierT();
+  const [index, setIndex] = useState(0);
+  const ex = exercises[index];
+  const total = exercises.length;
+  const isLast = index === total - 1;
+  return (
+    <div className="cahier-page">
+      <div className="cahier-header cahier-header--slim">
+        <button type="button" className="exam-back-btn" onClick={onBack}>←</button>
+        <div><span className="eyebrow">👨‍👧 {L.t('corrigerPapa')}</span><h1>{L.t('papaTitle')}</h1></div>
+      </div>
+      <div className="cahier-progress"><div className="cahier-progress__fill" style={{ width: `${((index + 1) / total) * 100}%` }} /></div>
+
+      <div className="explain-item" style={{ borderLeftColor: '#2e86c1' }}>
+        <p className="explain-item__q"><strong>{L.t('exercice')} {index + 1}</strong> — {ex.testQuestion || ex.question}</p>
+        <p className="explain-item__a">{L.t('reponse')} : <strong>{ex.inputType === 'true_false' ? (ex.answer ? 'Vrai' : 'Faux') : String(ex.answer ?? ex.correctAnswer)}</strong></p>
+        {ex.method && (
+          <div className="explain-item__method">
+            <span className="explain-item__method-label">{L.t('methode')}</span>
+            {String(ex.method).split('\n').map((line, k) => <span key={k} className="explain-item__step">{line}</span>)}
+          </div>
+        )}
+        {ex.improvementTip && <p className="explain-item__exp">{L.t('conseil')} : {ex.improvementTip}</p>}
+        {!ex.method && ex.explanation && <p className="explain-item__exp">{ex.explanation}</p>}
+      </div>
+
+      <div className="cahier-actions">
+        {!isLast
+          ? <button type="button" className="cahier-cta" onClick={() => setIndex((i) => i + 1)}>{L.t('suivant')}</button>
+          : <button type="button" className="cahier-cta cahier-cta--soft" onClick={onBack}>← {L.t('verifTitle')}</button>}
       </div>
     </div>
   );

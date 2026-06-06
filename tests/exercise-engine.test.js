@@ -58,6 +58,22 @@ test('locale localizes math statements (fr/nl/en/es)', () => {
   assert.match(m.testQuestion, /Convert/);
 });
 
+test('no duplicate questions on a sheet; math has progressive hints + method', () => {
+  for (const type of ['additions', 'soustractions']) {
+    const list = generateExercises({ subject: 'math', type, level: 'medium', count: 12 });
+    const qs = list.map((e) => e.question);
+    assert.equal(new Set(qs).size, qs.length, `${type} produced duplicates`);
+    for (const ex of list) {
+      assert.ok(Array.isArray(ex.hints) && ex.hints.length === 3, `${type} needs 3 hints`);
+      assert.ok(ex.method && ex.improvementTip);
+    }
+  }
+  // french "complete" carries 3 contextual hints and avoids duplicates
+  const fr = generateExercises({ subject: 'french', type: 'completer', level: 'easy', count: 8 });
+  assert.equal(new Set(fr.map((e) => e.question)).size, fr.length);
+  assert.ok(fr.every((e) => Array.isArray(e.hints) && e.hints.length === 3));
+});
+
 test('normalizeAnswer + flexible matching', () => {
   assert.equal(normalizeAnswer('  Bonjour. '), 'bonjour');
   assert.equal(normalizeAnswer('ÉCOLE'), 'ecole');

@@ -94,6 +94,12 @@ function mathAdd(level, i, opts = {}) {
     answer: String(answer),
     explanation: `${a} + ${b} = ${answer}.`,
     method,
+    improvementTip: 'Découpe le grand calcul en plusieurs petits calculs faciles.',
+    hints: [
+      'Découpe le calcul en petites étapes.',
+      bt > 0 ? `Ajoute d’abord les dizaines : ${a} + ${bt}.` : 'Compte à partir du plus grand nombre.',
+      bt > 0 && bu > 0 ? `${a} + ${bt} = ${a + bt}, puis ajoute ${bu}.` : `Tu y es presque, vérifie ton calcul.`,
+    ],
     inputType: 'number',
     visual: dotsVisual([a, b], ['+']),
   });
@@ -113,12 +119,19 @@ function mathSub(level, i, opts = {}) {
   const method = (bt > 0 && bu > 0)
     ? `${a} − ${bt} = ${a - bt}\n${a - bt} − ${bu} = ${answer}`
     : `${a} − ${b} = ${answer}`;
+  const bu2 = b % 10, au2 = a % 10;
   return base('math', 'soustractions', level, i, {
     question: `${a} − ${b} = ……`,
     testQuestion: mq('−', a, b),
     answer: String(answer),
     explanation: `${a} − ${b} = ${answer}.`,
     method,
+    improvementTip: 'Sépare toujours les unités et les dizaines pour ne pas te tromper.',
+    hints: [
+      'Regarde les unités d’abord.',
+      au2 < bu2 ? `Peux-tu faire ${au2} − ${bu2} ? Sinon, prends une dizaine.` : 'Enlève les unités, puis les dizaines.',
+      bt > 0 ? `${a} − ${bt} = ${a - bt}, puis enlève ${bu}.` : 'Compte à rebours doucement.',
+    ],
     inputType: 'number',
     visual: dotsVisual([a, b], ['−']),
   });
@@ -225,14 +238,14 @@ function mathProbleme(level, i) {
 // ── FRANÇAIS ──────────────────────────────────────────────────────────────────
 
 const FR_COMPLETE = [
-  { s: 'Le chat boit du ……', a: 'lait', opts: ['lait', 'pain', 'sel'] },
-  { s: 'Je mange une …… rouge.', a: 'pomme', opts: ['pomme', 'porte', 'lune'] },
-  { s: 'Le soleil est dans le ……', a: 'ciel', opts: ['ciel', 'lit', 'bus'] },
-  { s: "L'oiseau vole dans le ……", a: 'ciel', opts: ['ciel', 'verre', 'pré'] },
-  { s: 'La nuit, je vais me ……', a: 'coucher', opts: ['coucher', 'laver', 'lever'] },
-  { s: 'En hiver, il fait …….', a: 'froid', opts: ['froid', 'chaud', 'beau'] },
-  { s: 'Le poisson nage dans l’……', a: 'eau', opts: ['eau', 'air', 'arbre'] },
-  { s: 'Je lis un …… à la bibliothèque.', a: 'livre', opts: ['livre', 'lit', 'bol'] },
+  { s: 'Le chat boit du ……', a: 'lait', opts: ['lait', 'pain', 'sel'], h: ['Pense à ce que boit un chat.', 'C’est blanc et ça vient de la vache.', 'Le mot commence par L.'] },
+  { s: 'Je mange une …… rouge.', a: 'pomme', opts: ['pomme', 'porte', 'lune'], h: ['Cherche un fruit rouge.', 'On le croque, il est rond.', 'Le mot commence par P.'] },
+  { s: 'Le soleil est dans le ……', a: 'ciel', opts: ['ciel', 'lit', 'bus'], h: ['Lève la tête dehors.', 'C’est tout en haut, au-dessus de nous.', 'Le mot commence par C.'] },
+  { s: "L'oiseau vole dans le ……", a: 'ciel', opts: ['ciel', 'verre', 'pré'], h: ['Où volent les oiseaux ?', 'Tout en haut, dans les airs.', 'Le mot commence par C.'] },
+  { s: 'La nuit, je vais me ……', a: 'coucher', opts: ['coucher', 'laver', 'lever'], h: ['Que fait-on le soir pour dormir ?', 'On va dans son lit.', 'Le mot commence par C.'] },
+  { s: 'En hiver, il fait …….', a: 'froid', opts: ['froid', 'chaud', 'beau'], h: ['Pense à la météo en hiver.', 'Est-ce qu’il fait chaud ou froid ?', 'Le mot commence par F.'] },
+  { s: 'Le poisson nage dans l’……', a: 'eau', opts: ['eau', 'air', 'arbre'], h: ['Où vit le poisson ?', 'On en boit aussi, c’est liquide.', 'Le mot commence par E.'] },
+  { s: 'Je lis un …… à la bibliothèque.', a: 'livre', opts: ['livre', 'lit', 'bol'], h: ['Que lit-on ?', 'Il a des pages avec des histoires.', 'Le mot commence par L.'] },
 ];
 
 function frCompleter(level, i) {
@@ -244,6 +257,7 @@ function frCompleter(level, i) {
     answer: item.a,
     options: shuffle(item.opts),
     explanation: `La bonne phrase : ${item.s.replace('……', item.a)}`,
+    hints: item.h,
     inputType: 'choice',
   });
 }
