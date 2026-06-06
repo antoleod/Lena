@@ -22,7 +22,13 @@
             "15"
           ],
           "answer": "14",
-          "correction": "On ajoute 3 à chaque fois : 14."
+          "correction": "On ajoute 3 à chaque fois : 14.",
+          "prompt_nl": "Maak de rij af: 2, 5, 8, 11, …",
+          "prompt_en": "Continue the sequence: 2, 5, 8, 11, …",
+          "prompt_es": "Continúa la serie: 2, 5, 8, 11, …",
+          "correction_nl": "Elke keer +3: 14.",
+          "correction_en": "Add 3 each time: 14.",
+          "correction_es": "Se suma 3 cada vez: 14."
         },
         {
           "id": "q10",
@@ -35,7 +41,13 @@
             "11"
           ],
           "answer": "8",
-          "correction": "On ajoute 1 à chaque fois : 8."
+          "correction": "On ajoute 1 à chaque fois : 8.",
+          "prompt_nl": "Maak de rij af: 4, 5, 6, 7, …",
+          "prompt_en": "Continue the sequence: 4, 5, 6, 7, …",
+          "prompt_es": "Continúa la serie: 4, 5, 6, 7, …",
+          "correction_nl": "Elke keer +1: 8.",
+          "correction_en": "Add 1 each time: 8.",
+          "correction_es": "Se suma 1 cada vez: 8."
         },
         {
           "id": "q11",
@@ -48,7 +60,13 @@
             "15"
           ],
           "answer": "12",
-          "correction": "On ajoute 1 à chaque fois : 12."
+          "correction": "On ajoute 1 à chaque fois : 12.",
+          "prompt_nl": "Maak de rij af: 8, 9, 10, 11, …",
+          "prompt_en": "Continue the sequence: 8, 9, 10, 11, …",
+          "prompt_es": "Continúa la serie: 8, 9, 10, 11, …",
+          "correction_nl": "Elke keer +1: 12.",
+          "correction_en": "Add 1 each time: 12.",
+          "correction_es": "Se suma 1 cada vez: 12."
         },
         {
           "id": "q12",
@@ -61,7 +79,13 @@
             "15"
           ],
           "answer": "15",
-          "correction": "On ajoute 2 à chaque fois : 15."
+          "correction": "On ajoute 2 à chaque fois : 15.",
+          "prompt_nl": "Maak de rij af: 7, 9, 11, 13, …",
+          "prompt_en": "Continue the sequence: 7, 9, 11, 13, …",
+          "prompt_es": "Continúa la serie: 7, 9, 11, 13, …",
+          "correction_nl": "Elke keer +2: 15.",
+          "correction_en": "Add 2 each time: 15.",
+          "correction_es": "Se suma 2 cada vez: 15."
         },
         {
           "id": "q13",
@@ -74,7 +98,13 @@
             "17"
           ],
           "answer": "14",
-          "correction": "On ajoute 2 à chaque fois : 14."
+          "correction": "On ajoute 2 à chaque fois : 14.",
+          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
+          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
+          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
+          "correction_nl": "Elke keer +2: 14.",
+          "correction_en": "Add 2 each time: 14.",
+          "correction_es": "Se suma 2 cada vez: 14."
         },
         {
           "id": "q14",
@@ -128,7 +158,13 @@
             "16"
           ],
           "answer": "16",
-          "correction": "On ajoute 1 à chaque fois : 16."
+          "correction": "On ajoute 1 à chaque fois : 16.",
+          "prompt_nl": "Maak de rij af: 12, 13, 14, 15, …",
+          "prompt_en": "Continue the sequence: 12, 13, 14, 15, …",
+          "prompt_es": "Continúa la serie: 12, 13, 14, 15, …",
+          "correction_nl": "Elke keer +1: 16.",
+          "correction_en": "Add 1 each time: 16.",
+          "correction_es": "Se suma 1 cada vez: 16."
         },
         {
           "id": "q12",
@@ -141,7 +177,13 @@
             "25"
           ],
           "answer": "23",
-          "correction": "On ajoute 2 à chaque fois : 23."
+          "correction": "On ajoute 2 à chaque fois : 23.",
+          "prompt_nl": "Maak de rij af: 15, 17, 19, 21, …",
+          "prompt_en": "Continue the sequence: 15, 17, 19, 21, …",
+          "prompt_es": "Continúa la serie: 15, 17, 19, 21, …",
+          "correction_nl": "Elke keer +2: 23.",
+          "correction_en": "Add 2 each time: 23.",
+          "correction_es": "Se suma 2 cada vez: 23."
         },
         {
           "id": "q13",
@@ -154,7 +196,13 @@
             "16"
           ],
           "answer": "16",
-          "correction": "On ajoute 3 à chaque fois : 16."
+          "correction": "On ajoute 3 à chaque fois : 16.",
+          "prompt_nl": "Maak de rij af: 4, 7, 10, 13, …",
+          "prompt_en": "Continue the sequence: 4, 7, 10, 13, …",
+          "prompt_es": "Continúa la serie: 4, 7, 10, 13, …",
+          "correction_nl": "Elke keer +3: 16.",
+          "correction_en": "Add 3 each time: 16.",
+          "correction_es": "Se suma 3 cada vez: 16."
         },
         {
           "id": "q14",
@@ -167,7 +215,13 @@
             "28"
           ],
           "answer": "28",
-          "correction": "On ajoute 4 à chaque fois : 28."
+          "correction": "On ajoute 4 à chaque fois : 28.",
+          "prompt_nl": "Maak de rij af: 12, 16, 20, 24, …",
+          "prompt_en": "Continue the sequence: 12, 16, 20, 24, …",
+          "prompt_es": "Continúa la serie: 12, 16, 20, 24, …",
+          "correction_nl": "Elke keer +4: 28.",
+          "correction_en": "Add 4 each time: 28.",
+          "correction_es": "Se suma 4 cada vez: 28."
         },
         {
           "id": "q15",
@@ -180,7 +234,13 @@
             "20"
           ],
           "answer": "21",
-          "correction": "On ajoute 2 à chaque fois : 21."
+          "correction": "On ajoute 2 à chaque fois : 21.",
+          "prompt_nl": "Maak de rij af: 13, 15, 17, 19, …",
+          "prompt_en": "Continue the sequence: 13, 15, 17, 19, …",
+          "prompt_es": "Continúa la serie: 13, 15, 17, 19, …",
+          "correction_nl": "Elke keer +2: 21.",
+          "correction_en": "Add 2 each time: 21.",
+          "correction_es": "Se suma 2 cada vez: 21."
         },
         {
           "id": "q16",
@@ -193,7 +253,13 @@
             "22"
           ],
           "answer": "28",
-          "correction": "On ajoute 4 à chaque fois : 28."
+          "correction": "On ajoute 4 à chaque fois : 28.",
+          "prompt_nl": "Maak de rij af: 12, 16, 20, 24, …",
+          "prompt_en": "Continue the sequence: 12, 16, 20, 24, …",
+          "prompt_es": "Continúa la serie: 12, 16, 20, 24, …",
+          "correction_nl": "Elke keer +4: 28.",
+          "correction_en": "Add 4 each time: 28.",
+          "correction_es": "Se suma 4 cada vez: 28."
         },
         {
           "id": "q17",
@@ -259,7 +325,13 @@
             "31"
           ],
           "answer": "29",
-          "correction": "On ajoute 1 à chaque fois : 29."
+          "correction": "On ajoute 1 à chaque fois : 29.",
+          "prompt_nl": "Maak de rij af: 25, 26, 27, 28, …",
+          "prompt_en": "Continue the sequence: 25, 26, 27, 28, …",
+          "prompt_es": "Continúa la serie: 25, 26, 27, 28, …",
+          "correction_nl": "Elke keer +1: 29.",
+          "correction_en": "Add 1 each time: 29.",
+          "correction_es": "Se suma 1 cada vez: 29."
         },
         {
           "id": "q12",
@@ -272,7 +344,13 @@
             "23"
           ],
           "answer": "29",
-          "correction": "On ajoute 5 à chaque fois : 29."
+          "correction": "On ajoute 5 à chaque fois : 29.",
+          "prompt_nl": "Maak de rij af: 9, 14, 19, 24, …",
+          "prompt_en": "Continue the sequence: 9, 14, 19, 24, …",
+          "prompt_es": "Continúa la serie: 9, 14, 19, 24, …",
+          "correction_nl": "Elke keer +5: 29.",
+          "correction_en": "Add 5 each time: 29.",
+          "correction_es": "Se suma 5 cada vez: 29."
         },
         {
           "id": "q13",
@@ -285,7 +363,13 @@
             "28"
           ],
           "answer": "30",
-          "correction": "On ajoute 2 à chaque fois : 30."
+          "correction": "On ajoute 2 à chaque fois : 30.",
+          "prompt_nl": "Maak de rij af: 22, 24, 26, 28, …",
+          "prompt_en": "Continue the sequence: 22, 24, 26, 28, …",
+          "prompt_es": "Continúa la serie: 22, 24, 26, 28, …",
+          "correction_nl": "Elke keer +2: 30.",
+          "correction_en": "Add 2 each time: 30.",
+          "correction_es": "Se suma 2 cada vez: 30."
         },
         {
           "id": "q14",
@@ -298,7 +382,13 @@
             "20"
           ],
           "answer": "17",
-          "correction": "On ajoute 4 à chaque fois : 17."
+          "correction": "On ajoute 4 à chaque fois : 17.",
+          "prompt_nl": "Maak de rij af: 1, 5, 9, 13, …",
+          "prompt_en": "Continue the sequence: 1, 5, 9, 13, …",
+          "prompt_es": "Continúa la serie: 1, 5, 9, 13, …",
+          "correction_nl": "Elke keer +4: 17.",
+          "correction_en": "Add 4 each time: 17.",
+          "correction_es": "Se suma 4 cada vez: 17."
         },
         {
           "id": "q15",
@@ -311,7 +401,13 @@
             "20"
           ],
           "answer": "21",
-          "correction": "On ajoute 2 à chaque fois : 21."
+          "correction": "On ajoute 2 à chaque fois : 21.",
+          "prompt_nl": "Maak de rij af: 13, 15, 17, 19, …",
+          "prompt_en": "Continue the sequence: 13, 15, 17, 19, …",
+          "prompt_es": "Continúa la serie: 13, 15, 17, 19, …",
+          "correction_nl": "Elke keer +2: 21.",
+          "correction_en": "Add 2 each time: 21.",
+          "correction_es": "Se suma 2 cada vez: 21."
         },
         {
           "id": "q16",
@@ -324,7 +420,13 @@
             "35"
           ],
           "answer": "29",
-          "correction": "On ajoute 4 à chaque fois : 29."
+          "correction": "On ajoute 4 à chaque fois : 29.",
+          "prompt_nl": "Maak de rij af: 13, 17, 21, 25, …",
+          "prompt_en": "Continue the sequence: 13, 17, 21, 25, …",
+          "prompt_es": "Continúa la serie: 13, 17, 21, 25, …",
+          "correction_nl": "Elke keer +4: 29.",
+          "correction_en": "Add 4 each time: 29.",
+          "correction_es": "Se suma 4 cada vez: 29."
         },
         {
           "id": "q17",

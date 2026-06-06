@@ -21,7 +21,13 @@
             "5"
           ],
           "answer": "3",
-          "correction": "Le triangle a 3 côtés."
+          "correction": "Le triangle a 3 côtés.",
+          "prompt_nl": "Hoeveel zijden heeft een driehoek?",
+          "prompt_en": "How many sides does a triangle have?",
+          "prompt_es": "¿Cuántos lados tiene un triángulo?",
+          "correction_nl": "Een driehoek heeft 3 zijden.",
+          "correction_en": "A triangle has 3 sides.",
+          "correction_es": "Un triángulo tiene 3 lados."
         },
         {
           "id": "q4",
@@ -33,7 +39,13 @@
             "le cercle"
           ],
           "answer": "le triangle",
-          "correction": "Le triangle a 3 coins."
+          "correction": "Le triangle a 3 coins.",
+          "prompt_nl": "Welke vorm heeft 3 hoeken?",
+          "prompt_en": "Which shape has 3 corners?",
+          "prompt_es": "¿Qué forma tiene 3 vértices?",
+          "correction_nl": "De driehoek heeft 3 hoeken.",
+          "correction_en": "The triangle has 3 corners.",
+          "correction_es": "El triángulo tiene 3 vértices."
         },
         {
           "id": "q6",
@@ -45,7 +57,13 @@
             "5"
           ],
           "answer": "4",
-          "correction": "Le carré a 4 côtés égaux."
+          "correction": "Le carré a 4 côtés égaux.",
+          "prompt_nl": "Hoeveel zijden heeft een vierkant?",
+          "prompt_en": "How many sides does a square have?",
+          "prompt_es": "¿Cuántos lados tiene un cuadrado?",
+          "correction_nl": "Een vierkant heeft 4 gelijke zijden.",
+          "correction_en": "A square has 4 equal sides.",
+          "correction_es": "Un cuadrado tiene 4 lados iguales."
         },
         {
           "id": "q8",
@@ -57,7 +75,13 @@
             "aucun côté"
           ],
           "answer": "des côtés longs et courts",
-          "correction": "Rectangle : longs et courts."
+          "correction": "Rectangle : longs et courts.",
+          "prompt_nl": "Een rechthoek heeft:",
+          "prompt_en": "A rectangle has:",
+          "prompt_es": "Un rectángulo tiene:",
+          "correction_nl": "Lange en korte zijden.",
+          "correction_en": "Long and short sides.",
+          "correction_es": "Lados largos y cortos."
         },
         {
           "id": "q10",
@@ -69,14 +93,26 @@
             "triangle"
           ],
           "answer": "rectangle",
-          "correction": "Souvent un rectangle."
+          "correction": "Souvent un rectangle.",
+          "prompt_nl": "Een raam heeft vaak de vorm van een:",
+          "prompt_en": "A window often has the shape of a:",
+          "prompt_es": "Una ventana suele tener forma de:",
+          "correction_nl": "Vaak een rechthoek.",
+          "correction_en": "Usually a rectangle.",
+          "correction_es": "Normalmente un rectángulo."
         },
         {
           "id": "q12",
           "type": "true_false",
           "prompt": "Un triangle a 4 côtés.",
           "answer": false,
-          "correction": "Le triangle a 3 côtés."
+          "correction": "Le triangle a 3 côtés.",
+          "prompt_nl": "Een driehoek heeft 4 zijden.",
+          "prompt_en": "A triangle has 4 sides.",
+          "prompt_es": "Un triángulo tiene 4 lados.",
+          "correction_nl": "Een driehoek heeft 3 zijden.",
+          "correction_en": "A triangle has 3 sides.",
+          "correction_es": "Un triángulo tiene 3 lados."
         },
         {
           "id": "q14",
@@ -88,14 +124,26 @@
             "0"
           ],
           "answer": "4",
-          "correction": "Le carré a 4 coins."
+          "correction": "Le carré a 4 coins.",
+          "prompt_nl": "Hoeveel hoeken heeft een vierkant?",
+          "prompt_en": "How many corners does a square have?",
+          "prompt_es": "¿Cuántos vértices tiene un cuadrado?",
+          "correction_nl": "Een vierkant heeft 4 hoeken.",
+          "correction_en": "A square has 4 corners.",
+          "correction_es": "Un cuadrado tiene 4 vértices."
         },
         {
           "id": "q16",
           "type": "true_false",
           "prompt": "Un carré a tous ses côtés égaux.",
           "answer": true,
-          "correction": "Oui, 4 côtés égaux."
+          "correction": "Oui, 4 côtés égaux.",
+          "prompt_nl": "Een vierkant heeft alle zijden gelijk.",
+          "prompt_en": "A square has all equal sides.",
+          "prompt_es": "Un cuadrado tiene todos los lados iguales.",
+          "correction_nl": "Ja, 4 gelijke zijden.",
+          "correction_en": "Yes, 4 equal sides.",
+          "correction_es": "Sí, 4 lados iguales."
         }
       ]
     },
@@ -112,7 +160,13 @@
             "triangle"
           ],
           "answer": "rectangle",
-          "correction": "Souvent un rectangle."
+          "correction": "Souvent un rectangle.",
+          "prompt_nl": "Een raam heeft vaak de vorm van een:",
+          "prompt_en": "A window often has the shape of a:",
+          "prompt_es": "Una ventana suele tener forma de:",
+          "correction_nl": "Vaak een rechthoek.",
+          "correction_en": "Usually a rectangle.",
+          "correction_es": "Normalmente un rectángulo."
         },
         {
           "id": "q4",
@@ -124,7 +178,13 @@
             "5"
           ],
           "answer": "4",
-          "correction": "Le carré a 4 côtés égaux."
+          "correction": "Le carré a 4 côtés égaux.",
+          "prompt_nl": "Hoeveel zijden heeft een vierkant?",
+          "prompt_en": "How many sides does a square have?",
+          "prompt_es": "¿Cuántos lados tiene un cuadrado?",
+          "correction_nl": "Een vierkant heeft 4 gelijke zijden.",
+          "correction_en": "A square has 4 equal sides.",
+          "correction_es": "Un cuadrado tiene 4 lados iguales."
         },
         {
           "id": "q6",
@@ -136,14 +196,26 @@
             "6"
           ],
           "answer": "4",
-          "correction": "Le rectangle a 4 côtés."
+          "correction": "Le rectangle a 4 côtés.",
+          "prompt_nl": "Hoeveel zijden heeft een rechthoek?",
+          "prompt_en": "How many sides does a rectangle have?",
+          "prompt_es": "¿Cuántos lados tiene un rectángulo?",
+          "correction_nl": "Een rechthoek heeft 4 zijden.",
+          "correction_en": "A rectangle has 4 sides.",
+          "correction_es": "Un rectángulo tiene 4 lados."
         },
         {
           "id": "q8",
           "type": "true_false",
           "prompt": "Un carré a tous ses côtés égaux.",
           "answer": true,
-          "correction": "Oui, 4 côtés égaux."
+          "correction": "Oui, 4 côtés égaux.",
+          "prompt_nl": "Een vierkant heeft alle zijden gelijk.",
+          "prompt_en": "A square has all equal sides.",
+          "prompt_es": "Un cuadrado tiene todos los lados iguales.",
+          "correction_nl": "Ja, 4 gelijke zijden.",
+          "correction_en": "Yes, 4 equal sides.",
+          "correction_es": "Sí, 4 lados iguales."
         },
         {
           "id": "q10",
@@ -155,7 +227,13 @@
             "0"
           ],
           "answer": "4",
-          "correction": "Le carré a 4 coins."
+          "correction": "Le carré a 4 coins.",
+          "prompt_nl": "Hoeveel hoeken heeft een vierkant?",
+          "prompt_en": "How many corners does a square have?",
+          "prompt_es": "¿Cuántos vértices tiene un cuadrado?",
+          "correction_nl": "Een vierkant heeft 4 hoeken.",
+          "correction_en": "A square has 4 corners.",
+          "correction_es": "Un cuadrado tiene 4 vértices."
         },
         {
           "id": "q12",
@@ -167,7 +245,13 @@
             "aucun côté"
           ],
           "answer": "des côtés longs et courts",
-          "correction": "Rectangle : longs et courts."
+          "correction": "Rectangle : longs et courts.",
+          "prompt_nl": "Een rechthoek heeft:",
+          "prompt_en": "A rectangle has:",
+          "prompt_es": "Un rectángulo tiene:",
+          "correction_nl": "Lange en korte zijden.",
+          "correction_en": "Long and short sides.",
+          "correction_es": "Lados largos y cortos."
         },
         {
           "id": "q14",
@@ -177,7 +261,13 @@
           "accept": [
             "cercle"
           ],
-          "correction": "C’est le cercle."
+          "correction": "C’est le cercle.",
+          "prompt_nl": "De ronde vorm heet de ___ .",
+          "prompt_en": "The round shape is called a ___ .",
+          "prompt_es": "La forma redonda se llama ___ .",
+          "correction_nl": "Het is de cirkel.",
+          "correction_en": "It is the circle.",
+          "correction_es": "Es el círculo."
         },
         {
           "id": "q16",
@@ -189,7 +279,13 @@
             "triangle"
           ],
           "answer": "cercle",
-          "correction": "La balle est ronde."
+          "correction": "La balle est ronde.",
+          "prompt_nl": "Een bal heeft de vorm van een:",
+          "prompt_en": "A ball has the shape of a:",
+          "prompt_es": "Una pelota tiene forma de:",
+          "correction_nl": "Een bal is rond (cirkel).",
+          "correction_en": "A ball is round (circle).",
+          "correction_es": "Una pelota es redonda (círculo)."
         },
         {
           "id": "q18",
@@ -201,7 +297,13 @@
             "le triangle"
           ],
           "answer": "le cercle",
-          "correction": "Le cercle est rond, sans coin."
+          "correction": "Le cercle est rond, sans coin.",
+          "prompt_nl": "Welke vorm heeft geen hoek?",
+          "prompt_en": "Which shape has no corner?",
+          "prompt_es": "¿Qué forma no tiene esquina?",
+          "correction_nl": "De cirkel is rond, zonder hoeken.",
+          "correction_en": "A circle is round, with no corners.",
+          "correction_es": "El círculo es redondo, sin esquinas."
         },
         {
           "id": "q20",
@@ -213,7 +315,13 @@
             "5"
           ],
           "answer": "3",
-          "correction": "Le triangle a 3 côtés."
+          "correction": "Le triangle a 3 côtés.",
+          "prompt_nl": "Hoeveel zijden heeft een driehoek?",
+          "prompt_en": "How many sides does a triangle have?",
+          "prompt_es": "¿Cuántos lados tiene un triángulo?",
+          "correction_nl": "Een driehoek heeft 3 zijden.",
+          "correction_en": "A triangle has 3 sides.",
+          "correction_es": "Un triángulo tiene 3 lados."
         }
       ]
     },
@@ -230,14 +338,26 @@
             "triangle"
           ],
           "answer": "cercle",
-          "correction": "La balle est ronde."
+          "correction": "La balle est ronde.",
+          "prompt_nl": "Een bal heeft de vorm van een:",
+          "prompt_en": "A ball has the shape of a:",
+          "prompt_es": "Una pelota tiene forma de:",
+          "correction_nl": "Een bal is rond (cirkel).",
+          "correction_en": "A ball is round (circle).",
+          "correction_es": "Una pelota es redonda (círculo)."
         },
         {
           "id": "q4",
           "type": "true_false",
           "prompt": "Un carré a tous ses côtés égaux.",
           "answer": true,
-          "correction": "Oui, 4 côtés égaux."
+          "correction": "Oui, 4 côtés égaux.",
+          "prompt_nl": "Een vierkant heeft alle zijden gelijk.",
+          "prompt_en": "A square has all equal sides.",
+          "prompt_es": "Un cuadrado tiene todos los lados iguales.",
+          "correction_nl": "Ja, 4 gelijke zijden.",
+          "correction_en": "Yes, 4 equal sides.",
+          "correction_es": "Sí, 4 lados iguales."
         },
         {
           "id": "q6",
@@ -249,7 +369,13 @@
             "le triangle"
           ],
           "answer": "le cercle",
-          "correction": "Le cercle est rond, sans coin."
+          "correction": "Le cercle est rond, sans coin.",
+          "prompt_nl": "Welke vorm heeft geen hoek?",
+          "prompt_en": "Which shape has no corner?",
+          "prompt_es": "¿Qué forma no tiene esquina?",
+          "correction_nl": "De cirkel is rond, zonder hoeken.",
+          "correction_en": "A circle is round, with no corners.",
+          "correction_es": "El círculo es redondo, sin esquinas."
         },
         {
           "id": "q8",
@@ -261,7 +387,13 @@
             "5"
           ],
           "answer": "3",
-          "correction": "Le triangle a 3 côtés."
+          "correction": "Le triangle a 3 côtés.",
+          "prompt_nl": "Hoeveel zijden heeft een driehoek?",
+          "prompt_en": "How many sides does a triangle have?",
+          "prompt_es": "¿Cuántos lados tiene un triángulo?",
+          "correction_nl": "Een driehoek heeft 3 zijden.",
+          "correction_en": "A triangle has 3 sides.",
+          "correction_es": "Un triángulo tiene 3 lados."
         },
         {
           "id": "q10",
@@ -271,7 +403,13 @@
           "accept": [
             "cercle"
           ],
-          "correction": "C’est le cercle."
+          "correction": "C’est le cercle.",
+          "prompt_nl": "De ronde vorm heet de ___ .",
+          "prompt_en": "The round shape is called a ___ .",
+          "prompt_es": "La forma redonda se llama ___ .",
+          "correction_nl": "Het is de cirkel.",
+          "correction_en": "It is the circle.",
+          "correction_es": "Es el círculo."
         },
         {
           "id": "q12",
@@ -283,7 +421,13 @@
             "5"
           ],
           "answer": "4",
-          "correction": "Le carré a 4 côtés égaux."
+          "correction": "Le carré a 4 côtés égaux.",
+          "prompt_nl": "Hoeveel zijden heeft een vierkant?",
+          "prompt_en": "How many sides does a square have?",
+          "prompt_es": "¿Cuántos lados tiene un cuadrado?",
+          "correction_nl": "Een vierkant heeft 4 gelijke zijden.",
+          "correction_en": "A square has 4 equal sides.",
+          "correction_es": "Un cuadrado tiene 4 lados iguales."
         },
         {
           "id": "q14",
@@ -295,7 +439,13 @@
             "le cercle"
           ],
           "answer": "le triangle",
-          "correction": "Le triangle a 3 coins."
+          "correction": "Le triangle a 3 coins.",
+          "prompt_nl": "Welke vorm heeft 3 hoeken?",
+          "prompt_en": "Which shape has 3 corners?",
+          "prompt_es": "¿Qué forma tiene 3 vértices?",
+          "correction_nl": "De driehoek heeft 3 hoeken.",
+          "correction_en": "The triangle has 3 corners.",
+          "correction_es": "El triángulo tiene 3 vértices."
         },
         {
           "id": "q16",
@@ -307,7 +457,13 @@
             "6"
           ],
           "answer": "4",
-          "correction": "Le rectangle a 4 côtés."
+          "correction": "Le rectangle a 4 côtés.",
+          "prompt_nl": "Hoeveel zijden heeft een rechthoek?",
+          "prompt_en": "How many sides does a rectangle have?",
+          "prompt_es": "¿Cuántos lados tiene un rectángulo?",
+          "correction_nl": "Een rechthoek heeft 4 zijden.",
+          "correction_en": "A rectangle has 4 sides.",
+          "correction_es": "Un rectángulo tiene 4 lados."
         },
         {
           "id": "q18",
@@ -319,14 +475,26 @@
             "triangle"
           ],
           "answer": "rectangle",
-          "correction": "Souvent un rectangle."
+          "correction": "Souvent un rectangle.",
+          "prompt_nl": "Een raam heeft vaak de vorm van een:",
+          "prompt_en": "A window often has the shape of a:",
+          "prompt_es": "Una ventana suele tener forma de:",
+          "correction_nl": "Vaak een rechthoek.",
+          "correction_en": "Usually a rectangle.",
+          "correction_es": "Normalmente un rectángulo."
         },
         {
           "id": "q20",
           "type": "true_false",
           "prompt": "Un triangle a 4 côtés.",
           "answer": false,
-          "correction": "Le triangle a 3 côtés."
+          "correction": "Le triangle a 3 côtés.",
+          "prompt_nl": "Een driehoek heeft 4 zijden.",
+          "prompt_en": "A triangle has 4 sides.",
+          "prompt_es": "Un triángulo tiene 4 lados.",
+          "correction_nl": "Een driehoek heeft 3 zijden.",
+          "correction_en": "A triangle has 3 sides.",
+          "correction_es": "Un triángulo tiene 3 lados."
         }
       ]
     }

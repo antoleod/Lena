@@ -1,5 +1,7 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { getCategories, getExamsByCategory, DIFFICULTY_LEVELS } from '../../../content/exams/registry.js';
+import { getCategories, getExamsByCategory } from '../../../content/exams/registry.js';
+import { getCategoryLabel, getCategoryEmoji, getDifficultyLevels, getExamUi } from '../../../content/exams/examI18n.js';
+import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { getResult, starsFor } from './examLibraryProgress.js';
 
 function Stars({ count }) {
@@ -15,16 +17,19 @@ function Stars({ count }) {
 export default function ExamLibraryCategoryPage() {
   const { categoryId } = useParams();
   const navigate = useNavigate();
+  const { locale } = useLocale();
 
   const cat = getCategories().find((c) => c.id === categoryId);
   const exams = getExamsByCategory(categoryId);
+  const difficultyLevels = getDifficultyLevels(locale);
+  const ui = getExamUi(locale);
 
   if (!cat) {
     return (
       <div className="exam-hub-page">
         <div className="exam-hub-header">
           <Link className="exam-back-btn" to="/exam/library">←</Link>
-          <div><h1>Matière introuvable</h1></div>
+          <div><h1>{ui.notFound}</h1></div>
         </div>
       </div>
     );
@@ -35,9 +40,9 @@ export default function ExamLibraryCategoryPage() {
       <div className="exam-hub-header">
         <Link className="exam-back-btn" to="/exam/library">←</Link>
         <div>
-          <span className="eyebrow">{cat.emoji} {cat.label}</span>
-          <h1>{exams.length} examens</h1>
-          <p className="exam-hub-sub">Choisis un examen, puis un niveau.</p>
+          <span className="eyebrow">{getCategoryEmoji(cat.id)} {getCategoryLabel(cat.id, locale)}</span>
+          <h1>{ui.exams(exams.length)}</h1>
+          <p className="exam-hub-sub">{ui.categoryHint}</p>
         </div>
       </div>
 
@@ -51,7 +56,7 @@ export default function ExamLibraryCategoryPage() {
               </div>
             </div>
             <div className="exam-subject-card__modes">
-              {DIFFICULTY_LEVELS.map((lvl) => {
+              {difficultyLevels.map((lvl) => {
                 const res = getResult(exam.id, lvl.key);
                 const stars = res ? starsFor(res.bestScore, res.total, exam.levels[lvl.key]?.passPercent) : 0;
                 return (

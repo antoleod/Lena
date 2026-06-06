@@ -75,7 +75,7 @@ const CALCUL_EXAMS = [
 const LEVEL_RANGE = { facile: 1, moyen: 1.6, difficile: 2.4 };
 
 function makeCalculQuestion(rng, op, max, idx) {
-  let a, b, prompt, answer, correction;
+  let a, b, prompt, answer, correction, q_extra = {};
   switch (op) {
     case 'add': {
       a = ri(rng, 0, max); b = ri(rng, 0, max - a < 0 ? 0 : max - a);
@@ -93,6 +93,11 @@ function makeCalculQuestion(rng, op, max, idx) {
       const total = max; a = ri(rng, 0, total);
       answer = total - a; prompt = `${a} + ___ = ${total}`;
       correction = `Pour aller de ${a} à ${total}, il faut ${answer}.`;
+      q_extra = {
+        correction_nl: `Van ${a} naar ${total}: ${answer}.`,
+        correction_en: `From ${a} to ${total}: ${answer}.`,
+        correction_es: `De ${a} a ${total}: ${answer}.`,
+      };
       break;
     }
     case 'missing-add': {
@@ -122,12 +127,12 @@ function makeCalculQuestion(rng, op, max, idx) {
   }
   // Alternate mcq / fill_blank for variety
   if (idx % 3 === 2) {
-    return { id: `q${idx + 1}`, type: 'fill_blank', prompt, answer, correction };
+    return { id: `q${idx + 1}`, type: 'fill_blank', prompt, answer, correction, ...q_extra };
   }
   return {
     id: `q${idx + 1}`, type: 'mcq', prompt,
     options: numericOptions(rng, answer, Math.max(2, Math.round(max / 4))),
-    answer: String(answer), correction,
+    answer: String(answer), correction, ...q_extra,
   };
 }
 

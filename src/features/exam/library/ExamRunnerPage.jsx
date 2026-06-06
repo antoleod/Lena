@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { getExamLevel, DIFFICULTY_LEVELS } from '../../../content/exams/registry.js';
+import { getExamLevel } from '../../../content/exams/registry.js';
+import { getDifficultyLevels, getLocalizedField, getExamUi } from '../../../content/exams/examI18n.js';
+import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { recordError } from '../../../services/storage/errorHistoryStore.js';
 import { recordStudyTime } from '../../../services/storage/progressStore.js';
 import { saveResult, starsFor } from './examLibraryProgress.js';
@@ -40,11 +42,13 @@ function isCorrect(q, value) {
 export default function ExamRunnerPage() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
+  const { locale } = useLocale();
   const examId = params.get('exam');
   const levelKey = params.get('level') || 'facile';
 
   const data = useMemo(() => getExamLevel(examId, levelKey), [examId, levelKey]);
-  const levelMeta = DIFFICULTY_LEVELS.find((l) => l.key === levelKey);
+  const levelMeta = getDifficultyLevels(locale).find((l) => l.key === levelKey);
+  const ui = getExamUi(locale);
 
   const hasStory = !!data?.level?.story;
   const [phase, setPhase] = useState(hasStory ? 'read' : 'quiz'); // read | quiz | end
@@ -128,7 +132,7 @@ export default function ExamRunnerPage() {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'fr-FR';
+    u.lang = ui.speechLang;
     window.speechSynthesis.speak(u);
   }
 
@@ -141,7 +145,7 @@ export default function ExamRunnerPage() {
       <div className="reader-page" style={{ justifyContent: 'center', padding: '40px 16px' }}>
         <div className="reader-card" style={{ textAlign: 'center', gap: 14, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <span style={{ fontSize: '3rem' }}>{passed ? '🏆' : '💪'}</span>
-          <h2 style={{ color: '#fff', margin: 0 }}>{passed ? 'Réussi !' : 'Continue à t’entraîner !'}</h2>
+          <h2 style={{ color: '#fff', margin: 0 }}>{passed ? ui.passed : ui.keepPractising}</h2>
           <p style={{ color: 'rgba(255,255,255,.7)', margin: 0 }}>{exam.emoji} {exam.title} · {levelMeta?.label}</p>
           <p style={{ fontSize: '1.6rem', color: '#fff', fontWeight: 700 }}>{score} / {totalQ} <span style={{ fontSize: '1rem', opacity: .7 }}>({pct}%)</span></p>
           <p style={{ fontSize: '1.8rem', letterSpacing: 4 }}>
@@ -174,7 +178,7 @@ export default function ExamRunnerPage() {
           <button type="button" className="reader-btn reader-btn--prev" disabled={pageIndex === 0} style={pageIndex === 0 ? { opacity: 0.35 } : {}} onClick={() => setPageIndex((p) => p - 1)}>← Précédent</button>
           <button type="button" className="reader-btn reader-btn--listen" onClick={() => speak(page.text)}>🔊 Écouter</button>
           {!last
-            ? <button type="button" className="reader-btn reader-btn--next" onClick={() => setPageIndex((p) => p + 1)}>Suivant →</button>
+            ? <button type="button" className="reader-btn reader-btn--next" onClick={() => setPageIndex((p) => p + 1)}>{ui.next}</button>
             : <button type="button" className="reader-btn reader-btn--start" onClick={() => setPhase('quiz')}>Commencer les questions →</button>}
         </div>
       </div>
@@ -196,7 +200,7 @@ export default function ExamRunnerPage() {
       </div>
 
       <div className="reader-card" style={{ minHeight: 90 }}>
-        <p className="reader-text" style={{ fontSize: '1.15rem' }}>{currentQ.prompt}</p>
+        <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(currentQ, 'prompt', locale)}</p>
       </div>
 
       <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -238,7 +242,7 @@ export default function ExamRunnerPage() {
               value={selected !== null ? String(selected) : input}
               onChange={(e) => setInput(e.target.value)}
               disabled={selected !== null}
-              placeholder="Ta réponse…"
+              placeholder={ui.placeholder}
               autoFocus
             />
             {selected === null && (
@@ -251,15 +255,15 @@ export default function ExamRunnerPage() {
       {feedback && (
         <div style={{ padding: '0 16px' }}>
           <div className={`exam-explanation--${feedback}`} style={{ borderRadius: 14, padding: '14px 16px' }}>
-            <p style={{ margin: 0, fontWeight: 700 }}>{feedback === 'correct' ? '✅ Bonne réponse !' : '❌ Pas tout à fait…'}</p>
+            <p style={{ margin: 0, fontWeight: 700 }}>{feedback === 'correct' ? ui.correct : ui.wrong}</p>
             {feedback === 'wrong' && (
               <div className="mc-feedback__correct-answer" style={{ marginTop: 8 }}>
-                Bonne réponse : <strong>{currentQ.type === 'true_false' ? (currentQ.answer ? 'Vrai' : 'Faux') : String(currentQ.answer)}</strong>
+                {ui.correctAnswer} <strong>{currentQ.type === 'true_false' ? (currentQ.answer ? ui.vrai : ui.faux) : String(currentQ.answer)}</strong>
               </div>
             )}
-            {currentQ.correction && <p style={{ margin: '8px 0 0', fontSize: '.88rem', opacity: 0.85 }}>{currentQ.correction}</p>}
+            {currentQ.correction && <p style={{ margin: '8px 0 0', fontSize: '.88rem', opacity: 0.85 }}>{getLocalizedField(currentQ, 'correction', locale)}</p>}
             <button type="button" className="reader-btn reader-btn--next" style={{ marginTop: 12, width: '100%' }} onClick={next}>
-              {qIndex + 1 < totalQ ? 'Suivant →' : 'Voir le résultat'}
+              {qIndex + 1 < totalQ ? ui.next : ui.seeResult}
             </button>
           </div>
         </div>
