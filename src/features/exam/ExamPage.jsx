@@ -42,10 +42,13 @@ const TOPIC_LABELS = {
   multiplication: 'Multiplication',
   division: 'Division',
   fractions: 'Fractions',
+  decimals: 'Décimaux',
   'mixed-operations': 'Opérations mixtes',
   logic: 'Logique',
   'word-problems': 'Problèmes',
   'general-knowledge': 'Culture générale',
+  geometry: 'Géométrie',
+  measurement: 'Mesures',
 };
 
 const TOPIC_GRADES = {
@@ -129,7 +132,7 @@ export default function ExamPage() {
   const topic = searchParams.get('topic') || 'addition';
   const mode = searchParams.get('mode') || 'relax';
   const config = MODE_CONFIG[mode] || MODE_CONFIG.relax;
-  const grade = TOPIC_GRADES[topic] || 'P3';
+  const grade = searchParams.get('grade') || TOPIC_GRADES[topic] || 'P3';
 
   // ── State ──────────────────────────────────────────────────────────────────
   const [questions, setQuestions] = useState([]);

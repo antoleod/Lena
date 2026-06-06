@@ -11745,3 +11745,116 @@ label {
 .error-topic-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .error-topic-tag { background: rgba(255,255,255,.1); border-radius: 999px; padding: 4px 12px; font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.8); }
 .error-empty { text-align: center; padding: 60px 20px; font-size: 1.2rem; color: rgba(255,255,255,.7); }
+
+/* ── Shop redesign: hero, deal banner, tabs with emoji ─────────────────────── */
+.shop-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 10px;
+  gap: 12px;
+}
+.shop-hero__left { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.shop-hero__title { font-size: 1.2rem; font-weight: 800; }
+.shop-hero__sub { font-size: .75rem; color: rgba(255,255,255,.6); }
+.shop-hero__progress {
+  height: 5px; border-radius: 999px;
+  background: rgba(255,255,255,.12); overflow: hidden; width: 100%; max-width: 200px;
+}
+.shop-hero__progress-fill { height: 100%; background: var(--gold, #f39c12); border-radius: inherit; transition: width .6s; }
+.shop-hero__balance {
+  display: flex; flex-direction: column; align-items: center;
+  background: rgba(255,255,255,.1); border-radius: 14px; padding: 10px 14px;
+  border: 1.5px solid rgba(255,255,255,.15);
+}
+.shop-hero__gem { font-size: 1.4rem; }
+.shop-hero__balance strong { font-size: 1.4rem; font-weight: 900; line-height: 1; }
+.shop-hero__balance small { font-size: .65rem; color: rgba(255,255,255,.5); }
+
+/* Daily deal banner */
+.shop-deal-banner {
+  margin: 0 16px 12px;
+  background: linear-gradient(120deg, rgba(243,156,18,.2), rgba(231,76,60,.18));
+  border: 1.5px solid rgba(243,156,18,.45);
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  animation: fade-up .3s ease both;
+}
+.shop-deal-banner__left { display: flex; flex-direction: column; gap: 3px; }
+.shop-deal-banner__badge {
+  font-size: .7rem; font-weight: 900; color: #f39c12;
+  background: rgba(243,156,18,.15); border-radius: 20px; padding: 2px 8px; width: fit-content;
+  letter-spacing: .04em;
+}
+.shop-deal-banner__name { font-weight: 700; font-size: .95rem; }
+.shop-deal-banner__discount { font-size: .75rem; color: rgba(255,255,255,.6); }
+.shop-deal-banner__right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.shop-deal-banner__old-price { font-size: .75rem; text-decoration: line-through; color: rgba(255,255,255,.4); }
+.shop-deal-banner__new-price { font-size: 1rem; font-weight: 800; color: #f39c12; }
+.shop-deal-banner__btn {
+  background: #f39c12; color: #fff; border: none; border-radius: 10px;
+  padding: 8px 14px; font-weight: 800; font-size: .85rem; cursor: pointer;
+  transition: transform .12s, filter .12s;
+}
+.shop-deal-banner__btn:hover { filter: brightness(1.1); }
+.shop-deal-banner__btn:active { transform: scale(.94); }
+.shop-deal-banner__btn:disabled { opacity: .5; cursor: default; }
+
+/* Tab emoji + count */
+.shop-tab { display: flex; align-items: center; gap: 5px; }
+.shop-tab__emoji { font-size: .9rem; }
+.shop-tab__label { white-space: nowrap; }
+.shop-tab__count {
+  font-size: .65rem; font-weight: 800;
+  background: rgba(255,255,255,.15); border-radius: 999px; padding: 1px 6px;
+}
+.shop-tab--active .shop-tab__count { background: rgba(255,255,255,.3); }
+
+/* Toast variants */
+.shop-toast--success { background: rgba(39,174,96,.9); }
+.shop-toast--warn    { background: rgba(231,76,60,.9); }
+.shop-toast--info    { background: rgba(52,152,219,.9); }
+
+/* Card deal state */
+.shop-card--deal {
+  border-color: rgba(243,156,18,.6) !important;
+  box-shadow: 0 0 0 2px rgba(243,156,18,.2);
+}
+.shop-card__deal-tag {
+  position: absolute; top: 6px; left: 6px; z-index: 3;
+  background: #f39c12; color: #fff; font-size: .65rem; font-weight: 900;
+  border-radius: 8px; padding: 2px 7px;
+}
+.shop-card { position: relative; }
+.shop-card--just-bought { animation: pop-correct .5s ease both; }
+.shop-card--unaffordable { opacity: .65; }
+.shop-card__price--low { color: rgba(255,255,255,.45); font-size: .72rem; }
+.shop-card__old-price { text-decoration: line-through; color: rgba(255,255,255,.35); margin-right: 4px; font-size: .72rem; }
+.shop-card__need { color: #e74c3c; font-size: .68rem; }
+.shop-card__btn--owned { background: rgba(255,255,255,.08); color: rgba(255,255,255,.5); cursor: default; }
+.shop-card__btn--active { background: #27ae60; }
+.shop-card__active-ring {
+  position: absolute; inset: -2px; border-radius: inherit;
+  border: 2.5px solid #27ae60; pointer-events: none; border-radius: 16px;
+}
+
+/* ── Expert exam group ─────────────────────────────────────────────────────── */
+.exam-subject-section--hard {
+  background: linear-gradient(135deg, rgba(231,76,60,.08), rgba(155,89,182,.08));
+  border: 1.5px solid rgba(231,76,60,.2);
+  border-radius: 16px;
+  padding: 12px;
+  margin-top: 4px;
+}
+.exam-hard-badge {
+  font-size: .65rem; font-weight: 900; background: #e74c3c;
+  color: #fff; border-radius: 20px; padding: 2px 8px; margin-left: 8px;
+  vertical-align: middle; letter-spacing: .04em;
+}
+.exam-subject-card--hard {
+  border: 1.5px solid rgba(231,76,60,.3) !important;
+}

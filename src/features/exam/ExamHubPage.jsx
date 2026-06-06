@@ -23,6 +23,18 @@ const SUBJECT_GROUPS = [
       { topic: 'general-knowledge',label:'Culture générale', emoji: '🌍', badge: 'P3' },
     ]
   },
+  {
+    groupLabel: '🔥 Niveau Expert',
+    hard: true,
+    subjects: [
+      { topic: 'decimals',        label: 'Décimaux',         emoji: '🔟', badge: 'P5', grade: 'P5' },
+      { topic: 'fractions',       label: 'Fractions avancées', emoji: '½', badge: 'P5', grade: 'P5' },
+      { topic: 'mixed-operations',label: 'Calcul avancé',   emoji: '⚡', badge: 'P5–P6', grade: 'P5' },
+      { topic: 'geometry',        label: 'Géométrie',        emoji: '📐', badge: 'P4–P5', grade: 'P4' },
+      { topic: 'measurement',     label: 'Mesures',          emoji: '📏', badge: 'P4', grade: 'P4' },
+      { topic: 'word-problems',   label: 'Problèmes complexes', emoji: '🧩', badge: 'P5', grade: 'P5' },
+    ]
+  },
 ];
 
 const MODES = [
@@ -39,8 +51,10 @@ export default function ExamHubPage() {
     setErrorCount(getErrorCount());
   }, []);
 
-  function startExam(topic, mode) {
-    navigate(`/exam/play?topic=${topic}&mode=${mode}`);
+  function startExam(topic, mode, grade) {
+    const params = new URLSearchParams({ topic, mode });
+    if (grade) params.set('grade', grade);
+    navigate(`/exam/play?${params.toString()}`);
   }
 
   return (
@@ -72,12 +86,15 @@ export default function ExamHubPage() {
         <span className="exam-mode-legend__item exam-mode-legend__item--defi">🏆 Défi — 3 vies, 3 minutes globales</span>
       </div>
 
-      {SUBJECT_GROUPS.map(({ groupLabel, subjects }) => (
-        <div key={groupLabel} className="exam-subject-section">
-          <h2 className="exam-subject-section__title">{groupLabel}</h2>
+      {SUBJECT_GROUPS.map(({ groupLabel, subjects, hard }) => (
+        <div key={groupLabel} className={`exam-subject-section${hard ? ' exam-subject-section--hard' : ''}`}>
+          <h2 className="exam-subject-section__title">
+            {groupLabel}
+            {hard && <span className="exam-hard-badge">Difficile</span>}
+          </h2>
           <div className="exam-subject-grid">
-            {subjects.map(({ topic, label, emoji, badge }) => (
-              <div key={topic} className="exam-subject-card">
+            {subjects.map(({ topic, label, emoji, badge, grade }) => (
+              <div key={`${topic}-${grade || ''}`} className={`exam-subject-card${hard ? ' exam-subject-card--hard' : ''}`}>
                 <div className="exam-subject-card__top">
                   <span className="exam-subject-card__emoji">{emoji}</span>
                   <div className="exam-subject-card__info">
@@ -91,7 +108,7 @@ export default function ExamHubPage() {
                       key={mode}
                       type="button"
                       className={`exam-mode-btn ${className}`}
-                      onClick={() => startExam(topic, mode)}
+                      onClick={() => startExam(topic, mode, grade)}
                     >
                       <span>{modeEmoji}</span>
                       <span>{modeLabel}</span>
