@@ -41,6 +41,7 @@ import MixedModePage from '../../features/exerciseGenerator/MixedModePage.jsx';
 import TablesPage from '../../features/tables/TablesPage.jsx';
 import StoryLibraryPage from '../../features/stories/StoryLibraryPage.jsx';
 import StoryReaderPage from '../../features/stories/StoryReaderPage.jsx';
+import PratiquerHubPage from '../../features/practise/PratiquerHubPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -150,6 +151,7 @@ export default function AppRouter() {
         <Route path="/tables" element={<TablesPage />} />
         <Route path="/stories" element={<StoryLibraryPage />} />
         <Route path="/stories/:id" element={<StoryReaderPage />} />
+        <Route path="/pratiquer" element={<PratiquerHubPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

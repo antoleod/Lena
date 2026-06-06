@@ -136,14 +136,51 @@ export default function AppShell() {
   const notificationsEnabled = session.profile?.settings?.notificationsEnabled ?? true;
   const globalLevel = computeGlobalLevel(session.profile?.totalActivitiesCompleted || 0);
 
-  const navItems = useMemo(() => ([
-    { to: '/map',      label: t('startAdventure') || 'Aventure',   icon: 'icon-home' },
-    { to: '/subjects', label: t('subjectsLabel')  || 'Matières',   icon: 'icon-book' },
-    { to: '/exam',     label: 'Examens',                           icon: 'icon-trophy' },
-    { to: '/cahier',   label: 'Mon cahier',                        icon: 'icon-book' },
-    { to: '/history',  label: t('historyTitle')   || 'Historique', icon: 'icon-star' },
-    { to: '/settings', label: t('settingsLabel')  || 'Réglages',   icon: 'icon-settings' },
-  ]), [t]);
+  const NAV_LABELS = {
+    fr: { learn: 'Apprendre', practise: 'Pratiquer', progress: 'Progres', settings: 'Reglages' },
+    nl: { learn: 'Leren', practise: 'Oefenen', progress: 'Voortgang', settings: 'Instellingen' },
+    en: { learn: 'Learn', practise: 'Practise', progress: 'Progress', settings: 'Settings' },
+    es: { learn: 'Aprender', practise: 'Practicar', progress: 'Progreso', settings: 'Ajustes' },
+  };
+  const nl = NAV_LABELS[locale] || NAV_LABELS.fr;
+
+  const navItems = useMemo(() => {
+    const LEARN_PREFIXES = ['/map', '/subjects', '/activities', '/lessons', '/stories', '/renforcement'];
+    const PRACTISE_PREFIXES = ['/pratiquer', '/exam', '/cahier', '/tables', '/practice'];
+    function matchPrefix(prefixes, path) {
+      return prefixes.some((p) => path === p || path.startsWith(p + '/'));
+    }
+    return [
+      {
+        to: '/map',
+        label: nl.learn,
+        icon: 'icon-home',
+        emoji: '🌍',
+        isActive: (path) => matchPrefix(LEARN_PREFIXES, path),
+      },
+      {
+        to: '/pratiquer',
+        label: nl.practise,
+        icon: 'icon-trophy',
+        emoji: '🎯',
+        isActive: (path) => matchPrefix(PRACTISE_PREFIXES, path),
+      },
+      {
+        to: '/history',
+        label: nl.progress,
+        icon: 'icon-star',
+        emoji: '📈',
+        isActive: (path) => path === '/history' || path.startsWith('/history/'),
+      },
+      {
+        to: '/settings',
+        label: nl.settings,
+        icon: 'icon-settings',
+        emoji: '⚙️',
+        isActive: (path) => path === '/settings' || path.startsWith('/settings/'),
+      },
+    ];
+  }, [locale]); // nl is derived from locale, stable reference not needed
 
   useEffect(() => {
     function handleLogout() {
@@ -203,7 +240,7 @@ export default function AppShell() {
           {navItems.map((item) => (
             <NavLink
               key={item.to}
-              className={({ isActive }) => `sidebar-link${isActive ? ' is-active' : ''}`}
+              className={() => `sidebar-link${item.isActive(location.pathname) ? ' is-active' : ''}`}
               to={item.to}
               onClick={playTapSound}
               data-testid={`nav-sidebar-${item.to.replace('/', '') || 'home'}`}
@@ -266,7 +303,7 @@ export default function AppShell() {
           {navItems.map((item) => (
             <NavLink
               key={item.to}
-              className={({ isActive }) => `topbar-link${isActive ? ' is-active' : ''}`}
+              className={() => `topbar-link${item.isActive(location.pathname) ? ' is-active' : ''}`}
               to={item.to}
               onClick={playTapSound}
               data-testid={`nav-${item.to.replace('/', '') || 'home'}`}
@@ -318,6 +355,22 @@ export default function AppShell() {
       </header>
 
       <CustomizerDrawer isOpen={customizerOpen} onClose={() => setCustomizerOpen(false)} />
+
+      {/* Bottom nav — mobile only (CSS hides on tablet+) */}
+      <nav className="app-bottom-nav" aria-label="Navigation principale">
+        {navItems.map((item) => (
+          <NavLink
+            key={item.to}
+            className={() => `app-bottom-nav__item${item.isActive(location.pathname) ? ' is-active' : ''}`}
+            to={item.to}
+            onClick={playTapSound}
+            data-testid={`nav-bottom-${item.to.replace('/', '') || 'home'}`}
+          >
+            <span className="app-bottom-nav__icon" aria-hidden="true">{item.emoji}</span>
+            <span className="app-bottom-nav__label">{item.label}</span>
+          </NavLink>
+        ))}
+      </nav>
 
       <main className="app-main app-main--game">
         <Outlet />

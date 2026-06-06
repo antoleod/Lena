@@ -16,18 +16,6 @@ function StreakFlame({ count }) {
   );
 }
 
-const ACTION_TILES = [
-  { to: '/map',          emoji: '🗺️',  label: 'Carte' },
-  { to: '/exam',         emoji: '🏆',  label: 'Examens' },
-  { to: '/practice',     emoji: '✏️',  label: 'Pratique' },
-  { to: '/lessons',      emoji: '📚',  label: 'Leçons' },
-  { to: '/subjects',     emoji: '📖',  label: 'Matières' },
-  { to: '/stories',      emoji: '📖',  label: 'Contes' },
-  { to: '/renforcement', emoji: '🧩',  label: 'Renforcement' },
-  { to: '/shop',         emoji: '💎',  label: 'Boutique' },
-  { to: '/history',      emoji: '📊',  label: 'Historique' },
-];
-
 export default function HomePage() {
   const { t } = useLocale();
   const [session, setSession] = useState(() => getSessionSnapshot());
@@ -77,72 +65,13 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* Adventure progress bar */}
-        <div className="home-hero__progress-wrap">
-          <div className="home-hero__progress-bar">
-            <div
-              className="home-hero__progress-fill"
-              style={{ width: `${Math.max(totalProgress, totalProgress > 0 ? 4 : 0)}%` }}
-            />
-          </div>
-          <span className="home-hero__progress-label">{totalProgress}% {t('progression')}</span>
-        </div>
-
-        {/* Level progress bar */}
-        <div className="home-hero__level-wrap">
-          <div className="home-hero__level-row">
-            <span className="home-hero__level-label">
-              ⭐ Niveau {levelInfo.level}
-              {levelInfo.level < 10 && levelInfo.nextLevelAt && (
-                <span className="home-hero__level-hint">
-                  {' · '}{levelInfo.nextLevelAt - (profile.totalActivitiesCompleted || 0)} activités pour Niv. {levelInfo.level + 1}
-                </span>
-              )}
-            </span>
-          </div>
-          <div className="home-hero__level-bar">
-            <div
-              className="home-hero__level-fill"
-              style={{ width: `${Math.round(levelInfo.progress * 100)}%` }}
-            />
-          </div>
+        {/* Stats row */}
+        <div className="home-hero__stat-row">
+          <span className="home-stat">⭐ Niv. {levelInfo.level}</span>
+          <span className="home-stat">🔥 {overview.streakCurrent || 0}</span>
+          <span className="home-stat">💎 {rewards.balance || 0}</span>
         </div>
       </section>
-
-      {/* Score strip */}
-      <div className="home-score-strip" aria-label="Statistiques">
-        <div className="home-score-item">
-          <strong>{totalProgress}%</strong>
-          <span>{t('progression')}</span>
-        </div>
-        <div className="home-score-item">
-          <strong>{overview.streakCurrent || 0}🔥</strong>
-          <span>{t('streakLabel')}</span>
-        </div>
-        <div className="home-score-item">
-          <strong>{rewards.balance || 0}💎</strong>
-          <span>{t('crystals')}</span>
-        </div>
-        <div className="home-score-item">
-          <strong>{adventure.completedNodes}/{adventure.totalNodes || 0}</strong>
-          <span>{t('homeCompletedNodes')}</span>
-        </div>
-      </div>
-
-      {/* Action grid */}
-      <div className="home-action-grid">
-        {ACTION_TILES.map((tile) => (
-          <Link
-            key={tile.to}
-            className="home-action-tile"
-            to={tile.to}
-            data-testid={`home-link-${tile.to.replace('/', '')}`}
-          >
-            <span className="home-action-tile__emoji" aria-hidden="true">{tile.emoji}</span>
-            <span className="home-action-tile__label">{tile.label}</span>
-          </Link>
-        ))}
-      </div>
 
       {/* Compact mission card */}
       {nextTarget && (

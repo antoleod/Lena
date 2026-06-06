@@ -1,3 +1,50 @@
+/* ── Lena Design Tokens ──────────────────────────────────────────────────── */
+:root {
+  /* Brand palette */
+  --lena-pink:        #ff8fc6;
+  --lena-pink-dark:   #e0609e;
+  --lena-purple:      #9b59b6;
+  --lena-purple-dark: #7d3c98;
+  --lena-blue:        #3498db;
+  --lena-teal:        #1abc9c;
+  --lena-gold:        #f1c40f;
+  --lena-orange:      #e67e22;
+
+  /* Surfaces */
+  --surface-0: #fff8fd;
+  --surface-1: rgba(255,255,255,0.85);
+  --surface-2: rgba(255,255,255,0.60);
+  --surface-border: rgba(255,255,255,0.35);
+
+  /* Text */
+  --text-primary:   #2c1654;
+  --text-secondary: rgba(44,22,84,0.70);
+  --text-on-dark:   #ffffff;
+
+  /* Spacing scale */
+  --sp-xs:  4px;
+  --sp-sm:  8px;
+  --sp-md:  16px;
+  --sp-lg:  24px;
+  --sp-xl:  40px;
+
+  /* Radii */
+  --radius-sm:   8px;
+  --radius-md:  16px;
+  --radius-lg:  24px;
+  --radius-xl:  36px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(155,89,182,0.13);
+  --shadow-btn:  0 2px 12px rgba(155,89,182,0.22);
+  --shadow-deep: 0 8px 40px rgba(44,22,84,0.18);
+
+  /* Nav */
+  --nav-height-mobile: 64px;
+  --nav-width-desktop: 72px;
+}
+
 :root {
   --bg-cream: #fffaf7;
   --bg-pink: #ffeef8;
@@ -10646,13 +10693,84 @@ input.exam-choice:hover { transform: none; }
   }
 }
 
-/* Restore topbar on mobile */
+/* Restore topbar on mobile — hidden, replaced by bottom nav */
 @media (max-width: 767px) {
   .app-sidebar {
     display: none !important;
   }
   .app-topbar {
     display: grid !important;
+  }
+}
+
+/* ── Bottom nav (mobile only) ──────────────────────────────────────────── */
+.app-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .app-topbar {
+    display: none !important;
+  }
+
+  .app-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--nav-height-mobile);
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--surface-border);
+    align-items: stretch;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .app-bottom-nav__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 44px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 800;
+    transition: color 0.15s ease;
+    padding: 4px 0;
+  }
+
+  .app-bottom-nav__item.is-active {
+    color: var(--lena-pink, #ff8fc6);
+  }
+
+  .app-bottom-nav__item.is-active .app-bottom-nav__icon {
+    transform: scale(1.15);
+  }
+
+  .app-bottom-nav__icon {
+    font-size: 28px;
+    line-height: 1;
+    display: block;
+    transition: transform 0.15s ease;
+  }
+
+  .app-bottom-nav__label {
+    display: block;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Push main content above bottom nav */
+  .app-main--game {
+    padding-bottom: calc(var(--nav-height-mobile) + env(safe-area-inset-bottom) + 12px);
   }
 }
 
@@ -10691,7 +10809,7 @@ input.exam-choice:hover { transform: none; }
     position: sticky;
     top: 0;
     padding: 20px 12px 24px;
-    background: rgba(255, 255, 255, 0.97);
+    background: var(--surface-1, rgba(255, 255, 255, 0.97));
     border-right: 1px solid var(--line);
     backdrop-filter: blur(14px);
     z-index: 10;
@@ -10740,9 +10858,9 @@ input.exam-choice:hover { transform: none; }
   }
 
   .sidebar-link.is-active {
-    background: var(--primary);
+    background: var(--lena-pink, var(--primary));
     color: white;
-    box-shadow: 0 4px 14px rgba(244, 109, 177, 0.25);
+    box-shadow: var(--shadow-btn, 0 4px 14px rgba(244, 109, 177, 0.25));
   }
 
   .sidebar-link.is-active .sidebar-link__icon {
@@ -12241,4 +12359,60 @@ body {
 .exam-hub-page,
 .cahier-page {
   min-height: 100dvh; /* dynamic viewport height for Android Chrome */
+}
+
+/* ── Pratiquer Hub ───────────────────────────────────────────────────────── */
+.pratiquer-hub {
+  min-height: 100dvh;
+  padding: var(--sp-lg) var(--sp-md);
+  padding-top: max(var(--sp-lg), env(safe-area-inset-top));
+  max-width: 540px;
+  margin: 0 auto;
+}
+.hub-header { margin-bottom: var(--sp-lg); text-align: center; }
+.hub-header__title { font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin: 0 0 var(--sp-xs); }
+.hub-header__sub { font-size: 1rem; color: var(--text-secondary); margin: 0; }
+
+.hub-cards { display: flex; flex-direction: column; gap: var(--sp-md); }
+
+.hub-card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  padding: var(--sp-md) var(--sp-lg);
+  background: var(--surface-1);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border-left: 5px solid var(--card-color, var(--lena-purple));
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  min-height: 76px;
+}
+.hub-card:active { transform: scale(0.97); }
+.hub-card__emoji { font-size: 2.2rem; flex-shrink: 0; }
+.hub-card__body { flex: 1; min-width: 0; }
+.hub-card__title { display: block; font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
+.hub-card__desc { display: block; font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px; }
+.hub-card__arrow { font-size: 1.4rem; color: var(--card-color, var(--lena-purple)); flex-shrink: 0; }
+
+/* home stat row (simplified hero) */
+.home-hero__stat-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.home-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid var(--line);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text);
 }
