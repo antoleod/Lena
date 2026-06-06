@@ -108,6 +108,8 @@ export default function ExerciseGeneratorPage() {
         exercises={exercises}
         onBack={() => setPhase('verify')}
         onSeeExplanations={() => setPhase('explanations')}
+        onDoTest={() => setPhase('test')}
+        onPapa={() => setPhase('papa')}
         onContinue={startNotebook}
       />
     );

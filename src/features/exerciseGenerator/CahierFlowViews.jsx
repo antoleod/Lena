@@ -121,7 +121,7 @@ export function PapaModeView({ exercises, onBack }) {
 }
 
 // ── Option 1 : table compacte des réponses (sans explications) ───────────────
-export function AnswersTableView({ exercises, onBack, onSeeExplanations, onContinue }) {
+export function AnswersTableView({ exercises, onBack, onSeeExplanations, onDoTest, onPapa, onContinue }) {
   const L = useCahierT();
   return (
     <div className="cahier-page">
@@ -145,7 +145,9 @@ export function AnswersTableView({ exercises, onBack, onSeeExplanations, onConti
 
       <div className="cahier-actions">
         <button type="button" className="cahier-cta" onClick={onSeeExplanations}>{L.t('voirExplications')}</button>
-        {onContinue && <button type="button" className="cahier-cta cahier-cta--go" onClick={onContinue}>{L.t('continuerNouvelle')}</button>}
+        {onDoTest && <button type="button" className="cahier-cta cahier-cta--go" onClick={onDoTest}>{L.t('faireTest')}</button>}
+        {onPapa && <button type="button" className="cahier-cta" style={{ background: 'linear-gradient(135deg,#5dade2,#2e86c1)' }} onClick={onPapa}>{L.t('corrigerPapa')}</button>}
+        {onContinue && <button type="button" className="cahier-cta cahier-cta--soft" onClick={onContinue}>{L.t('continuerNouvelle')}</button>}
       </div>
     </div>
   );
