@@ -117,6 +117,40 @@ export const SUBJECT_UNIVERSES = {
       P3: { name: 'Forêt des Contes',    emoji: '🌙', color: '#6366f1', shadow: '#3730a3', bg: 'linear-gradient(145deg,#c7d2fe,#6366f1)', sky: 'linear-gradient(180deg,#000820 0%,#002060 60%,#0040a0 100%)' },
     },
   },
+  sciences: {
+    icon: '🔬',
+    name: 'Univers Scientifique',
+    skyTop: '#052e16',
+    skyBottom: '#14532d',
+    accent: '#22c55e',
+    accentShadow: '#15803d',
+    accentBg: 'linear-gradient(145deg,#bbf7d0,#22c55e)',
+    particle: '⚗',
+    gradeWorlds: {
+      P2: { name: 'Jardin des Sens',       emoji: '🌱', color: '#22c55e', shadow: '#15803d', bg: 'linear-gradient(145deg,#bbf7d0,#22c55e)', sky: 'linear-gradient(180deg,#052e16 0%,#14532d 60%,#166534 100%)' },
+      P3: { name: 'Lac des Experiences',   emoji: '💧', color: '#06b6d4', shadow: '#0e7490', bg: 'linear-gradient(145deg,#a5f3fc,#06b6d4)', sky: 'linear-gradient(180deg,#001a1f 0%,#004a5a 60%,#007a90 100%)' },
+      P4: { name: 'Labo des Etats',        emoji: '🧪', color: '#a855f7', shadow: '#7e22ce', bg: 'linear-gradient(145deg,#e9d5ff,#a855f7)', sky: 'linear-gradient(180deg,#1a0040 0%,#4a0090 60%,#7000c0 100%)' },
+      P5: { name: 'Pic des Forces',        emoji: '⚡', color: '#f59e0b', shadow: '#b45309', bg: 'linear-gradient(145deg,#fde68a,#f59e0b)', sky: 'linear-gradient(180deg,#1a1000 0%,#3d2800 60%,#664800 100%)' },
+      P6: { name: 'Planete Energie',       emoji: '🌍', color: '#10b981', shadow: '#065f46', bg: 'linear-gradient(145deg,#a7f3d0,#10b981)', sky: 'linear-gradient(180deg,#001a10 0%,#004a30 60%,#007a50 100%)' },
+    },
+  },
+  histoire: {
+    icon: '🏛️',
+    name: 'Univers Histoire',
+    skyTop: '#1c0a00',
+    skyBottom: '#431407',
+    accent: '#f59e0b',
+    accentShadow: '#b45309',
+    accentBg: 'linear-gradient(145deg,#fde68a,#f59e0b)',
+    particle: '⚔',
+    gradeWorlds: {
+      P2: { name: 'Village Belge',         emoji: '🇧🇪', color: '#f59e0b', shadow: '#b45309', bg: 'linear-gradient(145deg,#fde68a,#f59e0b)', sky: 'linear-gradient(180deg,#1c0a00 0%,#431407 60%,#6a2010 100%)' },
+      P3: { name: 'Carte d\'Europe',       emoji: '🗺️', color: '#3b82f6', shadow: '#1d4ed8', bg: 'linear-gradient(145deg,#bfdbfe,#3b82f6)', sky: 'linear-gradient(180deg,#00061a 0%,#001a4a 60%,#003080 100%)' },
+      P4: { name: 'Chateau Medieval',      emoji: '🏰', color: '#8b5cf6', shadow: '#5b21b6', bg: 'linear-gradient(145deg,#ddd6fe,#8b5cf6)', sky: 'linear-gradient(180deg,#0a0020 0%,#200060 60%,#3800a0 100%)' },
+      P5: { name: 'Caravelle des Decouvertes', emoji: '⛵', color: '#06b6d4', shadow: '#0e7490', bg: 'linear-gradient(145deg,#a5f3fc,#06b6d4)', sky: 'linear-gradient(180deg,#001520 0%,#004060 60%,#007090 100%)' },
+      P6: { name: 'Forum Democratique',    emoji: '🏛️', color: '#ef4444', shadow: '#991b1b', bg: 'linear-gradient(145deg,#fca5a5,#ef4444)', sky: 'linear-gradient(180deg,#200000 0%,#600000 60%,#a00000 100%)' },
+    },
+  },
 };
 
 export function getSubjectUniverse(subjectId) {

@@ -48,6 +48,20 @@ import { reasoningGrade6Modules } from '../../content/reasoning/grade-6/modules.
 import { storiesSubject, storyActivities } from '../../content/stories/activities.js';
 import { storiesGrade2Modules } from '../../content/stories/grade-2/modules.js';
 import { storiesGrade3Modules } from '../../content/stories/grade-3/modules.js';
+
+import { sciencesSubject, sciencesActivities } from '../../content/sciences/activities.js';
+import { sciencesGrade2Modules } from '../../content/sciences/grade-2/modules.js';
+import { sciencesGrade3Modules } from '../../content/sciences/grade-3/modules.js';
+import { sciencesGrade4Modules } from '../../content/sciences/grade-4/modules.js';
+import { sciencesGrade5Modules } from '../../content/sciences/grade-5/modules.js';
+import { sciencesGrade6Modules } from '../../content/sciences/grade-6/modules.js';
+
+import { histoireSubject, histoireActivities } from '../../content/histoire/activities.js';
+import { histoireGrade2Modules } from '../../content/histoire/grade-2/modules.js';
+import { histoireGrade3Modules } from '../../content/histoire/grade-3/modules.js';
+import { histoireGrade4Modules } from '../../content/histoire/grade-4/modules.js';
+import { histoireGrade5Modules } from '../../content/histoire/grade-5/modules.js';
+import { histoireGrade6Modules } from '../../content/histoire/grade-6/modules.js';
 export const subjects = [
   mathematicsSubject,
   frenchSubject,
@@ -55,7 +69,9 @@ export const subjects = [
   englishSubject,
   spanishSubject,
   reasoningSubject,
-  storiesSubject
+  storiesSubject,
+  sciencesSubject,
+  histoireSubject
 ];
 
 export const activities = [
@@ -70,7 +86,9 @@ export const activities = [
   ...spanishActivities,
   ...generatedSpanishActivities,
   ...generatedReasoningActivities,
-  ...storyActivities
+  ...storyActivities,
+  ...sciencesActivities,
+  ...histoireActivities
 ];
 
 export const gradeCatalog = ['P2', 'P3', 'P4', 'P5', 'P6'];
@@ -108,7 +126,19 @@ export const modules = [
   ...reasoningGrade2Modules,
   ...reasoningGrade3Modules,
   ...storiesGrade2Modules,
-  ...storiesGrade3Modules
+  ...storiesGrade3Modules,
+
+  ...sciencesGrade2Modules,
+  ...sciencesGrade3Modules,
+  ...sciencesGrade4Modules,
+  ...sciencesGrade5Modules,
+  ...sciencesGrade6Modules,
+
+  ...histoireGrade2Modules,
+  ...histoireGrade3Modules,
+  ...histoireGrade4Modules,
+  ...histoireGrade5Modules,
+  ...histoireGrade6Modules
 ];
 
 export function getSubjectById(subjectId) {

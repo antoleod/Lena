@@ -1,0 +1,4 @@
+import { createModule } from '../../curriculum/moduleTemplate.js';
+export const histoireGrade6Modules = [
+  createModule({ id: 'hist-g6-contemporary', subjectId: 'histoire', gradeId: 'P6', domainId: 'contemporary-citizenship', domainLabel: 'Monde contemporain', title: 'Monde contemporain et citoyennete', summary: 'Guerres mondiales, construction de l\'Europe et droits civiques.', goal: 'Comprendre le monde actuel et sa responsabilite de citoyen.', demo: 'Demo institutions europeennes.', guidedActivityIds: ['hist-contemporary-p6'], independentActivityIds: ['hist-citizenship-p6'], challengeActivityId: 'hist-contemporary-p6', examActivityId: 'hist-citizenship-p6', missionTitle: 'Mission Citoyennete P6', levelTitles: { 'hist-contemporary-p6': 'Monde contemporain', 'hist-citizenship-p6': 'Citoyennete' } }),
+];
