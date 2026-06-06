@@ -2,18 +2,19 @@
 // Exercise engine: generate a batch and check answers (flexible validation).
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { GENERATORS } from './exerciseTemplates.js';
+import { GENERATORS, setGenLocale } from './exerciseTemplates.js';
 
 /**
  * generateExercises({ subject, type, level, count }) → Exercise[]
  * Extensible: any `${subject}:${type}` registered in GENERATORS works.
  */
-export function generateExercises({ subject, type, level = 'easy', count = 10, digits = null }) {
+export function generateExercises({ subject, type, level = 'easy', count = 10, digits = null, locale = 'fr' }) {
   const gen = GENERATORS[`${subject}:${type}`];
   if (!gen) {
     console.warn(`No generator for ${subject}:${type}`);
     return [];
   }
+  setGenLocale(locale);
   const n = Math.max(1, Number(count) || 10);
   return Array.from({ length: n }, (_, i) => gen(level, i, { digits }));
 }

@@ -1,26 +1,19 @@
 // Results phase — gentle, positive correction. Never harsh.
-const POSITIVE = [
-  'Bravo, tu as bien essayé !',
-  'Très bien, continue comme ça !',
-  'Super travail ! 🌟',
-];
-const ENCOURAGE = [
-  'Regarde encore une fois, tu y es presque.',
-  'Continue à t’entraîner, tu progresses !',
-];
+import { useCahierT } from './cahierI18n.js';
 
 export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeErrors, onSeeExplanations, errorCount }) {
+  const L = useCahierT();
   const total = graded.length;
   const correct = graded.filter((g) => g.correct).length;
   const pct = total ? Math.round((correct / total) * 100) : 0;
-  const headline = pct >= 70 ? POSITIVE[Math.min(2, Math.floor(pct / 34))] : ENCOURAGE[0];
+  const headline = pct >= 70 ? L.t('bravo') : L.t('continueTry');
 
   return (
     <div className="cahier-page">
       <div className="cahier-header cahier-header--slim">
         <button type="button" className="exam-back-btn" onClick={onNewBatch} aria-label="Retour">←</button>
         <div>
-          <span className="eyebrow">Résultat</span>
+          <span className="eyebrow">{L.t('resultEyebrow')}</span>
           <h1>{headline}</h1>
         </div>
       </div>
@@ -49,16 +42,16 @@ export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeError
 
       <div className="cahier-actions">
         {onSeeExplanations && (
-          <button type="button" className="cahier-cta cahier-cta--go" onClick={onSeeExplanations}>📖 Voir les explications</button>
+          <button type="button" className="cahier-cta cahier-cta--go" onClick={onSeeExplanations}>{L.t('voirExplications')}</button>
         )}
-        <button type="button" className="cahier-cta" onClick={onRetryAll}>🔄 Refaire un cahier</button>
+        <button type="button" className="cahier-cta" onClick={onRetryAll}>{L.t('refaire')}</button>
         {errorCount > 0 && (
           <button type="button" className="cahier-cta cahier-cta--soft" onClick={onSeeErrors}>
-            ⚠️ Mes erreurs ({errorCount})
+            ⚠️ {L.t('mesErreurs')} ({errorCount})
           </button>
         )}
         <button type="button" className="cahier-cta cahier-cta--soft" onClick={onNewBatch}>
-          ✏️ Choisir d'autres exercices
+          {L.t('choisirAutres')}
         </button>
       </div>
     </div>

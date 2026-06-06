@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import MathVisualSvg from './MathVisualSvg.jsx';
+import { useCahierT } from './cahierI18n.js';
 
 // Test phase — one exercise at a time, the child answers in the app.
 export default function TestView({ exercises, onBack, onFinish }) {
+  const L = useCahierT();
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [draft, setDraft] = useState('');
@@ -38,8 +40,8 @@ export default function TestView({ exercises, onBack, onFinish }) {
       <div className="cahier-header cahier-header--slim">
         <button type="button" className="exam-back-btn" onClick={onBack}>←</button>
         <div>
-          <span className="eyebrow">Vérifier mes réponses</span>
-          <h1>Question {index + 1} / {total}</h1>
+          <span className="eyebrow">{L.t('verifTitle')}</span>
+          <h1>{L.t('question')} {index + 1} / {total}</h1>
         </div>
       </div>
 
@@ -71,11 +73,11 @@ export default function TestView({ exercises, onBack, onFinish }) {
               inputMode={ex.inputType === 'number' ? 'numeric' : 'text'}
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
-              placeholder="Ta réponse…"
+              placeholder={L.t('taReponse')}
               autoFocus
             />
             <button type="submit" className="cahier-cta cahier-cta--inline" disabled={draft.trim() === ''}>
-              {isLast ? 'Terminer' : 'Suivant →'}
+              {isLast ? L.t('terminer') : L.t('suivant')}
             </button>
           </form>
         )}

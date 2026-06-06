@@ -8,7 +8,7 @@
 // she finishes her notebook. We never reveal solutions during solving.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { THINKING_TIPS } from './exerciseTypes.js';
+import { useCahierT } from './cahierI18n.js';
 
 function answerLabel(ex) {
   if (ex.inputType === 'true_false') return ex.answer ? 'Vrai' : 'Faux';
@@ -17,21 +17,22 @@ function answerLabel(ex) {
 
 // ── Étape : "J'ai terminé" → Vérification ────────────────────────────────────
 export function VerificationView({ subject, onBack, onSeeAnswers, onDoTest }) {
+  const L = useCahierT();
   return (
     <div className="cahier-page">
       <div className="cahier-header cahier-header--slim">
         <button type="button" className="exam-back-btn" onClick={onBack}>←</button>
-        <div><span className="eyebrow">📋 Vérification</span><h1>Vérification de mon travail</h1></div>
+        <div><span className="eyebrow">{L.t('verifEyebrow')}</span><h1>{L.t('verifTitle')}</h1></div>
       </div>
 
       <div className="test-card" style={{ textAlign: 'center' }}>
-        <p className="test-card__question">As-tu terminé tous les exercices dans ton cahier ?</p>
+        <p className="test-card__question">{L.t('verifQuestion')}</p>
       </div>
 
       <div className="cahier-actions">
-        <button type="button" className="cahier-cta" onClick={onSeeAnswers}>🔍 Voir les réponses</button>
-        <button type="button" className="cahier-cta cahier-cta--go" onClick={onDoTest}>📝 Faire le test dans l'application</button>
-        <button type="button" className="cahier-cta cahier-cta--soft" onClick={onBack}>← Continuer dans mon cahier</button>
+        <button type="button" className="cahier-cta" onClick={onSeeAnswers}>{L.t('voirReponses')}</button>
+        <button type="button" className="cahier-cta cahier-cta--go" onClick={onDoTest}>{L.t('faireTest')}</button>
+        <button type="button" className="cahier-cta cahier-cta--soft" onClick={onBack}>{L.t('continuerCahier')}</button>
       </div>
     </div>
   );
@@ -39,17 +40,18 @@ export function VerificationView({ subject, onBack, onSeeAnswers, onDoTest }) {
 
 // ── Option 1 : table compacte des réponses (sans explications) ───────────────
 export function AnswersTableView({ exercises, onBack, onSeeExplanations, onContinue }) {
+  const L = useCahierT();
   return (
     <div className="cahier-page">
       <div className="cahier-header cahier-header--slim">
         <button type="button" className="exam-back-btn" onClick={onBack}>←</button>
-        <div><span className="eyebrow">🔍 Réponses</span><h1>Les réponses</h1></div>
+        <div><span className="eyebrow">{L.t('reponsesEyebrow')}</span><h1>{L.t('reponsesTitle')}</h1></div>
       </div>
-      <p className="cahier-instruction">Compare avec ce que tu as écrit dans ton cahier.</p>
+      <p className="cahier-instruction">{L.t('compare')}</p>
 
       <div className="answers-table">
         <div className="answers-table__head">
-          <span>Exercice</span><span>Réponse</span>
+          <span>{L.t('exercice')}</span><span>{L.t('reponse')}</span>
         </div>
         {exercises.map((ex, i) => (
           <div className="answers-table__row" key={ex.id}>
@@ -60,8 +62,8 @@ export function AnswersTableView({ exercises, onBack, onSeeExplanations, onConti
       </div>
 
       <div className="cahier-actions">
-        <button type="button" className="cahier-cta" onClick={onSeeExplanations}>📖 Voir les explications</button>
-        {onContinue && <button type="button" className="cahier-cta cahier-cta--go" onClick={onContinue}>➕ Continuer (nouvelle fiche)</button>}
+        <button type="button" className="cahier-cta" onClick={onSeeExplanations}>{L.t('voirExplications')}</button>
+        {onContinue && <button type="button" className="cahier-cta cahier-cta--go" onClick={onContinue}>{L.t('continuerNouvelle')}</button>}
       </div>
     </div>
   );
@@ -69,16 +71,17 @@ export function AnswersTableView({ exercises, onBack, onSeeExplanations, onConti
 
 // ── Explications groupées + "Comment réfléchir ?" ────────────────────────────
 export function ExplanationsView({ exercises, subject, onBack, onRestart, onContinue }) {
-  const tips = THINKING_TIPS[subject] || THINKING_TIPS.math;
+  const L = useCahierT();
+  const tips = L.tips(subject);
   return (
     <div className="cahier-page">
       <div className="cahier-header cahier-header--slim">
         <button type="button" className="exam-back-btn" onClick={onBack}>←</button>
-        <div><span className="eyebrow">📖 Explications</span><h1>Comprendre mes exercices</h1></div>
+        <div><span className="eyebrow">{L.t('explicationsEyebrow')}</span><h1>{L.t('explicationsTitle')}</h1></div>
       </div>
 
       <div className="think-card">
-        <p className="think-card__title">🧠 Comment réfléchir ?</p>
+        <p className="think-card__title">{L.t('commentReflechir')}</p>
         <ul className="think-card__list">
           {tips.map((t, i) => <li key={i}>{t}</li>)}
         </ul>
@@ -88,12 +91,12 @@ export function ExplanationsView({ exercises, subject, onBack, onRestart, onCont
         {exercises.map((ex, i) => (
           <li className="explain-item" key={ex.id}>
             <p className="explain-item__q">
-              <strong>Exercice {i + 1}</strong> — {ex.testQuestion || ex.question}
+              <strong>{L.t('exercice')} {i + 1}</strong> — {ex.testQuestion || ex.question}
             </p>
-            <p className="explain-item__a">Réponse : <strong>{answerLabel(ex)}</strong></p>
+            <p className="explain-item__a">{L.t('reponse')} : <strong>{answerLabel(ex)}</strong></p>
             {ex.method && (
               <div className="explain-item__method">
-                <span className="explain-item__method-label">Méthode :</span>
+                <span className="explain-item__method-label">{L.t('methode')}</span>
                 {String(ex.method).split('\n').map((line, k) => (
                   <span className="explain-item__step" key={k}>{line}</span>
                 ))}
@@ -107,8 +110,8 @@ export function ExplanationsView({ exercises, subject, onBack, onRestart, onCont
       </ol>
 
       <div className="cahier-actions">
-        {onContinue && <button type="button" className="cahier-cta cahier-cta--go" onClick={onContinue}>➕ Continuer (nouvelle fiche)</button>}
-        <button type="button" className="cahier-cta cahier-cta--soft" onClick={onRestart}>🔄 Choisir d'autres exercices</button>
+        {onContinue && <button type="button" className="cahier-cta cahier-cta--go" onClick={onContinue}>{L.t('continuerNouvelle')}</button>}
+        <button type="button" className="cahier-cta cahier-cta--soft" onClick={onRestart}>{L.t('choisirAutres')}</button>
       </div>
     </div>
   );

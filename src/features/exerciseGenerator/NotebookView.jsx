@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import MathVisualSvg from './MathVisualSvg.jsx';
+import { useCahierT } from './cahierI18n.js';
 
 // Notebook phase — the child solves these by hand. NO inputs, NO answers shown.
 export default function NotebookView({ exercises, subject, level, onBack, onDone }) {
+  const L = useCahierT();
   function speak(text) {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
@@ -16,18 +18,16 @@ export default function NotebookView({ exercises, subject, level, onBack, onDone
       <div className="cahier-header cahier-header--slim">
         <button type="button" className="exam-back-btn" onClick={onBack}>←</button>
         <div>
-          <span className="eyebrow">{subject?.emoji} {subject?.label}</span>
-          <h1>Mon cahier</h1>
+          <span className="eyebrow">{subject?.emoji} {L.label(subject?.id)}</span>
+          <h1>{L.t('monCahier')}</h1>
         </div>
       </div>
 
-      <p className="cahier-instruction">
-        ✍️ Fais ces exercices dans ton vrai cahier. Prends ton temps !
-      </p>
+      <p className="cahier-instruction">{L.t('instructionNotebook')}</p>
 
       {/* Notebook sheet */}
       <div className="notebook-sheet">
-        <h2 className="notebook-sheet__title">Exercices · {subject?.label}</h2>
+        <h2 className="notebook-sheet__title">{L.t('ficheTitle')} · {L.label(subject?.id)}</h2>
         <ol className="notebook-list">
           {exercises.map((ex) => (
             <li key={ex.id} className="notebook-item">
@@ -49,7 +49,7 @@ export default function NotebookView({ exercises, subject, level, onBack, onDone
       </div>
 
       <button type="button" className="cahier-cta" onClick={onDone}>
-        ✅ J'ai terminé mon cahier
+        {L.t('finishedNotebook')}
       </button>
     </div>
   );

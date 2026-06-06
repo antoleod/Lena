@@ -19,6 +19,28 @@
 
 import { buildDotsVisual as dotsVisual, buildArrayVisual } from './mathVisualUtils.js';
 
+// Active locale for generated statements (set by the engine before generating).
+let _locale = 'fr';
+export function setGenLocale(l) { _locale = ['fr', 'nl', 'en', 'es'].includes(l) ? l : 'fr'; }
+
+const MATHQ = {
+  fr: (op, a, b) => `Combien font ${a} ${op} ${b} ?`,
+  nl: (op, a, b) => `Hoeveel is ${a} ${op} ${b}?`,
+  en: (op, a, b) => `How much is ${a} ${op} ${b}?`,
+  es: (op, a, b) => `¿Cuánto es ${a} ${op} ${b}?`,
+};
+const mq = (op, a, b) => (MATHQ[_locale] || MATHQ.fr)(op, a, b);
+const NOTEBOOK_INSTR = {
+  fr: 'Écris la réponse dans ton cahier.', nl: 'Schrijf het antwoord in je schrift.',
+  en: 'Write the answer in your notebook.', es: 'Escribe la respuesta en tu cuaderno.',
+};
+const CONVERT = {
+  fr: (n, from, to) => `Convertis ${n} ${from} en ${to}.`,
+  nl: (n, from, to) => `Zet ${n} ${from} om naar ${to}.`,
+  en: (n, from, to) => `Convert ${n} ${from} to ${to}.`,
+  es: (n, from, to) => `Convierte ${n} ${from} a ${to}.`,
+};
+
 const rint = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
 const choice = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const shuffle = (arr) => {
@@ -68,7 +90,7 @@ function mathAdd(level, i, opts = {}) {
     : `${a} + ${b} = ${answer}`;
   return base('math', 'additions', level, i, {
     question: `${a} + ${b} = ……`,
-    testQuestion: `Combien font ${a} + ${b} ?`,
+    testQuestion: mq('+', a, b),
     answer: String(answer),
     explanation: `${a} + ${b} = ${answer}.`,
     method,
@@ -93,7 +115,7 @@ function mathSub(level, i, opts = {}) {
     : `${a} − ${b} = ${answer}`;
   return base('math', 'soustractions', level, i, {
     question: `${a} − ${b} = ……`,
-    testQuestion: `Combien font ${a} − ${b} ?`,
+    testQuestion: mq('−', a, b),
     answer: String(answer),
     explanation: `${a} − ${b} = ${answer}.`,
     method,
@@ -108,7 +130,7 @@ function mathMul(level, i) {
   const answer = t * b;
   return base('math', 'multiplications', level, i, {
     question: `${t} × ${b} = ……`,
-    testQuestion: `Combien font ${t} × ${b} ?`,
+    testQuestion: mq('×', t, b),
     answer: String(answer),
     explanation: `${t} × ${b} = ${answer}. (${t} rangées de ${b})`,
     inputType: 'number',
@@ -122,7 +144,7 @@ function mathDiv(level, i) {
   const a = b * q; // exact division
   return base('math', 'divisions', level, i, {
     question: `${a} ÷ ${b} = ……`,
-    testQuestion: `Combien font ${a} ÷ ${b} ?`,
+    testQuestion: mq('÷', a, b),
     answer: String(q),
     explanation: `${a} ÷ ${b} = ${q}, car ${b} × ${q} = ${a}.`,
     inputType: 'number',
@@ -137,26 +159,28 @@ function mathMeasure(level, i) {
       : ['cm-mm', 'm-cm', 'euro-cent', 'kg-g'];
   const kind = choice(kinds);
   let q, answer, explanation, accepted;
+  const cv = CONVERT[_locale] || CONVERT.fr;
+  const centWord = { fr: 'centimes', nl: 'cent', en: 'cents', es: 'céntimos' }[_locale] || 'centimes';
   if (kind === 'cm-mm') {
     const n = rint(1, level === 'hard' ? 25 : 9);
     answer = String(n * 10); accepted = [answer, `${answer} mm`];
-    q = `Convertis ${n} cm en millimètres.`;
-    explanation = `1 cm = 10 mm, donc ${n} cm = ${n * 10} mm.`;
+    q = cv(n, 'cm', 'mm');
+    explanation = `1 cm = 10 mm → ${n} cm = ${n * 10} mm.`;
   } else if (kind === 'm-cm') {
     const n = rint(1, 9);
     answer = String(n * 100); accepted = [answer, `${answer} cm`];
-    q = `Convertis ${n} m en centimètres.`;
-    explanation = `1 m = 100 cm, donc ${n} m = ${n * 100} cm.`;
+    q = cv(n, 'm', 'cm');
+    explanation = `1 m = 100 cm → ${n} m = ${n * 100} cm.`;
   } else if (kind === 'kg-g') {
     const n = rint(1, 9);
     answer = String(n * 1000); accepted = [answer, `${answer} g`];
-    q = `Convertis ${n} kg en grammes.`;
-    explanation = `1 kg = 1000 g, donc ${n} kg = ${n * 1000} g.`;
+    q = cv(n, 'kg', 'g');
+    explanation = `1 kg = 1000 g → ${n} kg = ${n * 1000} g.`;
   } else {
     const n = rint(1, 9);
-    answer = String(n * 100); accepted = [answer, `${answer} c`, `${answer} centimes`];
-    q = `Convertis ${n} € en centimes.`;
-    explanation = `1 € = 100 centimes, donc ${n} € = ${n * 100} centimes.`;
+    answer = String(n * 100); accepted = [answer, `${answer} c`, `${answer} ${centWord}`];
+    q = cv(n, '€', centWord);
+    explanation = `1 € = 100 ${centWord} → ${n} € = ${n * 100} ${centWord}.`;
   }
   return base('math', 'measurements', level, i, {
     question: `${q} ……`,
@@ -365,7 +389,7 @@ function base(subject, type, level, i, fields) {
   return {
     id: `${subject}_${type}_${level}_${Date.now().toString(36)}_${i}_${_seq}`,
     subject, type, level,
-    notebookInstruction: 'Écris la réponse dans ton cahier.',
+    notebookInstruction: NOTEBOOK_INSTR[_locale] || NOTEBOOK_INSTR.fr,
     acceptedAnswers: undefined,
     options: undefined,
     ...fields,

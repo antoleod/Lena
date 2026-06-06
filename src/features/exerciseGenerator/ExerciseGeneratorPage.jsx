@@ -8,12 +8,14 @@ import TestView from './TestView.jsx';
 import ResultsView from './ResultsView.jsx';
 import ErrorReviewView from './ErrorReviewView.jsx';
 import { VerificationView, AnswersTableView, ExplanationsView } from './CahierFlowViews.jsx';
+import { useCahierT } from './cahierI18n.js';
 import './cahier.css';
 
 // Flow: setup → notebook → verify → (answers | test) → [results] → explanations
 // plus 'errors'. Solutions are revealed ONLY after the child finishes her cahier.
 export default function ExerciseGeneratorPage() {
   const navigate = useNavigate();
+  const L = useCahierT();
   const [phase, setPhase] = useState('setup');
 
   const [subject, setSubject] = useState('math');
@@ -37,7 +39,7 @@ export default function ExerciseGeneratorPage() {
   const isMath = subject === 'math';
 
   function startNotebook() {
-    const list = generateExercises({ subject, type, level, count, digits: isMath ? digits : null });
+    const list = generateExercises({ subject, type, level, count, digits: isMath ? digits : null, locale: L.locale });
     if (list.length === 0) return;
     setExercises(list);
     setGraded([]);
@@ -131,20 +133,20 @@ export default function ExerciseGeneratorPage() {
       <div className="cahier-header">
         <Link className="exam-back-btn" to="/">←</Link>
         <div>
-          <span className="eyebrow">Mon cahier</span>
-          <h1>Mon cahier d'exercices</h1>
-          <p className="cahier-sub">Choisis ce que tu veux travailler.</p>
+          <span className="eyebrow">{L.t('monCahier')}</span>
+          <h1>{L.t('monCahierTitle')}</h1>
+          <p className="cahier-sub">{L.t('chooseWork')}</p>
         </div>
         {errorCount > 0 && (
           <button type="button" className="cahier-errors-cta" onClick={() => setPhase('errors')}>
-            ⚠️ Mes erreurs <span className="cahier-badge">{errorCount}</span>
+            ⚠️ {L.t('mesErreurs')} <span className="cahier-badge">{errorCount}</span>
           </button>
         )}
       </div>
 
       {/* Modules spéciaux de maths */}
       <section className="cahier-section">
-        <h2 className="cahier-section__title">⭐ Ateliers de maths</h2>
+        <h2 className="cahier-section__title">{L.t('ateliers')}</h2>
         <div className="cahier-choice-row">
           <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/geometrie')}>
             <span className="cahier-chip__emoji">📐</span><span>Les figures géométriques</span>
@@ -160,7 +162,7 @@ export default function ExerciseGeneratorPage() {
 
       {/* Matière */}
       <section className="cahier-section">
-        <h2 className="cahier-section__title">1. Matière</h2>
+        <h2 className="cahier-section__title">{L.t('matiere')}</h2>
         <div className="cahier-choice-grid">
           {SUBJECTS.map((s) => (
             <button
@@ -170,7 +172,7 @@ export default function ExerciseGeneratorPage() {
               onClick={() => chooseSubject(s.id)}
             >
               <span className="cahier-chip__emoji">{s.emoji}</span>
-              <span>{s.label}</span>
+              <span>{L.label(s.id)}</span>
             </button>
           ))}
         </div>
@@ -178,7 +180,7 @@ export default function ExerciseGeneratorPage() {
 
       {/* Type */}
       <section className="cahier-section">
-        <h2 className="cahier-section__title">2. Type d'exercice</h2>
+        <h2 className="cahier-section__title">{L.t('typeExercice')}</h2>
         <div className="cahier-choice-grid">
           {currentSubject?.types.map((tp) => (
             <button
@@ -197,13 +199,13 @@ export default function ExerciseGeneratorPage() {
       {/* Taille des nombres — maths uniquement (additions / soustractions) */}
       {isMath && (type === 'additions' || type === 'soustractions') && (
         <section className="cahier-section">
-          <h2 className="cahier-section__title">Taille des nombres</h2>
+          <h2 className="cahier-section__title">{L.t('tailleNombres')}</h2>
           <div className="cahier-choice-row">
             {[
-              { id: null, label: 'Auto' },
-              { id: 2, label: '2 chiffres' },
-              { id: 3, label: '3 chiffres' },
-              { id: 4, label: '4 chiffres' },
+              { id: null, label: L.t('auto') },
+              { id: 2, label: `2 ${L.t('chiffres')}` },
+              { id: 3, label: `3 ${L.t('chiffres')}` },
+              { id: 4, label: `4 ${L.t('chiffres')}` },
             ].map((d) => (
               <button
                 key={String(d.id)}
@@ -220,7 +222,7 @@ export default function ExerciseGeneratorPage() {
 
       {/* Niveau */}
       <section className="cahier-section">
-        <h2 className="cahier-section__title">3. Niveau</h2>
+        <h2 className="cahier-section__title">{L.t('niveau')}</h2>
         <div className="cahier-choice-row">
           {LEVELS.map((l) => (
             <button
@@ -230,7 +232,7 @@ export default function ExerciseGeneratorPage() {
               onClick={() => setLevel(l.id)}
             >
               <span className="cahier-chip__emoji">{l.emoji}</span>
-              <span>{l.label}</span>
+              <span>{L.label(l.id)}</span>
             </button>
           ))}
         </div>
@@ -238,7 +240,7 @@ export default function ExerciseGeneratorPage() {
 
       {/* Nombre */}
       <section className="cahier-section">
-        <h2 className="cahier-section__title">4. Combien d'exercices ?</h2>
+        <h2 className="cahier-section__title">{L.t('combien')}</h2>
         <div className="cahier-choice-row">
           {COUNTS.map((c) => (
             <button
@@ -254,7 +256,7 @@ export default function ExerciseGeneratorPage() {
       </section>
 
       <button type="button" className="cahier-cta" onClick={startNotebook}>
-        ✏️ Créer mon cahier
+        {L.t('creerCahier')}
       </button>
     </div>
   );

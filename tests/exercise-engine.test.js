@@ -45,6 +45,19 @@ test('digits option produces up to N-digit additions/subtractions', () => {
   }
 });
 
+test('locale localizes math statements (fr/nl/en/es)', () => {
+  const wrappers = {
+    fr: /Combien font/, nl: /Hoeveel is/, en: /How much is/, es: /Cuánto es/,
+  };
+  for (const [locale, re] of Object.entries(wrappers)) {
+    const [ex] = generateExercises({ subject: 'math', type: 'additions', level: 'easy', count: 1, locale });
+    assert.match(ex.testQuestion, re, `additions ${locale}`);
+  }
+  // measurements convert phrasing
+  const [m] = generateExercises({ subject: 'math', type: 'measurements', level: 'easy', count: 1, locale: 'en' });
+  assert.match(m.testQuestion, /Convert/);
+});
+
 test('normalizeAnswer + flexible matching', () => {
   assert.equal(normalizeAnswer('  Bonjour. '), 'bonjour');
   assert.equal(normalizeAnswer('ÉCOLE'), 'ecole');
