@@ -1,0 +1,426 @@
+{
+  "id": "tables-multiplication-04",
+  "category": "tables-multiplication",
+  "categoryLabel": "Tables de multiplication",
+  "categoryEmoji": "✖️",
+  "categoryOrder": 14,
+  "title": "Table de 5",
+  "emoji": "✖️",
+  "order": 4,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "5 × 3 = ?",
+          "options": [
+            "14",
+            "11",
+            "19",
+            "15"
+          ],
+          "answer": "15",
+          "correction": "5 × 3 = 15.",
+          "prompt_nl": "5 × 3 = ?",
+          "prompt_en": "5 × 3 = ?",
+          "prompt_es": "5 × 3 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "5 × 1 = ___",
+          "answer": "5",
+          "correction": "5 × 1 = 5."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "5 × 4 = ?",
+          "options": [
+            "15",
+            "20",
+            "21",
+            "17"
+          ],
+          "answer": "20",
+          "correction": "5 × 4 = 20.",
+          "prompt_nl": "5 × 4 = ?",
+          "prompt_en": "5 × 4 = ?",
+          "prompt_es": "5 × 4 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "5 × 2 = ?",
+          "options": [
+            "13",
+            "5",
+            "10",
+            "15"
+          ],
+          "answer": "10",
+          "correction": "5 × 2 = 10.",
+          "prompt_nl": "5 × 2 = ?",
+          "prompt_en": "5 × 2 = ?",
+          "prompt_es": "5 × 2 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "5 × 1 = ___",
+          "answer": "5",
+          "correction": "5 × 1 = 5."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "5 × 3 = ?",
+          "options": [
+            "17",
+            "19",
+            "20",
+            "15"
+          ],
+          "answer": "15",
+          "correction": "5 × 3 = 15.",
+          "prompt_nl": "5 × 3 = ?",
+          "prompt_en": "5 × 3 = ?",
+          "prompt_es": "5 × 3 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "5 × 1 = ?",
+          "options": [
+            "8",
+            "4",
+            "7",
+            "5"
+          ],
+          "answer": "5",
+          "correction": "5 × 1 = 5.",
+          "prompt_nl": "5 × 1 = ?",
+          "prompt_en": "5 × 1 = ?",
+          "prompt_es": "5 × 1 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "5 × 3 = ___",
+          "answer": "15",
+          "correction": "5 × 3 = 15."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "5 × 1 = ?",
+          "options": [
+            "9",
+            "5",
+            "10",
+            "4"
+          ],
+          "answer": "5",
+          "correction": "5 × 1 = 5.",
+          "prompt_nl": "5 × 1 = ?",
+          "prompt_en": "5 × 1 = ?",
+          "prompt_es": "5 × 1 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "5 × 2 = ?",
+          "options": [
+            "5",
+            "10",
+            "13",
+            "7"
+          ],
+          "answer": "10",
+          "correction": "5 × 2 = 10.",
+          "prompt_nl": "5 × 2 = ?",
+          "prompt_en": "5 × 2 = ?",
+          "prompt_es": "5 × 2 = ?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "5 × 7 = ?",
+          "options": [
+            "36",
+            "37",
+            "35",
+            "31"
+          ],
+          "answer": "35",
+          "correction": "5 × 7 = 35.",
+          "prompt_nl": "5 × 7 = ?",
+          "prompt_en": "5 × 7 = ?",
+          "prompt_es": "5 × 7 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "5 × 8 = ___",
+          "answer": "40",
+          "correction": "5 × 8 = 40."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "5 × 1 = ?",
+          "options": [
+            "9",
+            "5",
+            "8",
+            "2"
+          ],
+          "answer": "5",
+          "correction": "5 × 1 = 5.",
+          "prompt_nl": "5 × 1 = ?",
+          "prompt_en": "5 × 1 = ?",
+          "prompt_es": "5 × 1 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "5 × 6 = ?",
+          "options": [
+            "31",
+            "25",
+            "30",
+            "27"
+          ],
+          "answer": "30",
+          "correction": "5 × 6 = 30.",
+          "prompt_nl": "5 × 6 = ?",
+          "prompt_en": "5 × 6 = ?",
+          "prompt_es": "5 × 6 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "5 × 2 = ___",
+          "answer": "10",
+          "correction": "5 × 2 = 10."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "5 × 1 = ?",
+          "options": [
+            "3",
+            "5",
+            "1",
+            "8"
+          ],
+          "answer": "5",
+          "correction": "5 × 1 = 5.",
+          "prompt_nl": "5 × 1 = ?",
+          "prompt_en": "5 × 1 = ?",
+          "prompt_es": "5 × 1 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "5 × 5 = ?",
+          "options": [
+            "21",
+            "30",
+            "25",
+            "27"
+          ],
+          "answer": "25",
+          "correction": "5 × 5 = 25.",
+          "prompt_nl": "5 × 5 = ?",
+          "prompt_en": "5 × 5 = ?",
+          "prompt_es": "5 × 5 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "5 × 3 = ___",
+          "answer": "15",
+          "correction": "5 × 3 = 15."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "5 × 8 = ?",
+          "options": [
+            "36",
+            "38",
+            "40",
+            "42"
+          ],
+          "answer": "40",
+          "correction": "5 × 8 = 40.",
+          "prompt_nl": "5 × 8 = ?",
+          "prompt_en": "5 × 8 = ?",
+          "prompt_es": "5 × 8 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "5 × 6 = ?",
+          "options": [
+            "32",
+            "28",
+            "35",
+            "30"
+          ],
+          "answer": "30",
+          "correction": "5 × 6 = 30.",
+          "prompt_nl": "5 × 6 = ?",
+          "prompt_en": "5 × 6 = ?",
+          "prompt_es": "5 × 6 = ?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "5 × 9 = ?",
+          "options": [
+            "41",
+            "47",
+            "45",
+            "44"
+          ],
+          "answer": "45",
+          "correction": "5 × 9 = 45.",
+          "prompt_nl": "5 × 9 = ?",
+          "prompt_en": "5 × 9 = ?",
+          "prompt_es": "5 × 9 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "5 × 7 = ___",
+          "answer": "35",
+          "correction": "5 × 7 = 35."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "5 × 2 = ?",
+          "options": [
+            "8",
+            "13",
+            "11",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "5 × 2 = 10.",
+          "prompt_nl": "5 × 2 = ?",
+          "prompt_en": "5 × 2 = ?",
+          "prompt_es": "5 × 2 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "5 × 6 = ?",
+          "options": [
+            "29",
+            "31",
+            "30",
+            "34"
+          ],
+          "answer": "30",
+          "correction": "5 × 6 = 30.",
+          "prompt_nl": "5 × 6 = ?",
+          "prompt_en": "5 × 6 = ?",
+          "prompt_es": "5 × 6 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "5 × 5 = ___",
+          "answer": "25",
+          "correction": "5 × 5 = 25."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "5 × 9 = ?",
+          "options": [
+            "45",
+            "50",
+            "43",
+            "44"
+          ],
+          "answer": "45",
+          "correction": "5 × 9 = 45.",
+          "prompt_nl": "5 × 9 = ?",
+          "prompt_en": "5 × 9 = ?",
+          "prompt_es": "5 × 9 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "5 × 5 = ?",
+          "options": [
+            "25",
+            "26",
+            "22",
+            "20"
+          ],
+          "answer": "25",
+          "correction": "5 × 5 = 25.",
+          "prompt_nl": "5 × 5 = ?",
+          "prompt_en": "5 × 5 = ?",
+          "prompt_es": "5 × 5 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "5 × 1 = ___",
+          "answer": "5",
+          "correction": "5 × 1 = 5."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "5 × 10 = ?",
+          "options": [
+            "50",
+            "53",
+            "52",
+            "46"
+          ],
+          "answer": "50",
+          "correction": "5 × 10 = 50.",
+          "prompt_nl": "5 × 10 = ?",
+          "prompt_en": "5 × 10 = ?",
+          "prompt_es": "5 × 10 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "5 × 4 = ?",
+          "options": [
+            "24",
+            "23",
+            "22",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "5 × 4 = 20.",
+          "prompt_nl": "5 × 4 = ?",
+          "prompt_en": "5 × 4 = ?",
+          "prompt_es": "5 × 4 = ?"
+        }
+      ]
+    }
+  }
+}

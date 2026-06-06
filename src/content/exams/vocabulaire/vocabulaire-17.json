@@ -1,0 +1,359 @@
+{
+  "id": "vocabulaire-17",
+  "category": "vocabulaire",
+  "categoryLabel": "Vocabulaire",
+  "categoryEmoji": "💬",
+  "categoryOrder": 5,
+  "title": "Les mots 17",
+  "emoji": "💬",
+  "order": 17,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le contraire de « ouvert » :",
+          "options": [
+            "fermé",
+            "grand",
+            "vide"
+          ],
+          "answer": "fermé",
+          "correction": "ouvert ↔ fermé."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Une couleur :",
+          "options": [
+            "rouge",
+            "pomme",
+            "table"
+          ],
+          "answer": "rouge",
+          "correction": "Le rouge est une couleur."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Le contraire de « monter » est de ___ .",
+          "answer": "descendre",
+          "accept": [
+            "descendre"
+          ],
+          "correction": "monter ↔ descendre."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le contraire de « grand » :",
+          "options": [
+            "petit",
+            "gros",
+            "haut"
+          ],
+          "answer": "petit",
+          "correction": "grand ↔ petit."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un synonyme de « parler » :",
+          "options": [
+            "discuter",
+            "courir",
+            "dormir"
+          ],
+          "answer": "discuter",
+          "correction": "parler = discuter."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Un outil de cuisine :",
+          "options": [
+            "casserole",
+            "marteau",
+            "crayon"
+          ],
+          "answer": "casserole",
+          "correction": "La casserole est un outil de cuisine."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Un moyen de transport :",
+          "options": [
+            "voiture",
+            "chaise",
+            "fenetre"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture est un moyen de transport."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un outil de cuisine :",
+          "options": [
+            "casserole",
+            "marteau",
+            "crayon"
+          ],
+          "answer": "casserole",
+          "correction": "La casserole est un outil de cuisine."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le contraire de « long » :",
+          "options": [
+            "court",
+            "large",
+            "fin"
+          ],
+          "answer": "court",
+          "correction": "long ↔ court."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un moyen de transport :",
+          "options": [
+            "voiture",
+            "chaise",
+            "fenetre"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture est un moyen de transport."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un légume :",
+          "options": [
+            "carotte",
+            "fraise",
+            "banane"
+          ],
+          "answer": "carotte",
+          "correction": "La carotte est un légume."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le contraire de « jour » :",
+          "options": [
+            "nuit",
+            "soir",
+            "matin"
+          ],
+          "answer": "nuit",
+          "correction": "jour ↔ nuit."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Le contraire de « vieux » :",
+          "options": [
+            "jeune",
+            "gros",
+            "grand"
+          ],
+          "answer": "jeune",
+          "correction": "vieux ↔ jeune."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le contraire de « propre » :",
+          "options": [
+            "sale",
+            "mouillé",
+            "neuf"
+          ],
+          "answer": "sale",
+          "correction": "propre ↔ sale."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le contraire de « ouvert » :",
+          "options": [
+            "fermé",
+            "grand",
+            "vide"
+          ],
+          "answer": "fermé",
+          "correction": "ouvert ↔ fermé."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Un synonyme de « parler » :",
+          "options": [
+            "discuter",
+            "courir",
+            "dormir"
+          ],
+          "answer": "discuter",
+          "correction": "parler = discuter."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Une couleur :",
+          "options": [
+            "rouge",
+            "pomme",
+            "table"
+          ],
+          "answer": "rouge",
+          "correction": "Le rouge est une couleur."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un synonyme de « regarder » :",
+          "options": [
+            "observer",
+            "manger",
+            "courir"
+          ],
+          "answer": "observer",
+          "correction": "regarder = observer."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un synonyme de « joli » :",
+          "options": [
+            "beau",
+            "laid",
+            "vieux"
+          ],
+          "answer": "beau",
+          "correction": "joli = beau."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Le contraire de « chaud » :",
+          "options": [
+            "froid",
+            "tiède",
+            "doux"
+          ],
+          "answer": "froid",
+          "correction": "chaud ↔ froid."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Une couleur :",
+          "options": [
+            "rouge",
+            "pomme",
+            "table"
+          ],
+          "answer": "rouge",
+          "correction": "Le rouge est une couleur."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le contraire de « heureux » :",
+          "options": [
+            "triste",
+            "content",
+            "joyeux"
+          ],
+          "answer": "triste",
+          "correction": "heureux ↔ triste."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Le contraire de « plein » :",
+          "options": [
+            "vide",
+            "lourd",
+            "grand"
+          ],
+          "answer": "vide",
+          "correction": "plein ↔ vide."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le contraire de « propre » :",
+          "options": [
+            "sale",
+            "mouillé",
+            "neuf"
+          ],
+          "answer": "sale",
+          "correction": "propre ↔ sale."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "Le contraire de « monter » est de ___ .",
+          "answer": "descendre",
+          "accept": [
+            "descendre"
+          ],
+          "correction": "monter ↔ descendre."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Un moyen de transport :",
+          "options": [
+            "voiture",
+            "chaise",
+            "fenetre"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture est un moyen de transport."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le contraire de « long » :",
+          "options": [
+            "court",
+            "large",
+            "fin"
+          ],
+          "answer": "court",
+          "correction": "long ↔ court."
+        }
+      ]
+    }
+  }
+}

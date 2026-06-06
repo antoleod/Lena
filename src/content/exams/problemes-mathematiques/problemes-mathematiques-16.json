@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-16",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les perles",
+  "emoji": "📖",
+  "order": 16,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Léa a 4 perles. On lui en donne 9. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "13",
+            "9",
+            "18",
+            "15"
+          ],
+          "answer": "13",
+          "correction": "4 + 9 = 13 perles."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 12 perles. Maya en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "7",
+            "3",
+            "12",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 perles."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 10 perles. Léa en perd 4. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "10 − 4 = 6 perles."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 8 perles. On lui en donne 8. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "21",
+            "16",
+            "20",
+            "11"
+          ],
+          "answer": "16",
+          "correction": "8 + 8 = 16 perles."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Sami a 8 perles. On lui en donne 4. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "17",
+            "8",
+            "9",
+            "12"
+          ],
+          "answer": "12",
+          "correction": "8 + 4 = 12 perles."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Nina a 12 perles. Nina en perd 2. Combien en reste-t-il ?",
+          "answer": "10",
+          "correction": "12 − 2 = 10 perles."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Léa a 10 perles. Léa en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "7",
+            "11",
+            "12"
+          ],
+          "answer": "7",
+          "correction": "10 − 3 = 7 perles."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hugo a 11 perles. Hugo en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "7",
+            "2",
+            "11",
+            "8"
+          ],
+          "answer": "7",
+          "correction": "11 − 4 = 7 perles."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Maya a 12 perles. Maya en perd 9. Combien en reste-t-il ?",
+          "answer": "3",
+          "correction": "12 − 9 = 3 perles."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Tom a 7 perles. On lui en donne 4. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "11",
+            "6",
+            "8",
+            "13"
+          ],
+          "answer": "11",
+          "correction": "7 + 4 = 11 perles."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Théo a 10 perles. On lui en donne 16. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "34",
+            "28",
+            "26",
+            "33"
+          ],
+          "answer": "26",
+          "correction": "10 + 16 = 26 perles."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Hugo a 16 perles. On lui en donne 18. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "31",
+            "34",
+            "24",
+            "37"
+          ],
+          "answer": "34",
+          "correction": "16 + 18 = 34 perles."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 10 perles. On lui en donne 4. Combien en a-t-Léa maintenant ?",
+          "answer": "14",
+          "correction": "10 + 4 = 14 perles."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Léa a 11 perles. On lui en donne 7. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "15",
+            "11",
+            "18",
+            "26"
+          ],
+          "answer": "18",
+          "correction": "11 + 7 = 18 perles."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Théo a 15 perles. Théo en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "6",
+            "3",
+            "11"
+          ],
+          "answer": "6",
+          "correction": "15 − 9 = 6 perles."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 9 perles. On lui en donne 2. Combien en a-t-Tom maintenant ?",
+          "answer": "11",
+          "correction": "9 + 2 = 11 perles."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Tom a 12 perles. Tom en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "2",
+            "16",
+            "11"
+          ],
+          "answer": "11",
+          "correction": "12 − 1 = 11 perles."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Théo a 16 perles. Théo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "10",
+            "8",
+            "11",
+            "3"
+          ],
+          "answer": "8",
+          "correction": "16 − 8 = 8 perles."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Théo a 16 perles. On lui en donne 14. Combien en a-t-Théo maintenant ?",
+          "answer": "30",
+          "correction": "16 + 14 = 30 perles."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Hugo a 15 perles. On lui en donne 12. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "29",
+            "35",
+            "21",
+            "27"
+          ],
+          "answer": "27",
+          "correction": "15 + 12 = 27 perles."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 5 boîtes de 3 perles. Combien de perles en tout ?",
+          "options": [
+            "8",
+            "15",
+            "19",
+            "10"
+          ],
+          "answer": "15",
+          "correction": "5 × 3 = 15 perles."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 5 boîtes de 6 perles. Combien de perles en tout ?",
+          "options": [
+            "40",
+            "30",
+            "21",
+            "27"
+          ],
+          "answer": "30",
+          "correction": "5 × 6 = 30 perles."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Tom a 3 boîtes de 2 perles. Combien de perles en tout ?",
+          "answer": "6",
+          "correction": "3 × 2 = 6 perles."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Théo a 21 perles. Théo en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "2",
+            "30",
+            "16",
+            "11"
+          ],
+          "answer": "16",
+          "correction": "21 − 5 = 16 perles."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Nina a 5 boîtes de 4 perles. Combien de perles en tout ?",
+          "options": [
+            "28",
+            "20",
+            "14",
+            "11"
+          ],
+          "answer": "20",
+          "correction": "5 × 4 = 20 perles."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Léa a 15 perles. Léa en perd 9. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "15 − 9 = 6 perles."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Sami a 12 perles. On lui en donne 21. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "33",
+            "34",
+            "38",
+            "23"
+          ],
+          "answer": "33",
+          "correction": "12 + 21 = 33 perles."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 2 boîtes de 6 perles. Combien de perles en tout ?",
+          "options": [
+            "1",
+            "15",
+            "12",
+            "3"
+          ],
+          "answer": "12",
+          "correction": "2 × 6 = 12 perles."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Emma a 16 perles. On lui en donne 23. Combien en a-t-Emma maintenant ?",
+          "answer": "39",
+          "correction": "16 + 23 = 39 perles."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Théo a 22 perles. Théo en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "26",
+            "17",
+            "13",
+            "6"
+          ],
+          "answer": "13",
+          "correction": "22 − 9 = 13 perles."
+        }
+      ]
+    }
+  }
+}

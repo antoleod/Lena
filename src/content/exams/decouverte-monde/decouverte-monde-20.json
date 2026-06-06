@@ -1,0 +1,346 @@
+{
+  "id": "decouverte-monde-20",
+  "category": "decouverte-monde",
+  "categoryLabel": "Découverte du monde",
+  "categoryEmoji": "🌍",
+  "categoryOrder": 13,
+  "title": "Le monde autour de moi 20",
+  "emoji": "🌍",
+  "order": 20,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "La poule pond des :",
+          "options": [
+            "œufs",
+            "plumes",
+            "fruits"
+          ],
+          "answer": "œufs",
+          "correction": "La poule pond des œufs."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "En hiver, il fait :",
+          "options": [
+            "froid",
+            "très chaud",
+            "lourd"
+          ],
+          "answer": "froid",
+          "correction": "En hiver il fait froid."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "On met le papier dans la poubelle :",
+          "options": [
+            "de recyclage",
+            "normale",
+            "à compost"
+          ],
+          "answer": "de recyclage",
+          "correction": "Le papier se recycle."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Qu'est-ce qu'un séisme ?",
+          "options": [
+            "un tremblement de terre",
+            "une tempête",
+            "une inondation"
+          ],
+          "answer": "un tremblement de terre",
+          "correction": "Un séisme = tremblement de terre."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "On respire avec les :",
+          "options": [
+            "poumons",
+            "mains",
+            "pieds"
+          ],
+          "answer": "poumons",
+          "correction": "On respire avec les poumons."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quand il pleut, on prend un :",
+          "options": [
+            "parapluie",
+            "ballon",
+            "livre"
+          ],
+          "answer": "parapluie",
+          "correction": "Contre la pluie : le parapluie."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "options": [
+            "soleil et eau",
+            "chocolat",
+            "jouets"
+          ],
+          "answer": "soleil et eau",
+          "correction": "Soleil + eau."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le dentiste soigne :",
+          "options": [
+            "les dents",
+            "les yeux",
+            "les pieds"
+          ],
+          "answer": "les dents",
+          "correction": "Le dentiste soigne les dents."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "On respire avec les :",
+          "options": [
+            "poumons",
+            "mains",
+            "pieds"
+          ],
+          "answer": "poumons",
+          "correction": "On respire avec les poumons."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "La vache nous donne :",
+          "options": [
+            "du lait",
+            "des œufs",
+            "de la laine"
+          ],
+          "answer": "du lait",
+          "correction": "La vache donne du lait."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "options": [
+            "le toucher",
+            "la vue",
+            "l'ouïe"
+          ],
+          "answer": "le toucher",
+          "correction": "On touche avec la peau."
+        },
+        {
+          "id": "q8",
+          "type": "true_false",
+          "prompt": "Le recyclage aide à réduire les déchets.",
+          "answer": true,
+          "correction": "Oui, le recyclage réduit les déchets."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "options": [
+            "soleil et eau",
+            "chocolat",
+            "jouets"
+          ],
+          "answer": "soleil et eau",
+          "correction": "Soleil + eau."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un volcan crache :",
+          "options": [
+            "de la lave",
+            "de l'eau",
+            "du sable"
+          ],
+          "answer": "de la lave",
+          "correction": "Un volcan crache de la lave."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le medecin soigne les :",
+          "options": [
+            "malades",
+            "voitures",
+            "plantes"
+          ],
+          "answer": "malades",
+          "correction": "Le médecin soigne les malades."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le boulanger fait le :",
+          "options": [
+            "pain",
+            "lait",
+            "bois"
+          ],
+          "answer": "pain",
+          "correction": "Le boulanger fait le pain."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Ce que produisent les plantes pour nous :",
+          "options": [
+            "l'oxygène",
+            "le dioxyde de carbone",
+            "l'azote"
+          ],
+          "answer": "l'oxygène",
+          "correction": "Les plantes produisent de l'oxygène."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le pompier éteint :",
+          "options": [
+            "le feu",
+            "la pluie",
+            "le vent"
+          ],
+          "answer": "le feu",
+          "correction": "Le pompier éteint le feu."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "On trie les déchets pour :",
+          "options": [
+            "protéger l'environnement",
+            "faire de la place",
+            "punir"
+          ],
+          "answer": "protéger l'environnement",
+          "correction": "Le tri protège l'environnement."
+        },
+        {
+          "id": "q4",
+          "type": "true_false",
+          "prompt": "Le recyclage aide à réduire les déchets.",
+          "answer": true,
+          "correction": "Oui, le recyclage réduit les déchets."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "On met le papier dans la poubelle :",
+          "options": [
+            "de recyclage",
+            "normale",
+            "à compost"
+          ],
+          "answer": "de recyclage",
+          "correction": "Le papier se recycle."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "La vache nous donne :",
+          "options": [
+            "du lait",
+            "des œufs",
+            "de la laine"
+          ],
+          "answer": "du lait",
+          "correction": "La vache donne du lait."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "options": [
+            "le toucher",
+            "la vue",
+            "l'ouïe"
+          ],
+          "answer": "le toucher",
+          "correction": "On touche avec la peau."
+        },
+        {
+          "id": "q12",
+          "type": "true_false",
+          "prompt": "Le soleil se lève le matin.",
+          "answer": true,
+          "correction": "Oui, le matin."
+        },
+        {
+          "id": "q14",
+          "type": "fill_blank",
+          "prompt": "L’abeille fabrique le ___ .",
+          "answer": "miel",
+          "accept": [
+            "miel"
+          ],
+          "correction": "L’abeille fait le miel."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "L'eau potable est :",
+          "options": [
+            "l'eau que l'on peut boire",
+            "l'eau de la mer",
+            "l'eau chaude"
+          ],
+          "answer": "l'eau que l'on peut boire",
+          "correction": "L'eau potable est sûre à boire."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "options": [
+            "soleil et eau",
+            "chocolat",
+            "jouets"
+          ],
+          "answer": "soleil et eau",
+          "correction": "Soleil + eau."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "La source d'énergie des plantes est :",
+          "options": [
+            "le soleil",
+            "la lune",
+            "le vent"
+          ],
+          "answer": "le soleil",
+          "correction": "Les plantes utilisent l'énergie solaire."
+        }
+      ]
+    }
+  }
+}

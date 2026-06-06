@@ -1,0 +1,359 @@
+{
+  "id": "dictee-14",
+  "category": "dictee",
+  "categoryLabel": "Dictée",
+  "categoryEmoji": "🎧",
+  "categoryOrder": 7,
+  "title": "Dictée 14",
+  "emoji": "🎧",
+  "order": 14,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "On entend « fleur ». On écrit :",
+          "options": [
+            "fleur",
+            "fleure",
+            "flèr"
+          ],
+          "answer": "fleur",
+          "correction": "Le mot « fleur »."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Je mange une pomme.",
+            "Je manje une pom.",
+            "Je mange ène pome."
+          ],
+          "answer": "Je mange une pomme.",
+          "correction": "On écrit « Je mange une pomme. »."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Le chat dort.",
+            "Le chat dor.",
+            "Le chate dort."
+          ],
+          "answer": "Le chat dort.",
+          "correction": "On écrit « Le chat dort. »."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "On entend « voiture ». On écrit :",
+          "options": [
+            "voiture",
+            "voitur",
+            "voature"
+          ],
+          "answer": "voiture",
+          "correction": "Le mot « voiture »."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "On entend « jardin ». On écrit :",
+          "options": [
+            "jardin",
+            "jardain",
+            "jardun"
+          ],
+          "answer": "jardin",
+          "correction": "Le mot « jardin »."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "On entend « table ». On écrit :",
+          "options": [
+            "table",
+            "tabel",
+            "tabl"
+          ],
+          "answer": "table",
+          "correction": "Le mot « table »."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "On entend « fille ». On écrit :",
+          "options": [
+            "fille",
+            "file",
+            "fiye"
+          ],
+          "answer": "fille",
+          "correction": "Le mot « fille »."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "Écris le mot : on lit un ___ à la bibliothèque.",
+          "answer": "livre",
+          "accept": [
+            "livre"
+          ],
+          "correction": "C’est un livre."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Je mange une pomme.",
+            "Je manje une pom.",
+            "Je mange ène pome."
+          ],
+          "answer": "Je mange une pomme.",
+          "correction": "On écrit « Je mange une pomme. »."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Les enfants jouent.",
+            "Les enfants joue.",
+            "Les enfants jouet."
+          ],
+          "answer": "Les enfants jouent.",
+          "correction": "On écrit « Les enfants jouent. »."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "On entend « bateau ». On écrit :",
+          "options": [
+            "bateau",
+            "bato",
+            "batau"
+          ],
+          "answer": "bateau",
+          "correction": "Le mot « bateau »."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "On entend « fille ». On écrit :",
+          "options": [
+            "fille",
+            "file",
+            "fiye"
+          ],
+          "answer": "fille",
+          "correction": "Le mot « fille »."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "On entend « ecole ». On écrit :",
+          "options": [
+            "école",
+            "ecol",
+            "écolle"
+          ],
+          "answer": "école",
+          "correction": "Le mot « école »."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "On entend « voiture ». On écrit :",
+          "options": [
+            "voiture",
+            "voitur",
+            "voature"
+          ],
+          "answer": "voiture",
+          "correction": "Le mot « voiture »."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "On entend « oiseau ». On écrit :",
+          "options": [
+            "oiseau",
+            "oizeau",
+            "oiso"
+          ],
+          "answer": "oiseau",
+          "correction": "Le mot « oiseau »."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "Écris le contraire de « grand ».",
+          "answer": "petit",
+          "accept": [
+            "petit"
+          ],
+          "correction": "Le mot « petit »."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "On entend « chat ». On écrit :",
+          "options": [
+            "chat",
+            "cha",
+            "chate"
+          ],
+          "answer": "chat",
+          "correction": "Le mot « chat »."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "On entend « rouge ». On écrit :",
+          "options": [
+            "rouge",
+            "roug",
+            "rouje"
+          ],
+          "answer": "rouge",
+          "correction": "Le mot « rouge »."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "On entend « oiseau ». On écrit :",
+          "options": [
+            "oiseau",
+            "oizeau",
+            "oiso"
+          ],
+          "answer": "oiseau",
+          "correction": "Le mot « oiseau »."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "On entend « table ». On écrit :",
+          "options": [
+            "table",
+            "tabel",
+            "tabl"
+          ],
+          "answer": "table",
+          "correction": "Le mot « table »."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "On entend « voiture ». On écrit :",
+          "options": [
+            "voiture",
+            "voitur",
+            "voature"
+          ],
+          "answer": "voiture",
+          "correction": "Le mot « voiture »."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "On entend « fille ». On écrit :",
+          "options": [
+            "fille",
+            "file",
+            "fiye"
+          ],
+          "answer": "fille",
+          "correction": "Le mot « fille »."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "On entend « maman ». On écrit :",
+          "options": [
+            "maman",
+            "mamen",
+            "mama"
+          ],
+          "answer": "maman",
+          "correction": "Le mot « maman »."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Papa lit un livre.",
+            "Papa lis un livre.",
+            "Pappa lit un livre."
+          ],
+          "answer": "Papa lit un livre.",
+          "correction": "On écrit « Papa lit un livre. »."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Je mange une pomme.",
+            "Je manje une pom.",
+            "Je mange ène pome."
+          ],
+          "answer": "Je mange une pomme.",
+          "correction": "On écrit « Je mange une pomme. »."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "On entend « jardin ». On écrit :",
+          "options": [
+            "jardin",
+            "jardain",
+            "jardun"
+          ],
+          "answer": "jardin",
+          "correction": "Le mot « jardin »."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Le chat dort.",
+            "Le chat dor.",
+            "Le chate dort."
+          ],
+          "answer": "Le chat dort.",
+          "correction": "On écrit « Le chat dort. »."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "On entend « fleur ». On écrit :",
+          "options": [
+            "fleur",
+            "fleure",
+            "flèr"
+          ],
+          "answer": "fleur",
+          "correction": "Le mot « fleur »."
+        }
+      ]
+    }
+  }
+}

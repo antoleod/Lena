@@ -58,10 +58,10 @@ function exam(category, meta, order, title, emoji, levelFn) {
 function buildProblemes() {
   const meta = { label: 'Problèmes mathématiques', emoji: '📖', order: 3 };
   const names = ['Léa', 'Tom', 'Maya', 'Hugo', 'Nina', 'Sami', 'Emma', 'Théo'];
-  const items = ['billes', 'bonbons', 'images', 'pommes', 'crayons', 'fleurs', 'livres', 'autocollants'];
+  const items = ['billes', 'bonbons', 'images', 'pommes', 'crayons', 'fleurs', 'livres', 'autocollants', 'pieces', 'bracelets', 'cartes', 'stylos', 'graines', 'galets', 'plumes', 'perles', 'oeufs', 'bougies', 'noisettes', 'cailloux'];
   const themes = items;
   const exams = [];
-  for (let n = 1; n <= 10; n++) {
+  for (let n = 1; n <= 20; n++) {
     const item = themes[(n - 1) % themes.length];
     exams.push(exam('problemes-mathematiques', meta, n, `Problèmes : les ${item}`, '📖', (key) => {
       const rng = makeRng(3000 + n * 13 + key.length);
@@ -116,7 +116,7 @@ function buildCalendrier() {
     () => mc('Le week-end, ce sont les jours :', ['samedi et dimanche', 'lundi et mardi', 'jeudi et vendredi'], 'samedi et dimanche', 'Le week-end : samedi et dimanche.'),
     () => mc('Au printemps, les fleurs :', ['poussent', 'tombent', 'gèlent'], 'poussent', 'Au printemps les fleurs poussent.'),
   ];
-  for (let n = 1; n <= 10; n++) {
+  for (let n = 1; n <= 20; n++) {
     exams.push(exam('calendrier-temps', meta, n, `Le temps qui passe ${n}`, '📅', (key) => {
       const rng = makeRng(4000 + n * 17 + key.length);
       const count = key === 'facile' ? 8 : 10;
@@ -128,9 +128,9 @@ function buildCalendrier() {
 function shuffleStatic(a) { return a; }
 
 // ── Generic authored-bank category builder ──────────────────────────────────
-function bankCategory(category, meta, titles, defEmoji, bank) {
+function bankCategory(category, meta, titles, defEmoji, bank, examCount = 20) {
   const exams = [];
-  for (let n = 1; n <= 10; n++) {
+  for (let n = 1; n <= examCount; n++) {
     exams.push(exam(category, meta, n, titles[(n - 1) % titles.length] + ` ${n}`, defEmoji, (key) => {
       const rng = makeRng(category.length * 100 + n * 19 + key.length);
       const count = key === 'facile' ? 8 : 10;
@@ -159,6 +159,15 @@ function buildVocabulaire() {
     () => mc('Un légume :', ['carotte', 'fraise', 'banane'], 'carotte', 'La carotte est un légume.'),
     () => mc('Un synonyme de « regarder » :', ['observer', 'manger', 'courir'], 'observer', 'regarder = observer.'),
     () => mc('Le contraire de « plein » :', ['vide', 'lourd', 'grand'], 'vide', 'plein ↔ vide.'),
+    () => mc('Le contraire de « fort » :', ['faible', 'dur', 'lourd'], 'faible', 'fort ↔ faible.'),
+    () => mc('Un synonyme de « marcher » :', ['se promener', 'courir', 'voler'], 'se promener', 'marcher = se promener.'),
+    () => mc('Le contraire de « debut » :', ['fin', 'milieu', 'suite'], 'fin', 'debut ↔ fin.'),
+    () => mc('Un moyen de transport :', ['voiture', 'chaise', 'fenetre'], 'voiture', 'La voiture est un moyen de transport.'),
+    () => mc('Le contraire de « heureux » :', ['triste', 'content', 'joyeux'], 'triste', 'heureux ↔ triste.'),
+    () => mc('Le contraire de « vieux » :', ['jeune', 'gros', 'grand'], 'jeune', 'vieux ↔ jeune.'),
+    () => mc('Un synonyme de « parler » :', ['discuter', 'courir', 'dormir'], 'discuter', 'parler = discuter.'),
+    () => mc('Le contraire de « long » :', ['court', 'large', 'fin'], 'court', 'long ↔ court.'),
+    () => mc('Un outil de cuisine :', ['casserole', 'marteau', 'crayon'], 'casserole', 'La casserole est un outil de cuisine.'),
   ];
   return bankCategory('vocabulaire', meta, ['Les mots'], '💬', bank);
 }
@@ -174,6 +183,15 @@ function buildOrthographe() {
     () => mc('Quel mot est bien écrit ?', ['école', 'ékole', 'écolle'], 'école', 'On écrit « école ».'),
     () => mc('Quel mot est bien écrit ?', ['oiseau', 'oizeau', 'oisau'], 'oiseau', 'On écrit « oiseau ».'),
     () => mc('Quel mot est bien écrit ?', ['maison', 'mayson', 'mèson'], 'maison', 'On écrit « maison ».'),
+    () => mc('Quel mot est bien écrit ?', ['ballon', 'balon', 'baloon'], 'ballon', 'On écrit « ballon ».'),
+    () => mc('Quel mot est bien écrit ?', ['fille', 'file', 'fiye'], 'fille', 'On écrit « fille ».'),
+    () => mc('Quel mot est bien écrit ?', ['poulet', 'poulait', 'poule'], 'poulet', 'On écrit « poulet ».'),
+    () => mc('Quel mot est bien écrit ?', ['tableau', 'tablau', 'tableo'], 'tableau', 'On écrit « tableau ».'),
+    () => mc('Quel mot est bien écrit ?', ['papillon', 'pappillon', 'papiyon'], 'papillon', 'On écrit « papillon ».'),
+    () => mc('Quel mot est bien écrit ?', ['nuage', 'nuaje', 'nuaje'], 'nuage', 'On écrit « nuage ».'),
+    () => mc('Quel mot est bien écrit ?', ['chambre', 'chanbre', 'chambr'], 'chambre', 'On écrit « chambre ».'),
+    () => mc('Quel mot est bien écrit ?', ['garcon', 'garçon', 'garson'], 'garçon', 'On écrit « garçon » (cédille).'),
+    () => mc('Quel mot est bien écrit ?', ['fenetre', 'fenêtre', 'fenettre'], 'fenêtre', 'On écrit « fenêtre » (accent).'),
   ];
   return bankCategory('orthographe', meta, ['Bien écrire'], '✏️', bank);
 }
@@ -194,6 +212,15 @@ function buildDictee() {
     () => fb('Écris le mot : on lit un ___ à la bibliothèque.', 'livre', 'C’est un livre.', ['livre']),
     () => mc('On entend « voiture ». On écrit :', ['voiture', 'voitur', 'voature'], 'voiture', 'Le mot « voiture ».'),
     () => mc('On entend « jardin ». On écrit :', ['jardin', 'jardain', 'jardun'], 'jardin', 'Le mot « jardin ».'),
+    () => mc('On entend « ecole ». On écrit :', ['école', 'ecol', 'écolle'], 'école', 'Le mot « école ».'),
+    () => mc('On entend « oiseau ». On écrit :', ['oiseau', 'oizeau', 'oiso'], 'oiseau', 'Le mot « oiseau ».'),
+    () => mc('On entend « table ». On écrit :', ['table', 'tabel', 'tabl'], 'table', 'Le mot « table ».'),
+    () => mc('La phrase correcte :', ['Papa lit un livre.', 'Papa lis un livre.', 'Pappa lit un livre.'], 'Papa lit un livre.', 'On écrit « Papa lit un livre. ».'),
+    () => mc('La phrase correcte :', ['Je mange une pomme.', 'Je manje une pom.', 'Je mange ène pome.'], 'Je mange une pomme.', 'On écrit « Je mange une pomme. ».'),
+    () => mc('On entend « fille ». On écrit :', ['fille', 'file', 'fiye'], 'fille', 'Le mot « fille ».'),
+    () => mc('On entend « rouge ». On écrit :', ['rouge', 'roug', 'rouje'], 'rouge', 'Le mot « rouge ».'),
+    () => mc('On entend « cheval ». On écrit :', ['cheval', 'chval', 'chaval'], 'cheval', 'Le mot « cheval ».'),
+    () => mc('La phrase correcte :', ['Les enfants jouent.', 'Les enfants joue.', 'Les enfants jouet.'], 'Les enfants jouent.', 'On écrit « Les enfants jouent. ».'),
   ];
   return bankCategory('dictee', meta, ['Dictée'], '🎧', bank);
 }
@@ -216,6 +243,15 @@ function buildGrammaire() {
     () => mc('« sauter » est un :', ['verbe', 'nom', 'adjectif'], 'verbe', '« sauter » est un verbe.'),
     () => mc('« une école » est :', ['féminin', 'masculin', 'pluriel'], 'féminin', '« une » → féminin.'),
     () => mc('Le pluriel de « le jardin » :', ['les jardins', 'le jardins', 'les jardin'], 'les jardins', 'Pluriel : les jardins.'),
+    () => mc('« maison » est de genre :', ['féminin', 'masculin', 'neutre'], 'féminin', 'une maison → féminin.'),
+    () => mc('« soleil » est de genre :', ['masculin', 'féminin', 'neutre'], 'masculin', 'le soleil → masculin.'),
+    () => mc('Le pluriel de « un oiseau » :', ['des oiseaux', 'des oiseau', 'des oiseaux'], 'des oiseaux', 'Pluriel : des oiseaux (eau → eaux).'),
+    () => mc('Le pluriel de « un gateau » :', ['des gâteaux', 'des gâteaus', 'des gateau'], 'des gâteaux', 'Pluriel : des gâteaux.'),
+    () => tf('« table » est un nom commun.', true, 'table = nom commun.'),
+    () => mc('« vite » est un :', ['adverbe', 'adjectif', 'nom', 'verbe'], 'adverbe', 'vite = adverbe (comment ?).'),
+    () => mc('« chanter » appartient au ___ groupe.', ['1er', '2e', '3e'], '1er', 'chanter termine en -er : 1er groupe.'),
+    () => mc('Dans « la petite maison », le nom est :', ['maison', 'petite', 'la'], 'maison', 'maison = nom.'),
+    () => mc('Le pluriel de « un bal » :', ['des bals', 'des baux', 'des balles'], 'des bals', 'Pluriel régulier : des bals.'),
   ];
   return bankCategory('grammaire', meta, ['Les mots et les phrases'], '🧩', bank);
 }
@@ -238,6 +274,15 @@ function buildConjugaison() {
     () => fb('Nous ___ (aimer) la lecture. (présent)', 'aimons', 'Nous aimons.', ['aimons']),
     () => mc('Je ___ (faire) mes devoirs.', ['fais', 'fait', 'font'], 'fais', 'Je fais.'),
     () => mc('Plus tard, je ___ (manger). (futur)', ['mangerai', 'mange', 'mangé'], 'mangerai', 'Futur : je mangerai.'),
+    () => mc('Demain, nous ___ (partir). (futur)', ['partirons', 'partons', 'partis'], 'partirons', 'Futur : nous partirons.'),
+    () => mc('Tu ___ (vouloir, présent).', ['veux', 'veut', 'voulons'], 'veux', 'Tu veux.'),
+    () => mc('Il ___ (pouvoir, présent).', ['peut', 'peux', 'pouvons'], 'peut', 'Il peut.'),
+    () => mc('Nous ___ (venir, présent).', ['venons', 'venir', 'vient'], 'venons', 'Nous venons.'),
+    () => mc('Demain, il ___ (avoir). (futur)', ['aura', 'a', 'avait'], 'aura', 'Futur : il aura.'),
+    () => mc('Je ___ (prendre, présent).', ['prends', 'prend', 'prenons'], 'prends', 'Je prends.'),
+    () => mc('Tu ___ (dire, présent).', ['dis', 'dit', 'disons'], 'dis', 'Tu dis.'),
+    () => mc('Vous ___ (aller, présent).', ['allez', 'allons', 'vont'], 'allez', 'Vous allez.'),
+    () => mc('Elles ___ (jouer, présent).', ['jouent', 'joue', 'jouons'], 'jouent', 'Elles jouent.'),
   ];
   return bankCategory('conjugaison', meta, ['Les verbes'], '🔁', bank);
 }
@@ -257,7 +302,7 @@ function buildLogique() {
     () => mc('Quel nombre est le plus grand ?', ['9', '4', '7'], '9', '9 est le plus grand.'),
     () => mc('Quel nombre est le plus petit ?', ['3', '6', '8'], '3', '3 est le plus petit.'),
   ];
-  for (let n = 1; n <= 10; n++) {
+  for (let n = 1; n <= 20; n++) {
     exams.push(exam('logique', meta, n, `Réfléchis bien ${n}`, '🧠', (key) => {
       const rng = makeRng(7000 + n * 23 + key.length);
       const qs = [];
@@ -302,7 +347,7 @@ function buildGeometrie() {
 function buildMesures() {
   const meta = { label: 'Mesures', emoji: '📏', order: 12 };
   const exams = [];
-  for (let n = 1; n <= 10; n++) {
+  for (let n = 1; n <= 20; n++) {
     exams.push(exam('mesures', meta, n, `Mesurer ${n}`, '📏', (key) => {
       const rng = makeRng(8000 + n * 29 + key.length);
       const kinds = key === 'facile' ? ['cm-mm'] : key === 'moyen' ? ['cm-mm', 'm-cm', 'euro'] : ['cm-mm', 'm-cm', 'euro', 'kg-g', 'temps'];
@@ -346,6 +391,16 @@ function buildDecouverte() {
     () => fb('L’abeille fabrique le ___ .', 'miel', 'L’abeille fait le miel.', ['miel']),
     () => mc('Pour grandir, les plantes ont besoin de :', ['soleil et eau', 'chocolat', 'jouets'], 'soleil et eau', 'Soleil + eau.'),
     () => mc('On entend avec les :', ['oreilles', 'yeux', 'mains'], 'oreilles', 'On entend avec les oreilles.'),
+    () => mc('Le medecin soigne les :', ['malades', 'voitures', 'plantes'], 'malades', 'Le médecin soigne les malades.'),
+    () => mc('On trie les déchets pour :', ['protéger l\'environnement', 'faire de la place', 'punir'], 'protéger l\'environnement', 'Le tri protège l\'environnement.'),
+    () => mc('La source d\'énergie des plantes est :', ['le soleil', 'la lune', 'le vent'], 'le soleil', 'Les plantes utilisent l\'énergie solaire.'),
+    () => mc('Un volcan crache :', ['de la lave', 'de l\'eau', 'du sable'], 'de la lave', 'Un volcan crache de la lave.'),
+    () => tf('Le recyclage aide à réduire les déchets.', true, 'Oui, le recyclage réduit les déchets.'),
+    () => mc('L\'eau potable est :', ['l\'eau que l\'on peut boire', 'l\'eau de la mer', 'l\'eau chaude'], 'l\'eau que l\'on peut boire', 'L\'eau potable est sûre à boire.'),
+    () => mc('Le dentiste soigne :', ['les dents', 'les yeux', 'les pieds'], 'les dents', 'Le dentiste soigne les dents.'),
+    () => mc('Quel sens utilise-t-on pour toucher ?', ['le toucher', 'la vue', 'l\'ouïe'], 'le toucher', 'On touche avec la peau.'),
+    () => mc('Qu\'est-ce qu\'un séisme ?', ['un tremblement de terre', 'une tempête', 'une inondation'], 'un tremblement de terre', 'Un séisme = tremblement de terre.'),
+    () => mc('Ce que produisent les plantes pour nous :', ['l\'oxygène', 'le dioxyde de carbone', 'l\'azote'], 'l\'oxygène', 'Les plantes produisent de l\'oxygène.'),
   ];
   return bankCategory('decouverte-monde', meta, ['Le monde autour de moi'], '🌍', bank);
 }

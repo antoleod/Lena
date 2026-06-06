@@ -14,18 +14,6 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On entend « jardin ». On écrit :",
-          "options": [
-            "jardin",
-            "jardain",
-            "jardun"
-          ],
-          "answer": "jardin",
-          "correction": "Le mot « jardin »."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
           "prompt": "La phrase correcte :",
           "options": [
             "Le chat dort.",
@@ -36,7 +24,7 @@
           "correction": "On écrit « Le chat dort. »."
         },
         {
-          "id": "q6",
+          "id": "q4",
           "type": "fill_blank",
           "prompt": "Écris le mot qui désigne l’astre du jour (le ___).",
           "answer": "soleil",
@@ -44,93 +32,6 @@
             "soleil"
           ],
           "correction": "C’est le soleil."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Écris le mot : on lit un ___ à la bibliothèque.",
-          "answer": "livre",
-          "accept": [
-            "livre"
-          ],
-          "correction": "C’est un livre."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "On entend « maman ». On écrit :",
-          "options": [
-            "maman",
-            "mamen",
-            "mama"
-          ],
-          "answer": "maman",
-          "correction": "Le mot « maman »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "On entend « bateau ». On écrit :",
-          "options": [
-            "bateau",
-            "bato",
-            "batau"
-          ],
-          "answer": "bateau",
-          "correction": "Le mot « bateau »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Maman cuisine.",
-            "Maman cuisin.",
-            "Mamen cuisine."
-          ],
-          "answer": "Maman cuisine.",
-          "correction": "On écrit « Maman cuisine. »."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "On entend « chat ». On écrit :",
-          "options": [
-            "chat",
-            "cha",
-            "chate"
-          ],
-          "answer": "chat",
-          "correction": "Le mot « chat »."
-        }
-      ]
-    },
-    "moyen": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "On entend « chat ». On écrit :",
-          "options": [
-            "chat",
-            "cha",
-            "chate"
-          ],
-          "answer": "chat",
-          "correction": "Le mot « chat »."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Maman cuisine.",
-            "Maman cuisin.",
-            "Mamen cuisine."
-          ],
-          "answer": "Maman cuisine.",
-          "correction": "On écrit « Maman cuisine. »."
         },
         {
           "id": "q6",
@@ -144,76 +45,6 @@
         },
         {
           "id": "q8",
-          "type": "mcq",
-          "prompt": "On entend « bateau ». On écrit :",
-          "options": [
-            "bateau",
-            "bato",
-            "batau"
-          ],
-          "answer": "bateau",
-          "correction": "Le mot « bateau »."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Le chat dort.",
-            "Le chat dor.",
-            "Le chate dort."
-          ],
-          "answer": "Le chat dort.",
-          "correction": "On écrit « Le chat dort. »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "On entend « maman ». On écrit :",
-          "options": [
-            "maman",
-            "mamen",
-            "mama"
-          ],
-          "answer": "maman",
-          "correction": "Le mot « maman »."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Écris le mot qui désigne l’astre du jour (le ___).",
-          "answer": "soleil",
-          "accept": [
-            "soleil"
-          ],
-          "correction": "C’est le soleil."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "On entend « voiture ». On écrit :",
-          "options": [
-            "voiture",
-            "voitur",
-            "voature"
-          ],
-          "answer": "voiture",
-          "correction": "Le mot « voiture »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "On entend « jardin ». On écrit :",
-          "options": [
-            "jardin",
-            "jardain",
-            "jardun"
-          ],
-          "answer": "jardin",
-          "correction": "Le mot « jardin »."
-        },
-        {
-          "id": "q20",
           "type": "mcq",
           "prompt": "On entend « fleur ». On écrit :",
           "options": [
@@ -223,50 +54,33 @@
           ],
           "answer": "fleur",
           "correction": "Le mot « fleur »."
-        }
-      ]
-    },
-    "difficile": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Maman cuisine.",
-            "Maman cuisin.",
-            "Mamen cuisine."
-          ],
-          "answer": "Maman cuisine.",
-          "correction": "On écrit « Maman cuisine. »."
         },
         {
-          "id": "q4",
+          "id": "q10",
           "type": "mcq",
-          "prompt": "On entend « maman ». On écrit :",
+          "prompt": "On entend « ecole ». On écrit :",
           "options": [
-            "maman",
-            "mamen",
-            "mama"
+            "école",
+            "ecol",
+            "écolle"
           ],
-          "answer": "maman",
-          "correction": "Le mot « maman »."
+          "answer": "école",
+          "correction": "Le mot « école »."
         },
         {
-          "id": "q6",
+          "id": "q12",
           "type": "mcq",
-          "prompt": "On entend « bateau ». On écrit :",
+          "prompt": "On entend « rouge ». On écrit :",
           "options": [
-            "bateau",
-            "bato",
-            "batau"
+            "rouge",
+            "roug",
+            "rouje"
           ],
-          "answer": "bateau",
-          "correction": "Le mot « bateau »."
+          "answer": "rouge",
+          "correction": "Le mot « rouge »."
         },
         {
-          "id": "q8",
+          "id": "q14",
           "type": "fill_blank",
           "prompt": "Écris le contraire de « grand ».",
           "answer": "petit",
@@ -276,19 +90,72 @@
           "correction": "Le mot « petit »."
         },
         {
-          "id": "q10",
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "On entend « maman ». On écrit :",
+          "options": [
+            "maman",
+            "mamen",
+            "mama"
+          ],
+          "answer": "maman",
+          "correction": "Le mot « maman »."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "On entend « rouge ». On écrit :",
+          "options": [
+            "rouge",
+            "roug",
+            "rouje"
+          ],
+          "answer": "rouge",
+          "correction": "Le mot « rouge »."
+        },
+        {
+          "id": "q4",
           "type": "mcq",
           "prompt": "La phrase correcte :",
           "options": [
-            "Le chat dort.",
-            "Le chat dor.",
-            "Le chate dort."
+            "Je mange une pomme.",
+            "Je manje une pom.",
+            "Je mange ène pome."
           ],
-          "answer": "Le chat dort.",
-          "correction": "On écrit « Le chat dort. »."
+          "answer": "Je mange une pomme.",
+          "correction": "On écrit « Je mange une pomme. »."
         },
         {
-          "id": "q12",
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Papa lit un livre.",
+            "Papa lis un livre.",
+            "Pappa lit un livre."
+          ],
+          "answer": "Papa lit un livre.",
+          "correction": "On écrit « Papa lit un livre. »."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Les enfants jouent.",
+            "Les enfants joue.",
+            "Les enfants jouet."
+          ],
+          "answer": "Les enfants jouent.",
+          "correction": "On écrit « Les enfants jouent. »."
+        },
+        {
+          "id": "q10",
           "type": "mcq",
           "prompt": "On entend « chat ». On écrit :",
           "options": [
@@ -300,40 +167,52 @@
           "correction": "Le mot « chat »."
         },
         {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "On entend « oiseau ». On écrit :",
+          "options": [
+            "oiseau",
+            "oizeau",
+            "oiso"
+          ],
+          "answer": "oiseau",
+          "correction": "Le mot « oiseau »."
+        },
+        {
           "id": "q14",
           "type": "mcq",
-          "prompt": "On entend « voiture ». On écrit :",
+          "prompt": "On entend « table ». On écrit :",
           "options": [
-            "voiture",
-            "voitur",
-            "voature"
+            "table",
+            "tabel",
+            "tabl"
           ],
-          "answer": "voiture",
-          "correction": "Le mot « voiture »."
+          "answer": "table",
+          "correction": "Le mot « table »."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "On entend « fleur ». On écrit :",
+          "prompt": "On entend « maman ». On écrit :",
           "options": [
-            "fleur",
-            "fleure",
-            "flèr"
+            "maman",
+            "mamen",
+            "mama"
           ],
-          "answer": "fleur",
-          "correction": "Le mot « fleur »."
+          "answer": "maman",
+          "correction": "Le mot « maman »."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "On entend « jardin ». On écrit :",
+          "prompt": "On entend « fille ». On écrit :",
           "options": [
-            "jardin",
-            "jardain",
-            "jardun"
+            "fille",
+            "file",
+            "fiye"
           ],
-          "answer": "jardin",
-          "correction": "Le mot « jardin »."
+          "answer": "fille",
+          "correction": "Le mot « fille »."
         },
         {
           "id": "q20",
@@ -344,6 +223,125 @@
             "soleil"
           ],
           "correction": "C’est le soleil."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "On entend « bateau ». On écrit :",
+          "options": [
+            "bateau",
+            "bato",
+            "batau"
+          ],
+          "answer": "bateau",
+          "correction": "Le mot « bateau »."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "On entend « ecole ». On écrit :",
+          "options": [
+            "école",
+            "ecol",
+            "écolle"
+          ],
+          "answer": "école",
+          "correction": "Le mot « école »."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Écris le contraire de « grand ».",
+          "answer": "petit",
+          "accept": [
+            "petit"
+          ],
+          "correction": "Le mot « petit »."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Écris le mot qui désigne l’astre du jour (le ___).",
+          "answer": "soleil",
+          "accept": [
+            "soleil"
+          ],
+          "correction": "C’est le soleil."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "On entend « oiseau ». On écrit :",
+          "options": [
+            "oiseau",
+            "oizeau",
+            "oiso"
+          ],
+          "answer": "oiseau",
+          "correction": "Le mot « oiseau »."
+        },
+        {
+          "id": "q12",
+          "type": "fill_blank",
+          "prompt": "Écris le mot : l’animal qui aboie est le ___ .",
+          "answer": "chien",
+          "accept": [
+            "chien"
+          ],
+          "correction": "C’est le chien."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "On entend « fille ». On écrit :",
+          "options": [
+            "fille",
+            "file",
+            "fiye"
+          ],
+          "answer": "fille",
+          "correction": "Le mot « fille »."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Maman cuisine.",
+            "Maman cuisin.",
+            "Mamen cuisine."
+          ],
+          "answer": "Maman cuisine.",
+          "correction": "On écrit « Maman cuisine. »."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Le chat dort.",
+            "Le chat dor.",
+            "Le chate dort."
+          ],
+          "answer": "Le chat dort.",
+          "correction": "On écrit « Le chat dort. »."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Les enfants jouent.",
+            "Les enfants joue.",
+            "Les enfants jouet."
+          ],
+          "answer": "Les enfants jouent.",
+          "correction": "On écrit « Les enfants jouent. »."
         }
       ]
     }

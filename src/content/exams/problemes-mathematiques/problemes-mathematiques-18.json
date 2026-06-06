@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-18",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les bougies",
+  "emoji": "📖",
+  "order": 18,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Maya a 10 bougies. Maya en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "0",
+            "5",
+            "8",
+            "1"
+          ],
+          "answer": "5",
+          "correction": "10 − 5 = 5 bougies."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Sami a 11 bougies. Sami en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "4",
+            "6",
+            "1"
+          ],
+          "answer": "6",
+          "correction": "11 − 5 = 6 bougies."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Hugo a 10 bougies. Hugo en perd 7. Combien en reste-t-il ?",
+          "answer": "3",
+          "correction": "10 − 7 = 3 bougies."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Maya a 12 bougies. Maya en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "4",
+            "8",
+            "11"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 bougies."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Hugo a 12 bougies. Hugo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "7",
+            "11",
+            "9",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "12 − 2 = 10 bougies."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Nina a 11 bougies. Nina en perd 6. Combien en reste-t-il ?",
+          "answer": "5",
+          "correction": "11 − 6 = 5 bougies."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Sami a 11 bougies. Sami en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "11",
+            "15",
+            "5",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "11 − 1 = 10 bougies."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hugo a 12 bougies. Hugo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "7",
+            "11",
+            "10",
+            "6"
+          ],
+          "answer": "10",
+          "correction": "12 − 2 = 10 bougies."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Hugo a 6 bougies. On lui en donne 5. Combien en a-t-Hugo maintenant ?",
+          "answer": "11",
+          "correction": "6 + 5 = 11 bougies."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Sami a 2 bougies. On lui en donne 6. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "7",
+            "8",
+            "13",
+            "12"
+          ],
+          "answer": "8",
+          "correction": "2 + 6 = 8 bougies."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 5 boîtes de 5 bougies. Combien de bougies en tout ?",
+          "options": [
+            "25",
+            "27",
+            "24",
+            "17"
+          ],
+          "answer": "25",
+          "correction": "5 × 5 = 25 bougies."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tom a 3 boîtes de 5 bougies. Combien de bougies en tout ?",
+          "options": [
+            "15",
+            "22",
+            "7",
+            "10"
+          ],
+          "answer": "15",
+          "correction": "3 × 5 = 15 bougies."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 3 boîtes de 6 bougies. Combien de bougies en tout ?",
+          "answer": "18",
+          "correction": "3 × 6 = 18 bougies."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 4 boîtes de 3 bougies. Combien de bougies en tout ?",
+          "options": [
+            "17",
+            "12",
+            "6",
+            "16"
+          ],
+          "answer": "12",
+          "correction": "4 × 3 = 12 bougies."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Emma a 4 bougies. On lui en donne 8. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "19",
+            "21",
+            "8",
+            "12"
+          ],
+          "answer": "12",
+          "correction": "4 + 8 = 12 bougies."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Léa a 22 bougies. Léa en perd 6. Combien en reste-t-il ?",
+          "answer": "16",
+          "correction": "22 − 6 = 16 bougies."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Emma a 5 boîtes de 2 bougies. Combien de bougies en tout ?",
+          "options": [
+            "10",
+            "2",
+            "16",
+            "7"
+          ],
+          "answer": "10",
+          "correction": "5 × 2 = 10 bougies."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Léa a 21 bougies. Léa en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "13",
+            "8",
+            "12",
+            "7"
+          ],
+          "answer": "13",
+          "correction": "21 − 8 = 13 bougies."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Hugo a 5 boîtes de 4 bougies. Combien de bougies en tout ?",
+          "answer": "20",
+          "correction": "5 × 4 = 20 bougies."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Hugo a 23 bougies. Hugo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "15",
+            "14",
+            "23",
+            "8"
+          ],
+          "answer": "15",
+          "correction": "23 − 8 = 15 bougies."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Léa a 25 bougies. On lui en donne 3. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "15",
+            "32",
+            "28",
+            "14"
+          ],
+          "answer": "28",
+          "correction": "25 + 3 = 28 bougies."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Léa a 15 bougies. Léa en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "14",
+            "13",
+            "7",
+            "3"
+          ],
+          "answer": "7",
+          "correction": "15 − 8 = 7 bougies."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 8 bougies. On lui en donne 9. Combien en a-t-Nina maintenant ?",
+          "answer": "17",
+          "correction": "8 + 9 = 17 bougies."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Nina a 5 boîtes de 4 bougies. Combien de bougies en tout ?",
+          "options": [
+            "17",
+            "23",
+            "20",
+            "9"
+          ],
+          "answer": "20",
+          "correction": "5 × 4 = 20 bougies."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 5 boîtes de 3 bougies. Combien de bougies en tout ?",
+          "options": [
+            "9",
+            "3",
+            "15",
+            "8"
+          ],
+          "answer": "15",
+          "correction": "5 × 3 = 15 bougies."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Nina a 2 bougies. On lui en donne 2. Combien en a-t-Nina maintenant ?",
+          "answer": "4",
+          "correction": "2 + 2 = 4 bougies."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Théo a 13 bougies. On lui en donne 23. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "50",
+            "36",
+            "44",
+            "33"
+          ],
+          "answer": "36",
+          "correction": "13 + 23 = 36 bougies."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 4 boîtes de 5 bougies. Combien de bougies en tout ?",
+          "options": [
+            "14",
+            "20",
+            "13",
+            "35"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20 bougies."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Maya a 21 bougies. On lui en donne 10. Combien en a-t-Maya maintenant ?",
+          "answer": "31",
+          "correction": "21 + 10 = 31 bougies."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Sami a 28 bougies. Sami en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "27",
+            "19",
+            "23",
+            "41"
+          ],
+          "answer": "27",
+          "correction": "28 − 1 = 27 bougies."
+        }
+      ]
+    }
+  }
+}

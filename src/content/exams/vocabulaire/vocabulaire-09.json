@@ -14,29 +14,41 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Un fruit :",
           "options": [
+            "banane",
             "carotte",
-            "fraise",
-            "banane"
+            "chaise"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "banane",
+          "correction": "La banane est un fruit."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Un animal de la ferme :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "vache",
+            "lion",
+            "requin"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "vache",
+          "correction": "La vache vit à la ferme."
         },
         {
           "id": "q6",
+          "type": "mcq",
+          "prompt": "Un synonyme de « joli » :",
+          "options": [
+            "beau",
+            "laid",
+            "vieux"
+          ],
+          "answer": "beau",
+          "correction": "joli = beau."
+        },
+        {
+          "id": "q8",
           "type": "mcq",
           "prompt": "Un synonyme de « content » :",
           "options": [
@@ -48,7 +60,7 @@
           "correction": "content = heureux."
         },
         {
-          "id": "q8",
+          "id": "q10",
           "type": "mcq",
           "prompt": "Le contraire de « chaud » :",
           "options": [
@@ -58,86 +70,21 @@
           ],
           "answer": "froid",
           "correction": "chaud ↔ froid."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Un fruit :",
-          "options": [
-            "banane",
-            "carotte",
-            "chaise"
-          ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Le contraire de « jour » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "nuit",
+            "soir",
+            "matin"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "nuit",
+          "correction": "jour ↔ nuit."
         },
         {
           "id": "q14",
-          "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
-          "options": [
-            "sale",
-            "mouillé",
-            "neuf"
-          ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
-          "options": [
-            "beau",
-            "laid",
-            "vieux"
-          ],
-          "answer": "beau",
-          "correction": "joli = beau."
-        }
-      ]
-    },
-    "moyen": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "Un animal de la ferme :",
-          "options": [
-            "vache",
-            "lion",
-            "requin"
-          ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
-          "options": [
-            "froid",
-            "tiède",
-            "doux"
-          ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
-        },
-        {
-          "id": "q6",
           "type": "mcq",
           "prompt": "Le contraire de « ouvert » :",
           "options": [
@@ -149,6 +96,59 @@
           "correction": "ouvert ↔ fermé."
         },
         {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Un outil de cuisine :",
+          "options": [
+            "casserole",
+            "marteau",
+            "crayon"
+          ],
+          "answer": "casserole",
+          "correction": "La casserole est un outil de cuisine."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le contraire de « ouvert » :",
+          "options": [
+            "fermé",
+            "grand",
+            "vide"
+          ],
+          "answer": "fermé",
+          "correction": "ouvert ↔ fermé."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le contraire de « jour » :",
+          "options": [
+            "nuit",
+            "soir",
+            "matin"
+          ],
+          "answer": "nuit",
+          "correction": "jour ↔ nuit."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Le contraire de « grand » :",
+          "options": [
+            "petit",
+            "gros",
+            "haut"
+          ],
+          "answer": "petit",
+          "correction": "grand ↔ petit."
+        },
+        {
           "id": "q8",
           "type": "mcq",
           "prompt": "Un synonyme de « content » :",
@@ -163,41 +163,29 @@
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Un légume :",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "carotte",
+            "fraise",
+            "banane"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "carotte",
+          "correction": "La carotte est un légume."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Le contraire de « heureux » :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "triste",
+            "content",
+            "joyeux"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "triste",
+          "correction": "heureux ↔ triste."
         },
         {
           "id": "q14",
-          "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
-          "options": [
-            "beau",
-            "laid",
-            "vieux"
-          ],
-          "answer": "beau",
-          "correction": "joli = beau."
-        },
-        {
-          "id": "q16",
           "type": "mcq",
           "prompt": "Un fruit :",
           "options": [
@@ -209,7 +197,7 @@
           "correction": "La banane est un fruit."
         },
         {
-          "id": "q18",
+          "id": "q16",
           "type": "fill_blank",
           "prompt": "Le contraire de « monter » est de ___ .",
           "answer": "descendre",
@@ -219,24 +207,7 @@
           "correction": "monter ↔ descendre."
         },
         {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Une couleur :",
-          "options": [
-            "rouge",
-            "pomme",
-            "table"
-          ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
-        }
-      ]
-    },
-    "difficile": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
+          "id": "q18",
           "type": "mcq",
           "prompt": "Un animal de la ferme :",
           "options": [
@@ -248,43 +219,24 @@
           "correction": "La vache vit à la ferme."
         },
         {
-          "id": "q4",
+          "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « regarder » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "observer",
+            "manger",
+            "courir"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
-        },
+          "answer": "observer",
+          "correction": "regarder = observer."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
-          "options": [
-            "beau",
-            "laid",
-            "vieux"
-          ],
-          "answer": "beau",
-          "correction": "joli = beau."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Un fruit :",
-          "options": [
-            "banane",
-            "carotte",
-            "chaise"
-          ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
-        },
-        {
-          "id": "q10",
+          "id": "q2",
           "type": "mcq",
           "prompt": "Un synonyme de « regarder » :",
           "options": [
@@ -296,26 +248,76 @@
           "correction": "regarder = observer."
         },
         {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un légume :",
+          "options": [
+            "carotte",
+            "fraise",
+            "banane"
+          ],
+          "answer": "carotte",
+          "correction": "La carotte est un légume."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Le contraire de « heureux » :",
+          "options": [
+            "triste",
+            "content",
+            "joyeux"
+          ],
+          "answer": "triste",
+          "correction": "heureux ↔ triste."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le contraire de « fort » :",
+          "options": [
+            "faible",
+            "dur",
+            "lourd"
+          ],
+          "answer": "faible",
+          "correction": "fort ↔ faible."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le contraire de « long » :",
+          "options": [
+            "court",
+            "large",
+            "fin"
+          ],
+          "answer": "court",
+          "correction": "long ↔ court."
+        },
+        {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Un moyen de transport :",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "voiture",
+            "chaise",
+            "fenetre"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "voiture",
+          "correction": "La voiture est un moyen de transport."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
+          "type": "mcq",
+          "prompt": "Un outil de cuisine :",
+          "options": [
+            "casserole",
+            "marteau",
+            "crayon"
           ],
-          "correction": "monter ↔ descendre."
+          "answer": "casserole",
+          "correction": "La casserole est un outil de cuisine."
         },
         {
           "id": "q16",
@@ -332,26 +334,26 @@
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Le contraire de « vieux » :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "jeune",
+            "gros",
+            "grand"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "jeune",
+          "correction": "vieux ↔ jeune."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Le contraire de « propre » :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "sale",
+            "mouillé",
+            "neuf"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "sale",
+          "correction": "propre ↔ sale."
         }
       ]
     }

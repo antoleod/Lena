@@ -1,0 +1,385 @@
+{
+  "id": "geographie-belgique-02",
+  "category": "geographie-belgique",
+  "categoryLabel": "Géographie & Belgique",
+  "categoryEmoji": "🇧🇪",
+  "categoryOrder": 17,
+  "title": "Belgique & Europe 2",
+  "emoji": "🇧🇪",
+  "order": 2,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quelle ville accueille le Grand-Place ?",
+          "options": [
+            "Bruxelles",
+            "Liège",
+            "Namur",
+            "Mons"
+          ],
+          "answer": "Bruxelles",
+          "correction": "La Grand-Place est à Bruxelles."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Qu'est-ce que l'Atomium ?",
+          "options": [
+            "un monument à Bruxelles",
+            "un volcan",
+            "une forêt",
+            "un château"
+          ],
+          "answer": "un monument à Bruxelles",
+          "correction": "L'Atomium est un monument à Bruxelles (1958)."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quelle est la langue parlée en Wallonie ?",
+          "options": [
+            "le français",
+            "le néerlandais",
+            "l'allemand",
+            "l'espagnol"
+          ],
+          "answer": "le français",
+          "correction": "En Wallonie on parle français."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Dans quelle région se trouve Liège ?",
+          "options": [
+            "Wallonie",
+            "Flandre",
+            "Bruxelles",
+            "Ardenne"
+          ],
+          "answer": "Wallonie",
+          "correction": "Liège est en Wallonie."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel est le continent de la Belgique ?",
+          "options": [
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique",
+            "l'Amérique"
+          ],
+          "answer": "l'Europe",
+          "correction": "La Belgique est en Europe."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quelle ville belge est connue pour ses chocolats ?",
+          "options": [
+            "Bruxelles",
+            "Namur",
+            "Dinant",
+            "Bruges"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est très connue pour ses chocolats."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Quelle est la capitale de la Belgique ?",
+          "options": [
+            "Bruxelles",
+            "Anvers",
+            "Liège",
+            "Gand"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "La Belgique fait partie de :",
+          "options": [
+            "l'Union européenne",
+            "les États-Unis",
+            "l'ASEAN",
+            "la Ligue arabe"
+          ],
+          "answer": "l'Union européenne",
+          "correction": "La Belgique est membre de l'UE."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "true_false",
+          "prompt": "Anvers est un grand port maritime.",
+          "answer": true,
+          "correction": "Anvers est l'un des plus grands ports d'Europe."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Dans quelle région se trouve Liège ?",
+          "options": [
+            "Wallonie",
+            "Flandre",
+            "Bruxelles",
+            "Ardenne"
+          ],
+          "answer": "Wallonie",
+          "correction": "Liège est en Wallonie."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quelle est la capitale de la Belgique ?",
+          "options": [
+            "Bruxelles",
+            "Anvers",
+            "Liège",
+            "Gand"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quelle est la monnaie de la Belgique ?",
+          "options": [
+            "l'euro",
+            "le franc",
+            "la livre",
+            "le dollar"
+          ],
+          "answer": "l'euro",
+          "correction": "La Belgique utilise l'euro depuis 2002."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quelle est la plus grande ville de Belgique ?",
+          "options": [
+            "Bruxelles",
+            "Anvers",
+            "Gand",
+            "Liège"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la plus grande ville."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Comment s'appelle la côte belge ?",
+          "options": [
+            "la Côte belge",
+            "la Côte d'Azur",
+            "la Côte atlantique",
+            "la Costa Brava"
+          ],
+          "answer": "la Côte belge",
+          "correction": "La côte maritime s'appelle la Côte belge."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Quel pays borde la Belgique au sud ?",
+          "options": [
+            "la France",
+            "les Pays-Bas",
+            "l'Allemagne",
+            "l'Angleterre"
+          ],
+          "answer": "la France",
+          "correction": "La France borde la Belgique au sud."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "La Belgique fait partie de :",
+          "options": [
+            "l'Union européenne",
+            "les États-Unis",
+            "l'ASEAN",
+            "la Ligue arabe"
+          ],
+          "answer": "l'Union européenne",
+          "correction": "La Belgique est membre de l'UE."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Comment s'appelle le roi de Belgique ?",
+          "options": [
+            "Philippe",
+            "Albert",
+            "Léopold",
+            "Charles"
+          ],
+          "answer": "Philippe",
+          "correction": "Le roi de Belgique est Philippe (depuis 2013)."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Quelle ville belge est surnommée « la Venise du Nord » ?",
+          "options": [
+            "Bruges",
+            "Gand",
+            "Anvers",
+            "Liège"
+          ],
+          "answer": "Bruges",
+          "correction": "Bruges est surnommée la Venise du Nord."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quelle est la plus grande ville de Belgique ?",
+          "options": [
+            "Bruxelles",
+            "Anvers",
+            "Gand",
+            "Liège"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la plus grande ville."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Comment s'appelle la côte belge ?",
+          "options": [
+            "la Côte belge",
+            "la Côte d'Azur",
+            "la Côte atlantique",
+            "la Costa Brava"
+          ],
+          "answer": "la Côte belge",
+          "correction": "La côte maritime s'appelle la Côte belge."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "La Belgique fait partie de :",
+          "options": [
+            "l'Union européenne",
+            "les États-Unis",
+            "l'ASEAN",
+            "la Ligue arabe"
+          ],
+          "answer": "l'Union européenne",
+          "correction": "La Belgique est membre de l'UE."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Comment s'appelle le roi de Belgique ?",
+          "options": [
+            "Philippe",
+            "Albert",
+            "Léopold",
+            "Charles"
+          ],
+          "answer": "Philippe",
+          "correction": "Le roi de Belgique est Philippe (depuis 2013)."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Dans quelle région se trouve Liège ?",
+          "options": [
+            "Wallonie",
+            "Flandre",
+            "Bruxelles",
+            "Ardenne"
+          ],
+          "answer": "Wallonie",
+          "correction": "Liège est en Wallonie."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quelle est la langue parlée en Wallonie ?",
+          "options": [
+            "le français",
+            "le néerlandais",
+            "l'allemand",
+            "l'espagnol"
+          ],
+          "answer": "le français",
+          "correction": "En Wallonie on parle français."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Quel pays borde la Belgique au nord ?",
+          "options": [
+            "les Pays-Bas",
+            "la France",
+            "l'Allemagne",
+            "le Luxembourg"
+          ],
+          "answer": "les Pays-Bas",
+          "correction": "Les Pays-Bas bordent la Belgique au nord."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quelle forêt belge est très connue ?",
+          "options": [
+            "l'Ardenne",
+            "la Forêt-Noire",
+            "les Vosges",
+            "la Camargue"
+          ],
+          "answer": "l'Ardenne",
+          "correction": "L'Ardenne est la grande forêt belge."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Quelle est la langue parlée en Flandre ?",
+          "options": [
+            "le néerlandais",
+            "le français",
+            "l'allemand",
+            "l'anglais"
+          ],
+          "answer": "le néerlandais",
+          "correction": "En Flandre on parle néerlandais."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Quelle ville accueille le Grand-Place ?",
+          "options": [
+            "Bruxelles",
+            "Liège",
+            "Namur",
+            "Mons"
+          ],
+          "answer": "Bruxelles",
+          "correction": "La Grand-Place est à Bruxelles."
+        }
+      ]
+    }
+  }
+}

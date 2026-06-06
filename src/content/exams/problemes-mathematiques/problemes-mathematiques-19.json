@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-19",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les noisettes",
+  "emoji": "📖",
+  "order": 19,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 6 noisettes. On lui en donne 9. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "15",
+            "12",
+            "16",
+            "10"
+          ],
+          "answer": "15",
+          "correction": "6 + 9 = 15 noisettes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 2 noisettes. On lui en donne 1. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "2",
+            "0",
+            "3",
+            "1"
+          ],
+          "answer": "3",
+          "correction": "2 + 1 = 3 noisettes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Emma a 10 noisettes. Emma en perd 7. Combien en reste-t-il ?",
+          "answer": "3",
+          "correction": "10 − 7 = 3 noisettes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 12 noisettes. Hugo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "9",
+            "1",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "12 − 8 = 4 noisettes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Nina a 8 noisettes. On lui en donne 6. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "13",
+            "14",
+            "16",
+            "17"
+          ],
+          "answer": "14",
+          "correction": "8 + 6 = 14 noisettes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 12 noisettes. Tom en perd 6. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "12 − 6 = 6 noisettes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nina a 3 noisettes. On lui en donne 8. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "11",
+            "12",
+            "9",
+            "14"
+          ],
+          "answer": "11",
+          "correction": "3 + 8 = 11 noisettes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Nina a 6 noisettes. On lui en donne 7. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "9",
+            "8",
+            "13",
+            "11"
+          ],
+          "answer": "13",
+          "correction": "6 + 7 = 13 noisettes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Léa a 2 noisettes. On lui en donne 7. Combien en a-t-Léa maintenant ?",
+          "answer": "9",
+          "correction": "2 + 7 = 9 noisettes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Maya a 2 noisettes. On lui en donne 5. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "12",
+            "7",
+            "6",
+            "3"
+          ],
+          "answer": "7",
+          "correction": "2 + 5 = 7 noisettes."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Maya a 2 noisettes. On lui en donne 8. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "15",
+            "17",
+            "10",
+            "14"
+          ],
+          "answer": "10",
+          "correction": "2 + 8 = 10 noisettes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Nina a 15 noisettes. Nina en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "14",
+            "17",
+            "3",
+            "9"
+          ],
+          "answer": "9",
+          "correction": "15 − 6 = 9 noisettes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Théo a 2 boîtes de 4 noisettes. Combien de noisettes en tout ?",
+          "answer": "8",
+          "correction": "2 × 4 = 8 noisettes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Emma a 24 noisettes. Emma en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "26",
+            "22",
+            "12",
+            "19"
+          ],
+          "answer": "22",
+          "correction": "24 − 2 = 22 noisettes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Hugo a 5 boîtes de 2 noisettes. Combien de noisettes en tout ?",
+          "options": [
+            "19",
+            "10",
+            "16",
+            "11"
+          ],
+          "answer": "10",
+          "correction": "5 × 2 = 10 noisettes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 2 boîtes de 3 noisettes. Combien de noisettes en tout ?",
+          "answer": "6",
+          "correction": "2 × 3 = 6 noisettes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Sami a 4 boîtes de 5 noisettes. Combien de noisettes en tout ?",
+          "options": [
+            "20",
+            "30",
+            "27",
+            "25"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20 noisettes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 19 noisettes. Emma en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "12",
+            "22",
+            "16"
+          ],
+          "answer": "12",
+          "correction": "19 − 7 = 12 noisettes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Léa a 13 noisettes. On lui en donne 9. Combien en a-t-Léa maintenant ?",
+          "answer": "22",
+          "correction": "13 + 9 = 22 noisettes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Théo a 22 noisettes. Théo en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "23",
+            "16",
+            "9",
+            "17"
+          ],
+          "answer": "17",
+          "correction": "22 − 5 = 17 noisettes."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Hugo a 26 noisettes. On lui en donne 13. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "29",
+            "26",
+            "35",
+            "39"
+          ],
+          "answer": "39",
+          "correction": "26 + 13 = 39 noisettes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Sami a 13 noisettes. Sami en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "19",
+            "11",
+            "9",
+            "10"
+          ],
+          "answer": "11",
+          "correction": "13 − 2 = 11 noisettes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Maya a 14 noisettes. On lui en donne 14. Combien en a-t-Maya maintenant ?",
+          "answer": "28",
+          "correction": "14 + 14 = 28 noisettes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 10 noisettes. On lui en donne 23. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "33",
+            "45",
+            "19",
+            "34"
+          ],
+          "answer": "33",
+          "correction": "10 + 23 = 33 noisettes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Nina a 24 noisettes. On lui en donne 11. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "23",
+            "31",
+            "35",
+            "46"
+          ],
+          "answer": "35",
+          "correction": "24 + 11 = 35 noisettes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Emma a 21 noisettes. On lui en donne 21. Combien en a-t-Emma maintenant ?",
+          "answer": "42",
+          "correction": "21 + 21 = 42 noisettes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Hugo a 32 noisettes. Hugo en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "34",
+            "28",
+            "37",
+            "43"
+          ],
+          "answer": "28",
+          "correction": "32 − 4 = 28 noisettes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hugo a 27 noisettes. Hugo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "19",
+            "34",
+            "26"
+          ],
+          "answer": "19",
+          "correction": "27 − 8 = 19 noisettes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Léa a 13 noisettes. On lui en donne 18. Combien en a-t-Léa maintenant ?",
+          "answer": "31",
+          "correction": "13 + 18 = 31 noisettes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Léa a 11 noisettes. Léa en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "22",
+            "18",
+            "7",
+            "10"
+          ],
+          "answer": "7",
+          "correction": "11 − 4 = 7 noisettes."
+        }
+      ]
+    }
+  }
+}

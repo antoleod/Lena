@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-15",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les plumes",
+  "emoji": "📖",
+  "order": 15,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Théo a 11 plumes. Théo en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "8",
+            "7",
+            "5",
+            "10"
+          ],
+          "answer": "8",
+          "correction": "11 − 3 = 8 plumes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 11 plumes. Maya en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "8",
+            "6",
+            "10",
+            "5"
+          ],
+          "answer": "6",
+          "correction": "11 − 5 = 6 plumes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 12 plumes. Nina en perd 4. Combien en reste-t-il ?",
+          "answer": "8",
+          "correction": "12 − 4 = 8 plumes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Théo a 12 plumes. Théo en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "8",
+            "4",
+            "10"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 plumes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Théo a 11 plumes. Théo en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "2",
+            "6",
+            "4",
+            "1"
+          ],
+          "answer": "2",
+          "correction": "11 − 9 = 2 plumes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Maya a 11 plumes. Maya en perd 7. Combien en reste-t-il ?",
+          "answer": "4",
+          "correction": "11 − 7 = 4 plumes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Emma a 5 plumes. On lui en donne 4. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "9",
+            "11",
+            "10",
+            "7"
+          ],
+          "answer": "9",
+          "correction": "5 + 4 = 9 plumes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Léa a 3 plumes. On lui en donne 6. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "14",
+            "5",
+            "8",
+            "9"
+          ],
+          "answer": "9",
+          "correction": "3 + 6 = 9 plumes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Maya a 10 plumes. Maya en perd 8. Combien en reste-t-il ?",
+          "answer": "2",
+          "correction": "10 − 8 = 2 plumes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Hugo a 5 plumes. On lui en donne 1. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "2",
+            "3",
+            "8",
+            "6"
+          ],
+          "answer": "6",
+          "correction": "5 + 1 = 6 plumes."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 6 plumes. On lui en donne 9. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "15",
+            "18",
+            "23",
+            "13"
+          ],
+          "answer": "15",
+          "correction": "6 + 9 = 15 plumes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Léa a 12 plumes. Léa en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "11",
+            "8",
+            "18",
+            "3"
+          ],
+          "answer": "8",
+          "correction": "12 − 4 = 8 plumes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Maya a 4 plumes. On lui en donne 9. Combien en a-t-Maya maintenant ?",
+          "answer": "13",
+          "correction": "4 + 9 = 13 plumes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Tom a 14 plumes. On lui en donne 14. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "21",
+            "38",
+            "20",
+            "28"
+          ],
+          "answer": "28",
+          "correction": "14 + 14 = 28 plumes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Tom a 2 plumes. On lui en donne 3. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "5",
+            "8",
+            "13",
+            "1"
+          ],
+          "answer": "5",
+          "correction": "2 + 3 = 5 plumes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Sami a 4 plumes. On lui en donne 3. Combien en a-t-Sami maintenant ?",
+          "answer": "7",
+          "correction": "4 + 3 = 7 plumes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Tom a 14 plumes. On lui en donne 18. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "38",
+            "32",
+            "31",
+            "33"
+          ],
+          "answer": "32",
+          "correction": "14 + 18 = 32 plumes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 21 plumes. Emma en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "17",
+            "22",
+            "16",
+            "13"
+          ],
+          "answer": "16",
+          "correction": "21 − 5 = 16 plumes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Tom a 20 plumes. Tom en perd 6. Combien en reste-t-il ?",
+          "answer": "14",
+          "correction": "20 − 6 = 14 plumes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 13 plumes. On lui en donne 4. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "16",
+            "17",
+            "18",
+            "24"
+          ],
+          "answer": "17",
+          "correction": "13 + 4 = 17 plumes."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 6 plumes. On lui en donne 24. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "30",
+            "43",
+            "31",
+            "39"
+          ],
+          "answer": "30",
+          "correction": "6 + 24 = 30 plumes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 31 plumes. Théo en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "35",
+            "26",
+            "12",
+            "25"
+          ],
+          "answer": "26",
+          "correction": "31 − 5 = 26 plumes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 18 plumes. On lui en donne 7. Combien en a-t-Léa maintenant ?",
+          "answer": "25",
+          "correction": "18 + 7 = 25 plumes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Emma a 16 plumes. Emma en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "12",
+            "13",
+            "15",
+            "9"
+          ],
+          "answer": "9",
+          "correction": "16 − 7 = 9 plumes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Tom a 32 plumes. Tom en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "39",
+            "26",
+            "33",
+            "24"
+          ],
+          "answer": "26",
+          "correction": "32 − 6 = 26 plumes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Nina a 5 boîtes de 4 plumes. Combien de plumes en tout ?",
+          "answer": "20",
+          "correction": "5 × 4 = 20 plumes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Maya a 29 plumes. Maya en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "32",
+            "33",
+            "28",
+            "25"
+          ],
+          "answer": "28",
+          "correction": "29 − 1 = 28 plumes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Maya a 2 boîtes de 6 plumes. Combien de plumes en tout ?",
+          "options": [
+            "10",
+            "16",
+            "12",
+            "14"
+          ],
+          "answer": "12",
+          "correction": "2 × 6 = 12 plumes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nina a 3 boîtes de 2 plumes. Combien de plumes en tout ?",
+          "answer": "6",
+          "correction": "3 × 2 = 6 plumes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Théo a 5 boîtes de 5 plumes. Combien de plumes en tout ?",
+          "options": [
+            "25",
+            "19",
+            "23",
+            "30"
+          ],
+          "answer": "25",
+          "correction": "5 × 5 = 25 plumes."
+        }
+      ]
+    }
+  }
+}

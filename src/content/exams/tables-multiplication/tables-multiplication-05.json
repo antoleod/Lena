@@ -1,0 +1,426 @@
+{
+  "id": "tables-multiplication-05",
+  "category": "tables-multiplication",
+  "categoryLabel": "Tables de multiplication",
+  "categoryEmoji": "✖️",
+  "categoryOrder": 14,
+  "title": "Table de 6",
+  "emoji": "✖️",
+  "order": 5,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "6 × 1 = ?",
+          "options": [
+            "8",
+            "3",
+            "11",
+            "6"
+          ],
+          "answer": "6",
+          "correction": "6 × 1 = 6.",
+          "prompt_nl": "6 × 1 = ?",
+          "prompt_en": "6 × 1 = ?",
+          "prompt_es": "6 × 1 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "6 × 4 = ___",
+          "answer": "24",
+          "correction": "6 × 4 = 24."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "6 × 5 = ?",
+          "options": [
+            "25",
+            "30",
+            "31",
+            "24"
+          ],
+          "answer": "30",
+          "correction": "6 × 5 = 30.",
+          "prompt_nl": "6 × 5 = ?",
+          "prompt_en": "6 × 5 = ?",
+          "prompt_es": "6 × 5 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "6 × 5 = ?",
+          "options": [
+            "28",
+            "34",
+            "30",
+            "27"
+          ],
+          "answer": "30",
+          "correction": "6 × 5 = 30.",
+          "prompt_nl": "6 × 5 = ?",
+          "prompt_en": "6 × 5 = ?",
+          "prompt_es": "6 × 5 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "6 × 4 = ___",
+          "answer": "24",
+          "correction": "6 × 4 = 24."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "6 × 4 = ?",
+          "options": [
+            "24",
+            "28",
+            "18",
+            "20"
+          ],
+          "answer": "24",
+          "correction": "6 × 4 = 24.",
+          "prompt_nl": "6 × 4 = ?",
+          "prompt_en": "6 × 4 = ?",
+          "prompt_es": "6 × 4 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "6 × 1 = ?",
+          "options": [
+            "2",
+            "1",
+            "7",
+            "6"
+          ],
+          "answer": "6",
+          "correction": "6 × 1 = 6.",
+          "prompt_nl": "6 × 1 = ?",
+          "prompt_en": "6 × 1 = ?",
+          "prompt_es": "6 × 1 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "6 × 5 = ___",
+          "answer": "30",
+          "correction": "6 × 5 = 30."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "6 × 5 = ?",
+          "options": [
+            "27",
+            "34",
+            "30",
+            "35"
+          ],
+          "answer": "30",
+          "correction": "6 × 5 = 30.",
+          "prompt_nl": "6 × 5 = ?",
+          "prompt_en": "6 × 5 = ?",
+          "prompt_es": "6 × 5 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "6 × 3 = ?",
+          "options": [
+            "23",
+            "16",
+            "19",
+            "18"
+          ],
+          "answer": "18",
+          "correction": "6 × 3 = 18.",
+          "prompt_nl": "6 × 3 = ?",
+          "prompt_en": "6 × 3 = ?",
+          "prompt_es": "6 × 3 = ?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "6 × 8 = ?",
+          "options": [
+            "51",
+            "52",
+            "48",
+            "42"
+          ],
+          "answer": "48",
+          "correction": "6 × 8 = 48.",
+          "prompt_nl": "6 × 8 = ?",
+          "prompt_en": "6 × 8 = ?",
+          "prompt_es": "6 × 8 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "6 × 7 = ___",
+          "answer": "42",
+          "correction": "6 × 7 = 42."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "6 × 8 = ?",
+          "options": [
+            "48",
+            "46",
+            "51",
+            "45"
+          ],
+          "answer": "48",
+          "correction": "6 × 8 = 48.",
+          "prompt_nl": "6 × 8 = ?",
+          "prompt_en": "6 × 8 = ?",
+          "prompt_es": "6 × 8 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "6 × 8 = ?",
+          "options": [
+            "54",
+            "48",
+            "45",
+            "44"
+          ],
+          "answer": "48",
+          "correction": "6 × 8 = 48.",
+          "prompt_nl": "6 × 8 = ?",
+          "prompt_en": "6 × 8 = ?",
+          "prompt_es": "6 × 8 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "6 × 5 = ___",
+          "answer": "30",
+          "correction": "6 × 5 = 30."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "6 × 5 = ?",
+          "options": [
+            "32",
+            "35",
+            "30",
+            "27"
+          ],
+          "answer": "30",
+          "correction": "6 × 5 = 30.",
+          "prompt_nl": "6 × 5 = ?",
+          "prompt_en": "6 × 5 = ?",
+          "prompt_es": "6 × 5 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "6 × 8 = ?",
+          "options": [
+            "52",
+            "48",
+            "46",
+            "47"
+          ],
+          "answer": "48",
+          "correction": "6 × 8 = 48.",
+          "prompt_nl": "6 × 8 = ?",
+          "prompt_en": "6 × 8 = ?",
+          "prompt_es": "6 × 8 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "6 × 4 = ___",
+          "answer": "24",
+          "correction": "6 × 4 = 24."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "6 × 1 = ?",
+          "options": [
+            "4",
+            "6",
+            "0",
+            "7"
+          ],
+          "answer": "6",
+          "correction": "6 × 1 = 6.",
+          "prompt_nl": "6 × 1 = ?",
+          "prompt_en": "6 × 1 = ?",
+          "prompt_es": "6 × 1 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "6 × 2 = ?",
+          "options": [
+            "12",
+            "14",
+            "11",
+            "18"
+          ],
+          "answer": "12",
+          "correction": "6 × 2 = 12.",
+          "prompt_nl": "6 × 2 = ?",
+          "prompt_en": "6 × 2 = ?",
+          "prompt_es": "6 × 2 = ?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "6 × 3 = ?",
+          "options": [
+            "20",
+            "16",
+            "18",
+            "12"
+          ],
+          "answer": "18",
+          "correction": "6 × 3 = 18.",
+          "prompt_nl": "6 × 3 = ?",
+          "prompt_en": "6 × 3 = ?",
+          "prompt_es": "6 × 3 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "6 × 10 = ___",
+          "answer": "60",
+          "correction": "6 × 10 = 60."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "6 × 2 = ?",
+          "options": [
+            "12",
+            "13",
+            "7",
+            "10"
+          ],
+          "answer": "12",
+          "correction": "6 × 2 = 12.",
+          "prompt_nl": "6 × 2 = ?",
+          "prompt_en": "6 × 2 = ?",
+          "prompt_es": "6 × 2 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "6 × 3 = ?",
+          "options": [
+            "23",
+            "18",
+            "15",
+            "16"
+          ],
+          "answer": "18",
+          "correction": "6 × 3 = 18.",
+          "prompt_nl": "6 × 3 = ?",
+          "prompt_en": "6 × 3 = ?",
+          "prompt_es": "6 × 3 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "6 × 2 = ___",
+          "answer": "12",
+          "correction": "6 × 2 = 12."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "6 × 5 = ?",
+          "options": [
+            "34",
+            "31",
+            "30",
+            "36"
+          ],
+          "answer": "30",
+          "correction": "6 × 5 = 30.",
+          "prompt_nl": "6 × 5 = ?",
+          "prompt_en": "6 × 5 = ?",
+          "prompt_es": "6 × 5 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "6 × 10 = ?",
+          "options": [
+            "54",
+            "59",
+            "66",
+            "60"
+          ],
+          "answer": "60",
+          "correction": "6 × 10 = 60.",
+          "prompt_nl": "6 × 10 = ?",
+          "prompt_en": "6 × 10 = ?",
+          "prompt_es": "6 × 10 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "6 × 3 = ___",
+          "answer": "18",
+          "correction": "6 × 3 = 18."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "6 × 10 = ?",
+          "options": [
+            "55",
+            "57",
+            "66",
+            "60"
+          ],
+          "answer": "60",
+          "correction": "6 × 10 = 60.",
+          "prompt_nl": "6 × 10 = ?",
+          "prompt_en": "6 × 10 = ?",
+          "prompt_es": "6 × 10 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "6 × 2 = ?",
+          "options": [
+            "7",
+            "14",
+            "12",
+            "15"
+          ],
+          "answer": "12",
+          "correction": "6 × 2 = 12.",
+          "prompt_nl": "6 × 2 = ?",
+          "prompt_en": "6 × 2 = ?",
+          "prompt_es": "6 × 2 = ?"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,542 @@
+{
+  "id": "mesures-12",
+  "category": "mesures",
+  "categoryLabel": "Mesures",
+  "categoryEmoji": "📏",
+  "categoryOrder": 12,
+  "title": "Mesurer 12",
+  "emoji": "📏",
+  "order": 12,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Convertis 1 cm en mm.",
+          "options": [
+            "12",
+            "11",
+            "10",
+            "8"
+          ],
+          "answer": "10",
+          "correction": "1 cm = 10 mm → 10 mm.",
+          "prompt_nl": "Zet 1 cm om naar mm.",
+          "prompt_en": "Convert 1 cm to mm.",
+          "prompt_es": "Convierte 1 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 10 mm.",
+          "correction_en": "1 cm = 10 mm → 10 mm.",
+          "correction_es": "1 cm = 10 mm → 10 mm."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Convertis 6 cm en mm.",
+          "answer": "60",
+          "accept": [
+            "60",
+            "60 mm"
+          ],
+          "correction": "1 cm = 10 mm → 60 mm.",
+          "prompt_nl": "Zet 6 cm om naar mm.",
+          "prompt_en": "Convert 6 cm to mm.",
+          "prompt_es": "Convierte 6 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 60 mm.",
+          "correction_en": "1 cm = 10 mm → 60 mm.",
+          "correction_es": "1 cm = 10 mm → 60 mm."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Convertis 1 cm en mm.",
+          "options": [
+            "9",
+            "11",
+            "12",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "1 cm = 10 mm → 10 mm.",
+          "prompt_nl": "Zet 1 cm om naar mm.",
+          "prompt_en": "Convert 1 cm to mm.",
+          "prompt_es": "Convierte 1 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 10 mm.",
+          "correction_en": "1 cm = 10 mm → 10 mm.",
+          "correction_es": "1 cm = 10 mm → 10 mm."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Convertis 9 cm en mm.",
+          "options": [
+            "90",
+            "106",
+            "89",
+            "72"
+          ],
+          "answer": "90",
+          "correction": "1 cm = 10 mm → 90 mm.",
+          "prompt_nl": "Zet 9 cm om naar mm.",
+          "prompt_en": "Convert 9 cm to mm.",
+          "prompt_es": "Convierte 9 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 90 mm.",
+          "correction_en": "1 cm = 10 mm → 90 mm.",
+          "correction_es": "1 cm = 10 mm → 90 mm."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Convertis 2 cm en mm.",
+          "answer": "20",
+          "accept": [
+            "20",
+            "20 mm"
+          ],
+          "correction": "1 cm = 10 mm → 20 mm.",
+          "prompt_nl": "Zet 2 cm om naar mm.",
+          "prompt_en": "Convert 2 cm to mm.",
+          "prompt_es": "Convierte 2 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 20 mm.",
+          "correction_en": "1 cm = 10 mm → 20 mm.",
+          "correction_es": "1 cm = 10 mm → 20 mm."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Convertis 2 cm en mm.",
+          "options": [
+            "16",
+            "19",
+            "20",
+            "21"
+          ],
+          "answer": "20",
+          "correction": "1 cm = 10 mm → 20 mm.",
+          "prompt_nl": "Zet 2 cm om naar mm.",
+          "prompt_en": "Convert 2 cm to mm.",
+          "prompt_es": "Convierte 2 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 20 mm.",
+          "correction_en": "1 cm = 10 mm → 20 mm.",
+          "correction_es": "1 cm = 10 mm → 20 mm."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Convertis 9 cm en mm.",
+          "options": [
+            "90",
+            "85",
+            "72",
+            "89"
+          ],
+          "answer": "90",
+          "correction": "1 cm = 10 mm → 90 mm.",
+          "prompt_nl": "Zet 9 cm om naar mm.",
+          "prompt_en": "Convert 9 cm to mm.",
+          "prompt_es": "Convierte 9 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 90 mm.",
+          "correction_en": "1 cm = 10 mm → 90 mm.",
+          "correction_es": "1 cm = 10 mm → 90 mm."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Convertis 1 cm en mm.",
+          "answer": "10",
+          "accept": [
+            "10",
+            "10 mm"
+          ],
+          "correction": "1 cm = 10 mm → 10 mm.",
+          "prompt_nl": "Zet 1 cm om naar mm.",
+          "prompt_en": "Convert 1 cm to mm.",
+          "prompt_es": "Convierte 1 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 10 mm.",
+          "correction_en": "1 cm = 10 mm → 10 mm.",
+          "correction_es": "1 cm = 10 mm → 10 mm."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Convertis 6 € en centimes.",
+          "options": [
+            "632",
+            "668",
+            "686",
+            "600"
+          ],
+          "answer": "600",
+          "correction": "1 € = 100 c → 600 centimes.",
+          "prompt_nl": "Zet 6 € om naar centen.",
+          "prompt_en": "Convert 6 € to cents.",
+          "prompt_es": "Convierte 6 € a céntimos.",
+          "correction_nl": "1 € = 100 cent → 600 cent.",
+          "correction_en": "1 € = 100 cents → 600 cents.",
+          "correction_es": "1 € = 100 céntimos → 600 céntimos."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Convertis 3 € en centimes.",
+          "answer": "300",
+          "accept": [
+            "300",
+            "300 centimes",
+            "300 c"
+          ],
+          "correction": "1 € = 100 c → 300 centimes.",
+          "prompt_nl": "Zet 3 € om naar centen.",
+          "prompt_en": "Convert 3 € to cents.",
+          "prompt_es": "Convierte 3 € a céntimos.",
+          "correction_nl": "1 € = 100 cent → 300 cent.",
+          "correction_en": "1 € = 100 cents → 300 cents.",
+          "correction_es": "1 € = 100 céntimos → 300 céntimos."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Convertis 3 cm en mm.",
+          "options": [
+            "35",
+            "27",
+            "30",
+            "25"
+          ],
+          "answer": "30",
+          "correction": "1 cm = 10 mm → 30 mm.",
+          "prompt_nl": "Zet 3 cm om naar mm.",
+          "prompt_en": "Convert 3 cm to mm.",
+          "prompt_es": "Convierte 3 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 30 mm.",
+          "correction_en": "1 cm = 10 mm → 30 mm.",
+          "correction_es": "1 cm = 10 mm → 30 mm."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Convertis 8 m en cm.",
+          "options": [
+            "869",
+            "830",
+            "791",
+            "800"
+          ],
+          "answer": "800",
+          "correction": "1 m = 100 cm → 800 cm.",
+          "prompt_nl": "Zet 8 m om naar cm.",
+          "prompt_en": "Convert 8 m to cm.",
+          "prompt_es": "Convierte 8 m a cm.",
+          "correction_nl": "1 m = 100 cm → 800 cm.",
+          "correction_en": "1 m = 100 cm → 800 cm.",
+          "correction_es": "1 m = 100 cm → 800 cm."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Convertis 6 cm en mm.",
+          "answer": "60",
+          "accept": [
+            "60",
+            "60 mm"
+          ],
+          "correction": "1 cm = 10 mm → 60 mm.",
+          "prompt_nl": "Zet 6 cm om naar mm.",
+          "prompt_en": "Convert 6 cm to mm.",
+          "prompt_es": "Convierte 6 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 60 mm.",
+          "correction_en": "1 cm = 10 mm → 60 mm.",
+          "correction_es": "1 cm = 10 mm → 60 mm."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Convertis 8 € en centimes.",
+          "options": [
+            "800",
+            "699",
+            "709",
+            "730"
+          ],
+          "answer": "800",
+          "correction": "1 € = 100 c → 800 centimes.",
+          "prompt_nl": "Zet 8 € om naar centen.",
+          "prompt_en": "Convert 8 € to cents.",
+          "prompt_es": "Convierte 8 € a céntimos.",
+          "correction_nl": "1 € = 100 cent → 800 cent.",
+          "correction_en": "1 € = 100 cents → 800 cents.",
+          "correction_es": "1 € = 100 céntimos → 800 céntimos."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Convertis 6 € en centimes.",
+          "options": [
+            "568",
+            "572",
+            "600",
+            "548"
+          ],
+          "answer": "600",
+          "correction": "1 € = 100 c → 600 centimes.",
+          "prompt_nl": "Zet 6 € om naar centen.",
+          "prompt_en": "Convert 6 € to cents.",
+          "prompt_es": "Convierte 6 € a céntimos.",
+          "correction_nl": "1 € = 100 cent → 600 cent.",
+          "correction_en": "1 € = 100 cents → 600 cents.",
+          "correction_es": "1 € = 100 céntimos → 600 céntimos."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Convertis 2 m en cm.",
+          "answer": "200",
+          "accept": [
+            "200",
+            "200 cm"
+          ],
+          "correction": "1 m = 100 cm → 200 cm.",
+          "prompt_nl": "Zet 2 m om naar cm.",
+          "prompt_en": "Convert 2 m to cm.",
+          "prompt_es": "Convierte 2 m a cm.",
+          "correction_nl": "1 m = 100 cm → 200 cm.",
+          "correction_en": "1 m = 100 cm → 200 cm.",
+          "correction_es": "1 m = 100 cm → 200 cm."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Convertis 3 € en centimes.",
+          "options": [
+            "346",
+            "331",
+            "300",
+            "323"
+          ],
+          "answer": "300",
+          "correction": "1 € = 100 c → 300 centimes.",
+          "prompt_nl": "Zet 3 € om naar centen.",
+          "prompt_en": "Convert 3 € to cents.",
+          "prompt_es": "Convierte 3 € a céntimos.",
+          "correction_nl": "1 € = 100 cent → 300 cent.",
+          "correction_en": "1 € = 100 cents → 300 cents.",
+          "correction_es": "1 € = 100 céntimos → 300 céntimos."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Convertis 6 cm en mm.",
+          "options": [
+            "63",
+            "59",
+            "60",
+            "56"
+          ],
+          "answer": "60",
+          "correction": "1 cm = 10 mm → 60 mm.",
+          "prompt_nl": "Zet 6 cm om naar mm.",
+          "prompt_en": "Convert 6 cm to mm.",
+          "prompt_es": "Convierte 6 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 60 mm.",
+          "correction_en": "1 cm = 10 mm → 60 mm.",
+          "correction_es": "1 cm = 10 mm → 60 mm."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Convertis 8 m en cm.",
+          "options": [
+            "844",
+            "744",
+            "942",
+            "800"
+          ],
+          "answer": "800",
+          "correction": "1 m = 100 cm → 800 cm.",
+          "prompt_nl": "Zet 8 m om naar cm.",
+          "prompt_en": "Convert 8 m to cm.",
+          "prompt_es": "Convierte 8 m a cm.",
+          "correction_nl": "1 m = 100 cm → 800 cm.",
+          "correction_en": "1 m = 100 cm → 800 cm.",
+          "correction_es": "1 m = 100 cm → 800 cm."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Convertis 3 cm en mm.",
+          "answer": "30",
+          "accept": [
+            "30",
+            "30 mm"
+          ],
+          "correction": "1 cm = 10 mm → 30 mm.",
+          "prompt_nl": "Zet 3 cm om naar mm.",
+          "prompt_en": "Convert 3 cm to mm.",
+          "prompt_es": "Convierte 3 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 30 mm.",
+          "correction_en": "1 cm = 10 mm → 30 mm.",
+          "correction_es": "1 cm = 10 mm → 30 mm."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Convertis 6 heure(s) en minutes.",
+          "options": [
+            "428",
+            "294",
+            "386",
+            "360"
+          ],
+          "answer": "360",
+          "correction": "1 h = 60 min → 360 min.",
+          "prompt_nl": "Zet 6 uur om naar minuten.",
+          "prompt_en": "Convert 6 hour(s) to minutes.",
+          "prompt_es": "Convierte 6 hora(s) a minutos.",
+          "correction_nl": "1 u = 60 min → 360 min.",
+          "correction_en": "1 h = 60 min → 360 min.",
+          "correction_es": "1 h = 60 min → 360 min."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Convertis 3 cm en mm.",
+          "options": [
+            "31",
+            "30",
+            "32",
+            "25"
+          ],
+          "answer": "30",
+          "correction": "1 cm = 10 mm → 30 mm.",
+          "prompt_nl": "Zet 3 cm om naar mm.",
+          "prompt_en": "Convert 3 cm to mm.",
+          "prompt_es": "Convierte 3 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 30 mm.",
+          "correction_en": "1 cm = 10 mm → 30 mm.",
+          "correction_es": "1 cm = 10 mm → 30 mm."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Convertis 3 m en cm.",
+          "answer": "300",
+          "accept": [
+            "300",
+            "300 cm"
+          ],
+          "correction": "1 m = 100 cm → 300 cm.",
+          "prompt_nl": "Zet 3 m om naar cm.",
+          "prompt_en": "Convert 3 m to cm.",
+          "prompt_es": "Convierte 3 m a cm.",
+          "correction_nl": "1 m = 100 cm → 300 cm.",
+          "correction_en": "1 m = 100 cm → 300 cm.",
+          "correction_es": "1 m = 100 cm → 300 cm."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Convertis 2 heure(s) en minutes.",
+          "options": [
+            "140",
+            "120",
+            "117",
+            "104"
+          ],
+          "answer": "120",
+          "correction": "1 h = 60 min → 120 min.",
+          "prompt_nl": "Zet 2 uur om naar minuten.",
+          "prompt_en": "Convert 2 hour(s) to minutes.",
+          "prompt_es": "Convierte 2 hora(s) a minutos.",
+          "correction_nl": "1 u = 60 min → 120 min.",
+          "correction_en": "1 h = 60 min → 120 min.",
+          "correction_es": "1 h = 60 min → 120 min."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Convertis 5 cm en mm.",
+          "options": [
+            "55",
+            "49",
+            "50",
+            "57"
+          ],
+          "answer": "50",
+          "correction": "1 cm = 10 mm → 50 mm.",
+          "prompt_nl": "Zet 5 cm om naar mm.",
+          "prompt_en": "Convert 5 cm to mm.",
+          "prompt_es": "Convierte 5 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 50 mm.",
+          "correction_en": "1 cm = 10 mm → 50 mm.",
+          "correction_es": "1 cm = 10 mm → 50 mm."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Convertis 6 m en cm.",
+          "answer": "600",
+          "accept": [
+            "600",
+            "600 cm"
+          ],
+          "correction": "1 m = 100 cm → 600 cm.",
+          "prompt_nl": "Zet 6 m om naar cm.",
+          "prompt_en": "Convert 6 m to cm.",
+          "prompt_es": "Convierte 6 m a cm.",
+          "correction_nl": "1 m = 100 cm → 600 cm.",
+          "correction_en": "1 m = 100 cm → 600 cm.",
+          "correction_es": "1 m = 100 cm → 600 cm."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Convertis 2 m en cm.",
+          "options": [
+            "234",
+            "161",
+            "212",
+            "200"
+          ],
+          "answer": "200",
+          "correction": "1 m = 100 cm → 200 cm.",
+          "prompt_nl": "Zet 2 m om naar cm.",
+          "prompt_en": "Convert 2 m to cm.",
+          "prompt_es": "Convierte 2 m a cm.",
+          "correction_nl": "1 m = 100 cm → 200 cm.",
+          "correction_en": "1 m = 100 cm → 200 cm.",
+          "correction_es": "1 m = 100 cm → 200 cm."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Convertis 9 cm en mm.",
+          "options": [
+            "108",
+            "91",
+            "90",
+            "84"
+          ],
+          "answer": "90",
+          "correction": "1 cm = 10 mm → 90 mm.",
+          "prompt_nl": "Zet 9 cm om naar mm.",
+          "prompt_en": "Convert 9 cm to mm.",
+          "prompt_es": "Convierte 9 cm a mm.",
+          "correction_nl": "1 cm = 10 mm → 90 mm.",
+          "correction_en": "1 cm = 10 mm → 90 mm.",
+          "correction_es": "1 cm = 10 mm → 90 mm."
+        }
+      ]
+    }
+  }
+}

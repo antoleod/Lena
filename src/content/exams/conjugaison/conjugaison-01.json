@@ -14,319 +14,17 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Vous ___ (être) gentils.",
+          "prompt": "Tu ___ (dire, présent).",
           "options": [
-            "êtes",
-            "sommes",
-            "est"
+            "dis",
+            "dit",
+            "disons"
           ],
-          "answer": "êtes",
-          "correction": "Vous êtes."
+          "answer": "dis",
+          "correction": "Tu dis."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Je ___ (avoir) faim. (présent)",
-          "answer": "ai",
-          "accept": [
-            "ai"
-          ],
-          "correction": "J’ai faim."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Demain, tu ___ (être) en vacances.",
-          "options": [
-            "seras",
-            "es",
-            "étais"
-          ],
-          "answer": "seras",
-          "correction": "Futur : tu seras."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Je ___ (être) content.",
-          "options": [
-            "suis",
-            "es",
-            "est"
-          ],
-          "answer": "suis",
-          "correction": "Je suis."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Elles ___ (chanter) bien.",
-          "options": [
-            "chantent",
-            "chante",
-            "chantes"
-          ],
-          "answer": "chantent",
-          "correction": "Elles chantent."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Je ___ (faire) mes devoirs.",
-          "options": [
-            "fais",
-            "fait",
-            "font"
-          ],
-          "answer": "fais",
-          "correction": "Je fais."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Hier, j’ ___ mangé. (avoir, passé composé)",
-          "options": [
-            "ai",
-            "suis",
-            "as"
-          ],
-          "answer": "ai",
-          "correction": "Passé composé : j’ai mangé."
-        },
-        {
-          "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Nous ___ (aimer) la lecture. (présent)",
-          "answer": "aimons",
-          "accept": [
-            "aimons"
-          ],
-          "correction": "Nous aimons."
-        }
-      ]
-    },
-    "moyen": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "Demain, tu ___ (être) en vacances.",
-          "options": [
-            "seras",
-            "es",
-            "étais"
-          ],
-          "answer": "seras",
-          "correction": "Futur : tu seras."
-        },
-        {
-          "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Nous ___ (aimer) la lecture. (présent)",
-          "answer": "aimons",
-          "accept": [
-            "aimons"
-          ],
-          "correction": "Nous aimons."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Demain, je ___ au parc. (aller, futur)",
-          "options": [
-            "irai",
-            "vais",
-            "allé"
-          ],
-          "answer": "irai",
-          "correction": "Futur : j’irai."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Hier, il a ___ (jouer).",
-          "options": [
-            "joué",
-            "joue",
-            "jouer"
-          ],
-          "answer": "joué",
-          "correction": "Passé : il a joué."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Nous ___ (être) à l’école.",
-          "options": [
-            "sommes",
-            "êtes",
-            "est"
-          ],
-          "answer": "sommes",
-          "correction": "Nous sommes."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Plus tard, je ___ (manger). (futur)",
-          "options": [
-            "mangerai",
-            "mange",
-            "mangé"
-          ],
-          "answer": "mangerai",
-          "correction": "Futur : je mangerai."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Hier, j’ ___ mangé. (avoir, passé composé)",
-          "options": [
-            "ai",
-            "suis",
-            "as"
-          ],
-          "answer": "ai",
-          "correction": "Passé composé : j’ai mangé."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Vous ___ (être) gentils.",
-          "options": [
-            "êtes",
-            "sommes",
-            "est"
-          ],
-          "answer": "êtes",
-          "correction": "Vous êtes."
-        },
-        {
-          "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Je ___ (avoir) faim. (présent)",
-          "answer": "ai",
-          "accept": [
-            "ai"
-          ],
-          "correction": "J’ai faim."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Il ___ (manger) une pomme.",
-          "options": [
-            "mange",
-            "manges",
-            "mangent"
-          ],
-          "answer": "mange",
-          "correction": "Il mange."
-        }
-      ]
-    },
-    "difficile": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "Plus tard, je ___ (manger). (futur)",
-          "options": [
-            "mangerai",
-            "mange",
-            "mangé"
-          ],
-          "answer": "mangerai",
-          "correction": "Futur : je mangerai."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Il ___ (manger) une pomme.",
-          "options": [
-            "mange",
-            "manges",
-            "mangent"
-          ],
-          "answer": "mange",
-          "correction": "Il mange."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Hier, il a ___ (jouer).",
-          "options": [
-            "joué",
-            "joue",
-            "jouer"
-          ],
-          "answer": "joué",
-          "correction": "Passé : il a joué."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Demain, je ___ au parc. (aller, futur)",
-          "options": [
-            "irai",
-            "vais",
-            "allé"
-          ],
-          "answer": "irai",
-          "correction": "Futur : j’irai."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Nous ___ (être) à l’école.",
-          "options": [
-            "sommes",
-            "êtes",
-            "est"
-          ],
-          "answer": "sommes",
-          "correction": "Nous sommes."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Je ___ (être) content.",
-          "options": [
-            "suis",
-            "es",
-            "est"
-          ],
-          "answer": "suis",
-          "correction": "Je suis."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Hier, j’ ___ mangé. (avoir, passé composé)",
-          "options": [
-            "ai",
-            "suis",
-            "as"
-          ],
-          "answer": "ai",
-          "correction": "Passé composé : j’ai mangé."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Elles ___ (chanter) bien.",
-          "options": [
-            "chantent",
-            "chante",
-            "chantes"
-          ],
-          "answer": "chantent",
-          "correction": "Elles chantent."
-        },
-        {
-          "id": "q18",
           "type": "mcq",
           "prompt": "Tu ___ (avoir) un chien.",
           "options": [
@@ -338,7 +36,281 @@
           "correction": "Tu as."
         },
         {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Nous ___ (venir, présent).",
+          "options": [
+            "venons",
+            "venir",
+            "vient"
+          ],
+          "answer": "venons",
+          "correction": "Nous venons."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Vous ___ (aller, présent).",
+          "options": [
+            "allez",
+            "allons",
+            "vont"
+          ],
+          "answer": "allez",
+          "correction": "Vous allez."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Demain, je ___ au parc. (aller, futur)",
+          "options": [
+            "irai",
+            "vais",
+            "allé"
+          ],
+          "answer": "irai",
+          "correction": "Futur : j’irai."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Je ___ (être) content.",
+          "options": [
+            "suis",
+            "es",
+            "est"
+          ],
+          "answer": "suis",
+          "correction": "Je suis."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Tu ___ (vouloir, présent).",
+          "options": [
+            "veux",
+            "veut",
+            "voulons"
+          ],
+          "answer": "veux",
+          "correction": "Tu veux."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Il ___ (pouvoir, présent).",
+          "options": [
+            "peut",
+            "peux",
+            "pouvons"
+          ],
+          "answer": "peut",
+          "correction": "Il peut."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Elles ___ (chanter) bien.",
+          "options": [
+            "chantent",
+            "chante",
+            "chantes"
+          ],
+          "answer": "chantent",
+          "correction": "Elles chantent."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Je ___ (être) content.",
+          "options": [
+            "suis",
+            "es",
+            "est"
+          ],
+          "answer": "suis",
+          "correction": "Je suis."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Demain, tu ___ (être) en vacances.",
+          "options": [
+            "seras",
+            "es",
+            "étais"
+          ],
+          "answer": "seras",
+          "correction": "Futur : tu seras."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hier, j’ ___ mangé. (avoir, passé composé)",
+          "options": [
+            "ai",
+            "suis",
+            "as"
+          ],
+          "answer": "ai",
+          "correction": "Passé composé : j’ai mangé."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Je ___ (prendre, présent).",
+          "options": [
+            "prends",
+            "prend",
+            "prenons"
+          ],
+          "answer": "prends",
+          "correction": "Je prends."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Il ___ (pouvoir, présent).",
+          "options": [
+            "peut",
+            "peux",
+            "pouvons"
+          ],
+          "answer": "peut",
+          "correction": "Il peut."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Vous ___ (être) gentils.",
+          "options": [
+            "êtes",
+            "sommes",
+            "est"
+          ],
+          "answer": "êtes",
+          "correction": "Vous êtes."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Nous ___ (être) à l’école.",
+          "options": [
+            "sommes",
+            "êtes",
+            "est"
+          ],
+          "answer": "sommes",
+          "correction": "Nous sommes."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Demain, il ___ (avoir). (futur)",
+          "options": [
+            "aura",
+            "a",
+            "avait"
+          ],
+          "answer": "aura",
+          "correction": "Futur : il aura."
+        },
+        {
           "id": "q20",
+          "type": "mcq",
+          "prompt": "Tu ___ (vouloir, présent).",
+          "options": [
+            "veux",
+            "veut",
+            "voulons"
+          ],
+          "answer": "veux",
+          "correction": "Tu veux."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Demain, nous ___ (partir). (futur)",
+          "options": [
+            "partirons",
+            "partons",
+            "partis"
+          ],
+          "answer": "partirons",
+          "correction": "Futur : nous partirons."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Je ___ (être) content.",
+          "options": [
+            "suis",
+            "es",
+            "est"
+          ],
+          "answer": "suis",
+          "correction": "Je suis."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Il ___ (manger) une pomme.",
+          "options": [
+            "mange",
+            "manges",
+            "mangent"
+          ],
+          "answer": "mange",
+          "correction": "Il mange."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hier, j’ ___ mangé. (avoir, passé composé)",
+          "options": [
+            "ai",
+            "suis",
+            "as"
+          ],
+          "answer": "ai",
+          "correction": "Passé composé : j’ai mangé."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Vous ___ (être) gentils.",
+          "options": [
+            "êtes",
+            "sommes",
+            "est"
+          ],
+          "answer": "êtes",
+          "correction": "Vous êtes."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Demain, tu ___ (être) en vacances.",
+          "options": [
+            "seras",
+            "es",
+            "étais"
+          ],
+          "answer": "seras",
+          "correction": "Futur : tu seras."
+        },
+        {
+          "id": "q14",
           "type": "fill_blank",
           "prompt": "Je ___ (avoir) faim. (présent)",
           "answer": "ai",
@@ -346,6 +318,42 @@
             "ai"
           ],
           "correction": "J’ai faim."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Demain, je ___ au parc. (aller, futur)",
+          "options": [
+            "irai",
+            "vais",
+            "allé"
+          ],
+          "answer": "irai",
+          "correction": "Futur : j’irai."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Plus tard, je ___ (manger). (futur)",
+          "options": [
+            "mangerai",
+            "mange",
+            "mangé"
+          ],
+          "answer": "mangerai",
+          "correction": "Futur : je mangerai."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Nous ___ (venir, présent).",
+          "options": [
+            "venons",
+            "venir",
+            "vient"
+          ],
+          "answer": "venons",
+          "correction": "Nous venons."
         }
       ]
     }

@@ -1,0 +1,426 @@
+{
+  "id": "tables-multiplication-08",
+  "category": "tables-multiplication",
+  "categoryLabel": "Tables de multiplication",
+  "categoryEmoji": "✖️",
+  "categoryOrder": 14,
+  "title": "Table de 9",
+  "emoji": "✖️",
+  "order": 8,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "9 × 1 = ?",
+          "options": [
+            "2",
+            "15",
+            "9",
+            "17"
+          ],
+          "answer": "9",
+          "correction": "9 × 1 = 9.",
+          "prompt_nl": "9 × 1 = ?",
+          "prompt_en": "9 × 1 = ?",
+          "prompt_es": "9 × 1 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "9 × 4 = ___",
+          "answer": "36",
+          "correction": "9 × 4 = 36."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "9 × 5 = ?",
+          "options": [
+            "50",
+            "39",
+            "45",
+            "54"
+          ],
+          "answer": "45",
+          "correction": "9 × 5 = 45.",
+          "prompt_nl": "9 × 5 = ?",
+          "prompt_en": "9 × 5 = ?",
+          "prompt_es": "9 × 5 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "9 × 2 = ?",
+          "options": [
+            "14",
+            "23",
+            "17",
+            "18"
+          ],
+          "answer": "18",
+          "correction": "9 × 2 = 18.",
+          "prompt_nl": "9 × 2 = ?",
+          "prompt_en": "9 × 2 = ?",
+          "prompt_es": "9 × 2 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "9 × 2 = ___",
+          "answer": "18",
+          "correction": "9 × 2 = 18."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "9 × 3 = ?",
+          "options": [
+            "27",
+            "19",
+            "29",
+            "28"
+          ],
+          "answer": "27",
+          "correction": "9 × 3 = 27.",
+          "prompt_nl": "9 × 3 = ?",
+          "prompt_en": "9 × 3 = ?",
+          "prompt_es": "9 × 3 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "9 × 2 = ?",
+          "options": [
+            "15",
+            "12",
+            "17",
+            "18"
+          ],
+          "answer": "18",
+          "correction": "9 × 2 = 18.",
+          "prompt_nl": "9 × 2 = ?",
+          "prompt_en": "9 × 2 = ?",
+          "prompt_es": "9 × 2 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "9 × 1 = ___",
+          "answer": "9",
+          "correction": "9 × 1 = 9."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "9 × 3 = ?",
+          "options": [
+            "24",
+            "27",
+            "29",
+            "22"
+          ],
+          "answer": "27",
+          "correction": "9 × 3 = 27.",
+          "prompt_nl": "9 × 3 = ?",
+          "prompt_en": "9 × 3 = ?",
+          "prompt_es": "9 × 3 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "9 × 5 = ?",
+          "options": [
+            "45",
+            "52",
+            "51",
+            "36"
+          ],
+          "answer": "45",
+          "correction": "9 × 5 = 45.",
+          "prompt_nl": "9 × 5 = ?",
+          "prompt_en": "9 × 5 = ?",
+          "prompt_es": "9 × 5 = ?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "9 × 7 = ?",
+          "options": [
+            "71",
+            "57",
+            "63",
+            "68"
+          ],
+          "answer": "63",
+          "correction": "9 × 7 = 63.",
+          "prompt_nl": "9 × 7 = ?",
+          "prompt_en": "9 × 7 = ?",
+          "prompt_es": "9 × 7 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "9 × 2 = ___",
+          "answer": "18",
+          "correction": "9 × 2 = 18."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "9 × 5 = ?",
+          "options": [
+            "52",
+            "38",
+            "45",
+            "37"
+          ],
+          "answer": "45",
+          "correction": "9 × 5 = 45.",
+          "prompt_nl": "9 × 5 = ?",
+          "prompt_en": "9 × 5 = ?",
+          "prompt_es": "9 × 5 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "9 × 6 = ?",
+          "options": [
+            "50",
+            "58",
+            "53",
+            "54"
+          ],
+          "answer": "54",
+          "correction": "9 × 6 = 54.",
+          "prompt_nl": "9 × 6 = ?",
+          "prompt_en": "9 × 6 = ?",
+          "prompt_es": "9 × 6 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "9 × 8 = ___",
+          "answer": "72",
+          "correction": "9 × 8 = 72."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "9 × 8 = ?",
+          "options": [
+            "75",
+            "78",
+            "72",
+            "79"
+          ],
+          "answer": "72",
+          "correction": "9 × 8 = 72.",
+          "prompt_nl": "9 × 8 = ?",
+          "prompt_en": "9 × 8 = ?",
+          "prompt_es": "9 × 8 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "9 × 8 = ?",
+          "options": [
+            "72",
+            "80",
+            "69",
+            "70"
+          ],
+          "answer": "72",
+          "correction": "9 × 8 = 72.",
+          "prompt_nl": "9 × 8 = ?",
+          "prompt_en": "9 × 8 = ?",
+          "prompt_es": "9 × 8 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "9 × 4 = ___",
+          "answer": "36",
+          "correction": "9 × 4 = 36."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "9 × 1 = ?",
+          "options": [
+            "2",
+            "16",
+            "9",
+            "17"
+          ],
+          "answer": "9",
+          "correction": "9 × 1 = 9.",
+          "prompt_nl": "9 × 1 = ?",
+          "prompt_en": "9 × 1 = ?",
+          "prompt_es": "9 × 1 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "9 × 6 = ?",
+          "options": [
+            "62",
+            "54",
+            "56",
+            "58"
+          ],
+          "answer": "54",
+          "correction": "9 × 6 = 54.",
+          "prompt_nl": "9 × 6 = ?",
+          "prompt_en": "9 × 6 = ?",
+          "prompt_es": "9 × 6 = ?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "9 × 3 = ?",
+          "options": [
+            "33",
+            "23",
+            "26",
+            "27"
+          ],
+          "answer": "27",
+          "correction": "9 × 3 = 27.",
+          "prompt_nl": "9 × 3 = ?",
+          "prompt_en": "9 × 3 = ?",
+          "prompt_es": "9 × 3 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "9 × 9 = ___",
+          "answer": "81",
+          "correction": "9 × 9 = 81."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "9 × 1 = ?",
+          "options": [
+            "18",
+            "12",
+            "4",
+            "9"
+          ],
+          "answer": "9",
+          "correction": "9 × 1 = 9.",
+          "prompt_nl": "9 × 1 = ?",
+          "prompt_en": "9 × 1 = ?",
+          "prompt_es": "9 × 1 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "9 × 5 = ?",
+          "options": [
+            "49",
+            "39",
+            "36",
+            "45"
+          ],
+          "answer": "45",
+          "correction": "9 × 5 = 45.",
+          "prompt_nl": "9 × 5 = ?",
+          "prompt_en": "9 × 5 = ?",
+          "prompt_es": "9 × 5 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "9 × 6 = ___",
+          "answer": "54",
+          "correction": "9 × 6 = 54."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "9 × 1 = ?",
+          "options": [
+            "11",
+            "13",
+            "17",
+            "9"
+          ],
+          "answer": "9",
+          "correction": "9 × 1 = 9.",
+          "prompt_nl": "9 × 1 = ?",
+          "prompt_en": "9 × 1 = ?",
+          "prompt_es": "9 × 1 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "9 × 3 = ?",
+          "options": [
+            "25",
+            "27",
+            "22",
+            "36"
+          ],
+          "answer": "27",
+          "correction": "9 × 3 = 27.",
+          "prompt_nl": "9 × 3 = ?",
+          "prompt_en": "9 × 3 = ?",
+          "prompt_es": "9 × 3 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "9 × 7 = ___",
+          "answer": "63",
+          "correction": "9 × 7 = 63."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "9 × 9 = ?",
+          "options": [
+            "86",
+            "81",
+            "85",
+            "79"
+          ],
+          "answer": "81",
+          "correction": "9 × 9 = 81.",
+          "prompt_nl": "9 × 9 = ?",
+          "prompt_en": "9 × 9 = ?",
+          "prompt_es": "9 × 9 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "9 × 2 = ?",
+          "options": [
+            "21",
+            "24",
+            "23",
+            "18"
+          ],
+          "answer": "18",
+          "correction": "9 × 2 = 18.",
+          "prompt_nl": "9 × 2 = ?",
+          "prompt_en": "9 × 2 = ?",
+          "prompt_es": "9 × 2 = ?"
+        }
+      ]
+    }
+  }
+}

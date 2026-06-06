@@ -14,14 +14,14 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On entend « bateau ». On écrit :",
+          "prompt": "On entend « ecole ». On écrit :",
           "options": [
-            "bateau",
-            "bato",
-            "batau"
+            "école",
+            "ecol",
+            "écolle"
           ],
-          "answer": "bateau",
-          "correction": "Le mot « bateau »."
+          "answer": "école",
+          "correction": "Le mot « école »."
         },
         {
           "id": "q4",
@@ -38,100 +38,17 @@
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On entend « fleur ». On écrit :",
+          "prompt": "On entend « oiseau ». On écrit :",
           "options": [
-            "fleur",
-            "fleure",
-            "flèr"
+            "oiseau",
+            "oizeau",
+            "oiso"
           ],
-          "answer": "fleur",
-          "correction": "Le mot « fleur »."
+          "answer": "oiseau",
+          "correction": "Le mot « oiseau »."
         },
         {
           "id": "q8",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Le chat dort.",
-            "Le chat dor.",
-            "Le chate dort."
-          ],
-          "answer": "Le chat dort.",
-          "correction": "On écrit « Le chat dort. »."
-        },
-        {
-          "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Écris le mot qui désigne l’astre du jour (le ___).",
-          "answer": "soleil",
-          "accept": [
-            "soleil"
-          ],
-          "correction": "C’est le soleil."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "On entend « chat ». On écrit :",
-          "options": [
-            "chat",
-            "cha",
-            "chate"
-          ],
-          "answer": "chat",
-          "correction": "Le mot « chat »."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Écris le mot : l’animal qui aboie est le ___ .",
-          "answer": "chien",
-          "accept": [
-            "chien"
-          ],
-          "correction": "C’est le chien."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Maman cuisine.",
-            "Maman cuisin.",
-            "Mamen cuisine."
-          ],
-          "answer": "Maman cuisine.",
-          "correction": "On écrit « Maman cuisine. »."
-        }
-      ]
-    },
-    "moyen": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Écris le mot qui désigne l’astre du jour (le ___).",
-          "answer": "soleil",
-          "accept": [
-            "soleil"
-          ],
-          "correction": "C’est le soleil."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Le chat dort.",
-            "Le chat dor.",
-            "Le chate dort."
-          ],
-          "answer": "Le chat dort.",
-          "correction": "On écrit « Le chat dort. »."
-        },
-        {
-          "id": "q6",
           "type": "mcq",
           "prompt": "On entend « jardin ». On écrit :",
           "options": [
@@ -143,7 +60,68 @@
           "correction": "Le mot « jardin »."
         },
         {
-          "id": "q8",
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Je mange une pomme.",
+            "Je manje une pom.",
+            "Je mange ène pome."
+          ],
+          "answer": "Je mange une pomme.",
+          "correction": "On écrit « Je mange une pomme. »."
+        },
+        {
+          "id": "q12",
+          "type": "fill_blank",
+          "prompt": "Écris le mot : on lit un ___ à la bibliothèque.",
+          "answer": "livre",
+          "accept": [
+            "livre"
+          ],
+          "correction": "C’est un livre."
+        },
+        {
+          "id": "q14",
+          "type": "fill_blank",
+          "prompt": "Écris le contraire de « grand ».",
+          "answer": "petit",
+          "accept": [
+            "petit"
+          ],
+          "correction": "Le mot « petit »."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "On entend « bateau ». On écrit :",
+          "options": [
+            "bateau",
+            "bato",
+            "batau"
+          ],
+          "answer": "bateau",
+          "correction": "Le mot « bateau »."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "On entend « ecole ». On écrit :",
+          "options": [
+            "école",
+            "ecol",
+            "écolle"
+          ],
+          "answer": "école",
+          "correction": "Le mot « école »."
+        },
+        {
+          "id": "q4",
           "type": "mcq",
           "prompt": "On entend « voiture ». On écrit :",
           "options": [
@@ -155,6 +133,30 @@
           "correction": "Le mot « voiture »."
         },
         {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Papa lit un livre.",
+            "Papa lis un livre.",
+            "Pappa lit un livre."
+          ],
+          "answer": "Papa lit un livre.",
+          "correction": "On écrit « Papa lit un livre. »."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "On entend « cheval ». On écrit :",
+          "options": [
+            "cheval",
+            "chval",
+            "chaval"
+          ],
+          "answer": "cheval",
+          "correction": "Le mot « cheval »."
+        },
+        {
           "id": "q10",
           "type": "fill_blank",
           "prompt": "Écris le mot : on lit un ___ à la bibliothèque.",
@@ -167,18 +169,6 @@
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "On entend « bateau ». On écrit :",
-          "options": [
-            "bateau",
-            "bato",
-            "batau"
-          ],
-          "answer": "bateau",
-          "correction": "Le mot « bateau »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
           "prompt": "La phrase correcte :",
           "options": [
             "Maman cuisine.",
@@ -189,7 +179,60 @@
           "correction": "On écrit « Maman cuisine. »."
         },
         {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "On entend « bateau ». On écrit :",
+          "options": [
+            "bateau",
+            "bato",
+            "batau"
+          ],
+          "answer": "bateau",
+          "correction": "Le mot « bateau »."
+        },
+        {
           "id": "q16",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Je mange une pomme.",
+            "Je manje une pom.",
+            "Je mange ène pome."
+          ],
+          "answer": "Je mange une pomme.",
+          "correction": "On écrit « Je mange une pomme. »."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "On entend « maman ». On écrit :",
+          "options": [
+            "maman",
+            "mamen",
+            "mama"
+          ],
+          "answer": "maman",
+          "correction": "Le mot « maman »."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Le chat dort.",
+            "Le chat dor.",
+            "Le chate dort."
+          ],
+          "answer": "Le chat dort.",
+          "correction": "On écrit « Le chat dort. »."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
           "type": "mcq",
           "prompt": "On entend « chat ». On écrit :",
           "options": [
@@ -201,51 +244,16 @@
           "correction": "Le mot « chat »."
         },
         {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "On entend « fleur ». On écrit :",
-          "options": [
-            "fleur",
-            "fleure",
-            "flèr"
-          ],
-          "answer": "fleur",
-          "correction": "Le mot « fleur »."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Écris le mot : l’animal qui aboie est le ___ .",
-          "answer": "chien",
-          "accept": [
-            "chien"
-          ],
-          "correction": "C’est le chien."
-        }
-      ]
-    },
-    "difficile": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Écris le mot : on lit un ___ à la bibliothèque.",
-          "answer": "livre",
-          "accept": [
-            "livre"
-          ],
-          "correction": "C’est un livre."
-        },
-        {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Écris le mot qui désigne l’astre du jour (le ___).",
-          "answer": "soleil",
-          "accept": [
-            "soleil"
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Les enfants jouent.",
+            "Les enfants joue.",
+            "Les enfants jouet."
           ],
-          "correction": "C’est le soleil."
+          "answer": "Les enfants jouent.",
+          "correction": "On écrit « Les enfants jouent. »."
         },
         {
           "id": "q6",
@@ -262,28 +270,6 @@
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On entend « chat ». On écrit :",
-          "options": [
-            "chat",
-            "cha",
-            "chate"
-          ],
-          "answer": "chat",
-          "correction": "Le mot « chat »."
-        },
-        {
-          "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Écris le contraire de « grand ».",
-          "answer": "petit",
-          "accept": [
-            "petit"
-          ],
-          "correction": "Le mot « petit »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
           "prompt": "On entend « maman ». On écrit :",
           "options": [
             "maman",
@@ -294,19 +280,31 @@
           "correction": "Le mot « maman »."
         },
         {
-          "id": "q14",
+          "id": "q10",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "On entend « oiseau ». On écrit :",
           "options": [
-            "Le chat dort.",
-            "Le chat dor.",
-            "Le chate dort."
+            "oiseau",
+            "oizeau",
+            "oiso"
           ],
-          "answer": "Le chat dort.",
-          "correction": "On écrit « Le chat dort. »."
+          "answer": "oiseau",
+          "correction": "Le mot « oiseau »."
         },
         {
-          "id": "q16",
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "On entend « table ». On écrit :",
+          "options": [
+            "table",
+            "tabel",
+            "tabl"
+          ],
+          "answer": "table",
+          "correction": "Le mot « table »."
+        },
+        {
+          "id": "q14",
           "type": "mcq",
           "prompt": "On entend « bateau ». On écrit :",
           "options": [
@@ -318,7 +316,7 @@
           "correction": "Le mot « bateau »."
         },
         {
-          "id": "q18",
+          "id": "q16",
           "type": "mcq",
           "prompt": "On entend « jardin ». On écrit :",
           "options": [
@@ -330,14 +328,28 @@
           "correction": "Le mot « jardin »."
         },
         {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Écris le mot : l’animal qui aboie est le ___ .",
-          "answer": "chien",
-          "accept": [
-            "chien"
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "La phrase correcte :",
+          "options": [
+            "Je mange une pomme.",
+            "Je manje une pom.",
+            "Je mange ène pome."
           ],
-          "correction": "C’est le chien."
+          "answer": "Je mange une pomme.",
+          "correction": "On écrit « Je mange une pomme. »."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "On entend « rouge ». On écrit :",
+          "options": [
+            "rouge",
+            "roug",
+            "rouje"
+          ],
+          "answer": "rouge",
+          "correction": "Le mot « rouge »."
         }
       ]
     }

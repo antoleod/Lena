@@ -68,6 +68,7 @@ export default ({ mode }) => {
           ],
         },
         workbox: {
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
           globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2,wav}'],
           navigateFallback: 'index.html',
           navigateFallbackDenylist: [/^\/offline\.html$/],

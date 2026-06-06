@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-20",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les cailloux",
+  "emoji": "📖",
+  "order": 20,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 10 cailloux. Sami en perd 4. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "5",
+            "4",
+            "2"
+          ],
+          "answer": "6",
+          "correction": "10 − 4 = 6 cailloux."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 11 cailloux. Maya en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "2",
+            "10",
+            "11"
+          ],
+          "answer": "6",
+          "correction": "11 − 5 = 6 cailloux."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Tom a 12 cailloux. Tom en perd 4. Combien en reste-t-il ?",
+          "answer": "8",
+          "correction": "12 − 4 = 8 cailloux."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Emma a 8 cailloux. On lui en donne 3. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "14",
+            "15",
+            "9",
+            "11"
+          ],
+          "answer": "11",
+          "correction": "8 + 3 = 11 cailloux."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Nina a 12 cailloux. Nina en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "6",
+            "3",
+            "7"
+          ],
+          "answer": "3",
+          "correction": "12 − 9 = 3 cailloux."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Nina a 11 cailloux. Nina en perd 3. Combien en reste-t-il ?",
+          "answer": "8",
+          "correction": "11 − 3 = 8 cailloux."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Emma a 4 cailloux. On lui en donne 7. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "10",
+            "11",
+            "14",
+            "7"
+          ],
+          "answer": "11",
+          "correction": "4 + 7 = 11 cailloux."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 5 cailloux. On lui en donne 1. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "7",
+            "6",
+            "11",
+            "3"
+          ],
+          "answer": "6",
+          "correction": "5 + 1 = 6 cailloux."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Sami a 2 cailloux. On lui en donne 2. Combien en a-t-Sami maintenant ?",
+          "answer": "4",
+          "correction": "2 + 2 = 4 cailloux."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Léa a 10 cailloux. Léa en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "2",
+            "5",
+            "9",
+            "7"
+          ],
+          "answer": "7",
+          "correction": "10 − 3 = 7 cailloux."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Maya a 2 boîtes de 3 cailloux. Combien de cailloux en tout ?",
+          "options": [
+            "15",
+            "6",
+            "5",
+            "12"
+          ],
+          "answer": "6",
+          "correction": "2 × 3 = 6 cailloux."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tom a 3 boîtes de 4 cailloux. Combien de cailloux en tout ?",
+          "options": [
+            "16",
+            "7",
+            "19",
+            "12"
+          ],
+          "answer": "12",
+          "correction": "3 × 4 = 12 cailloux."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Emma a 14 cailloux. Emma en perd 3. Combien en reste-t-il ?",
+          "answer": "11",
+          "correction": "14 − 3 = 11 cailloux."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 2 cailloux. On lui en donne 17. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "22",
+            "19",
+            "11",
+            "15"
+          ],
+          "answer": "19",
+          "correction": "2 + 17 = 19 cailloux."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Maya a 20 cailloux. Maya en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "10",
+            "8",
+            "13",
+            "3"
+          ],
+          "answer": "13",
+          "correction": "20 − 7 = 13 cailloux."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Théo a 16 cailloux. On lui en donne 15. Combien en a-t-Théo maintenant ?",
+          "answer": "31",
+          "correction": "16 + 15 = 31 cailloux."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nina a 2 boîtes de 6 cailloux. Combien de cailloux en tout ?",
+          "options": [
+            "17",
+            "12",
+            "22",
+            "10"
+          ],
+          "answer": "12",
+          "correction": "2 × 6 = 12 cailloux."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Nina a 12 cailloux. On lui en donne 14. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "35",
+            "24",
+            "26",
+            "33"
+          ],
+          "answer": "26",
+          "correction": "12 + 14 = 26 cailloux."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Tom a 10 cailloux. Tom en perd 4. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "10 − 4 = 6 cailloux."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Nina a 3 boîtes de 5 cailloux. Combien de cailloux en tout ?",
+          "options": [
+            "25",
+            "13",
+            "14",
+            "15"
+          ],
+          "answer": "15",
+          "correction": "3 × 5 = 15 cailloux."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 35 cailloux. Sami en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "17",
+            "34",
+            "30",
+            "38"
+          ],
+          "answer": "30",
+          "correction": "35 − 5 = 30 cailloux."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Léa a 30 cailloux. Léa en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "39",
+            "27",
+            "40",
+            "16"
+          ],
+          "answer": "27",
+          "correction": "30 − 3 = 27 cailloux."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Sami a 11 cailloux. Sami en perd 5. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "11 − 5 = 6 cailloux."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 4 cailloux. On lui en donne 24. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "13",
+            "28",
+            "39",
+            "34"
+          ],
+          "answer": "28",
+          "correction": "4 + 24 = 28 cailloux."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Maya a 4 boîtes de 2 cailloux. Combien de cailloux en tout ?",
+          "options": [
+            "20",
+            "4",
+            "1",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "4 × 2 = 8 cailloux."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Emma a 15 cailloux. Emma en perd 8. Combien en reste-t-il ?",
+          "answer": "7",
+          "correction": "15 − 8 = 7 cailloux."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nina a 3 boîtes de 6 cailloux. Combien de cailloux en tout ?",
+          "options": [
+            "8",
+            "18",
+            "31",
+            "25"
+          ],
+          "answer": "18",
+          "correction": "3 × 6 = 18 cailloux."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 4 boîtes de 5 cailloux. Combien de cailloux en tout ?",
+          "options": [
+            "20",
+            "23",
+            "8",
+            "14"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20 cailloux."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Emma a 20 cailloux. On lui en donne 13. Combien en a-t-Emma maintenant ?",
+          "answer": "33",
+          "correction": "20 + 13 = 33 cailloux."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 4 boîtes de 5 cailloux. Combien de cailloux en tout ?",
+          "options": [
+            "21",
+            "20",
+            "31",
+            "10"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20 cailloux."
+        }
+      ]
+    }
+  }
+}

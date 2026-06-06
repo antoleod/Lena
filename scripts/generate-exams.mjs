@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { validateExam } from '../src/content/exams/schema.js';
 import { LECTURE_DATA } from './data/lecture-data.mjs';
 import { buildAllCategories } from './data/exam-builders.mjs';
+import { buildExtraCategories } from './data/exam-builders-extra.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -191,6 +192,7 @@ const BUILDERS = [
   { dir: 'comprehension-lecture', build: buildLectureExams },
   { dir: 'calcul-mental', build: buildCalculExams },
   ...buildAllCategories().map(({ dir, exams }) => ({ dir, build: () => exams })),
+  ...buildExtraCategories().map(({ dir, exams }) => ({ dir, build: () => exams })),
 ];
 
 let total = 0;

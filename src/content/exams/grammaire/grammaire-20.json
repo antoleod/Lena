@@ -1,0 +1,348 @@
+{
+  "id": "grammaire-20",
+  "category": "grammaire",
+  "categoryLabel": "Grammaire",
+  "categoryEmoji": "🧩",
+  "categoryOrder": 8,
+  "title": "Les mots et les phrases 20",
+  "emoji": "🧩",
+  "order": 20,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un chat » :",
+          "options": [
+            "des chats",
+            "des chat",
+            "un chats"
+          ],
+          "answer": "des chats",
+          "correction": "Pluriel : des chats."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "« rouge » est un :",
+          "options": [
+            "adjectif",
+            "nom",
+            "verbe"
+          ],
+          "answer": "adjectif",
+          "correction": "« rouge » décrit : adjectif."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Dans « la petite maison », le nom est :",
+          "options": [
+            "maison",
+            "petite",
+            "la"
+          ],
+          "answer": "maison",
+          "correction": "maison = nom."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "« une fleur » est :",
+          "options": [
+            "féminin",
+            "masculin",
+            "pluriel"
+          ],
+          "answer": "féminin",
+          "correction": "« une » → féminin."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le pluriel de « le jardin » :",
+          "options": [
+            "les jardins",
+            "le jardins",
+            "les jardin"
+          ],
+          "answer": "les jardins",
+          "correction": "Pluriel : les jardins."
+        },
+        {
+          "id": "q12",
+          "type": "true_false",
+          "prompt": "« manger » est un adjectif.",
+          "answer": false,
+          "correction": "« manger » est un verbe."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "« sauter » est un :",
+          "options": [
+            "verbe",
+            "nom",
+            "adjectif"
+          ],
+          "answer": "verbe",
+          "correction": "« sauter » est un verbe."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un bal » :",
+          "options": [
+            "des bals",
+            "des baux",
+            "des balles"
+          ],
+          "answer": "des bals",
+          "correction": "Pluriel régulier : des bals."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "« chanter » appartient au ___ groupe.",
+          "options": [
+            "1er",
+            "2e",
+            "3e"
+          ],
+          "answer": "1er",
+          "correction": "chanter termine en -er : 1er groupe."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "« courir » est un :",
+          "options": [
+            "verbe",
+            "nom",
+            "adjectif"
+          ],
+          "answer": "verbe",
+          "correction": "« courir » est un verbe."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "« rouge » est un :",
+          "options": [
+            "adjectif",
+            "nom",
+            "verbe"
+          ],
+          "answer": "adjectif",
+          "correction": "« rouge » décrit : adjectif."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un oiseau » :",
+          "options": [
+            "des oiseaux",
+            "des oiseau",
+            "des oiseaux"
+          ],
+          "answer": "des oiseaux",
+          "correction": "Pluriel : des oiseaux (eau → eaux)."
+        },
+        {
+          "id": "q10",
+          "type": "true_false",
+          "prompt": "« maison » est un nom.",
+          "answer": true,
+          "correction": "« maison » est un nom."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "« chat » est un :",
+          "options": [
+            "nom",
+            "verbe",
+            "adjectif"
+          ],
+          "answer": "nom",
+          "correction": "« chat » est un nom."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "« une fleur » est :",
+          "options": [
+            "féminin",
+            "masculin",
+            "pluriel"
+          ],
+          "answer": "féminin",
+          "correction": "« une » → féminin."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un chat » :",
+          "options": [
+            "des chats",
+            "des chat",
+            "un chats"
+          ],
+          "answer": "des chats",
+          "correction": "Pluriel : des chats."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Le pluriel de « le jardin » :",
+          "options": [
+            "les jardins",
+            "le jardins",
+            "les jardin"
+          ],
+          "answer": "les jardins",
+          "correction": "Pluriel : les jardins."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un bal » :",
+          "options": [
+            "des bals",
+            "des baux",
+            "des balles"
+          ],
+          "answer": "des bals",
+          "correction": "Pluriel régulier : des bals."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "« un livre » est :",
+          "options": [
+            "masculin",
+            "féminin",
+            "pluriel"
+          ],
+          "answer": "masculin",
+          "correction": "« un » → masculin."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un oiseau » :",
+          "options": [
+            "des oiseaux",
+            "des oiseau",
+            "des oiseaux"
+          ],
+          "answer": "des oiseaux",
+          "correction": "Pluriel : des oiseaux (eau → eaux)."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Le pluriel de « le jardin » :",
+          "options": [
+            "les jardins",
+            "le jardins",
+            "les jardin"
+          ],
+          "answer": "les jardins",
+          "correction": "Pluriel : les jardins."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "« chat » est un :",
+          "options": [
+            "nom",
+            "verbe",
+            "adjectif"
+          ],
+          "answer": "nom",
+          "correction": "« chat » est un nom."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "« une fleur » est :",
+          "options": [
+            "féminin",
+            "masculin",
+            "pluriel"
+          ],
+          "answer": "féminin",
+          "correction": "« une » → féminin."
+        },
+        {
+          "id": "q12",
+          "type": "true_false",
+          "prompt": "« table » est un nom commun.",
+          "answer": true,
+          "correction": "table = nom commun."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "« une école » est :",
+          "options": [
+            "féminin",
+            "masculin",
+            "pluriel"
+          ],
+          "answer": "féminin",
+          "correction": "« une » → féminin."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un gateau » :",
+          "options": [
+            "des gâteaux",
+            "des gâteaus",
+            "des gateau"
+          ],
+          "answer": "des gâteaux",
+          "correction": "Pluriel : des gâteaux."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un chat » :",
+          "options": [
+            "des chats",
+            "des chat",
+            "un chats"
+          ],
+          "answer": "des chats",
+          "correction": "Pluriel : des chats."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un bal » :",
+          "options": [
+            "des bals",
+            "des baux",
+            "des balles"
+          ],
+          "answer": "des bals",
+          "correction": "Pluriel régulier : des bals."
+        }
+      ]
+    }
+  }
+}

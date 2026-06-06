@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-17",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les oeufs",
+  "emoji": "📖",
+  "order": 17,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Tom a 6 oeufs. On lui en donne 4. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "8",
+            "15",
+            "13",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "6 + 4 = 10 oeufs."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 11 oeufs. Théo en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "4",
+            "6",
+            "7"
+          ],
+          "answer": "4",
+          "correction": "11 − 7 = 4 oeufs."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 11 oeufs. Léa en perd 4. Combien en reste-t-il ?",
+          "answer": "7",
+          "correction": "11 − 4 = 7 oeufs."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Théo a 12 oeufs. Théo en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "9",
+            "11",
+            "4",
+            "14"
+          ],
+          "answer": "9",
+          "correction": "12 − 3 = 9 oeufs."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 5 oeufs. On lui en donne 9. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "14",
+            "18",
+            "19",
+            "9"
+          ],
+          "answer": "14",
+          "correction": "5 + 9 = 14 oeufs."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Théo a 8 oeufs. On lui en donne 3. Combien en a-t-Théo maintenant ?",
+          "answer": "11",
+          "correction": "8 + 3 = 11 oeufs."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Maya a 6 oeufs. On lui en donne 2. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "8",
+            "10",
+            "11",
+            "5"
+          ],
+          "answer": "8",
+          "correction": "6 + 2 = 8 oeufs."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Nina a 4 oeufs. On lui en donne 8. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "14",
+            "7",
+            "16",
+            "12"
+          ],
+          "answer": "12",
+          "correction": "4 + 8 = 12 oeufs."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Léa a 5 oeufs. On lui en donne 5. Combien en a-t-Léa maintenant ?",
+          "answer": "10",
+          "correction": "5 + 5 = 10 oeufs."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Sami a 10 oeufs. Sami en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "2",
+            "5",
+            "6",
+            "0"
+          ],
+          "answer": "2",
+          "correction": "10 − 8 = 2 oeufs."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Maya a 2 oeufs. On lui en donne 8. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "8",
+            "19",
+            "16",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "2 + 8 = 10 oeufs."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 11 oeufs. Emma en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "3",
+            "7",
+            "4"
+          ],
+          "answer": "3",
+          "correction": "11 − 8 = 3 oeufs."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Hugo a 11 oeufs. On lui en donne 4. Combien en a-t-Hugo maintenant ?",
+          "answer": "15",
+          "correction": "11 + 4 = 15 oeufs."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Emma a 5 oeufs. On lui en donne 1. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "6",
+            "8",
+            "10",
+            "4"
+          ],
+          "answer": "6",
+          "correction": "5 + 1 = 6 oeufs."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 5 oeufs. On lui en donne 12. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "27",
+            "17",
+            "10",
+            "13"
+          ],
+          "answer": "17",
+          "correction": "5 + 12 = 17 oeufs."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Hugo a 23 oeufs. Hugo en perd 7. Combien en reste-t-il ?",
+          "answer": "16",
+          "correction": "23 − 7 = 16 oeufs."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Théo a 13 oeufs. On lui en donne 5. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "18",
+            "25",
+            "13",
+            "26"
+          ],
+          "answer": "18",
+          "correction": "13 + 5 = 18 oeufs."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Théo a 2 boîtes de 4 oeufs. Combien de oeufs en tout ?",
+          "options": [
+            "16",
+            "13",
+            "8",
+            "7"
+          ],
+          "answer": "8",
+          "correction": "2 × 4 = 8 oeufs."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Maya a 8 oeufs. On lui en donne 9. Combien en a-t-Maya maintenant ?",
+          "answer": "17",
+          "correction": "8 + 9 = 17 oeufs."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Nina a 4 boîtes de 5 oeufs. Combien de oeufs en tout ?",
+          "options": [
+            "19",
+            "20",
+            "29",
+            "11"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20 oeufs."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Théo a 3 boîtes de 5 oeufs. Combien de oeufs en tout ?",
+          "options": [
+            "22",
+            "15",
+            "28",
+            "3"
+          ],
+          "answer": "15",
+          "correction": "3 × 5 = 15 oeufs."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tom a 5 boîtes de 4 oeufs. Combien de oeufs en tout ?",
+          "options": [
+            "32",
+            "12",
+            "7",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "5 × 4 = 20 oeufs."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Maya a 18 oeufs. Maya en perd 2. Combien en reste-t-il ?",
+          "answer": "16",
+          "correction": "18 − 2 = 16 oeufs."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Nina a 2 boîtes de 4 oeufs. Combien de oeufs en tout ?",
+          "options": [
+            "22",
+            "13",
+            "3",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "2 × 4 = 8 oeufs."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Maya a 29 oeufs. Maya en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "23",
+            "19",
+            "33",
+            "27"
+          ],
+          "answer": "27",
+          "correction": "29 − 2 = 27 oeufs."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 11 oeufs. On lui en donne 5. Combien en a-t-Tom maintenant ?",
+          "answer": "16",
+          "correction": "11 + 5 = 16 oeufs."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Tom a 4 boîtes de 2 oeufs. Combien de oeufs en tout ?",
+          "options": [
+            "15",
+            "18",
+            "1",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "4 × 2 = 8 oeufs."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hugo a 3 boîtes de 5 oeufs. Combien de oeufs en tout ?",
+          "options": [
+            "22",
+            "3",
+            "15",
+            "17"
+          ],
+          "answer": "15",
+          "correction": "3 × 5 = 15 oeufs."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Sami a 34 oeufs. Sami en perd 3. Combien en reste-t-il ?",
+          "answer": "31",
+          "correction": "34 − 3 = 31 oeufs."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Hugo a 22 oeufs. Hugo en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "31",
+            "27",
+            "17",
+            "15"
+          ],
+          "answer": "17",
+          "correction": "22 − 5 = 17 oeufs."
+        }
+      ]
+    }
+  }
+}

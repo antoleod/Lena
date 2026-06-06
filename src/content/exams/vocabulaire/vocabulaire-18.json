@@ -1,0 +1,363 @@
+{
+  "id": "vocabulaire-18",
+  "category": "vocabulaire",
+  "categoryLabel": "Vocabulaire",
+  "categoryEmoji": "💬",
+  "categoryOrder": 5,
+  "title": "Les mots 18",
+  "emoji": "💬",
+  "order": 18,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un outil de cuisine :",
+          "options": [
+            "casserole",
+            "marteau",
+            "crayon"
+          ],
+          "answer": "casserole",
+          "correction": "La casserole est un outil de cuisine."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un fruit :",
+          "options": [
+            "banane",
+            "carotte",
+            "chaise"
+          ],
+          "answer": "banane",
+          "correction": "La banane est un fruit."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le contraire de « debut » :",
+          "options": [
+            "fin",
+            "milieu",
+            "suite"
+          ],
+          "answer": "fin",
+          "correction": "debut ↔ fin."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un légume :",
+          "options": [
+            "carotte",
+            "fraise",
+            "banane"
+          ],
+          "answer": "carotte",
+          "correction": "La carotte est un légume."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Une couleur :",
+          "options": [
+            "rouge",
+            "pomme",
+            "table"
+          ],
+          "answer": "rouge",
+          "correction": "Le rouge est une couleur."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Un moyen de transport :",
+          "options": [
+            "voiture",
+            "chaise",
+            "fenetre"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture est un moyen de transport."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Un synonyme de « joli » :",
+          "options": [
+            "beau",
+            "laid",
+            "vieux"
+          ],
+          "answer": "beau",
+          "correction": "joli = beau."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le contraire de « jour » :",
+          "options": [
+            "nuit",
+            "soir",
+            "matin"
+          ],
+          "answer": "nuit",
+          "correction": "jour ↔ nuit."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le contraire de « long » :",
+          "options": [
+            "court",
+            "large",
+            "fin"
+          ],
+          "answer": "court",
+          "correction": "long ↔ court."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le contraire de « grand » :",
+          "options": [
+            "petit",
+            "gros",
+            "haut"
+          ],
+          "answer": "petit",
+          "correction": "grand ↔ petit."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un synonyme de « joli » :",
+          "options": [
+            "beau",
+            "laid",
+            "vieux"
+          ],
+          "answer": "beau",
+          "correction": "joli = beau."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un légume :",
+          "options": [
+            "carotte",
+            "fraise",
+            "banane"
+          ],
+          "answer": "carotte",
+          "correction": "La carotte est un légume."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le contraire de « chaud » :",
+          "options": [
+            "froid",
+            "tiède",
+            "doux"
+          ],
+          "answer": "froid",
+          "correction": "chaud ↔ froid."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le contraire de « debut » :",
+          "options": [
+            "fin",
+            "milieu",
+            "suite"
+          ],
+          "answer": "fin",
+          "correction": "debut ↔ fin."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Le contraire de « vieux » :",
+          "options": [
+            "jeune",
+            "gros",
+            "grand"
+          ],
+          "answer": "jeune",
+          "correction": "vieux ↔ jeune."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le contraire de « propre » :",
+          "options": [
+            "sale",
+            "mouillé",
+            "neuf"
+          ],
+          "answer": "sale",
+          "correction": "propre ↔ sale."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le contraire de « fort » :",
+          "options": [
+            "faible",
+            "dur",
+            "lourd"
+          ],
+          "answer": "faible",
+          "correction": "fort ↔ faible."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le contraire de « debut » :",
+          "options": [
+            "fin",
+            "milieu",
+            "suite"
+          ],
+          "answer": "fin",
+          "correction": "debut ↔ fin."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un synonyme de « regarder » :",
+          "options": [
+            "observer",
+            "manger",
+            "courir"
+          ],
+          "answer": "observer",
+          "correction": "regarder = observer."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un moyen de transport :",
+          "options": [
+            "voiture",
+            "chaise",
+            "fenetre"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture est un moyen de transport."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Le contraire de « ouvert » :",
+          "options": [
+            "fermé",
+            "grand",
+            "vide"
+          ],
+          "answer": "fermé",
+          "correction": "ouvert ↔ fermé."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Un animal de la ferme :",
+          "options": [
+            "vache",
+            "lion",
+            "requin"
+          ],
+          "answer": "vache",
+          "correction": "La vache vit à la ferme."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le contraire de « plein » :",
+          "options": [
+            "vide",
+            "lourd",
+            "grand"
+          ],
+          "answer": "vide",
+          "correction": "plein ↔ vide."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Le contraire de « rapide » :",
+          "options": [
+            "lent",
+            "vite",
+            "fort"
+          ],
+          "answer": "lent",
+          "correction": "rapide ↔ lent."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Un synonyme de « parler » :",
+          "options": [
+            "discuter",
+            "courir",
+            "dormir"
+          ],
+          "answer": "discuter",
+          "correction": "parler = discuter."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-14",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les galets",
+  "emoji": "📖",
+  "order": 14,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 8 galets. On lui en donne 2. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "10",
+            "9",
+            "12",
+            "15"
+          ],
+          "answer": "10",
+          "correction": "8 + 2 = 10 galets."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 9 galets. On lui en donne 8. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "16",
+            "14",
+            "12",
+            "17"
+          ],
+          "answer": "17",
+          "correction": "9 + 8 = 17 galets."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Théo a 12 galets. Théo en perd 8. Combien en reste-t-il ?",
+          "answer": "4",
+          "correction": "12 − 8 = 4 galets."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 4 galets. On lui en donne 6. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "13",
+            "11",
+            "14",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "4 + 6 = 10 galets."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 4 galets. On lui en donne 9. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "18",
+            "9",
+            "15",
+            "13"
+          ],
+          "answer": "13",
+          "correction": "4 + 9 = 13 galets."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 12 galets. Tom en perd 5. Combien en reste-t-il ?",
+          "answer": "7",
+          "correction": "12 − 5 = 7 galets."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Tom a 12 galets. Tom en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "8",
+            "4",
+            "3",
+            "7"
+          ],
+          "answer": "3",
+          "correction": "12 − 9 = 3 galets."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Théo a 11 galets. Théo en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "10",
+            "9",
+            "7",
+            "13"
+          ],
+          "answer": "9",
+          "correction": "11 − 2 = 9 galets."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Hugo a 6 galets. On lui en donne 6. Combien en a-t-Hugo maintenant ?",
+          "answer": "12",
+          "correction": "6 + 6 = 12 galets."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Emma a 11 galets. Emma en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "11",
+            "6",
+            "1",
+            "8"
+          ],
+          "answer": "6",
+          "correction": "11 − 5 = 6 galets."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Théo a 10 galets. Théo en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "9",
+            "13",
+            "4",
+            "11"
+          ],
+          "answer": "4",
+          "correction": "10 − 6 = 4 galets."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Maya a 17 galets. Maya en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "25",
+            "15",
+            "10"
+          ],
+          "answer": "15",
+          "correction": "17 − 2 = 15 galets."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 5 boîtes de 6 galets. Combien de galets en tout ?",
+          "answer": "30",
+          "correction": "5 × 6 = 30 galets."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 19 galets. Sami en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "12",
+            "19",
+            "13",
+            "3"
+          ],
+          "answer": "13",
+          "correction": "19 − 6 = 13 galets."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Hugo a 2 boîtes de 4 galets. Combien de galets en tout ?",
+          "options": [
+            "3",
+            "14",
+            "8",
+            "10"
+          ],
+          "answer": "8",
+          "correction": "2 × 4 = 8 galets."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Hugo a 3 boîtes de 3 galets. Combien de galets en tout ?",
+          "answer": "9",
+          "correction": "3 × 3 = 9 galets."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Tom a 14 galets. Tom en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "7",
+            "2",
+            "6",
+            "3"
+          ],
+          "answer": "6",
+          "correction": "14 − 8 = 6 galets."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 2 galets. On lui en donne 18. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "30",
+            "22",
+            "15",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "2 + 18 = 20 galets."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Sami a 12 galets. On lui en donne 15. Combien en a-t-Sami maintenant ?",
+          "answer": "27",
+          "correction": "12 + 15 = 27 galets."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Nina a 23 galets. Nina en perd 1. Combien en reste-t-il ?",
+          "options": [
+            "15",
+            "17",
+            "22",
+            "23"
+          ],
+          "answer": "22",
+          "correction": "23 − 1 = 22 galets."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Théo a 15 galets. On lui en donne 1. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "16",
+            "29",
+            "9",
+            "18"
+          ],
+          "answer": "16",
+          "correction": "15 + 1 = 16 galets."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 12 galets. On lui en donne 23. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "47",
+            "31",
+            "35",
+            "42"
+          ],
+          "answer": "35",
+          "correction": "12 + 23 = 35 galets."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Théo a 5 galets. On lui en donne 21. Combien en a-t-Théo maintenant ?",
+          "answer": "26",
+          "correction": "5 + 21 = 26 galets."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Maya a 18 galets. On lui en donne 5. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "10",
+            "26",
+            "23",
+            "12"
+          ],
+          "answer": "23",
+          "correction": "18 + 5 = 23 galets."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 4 boîtes de 2 galets. Combien de galets en tout ?",
+          "options": [
+            "8",
+            "18",
+            "6",
+            "23"
+          ],
+          "answer": "8",
+          "correction": "4 × 2 = 8 galets."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Maya a 17 galets. On lui en donne 15. Combien en a-t-Maya maintenant ?",
+          "answer": "32",
+          "correction": "17 + 15 = 32 galets."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Léa a 25 galets. On lui en donne 5. Combien en a-t-Léa maintenant ?",
+          "options": [
+            "33",
+            "20",
+            "30",
+            "31"
+          ],
+          "answer": "30",
+          "correction": "25 + 5 = 30 galets."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Maya a 18 galets. On lui en donne 15. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "28",
+            "35",
+            "20",
+            "33"
+          ],
+          "answer": "33",
+          "correction": "18 + 15 = 33 galets."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Sami a 4 galets. On lui en donne 12. Combien en a-t-Sami maintenant ?",
+          "answer": "16",
+          "correction": "4 + 12 = 16 galets."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Maya a 3 boîtes de 6 galets. Combien de galets en tout ?",
+          "options": [
+            "3",
+            "10",
+            "23",
+            "18"
+          ],
+          "answer": "18",
+          "correction": "3 × 6 = 18 galets."
+        }
+      ]
+    }
+  }
+}

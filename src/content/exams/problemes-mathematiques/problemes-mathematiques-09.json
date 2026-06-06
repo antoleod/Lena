@@ -4,7 +4,7 @@
   "categoryLabel": "Problèmes mathématiques",
   "categoryEmoji": "📖",
   "categoryOrder": 3,
-  "title": "Problèmes : les billes",
+  "title": "Problèmes : les pieces",
   "emoji": "📖",
   "order": 9,
   "levels": {
@@ -14,7 +14,7 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Emma a 3 billes. On lui en donne 8. Combien en a-t-Emma maintenant ?",
+          "prompt": "Emma a 3 pieces. On lui en donne 8. Combien en a-t-Emma maintenant ?",
           "options": [
             "11",
             "16",
@@ -22,12 +22,12 @@
             "9"
           ],
           "answer": "11",
-          "correction": "3 + 8 = 11 billes."
+          "correction": "3 + 8 = 11 pieces."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Emma a 12 billes. Emma en perd 5. Combien en reste-t-il ?",
+          "prompt": "Emma a 12 pieces. Emma en perd 5. Combien en reste-t-il ?",
           "options": [
             "10",
             "4",
@@ -35,19 +35,19 @@
             "8"
           ],
           "answer": "7",
-          "correction": "12 − 5 = 7 billes."
+          "correction": "12 − 5 = 7 pieces."
         },
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "Théo a 10 billes. Théo en perd 9. Combien en reste-t-il ?",
+          "prompt": "Théo a 10 pieces. Théo en perd 9. Combien en reste-t-il ?",
           "answer": "1",
-          "correction": "10 − 9 = 1 billes."
+          "correction": "10 − 9 = 1 pieces."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Nina a 9 billes. On lui en donne 3. Combien en a-t-Nina maintenant ?",
+          "prompt": "Nina a 9 pieces. On lui en donne 3. Combien en a-t-Nina maintenant ?",
           "options": [
             "7",
             "14",
@@ -55,12 +55,12 @@
             "12"
           ],
           "answer": "12",
-          "correction": "9 + 3 = 12 billes."
+          "correction": "9 + 3 = 12 pieces."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Léa a 6 billes. On lui en donne 9. Combien en a-t-Léa maintenant ?",
+          "prompt": "Léa a 6 pieces. On lui en donne 9. Combien en a-t-Léa maintenant ?",
           "options": [
             "12",
             "10",
@@ -68,19 +68,19 @@
             "14"
           ],
           "answer": "15",
-          "correction": "6 + 9 = 15 billes."
+          "correction": "6 + 9 = 15 pieces."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Léa a 11 billes. Léa en perd 3. Combien en reste-t-il ?",
+          "prompt": "Léa a 11 pieces. Léa en perd 3. Combien en reste-t-il ?",
           "answer": "8",
-          "correction": "11 − 3 = 8 billes."
+          "correction": "11 − 3 = 8 pieces."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Nina a 5 billes. On lui en donne 1. Combien en a-t-Nina maintenant ?",
+          "prompt": "Nina a 5 pieces. On lui en donne 1. Combien en a-t-Nina maintenant ?",
           "options": [
             "8",
             "4",
@@ -88,12 +88,12 @@
             "11"
           ],
           "answer": "6",
-          "correction": "5 + 1 = 6 billes."
+          "correction": "5 + 1 = 6 pieces."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Théo a 12 billes. Théo en perd 8. Combien en reste-t-il ?",
+          "prompt": "Théo a 12 pieces. Théo en perd 8. Combien en reste-t-il ?",
           "options": [
             "7",
             "4",
@@ -101,19 +101,19 @@
             "2"
           ],
           "answer": "4",
-          "correction": "12 − 8 = 4 billes."
+          "correction": "12 − 8 = 4 pieces."
         },
         {
           "id": "q9",
           "type": "fill_blank",
-          "prompt": "Maya a 9 billes. On lui en donne 1. Combien en a-t-Maya maintenant ?",
+          "prompt": "Maya a 9 pieces. On lui en donne 1. Combien en a-t-Maya maintenant ?",
           "answer": "10",
-          "correction": "9 + 1 = 10 billes."
+          "correction": "9 + 1 = 10 pieces."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Nina a 4 billes. On lui en donne 7. Combien en a-t-Nina maintenant ?",
+          "prompt": "Nina a 4 pieces. On lui en donne 7. Combien en a-t-Nina maintenant ?",
           "options": [
             "14",
             "13",
@@ -121,7 +121,7 @@
             "11"
           ],
           "answer": "11",
-          "correction": "4 + 7 = 11 billes."
+          "correction": "4 + 7 = 11 pieces."
         }
       ]
     },
@@ -131,7 +131,7 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Tom a 20 billes. Tom en perd 9. Combien en reste-t-il ?",
+          "prompt": "Tom a 20 pieces. Tom en perd 9. Combien en reste-t-il ?",
           "options": [
             "14",
             "7",
@@ -139,12 +139,12 @@
             "11"
           ],
           "answer": "11",
-          "correction": "20 − 9 = 11 billes."
+          "correction": "20 − 9 = 11 pieces."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Hugo a 15 billes. On lui en donne 13. Combien en a-t-Hugo maintenant ?",
+          "prompt": "Hugo a 15 pieces. On lui en donne 13. Combien en a-t-Hugo maintenant ?",
           "options": [
             "22",
             "27",
@@ -152,19 +152,19 @@
             "28"
           ],
           "answer": "28",
-          "correction": "15 + 13 = 28 billes."
+          "correction": "15 + 13 = 28 pieces."
         },
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "Sami a 5 boîtes de 6 billes. Combien de billes en tout ?",
+          "prompt": "Sami a 5 boîtes de 6 pieces. Combien de pieces en tout ?",
           "answer": "30",
-          "correction": "5 × 6 = 30 billes."
+          "correction": "5 × 6 = 30 pieces."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Emma a 3 boîtes de 6 billes. Combien de billes en tout ?",
+          "prompt": "Emma a 3 boîtes de 6 pieces. Combien de pieces en tout ?",
           "options": [
             "20",
             "10",
@@ -172,12 +172,12 @@
             "26"
           ],
           "answer": "18",
-          "correction": "3 × 6 = 18 billes."
+          "correction": "3 × 6 = 18 pieces."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Léa a 5 boîtes de 6 billes. Combien de billes en tout ?",
+          "prompt": "Léa a 5 boîtes de 6 pieces. Combien de pieces en tout ?",
           "options": [
             "25",
             "20",
@@ -185,19 +185,19 @@
             "30"
           ],
           "answer": "30",
-          "correction": "5 × 6 = 30 billes."
+          "correction": "5 × 6 = 30 pieces."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Théo a 3 boîtes de 3 billes. Combien de billes en tout ?",
+          "prompt": "Théo a 3 boîtes de 3 pieces. Combien de pieces en tout ?",
           "answer": "9",
-          "correction": "3 × 3 = 9 billes."
+          "correction": "3 × 3 = 9 pieces."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Sami a 2 boîtes de 2 billes. Combien de billes en tout ?",
+          "prompt": "Sami a 2 boîtes de 2 pieces. Combien de pieces en tout ?",
           "options": [
             "5",
             "12",
@@ -205,12 +205,12 @@
             "14"
           ],
           "answer": "4",
-          "correction": "2 × 2 = 4 billes."
+          "correction": "2 × 2 = 4 pieces."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Emma a 17 billes. Emma en perd 7. Combien en reste-t-il ?",
+          "prompt": "Emma a 17 pieces. Emma en perd 7. Combien en reste-t-il ?",
           "options": [
             "3",
             "10",
@@ -218,19 +218,19 @@
             "1"
           ],
           "answer": "10",
-          "correction": "17 − 7 = 10 billes."
+          "correction": "17 − 7 = 10 pieces."
         },
         {
           "id": "q9",
           "type": "fill_blank",
-          "prompt": "Tom a 8 billes. On lui en donne 16. Combien en a-t-Tom maintenant ?",
+          "prompt": "Tom a 8 pieces. On lui en donne 16. Combien en a-t-Tom maintenant ?",
           "answer": "24",
-          "correction": "8 + 16 = 24 billes."
+          "correction": "8 + 16 = 24 pieces."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Maya a 17 billes. Maya en perd 5. Combien en reste-t-il ?",
+          "prompt": "Maya a 17 pieces. Maya en perd 5. Combien en reste-t-il ?",
           "options": [
             "6",
             "14",
@@ -238,7 +238,7 @@
             "11"
           ],
           "answer": "12",
-          "correction": "17 − 5 = 12 billes."
+          "correction": "17 − 5 = 12 pieces."
         }
       ]
     },
@@ -248,7 +248,7 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Emma a 11 billes. On lui en donne 1. Combien en a-t-Emma maintenant ?",
+          "prompt": "Emma a 11 pieces. On lui en donne 1. Combien en a-t-Emma maintenant ?",
           "options": [
             "4",
             "27",
@@ -256,12 +256,12 @@
             "12"
           ],
           "answer": "12",
-          "correction": "11 + 1 = 12 billes."
+          "correction": "11 + 1 = 12 pieces."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Théo a 19 billes. On lui en donne 12. Combien en a-t-Théo maintenant ?",
+          "prompt": "Théo a 19 pieces. On lui en donne 12. Combien en a-t-Théo maintenant ?",
           "options": [
             "31",
             "22",
@@ -269,19 +269,19 @@
             "32"
           ],
           "answer": "31",
-          "correction": "19 + 12 = 31 billes."
+          "correction": "19 + 12 = 31 pieces."
         },
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "Emma a 4 boîtes de 2 billes. Combien de billes en tout ?",
+          "prompt": "Emma a 4 boîtes de 2 pieces. Combien de pieces en tout ?",
           "answer": "8",
-          "correction": "4 × 2 = 8 billes."
+          "correction": "4 × 2 = 8 pieces."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Tom a 25 billes. On lui en donne 9. Combien en a-t-Tom maintenant ?",
+          "prompt": "Tom a 25 pieces. On lui en donne 9. Combien en a-t-Tom maintenant ?",
           "options": [
             "34",
             "21",
@@ -289,12 +289,12 @@
             "31"
           ],
           "answer": "34",
-          "correction": "25 + 9 = 34 billes."
+          "correction": "25 + 9 = 34 pieces."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Emma a 16 billes. Emma en perd 1. Combien en reste-t-il ?",
+          "prompt": "Emma a 16 pieces. Emma en perd 1. Combien en reste-t-il ?",
           "options": [
             "13",
             "28",
@@ -302,19 +302,19 @@
             "15"
           ],
           "answer": "15",
-          "correction": "16 − 1 = 15 billes."
+          "correction": "16 − 1 = 15 pieces."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Emma a 2 billes. On lui en donne 25. Combien en a-t-Emma maintenant ?",
+          "prompt": "Emma a 2 pieces. On lui en donne 25. Combien en a-t-Emma maintenant ?",
           "answer": "27",
-          "correction": "2 + 25 = 27 billes."
+          "correction": "2 + 25 = 27 pieces."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Hugo a 4 boîtes de 6 billes. Combien de billes en tout ?",
+          "prompt": "Hugo a 4 boîtes de 6 pieces. Combien de pieces en tout ?",
           "options": [
             "34",
             "32",
@@ -322,12 +322,12 @@
             "28"
           ],
           "answer": "24",
-          "correction": "4 × 6 = 24 billes."
+          "correction": "4 × 6 = 24 pieces."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Théo a 18 billes. Théo en perd 7. Combien en reste-t-il ?",
+          "prompt": "Théo a 18 pieces. Théo en perd 7. Combien en reste-t-il ?",
           "options": [
             "22",
             "17",
@@ -335,19 +335,19 @@
             "5"
           ],
           "answer": "11",
-          "correction": "18 − 7 = 11 billes."
+          "correction": "18 − 7 = 11 pieces."
         },
         {
           "id": "q9",
           "type": "fill_blank",
-          "prompt": "Léa a 10 billes. Léa en perd 3. Combien en reste-t-il ?",
+          "prompt": "Léa a 10 pieces. Léa en perd 3. Combien en reste-t-il ?",
           "answer": "7",
-          "correction": "10 − 3 = 7 billes."
+          "correction": "10 − 3 = 7 pieces."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Maya a 13 billes. On lui en donne 7. Combien en a-t-Maya maintenant ?",
+          "prompt": "Maya a 13 pieces. On lui en donne 7. Combien en a-t-Maya maintenant ?",
           "options": [
             "22",
             "6",
@@ -355,7 +355,7 @@
             "20"
           ],
           "answer": "20",
-          "correction": "13 + 7 = 20 billes."
+          "correction": "13 + 7 = 20 pieces."
         }
       ]
     }

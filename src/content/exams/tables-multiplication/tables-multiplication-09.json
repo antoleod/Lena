@@ -1,0 +1,426 @@
+{
+  "id": "tables-multiplication-09",
+  "category": "tables-multiplication",
+  "categoryLabel": "Tables de multiplication",
+  "categoryEmoji": "✖️",
+  "categoryOrder": 14,
+  "title": "Table de 10",
+  "emoji": "✖️",
+  "order": 9,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "10 × 4 = ?",
+          "options": [
+            "42",
+            "40",
+            "41",
+            "48"
+          ],
+          "answer": "40",
+          "correction": "10 × 4 = 40.",
+          "prompt_nl": "10 × 4 = ?",
+          "prompt_en": "10 × 4 = ?",
+          "prompt_es": "10 × 4 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "10 × 1 = ___",
+          "answer": "10",
+          "correction": "10 × 1 = 10."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "10 × 5 = ?",
+          "options": [
+            "50",
+            "53",
+            "40",
+            "46"
+          ],
+          "answer": "50",
+          "correction": "10 × 5 = 50.",
+          "prompt_nl": "10 × 5 = ?",
+          "prompt_en": "10 × 5 = ?",
+          "prompt_es": "10 × 5 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "10 × 2 = ?",
+          "options": [
+            "17",
+            "25",
+            "29",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "10 × 2 = 20.",
+          "prompt_nl": "10 × 2 = ?",
+          "prompt_en": "10 × 2 = ?",
+          "prompt_es": "10 × 2 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "10 × 5 = ___",
+          "answer": "50",
+          "correction": "10 × 5 = 50."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "10 × 3 = ?",
+          "options": [
+            "36",
+            "32",
+            "34",
+            "30"
+          ],
+          "answer": "30",
+          "correction": "10 × 3 = 30.",
+          "prompt_nl": "10 × 3 = ?",
+          "prompt_en": "10 × 3 = ?",
+          "prompt_es": "10 × 3 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "10 × 5 = ?",
+          "options": [
+            "53",
+            "50",
+            "51",
+            "40"
+          ],
+          "answer": "50",
+          "correction": "10 × 5 = 50.",
+          "prompt_nl": "10 × 5 = ?",
+          "prompt_en": "10 × 5 = ?",
+          "prompt_es": "10 × 5 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "10 × 2 = ___",
+          "answer": "20",
+          "correction": "10 × 2 = 20."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "10 × 3 = ?",
+          "options": [
+            "35",
+            "30",
+            "20",
+            "37"
+          ],
+          "answer": "30",
+          "correction": "10 × 3 = 30.",
+          "prompt_nl": "10 × 3 = ?",
+          "prompt_en": "10 × 3 = ?",
+          "prompt_es": "10 × 3 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "10 × 3 = ?",
+          "options": [
+            "30",
+            "29",
+            "25",
+            "26"
+          ],
+          "answer": "30",
+          "correction": "10 × 3 = 30.",
+          "prompt_nl": "10 × 3 = ?",
+          "prompt_en": "10 × 3 = ?",
+          "prompt_es": "10 × 3 = ?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "10 × 4 = ?",
+          "options": [
+            "36",
+            "30",
+            "48",
+            "40"
+          ],
+          "answer": "40",
+          "correction": "10 × 4 = 40.",
+          "prompt_nl": "10 × 4 = ?",
+          "prompt_en": "10 × 4 = ?",
+          "prompt_es": "10 × 4 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "10 × 2 = ___",
+          "answer": "20",
+          "correction": "10 × 2 = 20."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "10 × 4 = ?",
+          "options": [
+            "36",
+            "40",
+            "43",
+            "37"
+          ],
+          "answer": "40",
+          "correction": "10 × 4 = 40.",
+          "prompt_nl": "10 × 4 = ?",
+          "prompt_en": "10 × 4 = ?",
+          "prompt_es": "10 × 4 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "10 × 6 = ?",
+          "options": [
+            "60",
+            "66",
+            "58",
+            "52"
+          ],
+          "answer": "60",
+          "correction": "10 × 6 = 60.",
+          "prompt_nl": "10 × 6 = ?",
+          "prompt_en": "10 × 6 = ?",
+          "prompt_es": "10 × 6 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "10 × 7 = ___",
+          "answer": "70",
+          "correction": "10 × 7 = 70."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "10 × 4 = ?",
+          "options": [
+            "42",
+            "37",
+            "40",
+            "32"
+          ],
+          "answer": "40",
+          "correction": "10 × 4 = 40.",
+          "prompt_nl": "10 × 4 = ?",
+          "prompt_en": "10 × 4 = ?",
+          "prompt_es": "10 × 4 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "10 × 3 = ?",
+          "options": [
+            "39",
+            "40",
+            "35",
+            "30"
+          ],
+          "answer": "30",
+          "correction": "10 × 3 = 30.",
+          "prompt_nl": "10 × 3 = ?",
+          "prompt_en": "10 × 3 = ?",
+          "prompt_es": "10 × 3 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "10 × 2 = ___",
+          "answer": "20",
+          "correction": "10 × 2 = 20."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "10 × 5 = ?",
+          "options": [
+            "57",
+            "47",
+            "50",
+            "56"
+          ],
+          "answer": "50",
+          "correction": "10 × 5 = 50.",
+          "prompt_nl": "10 × 5 = ?",
+          "prompt_en": "10 × 5 = ?",
+          "prompt_es": "10 × 5 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "10 × 3 = ?",
+          "options": [
+            "24",
+            "37",
+            "30",
+            "28"
+          ],
+          "answer": "30",
+          "correction": "10 × 3 = 30.",
+          "prompt_nl": "10 × 3 = ?",
+          "prompt_en": "10 × 3 = ?",
+          "prompt_es": "10 × 3 = ?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "10 × 1 = ?",
+          "options": [
+            "10",
+            "4",
+            "20",
+            "7"
+          ],
+          "answer": "10",
+          "correction": "10 × 1 = 10.",
+          "prompt_nl": "10 × 1 = ?",
+          "prompt_en": "10 × 1 = ?",
+          "prompt_es": "10 × 1 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "10 × 5 = ___",
+          "answer": "50",
+          "correction": "10 × 5 = 50."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "10 × 3 = ?",
+          "options": [
+            "40",
+            "37",
+            "30",
+            "32"
+          ],
+          "answer": "30",
+          "correction": "10 × 3 = 30.",
+          "prompt_nl": "10 × 3 = ?",
+          "prompt_en": "10 × 3 = ?",
+          "prompt_es": "10 × 3 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "10 × 4 = ?",
+          "options": [
+            "40",
+            "46",
+            "47",
+            "43"
+          ],
+          "answer": "40",
+          "correction": "10 × 4 = 40.",
+          "prompt_nl": "10 × 4 = ?",
+          "prompt_en": "10 × 4 = ?",
+          "prompt_es": "10 × 4 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "10 × 5 = ___",
+          "answer": "50",
+          "correction": "10 × 5 = 50."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "10 × 5 = ?",
+          "options": [
+            "50",
+            "52",
+            "48",
+            "44"
+          ],
+          "answer": "50",
+          "correction": "10 × 5 = 50.",
+          "prompt_nl": "10 × 5 = ?",
+          "prompt_en": "10 × 5 = ?",
+          "prompt_es": "10 × 5 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "10 × 6 = ?",
+          "options": [
+            "56",
+            "51",
+            "60",
+            "57"
+          ],
+          "answer": "60",
+          "correction": "10 × 6 = 60.",
+          "prompt_nl": "10 × 6 = ?",
+          "prompt_en": "10 × 6 = ?",
+          "prompt_es": "10 × 6 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "10 × 10 = ___",
+          "answer": "100",
+          "correction": "10 × 10 = 100."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "10 × 9 = ?",
+          "options": [
+            "98",
+            "84",
+            "87",
+            "90"
+          ],
+          "answer": "90",
+          "correction": "10 × 9 = 90.",
+          "prompt_nl": "10 × 9 = ?",
+          "prompt_en": "10 × 9 = ?",
+          "prompt_es": "10 × 9 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "10 × 5 = ?",
+          "options": [
+            "50",
+            "41",
+            "40",
+            "42"
+          ],
+          "answer": "50",
+          "correction": "10 × 5 = 50.",
+          "prompt_nl": "10 × 5 = ?",
+          "prompt_en": "10 × 5 = ?",
+          "prompt_es": "10 × 5 = ?"
+        }
+      ]
+    }
+  }
+}

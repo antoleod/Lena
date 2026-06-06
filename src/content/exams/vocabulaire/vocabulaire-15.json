@@ -1,0 +1,361 @@
+{
+  "id": "vocabulaire-15",
+  "category": "vocabulaire",
+  "categoryLabel": "Vocabulaire",
+  "categoryEmoji": "💬",
+  "categoryOrder": 5,
+  "title": "Les mots 15",
+  "emoji": "💬",
+  "order": 15,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Le contraire de « monter » est de ___ .",
+          "answer": "descendre",
+          "accept": [
+            "descendre"
+          ],
+          "correction": "monter ↔ descendre."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Le contraire de « chaud » :",
+          "options": [
+            "froid",
+            "tiède",
+            "doux"
+          ],
+          "answer": "froid",
+          "correction": "chaud ↔ froid."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le contraire de « rapide » :",
+          "options": [
+            "lent",
+            "vite",
+            "fort"
+          ],
+          "answer": "lent",
+          "correction": "rapide ↔ lent."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un synonyme de « regarder » :",
+          "options": [
+            "observer",
+            "manger",
+            "courir"
+          ],
+          "answer": "observer",
+          "correction": "regarder = observer."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un outil de cuisine :",
+          "options": [
+            "casserole",
+            "marteau",
+            "crayon"
+          ],
+          "answer": "casserole",
+          "correction": "La casserole est un outil de cuisine."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le contraire de « vieux » :",
+          "options": [
+            "jeune",
+            "gros",
+            "grand"
+          ],
+          "answer": "jeune",
+          "correction": "vieux ↔ jeune."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le contraire de « fort » :",
+          "options": [
+            "faible",
+            "dur",
+            "lourd"
+          ],
+          "answer": "faible",
+          "correction": "fort ↔ faible."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un synonyme de « content » :",
+          "options": [
+            "heureux",
+            "triste",
+            "fâché"
+          ],
+          "answer": "heureux",
+          "correction": "content = heureux."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Une couleur :",
+          "options": [
+            "rouge",
+            "pomme",
+            "table"
+          ],
+          "answer": "rouge",
+          "correction": "Le rouge est une couleur."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un synonyme de « joli » :",
+          "options": [
+            "beau",
+            "laid",
+            "vieux"
+          ],
+          "answer": "beau",
+          "correction": "joli = beau."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un légume :",
+          "options": [
+            "carotte",
+            "fraise",
+            "banane"
+          ],
+          "answer": "carotte",
+          "correction": "La carotte est un légume."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un fruit :",
+          "options": [
+            "banane",
+            "carotte",
+            "chaise"
+          ],
+          "answer": "banane",
+          "correction": "La banane est un fruit."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un outil de cuisine :",
+          "options": [
+            "casserole",
+            "marteau",
+            "crayon"
+          ],
+          "answer": "casserole",
+          "correction": "La casserole est un outil de cuisine."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Le contraire de « heureux » :",
+          "options": [
+            "triste",
+            "content",
+            "joyeux"
+          ],
+          "answer": "triste",
+          "correction": "heureux ↔ triste."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le contraire de « propre » :",
+          "options": [
+            "sale",
+            "mouillé",
+            "neuf"
+          ],
+          "answer": "sale",
+          "correction": "propre ↔ sale."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Un synonyme de « parler » :",
+          "options": [
+            "discuter",
+            "courir",
+            "dormir"
+          ],
+          "answer": "discuter",
+          "correction": "parler = discuter."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Un synonyme de « regarder » :",
+          "options": [
+            "observer",
+            "manger",
+            "courir"
+          ],
+          "answer": "observer",
+          "correction": "regarder = observer."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le contraire de « ouvert » :",
+          "options": [
+            "fermé",
+            "grand",
+            "vide"
+          ],
+          "answer": "fermé",
+          "correction": "ouvert ↔ fermé."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un synonyme de « marcher » :",
+          "options": [
+            "se promener",
+            "courir",
+            "voler"
+          ],
+          "answer": "se promener",
+          "correction": "marcher = se promener."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un synonyme de « regarder » :",
+          "options": [
+            "observer",
+            "manger",
+            "courir"
+          ],
+          "answer": "observer",
+          "correction": "regarder = observer."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Le contraire de « heureux » :",
+          "options": [
+            "triste",
+            "content",
+            "joyeux"
+          ],
+          "answer": "triste",
+          "correction": "heureux ↔ triste."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un synonyme de « parler » :",
+          "options": [
+            "discuter",
+            "courir",
+            "dormir"
+          ],
+          "answer": "discuter",
+          "correction": "parler = discuter."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Un synonyme de « joli » :",
+          "options": [
+            "beau",
+            "laid",
+            "vieux"
+          ],
+          "answer": "beau",
+          "correction": "joli = beau."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Un outil de cuisine :",
+          "options": [
+            "casserole",
+            "marteau",
+            "crayon"
+          ],
+          "answer": "casserole",
+          "correction": "La casserole est un outil de cuisine."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le contraire de « debut » :",
+          "options": [
+            "fin",
+            "milieu",
+            "suite"
+          ],
+          "answer": "fin",
+          "correction": "debut ↔ fin."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Le contraire de « plein » :",
+          "options": [
+            "vide",
+            "lourd",
+            "grand"
+          ],
+          "answer": "vide",
+          "correction": "plein ↔ vide."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le contraire de « jour » :",
+          "options": [
+            "nuit",
+            "soir",
+            "matin"
+          ],
+          "answer": "nuit",
+          "correction": "jour ↔ nuit."
+        }
+      ]
+    }
+  }
+}

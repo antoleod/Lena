@@ -1,0 +1,482 @@
+{
+  "id": "logique-12",
+  "category": "logique",
+  "categoryLabel": "Logique",
+  "categoryEmoji": "🧠",
+  "categoryOrder": 10,
+  "title": "Réfléchis bien 12",
+  "emoji": "🧠",
+  "order": 12,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Continue la suite : 7, 9, 11, 13, …",
+          "options": [
+            "15",
+            "13",
+            "18",
+            "14"
+          ],
+          "answer": "15",
+          "correction": "On ajoute 2 à chaque fois : 15.",
+          "prompt_nl": "Maak de rij af: 7, 9, 11, 13, …",
+          "prompt_en": "Continue the sequence: 7, 9, 11, 13, …",
+          "prompt_es": "Continúa la serie: 7, 9, 11, 13, …",
+          "correction_nl": "Elke keer +2: 15.",
+          "correction_en": "Add 2 each time: 15.",
+          "correction_es": "Se suma 2 cada vez: 15."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Continue la suite : 3, 6, 9, 12, …",
+          "options": [
+            "18",
+            "11",
+            "13",
+            "15"
+          ],
+          "answer": "15",
+          "correction": "On ajoute 3 à chaque fois : 15.",
+          "prompt_nl": "Maak de rij af: 3, 6, 9, 12, …",
+          "prompt_en": "Continue the sequence: 3, 6, 9, 12, …",
+          "prompt_es": "Continúa la serie: 3, 6, 9, 12, …",
+          "correction_nl": "Elke keer +3: 15.",
+          "correction_en": "Add 3 each time: 15.",
+          "correction_es": "Se suma 3 cada vez: 15."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Continue la suite : 8, 9, 10, 11, …",
+          "options": [
+            "12",
+            "9",
+            "10",
+            "11"
+          ],
+          "answer": "12",
+          "correction": "On ajoute 1 à chaque fois : 12.",
+          "prompt_nl": "Maak de rij af: 8, 9, 10, 11, …",
+          "prompt_en": "Continue the sequence: 8, 9, 10, 11, …",
+          "prompt_es": "Continúa la serie: 8, 9, 10, 11, …",
+          "correction_nl": "Elke keer +1: 12.",
+          "correction_en": "Add 1 each time: 12.",
+          "correction_es": "Se suma 1 cada vez: 12."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Continue la suite : 6, 8, 10, 12, …",
+          "options": [
+            "14",
+            "12",
+            "13",
+            "18"
+          ],
+          "answer": "14",
+          "correction": "On ajoute 2 à chaque fois : 14.",
+          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
+          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
+          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
+          "correction_nl": "Elke keer +2: 14.",
+          "correction_en": "Add 2 each time: 14.",
+          "correction_es": "Se suma 2 cada vez: 14."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Continue la suite : 4, 7, 10, 13, …",
+          "options": [
+            "12",
+            "21",
+            "16",
+            "19"
+          ],
+          "answer": "16",
+          "correction": "On ajoute 3 à chaque fois : 16.",
+          "prompt_nl": "Maak de rij af: 4, 7, 10, 13, …",
+          "prompt_en": "Continue the sequence: 4, 7, 10, 13, …",
+          "prompt_es": "Continúa la serie: 4, 7, 10, 13, …",
+          "correction_nl": "Elke keer +3: 16.",
+          "correction_en": "Add 3 each time: 16.",
+          "correction_es": "Se suma 3 cada vez: 16."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "options": [
+            "chien",
+            "rouge",
+            "vert"
+          ],
+          "answer": "chien",
+          "correction": "Le chien n’est pas une couleur."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "options": [
+            "2, 5, 8",
+            "8, 5, 2",
+            "5, 2, 8"
+          ],
+          "answer": "2, 5, 8",
+          "correction": "Ordre croissant : 2, 5, 8."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quel nombre est le plus grand ?",
+          "options": [
+            "9",
+            "4",
+            "7"
+          ],
+          "answer": "9",
+          "correction": "9 est le plus grand."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Continue la suite : 5, 9, 13, 17, …",
+          "options": [
+            "27",
+            "21",
+            "26",
+            "20"
+          ],
+          "answer": "21",
+          "correction": "On ajoute 4 à chaque fois : 21.",
+          "prompt_nl": "Maak de rij af: 5, 9, 13, 17, …",
+          "prompt_en": "Continue the sequence: 5, 9, 13, 17, …",
+          "prompt_es": "Continúa la serie: 5, 9, 13, 17, …",
+          "correction_nl": "Elke keer +4: 21.",
+          "correction_en": "Add 4 each time: 21.",
+          "correction_es": "Se suma 4 cada vez: 21."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Continue la suite : 5, 9, 13, 17, …",
+          "options": [
+            "22",
+            "18",
+            "24",
+            "21"
+          ],
+          "answer": "21",
+          "correction": "On ajoute 4 à chaque fois : 21.",
+          "prompt_nl": "Maak de rij af: 5, 9, 13, 17, …",
+          "prompt_en": "Continue the sequence: 5, 9, 13, 17, …",
+          "prompt_es": "Continúa la serie: 5, 9, 13, 17, …",
+          "correction_nl": "Elke keer +4: 21.",
+          "correction_en": "Add 4 each time: 21.",
+          "correction_es": "Se suma 4 cada vez: 21."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Continue la suite : 2, 4, 6, 8, …",
+          "options": [
+            "11",
+            "6",
+            "13",
+            "10"
+          ],
+          "answer": "10",
+          "correction": "On ajoute 2 à chaque fois : 10.",
+          "prompt_nl": "Maak de rij af: 2, 4, 6, 8, …",
+          "prompt_en": "Continue the sequence: 2, 4, 6, 8, …",
+          "prompt_es": "Continúa la serie: 2, 4, 6, 8, …",
+          "correction_nl": "Elke keer +2: 10.",
+          "correction_en": "Add 2 each time: 10.",
+          "correction_es": "Se suma 2 cada vez: 10."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Continue la suite : 15, 18, 21, 24, …",
+          "options": [
+            "25",
+            "31",
+            "23",
+            "27"
+          ],
+          "answer": "27",
+          "correction": "On ajoute 3 à chaque fois : 27.",
+          "prompt_nl": "Maak de rij af: 15, 18, 21, 24, …",
+          "prompt_en": "Continue the sequence: 15, 18, 21, 24, …",
+          "prompt_es": "Continúa la serie: 15, 18, 21, 24, …",
+          "correction_nl": "Elke keer +3: 27.",
+          "correction_en": "Add 3 each time: 27.",
+          "correction_es": "Se suma 3 cada vez: 27."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Continue la suite : 8, 10, 12, 14, …",
+          "options": [
+            "19",
+            "20",
+            "16",
+            "14"
+          ],
+          "answer": "16",
+          "correction": "On ajoute 2 à chaque fois : 16.",
+          "prompt_nl": "Maak de rij af: 8, 10, 12, 14, …",
+          "prompt_en": "Continue the sequence: 8, 10, 12, 14, …",
+          "prompt_es": "Continúa la serie: 8, 10, 12, 14, …",
+          "correction_nl": "Elke keer +2: 16.",
+          "correction_en": "Add 2 each time: 16.",
+          "correction_es": "Se suma 2 cada vez: 16."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Continue la suite : 12, 16, 20, 24, …",
+          "options": [
+            "34",
+            "28",
+            "27",
+            "22"
+          ],
+          "answer": "28",
+          "correction": "On ajoute 4 à chaque fois : 28.",
+          "prompt_nl": "Maak de rij af: 12, 16, 20, 24, …",
+          "prompt_en": "Continue the sequence: 12, 16, 20, 24, …",
+          "prompt_es": "Continúa la serie: 12, 16, 20, 24, …",
+          "correction_nl": "Elke keer +4: 28.",
+          "correction_en": "Add 4 each time: 28.",
+          "correction_es": "Se suma 4 cada vez: 28."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "options": [
+            "voiture",
+            "pomme",
+            "fraise"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture n’est pas un fruit."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "options": [
+            "table",
+            "chat",
+            "lapin"
+          ],
+          "answer": "table",
+          "correction": "La table n’est pas un animal."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "options": [
+            "chien",
+            "rouge",
+            "vert"
+          ],
+          "answer": "chien",
+          "correction": "Le chien n’est pas une couleur."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "options": [
+            "pomme",
+            "lundi",
+            "jeudi"
+          ],
+          "answer": "pomme",
+          "correction": "La pomme n’est pas un jour."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Continue la suite : 10, 12, 14, 16, …",
+          "options": [
+            "22",
+            "15",
+            "18",
+            "14"
+          ],
+          "answer": "18",
+          "correction": "On ajoute 2 à chaque fois : 18.",
+          "prompt_nl": "Maak de rij af: 10, 12, 14, 16, …",
+          "prompt_en": "Continue the sequence: 10, 12, 14, 16, …",
+          "prompt_es": "Continúa la serie: 10, 12, 14, 16, …",
+          "correction_nl": "Elke keer +2: 18.",
+          "correction_en": "Add 2 each time: 18.",
+          "correction_es": "Se suma 2 cada vez: 18."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Continue la suite : 8, 11, 14, 17, …",
+          "options": [
+            "22",
+            "19",
+            "18",
+            "20"
+          ],
+          "answer": "20",
+          "correction": "On ajoute 3 à chaque fois : 20.",
+          "prompt_nl": "Maak de rij af: 8, 11, 14, 17, …",
+          "prompt_en": "Continue the sequence: 8, 11, 14, 17, …",
+          "prompt_es": "Continúa la serie: 8, 11, 14, 17, …",
+          "correction_nl": "Elke keer +3: 20.",
+          "correction_en": "Add 3 each time: 20.",
+          "correction_es": "Se suma 3 cada vez: 20."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Continue la suite : 4, 9, 14, 19, …",
+          "options": [
+            "20",
+            "26",
+            "24",
+            "27"
+          ],
+          "answer": "24",
+          "correction": "On ajoute 5 à chaque fois : 24.",
+          "prompt_nl": "Maak de rij af: 4, 9, 14, 19, …",
+          "prompt_en": "Continue the sequence: 4, 9, 14, 19, …",
+          "prompt_es": "Continúa la serie: 4, 9, 14, 19, …",
+          "correction_nl": "Elke keer +5: 24.",
+          "correction_en": "Add 5 each time: 24.",
+          "correction_es": "Se suma 5 cada vez: 24."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Continue la suite : 9, 11, 13, 15, …",
+          "options": [
+            "17",
+            "21",
+            "13",
+            "16"
+          ],
+          "answer": "17",
+          "correction": "On ajoute 2 à chaque fois : 17.",
+          "prompt_nl": "Maak de rij af: 9, 11, 13, 15, …",
+          "prompt_en": "Continue the sequence: 9, 11, 13, 15, …",
+          "prompt_es": "Continúa la serie: 9, 11, 13, 15, …",
+          "correction_nl": "Elke keer +2: 17.",
+          "correction_en": "Add 2 each time: 17.",
+          "correction_es": "Se suma 2 cada vez: 17."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Continue la suite : 19, 22, 25, 28, …",
+          "options": [
+            "30",
+            "31",
+            "29",
+            "28"
+          ],
+          "answer": "31",
+          "correction": "On ajoute 3 à chaque fois : 31.",
+          "prompt_nl": "Maak de rij af: 19, 22, 25, 28, …",
+          "prompt_en": "Continue the sequence: 19, 22, 25, 28, …",
+          "prompt_es": "Continúa la serie: 19, 22, 25, 28, …",
+          "correction_nl": "Elke keer +3: 31.",
+          "correction_en": "Add 3 each time: 31.",
+          "correction_es": "Se suma 3 cada vez: 31."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Continue la suite : 7, 12, 17, 22, …",
+          "options": [
+            "30",
+            "27",
+            "31",
+            "24"
+          ],
+          "answer": "27",
+          "correction": "On ajoute 5 à chaque fois : 27.",
+          "prompt_nl": "Maak de rij af: 7, 12, 17, 22, …",
+          "prompt_en": "Continue the sequence: 7, 12, 17, 22, …",
+          "prompt_es": "Continúa la serie: 7, 12, 17, 22, …",
+          "correction_nl": "Elke keer +5: 27.",
+          "correction_en": "Add 5 each time: 27.",
+          "correction_es": "Se suma 5 cada vez: 27."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "options": [
+            "table",
+            "chat",
+            "lapin"
+          ],
+          "answer": "table",
+          "correction": "La table n’est pas un animal."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "options": [
+            "voiture",
+            "pomme",
+            "fraise"
+          ],
+          "answer": "voiture",
+          "correction": "La voiture n’est pas un fruit."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Quel nombre est le plus grand ?",
+          "options": [
+            "9",
+            "4",
+            "7"
+          ],
+          "answer": "9",
+          "correction": "9 est le plus grand."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "options": [
+            "chien",
+            "rouge",
+            "vert"
+          ],
+          "answer": "chien",
+          "correction": "Le chien n’est pas une couleur."
+        }
+      ]
+    }
+  }
+}

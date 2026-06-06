@@ -14,230 +14,14 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "« un livre » est :",
-          "options": [
-            "masculin",
-            "féminin",
-            "pluriel"
-          ],
-          "answer": "masculin",
-          "correction": "« un » → masculin."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
-          "options": [
-            "des chats",
-            "des chat",
-            "un chats"
-          ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
-          "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
-          ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "« chat » est un :",
-          "options": [
-            "nom",
-            "verbe",
-            "adjectif"
-          ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "« maison » est de genre :",
           "options": [
             "féminin",
             "masculin",
-            "pluriel"
+            "neutre"
           ],
           "answer": "féminin",
-          "correction": "« une » → féminin."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
-          "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
-          ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
-          "options": [
-            "grand",
-            "chien",
-            "le"
-          ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "« courir » est un :",
-          "options": [
-            "verbe",
-            "nom",
-            "adjectif"
-          ],
-          "answer": "verbe",
-          "correction": "« courir » est un verbe."
-        }
-      ]
-    },
-    "moyen": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "« une fleur » est :",
-          "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
-          ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
-        },
-        {
-          "id": "q4",
-          "type": "true_false",
-          "prompt": "« maison » est un nom.",
-          "answer": true,
-          "correction": "« maison » est un nom."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "« courir » est un :",
-          "options": [
-            "verbe",
-            "nom",
-            "adjectif"
-          ],
-          "answer": "verbe",
-          "correction": "« courir » est un verbe."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
-          "options": [
-            "grand",
-            "chien",
-            "le"
-          ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
-          "options": [
-            "des chats",
-            "des chat",
-            "un chats"
-          ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "« rouge » est un :",
-          "options": [
-            "adjectif",
-            "nom",
-            "verbe"
-          ],
-          "answer": "adjectif",
-          "correction": "« rouge » décrit : adjectif."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
-          "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
-          ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
-          "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
-          ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "« un livre » est :",
-          "options": [
-            "masculin",
-            "féminin",
-            "pluriel"
-          ],
-          "answer": "masculin",
-          "correction": "« un » → masculin."
-        },
-        {
-          "id": "q20",
-          "type": "true_false",
-          "prompt": "« manger » est un adjectif.",
-          "answer": false,
-          "correction": "« manger » est un verbe."
-        }
-      ]
-    },
-    "difficile": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
-          "options": [
-            "des chats",
-            "des chat",
-            "un chats"
-          ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "correction": "une maison → féminin."
         },
         {
           "id": "q4",
@@ -253,54 +37,73 @@
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "« rouge » est un :",
-          "options": [
-            "adjectif",
-            "nom",
-            "verbe"
-          ],
-          "answer": "adjectif",
-          "correction": "« rouge » décrit : adjectif."
+          "type": "true_false",
+          "prompt": "« table » est un nom commun.",
+          "answer": true,
+          "correction": "table = nom commun."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "Dans « la petite maison », le nom est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "maison",
+            "petite",
+            "la"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "maison",
+          "correction": "maison = nom."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
+          "prompt": "Le pluriel de « une maison » :",
           "options": [
-            "grand",
-            "chien",
-            "le"
+            "des maisons",
+            "des maison",
+            "une maisons"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "des maisons",
+          "correction": "Pluriel : des maisons."
         },
         {
           "id": "q12",
-          "type": "mcq",
-          "prompt": "« chat » est un :",
-          "options": [
-            "nom",
-            "verbe",
-            "adjectif"
-          ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "type": "true_false",
+          "prompt": "« manger » est un adjectif.",
+          "answer": false,
+          "correction": "« manger » est un verbe."
         },
         {
           "id": "q14",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un bal » :",
+          "options": [
+            "des bals",
+            "des baux",
+            "des balles"
+          ],
+          "answer": "des bals",
+          "correction": "Pluriel régulier : des bals."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un chat » :",
+          "options": [
+            "des chats",
+            "des chat",
+            "un chats"
+          ],
+          "answer": "des chats",
+          "correction": "Pluriel : des chats."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
           "type": "mcq",
           "prompt": "« un livre » est :",
           "options": [
@@ -312,7 +115,204 @@
           "correction": "« un » → masculin."
         },
         {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Le pluriel de « une maison » :",
+          "options": [
+            "des maisons",
+            "des maison",
+            "une maisons"
+          ],
+          "answer": "des maisons",
+          "correction": "Pluriel : des maisons."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un chat » :",
+          "options": [
+            "des chats",
+            "des chat",
+            "un chats"
+          ],
+          "answer": "des chats",
+          "correction": "Pluriel : des chats."
+        },
+        {
+          "id": "q8",
+          "type": "true_false",
+          "prompt": "« table » est un nom commun.",
+          "answer": true,
+          "correction": "table = nom commun."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un bal » :",
+          "options": [
+            "des bals",
+            "des baux",
+            "des balles"
+          ],
+          "answer": "des bals",
+          "correction": "Pluriel régulier : des bals."
+        },
+        {
+          "id": "q12",
+          "type": "fill_blank",
+          "prompt": "Le pluriel de « un chien » est « des ___ ».",
+          "answer": "chiens",
+          "accept": [
+            "chiens"
+          ],
+          "correction": "On ajoute un « s »."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "« rouge » est un :",
+          "options": [
+            "adjectif",
+            "nom",
+            "verbe"
+          ],
+          "answer": "adjectif",
+          "correction": "« rouge » décrit : adjectif."
+        },
+        {
           "id": "q16",
+          "type": "mcq",
+          "prompt": "« vite » est un :",
+          "options": [
+            "adverbe",
+            "adjectif",
+            "nom",
+            "verbe"
+          ],
+          "answer": "adverbe",
+          "correction": "vite = adverbe (comment ?)."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "« une fleur » est :",
+          "options": [
+            "féminin",
+            "masculin",
+            "pluriel"
+          ],
+          "answer": "féminin",
+          "correction": "« une » → féminin."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Le pluriel de « un gateau » :",
+          "options": [
+            "des gâteaux",
+            "des gâteaus",
+            "des gateau"
+          ],
+          "answer": "des gâteaux",
+          "correction": "Pluriel : des gâteaux."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "« maison » est de genre :",
+          "options": [
+            "féminin",
+            "masculin",
+            "neutre"
+          ],
+          "answer": "féminin",
+          "correction": "une maison → féminin."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Dans « la petite maison », le nom est :",
+          "options": [
+            "maison",
+            "petite",
+            "la"
+          ],
+          "answer": "maison",
+          "correction": "maison = nom."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "« vite » est un :",
+          "options": [
+            "adverbe",
+            "adjectif",
+            "nom",
+            "verbe"
+          ],
+          "answer": "adverbe",
+          "correction": "vite = adverbe (comment ?)."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "« rouge » est un :",
+          "options": [
+            "adjectif",
+            "nom",
+            "verbe"
+          ],
+          "answer": "adjectif",
+          "correction": "« rouge » décrit : adjectif."
+        },
+        {
+          "id": "q10",
+          "type": "true_false",
+          "prompt": "« manger » est un adjectif.",
+          "answer": false,
+          "correction": "« manger » est un verbe."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "« un livre » est :",
+          "options": [
+            "masculin",
+            "féminin",
+            "pluriel"
+          ],
+          "answer": "masculin",
+          "correction": "« un » → masculin."
+        },
+        {
+          "id": "q14",
+          "type": "fill_blank",
+          "prompt": "Le pluriel de « un chien » est « des ___ ».",
+          "answer": "chiens",
+          "accept": [
+            "chiens"
+          ],
+          "correction": "On ajoute un « s »."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Le pluriel de « une maison » :",
+          "options": [
+            "des maisons",
+            "des maison",
+            "une maisons"
+          ],
+          "answer": "des maisons",
+          "correction": "Pluriel : des maisons."
+        },
+        {
+          "id": "q18",
           "type": "mcq",
           "prompt": "« courir » est un :",
           "options": [
@@ -324,21 +324,9 @@
           "correction": "« courir » est un verbe."
         },
         {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
-          "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
-          ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
-        },
-        {
           "id": "q20",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "« une fleur » est :",
           "options": [
             "féminin",
             "masculin",

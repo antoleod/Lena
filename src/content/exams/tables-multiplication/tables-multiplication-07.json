@@ -1,0 +1,426 @@
+{
+  "id": "tables-multiplication-07",
+  "category": "tables-multiplication",
+  "categoryLabel": "Tables de multiplication",
+  "categoryEmoji": "✖️",
+  "categoryOrder": 14,
+  "title": "Table de 8",
+  "emoji": "✖️",
+  "order": 7,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "8 × 2 = ?",
+          "options": [
+            "16",
+            "17",
+            "18",
+            "12"
+          ],
+          "answer": "16",
+          "correction": "8 × 2 = 16.",
+          "prompt_nl": "8 × 2 = ?",
+          "prompt_en": "8 × 2 = ?",
+          "prompt_es": "8 × 2 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "8 × 3 = ___",
+          "answer": "24",
+          "correction": "8 × 3 = 24."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "8 × 4 = ?",
+          "options": [
+            "28",
+            "31",
+            "32",
+            "29"
+          ],
+          "answer": "32",
+          "correction": "8 × 4 = 32.",
+          "prompt_nl": "8 × 4 = ?",
+          "prompt_en": "8 × 4 = ?",
+          "prompt_es": "8 × 4 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "8 × 4 = ?",
+          "options": [
+            "40",
+            "39",
+            "38",
+            "32"
+          ],
+          "answer": "32",
+          "correction": "8 × 4 = 32.",
+          "prompt_nl": "8 × 4 = ?",
+          "prompt_en": "8 × 4 = ?",
+          "prompt_es": "8 × 4 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "8 × 5 = ___",
+          "answer": "40",
+          "correction": "8 × 5 = 40."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "8 × 4 = ?",
+          "options": [
+            "32",
+            "39",
+            "40",
+            "35"
+          ],
+          "answer": "32",
+          "correction": "8 × 4 = 32.",
+          "prompt_nl": "8 × 4 = ?",
+          "prompt_en": "8 × 4 = ?",
+          "prompt_es": "8 × 4 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "8 × 3 = ?",
+          "options": [
+            "32",
+            "18",
+            "25",
+            "24"
+          ],
+          "answer": "24",
+          "correction": "8 × 3 = 24.",
+          "prompt_nl": "8 × 3 = ?",
+          "prompt_en": "8 × 3 = ?",
+          "prompt_es": "8 × 3 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "8 × 3 = ___",
+          "answer": "24",
+          "correction": "8 × 3 = 24."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "8 × 3 = ?",
+          "options": [
+            "24",
+            "23",
+            "30",
+            "31"
+          ],
+          "answer": "24",
+          "correction": "8 × 3 = 24.",
+          "prompt_nl": "8 × 3 = ?",
+          "prompt_en": "8 × 3 = ?",
+          "prompt_es": "8 × 3 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "8 × 1 = ?",
+          "options": [
+            "1",
+            "9",
+            "8",
+            "2"
+          ],
+          "answer": "8",
+          "correction": "8 × 1 = 8.",
+          "prompt_nl": "8 × 1 = ?",
+          "prompt_en": "8 × 1 = ?",
+          "prompt_es": "8 × 1 = ?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "8 × 2 = ?",
+          "options": [
+            "14",
+            "15",
+            "16",
+            "17"
+          ],
+          "answer": "16",
+          "correction": "8 × 2 = 16.",
+          "prompt_nl": "8 × 2 = ?",
+          "prompt_en": "8 × 2 = ?",
+          "prompt_es": "8 × 2 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "8 × 4 = ___",
+          "answer": "32",
+          "correction": "8 × 4 = 32."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "8 × 5 = ?",
+          "options": [
+            "38",
+            "37",
+            "47",
+            "40"
+          ],
+          "answer": "40",
+          "correction": "8 × 5 = 40.",
+          "prompt_nl": "8 × 5 = ?",
+          "prompt_en": "8 × 5 = ?",
+          "prompt_es": "8 × 5 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "8 × 7 = ?",
+          "options": [
+            "56",
+            "60",
+            "62",
+            "63"
+          ],
+          "answer": "56",
+          "correction": "8 × 7 = 56.",
+          "prompt_nl": "8 × 7 = ?",
+          "prompt_en": "8 × 7 = ?",
+          "prompt_es": "8 × 7 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "8 × 3 = ___",
+          "answer": "24",
+          "correction": "8 × 3 = 24."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "8 × 1 = ?",
+          "options": [
+            "8",
+            "6",
+            "7",
+            "9"
+          ],
+          "answer": "8",
+          "correction": "8 × 1 = 8.",
+          "prompt_nl": "8 × 1 = ?",
+          "prompt_en": "8 × 1 = ?",
+          "prompt_es": "8 × 1 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "8 × 5 = ?",
+          "options": [
+            "46",
+            "36",
+            "41",
+            "40"
+          ],
+          "answer": "40",
+          "correction": "8 × 5 = 40.",
+          "prompt_nl": "8 × 5 = ?",
+          "prompt_en": "8 × 5 = ?",
+          "prompt_es": "8 × 5 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "8 × 8 = ___",
+          "answer": "64",
+          "correction": "8 × 8 = 64."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "8 × 5 = ?",
+          "options": [
+            "40",
+            "48",
+            "32",
+            "34"
+          ],
+          "answer": "40",
+          "correction": "8 × 5 = 40.",
+          "prompt_nl": "8 × 5 = ?",
+          "prompt_en": "8 × 5 = ?",
+          "prompt_es": "8 × 5 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "8 × 5 = ?",
+          "options": [
+            "45",
+            "41",
+            "38",
+            "40"
+          ],
+          "answer": "40",
+          "correction": "8 × 5 = 40.",
+          "prompt_nl": "8 × 5 = ?",
+          "prompt_en": "8 × 5 = ?",
+          "prompt_es": "8 × 5 = ?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "8 × 4 = ?",
+          "options": [
+            "26",
+            "40",
+            "24",
+            "32"
+          ],
+          "answer": "32",
+          "correction": "8 × 4 = 32.",
+          "prompt_nl": "8 × 4 = ?",
+          "prompt_en": "8 × 4 = ?",
+          "prompt_es": "8 × 4 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "8 × 1 = ___",
+          "answer": "8",
+          "correction": "8 × 1 = 8."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "8 × 5 = ?",
+          "options": [
+            "35",
+            "36",
+            "40",
+            "39"
+          ],
+          "answer": "40",
+          "correction": "8 × 5 = 40.",
+          "prompt_nl": "8 × 5 = ?",
+          "prompt_en": "8 × 5 = ?",
+          "prompt_es": "8 × 5 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "8 × 6 = ?",
+          "options": [
+            "44",
+            "49",
+            "40",
+            "48"
+          ],
+          "answer": "48",
+          "correction": "8 × 6 = 48.",
+          "prompt_nl": "8 × 6 = ?",
+          "prompt_en": "8 × 6 = ?",
+          "prompt_es": "8 × 6 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "8 × 4 = ___",
+          "answer": "32",
+          "correction": "8 × 4 = 32."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "8 × 3 = ?",
+          "options": [
+            "24",
+            "19",
+            "21",
+            "31"
+          ],
+          "answer": "24",
+          "correction": "8 × 3 = 24.",
+          "prompt_nl": "8 × 3 = ?",
+          "prompt_en": "8 × 3 = ?",
+          "prompt_es": "8 × 3 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "8 × 5 = ?",
+          "options": [
+            "40",
+            "45",
+            "37",
+            "38"
+          ],
+          "answer": "40",
+          "correction": "8 × 5 = 40.",
+          "prompt_nl": "8 × 5 = ?",
+          "prompt_en": "8 × 5 = ?",
+          "prompt_es": "8 × 5 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "8 × 10 = ___",
+          "answer": "80",
+          "correction": "8 × 10 = 80."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "8 × 4 = ?",
+          "options": [
+            "38",
+            "28",
+            "24",
+            "32"
+          ],
+          "answer": "32",
+          "correction": "8 × 4 = 32.",
+          "prompt_nl": "8 × 4 = ?",
+          "prompt_en": "8 × 4 = ?",
+          "prompt_es": "8 × 4 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "8 × 8 = ?",
+          "options": [
+            "69",
+            "56",
+            "68",
+            "64"
+          ],
+          "answer": "64",
+          "correction": "8 × 8 = 64.",
+          "prompt_nl": "8 × 8 = ?",
+          "prompt_en": "8 × 8 = ?",
+          "prompt_es": "8 × 8 = ?"
+        }
+      ]
+    }
+  }
+}

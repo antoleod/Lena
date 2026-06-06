@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-11",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les cartes",
+  "emoji": "📖",
+  "order": 11,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 9 cartes. On lui en donne 4. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "12",
+            "15",
+            "11",
+            "13"
+          ],
+          "answer": "13",
+          "correction": "9 + 4 = 13 cartes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Nina a 2 cartes. On lui en donne 2. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "2",
+            "8",
+            "4",
+            "9"
+          ],
+          "answer": "4",
+          "correction": "2 + 2 = 4 cartes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Maya a 11 cartes. Maya en perd 4. Combien en reste-t-il ?",
+          "answer": "7",
+          "correction": "11 − 4 = 7 cartes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Théo a 8 cartes. On lui en donne 7. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "15",
+            "19",
+            "18",
+            "20"
+          ],
+          "answer": "15",
+          "correction": "8 + 7 = 15 cartes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Sami a 12 cartes. Sami en perd 6. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "1",
+            "7",
+            "11"
+          ],
+          "answer": "6",
+          "correction": "12 − 6 = 6 cartes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Sami a 11 cartes. Sami en perd 3. Combien en reste-t-il ?",
+          "answer": "8",
+          "correction": "11 − 3 = 8 cartes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nina a 11 cartes. Nina en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "9",
+            "11",
+            "3",
+            "6"
+          ],
+          "answer": "6",
+          "correction": "11 − 5 = 6 cartes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 6 cartes. On lui en donne 6. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "7",
+            "12",
+            "14",
+            "16"
+          ],
+          "answer": "12",
+          "correction": "6 + 6 = 12 cartes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Théo a 11 cartes. Théo en perd 5. Combien en reste-t-il ?",
+          "answer": "6",
+          "correction": "11 − 5 = 6 cartes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Tom a 2 cartes. On lui en donne 2. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "1",
+            "2",
+            "4",
+            "0"
+          ],
+          "answer": "4",
+          "correction": "2 + 2 = 4 cartes."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 13 cartes. Emma en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "8",
+            "5",
+            "16",
+            "2"
+          ],
+          "answer": "8",
+          "correction": "13 − 5 = 8 cartes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tom a 16 cartes. On lui en donne 18. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "32",
+            "34",
+            "24",
+            "28"
+          ],
+          "answer": "34",
+          "correction": "16 + 18 = 34 cartes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Emma a 2 boîtes de 6 cartes. Combien de cartes en tout ?",
+          "answer": "12",
+          "correction": "2 × 6 = 12 cartes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Théo a 12 cartes. On lui en donne 7. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "27",
+            "19",
+            "16",
+            "22"
+          ],
+          "answer": "19",
+          "correction": "12 + 7 = 19 cartes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Théo a 11 cartes. Théo en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "1",
+            "6",
+            "16",
+            "15"
+          ],
+          "answer": "6",
+          "correction": "11 − 5 = 6 cartes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Emma a 4 boîtes de 2 cartes. Combien de cartes en tout ?",
+          "answer": "8",
+          "correction": "4 × 2 = 8 cartes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Sami a 12 cartes. Sami en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "11",
+            "9",
+            "5",
+            "4"
+          ],
+          "answer": "5",
+          "correction": "12 − 7 = 5 cartes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Théo a 18 cartes. Théo en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "13",
+            "7",
+            "21",
+            "23"
+          ],
+          "answer": "13",
+          "correction": "18 − 5 = 13 cartes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nina a 12 cartes. On lui en donne 12. Combien en a-t-Nina maintenant ?",
+          "answer": "24",
+          "correction": "12 + 12 = 24 cartes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Tom a 14 cartes. On lui en donne 10. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "14",
+            "23",
+            "24",
+            "33"
+          ],
+          "answer": "24",
+          "correction": "14 + 10 = 24 cartes."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sami a 15 cartes. On lui en donne 24. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "50",
+            "38",
+            "39",
+            "37"
+          ],
+          "answer": "39",
+          "correction": "15 + 24 = 39 cartes."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Sami a 2 boîtes de 6 cartes. Combien de cartes en tout ?",
+          "options": [
+            "12",
+            "20",
+            "7",
+            "16"
+          ],
+          "answer": "12",
+          "correction": "2 × 6 = 12 cartes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 5 boîtes de 6 cartes. Combien de cartes en tout ?",
+          "answer": "30",
+          "correction": "5 × 6 = 30 cartes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Maya a 13 cartes. On lui en donne 1. Combien en a-t-Maya maintenant ?",
+          "options": [
+            "14",
+            "19",
+            "2",
+            "21"
+          ],
+          "answer": "14",
+          "correction": "13 + 1 = 14 cartes."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Léa a 36 cartes. Léa en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "37",
+            "24",
+            "33",
+            "43"
+          ],
+          "answer": "33",
+          "correction": "36 − 3 = 33 cartes."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Théo a 4 boîtes de 4 cartes. Combien de cartes en tout ?",
+          "answer": "16",
+          "correction": "4 × 4 = 16 cartes."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Emma a 14 cartes. On lui en donne 15. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "28",
+            "36",
+            "22",
+            "29"
+          ],
+          "answer": "29",
+          "correction": "14 + 15 = 29 cartes."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 25 cartes. Tom en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "5",
+            "16",
+            "1",
+            "28"
+          ],
+          "answer": "16",
+          "correction": "25 − 9 = 16 cartes."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nina a 18 cartes. On lui en donne 18. Combien en a-t-Nina maintenant ?",
+          "answer": "36",
+          "correction": "18 + 18 = 36 cartes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Nina a 15 cartes. On lui en donne 22. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "34",
+            "42",
+            "23",
+            "37"
+          ],
+          "answer": "37",
+          "correction": "15 + 22 = 37 cartes."
+        }
+      ]
+    }
+  }
+}

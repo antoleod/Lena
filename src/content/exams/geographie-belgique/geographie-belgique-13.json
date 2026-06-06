@@ -1,0 +1,367 @@
+{
+  "id": "geographie-belgique-13",
+  "category": "geographie-belgique",
+  "categoryLabel": "Géographie & Belgique",
+  "categoryEmoji": "🇧🇪",
+  "categoryOrder": 17,
+  "title": "Belgique & Europe 13",
+  "emoji": "🇧🇪",
+  "order": 13,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quel pays borde la Belgique au nord ?",
+          "options": [
+            "les Pays-Bas",
+            "la France",
+            "l'Allemagne",
+            "le Luxembourg"
+          ],
+          "answer": "les Pays-Bas",
+          "correction": "Les Pays-Bas bordent la Belgique au nord."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "La mer du Nord est :",
+          "options": [
+            "à l'ouest de la Belgique",
+            "au sud",
+            "à l'est",
+            "au centre"
+          ],
+          "answer": "à l'ouest de la Belgique",
+          "correction": "La mer du Nord est à l'ouest/nord de la Belgique."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quel pays borde la Belgique au sud ?",
+          "options": [
+            "la France",
+            "les Pays-Bas",
+            "l'Allemagne",
+            "l'Angleterre"
+          ],
+          "answer": "la France",
+          "correction": "La France borde la Belgique au sud."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quelle est la plus grande ville de Belgique ?",
+          "options": [
+            "Bruxelles",
+            "Anvers",
+            "Gand",
+            "Liège"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la plus grande ville."
+        },
+        {
+          "id": "q10",
+          "type": "true_false",
+          "prompt": "Bruxelles est en Flandre.",
+          "answer": false,
+          "correction": "Bruxelles est une région à part, bilingue."
+        },
+        {
+          "id": "q12",
+          "type": "true_false",
+          "prompt": "Anvers est un grand port maritime.",
+          "answer": true,
+          "correction": "Anvers est l'un des plus grands ports d'Europe."
+        },
+        {
+          "id": "q14",
+          "type": "true_false",
+          "prompt": "La Belgique a une façade sur la mer du Nord.",
+          "answer": true,
+          "correction": "La Belgique a 67 km de côte sur la mer du Nord."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quelle ville belge est surnommée « la Venise du Nord » ?",
+          "options": [
+            "Bruges",
+            "Gand",
+            "Anvers",
+            "Liège"
+          ],
+          "answer": "Bruges",
+          "correction": "Bruges est surnommée la Venise du Nord."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quelle est la plus grande ville de Belgique ?",
+          "options": [
+            "Bruxelles",
+            "Anvers",
+            "Gand",
+            "Liège"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la plus grande ville."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Combien de régions compte la Belgique ?",
+          "options": [
+            "3",
+            "2",
+            "4",
+            "5"
+          ],
+          "answer": "3",
+          "correction": "La Belgique a 3 régions : Wallonie, Flandre, Bruxelles."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quelle forêt belge est très connue ?",
+          "options": [
+            "l'Ardenne",
+            "la Forêt-Noire",
+            "les Vosges",
+            "la Camargue"
+          ],
+          "answer": "l'Ardenne",
+          "correction": "L'Ardenne est la grande forêt belge."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quel fleuve traverse Liège ?",
+          "options": [
+            "la Meuse",
+            "l'Escaut",
+            "la Sambre",
+            "la Semois"
+          ],
+          "answer": "la Meuse",
+          "correction": "La Meuse traverse Liège."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Dans quelle région se trouve Gand ?",
+          "options": [
+            "Flandre",
+            "Wallonie",
+            "Bruxelles",
+            "Ardenne"
+          ],
+          "answer": "Flandre",
+          "correction": "Gand est en Flandre."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quelle est la langue parlée en Flandre ?",
+          "options": [
+            "le néerlandais",
+            "le français",
+            "l'allemand",
+            "l'anglais"
+          ],
+          "answer": "le néerlandais",
+          "correction": "En Flandre on parle néerlandais."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Quelle ville belge est surnommée « la Venise du Nord » ?",
+          "options": [
+            "Bruges",
+            "Gand",
+            "Anvers",
+            "Liège"
+          ],
+          "answer": "Bruges",
+          "correction": "Bruges est surnommée la Venise du Nord."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Qu'est-ce que l'Atomium ?",
+          "options": [
+            "un monument à Bruxelles",
+            "un volcan",
+            "une forêt",
+            "un château"
+          ],
+          "answer": "un monument à Bruxelles",
+          "correction": "L'Atomium est un monument à Bruxelles (1958)."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Quelle est la monnaie de la Belgique ?",
+          "options": [
+            "l'euro",
+            "le franc",
+            "la livre",
+            "le dollar"
+          ],
+          "answer": "l'euro",
+          "correction": "La Belgique utilise l'euro depuis 2002."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Comment s'appelle la côte belge ?",
+          "options": [
+            "la Côte belge",
+            "la Côte d'Azur",
+            "la Côte atlantique",
+            "la Costa Brava"
+          ],
+          "answer": "la Côte belge",
+          "correction": "La côte maritime s'appelle la Côte belge."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "La mer du Nord est :",
+          "options": [
+            "à l'ouest de la Belgique",
+            "au sud",
+            "à l'est",
+            "au centre"
+          ],
+          "answer": "à l'ouest de la Belgique",
+          "correction": "La mer du Nord est à l'ouest/nord de la Belgique."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quelle ville belge est connue pour ses chocolats ?",
+          "options": [
+            "Bruxelles",
+            "Namur",
+            "Dinant",
+            "Bruges"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est très connue pour ses chocolats."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quelle est la plus grande ville de Belgique ?",
+          "options": [
+            "Bruxelles",
+            "Anvers",
+            "Gand",
+            "Liège"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la plus grande ville."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quel fleuve traverse Liège ?",
+          "options": [
+            "la Meuse",
+            "l'Escaut",
+            "la Sambre",
+            "la Semois"
+          ],
+          "answer": "la Meuse",
+          "correction": "La Meuse traverse Liège."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel pays borde la Belgique au sud ?",
+          "options": [
+            "la France",
+            "les Pays-Bas",
+            "l'Allemagne",
+            "l'Angleterre"
+          ],
+          "answer": "la France",
+          "correction": "La France borde la Belgique au sud."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quelle est la capitale de la Belgique ?",
+          "options": [
+            "Bruxelles",
+            "Anvers",
+            "Liège",
+            "Gand"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique."
+        },
+        {
+          "id": "q14",
+          "type": "true_false",
+          "prompt": "La Belgique a une façade sur la mer du Nord.",
+          "answer": true,
+          "correction": "La Belgique a 67 km de côte sur la mer du Nord."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quel est le symbole national belge ?",
+          "options": [
+            "le lion",
+            "l'aigle",
+            "le coq",
+            "le taureau"
+          ],
+          "answer": "le lion",
+          "correction": "Le lion est le symbole national belge."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Dans quelle région se trouve Gand ?",
+          "options": [
+            "Flandre",
+            "Wallonie",
+            "Bruxelles",
+            "Ardenne"
+          ],
+          "answer": "Flandre",
+          "correction": "Gand est en Flandre."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Quelle ville belge est surnommée « la Venise du Nord » ?",
+          "options": [
+            "Bruges",
+            "Gand",
+            "Anvers",
+            "Liège"
+          ],
+          "answer": "Bruges",
+          "correction": "Bruges est surnommée la Venise du Nord."
+        }
+      ]
+    }
+  }
+}

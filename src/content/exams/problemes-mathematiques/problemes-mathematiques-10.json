@@ -4,7 +4,7 @@
   "categoryLabel": "Problèmes mathématiques",
   "categoryEmoji": "📖",
   "categoryOrder": 3,
-  "title": "Problèmes : les bonbons",
+  "title": "Problèmes : les bracelets",
   "emoji": "📖",
   "order": 10,
   "levels": {
@@ -14,7 +14,7 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Théo a 6 bonbons. On lui en donne 9. Combien en a-t-Théo maintenant ?",
+          "prompt": "Théo a 6 bracelets. On lui en donne 9. Combien en a-t-Théo maintenant ?",
           "options": [
             "16",
             "18",
@@ -22,12 +22,12 @@
             "13"
           ],
           "answer": "15",
-          "correction": "6 + 9 = 15 bonbons."
+          "correction": "6 + 9 = 15 bracelets."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Théo a 4 bonbons. On lui en donne 1. Combien en a-t-Théo maintenant ?",
+          "prompt": "Théo a 4 bracelets. On lui en donne 1. Combien en a-t-Théo maintenant ?",
           "options": [
             "3",
             "8",
@@ -35,19 +35,19 @@
             "4"
           ],
           "answer": "5",
-          "correction": "4 + 1 = 5 bonbons."
+          "correction": "4 + 1 = 5 bracelets."
         },
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "Léa a 9 bonbons. On lui en donne 5. Combien en a-t-Léa maintenant ?",
+          "prompt": "Léa a 9 bracelets. On lui en donne 5. Combien en a-t-Léa maintenant ?",
           "answer": "14",
-          "correction": "9 + 5 = 14 bonbons."
+          "correction": "9 + 5 = 14 bracelets."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Maya a 10 bonbons. Maya en perd 7. Combien en reste-t-il ?",
+          "prompt": "Maya a 10 bracelets. Maya en perd 7. Combien en reste-t-il ?",
           "options": [
             "5",
             "6",
@@ -55,12 +55,12 @@
             "3"
           ],
           "answer": "3",
-          "correction": "10 − 7 = 3 bonbons."
+          "correction": "10 − 7 = 3 bracelets."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Emma a 10 bonbons. Emma en perd 7. Combien en reste-t-il ?",
+          "prompt": "Emma a 10 bracelets. Emma en perd 7. Combien en reste-t-il ?",
           "options": [
             "5",
             "8",
@@ -68,19 +68,19 @@
             "3"
           ],
           "answer": "3",
-          "correction": "10 − 7 = 3 bonbons."
+          "correction": "10 − 7 = 3 bracelets."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Sami a 12 bonbons. Sami en perd 2. Combien en reste-t-il ?",
+          "prompt": "Sami a 12 bracelets. Sami en perd 2. Combien en reste-t-il ?",
           "answer": "10",
-          "correction": "12 − 2 = 10 bonbons."
+          "correction": "12 − 2 = 10 bracelets."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Théo a 2 bonbons. On lui en donne 6. Combien en a-t-Théo maintenant ?",
+          "prompt": "Théo a 2 bracelets. On lui en donne 6. Combien en a-t-Théo maintenant ?",
           "options": [
             "5",
             "8",
@@ -88,12 +88,12 @@
             "10"
           ],
           "answer": "8",
-          "correction": "2 + 6 = 8 bonbons."
+          "correction": "2 + 6 = 8 bracelets."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Sami a 4 bonbons. On lui en donne 8. Combien en a-t-Sami maintenant ?",
+          "prompt": "Sami a 4 bracelets. On lui en donne 8. Combien en a-t-Sami maintenant ?",
           "options": [
             "16",
             "13",
@@ -101,19 +101,19 @@
             "12"
           ],
           "answer": "12",
-          "correction": "4 + 8 = 12 bonbons."
+          "correction": "4 + 8 = 12 bracelets."
         },
         {
           "id": "q9",
           "type": "fill_blank",
-          "prompt": "Théo a 10 bonbons. Théo en perd 6. Combien en reste-t-il ?",
+          "prompt": "Théo a 10 bracelets. Théo en perd 6. Combien en reste-t-il ?",
           "answer": "4",
-          "correction": "10 − 6 = 4 bonbons."
+          "correction": "10 − 6 = 4 bracelets."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Hugo a 2 bonbons. On lui en donne 1. Combien en a-t-Hugo maintenant ?",
+          "prompt": "Hugo a 2 bracelets. On lui en donne 1. Combien en a-t-Hugo maintenant ?",
           "options": [
             "6",
             "3",
@@ -121,7 +121,7 @@
             "8"
           ],
           "answer": "3",
-          "correction": "2 + 1 = 3 bonbons."
+          "correction": "2 + 1 = 3 bracelets."
         }
       ]
     },
@@ -131,7 +131,7 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Maya a 16 bonbons. Maya en perd 3. Combien en reste-t-il ?",
+          "prompt": "Maya a 16 bracelets. Maya en perd 3. Combien en reste-t-il ?",
           "options": [
             "13",
             "12",
@@ -139,12 +139,12 @@
             "22"
           ],
           "answer": "13",
-          "correction": "16 − 3 = 13 bonbons."
+          "correction": "16 − 3 = 13 bracelets."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Emma a 4 boîtes de 5 bonbons. Combien de bonbons en tout ?",
+          "prompt": "Emma a 4 boîtes de 5 bracelets. Combien de bracelets en tout ?",
           "options": [
             "25",
             "17",
@@ -152,19 +152,19 @@
             "10"
           ],
           "answer": "20",
-          "correction": "4 × 5 = 20 bonbons."
+          "correction": "4 × 5 = 20 bracelets."
         },
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "Emma a 2 boîtes de 2 bonbons. Combien de bonbons en tout ?",
+          "prompt": "Emma a 2 boîtes de 2 bracelets. Combien de bracelets en tout ?",
           "answer": "4",
-          "correction": "2 × 2 = 4 bonbons."
+          "correction": "2 × 2 = 4 bracelets."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Léa a 16 bonbons. On lui en donne 1. Combien en a-t-Léa maintenant ?",
+          "prompt": "Léa a 16 bracelets. On lui en donne 1. Combien en a-t-Léa maintenant ?",
           "options": [
             "22",
             "14",
@@ -172,12 +172,12 @@
             "17"
           ],
           "answer": "17",
-          "correction": "16 + 1 = 17 bonbons."
+          "correction": "16 + 1 = 17 bracelets."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Nina a 17 bonbons. Nina en perd 3. Combien en reste-t-il ?",
+          "prompt": "Nina a 17 bracelets. Nina en perd 3. Combien en reste-t-il ?",
           "options": [
             "11",
             "23",
@@ -185,19 +185,19 @@
             "12"
           ],
           "answer": "14",
-          "correction": "17 − 3 = 14 bonbons."
+          "correction": "17 − 3 = 14 bracelets."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Maya a 7 bonbons. On lui en donne 15. Combien en a-t-Maya maintenant ?",
+          "prompt": "Maya a 7 bracelets. On lui en donne 15. Combien en a-t-Maya maintenant ?",
           "answer": "22",
-          "correction": "7 + 15 = 22 bonbons."
+          "correction": "7 + 15 = 22 bracelets."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Léa a 13 bonbons. Léa en perd 2. Combien en reste-t-il ?",
+          "prompt": "Léa a 13 bracelets. Léa en perd 2. Combien en reste-t-il ?",
           "options": [
             "21",
             "14",
@@ -205,12 +205,12 @@
             "1"
           ],
           "answer": "11",
-          "correction": "13 − 2 = 11 bonbons."
+          "correction": "13 − 2 = 11 bracelets."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Tom a 14 bonbons. On lui en donne 6. Combien en a-t-Tom maintenant ?",
+          "prompt": "Tom a 14 bracelets. On lui en donne 6. Combien en a-t-Tom maintenant ?",
           "options": [
             "11",
             "22",
@@ -218,19 +218,19 @@
             "10"
           ],
           "answer": "20",
-          "correction": "14 + 6 = 20 bonbons."
+          "correction": "14 + 6 = 20 bracelets."
         },
         {
           "id": "q9",
           "type": "fill_blank",
-          "prompt": "Théo a 11 bonbons. Théo en perd 4. Combien en reste-t-il ?",
+          "prompt": "Théo a 11 bracelets. Théo en perd 4. Combien en reste-t-il ?",
           "answer": "7",
-          "correction": "11 − 4 = 7 bonbons."
+          "correction": "11 − 4 = 7 bracelets."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Théo a 4 boîtes de 4 bonbons. Combien de bonbons en tout ?",
+          "prompt": "Théo a 4 boîtes de 4 bracelets. Combien de bracelets en tout ?",
           "options": [
             "13",
             "24",
@@ -238,7 +238,7 @@
             "14"
           ],
           "answer": "16",
-          "correction": "4 × 4 = 16 bonbons."
+          "correction": "4 × 4 = 16 bracelets."
         }
       ]
     },
@@ -248,7 +248,7 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Maya a 2 boîtes de 6 bonbons. Combien de bonbons en tout ?",
+          "prompt": "Maya a 2 boîtes de 6 bracelets. Combien de bracelets en tout ?",
           "options": [
             "12",
             "2",
@@ -256,12 +256,12 @@
             "14"
           ],
           "answer": "12",
-          "correction": "2 × 6 = 12 bonbons."
+          "correction": "2 × 6 = 12 bracelets."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Hugo a 20 bonbons. On lui en donne 22. Combien en a-t-Hugo maintenant ?",
+          "prompt": "Hugo a 20 bracelets. On lui en donne 22. Combien en a-t-Hugo maintenant ?",
           "options": [
             "32",
             "42",
@@ -269,19 +269,19 @@
             "37"
           ],
           "answer": "42",
-          "correction": "20 + 22 = 42 bonbons."
+          "correction": "20 + 22 = 42 bracelets."
         },
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "Léa a 27 bonbons. On lui en donne 14. Combien en a-t-Léa maintenant ?",
+          "prompt": "Léa a 27 bracelets. On lui en donne 14. Combien en a-t-Léa maintenant ?",
           "answer": "41",
-          "correction": "27 + 14 = 41 bonbons."
+          "correction": "27 + 14 = 41 bracelets."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Théo a 13 bonbons. On lui en donne 23. Combien en a-t-Théo maintenant ?",
+          "prompt": "Théo a 13 bracelets. On lui en donne 23. Combien en a-t-Théo maintenant ?",
           "options": [
             "33",
             "36",
@@ -289,12 +289,12 @@
             "29"
           ],
           "answer": "36",
-          "correction": "13 + 23 = 36 bonbons."
+          "correction": "13 + 23 = 36 bracelets."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Sami a 5 boîtes de 6 bonbons. Combien de bonbons en tout ?",
+          "prompt": "Sami a 5 boîtes de 6 bracelets. Combien de bracelets en tout ?",
           "options": [
             "30",
             "29",
@@ -302,19 +302,19 @@
             "23"
           ],
           "answer": "30",
-          "correction": "5 × 6 = 30 bonbons."
+          "correction": "5 × 6 = 30 bracelets."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Hugo a 25 bonbons. Hugo en perd 9. Combien en reste-t-il ?",
+          "prompt": "Hugo a 25 bracelets. Hugo en perd 9. Combien en reste-t-il ?",
           "answer": "16",
-          "correction": "25 − 9 = 16 bonbons."
+          "correction": "25 − 9 = 16 bracelets."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Emma a 30 bonbons. Emma en perd 5. Combien en reste-t-il ?",
+          "prompt": "Emma a 30 bracelets. Emma en perd 5. Combien en reste-t-il ?",
           "options": [
             "30",
             "25",
@@ -322,12 +322,12 @@
             "33"
           ],
           "answer": "25",
-          "correction": "30 − 5 = 25 bonbons."
+          "correction": "30 − 5 = 25 bracelets."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Sami a 2 boîtes de 2 bonbons. Combien de bonbons en tout ?",
+          "prompt": "Sami a 2 boîtes de 2 bracelets. Combien de bracelets en tout ?",
           "options": [
             "4",
             "19",
@@ -335,19 +335,19 @@
             "15"
           ],
           "answer": "4",
-          "correction": "2 × 2 = 4 bonbons."
+          "correction": "2 × 2 = 4 bracelets."
         },
         {
           "id": "q9",
           "type": "fill_blank",
-          "prompt": "Emma a 23 bonbons. On lui en donne 20. Combien en a-t-Emma maintenant ?",
+          "prompt": "Emma a 23 bracelets. On lui en donne 20. Combien en a-t-Emma maintenant ?",
           "answer": "43",
-          "correction": "23 + 20 = 43 bonbons."
+          "correction": "23 + 20 = 43 bracelets."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Emma a 5 boîtes de 3 bonbons. Combien de bonbons en tout ?",
+          "prompt": "Emma a 5 boîtes de 3 bracelets. Combien de bracelets en tout ?",
           "options": [
             "15",
             "16",
@@ -355,7 +355,7 @@
             "8"
           ],
           "answer": "15",
-          "correction": "5 × 3 = 15 bonbons."
+          "correction": "5 × 3 = 15 bracelets."
         }
       ]
     }

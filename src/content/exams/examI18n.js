@@ -55,6 +55,22 @@ export const CATEGORY_LABELS = {
     fr: 'Conjugaison', nl: 'Conjugaison', en: 'Conjugaison', es: 'Conjugaison',
     emoji: '🔤',
   },
+  'tables-multiplication': {
+    fr: 'Tables de multiplication', nl: 'Tafels van vermenigvuldiging', en: 'Multiplication tables', es: 'Tablas de multiplicar',
+    emoji: '✖️',
+  },
+  'fractions': {
+    fr: 'Fractions', nl: 'Breuken', en: 'Fractions', es: 'Fracciones',
+    emoji: '½',
+  },
+  'sciences': {
+    fr: 'Sciences', nl: 'Wetenschappen', en: 'Science', es: 'Ciencias',
+    emoji: '🔬',
+  },
+  'geographie-belgique': {
+    fr: 'Géographie Belgique', nl: 'Geografie België', en: 'Belgian Geography', es: 'Geografía Bélgica',
+    emoji: '🇧🇪',
+  },
 };
 
 export const DIFFICULTY_LABELS = {

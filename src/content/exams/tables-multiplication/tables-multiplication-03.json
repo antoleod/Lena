@@ -1,0 +1,426 @@
+{
+  "id": "tables-multiplication-03",
+  "category": "tables-multiplication",
+  "categoryLabel": "Tables de multiplication",
+  "categoryEmoji": "✖️",
+  "categoryOrder": 14,
+  "title": "Table de 4",
+  "emoji": "✖️",
+  "order": 3,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "4 × 2 = ?",
+          "options": [
+            "10",
+            "9",
+            "11",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "4 × 2 = 8.",
+          "prompt_nl": "4 × 2 = ?",
+          "prompt_en": "4 × 2 = ?",
+          "prompt_es": "4 × 2 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "4 × 5 = ___",
+          "answer": "20",
+          "correction": "4 × 5 = 20."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "4 × 1 = ?",
+          "options": [
+            "5",
+            "3",
+            "4",
+            "0"
+          ],
+          "answer": "4",
+          "correction": "4 × 1 = 4.",
+          "prompt_nl": "4 × 1 = ?",
+          "prompt_en": "4 × 1 = ?",
+          "prompt_es": "4 × 1 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "4 × 5 = ?",
+          "options": [
+            "20",
+            "19",
+            "23",
+            "22"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20.",
+          "prompt_nl": "4 × 5 = ?",
+          "prompt_en": "4 × 5 = ?",
+          "prompt_es": "4 × 5 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "4 × 5 = ___",
+          "answer": "20",
+          "correction": "4 × 5 = 20."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "4 × 4 = ?",
+          "options": [
+            "20",
+            "19",
+            "13",
+            "16"
+          ],
+          "answer": "16",
+          "correction": "4 × 4 = 16.",
+          "prompt_nl": "4 × 4 = ?",
+          "prompt_en": "4 × 4 = ?",
+          "prompt_es": "4 × 4 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "4 × 1 = ?",
+          "options": [
+            "5",
+            "7",
+            "0",
+            "4"
+          ],
+          "answer": "4",
+          "correction": "4 × 1 = 4.",
+          "prompt_nl": "4 × 1 = ?",
+          "prompt_en": "4 × 1 = ?",
+          "prompt_es": "4 × 1 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "4 × 3 = ___",
+          "answer": "12",
+          "correction": "4 × 3 = 12."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "4 × 1 = ?",
+          "options": [
+            "4",
+            "7",
+            "6",
+            "0"
+          ],
+          "answer": "4",
+          "correction": "4 × 1 = 4.",
+          "prompt_nl": "4 × 1 = ?",
+          "prompt_en": "4 × 1 = ?",
+          "prompt_es": "4 × 1 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "4 × 5 = ?",
+          "options": [
+            "16",
+            "20",
+            "24",
+            "23"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20.",
+          "prompt_nl": "4 × 5 = ?",
+          "prompt_en": "4 × 5 = ?",
+          "prompt_es": "4 × 5 = ?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "4 × 1 = ?",
+          "options": [
+            "4",
+            "0",
+            "1",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "4 × 1 = 4.",
+          "prompt_nl": "4 × 1 = ?",
+          "prompt_en": "4 × 1 = ?",
+          "prompt_es": "4 × 1 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "4 × 7 = ___",
+          "answer": "28",
+          "correction": "4 × 7 = 28."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "4 × 4 = ?",
+          "options": [
+            "16",
+            "15",
+            "18",
+            "12"
+          ],
+          "answer": "16",
+          "correction": "4 × 4 = 16.",
+          "prompt_nl": "4 × 4 = ?",
+          "prompt_en": "4 × 4 = ?",
+          "prompt_es": "4 × 4 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "4 × 3 = ?",
+          "options": [
+            "15",
+            "8",
+            "12",
+            "14"
+          ],
+          "answer": "12",
+          "correction": "4 × 3 = 12.",
+          "prompt_nl": "4 × 3 = ?",
+          "prompt_en": "4 × 3 = ?",
+          "prompt_es": "4 × 3 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "4 × 4 = ___",
+          "answer": "16",
+          "correction": "4 × 4 = 16."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "4 × 5 = ?",
+          "options": [
+            "16",
+            "20",
+            "22",
+            "24"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20.",
+          "prompt_nl": "4 × 5 = ?",
+          "prompt_en": "4 × 5 = ?",
+          "prompt_es": "4 × 5 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "4 × 5 = ?",
+          "options": [
+            "20",
+            "19",
+            "22",
+            "24"
+          ],
+          "answer": "20",
+          "correction": "4 × 5 = 20.",
+          "prompt_nl": "4 × 5 = ?",
+          "prompt_en": "4 × 5 = ?",
+          "prompt_es": "4 × 5 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "4 × 4 = ___",
+          "answer": "16",
+          "correction": "4 × 4 = 16."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "4 × 4 = ?",
+          "options": [
+            "15",
+            "13",
+            "18",
+            "16"
+          ],
+          "answer": "16",
+          "correction": "4 × 4 = 16.",
+          "prompt_nl": "4 × 4 = ?",
+          "prompt_en": "4 × 4 = ?",
+          "prompt_es": "4 × 4 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "4 × 1 = ?",
+          "options": [
+            "3",
+            "4",
+            "0",
+            "7"
+          ],
+          "answer": "4",
+          "correction": "4 × 1 = 4.",
+          "prompt_nl": "4 × 1 = ?",
+          "prompt_en": "4 × 1 = ?",
+          "prompt_es": "4 × 1 = ?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "4 × 6 = ?",
+          "options": [
+            "24",
+            "23",
+            "28",
+            "25"
+          ],
+          "answer": "24",
+          "correction": "4 × 6 = 24.",
+          "prompt_nl": "4 × 6 = ?",
+          "prompt_en": "4 × 6 = ?",
+          "prompt_es": "4 × 6 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "4 × 4 = ___",
+          "answer": "16",
+          "correction": "4 × 4 = 16."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "4 × 6 = ?",
+          "options": [
+            "26",
+            "25",
+            "24",
+            "23"
+          ],
+          "answer": "24",
+          "correction": "4 × 6 = 24.",
+          "prompt_nl": "4 × 6 = ?",
+          "prompt_en": "4 × 6 = ?",
+          "prompt_es": "4 × 6 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "4 × 3 = ?",
+          "options": [
+            "11",
+            "15",
+            "12",
+            "8"
+          ],
+          "answer": "12",
+          "correction": "4 × 3 = 12.",
+          "prompt_nl": "4 × 3 = ?",
+          "prompt_en": "4 × 3 = ?",
+          "prompt_es": "4 × 3 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "4 × 1 = ___",
+          "answer": "4",
+          "correction": "4 × 1 = 4."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "4 × 1 = ?",
+          "options": [
+            "0",
+            "8",
+            "4",
+            "1"
+          ],
+          "answer": "4",
+          "correction": "4 × 1 = 4.",
+          "prompt_nl": "4 × 1 = ?",
+          "prompt_en": "4 × 1 = ?",
+          "prompt_es": "4 × 1 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "4 × 4 = ?",
+          "options": [
+            "16",
+            "15",
+            "20",
+            "18"
+          ],
+          "answer": "16",
+          "correction": "4 × 4 = 16.",
+          "prompt_nl": "4 × 4 = ?",
+          "prompt_en": "4 × 4 = ?",
+          "prompt_es": "4 × 4 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "4 × 9 = ___",
+          "answer": "36",
+          "correction": "4 × 9 = 36."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "4 × 9 = ?",
+          "options": [
+            "38",
+            "36",
+            "32",
+            "34"
+          ],
+          "answer": "36",
+          "correction": "4 × 9 = 36.",
+          "prompt_nl": "4 × 9 = ?",
+          "prompt_en": "4 × 9 = ?",
+          "prompt_es": "4 × 9 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "4 × 7 = ?",
+          "options": [
+            "29",
+            "30",
+            "28",
+            "25"
+          ],
+          "answer": "28",
+          "correction": "4 × 7 = 28.",
+          "prompt_nl": "4 × 7 = ?",
+          "prompt_en": "4 × 7 = ?",
+          "prompt_es": "4 × 7 = ?"
+        }
+      ]
+    }
+  }
+}

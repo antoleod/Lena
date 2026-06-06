@@ -1,0 +1,355 @@
+{
+  "id": "sciences-01",
+  "category": "sciences",
+  "categoryLabel": "Sciences",
+  "categoryEmoji": "🔬",
+  "categoryOrder": 16,
+  "title": "Sciences 1",
+  "emoji": "🔬",
+  "order": 1,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un carnivore mange :",
+          "options": [
+            "de la viande",
+            "des plantes",
+            "des fruits",
+            "des graines"
+          ],
+          "answer": "de la viande",
+          "correction": "Un carnivore mange de la viande."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quel astre éclaire la nuit ?",
+          "options": [
+            "la Lune",
+            "le Soleil",
+            "Mars",
+            "Jupiter"
+          ],
+          "answer": "la Lune",
+          "correction": "La Lune éclaire la nuit (lumière réfléchie)."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "De quoi est composé l'air que l'on respire surtout ?",
+          "options": [
+            "azote et oxygène",
+            "dioxyde de carbone",
+            "vapeur d'eau",
+            "hélium"
+          ],
+          "answer": "azote et oxygène",
+          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%)."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un herbivore mange :",
+          "options": [
+            "des plantes",
+            "de la viande",
+            "des insectes",
+            "des poissons"
+          ],
+          "answer": "des plantes",
+          "correction": "Un herbivore mange uniquement des plantes."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
+          "options": [
+            "l'odorat",
+            "le goût",
+            "la vue",
+            "le toucher"
+          ],
+          "answer": "l'odorat",
+          "correction": "On sent avec l'odorat (le nez)."
+        },
+        {
+          "id": "q12",
+          "type": "true_false",
+          "prompt": "Le Soleil tourne autour de la Terre.",
+          "answer": false,
+          "correction": "C'est la Terre qui tourne autour du Soleil."
+        },
+        {
+          "id": "q14",
+          "type": "true_false",
+          "prompt": "L'eau bout à 100°C.",
+          "answer": true,
+          "correction": "L'eau bout à 100 degrés Celsius."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "options": [
+            "Mercure",
+            "Vénus",
+            "Terre",
+            "Mars"
+          ],
+          "answer": "Mercure",
+          "correction": "Mercure est la planète la plus proche du Soleil."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quel est le rôle des racines d'une plante ?",
+          "options": [
+            "absorber l'eau",
+            "faire la photosynthèse",
+            "produire des graines",
+            "attirer les insectes"
+          ],
+          "answer": "absorber l'eau",
+          "correction": "Les racines absorbent l'eau du sol."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quel astre éclaire la nuit ?",
+          "options": [
+            "la Lune",
+            "le Soleil",
+            "Mars",
+            "Jupiter"
+          ],
+          "answer": "la Lune",
+          "correction": "La Lune éclaire la nuit (lumière réfléchie)."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quel animal est un mammifère ?",
+          "options": [
+            "le chien",
+            "l'aigle",
+            "la grenouille",
+            "le serpent"
+          ],
+          "answer": "le chien",
+          "correction": "Le chien est un mammifère."
+        },
+        {
+          "id": "q8",
+          "type": "true_false",
+          "prompt": "Le Soleil tourne autour de la Terre.",
+          "answer": false,
+          "correction": "C'est la Terre qui tourne autour du Soleil."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Le cycle de l'eau commence par :",
+          "options": [
+            "l'évaporation",
+            "les précipitations",
+            "la condensation",
+            "le ruissellement"
+          ],
+          "answer": "l'évaporation",
+          "correction": "Le cycle de l'eau commence par l'évaporation."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quel organe pompe le sang dans le corps ?",
+          "options": [
+            "le cœur",
+            "le poumon",
+            "le cerveau",
+            "l'estomac"
+          ],
+          "answer": "le cœur",
+          "correction": "Le cœur pompe le sang."
+        },
+        {
+          "id": "q14",
+          "type": "true_false",
+          "prompt": "Les plantes produisent de l'oxygène.",
+          "answer": true,
+          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Un insecte a combien de pattes ?",
+          "options": [
+            "6",
+            "4",
+            "8",
+            "2"
+          ],
+          "answer": "6",
+          "correction": "Les insectes ont 6 pattes."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Quel animal pond des oeufs ?",
+          "options": [
+            "la poule",
+            "le chat",
+            "le chien",
+            "la vache"
+          ],
+          "answer": "la poule",
+          "correction": "La poule pond des oeufs."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Les plantes ont besoin de :",
+          "options": [
+            "lumière, eau et terre",
+            "chocolat et lait",
+            "froid et obscurité",
+            "sable et sel"
+          ],
+          "answer": "lumière, eau et terre",
+          "correction": "Les plantes ont besoin de lumière, eau et terre."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "La chaîne alimentaire commence par :",
+          "options": [
+            "les plantes",
+            "les herbivores",
+            "les carnivores",
+            "les décomposeurs"
+          ],
+          "answer": "les plantes",
+          "correction": "La chaîne alimentaire commence par les plantes."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Avec quoi respire-t-on ?",
+          "options": [
+            "les poumons",
+            "l'estomac",
+            "le foie",
+            "les reins"
+          ],
+          "answer": "les poumons",
+          "correction": "On respire avec les poumons."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Le cycle de l'eau commence par :",
+          "options": [
+            "l'évaporation",
+            "les précipitations",
+            "la condensation",
+            "le ruissellement"
+          ],
+          "answer": "l'évaporation",
+          "correction": "Le cycle de l'eau commence par l'évaporation."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "options": [
+            "Mercure",
+            "Vénus",
+            "Terre",
+            "Mars"
+          ],
+          "answer": "Mercure",
+          "correction": "Mercure est la planète la plus proche du Soleil."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel animal est un mammifère ?",
+          "options": [
+            "le chien",
+            "l'aigle",
+            "la grenouille",
+            "le serpent"
+          ],
+          "answer": "le chien",
+          "correction": "Le chien est un mammifère."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "La photosynthèse est réalisée par :",
+          "options": [
+            "les plantes",
+            "les animaux",
+            "les champignons",
+            "les pierres"
+          ],
+          "answer": "les plantes",
+          "correction": "Les plantes font la photosynthèse."
+        },
+        {
+          "id": "q14",
+          "type": "true_false",
+          "prompt": "L'eau bout à 100°C.",
+          "answer": true,
+          "correction": "L'eau bout à 100 degrés Celsius."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quelle énergie vient du Soleil ?",
+          "options": [
+            "l'énergie solaire",
+            "l'énergie éolienne",
+            "l'énergie hydraulique",
+            "l'énergie nucléaire"
+          ],
+          "answer": "l'énergie solaire",
+          "correction": "Le Soleil donne l'énergie solaire."
+        },
+        {
+          "id": "q18",
+          "type": "true_false",
+          "prompt": "Les plantes produisent de l'oxygène.",
+          "answer": true,
+          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Qu'est-ce qu'un vertébré ?",
+          "options": [
+            "un animal avec une colonne vertébrale",
+            "un animal avec 6 pattes",
+            "un animal qui vole",
+            "un animal aquatique"
+          ],
+          "answer": "un animal avec une colonne vertébrale",
+          "correction": "Un vertébré a une colonne vertébrale."
+        }
+      ]
+    }
+  }
+}

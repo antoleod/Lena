@@ -1,0 +1,335 @@
+{
+  "id": "orthographe-16",
+  "category": "orthographe",
+  "categoryLabel": "Orthographe",
+  "categoryEmoji": "✏️",
+  "categoryOrder": 6,
+  "title": "Bien écrire 16",
+  "emoji": "✏️",
+  "order": 16,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "tableau",
+            "tablau",
+            "tableo"
+          ],
+          "answer": "tableau",
+          "correction": "On écrit « tableau »."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "ballon",
+            "balon",
+            "baloon"
+          ],
+          "answer": "ballon",
+          "correction": "On écrit « ballon »."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "fenetre",
+            "fenêtre",
+            "fenettre"
+          ],
+          "answer": "fenêtre",
+          "correction": "On écrit « fenêtre » (accent)."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : li_re",
+          "answer": "v",
+          "accept": [
+            "v"
+          ],
+          "correction": "On écrit « livre » (lettre « v »)."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "nuage",
+            "nuaje",
+            "nuaje"
+          ],
+          "answer": "nuage",
+          "correction": "On écrit « nuage »."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "fille",
+            "file",
+            "fiye"
+          ],
+          "answer": "fille",
+          "correction": "On écrit « fille »."
+        },
+        {
+          "id": "q14",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : sol_il",
+          "answer": "e",
+          "accept": [
+            "e"
+          ],
+          "correction": "On écrit « soleil » (lettre « e »)."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : m_ison",
+          "answer": "a",
+          "accept": [
+            "a"
+          ],
+          "correction": "On écrit « maison » (lettre « a »)."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "oiseau",
+            "oizeau",
+            "oisau"
+          ],
+          "answer": "oiseau",
+          "correction": "On écrit « oiseau »."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : li_re",
+          "answer": "v",
+          "accept": [
+            "v"
+          ],
+          "correction": "On écrit « livre » (lettre « v »)."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : jar_in",
+          "answer": "d",
+          "accept": [
+            "d"
+          ],
+          "correction": "On écrit « jardin » (lettre « d »)."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "tableau",
+            "tablau",
+            "tableo"
+          ],
+          "answer": "tableau",
+          "correction": "On écrit « tableau »."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : ch_t",
+          "answer": "a",
+          "accept": [
+            "a"
+          ],
+          "correction": "On écrit « chat » (lettre « a »)."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "bateau",
+            "batau",
+            "bato"
+          ],
+          "answer": "bateau",
+          "correction": "On écrit « bateau »."
+        },
+        {
+          "id": "q14",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : m_ison",
+          "answer": "a",
+          "accept": [
+            "a"
+          ],
+          "correction": "On écrit « maison » (lettre « a »)."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "fille",
+            "file",
+            "fiye"
+          ],
+          "answer": "fille",
+          "correction": "On écrit « fille »."
+        },
+        {
+          "id": "q18",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : voit_re",
+          "answer": "u",
+          "accept": [
+            "u"
+          ],
+          "correction": "On écrit « voiture » (lettre « u »)."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "chambre",
+            "chanbre",
+            "chambr"
+          ],
+          "answer": "chambre",
+          "correction": "On écrit « chambre »."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "nuage",
+            "nuaje",
+            "nuaje"
+          ],
+          "answer": "nuage",
+          "correction": "On écrit « nuage »."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : m_ison",
+          "answer": "a",
+          "accept": [
+            "a"
+          ],
+          "correction": "On écrit « maison » (lettre « a »)."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : ois_au",
+          "answer": "e",
+          "accept": [
+            "e"
+          ],
+          "correction": "On écrit « oiseau » (lettre « e »)."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : fl_ur",
+          "answer": "e",
+          "accept": [
+            "e"
+          ],
+          "correction": "On écrit « fleur » (lettre « e »)."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : éc_le",
+          "answer": "o",
+          "accept": [
+            "o"
+          ],
+          "correction": "On écrit « école » (lettre « o »)."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "bateau",
+            "batau",
+            "bato"
+          ],
+          "answer": "bateau",
+          "correction": "On écrit « bateau »."
+        },
+        {
+          "id": "q14",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : ta_le",
+          "answer": "b",
+          "accept": [
+            "b"
+          ],
+          "correction": "On écrit « table » (lettre « b »)."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : jar_in",
+          "answer": "d",
+          "accept": [
+            "d"
+          ],
+          "correction": "On écrit « jardin » (lettre « d »)."
+        },
+        {
+          "id": "q18",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "fille",
+            "file",
+            "fiye"
+          ],
+          "answer": "fille",
+          "correction": "On écrit « fille »."
+        },
+        {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Quel mot est bien écrit ?",
+          "options": [
+            "oiseau",
+            "oizeau",
+            "oisau"
+          ],
+          "answer": "oiseau",
+          "correction": "On écrit « oiseau »."
+        }
+      ]
+    }
+  }
+}

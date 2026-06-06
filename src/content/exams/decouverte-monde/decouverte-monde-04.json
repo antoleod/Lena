@@ -14,17 +14,24 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "La vache nous donne :",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "du lait",
+            "des œufs",
+            "de la laine"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "du lait",
+          "correction": "La vache donne du lait."
         },
         {
           "id": "q4",
+          "type": "true_false",
+          "prompt": "Le recyclage aide à réduire les déchets.",
+          "answer": true,
+          "correction": "Oui, le recyclage réduit les déchets."
+        },
+        {
+          "id": "q6",
           "type": "mcq",
           "prompt": "Pour grandir, les plantes ont besoin de :",
           "options": [
@@ -36,55 +43,113 @@
           "correction": "Soleil + eau."
         },
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "On entend avec les :",
-          "options": [
-            "oreilles",
-            "yeux",
-            "mains"
-          ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
-        },
-        {
           "id": "q8",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Un volcan crache :",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "de la lave",
+            "de l'eau",
+            "du sable"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "de la lave",
+          "correction": "Un volcan crache de la lave."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Ce que produisent les plantes pour nous :",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "l'oxygène",
+            "le dioxyde de carbone",
+            "l'azote"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "l'oxygène",
+          "correction": "Les plantes produisent de l'oxygène."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Le boulanger fait le :",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "pain",
+            "lait",
+            "bois"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "pain",
+          "correction": "Le boulanger fait le pain."
         },
         {
           "id": "q14",
+          "type": "mcq",
+          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "options": [
+            "le toucher",
+            "la vue",
+            "l'ouïe"
+          ],
+          "answer": "le toucher",
+          "correction": "On touche avec la peau."
+        },
+        {
+          "id": "q16",
+          "type": "true_false",
+          "prompt": "Le soleil se lève le matin.",
+          "answer": true,
+          "correction": "Oui, le matin."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Le dentiste soigne :",
+          "options": [
+            "les dents",
+            "les yeux",
+            "les pieds"
+          ],
+          "answer": "les dents",
+          "correction": "Le dentiste soigne les dents."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quand il pleut, on prend un :",
+          "options": [
+            "parapluie",
+            "ballon",
+            "livre"
+          ],
+          "answer": "parapluie",
+          "correction": "Contre la pluie : le parapluie."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "L’abeille fabrique le ___ .",
+          "answer": "miel",
+          "accept": [
+            "miel"
+          ],
+          "correction": "L’abeille fait le miel."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un volcan crache :",
+          "options": [
+            "de la lave",
+            "de l'eau",
+            "du sable"
+          ],
+          "answer": "de la lave",
+          "correction": "Un volcan crache de la lave."
+        },
+        {
+          "id": "q10",
           "type": "mcq",
           "prompt": "La vache nous donne :",
           "options": [
@@ -96,178 +161,38 @@
           "correction": "La vache donne du lait."
         },
         {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le boulanger fait le :",
-          "options": [
-            "pain",
-            "lait",
-            "bois"
-          ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
-        }
-      ]
-    },
-    "moyen": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
-          "options": [
-            "parapluie",
-            "ballon",
-            "livre"
-          ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Le docteur soigne les :",
-          "options": [
-            "malades",
-            "voitures",
-            "maisons"
-          ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Le boulanger fait le :",
-          "options": [
-            "pain",
-            "lait",
-            "bois"
-          ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "On entend avec les :",
-          "options": [
-            "oreilles",
-            "yeux",
-            "mains"
-          ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
-        },
-        {
           "id": "q12",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "La source d'énergie des plantes est :",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "le soleil",
+            "la lune",
+            "le vent"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "le soleil",
+          "correction": "Les plantes utilisent l'énergie solaire."
         },
         {
           "id": "q14",
-          "type": "mcq",
-          "prompt": "En automne, les feuilles :",
-          "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
-          ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "type": "true_false",
+          "prompt": "Le recyclage aide à réduire les déchets.",
+          "answer": true,
+          "correction": "Oui, le recyclage réduit les déchets."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Qu'est-ce qu'un séisme ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "un tremblement de terre",
+            "une tempête",
+            "une inondation"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "un tremblement de terre",
+          "correction": "Un séisme = tremblement de terre."
         },
         {
           "id": "q18",
-          "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
-          "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
-          ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
-          ],
-          "correction": "L’abeille fait le miel."
-        }
-      ]
-    },
-    "difficile": {
-      "passPercent": 60,
-      "questions": [
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
-          "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
-          ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "En automne, les feuilles :",
-          "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
-          ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "On entend avec les :",
-          "options": [
-            "oreilles",
-            "yeux",
-            "mains"
-          ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
-        },
-        {
-          "id": "q8",
           "type": "mcq",
           "prompt": "En hiver, il fait :",
           "options": [
@@ -279,43 +204,110 @@
           "correction": "En hiver il fait froid."
         },
         {
+          "id": "q20",
+          "type": "mcq",
+          "prompt": "Ce que produisent les plantes pour nous :",
+          "options": [
+            "l'oxygène",
+            "le dioxyde de carbone",
+            "l'azote"
+          ],
+          "answer": "l'oxygène",
+          "correction": "Les plantes produisent de l'oxygène."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quand il pleut, on prend un :",
+          "options": [
+            "parapluie",
+            "ballon",
+            "livre"
+          ],
+          "answer": "parapluie",
+          "correction": "Contre la pluie : le parapluie."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "options": [
+            "le toucher",
+            "la vue",
+            "l'ouïe"
+          ],
+          "answer": "le toucher",
+          "correction": "On touche avec la peau."
+        },
+        {
+          "id": "q6",
+          "type": "true_false",
+          "prompt": "Le recyclage aide à réduire les déchets.",
+          "answer": true,
+          "correction": "Oui, le recyclage réduit les déchets."
+        },
+        {
+          "id": "q8",
+          "type": "true_false",
+          "prompt": "Le soleil se lève le matin.",
+          "answer": true,
+          "correction": "Oui, le matin."
+        },
+        {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Le boulanger fait le :",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "pain",
+            "lait",
+            "bois"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "pain",
+          "correction": "Le boulanger fait le pain."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "L'eau potable est :",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "l'eau que l'on peut boire",
+            "l'eau de la mer",
+            "l'eau chaude"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "l'eau que l'on peut boire",
+          "correction": "L'eau potable est sûre à boire."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "On respire avec les :",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "poumons",
+            "mains",
+            "pieds"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "poumons",
+          "correction": "On respire avec les poumons."
         },
         {
           "id": "q16",
+          "type": "mcq",
+          "prompt": "En hiver, il fait :",
+          "options": [
+            "froid",
+            "très chaud",
+            "lourd"
+          ],
+          "answer": "froid",
+          "correction": "En hiver il fait froid."
+        },
+        {
+          "id": "q18",
           "type": "mcq",
           "prompt": "Pour grandir, les plantes ont besoin de :",
           "options": [
@@ -327,23 +319,16 @@
           "correction": "Soleil + eau."
         },
         {
-          "id": "q18",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
-        },
-        {
           "id": "q20",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "On met le papier dans la poubelle :",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "de recyclage",
+            "normale",
+            "à compost"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "de recyclage",
+          "correction": "Le papier se recycle."
         }
       ]
     }

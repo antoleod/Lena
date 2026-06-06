@@ -1,0 +1,363 @@
+{
+  "id": "problemes-mathematiques-12",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problèmes mathématiques",
+  "categoryEmoji": "📖",
+  "categoryOrder": 3,
+  "title": "Problèmes : les stylos",
+  "emoji": "📖",
+  "order": 12,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Nina a 10 stylos. Nina en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "3",
+            "7",
+            "4",
+            "2"
+          ],
+          "answer": "3",
+          "correction": "10 − 7 = 3 stylos."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Nina a 9 stylos. On lui en donne 4. Combien en a-t-Nina maintenant ?",
+          "options": [
+            "13",
+            "17",
+            "12",
+            "11"
+          ],
+          "answer": "13",
+          "correction": "9 + 4 = 13 stylos."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Léa a 12 stylos. Léa en perd 4. Combien en reste-t-il ?",
+          "answer": "8",
+          "correction": "12 − 4 = 8 stylos."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Léa a 12 stylos. Léa en perd 7. Combien en reste-t-il ?",
+          "options": [
+            "9",
+            "7",
+            "5",
+            "2"
+          ],
+          "answer": "5",
+          "correction": "12 − 7 = 5 stylos."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Théo a 10 stylos. Théo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "6",
+            "2",
+            "5",
+            "1"
+          ],
+          "answer": "2",
+          "correction": "10 − 8 = 2 stylos."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Théo a 12 stylos. Théo en perd 2. Combien en reste-t-il ?",
+          "answer": "10",
+          "correction": "12 − 2 = 10 stylos."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Emma a 11 stylos. Emma en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "3",
+            "4",
+            "2",
+            "1"
+          ],
+          "answer": "2",
+          "correction": "11 − 9 = 2 stylos."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Tom a 8 stylos. On lui en donne 6. Combien en a-t-Tom maintenant ?",
+          "options": [
+            "16",
+            "15",
+            "10",
+            "14"
+          ],
+          "answer": "14",
+          "correction": "8 + 6 = 14 stylos."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Maya a 2 stylos. On lui en donne 1. Combien en a-t-Maya maintenant ?",
+          "answer": "3",
+          "correction": "2 + 1 = 3 stylos."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Théo a 12 stylos. Théo en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "9",
+            "2",
+            "4",
+            "3"
+          ],
+          "answer": "4",
+          "correction": "12 − 8 = 4 stylos."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Emma a 16 stylos. On lui en donne 11. Combien en a-t-Emma maintenant ?",
+          "options": [
+            "29",
+            "28",
+            "34",
+            "27"
+          ],
+          "answer": "27",
+          "correction": "16 + 11 = 27 stylos."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Théo a 2 boîtes de 6 stylos. Combien de stylos en tout ?",
+          "options": [
+            "12",
+            "21",
+            "17",
+            "5"
+          ],
+          "answer": "12",
+          "correction": "2 × 6 = 12 stylos."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nina a 11 stylos. Nina en perd 4. Combien en reste-t-il ?",
+          "answer": "7",
+          "correction": "11 − 4 = 7 stylos."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Hugo a 8 stylos. On lui en donne 3. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "21",
+            "11",
+            "9",
+            "15"
+          ],
+          "answer": "11",
+          "correction": "8 + 3 = 11 stylos."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Maya a 19 stylos. Maya en perd 3. Combien en reste-t-il ?",
+          "options": [
+            "16",
+            "25",
+            "14",
+            "6"
+          ],
+          "answer": "16",
+          "correction": "19 − 3 = 16 stylos."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom a 4 boîtes de 4 stylos. Combien de stylos en tout ?",
+          "answer": "16",
+          "correction": "4 × 4 = 16 stylos."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Théo a 5 boîtes de 5 stylos. Combien de stylos en tout ?",
+          "options": [
+            "33",
+            "29",
+            "25",
+            "21"
+          ],
+          "answer": "25",
+          "correction": "5 × 5 = 25 stylos."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Emma a 21 stylos. Emma en perd 2. Combien en reste-t-il ?",
+          "options": [
+            "20",
+            "29",
+            "19",
+            "21"
+          ],
+          "answer": "19",
+          "correction": "21 − 2 = 19 stylos."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Hugo a 5 boîtes de 5 stylos. Combien de stylos en tout ?",
+          "answer": "25",
+          "correction": "5 × 5 = 25 stylos."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Léa a 19 stylos. Léa en perd 8. Combien en reste-t-il ?",
+          "options": [
+            "16",
+            "17",
+            "11",
+            "8"
+          ],
+          "answer": "11",
+          "correction": "19 − 8 = 11 stylos."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Maya a 4 boîtes de 2 stylos. Combien de stylos en tout ?",
+          "options": [
+            "14",
+            "1",
+            "8",
+            "0"
+          ],
+          "answer": "8",
+          "correction": "4 × 2 = 8 stylos."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Emma a 18 stylos. Emma en perd 5. Combien en reste-t-il ?",
+          "options": [
+            "4",
+            "13",
+            "7",
+            "28"
+          ],
+          "answer": "13",
+          "correction": "18 − 5 = 13 stylos."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Tom a 2 stylos. On lui en donne 14. Combien en a-t-Tom maintenant ?",
+          "answer": "16",
+          "correction": "2 + 14 = 16 stylos."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Sami a 27 stylos. On lui en donne 17. Combien en a-t-Sami maintenant ?",
+          "options": [
+            "40",
+            "54",
+            "44",
+            "45"
+          ],
+          "answer": "44",
+          "correction": "27 + 17 = 44 stylos."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Sami a 2 boîtes de 5 stylos. Combien de stylos en tout ?",
+          "options": [
+            "10",
+            "8",
+            "23",
+            "20"
+          ],
+          "answer": "10",
+          "correction": "2 × 5 = 10 stylos."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Léa a 4 boîtes de 6 stylos. Combien de stylos en tout ?",
+          "answer": "24",
+          "correction": "4 × 6 = 24 stylos."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Théo a 24 stylos. On lui en donne 26. Combien en a-t-Théo maintenant ?",
+          "options": [
+            "40",
+            "50",
+            "56",
+            "45"
+          ],
+          "answer": "50",
+          "correction": "24 + 26 = 50 stylos."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Hugo a 10 stylos. On lui en donne 22. Combien en a-t-Hugo maintenant ?",
+          "options": [
+            "32",
+            "34",
+            "30",
+            "21"
+          ],
+          "answer": "32",
+          "correction": "10 + 22 = 32 stylos."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Maya a 27 stylos. Maya en perd 3. Combien en reste-t-il ?",
+          "answer": "24",
+          "correction": "27 − 3 = 24 stylos."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Maya a 26 stylos. Maya en perd 9. Combien en reste-t-il ?",
+          "options": [
+            "16",
+            "2",
+            "17",
+            "9"
+          ],
+          "answer": "17",
+          "correction": "26 − 9 = 17 stylos."
+        }
+      ]
+    }
+  }
+}
