@@ -1262,7 +1262,11 @@ button {
   place-items: center;
   min-height: 100vh;
   padding: 20px 12px;
-  background: rgba(76, 61, 95, 0.22);
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(99,102,241,0.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(20,184,166,0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 40%, rgba(245,158,11,0.10) 0%, transparent 40%),
+    linear-gradient(160deg, #0f0c29 0%, #1a1040 45%, #0d2137 100%);
 }
 
 .onboarding-modal {
@@ -1274,10 +1278,10 @@ button {
   gap: 14px;
   padding: 22px;
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.12);
+  backdrop-filter: blur(24px);
 }
 
 .onboarding-modal--game::before {
@@ -1287,8 +1291,8 @@ button {
   border-radius: inherit;
   pointer-events: none;
   background:
-    radial-gradient(circle at top left, rgba(255, 207, 116, 0.16), transparent 22%),
-    radial-gradient(circle at bottom right, rgba(120, 166, 255, 0.12), transparent 24%);
+    radial-gradient(circle at top left,  rgba(99,102,241,0.07) 0%, transparent 40%),
+    radial-gradient(circle at bottom right, rgba(20,184,166,0.06) 0%, transparent 40%);
 }
 
 .onboarding-modal>* {
@@ -1316,9 +1320,9 @@ button {
   padding: 22px;
   border-radius: 22px;
   background:
-    radial-gradient(circle at top right, rgba(255, 207, 116, 0.18), transparent 24%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 244, 252, 0.96));
-  border: 1px solid rgba(144, 118, 166, 0.12);
+    radial-gradient(circle at top right, rgba(99,102,241,0.07), transparent 35%),
+    linear-gradient(145deg, rgba(255,255,255,0.98), rgba(241,245,255,0.96));
+  border: 1px solid rgba(99,102,241,0.10);
   animation: onboarding-step-in 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -1599,11 +1603,20 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px 16px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--gold, #ffc048) 60%, var(--mint, #8bdcc3) 100%);
+  background: linear-gradient(135deg, #312e81 0%, #4f46e5 35%, #0891b2 70%, #14b8a6 100%);
   border-radius: 18px 18px 0 0;
   margin: -22px -22px 0;
   overflow: hidden;
   min-height: 120px;
+}
+.ob-hero-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(245,158,11,0.25) 0%, transparent 45%),
+    radial-gradient(circle at 10% 80%, rgba(20,184,166,0.20) 0%, transparent 40%);
+  pointer-events: none;
 }
 
 .ob-hero-band__copy {
@@ -1654,14 +1667,14 @@ button {
 }
 
 .ob-dot.is-done {
-  background: var(--primary);
-  opacity: 0.5;
+  background: #4f46e5;
+  opacity: 0.45;
 }
 
 .ob-dot.is-current {
   width: 24px;
   border-radius: 999px;
-  background: var(--primary);
+  background: linear-gradient(90deg, #4f46e5, #0891b2);
 }
 
 /* Language cards (step 1) */
@@ -1691,14 +1704,16 @@ button {
 
 .ob-lang-card:hover {
   transform: translateY(-2px);
-  border-color: var(--primary);
+  border-color: #4f46e5;
+  box-shadow: 0 4px 20px rgba(79,70,229,0.18);
 }
 
 .ob-lang-card.is-selected {
-  border-color: var(--primary);
-  background: var(--primary);
+  border-color: #4f46e5;
+  background: linear-gradient(135deg, #4f46e5 0%, #0891b2 100%);
   color: white;
   transform: scale(1.04);
+  box-shadow: 0 6px 24px rgba(79,70,229,0.30);
 }
 
 .ob-lang-card__flag {
@@ -1745,14 +1760,15 @@ button {
 
 .ob-name-input:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.12);
 }
 
 .ob-name-greeting {
   text-align: center;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--primary);
+  color: #4f46e5;
   animation: rise-in 0.3s ease;
   margin: 0;
 }
@@ -1792,12 +1808,18 @@ button {
 
 .ob-world-card:hover {
   transform: translateY(-3px);
-  border-color: var(--primary);
+  border-color: var(--world-accent, #4f46e5);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--world-accent, #4f46e5) 25%, transparent);
 }
 
 .ob-world-card.is-selected {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(144, 118, 166, 0.15);
+  border-color: var(--world-accent, #4f46e5);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--world-accent, #4f46e5) 22%, transparent),
+              0 6px 24px color-mix(in srgb, var(--world-accent, #4f46e5) 20%, transparent);
+}
+
+.ob-world-card.is-selected .ob-world-card__icon {
+  filter: drop-shadow(0 0 6px var(--world-accent, #4f46e5));
 }
 
 .ob-world-card__art {
@@ -1831,6 +1853,17 @@ button {
   font-size: 0.7rem;
   color: var(--muted);
   line-height: 1.3;
+}
+
+/* Onboarding footer — override primary-action to use indigo */
+.onboarding-modal__footer .primary-action {
+  background: linear-gradient(135deg, #4f46e5 0%, #0891b2 100%);
+  box-shadow: 0 4px 18px rgba(79,70,229,0.35);
+}
+.onboarding-modal__footer .primary-action:hover {
+  background: linear-gradient(135deg, #4338ca 0%, #0e7490 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(79,70,229,0.45);
 }
 
 /* Speech bubble */

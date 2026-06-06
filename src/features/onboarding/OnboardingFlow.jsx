@@ -13,10 +13,10 @@ const localeOptions = [
 ];
 
 const themeOptions = [
-  { id: 'fantasy', label: 'Fantasy', themeId: 'theme-candy', icon: '🦄', worldArt: 'world-forest', descKey: 'onboardingWorldDesc_fantasy' },
-  { id: 'ocean', label: 'Ocean', themeId: 'theme-ocean', icon: '🌊', worldArt: 'world-ocean', descKey: 'onboardingWorldDesc_ocean' },
-  { id: 'adventure', label: 'Aventure', themeId: 'theme-sunset', icon: '🧭', worldArt: 'world-sunset', descKey: 'onboardingWorldDesc_adventure' },
-  { id: 'space', label: 'Espace', themeId: 'theme-galaxy', icon: '🚀', worldArt: 'world-galaxy', descKey: 'onboardingWorldDesc_space' }
+  { id: 'fantasy',   label: 'Fantasy',  themeId: 'theme-candy',  icon: '🦄', worldArt: 'world-forest', descKey: 'onboardingWorldDesc_fantasy',   accent: '#a855f7' },
+  { id: 'ocean',     label: 'Ocean',    themeId: 'theme-ocean',  icon: '🌊', worldArt: 'world-ocean',  descKey: 'onboardingWorldDesc_ocean',      accent: '#06b6d4' },
+  { id: 'adventure', label: 'Aventure', themeId: 'theme-sunset', icon: '🧭', worldArt: 'world-sunset', descKey: 'onboardingWorldDesc_adventure',  accent: '#f59e0b' },
+  { id: 'space',     label: 'Espace',   themeId: 'theme-galaxy', icon: '🚀', worldArt: 'world-galaxy', descKey: 'onboardingWorldDesc_space',       accent: '#6366f1' },
 ];
 
 function markOnboardingActive(active) {
@@ -214,6 +214,7 @@ export default function OnboardingFlow() {
                     className={`ob-world-card${visualTheme === option.id ? ' is-selected' : ''}`}
                     onClick={() => handleThemeSelect(option.id)}
                     data-testid={`onboarding-theme-${option.id}`}
+                    style={{ '--world-accent': option.accent }}
                   >
                     <div className="ob-world-card__art">
                       <img src={assetUrl(`assets/worlds/${option.worldArt}.svg`)} alt="" />
