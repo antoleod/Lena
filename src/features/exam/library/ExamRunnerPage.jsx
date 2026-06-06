@@ -241,7 +241,7 @@ export default function ExamRunnerPage() {
   if (data === undefined) {
     return (
       <div className="reader-page" style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <p style={{ color: '#fff' }}>Chargement…</p>
+        <p style={{ color: '#fff' }}>{ui.loading}</p>
       </div>
     );
   }
@@ -249,8 +249,8 @@ export default function ExamRunnerPage() {
   if (!data) {
     return (
       <div className="reader-page" style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <p style={{ color: '#fff' }}>Examen introuvable.</p>
-        <Link to="/exam/library" style={{ color: '#f39c12', marginTop: 16 }}>← Retour</Link>
+        <p style={{ color: '#fff' }}>{ui.notFound2}</p>
+        <Link to="/exam/library" style={{ color: '#f39c12', marginTop: 16 }}>{ui.back}</Link>
       </div>
     );
   }
@@ -397,7 +397,7 @@ export default function ExamRunnerPage() {
       });
       recordError({
         topic: exam.category,
-        question: currentQ.prompt,
+        question: getLocalizedField(currentQ, 'prompt', locale),
         correctAnswer: String(currentQ.answer),
         userAnswer: String(value),
         source: 'exam-library',
@@ -526,7 +526,7 @@ export default function ExamRunnerPage() {
                 }
                 return (
                   <button key={String(val)} type="button" className={`tf-btn ${val ? 'tf-btn--vrai' : 'tf-btn--faux'}${extra}`} disabled={revSelected !== null} onClick={() => revAnswer(val)} style={revSelected !== null && val !== revQ.answer && val !== revSelected ? { opacity: 0.45 } : {}}>
-                    {val ? 'Vrai ✓' : 'Faux ✗'}
+                    {val ? `${ui.vrai} ✓` : `${ui.faux} ✗`}
                   </button>
                 );
               })}
@@ -588,7 +588,7 @@ export default function ExamRunnerPage() {
             {[1, 2, 3].map((i) => <span key={i} style={{ opacity: i <= stars ? 1 : 0.25 }}>⭐</span>)}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', marginTop: 8 }}>
-            <button type="button" className="reader-btn reader-btn--next" style={{ width: '100%' }} onClick={restart}>🔄 Recommencer</button>
+            <button type="button" className="reader-btn reader-btn--next" style={{ width: '100%' }} onClick={restart}>{ui.restart}</button>
             {wrongQuestions.length > 0 && (
               <button
                 type="button"
@@ -605,7 +605,7 @@ export default function ExamRunnerPage() {
                 📝 {ui.reviserErreurs} ({wrongQuestions.length})
               </button>
             )}
-            <button type="button" className="reader-btn reader-btn--start" style={{ width: '100%' }} onClick={() => navigate(`/exam/library/${exam.category}`)}>📚 Autres examens</button>
+            <button type="button" className="reader-btn reader-btn--start" style={{ width: '100%' }} onClick={() => navigate(`/exam/library/${exam.category}`)}>{ui.otherExams}</button>
           </div>
         </div>
       </div>
@@ -627,11 +627,11 @@ export default function ExamRunnerPage() {
           <p className="reader-text">{highlight(page.text, page.keywords)}</p>
         </div>
         <div className="reader-nav">
-          <button type="button" className="reader-btn reader-btn--prev" disabled={pageIndex === 0} style={pageIndex === 0 ? { opacity: 0.35 } : {}} onClick={() => setPageIndex((p) => p - 1)}>← Precedent</button>
-          <button type="button" className="reader-btn reader-btn--listen" onClick={() => speak(page.text)}>🔊 Ecouter</button>
+          <button type="button" className="reader-btn reader-btn--prev" disabled={pageIndex === 0} style={pageIndex === 0 ? { opacity: 0.35 } : {}} onClick={() => setPageIndex((p) => p - 1)}>{ui.prevPage}</button>
+          <button type="button" className="reader-btn reader-btn--listen" onClick={() => speak(page.text)}>{ui.listen}</button>
           {!last
             ? <button type="button" className="reader-btn reader-btn--next" onClick={() => setPageIndex((p) => p + 1)}>{ui.next}</button>
-            : <button type="button" className="reader-btn reader-btn--start" onClick={() => setPhase('quiz')}>Commencer les questions →</button>}
+            : <button type="button" className="reader-btn reader-btn--start" onClick={() => setPhase('quiz')}>{ui.startQuestions}</button>}
         </div>
       </div>
     );
@@ -646,7 +646,7 @@ export default function ExamRunnerPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button
             type="button"
-            aria-label={muted ? 'Activer le son' : 'Couper le son'}
+            aria-label={muted ? ui.muteOn : ui.muteOff}
             onClick={() => {
               if (!muted && window.speechSynthesis) window.speechSynthesis.cancel();
               setMuted((m) => !m);
@@ -660,7 +660,7 @@ export default function ExamRunnerPage() {
       </div>
 
       <div className="exam-progress-row" style={{ padding: '0 16px' }}>
-        <div className="exam-progress-bar"><div className="exam-progress-fill" style={{ width: `${(qIndex / totalQ) * 100}%` }} /></div>
+        <div className="exam-progress-bar"><div className="exam-progress-fill" style={{ width: `${((qIndex + 1) / totalQ) * 100}%` }} /></div>
         <span className="exam-progress-label">{score} pt</span>
       </div>
 
@@ -709,7 +709,7 @@ export default function ExamRunnerPage() {
               }
               return (
                 <button key={String(val)} type="button" className={`tf-btn ${val ? 'tf-btn--vrai' : 'tf-btn--faux'}${extra}`} disabled={selected !== null} onClick={() => answer(val)} style={selected !== null && val !== currentQ.answer && val !== selected ? { opacity: 0.45 } : {}}>
-                  {val ? 'Vrai ✓' : 'Faux ✗'}
+                  {val ? `${ui.vrai} ✓` : `${ui.faux} ✗`}
                 </button>
               );
             })}

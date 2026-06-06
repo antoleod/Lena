@@ -1,6 +1,113 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getConteById } from '../../content/stories/contes.js';
+import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+
+// ── i18n map ──────────────────────────────────────────────────────────────────
+const STORY_UI = {
+  fr: {
+    scene: (i, n) => `Scene ${i} / ${n}`,
+    vocabulary: 'Vocabulaire',
+    miniGame: 'Mini-jeu',
+    emotional: 'Moment emotion',
+    reward: 'Bravo !',
+    prevScene: '← Precedent',
+    nextScene: 'Suivant →',
+    toVocab: 'Vocabulaire →',
+    toMiniGame: 'Jouer →',
+    toEmotional: 'Continuer →',
+    toReward: 'Terminer →',
+    muteOn: 'Activer le son',
+    muteOff: 'Couper le son',
+    listenBtn: '🔊 Ecouter',
+    backToLibrary: '← Bibliotheque',
+    validate: 'Valider',
+    correct: '✅ Bravo !',
+    incorrect: '❌ Essaie encore...',
+    notFound: 'Histoire introuvable.',
+    noGame: 'Pas de mini-jeu pour cette histoire.',
+    speechLang: 'fr-FR',
+  },
+  nl: {
+    scene: (i, n) => `Scene ${i} / ${n}`,
+    vocabulary: 'Woordenschat',
+    miniGame: 'Mini-spel',
+    emotional: 'Gevoelsmoment',
+    reward: 'Goed gedaan!',
+    prevScene: '← Vorige',
+    nextScene: 'Volgende →',
+    toVocab: 'Woordenschat →',
+    toMiniGame: 'Spelen →',
+    toEmotional: 'Doorgaan →',
+    toReward: 'Afsluiten →',
+    muteOn: 'Geluid aan',
+    muteOff: 'Geluid uit',
+    listenBtn: '🔊 Luisteren',
+    backToLibrary: '← Bibliotheek',
+    validate: 'Bevestigen',
+    correct: '✅ Goed gedaan!',
+    incorrect: '❌ Probeer opnieuw...',
+    notFound: 'Verhaal niet gevonden.',
+    noGame: 'Geen mini-spel voor dit verhaal.',
+    speechLang: 'nl-NL',
+  },
+  en: {
+    scene: (i, n) => `Scene ${i} / ${n}`,
+    vocabulary: 'Vocabulary',
+    miniGame: 'Mini-game',
+    emotional: 'Emotional moment',
+    reward: 'Well done!',
+    prevScene: '← Previous',
+    nextScene: 'Next →',
+    toVocab: 'Vocabulary →',
+    toMiniGame: 'Play →',
+    toEmotional: 'Continue →',
+    toReward: 'Finish →',
+    muteOn: 'Unmute',
+    muteOff: 'Mute',
+    listenBtn: '🔊 Listen',
+    backToLibrary: '← Library',
+    validate: 'Validate',
+    correct: '✅ Well done!',
+    incorrect: '❌ Try again...',
+    notFound: 'Story not found.',
+    noGame: 'No mini-game for this story.',
+    speechLang: 'en-US',
+  },
+  es: {
+    scene: (i, n) => `Escena ${i} / ${n}`,
+    vocabulary: 'Vocabulario',
+    miniGame: 'Minijuego',
+    emotional: 'Momento emocional',
+    reward: '¡Muy bien!',
+    prevScene: '← Anterior',
+    nextScene: 'Siguiente →',
+    toVocab: 'Vocabulario →',
+    toMiniGame: 'Jugar →',
+    toEmotional: 'Continuar →',
+    toReward: 'Terminar →',
+    muteOn: 'Activar sonido',
+    muteOff: 'Silenciar',
+    listenBtn: '🔊 Escuchar',
+    backToLibrary: '← Biblioteca',
+    validate: 'Validar',
+    correct: '✅ ¡Bravo!',
+    incorrect: '❌ Intentalo otra vez...',
+    notFound: 'Historia no encontrada.',
+    noGame: 'Sin minijuego para esta historia.',
+    speechLang: 'es-ES',
+  },
+};
+
+// ── Fisher-Yates shuffle ──────────────────────────────────────────────────────
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 // ── localStorage helpers ───────────────────────────────────────────────────────
 function getReadIds() {
@@ -39,11 +146,11 @@ function fireConfetti() {
 }
 
 // ── TTS helper ────────────────────────────────────────────────────────────────
-function speakText(text, onEnd) {
+function speakText(text, lang, onEnd) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'fr-FR';
+  utt.lang = lang;
   utt.rate = 0.9;
   if (onEnd) utt.onend = onEnd;
   window.speechSynthesis.speak(utt);
@@ -60,7 +167,7 @@ const PHASE_EMOTIONAL  = 'emotional';
 const PHASE_REWARD     = 'reward';
 
 // ── Mini-game sub-components ──────────────────────────────────────────────────
-function MiniGameChoice({ game, onDone }) {
+function MiniGameChoice({ game, onDone, ui }) {
   const [selected, setSelected] = useState(null);
   function choose(idx) {
     if (selected !== null) return;
@@ -94,14 +201,14 @@ function MiniGameChoice({ game, onDone }) {
       </div>
       {answered && (
         <button type="button" className="story-btn story-btn--primary" onClick={onDone} style={{ marginTop: 16 }}>
-          Continuer →
+          {ui.toEmotional}
         </button>
       )}
     </div>
   );
 }
 
-function MiniGameCount({ game, onDone }) {
+function MiniGameCount({ game, onDone, ui }) {
   const [selected, setSelected] = useState(null);
   function pick(n) { if (selected !== null) return; setSelected(n); }
   const answered = selected !== null;
@@ -132,15 +239,15 @@ function MiniGameCount({ game, onDone }) {
       </div>
       {answered && (
         <button type="button" className="story-btn story-btn--primary" onClick={onDone} style={{ marginTop: 16 }}>
-          Continuer →
+          {ui.toEmotional}
         </button>
       )}
     </div>
   );
 }
 
-function MiniGameSequence({ game, onDone }) {
-  const [order, setOrder] = useState(() => [...game.steps].map((s, i) => ({ text: s, orig: i })).sort(() => Math.random() - 0.5));
+function MiniGameSequence({ game, onDone, ui }) {
+  const [order, setOrder] = useState(() => shuffle([...game.steps].map((s, i) => ({ text: s, orig: i }))));
   const [selected, setSelected] = useState(null);
   const [confirmed, setConfirmed] = useState(false);
   const [correct, setCorrect] = useState(null);
@@ -190,16 +297,16 @@ function MiniGameSequence({ game, onDone }) {
       </div>
       {!confirmed && (
         <button type="button" className="story-btn story-btn--primary" onClick={confirm} style={{ marginTop: 12 }}>
-          Verifier !
+          {ui.validate}
         </button>
       )}
       {confirmed && (
         <>
           <p style={{ fontWeight: 800, fontSize: '1.1rem', color: correct ? '#27AE60' : '#e74c3c', marginTop: 8 }}>
-            {correct ? '✅ Bravo ! C\'est le bon ordre !' : '❌ Pas tout a fait... mais c\'est bien essaye !'}
+            {correct ? ui.correct : ui.incorrect}
           </p>
           <button type="button" className="story-btn story-btn--primary" onClick={onDone} style={{ marginTop: 8 }}>
-            Continuer →
+            {ui.toEmotional}
           </button>
         </>
       )}
@@ -207,11 +314,8 @@ function MiniGameSequence({ game, onDone }) {
   );
 }
 
-function MiniGameFind({ game, onDone }) {
-  const [choices] = useState(() => {
-    const all = [game.target, ...(game.decoys || [])].sort(() => Math.random() - 0.5);
-    return all;
-  });
+function MiniGameFind({ game, onDone, ui }) {
+  const [choices] = useState(() => shuffle([game.target, ...(game.decoys || [])]));
   const [selected, setSelected] = useState(null);
   function pick(c) { if (selected !== null) return; setSelected(c); }
   const answered = selected !== null;
@@ -237,59 +341,85 @@ function MiniGameFind({ game, onDone }) {
       </div>
       {answered && (
         <button type="button" className="story-btn story-btn--primary" onClick={onDone} style={{ marginTop: 16 }}>
-          Continuer →
+          {ui.toEmotional}
         </button>
       )}
     </div>
   );
 }
 
-function MiniGameMatch({ game, onDone }) {
+function MiniGameMatch({ game, onDone, ui }) {
+  const [rights] = useState(() => shuffle(game.pairs.map((p) => p.b)));
   const [leftSel, setLeftSel] = useState(null);
   const [matched, setMatched] = useState({});
+  const [wrongFlash, setWrongFlash] = useState(null);
   const [confirmed, setConfirmed] = useState(false);
 
-  const lefts  = game.pairs.map((p) => p.a);
-  const rights = game.pairs.map((p) => p.b);
+  const lefts = game.pairs.map((p) => p.a);
+  const allMatchedCount = Object.keys(matched).length;
+  const allDone = allMatchedCount === game.pairs.length;
 
   function tapLeft(a) {
     if (confirmed) return;
     setLeftSel(leftSel === a ? null : a);
   }
+
   function tapRight(b) {
     if (confirmed || !leftSel) return;
-    setMatched((prev) => ({ ...prev, [leftSel]: b }));
-    setLeftSel(null);
+    const expectedPair = game.pairs.find((p) => p.a === leftSel);
+    if (expectedPair && expectedPair.b === b) {
+      // correct match
+      setMatched((prev) => ({ ...prev, [leftSel]: b }));
+      setLeftSel(null);
+    } else {
+      // wrong match — flash red briefly then clear selection
+      setWrongFlash({ a: leftSel, b });
+      setTimeout(() => {
+        setWrongFlash(null);
+        setLeftSel(null);
+      }, 600);
+    }
   }
 
-  const allMatched = Object.keys(matched).length === game.pairs.length;
-
-  function verify() { setConfirmed(true); }
+  // Once all pairs matched, auto-confirm and call onDone
+  useEffect(() => {
+    if (allDone) {
+      setConfirmed(true);
+      const t = setTimeout(() => onDone(), 900);
+      return () => clearTimeout(t);
+    }
+  }, [allDone, onDone]);
 
   return (
     <div className="story-minigame">
       <p className="story-minigame__prompt">{game.prompt}</p>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginTop: 8 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {lefts.map((a) => (
-            <button key={a} type="button" onClick={() => tapLeft(a)}
-              style={{
-                background: leftSel === a ? 'var(--primary)' : confirmed ? (matched[a] === game.pairs.find((p) => p.a === a)?.b ? '#eafaf1' : '#fef0f0') : matched[a] ? '#eaf4fb' : 'var(--surface-strong)',
-                border: leftSel === a ? '2px solid var(--primary-strong)' : '2px solid var(--line)',
-                borderRadius: 12, padding: '10px 12px', fontWeight: 700, cursor: confirmed ? 'default' : 'pointer', textAlign: 'center', fontSize: '.9rem',
-              }}>
-              {a}
-            </button>
-          ))}
+          {lefts.map((a) => {
+            const isMatched = matched[a] !== undefined;
+            const isSelected = leftSel === a;
+            const isWrong = wrongFlash && wrongFlash.a === a;
+            return (
+              <button key={a} type="button" onClick={() => tapLeft(a)}
+                style={{
+                  background: isWrong ? '#fef0f0' : isSelected ? 'var(--primary)' : isMatched ? '#eafaf1' : 'var(--surface-strong)',
+                  border: isWrong ? '2px solid #e74c3c' : isSelected ? '2px solid var(--primary-strong)' : isMatched ? '2px solid #27AE60' : '2px solid var(--line)',
+                  borderRadius: 12, padding: '10px 12px', fontWeight: 700, cursor: confirmed ? 'default' : 'pointer', textAlign: 'center', fontSize: '.9rem',
+                }}>
+                {a}
+              </button>
+            );
+          })}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {rights.map((b) => {
             const isMatchedTo = Object.values(matched).includes(b);
+            const isWrong = wrongFlash && wrongFlash.b === b;
             return (
               <button key={b} type="button" onClick={() => tapRight(b)}
                 style={{
-                  background: isMatchedTo ? '#eaf4fb' : 'var(--surface-strong)',
-                  border: '2px solid var(--line)',
+                  background: isWrong ? '#fef0f0' : isMatchedTo ? '#eafaf1' : 'var(--surface-strong)',
+                  border: isWrong ? '2px solid #e74c3c' : isMatchedTo ? '2px solid #27AE60' : '2px solid var(--line)',
                   borderRadius: 12, padding: '10px 12px', fontWeight: 700, cursor: confirmed ? 'default' : 'pointer', textAlign: 'center', fontSize: '.9rem',
                 }}>
                 {b}
@@ -298,35 +428,26 @@ function MiniGameMatch({ game, onDone }) {
           })}
         </div>
       </div>
-      {!confirmed && allMatched && (
-        <button type="button" className="story-btn story-btn--primary" onClick={verify} style={{ marginTop: 12 }}>
-          Verifier !
-        </button>
-      )}
       {confirmed && (
-        <>
-          <p style={{ fontWeight: 800, marginTop: 10, color: '#27AE60' }}>✅ Super ! Tu as tout associe !</p>
-          <button type="button" className="story-btn story-btn--primary" onClick={onDone} style={{ marginTop: 8 }}>
-            Continuer →
-          </button>
-        </>
+        <p style={{ fontWeight: 800, marginTop: 10, color: '#27AE60' }}>{ui.correct}</p>
       )}
     </div>
   );
 }
 
-function MiniGameDispatch({ game, onDone }) {
+function MiniGameDispatch({ game, onDone, ui }) {
+  if (!game) return <p style={{ textAlign: 'center', opacity: 0.7 }}>{ui.noGame}</p>;
   switch (game.type) {
-    case 'choice':   return <MiniGameChoice   game={game} onDone={onDone} />;
-    case 'count':    return <MiniGameCount    game={game} onDone={onDone} />;
-    case 'sequence': return <MiniGameSequence game={game} onDone={onDone} />;
-    case 'find':     return <MiniGameFind     game={game} onDone={onDone} />;
-    case 'match':    return <MiniGameMatch    game={game} onDone={onDone} />;
+    case 'choice':   return <MiniGameChoice   game={game} onDone={onDone} ui={ui} />;
+    case 'count':    return <MiniGameCount    game={game} onDone={onDone} ui={ui} />;
+    case 'sequence': return <MiniGameSequence game={game} onDone={onDone} ui={ui} />;
+    case 'find':     return <MiniGameFind     game={game} onDone={onDone} ui={ui} />;
+    case 'match':    return <MiniGameMatch    game={game} onDone={onDone} ui={ui} />;
     default:
       return (
         <div className="story-minigame">
-          <p>Mini-jeu non disponible.</p>
-          <button type="button" className="story-btn story-btn--primary" onClick={onDone}>Continuer →</button>
+          <p>{ui.noGame}</p>
+          <button type="button" className="story-btn story-btn--primary" onClick={onDone}>{ui.toEmotional}</button>
         </div>
       );
   }
@@ -336,12 +457,22 @@ function MiniGameDispatch({ game, onDone }) {
 export default function StoryReaderPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { locale } = useLocale();
+  const ui = STORY_UI[locale] || STORY_UI.fr;
   const conte = getConteById(id);
 
   const [phase, setPhase]         = useState(PHASE_SCENES);
   const [sceneIdx, setSceneIdx]   = useState(0);
   const [speaking, setSpeaking]   = useState(false);
   const speakingRef = useRef(false);
+
+  // SR4 — markRead in effect, not in render
+  useEffect(() => {
+    if (!conte) return;
+    if (phase === PHASE_REWARD) {
+      markRead(conte.id);
+    }
+  }, [conte, phase]);
 
   useEffect(() => {
     return () => stopSpeech();
@@ -368,14 +499,14 @@ export default function StoryReaderPage() {
       : scene.text;
     setSpeaking(true);
     speakingRef.current = true;
-    speakText(textToRead, () => { setSpeaking(false); speakingRef.current = false; });
-  }, [conte, sceneIdx]);
+    speakText(textToRead, ui.speechLang, () => { setSpeaking(false); speakingRef.current = false; });
+  }, [conte, sceneIdx, ui.speechLang]);
 
   if (!conte) {
     return (
       <div style={{ padding: 32, textAlign: 'center' }}>
-        <p>Conte introuvable.</p>
-        <Link to="/stories">← Retour aux contes</Link>
+        <p>{ui.notFound}</p>
+        <Link to="/stories">{ui.backToLibrary}</Link>
       </div>
     );
   }
@@ -397,7 +528,6 @@ export default function StoryReaderPage() {
 
   // ── Reward phase ────────────────────────────────────────────────────────────
   if (phase === PHASE_REWARD) {
-    markRead(conte.id);
     return (
       <div style={{ minHeight: '100vh', background: palette.background, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 20, padding: 24, textAlign: 'center' }}>
         <span style={{ fontSize: '5rem', display: 'inline-block', animation: 'storyBounce 0.6s infinite alternate' }}>{rewardEmoji}</span>
@@ -406,13 +536,13 @@ export default function StoryReaderPage() {
           <span style={{ fontSize: '2rem' }}>⭐</span>
           <span style={{ fontSize: '2rem' }}>⭐</span>
         </div>
-        <p style={{ color: '#666', fontSize: '1rem', maxWidth: 320 }}>Bravo ! Tu as termine ce conte et gagne une recompense !</p>
+        <p style={{ color: '#666', fontSize: '1rem', maxWidth: 320 }}>{ui.reward}</p>
         <button
           type="button"
           className="story-btn story-btn--primary"
           onClick={() => navigate('/stories')}
         >
-          Retour aux contes →
+          {ui.backToLibrary}
         </button>
       </div>
     );
@@ -427,7 +557,7 @@ export default function StoryReaderPage() {
           display: 'inline-block', background: palette.primary, color: '#fff',
           borderRadius: 20, padding: '6px 18px', fontWeight: 800, fontSize: '1rem',
         }}>
-          Je me sens : {emotionalMoment.feeling}
+          {emotionalMoment.feeling}
         </span>
         <p style={{ fontSize: '1.15rem', color: '#444', maxWidth: 360, lineHeight: 1.6, fontWeight: 600 }}>
           {emotionalMoment.prompt}
@@ -437,7 +567,7 @@ export default function StoryReaderPage() {
           className="story-btn story-btn--primary"
           onClick={() => { fireConfetti(); setPhase(PHASE_REWARD); }}
         >
-          J\'ai reflechi ✓
+          {ui.toReward}
         </button>
       </div>
     );
@@ -449,9 +579,9 @@ export default function StoryReaderPage() {
       <div style={{ minHeight: '100vh', background: palette.background, padding: 24, maxWidth: 600, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
           <Link to="/stories" style={{ textDecoration: 'none', fontSize: '1.4rem' }}>←</Link>
-          <h2 style={{ margin: 0, fontSize: '1.2rem', color: palette.primary }}>🎮 Mini-jeu</h2>
+          <h2 style={{ margin: 0, fontSize: '1.2rem', color: palette.primary }}>🎮 {ui.miniGame}</h2>
         </div>
-        <MiniGameDispatch game={miniGame} onDone={() => setPhase(PHASE_EMOTIONAL)} />
+        <MiniGameDispatch game={miniGame} onDone={() => setPhase(PHASE_EMOTIONAL)} ui={ui} />
       </div>
     );
   }
@@ -462,7 +592,7 @@ export default function StoryReaderPage() {
       <div style={{ minHeight: '100vh', background: palette.background, padding: 24, maxWidth: 600, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
           <Link to="/stories" style={{ textDecoration: 'none', fontSize: '1.4rem' }}>←</Link>
-          <h2 style={{ margin: 0, fontSize: '1.2rem', color: palette.primary }}>📚 Vocabulaire</h2>
+          <h2 style={{ margin: 0, fontSize: '1.2rem', color: palette.primary }}>📚 {ui.vocabulary}</h2>
         </div>
         <div style={{ display: 'grid', gap: 12 }}>
           {vocabulary.map((v) => (
@@ -481,7 +611,7 @@ export default function StoryReaderPage() {
           style={{ marginTop: 28, width: '100%' }}
           onClick={() => setPhase(PHASE_MINIGAME)}
         >
-          Mini-jeu →
+          {ui.toMiniGame}
         </button>
       </div>
     );
@@ -495,12 +625,12 @@ export default function StoryReaderPage() {
         <Link to="/stories" style={{ textDecoration: 'none', fontSize: '1.3rem', color: palette.primary }} onClick={stopSpeech}>←</Link>
         <div style={{ flex: 1 }}>
           <div style={{ fontWeight: 800, fontSize: '1rem', color: palette.primary }}>{conte.emoji} {conte.title}</div>
-          <div style={{ fontSize: '.78rem', color: '#888' }}>Scene {sceneIdx + 1} / {totalScenes}</div>
+          <div style={{ fontSize: '.78rem', color: '#888' }}>{ui.scene(sceneIdx + 1, totalScenes)}</div>
         </div>
         <button
           type="button"
           onClick={handleSpeak}
-          title={speaking ? 'Arreter la lecture' : 'Lire a voix haute'}
+          title={speaking ? ui.muteOff : ui.muteOn}
           style={{ background: speaking ? palette.primary : 'transparent', border: `2px solid ${palette.primary}`, borderRadius: 50, width: 40, height: 40, fontSize: '1.1rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >
           🔊
@@ -543,7 +673,7 @@ export default function StoryReaderPage() {
           className="story-btn"
           style={{ opacity: sceneIdx === 0 ? 0.3 : 1, minWidth: 80 }}
         >
-          ← Precedent
+          {ui.prevScene}
         </button>
         <button
           type="button"
@@ -551,7 +681,7 @@ export default function StoryReaderPage() {
           className="story-btn story-btn--primary"
           style={{ minWidth: 80 }}
         >
-          {sceneIdx === totalScenes - 1 ? 'Vocabulaire →' : 'Suivant →'}
+          {sceneIdx === totalScenes - 1 ? ui.toVocab : ui.nextScene}
         </button>
       </div>
     </div>

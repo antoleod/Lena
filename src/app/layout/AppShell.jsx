@@ -70,7 +70,7 @@ function ParentalLimitOverlay({ locale, onUnlock }) {
             color: '#fff', border: '2px solid rgba(255,255,255,.5)', cursor: 'pointer', width: 260,
           }}
         >
-          {locale === 'nl' ? 'Tableau de bord' : locale === 'en' ? 'Parental dashboard' : locale === 'es' ? 'Panel de control' : 'Tableau de bord'}
+          {locale === 'nl' ? 'Ouderlijk dashboard' : locale === 'en' ? 'Parental dashboard' : locale === 'es' ? 'Panel de control' : 'Tableau de bord'}
         </button>
       </div>
     );
