@@ -1,0 +1,375 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Magic Book Reader — .sa-* prefix
+   Used by StoryReaderPage (scenes phase only)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Outer wrapper ──────────────────────────────────────────────────────────── */
+
+.sa-book-wrap {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, #0a0514 0%, #110a2e 50%, #070d1a 100%);
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px calc(var(--nav-height-mobile, 64px) + 8px);
+}
+
+/* ── Topbar ─────────────────────────────────────────────────────────────────── */
+
+.sa-topbar {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 0 12px;
+  flex-shrink: 0;
+}
+
+.sa-topbar__back {
+  min-width: 38px;
+  min-height: 38px;
+  background: rgba(0,0,0,.35);
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.sa-topbar__back:active { background: rgba(0,0,0,.55); }
+
+.sa-topbar__title {
+  font-size: .85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.7);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sa-topbar__speak {
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.2);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.sa-topbar__speak--active {
+  background: var(--story-accent, #6366f1);
+  border-color: transparent;
+}
+
+/* ── Progress dots ──────────────────────────────────────────────────────────── */
+
+.sa-progress-dots {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.sa-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  transition: background .25s;
+}
+.sa-dot.done    { background: #fbbf24; }
+.sa-dot.current { background: #fff; box-shadow: 0 0 6px #fff; }
+
+/* ── Open book ──────────────────────────────────────────────────────────────── */
+
+.sa-book {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  background: #f5ead4;
+  border-radius: 4px 8px 8px 4px;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.3),
+    0 8px 32px rgba(0,0,0,.5),
+    0 20px 60px rgba(0,0,0,.4),
+    inset 0 0 40px rgba(0,0,0,.06);
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+/* Spine crease */
+.sa-book::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: linear-gradient(90deg,
+    rgba(0,0,0,.18) 0%,
+    rgba(0,0,0,.05) 40%,
+    rgba(255,255,255,.15) 60%,
+    rgba(0,0,0,.12) 100%);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Gold corner glows */
+.sa-book::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0 0,   rgba(212,175,55,.25) 0%, transparent 8%),
+    radial-gradient(circle at 100% 0, rgba(212,175,55,.25) 0%, transparent 8%),
+    radial-gradient(circle at 0 100%, rgba(212,175,55,.25) 0%, transparent 8%),
+    radial-gradient(circle at 100% 100%, rgba(212,175,55,.25) 0%, transparent 8%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ── Left page (illustration) ───────────────────────────────────────────────── */
+
+.sa-page-left {
+  flex: 1;
+  padding: 24px 16px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5ead4, #efe0c0);
+  border-radius: 4px 0 0 4px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Right page (text) ──────────────────────────────────────────────────────── */
+
+.sa-page-right {
+  flex: 1;
+  padding: 24px 20px 24px 16px;
+  background: linear-gradient(135deg, #f8f0dc, #f2e8ca);
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  background-image:
+    linear-gradient(135deg, #f8f0dc, #f2e8ca),
+    repeating-linear-gradient(
+      transparent, transparent 31px,
+      rgba(180,160,120,.18) 31px, rgba(180,160,120,.18) 32px
+    );
+  background-blend-mode: normal;
+  /* line ruling via pseudo-element instead, see below */
+}
+
+/* Line ruling on right page */
+.sa-page-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0 8px 8px 0;
+  background: repeating-linear-gradient(
+    transparent, transparent 31px,
+    rgba(180,160,120,.18) 31px, rgba(180,160,120,.18) 32px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scene emoji ────────────────────────────────────────────────────────────── */
+
+.sa-scene-emoji {
+  font-size: 5rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.25));
+  display: block;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) { .sa-scene-emoji { font-size: 6.5rem; } }
+
+/* ── Dialogue block (inside right page) ────────────────────────────────────── */
+
+.sa-dialogue {
+  background: rgba(180,120,40,.1);
+  border-left: 3px solid #b8860b;
+  border-radius: 0 8px 8px 0;
+  padding: 8px 12px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.sa-dialogue__speaker {
+  font-size: .72rem;
+  font-weight: 900;
+  color: #8b5e0a;
+  display: block;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.sa-dialogue__line {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c1810;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* ── Story text ─────────────────────────────────────────────────────────────── */
+
+.sa-story-text {
+  font-size: 1.25rem;
+  line-height: 1.85;
+  color: #2c1810;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  margin: 0;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 480px) { .sa-story-text { font-size: 1.4rem; } }
+@media (min-width: 700px) { .sa-story-text { font-size: 1.6rem; } }
+
+/* ── Page numbers ───────────────────────────────────────────────────────────── */
+
+.sa-page-num {
+  position: absolute;
+  bottom: 12px;
+  font-size: .75rem;
+  color: rgba(44,24,16,.4);
+  font-family: Georgia, serif;
+  font-style: italic;
+  z-index: 1;
+}
+
+.sa-page-left .sa-page-num  { right: 20px; }
+.sa-page-right .sa-page-num { left: 20px; }
+
+/* ── Red bookmark ───────────────────────────────────────────────────────────── */
+
+.sa-bookmark {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  width: 18px;
+  height: 56px;
+  background: linear-gradient(180deg, #dc2626, #991b1b);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+  z-index: 4;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.3);
+}
+
+/* ── Page turn animation ────────────────────────────────────────────────────── */
+
+.sa-page-right {
+  transform-origin: left center;
+  transition: none;
+}
+
+.sa-page-right.is-turning {
+  animation: saPageTurn .5s ease-in-out;
+}
+
+@keyframes saPageTurn {
+  0%   { transform: perspective(1200px) rotateY(0deg);   opacity: 1; }
+  50%  { transform: perspective(1200px) rotateY(-70deg); opacity: .6; }
+  100% { transform: perspective(1200px) rotateY(0deg);   opacity: 1; }
+}
+
+/* ── Sparkle animation ──────────────────────────────────────────────────────── */
+
+@keyframes saSpark {
+  0%   { transform: scale(0) rotate(0deg);   opacity: 1; }
+  60%  { transform: scale(1.3) rotate(20deg); opacity: .9; }
+  100% { transform: scale(.6) rotate(-10deg); opacity: 0; }
+}
+
+/* ── Navigation ─────────────────────────────────────────────────────────────── */
+
+.sa-nav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 14px;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 760px;
+}
+
+.sa-nav-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #d4a843, #b8860b);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: .95rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(212,168,67,.4), 0 2px 4px rgba(0,0,0,.3);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-height: 48px;
+  min-width: 100px;
+  transition: filter .15s;
+}
+
+.sa-nav-btn:active  { transform: scale(.95); filter: brightness(.88); }
+.sa-nav-btn:disabled { opacity: .35; cursor: default; transform: none; }
+
+/* Next button gets full-width flex treatment */
+.sa-nav-btn--next { flex: 1; max-width: 260px; }
+
+/* ── Mobile layout ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 599px) {
+  .sa-book {
+    flex-direction: column;
+    min-height: auto;
+    border-radius: 8px;
+  }
+
+  .sa-book::before { display: none; } /* no spine on mobile */
+
+  .sa-page-left {
+    border-radius: 8px 8px 0 0;
+    padding: 20px;
+    min-height: 140px;
+    justify-content: center;
+  }
+
+  .sa-page-right {
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+  }
+
+  .sa-page-right::before { border-radius: 0 0 8px 8px; }
+
+  .sa-scene-emoji { font-size: 4rem; }
+
+  .sa-story-text { font-size: 1.15rem; }
+}

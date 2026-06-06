@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getConteById } from '../../content/stories/contes.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import './stories.css';
+import '../../engines/story/storyActivity.css';
 
 // ── i18n ─────────────────────────────────────────────────────────────────────
 const STORY_UI = {
@@ -476,6 +477,9 @@ export default function StoryReaderPage() {
   const [sceneIdx, setSceneIdx] = useState(0);
   const [speaking, setSpeaking] = useState(false);
   const speakingRef = useRef(false);
+  const [turning, setTurning]   = useState(false);
+  const bookRef                  = useRef(null);
+  const swipeRef                 = useRef({ startX: 0, startY: 0 });
 
   useEffect(() => {
     if (!conte) return;
@@ -529,12 +533,47 @@ export default function StoryReaderPage() {
   const totalScenes = scenes.length;
   const scene = scenes[sceneIdx];
 
-  function goNext() {
-    if (sceneIdx < totalScenes - 1) setSceneIdx(sceneIdx + 1);
-    else setPhase(PHASE_VOCAB);
+  function spawnSparkles(container) {
+    for (let i = 0; i < 8; i++) {
+      const el = document.createElement('span');
+      el.textContent = '✨';
+      el.style.cssText = `position:absolute;left:${20 + Math.random() * 60}%;top:${20 + Math.random() * 60}%;font-size:${14 + Math.random() * 10}px;pointer-events:none;animation:saSpark .8s ${Math.random() * .3}s ease-out forwards;z-index:10;`;
+      container.appendChild(el);
+      setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 1100);
+    }
   }
-  function goPrev() { if (sceneIdx > 0) setSceneIdx(sceneIdx - 1); }
+
+  function triggerPageTurn(callback) {
+    setTurning(true);
+    if (bookRef.current) spawnSparkles(bookRef.current);
+    setTimeout(() => {
+      setTurning(false);
+      callback();
+    }, 500);
+  }
+
+  function goNext() {
+    triggerPageTurn(() => {
+      if (sceneIdx < totalScenes - 1) setSceneIdx(sceneIdx + 1);
+      else setPhase(PHASE_VOCAB);
+    });
+  }
+  function goPrev() {
+    if (sceneIdx > 0) triggerPageTurn(() => setSceneIdx(sceneIdx - 1));
+  }
   function goBack() { stopSpeech(); navigate('/stories'); }
+
+  function onTouchStart(e) {
+    swipeRef.current = { startX: e.touches[0].clientX, startY: e.touches[0].clientY };
+  }
+  function onTouchEnd(e) {
+    const dx = e.changedTouches[0].clientX - swipeRef.current.startX;
+    const dy = e.changedTouches[0].clientY - swipeRef.current.startY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (dx < 0) goNext();
+      else goPrev();
+    }
+  }
 
   // ── REWARD ────────────────────────────────────────────────────────────────
   if (phase === PHASE_REWARD) {
@@ -618,53 +657,80 @@ export default function StoryReaderPage() {
     );
   }
 
-  // ── SCENES ────────────────────────────────────────────────────────────────
+  // ── SCENES — magic book ───────────────────────────────────────────────────
   return (
-    <div className="sr-page" style={pageStyle}>
-      <header className="sr-topbar">
-        <button type="button" className="sr-topbar__back" onClick={goBack} aria-label={ui.backToLib}>
+    <div
+      className="sa-book-wrap"
+      style={{ '--story-accent': storyAccent }}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      {/* Top bar */}
+      <header className="sa-topbar">
+        <button type="button" className="sa-topbar__back" onClick={goBack} aria-label={ui.backToLib}>
           ←
         </button>
-        <h1 className="sr-topbar__title">{conte.emoji} {conte.title}</h1>
-        <button type="button"
-          className={`sr-topbar__speak${speaking ? ' sr-topbar__speak--active' : ''}`}
+        <h1 className="sa-topbar__title">{conte.emoji} {conte.title}</h1>
+        <div className="sa-progress-dots" aria-hidden="true">
+          {scenes.map((_, i) => (
+            <span
+              key={i}
+              className={`sa-dot${i < sceneIdx ? ' done' : i === sceneIdx ? ' current' : ''}`}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          className={`sa-topbar__speak${speaking ? ' sa-topbar__speak--active' : ''}`}
           onClick={handleSpeak}
-          title={speaking ? ui.muteOff : ui.muteOn}>
+          title={speaking ? ui.muteOff : ui.muteOn}
+        >
           🔊
         </button>
       </header>
 
-      <div className="sr-progress">
-        <div className="sr-progress__fill" style={{ width: `${((sceneIdx + 1) / totalScenes) * 100}%` }} />
-      </div>
+      {/* The open book */}
+      <div className="sa-book" ref={bookRef}>
+        <div className="sa-bookmark" aria-hidden="true" />
 
-      {/* The Book */}
-      <div className="sr-book">
-        <div className="sr-book__banner">
-          <span className="sr-book__emoji">{conte.emoji}</span>
-          <span className="sr-book__name">{conte.title}</span>
-          <span className="sr-book__scene-n">{ui.scene(sceneIdx + 1, totalScenes)}</span>
-        </div>
-        <div className="sr-book__body" key={sceneIdx}>
-          <span className="sr-scene-emoji" role="img" aria-hidden="true">
+        {/* Left page — illustration */}
+        <div className="sa-page-left">
+          <span className="sa-scene-emoji" role="img" aria-hidden="true">
             {getSceneEmoji(conte.id, sceneIdx)}
           </span>
-          <p className="sr-scene-text">{scene.text}</p>
+          <span className="sa-page-num">{sceneIdx * 2 + 1}</span>
+        </div>
+
+        {/* Right page — story text */}
+        <div className={`sa-page-right${turning ? ' is-turning' : ''}`}>
+          <p className="sa-story-text">{scene.text}</p>
           {scene.dialogue && (
-            <div className="sr-dialogue">
-              <span className="sr-dialogue__speaker">{scene.dialogue.speaker}</span>
-              <p className="sr-dialogue__line">&laquo;&nbsp;{scene.dialogue.line}&nbsp;&raquo;</p>
+            <div className="sa-dialogue">
+              <span className="sa-dialogue__speaker">{scene.dialogue.speaker}</span>
+              <p className="sa-dialogue__line">&laquo;&nbsp;{scene.dialogue.line}&nbsp;&raquo;</p>
             </div>
           )}
+          <span className="sa-page-num">{sceneIdx * 2 + 2}</span>
         </div>
       </div>
 
-      <nav className="sr-nav">
-        <button type="button" className="sr-nav-btn sr-nav-btn--back"
-          onClick={goPrev} disabled={sceneIdx === 0} aria-label={ui.prevScene}>
+      {/* Navigation */}
+      <nav className="sa-nav">
+        <button
+          type="button"
+          className="sa-nav-btn"
+          onClick={goPrev}
+          disabled={sceneIdx === 0 || turning}
+          aria-label={ui.prevScene}
+        >
           ←
         </button>
-        <button type="button" className="sr-nav-btn sr-nav-btn--next" onClick={goNext}>
+        <button
+          type="button"
+          className="sa-nav-btn sa-nav-btn--next"
+          onClick={goNext}
+          disabled={turning}
+        >
           {sceneIdx === totalScenes - 1 ? `${ui.toVocab} →` : `${ui.nextScene} →`}
         </button>
       </nav>
