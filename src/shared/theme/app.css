@@ -1892,6 +1892,7 @@ button {
 .app-main--game {
   max-width: 1240px;
   margin: 0 auto;
+  overflow-x: hidden;   /* safety: never allow horizontal bleed on tablet/mobile */
 }
 
 .app-topbar {
@@ -6639,6 +6640,20 @@ button {
   flex-direction: column;
   gap: 14px;
   padding: 10px 14px 40px;
+}
+
+/* Tablet/desktop: cards in a centred multi-column grid (no edge-to-edge stretch) */
+@media (min-width: 768px) {
+  .sw-hub__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 12px 20px 48px;
+  }
+  .sw-hub__header { max-width: 1040px; width: 100%; margin: 0 auto; }
 }
 
 /* Portal card — each subject */
