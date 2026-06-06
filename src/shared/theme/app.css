@@ -6940,8 +6940,8 @@ button {
 
 .sw-worlds__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
 }
 
 /* World card — one per grade */
@@ -6961,38 +6961,39 @@ button {
 
 /* Sky part of card */
 .sw-world-card__sky {
-  height: 64px;
+  height: 84px;
   background: var(--w-sky, linear-gradient(180deg,#001508,#004020,#007038));
   position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: 7px 8px 0 0;
+  padding: 9px 10px 0 0;
 }
 
 .sw-world-card__grade-badge {
-  background: rgba(0,0,0,0.35);
-  color: rgba(255,255,255,0.8);
-  font-size: 0.6rem;
+  background: rgba(0,0,0,0.4);
+  color: rgba(255,255,255,0.92);
+  font-size: 0.68rem;
   font-weight: 900;
-  padding: 2px 7px;
+  padding: 3px 9px;
   border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.25);
+  letter-spacing: 0.04em;
 }
 
 /* Planet */
 .sw-world-card__planet {
-  width: 56px;
-  height: 56px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: var(--w-bg, linear-gradient(145deg,#a8f0c0,#5bc87a));
-  box-shadow: 0 5px 0 var(--w-shadow, #3a9a59), 0 0 18px var(--w-color, #5bc87a)55;
+  box-shadow: 0 6px 0 var(--w-shadow, #3a9a59), 0 0 22px var(--w-color, #5bc87a)66;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  border: 2.5px solid rgba(255,255,255,0.45);
-  margin: -28px auto 0;
+  font-size: 2rem;
+  border: 3px solid rgba(255,255,255,0.5);
+  margin: -35px auto 0;
   position: relative;
   z-index: 2;
 }
@@ -7028,34 +7029,36 @@ button {
 .sw-world-card__body {
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(8px);
-  padding: 16px 10px 10px;
+  padding: 20px 12px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   text-align: center;
+  flex: 1;
 }
 
 .sw-world-card__name {
   font-family: 'Fredoka', sans-serif;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 700;
   color: white;
   line-height: 1.2;
 }
 
 .sw-world-card__meta {
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.45);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
   font-weight: 600;
 }
 
 .sw-world-card__bar {
   width: 100%;
-  height: 4px;
+  height: 6px;
   background: rgba(255,255,255,0.12);
   border-radius: 999px;
   overflow: hidden;
+  margin-top: 2px;
 }
 
 .sw-world-card__fill {
@@ -7069,12 +7072,16 @@ button {
 .sw-world-card__cta {
   background: var(--w-bg, linear-gradient(145deg,#a8f0c0,#5bc87a));
   color: white;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 900;
   text-align: center;
-  padding: 8px 0;
-  letter-spacing: 0.04em;
+  padding: 11px 0;
+  letter-spacing: 0.05em;
   text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transition: filter 0.15s;
+}
+.sw-world-card:hover .sw-world-card__cta {
+  filter: brightness(1.12);
 }
 
 /* ── Grade page shell ── */
