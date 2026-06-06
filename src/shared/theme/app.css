@@ -12231,3 +12231,14 @@ input.exam-choice:hover { transform: none; }
     height: 22px;
   }
 }
+
+
+/* ── 14. Android / Samsung safe area & scroll fixes ─────────────────────── */
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+.exam-hub-page,
+.cahier-page {
+  min-height: 100dvh; /* dynamic viewport height for Android Chrome */
+}

@@ -1,0 +1,182 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Mixed-mode page — supplementary styles (built on top of cahier.css)
+   Target: 360 px+ screens, 44 px touch targets, relative font-sizes.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Info badge below level/age chips ─────────────────────────────────────── */
+.mixed-info-badge {
+  margin: 6px 0 0;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 10px;
+  color: #ffd166;
+  font-size: .85rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* ── Exercise type grid — 2-col on narrow, wrapping ──────────────────────── */
+.mixed-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 480px) {
+  .mixed-type-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.mixed-type-chip {
+  flex-direction: column;
+  text-align: center;
+  font-size: .9rem;
+  padding: 10px 8px;
+  min-height: 52px;
+}
+.mixed-type-chip.is-disabled {
+  opacity: .38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Visual-aid toggle ────────────────────────────────────────────────────── */
+.mixed-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 0;
+  min-height: 44px;
+}
+
+.mixed-toggle {
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, .28);
+  position: relative;
+  cursor: pointer;
+  transition: background .2s;
+  flex-shrink: 0;
+  padding: 0;
+}
+.mixed-toggle--on {
+  background: #2ecc71;
+}
+.mixed-toggle__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform .2s;
+  display: block;
+}
+.mixed-toggle--on .mixed-toggle__thumb {
+  transform: translateX(24px);
+}
+
+/* ── Emoji visual in training mode ─────────────────────────────────────────── */
+.mixed-visual {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  word-break: break-all;
+  text-align: center;
+  margin: 0;
+  padding: 8px;
+  background: rgba(255, 255, 255, .12);
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* ── Notebook mode answer reveal ─────────────────────────────────────────── */
+.mixed-notebook-answer {
+  font-weight: 700;
+  color: #c0392b;
+  margin-left: 8px;
+}
+
+/* ── Exam mode list ──────────────────────────────────────────────────────── */
+.mixed-exam-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mixed-exam-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  color: #2c3e50;
+  border-left: 6px solid #dfe6e9;
+}
+.mixed-exam-item--ok { border-left-color: #2ecc71; }
+.mixed-exam-item--ko { border-left-color: #e74c3c; }
+
+.mixed-exam-item__row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mixed-exam-item__num {
+  font-weight: 800;
+  font-size: .9rem;
+  color: #7f8c8d;
+  flex-shrink: 0;
+}
+.mixed-exam-item__q {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.mixed-exam-input {
+  width: 100%;
+  max-width: 160px;
+  display: block;
+}
+
+.mixed-exam-item__result {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+  font-size: .9rem;
+}
+
+.mixed-exam-steps {
+  width: 100%;
+  margin-top: 4px;
+  padding: 6px 10px;
+  background: #f7f9fb;
+  border-radius: 8px;
+  color: #2c3e50;
+}
+
+/* ── Android safe area ─────────────────────────────────────────────────────── */
+.cahier-page {
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(5rem, env(safe-area-inset-bottom));
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ── Small screen (360 px) wrapping fix ─────────────────────────────────── */
+@media (max-width: 400px) {
+  .mixed-type-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cahier-chip {
+    font-size: .9rem;
+    padding: 10px 12px;
+  }
+}

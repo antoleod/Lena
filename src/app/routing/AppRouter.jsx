@@ -37,6 +37,7 @@ import ExerciseGeneratorPage from '../../features/exerciseGenerator/ExerciseGene
 import GeometryPage from '../../features/mathGeometry/GeometryPage.jsx';
 import CalculationChallengePage from '../../features/mathChallenges/CalculationChallengePage.jsx';
 import MixedCalcPage from '../../features/mathChallenges/MixedCalcPage.jsx';
+import MixedModePage from '../../features/exerciseGenerator/MixedModePage.jsx';
 import TablesPage from '../../features/tables/TablesPage.jsx';
 import StoryLibraryPage from '../../features/stories/StoryLibraryPage.jsx';
 import StoryReaderPage from '../../features/stories/StoryReaderPage.jsx';
@@ -145,7 +146,7 @@ export default function AppRouter() {
         <Route path="/cahier" element={<ExerciseGeneratorPage />} />
         <Route path="/cahier/geometrie" element={<GeometryPage />} />
         <Route path="/cahier/defis-calcul" element={<CalculationChallengePage />} />
-        <Route path="/cahier/calculs-melanges" element={<MixedCalcPage />} />
+        <Route path="/cahier/calculs-melanges" element={<MixedModePage />} />
         <Route path="/tables" element={<TablesPage />} />
         <Route path="/stories" element={<StoryLibraryPage />} />
         <Route path="/stories/:id" element={<StoryReaderPage />} />
