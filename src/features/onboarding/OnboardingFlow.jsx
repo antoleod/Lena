@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { saveProfile, getProfile } from '../../services/storage/profileStore.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
+import { assetUrl } from '../../shared/assets/assetUrl.js';
 
 const localeOptions = [
   { id: 'fr', label: 'Français', flag: '🇫🇷' },
@@ -48,9 +49,9 @@ export default function OnboardingFlow() {
   }, []);
 
   const mascotSrc = useMemo(() => {
-    if (step === 3) return '/assets/characters/mascot-celebrate.svg';
-    if (step === 2 && name.length > 0) return '/assets/characters/mascot-happy.svg';
-    return '/assets/characters/mascot-focused.svg';
+    if (step === 3) return assetUrl('assets/characters/mascot-celebrate.svg');
+    if (step === 2 && name.length > 0) return assetUrl('assets/characters/mascot-happy.svg');
+    return assetUrl('assets/characters/mascot-focused.svg');
   }, [step, name]);
 
   useEffect(() => {
@@ -215,7 +216,7 @@ export default function OnboardingFlow() {
                     data-testid={`onboarding-theme-${option.id}`}
                   >
                     <div className="ob-world-card__art">
-                      <img src={`/assets/worlds/${option.worldArt}.svg`} alt="" />
+                      <img src={assetUrl(`assets/worlds/${option.worldArt}.svg`)} alt="" />
                     </div>
                     <div className="ob-world-card__body">
                       <span className="ob-world-card__icon">{option.icon}</span>

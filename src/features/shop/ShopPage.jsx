@@ -9,10 +9,7 @@ import {
 } from '../../services/storage/rewardStore.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
-
-function assetUrl(path) {
-  return `${import.meta.env.BASE_URL}${path}`;
-}
+import { assetUrl } from '../../shared/assets/assetUrl.js';
 
 // Daily deal: rotate based on day of year
 function getDailyDealId(catalog) {

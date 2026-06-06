@@ -1,3 +1,5 @@
+import { assetUrl } from '../../shared/assets/assetUrl.js';
+
 const VISUAL_VOCABULARY = {
   apple: {
     asset: '/assets/learning/apple.svg',
@@ -40,7 +42,7 @@ export function createVisualWordChoice(conceptId, locale) {
     value: label,
     label,
     media: {
-      src: item.asset,
+      src: assetUrl(item.asset),
       alt: label
     }
   };

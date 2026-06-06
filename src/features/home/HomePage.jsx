@@ -4,12 +4,13 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSessionSnapshot, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 import { getAdventureDashboard } from '../../shared/gameplay/adventureProgress.js';
 import { getLevelProgress } from '../../services/learning/levelSystem.js';
+import { assetUrl } from '../../shared/assets/assetUrl.js';
 
 function StreakFlame({ count }) {
   if (!count) return null;
   return (
     <span className="streak-flame">
-      <img src="/assets/stickers/badge-fire.svg" alt="" className="streak-flame__icon" />
+      <img src={assetUrl('assets/stickers/badge-fire.svg')} alt="" className="streak-flame__icon" />
       <strong>{count}</strong>
     </span>
   );
@@ -60,7 +61,7 @@ export default function HomePage() {
           <div className="home-hero__top">
             <div>
               <p className="home-hero__greeting">
-                {greeting && <img src={`/assets/icons/${greeting}.svg`} alt="" className="hero-greeting__icon" />}
+                {greeting && <img src={assetUrl(`assets/icons/${greeting}.svg`)} alt="" className="hero-greeting__icon" />}
                 {t('homeDashboardEyebrow')}
               </p>
               <h1 className="home-hero__name">{profile.name || t('defaultChildName')}</h1>
@@ -69,9 +70,9 @@ export default function HomePage() {
           </div>
 
           <Link className="home-cta home-cta--tall" to={primaryRoute} data-testid="home-primary-cta">
-            <img src={`/assets/icons/${nextTarget ? 'icon-play' : 'icon-star'}.svg`} alt="" className="home-cta__icon" />
+            <img src={assetUrl(`assets/icons/${nextTarget ? 'icon-play' : 'icon-star'}.svg`)} alt="" className="home-cta__icon" />
             <span className="home-cta__label">{nextTarget ? t('homeContinueMission') : t('startAdventure')}</span>
-            <img src="/assets/icons/icon-arrow-right.svg" alt="" className="home-cta__arrow" />
+            <img src={assetUrl('assets/icons/icon-arrow-right.svg')} alt="" className="home-cta__arrow" />
           </Link>
         </div>
 

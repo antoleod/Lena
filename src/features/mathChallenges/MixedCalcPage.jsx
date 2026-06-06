@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { generateMixedSet, OPERATIONS, TERM_CHOICES, DIGIT_CHOICES } from './mixedCalcEngine.js';
 import { saveSession } from '../exerciseGenerator/exerciseStorage.js';
@@ -27,6 +27,15 @@ export default function MixedCalcPage() {
     setOps((cur) => (cur.includes(id) ? (cur.length > 1 ? cur.filter((o) => o !== id) : cur) : [...cur, id]));
   }
 
+  function applyPreset(p) {
+    setOps(p.ops); setTerms(p.terms); setDigits(p.digits);
+  }
+  const PRESETS = [
+    { id: 'facile', label: 'Facile', emoji: '🟢', ops: ['+'], terms: 2, digits: 1 },
+    { id: 'moyen', label: 'Moyen', emoji: '🟠', ops: ['+', '−'], terms: 3, digits: 2 },
+    { id: 'defi', label: 'Défi', emoji: '🔴', ops: ['+', '−', '×'], terms: 4, digits: 2 },
+  ];
+
   function start() {
     setExercises(generateMixedSet({ terms, operations: ops, digits, count }));
     setGraded([]);
@@ -42,7 +51,7 @@ export default function MixedCalcPage() {
   if (phase === 'test') return <Test exercises={exercises} onBack={() => setPhase('notebook')} onFinish={finish} />;
   if (phase === 'results') return <Results graded={graded} onRetry={start} onNew={() => setPhase('setup')} />;
 
-  const preview = generatePreview(terms, ops, digits);
+  const preview = useMemo(() => generatePreview(terms, ops, digits), [terms, ops, digits]);
 
   return (
     <div className="cahier-page">
@@ -54,6 +63,17 @@ export default function MixedCalcPage() {
           <p className="cahier-sub">Choisis toi-même tes calculs : 2+4+6, 4+5+6+7, 2×3−4+6…</p>
         </div>
       </div>
+
+      <section className="cahier-section">
+        <h2 className="cahier-section__title">Choix rapide</h2>
+        <div className="cahier-choice-row">
+          {PRESETS.map((p) => (
+            <button key={p.id} type="button" className="cahier-chip cahier-chip--big" onClick={() => applyPreset(p)}>
+              <span className="cahier-chip__emoji">{p.emoji}</span><span>{p.label}</span>
+            </button>
+          ))}
+        </div>
+      </section>
 
       <section className="cahier-section">
         <h2 className="cahier-section__title">1. Quelles opérations ?</h2>

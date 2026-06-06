@@ -65,9 +65,9 @@ function shapeElement(shape, { selectable, fill, onTap }) {
  * @param onTapShape (shape) => void
  * @param showCorrection draws the full/answer overlay when available
  */
-export function GeometryFigure({ spec, selectable = false, selectedColors = {}, onTapShape, showCorrection = false }) {
+export function GeometryFigure({ spec, selectable = false, selectedColors = {}, onTapShape, showCorrection = false, ariaLabel }) {
   return (
-    <svg viewBox="0 0 100 100" className="geo-svg" role="img" aria-label="figure géométrique">
+    <svg viewBox="0 0 100 100" className="geo-svg" role="img" aria-label={ariaLabel || describeSpec(spec)}>
       {spec.kind === 'grid' && <GridBackground />}
       {spec.kind === 'grid' && spec.segments.map((s, i) => (
         <line key={i} x1={s.x1} y1={s.y1} x2={s.x2} y2={s.y2}
@@ -87,6 +87,16 @@ export function GeometryFigure({ spec, selectable = false, selectedColors = {}, 
       )}
     </svg>
   );
+}
+
+const SHAPE_FR = { square: 'carré', rect: 'rectangle', triangle: 'triangle', disc: 'disque' };
+function describeSpec(spec) {
+  if (!spec) return 'figure géométrique';
+  if (spec.kind === 'grid') return 'figure à compléter sur quadrillage';
+  const counts = {};
+  for (const s of spec.shapes || []) counts[s.type] = (counts[s.type] || 0) + 1;
+  const parts = Object.entries(counts).map(([t, n]) => `${n} ${SHAPE_FR[t] || t}${n > 1 ? 's' : ''}`);
+  return parts.length ? `figure avec ${parts.join(', ')}` : 'figure géométrique';
 }
 
 function GridBackground() {

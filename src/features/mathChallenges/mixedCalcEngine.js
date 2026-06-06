@@ -33,15 +33,15 @@ export const OPERATIONS = [
 ];
 export const TERM_CHOICES = [2, 3, 4];
 export const DIGIT_CHOICES = [
-  { id: 1, label: '1 chiffre (1–9)' },
-  { id: 2, label: '2 chiffres (jusqu’à 40)' },
-  { id: 3, label: '3 chiffres (jusqu’à 300)' },
+  { id: 1, label: 'Petits 1–9' },
+  { id: 2, label: 'Moyens 10–40' },
+  { id: 3, label: 'Grands 10–300' },
 ];
 
 function termRange(digits, hasHighPrec) {
   if (hasHighPrec) return [1, 9]; // keep × / ÷ primary-safe
   if (digits <= 1) return [1, 9];
-  if (digits === 2) return [1, 40];
+  if (digits === 2) return [10, 40];
   return [10, 300];
 }
 
@@ -76,8 +76,10 @@ function fixDivisions(values, ops) {
   for (let i = 0; i < ops.length; i++) {
     if (ops[i] !== '÷') continue;
     if (i > 0 && isHigh(ops[i - 1])) ops[i - 1] = '+';
-    const divisors = divisorsOf(values[i]);
-    values[i + 1] = pick(divisors);
+    const all = divisorsOf(values[i]);
+    // Prefer a non-trivial divisor (not 1, not the number itself) when possible.
+    const nice = all.filter((d) => d !== 1 && d !== values[i]);
+    values[i + 1] = pick(nice.length ? nice : all);
   }
 }
 

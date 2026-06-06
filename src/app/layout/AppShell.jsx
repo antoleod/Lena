@@ -6,6 +6,7 @@ import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges
 import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
 import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
+import { assetUrl } from '../../shared/assets/assetUrl.js';
 
 
 export default function AppShell() {
@@ -82,7 +83,7 @@ export default function AppShell() {
               onClick={playTapSound}
               data-testid={`nav-sidebar-${item.to.replace('/', '') || 'home'}`}
             >
-              <img src={`/assets/icons/${item.icon}.svg`} alt="" className="sidebar-link__icon" />
+              <img src={assetUrl(`assets/icons/${item.icon}.svg`)} alt="" className="sidebar-link__icon" />
               <span>{item.label}</span>
             </NavLink>
           ))}
@@ -90,12 +91,12 @@ export default function AppShell() {
 
         <div className="sidebar-tools">
           <div className="level-pill" aria-label={`Niveau ${globalLevel}`}>
-            <img src="/assets/icons/icon-star.svg" alt="" className="level-pill__icon" />
+            <img src={assetUrl('assets/icons/icon-star.svg')} alt="" className="level-pill__icon" />
             <span>Niv. {globalLevel}</span>
           </div>
 
           <button type="button" className="wallet-compact sidebar-wallet" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-wallet-sidebar" title={t('shop')}>
-            <img src="/assets/icons/icon-gem.svg" alt="" className="wallet-compact__icon" />
+            <img src={assetUrl('assets/icons/icon-gem.svg')} alt="" className="wallet-compact__icon" />
             <span>{session.rewards.balance}</span>
             <small>{t('crystals')}</small>
             {session.rewards.balance > 50 && (
@@ -109,7 +110,7 @@ export default function AppShell() {
             onClick={() => { playTapSound(); setCustomizerOpen(true); }}
             title="Personalizar mundo"
           >
-            <img src="/assets/icons/icon-settings.svg" alt="" className="icon-link__icon" />
+            <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
             <span>Personalizar</span>
           </button>
 
@@ -123,7 +124,7 @@ export default function AppShell() {
               navigate('/onboarding', { replace: true, state: { from: location.pathname } });
             }}
           >
-            <img src="/assets/icons/icon-close.svg" alt="" className="icon-link__icon" />
+            <img src={assetUrl('assets/icons/icon-close.svg')} alt="" className="icon-link__icon" />
             <span>{t('logoutLabel') || 'Logout'}</span>
           </button>
         </div>
@@ -145,7 +146,7 @@ export default function AppShell() {
               onClick={playTapSound}
               data-testid={`nav-${item.to.replace('/', '') || 'home'}`}
             >
-              <img src={`/assets/icons/${item.icon}.svg`} alt={item.label} className="topbar-link__icon" />
+              <img src={assetUrl(`assets/icons/${item.icon}.svg`)} alt={item.label} className="topbar-link__icon" />
               <span>{item.label}</span>
             </NavLink>
           ))}
@@ -153,12 +154,12 @@ export default function AppShell() {
 
         <div className="topbar-tools">
           <div className="level-pill" aria-label={`Niveau ${globalLevel}`}>
-            <img src="/assets/icons/icon-star.svg" alt="" className="level-pill__icon" />
+            <img src={assetUrl('assets/icons/icon-star.svg')} alt="" className="level-pill__icon" />
             <span>Niv. {globalLevel}</span>
           </div>
 
           <button type="button" className="wallet-compact" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-wallet" title={t('shop')}>
-            <img src="/assets/icons/icon-gem.svg" alt="" className="wallet-compact__icon" />
+            <img src={assetUrl('assets/icons/icon-gem.svg')} alt="" className="wallet-compact__icon" />
             <span>{session.rewards.balance}</span>
             <small>{t('crystals')}</small>
             {session.rewards.balance > 50 && (
@@ -171,7 +172,7 @@ export default function AppShell() {
             onClick={() => { playTapSound(); setCustomizerOpen(true); }}
             title="Personalizar mundo"
           >
-            <img src="/assets/icons/icon-settings.svg" alt="" className="icon-link__icon" />
+            <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
             <span>Personalizar</span>
           </button>
 
@@ -185,7 +186,7 @@ export default function AppShell() {
               navigate('/onboarding', { replace: true, state: { from: location.pathname } });
             }}
           >
-            <img src="/assets/icons/icon-close.svg" alt="" className="icon-link__icon" />
+            <img src={assetUrl('assets/icons/icon-close.svg')} alt="" className="icon-link__icon" />
             <span>{t('logoutLabel') || 'Logout'}</span>
           </button>
         </div>

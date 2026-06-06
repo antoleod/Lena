@@ -172,7 +172,7 @@ function buildColor(difficulty) {
   for (let i = 0; i < total; i++) {
     const type = i < want + 1 ? target : pick(others); // ensure at least `want`(+1) targets exist
     const [cx, cy] = cells[i];
-    shapes.push(shapeAt(type, cx, cy, 16));
+    shapes.push(shapeAt(type, cx, cy, 18)); // larger = easier tap target on touch
   }
   return finalize('color_shapes', difficulty, {
     question: `Colorie ${want} ${want > 1 ? SHAPE_PLURAL[target] : SHAPE_LABELS[target]} en ${color.label}.`,

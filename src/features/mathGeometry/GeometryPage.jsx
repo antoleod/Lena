@@ -10,7 +10,7 @@ import '../exerciseGenerator/cahier.css';
 import './geometry.css';
 
 const POSITIVE = 'Bravo ! Pour vérifier, recompte doucement une deuxième fois.';
-const GENTLE = 'Ce n’est pas grave. Regarde bien la figure, puis recompte tranquillement.';
+const GENTLE = 'Ce n’est pas grave. Regarde bien la figure, puis essaie encore tranquillement.';
 
 function normalize(v) {
   return String(v ?? '').trim().toLowerCase().replace(/\s+/g, ' ');
@@ -125,7 +125,7 @@ function GeometryNotebook({ exercises, onBack, onStart }) {
             <li key={ex.id} className="notebook-item">
               <span className="notebook-item__text">{ex.question}</span>
               <div className="geo-figure-card" style={{ margin: '8px 0' }}>
-                <GeometryFigure spec={ex.spec} />
+                <GeometryFigure spec={ex.spec} ariaLabel={ex.question} />
               </div>
               <span className="notebook-item__blank" aria-hidden="true" />
             </li>

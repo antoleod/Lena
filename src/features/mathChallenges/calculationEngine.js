@@ -34,20 +34,24 @@ function base(type, difficulty, fields) {
 function buildChained(difficulty) {
   const max = difficulty === 'easy' ? 10 : difficulty === 'medium' ? 30 : 50;
   const nbTerms = difficulty === 'hard' ? 4 : 3;
-  // Build keeping every running total >= 0 and <= ~100.
-  let total = rint(2, max);
-  const parts = [String(total)];
-  const steps = [`On part de ${total}.`];
-  for (let i = 1; i < nbTerms; i++) {
-    const add = difficulty === 'easy' ? true : Math.random() < 0.55;
-    if (add) {
-      const n = rint(1, max);
-      total += n; parts.push(`+ ${n}`); steps.push(`${total - n} + ${n} = ${total}.`);
-    } else {
-      const n = rint(1, Math.max(1, total));
-      total -= n; parts.push(`− ${n}`); steps.push(`${total + n} − ${n} = ${total}.`);
+  let total, parts, steps, guard = 0;
+  do {
+    // Start with enough room so subtractions never reach 0 or below.
+    total = difficulty === 'easy' ? rint(2, max) : rint(Math.ceil(max / 2), max);
+    parts = [String(total)];
+    steps = [`On part de ${total}.`];
+    for (let i = 1; i < nbTerms; i++) {
+      const add = difficulty === 'easy' ? true : Math.random() < 0.55;
+      if (add) {
+        const n = rint(1, max);
+        total += n; parts.push(`+ ${n}`); steps.push(`${total - n} + ${n} = ${total}.`);
+      } else {
+        const n = rint(1, Math.max(1, total - 1)); // keep total >= 1
+        total -= n; parts.push(`− ${n}`); steps.push(`${total + n} − ${n} = ${total}.`);
+      }
     }
-  }
+    guard++;
+  } while (total < 1 && guard < 30);
   return base('chained', difficulty, {
     question: `Calcule : ${parts.join(' ')}`,
     correctAnswer: total,

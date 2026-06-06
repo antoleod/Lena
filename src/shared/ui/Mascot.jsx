@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocale } from '../i18n/LocaleContext.jsx';
+import { assetUrl } from '../assets/assetUrl.js';
 
 // ─── SVG assets ──────────────────────────────────────────────────────────────
 
 const MASCOT_SRC = {
-  idle:      '/assets/characters/mascot-focused.svg',
-  thinking:  '/assets/characters/mascot-focused.svg',
-  correct:   '/assets/characters/mascot-happy.svg',
-  wrong:     '/assets/characters/mascot-sad.svg',
-  completed: '/assets/characters/mascot-celebrate.svg',
+  idle:      assetUrl('assets/characters/mascot-focused.svg'),
+  thinking:  assetUrl('assets/characters/mascot-focused.svg'),
+  correct:   assetUrl('assets/characters/mascot-happy.svg'),
+  wrong:     assetUrl('assets/characters/mascot-sad.svg'),
+  completed: assetUrl('assets/characters/mascot-celebrate.svg'),
 };
 
 // ─── Messages ────────────────────────────────────────────────────────────────
