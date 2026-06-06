@@ -38,6 +38,8 @@ import GeometryPage from '../../features/mathGeometry/GeometryPage.jsx';
 import CalculationChallengePage from '../../features/mathChallenges/CalculationChallengePage.jsx';
 import MixedCalcPage from '../../features/mathChallenges/MixedCalcPage.jsx';
 import TablesPage from '../../features/tables/TablesPage.jsx';
+import StoryLibraryPage from '../../features/stories/StoryLibraryPage.jsx';
+import StoryReaderPage from '../../features/stories/StoryReaderPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -145,6 +147,8 @@ export default function AppRouter() {
         <Route path="/cahier/defis-calcul" element={<CalculationChallengePage />} />
         <Route path="/cahier/calculs-melanges" element={<MixedCalcPage />} />
         <Route path="/tables" element={<TablesPage />} />
+        <Route path="/stories" element={<StoryLibraryPage />} />
+        <Route path="/stories/:id" element={<StoryReaderPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

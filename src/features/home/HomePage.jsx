@@ -22,6 +22,7 @@ const ACTION_TILES = [
   { to: '/practice',     emoji: '✏️',  label: 'Pratique' },
   { to: '/lessons',      emoji: '📚',  label: 'Leçons' },
   { to: '/subjects',     emoji: '📖',  label: 'Matières' },
+  { to: '/stories',      emoji: '📖',  label: 'Contes' },
   { to: '/renforcement', emoji: '🧩',  label: 'Renforcement' },
   { to: '/shop',         emoji: '💎',  label: 'Boutique' },
   { to: '/history',      emoji: '📊',  label: 'Historique' },

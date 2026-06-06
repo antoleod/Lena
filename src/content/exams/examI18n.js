@@ -112,6 +112,7 @@ export const EXAM_UI = {
     revisionsTitle: 'Revisions',
     revisionsDone: 'Bravo, revisions terminees !',
     progress: (x, y) => `${x} / ${y} reussis`,
+    plageNombres: 'Plage de nombres',
   },
   nl: {
     libraryTitle: 'Examenbibliotheek',
@@ -145,6 +146,7 @@ export const EXAM_UI = {
     revisionsTitle: 'Oefening',
     revisionsDone: 'Goed gedaan, oefening klaar!',
     progress: (x, y) => `${x} / ${y} gehaald`,
+    plageNombres: 'Getallenbereik',
   },
   en: {
     libraryTitle: 'Exam library',
@@ -178,6 +180,7 @@ export const EXAM_UI = {
     revisionsTitle: 'Revision',
     revisionsDone: 'Well done, revision complete!',
     progress: (x, y) => `${x} / ${y} passed`,
+    plageNombres: 'Number range',
   },
   es: {
     libraryTitle: 'Biblioteca de exámenes',
@@ -211,6 +214,7 @@ export const EXAM_UI = {
     revisionsTitle: 'Repaso',
     revisionsDone: 'Muy bien, repaso terminado!',
     progress: (x, y) => `${x} / ${y} superados`,
+    plageNombres: 'Rango de numeros',
   },
 };
 

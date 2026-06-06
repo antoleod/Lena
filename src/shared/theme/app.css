@@ -11742,6 +11742,33 @@ input.exam-choice:hover { transform: none; }
 .exam-category-progress-summary { font-size: .8rem; color: var(--muted); font-weight: 700; margin: 4px 0 0; }
 .exam-subject-card__best-badge { display: inline-flex; align-items: center; margin-top: 2px; }
 
+/* ── Story Reader ──────────────────────────────────────────────────────────── */
+@keyframes storyBounce { from { transform: translateY(0); } to { transform: translateY(-12px); } }
+
+.story-btn {
+  padding: 12px 22px; border-radius: 14px; border: 2px solid var(--line);
+  background: var(--surface-strong); color: var(--text); font-weight: 700;
+  font-size: .95rem; cursor: pointer; transition: filter .15s, transform .1s;
+}
+.story-btn:active { transform: scale(.96); }
+.story-btn:hover { filter: brightness(.97); }
+.story-btn--primary {
+  background: linear-gradient(135deg, var(--primary), var(--violet));
+  border-color: transparent; color: #fff;
+}
+.story-btn--primary:hover { filter: brightness(1.06); }
+
+.story-speech-bubble { position: relative; }
+
+.story-minigame { display: flex; flex-direction: column; gap: 12px; }
+.story-minigame__prompt { font-size: 1.05rem; font-weight: 700; color: var(--text); margin: 0; line-height: 1.5; }
+.story-minigame__options { display: flex; flex-direction: column; gap: 10px; }
+.story-minigame__options--row { flex-direction: row; gap: 12px; flex-wrap: wrap; }
+.story-minigame__sequence { display: flex; flex-direction: column; gap: 8px; }
+
+.story-vocab-card { transition: transform .15s; }
+.story-vocab-card:hover { transform: translateY(-2px); }
+
 /* Error badge button */
 .errors-cta { display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: #e74c3c; border: 1.5px solid #c0392b; border-radius: 14px; cursor: pointer; color: #fff; font-weight: 800; font-size: .95rem; text-decoration: none; transition: filter .15s; margin-bottom: 20px; width: fit-content; box-shadow: 0 4px 14px rgba(231,76,60,.35); }
 .errors-cta:hover { filter: brightness(1.08); }

@@ -6,6 +6,7 @@ import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { recordError } from '../../../services/storage/errorHistoryStore.js';
 import { recordStudyTime } from '../../../services/storage/progressStore.js';
 import { saveResult, starsFor } from './examLibraryProgress.js';
+import { generateExercises } from '../../exerciseGenerator/exerciseEngine.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -159,6 +160,7 @@ export default function ExamRunnerPage() {
   const [configTimerMinutes, setConfigTimerMinutes] = useState(null);   // null = unlimited
   const [activeQuestions, setActiveQuestions] = useState(null); // sliced/shuffled questions
   const [timerSecondsLeft, setTimerSecondsLeft] = useState(null);
+  const [numberRange, setNumberRange] = useState({ min: 0, max: 100 });
 
   const startRef = useRef(Date.now());
 
@@ -260,6 +262,17 @@ export default function ExamRunnerPage() {
   if (phase === 'config') {
     const qCountOptions = [null, 5, 10, 15];
     const timerOptions = [null, 5, 10, 15, 20];
+    const categoryId = exam.category;
+    const isMathCategory = categoryId === 'calcul-mental' || categoryId === 'problemes-mathematiques';
+    const rangeOptions = [
+      { label: '0 - 10',   min: 0,   max: 10  },
+      { label: '0 - 20',   min: 0,   max: 20  },
+      { label: '0 - 50',   min: 0,   max: 50  },
+      { label: '0 - 100',  min: 0,   max: 100 },
+      { label: '0 - 200',  min: 0,   max: 200 },
+      { label: '100 - 200', min: 100, max: 200 },
+      { label: '50 - 500', min: 50,  max: 500 },
+    ];
     return (
       <div className="reader-page" style={{ justifyContent: 'center', padding: '32px 16px' }}>
         <div className="reader-card" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -300,13 +313,57 @@ export default function ExamRunnerPage() {
             </div>
           </div>
 
+          {isMathCategory && (
+            <div>
+              <p style={{ color: '#fff', fontWeight: 700, marginBottom: 8 }}>{ui.plageNombres}</p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                {rangeOptions.map((r) => {
+                  const active = numberRange.min === r.min && numberRange.max === r.max;
+                  return (
+                    <button
+                      key={r.label}
+                      type="button"
+                      className="exam-choice"
+                      style={active ? { background: 'var(--primary)', color: '#fff', border: '2px solid var(--primary)' } : {}}
+                      onClick={() => setNumberRange({ min: r.min, max: r.max })}
+                    >
+                      {r.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           <button
             type="button"
             className="reader-btn reader-btn--start"
             onClick={() => {
-              let qs = allQuestions;
-              if (configQuestionCount && configQuestionCount < qs.length) {
-                qs = shuffle(qs).slice(0, configQuestionCount);
+              let qs;
+              if (isMathCategory) {
+                const genType = categoryId === 'calcul-mental' ? 'additions' : 'problemes';
+                const count = configQuestionCount || 10;
+                const generated = generateExercises({
+                  subject: 'math',
+                  type: genType,
+                  count,
+                  minVal: numberRange.min,
+                  maxVal: numberRange.max,
+                  locale,
+                });
+                qs = generated.map((ex) => ({
+                  id: Math.random().toString(36).slice(2),
+                  type: 'fill_blank',
+                  prompt: ex.testQuestion || ex.question,
+                  answer: String(ex.answer),
+                  correction: ex.explanation || String(ex.answer),
+                  accept: [String(ex.answer)],
+                }));
+              } else {
+                qs = allQuestions;
+                if (configQuestionCount && configQuestionCount < qs.length) {
+                  qs = shuffle(qs).slice(0, configQuestionCount);
+                }
               }
               setActiveQuestions(qs);
               setQIndex(0);
@@ -381,6 +438,7 @@ export default function ExamRunnerPage() {
     setActiveQuestions(null);
     setTimerSecondsLeft(null);
     setWrongQuestions([]);
+    setNumberRange({ min: 0, max: 100 });
     startRef.current = Date.now();
   }
 
