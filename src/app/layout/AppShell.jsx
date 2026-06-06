@@ -22,17 +22,58 @@ const BREAK_LABELS = {
 function ParentalLimitOverlay({ locale, onUnlock }) {
   const [pin, setPin] = useState('');
   const [error, setError] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+  const navigate = useNavigate();
   const label = BREAK_LABELS[locale] || BREAK_LABELS.fr;
 
   function handleSubmit(e) {
     e.preventDefault();
     if (verifyPin(pin)) {
       sessionStorage.setItem(PARENTAL_OVERRIDE_KEY, '1');
-      onUnlock();
+      setUnlocked(true);
     } else {
       setError(true);
       setPin('');
     }
+  }
+
+  // After PIN confirmed — show action choices
+  if (unlocked) {
+    return (
+      <div style={{
+        position: 'fixed', inset: 0, zIndex: 9999,
+        background: 'linear-gradient(160deg,#5a36a8,#743fb0,#9a4fa6)',
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
+        justifyContent: 'center', gap: 20, padding: 32,
+      }}>
+        <span style={{ fontSize: '3rem' }}>🔓</span>
+        <h2 style={{ color: '#fff', textAlign: 'center', margin: 0, fontSize: '1.4rem' }}>
+          {locale === 'nl' ? 'Wat wil je doen?' : locale === 'en' ? 'What would you like to do?' : locale === 'es' ? 'Que quieres hacer?' : 'Que voulez-vous faire ?'}
+        </h2>
+        <button
+          type="button"
+          onClick={onUnlock}
+          style={{
+            padding: '14px 32px', borderRadius: 16, fontSize: '1rem', fontWeight: 700,
+            background: 'linear-gradient(135deg,#ff8fc6,#ffcf74)',
+            color: '#fff', border: 'none', cursor: 'pointer', width: 260,
+          }}
+        >
+          {locale === 'nl' ? 'Doorgaan met spelen' : locale === 'en' ? 'Continue playing' : locale === 'es' ? 'Continuar jugando' : 'Continuer a jouer'}
+        </button>
+        <button
+          type="button"
+          onClick={() => { onUnlock(); navigate('/parental'); }}
+          style={{
+            padding: '14px 32px', borderRadius: 16, fontSize: '1rem', fontWeight: 700,
+            background: 'rgba(255,255,255,.2)',
+            color: '#fff', border: '2px solid rgba(255,255,255,.5)', cursor: 'pointer', width: 260,
+          }}
+        >
+          {locale === 'nl' ? 'Tableau de bord' : locale === 'en' ? 'Parental dashboard' : locale === 'es' ? 'Panel de control' : 'Tableau de bord'}
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -48,7 +89,7 @@ function ParentalLimitOverlay({ locale, onUnlock }) {
         {locale === 'nl' ? 'Vraag aan een volwassene om de PIN in te voeren.'
           : locale === 'en' ? 'Ask a grown-up to enter the PIN to continue.'
           : locale === 'es' ? 'Pide a un adulto que introduzca el PIN para continuar.'
-          : "Demande à un adulte d'entrer le code PIN pour continuer."}
+          : "Demande a un adulte d'entrer le code PIN pour continuer."}
       </p>
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
         <input
@@ -72,7 +113,7 @@ function ParentalLimitOverlay({ locale, onUnlock }) {
           background: pin.length === 4 ? 'linear-gradient(135deg,#ff8fc6,#ffcf74)' : 'rgba(255,255,255,.2)',
           color: '#fff', border: 'none', cursor: pin.length === 4 ? 'pointer' : 'default',
         }}>
-          {locale === 'nl' ? 'Ontgrendelen' : locale === 'en' ? 'Unlock' : locale === 'es' ? 'Desbloquear' : 'Déverrouiller'}
+          {locale === 'nl' ? 'Ontgrendelen' : locale === 'en' ? 'Unlock' : locale === 'es' ? 'Desbloquear' : 'Deverrouiller'}
         </button>
       </form>
     </div>

@@ -196,6 +196,9 @@ export default function ExerciseGeneratorPage() {
           <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/calculs-melanges')}>
             <span className="cahier-chip__emoji">🧩</span><span>Calculs à composer</span>
           </button>
+          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/tables')}>
+            <span className="cahier-chip__emoji">✖️</span><span>Tables de multiplication</span>
+          </button>
           <button type="button" className="cahier-chip cahier-chip--big" onClick={() => setPhase('retravailler')}>
             <span className="cahier-chip__emoji">💪</span><span>{L.t('aRetravailler')}</span>
           </button>

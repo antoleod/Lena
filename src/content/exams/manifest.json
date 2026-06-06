@@ -1,0 +1,5580 @@
+{
+  "categories": [
+    {
+      "id": "comprehension-lecture",
+      "label": "Compréhension lecture",
+      "emoji": "📖",
+      "order": 1,
+      "exams": [
+        {
+          "id": "comprehension-lecture-01",
+          "title": "L'anniversaire de Léo",
+          "emoji": "🎂",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-01.json"
+        },
+        {
+          "id": "comprehension-lecture-02",
+          "title": "Le cartable oublié",
+          "emoji": "🎒",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-02.json"
+        },
+        {
+          "id": "comprehension-lecture-03",
+          "title": "Le goûter partagé",
+          "emoji": "🍪",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-03.json"
+        },
+        {
+          "id": "comprehension-lecture-04",
+          "title": "Le petit chat perdu",
+          "emoji": "🐱",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-04.json"
+        },
+        {
+          "id": "comprehension-lecture-05",
+          "title": "La sortie au parc",
+          "emoji": "🌳",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-05.json"
+        },
+        {
+          "id": "comprehension-lecture-06",
+          "title": "Le dessin de la forêt",
+          "emoji": "🎨",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-06.json"
+        },
+        {
+          "id": "comprehension-lecture-07",
+          "title": "Le dimanche en famille",
+          "emoji": "👨‍👩‍👧",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-07.json"
+        },
+        {
+          "id": "comprehension-lecture-08",
+          "title": "Les vacances à la mer",
+          "emoji": "🏖️",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-08.json"
+        },
+        {
+          "id": "comprehension-lecture-09",
+          "title": "Le livre rouge",
+          "emoji": "📖",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-09.json"
+        },
+        {
+          "id": "comprehension-lecture-10",
+          "title": "Le match de Sami",
+          "emoji": "⚽",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./comprehension-lecture/comprehension-lecture-10.json"
+        }
+      ]
+    },
+    {
+      "id": "calcul-mental",
+      "label": "Calcul mental",
+      "emoji": "🔢",
+      "order": 2,
+      "exams": [
+        {
+          "id": "calcul-mental-01",
+          "title": "Additions jusqu’à 10",
+          "emoji": "🔢",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-01.json"
+        },
+        {
+          "id": "calcul-mental-02",
+          "title": "Additions jusqu’à 20",
+          "emoji": "🔢",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-02.json"
+        },
+        {
+          "id": "calcul-mental-03",
+          "title": "Soustractions jusqu’à 10",
+          "emoji": "🔢",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-03.json"
+        },
+        {
+          "id": "calcul-mental-04",
+          "title": "Soustractions jusqu’à 20",
+          "emoji": "🔢",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-04.json"
+        },
+        {
+          "id": "calcul-mental-05",
+          "title": "Additions et soustractions",
+          "emoji": "🔢",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-05.json"
+        },
+        {
+          "id": "calcul-mental-06",
+          "title": "Compléter à 10",
+          "emoji": "🔢",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-06.json"
+        },
+        {
+          "id": "calcul-mental-07",
+          "title": "Compléter à 20",
+          "emoji": "🔢",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-07.json"
+        },
+        {
+          "id": "calcul-mental-08",
+          "title": "Le nombre manquant (+)",
+          "emoji": "🔢",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-08.json"
+        },
+        {
+          "id": "calcul-mental-09",
+          "title": "Le nombre manquant (−)",
+          "emoji": "🔢",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-09.json"
+        },
+        {
+          "id": "calcul-mental-10",
+          "title": "Calcul mental mélangé",
+          "emoji": "🔢",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calcul-mental/calcul-mental-10.json"
+        }
+      ]
+    },
+    {
+      "id": "problemes-mathematiques",
+      "label": "Problèmes mathématiques",
+      "emoji": "📖",
+      "order": 3,
+      "exams": [
+        {
+          "id": "problemes-mathematiques-01",
+          "title": "Problèmes : les billes",
+          "emoji": "📖",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-01.json"
+        },
+        {
+          "id": "problemes-mathematiques-02",
+          "title": "Problèmes : les bonbons",
+          "emoji": "📖",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-02.json"
+        },
+        {
+          "id": "problemes-mathematiques-03",
+          "title": "Problèmes : les images",
+          "emoji": "📖",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-03.json"
+        },
+        {
+          "id": "problemes-mathematiques-04",
+          "title": "Problèmes : les pommes",
+          "emoji": "📖",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-04.json"
+        },
+        {
+          "id": "problemes-mathematiques-05",
+          "title": "Problèmes : les crayons",
+          "emoji": "📖",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-05.json"
+        },
+        {
+          "id": "problemes-mathematiques-06",
+          "title": "Problèmes : les fleurs",
+          "emoji": "📖",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-06.json"
+        },
+        {
+          "id": "problemes-mathematiques-07",
+          "title": "Problèmes : les livres",
+          "emoji": "📖",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-07.json"
+        },
+        {
+          "id": "problemes-mathematiques-08",
+          "title": "Problèmes : les autocollants",
+          "emoji": "📖",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-08.json"
+        },
+        {
+          "id": "problemes-mathematiques-09",
+          "title": "Problèmes : les pieces",
+          "emoji": "📖",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-09.json"
+        },
+        {
+          "id": "problemes-mathematiques-10",
+          "title": "Problèmes : les bracelets",
+          "emoji": "📖",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-10.json"
+        },
+        {
+          "id": "problemes-mathematiques-11",
+          "title": "Problèmes : les cartes",
+          "emoji": "📖",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-11.json"
+        },
+        {
+          "id": "problemes-mathematiques-12",
+          "title": "Problèmes : les stylos",
+          "emoji": "📖",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-12.json"
+        },
+        {
+          "id": "problemes-mathematiques-13",
+          "title": "Problèmes : les graines",
+          "emoji": "📖",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-13.json"
+        },
+        {
+          "id": "problemes-mathematiques-14",
+          "title": "Problèmes : les galets",
+          "emoji": "📖",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-14.json"
+        },
+        {
+          "id": "problemes-mathematiques-15",
+          "title": "Problèmes : les plumes",
+          "emoji": "📖",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-15.json"
+        },
+        {
+          "id": "problemes-mathematiques-16",
+          "title": "Problèmes : les perles",
+          "emoji": "📖",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-16.json"
+        },
+        {
+          "id": "problemes-mathematiques-17",
+          "title": "Problèmes : les oeufs",
+          "emoji": "📖",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-17.json"
+        },
+        {
+          "id": "problemes-mathematiques-18",
+          "title": "Problèmes : les bougies",
+          "emoji": "📖",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-18.json"
+        },
+        {
+          "id": "problemes-mathematiques-19",
+          "title": "Problèmes : les noisettes",
+          "emoji": "📖",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-19.json"
+        },
+        {
+          "id": "problemes-mathematiques-20",
+          "title": "Problèmes : les cailloux",
+          "emoji": "📖",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./problemes-mathematiques/problemes-mathematiques-20.json"
+        }
+      ]
+    },
+    {
+      "id": "calendrier-temps",
+      "label": "Calendrier & temps",
+      "emoji": "📅",
+      "order": 4,
+      "exams": [
+        {
+          "id": "calendrier-temps-01",
+          "title": "Le temps qui passe 1",
+          "emoji": "📅",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-01.json"
+        },
+        {
+          "id": "calendrier-temps-02",
+          "title": "Le temps qui passe 2",
+          "emoji": "📅",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-02.json"
+        },
+        {
+          "id": "calendrier-temps-03",
+          "title": "Le temps qui passe 3",
+          "emoji": "📅",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-03.json"
+        },
+        {
+          "id": "calendrier-temps-04",
+          "title": "Le temps qui passe 4",
+          "emoji": "📅",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-04.json"
+        },
+        {
+          "id": "calendrier-temps-05",
+          "title": "Le temps qui passe 5",
+          "emoji": "📅",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-05.json"
+        },
+        {
+          "id": "calendrier-temps-06",
+          "title": "Le temps qui passe 6",
+          "emoji": "📅",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-06.json"
+        },
+        {
+          "id": "calendrier-temps-07",
+          "title": "Le temps qui passe 7",
+          "emoji": "📅",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-07.json"
+        },
+        {
+          "id": "calendrier-temps-08",
+          "title": "Le temps qui passe 8",
+          "emoji": "📅",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-08.json"
+        },
+        {
+          "id": "calendrier-temps-09",
+          "title": "Le temps qui passe 9",
+          "emoji": "📅",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-09.json"
+        },
+        {
+          "id": "calendrier-temps-10",
+          "title": "Le temps qui passe 10",
+          "emoji": "📅",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-10.json"
+        },
+        {
+          "id": "calendrier-temps-11",
+          "title": "Le temps qui passe 11",
+          "emoji": "📅",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-11.json"
+        },
+        {
+          "id": "calendrier-temps-12",
+          "title": "Le temps qui passe 12",
+          "emoji": "📅",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-12.json"
+        },
+        {
+          "id": "calendrier-temps-13",
+          "title": "Le temps qui passe 13",
+          "emoji": "📅",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-13.json"
+        },
+        {
+          "id": "calendrier-temps-14",
+          "title": "Le temps qui passe 14",
+          "emoji": "📅",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-14.json"
+        },
+        {
+          "id": "calendrier-temps-15",
+          "title": "Le temps qui passe 15",
+          "emoji": "📅",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-15.json"
+        },
+        {
+          "id": "calendrier-temps-16",
+          "title": "Le temps qui passe 16",
+          "emoji": "📅",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-16.json"
+        },
+        {
+          "id": "calendrier-temps-17",
+          "title": "Le temps qui passe 17",
+          "emoji": "📅",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-17.json"
+        },
+        {
+          "id": "calendrier-temps-18",
+          "title": "Le temps qui passe 18",
+          "emoji": "📅",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-18.json"
+        },
+        {
+          "id": "calendrier-temps-19",
+          "title": "Le temps qui passe 19",
+          "emoji": "📅",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-19.json"
+        },
+        {
+          "id": "calendrier-temps-20",
+          "title": "Le temps qui passe 20",
+          "emoji": "📅",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./calendrier-temps/calendrier-temps-20.json"
+        }
+      ]
+    },
+    {
+      "id": "vocabulaire",
+      "label": "Vocabulaire",
+      "emoji": "💬",
+      "order": 5,
+      "exams": [
+        {
+          "id": "vocabulaire-01",
+          "title": "Les mots 1",
+          "emoji": "💬",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-01.json"
+        },
+        {
+          "id": "vocabulaire-02",
+          "title": "Les mots 2",
+          "emoji": "💬",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-02.json"
+        },
+        {
+          "id": "vocabulaire-03",
+          "title": "Les mots 3",
+          "emoji": "💬",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-03.json"
+        },
+        {
+          "id": "vocabulaire-04",
+          "title": "Les mots 4",
+          "emoji": "💬",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-04.json"
+        },
+        {
+          "id": "vocabulaire-05",
+          "title": "Les mots 5",
+          "emoji": "💬",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-05.json"
+        },
+        {
+          "id": "vocabulaire-06",
+          "title": "Les mots 6",
+          "emoji": "💬",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-06.json"
+        },
+        {
+          "id": "vocabulaire-07",
+          "title": "Les mots 7",
+          "emoji": "💬",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-07.json"
+        },
+        {
+          "id": "vocabulaire-08",
+          "title": "Les mots 8",
+          "emoji": "💬",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-08.json"
+        },
+        {
+          "id": "vocabulaire-09",
+          "title": "Les mots 9",
+          "emoji": "💬",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-09.json"
+        },
+        {
+          "id": "vocabulaire-10",
+          "title": "Les mots 10",
+          "emoji": "💬",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-10.json"
+        },
+        {
+          "id": "vocabulaire-11",
+          "title": "Les mots 11",
+          "emoji": "💬",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-11.json"
+        },
+        {
+          "id": "vocabulaire-12",
+          "title": "Les mots 12",
+          "emoji": "💬",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-12.json"
+        },
+        {
+          "id": "vocabulaire-13",
+          "title": "Les mots 13",
+          "emoji": "💬",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-13.json"
+        },
+        {
+          "id": "vocabulaire-14",
+          "title": "Les mots 14",
+          "emoji": "💬",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-14.json"
+        },
+        {
+          "id": "vocabulaire-15",
+          "title": "Les mots 15",
+          "emoji": "💬",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-15.json"
+        },
+        {
+          "id": "vocabulaire-16",
+          "title": "Les mots 16",
+          "emoji": "💬",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-16.json"
+        },
+        {
+          "id": "vocabulaire-17",
+          "title": "Les mots 17",
+          "emoji": "💬",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-17.json"
+        },
+        {
+          "id": "vocabulaire-18",
+          "title": "Les mots 18",
+          "emoji": "💬",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-18.json"
+        },
+        {
+          "id": "vocabulaire-19",
+          "title": "Les mots 19",
+          "emoji": "💬",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-19.json"
+        },
+        {
+          "id": "vocabulaire-20",
+          "title": "Les mots 20",
+          "emoji": "💬",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./vocabulaire/vocabulaire-20.json"
+        }
+      ]
+    },
+    {
+      "id": "orthographe",
+      "label": "Orthographe",
+      "emoji": "✏️",
+      "order": 6,
+      "exams": [
+        {
+          "id": "orthographe-01",
+          "title": "Bien écrire 1",
+          "emoji": "✏️",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-01.json"
+        },
+        {
+          "id": "orthographe-02",
+          "title": "Bien écrire 2",
+          "emoji": "✏️",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-02.json"
+        },
+        {
+          "id": "orthographe-03",
+          "title": "Bien écrire 3",
+          "emoji": "✏️",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-03.json"
+        },
+        {
+          "id": "orthographe-04",
+          "title": "Bien écrire 4",
+          "emoji": "✏️",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-04.json"
+        },
+        {
+          "id": "orthographe-05",
+          "title": "Bien écrire 5",
+          "emoji": "✏️",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-05.json"
+        },
+        {
+          "id": "orthographe-06",
+          "title": "Bien écrire 6",
+          "emoji": "✏️",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-06.json"
+        },
+        {
+          "id": "orthographe-07",
+          "title": "Bien écrire 7",
+          "emoji": "✏️",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-07.json"
+        },
+        {
+          "id": "orthographe-08",
+          "title": "Bien écrire 8",
+          "emoji": "✏️",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-08.json"
+        },
+        {
+          "id": "orthographe-09",
+          "title": "Bien écrire 9",
+          "emoji": "✏️",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-09.json"
+        },
+        {
+          "id": "orthographe-10",
+          "title": "Bien écrire 10",
+          "emoji": "✏️",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-10.json"
+        },
+        {
+          "id": "orthographe-11",
+          "title": "Bien écrire 11",
+          "emoji": "✏️",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-11.json"
+        },
+        {
+          "id": "orthographe-12",
+          "title": "Bien écrire 12",
+          "emoji": "✏️",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-12.json"
+        },
+        {
+          "id": "orthographe-13",
+          "title": "Bien écrire 13",
+          "emoji": "✏️",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-13.json"
+        },
+        {
+          "id": "orthographe-14",
+          "title": "Bien écrire 14",
+          "emoji": "✏️",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-14.json"
+        },
+        {
+          "id": "orthographe-15",
+          "title": "Bien écrire 15",
+          "emoji": "✏️",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-15.json"
+        },
+        {
+          "id": "orthographe-16",
+          "title": "Bien écrire 16",
+          "emoji": "✏️",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-16.json"
+        },
+        {
+          "id": "orthographe-17",
+          "title": "Bien écrire 17",
+          "emoji": "✏️",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-17.json"
+        },
+        {
+          "id": "orthographe-18",
+          "title": "Bien écrire 18",
+          "emoji": "✏️",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-18.json"
+        },
+        {
+          "id": "orthographe-19",
+          "title": "Bien écrire 19",
+          "emoji": "✏️",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-19.json"
+        },
+        {
+          "id": "orthographe-20",
+          "title": "Bien écrire 20",
+          "emoji": "✏️",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./orthographe/orthographe-20.json"
+        }
+      ]
+    },
+    {
+      "id": "dictee",
+      "label": "Dictée",
+      "emoji": "🎧",
+      "order": 7,
+      "exams": [
+        {
+          "id": "dictee-01",
+          "title": "Dictée 1",
+          "emoji": "🎧",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-01.json"
+        },
+        {
+          "id": "dictee-02",
+          "title": "Dictée 2",
+          "emoji": "🎧",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-02.json"
+        },
+        {
+          "id": "dictee-03",
+          "title": "Dictée 3",
+          "emoji": "🎧",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-03.json"
+        },
+        {
+          "id": "dictee-04",
+          "title": "Dictée 4",
+          "emoji": "🎧",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-04.json"
+        },
+        {
+          "id": "dictee-05",
+          "title": "Dictée 5",
+          "emoji": "🎧",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-05.json"
+        },
+        {
+          "id": "dictee-06",
+          "title": "Dictée 6",
+          "emoji": "🎧",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-06.json"
+        },
+        {
+          "id": "dictee-07",
+          "title": "Dictée 7",
+          "emoji": "🎧",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-07.json"
+        },
+        {
+          "id": "dictee-08",
+          "title": "Dictée 8",
+          "emoji": "🎧",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-08.json"
+        },
+        {
+          "id": "dictee-09",
+          "title": "Dictée 9",
+          "emoji": "🎧",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-09.json"
+        },
+        {
+          "id": "dictee-10",
+          "title": "Dictée 10",
+          "emoji": "🎧",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-10.json"
+        },
+        {
+          "id": "dictee-11",
+          "title": "Dictée 11",
+          "emoji": "🎧",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-11.json"
+        },
+        {
+          "id": "dictee-12",
+          "title": "Dictée 12",
+          "emoji": "🎧",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-12.json"
+        },
+        {
+          "id": "dictee-13",
+          "title": "Dictée 13",
+          "emoji": "🎧",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-13.json"
+        },
+        {
+          "id": "dictee-14",
+          "title": "Dictée 14",
+          "emoji": "🎧",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-14.json"
+        },
+        {
+          "id": "dictee-15",
+          "title": "Dictée 15",
+          "emoji": "🎧",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-15.json"
+        },
+        {
+          "id": "dictee-16",
+          "title": "Dictée 16",
+          "emoji": "🎧",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-16.json"
+        },
+        {
+          "id": "dictee-17",
+          "title": "Dictée 17",
+          "emoji": "🎧",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-17.json"
+        },
+        {
+          "id": "dictee-18",
+          "title": "Dictée 18",
+          "emoji": "🎧",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-18.json"
+        },
+        {
+          "id": "dictee-19",
+          "title": "Dictée 19",
+          "emoji": "🎧",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-19.json"
+        },
+        {
+          "id": "dictee-20",
+          "title": "Dictée 20",
+          "emoji": "🎧",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./dictee/dictee-20.json"
+        }
+      ]
+    },
+    {
+      "id": "grammaire",
+      "label": "Grammaire",
+      "emoji": "🧩",
+      "order": 8,
+      "exams": [
+        {
+          "id": "grammaire-01",
+          "title": "Les mots et les phrases 1",
+          "emoji": "🧩",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-01.json"
+        },
+        {
+          "id": "grammaire-02",
+          "title": "Les mots et les phrases 2",
+          "emoji": "🧩",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-02.json"
+        },
+        {
+          "id": "grammaire-03",
+          "title": "Les mots et les phrases 3",
+          "emoji": "🧩",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-03.json"
+        },
+        {
+          "id": "grammaire-04",
+          "title": "Les mots et les phrases 4",
+          "emoji": "🧩",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-04.json"
+        },
+        {
+          "id": "grammaire-05",
+          "title": "Les mots et les phrases 5",
+          "emoji": "🧩",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-05.json"
+        },
+        {
+          "id": "grammaire-06",
+          "title": "Les mots et les phrases 6",
+          "emoji": "🧩",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-06.json"
+        },
+        {
+          "id": "grammaire-07",
+          "title": "Les mots et les phrases 7",
+          "emoji": "🧩",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-07.json"
+        },
+        {
+          "id": "grammaire-08",
+          "title": "Les mots et les phrases 8",
+          "emoji": "🧩",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-08.json"
+        },
+        {
+          "id": "grammaire-09",
+          "title": "Les mots et les phrases 9",
+          "emoji": "🧩",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-09.json"
+        },
+        {
+          "id": "grammaire-10",
+          "title": "Les mots et les phrases 10",
+          "emoji": "🧩",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-10.json"
+        },
+        {
+          "id": "grammaire-11",
+          "title": "Les mots et les phrases 11",
+          "emoji": "🧩",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-11.json"
+        },
+        {
+          "id": "grammaire-12",
+          "title": "Les mots et les phrases 12",
+          "emoji": "🧩",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-12.json"
+        },
+        {
+          "id": "grammaire-13",
+          "title": "Les mots et les phrases 13",
+          "emoji": "🧩",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-13.json"
+        },
+        {
+          "id": "grammaire-14",
+          "title": "Les mots et les phrases 14",
+          "emoji": "🧩",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-14.json"
+        },
+        {
+          "id": "grammaire-15",
+          "title": "Les mots et les phrases 15",
+          "emoji": "🧩",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-15.json"
+        },
+        {
+          "id": "grammaire-16",
+          "title": "Les mots et les phrases 16",
+          "emoji": "🧩",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-16.json"
+        },
+        {
+          "id": "grammaire-17",
+          "title": "Les mots et les phrases 17",
+          "emoji": "🧩",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-17.json"
+        },
+        {
+          "id": "grammaire-18",
+          "title": "Les mots et les phrases 18",
+          "emoji": "🧩",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-18.json"
+        },
+        {
+          "id": "grammaire-19",
+          "title": "Les mots et les phrases 19",
+          "emoji": "🧩",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-19.json"
+        },
+        {
+          "id": "grammaire-20",
+          "title": "Les mots et les phrases 20",
+          "emoji": "🧩",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./grammaire/grammaire-20.json"
+        }
+      ]
+    },
+    {
+      "id": "conjugaison",
+      "label": "Conjugaison",
+      "emoji": "🔁",
+      "order": 9,
+      "exams": [
+        {
+          "id": "conjugaison-01",
+          "title": "Les verbes 1",
+          "emoji": "🔁",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-01.json"
+        },
+        {
+          "id": "conjugaison-02",
+          "title": "Les verbes 2",
+          "emoji": "🔁",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-02.json"
+        },
+        {
+          "id": "conjugaison-03",
+          "title": "Les verbes 3",
+          "emoji": "🔁",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-03.json"
+        },
+        {
+          "id": "conjugaison-04",
+          "title": "Les verbes 4",
+          "emoji": "🔁",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-04.json"
+        },
+        {
+          "id": "conjugaison-05",
+          "title": "Les verbes 5",
+          "emoji": "🔁",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-05.json"
+        },
+        {
+          "id": "conjugaison-06",
+          "title": "Les verbes 6",
+          "emoji": "🔁",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-06.json"
+        },
+        {
+          "id": "conjugaison-07",
+          "title": "Les verbes 7",
+          "emoji": "🔁",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-07.json"
+        },
+        {
+          "id": "conjugaison-08",
+          "title": "Les verbes 8",
+          "emoji": "🔁",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-08.json"
+        },
+        {
+          "id": "conjugaison-09",
+          "title": "Les verbes 9",
+          "emoji": "🔁",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-09.json"
+        },
+        {
+          "id": "conjugaison-10",
+          "title": "Les verbes 10",
+          "emoji": "🔁",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-10.json"
+        },
+        {
+          "id": "conjugaison-11",
+          "title": "Les verbes 11",
+          "emoji": "🔁",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-11.json"
+        },
+        {
+          "id": "conjugaison-12",
+          "title": "Les verbes 12",
+          "emoji": "🔁",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-12.json"
+        },
+        {
+          "id": "conjugaison-13",
+          "title": "Les verbes 13",
+          "emoji": "🔁",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-13.json"
+        },
+        {
+          "id": "conjugaison-14",
+          "title": "Les verbes 14",
+          "emoji": "🔁",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-14.json"
+        },
+        {
+          "id": "conjugaison-15",
+          "title": "Les verbes 15",
+          "emoji": "🔁",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-15.json"
+        },
+        {
+          "id": "conjugaison-16",
+          "title": "Les verbes 16",
+          "emoji": "🔁",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-16.json"
+        },
+        {
+          "id": "conjugaison-17",
+          "title": "Les verbes 17",
+          "emoji": "🔁",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-17.json"
+        },
+        {
+          "id": "conjugaison-18",
+          "title": "Les verbes 18",
+          "emoji": "🔁",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-18.json"
+        },
+        {
+          "id": "conjugaison-19",
+          "title": "Les verbes 19",
+          "emoji": "🔁",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-19.json"
+        },
+        {
+          "id": "conjugaison-20",
+          "title": "Les verbes 20",
+          "emoji": "🔁",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./conjugaison/conjugaison-20.json"
+        }
+      ]
+    },
+    {
+      "id": "logique",
+      "label": "Logique",
+      "emoji": "🧠",
+      "order": 10,
+      "exams": [
+        {
+          "id": "logique-01",
+          "title": "Réfléchis bien 1",
+          "emoji": "🧠",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-01.json"
+        },
+        {
+          "id": "logique-02",
+          "title": "Réfléchis bien 2",
+          "emoji": "🧠",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-02.json"
+        },
+        {
+          "id": "logique-03",
+          "title": "Réfléchis bien 3",
+          "emoji": "🧠",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-03.json"
+        },
+        {
+          "id": "logique-04",
+          "title": "Réfléchis bien 4",
+          "emoji": "🧠",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-04.json"
+        },
+        {
+          "id": "logique-05",
+          "title": "Réfléchis bien 5",
+          "emoji": "🧠",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-05.json"
+        },
+        {
+          "id": "logique-06",
+          "title": "Réfléchis bien 6",
+          "emoji": "🧠",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-06.json"
+        },
+        {
+          "id": "logique-07",
+          "title": "Réfléchis bien 7",
+          "emoji": "🧠",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-07.json"
+        },
+        {
+          "id": "logique-08",
+          "title": "Réfléchis bien 8",
+          "emoji": "🧠",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-08.json"
+        },
+        {
+          "id": "logique-09",
+          "title": "Réfléchis bien 9",
+          "emoji": "🧠",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-09.json"
+        },
+        {
+          "id": "logique-10",
+          "title": "Réfléchis bien 10",
+          "emoji": "🧠",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-10.json"
+        },
+        {
+          "id": "logique-11",
+          "title": "Réfléchis bien 11",
+          "emoji": "🧠",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-11.json"
+        },
+        {
+          "id": "logique-12",
+          "title": "Réfléchis bien 12",
+          "emoji": "🧠",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-12.json"
+        },
+        {
+          "id": "logique-13",
+          "title": "Réfléchis bien 13",
+          "emoji": "🧠",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-13.json"
+        },
+        {
+          "id": "logique-14",
+          "title": "Réfléchis bien 14",
+          "emoji": "🧠",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-14.json"
+        },
+        {
+          "id": "logique-15",
+          "title": "Réfléchis bien 15",
+          "emoji": "🧠",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-15.json"
+        },
+        {
+          "id": "logique-16",
+          "title": "Réfléchis bien 16",
+          "emoji": "🧠",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-16.json"
+        },
+        {
+          "id": "logique-17",
+          "title": "Réfléchis bien 17",
+          "emoji": "🧠",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-17.json"
+        },
+        {
+          "id": "logique-18",
+          "title": "Réfléchis bien 18",
+          "emoji": "🧠",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-18.json"
+        },
+        {
+          "id": "logique-19",
+          "title": "Réfléchis bien 19",
+          "emoji": "🧠",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-19.json"
+        },
+        {
+          "id": "logique-20",
+          "title": "Réfléchis bien 20",
+          "emoji": "🧠",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./logique/logique-20.json"
+        }
+      ]
+    },
+    {
+      "id": "geometrie",
+      "label": "Géométrie",
+      "emoji": "📐",
+      "order": 11,
+      "exams": [
+        {
+          "id": "geometrie-01",
+          "title": "Les formes 1",
+          "emoji": "📐",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-01.json"
+        },
+        {
+          "id": "geometrie-02",
+          "title": "Les formes 2",
+          "emoji": "📐",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-02.json"
+        },
+        {
+          "id": "geometrie-03",
+          "title": "Les formes 3",
+          "emoji": "📐",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-03.json"
+        },
+        {
+          "id": "geometrie-04",
+          "title": "Les formes 4",
+          "emoji": "📐",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-04.json"
+        },
+        {
+          "id": "geometrie-05",
+          "title": "Les formes 5",
+          "emoji": "📐",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-05.json"
+        },
+        {
+          "id": "geometrie-06",
+          "title": "Les formes 6",
+          "emoji": "📐",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-06.json"
+        },
+        {
+          "id": "geometrie-07",
+          "title": "Les formes 7",
+          "emoji": "📐",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-07.json"
+        },
+        {
+          "id": "geometrie-08",
+          "title": "Les formes 8",
+          "emoji": "📐",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-08.json"
+        },
+        {
+          "id": "geometrie-09",
+          "title": "Les formes 9",
+          "emoji": "📐",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-09.json"
+        },
+        {
+          "id": "geometrie-10",
+          "title": "Les formes 10",
+          "emoji": "📐",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-10.json"
+        },
+        {
+          "id": "geometrie-11",
+          "title": "Les formes 11",
+          "emoji": "📐",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-11.json"
+        },
+        {
+          "id": "geometrie-12",
+          "title": "Les formes 12",
+          "emoji": "📐",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-12.json"
+        },
+        {
+          "id": "geometrie-13",
+          "title": "Les formes 13",
+          "emoji": "📐",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-13.json"
+        },
+        {
+          "id": "geometrie-14",
+          "title": "Les formes 14",
+          "emoji": "📐",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-14.json"
+        },
+        {
+          "id": "geometrie-15",
+          "title": "Les formes 15",
+          "emoji": "📐",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-15.json"
+        },
+        {
+          "id": "geometrie-16",
+          "title": "Les formes 16",
+          "emoji": "📐",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-16.json"
+        },
+        {
+          "id": "geometrie-17",
+          "title": "Les formes 17",
+          "emoji": "📐",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-17.json"
+        },
+        {
+          "id": "geometrie-18",
+          "title": "Les formes 18",
+          "emoji": "📐",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-18.json"
+        },
+        {
+          "id": "geometrie-19",
+          "title": "Les formes 19",
+          "emoji": "📐",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-19.json"
+        },
+        {
+          "id": "geometrie-20",
+          "title": "Les formes 20",
+          "emoji": "📐",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geometrie/geometrie-20.json"
+        }
+      ]
+    },
+    {
+      "id": "mesures",
+      "label": "Mesures",
+      "emoji": "📏",
+      "order": 12,
+      "exams": [
+        {
+          "id": "mesures-01",
+          "title": "Mesurer 1",
+          "emoji": "📏",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-01.json"
+        },
+        {
+          "id": "mesures-02",
+          "title": "Mesurer 2",
+          "emoji": "📏",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-02.json"
+        },
+        {
+          "id": "mesures-03",
+          "title": "Mesurer 3",
+          "emoji": "📏",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-03.json"
+        },
+        {
+          "id": "mesures-04",
+          "title": "Mesurer 4",
+          "emoji": "📏",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-04.json"
+        },
+        {
+          "id": "mesures-05",
+          "title": "Mesurer 5",
+          "emoji": "📏",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-05.json"
+        },
+        {
+          "id": "mesures-06",
+          "title": "Mesurer 6",
+          "emoji": "📏",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-06.json"
+        },
+        {
+          "id": "mesures-07",
+          "title": "Mesurer 7",
+          "emoji": "📏",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-07.json"
+        },
+        {
+          "id": "mesures-08",
+          "title": "Mesurer 8",
+          "emoji": "📏",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-08.json"
+        },
+        {
+          "id": "mesures-09",
+          "title": "Mesurer 9",
+          "emoji": "📏",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-09.json"
+        },
+        {
+          "id": "mesures-10",
+          "title": "Mesurer 10",
+          "emoji": "📏",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-10.json"
+        },
+        {
+          "id": "mesures-11",
+          "title": "Mesurer 11",
+          "emoji": "📏",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-11.json"
+        },
+        {
+          "id": "mesures-12",
+          "title": "Mesurer 12",
+          "emoji": "📏",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-12.json"
+        },
+        {
+          "id": "mesures-13",
+          "title": "Mesurer 13",
+          "emoji": "📏",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-13.json"
+        },
+        {
+          "id": "mesures-14",
+          "title": "Mesurer 14",
+          "emoji": "📏",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-14.json"
+        },
+        {
+          "id": "mesures-15",
+          "title": "Mesurer 15",
+          "emoji": "📏",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-15.json"
+        },
+        {
+          "id": "mesures-16",
+          "title": "Mesurer 16",
+          "emoji": "📏",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-16.json"
+        },
+        {
+          "id": "mesures-17",
+          "title": "Mesurer 17",
+          "emoji": "📏",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-17.json"
+        },
+        {
+          "id": "mesures-18",
+          "title": "Mesurer 18",
+          "emoji": "📏",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-18.json"
+        },
+        {
+          "id": "mesures-19",
+          "title": "Mesurer 19",
+          "emoji": "📏",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-19.json"
+        },
+        {
+          "id": "mesures-20",
+          "title": "Mesurer 20",
+          "emoji": "📏",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./mesures/mesures-20.json"
+        }
+      ]
+    },
+    {
+      "id": "decouverte-monde",
+      "label": "Découverte du monde",
+      "emoji": "🌍",
+      "order": 13,
+      "exams": [
+        {
+          "id": "decouverte-monde-01",
+          "title": "Le monde autour de moi 1",
+          "emoji": "🌍",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-01.json"
+        },
+        {
+          "id": "decouverte-monde-02",
+          "title": "Le monde autour de moi 2",
+          "emoji": "🌍",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-02.json"
+        },
+        {
+          "id": "decouverte-monde-03",
+          "title": "Le monde autour de moi 3",
+          "emoji": "🌍",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-03.json"
+        },
+        {
+          "id": "decouverte-monde-04",
+          "title": "Le monde autour de moi 4",
+          "emoji": "🌍",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-04.json"
+        },
+        {
+          "id": "decouverte-monde-05",
+          "title": "Le monde autour de moi 5",
+          "emoji": "🌍",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-05.json"
+        },
+        {
+          "id": "decouverte-monde-06",
+          "title": "Le monde autour de moi 6",
+          "emoji": "🌍",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-06.json"
+        },
+        {
+          "id": "decouverte-monde-07",
+          "title": "Le monde autour de moi 7",
+          "emoji": "🌍",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-07.json"
+        },
+        {
+          "id": "decouverte-monde-08",
+          "title": "Le monde autour de moi 8",
+          "emoji": "🌍",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-08.json"
+        },
+        {
+          "id": "decouverte-monde-09",
+          "title": "Le monde autour de moi 9",
+          "emoji": "🌍",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-09.json"
+        },
+        {
+          "id": "decouverte-monde-10",
+          "title": "Le monde autour de moi 10",
+          "emoji": "🌍",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-10.json"
+        },
+        {
+          "id": "decouverte-monde-11",
+          "title": "Le monde autour de moi 11",
+          "emoji": "🌍",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-11.json"
+        },
+        {
+          "id": "decouverte-monde-12",
+          "title": "Le monde autour de moi 12",
+          "emoji": "🌍",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-12.json"
+        },
+        {
+          "id": "decouverte-monde-13",
+          "title": "Le monde autour de moi 13",
+          "emoji": "🌍",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-13.json"
+        },
+        {
+          "id": "decouverte-monde-14",
+          "title": "Le monde autour de moi 14",
+          "emoji": "🌍",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-14.json"
+        },
+        {
+          "id": "decouverte-monde-15",
+          "title": "Le monde autour de moi 15",
+          "emoji": "🌍",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-15.json"
+        },
+        {
+          "id": "decouverte-monde-16",
+          "title": "Le monde autour de moi 16",
+          "emoji": "🌍",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-16.json"
+        },
+        {
+          "id": "decouverte-monde-17",
+          "title": "Le monde autour de moi 17",
+          "emoji": "🌍",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-17.json"
+        },
+        {
+          "id": "decouverte-monde-18",
+          "title": "Le monde autour de moi 18",
+          "emoji": "🌍",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-18.json"
+        },
+        {
+          "id": "decouverte-monde-19",
+          "title": "Le monde autour de moi 19",
+          "emoji": "🌍",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-19.json"
+        },
+        {
+          "id": "decouverte-monde-20",
+          "title": "Le monde autour de moi 20",
+          "emoji": "🌍",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./decouverte-monde/decouverte-monde-20.json"
+        }
+      ]
+    },
+    {
+      "id": "tables-multiplication",
+      "label": "Tables de multiplication",
+      "emoji": "✖️",
+      "order": 14,
+      "exams": [
+        {
+          "id": "tables-multiplication-01",
+          "title": "Table de 2",
+          "emoji": "✖️",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-01.json"
+        },
+        {
+          "id": "tables-multiplication-02",
+          "title": "Table de 3",
+          "emoji": "✖️",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-02.json"
+        },
+        {
+          "id": "tables-multiplication-03",
+          "title": "Table de 4",
+          "emoji": "✖️",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-03.json"
+        },
+        {
+          "id": "tables-multiplication-04",
+          "title": "Table de 5",
+          "emoji": "✖️",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-04.json"
+        },
+        {
+          "id": "tables-multiplication-05",
+          "title": "Table de 6",
+          "emoji": "✖️",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-05.json"
+        },
+        {
+          "id": "tables-multiplication-06",
+          "title": "Table de 7",
+          "emoji": "✖️",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-06.json"
+        },
+        {
+          "id": "tables-multiplication-07",
+          "title": "Table de 8",
+          "emoji": "✖️",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-07.json"
+        },
+        {
+          "id": "tables-multiplication-08",
+          "title": "Table de 9",
+          "emoji": "✖️",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-08.json"
+        },
+        {
+          "id": "tables-multiplication-09",
+          "title": "Table de 10",
+          "emoji": "✖️",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-09.json"
+        },
+        {
+          "id": "tables-multiplication-11",
+          "title": "Tables mélangées 1",
+          "emoji": "✖️",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-11.json"
+        },
+        {
+          "id": "tables-multiplication-12",
+          "title": "Tables mélangées 2",
+          "emoji": "✖️",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-12.json"
+        },
+        {
+          "id": "tables-multiplication-13",
+          "title": "Tables mélangées 3",
+          "emoji": "✖️",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-13.json"
+        },
+        {
+          "id": "tables-multiplication-14",
+          "title": "Tables mélangées 4",
+          "emoji": "✖️",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-14.json"
+        },
+        {
+          "id": "tables-multiplication-15",
+          "title": "Tables mélangées 5",
+          "emoji": "✖️",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-15.json"
+        },
+        {
+          "id": "tables-multiplication-16",
+          "title": "Tables mélangées 6",
+          "emoji": "✖️",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-16.json"
+        },
+        {
+          "id": "tables-multiplication-17",
+          "title": "Tables mélangées 7",
+          "emoji": "✖️",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-17.json"
+        },
+        {
+          "id": "tables-multiplication-18",
+          "title": "Tables mélangées 8",
+          "emoji": "✖️",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-18.json"
+        },
+        {
+          "id": "tables-multiplication-19",
+          "title": "Tables mélangées 9",
+          "emoji": "✖️",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-19.json"
+        },
+        {
+          "id": "tables-multiplication-20",
+          "title": "Tables mélangées 10",
+          "emoji": "✖️",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-20.json"
+        },
+        {
+          "id": "tables-multiplication-21",
+          "title": "Tables mélangées 11",
+          "emoji": "✖️",
+          "order": 21,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./tables-multiplication/tables-multiplication-21.json"
+        }
+      ]
+    },
+    {
+      "id": "fractions",
+      "label": "Fractions",
+      "emoji": "½",
+      "order": 15,
+      "exams": [
+        {
+          "id": "fractions-01",
+          "title": "Fractions 1",
+          "emoji": "½",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-01.json"
+        },
+        {
+          "id": "fractions-02",
+          "title": "Fractions 2",
+          "emoji": "½",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-02.json"
+        },
+        {
+          "id": "fractions-03",
+          "title": "Fractions 3",
+          "emoji": "½",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-03.json"
+        },
+        {
+          "id": "fractions-04",
+          "title": "Fractions 4",
+          "emoji": "½",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-04.json"
+        },
+        {
+          "id": "fractions-05",
+          "title": "Fractions 5",
+          "emoji": "½",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-05.json"
+        },
+        {
+          "id": "fractions-06",
+          "title": "Fractions 6",
+          "emoji": "½",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-06.json"
+        },
+        {
+          "id": "fractions-07",
+          "title": "Fractions 7",
+          "emoji": "½",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-07.json"
+        },
+        {
+          "id": "fractions-08",
+          "title": "Fractions 8",
+          "emoji": "½",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-08.json"
+        },
+        {
+          "id": "fractions-09",
+          "title": "Fractions 9",
+          "emoji": "½",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-09.json"
+        },
+        {
+          "id": "fractions-10",
+          "title": "Fractions 10",
+          "emoji": "½",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-10.json"
+        },
+        {
+          "id": "fractions-11",
+          "title": "Fractions 11",
+          "emoji": "½",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-11.json"
+        },
+        {
+          "id": "fractions-12",
+          "title": "Fractions 12",
+          "emoji": "½",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-12.json"
+        },
+        {
+          "id": "fractions-13",
+          "title": "Fractions 13",
+          "emoji": "½",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-13.json"
+        },
+        {
+          "id": "fractions-14",
+          "title": "Fractions 14",
+          "emoji": "½",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-14.json"
+        },
+        {
+          "id": "fractions-15",
+          "title": "Fractions 15",
+          "emoji": "½",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-15.json"
+        },
+        {
+          "id": "fractions-16",
+          "title": "Fractions 16",
+          "emoji": "½",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-16.json"
+        },
+        {
+          "id": "fractions-17",
+          "title": "Fractions 17",
+          "emoji": "½",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-17.json"
+        },
+        {
+          "id": "fractions-18",
+          "title": "Fractions 18",
+          "emoji": "½",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-18.json"
+        },
+        {
+          "id": "fractions-19",
+          "title": "Fractions 19",
+          "emoji": "½",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-19.json"
+        },
+        {
+          "id": "fractions-20",
+          "title": "Fractions 20",
+          "emoji": "½",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./fractions/fractions-20.json"
+        }
+      ]
+    },
+    {
+      "id": "sciences",
+      "label": "Sciences",
+      "emoji": "🔬",
+      "order": 16,
+      "exams": [
+        {
+          "id": "sciences-01",
+          "title": "Sciences 1",
+          "emoji": "🔬",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-01.json"
+        },
+        {
+          "id": "sciences-02",
+          "title": "Sciences 2",
+          "emoji": "🔬",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-02.json"
+        },
+        {
+          "id": "sciences-03",
+          "title": "Sciences 3",
+          "emoji": "🔬",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-03.json"
+        },
+        {
+          "id": "sciences-04",
+          "title": "Sciences 4",
+          "emoji": "🔬",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-04.json"
+        },
+        {
+          "id": "sciences-05",
+          "title": "Sciences 5",
+          "emoji": "🔬",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-05.json"
+        },
+        {
+          "id": "sciences-06",
+          "title": "Sciences 6",
+          "emoji": "🔬",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-06.json"
+        },
+        {
+          "id": "sciences-07",
+          "title": "Sciences 7",
+          "emoji": "🔬",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-07.json"
+        },
+        {
+          "id": "sciences-08",
+          "title": "Sciences 8",
+          "emoji": "🔬",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-08.json"
+        },
+        {
+          "id": "sciences-09",
+          "title": "Sciences 9",
+          "emoji": "🔬",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-09.json"
+        },
+        {
+          "id": "sciences-10",
+          "title": "Sciences 10",
+          "emoji": "🔬",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-10.json"
+        },
+        {
+          "id": "sciences-11",
+          "title": "Sciences 11",
+          "emoji": "🔬",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-11.json"
+        },
+        {
+          "id": "sciences-12",
+          "title": "Sciences 12",
+          "emoji": "🔬",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-12.json"
+        },
+        {
+          "id": "sciences-13",
+          "title": "Sciences 13",
+          "emoji": "🔬",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-13.json"
+        },
+        {
+          "id": "sciences-14",
+          "title": "Sciences 14",
+          "emoji": "🔬",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-14.json"
+        },
+        {
+          "id": "sciences-15",
+          "title": "Sciences 15",
+          "emoji": "🔬",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-15.json"
+        },
+        {
+          "id": "sciences-16",
+          "title": "Sciences 16",
+          "emoji": "🔬",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-16.json"
+        },
+        {
+          "id": "sciences-17",
+          "title": "Sciences 17",
+          "emoji": "🔬",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-17.json"
+        },
+        {
+          "id": "sciences-18",
+          "title": "Sciences 18",
+          "emoji": "🔬",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-18.json"
+        },
+        {
+          "id": "sciences-19",
+          "title": "Sciences 19",
+          "emoji": "🔬",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-19.json"
+        },
+        {
+          "id": "sciences-20",
+          "title": "Sciences 20",
+          "emoji": "🔬",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./sciences/sciences-20.json"
+        }
+      ]
+    },
+    {
+      "id": "geographie-belgique",
+      "label": "Géographie & Belgique",
+      "emoji": "🇧🇪",
+      "order": 17,
+      "exams": [
+        {
+          "id": "geographie-belgique-01",
+          "title": "Belgique & Europe 1",
+          "emoji": "🇧🇪",
+          "order": 1,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-01.json"
+        },
+        {
+          "id": "geographie-belgique-02",
+          "title": "Belgique & Europe 2",
+          "emoji": "🇧🇪",
+          "order": 2,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-02.json"
+        },
+        {
+          "id": "geographie-belgique-03",
+          "title": "Belgique & Europe 3",
+          "emoji": "🇧🇪",
+          "order": 3,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-03.json"
+        },
+        {
+          "id": "geographie-belgique-04",
+          "title": "Belgique & Europe 4",
+          "emoji": "🇧🇪",
+          "order": 4,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-04.json"
+        },
+        {
+          "id": "geographie-belgique-05",
+          "title": "Belgique & Europe 5",
+          "emoji": "🇧🇪",
+          "order": 5,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-05.json"
+        },
+        {
+          "id": "geographie-belgique-06",
+          "title": "Belgique & Europe 6",
+          "emoji": "🇧🇪",
+          "order": 6,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-06.json"
+        },
+        {
+          "id": "geographie-belgique-07",
+          "title": "Belgique & Europe 7",
+          "emoji": "🇧🇪",
+          "order": 7,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-07.json"
+        },
+        {
+          "id": "geographie-belgique-08",
+          "title": "Belgique & Europe 8",
+          "emoji": "🇧🇪",
+          "order": 8,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-08.json"
+        },
+        {
+          "id": "geographie-belgique-09",
+          "title": "Belgique & Europe 9",
+          "emoji": "🇧🇪",
+          "order": 9,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-09.json"
+        },
+        {
+          "id": "geographie-belgique-10",
+          "title": "Belgique & Europe 10",
+          "emoji": "🇧🇪",
+          "order": 10,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-10.json"
+        },
+        {
+          "id": "geographie-belgique-11",
+          "title": "Belgique & Europe 11",
+          "emoji": "🇧🇪",
+          "order": 11,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-11.json"
+        },
+        {
+          "id": "geographie-belgique-12",
+          "title": "Belgique & Europe 12",
+          "emoji": "🇧🇪",
+          "order": 12,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-12.json"
+        },
+        {
+          "id": "geographie-belgique-13",
+          "title": "Belgique & Europe 13",
+          "emoji": "🇧🇪",
+          "order": 13,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-13.json"
+        },
+        {
+          "id": "geographie-belgique-14",
+          "title": "Belgique & Europe 14",
+          "emoji": "🇧🇪",
+          "order": 14,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-14.json"
+        },
+        {
+          "id": "geographie-belgique-15",
+          "title": "Belgique & Europe 15",
+          "emoji": "🇧🇪",
+          "order": 15,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-15.json"
+        },
+        {
+          "id": "geographie-belgique-16",
+          "title": "Belgique & Europe 16",
+          "emoji": "🇧🇪",
+          "order": 16,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-16.json"
+        },
+        {
+          "id": "geographie-belgique-17",
+          "title": "Belgique & Europe 17",
+          "emoji": "🇧🇪",
+          "order": 17,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-17.json"
+        },
+        {
+          "id": "geographie-belgique-18",
+          "title": "Belgique & Europe 18",
+          "emoji": "🇧🇪",
+          "order": 18,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-18.json"
+        },
+        {
+          "id": "geographie-belgique-19",
+          "title": "Belgique & Europe 19",
+          "emoji": "🇧🇪",
+          "order": 19,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-19.json"
+        },
+        {
+          "id": "geographie-belgique-20",
+          "title": "Belgique & Europe 20",
+          "emoji": "🇧🇪",
+          "order": 20,
+          "levelKeys": [
+            "facile",
+            "moyen",
+            "difficile"
+          ],
+          "levelPassPercent": {
+            "facile": 60,
+            "moyen": 60,
+            "difficile": 60
+          },
+          "_path": "./geographie-belgique/geographie-belgique-20.json"
+        }
+      ]
+    }
+  ]
+}

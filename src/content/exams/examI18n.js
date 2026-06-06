@@ -108,6 +108,10 @@ export const EXAM_UI = {
     illimitee: 'Illimitée',
     start: 'Commencer →',
     tempsRestant: 'Temps restant',
+    reviserErreurs: 'Reviser les erreurs',
+    revisionsTitle: 'Revisions',
+    revisionsDone: 'Bravo, revisions terminees !',
+    progress: (x, y) => `${x} / ${y} reussis`,
   },
   nl: {
     libraryTitle: 'Examenbibliotheek',
@@ -137,6 +141,10 @@ export const EXAM_UI = {
     illimitee: 'Onbeperkt',
     start: 'Starten →',
     tempsRestant: 'Resterende tijd',
+    reviserErreurs: 'Fouten oefenen',
+    revisionsTitle: 'Oefening',
+    revisionsDone: 'Goed gedaan, oefening klaar!',
+    progress: (x, y) => `${x} / ${y} gehaald`,
   },
   en: {
     libraryTitle: 'Exam library',
@@ -166,6 +174,10 @@ export const EXAM_UI = {
     illimitee: 'Unlimited',
     start: 'Start →',
     tempsRestant: 'Time left',
+    reviserErreurs: 'Revise errors',
+    revisionsTitle: 'Revision',
+    revisionsDone: 'Well done, revision complete!',
+    progress: (x, y) => `${x} / ${y} passed`,
   },
   es: {
     libraryTitle: 'Biblioteca de exámenes',
@@ -195,6 +207,10 @@ export const EXAM_UI = {
     illimitee: 'Ilimitada',
     start: 'Empezar →',
     tempsRestant: 'Tiempo restante',
+    reviserErreurs: 'Repasar errores',
+    revisionsTitle: 'Repaso',
+    revisionsDone: 'Muy bien, repaso terminado!',
+    progress: (x, y) => `${x} / ${y} superados`,
   },
 };
 

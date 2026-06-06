@@ -12,6 +12,193 @@ import {
 import { getProgressSnapshot, getStudyStats } from '../../services/storage/progressStore.js';
 import { worldMap, getWorldProgress } from '../../shared/gameplay/worldMap.js';
 import { WORLD_STYLES } from '../../shared/gameplay/worldThemes.js';
+import { getCategories } from '../../content/exams/registry.js';
+import { loadAllProgress, starsFor } from '../exam/library/examLibraryProgress.js';
+import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+
+// ── Locale-aware day labels ──────────────────────────────────────────────────
+
+const DAY_LABELS = {
+  fr: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+  nl: ['Maa', 'Din', 'Woe', 'Don', 'Vri', 'Zat', 'Zon'],
+  en: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  es: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
+};
+
+/** Returns ISO date string for `daysAgo` days before today. */
+function dateKeyOffset(daysAgo) {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().slice(0, 10);
+}
+
+/** JS Date.getDay() returns 0=Sun..6=Sat; we want 0=Mon..6=Sun */
+function isoWeekday(dateStr) {
+  const day = new Date(dateStr).getDay(); // 0=Sun..6=Sat
+  return (day + 6) % 7; // 0=Mon..6=Sun
+}
+
+// ── Dashboard tab ────────────────────────────────────────────────────────────
+
+function DashboardTab() {
+  const { locale } = useLocale();
+  const labels = DAY_LABELS[locale] || DAY_LABELS.fr;
+
+  // Build last-7-days data from meta.dailyStudy
+  const meta = getProgressSnapshot().meta;
+  const dailyStudy = meta.dailyStudy || {};
+
+  // Generate last 7 days (oldest first)
+  const days = Array.from({ length: 7 }, (_, i) => {
+    const key = dateKeyOffset(6 - i);          // 6 days ago ... today
+    const seconds = dailyStudy[key] || 0;
+    const minutes = Math.round(seconds / 60);
+    const weekday = isoWeekday(key);
+    return { key, minutes, label: labels[weekday] };
+  });
+
+  const maxMinutes = Math.max(...days.map((d) => d.minutes), 1);
+
+  // ── Category performance ──────────────────────────────────────────────────
+  const categories = getCategories();
+  const allProgress = loadAllProgress();
+
+  const catStats = categories.map((cat) => {
+    let attempted = 0;
+    let totalStars = 0;
+    let totalLevels = 0;
+
+    cat.exams.forEach((exam) => {
+      exam.levelKeys.forEach((lk) => {
+        const result = allProgress[`${exam.id}:${lk}`];
+        if (result) {
+          attempted++;
+          const passPercent = exam.levelPassPercent?.[lk] ?? 60;
+          totalStars += starsFor(result.bestScore, result.total, passPercent);
+          totalLevels++;
+        }
+      });
+    });
+
+    const avgStars = totalLevels > 0 ? totalStars / totalLevels : 0;
+    return { id: cat.id, label: cat.label, emoji: cat.emoji, attempted, avgStars };
+  }).filter((c) => c.attempted > 0);
+
+  return (
+    <div className="parental-tab-content">
+      {/* ── Weekly study chart ─────────────────────────────────────────── */}
+      <h3 className="parental-section-title">Temps d&apos;etude cette semaine</h3>
+      <div style={{
+        background: 'rgba(255,255,255,.06)', borderRadius: 16,
+        padding: '16px 12px 8px', display: 'flex',
+        alignItems: 'flex-end', gap: 8, height: 160,
+        marginBottom: 8,
+      }}>
+        {days.map((day) => {
+          const barPct = (day.minutes / maxMinutes) * 100;
+          const isToday = day.key === dateKeyOffset(0);
+          return (
+            <div
+              key={day.key}
+              style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, height: '100%', justifyContent: 'flex-end' }}
+            >
+              {day.minutes > 0 && (
+                <span style={{ color: 'rgba(255,255,255,.7)', fontSize: '.7rem', fontWeight: 600 }}>
+                  {day.minutes}m
+                </span>
+              )}
+              <div style={{
+                width: '100%', borderRadius: '6px 6px 0 0',
+                height: `${Math.max(barPct, day.minutes > 0 ? 4 : 0)}%`,
+                background: isToday
+                  ? 'linear-gradient(180deg,#f1c40f,#f39c12)'
+                  : 'linear-gradient(180deg,#3498db,#2980b9)',
+                minHeight: day.minutes > 0 ? 4 : 0,
+                transition: 'height .3s',
+              }} />
+              <span style={{
+                color: isToday ? '#f1c40f' : 'rgba(255,255,255,.6)',
+                fontSize: '.75rem', fontWeight: isToday ? 700 : 400,
+              }}>
+                {day.label}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      <p style={{ color: 'rgba(255,255,255,.45)', fontSize: '.8rem', margin: '0 0 20px', textAlign: 'center' }}>
+        Aujourd&apos;hui en jaune
+      </p>
+
+      {/* ── Category performance ──────────────────────────────────────── */}
+      <h3 className="parental-section-title">Performance par categorie</h3>
+      {catStats.length === 0 ? (
+        <p className="parental-hint">Aucun examen tenté pour l&apos;instant.</p>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {catStats.map((cat) => {
+            const fullStars = Math.floor(cat.avgStars);
+            const halfStar = cat.avgStars - fullStars >= 0.4;
+            return (
+              <div
+                key={cat.id}
+                style={{
+                  background: 'rgba(255,255,255,.07)', borderRadius: 14,
+                  padding: '12px 16px', display: 'flex', alignItems: 'center', gap: 12,
+                }}
+              >
+                <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{cat.emoji}</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ margin: 0, color: '#fff', fontWeight: 600, fontSize: '.95rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {cat.label}
+                  </p>
+                  <p style={{ margin: '2px 0 0', color: 'rgba(255,255,255,.55)', fontSize: '.8rem' }}>
+                    {cat.attempted} niveau{cat.attempted !== 1 ? 'x' : ''} tenté{cat.attempted !== 1 ? 's' : ''}
+                  </p>
+                </div>
+                <div style={{ display: 'flex', gap: 1, flexShrink: 0 }}>
+                  {[1, 2, 3].map((i) => (
+                    <span key={i} style={{
+                      fontSize: '1.1rem',
+                      opacity: i <= fullStars ? 1 : (i === fullStars + 1 && halfStar ? 0.6 : 0.2),
+                    }}>
+                      &#11088;
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* ── Reset progress ────────────────────────────────────────────── */}
+      <h3 className="parental-section-title" style={{ marginTop: 28 }}>Zone de danger</h3>
+      <p className="parental-hint">
+        Supprimer tous les resultats d&apos;examens efface definitivement les scores. Les activites et la progression du cahier ne sont pas affectees.
+      </p>
+      <button
+        type="button"
+        style={{
+          padding: '12px 24px', borderRadius: 14,
+          background: 'rgba(231,76,60,.2)',
+          border: '2px solid rgba(231,76,60,.5)',
+          color: '#e74c3c', fontWeight: 700, cursor: 'pointer',
+          fontSize: '.95rem',
+        }}
+        onClick={() => {
+          if (window.confirm('Supprimer TOUS les resultats d\'examens ? Cette action est irreversible.')) {
+            try { localStorage.removeItem('lena:exam-library:v1'); } catch (_) {}
+            window.dispatchEvent(new Event('lena-progress-change'));
+            alert('Resultats d\'examens effaces.');
+          }
+        }}
+      >
+        Reinitialiser les resultats d&apos;examens
+      </button>
+    </div>
+  );
+}
 
 // ── PIN keypad ──────────────────────────────────────────────────────────────
 
@@ -102,23 +289,23 @@ function ProgressTab() {
       <div className="parental-stat-row">
         <div className="parental-stat">
           <strong>{totalCompleted}</strong>
-          <span>Activités complétées</span>
+          <span>Activites completees</span>
         </div>
         <div className="parental-stat">
           <strong>{totalAttempted}</strong>
-          <span>Activités essayées</span>
+          <span>Activites essayees</span>
         </div>
         <div className="parental-stat">
           <strong>{mastered}/{totalQ}</strong>
-          <span>Questions maîtrisées</span>
+          <span>Questions maitrisees</span>
         </div>
         <div className="parental-stat">
           <strong>{progress.meta?.streakCurrent || 0}</strong>
-          <span>Série actuelle</span>
+          <span>Serie actuelle</span>
         </div>
       </div>
 
-      <h3 className="parental-section-title">Temps d'étude</h3>
+      <h3 className="parental-section-title">Temps d&apos;etude</h3>
       <div className="parental-stat-row">
         <div className="parental-stat">
           <strong>{formatStudyTime(studyStats.totalStudySeconds)}</strong>
@@ -130,15 +317,15 @@ function ProgressTab() {
               ? Math.round((studyStats.totalCorrect / (studyStats.totalCorrect + studyStats.totalWrong)) * 100)
               : 0}%
           </strong>
-          <span>Taux de réussite</span>
+          <span>Taux de reussite</span>
         </div>
         <div className="parental-stat">
           <strong>{studyStats.streakCurrent}</strong>
-          <span>Série actuelle</span>
+          <span>Serie actuelle</span>
         </div>
         <div className="parental-stat">
           <strong>{studyStats.streakBest}</strong>
-          <span>Meilleure série</span>
+          <span>Meilleure serie</span>
         </div>
       </div>
 
@@ -165,14 +352,14 @@ function ProgressTab() {
 
       {recentActivities.length > 0 && (
         <>
-          <h3 className="parental-section-title">Activité récente</h3>
+          <h3 className="parental-section-title">Activite recente</h3>
           <div className="parental-activity-list">
             {recentActivities.map(([id, v]) => (
               <div key={id} className="parental-activity-row">
                 <span className="parental-activity-id">{id}</span>
                 <div className="parental-activity-meta">
                   <span className={`parental-pill ${v.completed ? 'parental-pill--green' : 'parental-pill--yellow'}`}>
-                    {v.completed ? '✓ Terminé' : `${v.attempts} essai(s)`}
+                    {v.completed ? 'Termine' : `${v.attempts} essai(s)`}
                   </span>
                   <span className="parental-activity-score">Note: {v.lastScore ?? '—'}/10</span>
                 </div>
@@ -187,9 +374,10 @@ function ProgressTab() {
 
 // ── Control tab ─────────────────────────────────────────────────────────────
 
+const LIMIT_STEP = 5;
+
 function ControlTab() {
   const [state, setState] = useState(() => getParentalState());
-  const [limit, setLimitLocal] = useState(() => String(getParentalState().dailyLimitMinutes || ''));
 
   useEffect(() => {
     function sync() { setState(getParentalState()); }
@@ -202,15 +390,18 @@ function ControlTab() {
     setState(getParentalState());
   }
 
-  function handleLimitSave() {
-    const mins = parseInt(limit, 10);
-    setDailyLimit(isNaN(mins) || mins <= 0 ? null : mins);
+  const currentLimit = state.dailyLimitMinutes || 0; // 0 means unlimited
+
+  function adjustLimit(delta) {
+    const next = Math.max(0, currentLimit + delta);
+    setDailyLimit(next === 0 ? null : next);
+    setState(getParentalState());
   }
 
   return (
     <div className="parental-tab-content">
       <h3 className="parental-section-title">Bloquer des mondes</h3>
-      <p className="parental-hint">Les mondes bloqués affichent un cadenas — l'enfant ne peut pas y accéder.</p>
+      <p className="parental-hint">Les mondes bloques affichent un cadenas — l&apos;enfant ne peut pas y acceder.</p>
       <div className="parental-toggle-list">
         {worldMap.map((world, i) => {
           const style = WORLD_STYLES[(world.order - 1) % WORLD_STYLES.length];
@@ -223,7 +414,7 @@ function ControlTab() {
                 type="button"
                 className={`parental-toggle-btn ${blocked ? 'parental-toggle-btn--on' : ''}`}
                 onClick={() => handleToggle(world.id)}
-                aria-label={blocked ? 'Débloquer' : 'Bloquer'}
+                aria-label={blocked ? 'Debloquer' : 'Bloquer'}
               >
                 <span className="parental-toggle-thumb" />
               </button>
@@ -233,27 +424,53 @@ function ControlTab() {
       </div>
 
       <h3 className="parental-section-title" style={{ marginTop: 24 }}>Limite quotidienne</h3>
-      <p className="parental-hint">Temps de jeu autorisé par jour (en minutes). Laissez vide pour aucune limite.</p>
-      <div className="parental-limit-row">
-        <input
-          className="parental-limit-input"
-          type="number"
-          min="5"
-          max="480"
-          placeholder="ex: 30"
-          value={limit}
-          onChange={(e) => setLimitLocal(e.target.value)}
-        />
-        <span className="parental-limit-unit">min/jour</span>
-        <button className="primary-action parental-limit-save" type="button" onClick={handleLimitSave}>
-          Enregistrer
+      <p className="parental-hint">Temps de jeu autorise par jour. 0 = aucune limite.</p>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginTop: 8 }}>
+        <button
+          type="button"
+          onClick={() => adjustLimit(-LIMIT_STEP)}
+          disabled={currentLimit === 0}
+          style={{
+            width: 44, height: 44, borderRadius: 12, fontSize: '1.4rem', fontWeight: 700,
+            background: currentLimit === 0 ? 'rgba(255,255,255,.1)' : 'rgba(255,255,255,.2)',
+            border: '2px solid rgba(255,255,255,.35)', color: '#fff',
+            cursor: currentLimit === 0 ? 'default' : 'pointer',
+          }}
+        >
+          −
+        </button>
+
+        <div style={{
+          flex: 1, textAlign: 'center', background: 'rgba(255,255,255,.1)',
+          borderRadius: 14, padding: '10px 0',
+        }}>
+          {currentLimit === 0 ? (
+            <span style={{ color: '#2ecc71', fontWeight: 700, fontSize: '1.1rem' }}>
+              Illimitee
+            </span>
+          ) : (
+            <span style={{ color: '#fff', fontWeight: 700, fontSize: '1.3rem' }}>
+              {currentLimit} min / jour
+            </span>
+          )}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => adjustLimit(+LIMIT_STEP)}
+          style={{
+            width: 44, height: 44, borderRadius: 12, fontSize: '1.4rem', fontWeight: 700,
+            background: 'rgba(255,255,255,.2)',
+            border: '2px solid rgba(255,255,255,.35)', color: '#fff', cursor: 'pointer',
+          }}
+        >
+          +
         </button>
       </div>
-      {state.dailyLimitMinutes && (
-        <p className="parental-hint parental-hint--active">
-          ✓ Limite active : {state.dailyLimitMinutes} min/jour
-        </p>
-      )}
+      <p style={{ color: 'rgba(255,255,255,.4)', fontSize: '.8rem', marginTop: 6, textAlign: 'center' }}>
+        Ajuste par tranche de {LIMIT_STEP} minutes
+      </p>
     </div>
   );
 }
@@ -274,7 +491,7 @@ function SecurityTab() {
 
   function handleChangeConfirm(pin) {
     if (pin !== newPin) {
-      setError('Les codes ne correspondent pas. Réessayez.');
+      setError('Les codes ne correspondent pas. Reessayez.');
       setPhase('new');
       return;
     }
@@ -295,7 +512,7 @@ function SecurityTab() {
     return (
       <PinKeypad
         title="Nouveau code PIN"
-        subtitle="Choisissez un code à 4 chiffres"
+        subtitle="Choisissez un code a 4 chiffres"
         onConfirm={handleChangeFirst}
         error={error}
         onBack={() => setPhase('menu')}
@@ -307,7 +524,7 @@ function SecurityTab() {
     return (
       <PinKeypad
         title="Confirmer le code PIN"
-        subtitle="Répétez le code pour confirmer"
+        subtitle="Repetez le code pour confirmer"
         onConfirm={handleChangeConfirm}
         error={error}
         onBack={() => setPhase('new')}
@@ -331,7 +548,7 @@ function SecurityTab() {
     return (
       <div className="parental-tab-content parental-done">
         <div className="parental-done__icon">✓</div>
-        <p>Code PIN enregistré avec succès.</p>
+        <p>Code PIN enregistre avec succes.</p>
         <button className="primary-action" type="button" onClick={() => setPhase('menu')}>OK</button>
       </div>
     );
@@ -341,7 +558,7 @@ function SecurityTab() {
     return (
       <div className="parental-tab-content parental-done">
         <div className="parental-done__icon">🔓</div>
-        <p>Code PIN supprimé.</p>
+        <p>Code PIN supprime.</p>
         <button className="primary-action" type="button" onClick={() => setPhase('menu')}>OK</button>
       </div>
     );
@@ -353,11 +570,11 @@ function SecurityTab() {
       <p className="parental-hint">
         {pinSet
           ? 'Un code PIN est actif. Modifiez-le ou supprimez-le ci-dessous.'
-          : "Aucun code PIN n'est défini. Créez-en un pour protéger ces paramètres."}
+          : "Aucun code PIN n'est defini. Creez-en un pour proteger ces parametres."}
       </p>
       <div className="parental-security-actions">
         <button className="primary-action" type="button" onClick={() => { setError(''); setPhase('new'); }}>
-          {pinSet ? 'Modifier le PIN' : 'Créer un PIN'}
+          {pinSet ? 'Modifier le PIN' : 'Creer un PIN'}
         </button>
         {pinSet && (
           <button className="secondary-action" type="button" onClick={() => { setError(''); setPhase('remove'); }}>
@@ -372,23 +589,24 @@ function SecurityTab() {
 // ── Main page ────────────────────────────────────────────────────────────────
 
 const TABS = [
+  { id: 'dashboard', label: 'Tableau de bord' },
   { id: 'progress', label: 'Progression' },
-  { id: 'control', label: 'Contrôle' },
-  { id: 'security', label: 'Sécurité' },
+  { id: 'control', label: 'Controle' },
+  { id: 'security', label: 'Securite' },
 ];
 
 export default function ParentalPage() {
   const navigate = useNavigate();
   const [unlocked, setUnlocked] = useState(() => !isPinSet());
   const [pinError, setPinError] = useState('');
-  const [activeTab, setActiveTab] = useState('progress');
+  const [activeTab, setActiveTab] = useState('dashboard');
 
   function handlePinEntry(pin) {
     if (verifyPin(pin)) {
       setUnlocked(true);
       setPinError('');
     } else {
-      setPinError('Code incorrect. Réessayez.');
+      setPinError('Code incorrect. Reessayez.');
     }
   }
 
@@ -412,7 +630,7 @@ export default function ParentalPage() {
         <button className="parental-back" type="button" onClick={() => navigate(-1)}>←</button>
         <div>
           <span className="eyebrow">Espace parents</span>
-          <h2>Contrôle parental</h2>
+          <h2>Controle parental</h2>
         </div>
         <span className="parental-lock-icon">🔒</span>
       </div>
@@ -430,6 +648,7 @@ export default function ParentalPage() {
         ))}
       </div>
 
+      {activeTab === 'dashboard' && <DashboardTab />}
       {activeTab === 'progress' && <ProgressTab />}
       {activeTab === 'control' && <ControlTab />}
       {activeTab === 'security' && <SecurityTab />}

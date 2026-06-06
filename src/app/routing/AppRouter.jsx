@@ -37,6 +37,7 @@ import ExerciseGeneratorPage from '../../features/exerciseGenerator/ExerciseGene
 import GeometryPage from '../../features/mathGeometry/GeometryPage.jsx';
 import CalculationChallengePage from '../../features/mathChallenges/CalculationChallengePage.jsx';
 import MixedCalcPage from '../../features/mathChallenges/MixedCalcPage.jsx';
+import TablesPage from '../../features/tables/TablesPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -143,6 +144,7 @@ export default function AppRouter() {
         <Route path="/cahier/geometrie" element={<GeometryPage />} />
         <Route path="/cahier/defis-calcul" element={<CalculationChallengePage />} />
         <Route path="/cahier/calculs-melanges" element={<MixedCalcPage />} />
+        <Route path="/tables" element={<TablesPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>
