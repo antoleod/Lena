@@ -11357,3 +11357,58 @@ label {
     padding: 0 12px 10px;
   }
 }
+
+/* ── Auto-learning feedback (wrong answer) ─────────────────────────────────── */
+.mc-feedback__correct-answer {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: .5rem 0 .25rem;
+  padding: .4rem .75rem;
+  background: rgba(39,174,96,.15);
+  border: 1.5px solid #27ae60;
+  border-radius: 10px;
+}
+.mc-feedback__correct-label {
+  font-size: .82rem;
+  color: #27ae60;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.mc-feedback__correct-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #27ae60;
+}
+.mc-feedback--wrong .mc-feedback__detail {
+  font-size: .85rem;
+  margin-top: .35rem;
+  opacity: .92;
+  line-height: 1.45;
+}
+
+/* ── Exam hub grouped sections ─────────────────────────────────────────────── */
+.exam-subject-section {
+  margin-bottom: 1.5rem;
+}
+.exam-subject-section__title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  margin: 0 0 .75rem;
+  opacity: .8;
+}
+.exam-subject-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+}
+.exam-subject-card__badge {
+  font-size: .68rem;
+  font-weight: 600;
+  background: rgba(255,255,255,.12);
+  border-radius: 20px;
+  padding: 1px 7px;
+  color: var(--text-muted, rgba(255,255,255,.6));
+  width: fit-content;
+}

@@ -1,16 +1,26 @@
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const SUBJECTS = [
-  { topic: 'addition', label: 'Addition', emoji: '➕', grade: 'P3' },
-  { topic: 'subtraction', label: 'Soustraction', emoji: '➖', grade: 'P3' },
-  { topic: 'multiplication', label: 'Multiplication', emoji: '✖️', grade: 'P3' },
-  { topic: 'division', label: 'Division', emoji: '➗', grade: 'P4' },
-  { topic: 'fractions', label: 'Fractions', emoji: '½', grade: 'P4' },
-  { topic: 'mixed-operations', label: 'Opérations mixtes', emoji: '🔢', grade: 'P5' },
-  { topic: 'logic', label: 'Logique', emoji: '🧠', grade: 'P3' },
-  { topic: 'word-problems', label: 'Problèmes', emoji: '📖', grade: 'P3' },
-  { topic: 'general-knowledge', label: 'Culture générale', emoji: '🌍', grade: 'P3' },
+const SUBJECT_GROUPS = [
+  {
+    groupLabel: '➕ Calcul',
+    subjects: [
+      { topic: 'addition',        label: 'Addition',         emoji: '➕', badge: 'P2–P3' },
+      { topic: 'subtraction',     label: 'Soustraction',     emoji: '➖', badge: 'P2–P3' },
+      { topic: 'multiplication',  label: 'Multiplication',   emoji: '✖️', badge: 'P3–P4' },
+      { topic: 'division',        label: 'Division',         emoji: '➗', badge: 'P4' },
+      { topic: 'mixed-operations',label: 'Calcul mental',    emoji: '🔢', badge: 'P4–P5' },
+      { topic: 'fractions',       label: 'Fractions',        emoji: '½',  badge: 'P4' },
+    ]
+  },
+  {
+    groupLabel: '🧠 Raisonnement',
+    subjects: [
+      { topic: 'logic',           label: 'Logique',          emoji: '🧠', badge: 'P3' },
+      { topic: 'word-problems',   label: 'Problèmes',        emoji: '📖', badge: 'P3–P4' },
+      { topic: 'general-knowledge',label:'Culture générale', emoji: '🌍', badge: 'P3' },
+    ]
+  },
 ];
 
 const MODES = [
@@ -43,29 +53,37 @@ export default function ExamHubPage() {
         <span className="exam-mode-legend__item exam-mode-legend__item--defi">🏆 Défi — 3 vies, 3 minutes globales</span>
       </div>
 
-      <div className="exam-subject-grid">
-        {SUBJECTS.map(({ topic, label, emoji, grade }) => (
-          <div key={topic} className="exam-subject-card">
-            <div className="exam-subject-card__top">
-              <span className="exam-subject-card__emoji">{emoji}</span>
-              <span className="exam-subject-card__name">{label}</span>
-            </div>
-            <div className="exam-subject-card__modes">
-              {MODES.map(({ mode, label: modeLabel, emoji: modeEmoji, className }) => (
-                <button
-                  key={mode}
-                  type="button"
-                  className={`exam-mode-btn ${className}`}
-                  onClick={() => startExam(topic, mode)}
-                >
-                  <span>{modeEmoji}</span>
-                  <span>{modeLabel}</span>
-                </button>
-              ))}
-            </div>
+      {SUBJECT_GROUPS.map(({ groupLabel, subjects }) => (
+        <div key={groupLabel} className="exam-subject-section">
+          <h2 className="exam-subject-section__title">{groupLabel}</h2>
+          <div className="exam-subject-grid">
+            {subjects.map(({ topic, label, emoji, badge }) => (
+              <div key={topic} className="exam-subject-card">
+                <div className="exam-subject-card__top">
+                  <span className="exam-subject-card__emoji">{emoji}</span>
+                  <div className="exam-subject-card__info">
+                    <span className="exam-subject-card__name">{label}</span>
+                    {badge && <span className="exam-subject-card__badge">{badge}</span>}
+                  </div>
+                </div>
+                <div className="exam-subject-card__modes">
+                  {MODES.map(({ mode, label: modeLabel, emoji: modeEmoji, className }) => (
+                    <button
+                      key={mode}
+                      type="button"
+                      className={`exam-mode-btn ${className}`}
+                      onClick={() => startExam(topic, mode)}
+                    >
+                      <span>{modeEmoji}</span>
+                      <span>{modeLabel}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }

@@ -32,7 +32,7 @@ export function generateAdditionExercise({ grade, difficulty }) {
       correct: right,
       type: 'math_addition_gap',
       level: gradeToLabel(grade),
-      explanation: `Pour trouver le nombre manquant, on fait ${correct} - ${left} = ${right}.`
+      explanation: `🔍 Méthode : on fait ${correct} − ${left} = ${right}. Vérifie : ${left} + ${right} = ${correct} ✓`
     });
   }
 
@@ -50,6 +50,6 @@ export function generateAdditionExercise({ grade, difficulty }) {
     correct,
     type: 'math_addition',
     level: gradeToLabel(grade),
-    explanation: `${left} + ${right} = ${correct}.`
+    explanation: `💡 On ajoute les unités : ${left} + ${right}. D'abord les unités, puis les dizaines. Résultat : ${correct}`
   });
 }

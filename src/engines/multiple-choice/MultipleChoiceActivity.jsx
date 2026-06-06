@@ -229,13 +229,11 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
     setFeedbackMsg(msg);
     setIsLocked(true);
 
+    const correctLabel = currentOptions.find((o) => o.id === correctOptionId)?.label || '';
     setFeedback(shouldShowFeedback ? {
       isCorrect,
-      explanation: !isCorrect && questionState.failures >= 2
-        ? current.explanation
-        : isCorrect
-          ? current.explanation
-          : activity.hints?.[0],
+      correctLabel: isCorrect ? '' : correctLabel,
+      explanation: isCorrect ? current.explanation : (current.explanation || activity.hints?.[0] || ''),
       status: questionState.status
     } : null);
 
@@ -367,7 +365,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
         <div className={`mc-feedback mc-feedback--${feedback.isCorrect ? 'correct' : 'wrong'}`}>
           <div className="mc-feedback__top">
             <span className="mc-feedback__icon" aria-hidden="true">
-              {feedback.isCorrect ? '✅' : '💡'}
+              {feedback.isCorrect ? '✅' : '❌'}
             </span>
             <strong className="mc-feedback__msg">{feedbackMsg}</strong>
             <button
@@ -379,6 +377,12 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
               ▶
             </button>
           </div>
+          {!feedback.isCorrect && feedback.correctLabel && (
+            <div className="mc-feedback__correct-answer">
+              <span className="mc-feedback__correct-label">Bonne réponse :</span>
+              <span className="mc-feedback__correct-value">{feedback.correctLabel}</span>
+            </div>
+          )}
           {feedback.explanation && (
             <p className="mc-feedback__detail">{feedback.explanation}</p>
           )}

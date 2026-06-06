@@ -24,6 +24,6 @@ export function generateDivisionExercise({ grade, difficulty }) {
     correct: quotient,
     type: 'math_division',
     level: gradeToLabel(grade),
-    explanation: `${dividend} partage en groupes de ${divisor} donne ${quotient}.`
+    explanation: `💡 ${dividend} ÷ ${divisor} : on cherche combien de fois ${divisor} rentre dans ${dividend}. Table de ${divisor} : ${divisor}×${quotient}=${dividend}. Réponse : ${quotient} ✓`
   });
 }

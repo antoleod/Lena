@@ -25,6 +25,6 @@ export function generateSubtractionExercise({ grade, difficulty }) {
     correct,
     type: 'math_subtraction',
     level: gradeToLabel(grade),
-    explanation: `${left} - ${right} = ${correct}.`
+    explanation: `💡 On retire ${right} de ${left}. Compte à rebours : ${left}… ${correct}. Vérifie : ${correct} + ${right} = ${left} ✓`
   });
 }

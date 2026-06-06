@@ -28,7 +28,7 @@ export function generateMultiplicationExercise({ grade, difficulty }) {
       correct: right,
       type: 'math_multiplication_gap',
       level: gradeToLabel(grade),
-      explanation: `${left} fois ${right} fait ${correct}.`
+      explanation: `🔍 ${correct} ÷ ${left} = ${right}. Vérifie la table de ${left} : ${left} × ${right} = ${correct} ✓`
     });
   }
 
@@ -45,6 +45,6 @@ export function generateMultiplicationExercise({ grade, difficulty }) {
     correct,
     type: 'math_multiplication',
     level: gradeToLabel(grade),
-    explanation: `${left} × ${right} = ${correct}.`
+    explanation: `💡 Table de ${left} : ${left}×1=${left}, ${left}×2=${left*2}… ${left}×${right}=${correct}. C'est la table qu'il faut mémoriser !`
   });
 }
