@@ -43,6 +43,10 @@ import StoryLibraryPage from '../../features/stories/StoryLibraryPage.jsx';
 import StoryReaderPage from '../../features/stories/StoryReaderPage.jsx';
 import PratiquerHubPage from '../../features/practise/PratiquerHubPage.jsx';
 import ApprendreHubPage from '../../features/apprendre/ApprendreHubPage.jsx';
+import JeuxHubPage from '../../features/jeux/JeuxHubPage.jsx';
+import MemoryGamePage from '../../features/jeux/MemoryGamePage.jsx';
+import SpeedMathPage from '../../features/jeux/SpeedMathPage.jsx';
+import WordScramblePage from '../../features/jeux/WordScramblePage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -154,6 +158,10 @@ export default function AppRouter() {
         <Route path="/stories/:id" element={<StoryReaderPage />} />
         <Route path="/pratiquer" element={<PratiquerHubPage />} />
         <Route path="/apprendre" element={<ApprendreHubPage />} />
+        <Route path="/jeux" element={<JeuxHubPage />} />
+        <Route path="/jeux/memory" element={<MemoryGamePage />} />
+        <Route path="/jeux/calcul-rapide" element={<SpeedMathPage />} />
+        <Route path="/jeux/mots-melanges" element={<WordScramblePage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

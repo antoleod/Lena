@@ -10,6 +10,7 @@ const HUB_UI = {
       { to: '/cahier', emoji: '✏️', title: 'Mon Cahier', desc: 'Exercices personnalises', color: '#3498db' },
       { to: '/tables', emoji: '✖️', title: 'Tables', desc: 'Tables de multiplication', color: '#e67e22' },
       { to: '/stories', emoji: '📖', title: 'Contes & Lecture', desc: '19 histoires interactives', color: '#1abc9c' },
+      { to: '/jeux', emoji: '🧠', title: 'Jeux Cerebraux', desc: 'Memory, calcul rapide, mots...', color: '#6366f1' },
     ],
   },
   nl: {
@@ -20,6 +21,7 @@ const HUB_UI = {
       { to: '/cahier', emoji: '✏️', title: 'Mijn Schrift', desc: 'Gepersonaliseerde oefeningen', color: '#3498db' },
       { to: '/tables', emoji: '✖️', title: 'Tafels', desc: 'Vermenigvuldigingstafels', color: '#e67e22' },
       { to: '/stories', emoji: '📖', title: 'Verhalen', desc: '19 interactieve verhalen', color: '#1abc9c' },
+      { to: '/jeux', emoji: '🧠', title: 'Hersengames', desc: 'Memory, rekenen, woorden...', color: '#6366f1' },
     ],
   },
   en: {
@@ -30,6 +32,7 @@ const HUB_UI = {
       { to: '/cahier', emoji: '✏️', title: 'My Notebook', desc: 'Personalised exercises', color: '#3498db' },
       { to: '/tables', emoji: '✖️', title: 'Times tables', desc: 'Multiplication tables', color: '#e67e22' },
       { to: '/stories', emoji: '📖', title: 'Stories', desc: '19 interactive stories', color: '#1abc9c' },
+      { to: '/jeux', emoji: '🧠', title: 'Brain Games', desc: 'Memory, speed math, words...', color: '#6366f1' },
     ],
   },
   es: {
@@ -40,6 +43,7 @@ const HUB_UI = {
       { to: '/cahier', emoji: '✏️', title: 'Mi Cuaderno', desc: 'Ejercicios personalizados', color: '#3498db' },
       { to: '/tables', emoji: '✖️', title: 'Tablas', desc: 'Tablas de multiplicar', color: '#e67e22' },
       { to: '/stories', emoji: '📖', title: 'Cuentos', desc: '19 historias interactivas', color: '#1abc9c' },
+      { to: '/jeux', emoji: '🧠', title: 'Juegos Cerebrales', desc: 'Memoria, calculo, palabras...', color: '#6366f1' },
     ],
   },
 };
