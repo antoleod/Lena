@@ -40,7 +40,7 @@
   min-height: 44px; font-weight: 700; cursor: pointer;
 }
 .geo-tip {
-  font-size: .9rem; color: #2980b9; font-style: italic; margin: 6px 0 0;
+  font-size: .9rem; color: inherit; opacity: .92; font-style: italic; margin: 6px 0 0;
 }
 
 @media (min-width: 768px) {

@@ -32,6 +32,19 @@ test('generated exercises self-check as correct against their own answer', () =>
   }
 });
 
+test('digits option produces up to N-digit additions/subtractions', () => {
+  for (const [digits, max] of [[2, 99], [3, 999], [4, 9999]]) {
+    for (const type of ['additions', 'soustractions']) {
+      for (const ex of generateExercises({ subject: 'math', type, level: 'easy', count: 10, digits })) {
+        const nums = ex.testQuestion.match(/\d+/g).map(Number);
+        assert.ok(nums.some((n) => n > 9), `${type} d${digits}: should include multi-digit`);
+        assert.ok(nums.every((n) => n <= max + 1), `${type} d${digits}: within range`);
+        assert.ok(checkAnswer(ex, ex.answer));
+      }
+    }
+  }
+});
+
 test('normalizeAnswer + flexible matching', () => {
   assert.equal(normalizeAnswer('  Bonjour. '), 'bonjour');
   assert.equal(normalizeAnswer('ÉCOLE'), 'ecole');

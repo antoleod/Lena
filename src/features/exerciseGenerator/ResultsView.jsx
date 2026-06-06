@@ -41,9 +41,7 @@ export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeError
             <div className="results-item__body">
               <span>Ta réponse : <strong>{String(g.userAnswer) || '—'}</strong></span>
               {!g.correct && <span>Bonne réponse : <strong>{g.exercise.answer}</strong></span>}
-              {!g.correct && g.exercise.explanation && (
-                <span className="results-item__exp">{g.exercise.explanation}</span>
-              )}
+              {/* Explication détaillée réservée à l'écran « Voir les explications » */}
             </div>
           </li>
         ))}

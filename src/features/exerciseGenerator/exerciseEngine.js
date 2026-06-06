@@ -8,14 +8,14 @@ import { GENERATORS } from './exerciseTemplates.js';
  * generateExercises({ subject, type, level, count }) → Exercise[]
  * Extensible: any `${subject}:${type}` registered in GENERATORS works.
  */
-export function generateExercises({ subject, type, level = 'easy', count = 10 }) {
+export function generateExercises({ subject, type, level = 'easy', count = 10, digits = null }) {
   const gen = GENERATORS[`${subject}:${type}`];
   if (!gen) {
     console.warn(`No generator for ${subject}:${type}`);
     return [];
   }
   const n = Math.max(1, Number(count) || 10);
-  return Array.from({ length: n }, (_, i) => gen(level, i));
+  return Array.from({ length: n }, (_, i) => gen(level, i, { digits }));
 }
 
 /** Flexible normalization for answer comparison. */

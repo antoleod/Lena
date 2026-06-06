@@ -20,6 +20,7 @@ export default function ExerciseGeneratorPage() {
   const [type, setType] = useState('additions');
   const [level, setLevel] = useState('easy');
   const [count, setCount] = useState(10);
+  const [digits, setDigits] = useState(null); // null = auto (par niveau); 2|3|4 chiffres
 
   const [exercises, setExercises] = useState([]);
   const [graded, setGraded] = useState([]);
@@ -33,8 +34,10 @@ export default function ExerciseGeneratorPage() {
     if (first) setType(first);
   }
 
+  const isMath = subject === 'math';
+
   function startNotebook() {
-    const list = generateExercises({ subject, type, level, count });
+    const list = generateExercises({ subject, type, level, count, digits: isMath ? digits : null });
     if (list.length === 0) return;
     setExercises(list);
     setGraded([]);
@@ -77,6 +80,7 @@ export default function ExerciseGeneratorPage() {
         exercises={exercises}
         onBack={() => setPhase('verify')}
         onSeeExplanations={() => setPhase('explanations')}
+        onContinue={startNotebook}
       />
     );
   }
@@ -108,6 +112,7 @@ export default function ExerciseGeneratorPage() {
         subject={subject}
         onBack={() => setPhase(graded.length ? 'results' : 'answers')}
         onRestart={() => setPhase('setup')}
+        onContinue={startNotebook}
       />
     );
   }
@@ -188,6 +193,30 @@ export default function ExerciseGeneratorPage() {
           ))}
         </div>
       </section>
+
+      {/* Taille des nombres — maths uniquement (additions / soustractions) */}
+      {isMath && (type === 'additions' || type === 'soustractions') && (
+        <section className="cahier-section">
+          <h2 className="cahier-section__title">Taille des nombres</h2>
+          <div className="cahier-choice-row">
+            {[
+              { id: null, label: 'Auto' },
+              { id: 2, label: '2 chiffres' },
+              { id: 3, label: '3 chiffres' },
+              { id: 4, label: '4 chiffres' },
+            ].map((d) => (
+              <button
+                key={String(d.id)}
+                type="button"
+                className={`cahier-chip${digits === d.id ? ' is-selected' : ''}`}
+                onClick={() => setDigits(d.id)}
+              >
+                {d.label}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Niveau */}
       <section className="cahier-section">

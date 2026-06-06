@@ -31,13 +31,14 @@ export function VerificationView({ subject, onBack, onSeeAnswers, onDoTest }) {
       <div className="cahier-actions">
         <button type="button" className="cahier-cta" onClick={onSeeAnswers}>🔍 Voir les réponses</button>
         <button type="button" className="cahier-cta cahier-cta--go" onClick={onDoTest}>📝 Faire le test dans l'application</button>
+        <button type="button" className="cahier-cta cahier-cta--soft" onClick={onBack}>← Continuer dans mon cahier</button>
       </div>
     </div>
   );
 }
 
 // ── Option 1 : table compacte des réponses (sans explications) ───────────────
-export function AnswersTableView({ exercises, onBack, onSeeExplanations }) {
+export function AnswersTableView({ exercises, onBack, onSeeExplanations, onContinue }) {
   return (
     <div className="cahier-page">
       <div className="cahier-header cahier-header--slim">
@@ -58,13 +59,16 @@ export function AnswersTableView({ exercises, onBack, onSeeExplanations }) {
         ))}
       </div>
 
-      <button type="button" className="cahier-cta" onClick={onSeeExplanations}>📖 Voir les explications</button>
+      <div className="cahier-actions">
+        <button type="button" className="cahier-cta" onClick={onSeeExplanations}>📖 Voir les explications</button>
+        {onContinue && <button type="button" className="cahier-cta cahier-cta--go" onClick={onContinue}>➕ Continuer (nouvelle fiche)</button>}
+      </div>
     </div>
   );
 }
 
 // ── Explications groupées + "Comment réfléchir ?" ────────────────────────────
-export function ExplanationsView({ exercises, subject, onBack, onRestart }) {
+export function ExplanationsView({ exercises, subject, onBack, onRestart, onContinue }) {
   const tips = THINKING_TIPS[subject] || THINKING_TIPS.math;
   return (
     <div className="cahier-page">
@@ -102,7 +106,10 @@ export function ExplanationsView({ exercises, subject, onBack, onRestart }) {
         ))}
       </ol>
 
-      <button type="button" className="cahier-cta" onClick={onRestart}>🔄 Refaire un cahier</button>
+      <div className="cahier-actions">
+        {onContinue && <button type="button" className="cahier-cta cahier-cta--go" onClick={onContinue}>➕ Continuer (nouvelle fiche)</button>}
+        <button type="button" className="cahier-cta cahier-cta--soft" onClick={onRestart}>🔄 Choisir d'autres exercices</button>
+      </div>
     </div>
   );
 }

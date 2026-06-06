@@ -43,10 +43,24 @@ function numChoices(answer, spread) {
 
 // ── MATH ────────────────────────────────────────────────────────────────────
 
-function mathAdd(level, i) {
-  const max = level === 'easy' ? 10 : level === 'medium' ? 50 : 100;
-  let a = rint(1, max), b = rint(1, max);
-  if (level === 'easy') b = rint(0, Math.max(0, max - a)); // no carry-friendly small sums
+// Optional `digits` (2,3,4) forces exactly N-digit numbers: [min, max].
+function digitRange(digits) {
+  if (digits === 2) return [10, 99];
+  if (digits === 3) return [100, 999];
+  if (digits === 4) return [1000, 9999];
+  return null;
+}
+
+function mathAdd(level, i, opts = {}) {
+  const dr = digitRange(opts.digits);
+  let a, b;
+  if (dr) {
+    a = rint(dr[0], dr[1]); b = rint(dr[0], dr[1]);
+  } else {
+    const max = level === 'easy' ? 10 : level === 'medium' ? 50 : 100;
+    a = rint(1, max);
+    b = level === 'easy' ? rint(0, Math.max(0, max - a)) : rint(1, max);
+  }
   const answer = a + b;
   const bt = Math.floor(b / 10) * 10, bu = b % 10;
   const method = (bt > 0 && bu > 0)
@@ -63,9 +77,15 @@ function mathAdd(level, i) {
   });
 }
 
-function mathSub(level, i) {
-  const max = level === 'easy' ? 10 : level === 'medium' ? 50 : 100;
-  const a = rint(2, max), b = rint(1, a);
+function mathSub(level, i, opts = {}) {
+  const dr = digitRange(opts.digits);
+  let a, b;
+  if (dr) {
+    a = rint(dr[0], dr[1]); b = rint(dr[0], a);
+  } else {
+    const max = level === 'easy' ? 10 : level === 'medium' ? 50 : 100;
+    a = rint(2, max); b = rint(1, a);
+  }
   const answer = a - b;
   const bt = Math.floor(b / 10) * 10, bu = b % 10;
   const method = (bt > 0 && bu > 0)

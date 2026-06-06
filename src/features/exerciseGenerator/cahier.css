@@ -55,10 +55,11 @@
 
 .cahier-chip {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,.16);
-  border: 2px solid rgba(255,255,255,.34);
+  background: rgba(255,255,255,.22);
+  border: 2px solid rgba(255,255,255,.5);
   color: #fff; border-radius: 16px; padding: 12px 16px;
   font-size: 1rem; font-weight: 700; cursor: pointer;
+  text-shadow: 0 1px 3px rgba(0,0,0,.45);
   transition: transform .12s, background .15s, border-color .15s;
   min-height: 52px;
 }
@@ -85,14 +86,15 @@
 .cahier-cta:active { transform: scale(.97); }
 .cahier-cta:disabled { opacity: .5; cursor: default; }
 .cahier-cta--go { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 8px 20px rgba(39,174,96,.35); }
-.cahier-cta--soft { background: rgba(255,255,255,.14); box-shadow: none; }
+.cahier-cta--soft { background: rgba(0,0,0,.28); box-shadow: none; }
 .cahier-cta--inline { padding: 12px 18px; font-size: 1rem; margin: 0; white-space: nowrap; }
 
 .cahier-actions { display: flex; flex-direction: column; gap: 10px; }
 
 /* ── Notebook sheet ────────────────────────────────────────────────────────── */
 .cahier-instruction {
-  background: rgba(255,255,255,.12);
+  background: rgba(0,0,0,.24);
+  border: 1px solid rgba(255,255,255,.3);
   border-radius: 14px; padding: 12px 16px; margin: 0;
   color: #fff; font-size: 1rem; text-align: center;
 }
@@ -217,11 +219,11 @@
   padding: 12px 18px; border-top: 1px solid #eee; font-size: 1.1rem;
 }
 .answers-table__row:nth-child(odd) { background: #faf7ff; }
-.answers-table__num { font-weight: 700; color: #7f8c8d; }
+.answers-table__num { font-weight: 800; color: #5a36a8; }
 .answers-table__ans { font-weight: 800; color: #5a36a8; }
 
 .think-card {
-  background: rgba(255,255,255,.16); border: 2px solid rgba(255,255,255,.32);
+  background: rgba(40,10,80,.42); border: 2px solid rgba(255,255,255,.45);
   border-radius: 16px; padding: 14px 18px; color: #fff;
 }
 .think-card__title { margin: 0 0 6px; font-weight: 800; font-size: 1.05rem; }
