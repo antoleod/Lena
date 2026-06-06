@@ -145,18 +145,18 @@ export default function AppShell() {
   const nl = NAV_LABELS[locale] || NAV_LABELS.fr;
 
   const navItems = useMemo(() => {
-    const LEARN_PREFIXES = ['/map', '/subjects', '/activities', '/lessons', '/stories', '/renforcement'];
+    const LEARN_PREFIXES = ['/apprendre', '/map', '/subjects', '/activities', '/lessons', '/stories', '/renforcement'];
     const PRACTISE_PREFIXES = ['/pratiquer', '/exam', '/cahier', '/tables', '/practice'];
     function matchPrefix(prefixes, path) {
       return prefixes.some((p) => path === p || path.startsWith(p + '/'));
     }
     return [
       {
-        to: '/map',
+        to: '/apprendre',
         label: nl.learn,
         icon: 'icon-home',
         emoji: '🌍',
-        isActive: (path) => matchPrefix(LEARN_PREFIXES, path),
+        isActive: (path) => matchPrefix(LEARN_PREFIXES, path) || path === '/apprendre',
       },
       {
         to: '/pratiquer',

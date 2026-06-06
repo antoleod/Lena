@@ -12481,3 +12481,191 @@ body {
   font-weight: 800;
   color: var(--text);
 }
+
+/* ── Apprendre Hub ───────────────────────────────────────────────────────── */
+.al-hub {
+  min-height: 100dvh;
+  background: linear-gradient(180deg, #0d001f 0%, #1a0533 50%, #0d1a3a 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: calc(var(--nav-height-mobile, 64px) + env(safe-area-inset-bottom) + 24px);
+}
+
+/* Adventure map banner */
+.al-map-banner {
+  position: relative;
+  margin: 14px 14px 0;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  min-height: 88px;
+  border: 1.5px solid rgba(255,226,79,0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+.al-map-banner:active { transform: scale(0.98); }
+.al-map-banner:hover  { box-shadow: 0 10px 32px rgba(255,200,60,0.25); }
+
+.al-map-banner__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a0533 0%, #2d1060 40%, #0d3a6e 100%);
+  overflow: hidden;
+}
+.al-map-banner__deco {
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0.35;
+  animation: floaty 5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.9s);
+}
+.al-map-banner__deco:nth-child(1) { top: 15%; left:  8%; }
+.al-map-banner__deco:nth-child(2) { top: 20%; left: 28%; }
+.al-map-banner__deco:nth-child(3) { top: 55%; left: 50%; }
+.al-map-banner__deco:nth-child(4) { top: 10%; left: 72%; }
+.al-map-banner__deco:nth-child(5) { top: 60%; left: 85%; }
+
+.al-map-banner__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 16px;
+}
+.al-map-banner__emoji { font-size: 2.2rem; flex-shrink: 0; }
+.al-map-banner__title {
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+}
+.al-map-banner__desc {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(255,226,79,0.75);
+  margin-top: 2px;
+}
+.al-map-banner__arrow {
+  margin-left: auto;
+  font-size: 1.4rem;
+  color: rgba(255,226,79,0.8);
+  flex-shrink: 0;
+}
+
+/* Subjects section */
+.al-section {
+  padding: 20px 14px 0;
+}
+.al-section__title {
+  margin: 0 0 2px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+.al-section__sub {
+  margin: 0 0 14px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* Subject cards grid */
+.al-subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 480px) {
+  .al-subjects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .al-subjects-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .al-hub {
+    padding-bottom: 40px;
+  }
+}
+
+.al-subject-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.10);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s;
+  opacity: 0;
+  animation: cc-pop-in 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+.al-subject-card:hover  { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.45); }
+.al-subject-card:active { transform: scale(0.96); }
+
+.al-subject-card__sky {
+  height: 80px;
+  background: linear-gradient(180deg, var(--s-sky-top, #0d001f) 0%, var(--s-sky-bot, #302b63) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.al-subject-card__sky::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 120%, color-mix(in srgb, var(--s-accent, #667eea) 30%, transparent) 0%, transparent 70%);
+}
+.al-subject-card__icon {
+  font-size: 2.4rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 12px var(--s-accent, #667eea));
+}
+.al-subject-card__crown {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 1rem;
+  animation: cc-sparkle 2.5s ease-in-out infinite;
+}
+
+.al-subject-card__body {
+  padding: 10px 12px 12px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.al-subject-card__name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.al-subject-card__bar {
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.al-subject-card__bar-fill {
+  height: 100%;
+  background: var(--s-accent, #667eea);
+  border-radius: inherit;
+  box-shadow: 0 0 6px var(--s-accent, #667eea);
+  transition: width 0.6s ease;
+  min-width: 0;
+}
