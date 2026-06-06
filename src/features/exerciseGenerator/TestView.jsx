@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MathVisualSvg from './MathVisualSvg.jsx';
 
 // Test phase — one exercise at a time, the child answers in the app.
 export default function TestView({ exercises, onBack, onFinish }) {
@@ -53,6 +54,7 @@ export default function TestView({ exercises, onBack, onFinish }) {
           </button>
         )}
         <p className="test-card__question">{ex.testQuestion || ex.question}</p>
+        {ex.visual && <MathVisualSvg visual={ex.visual} />}
       </div>
 
       <div className="test-answer">

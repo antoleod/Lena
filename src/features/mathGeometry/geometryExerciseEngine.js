@@ -15,7 +15,7 @@
 import {
   collection, square, rect, triangle, disc, grid, referenceShape,
   triangleDivided, triangleTriforce, nestedSquares,
-} from './geometrySvgFactory.jsx';
+} from './geometrySpecs.js';
 
 const rint = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];

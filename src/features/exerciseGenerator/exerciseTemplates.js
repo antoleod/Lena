@@ -17,6 +17,8 @@
 // Generators use plain Math.random — generation is live, not reproducible.
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { buildDotsVisual as dotsVisual, buildArrayVisual } from './mathVisualUtils.js';
+
 const rint = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
 const choice = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const shuffle = (arr) => {
@@ -52,6 +54,7 @@ function mathAdd(level, i) {
     answer: String(answer),
     explanation: `${a} + ${b} = ${answer}.`,
     inputType: 'number',
+    visual: dotsVisual([a, b], ['+']),
   });
 }
 
@@ -65,6 +68,7 @@ function mathSub(level, i) {
     answer: String(answer),
     explanation: `${a} − ${b} = ${answer}.`,
     inputType: 'number',
+    visual: dotsVisual([a, b], ['−']),
   });
 }
 
@@ -76,8 +80,9 @@ function mathMul(level, i) {
     question: `${t} × ${b} = ……`,
     testQuestion: `Combien font ${t} × ${b} ?`,
     answer: String(answer),
-    explanation: `${t} × ${b} = ${answer}.`,
+    explanation: `${t} × ${b} = ${answer}. (${t} rangées de ${b})`,
     inputType: 'number',
+    visual: buildArrayVisual(t, b),
   });
 }
 

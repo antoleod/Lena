@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MathVisualSvg from './MathVisualSvg.jsx';
 
 // Notebook phase — the child solves these by hand. NO inputs here on purpose.
 export default function NotebookView({ exercises, subject, level, onBack, onStartTest }) {
@@ -39,6 +40,7 @@ export default function NotebookView({ exercises, subject, level, onBack, onStar
                   <span className="notebook-item__text">{ex.question}</span>
                 )}
               </div>
+              {ex.visual && <MathVisualSvg visual={ex.visual} />}
               {ex.notebookInstruction && (
                 <span className="notebook-item__hint">{ex.notebookInstruction}</span>
               )}

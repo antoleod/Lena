@@ -124,6 +124,16 @@
 .cahier-ready { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
 .cahier-ready__msg { text-align: center; color: #fff; margin: 0; font-weight: 600; }
 
+/* ── Visuels mathématiques (SVG) ─────────────────────────────────────────────── */
+.math-visual {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  margin: 6px 0; padding: 8px 10px;
+  background: rgba(255,255,255,.6); border-radius: 12px;
+}
+.math-visual__group { display: inline-flex; align-items: center; gap: 6px; }
+.math-visual__op { font-size: 1.4rem; font-weight: 800; color: #2c3e50; }
+.math-visual__caption { font-size: .85rem; color: #7f8c8d; font-weight: 700; margin-left: 6px; }
+
 /* ── Dictée ────────────────────────────────────────────────────────────────── */
 .dictee-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .dictee-audio, .dictee-toggle {

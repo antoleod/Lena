@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SUBJECTS, LEVELS, COUNTS, getSubject } from './exerciseTypes.js';
 import { generateExercises, gradeExercises } from './exerciseEngine.js';
 import { saveSession, getErrorCount } from './exerciseStorage.js';
@@ -11,6 +11,7 @@ import './cahier.css';
 
 // Phases: 'setup' → 'notebook' → 'test' → 'results' ; plus 'errors'
 export default function ExerciseGeneratorPage() {
+  const navigate = useNavigate();
   const [phase, setPhase] = useState('setup');
 
   const [subject, setSubject] = useState('math');
@@ -103,6 +104,22 @@ export default function ExerciseGeneratorPage() {
           </button>
         )}
       </div>
+
+      {/* Modules spéciaux de maths */}
+      <section className="cahier-section">
+        <h2 className="cahier-section__title">⭐ Ateliers de maths</h2>
+        <div className="cahier-choice-row">
+          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/geometrie')}>
+            <span className="cahier-chip__emoji">📐</span><span>Les figures géométriques</span>
+          </button>
+          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/defis-calcul')}>
+            <span className="cahier-chip__emoji">🧮</span><span>Défis de calcul</span>
+          </button>
+          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/calculs-melanges')}>
+            <span className="cahier-chip__emoji">🧩</span><span>Calculs à composer</span>
+          </button>
+        </div>
+      </section>
 
       {/* Matière */}
       <section className="cahier-section">

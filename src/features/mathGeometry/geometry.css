@@ -1,0 +1,48 @@
+/* Geometry module — school-worksheet look. Reuses cahier.css for layout. */
+
+.geo-figure-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  display: flex;
+  justify-content: center;
+}
+.geo-svg {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.geo-table-figure { max-width: 180px; }
+
+.geo-color-palette {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 6px;
+}
+.geo-color-chip {
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.7); cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,.2);
+}
+.geo-color-chip.is-active { outline: 4px solid #2c3e50; }
+
+.geo-hint {
+  background: rgba(241,196,15,.16);
+  border: 1px solid rgba(241,196,15,.5);
+  color: #fff; border-radius: 14px; padding: 12px 14px; margin: 0;
+  font-size: .95rem;
+}
+.geo-hint-btn {
+  align-self: center;
+  background: rgba(255,255,255,.14); border: 2px solid rgba(255,255,255,.25);
+  color: #fff; border-radius: 14px; padding: 12px 18px;
+  min-height: 44px; font-weight: 700; cursor: pointer;
+}
+.geo-tip {
+  font-size: .9rem; color: #2980b9; font-style: italic; margin: 6px 0 0;
+}
+
+@media (min-width: 768px) {
+  .geo-svg { max-width: 380px; }
+}

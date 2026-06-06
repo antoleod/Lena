@@ -34,6 +34,9 @@ import ExamLibraryHubPage from '../../features/exam/library/ExamLibraryHubPage.j
 import ExamLibraryCategoryPage from '../../features/exam/library/ExamLibraryCategoryPage.jsx';
 import ExamRunnerPage from '../../features/exam/library/ExamRunnerPage.jsx';
 import ExerciseGeneratorPage from '../../features/exerciseGenerator/ExerciseGeneratorPage.jsx';
+import GeometryPage from '../../features/mathGeometry/GeometryPage.jsx';
+import CalculationChallengePage from '../../features/mathChallenges/CalculationChallengePage.jsx';
+import MixedCalcPage from '../../features/mathChallenges/MixedCalcPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -137,6 +140,9 @@ export default function AppRouter() {
         <Route path="/exam/library/play" element={<ExamRunnerPage />} />
         <Route path="/exam/library/:categoryId" element={<ExamLibraryCategoryPage />} />
         <Route path="/cahier" element={<ExerciseGeneratorPage />} />
+        <Route path="/cahier/geometrie" element={<GeometryPage />} />
+        <Route path="/cahier/defis-calcul" element={<CalculationChallengePage />} />
+        <Route path="/cahier/calculs-melanges" element={<MixedCalcPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>
