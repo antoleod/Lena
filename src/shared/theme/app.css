@@ -9997,6 +9997,155 @@ label {
 .pin-key--empty { background: transparent; border-color: transparent; box-shadow: none; pointer-events: none; }
 .pin-key--del { font-size: 1.2rem; }
 
+/* ── UX Polish: animations & micro-interactions ──────────────────────────────── */
+
+/* 1. Answer feedback animations */
+@keyframes pop-correct {
+  0%   { transform: scale(1);    background-color: inherit; }
+  30%  { transform: scale(1.12); background-color: #22c55e; }
+  100% { transform: scale(1);    background-color: #22c55e; }
+}
+
+@keyframes shake-wrong {
+  0%,100% { transform: translateX(0);   background-color: #ef4444; }
+  20%      { transform: translateX(-7px); }
+  40%      { transform: translateX(7px);  }
+  60%      { transform: translateX(-5px); }
+  80%      { transform: translateX(5px);  }
+}
+
+.exam-choice {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.exam-choice:hover {
+  transform: scale(1.02);
+}
+.exam-choice--correct {
+  animation: pop-correct 0.45s ease both;
+}
+.exam-choice--wrong {
+  animation: shake-wrong 0.45s ease both;
+}
+
+/* 2. Page entry fade-up */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.home-page,
+.exam-hub-page,
+.exam-page,
+.shop-page {
+  animation: fade-up 0.25s ease both;
+}
+
+/* 3. Action tile press effect */
+.home-action-tile {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.home-action-tile:active {
+  transform: scale(0.93);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 4. Exam hub card hover lift */
+.exam-subject-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.exam-subject-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 5. Score strip numbers */
+.home-score-item strong {
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 6. Shop card buy button press */
+.shop-card__btn {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.shop-card__btn:active {
+  transform: scale(0.95);
+}
+
+/* 7. Shop tabs sliding underline */
+.shop-tab {
+  position: relative;
+}
+.shop-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary, #6c63ff);
+  border-radius: 3px 3px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+  transform-origin: center;
+}
+.shop-tab--active::after {
+  transform: scaleX(1);
+}
+
+/* 8. Exam mode button distinction */
+.exam-mode-btn--relax {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #15803d;
+}
+.exam-mode-btn--relax:hover {
+  background: #dcfce7;
+  border-color: #4ade80;
+}
+
+.exam-mode-btn--chrono {
+  background: #fffbeb;
+  border-color: #fcd34d;
+  color: #92400e;
+}
+.exam-mode-btn--chrono:hover {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.exam-mode-btn--defi {
+  background: #fff7ed;
+  border-color: #fb923c;
+  color: #9a3412;
+  box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.4);
+}
+.exam-mode-btn--defi:hover {
+  background: #ffedd5;
+  border-color: #ea580c;
+  box-shadow: 0 0 8px 2px rgba(251, 146, 60, 0.35);
+}
+
+/* 9. Timer bar urgent pulse */
+@keyframes timer-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+[data-urgent="true"] .exam-timer-bar {
+  animation: timer-pulse 0.8s ease-in-out infinite;
+}
+
+/* 10. Hero CTA pulse */
+@keyframes cta-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.02); }
+}
+
+.home-cta--tall {
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    PROGRESS RING — world map node overlay
    ═══════════════════════════════════════════════════════════════ */

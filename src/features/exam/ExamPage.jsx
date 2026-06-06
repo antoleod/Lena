@@ -114,7 +114,7 @@ function GlobalTimerBar({ seconds, total }) {
   const pct = Math.max(0, (seconds / total) * 100);
   const color = pct > 33 ? 'var(--gold)' : '#e74c3c';
   return (
-    <div className="exam-timer-bar-wrap">
+    <div className="exam-timer-bar-wrap" data-urgent={seconds < 30 ? 'true' : undefined}>
       <div className="exam-timer-bar" style={{ width: `${pct}%`, background: color }} />
       <span className="exam-timer-bar__label">{formatTime(seconds)}</span>
     </div>
