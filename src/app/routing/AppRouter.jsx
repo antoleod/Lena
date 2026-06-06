@@ -27,6 +27,9 @@ import LessonPlayerPage from '../../features/lessons/LessonPlayerPage.jsx';
 import ParentalPage from '../../features/parental/ParentalPage.jsx';
 import ExamHubPage from '../../features/exam/ExamHubPage.jsx';
 import ExamPage from '../../features/exam/ExamPage.jsx';
+import LectureHubPage from '../../features/exam/LectureHubPage.jsx';
+import LectureReaderPage from '../../features/exam/LectureReaderPage.jsx';
+import ErrorReviewPage from '../../features/exam/ErrorReviewPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -123,6 +126,9 @@ export default function AppRouter() {
         <Route path="/parental" element={<ParentalPage />} />
         <Route path="/exam" element={<ExamHubPage />} />
         <Route path="/exam/play" element={<ExamPage />} />
+        <Route path="/exam/lecture" element={<LectureHubPage />} />
+        <Route path="/exam/lecture/play" element={<LectureReaderPage />} />
+        <Route path="/exam/errors" element={<ErrorReviewPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

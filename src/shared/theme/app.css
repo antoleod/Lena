@@ -11697,3 +11697,51 @@ label {
   align-items: center;
   justify-content: center;
 }
+
+/* ── Lecture & Examens ─────────────────────────────────────────────────────── */
+
+/* Story grid in hub */
+.lecture-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 16px; padding: 0 0 20px; }
+
+/* Story card */
+.lecture-card { background: rgba(255,255,255,.08); border-radius: 18px; padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; transition: transform .15s, box-shadow .15s; cursor: pointer; border: 1.5px solid rgba(255,255,255,.1); }
+.lecture-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.lecture-card:active { transform: scale(.96); }
+.lecture-card__emoji { font-size: 2.4rem; }
+.lecture-card__title { font-weight: 700; font-size: .9rem; text-align: center; color: #fff; line-height: 1.3; }
+.lecture-card__meta { font-size: .72rem; color: rgba(255,255,255,.55); }
+.lecture-card__stars { font-size: .9rem; letter-spacing: 2px; }
+
+/* Error badge button */
+.errors-cta { display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: rgba(231,76,60,.18); border: 1.5px solid rgba(231,76,60,.4); border-radius: 14px; cursor: pointer; color: #fff; font-weight: 700; font-size: .95rem; text-decoration: none; transition: background .15s; margin-bottom: 20px; width: fit-content; }
+.errors-cta:hover { background: rgba(231,76,60,.3); }
+.errors-cta__badge { background: #e74c3c; color: #fff; border-radius: 999px; padding: 2px 9px; font-size: .8rem; font-weight: 900; }
+
+/* Reader page */
+.reader-page { display: flex; flex-direction: column; min-height: 100vh; padding: 0 0 40px; max-width: 700px; margin: 0 auto; }
+.reader-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
+.reader-page-indicator { font-size: .85rem; color: rgba(255,255,255,.6); margin-left: auto; }
+.reader-card { background: rgba(255,255,255,.1); border-radius: 20px; padding: 28px 24px; margin: 0 16px; flex: 1; display: flex; flex-direction: column; justify-content: center; animation: fade-up .25s ease both; }
+.reader-text { font-size: 1.35rem; line-height: 1.8; font-weight: 500; color: #fff; }
+.reader-text mark { background: rgba(255,220,80,.3); color: #ffd95c; border-radius: 4px; padding: 0 3px; font-style: normal; font-weight: 700; }
+.reader-nav { display: flex; align-items: center; justify-content: space-between; padding: 16px; gap: 12px; flex-wrap: wrap; }
+.reader-btn { padding: 13px 22px; border-radius: 14px; border: none; font-size: 1rem; font-weight: 700; cursor: pointer; transition: transform .12s, opacity .12s; min-width: 44px; min-height: 44px; }
+.reader-btn:active { transform: scale(.95); }
+.reader-btn--prev { background: rgba(255,255,255,.12); color: #fff; }
+.reader-btn--next { background: var(--gold, #f39c12); color: #fff; }
+.reader-btn--start { background: #27ae60; color: #fff; flex: 1; }
+.reader-btn--listen { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2); }
+
+/* True/false buttons */
+.tf-buttons { display: flex; gap: 12px; padding: 0 16px; }
+.tf-btn { flex: 1; padding: 16px; font-size: 1.1rem; font-weight: 700; border: none; border-radius: 16px; cursor: pointer; transition: transform .12s; min-height: 56px; }
+.tf-btn:active { transform: scale(.95); }
+.tf-btn--vrai { background: #27ae60; color: #fff; }
+.tf-btn--faux { background: #e74c3c; color: #fff; }
+.tf-btn:disabled { opacity: .6; cursor: default; }
+
+/* Error review */
+.error-review-page { max-width: 700px; margin: 0 auto; padding: 0 16px 40px; }
+.error-topic-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.error-topic-tag { background: rgba(255,255,255,.1); border-radius: 999px; padding: 4px 12px; font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.8); }
+.error-empty { text-align: center; padding: 60px 20px; font-size: 1.2rem; color: rgba(255,255,255,.7); }

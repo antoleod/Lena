@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { generateExercise } from '../../engines/generators/exerciseGenerators.js';
 import { recordStudyTime } from '../../services/storage/progressStore.js';
+import { recordError } from '../../services/storage/errorHistoryStore.js';
 
 // ── Config per mode ──────────────────────────────────────────────────────────
 
@@ -230,7 +231,11 @@ export default function ExamPage() {
 
     if (isCorrect) {
       setScore((s) => s + 1);
-    } else if (config.lives !== null) {
+    } else {
+      recordError({ topic, question: q.question, correctAnswer: q.correct, userAnswer: option, source: 'exam' });
+    }
+
+    if (!isCorrect && config.lives !== null) {
       const newLives = lives - 1;
       setLives(newLives);
       if (newLives <= 0) {

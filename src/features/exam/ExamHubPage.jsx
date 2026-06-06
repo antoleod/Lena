@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { getErrorCount } from '../../services/storage/errorHistoryStore.js';
 
 const SUBJECT_GROUPS = [
   {
@@ -31,6 +33,11 @@ const MODES = [
 
 export default function ExamHubPage() {
   const navigate = useNavigate();
+  const [errorCount, setErrorCount] = useState(0);
+
+  useEffect(() => {
+    setErrorCount(getErrorCount());
+  }, []);
 
   function startExam(topic, mode) {
     navigate(`/exam/play?topic=${topic}&mode=${mode}`);
@@ -45,6 +52,18 @@ export default function ExamHubPage() {
           <h1>Arène des examens</h1>
           <p className="exam-hub-sub">Choisis une matière et un mode de jeu.</p>
         </div>
+      </div>
+
+      <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 4 }}>
+        <Link to="/exam/lecture" className="errors-cta" style={{ background: 'rgba(52,152,219,.18)', borderColor: 'rgba(52,152,219,.4)' }}>
+          📚 Lecture &amp; Examens
+        </Link>
+        {errorCount > 0 && (
+          <Link to="/exam/errors" className="errors-cta">
+            ⚠️ Erreurs à réviser
+            <span className="errors-cta__badge">{errorCount}</span>
+          </Link>
+        )}
       </div>
 
       <div className="exam-mode-legend">
