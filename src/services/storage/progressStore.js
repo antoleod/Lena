@@ -243,10 +243,39 @@ export function saveLessonProgress(lessonId) {
 
 export function recordStudyTime(seconds) {
   const store = readStore();
+  const today = todayKey();
+  const daily = store.meta.dailyStudy || {};
+  daily[today] = (daily[today] || 0) + Math.max(0, Math.round(seconds));
   store.meta = {
     ...store.meta,
-    totalStudySeconds: (store.meta.totalStudySeconds || 0) + Math.max(0, Math.round(seconds))
+    totalStudySeconds: (store.meta.totalStudySeconds || 0) + Math.max(0, Math.round(seconds)),
+    dailyStudy: daily,
   };
+  writeStore(store);
+}
+
+/**
+ * Returns the total study seconds accumulated today (since midnight local time).
+ * We derive this from meta.totalStudySeconds but that's a lifetime total —
+ * there is no per-day breakdown in the existing schema, so we store a separate
+ * daily key in the store to track today's usage.
+ */
+export function getTodayStudySeconds() {
+  const store = readStore();
+  const today = todayKey();
+  return (store.meta.dailyStudy || {})[today] || 0;
+}
+
+/**
+ * Record `seconds` of study time for today (called from recordStudyTime wrapper).
+ * Internally updates meta.dailyStudy[today].
+ */
+export function addTodayStudySeconds(seconds) {
+  const store = readStore();
+  const today = todayKey();
+  const daily = store.meta.dailyStudy || {};
+  daily[today] = (daily[today] || 0) + Math.max(0, Math.round(seconds));
+  store.meta = { ...store.meta, dailyStudy: daily };
   writeStore(store);
 }
 

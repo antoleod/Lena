@@ -24,6 +24,9 @@ export default function ExerciseGeneratorPage() {
   const [count, setCount] = useState(10);
   const [digits, setDigits] = useState(null); // null = auto; 1|2|3|4 chiffres
   const [terms, setTerms] = useState(null);   // null = auto; 2|3|4|5 nombres
+  const [timerMinutes, setTimerMinutes] = useState(null); // Feature 1: countdown
+  const [minVal, setMinVal] = useState('');   // Feature 2: number range
+  const [maxVal, setMaxVal] = useState('');   // Feature 2: number range
 
   const [exercises, setExercises] = useState([]);
   const [graded, setGraded] = useState([]);
@@ -40,7 +43,14 @@ export default function ExerciseGeneratorPage() {
   const isMath = subject === 'math';
 
   function startNotebook() {
-    const list = generateExercises({ subject, type, level, count, digits: isMath ? digits : null, terms: isMath ? terms : null, locale: L.locale });
+    const list = generateExercises({
+      subject, type, level, count,
+      digits: isMath ? digits : null,
+      terms: isMath ? terms : null,
+      minVal: isMath && minVal !== '' ? Number(minVal) : null,
+      maxVal: isMath && maxVal !== '' ? Number(maxVal) : null,
+      locale: L.locale,
+    });
     if (list.length === 0) return;
     setExercises(list);
     setGraded([]);
@@ -77,6 +87,7 @@ export default function ExerciseGeneratorPage() {
         exercises={exercises}
         subject={currentSubject}
         level={level}
+        timerMinutes={timerMinutes}
         onBack={() => setPhase('setup')}
         onDone={() => setPhase('verify')}
       />
@@ -276,6 +287,36 @@ export default function ExerciseGeneratorPage() {
         </>
       )}
 
+      {/* Plage de nombres — Feature 2 */}
+      {isMath && (type === 'additions' || type === 'soustractions') && (
+        <section className="cahier-section">
+          <h2 className="cahier-section__title">{L.t('plage')}</h2>
+          <div className="cahier-choice-row" style={{ alignItems: 'center', gap: 12 }}>
+            <label style={{ color: '#fff', fontWeight: 600, fontSize: '.95rem' }}>{L.t('de')}</label>
+            <input
+              type="number"
+              min={0}
+              value={minVal}
+              onChange={(e) => setMinVal(e.target.value)}
+              placeholder="0"
+              style={{ width: 72, padding: '8px 10px', borderRadius: 12, border: '2px solid rgba(255,255,255,.5)', background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '1rem', textAlign: 'center' }}
+            />
+            <label style={{ color: '#fff', fontWeight: 600, fontSize: '.95rem' }}>{L.t('a')}</label>
+            <input
+              type="number"
+              min={0}
+              value={maxVal}
+              onChange={(e) => setMaxVal(e.target.value)}
+              placeholder="100"
+              style={{ width: 72, padding: '8px 10px', borderRadius: 12, border: '2px solid rgba(255,255,255,.5)', background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '1rem', textAlign: 'center' }}
+            />
+            {(minVal !== '' || maxVal !== '') && (
+              <button type="button" className="cahier-chip" onClick={() => { setMinVal(''); setMaxVal(''); }} style={{ padding: '6px 12px', fontSize: '.85rem' }}>✕</button>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Niveau */}
       <section className="cahier-section">
         <h2 className="cahier-section__title">{L.t('niveau')}</h2>
@@ -306,6 +347,30 @@ export default function ExerciseGeneratorPage() {
               onClick={() => setCount(c)}
             >
               {c}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Durée — Feature 1 */}
+      <section className="cahier-section">
+        <h2 className="cahier-section__title">{L.t('duree')}</h2>
+        <div className="cahier-choice-row">
+          {[
+            { val: null, label: L.t('illimite') },
+            { val: 5,    label: '5 min' },
+            { val: 10,   label: '10 min' },
+            { val: 15,   label: '15 min' },
+            { val: 20,   label: '20 min' },
+            { val: 30,   label: '30 min' },
+          ].map((d) => (
+            <button
+              key={String(d.val)}
+              type="button"
+              className={`cahier-chip${timerMinutes === d.val ? ' is-selected' : ''}`}
+              onClick={() => setTimerMinutes(d.val)}
+            >
+              {d.label}
             </button>
           ))}
         </div>

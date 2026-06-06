@@ -46,6 +46,8 @@ const UI = {
     exerciceSuivant: '➡️ Exercice suivant', conseil: '💡 Conseil', solution: 'Solution',
     pasGrave: 'Ce n’est pas grave, on regarde ensemble.', aide: '💡 Aide',
     corrigerPapa: '👨‍👧 Corriger avec papa', papaTitle: 'On corrige ensemble', aRetravailler: 'À retravailler', aRetravaillerTitle: 'Mes points à renforcer', rienARetravailler: 'Rien à retravailler pour l’instant. Bravo !', retravaillerIntro: 'Choisis un point à renforcer : je te prépare des exercices similaires.',
+    duree: 'Durée', illimite: 'Illimité', tempsRestant: 'Temps restant', tempsEcoule: 'Temps écoulé !',
+    plage: 'Plage de nombres', de: 'De', a: 'À', nombreMinMax: 'Plage personnalisée',
   },
   nl: {
     monCahier: 'Mijn schrift', monCahierTitle: 'Mijn oefenschrift',
@@ -78,6 +80,8 @@ const UI = {
     exerciceSuivant: '➡️ Volgende oefening', conseil: '💡 Tip', solution: 'Oplossing',
     pasGrave: 'Geen probleem, we kijken samen.', aide: '💡 Hulp',
     corrigerPapa: '👨‍👧 Verbeteren met papa', papaTitle: 'We verbeteren samen', aRetravailler: 'Te oefenen', aRetravaillerTitle: 'Mijn aandachtspunten', rienARetravailler: 'Niets te oefenen voor nu. Goed gedaan!', retravaillerIntro: 'Kies een punt om te versterken: ik maak gelijkaardige oefeningen.',
+    duree: 'Duur', illimite: 'Onbeperkt', tempsRestant: 'Resterende tijd', tempsEcoule: 'Tijd is om!',
+    plage: 'Getallenbereik', de: 'Van', a: 'Tot', nombreMinMax: 'Aangepast bereik',
   },
   en: {
     monCahier: 'My notebook', monCahierTitle: 'My exercise notebook',
@@ -110,6 +114,8 @@ const UI = {
     exerciceSuivant: '➡️ Next exercise', conseil: '💡 Tip', solution: 'Solution',
     pasGrave: 'It’s okay, let’s look together.', aide: '💡 Help',
     corrigerPapa: '👨‍👧 Correct with dad', papaTitle: 'Let’s correct together', aRetravailler: 'To practise', aRetravaillerTitle: 'My weak points', rienARetravailler: 'Nothing to practise yet. Well done!', retravaillerIntro: 'Pick a point to strengthen: I’ll make similar exercises.',
+    duree: 'Duration', illimite: 'Unlimited', tempsRestant: 'Time left', tempsEcoule: 'Time is up!',
+    plage: 'Number range', de: 'From', a: 'To', nombreMinMax: 'Custom range',
   },
   es: {
     monCahier: 'Mi cuaderno', monCahierTitle: 'Mi cuaderno de ejercicios',
@@ -142,6 +148,8 @@ const UI = {
     exerciceSuivant: '➡️ Siguiente ejercicio', conseil: '💡 Consejo', solution: 'Solución',
     pasGrave: 'No pasa nada, lo miramos juntos.', aide: '💡 Ayuda',
     corrigerPapa: '👨‍👧 Corregir con papá', papaTitle: 'Corregimos juntos', aRetravailler: 'Para repasar', aRetravaillerTitle: 'Mis puntos a reforzar', rienARetravailler: 'Nada que repasar por ahora. ¡Bravo!', retravaillerIntro: 'Elige un punto a reforzar: te preparo ejercicios parecidos.',
+    duree: 'Duración', illimite: 'Ilimitado', tempsRestant: 'Tiempo restante', tempsEcoule: '¡Se acabó el tiempo!',
+    plage: 'Rango de números', de: 'De', a: 'A', nombreMinMax: 'Rango personalizado',
   },
 };
 

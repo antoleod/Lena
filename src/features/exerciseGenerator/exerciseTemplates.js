@@ -135,8 +135,11 @@ function decompSub(a, subs) {
 
 function mathAdd(level, i, opts = {}) {
   const terms = Math.max(2, Number(opts.terms) || autoTerms(level));
-  const [lo, hi] = operandRange(level, opts.digits);
-  const nums = Array.from({ length: terms }, () => rint(Math.max(1, lo), hi));
+  const [baseLo, baseHi] = operandRange(level, opts.digits);
+  const lo = opts.minVal != null ? Math.max(baseLo, Number(opts.minVal)) : baseLo;
+  const hi = opts.maxVal != null ? Math.min(baseHi, Number(opts.maxVal)) : baseHi;
+  const safeHi = Math.max(lo, hi);
+  const nums = Array.from({ length: terms }, () => rint(Math.max(1, lo), safeHi));
   const answer = nums.reduce((s, n) => s + n, 0);
   const expr = nums.join(' + ');
   return base('math', 'additions', level, i, {
@@ -158,9 +161,12 @@ function mathAdd(level, i, opts = {}) {
 
 function mathSub(level, i, opts = {}) {
   const terms = Math.max(2, Number(opts.terms) || autoTerms(level));
-  const [lo, hi] = operandRange(level, opts.digits);
+  const [baseLo, baseHi] = operandRange(level, opts.digits);
+  const lo = opts.minVal != null ? Math.max(baseLo, Number(opts.minVal)) : baseLo;
+  const hi = opts.maxVal != null ? Math.min(baseHi, Number(opts.maxVal)) : baseHi;
+  const safeHi = Math.max(lo, hi);
   // First number big enough; subtract the rest keeping the running total >= 0.
-  let a = rint(Math.max(lo, Math.ceil(hi / 2)), hi);
+  let a = rint(Math.max(lo, Math.ceil(safeHi / 2)), safeHi);
   const subs = [];
   let run = a;
   for (let k = 1; k < terms; k++) {

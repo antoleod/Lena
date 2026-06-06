@@ -51,7 +51,7 @@ export default function ExamRunnerPage() {
   const ui = getExamUi(locale);
 
   const hasStory = !!data?.level?.story;
-  const [phase, setPhase] = useState(hasStory ? 'read' : 'quiz'); // read | quiz | end
+  const [phase, setPhase] = useState('config'); // config | read | quiz | end
   const [pageIndex, setPageIndex] = useState(0);
   const [qIndex, setQIndex] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -60,13 +60,39 @@ export default function ExamRunnerPage() {
   const [score, setScore] = useState(0);
   const [options, setOptions] = useState([]);
 
+  // Config state — Feature 3
+  const [configQuestionCount, setConfigQuestionCount] = useState(null); // null = all
+  const [configTimerMinutes, setConfigTimerMinutes] = useState(null);   // null = unlimited
+  const [activeQuestions, setActiveQuestions] = useState(null); // sliced/shuffled questions
+  const [timerSecondsLeft, setTimerSecondsLeft] = useState(null);
+
   const startRef = useRef(Date.now());
 
-  const questions = data?.level?.questions || [];
+  const allQuestions = data?.level?.questions || [];
+  const questions = activeQuestions || allQuestions;
   const currentQ = questions[qIndex];
   const totalQ = questions.length;
 
   useEffect(() => { startRef.current = Date.now(); }, []);
+
+  // Timer countdown — Feature 3
+  const endExamRef = useRef(null);
+  useEffect(() => {
+    if (phase !== 'quiz' || !configTimerMinutes) { setTimerSecondsLeft(null); return; }
+    const total = configTimerMinutes * 60;
+    setTimerSecondsLeft(total);
+    const id = setInterval(() => {
+      setTimerSecondsLeft((s) => {
+        if (s <= 1) {
+          clearInterval(id);
+          if (endExamRef.current) endExamRef.current();
+          return 0;
+        }
+        return s - 1;
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [phase, configTimerMinutes]);
 
   useEffect(() => {
     if (phase === 'quiz' && currentQ?.type === 'mcq') {
@@ -86,6 +112,75 @@ export default function ExamRunnerPage() {
   const { exam, level } = data;
   const pages = level.story?.pages || [];
 
+  // ── CONFIG ────────────────────────────────────────────────────────────────
+  if (phase === 'config') {
+    const qCountOptions = [null, 5, 10, 15];
+    const timerOptions = [null, 5, 10, 15, 20];
+    return (
+      <div className="reader-page" style={{ justifyContent: 'center', padding: '32px 16px' }}>
+        <div className="reader-card" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <h2 style={{ color: '#fff', margin: 0, fontSize: '1.3rem' }}>{exam.emoji} {exam.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,.75)', margin: 0 }}>{ui.configTitle}</p>
+
+          <div>
+            <p style={{ color: '#fff', fontWeight: 700, marginBottom: 8 }}>{ui.questionsCount}</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {qCountOptions.map((n) => (
+                <button
+                  key={String(n)}
+                  type="button"
+                  className="exam-choice"
+                  style={configQuestionCount === n ? { background: 'var(--primary)', color: '#fff', border: '2px solid var(--primary)' } : {}}
+                  onClick={() => setConfigQuestionCount(n)}
+                >
+                  {n === null ? ui.allQuestions : n}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p style={{ color: '#fff', fontWeight: 700, marginBottom: 8 }}>{ui.duree}</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {timerOptions.map((n) => (
+                <button
+                  key={String(n)}
+                  type="button"
+                  className="exam-choice"
+                  style={configTimerMinutes === n ? { background: 'var(--primary)', color: '#fff', border: '2px solid var(--primary)' } : {}}
+                  onClick={() => setConfigTimerMinutes(n)}
+                >
+                  {n === null ? ui.illimitee : `${n} min`}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className="reader-btn reader-btn--start"
+            onClick={() => {
+              let qs = allQuestions;
+              if (configQuestionCount && configQuestionCount < qs.length) {
+                qs = shuffle(qs).slice(0, configQuestionCount);
+              }
+              setActiveQuestions(qs);
+              setQIndex(0);
+              setScore(0);
+              setSelected(null);
+              setInput('');
+              setFeedback(null);
+              startRef.current = Date.now();
+              setPhase(hasStory ? 'read' : 'quiz');
+            }}
+          >
+            {ui.start}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   function answer(value) {
     if (selected !== null) return;
     const ok = isCorrect(currentQ, value);
@@ -103,6 +198,14 @@ export default function ExamRunnerPage() {
     }
   }
 
+  // Keep endExamRef in sync with latest score/totalQ so the timer can call it.
+  endExamRef.current = () => {
+    const elapsed = Math.round((Date.now() - startRef.current) / 1000);
+    recordStudyTime(elapsed);
+    saveResult(exam?.id, levelKey, score, totalQ);
+    setPhase('end');
+  };
+
   function next() {
     if (qIndex + 1 >= totalQ) {
       const elapsed = Math.round((Date.now() - startRef.current) / 1000);
@@ -118,13 +221,15 @@ export default function ExamRunnerPage() {
   }
 
   function restart() {
-    setPhase(hasStory ? 'read' : 'quiz');
+    setPhase('config');
     setPageIndex(0);
     setQIndex(0);
     setSelected(null);
     setInput('');
     setFeedback(null);
     setScore(0);
+    setActiveQuestions(null);
+    setTimerSecondsLeft(null);
     startRef.current = Date.now();
   }
 
@@ -198,6 +303,24 @@ export default function ExamRunnerPage() {
         <div className="exam-progress-bar"><div className="exam-progress-fill" style={{ width: `${(qIndex / totalQ) * 100}%` }} /></div>
         <span className="exam-progress-label">{score} pt</span>
       </div>
+
+      {configTimerMinutes && timerSecondsLeft !== null && (() => {
+        const total = configTimerMinutes * 60;
+        const pct = (timerSecondsLeft / total) * 100;
+        const fillColor = timerSecondsLeft <= 30 ? '#e74c3c' : timerSecondsLeft <= 120 ? '#f39c12' : '#2ecc71';
+        const mm = String(Math.floor(timerSecondsLeft / 60)).padStart(2, '0');
+        const ss = String(timerSecondsLeft % 60).padStart(2, '0');
+        return (
+          <div className="exam-progress-row" style={{ padding: '4px 16px 0' }}>
+            <div className="exam-progress-bar" style={{ height: 8 }}>
+              <div className="exam-progress-fill" style={{ width: `${pct}%`, background: fillColor, transition: 'width 1s linear, background .5s' }} />
+            </div>
+            <span className="exam-progress-label" style={{ color: timerSecondsLeft <= 30 ? '#e74c3c' : 'var(--muted)', fontWeight: timerSecondsLeft <= 30 ? 700 : 400 }}>
+              {ui.tempsRestant} {mm}:{ss}
+            </span>
+          </div>
+        );
+      })()}
 
       <div className="reader-card" style={{ minHeight: 90 }}>
         <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(currentQ, 'prompt', locale)}</p>

@@ -7,14 +7,86 @@ import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
 import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
+import { getParentalState, verifyPin } from '../../services/storage/parentalStore.js';
+import { getTodayStudySeconds } from '../../services/storage/progressStore.js';
+
+const PARENTAL_OVERRIDE_KEY = 'lena:parental-override';
+
+const BREAK_LABELS = {
+  fr: "C'est l'heure de faire une pause !",
+  nl: 'Tijd voor een pauze!',
+  en: 'Time for a break!',
+  es: '¡Es hora de descansar!',
+};
+
+function ParentalLimitOverlay({ locale, onUnlock }) {
+  const [pin, setPin] = useState('');
+  const [error, setError] = useState(false);
+  const label = BREAK_LABELS[locale] || BREAK_LABELS.fr;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (verifyPin(pin)) {
+      sessionStorage.setItem(PARENTAL_OVERRIDE_KEY, '1');
+      onUnlock();
+    } else {
+      setError(true);
+      setPin('');
+    }
+  }
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 9999,
+      background: 'linear-gradient(160deg,#5a36a8,#743fb0,#9a4fa6)',
+      display: 'flex', flexDirection: 'column', alignItems: 'center',
+      justifyContent: 'center', gap: 24, padding: 32,
+    }}>
+      <span style={{ fontSize: '4rem' }}>⏰</span>
+      <h1 style={{ color: '#fff', textAlign: 'center', margin: 0, fontSize: '1.6rem' }}>{label}</h1>
+      <p style={{ color: 'rgba(255,255,255,.75)', textAlign: 'center', margin: 0 }}>
+        {locale === 'nl' ? 'Vraag aan een volwassene om de PIN in te voeren.'
+          : locale === 'en' ? 'Ask a grown-up to enter the PIN to continue.'
+          : locale === 'es' ? 'Pide a un adulto que introduzca el PIN para continuar.'
+          : "Demande à un adulte d'entrer le code PIN pour continuer."}
+      </p>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
+        <input
+          type="password"
+          inputMode="numeric"
+          pattern="[0-9]{4}"
+          maxLength={4}
+          value={pin}
+          onChange={(e) => { setPin(e.target.value.replace(/\D/g, '').slice(0, 4)); setError(false); }}
+          placeholder="• • • •"
+          style={{
+            fontSize: '1.5rem', letterSpacing: '0.4em', textAlign: 'center',
+            padding: '12px 20px', borderRadius: 16, border: error ? '2px solid #e74c3c' : '2px solid rgba(255,255,255,.5)',
+            background: 'rgba(255,255,255,.15)', color: '#fff', width: 160, outline: 'none',
+          }}
+          autoFocus
+        />
+        {error && <span style={{ color: '#e74c3c', fontWeight: 700 }}>PIN incorrect</span>}
+        <button type="submit" disabled={pin.length !== 4} style={{
+          padding: '12px 32px', borderRadius: 16, fontSize: '1rem', fontWeight: 700,
+          background: pin.length === 4 ? 'linear-gradient(135deg,#ff8fc6,#ffcf74)' : 'rgba(255,255,255,.2)',
+          color: '#fff', border: 'none', cursor: pin.length === 4 ? 'pointer' : 'default',
+        }}>
+          {locale === 'nl' ? 'Ontgrendelen' : locale === 'en' ? 'Unlock' : locale === 'es' ? 'Desbloquear' : 'Déverrouiller'}
+        </button>
+      </form>
+    </div>
+  );
+}
 
 
 export default function AppShell() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const [session, setSession] = useState(() => getSessionSnapshot());
   const navigate = useNavigate();
   const location = useLocation();
   const [customizerOpen, setCustomizerOpen] = useState(false);
+  const [limitBlocked, setLimitBlocked] = useState(false);
 
 
   // Dynamic branding: use saved name or fallback to default
@@ -56,6 +128,18 @@ export default function AppShell() {
   useEffect(() => {
     rememberLastVisitedRoute(`${location.pathname}${location.search}`);
   }, [location.pathname, location.search]);
+
+  // Feature 4: daily limit check
+  useEffect(() => {
+    if (sessionStorage.getItem(PARENTAL_OVERRIDE_KEY) === '1') {
+      setLimitBlocked(false);
+      return;
+    }
+    const { dailyLimitMinutes } = getParentalState();
+    if (!dailyLimitMinutes) { setLimitBlocked(false); return; }
+    const todaySeconds = getTodayStudySeconds();
+    setLimitBlocked(todaySeconds >= dailyLimitMinutes * 60);
+  }, [location.pathname]);
 
   return (
     <div className="app-shell app-shell--game">
@@ -197,6 +281,10 @@ export default function AppShell() {
       <main className="app-main app-main--game">
         <Outlet />
       </main>
+
+      {limitBlocked && (
+        <ParentalLimitOverlay locale={locale} onUnlock={() => setLimitBlocked(false)} />
+      )}
     </div>
   );
 }

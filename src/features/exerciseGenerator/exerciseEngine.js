@@ -8,7 +8,7 @@ import { GENERATORS, setGenLocale } from './exerciseTemplates.js';
  * generateExercises({ subject, type, level, count }) → Exercise[]
  * Extensible: any `${subject}:${type}` registered in GENERATORS works.
  */
-export function generateExercises({ subject, type, level = 'easy', count = 10, digits = null, terms = null, locale = 'fr' }) {
+export function generateExercises({ subject, type, level = 'easy', count = 10, digits = null, terms = null, minVal = null, maxVal = null, locale = 'fr' }) {
   const gen = GENERATORS[`${subject}:${type}`];
   if (!gen) {
     console.warn(`No generator for ${subject}:${type}`);
@@ -16,7 +16,7 @@ export function generateExercises({ subject, type, level = 'easy', count = 10, d
   }
   setGenLocale(locale);
   const n = Math.max(1, Number(count) || 10);
-  const opts = { digits, terms };
+  const opts = { digits, terms, minVal, maxVal };
   // Generate WITHOUT duplicate questions on the same sheet (regenerate clashes).
   const list = [];
   const seen = new Set();

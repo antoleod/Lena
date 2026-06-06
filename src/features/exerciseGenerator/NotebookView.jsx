@@ -1,10 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import MathVisualSvg from './MathVisualSvg.jsx';
 import { useCahierT } from './cahierI18n.js';
 
 // Notebook phase — the child solves these by hand. NO inputs, NO answers shown.
-export default function NotebookView({ exercises, subject, level, onBack, onDone }) {
+export default function NotebookView({ exercises, subject, level, timerMinutes, onBack, onDone }) {
   const L = useCahierT();
+  const totalSeconds = timerMinutes ? timerMinutes * 60 : null;
+  const [secondsLeft, setSecondsLeft] = useState(totalSeconds);
+  const onDoneRef = useRef(onDone);
+  onDoneRef.current = onDone;
+
+  useEffect(() => {
+    if (!totalSeconds) return;
+    setSecondsLeft(totalSeconds);
+    const id = setInterval(() => {
+      setSecondsLeft((s) => {
+        if (s <= 1) {
+          clearInterval(id);
+          onDoneRef.current();
+          return 0;
+        }
+        return s - 1;
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [totalSeconds]);
+
+  const pct = totalSeconds ? (secondsLeft / totalSeconds) * 100 : 100;
+  const fillColor = secondsLeft <= 30 ? '#e74c3c' : secondsLeft <= 120 ? '#f39c12' : '#2ecc71';
   function speak(text) {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
@@ -22,6 +45,17 @@ export default function NotebookView({ exercises, subject, level, onBack, onDone
           <h1>{L.t('monCahier')}</h1>
         </div>
       </div>
+
+      {timerMinutes && secondsLeft !== null && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div className="exam-progress-bar" style={{ flex: 1, height: 10, borderRadius: 5 }}>
+            <div className="exam-progress-fill" style={{ width: `${pct}%`, background: fillColor, transition: 'width 1s linear, background .5s' }} />
+          </div>
+          <span style={{ color: '#fff', fontWeight: 700, fontSize: '.95rem', whiteSpace: 'nowrap' }}>
+            {L.t('tempsRestant')} : {String(Math.floor(secondsLeft / 60)).padStart(2, '0')}:{String(secondsLeft % 60).padStart(2, '0')}
+          </span>
+        </div>
+      )}
 
       <p className="cahier-instruction">{L.t('instructionNotebook')}</p>
 
