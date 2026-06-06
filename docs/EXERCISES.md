@@ -105,19 +105,58 @@ Niveles: **Facile · Moyen · Difficile**. Cantidad: **5 · 10 · 15**.
   testQuestion,      // mostrado en el TEST (localizado)
   answer,            // respuesta correcta (string)
   acceptedAnswers,   // equivalentes (ej. "20", "20 mm")
-  explanation,       // corrección
-  method,            // método paso a paso ("75 + 10 = 85\n85 + 6 = 91")
+  explanation,       // corrección breve ("42 + 56 = 98.")
+  method,            // método paso a paso, nivel primaria (ver §4.1)
   improvementTip,    // consejo para progresar
   hints: [h1, h2, h3], // ayuda PROGRESIVA (no revela la respuesta)
   inputType,         // 'number' | 'text' | 'choice' | 'color'
   options,           // para 'choice'
-  visual,            // SVG opcional: puntos (suma) o matriz (multiplicación)
+  visual,            // SVG opcional: 'dots' | 'array' | 'placevalue'
 }
 ```
 
 - **Validación flexible** (`checkAnswer`): trim, minúsculas, sin acentos, `"20"=="20mm"=="20 mm"`.
-- **Teclado numérico** automático si la respuesta es solo número.
+- **Teclado numérico** automático si la respuesta es solo número (`inputMode`).
 - **Sin duplicados** en una misma ficha (el motor regenera colisiones).
+- **Visuales SVG** (`MathVisualSvg`): `dots` (puntos contables para sumas ≤10),
+  `array` (matriz rangées×colonnes para multiplicación ≤6×6), `placevalue`
+  (bloques base-10: varillas de 10 + cubos de unidad, para resultados de 2 cifras).
+
+### 4.1 Explicaciones de matemáticas (nivel primaria) — dizaines + unités
+
+> No basta con mostrar los pasos del cálculo: el `method` **descompone** los
+> números en **dizaines (decenas)** y **unités (unidades)** para que la niña
+> entienda *por qué* el resultado es correcto.
+
+Estructura obligatoria (sumas):
+1. Descomponer cada número
+2. Sumar las dizaines
+3. Sumar las unités
+4. Regrupar → résultat final
+
+```
+31 + 65
+31 = 3 dizaines + 1 unité
+65 = 6 dizaines + 5 unités
+Dizaines : 3 + 6 = 9 dizaines = 90
+Unités : 1 + 5 = 6 unités = 6
+Résultat : 90 + 6 = 96
+```
+
+Restas: misma idea, **con retenue** automática cuando las unidades no alcanzan:
+```
+90 − 43
+On prend une dizaine : 9 dizaines → 8, 0 unités → 10
+Unités : 10 − 3 = 7
+Dizaines : 8 − 4 = 4 = 40
+Résultat : 40 + 7 = 47
+```
+
+- Generalizado a **N operandos** (2–5 números).
+- **Localizado** (`DU` en `exerciseTemplates.js`): dizaines / tientallen / tens / decenas.
+- Acompañado del visual `placevalue` (bloques de 10 + cubos) cuando el resultado tiene 2 cifras.
+- Se muestra en **"Voir les explications"**, en **"Corriger avec papa"** y en la
+  ayuda **🧠 Méthode** del test.
 
 ---
 
@@ -178,8 +217,11 @@ flowchart LR
 
 - `cahierI18n.js`: diccionario de UI, etiquetas y "comment réfléchir" en
   **fr/nl/en/es**, vía `useCahierT()` (ligado al locale activo `useLocale()`).
-- Generadores: `setGenLocale(locale)` localiza enunciados de mate y problèmes.
-- Aritmética = simbólica (universal). Français/dictée = francés (por diseño).
+- Generadores: `setGenLocale(locale)` localiza enunciados de mate, **problèmes**
+  (frases + objetos: billes→knikkers→marbles→canicas) y los métodos
+  dizaines/unités (`DU`).
+- Aritmética simbólica = universal. Français/dictée = francés (por diseño).
+- Pendiente (lote futuro): los 130 exámenes JSON + las 10 historias siguen en FR.
 
 ---
 
@@ -204,12 +246,14 @@ flowchart LR
 2. `npm run gen:exams` regenera la categoría.
 
 ### Checklist de calidad
-- [ ] `hints` no revelan la respuesta (progresivos).
-- [ ] `method` muestra el razonamiento paso a paso.
+- [ ] `hints` no revelan la respuesta (progresivos: pista → más precisa → casi guiado).
+- [ ] `method` muestra el razonamiento paso a paso (mate: **dizaines + unités**, §4.1).
 - [ ] Respuesta auto-verificable (`checkAnswer(ex, ex.answer)` = true).
-- [ ] `inputType` correcto (number → teclado numérico).
+- [ ] `inputType` correcto (respuesta numérica → teclado numérico).
+- [ ] `visual` adecuado si aplica (`dots` / `array` / `placevalue`).
+- [ ] Enunciados de texto localizados (fr/nl/en/es) si el tipo es lenguaje-neutro.
 - [ ] Sin duplicados en la ficha.
-- [ ] Mensajes siempre positivos (jamás "Faux → suivant").
+- [ ] Mensajes siempre positivos (jamás "Faux → question suivante").
 
 ---
 
