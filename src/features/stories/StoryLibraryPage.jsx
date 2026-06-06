@@ -2,50 +2,41 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CONTES } from '../../content/stories/contes.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+import './stories.css';
 
 const STORY_LIB_UI = {
   fr: {
-    title: '📚 Contes & Histoires',
-    subtitle: 'Choisis une histoire a lire',
-    readBadge: 'lu ✓',
+    title: '📚 Bibliotheque Magique',
+    subtitle: 'Choisis une histoire et plonge dans la magie',
     easy: 'doux',
     adventure: 'aventure',
     explorer: 'explorateur',
-    back: '← Accueil',
+    minutes: 'min',
   },
   nl: {
-    title: '📚 Verhalen',
-    subtitle: 'Kies een verhaal om te lezen',
-    readBadge: 'gelezen ✓',
+    title: '📚 Magische Bibliotheek',
+    subtitle: 'Kies een verhaal en duik in de magie',
     easy: 'zacht',
     adventure: 'avontuur',
-    explorer: 'ontdekkingsreiziger',
-    back: '← Terug',
+    explorer: 'ontdekker',
+    minutes: 'min',
   },
   en: {
-    title: '📚 Stories & Tales',
-    subtitle: 'Choose a story to read',
-    readBadge: 'read ✓',
+    title: '📚 Magical Library',
+    subtitle: 'Choose a story and dive into the magic',
     easy: 'gentle',
     adventure: 'adventure',
     explorer: 'explorer',
-    back: '← Home',
+    minutes: 'min',
   },
   es: {
-    title: '📚 Cuentos e Historias',
-    subtitle: 'Elige una historia para leer',
-    readBadge: 'leido ✓',
+    title: '📚 Biblioteca Magica',
+    subtitle: 'Elige una historia y sumérgete en la magia',
     easy: 'suave',
     adventure: 'aventura',
     explorer: 'explorador',
-    back: '← Inicio',
+    minutes: 'min',
   },
-};
-
-const DIFFICULTY_CONFIG = {
-  doux:        { color: '#27AE60', bg: '#eafaf1' },
-  aventure:    { color: '#E67E22', bg: '#fef5e7' },
-  explorateur: { color: '#2980B9', bg: '#eaf4fb' },
 };
 
 function getReadIds() {
@@ -56,59 +47,55 @@ function getReadIds() {
   }
 }
 
+const SCENE_EMOJIS = ['🌟', '✨', '🎭', '🌙', '🌲', '🏰', '🌊', '🦋', '🌺', '⭐', '🎪', '🌈'];
+function sceneEmoji(idx) { return SCENE_EMOJIS[idx % SCENE_EMOJIS.length]; }
+
 export default function StoryLibraryPage() {
   const { locale } = useLocale();
   const ui = STORY_LIB_UI[locale] || STORY_LIB_UI.fr;
   const [readIds, setReadIds] = useState(() => getReadIds());
 
-  // setReadIds kept for future reactive updates (e.g. after marking a story read)
+  // setReadIds kept for future reactive updates
   void setReadIds;
 
   return (
-    <div className="exam-hub-page">
-      <div className="exam-hub-header">
-        <Link className="exam-back-btn" to="/">{ui.back}</Link>
-        <div>
-          <span className="eyebrow">Bibliotheque</span>
-          <h1>{ui.title}</h1>
-          <p className="exam-hub-sub">{ui.subtitle}</p>
-        </div>
-      </div>
+    <div className="sl-page">
+      <header className="sl-header">
+        <h1 className="sl-header__title">{ui.title}</h1>
+        <p className="sl-header__sub">{ui.subtitle}</p>
+      </header>
 
-      <div className="lecture-grid">
-        {CONTES.map((conte) => {
+      <div className="sl-grid">
+        {CONTES.map((conte, conteIdx) => {
           const diffKey = conte.difficulty;
-          const diff = DIFFICULTY_CONFIG[diffKey] || DIFFICULTY_CONFIG.doux;
           const diffLabel = diffKey === 'doux'
             ? ui.easy
             : diffKey === 'aventure'
               ? ui.adventure
               : ui.explorer;
           const isRead = readIds.includes(conte.id);
+          const duration = Math.ceil((conte.scenes?.length || 4) * 0.5);
+          const coverBg = conte.palette?.primary
+            ? `linear-gradient(135deg, ${conte.palette.primary}cc, ${conte.palette.accent || conte.palette.primary}88)`
+            : 'linear-gradient(135deg,#6366f1,#8b5cf6)';
+
           return (
             <Link
               key={conte.id}
               to={`/stories/${conte.id}`}
-              className="lecture-card"
-              style={{ position: 'relative' }}
+              className="sl-card"
             >
-              {isRead && (
-                <span style={{
-                  position: 'absolute', top: 8, right: 8,
-                  fontSize: '.75rem', background: '#27AE60',
-                  color: '#fff', borderRadius: 8, padding: '1px 6px', fontWeight: 700,
-                }}>{ui.readBadge}</span>
-              )}
-              <span className="lecture-card__emoji">{conte.emoji}</span>
-              <span className="lecture-card__title">{conte.title}</span>
-              <em className="lecture-card__meta" style={{ fontStyle: 'italic' }}>{conte.theme}</em>
-              <span style={{
-                fontSize: '.68rem', fontWeight: 700, borderRadius: 8,
-                padding: '2px 8px', color: diff.color, background: diff.bg,
-                border: `1px solid ${diff.color}33`,
-              }}>
-                {diffLabel}
-              </span>
+              <div className="sl-card__cover" style={{ background: coverBg }}>
+                <span role="img" aria-label={conte.title}>{conte.emoji || sceneEmoji(conteIdx)}</span>
+                {isRead && <span className="sl-card__crown">👑</span>}
+              </div>
+              <div className="sl-card__body">
+                <span className="sl-card__title">{conte.title}</span>
+                <span className={`sl-card__badge sl-card__badge--${diffKey}`}>{diffLabel}</span>
+                <div className="sl-card__meta">
+                  <span>⏱ {duration} {ui.minutes}</span>
+                </div>
+              </div>
             </Link>
           );
         })}

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getConteById } from '../../content/stories/contes.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+import './stories.css';
 
 // ── i18n map ──────────────────────────────────────────────────────────────────
 const STORY_UI = {
@@ -11,7 +12,7 @@ const STORY_UI = {
     miniGame: 'Mini-jeu',
     emotional: 'Moment emotion',
     reward: 'Bravo !',
-    prevScene: '← Precedent',
+    prevScene: '←',
     nextScene: 'Suivant →',
     toVocab: 'Vocabulaire →',
     toMiniGame: 'Jouer →',
@@ -21,6 +22,9 @@ const STORY_UI = {
     muteOff: 'Couper le son',
     listenBtn: '🔊 Ecouter',
     backToLibrary: '← Bibliotheque',
+    newStory: '📚 Nouvelle histoire',
+    readAgain: '🔄 Lire encore',
+    finishedLabel: 'Histoire terminee !',
     validate: 'Valider',
     correct: '✅ Bravo !',
     incorrect: '❌ Essaie encore...',
@@ -34,7 +38,7 @@ const STORY_UI = {
     miniGame: 'Mini-spel',
     emotional: 'Gevoelsmoment',
     reward: 'Goed gedaan!',
-    prevScene: '← Vorige',
+    prevScene: '←',
     nextScene: 'Volgende →',
     toVocab: 'Woordenschat →',
     toMiniGame: 'Spelen →',
@@ -44,6 +48,9 @@ const STORY_UI = {
     muteOff: 'Geluid uit',
     listenBtn: '🔊 Luisteren',
     backToLibrary: '← Bibliotheek',
+    newStory: '📚 Nieuw verhaal',
+    readAgain: '🔄 Opnieuw lezen',
+    finishedLabel: 'Verhaal klaar!',
     validate: 'Bevestigen',
     correct: '✅ Goed gedaan!',
     incorrect: '❌ Probeer opnieuw...',
@@ -57,7 +64,7 @@ const STORY_UI = {
     miniGame: 'Mini-game',
     emotional: 'Emotional moment',
     reward: 'Well done!',
-    prevScene: '← Previous',
+    prevScene: '←',
     nextScene: 'Next →',
     toVocab: 'Vocabulary →',
     toMiniGame: 'Play →',
@@ -67,6 +74,9 @@ const STORY_UI = {
     muteOff: 'Mute',
     listenBtn: '🔊 Listen',
     backToLibrary: '← Library',
+    newStory: '📚 New story',
+    readAgain: '🔄 Read again',
+    finishedLabel: 'Story complete!',
     validate: 'Validate',
     correct: '✅ Well done!',
     incorrect: '❌ Try again...',
@@ -80,7 +90,7 @@ const STORY_UI = {
     miniGame: 'Minijuego',
     emotional: 'Momento emocional',
     reward: '¡Muy bien!',
-    prevScene: '← Anterior',
+    prevScene: '←',
     nextScene: 'Siguiente →',
     toVocab: 'Vocabulario →',
     toMiniGame: 'Jugar →',
@@ -90,6 +100,9 @@ const STORY_UI = {
     muteOff: 'Silenciar',
     listenBtn: '🔊 Escuchar',
     backToLibrary: '← Biblioteca',
+    newStory: '📚 Nueva historia',
+    readAgain: '🔄 Leer de nuevo',
+    finishedLabel: '¡Historia completada!',
     validate: 'Validar',
     correct: '✅ ¡Bravo!',
     incorrect: '❌ Intentalo otra vez...',
@@ -98,6 +111,10 @@ const STORY_UI = {
     speechLang: 'es-ES',
   },
 };
+
+// ── Scene emoji helper ────────────────────────────────────────────────────────
+const SCENE_EMOJIS = ['🌟', '✨', '🎭', '🌙', '🌲', '🏰', '🌊', '🦋', '🌺', '⭐', '🎪', '🌈'];
+function sceneEmoji(idx) { return SCENE_EMOJIS[idx % SCENE_EMOJIS.length]; }
 
 // ── Fisher-Yates shuffle ──────────────────────────────────────────────────────
 function shuffle(arr) {
@@ -129,7 +146,7 @@ function fireConfetti() {
   if (!document.getElementById(STYLE_ID)) {
     const s = document.createElement('style');
     s.id = STYLE_ID;
-    s.textContent = `@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}`;
+    s.textContent = '@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}';
     document.head.appendChild(s);
   }
   const colors = ['#f39c12', '#e74c3c', '#2ecc71', '#3498db', '#9b59b6', '#1abc9c', '#e67e22', '#f1c40f'];
@@ -160,11 +177,11 @@ function stopSpeech() {
 }
 
 // ── Phases ────────────────────────────────────────────────────────────────────
-const PHASE_SCENES     = 'scenes';
-const PHASE_VOCAB      = 'vocab';
-const PHASE_MINIGAME   = 'minigame';
-const PHASE_EMOTIONAL  = 'emotional';
-const PHASE_REWARD     = 'reward';
+const PHASE_SCENES    = 'scenes';
+const PHASE_VOCAB     = 'vocab';
+const PHASE_MINIGAME  = 'minigame';
+const PHASE_EMOTIONAL = 'emotional';
+const PHASE_REWARD    = 'reward';
 
 // ── Mini-game sub-components ──────────────────────────────────────────────────
 function MiniGameChoice({ game, onDone, ui }) {
@@ -179,18 +196,18 @@ function MiniGameChoice({ game, onDone, ui }) {
       <p className="story-minigame__prompt">{game.prompt}</p>
       <div className="story-minigame__options">
         {game.options.map((opt, i) => {
-          let bg = 'var(--surface-strong)';
-          let border = '2px solid var(--line)';
+          let bg = 'rgba(255,255,255,.1)';
+          let border = '2px solid rgba(255,255,255,.2)';
           if (answered) {
-            if (i === game.answerIndex) { bg = '#eafaf1'; border = '2px solid #27AE60'; }
-            else if (i === selected)   { bg = '#fef0f0'; border = '2px solid #e74c3c'; }
+            if (i === game.answerIndex) { bg = '#166534'; border = '2px solid #22c55e'; }
+            else if (i === selected)   { bg = '#7f1d1d'; border = '2px solid #ef4444'; }
           }
           return (
             <button
               key={i}
               type="button"
               onClick={() => choose(i)}
-              style={{ background: bg, border, borderRadius: 14, padding: '12px 16px', fontWeight: 700, fontSize: '1rem', cursor: answered ? 'default' : 'pointer', textAlign: 'left', transition: 'background .2s' }}
+              style={{ background: bg, border, borderRadius: 14, padding: '12px 16px', fontWeight: 700, fontSize: '1rem', cursor: answered ? 'default' : 'pointer', textAlign: 'left', transition: 'background .2s', color: '#fff' }}
             >
               {answered && i === game.answerIndex && '✅ '}
               {answered && i === selected && i !== game.answerIndex && '❌ '}
@@ -219,18 +236,18 @@ function MiniGameCount({ game, onDone, ui }) {
         {game.options.map((n) => {
           const correct = n === game.answer;
           const chosen  = n === selected;
-          let bg = 'var(--surface-strong)';
-          let border = '2px solid var(--line)';
+          let bg = 'rgba(255,255,255,.1)';
+          let border = '2px solid rgba(255,255,255,.2)';
           if (answered) {
-            if (correct)              { bg = '#eafaf1'; border = '2px solid #27AE60'; }
-            else if (chosen)          { bg = '#fef0f0'; border = '2px solid #e74c3c'; }
+            if (correct)     { bg = '#166534'; border = '2px solid #22c55e'; }
+            else if (chosen) { bg = '#7f1d1d'; border = '2px solid #ef4444'; }
           }
           return (
             <button
               key={n}
               type="button"
               onClick={() => pick(n)}
-              style={{ background: bg, border, borderRadius: 14, padding: '16px 24px', fontWeight: 800, fontSize: '1.4rem', cursor: answered ? 'default' : 'pointer', minWidth: 64 }}
+              style={{ background: bg, border, borderRadius: 14, padding: '16px 24px', fontWeight: 800, fontSize: '1.4rem', cursor: answered ? 'default' : 'pointer', minWidth: 64, color: '#fff' }}
             >
               {answered && correct && '✅ '}{n}
             </button>
@@ -259,7 +276,6 @@ function MiniGameSequence({ game, onDone, ui }) {
     } else if (selected === idx) {
       setSelected(null);
     } else {
-      // swap
       const next = [...order];
       [next[selected], next[idx]] = [next[idx], next[selected]];
       setOrder(next);
@@ -276,7 +292,7 @@ function MiniGameSequence({ game, onDone, ui }) {
   return (
     <div className="story-minigame">
       <p className="story-minigame__prompt">{game.prompt}</p>
-      <p style={{ fontSize: '.8rem', color: 'var(--muted)', marginTop: -8, marginBottom: 8 }}>Appuie sur deux cases pour les echanger.</p>
+      <p style={{ fontSize: '.8rem', color: 'rgba(255,255,255,.6)', marginTop: -8, marginBottom: 8 }}>Appuie sur deux cases pour les echanger.</p>
       <div className="story-minigame__sequence">
         {order.map((item, i) => (
           <button
@@ -284,13 +300,13 @@ function MiniGameSequence({ game, onDone, ui }) {
             type="button"
             onClick={() => tap(i)}
             style={{
-              background: selected === i ? 'var(--primary)' : confirmed ? (item.orig === i ? '#eafaf1' : '#fef0f0') : 'var(--surface-strong)',
-              border: selected === i ? '2px solid var(--primary-strong)' : '2px solid var(--line)',
+              background: selected === i ? 'var(--story-accent,#6366f1)' : confirmed ? (item.orig === i ? '#166534' : '#7f1d1d') : 'rgba(255,255,255,.1)',
+              border: selected === i ? '2px solid rgba(255,255,255,.4)' : '2px solid rgba(255,255,255,.2)',
               borderRadius: 12, padding: '12px 14px', fontWeight: 700, cursor: confirmed ? 'default' : 'pointer',
-              textAlign: 'left', display: 'flex', alignItems: 'center', gap: 8,
+              textAlign: 'left', display: 'flex', alignItems: 'center', gap: 8, color: '#fff',
             }}
           >
-            <span style={{ background: 'var(--line)', borderRadius: 8, padding: '2px 8px', fontWeight: 800 }}>{i + 1}</span>
+            <span style={{ background: 'rgba(255,255,255,.2)', borderRadius: 8, padding: '2px 8px', fontWeight: 800 }}>{i + 1}</span>
             {item.text}
           </button>
         ))}
@@ -302,7 +318,7 @@ function MiniGameSequence({ game, onDone, ui }) {
       )}
       {confirmed && (
         <>
-          <p style={{ fontWeight: 800, fontSize: '1.1rem', color: correct ? '#27AE60' : '#e74c3c', marginTop: 8 }}>
+          <p style={{ fontWeight: 800, fontSize: '1.1rem', color: correct ? '#22c55e' : '#ef4444', marginTop: 8 }}>
             {correct ? ui.correct : ui.incorrect}
           </p>
           <button type="button" className="story-btn story-btn--primary" onClick={onDone} style={{ marginTop: 8 }}>
@@ -326,14 +342,14 @@ function MiniGameFind({ game, onDone, ui }) {
         {choices.map((c) => {
           const correct = c === game.target;
           const chosen  = c === selected;
-          let bg = 'var(--surface-strong)'; let border = '2px solid var(--line)';
+          let bg = 'rgba(255,255,255,.1)'; let border = '2px solid rgba(255,255,255,.2)';
           if (answered) {
-            if (correct)          { bg = '#eafaf1'; border = '2px solid #27AE60'; }
-            else if (chosen)      { bg = '#fef0f0'; border = '2px solid #e74c3c'; }
+            if (correct)          { bg = '#166534'; border = '2px solid #22c55e'; }
+            else if (chosen)      { bg = '#7f1d1d'; border = '2px solid #ef4444'; }
           }
           return (
             <button key={c} type="button" onClick={() => pick(c)}
-              style={{ background: bg, border, borderRadius: 14, padding: '12px 16px', fontWeight: 700, fontSize: '1rem', cursor: answered ? 'default' : 'pointer', textAlign: 'left' }}>
+              style={{ background: bg, border, borderRadius: 14, padding: '12px 16px', fontWeight: 700, fontSize: '1rem', cursor: answered ? 'default' : 'pointer', textAlign: 'left', color: '#fff' }}>
               {answered && correct && '✅ '}{answered && chosen && !correct && '❌ '}{c}
             </button>
           );
@@ -368,11 +384,9 @@ function MiniGameMatch({ game, onDone, ui }) {
     if (confirmed || !leftSel) return;
     const expectedPair = game.pairs.find((p) => p.a === leftSel);
     if (expectedPair && expectedPair.b === b) {
-      // correct match
       setMatched((prev) => ({ ...prev, [leftSel]: b }));
       setLeftSel(null);
     } else {
-      // wrong match — flash red briefly then clear selection
       setWrongFlash({ a: leftSel, b });
       setTimeout(() => {
         setWrongFlash(null);
@@ -381,7 +395,6 @@ function MiniGameMatch({ game, onDone, ui }) {
     }
   }
 
-  // Once all pairs matched, auto-confirm and call onDone
   useEffect(() => {
     if (allDone) {
       setConfirmed(true);
@@ -402,9 +415,9 @@ function MiniGameMatch({ game, onDone, ui }) {
             return (
               <button key={a} type="button" onClick={() => tapLeft(a)}
                 style={{
-                  background: isWrong ? '#fef0f0' : isSelected ? 'var(--primary)' : isMatched ? '#eafaf1' : 'var(--surface-strong)',
-                  border: isWrong ? '2px solid #e74c3c' : isSelected ? '2px solid var(--primary-strong)' : isMatched ? '2px solid #27AE60' : '2px solid var(--line)',
-                  borderRadius: 12, padding: '10px 12px', fontWeight: 700, cursor: confirmed ? 'default' : 'pointer', textAlign: 'center', fontSize: '.9rem',
+                  background: isWrong ? '#7f1d1d' : isSelected ? 'var(--story-accent,#6366f1)' : isMatched ? '#166534' : 'rgba(255,255,255,.1)',
+                  border: isWrong ? '2px solid #ef4444' : isSelected ? '2px solid rgba(255,255,255,.4)' : isMatched ? '2px solid #22c55e' : '2px solid rgba(255,255,255,.2)',
+                  borderRadius: 12, padding: '10px 12px', fontWeight: 700, cursor: confirmed ? 'default' : 'pointer', textAlign: 'center', fontSize: '.9rem', color: '#fff',
                 }}>
                 {a}
               </button>
@@ -418,9 +431,9 @@ function MiniGameMatch({ game, onDone, ui }) {
             return (
               <button key={b} type="button" onClick={() => tapRight(b)}
                 style={{
-                  background: isWrong ? '#fef0f0' : isMatchedTo ? '#eafaf1' : 'var(--surface-strong)',
-                  border: isWrong ? '2px solid #e74c3c' : isMatchedTo ? '2px solid #27AE60' : '2px solid var(--line)',
-                  borderRadius: 12, padding: '10px 12px', fontWeight: 700, cursor: confirmed ? 'default' : 'pointer', textAlign: 'center', fontSize: '.9rem',
+                  background: isWrong ? '#7f1d1d' : isMatchedTo ? '#166534' : 'rgba(255,255,255,.1)',
+                  border: isWrong ? '2px solid #ef4444' : isMatchedTo ? '2px solid #22c55e' : '2px solid rgba(255,255,255,.2)',
+                  borderRadius: 12, padding: '10px 12px', fontWeight: 700, cursor: confirmed ? 'default' : 'pointer', textAlign: 'center', fontSize: '.9rem', color: '#fff',
                 }}>
                 {b}
               </button>
@@ -429,14 +442,14 @@ function MiniGameMatch({ game, onDone, ui }) {
         </div>
       </div>
       {confirmed && (
-        <p style={{ fontWeight: 800, marginTop: 10, color: '#27AE60' }}>{ui.correct}</p>
+        <p style={{ fontWeight: 800, marginTop: 10, color: '#22c55e' }}>{ui.correct}</p>
       )}
     </div>
   );
 }
 
 function MiniGameDispatch({ game, onDone, ui }) {
-  if (!game) return <p style={{ textAlign: 'center', opacity: 0.7 }}>{ui.noGame}</p>;
+  if (!game) return <p style={{ textAlign: 'center', opacity: 0.7, color: '#fff' }}>{ui.noGame}</p>;
   switch (game.type) {
     case 'choice':   return <MiniGameChoice   game={game} onDone={onDone} ui={ui} />;
     case 'count':    return <MiniGameCount    game={game} onDone={onDone} ui={ui} />;
@@ -461,12 +474,11 @@ export default function StoryReaderPage() {
   const ui = STORY_UI[locale] || STORY_UI.fr;
   const conte = getConteById(id);
 
-  const [phase, setPhase]         = useState(PHASE_SCENES);
-  const [sceneIdx, setSceneIdx]   = useState(0);
-  const [speaking, setSpeaking]   = useState(false);
+  const [phase, setPhase]       = useState(PHASE_SCENES);
+  const [sceneIdx, setSceneIdx] = useState(0);
+  const [speaking, setSpeaking] = useState(false);
   const speakingRef = useRef(false);
 
-  // SR4 — markRead in effect, not in render
   useEffect(() => {
     if (!conte) return;
     if (phase === PHASE_REWARD) {
@@ -478,7 +490,6 @@ export default function StoryReaderPage() {
     return () => stopSpeech();
   }, []);
 
-  // cancel speech when navigating scenes
   useEffect(() => {
     stopSpeech();
     setSpeaking(false);
@@ -504,9 +515,9 @@ export default function StoryReaderPage() {
 
   if (!conte) {
     return (
-      <div style={{ padding: 32, textAlign: 'center' }}>
+      <div style={{ padding: 32, textAlign: 'center', color: '#fff' }}>
         <p>{ui.notFound}</p>
-        <Link to="/stories">{ui.backToLibrary}</Link>
+        <Link to="/stories" style={{ color: '#a5b4fc' }}>{ui.backToLibrary}</Link>
       </div>
     );
   }
@@ -514,6 +525,14 @@ export default function StoryReaderPage() {
   const { palette, scenes, vocabulary, miniGame, emotionalMoment, rewardEmoji, rewardName } = conte;
   const totalScenes = scenes.length;
   const scene = scenes[sceneIdx];
+
+  const storyAccent = palette?.primary || '#6366f1';
+  const storyBg = palette?.background || '#0f0826';
+  const pageStyle = {
+    '--story-accent': storyAccent,
+    '--story-bg': storyBg,
+    background: `linear-gradient(160deg, ${storyBg} 0%, ${storyAccent}44 100%)`,
+  };
 
   function goNext() {
     if (sceneIdx < totalScenes - 1) {
@@ -526,42 +545,50 @@ export default function StoryReaderPage() {
     if (sceneIdx > 0) setSceneIdx(sceneIdx - 1);
   }
 
-  // ── Reward phase ────────────────────────────────────────────────────────────
+  // ── Reward phase ─────────────────────────────────────────────────────────────
   if (phase === PHASE_REWARD) {
     return (
-      <div style={{ minHeight: '100vh', background: palette.background, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 20, padding: 24, textAlign: 'center' }}>
-        <span style={{ fontSize: '5rem', display: 'inline-block', animation: 'storyBounce 0.6s infinite alternate' }}>{rewardEmoji}</span>
-        <h2 style={{ fontSize: '1.8rem', color: palette.primary, margin: 0 }}>{rewardName}</h2>
-        <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
-          <span style={{ fontSize: '2rem' }}>⭐</span>
-          <span style={{ fontSize: '2rem' }}>⭐</span>
+      <div className="sr-page sr-reward-wrap" style={pageStyle}>
+        <span className="sr-reward-emoji">{rewardEmoji}</span>
+        <h2 className="sr-reward-name">{rewardName}</h2>
+        <p className="sr-reward-label">{ui.finishedLabel}</p>
+        <div className="sr-reward-stars">
+          <span className="sr-reward-star">⭐</span>
+          <span className="sr-reward-star">⭐</span>
+          <span className="sr-reward-star">⭐</span>
         </div>
-        <p style={{ color: '#666', fontSize: '1rem', maxWidth: 320 }}>{ui.reward}</p>
-        <button
-          type="button"
-          className="story-btn story-btn--primary"
-          onClick={() => navigate('/stories')}
-        >
-          {ui.backToLibrary}
-        </button>
+        <div className="sr-reward-actions">
+          <button
+            type="button"
+            className="story-btn story-btn--primary"
+            onClick={() => navigate('/stories')}
+          >
+            {ui.newStory}
+          </button>
+          <button
+            type="button"
+            className="story-btn"
+            onClick={() => { setPhase(PHASE_SCENES); setSceneIdx(0); }}
+          >
+            {ui.readAgain}
+          </button>
+        </div>
       </div>
     );
   }
 
-  // ── Emotional moment phase ──────────────────────────────────────────────────
+  // ── Emotional moment phase ────────────────────────────────────────────────────
   if (phase === PHASE_EMOTIONAL) {
     return (
-      <div style={{ minHeight: '100vh', background: palette.background, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 20, padding: 32, textAlign: 'center' }}>
-        <span style={{ fontSize: '3rem' }}>💭</span>
-        <span style={{
-          display: 'inline-block', background: palette.primary, color: '#fff',
-          borderRadius: 20, padding: '6px 18px', fontWeight: 800, fontSize: '1rem',
-        }}>
+      <div className="sr-page sr-emotional-wrap" style={pageStyle}>
+        <span className="sr-emotional-icon">💭</span>
+        <span
+          className="sr-emotional-badge"
+          style={{ background: storyAccent }}
+        >
           {emotionalMoment.feeling}
         </span>
-        <p style={{ fontSize: '1.15rem', color: '#444', maxWidth: 360, lineHeight: 1.6, fontWeight: 600 }}>
-          {emotionalMoment.prompt}
-        </p>
+        <p className="sr-emotional-prompt">{emotionalMoment.prompt}</p>
         <button
           type="button"
           className="story-btn story-btn--primary"
@@ -573,117 +600,133 @@ export default function StoryReaderPage() {
     );
   }
 
-  // ── Mini-game phase ─────────────────────────────────────────────────────────
+  // ── Mini-game phase ───────────────────────────────────────────────────────────
   if (phase === PHASE_MINIGAME) {
     return (
-      <div style={{ minHeight: '100vh', background: palette.background, padding: 24, maxWidth: 600, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
-          <Link to="/stories" style={{ textDecoration: 'none', fontSize: '1.4rem' }}>←</Link>
-          <h2 style={{ margin: 0, fontSize: '1.2rem', color: palette.primary }}>🎮 {ui.miniGame}</h2>
+      <div className="sr-page" style={pageStyle}>
+        <header className="sr-header">
+          <button
+            type="button"
+            className="sr-header__back"
+            onClick={() => { stopSpeech(); navigate('/stories'); }}
+            aria-label={ui.backToLibrary}
+          >
+            ←
+          </button>
+          <h1 className="sr-header__title">{conte.emoji} {conte.title}</h1>
+        </header>
+        <div className="sr-minigame-wrapper">
+          <div className="sr-minigame-header">
+            <span style={{ fontSize: '1.5rem' }}>🎮</span>
+            <h2 className="sr-minigame-title">{ui.miniGame}</h2>
+          </div>
+          <MiniGameDispatch game={miniGame} onDone={() => setPhase(PHASE_EMOTIONAL)} ui={ui} />
         </div>
-        <MiniGameDispatch game={miniGame} onDone={() => setPhase(PHASE_EMOTIONAL)} ui={ui} />
       </div>
     );
   }
 
-  // ── Vocabulary phase ────────────────────────────────────────────────────────
+  // ── Vocabulary phase ──────────────────────────────────────────────────────────
   if (phase === PHASE_VOCAB) {
     return (
-      <div style={{ minHeight: '100vh', background: palette.background, padding: 24, maxWidth: 600, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
-          <Link to="/stories" style={{ textDecoration: 'none', fontSize: '1.4rem' }}>←</Link>
-          <h2 style={{ margin: 0, fontSize: '1.2rem', color: palette.primary }}>📚 {ui.vocabulary}</h2>
-        </div>
-        <div style={{ display: 'grid', gap: 12 }}>
+      <div className="sr-page" style={pageStyle}>
+        <header className="sr-header">
+          <button
+            type="button"
+            className="sr-header__back"
+            onClick={() => { stopSpeech(); navigate('/stories'); }}
+            aria-label={ui.backToLibrary}
+          >
+            ←
+          </button>
+          <h1 className="sr-header__title">{conte.emoji} {conte.title}</h1>
+        </header>
+        <div className="sr-vocab-grid">
           {vocabulary.map((v) => (
-            <div key={v.word} className="story-vocab-card" style={{ background: 'var(--surface-strong)', borderRadius: 16, padding: '14px 18px', border: '1.5px solid var(--line)', display: 'flex', alignItems: 'center', gap: 14 }}>
-              <span style={{ fontSize: '2rem' }}>{v.emoji}</span>
+            <div key={v.word} className="sr-vocab-card">
+              <span className="sr-vocab-card__emoji">{v.emoji}</span>
               <div>
-                <strong style={{ fontSize: '1rem', color: palette.primary }}>{v.word}</strong>
-                <p style={{ margin: 0, fontSize: '.88rem', color: '#555', marginTop: 2 }}>{v.meaning}</p>
+                <div className="sr-vocab-card__word" style={{ color: storyAccent }}>{v.word}</div>
+                <div className="sr-vocab-card__meaning">{v.meaning}</div>
               </div>
             </div>
           ))}
         </div>
-        <button
-          type="button"
-          className="story-btn story-btn--primary"
-          style={{ marginTop: 28, width: '100%' }}
-          onClick={() => setPhase(PHASE_MINIGAME)}
-        >
-          {ui.toMiniGame}
-        </button>
+        <div className="sr-nav">
+          <button
+            type="button"
+            className="sr-nav-btn sr-nav-btn--primary"
+            onClick={() => setPhase(PHASE_MINIGAME)}
+          >
+            {ui.toMiniGame}
+          </button>
+        </div>
       </div>
     );
   }
 
-  // ── Scenes phase (default) ──────────────────────────────────────────────────
+  // ── Scenes phase (default) ────────────────────────────────────────────────────
   return (
-    <div style={{ minHeight: '100vh', background: palette.background, display: 'flex', flexDirection: 'column' }}>
-      {/* Header */}
-      <div style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', gap: 12, borderBottom: '1px solid rgba(0,0,0,.06)' }}>
-        <Link to="/stories" style={{ textDecoration: 'none', fontSize: '1.3rem', color: palette.primary }} onClick={stopSpeech}>←</Link>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontWeight: 800, fontSize: '1rem', color: palette.primary }}>{conte.emoji} {conte.title}</div>
-          <div style={{ fontSize: '.78rem', color: '#888' }}>{ui.scene(sceneIdx + 1, totalScenes)}</div>
-        </div>
+    <div className="sr-page" style={pageStyle}>
+      <header className="sr-header">
         <button
           type="button"
+          className="sr-header__back"
+          onClick={() => { stopSpeech(); navigate('/stories'); }}
+          aria-label={ui.backToLibrary}
+        >
+          ←
+        </button>
+        <h1 className="sr-header__title">{conte.emoji} {conte.title}</h1>
+        <button
+          type="button"
+          className={`sr-header__speak${speaking ? ' sr-header__speak--active' : ''}`}
           onClick={handleSpeak}
           title={speaking ? ui.muteOff : ui.muteOn}
-          style={{ background: speaking ? palette.primary : 'transparent', border: `2px solid ${palette.primary}`, borderRadius: 50, width: 40, height: 40, fontSize: '1.1rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >
           🔊
         </button>
+      </header>
+
+      <div className="sr-progress-bar">
+        <div
+          className="sr-progress-fill"
+          style={{ width: `${((sceneIdx + 1) / totalScenes) * 100}%` }}
+        />
       </div>
 
-      {/* Progress bar */}
-      <div style={{ height: 4, background: 'rgba(0,0,0,.08)' }}>
-        <div style={{ height: '100%', background: palette.primary, width: `${((sceneIdx + 1) / totalScenes) * 100}%`, transition: 'width .3s ease' }} />
-      </div>
-
-      {/* Scene content */}
-      <div style={{ flex: 1, padding: '32px 24px', maxWidth: 640, margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: 24 }}>
-        <p style={{ fontSize: '1.2rem', lineHeight: 1.75, color: '#2d2d2d', fontWeight: 500, margin: 0 }}>
-          {scene.text}
-        </p>
+      <div className="sr-book-card">
+        <span className="sr-scene-emoji" role="img" aria-hidden="true">
+          {sceneEmoji(sceneIdx)}
+        </span>
+        <p className="sr-scene-text">{scene.text}</p>
 
         {scene.dialogue && (
-          <div className="story-speech-bubble" style={{
-            background: palette.accent,
-            borderRadius: '0 18px 18px 18px',
-            padding: '14px 18px',
-            position: 'relative',
-            borderLeft: `4px solid ${palette.primary}`,
-          }}>
-            <div style={{ fontWeight: 800, fontSize: '.82rem', color: palette.primary, marginBottom: 4, textTransform: 'uppercase', letterSpacing: '.04em' }}>{scene.dialogue.speaker}</div>
-            <p style={{ margin: 0, fontStyle: 'italic', fontSize: '1.05rem', color: '#333', lineHeight: 1.55 }}>
-              &ldquo;{scene.dialogue.line}&rdquo;
-            </p>
+          <div className="sr-dialogue">
+            <span className="sr-dialogue__speaker">{scene.dialogue.speaker}</span>
+            &ldquo;{scene.dialogue.line}&rdquo;
           </div>
         )}
       </div>
 
-      {/* Navigation */}
-      <div style={{ padding: '16px 24px', display: 'flex', gap: 12, justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,.06)' }}>
+      <nav className="sr-nav">
         <button
           type="button"
+          className="sr-nav-btn"
           onClick={goPrev}
           disabled={sceneIdx === 0}
-          className="story-btn"
-          style={{ opacity: sceneIdx === 0 ? 0.3 : 1, minWidth: 80 }}
+          aria-label={ui.prevScene}
         >
           {ui.prevScene}
         </button>
         <button
           type="button"
+          className="sr-nav-btn sr-nav-btn--primary"
           onClick={goNext}
-          className="story-btn story-btn--primary"
-          style={{ minWidth: 80 }}
         >
           {sceneIdx === totalScenes - 1 ? ui.toVocab : ui.nextScene}
         </button>
-      </div>
+      </nav>
     </div>
   );
 }
