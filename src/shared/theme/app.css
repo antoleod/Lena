@@ -11858,3 +11858,319 @@ label {
 .exam-subject-card--hard {
   border: 1.5px solid rgba(231,76,60,.3) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE LAYOUT — Samsung S25 Ultra (412px) · iPad 11" portrait (820px)
+   · iPad 11" landscape (1194px)
+   All rules APPENDED — no existing rules modified.
+   Touch target floor: 44px min-height/min-width on all interactive elements.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. AppShell padding ──────────────────────────────────────────────────── */
+
+/* Phone: tighter main padding */
+@media (max-width: 599px) {
+  .app-main--game {
+    padding: 12px 12px 32px;
+  }
+}
+
+/* Tablet portrait (600–1023px): 16px padding already set at 768px;
+   ensure it also applies at 600–767px where topbar still shows */
+@media (min-width: 600px) and (max-width: 767px) {
+  .app-main--game {
+    padding: 16px 16px 32px;
+  }
+}
+
+/* Desktop (≥1200px): wider sidebar */
+@media (min-width: 1200px) {
+  .app-sidebar {
+    width: 240px;
+  }
+}
+
+/* ── 2. ExamHubPage — phone layout ──────────────────────────────────────── */
+
+@media (max-width: 599px) {
+  .exam-hub-page {
+    padding: 0 12px 40px;
+  }
+
+  /* Compact header */
+  .exam-hub-header h1 {
+    font-size: 1.3rem;
+  }
+  .exam-hub-header .eyebrow {
+    display: none;
+  }
+  .exam-hub-sub {
+    font-size: .8rem;
+  }
+  .exam-mode-legend {
+    flex-direction: column;
+    gap: 4px;
+    font-size: .72rem;
+  }
+  .exam-mode-legend__item {
+    padding: 3px 0;
+  }
+
+  /* 1-column subject grid, card as horizontal row */
+  .exam-subject-grid {
+    grid-template-columns: 1fr;
+  }
+  .exam-subject-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+  }
+  .exam-subject-card__top {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    min-width: 130px;
+  }
+  .exam-subject-card__modes {
+    flex-direction: row;
+    gap: 6px;
+    flex-wrap: nowrap;
+    flex: 1;
+  }
+  .exam-mode-btn {
+    flex: 1;
+    padding: 8px 4px;
+    font-size: .7rem;
+    min-height: 44px;
+  }
+}
+
+/* ── 3. ExamHubPage — tablet portrait: 2 columns (600–899px) ────────────── */
+/* Override the 768px rule that forces repeat(4, minmax(220px,1fr)) */
+@media (min-width: 600px) and (max-width: 899px) {
+  .exam-subject-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── 4. ExamHubPage — tablet landscape: 3 columns (900–1099px) ──────────── */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .exam-subject-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── 5. ExamHubPage — wide tablet / small desktop: 4 columns (1100px+) ──── */
+/* Overrides the 768px minmax(220px) rule with a safe fluid 4-col layout */
+@media (min-width: 1100px) {
+  .exam-subject-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── 6. Exam question card — phone ──────────────────────────────────────── */
+
+@media (max-width: 599px) {
+  .exam-question-card {
+    padding: 16px;
+    margin: 0 0;
+  }
+  .exam-question-text {
+    font-size: 1.1rem;
+  }
+  .exam-choices {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 0;
+  }
+  .exam-choice {
+    padding: 14px 8px;
+    font-size: .9rem;
+    min-height: 50px;
+  }
+}
+
+/* ── 7. Shop grid — responsive ───────────────────────────────────────────── */
+
+/* Phone: 2-column grid, compact cards */
+@media (max-width: 599px) {
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 12px 80px;
+  }
+  .shop-card {
+    border-radius: 14px;
+  }
+  .shop-card__visual {
+    height: 80px;
+    aspect-ratio: unset;
+  }
+  .shop-card__emoji {
+    font-size: 2rem;
+  }
+  .shop-deal-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .shop-hero {
+    padding: 12px 12px 8px;
+  }
+}
+
+/* Tablet portrait: 3-column grid */
+@media (min-width: 600px) and (max-width: 899px) {
+  .shop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet landscape+: fluid auto-fill */
+@media (min-width: 900px) {
+  .shop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* ── 8. Home page — phone ────────────────────────────────────────────────── */
+
+@media (max-width: 599px) {
+  .home-action-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 0 10px;
+  }
+  .home-action-tile {
+    padding: 10px 4px;
+    border-radius: 14px;
+  }
+  .home-action-tile__emoji {
+    font-size: 1.6rem;
+  }
+  .home-action-tile__label {
+    font-size: .65rem;
+  }
+  .home-score-strip {
+    gap: 0;
+  }
+  .home-score-item {
+    padding: 10px 8px;
+  }
+  .home-score-item strong {
+    font-size: 1.2rem;
+  }
+  .home-hero {
+    padding: 14px;
+  }
+  .home-hero__name {
+    font-size: 1.6rem;
+  }
+}
+
+/* ── 9. Subjects world card grid — responsive ────────────────────────────── */
+
+@media (max-width: 599px) {
+  .sw-worlds__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .sw-world-card__sky {
+    height: 60px;
+  }
+  .sw-world-card__planet {
+    width: 54px;
+    height: 54px;
+    font-size: 1.5rem;
+    margin-top: -27px;
+  }
+  .sw-world-card__name {
+    font-size: .85rem;
+  }
+  .sw-world-card__cta {
+    padding: 8px 0;
+    font-size: .75rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .sw-worlds__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .sw-worlds__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── 10. Lecture hub grid — phone ────────────────────────────────────────── */
+
+@media (max-width: 599px) {
+  .lecture-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 12px 80px;
+  }
+  .lecture-card {
+    padding: 12px 8px;
+  }
+  .lecture-card__emoji {
+    font-size: 1.8rem;
+  }
+  .lecture-card__title {
+    font-size: .8rem;
+  }
+}
+
+/* ── 11. Reader page — phone ─────────────────────────────────────────────── */
+
+@media (max-width: 599px) {
+  .reader-text {
+    font-size: 1.1rem;
+  }
+  .reader-card {
+    padding: 20px 16px;
+    margin: 0 10px;
+  }
+  .reader-btn {
+    padding: 12px 16px;
+    font-size: .9rem;
+  }
+  .tf-btn {
+    padding: 13px;
+    font-size: 1rem;
+  }
+}
+
+/* ── 12. Sidebar nav — truncate long labels on narrow tablet ─────────────── */
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .sidebar-link span {
+    font-size: .82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 130px;
+  }
+  .sidebar-nav {
+    gap: 2px;
+  }
+}
+
+/* ── 13. Topbar nav — icon-only on very small phones ─────────────────────── */
+
+@media (max-width: 420px) {
+  .topbar-link span {
+    display: none;
+  }
+  .topbar-link {
+    padding: 6px 8px;
+  }
+  .topbar-link__icon {
+    width: 22px;
+    height: 22px;
+  }
+}
