@@ -117,16 +117,18 @@ export default function SubjectPage() {
                 to={launchTo}
                 className="sw-world-card"
                 style={{
-                  '--w-color':  w.color,
-                  '--w-shadow': w.shadow,
-                  '--w-bg':     w.bg,
-                  '--w-sky':    w.sky,
-                  animationDelay: `${index * 80}ms`,
+                  '--w-color':    w.color,
+                  '--w-shadow':   w.shadow,
+                  '--w-bg':       w.bg,
+                  '--w-sky':      w.sky,
+                  '--card-index': index,
                 }}
                 data-testid={`subject-grade-${grade.gradeId}`}
               >
                 {/* Sky */}
                 <div className="sw-world-card__sky" aria-hidden="true">
+                  <span className="sw-world-card__star" />
+                  <span className="sw-world-card__star" />
                   <span className="sw-world-card__grade-badge">{grade.gradeId}</span>
                 </div>
 

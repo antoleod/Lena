@@ -11419,3 +11419,281 @@ label {
   color: var(--text-muted, rgba(255,255,255,.6));
   width: fit-content;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SUBJECT SECTION — enhanced animations & visuals (2025)
+   All rules appended here; upstream rules left untouched.
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+
+@keyframes card-float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-4px); }
+}
+
+@keyframes planet-spin {
+  0%   { transform: rotate(-6deg); }
+  50%  { transform: rotate(6deg); }
+  100% { transform: rotate(-6deg); }
+}
+
+@keyframes planet-glow {
+  0%,100% { filter: drop-shadow(0 0 6px var(--w-color, #5bc87a)); }
+  50%     { filter: drop-shadow(0 0 16px var(--w-color, #5bc87a)); }
+}
+
+@keyframes star-twinkle {
+  0%,100% { opacity: 0.2; transform: scale(0.8); }
+  50%     { opacity: 0.9; transform: scale(1.2); }
+}
+
+@keyframes cta-shine {
+  from { background-position: -100% 0; }
+  to   { background-position: 200% 0; }
+}
+
+@keyframes bar-shine {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes orb-bounce {
+  0%,100% { transform: scale(1)    translateY(0);   }
+  50%     { transform: scale(1.06) translateY(-6px); }
+}
+
+@keyframes halo-pulse {
+  0%,100% { opacity: 0.25; transform: scale(1);    }
+  50%     { opacity: 0.55; transform: scale(1.08); }
+}
+
+@keyframes orbit-v2 {
+  from { transform: rotate(calc(var(--i) * 45deg)) translateX(48px) rotate(0deg); }
+  to   { transform: rotate(calc(var(--i) * 45deg + 360deg)) translateX(48px) rotate(-360deg); }
+}
+
+@keyframes step-slide-in {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Stars overrides (bigger, gold) ───────────────────────── */
+.cc-star {
+  font-size: 0.9rem;
+}
+.cc-star--on {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255,210,0,0.85);
+}
+
+/* ── XP bar shimmer ────────────────────────────────────────── */
+.cc-xp-fill {
+  position: relative;
+  overflow: hidden;
+}
+.cc-xp-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.45) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: bar-shine 2.2s linear infinite;
+}
+
+/* ── Hero orb bounce + halo ────────────────────────────────── */
+.sw-universe__hero-orb {
+  animation: orb-bounce 3s ease-in-out infinite;
+}
+
+/* Halo pseudo-element behind orb */
+.sw-universe__hero-orb::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--uni-accent, #a87cf9) 0%, transparent 70%);
+  opacity: 0.3;
+  animation: halo-pulse 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* ── Hero particles — orbit v2 ─────────────────────────────── */
+.sw-universe__hero-particle {
+  /* Override the existing sw-orbit with the new orbit-v2 */
+  animation: orbit-v2 calc(5s + var(--i) * 0.4s) linear infinite !important;
+  transform-origin: 0 0;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.35rem;
+  margin-left: -0.35rem;
+}
+
+/* ── Roadmap step-num badge ────────────────────────────────── */
+.sw-roadmap__step-num {
+  width: 22px;
+  height: 22px;
+  background: var(--uni-bg, rgba(255,255,255,0.15));
+  border: 1.5px solid var(--uni-accent, rgba(255,255,255,0.3));
+  font-size: 0.65rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* Roadmap slide-in animation */
+.sw-roadmap__step {
+  animation: step-slide-in 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+/* ── World card — float after pop-in ──────────────────────── */
+/*
+   Two animations stacked:
+   1. cc-pop-in fires immediately (driven by animationDelay inline style)
+   2. card-float starts after pop-in finishes (~0.5s) plus card stagger
+   We approximate this with a large initial delay on card-float.
+*/
+.sw-world-card {
+  animation:
+    cc-pop-in   0.5s cubic-bezier(0.34,1.56,0.64,1) forwards,
+    card-float  3s   ease-in-out infinite;
+  animation-delay:
+    calc(var(--card-index, 0) * 80ms),
+    calc(var(--card-index, 0) * 80ms + 0.5s + var(--card-index, 0) * 0.3s);
+}
+
+/* Stronger hover — scale 1.04 + glow ring */
+.sw-world-card:hover {
+  transform: translateY(-4px) scale(1.04) !important;
+  box-shadow:
+    0 16px 40px rgba(0,0,0,0.5),
+    0 0 0 2px var(--w-color, #5bc87a) !important;
+}
+
+/* ── World card planet — spin + glow pulse ─────────────────── */
+.sw-world-card__planet {
+  animation: planet-glow 2.5s ease-in-out infinite;
+}
+
+.sw-world-card__emoji {
+  display: inline-block;
+  animation: planet-spin 4s ease-in-out infinite;
+}
+
+/* ── Sky star dots ─────────────────────────────────────────── */
+.sw-world-card__star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+}
+
+.sw-world-card__star:nth-child(1) {
+  top: 22%;
+  left: 18%;
+  animation: star-twinkle 2.1s ease-in-out infinite;
+}
+.sw-world-card__star:nth-child(2) {
+  top: 40%;
+  left: 45%;
+  animation: star-twinkle 1.7s ease-in-out infinite 0.6s;
+}
+
+/* ── CTA shine sweep on hover ──────────────────────────────── */
+.sw-world-card__cta {
+  position: relative;
+  overflow: hidden;
+}
+.sw-world-card__cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.sw-world-card:hover .sw-world-card__cta::after {
+  opacity: 1;
+  animation: cta-shine 0.65s ease forwards;
+}
+
+/* ── Subjects hub portal cards — entrance + hover ──────────── */
+
+/* Staggered entrance already provided by cc-pop-in + inline animationDelay.
+   Enhance hover: lift higher, show glow ring */
+.sw-portal:hover {
+  transform: translateY(-5px) scale(1.015) !important;
+  box-shadow:
+    0 18px 44px rgba(0,0,0,0.55),
+    0 0 0 2px var(--uni-accent, #a87cf9) !important;
+}
+
+/* Planet orb on portal: glow pulse */
+.sw-portal__planet {
+  animation: halo-pulse 2.8s ease-in-out infinite;
+  /* halo-pulse repurposed: scales the glow shadow rather than a pseudo */
+}
+
+/* Progress fill shimmer on portal */
+.sw-portal__progress-fill {
+  position: relative;
+  overflow: hidden;
+}
+.sw-portal__progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: bar-shine 2s linear infinite;
+}
+
+/* Portal CTA shine on hover */
+.sw-portal__cta {
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.15s;
+}
+.sw-portal:hover .sw-portal__cta {
+  filter: brightness(1.12);
+}
+.sw-portal__cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.sw-portal:hover .sw-portal__cta::after {
+  opacity: 1;
+  animation: cta-shine 0.65s ease forwards;
+}
+
+/* ── iPad / touch-device safety ────────────────────────────── */
+/* Ensure hover-only glows degrade gracefully on coarse pointers */
+@media (hover: none) {
+  .sw-world-card {
+    /* Disable float on touch — too distracting without cursor feedback */
+    animation: cc-pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards !important;
+    animation-delay: calc(var(--card-index, 0) * 80ms) !important;
+  }
+  .sw-world-card:hover,
+  .sw-portal:hover {
+    transform: none !important;
+    box-shadow: revert !important;
+  }
+}
+
+/* Minimum touch target guard (already 44px+ from existing padding, kept explicit) */
+.sw-world-card__cta,
+.sw-portal__cta {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
