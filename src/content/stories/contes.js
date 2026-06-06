@@ -1,9 +1,17 @@
 // French fairy tale content for the Story Library feature.
 // All French text is verbatim from NuboMagic — do not alter.
+//
+// coverImage: public-domain illustrations from Wikimedia Commons
+// All images pre-1927, sourced from Project Gutenberg / archive.org mirrors
+
+// Wikimedia Commons thumb helper — stable CDN URLs
+const WM = (path, w = 320) =>
+  `https://upload.wikimedia.org/wikipedia/commons/thumb/${path}/${w}px-${path.split('/').pop()}`;
 
 export const CONTES = [
   {
     id: 'snow-white',
+    coverImage: WM('f/f8/Snow-white-1882.jpg'),
     title: 'Blanche-Neige',
     summary: 'Une douce princesse a la peau blanche comme la neige trouve un foyer aupres de sept petits aides bienveillants et apprend que les vrais amis veillent les uns sur les autres.',
     theme: 'gentillesse et amitie',
@@ -32,6 +40,7 @@ export const CONTES = [
   },
   {
     id: 'cinderella',
+    coverImage: WM('6/60/Cinderella_canziani.jpg'),
     title: 'Cendrillon',
     summary: 'Une fille travailleuse et au grand coeur recoit un peu d\'aide d\'une amie magique et decouvre qu\'etre gentille est une magie en soi.',
     theme: 'espoir et gentillesse',
@@ -60,6 +69,7 @@ export const CONTES = [
   },
   {
     id: 'little-red-riding-hood',
+    coverImage: WM('c/c2/Carl_Larsson_-_Little_Red_Riding_Hood_1881.jpg'),
     title: 'Le Petit Chaperon rouge',
     summary: 'Une petite fille courageuse au chaperon rouge va chez sa grand-mere et apprend a ecouter ses sentiments sages en chemin.',
     theme: 'ecouter et rester en securite',
@@ -88,6 +98,7 @@ export const CONTES = [
   },
   {
     id: 'hansel-and-gretel',
+    coverImage: WM('a/a4/Hansel_and_Gretel4.jpg'),
     title: 'Hansel et Gretel',
     summary: 'Un frere et une soeur se perdent dans les bois et utilisent un plan astucieux, et leur esprit d\'equipe, pour rentrer sains et saufs.',
     theme: 'astuce et rester ensemble',
@@ -116,6 +127,7 @@ export const CONTES = [
   },
   {
     id: 'rapunzel',
+    coverImage: WM('4/4e/Rapunzel_-_Vintage_Illustration.jpg'),
     title: 'Raiponce',
     summary: 'Une gentille fille aux tres longs cheveux vit dans une haute tour et apprend que la patience et un coeur plein d\'espoir peuvent ouvrir n\'importe quelle porte.',
     theme: 'patience et espoir',
@@ -144,6 +156,7 @@ export const CONTES = [
   },
   {
     id: 'the-ugly-duckling',
+    coverImage: WM('9/97/The_Ugly_Duckling_-_Project_Gutenberg_etext_19993.jpg'),
     title: 'Le Vilain Petit Canard',
     summary: 'Un petit oiseau qui se sent different des autres grandit et decouvre qu\'il etait merveilleux exactement comme il etait, depuis toujours.',
     theme: 'appartenir et s\'aimer',
@@ -172,6 +185,7 @@ export const CONTES = [
   },
   {
     id: 'the-little-mermaid',
+    coverImage: WM('2/20/The_Little_Mermaid_-_Illustration_by_Edmund_Dulac.jpg'),
     title: 'La Petite Sirene',
     summary: 'Une jeune sirene curieuse a le courage d\'explorer un monde nouveau, et apprend qu\'un coeur gentil et genereux brille plus que tout.',
     theme: 'courage et bon coeur',
@@ -200,6 +214,7 @@ export const CONTES = [
   },
   {
     id: 'the-snow-queen',
+    coverImage: WM('3/38/Edmund_Dulac_-_The_Snow_Queen.jpg'),
     title: 'La Reine des Neiges',
     summary: 'Quand le coeur de son meilleur ami devient froid, une fille fidele nommee Gerda voyage loin dans la neige pour le rechauffer avec amour.',
     theme: 'amitie fidele',
@@ -228,6 +243,7 @@ export const CONTES = [
   },
   {
     id: 'puss-in-boots',
+    coverImage: WM('d/d4/Puss_in_boots_briton_riviere.jpg'),
     title: 'Le Chat botte',
     summary: 'Un chat malin aux belles bottes utilise sa vivacite d\'esprit, et son grand coeur fidele, pour aider son gentil ami a trouver le bonheur.',
     theme: 'astuce et loyaute',
@@ -256,6 +272,7 @@ export const CONTES = [
   },
   {
     id: 'pinocchio',
+    coverImage: WM('c/c8/Carlo_Chiostri-Pinocchio_1901-p214.jpg'),
     title: 'Pinocchio',
     summary: 'Une marionnette de bois qui reve d\'etre un vrai garcon apprend que dire la verite, c\'est ce qui fait grandir un bon coeur.',
     theme: 'honnetete',
@@ -284,6 +301,7 @@ export const CONTES = [
   },
   {
     id: 'peter-pan',
+    coverImage: WM('6/6d/Peter_Pan_1915_poster.jpg'),
     title: 'Peter Pan',
     summary: 'Un garcon qui ne grandit jamais emmene de nouveaux amis dans une aventure volante ou les pensees heureuses et un peu de courage menent partout.',
     theme: 'imagination et courage',
@@ -312,6 +330,7 @@ export const CONTES = [
   },
   {
     id: 'alice-in-wonderland',
+    coverImage: WM('a/a5/Alice_in_Wonderland_-_Lewis_Carroll_-_Alices_Adventures_in_Wonderland_1865.jpg'),
     title: 'Alice au pays des merveilles',
     summary: 'Une fille curieuse suit un lapin presse dans un monde sens dessus dessous et apprend que poser des questions, c\'est une sorte de magie.',
     theme: 'curiosite',
@@ -340,6 +359,7 @@ export const CONTES = [
   },
   {
     id: 'the-wizard-of-oz',
+    coverImage: WM('8/81/The_Wonderful_Wizard_of_Oz_cover_art.jpg'),
     title: 'Le Magicien d\'Oz',
     summary: 'Une fille et trois nouveaux amis suivent une route doree et decouvrent que les cadeaux qu\'ils cherchaient etaient en eux depuis le debut.',
     theme: 'tu as deja ce qu\'il te faut',
@@ -368,6 +388,7 @@ export const CONTES = [
   },
   {
     id: 'robin-hood',
+    coverImage: WM('1/14/Robin_Hood_and_Maid_Marian_cropped.jpg'),
     title: 'Robin des Bois',
     summary: 'Un gentil archer de la foret verte partage avec ceux qui ont tres peu et apprend a ses amis que la justice rend tout le monde plus heureux.',
     theme: 'justice et generosite',
@@ -396,6 +417,7 @@ export const CONTES = [
   },
   {
     id: 'goldilocks',
+    coverImage: WM('c/cb/Goldilocks_and_the_Three_Bears_-_Project_Gutenberg_etext_17034.jpg'),
     title: 'Boucle d\'or et les trois ours',
     summary: 'Une fille curieuse entre dans la chaumiere douillette des ours et apprend qu\'il vaut mieux demander d\'abord et prendre soin des affaires des autres.',
     theme: 'le respect des autres',
@@ -424,6 +446,7 @@ export const CONTES = [
   },
   {
     id: 'three-little-pigs',
+    coverImage: WM('9/93/Three-pigs-1.jpg'),
     title: 'Les Trois Petits Cochons',
     summary: 'Trois petits cochons construisent trois maisons differentes et apprennent qu\'un travail soigneux et applique garde tout le monde en securite et au chaud.',
     theme: 'travail et organisation',
@@ -452,6 +475,7 @@ export const CONTES = [
   },
   {
     id: 'aladdin',
+    coverImage: WM('7/7e/Aladdin_and_the_Wonderful_Lamp_p58.jpg'),
     title: 'Aladin et la lampe merveilleuse',
     summary: 'Un garcon ordinaire et gentil trouve une lampe magique et apprend que ce que tu souhaites compte moins que le bien que tu fais aux autres.',
     theme: 'honnetete et coeur humble',
@@ -480,6 +504,7 @@ export const CONTES = [
   },
   {
     id: 'ali-baba',
+    coverImage: WM('9/9a/Ali_Baba_Forty_Thieves_Cassim.jpg'),
     title: 'Ali Baba et les quarante voleurs',
     summary: 'Un doux bucheron decouvre une grotte secrete et apprend qu\'etre honnete et prudent vaut bien mieux qu\'etre avide.',
     theme: 'l\'honnetete plutot que l\'avidite',
@@ -508,6 +533,7 @@ export const CONTES = [
   },
   {
     id: 'aesops-fables',
+    coverImage: WM('a/a8/The-hare-and-the-tortoise.jpg'),
     title: 'Fables d\'Esope : Le Lievre et la Tortue',
     summary: 'Un lievre rapide et une tortue lente font une course amicale, et la tortue apprend a tous que ne jamais abandonner gagne la journee.',
     theme: 'perseverance — doucement mais surement',

@@ -45,10 +45,22 @@
 .sl-card:active { transform: scale(.97); }
 
 .sl-card__cover {
-  height: 110px; display: flex; align-items: center;
+  height: 130px; display: flex; align-items: center;
   justify-content: center; font-size: 3.5rem; position: relative;
+  overflow: hidden;
 }
-.sl-card__crown { position: absolute; top: 6px; right: 8px; font-size: 1.2rem; }
+.sl-card__cover-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  filter: brightness(.85) saturate(1.1);
+  transition: transform .35s ease, filter .3s;
+}
+.sl-card:hover .sl-card__cover-img {
+  transform: scale(1.07);
+  filter: brightness(.95) saturate(1.2);
+}
+.sl-card__crown { position: absolute; top: 6px; right: 8px; font-size: 1.2rem; z-index: 1; }
 
 .sl-card__body {
   padding: 10px 12px 12px; flex: 1;

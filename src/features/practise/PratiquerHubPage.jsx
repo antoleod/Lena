@@ -1,51 +1,62 @@
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+import {
+  IconExamens, IconCahier, IconTables, IconStories, IconJeux
+} from '../../assets/icons/AppIcons.jsx';
 
 const HUB_UI = {
   fr: {
     title: '🎯 Pratiquer',
     subtitle: 'Choisis ton activite',
     cards: [
-      { to: '/exam/library', emoji: '📚', title: 'Bibliotheque d\'examens', desc: 'Plus de 300 examens par matiere', color: '#9b59b6' },
-      { to: '/cahier', emoji: '✏️', title: 'Mon Cahier', desc: 'Exercices personnalises', color: '#3498db' },
-      { to: '/tables', emoji: '✖️', title: 'Tables', desc: 'Tables de multiplication', color: '#e67e22' },
-      { to: '/stories', emoji: '📖', title: 'Contes & Lecture', desc: '19 histoires interactives', color: '#1abc9c' },
-      { to: '/jeux', emoji: '🧠', title: 'Jeux Cerebraux', desc: 'Memory, calcul rapide, mots...', color: '#6366f1' },
+      { to: '/exam/library', icon: 'examens', title: 'Bibliotheque d\'examens', desc: 'Plus de 300 examens par matiere', color: '#9b59b6' },
+      { to: '/cahier', icon: 'cahier', title: 'Mon Cahier', desc: 'Exercices personnalises', color: '#3498db' },
+      { to: '/tables', icon: 'tables', title: 'Tables', desc: 'Tables de multiplication', color: '#e67e22' },
+      { to: '/stories', icon: 'stories', title: 'Contes & Lecture', desc: '19 histoires interactives', color: '#1abc9c' },
+      { to: '/jeux', icon: 'jeux', title: 'Jeux Cerebraux', desc: 'Memory, calcul, mots...', color: '#6366f1' },
     ],
   },
   nl: {
     title: '🎯 Oefenen',
     subtitle: 'Kies je activiteit',
     cards: [
-      { to: '/exam/library', emoji: '📚', title: 'Examenbibliotheek', desc: 'Meer dan 300 examens', color: '#9b59b6' },
-      { to: '/cahier', emoji: '✏️', title: 'Mijn Schrift', desc: 'Gepersonaliseerde oefeningen', color: '#3498db' },
-      { to: '/tables', emoji: '✖️', title: 'Tafels', desc: 'Vermenigvuldigingstafels', color: '#e67e22' },
-      { to: '/stories', emoji: '📖', title: 'Verhalen', desc: '19 interactieve verhalen', color: '#1abc9c' },
-      { to: '/jeux', emoji: '🧠', title: 'Hersengames', desc: 'Memory, rekenen, woorden...', color: '#6366f1' },
+      { to: '/exam/library', icon: 'examens', title: 'Examenbibliotheek', desc: 'Meer dan 300 examens', color: '#9b59b6' },
+      { to: '/cahier', icon: 'cahier', title: 'Mijn Schrift', desc: 'Gepersonaliseerde oefeningen', color: '#3498db' },
+      { to: '/tables', icon: 'tables', title: 'Tafels', desc: 'Vermenigvuldigingstafels', color: '#e67e22' },
+      { to: '/stories', icon: 'stories', title: 'Verhalen', desc: '19 interactieve verhalen', color: '#1abc9c' },
+      { to: '/jeux', icon: 'jeux', title: 'Hersengames', desc: 'Memory, rekenen, woorden...', color: '#6366f1' },
     ],
   },
   en: {
     title: '🎯 Practise',
     subtitle: 'Choose your activity',
     cards: [
-      { to: '/exam/library', emoji: '📚', title: 'Exam library', desc: '300+ exams by subject', color: '#9b59b6' },
-      { to: '/cahier', emoji: '✏️', title: 'My Notebook', desc: 'Personalised exercises', color: '#3498db' },
-      { to: '/tables', emoji: '✖️', title: 'Times tables', desc: 'Multiplication tables', color: '#e67e22' },
-      { to: '/stories', emoji: '📖', title: 'Stories', desc: '19 interactive stories', color: '#1abc9c' },
-      { to: '/jeux', emoji: '🧠', title: 'Brain Games', desc: 'Memory, speed math, words...', color: '#6366f1' },
+      { to: '/exam/library', icon: 'examens', title: 'Exam library', desc: '300+ exams by subject', color: '#9b59b6' },
+      { to: '/cahier', icon: 'cahier', title: 'My Notebook', desc: 'Personalised exercises', color: '#3498db' },
+      { to: '/tables', icon: 'tables', title: 'Times tables', desc: 'Multiplication tables', color: '#e67e22' },
+      { to: '/stories', icon: 'stories', title: 'Stories', desc: '19 interactive stories', color: '#1abc9c' },
+      { to: '/jeux', icon: 'jeux', title: 'Brain Games', desc: 'Memory, speed math, words...', color: '#6366f1' },
     ],
   },
   es: {
     title: '🎯 Practicar',
     subtitle: 'Elige tu actividad',
     cards: [
-      { to: '/exam/library', emoji: '📚', title: 'Biblioteca de examenes', desc: 'Mas de 300 examenes', color: '#9b59b6' },
-      { to: '/cahier', emoji: '✏️', title: 'Mi Cuaderno', desc: 'Ejercicios personalizados', color: '#3498db' },
-      { to: '/tables', emoji: '✖️', title: 'Tablas', desc: 'Tablas de multiplicar', color: '#e67e22' },
-      { to: '/stories', emoji: '📖', title: 'Cuentos', desc: '19 historias interactivas', color: '#1abc9c' },
-      { to: '/jeux', emoji: '🧠', title: 'Juegos Cerebrales', desc: 'Memoria, calculo, palabras...', color: '#6366f1' },
+      { to: '/exam/library', icon: 'examens', title: 'Biblioteca de examenes', desc: 'Mas de 300 examenes', color: '#9b59b6' },
+      { to: '/cahier', icon: 'cahier', title: 'Mi Cuaderno', desc: 'Ejercicios personalizados', color: '#3498db' },
+      { to: '/tables', icon: 'tables', title: 'Tablas', desc: 'Tablas de multiplicar', color: '#e67e22' },
+      { to: '/stories', icon: 'stories', title: 'Cuentos', desc: '19 historias interactivas', color: '#1abc9c' },
+      { to: '/jeux', icon: 'jeux', title: 'Juegos Cerebrales', desc: 'Memoria, calculo, palabras...', color: '#6366f1' },
     ],
   },
+};
+
+const ICON_MAP = {
+  examens: IconExamens,
+  cahier: IconCahier,
+  tables: IconTables,
+  stories: IconStories,
+  jeux: IconJeux,
 };
 
 export default function PratiquerHubPage() {
@@ -59,16 +70,21 @@ export default function PratiquerHubPage() {
         <p className="hub-header__sub">{ui.subtitle}</p>
       </header>
       <div className="hub-cards">
-        {ui.cards.map((card) => (
-          <Link key={card.to} to={card.to} className="hub-card" style={{ '--card-color': card.color }}>
-            <span className="hub-card__emoji">{card.emoji}</span>
-            <div className="hub-card__body">
-              <strong className="hub-card__title">{card.title}</strong>
-              <span className="hub-card__desc">{card.desc}</span>
-            </div>
-            <span className="hub-card__arrow">→</span>
-          </Link>
-        ))}
+        {ui.cards.map((card) => {
+          const IconComponent = ICON_MAP[card.icon];
+          return (
+            <Link key={card.to} to={card.to} className="hub-card" style={{ '--card-color': card.color }}>
+              <div className="hub-card__icon-wrap">
+                {IconComponent && <IconComponent size={44} />}
+              </div>
+              <div className="hub-card__body">
+                <strong className="hub-card__title">{card.title}</strong>
+                <span className="hub-card__desc">{card.desc}</span>
+              </div>
+              <span className="hub-card__arrow">→</span>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

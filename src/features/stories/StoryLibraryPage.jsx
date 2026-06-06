@@ -86,7 +86,19 @@ export default function StoryLibraryPage() {
               className="sl-card"
             >
               <div className="sl-card__cover" style={{ background: coverBg }}>
-                <span role="img" aria-label={conte.title}>{conte.emoji || sceneEmoji(conteIdx)}</span>
+                {conte.coverImage ? (
+                  <img
+                    src={conte.coverImage}
+                    alt={conte.title}
+                    className="sl-card__cover-img"
+                    loading="lazy"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+                ) : (
+                  <span role="img" aria-label={conte.title} style={{ fontSize: '3rem' }}>
+                    {conte.emoji || sceneEmoji(conteIdx)}
+                  </span>
+                )}
                 {isRead && <span className="sl-card__crown">👑</span>}
               </div>
               <div className="sl-card__body">
