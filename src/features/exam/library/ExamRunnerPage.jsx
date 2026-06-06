@@ -234,6 +234,7 @@ export default function ExamRunnerPage() {
             <input
               className="exam-choice"
               style={{ flex: 1, textAlign: 'center' }}
+              inputMode={/^-?\d+([.,]\d+)?$/.test(String(currentQ.answer ?? '').trim()) ? 'numeric' : 'text'}
               value={selected !== null ? String(selected) : input}
               onChange={(e) => setInput(e.target.value)}
               disabled={selected !== null}

@@ -103,7 +103,7 @@ export default function TestView({ exercises, onBack, onFinish }) {
             <form onSubmit={(e) => { e.preventDefault(); if (draft.trim()) evaluate(draft.trim()); }} className="test-input-row">
               <input
                 className="test-input"
-                inputMode={ex.inputType === 'number' ? 'numeric' : 'text'}
+                inputMode={(ex.inputType === 'number' || /^-?\d+([.,]\d+)?$/.test(String(ex.answer ?? ex.correctAnswer ?? '').trim())) ? 'numeric' : 'text'}
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 placeholder={L.t('taReponse')}

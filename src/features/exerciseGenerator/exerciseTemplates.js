@@ -235,41 +235,74 @@ function mathMeasure(level, i) {
   });
 }
 
+const PROB_ITEMS = {
+  fr: ['billes', 'bonbons', 'images', 'pommes', 'crayons'],
+  nl: ['knikkers', 'snoepjes', 'plaatjes', 'appels', 'potloden'],
+  en: ['marbles', 'sweets', 'stickers', 'apples', 'pencils'],
+  es: ['canicas', 'caramelos', 'cromos', 'manzanas', 'lápices'],
+};
+const PROB = {
+  fr: {
+    add: (n, a, it, b) => `${n} a ${a} ${it}. On lui en donne ${b}. Combien en a ${n} maintenant ?`,
+    sub: (n, a, it, b) => `${n} a ${a} ${it}. ${n} en perd ${b}. Combien en reste-t-il ?`,
+    mul: (n, g, e, it) => `${n} a ${g} boîtes de ${e} ${it}. Combien de ${it} en tout ?`,
+    instr: 'Pose ton calcul, puis écris la phrase réponse.',
+    tip: 'Souligne les nombres et cherche le mot qui dit quoi faire.',
+    hints: ['Relis bien le problème, lentement.', 'Quels sont les nombres ? Que faut-il faire ?', 'Pose le calcul, puis écris la réponse.'],
+  },
+  nl: {
+    add: (n, a, it, b) => `${n} heeft ${a} ${it}. ${n} krijgt er ${b} bij. Hoeveel heeft ${n} nu?`,
+    sub: (n, a, it, b) => `${n} heeft ${a} ${it}. ${n} verliest er ${b}. Hoeveel blijven er over?`,
+    mul: (n, g, e, it) => `${n} heeft ${g} dozen van ${e} ${it}. Hoeveel ${it} in totaal?`,
+    instr: 'Schrijf je berekening en daarna de antwoordzin.',
+    tip: 'Onderstreep de getallen en zoek wat je moet doen.',
+    hints: ['Lees de opgave rustig opnieuw.', 'Wat zijn de getallen? Wat moet je doen?', 'Maak de berekening en schrijf het antwoord.'],
+  },
+  en: {
+    add: (n, a, it, b) => `${n} has ${a} ${it}. ${n} is given ${b} more. How many does ${n} have now?`,
+    sub: (n, a, it, b) => `${n} has ${a} ${it}. ${n} loses ${b}. How many are left?`,
+    mul: (n, g, e, it) => `${n} has ${g} boxes of ${e} ${it}. How many ${it} in all?`,
+    instr: 'Write your calculation, then the answer sentence.',
+    tip: 'Underline the numbers and find the word that tells what to do.',
+    hints: ['Read the problem again, slowly.', 'What are the numbers? What must you do?', 'Set up the calculation, then write the answer.'],
+  },
+  es: {
+    add: (n, a, it, b) => `${n} tiene ${a} ${it}. Le dan ${b} más. ¿Cuántas tiene ${n} ahora?`,
+    sub: (n, a, it, b) => `${n} tiene ${a} ${it}. ${n} pierde ${b}. ¿Cuántas quedan?`,
+    mul: (n, g, e, it) => `${n} tiene ${g} cajas de ${e} ${it}. ¿Cuántas ${it} en total?`,
+    instr: 'Escribe tu cálculo y luego la frase respuesta.',
+    tip: 'Subraya los números y busca la palabra que dice qué hacer.',
+    hints: ['Vuelve a leer el problema, despacio.', '¿Cuáles son los números? ¿Qué hay que hacer?', 'Plantea el cálculo y escribe la respuesta.'],
+  },
+};
+
 function mathProbleme(level, i) {
   const names = ['Léa', 'Tom', 'Maya', 'Hugo', 'Nina', 'Sami'];
-  const items = [['billes', '🔵'], ['bonbons', '🍬'], ['images', '🖼️'], ['pommes', '🍎'], ['crayons', '✏️']];
+  const L = PROB[_locale] || PROB.fr;
+  const items = PROB_ITEMS[_locale] || PROB_ITEMS.fr;
   const name = choice(names);
-  const [item] = choice(items);
-  let q, answer, explanation;
+  const item = choice(items);
+  let q, answer, op, x, y;
   if (level === 'easy') {
     const a = rint(2, 9), b = rint(1, 9);
-    answer = a + b;
-    q = `${name} a ${a} ${item}. On lui en donne ${b}. Combien en a-t-${name === 'Léa' || name === 'Maya' || name === 'Nina' ? 'elle' : 'il'} maintenant ?`;
-    explanation = `${a} + ${b} = ${answer} ${item}.`;
+    answer = a + b; q = L.add(name, a, item, b); op = '+'; x = a; y = b;
   } else if (level === 'medium') {
     const a = rint(10, 30), b = rint(2, 9);
-    answer = a - b;
-    q = `${name} a ${a} ${item}. ${name} en perd ${b}. Combien en reste-t-il ?`;
-    explanation = `${a} − ${b} = ${answer} ${item}.`;
+    answer = a - b; q = L.sub(name, a, item, b); op = '−'; x = a; y = b;
   } else {
     const groups = rint(2, 5), each = rint(2, 6);
-    answer = groups * each;
-    q = `${name} a ${groups} boîtes de ${each} ${item}. Combien de ${item} en tout ?`;
-    explanation = `${groups} × ${each} = ${answer} ${item}.`;
+    answer = groups * each; q = L.mul(name, groups, each, item); op = '×'; x = groups; y = each;
   }
+  const explanation = `${x} ${op} ${y} = ${answer} ${item}.`;
   return base('math', 'problemes', level, i, {
     question: q,
-    notebookInstruction: 'Pose ton calcul, puis écris la phrase réponse.',
+    notebookInstruction: L.instr,
     testQuestion: q,
     answer: String(answer),
     explanation,
     method: explanation,
-    improvementTip: 'Souligne les nombres et cherche le mot qui dit quoi faire (donne, perd, en tout).',
-    hints: [
-      'Relis bien le problème, lentement.',
-      'Quels sont les nombres ? Que faut-il faire avec ?',
-      `Pose le calcul : ${explanation}`,
-    ],
+    improvementTip: L.tip,
+    hints: L.hints,
     inputType: 'number',
   });
 }
