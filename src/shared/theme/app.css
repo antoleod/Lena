@@ -6456,13 +6456,21 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 78px;
-  height: 78px;
+  width: 84px;
+  height: 84px;
   border-radius: inherit;
   background: transparent;
-  border: 3px solid rgba(255,255,255,0.6);
-  animation: cc-pulse-ring 1.8s ease-out infinite;
+  border: 2.5px solid rgba(255,255,255,0.55);
+  animation: cc-pulse-ring 1.6s ease-out infinite;
   pointer-events: none;
+}
+.cc-node__pulse::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+  border: 1.5px solid rgba(255,255,255,0.20);
+  animation: cc-pulse-ring 1.6s ease-out 0.4s infinite;
 }
 .cc-node--squircle .cc-node__pulse { border-radius: 28px; }
 .cc-node--diamond .cc-node__pulse { border-radius: 18px; transform: translate(-50%,-50%) rotate(45deg); }
@@ -6752,7 +6760,7 @@ button {
 
 /* Sky section of portal */
 .sw-portal__sky {
-  height: 90px;
+  height: 110px;
   background: linear-gradient(180deg, var(--uni-sky-top, #0d001f) 0%, var(--uni-sky-bot, #2d0f5e) 100%);
   position: relative;
   overflow: hidden;
@@ -6782,43 +6790,50 @@ button {
 /* Planet orb */
 .sw-portal__planet {
   position: absolute;
-  bottom: -20px;
-  left: 20px;
-  width: 72px;
-  height: 72px;
+  bottom: -24px;
+  left: 18px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   background: var(--uni-bg, linear-gradient(145deg,#d5b8ff,#a87cf9));
-  box-shadow: 0 6px 0 var(--uni-shadow, #7044d4), 0 0 24px var(--uni-accent, #a87cf9)66;
+  box-shadow:
+    0 7px 0 var(--uni-shadow, #7044d4),
+    0 0 30px color-mix(in srgb, var(--uni-accent, #a87cf9) 50%, transparent),
+    inset 0 3px 0 rgba(255,255,255,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  border: 3px solid rgba(255,255,255,0.4);
+  font-size: 2.2rem;
+  border: 3px solid rgba(255,255,255,0.45);
   z-index: 2;
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.sw-portal:hover .sw-portal__planet {
+  transform: scale(1.06) translateY(-3px);
 }
 
 .sw-portal__crown {
   position: absolute;
-  top: -8px;
+  top: -10px;
   right: -4px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   animation: cc-sparkle 2.5s ease-in-out infinite;
 }
 
 /* Info section */
 .sw-portal__info {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(10px);
-  padding: 28px 14px 12px 100px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px);
+  padding: 32px 16px 14px 114px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .sw-portal__name {
   margin: 0;
   font-family: 'Fredoka', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: white;
   line-height: 1.1;
@@ -10751,9 +10766,9 @@ input.exam-choice:hover { transform: none; }
     right: 0;
     z-index: 100;
     height: var(--nav-height-mobile);
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(16px);
-    border-top: 1px solid var(--surface-border);
+    background: rgba(15, 8, 40, 0.88);
+    backdrop-filter: blur(20px) saturate(1.4);
+    border-top: 1px solid rgba(255,255,255,0.10);
     align-items: stretch;
     padding-bottom: env(safe-area-inset-bottom);
   }
@@ -10770,19 +10785,21 @@ input.exam-choice:hover { transform: none; }
     background: transparent;
     cursor: pointer;
     text-decoration: none;
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 800;
+    color: rgba(255,255,255,0.45);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     transition: color 0.15s ease;
     padding: 4px 0;
   }
 
   .app-bottom-nav__item.is-active {
-    color: var(--lena-pink, #ff8fc6);
+    color: #ffffff;
   }
 
   .app-bottom-nav__item.is-active .app-bottom-nav__icon {
-    transform: scale(1.15);
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
   }
 
   .app-bottom-nav__icon {
@@ -10798,9 +10815,27 @@ input.exam-choice:hover { transform: none; }
     white-space: nowrap;
   }
 
-  /* Push main content above bottom nav */
+  /* Full-screen pages own their own bottom space — no double-padding */
   .app-main--game {
-    padding-bottom: calc(var(--nav-height-mobile) + env(safe-area-inset-bottom) + 12px);
+    padding-bottom: 0;
+  }
+
+  /* Map path: extra scroll room so last node clears the fixed nav */
+  .cc-path-canvas {
+    padding-bottom: calc(var(--nav-height-mobile) + env(safe-area-inset-bottom) + 40px);
+  }
+
+  /* Subjects grid: same clearance */
+  .sw-hub__grid {
+    padding-bottom: calc(var(--nav-height-mobile) + env(safe-area-inset-bottom) + 32px);
+  }
+
+  /* Other scrollable feature pages */
+  .exam-hub-page,
+  .cahier-page,
+  .pratiquer-hub,
+  .home-page {
+    padding-bottom: calc(var(--nav-height-mobile) + env(safe-area-inset-bottom) + 24px);
   }
 }
 
