@@ -22,7 +22,8 @@ export default function ExerciseGeneratorPage() {
   const [type, setType] = useState('additions');
   const [level, setLevel] = useState('easy');
   const [count, setCount] = useState(10);
-  const [digits, setDigits] = useState(null); // null = auto (par niveau); 2|3|4 chiffres
+  const [digits, setDigits] = useState(null); // null = auto; 1|2|3|4 chiffres
+  const [terms, setTerms] = useState(null);   // null = auto; 2|3|4|5 nombres
 
   const [exercises, setExercises] = useState([]);
   const [graded, setGraded] = useState([]);
@@ -39,7 +40,7 @@ export default function ExerciseGeneratorPage() {
   const isMath = subject === 'math';
 
   function startNotebook() {
-    const list = generateExercises({ subject, type, level, count, digits: isMath ? digits : null, locale: L.locale });
+    const list = generateExercises({ subject, type, level, count, digits: isMath ? digits : null, terms: isMath ? terms : null, locale: L.locale });
     if (list.length === 0) return;
     setExercises(list);
     setGraded([]);
@@ -48,7 +49,7 @@ export default function ExerciseGeneratorPage() {
 
   // Adaptive practice: regenerate 5 similar exercises for a weak area.
   function startTargeted(area) {
-    setSubject(area.subject); setType(area.type); setLevel(area.level); setDigits(null); setCount(5);
+    setSubject(area.subject); setType(area.type); setLevel(area.level); setDigits(null); setTerms(null); setCount(5);
     const list = generateExercises({ subject: area.subject, type: area.type, level: area.level, count: 5, locale: L.locale });
     if (list.length === 0) return;
     setExercises(list);
@@ -224,28 +225,53 @@ export default function ExerciseGeneratorPage() {
         </div>
       </section>
 
-      {/* Taille des nombres — maths uniquement (additions / soustractions) */}
+      {/* Taille des nombres + Nombre d'opérations — indépendants (add/sous) */}
       {isMath && (type === 'additions' || type === 'soustractions') && (
-        <section className="cahier-section">
-          <h2 className="cahier-section__title">{L.t('tailleNombres')}</h2>
-          <div className="cahier-choice-row">
-            {[
-              { id: null, label: L.t('auto') },
-              { id: 2, label: `2 ${L.t('chiffres')}` },
-              { id: 3, label: `3 ${L.t('chiffres')}` },
-              { id: 4, label: `4 ${L.t('chiffres')}` },
-            ].map((d) => (
-              <button
-                key={String(d.id)}
-                type="button"
-                className={`cahier-chip${digits === d.id ? ' is-selected' : ''}`}
-                onClick={() => setDigits(d.id)}
-              >
-                {d.label}
-              </button>
-            ))}
-          </div>
-        </section>
+        <>
+          <section className="cahier-section">
+            <h2 className="cahier-section__title">{L.t('tailleNombres')}</h2>
+            <div className="cahier-choice-row">
+              {[
+                { id: null, label: L.t('auto') },
+                { id: 1, label: `1 ${L.t('chiffres')}` },
+                { id: 2, label: `2 ${L.t('chiffres')}` },
+                { id: 3, label: `3 ${L.t('chiffres')}` },
+                { id: 4, label: `4 ${L.t('chiffres')}` },
+              ].map((d) => (
+                <button
+                  key={String(d.id)}
+                  type="button"
+                  className={`cahier-chip${digits === d.id ? ' is-selected' : ''}`}
+                  onClick={() => setDigits(d.id)}
+                >
+                  {d.label}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="cahier-section">
+            <h2 className="cahier-section__title">{L.t('nombreOperations')}</h2>
+            <div className="cahier-choice-row">
+              {[
+                { id: null, label: L.t('auto') },
+                { id: 2, label: `2 ${L.t('nombres')}` },
+                { id: 3, label: `3 ${L.t('nombres')}` },
+                { id: 4, label: `4 ${L.t('nombres')}` },
+                { id: 5, label: `5 ${L.t('nombres')}` },
+              ].map((tcfg) => (
+                <button
+                  key={String(tcfg.id)}
+                  type="button"
+                  className={`cahier-chip${terms === tcfg.id ? ' is-selected' : ''}`}
+                  onClick={() => setTerms(tcfg.id)}
+                >
+                  {tcfg.label}
+                </button>
+              ))}
+            </div>
+          </section>
+        </>
       )}
 
       {/* Niveau */}

@@ -30,6 +30,12 @@ const MATHQ = {
   es: (op, a, b) => `¿Cuánto es ${a} ${op} ${b}?`,
 };
 const mq = (op, a, b) => (MATHQ[_locale] || MATHQ.fr)(op, a, b);
+// Multi-operand localized wrapper: mqx('2 + 2 + 2') → "Combien font 2 + 2 + 2 ?"
+const MATHQX = {
+  fr: (e) => `Combien font ${e} ?`, nl: (e) => `Hoeveel is ${e}?`,
+  en: (e) => `How much is ${e}?`, es: (e) => `¿Cuánto es ${e}?`,
+};
+const mqx = (e) => (MATHQX[_locale] || MATHQX.fr)(e);
 const NOTEBOOK_INSTR = {
   fr: 'Écris la réponse dans ton cahier.', nl: 'Schrijf het antwoord in je schrift.',
   en: 'Write the answer in your notebook.', es: 'Escribe la respuesta en tu cuaderno.',
@@ -65,75 +71,80 @@ function numChoices(answer, spread) {
 
 // ── MATH ────────────────────────────────────────────────────────────────────
 
-// Optional `digits` (2,3,4) forces exactly N-digit numbers: [min, max].
+// Optional `digits` (1,2,3,4) forces exactly N-digit numbers: [min, max].
 function digitRange(digits) {
+  if (digits === 1) return [1, 9];
   if (digits === 2) return [10, 99];
   if (digits === 3) return [100, 999];
   if (digits === 4) return [1000, 9999];
   return null;
 }
+// "Taille des nombres" and "Nombre d'opérations" are INDEPENDENT now.
+// Auto (no value) → progression adapted to the level.
+function autoTerms(level) { return level === 'easy' ? 2 : level === 'medium' ? 3 : 4; }
+function operandRange(level, digits) {
+  const dr = digitRange(digits);
+  if (dr) return dr;
+  return [1, level === 'easy' ? 10 : level === 'medium' ? 50 : 100];
+}
 
 function mathAdd(level, i, opts = {}) {
-  const dr = digitRange(opts.digits);
-  let a, b;
-  if (dr) {
-    a = rint(dr[0], dr[1]); b = rint(dr[0], dr[1]);
-  } else {
-    const max = level === 'easy' ? 10 : level === 'medium' ? 50 : 100;
-    a = rint(1, max);
-    b = level === 'easy' ? rint(0, Math.max(0, max - a)) : rint(1, max);
-  }
-  const answer = a + b;
-  const bt = Math.floor(b / 10) * 10, bu = b % 10;
-  const method = (bt > 0 && bu > 0)
-    ? `${a} + ${bt} = ${a + bt}\n${a + bt} + ${bu} = ${answer}`
-    : `${a} + ${b} = ${answer}`;
+  const terms = Math.max(2, Number(opts.terms) || autoTerms(level));
+  const [lo, hi] = operandRange(level, opts.digits);
+  const nums = Array.from({ length: terms }, () => rint(Math.max(1, lo), hi));
+  const answer = nums.reduce((s, n) => s + n, 0);
+  // progressive method: running sum, step by step
+  const steps = [];
+  let run = nums[0];
+  for (let k = 1; k < terms; k++) { steps.push(`${run} + ${nums[k]} = ${run + nums[k]}`); run += nums[k]; }
+  const expr = nums.join(' + ');
   return base('math', 'additions', level, i, {
-    question: `${a} + ${b} = ……`,
-    testQuestion: mq('+', a, b),
+    question: `${expr} = ……`,
+    testQuestion: mqx(expr),
     answer: String(answer),
-    explanation: `${a} + ${b} = ${answer}.`,
-    method,
-    improvementTip: 'Découpe le grand calcul en plusieurs petits calculs faciles.',
+    explanation: `${expr} = ${answer}.`,
+    method: steps.join('\n') || `${expr} = ${answer}`,
+    improvementTip: 'Additionne deux nombres à la fois, de gauche à droite.',
     hints: [
-      'Découpe le calcul en petites étapes.',
-      bt > 0 ? `Ajoute d’abord les dizaines : ${a} + ${bt}.` : 'Compte à partir du plus grand nombre.',
-      bt > 0 && bu > 0 ? `${a} + ${bt} = ${a + bt}, puis ajoute ${bu}.` : `Tu y es presque, vérifie ton calcul.`,
+      'Additionne les deux premiers nombres d’abord.',
+      `Commence par ${nums[0]} + ${nums[1]} = ${nums[0] + nums[1]}.`,
+      'Continue en ajoutant un nombre à la fois.',
     ],
     inputType: 'number',
-    visual: dotsVisual([a, b], ['+']),
+    visual: dotsVisual(nums, Array(terms - 1).fill('+')),
   });
 }
 
 function mathSub(level, i, opts = {}) {
-  const dr = digitRange(opts.digits);
-  let a, b;
-  if (dr) {
-    a = rint(dr[0], dr[1]); b = rint(dr[0], a);
-  } else {
-    const max = level === 'easy' ? 10 : level === 'medium' ? 50 : 100;
-    a = rint(2, max); b = rint(1, a);
+  const terms = Math.max(2, Number(opts.terms) || autoTerms(level));
+  const [lo, hi] = operandRange(level, opts.digits);
+  // First number big enough; subtract the rest keeping the running total >= 0.
+  let a = rint(Math.max(lo, Math.ceil(hi / 2)), hi);
+  const subs = [];
+  let run = a;
+  for (let k = 1; k < terms; k++) {
+    const s = rint(1, Math.max(1, Math.min(hi, run)));
+    subs.push(s); run -= s;
   }
-  const answer = a - b;
-  const bt = Math.floor(b / 10) * 10, bu = b % 10;
-  const method = (bt > 0 && bu > 0)
-    ? `${a} − ${bt} = ${a - bt}\n${a - bt} − ${bu} = ${answer}`
-    : `${a} − ${b} = ${answer}`;
-  const bu2 = b % 10, au2 = a % 10;
+  const answer = run;
+  const steps = [];
+  let acc = a;
+  for (const s of subs) { steps.push(`${acc} − ${s} = ${acc - s}`); acc -= s; }
+  const expr = `${a}` + subs.map((s) => ` − ${s}`).join('');
   return base('math', 'soustractions', level, i, {
-    question: `${a} − ${b} = ……`,
-    testQuestion: mq('−', a, b),
+    question: `${expr} = ……`,
+    testQuestion: mqx(expr),
     answer: String(answer),
-    explanation: `${a} − ${b} = ${answer}.`,
-    method,
-    improvementTip: 'Sépare toujours les unités et les dizaines pour ne pas te tromper.',
+    explanation: `${expr} = ${answer}.`,
+    method: steps.join('\n') || `${expr} = ${answer}`,
+    improvementTip: 'Enlève un nombre à la fois, de gauche à droite.',
     hints: [
-      'Regarde les unités d’abord.',
-      au2 < bu2 ? `Peux-tu faire ${au2} − ${bu2} ? Sinon, prends une dizaine.` : 'Enlève les unités, puis les dizaines.',
-      bt > 0 ? `${a} − ${bt} = ${a - bt}, puis enlève ${bu}.` : 'Compte à rebours doucement.',
+      'Commence par enlever le premier nombre.',
+      `${a} − ${subs[0]} = ${a - subs[0]}.`,
+      'Continue à enlever un nombre à la fois.',
     ],
     inputType: 'number',
-    visual: dotsVisual([a, b], ['−']),
+    visual: dotsVisual([a, ...subs], Array(terms - 1).fill('−')),
   });
 }
 

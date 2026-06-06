@@ -85,6 +85,25 @@ test('every exercise type carries hints + improvementTip (teacher support)', () 
   }
 });
 
+test('number size and number of operands are independent', () => {
+  for (const terms of [2, 3, 4, 5]) {
+    for (const digits of [1, 2, 3]) {
+      const [ex] = generateExercises({ subject: 'math', type: 'additions', level: 'easy', count: 1, digits, terms });
+      const nums = ex.question.match(/\d+/g).map(Number);
+      // operand count = terms (last number in `question` is part of "= ……", not a number)
+      assert.equal(nums.length, terms, `add terms=${terms} digits=${digits}`);
+      const max = digits === 1 ? 9 : digits === 2 ? 99 : 999;
+      assert.ok(nums.every((n) => n >= (digits === 1 ? 1 : 10) && n <= max), `range d=${digits}`);
+      assert.ok(checkAnswer(ex, ex.answer));
+    }
+  }
+  // subtraction stays non-negative with many operands
+  for (const terms of [3, 4, 5]) {
+    const [ex] = generateExercises({ subject: 'math', type: 'soustractions', level: 'hard', count: 1, digits: 2, terms });
+    assert.ok(Number(ex.answer) >= 0, `sub non-negative terms=${terms}`);
+  }
+});
+
 test('normalizeAnswer + flexible matching', () => {
   assert.equal(normalizeAnswer('  Bonjour. '), 'bonjour');
   assert.equal(normalizeAnswer('ÉCOLE'), 'ecole');
