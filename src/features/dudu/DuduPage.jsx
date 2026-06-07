@@ -100,13 +100,15 @@ function NumPad({ value, onChange, onSubmit, disabled }) {
 
 // ── BadgePopup ────────────────────────────────────────────────────────────────
 function BadgePopup({ badge, onClose }) {
+  const closeRef = useRef(null);
+  useEffect(() => { closeRef.current?.focus(); }, []);
   return (
-    <div className="dd-overlay">
+    <div className="dd-overlay" role="dialog" aria-modal="true" aria-labelledby="badge-title">
       <div className="dd-badge-popup">
         <div className="dd-badge-popup__emoji">{badge.emoji}</div>
-        <div className="dd-badge-popup__title">{badge.label}</div>
-        <div className="dd-badge-popup__sub">Nouveau badge debloque !</div>
-        <button className="dd-badge-popup__close" onPointerDown={e => { e.preventDefault(); onClose(); }} type="button">
+        <div className="dd-badge-popup__title" id="badge-title">{badge.label}</div>
+        <div className="dd-badge-popup__sub">Nouveau badge débloqué !</div>
+        <button ref={closeRef} className="dd-badge-popup__close" onPointerDown={e => { e.preventDefault(); onClose(); }} type="button">
           Super !
         </button>
       </div>
@@ -154,12 +156,12 @@ function ResultsPhase({ correct, total, onRetry, onHub }) {
 // ── TheoryPhase ───────────────────────────────────────────────────────────────
 const THEORY_STEPS = [
   {
-    num: 'Etape 1', color: '#06b6d4',
+    num: 'Étape 1', color: '#06b6d4',
     content: 'Regardons 44 − 27',
     visual: () => <><span style={{fontSize:'2.5rem',fontWeight:900,color:'#fff'}}>44</span><span style={{fontSize:'2rem',color:'rgba(255,255,255,.5)'}}>−</span><span style={{fontSize:'2.5rem',fontWeight:900,color:'#fff'}}>27</span></>,
   },
   {
-    num: 'Etape 2', color: '#f97316',
+    num: 'Étape 2', color: '#f97316',
     content: 'Je regarde les unites : 4 et 7',
     visual: () => (
       <>
@@ -171,12 +173,12 @@ const THEORY_STEPS = [
     ),
   },
   {
-    num: 'Etape 3', color: '#ef4444',
+    num: 'Étape 3', color: '#ef4444',
     content: '4 < 7 — Je ne peux pas faire 4 − 7 !',
     visual: () => <><span className="dd-units-block">4</span><span style={{color:'rgba(255,255,255,.6)'}}>{'<'}</span><span className="dd-units-block">7</span><span style={{fontSize:'1.8rem'}}>🛑</span><span style={{fontSize:'.85rem', color:'rgba(255,255,255,.6)', marginLeft:4}}>Pas de panique !</span></>,
   },
   {
-    num: 'Etape 4', color: '#fbbf24',
+    num: 'Étape 4', color: '#fbbf24',
     content: 'J\'emprunte une dizaine ! 4 dizaines devient 3 dizaines, et 4 unites devient 14 unites.',
     visual: () => (
       <>
@@ -191,7 +193,7 @@ const THEORY_STEPS = [
     ),
   },
   {
-    num: 'Etape 5', color: '#22c55e',
+    num: 'Étape 5', color: '#22c55e',
     content: 'Maintenant : 14 − 7 = 7 (unites)',
     visual: () => (
       <>
@@ -204,7 +206,7 @@ const THEORY_STEPS = [
     ),
   },
   {
-    num: 'Etape 6', color: '#6366f1',
+    num: 'Étape 6', color: '#6366f1',
     content: 'Les dizaines : 3 − 2 = 1 (dizaine)',
     visual: () => (
       <>
@@ -217,7 +219,7 @@ const THEORY_STEPS = [
     ),
   },
   {
-    num: 'Etape 7', color: '#4ade80',
+    num: 'Étape 7', color: '#4ade80',
     content: 'Resultat : 17 !',
     visual: () => <><span style={{fontSize:'3rem',fontWeight:900,color:'#4ade80'}}>17</span><span style={{fontSize:'2rem'}}>🎉</span></>,
   },
@@ -230,7 +232,7 @@ function TheoryPhase({ onPractice, onBack }) {
   return (
     <div className="dd-quiz-page">
       <div className="dd-quiz-bar">
-        <button className="dd-back" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
+        <button className="dd-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
         <span className="dd-quiz-bar__title">Comprendre la methode</span>
         <span className="dd-quiz-bar__counter">{current + 1}/{THEORY_STEPS.length}</span>
       </div>
@@ -388,7 +390,7 @@ function GuidedPhase({ onFinish, onBack }) {
     <div className="dd-quiz-page">
       {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       <div className="dd-quiz-bar">
-        <button className="dd-back" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
+        <button className="dd-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
         <span className="dd-quiz-bar__title">Pratique guidee</span>
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
@@ -516,7 +518,7 @@ function AutonomousPhase({ onFinish, onBack }) {
     <div className="dd-quiz-page">
       {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       <div className="dd-quiz-bar">
-        <button className="dd-back" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
+        <button className="dd-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
         <span className="dd-quiz-bar__title">Mode autonome</span>
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
@@ -600,7 +602,7 @@ function ProblemsPhase({ onFinish, onBack }) {
     <div className="dd-quiz-page">
       {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       <div className="dd-quiz-bar">
-        <button className="dd-back" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
+        <button className="dd-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
         <span className="dd-quiz-bar__title">Problemes DUDU</span>
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
@@ -697,7 +699,7 @@ function TensUnitsPhase({ onFinish, onBack }) {
   return (
     <div className="dd-quiz-page">
       <div className="dd-quiz-bar">
-        <button className="dd-back" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
+        <button className="dd-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
         <span className="dd-quiz-bar__title">Dizaines et Unites</span>
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
@@ -815,7 +817,7 @@ function TeacherPhase({ onFinish, onBack }) {
   return (
     <div className="dd-quiz-page">
       <div className="dd-quiz-bar">
-        <button className="dd-back" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
+        <button className="dd-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
         <span className="dd-quiz-bar__title">Deviens le Prof</span>
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
@@ -913,7 +915,7 @@ function SaucissePhase({ onFinish, onBack }) {
     <div className="dd-quiz-page">
       {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       <div className="dd-quiz-bar">
-        <button className="dd-back" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
+        <button className="dd-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); onBack(); }} type="button">←</button>
         <span className="dd-quiz-bar__title">Methode Saucisse</span>
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>

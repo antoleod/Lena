@@ -129,6 +129,14 @@ export default function AppShell() {
   const [customizerOpen, setCustomizerOpen] = useState(false);
   const [limitBlocked, setLimitBlocked] = useState(false);
 
+  const handleLogout = () => {
+    if (window.confirm('Quitter la session ?')) {
+      playTapSound();
+      logoutProfile();
+      navigate('/onboarding', { replace: true, state: { from: location.pathname } });
+    }
+  };
+
 
   // Dynamic branding: use saved name or fallback to default
   const displayName = session.profile?.name || t('defaultChildName') || 'Kid';
@@ -270,21 +278,17 @@ export default function AppShell() {
             type="button"
             className="icon-link icon-link--customizer"
             onClick={() => { playTapSound(); setCustomizerOpen(true); }}
-            title="Personalizar mundo"
+            title="Personnaliser mon monde"
           >
             <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
-            <span>Personalizar</span>
+            <span>Personnaliser</span>
           </button>
 
           <button
             type="button"
             className="icon-link icon-link--logout"
             data-testid="shell-logout-sidebar"
-            onClick={() => {
-              playTapSound();
-              logoutProfile();
-              navigate('/onboarding', { replace: true, state: { from: location.pathname } });
-            }}
+            onClick={handleLogout}
           >
             <img src={assetUrl('assets/icons/icon-close.svg')} alt="" className="icon-link__icon" />
             <span>{t('logoutLabel') || 'Logout'}</span>
@@ -308,7 +312,7 @@ export default function AppShell() {
               onClick={playTapSound}
               data-testid={`nav-${item.to.replace('/', '') || 'home'}`}
             >
-              <img src={assetUrl(`assets/icons/${item.icon}.svg`)} alt={item.label} className="topbar-link__icon" />
+              <img src={assetUrl(`assets/icons/${item.icon}.svg`)} alt="" className="topbar-link__icon" />
               <span>{item.label}</span>
             </NavLink>
           ))}
@@ -332,21 +336,17 @@ export default function AppShell() {
             type="button"
             className="icon-link icon-link--customizer"
             onClick={() => { playTapSound(); setCustomizerOpen(true); }}
-            title="Personalizar mundo"
+            title="Personnaliser mon monde"
           >
             <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
-            <span>Personalizar</span>
+            <span>Personnaliser</span>
           </button>
 
           <button
             type="button"
             className="icon-link icon-link--logout"
             data-testid="shell-logout"
-            onClick={() => {
-              playTapSound();
-              logoutProfile();
-              navigate('/onboarding', { replace: true, state: { from: location.pathname } });
-            }}
+            onClick={handleLogout}
           >
             <img src={assetUrl('assets/icons/icon-close.svg')} alt="" className="icon-link__icon" />
             <span>{t('logoutLabel') || 'Logout'}</span>

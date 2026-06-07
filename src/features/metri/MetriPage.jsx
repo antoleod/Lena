@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './metri.css';
 import {
   CATEGORIES, QUANTITY_EXAMPLES, UNIT_SENTENCES, ESTIMATIONS,
@@ -10,42 +10,42 @@ import { checkNewBadges, loadProgress, recordAnswer } from './metriProgress.js';
 // ── Theory data ─────────────────────────────────────────────────────────
 const THEORY_STEPS = [
   {
-    num: 'Etape 1', color: '#3b82f6',
+    num: 'Étape 1', color: '#3b82f6',
     title: 'Les Longueurs 📏',
     content: 'On mesure les longueurs en mm, cm, m ou km. Plus la distance est grande, plus l\'unite est grande !',
     examples: ['mm', 'cm', 'm', 'km'],
     exColor: '#3b82f6',
   },
   {
-    num: 'Etape 2', color: '#8b5cf6',
+    num: 'Étape 2', color: '#8b5cf6',
     title: 'Les Masses ⚖️',
     content: 'On pese les objets en grammes (g) ou kilogrammes (kg). 1 kg = 1000 g',
     examples: ['g', 'kg'],
     exColor: '#8b5cf6',
   },
   {
-    num: 'Etape 3', color: '#06b6d4',
+    num: 'Étape 3', color: '#06b6d4',
     title: 'Les Capacites 💧',
     content: 'On mesure les liquides en ml, cl, dl ou l. 1 l = 10 dl = 100 cl = 1000 ml',
     examples: ['ml', 'cl', 'dl', 'l'],
     exColor: '#06b6d4',
   },
   {
-    num: 'Etape 4', color: '#22c55e',
+    num: 'Étape 4', color: '#22c55e',
     title: 'Les Durees ⏱️',
     content: 'Le temps se mesure en secondes (s), minutes (min) ou heures (h). 1 h = 60 min = 3600 s',
     examples: ['s', 'min', 'h'],
     exColor: '#22c55e',
   },
   {
-    num: 'Etape 5', color: '#f59e0b',
+    num: 'Étape 5', color: '#f59e0b',
     title: 'Les Couts 💶',
     content: 'L\'argent se compte en centimes (c) et euros (€). 1 € = 100 c',
     examples: ['c', '€'],
     exColor: '#f59e0b',
   },
   {
-    num: 'Etape 6', color: '#ec4899',
+    num: 'Étape 6', color: '#ec4899',
     title: 'Comment choisir ? 🤔',
     content: 'Toujours demander : QUE mesure-t-on ? Un objet ? Sa masse. Un liquide ? Sa capacite. Un chemin ? Sa longueur. Un temps ? Sa duree. Un prix ? Son cout.',
     examples: [],
@@ -55,13 +55,16 @@ const THEORY_STEPS = [
 
 // ── BadgePopup ──────────────────────────────────────────────────────────
 function BadgePopup({ badge, onClose }) {
+  const closeRef = useRef(null);
+  useEffect(() => { closeRef.current?.focus(); }, []);
   return (
-    <div className="mt-overlay">
+    <div className="mt-overlay" role="dialog" aria-modal="true" aria-labelledby="badge-title">
       <div className="mt-badge-popup">
         <div className="mt-badge-popup__emoji">{badge.emoji}</div>
-        <div className="mt-badge-popup__title">{badge.label}</div>
-        <div className="mt-badge-popup__sub">Nouveau badge debloque !</div>
+        <div className="mt-badge-popup__title" id="badge-title">{badge.label}</div>
+        <div className="mt-badge-popup__sub">Nouveau badge débloqué !</div>
         <button
+          ref={closeRef}
           className="mt-badge-popup__close"
           type="button"
           onPointerDown={e => { e.preventDefault(); onClose(); }}
@@ -295,7 +298,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">Theorie Interactive</span>
           <span className="mt-quiz-bar__counter">{stepIdx + 1}/{THEORY_STEPS.length}</span>
         </div>
@@ -348,7 +351,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">Chasse aux Unites</span>
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -402,7 +405,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">A quoi ca sert ?</span>
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -444,7 +447,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">Relie les Grandeurs</span>
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -489,7 +492,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">Choisis la Bonne Unite</span>
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -546,7 +549,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">Le Marche Magique</span>
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -602,7 +605,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">Estimation Intelligente</span>
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -656,7 +659,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">Detectif des Mesures</span>
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -701,7 +704,7 @@ export default function MetriPage() {
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="mt-quiz-bar">
-          <button className="mt-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="mt-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="mt-quiz-bar__title">Missions du Quotidien</span>
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>

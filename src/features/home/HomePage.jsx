@@ -82,9 +82,6 @@ export default function HomePage() {
           <span className="home-mission-quick__title">
             {nextTarget.mission?.title || nextTarget.activity?.title || t('homeMissionStartTitle')}
           </span>
-          <Link className="home-mission-quick__btn" to={primaryRoute}>
-            ▶ {t('homeContinueMission')}
-          </Link>
         </div>
       )}
     </div>

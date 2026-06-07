@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './grammi.css';
 import {
   WORD_COLORS, ANNOTATED_SENTENCES, TEXTS, GN_TEMPLATES, PHRASE_TEMPLATES,
@@ -10,49 +10,49 @@ import { checkNewBadges, loadProgress, recordAnswer } from './grammiProgress.js'
 // ── Theory data ────────────────────────────────────────────────────────
 const THEORY_STEPS = [
   {
-    num: 'Etape 1', color: '#3b82f6',
+    num: 'Étape 1', color: '#3b82f6',
     title: 'Le Nom Commun 🏠',
     content: 'Un nom commun designe un objet, un animal, une emotion ou une personne. Il commence par une LETTRE MINUSCULE.',
     examples: ['table','chat','ecole','amour','enfant'],
     exColor: '#3b82f6',
   },
   {
-    num: 'Etape 2', color: '#ef4444',
+    num: 'Étape 2', color: '#ef4444',
     title: 'Le Nom Propre 👑',
     content: 'Un nom propre designe une personne precise, une ville ou un pays. Il commence toujours par une MAJUSCULE !',
     examples: ['Lena','Bruxelles','Belgique','Paris'],
     exColor: '#ef4444',
   },
   {
-    num: 'Etape 3', color: '#f97316',
+    num: 'Étape 3', color: '#f97316',
     title: 'L\'Adjectif 🎨',
     content: 'L\'adjectif decrit ou qualifie un nom. Il dit COMMENT est la chose.',
     examples: ['rouge','grand','joyeux','rapide','doux'],
     exColor: '#f97316',
   },
   {
-    num: 'Etape 4', color: '#22c55e',
+    num: 'Étape 4', color: '#22c55e',
     title: 'Le Verbe ⚡',
     content: 'Le verbe indique une ACTION ou un ETAT. Il change selon qui fait l\'action.',
     examples: ['courir','mange','dormons','est'],
     exColor: '#22c55e',
   },
   {
-    num: 'Etape 5', color: '#a855f7',
+    num: 'Étape 5', color: '#a855f7',
     title: 'Le Determinant 📦',
     content: 'Le determinant se place DEVANT le nom. Il indique si le nom est masculin, feminin, singulier ou pluriel.',
     examples: ['le','la','un','des','mon','ta'],
     exColor: '#a855f7',
   },
   {
-    num: 'Etape 6', color: '#10b981',
+    num: 'Étape 6', color: '#10b981',
     title: 'Le Groupe Nominal',
     content: 'Le groupe nominal = DETERMINANT + NOM (+ adjectif). Exemple: "une belle pomme rouge"',
     examples: ['le chat','une pomme rouge','mon ami fidele'],
     exColor: '#10b981',
   },
   {
-    num: 'Etape 7', color: '#06b6d4',
+    num: 'Étape 7', color: '#06b6d4',
     title: 'Le Coloriage Magique 🎨',
     content: 'Dans les exercices, nous utilisons des couleurs pour chaque type de mot : 🔵 Bleu=nom commun, 🔴 Rouge=nom propre, 🟠 Orange=adjectif, 🟢 Vert=verbe',
     examples: [],
@@ -92,13 +92,16 @@ function fireConfetti() {
 
 // ── BadgePopup ─────────────────────────────────────────────────────────
 function BadgePopup({ badge, onClose }) {
+  const closeRef = useRef(null);
+  useEffect(() => { closeRef.current?.focus(); }, []);
   return (
-    <div className="gm-overlay">
+    <div className="gm-overlay" role="dialog" aria-modal="true" aria-labelledby="badge-title">
       <div className="gm-badge-popup">
         <div className="gm-badge-popup__emoji">{badge.emoji}</div>
-        <div className="gm-badge-popup__title">{badge.label}</div>
-        <div className="gm-badge-popup__sub">Nouveau badge debloque !</div>
+        <div className="gm-badge-popup__title" id="badge-title">{badge.label}</div>
+        <div className="gm-badge-popup__sub">Nouveau badge débloqué !</div>
         <button
+          ref={closeRef}
           className="gm-badge-popup__close"
           type="button"
           onPointerDown={e => { e.preventDefault(); onClose(); }}
@@ -359,7 +362,7 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">Theorie Interactive</span>
           <span className="gm-quiz-bar__counter">{stepIdx + 1}/{THEORY_STEPS.length}</span>
         </div>
@@ -424,7 +427,7 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">{modeLabels[phase]}</span>
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -478,7 +481,7 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">Robot des Verbes</span>
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -589,7 +592,7 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">Construis ton GN</span>
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -669,7 +672,7 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">Coloriage Magique</span>
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -748,11 +751,13 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">Complete la Phrase</span>
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="gm-prog-bar"><div className="gm-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+
+        <div className="gm-question" style={{ marginBottom: 6 }}>{q.question}</div>
 
         <div className="gm-phrase-display">
           {parts[0]}
@@ -762,20 +767,21 @@ export default function GrammiPage() {
           {parts[1]}
         </div>
 
-        <div className="gm-question">Quel mot complete la phrase ? ({q.blank_type})</div>
-
         <div className="gm-choices">
           {allOptions.map((opt, i) => {
             let cls = 'gm-choice';
+            const typeColor = WORD_COLORS[q.blank_type] ? WORD_COLORS[q.blank_type].bg : undefined;
+            let extraStyle = typeColor ? { borderColor: typeColor + '66' } : {};
             if (selectedInput !== null) {
-              if (opt === q.answer) cls += ' is-correct';
-              else if (opt === selectedInput) cls += ' is-wrong';
+              if (opt === q.answer) { cls += ' is-correct'; extraStyle = {}; }
+              else if (opt === selectedInput) { cls += ' is-wrong'; extraStyle = {}; }
             }
             return (
               <button
                 key={i}
                 className={cls}
                 type="button"
+                style={extraStyle}
                 onPointerDown={e => {
                   e.preventDefault();
                   if (status !== 'idle') return;
@@ -806,7 +812,7 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">Lecture Detective</span>
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -845,7 +851,7 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">Compte les Phrases</span>
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -906,7 +912,7 @@ export default function GrammiPage() {
       <div className="gm-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         <div className="gm-quiz-bar">
-          <button className="gm-back" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
+          <button className="gm-back" type="button" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>←</button>
           <span className="gm-quiz-bar__title">Enqueteur de Texte</span>
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{enqueteurQuestions.length}</span>
         </div>

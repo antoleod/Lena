@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   genClockExercise, genChoices, formatDigital,
   genDurationProblem, DAILY_EVENTS, DETECTIVE_TEMPLATES, CHRONO_BADGES, ENCOURAGEMENTS,
@@ -34,8 +34,10 @@ function AnalogClock({ hours, minutes, size = 240 }) {
     };
   });
 
+  const clockLabel = `Horloge affichant ${hours % 12 || 12}h${String(minutes).padStart(2, '0')}`;
   return (
-    <svg viewBox="0 0 100 100" className="ch-clock-svg" style={{ width: size, height: size }}>
+    <svg viewBox="0 0 100 100" className="ch-clock-svg" style={{ width: size, height: size }} role="img" aria-label={clockLabel}>
+      <title>{clockLabel}</title>
       <circle cx={cx} cy={cy} r={46} className="ch-clock-face" />
       {ticks.map((t, i) => (
         <line key={i} x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2}
@@ -53,13 +55,15 @@ function AnalogClock({ hours, minutes, size = 240 }) {
 
 // ── BadgePopup ────────────────────────────────────────────────────────────────
 function BadgePopup({ badge, onClose }) {
+  const closeRef = useRef(null);
+  useEffect(() => { closeRef.current?.focus(); }, []);
   return (
-    <div className="ch-overlay">
+    <div className="ch-overlay" role="dialog" aria-modal="true" aria-labelledby="badge-title">
       <div className="ch-badge-popup">
         <div className="ch-badge-popup__emoji">{badge.emoji}</div>
-        <div className="ch-badge-popup__title">{badge.label}</div>
+        <div className="ch-badge-popup__title" id="badge-title">{badge.label}</div>
         <div className="ch-badge-popup__sub">Nouveau badge obtenu !</div>
-        <button className="ch-badge-popup__close" onPointerDown={e => { e.preventDefault(); onClose(); }}>Super !</button>
+        <button ref={closeRef} className="ch-badge-popup__close" onPointerDown={e => { e.preventDefault(); onClose(); }}>Super !</button>
       </div>
     </div>
   );
@@ -67,13 +71,13 @@ function BadgePopup({ badge, onClose }) {
 
 // ── Theory steps ──────────────────────────────────────────────────────────────
 const THEORY_STEPS = [
-  { color: '#0891b2', num: 'Etape 1', content: 'Une montre a deux types d\'aiguilles : la petite aiguille et la grande aiguille.' },
-  { color: '#06b6d4', num: 'Etape 2', content: 'La petite aiguille montre les HEURES. Elle tourne lentement.' },
-  { color: '#f59e0b', num: 'Etape 3', content: 'La grande aiguille montre les MINUTES. Elle tourne plus vite.' },
-  { color: '#22c55e', num: 'Etape 4', content: 'Quand la grande aiguille est en haut (sur le 12), il est pile. Ex: 3 heures pile.' },
-  { color: '#8b5cf6', num: 'Etape 5', content: 'Quand la grande aiguille est en bas (sur le 6), c\'est et demie. Ex: 3 heures et demie.' },
-  { color: '#f97316', num: 'Etape 6', content: 'Une journee = 24 heures. Matin (6h-12h), Apres-midi (12h-18h), Soir (18h-21h), Nuit (21h-6h).' },
-  { color: '#ef4444', num: 'Etape 7', content: 'La montre digitale affiche l\'heure en chiffres, comme 08:30. C\'est la meme heure !' },
+  { color: '#0891b2', num: 'Étape 1', content: 'Une montre a deux types d\'aiguilles : la petite aiguille et la grande aiguille.' },
+  { color: '#06b6d4', num: 'Étape 2', content: 'La petite aiguille montre les HEURES. Elle tourne lentement.' },
+  { color: '#f59e0b', num: 'Étape 3', content: 'La grande aiguille montre les MINUTES. Elle tourne plus vite.' },
+  { color: '#22c55e', num: 'Étape 4', content: 'Quand la grande aiguille est en haut (sur le 12), il est pile. Ex: 3 heures pile.' },
+  { color: '#8b5cf6', num: 'Étape 5', content: 'Quand la grande aiguille est en bas (sur le 6), c\'est et demie. Ex: 3 heures et demie.' },
+  { color: '#f97316', num: 'Étape 6', content: 'Une journée = 24 heures. Matin (6h-12h), Après-midi (12h-18h), Soir (18h-21h), Nuit (21h-6h).' },
+  { color: '#ef4444', num: 'Étape 7', content: 'La montre digitale affiche l\'heure en chiffres, comme 08:30. C\'est la meme heure !' },
 ];
 
 // ── Mode definitions ──────────────────────────────────────────────────────────
@@ -232,7 +236,7 @@ export default function ChronoPage() {
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
-          <button type="button" className="ch-back" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>
+          <button type="button" className="ch-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>
             &larr;
           </button>
           <span className="ch-quiz-bar__title">Je Decouvre</span>
@@ -278,7 +282,7 @@ export default function ChronoPage() {
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
-          <button type="button" className="ch-back" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
+          <button type="button" className="ch-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
           <span className="ch-quiz-bar__title">{modeLabel}</span>
           <span className="ch-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -315,7 +319,7 @@ export default function ChronoPage() {
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
-          <button type="button" className="ch-back" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
+          <button type="button" className="ch-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
           <span className="ch-quiz-bar__title">Heure Digitale</span>
           <span className="ch-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -352,7 +356,7 @@ export default function ChronoPage() {
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
-          <button type="button" className="ch-back" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
+          <button type="button" className="ch-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
           <span className="ch-quiz-bar__title">Analogique &harr; Digitale</span>
           <span className="ch-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -386,7 +390,7 @@ export default function ChronoPage() {
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
-          <button type="button" className="ch-back" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
+          <button type="button" className="ch-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
           <span className="ch-quiz-bar__title">Detectif du Temps</span>
           <span className="ch-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -426,7 +430,7 @@ export default function ChronoPage() {
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
-          <button type="button" className="ch-back" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
+          <button type="button" className="ch-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
           <span className="ch-quiz-bar__title">{phase === 'missions' ? 'Missions du Quotidien' : 'Durees'}</span>
           <span className="ch-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
@@ -464,7 +468,7 @@ export default function ChronoPage() {
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
-          <button type="button" className="ch-back" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
+          <button type="button" className="ch-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
           <span className="ch-quiz-bar__title">La Journee de Lena</span>
         </div>
         <div className="ch-timeline">
@@ -499,7 +503,7 @@ export default function ChronoPage() {
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
-          <button type="button" className="ch-back" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
+          <button type="button" className="ch-back" aria-label="Retour" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&larr;</button>
           <span className="ch-quiz-bar__title">Construis Ma Montre</span>
         </div>
         <div className="ch-watch-builder">
