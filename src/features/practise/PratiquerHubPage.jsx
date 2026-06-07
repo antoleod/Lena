@@ -17,6 +17,7 @@ const HUB_UI = {
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Soustractions avec passage a la dizaine', color: '#6366f1' },
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'J\'apprends l\'heure en jouant', color: '#0891b2' },
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'Le royaume magique des mots', color: '#10b981' },
+      { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'Le laboratoire des grandeurs', color: '#f59e0b' },
     ],
   },
   nl: {
@@ -31,6 +32,7 @@ const HUB_UI = {
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Aftrekken met overdracht', color: '#6366f1' },
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'Leer klokkijken spelenderwijs', color: '#0891b2' },
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'Het magische koninkrijk van woorden', color: '#10b981' },
+      { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'Het laboratorium der grootheden', color: '#f59e0b' },
     ],
   },
   en: {
@@ -45,6 +47,7 @@ const HUB_UI = {
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Subtractions with borrowing', color: '#6366f1' },
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'I learn to tell the time', color: '#0891b2' },
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'The magical kingdom of words', color: '#10b981' },
+      { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'The measurement laboratory', color: '#f59e0b' },
     ],
   },
   es: {
@@ -59,6 +62,7 @@ const HUB_UI = {
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Restas con llevada', color: '#6366f1' },
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'Aprendo a leer el reloj jugando', color: '#0891b2' },
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'El reino magico de las palabras', color: '#10b981' },
+      { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'El laboratorio de medidas', color: '#f59e0b' },
     ],
   },
 };
@@ -72,6 +76,7 @@ const ICON_MAP = {
   dudu: IconMath,
   chrono: IconMath,
   grammi: IconLangues,
+  metri: IconMath,
 };
 
 export default function PratiquerHubPage() {
