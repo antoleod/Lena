@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getAllGameProgress, getTotalStats, formatDuration } from '../../services/storage/gameProgressStore.js';
 import {
   IconGameMotsMelanges,
   IconGameMotsCaches,
@@ -111,9 +113,38 @@ const CATEGORIES = [
   },
 ];
 
+function routeToGameId(to) {
+  return to.replace('/jeux/', '');
+}
+
 export default function JeuxHubPage() {
+  const [allProgress, setAllProgress] = useState(() => getAllGameProgress());
+
+  useEffect(() => {
+    function refresh() { setAllProgress(getAllGameProgress()); }
+    window.addEventListener('lena-game-progress-change', refresh);
+    return () => window.removeEventListener('lena-game-progress-change', refresh);
+  }, []);
+
+  const stats = getTotalStats();
+
   return (
     <div className="jh-page">
+      {/* Total stats bar */}
+      {stats.totalSessions > 0 && (
+        <div className="jh-total-stats">
+          <div className="jh-total-stat">
+            🎮 <span className="jh-total-stat__val">{stats.totalSessions}</span> parties
+          </div>
+          <div className="jh-total-stat">
+            ⏱️ <span className="jh-total-stat__val">{formatDuration(stats.totalGameSecs)}</span> joues
+          </div>
+          <div className="jh-total-stat">
+            🎯 <span className="jh-total-stat__val">{stats.gamesPlayed}</span> jeux essayes
+          </div>
+        </div>
+      )}
+
       <div className="jh-hero">
         <div className="jh-hero__icon">🧠</div>
         <h1 className="jh-hero__title">Jeux Cerebraux</h1>
@@ -126,32 +157,40 @@ export default function JeuxHubPage() {
             {cat.label}
           </div>
           <div className="jh-grid">
-            {cat.games.map(g => (
-              <Link
-                key={g.to}
-                to={g.to}
-                className="jh-card"
-                style={{ '--card-accent': cat.color }}
-              >
-                <div className="jh-card__icon" style={{ '--icon-bg': cat.color + '33' }}>
-                  {GAME_ICON_MAP[g.to]
-                    ? (() => { const Icon = GAME_ICON_MAP[g.to]; return <Icon size={36} />; })()
-                    : g.emoji}
-                </div>
-                <div className="jh-card__body">
-                  <div className="jh-card__top">
-                    <span className="jh-card__name">{g.name}</span>
-                    <span className={`jh-card__badge jh-card__badge--${g.badge === 'Facile' ? 'easy' : 'medium'}`}>
-                      {g.badge}
-                    </span>
+            {cat.games.map(g => {
+              const gp = allProgress[routeToGameId(g.to)];
+              return (
+                <Link
+                  key={g.to}
+                  to={g.to}
+                  className="jh-card"
+                  style={{ '--card-accent': cat.color }}
+                >
+                  <div className="jh-card__icon" style={{ '--icon-bg': cat.color + '33' }}>
+                    {GAME_ICON_MAP[g.to]
+                      ? (() => { const Icon = GAME_ICON_MAP[g.to]; return <Icon size={36} />; })()
+                      : g.emoji}
                   </div>
-                  <p className="jh-card__desc">{g.desc}</p>
-                </div>
-                <div className="jh-card__play" style={{ '--btn-color': cat.color }}>
-                  ▶ Jouer
-                </div>
-              </Link>
-            ))}
+                  <div className="jh-card__body">
+                    <div className="jh-card__top">
+                      <span className="jh-card__name">{g.name}</span>
+                      <span className={`jh-card__badge jh-card__badge--${g.badge === 'Facile' ? 'easy' : 'medium'}`}>
+                        {g.badge}
+                      </span>
+                    </div>
+                    <p className="jh-card__desc">{g.desc}</p>
+                    {gp?.bestScore > 0 && (
+                      <div className="jh-card__prog">
+                        ⭐ {gp.bestScore} · Niv.{gp.bestLevel}
+                      </div>
+                    )}
+                  </div>
+                  <div className="jh-card__play" style={{ '--btn-color': cat.color }}>
+                    ▶ Jouer
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
       ))}

@@ -1,19 +1,39 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useGameSession } from '../../shared/hooks/useGameSession.js';
 import './jeux.css';
 
-const TOTAL_TIME = 60;
-const MOLE_VISIBLE_MS = 2000;
-const MOLE_INTERVAL_MS = 2000;
+const LEVEL_CONFIG = [
+  { label: 'N1 — Addition ≤10',       ops: ['+'],        max: 10,  visibleMs: 2500, intervalMs: 3000,  duration: 60,  holeCount: 9  },
+  { label: 'N2 — Addition ≤20',        ops: ['+'],        max: 20,  visibleMs: 2000, intervalMs: 2500,  duration: 60,  holeCount: 9  },
+  { label: 'N3 — Addition+Soustraction',ops: ['+', '-'],  max: 20,  visibleMs: 1800, intervalMs: 2000,  duration: 90,  holeCount: 9  },
+  { label: 'N4 — Tables 1-5',          ops: ['*'],        max: 5,   visibleMs: 1500, intervalMs: 1800,  duration: 90,  holeCount: 9  },
+  { label: 'N5 — Mult+Div (4×4)',      ops: ['*', '/'],   max: 9,   visibleMs: 1200, intervalMs: 1500,  duration: 120, holeCount: 16 },
+];
 
-function generateProblem(level) {
-  const ops = level === 'hard' ? ['+', '-', '*'] : level === 'medium' ? ['+', '-'] : ['+'];
-  const op = ops[Math.floor(Math.random() * ops.length)];
+function generateProblem(cfg) {
+  const op = cfg.ops[Math.floor(Math.random() * cfg.ops.length)];
   let a, b, answer;
-  if (op === '+') { a = Math.floor(Math.random() * 10) + 1; b = Math.floor(Math.random() * 10) + 1; answer = a + b; }
-  else if (op === '-') { a = Math.floor(Math.random() * 10) + 5; b = Math.floor(Math.random() * a) + 1; answer = a - b; }
-  else { a = Math.floor(Math.random() * 5) + 2; b = Math.floor(Math.random() * 5) + 2; answer = a * b; }
-  return { text: `${a}${op}${b}`, answer };
+  if (op === '+') {
+    a = Math.floor(Math.random() * cfg.max) + 1;
+    b = Math.floor(Math.random() * (cfg.max - a)) + 1;
+    answer = a + b;
+  } else if (op === '-') {
+    a = Math.floor(Math.random() * cfg.max) + 2;
+    b = Math.floor(Math.random() * (a - 1)) + 1;
+    answer = a - b;
+  } else if (op === '*') {
+    a = Math.floor(Math.random() * cfg.max) + 1;
+    b = Math.floor(Math.random() * cfg.max) + 1;
+    answer = a * b;
+  } else {
+    // division: generate clean division
+    b = Math.floor(Math.random() * 8) + 2;
+    answer = Math.floor(Math.random() * 8) + 1;
+    a = b * answer;
+  }
+  const opSymbol = op === '*' ? '×' : op === '/' ? '÷' : op;
+  return { text: `${a}${opSymbol}${b}`, answer };
 }
 
 function generateChoices(answer) {
@@ -26,30 +46,42 @@ function generateChoices(answer) {
   return [...choices].sort(() => Math.random() - 0.5);
 }
 
-function starsForScore(score) {
-  if (score >= 80) return '★★★';
-  if (score >= 40) return '★★☆';
-  if (score >= 10) return '★☆☆';
-  return '☆☆☆';
+function calcStars(score, level) {
+  if (score >= level * 200) return 3;
+  if (score >= level * 100) return 2;
+  return 1;
+}
+
+function formatTime(secs) {
+  if (secs < 60) return `${secs}s`;
+  return `${Math.floor(secs / 60)}m${secs % 60}s`;
 }
 
 export default function TaupesMathsPage() {
-  const [phase, setPhase] = useState('setup'); // setup | play | results
-  const [level, setLevel] = useState('easy');
+  const { progress, saveSession, resetTimer } = useGameSession('taupes');
+
+  const [phase, setPhase] = useState('setup');
+  const [selectedLevel, setSelectedLevel] = useState(1);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(TOTAL_TIME);
-  const [moles, setMoles] = useState(Array(9).fill(null)); // null or { text, answer }
+  const [timeLeft, setTimeLeft] = useState(60);
+  const [moles, setMoles] = useState(Array(9).fill(null));
   const [choices, setChoices] = useState([]);
   const [feedback, setFeedback] = useState('');
-  const [activeMole, setActiveMole] = useState(null); // index of active mole
+  const [activeMole, setActiveMole] = useState(null);
+  const [sessionResult, setSessionResult] = useState(null);
+
   const feedbackTimer = useRef(null);
   const moleHideTimer = useRef(null);
   const moleShowInterval = useRef(null);
   const clockInterval = useRef(null);
+  const scoreRef = useRef(0);
+
+  const cfg = LEVEL_CONFIG[selectedLevel - 1];
 
   const spawnMole = useCallback(() => {
-    const problem = generateProblem(level);
-    const idx = Math.floor(Math.random() * 9);
+    const levelCfg = LEVEL_CONFIG[selectedLevel - 1];
+    const problem = generateProblem(levelCfg);
+    const idx = Math.floor(Math.random() * levelCfg.holeCount);
     setMoles(prev => {
       const next = [...prev];
       next[idx] = problem;
@@ -66,22 +98,26 @@ export default function TaupesMathsPage() {
         return next;
       });
       setActiveMole(null);
-    }, MOLE_VISIBLE_MS);
-  }, [level]);
+    }, levelCfg.visibleMs);
+  }, [selectedLevel]);
 
   const startGame = () => {
+    const levelCfg = LEVEL_CONFIG[selectedLevel - 1];
+    scoreRef.current = 0;
     setScore(0);
-    setTimeLeft(TOTAL_TIME);
-    setMoles(Array(9).fill(null));
+    setTimeLeft(levelCfg.duration);
+    setMoles(Array(levelCfg.holeCount).fill(null));
     setActiveMole(null);
     setFeedback('');
+    setSessionResult(null);
+    resetTimer();
     setPhase('play');
   };
 
   useEffect(() => {
     if (phase !== 'play') return;
     spawnMole();
-    moleShowInterval.current = setInterval(spawnMole, MOLE_INTERVAL_MS);
+    moleShowInterval.current = setInterval(spawnMole, cfg.intervalMs);
     clockInterval.current = setInterval(() => {
       setTimeLeft(t => {
         if (t <= 1) {
@@ -101,48 +137,87 @@ export default function TaupesMathsPage() {
     };
   }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Save session when entering results
+  useEffect(() => {
+    if (phase !== 'results') return;
+    const stars = calcStars(scoreRef.current, selectedLevel);
+    const result = saveSession({ score: scoreRef.current, level: selectedLevel, stars });
+    setSessionResult(result);
+  }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const handleChoice = (choice) => {
     if (activeMole === null) return;
     const mole = moles[activeMole];
     if (!mole) return;
     if (choice === mole.answer) {
-      setScore(s => s + 10);
-      setFeedback('+10 ! Bravo !');
+      const gain = 10 * selectedLevel;
+      scoreRef.current += gain;
+      setScore(s => s + gain);
+      setFeedback(`+${gain} ! Bravo !`);
       setMoles(prev => { const n = [...prev]; n[activeMole] = null; return n; });
       setActiveMole(null);
       clearTimeout(moleHideTimer.current);
       if (feedbackTimer.current) clearTimeout(feedbackTimer.current);
       feedbackTimer.current = setTimeout(() => setFeedback(''), 800);
     } else {
-      setScore(s => s - 5);
       setFeedback('-5 ! Essaie encore !');
+      scoreRef.current = Math.max(0, scoreRef.current - 5);
+      setScore(s => Math.max(0, s - 5));
       if (feedbackTimer.current) clearTimeout(feedbackTimer.current);
       feedbackTimer.current = setTimeout(() => setFeedback(''), 800);
     }
   };
 
-  const handleHoleTap = (idx) => {
-    if (idx !== activeMole) return;
-  };
+  const gridCols = cfg.holeCount === 16 ? 4 : 3;
 
   if (phase === 'setup') {
     return (
       <div className="tm-page">
         <div className="tm-setup-icon">🦔</div>
         <div className="tm-setup-title">Taupes Maths</div>
-        <div className="tm-setup-sub">Tape la bonne reponse avant que la taupe disparaisse !</div>
-        <div style={{ marginBottom: 20 }}>
-          {['easy', 'medium', 'hard'].map(l => (
-            <button
-              key={l}
-              className={`tm-cta${level === l ? '' : ' tm-cta--soft'}`}
-              style={{ marginBottom: 10, display: 'block' }}
-              onPointerDown={() => setLevel(l)}
-            >
-              {l === 'easy' ? 'Facile (+)' : l === 'medium' ? 'Moyen (+-)' : 'Difficile (x)'}
-            </button>
-          ))}
+        <div className="tm-setup-sub">Tape la bonne réponse avant que la taupe disparaisse !</div>
+
+        <div className="jeux-level-grid">
+          {LEVEL_CONFIG.map((lc, i) => {
+            const lvl = i + 1;
+            const locked = lvl > progress.unlockedLevel;
+            const selected = lvl === selectedLevel;
+            const stars = progress.bestScore > 0 && !locked ? calcStars(progress.bestScore, lvl) : 0;
+            return (
+              <button
+                key={lvl}
+                className={`jeux-level-btn${selected ? ' is-selected' : ''}${locked ? ' is-locked' : ''}`}
+                onPointerDown={() => !locked && setSelectedLevel(lvl)}
+                disabled={locked}
+              >
+                {locked ? '🔒' : `N${lvl}`}
+                {!locked && stars > 0 && (
+                  <span className="jeux-level-stars">{'★'.repeat(stars)}</span>
+                )}
+              </button>
+            );
+          })}
         </div>
+
+        <div className="tm-setup-sub" style={{ marginBottom: 8 }}>
+          {cfg.label}
+        </div>
+
+        <div className="jeux-setup-stats">
+          <div className="jeux-setup-stat">
+            <span className="jeux-setup-stat__val">{progress.bestScore}</span>
+            <span className="jeux-setup-stat__lbl">Meilleur score</span>
+          </div>
+          <div className="jeux-setup-stat">
+            <span className="jeux-setup-stat__val">{formatTime(progress.totalTimeSecs)}</span>
+            <span className="jeux-setup-stat__lbl">Temps total</span>
+          </div>
+          <div className="jeux-setup-stat">
+            <span className="jeux-setup-stat__val">{progress.sessionsPlayed}</span>
+            <span className="jeux-setup-stat__lbl">Parties</span>
+          </div>
+        </div>
+
         <button className="tm-cta" onPointerDown={startGame}>C'est parti !</button>
         <div style={{ marginTop: 12, textAlign: 'center' }}>
           <Link to="/jeux" style={{ color: 'rgba(255,255,255,.6)', textDecoration: 'none' }}>Retour aux jeux</Link>
@@ -152,14 +227,19 @@ export default function TaupesMathsPage() {
   }
 
   if (phase === 'results') {
-    const stars = starsForScore(score);
+    const stars = calcStars(score, selectedLevel);
     return (
       <div className="tm-page">
-        <div className="tm-result-title">Temps ecoule !</div>
-        <div className="jeux-stars">{stars}</div>
+        <div className="tm-result-title">Temps écoulé !</div>
+        <div className="jeux-stars">{'★'.repeat(stars) + '☆'.repeat(3 - stars)}</div>
         <div className="jeux-result-stat"><span>Score</span><span>{score} pts</span></div>
+        {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
+        {sessionResult?.newUnlocked && (
+          <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>
+        )}
         <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 10 }}>
           <button className="tm-cta" onPointerDown={startGame}>Rejouer</button>
+          <button className="tm-cta tm-cta--soft" onPointerDown={() => setPhase('setup')}>Changer de niveau</button>
           <Link to="/jeux" style={{ display: 'block', textAlign: 'center', color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginTop: 8 }}>
             Retour aux jeux
           </Link>
@@ -178,9 +258,9 @@ export default function TaupesMathsPage() {
         <div className="tm-score">Score : {score}</div>
         <div className={`tm-timer${timeLeft <= 10 ? ' tm-timer--urgent' : ''}`}>{timeLeft}s</div>
       </div>
-      <div className="tm-grid">
+      <div className="tm-grid" style={{ gridTemplateColumns: `repeat(${gridCols}, 1fr)` }}>
         {moles.map((mole, idx) => (
-          <div key={idx} className="tm-hole" onPointerDown={() => handleHoleTap(idx)}>
+          <div key={idx} className="tm-hole" onPointerDown={() => {}}>
             {mole && (
               <div className="tm-mole">
                 <span className="tm-mole-emoji">🦔</span>

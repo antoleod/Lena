@@ -1,13 +1,16 @@
 import { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useGameSession } from '../../shared/hooks/useGameSession.js';
 import './jeux.css';
 
-const TOTAL_ROUNDS = 15;
+// ── Level configs ──────────────────────────────────────────────────────────
 
-const LEVELS = [
-  { id: 'cp', label: 'CP', desc: 'Nombres 1–20', color: '#22c55e' },
-  { id: 'ce1', label: 'CE1', desc: 'Nombres 1–100', color: '#f59e0b' },
-  { id: 'ce2', label: 'CE2', desc: 'Nombres 1–1000 + décimaux', color: '#ec4899' },
+const LEVEL_CONFIG = [
+  { n: 1, label: 'Niveau 1', desc: '3 nombres 1-10, 15 tours',   cardCount: 3, totalRounds: 15, type: 'int10' },
+  { n: 2, label: 'Niveau 2', desc: '3 nombres 1-100, 15 tours',  cardCount: 3, totalRounds: 15, type: 'int100' },
+  { n: 3, label: 'Niveau 3', desc: '4 nombres 1-100, 12 tours',  cardCount: 4, totalRounds: 12, type: 'int100' },
+  { n: 4, label: 'Niveau 4', desc: '4 nombres 1-1000 + decimaux, 12 tours', cardCount: 4, totalRounds: 12, type: 'dec1000' },
+  { n: 5, label: 'Niveau 5', desc: '5 nombres dont negatifs et fractions, 10 tours', cardCount: 5, totalRounds: 10, type: 'mixed' },
 ];
 
 const CE2_POOL = [
@@ -16,20 +19,24 @@ const CE2_POOL = [
   100, 125, 200, 250, 333, 500, 750, 999, 1000, 0.5,
 ];
 
-function generateNumbers(levelId) {
-  let nums;
-  if (levelId === 'cp') {
-    const pool = Array.from({ length: 20 }, (_, i) => i + 1);
-    nums = pickUnique(pool, 3);
-  } else if (levelId === 'ce1') {
-    const pool = Array.from({ length: 100 }, (_, i) => i + 1);
-    nums = pickUnique(pool, 3);
-  } else {
-    nums = pickUnique(CE2_POOL, 3);
-  }
-  // Shuffle so they're not in order
-  return shuffle(nums);
+// Display labels for special values
+const DISPLAY_LABEL = {
+  0.5: '½',
+  0.25: '¼',
+  '-5': '-5',
+};
+
+function displayVal(v) {
+  if (DISPLAY_LABEL[String(v)]) return DISPLAY_LABEL[String(v)];
+  if (DISPLAY_LABEL[v]) return DISPLAY_LABEL[v];
+  return String(v);
 }
+
+const MIXED_POOL = [
+  -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+  12, 15, 18, 20, 25, 30, 35, 40, 45, 50,
+  0.5, 0.25,
+];
 
 function pickUnique(pool, count) {
   const copy = [...pool];
@@ -51,40 +58,71 @@ function shuffle(arr) {
   return a;
 }
 
-function calcStars(score) {
-  if (score >= 13) return 3;
-  if (score >= 9) return 2;
+function generateNumbers(cfg) {
+  let pool;
+  switch (cfg.type) {
+    case 'int10':
+      pool = Array.from({ length: 10 }, (_, i) => i + 1);
+      break;
+    case 'int100':
+      pool = Array.from({ length: 100 }, (_, i) => i + 1);
+      break;
+    case 'dec1000':
+      pool = CE2_POOL;
+      break;
+    case 'mixed':
+      pool = MIXED_POOL;
+      break;
+    default:
+      pool = Array.from({ length: 10 }, (_, i) => i + 1);
+  }
+  return shuffle(pickUnique(pool, cfg.cardCount));
+}
+
+function calcStars(score, totalRounds) {
+  const pct = score / totalRounds;
+  if (pct >= 0.86) return 3;
+  if (pct >= 0.6)  return 2;
   return 1;
 }
 
 export default function PlusPetitPlusGrandPage() {
-  const [phase, setPhase] = useState('setup');
-  const [selectedLevel, setSelectedLevel] = useState(null);
-  const [roundNum, setRoundNum] = useState(0);
-  const [score, setScore] = useState(0);
-  const [numbers, setNumbers] = useState([]);
-  const [tapped, setTapped] = useState([]); // indices into numbers array, in tap order
-  const [shaking, setShaking] = useState(false);
-  const [flashing, setFlashing] = useState(false);
+  const { progress, saveSession, resetTimer } = useGameSession('comparaison');
 
-  function startGame(levelId) {
-    setSelectedLevel(levelId);
+  const [phase, setPhase]         = useState('setup');
+  const [levelNum, setLevelNum]   = useState(progress.unlockedLevel);
+  const [roundNum, setRoundNum]   = useState(0);
+  const [score, setScore]         = useState(0);
+  const [numbers, setNumbers]     = useState([]);
+  const [tapped, setTapped]       = useState([]);
+  const [shaking, setShaking]     = useState(false);
+  const [flashing, setFlashing]   = useState(false);
+  const [lastResult, setLastResult] = useState(null);
+
+  const cfg = LEVEL_CONFIG[levelNum - 1];
+
+  function startGame() {
+    resetTimer();
     setRoundNum(1);
     setScore(0);
-    setNumbers(generateNumbers(levelId));
+    setNumbers(generateNumbers(cfg));
     setTapped([]);
     setShaking(false);
     setFlashing(false);
+    setLastResult(null);
     setPhase('play');
   }
 
   function nextRound(newScore) {
-    if (roundNum >= TOTAL_ROUNDS) {
+    if (roundNum >= cfg.totalRounds) {
+      const stars = calcStars(newScore, cfg.totalRounds);
+      const result = saveSession({ score: newScore, level: levelNum, stars });
       setScore(newScore);
+      setLastResult(result);
       setPhase('results');
     } else {
       setRoundNum(r => r + 1);
-      setNumbers(generateNumbers(selectedLevel));
+      setNumbers(generateNumbers(cfg));
       setTapped([]);
       setScore(newScore);
     }
@@ -96,7 +134,7 @@ export default function PlusPetitPlusGrandPage() {
     const newTapped = [...tapped, idx];
     setTapped(newTapped);
 
-    if (newTapped.length === 3) {
+    if (newTapped.length === cfg.cardCount) {
       const sorted = [...numbers].sort((a, b) => a - b);
       const correct = newTapped.every((ni, pos) => numbers[ni] === sorted[pos]);
       if (correct) {
@@ -114,31 +152,55 @@ export default function PlusPetitPlusGrandPage() {
         }, 700);
       }
     }
-  }, [tapped, numbers, shaking, flashing, score, roundNum, selectedLevel]);
+  }, [tapped, numbers, shaking, flashing, score, roundNum, cfg]);
 
+  // ── Setup ──────────────────────────────────────────────────────────────────
   if (phase === 'setup') {
     return (
       <div className="pp-page">
         <Link to="/jeux" className="exam-back-btn">←</Link>
         <h1 className="pp-title">Plus Petit ou Plus Grand ?</h1>
-        <p className="pp-subtitle">Tape les 3 nombres du plus petit au plus grand</p>
-        <div className="pp-levels">
-          {LEVELS.map(lv => (
-            <button
-              key={lv.id}
-              className={`pp-level-btn${selectedLevel === lv.id ? ' is-selected' : ''}`}
-              style={{ '--lv-color': lv.color }}
-              onPointerDown={e => { e.preventDefault(); setSelectedLevel(lv.id); }}
-            >
-              <span className="pp-level-badge">{lv.label}</span>
-              <span className="pp-level-desc">{lv.desc}</span>
-            </button>
-          ))}
+        <p className="pp-subtitle">Tape les nombres du plus petit au plus grand</p>
+
+        {progress.sessionsPlayed > 0 && (
+          <div className="jeux-setup-stats">
+            <div className="jeux-setup-stat">
+              <span className="jeux-setup-stat__val">⭐ {progress.bestScore}</span>
+              <span className="jeux-setup-stat__lbl">Meilleur score</span>
+            </div>
+            <div className="jeux-setup-stat">
+              <span className="jeux-setup-stat__val">Niv.{progress.bestLevel}</span>
+              <span className="jeux-setup-stat__lbl">Niveau atteint</span>
+            </div>
+            <div className="jeux-setup-stat">
+              <span className="jeux-setup-stat__val">{progress.sessionsPlayed}</span>
+              <span className="jeux-setup-stat__lbl">Parties</span>
+            </div>
+          </div>
+        )}
+
+        <div className="jeux-level-grid">
+          {LEVEL_CONFIG.map(lv => {
+            const locked = lv.n > progress.unlockedLevel;
+            return (
+              <button
+                key={lv.n}
+                className={`jeux-level-btn${levelNum === lv.n ? ' is-selected' : ''}${locked ? ' is-locked' : ''}`}
+                onPointerDown={e => { e.preventDefault(); if (!locked) setLevelNum(lv.n); }}
+                disabled={locked}
+              >
+                <span style={{ fontSize: '1.1rem', fontWeight: 900 }}>N{lv.n}</span>
+                <span style={{ fontSize: '.72rem', opacity: .8, textAlign: 'center' }}>{lv.desc}</span>
+                {locked && <span style={{ fontSize: '.7rem' }}>🔒</span>}
+              </button>
+            );
+          })}
         </div>
+
         <button
           className="pp-cta"
-          disabled={!selectedLevel}
-          onPointerDown={e => { e.preventDefault(); if (selectedLevel) startGame(selectedLevel); }}
+          style={{ marginTop: 16 }}
+          onPointerDown={e => { e.preventDefault(); startGame(); }}
         >
           Jouer !
         </button>
@@ -146,32 +208,48 @@ export default function PlusPetitPlusGrandPage() {
     );
   }
 
+  // ── Results ────────────────────────────────────────────────────────────────
   if (phase === 'results') {
-    const stars = calcStars(score);
+    const stars = calcStars(score, cfg.totalRounds);
     const starStr = '★'.repeat(stars) + '☆'.repeat(3 - stars);
     return (
       <div className="pp-page">
         <h2 className="pp-result-title">
-          {stars === 3 ? '🎉 Parfait !' : stars === 2 ? '👍 Bien joué !' : '🔢 Continue !'}
+          {stars === 3 ? '🎉 Parfait !' : stars === 2 ? '👍 Bien joue !' : '🔢 Continue !'}
         </h2>
         <div className="jeux-stars">{starStr}</div>
-        <div className="jeux-result-stat"><span>Score</span><span>{score} / {TOTAL_ROUNDS}</span></div>
-        <button className="pp-cta" style={{ marginTop: 24 }} onPointerDown={e => { e.preventDefault(); setPhase('setup'); setSelectedLevel(null); }}>
-          Rejouer
-        </button>
+        {lastResult?.isNewBest && <div className="jeux-new-best">Nouveau record !</div>}
+        {lastResult?.newUnlocked && (
+          <div className="jeux-unlocked">Niveau {levelNum + 1} debloque !</div>
+        )}
+        <div className="jeux-result-stat"><span>Score</span><span>{score} / {cfg.totalRounds}</span></div>
+        <div className="jeux-result-stat"><span>Niveau</span><span>N{levelNum}</span></div>
+        <div style={{ display: 'flex', gap: 10, marginTop: 24 }}>
+          <button className="pp-cta" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); startGame(); }}>
+            Rejouer
+          </button>
+          <button className="pp-cta" style={{ flex: 1, background: 'rgba(255,255,255,.12)' }}
+            onPointerDown={e => { e.preventDefault(); setPhase('setup'); }}
+          >
+            Niveaux
+          </button>
+        </div>
         <Link to="/jeux" className="pp-back-link">← Retour aux jeux</Link>
       </div>
     );
   }
 
+  // ── Play ───────────────────────────────────────────────────────────────────
   return (
     <div className="pp-page">
       <Link to="/jeux" className="exam-back-btn">←</Link>
       <div className="pp-hud">
-        <span className="pp-progress">Tour {roundNum} / {TOTAL_ROUNDS}</span>
-        <span className="pp-score">⭐ {score}</span>
+        <span className="pp-progress">Tour {roundNum} / {cfg.totalRounds}</span>
+        <span className="pp-score">⭐ {score}  N{levelNum}</span>
       </div>
-      <div className="pp-instruction">Tape du plus petit au plus grand</div>
+      <div className="pp-instruction">
+        Tape du plus petit au plus grand ({cfg.cardCount} nombres)
+      </div>
       <div className={`pp-cards${shaking ? ' pp-cards--shake' : ''}${flashing ? ' pp-cards--flash' : ''}`}>
         {numbers.map((n, idx) => {
           const tapPos = tapped.indexOf(idx);
@@ -182,13 +260,13 @@ export default function PlusPetitPlusGrandPage() {
               className={`pp-card${isTapped ? ' pp-card--tapped' : ''}`}
               onPointerDown={e => { e.preventDefault(); handleTap(idx); }}
             >
-              <span className="pp-card-num">{n}</span>
+              <span className="pp-card-num">{displayVal(n)}</span>
               {isTapped && <span className="pp-card-badge">{tapPos + 1}</span>}
             </button>
           );
         })}
       </div>
-      {tapped.length > 0 && tapped.length < 3 && (
+      {tapped.length > 0 && tapped.length < cfg.cardCount && (
         <button
           className="pp-reset-btn"
           onPointerDown={e => { e.preventDefault(); setTapped([]); }}

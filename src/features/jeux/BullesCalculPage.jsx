@@ -1,38 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useGameSession } from '../../shared/hooks/useGameSession.js';
+import { formatDuration } from '../../services/storage/gameProgressStore.js';
 import './jeux.css';
 
 const LEVELS = [
-  { label: 'CP (6-7 ans)',   ops: ['+'],         max: 10, time: 20 },
-  { label: 'CE1 (7-8 ans)',  ops: ['+', '-'],    max: 20, time: 18 },
-  { label: 'CE2 (8-9 ans)',  ops: ['+', '-', '×'], max: 30, time: 15 },
+  { label: 'Niveau 1 — CP',  ops: ['+'],              max: 10, time: 25, twoStep: false },
+  { label: 'Niveau 2 — CE1', ops: ['+', '-'],          max: 20, time: 20, twoStep: false },
+  { label: 'Niveau 3 — CE2', ops: ['+', '-', '×'],     max: 50, time: 15, twoStep: false },
+  { label: 'Niveau 4 — CM1', ops: ['×', '÷'],          max: 10, time: 12, twoStep: false },
+  { label: 'Niveau 5 — CM2', ops: ['×', '÷', '+'],     max: 10, time: 10, twoStep: true  },
 ];
-
-function makeQuestion(ops, max) {
-  const op = ops[Math.floor(Math.random() * ops.length)];
-  let a, b, answer;
-  if (op === '+') {
-    a = Math.floor(Math.random() * max) + 1;
-    b = Math.floor(Math.random() * (max - a)) + 1;
-    answer = a + b;
-  } else if (op === '-') {
-    a = Math.floor(Math.random() * max) + 2;
-    b = Math.floor(Math.random() * (a - 1)) + 1;
-    answer = a - b;
-  } else {
-    a = Math.floor(Math.random() * 9) + 2;
-    b = Math.floor(Math.random() * 9) + 2;
-    answer = a * b;
-  }
-  const opChar = op === '×' ? '×' : op;
-  const wrongs = new Set();
-  while (wrongs.size < 3) {
-    const w = answer + (Math.floor(Math.random() * 7) - 3);
-    if (w !== answer && w > 0) wrongs.add(w);
-  }
-  const choices = shuffle([answer, ...[...wrongs]]);
-  return { text: `${a} ${opChar} ${b} = ?`, answer, choices };
-}
 
 function shuffle(arr) {
   const a = [...arr];
@@ -43,6 +21,51 @@ function shuffle(arr) {
   return a;
 }
 
+function makeQuestion(ops, max, twoStep) {
+  if (twoStep && Math.random() < 0.5) {
+    // Two-step: "a×b+c = ?"
+    const a = Math.floor(Math.random() * 9) + 2;
+    const b = Math.floor(Math.random() * 9) + 2;
+    const c = Math.floor(Math.random() * 9) + 1;
+    const answer = a * b + c;
+    const wrongs = new Set();
+    while (wrongs.size < 3) {
+      const w = answer + (Math.floor(Math.random() * 9) - 4);
+      if (w !== answer && w > 0) wrongs.add(w);
+    }
+    return { text: `${a}×${b}+${c} = ?`, answer, choices: shuffle([answer, ...[...wrongs]]) };
+  }
+
+  const op = ops[Math.floor(Math.random() * ops.length)];
+  let a, b, answer;
+
+  if (op === '+') {
+    a = Math.floor(Math.random() * max) + 1;
+    b = Math.floor(Math.random() * (max - a)) + 1;
+    answer = a + b;
+  } else if (op === '-') {
+    a = Math.floor(Math.random() * max) + 2;
+    b = Math.floor(Math.random() * (a - 1)) + 1;
+    answer = a - b;
+  } else if (op === '×') {
+    a = Math.floor(Math.random() * max) + 2;
+    b = Math.floor(Math.random() * max) + 2;
+    answer = a * b;
+  } else { // ÷
+    b = Math.floor(Math.random() * 9) + 2;
+    answer = Math.floor(Math.random() * 9) + 2;
+    a = b * answer;
+  }
+
+  const opChar = op;
+  const wrongs = new Set();
+  while (wrongs.size < 3) {
+    const w = answer + (Math.floor(Math.random() * 7) - 3);
+    if (w !== answer && w > 0) wrongs.add(w);
+  }
+  return { text: `${a} ${opChar} ${b} = ?`, answer, choices: shuffle([answer, ...[...wrongs]]) };
+}
+
 const BUBBLE_COLORS = ['#6366f1', '#22c55e', '#f59e0b', '#ec4899'];
 const BUBBLE_POSITIONS = [
   { left: '8%',  top: '30%' },
@@ -50,35 +73,50 @@ const BUBBLE_POSITIONS = [
   { left: '58%', top: '20%' },
   { left: '76%', top: '38%' },
 ];
+const ROUNDS = 10;
 
 export default function BullesCalculPage() {
-  const [phase, setPhase]     = useState('setup');
-  const [levelIdx, setLevelIdx] = useState(0);
+  const { progress, saveSession, resetTimer, elapsedSecs } = useGameSession('bulles-calcul');
+
+  const [phase, setPhase]       = useState('setup');
+  const [selectedLevel, setSelectedLevel] = useState(Math.min(progress.unlockedLevel, 5));
   const [question, setQuestion] = useState(null);
-  const [score, setScore]     = useState(0);
-  const [round, setRound]     = useState(0);
+  const [score, setScore]       = useState(0);
+  const [round, setRound]       = useState(0);
   const [timeLeft, setTimeLeft] = useState(0);
-  const [feedback, setFeedback] = useState(null); // null | 'ok' | 'bad'
-  const [streak, setStreak]   = useState(0);
-  const ROUNDS = 10;
+  const [feedback, setFeedback] = useState(null);
+  const [streak, setStreak]     = useState(0);
+  const [sessionResult, setSessionResult] = useState(null);
   const timerRef = useRef(null);
 
   function startGame() {
-    setScore(0); setRound(0); setStreak(0); setFeedback(null);
-    nextQuestion(0, LEVELS[levelIdx]);
+    setScore(0); setRound(0); setStreak(0); setFeedback(null); setSessionResult(null);
+    resetTimer();
+    const lvl = LEVELS[selectedLevel - 1];
+    const q = makeQuestion(lvl.ops, lvl.max, lvl.twoStep);
+    setQuestion(q);
+    setTimeLeft(lvl.time);
     setPhase('play');
   }
 
-  function nextQuestion(currentRound, level) {
-    if (currentRound >= ROUNDS) { setPhase('results'); return; }
-    const q = makeQuestion(level.ops, level.max);
-    setQuestion(q);
-    setTimeLeft(level.time);
+  function nextQuestion(currentRound, currentScore, currentStreak) {
+    const lvl = LEVELS[selectedLevel - 1];
+    if (currentRound >= ROUNDS) {
+      const stars = currentScore >= ROUNDS * 1.8 ? 3 : currentScore >= ROUNDS ? 2 : 1;
+      const secs = elapsedSecs();
+      const result = saveSession({ score: currentScore, level: selectedLevel, stars });
+      setSessionResult({ ...result, timeSecs: secs, stars });
+      setPhase('results');
+      return;
+    }
+    setQuestion(makeQuestion(lvl.ops, lvl.max, lvl.twoStep));
+    setTimeLeft(lvl.time);
     setRound(currentRound);
   }
 
   useEffect(() => {
     if (phase !== 'play' || feedback !== null) return;
+    const lvl = LEVELS[selectedLevel - 1];
     timerRef.current = setInterval(() => {
       setTimeLeft(t => {
         if (t <= 1) {
@@ -90,28 +128,33 @@ export default function BullesCalculPage() {
       });
     }, 1000);
     return () => clearInterval(timerRef.current);
-  }, [phase, question, feedback]);
+  }, [phase, question, feedback]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleAnswer(val) {
     clearInterval(timerRef.current);
     if (feedback !== null) return;
-    const correct = val === question?.answer;
+    const correct = val !== null && val === question?.answer;
     setFeedback(correct ? 'ok' : 'bad');
+    let newScore = score;
+    let newStreak = streak;
     if (correct) {
-      const bonus = streak >= 2 ? 2 : 1;
-      setScore(s => s + bonus);
-      setStreak(s => s + 1);
+      const bonus = newStreak >= 2 ? 2 : 1;
+      newScore = score + bonus;
+      newStreak = streak + 1;
+      setScore(newScore);
+      setStreak(newStreak);
     } else {
+      newStreak = 0;
       setStreak(0);
     }
+    const nextRound = round + 1;
     setTimeout(() => {
       setFeedback(null);
-      const next = round + 1;
-      nextQuestion(next, LEVELS[levelIdx]);
+      nextQuestion(nextRound, newScore, newStreak);
     }, 900);
   }
 
-  const level = LEVELS[levelIdx];
+  const level = LEVELS[selectedLevel - 1];
 
   if (phase === 'setup') {
     return (
@@ -119,14 +162,42 @@ export default function BullesCalculPage() {
         <Link to="/jeux" className="exam-back-btn">←</Link>
         <h1 className="bc-title">🫧 Bulles de Calcul</h1>
         <p className="bc-subtitle">Crève la bonne bulle !</p>
-        <div className="bc-levels">
-          {LEVELS.map((l, i) => (
-            <button key={i} className={`bc-level-btn${levelIdx === i ? ' is-selected' : ''}`}
-              onPointerDown={e => { e.preventDefault(); setLevelIdx(i); }}>
-              {l.label}
-            </button>
-          ))}
+
+        <div className="jeux-setup-stats">
+          <div className="jeux-setup-stat">
+            <span className="jeux-setup-stat__val">{progress.bestScore || 0}</span>
+            <span className="jeux-setup-stat__lbl">Meilleur score</span>
+          </div>
+          <div className="jeux-setup-stat">
+            <span className="jeux-setup-stat__val">{progress.sessionsPlayed || 0}</span>
+            <span className="jeux-setup-stat__lbl">Parties</span>
+          </div>
+          <div className="jeux-setup-stat">
+            <span className="jeux-setup-stat__val">{formatDuration(progress.totalTimeSecs || 0)}</span>
+            <span className="jeux-setup-stat__lbl">Temps total</span>
+          </div>
         </div>
+
+        <div className="jeux-level-grid">
+          {LEVELS.map((l, i) => {
+            const lvl = i + 1;
+            const locked = lvl > progress.unlockedLevel;
+            return (
+              <button
+                key={lvl}
+                className={`jeux-level-btn${selectedLevel === lvl ? ' is-selected' : ''}${locked ? ' is-locked' : ''}`}
+                onPointerDown={e => { e.preventDefault(); if (!locked) setSelectedLevel(lvl); }}
+              >
+                {locked ? '🔒' : `Niveau ${lvl}`}
+                {!locked && progress.bestLevel >= lvl && <span className="jeux-level-stars">★</span>}
+              </button>
+            );
+          })}
+        </div>
+        <p style={{ textAlign: 'center', opacity: .65, fontSize: '.82rem', color: '#fff', marginBottom: 12 }}>
+          {level.label} — {level.time}s par bulle
+        </p>
+
         <button className="bc-cta" onPointerDown={e => { e.preventDefault(); startGame(); }}>▶ Jouer</button>
       </div>
     );
@@ -138,6 +209,9 @@ export default function BullesCalculPage() {
       <div className="bc-page">
         <h2 className="bc-result-title">{stars === 3 ? '🎉 Super !' : stars === 2 ? '👍 Bien !' : '📚 Continue !'}</h2>
         <div className="jeux-stars">{'★'.repeat(stars) + '☆'.repeat(3 - stars)}</div>
+        {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
+        {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
+        {sessionResult && <div className="jeux-session-time">⏱ {sessionResult.timeSecs}s</div>}
         <div className="jeux-result-stat"><span>Score</span><span>{score} pts</span></div>
         <div className="jeux-result-stat"><span>Questions</span><span>{ROUNDS}</span></div>
         <div style={{ marginTop: 20, display: 'flex', gap: 12 }}>
@@ -169,7 +243,7 @@ export default function BullesCalculPage() {
         {question?.choices.map((choice, i) => (
           <button
             key={choice}
-            className={`bc-bubble`}
+            className="bc-bubble"
             style={{
               '--bc-color': BUBBLE_COLORS[i],
               left: BUBBLE_POSITIONS[i].left,

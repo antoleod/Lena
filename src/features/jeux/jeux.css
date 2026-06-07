@@ -805,3 +805,44 @@
 .cm2-cta { width: 100%; padding: 16px; border-radius: 14px; background: #6366f1; border: none; color: #fff; font-size: 1.1rem; font-weight: 800; cursor: pointer; }
 .cm2-back-link { display: block; text-align: center; margin-top: 14px; color: rgba(255,255,255,.6); text-decoration: none; }
 .cm2-result-title { font-size: 1.6rem; font-weight: 900; text-align: center; margin: 24px 0 8px; }
+
+/* ── Shared level-select UI (jeux-level-*) ── */
+.jeux-level-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin: 16px 0; }
+.jeux-level-btn { padding: 12px 8px; border-radius: 14px; border: 2px solid rgba(255,255,255,.18); background: rgba(255,255,255,.08); color: #fff; font-size: .95rem; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: transform .12s, background .15s; position: relative; }
+.jeux-level-btn:active { transform: scale(.96); }
+.jeux-level-btn.is-selected { border-color: #a855f7; background: rgba(168,85,247,.22); }
+.jeux-level-btn.is-locked { opacity: .38; cursor: not-allowed; }
+.jeux-level-stars { font-size: .8rem; letter-spacing: .04em; color: #fbbf24; }
+
+.jeux-setup-stats { display: flex; gap: 16px; justify-content: center; margin: 10px 0 18px; flex-wrap: wrap; }
+.jeux-setup-stat { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,.07); border-radius: 12px; padding: 8px 14px; }
+.jeux-setup-stat__val { font-size: 1.15rem; font-weight: 900; }
+.jeux-setup-stat__lbl { font-size: .7rem; opacity: .65; font-weight: 500; margin-top: 1px; }
+
+.jeux-new-best { display: inline-block; background: #fbbf24; color: #1a1a2e; border-radius: 20px; font-size: .82rem; font-weight: 800; padding: 3px 12px; margin: 6px 0; }
+.jeux-unlocked { display: inline-block; background: #22c55e; color: #fff; border-radius: 20px; font-size: .82rem; font-weight: 800; padding: 3px 12px; margin: 4px 0; }
+.jeux-session-time { opacity: .65; font-size: .82rem; margin-top: 4px; }
+
+/* ── JeuxHub progress card footer ── */
+.jh-card__prog { font-size: .75rem; color: rgba(255,255,255,.6); margin-top: 4px; font-weight: 600; }
+
+/* ── JeuxHub total stats bar ── */
+.jh-total-stats { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; padding: 10px 16px; margin-bottom: 8px; }
+.jh-total-stat { background: rgba(255,255,255,.08); border-radius: 20px; padding: 6px 14px; font-size: .8rem; font-weight: 700; color: rgba(255,255,255,.8); display: flex; align-items: center; gap: 6px; }
+.jh-total-stat__val { color: #fff; font-weight: 900; }
+
+/* Shared level selector */
+.jeux-level-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+.jeux-level-btn { padding: 14px 8px; border-radius: 14px; border: 2px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: #fff; font-size: .95rem; font-weight: 700; cursor: pointer; position: relative; }
+.jeux-level-btn.is-selected { background: #6366f1; border-color: #818cf8; }
+.jeux-level-btn.is-locked { opacity: .45; cursor: default; }
+.jeux-level-stars { position: absolute; top: 4px; right: 6px; font-size: .75rem; color: #fbbf24; }
+.jeux-progress-bar-wrap { background: rgba(255,255,255,.1); border-radius: 8px; height: 6px; margin-bottom: 8px; overflow: hidden; }
+.jeux-progress-bar { height: 100%; background: linear-gradient(90deg, #6366f1, #a855f7); border-radius: 8px; transition: width .4s; }
+.jeux-setup-stats { display: flex; gap: 12px; margin-bottom: 20px; }
+.jeux-setup-stat { flex: 1; background: rgba(255,255,255,.08); border-radius: 12px; padding: 10px; text-align: center; }
+.jeux-setup-stat__val { font-size: 1.2rem; font-weight: 900; color: #fff; display: block; }
+.jeux-setup-stat__lbl { font-size: .72rem; opacity: .6; color: #fff; }
+.jeux-new-best { background: linear-gradient(135deg, #f59e0b, #ef4444); border-radius: 12px; padding: 10px 16px; text-align: center; font-weight: 900; color: #fff; margin-bottom: 12px; font-size: 1.05rem; }
+.jeux-unlocked { background: linear-gradient(135deg, #22c55e, #16a34a); border-radius: 12px; padding: 10px 16px; text-align: center; font-weight: 900; color: #fff; margin-bottom: 12px; font-size: 1rem; }
+.jeux-session-time { opacity: .7; text-align: center; font-size: .9rem; color: #fff; margin-bottom: 8px; }

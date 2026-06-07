@@ -9,6 +9,7 @@ import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
 import { getParentalState, verifyPin } from '../../services/storage/parentalStore.js';
 import { getTodayStudySeconds } from '../../services/storage/progressStore.js';
+import { addAppTime } from '../../services/storage/gameProgressStore.js';
 
 const PARENTAL_OVERRIDE_KEY = 'lena:parental-override';
 
@@ -222,6 +223,25 @@ export default function AppShell() {
   useEffect(() => {
     rememberLastVisitedRoute(`${location.pathname}${location.search}`);
   }, [location.pathname, location.search]);
+
+  // Global app-time tracking: accumulate time on hide/unmount
+  useEffect(() => {
+    const sessionStart = Date.now();
+    function flush() {
+      const secs = Math.round((Date.now() - sessionStart) / 1000);
+      addAppTime(secs);
+    }
+    function handleVisibility() {
+      if (document.visibilityState === 'hidden') flush();
+    }
+    document.addEventListener('visibilitychange', handleVisibility);
+    window.addEventListener('beforeunload', flush);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibility);
+      window.removeEventListener('beforeunload', flush);
+      flush();
+    };
+  }, []);
 
   // Feature 4: daily limit check
   useEffect(() => {
