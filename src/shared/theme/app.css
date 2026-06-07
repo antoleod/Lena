@@ -12,13 +12,13 @@
 
   /* Surfaces */
   --surface-0: #fff8fd;
-  --surface-1: rgba(255,255,255,0.85);
-  --surface-2: rgba(255,255,255,0.60);
-  --surface-border: rgba(255,255,255,0.35);
+  --surface-1: #ffffff;
+  --surface-2: #f5eeff;
+  --surface-border: rgba(155,89,182,0.18);
 
   /* Text */
-  --text-primary:   #2c1654;
-  --text-secondary: rgba(44,22,84,0.70);
+  --text-primary:   #1a0a35;
+  --text-secondary: #5a3d80;
   --text-on-dark:   #ffffff;
 
   /* Spacing scale */
@@ -36,9 +36,9 @@
   --radius-pill: 999px;
 
   /* Shadows */
-  --shadow-card: 0 4px 24px rgba(155,89,182,0.13);
-  --shadow-btn:  0 2px 12px rgba(155,89,182,0.22);
-  --shadow-deep: 0 8px 40px rgba(44,22,84,0.18);
+  --shadow-card: 0 4px 16px rgba(44,22,84,0.12), 0 1px 4px rgba(44,22,84,0.08);
+  --shadow-btn:  0 4px 14px rgba(155,89,182,0.35);
+  --shadow-deep: 0 8px 40px rgba(44,22,84,0.22);
 
   /* Nav */
   --nav-height-mobile: 64px;
@@ -47,21 +47,21 @@
 
 :root {
   --bg-cream: #fffaf7;
-  --bg-pink: #ffeef8;
-  --bg-blue: #eef6ff;
-  --surface: rgba(255, 255, 255, 0.8);
-  --surface-strong: rgba(255, 255, 255, 0.95);
-  --line: rgba(144, 118, 166, 0.16);
-  --text: #4c3d5f;
-  --muted: #7f7192;
-  --primary: #ff8fc6;
-  --primary-strong: #f46db1;
-  --secondary: #78a6ff;
-  --mint: #8bdcc3;
-  --gold: #ffcf74;
-  --violet: #a689ff;
-  --shadow: 0 24px 70px rgba(150, 121, 188, 0.14);
-  --shadow-soft: 0 14px 34px rgba(150, 121, 188, 0.12);
+  --bg-pink: #ffe0f5;
+  --bg-blue: #e0eeff;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --line: rgba(144, 118, 166, 0.25);
+  --text: #2c1654;
+  --muted: #5a3d80;
+  --primary: #f06ab0;
+  --primary-strong: #d94d98;
+  --secondary: #4a8fff;
+  --mint: #12b48a;
+  --gold: #f5b800;
+  --violet: #8b6aff;
+  --shadow: 0 8px 32px rgba(44, 22, 84, 0.14);
+  --shadow-soft: 0 4px 20px rgba(44, 22, 84, 0.11);
   --radius-xl: 30px;
   --radius-lg: 24px;
   --radius-md: 18px;
@@ -69,8 +69,8 @@
 }
 
 :root[data-theme='theme-ocean'] {
-  --surface: rgba(245, 255, 255, 0.82);
-  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface: rgba(245, 255, 255, 0.97);
+  --surface-strong: #ffffff;
   --line: rgba(83, 153, 176, 0.18);
   --text: #295062;
   --muted: #5d7f8e;
@@ -86,8 +86,8 @@
 }
 
 :root[data-theme='theme-sunset'] {
-  --surface: rgba(255, 250, 246, 0.84);
-  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface: rgba(255, 250, 246, 0.97);
+  --surface-strong: #ffffff;
   --line: rgba(186, 117, 109, 0.18);
   --text: #6a3f48;
   --muted: #976973;
@@ -103,8 +103,8 @@
 }
 
 :root[data-theme='theme-forest'] {
-  --surface: rgba(246, 255, 248, 0.86);
-  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface: rgba(246, 255, 248, 0.97);
+  --surface-strong: #ffffff;
   --line: rgba(109, 158, 125, 0.18);
   --text: #355646;
   --muted: #668474;
@@ -120,8 +120,8 @@
 }
 
 :root[data-theme='theme-galaxy'] {
-  --surface: rgba(246, 245, 255, 0.86);
-  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface: rgba(246, 245, 255, 0.97);
+  --surface-strong: #ffffff;
   --line: rgba(127, 126, 198, 0.2);
   --text: #403d74;
   --muted: #6f6ca3;
@@ -137,8 +137,8 @@
 }
 
 :root[data-theme='theme-castle'] {
-  --surface: rgba(255, 250, 255, 0.86);
-  --surface-strong: rgba(255, 255, 255, 0.97);
+  --surface: rgba(255, 250, 255, 0.97);
+  --surface-strong: #ffffff;
   --line: rgba(164, 145, 208, 0.18);
   --text: #5b4a73;
   --muted: #847199;
@@ -154,8 +154,8 @@
 }
 
 :root[data-theme='theme-garden'] {
-  --surface: rgba(251, 255, 250, 0.86);
-  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface: rgba(251, 255, 250, 0.97);
+  --surface-strong: #ffffff;
   --line: rgba(121, 183, 158, 0.18);
   --text: #3f5c55;
   --muted: #6f8c84;
@@ -171,8 +171,8 @@
 }
 
 :root[data-theme='theme-comet'] {
-  --surface: rgba(246, 251, 255, 0.86);
-  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface: rgba(246, 251, 255, 0.97);
+  --surface-strong: #ffffff;
   --line: rgba(130, 167, 214, 0.18);
   --text: #38516c;
   --muted: #67809a;
@@ -640,7 +640,7 @@ button {
   background:
     radial-gradient(circle at top right, rgba(255, 231, 145, 0.45), transparent 24%),
     radial-gradient(circle at left bottom, rgba(138, 206, 255, 0.2), transparent 28%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 244, 252, 0.95));
+    linear-gradient(145deg, #ffffff, #fff4fc);
   overflow: hidden;
 }
 
@@ -713,7 +713,7 @@ button {
 }
 
 .secondary-action {
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
   color: var(--text);
   border: 1px solid var(--line);
 }
@@ -1277,9 +1277,9 @@ button {
   gap: 10px;
   padding: 0 0 16px;
   border-radius: 22px;
-  background: rgba(255,255,255,0.95);
-  border: 1px solid rgba(255,255,255,0.55);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.40), 0 0 0 1px rgba(255,255,255,0.12);
+  background: #ffffff;
+  border: 1px solid rgba(155,89,182,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.40), 0 0 0 1px rgba(155,89,182,0.08);
   backdrop-filter: blur(24px);
   overflow: hidden;
 }
@@ -1868,7 +1868,7 @@ button {
   text-align: center;
   padding: 8px 16px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.85);
+  background: #ffffff;
   border: 1px solid rgba(99,102,241,0.15);
   font-size: 0.82rem;
   font-weight: 700;
@@ -2322,7 +2322,7 @@ button {
 .progress-badge {
   padding: 8px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
   font-size: 0.82rem;
   font-weight: 900;
 }
@@ -2370,7 +2370,7 @@ button {
   min-height: 34px;
   padding: 0 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
   border: 1px solid var(--line);
   font-weight: 800;
 }
@@ -4446,7 +4446,7 @@ button {
 .home-hero__progress-bar {
   height: 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
 
@@ -4479,18 +4479,17 @@ button {
   font-size: 0.78rem;
   font-weight: 800;
   color: var(--text);
-  opacity: 0.85;
 }
 
 .home-hero__level-hint {
   font-weight: 400;
-  opacity: 0.7;
+  color: var(--muted);
 }
 
 .home-hero__level-bar {
   height: 7px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.10);
   overflow: hidden;
 }
 
