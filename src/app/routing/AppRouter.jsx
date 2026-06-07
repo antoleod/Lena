@@ -60,6 +60,22 @@ import DetectiveHistoiresPage from '../../features/jeux/DetectiveHistoiresPage.j
 import BullesCalculPage from '../../features/jeux/BullesCalculPage.jsx';
 import ChasseLettrePage from '../../features/jeux/ChasseLettrePage.jsx';
 import SuiteLogiquePage from '../../features/jeux/SuiteLogiquePage.jsx';
+import QuizCulturePage from '../../features/jeux/QuizCulturePage.jsx';
+import MotsCroisesPage from '../../features/jeux/MotsCroisesPage.jsx';
+import SauteMoutonPage from '../../features/jeux/SauteMoutonPage.jsx';
+import TetrisPage from '../../features/jeux/TetrisPage.jsx';
+import TaupesMathsPage from '../../features/jeux/TaupesMathsPage.jsx';
+import ConjugueVitePage from '../../features/jeux/ConjugueVitePage.jsx';
+import HorlogePage from '../../features/jeux/HorlogePage.jsx';
+import AntonymesPage from '../../features/jeux/AntonymesPage.jsx';
+import TrieExpressPage from '../../features/jeux/TrieExpressPage.jsx';
+import BombesMathsPage from '../../features/jeux/BombesMathsPage.jsx';
+import OrdreAlphaPage from '../../features/jeux/OrdreAlphaPage.jsx';
+import PhraseMysteryPage from '../../features/jeux/PhraseMysteryPage.jsx';
+import SequenceImagePage from '../../features/jeux/SequenceImagePage.jsx';
+import NombreSecretPage from '../../features/jeux/NombreSecretPage.jsx';
+import PlusPetitPlusGrandPage from '../../features/jeux/PlusPetitPlusGrandPage.jsx';
+import CodeurMathsPage from '../../features/jeux/CodeurMathsPage.jsx';
 import GrammiPage from '../../features/grammi/GrammiPage.jsx';
 import MetriPage from '../../features/metri/MetriPage.jsx';
 import LexiPage from '../../features/lexi/LexiPage.jsx';
@@ -192,6 +208,22 @@ export default function AppRouter() {
         <Route path="/jeux/bulles-calcul" element={<BullesCalculPage />} />
         <Route path="/jeux/chasse-lettres" element={<ChasseLettrePage />} />
         <Route path="/jeux/suite-logique" element={<SuiteLogiquePage />} />
+        <Route path="/jeux/quiz-culture" element={<QuizCulturePage />} />
+        <Route path="/jeux/mots-croises" element={<MotsCroisesPage />} />
+        <Route path="/jeux/saute-mouton" element={<SauteMoutonPage />} />
+        <Route path="/jeux/tetris" element={<TetrisPage />} />
+        <Route path="/jeux/taupes" element={<TaupesMathsPage />} />
+        <Route path="/jeux/conjugue" element={<ConjugueVitePage />} />
+        <Route path="/jeux/horloge" element={<HorlogePage />} />
+        <Route path="/jeux/antonymes" element={<AntonymesPage />} />
+        <Route path="/jeux/trie-express" element={<TrieExpressPage />} />
+        <Route path="/jeux/bombes-maths" element={<BombesMathsPage />} />
+        <Route path="/jeux/ordre-alpha" element={<OrdreAlphaPage />} />
+        <Route path="/jeux/phrase-mystere" element={<PhraseMysteryPage />} />
+        <Route path="/jeux/histoire-ordre" element={<SequenceImagePage />} />
+        <Route path="/jeux/nombre-secret" element={<NombreSecretPage />} />
+        <Route path="/jeux/comparaison" element={<PlusPetitPlusGrandPage />} />
+        <Route path="/jeux/codeur-maths" element={<CodeurMathsPage />} />
         <Route path="/grammi" element={<GrammiPage />} />
         <Route path="/metri" element={<MetriPage />} />
         <Route path="/lexi" element={<LexiPage />} />

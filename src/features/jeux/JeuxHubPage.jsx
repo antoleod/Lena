@@ -26,14 +26,29 @@ const GAME_ICON_MAP = {
 
 const CATEGORIES = [
   {
+    id: 'arcade',
+    label: '🕹️ Arcade',
+    color: '#a855f7',
+    games: [
+      { to: '/jeux/tetris',       emoji: '🟦', name: 'Tetris',          desc: 'Le classique ! Empile les pieces.', badge: 'Moyen' },
+      { to: '/jeux/taupes',       emoji: '🦔', name: 'Taupes Maths',    desc: 'Frappe la taupe avec la bonne reponse !', badge: 'Facile' },
+      { to: '/jeux/bombes-maths', emoji: '💣', name: 'Bombes Maths',    desc: 'Desamorce la bombe en calculant vite !', badge: 'Moyen' },
+    ],
+  },
+  {
     id: 'langage',
     label: '📚 Langage',
     color: '#6366f1',
     games: [
-      { to: '/jeux/mots-melanges', emoji: '🔤', name: 'Mots Melanges', desc: 'Remets les lettres dans le bon ordre.', badge: 'Facile' },
-      { to: '/jeux/mots-caches',   emoji: '🔍', name: 'Mots Caches',   desc: 'Trouve les mots caches dans la grille.', badge: 'Moyen' },
-      { to: '/jeux/devinettes',    emoji: '🤔', name: 'Devinettes',    desc: 'Reponds aux devinettes amusantes !', badge: 'Facile' },
+      { to: '/jeux/mots-melanges',   emoji: '🔤', name: 'Mots Melanges',     desc: 'Remets les lettres dans le bon ordre.', badge: 'Facile' },
+      { to: '/jeux/mots-caches',     emoji: '🔍', name: 'Mots Caches',       desc: 'Trouve les mots caches dans la grille.', badge: 'Moyen' },
+      { to: '/jeux/devinettes',      emoji: '🤔', name: 'Devinettes',        desc: 'Reponds aux devinettes amusantes !', badge: 'Facile' },
       { to: '/jeux/complete-phrase', emoji: '✍️', name: 'Complete la Phrase', desc: 'Choisis le bon mot pour completer.', badge: 'Facile' },
+      { to: '/jeux/chasse-lettres',  emoji: '🔤', name: 'Chasse Lettres',    desc: 'Epelle le mot lettre par lettre !', badge: 'Facile' },
+      { to: '/jeux/antonymes',       emoji: '↔️', name: 'Antonymes',         desc: 'Trouve le contraire de chaque mot !', badge: 'Facile' },
+      { to: '/jeux/ordre-alpha',     emoji: '🔡', name: 'Ordre Alphabetique', desc: 'Range les mots dans l\'ordre A→Z !', badge: 'Facile' },
+      { to: '/jeux/conjugue',        emoji: '📝', name: 'Conjugue Vite',     desc: 'Conjugue les verbes en un clin d\'oeil !', badge: 'Moyen' },
+      { to: '/jeux/mots-croises',    emoji: '📐', name: 'Mots Croises',      desc: 'Remplis la grille avec les bons mots.', badge: 'Moyen' },
     ],
   },
   {
@@ -41,9 +56,32 @@ const CATEGORIES = [
     label: '🔢 Mathematiques',
     color: '#f59e0b',
     games: [
-      { to: '/jeux/calcul-rapide',   emoji: '⚡', name: 'Calcul Rapide',    desc: 'Resous le plus de calculs en 60 s !', badge: 'Moyen' },
-      { to: '/jeux/course-maths',    emoji: '🏁', name: 'Course Maths',     desc: 'Course contre la montre en maths.', badge: 'Moyen' },
-      { to: '/jeux/bulles-calcul',   emoji: '🫧', name: 'Bulles de Calcul', desc: 'Creve la bulle avec la bonne reponse !', badge: 'Facile' },
+      { to: '/jeux/calcul-rapide',  emoji: '⚡', name: 'Calcul Rapide',    desc: 'Resous le plus de calculs en 60 s !', badge: 'Moyen' },
+      { to: '/jeux/course-maths',   emoji: '🏁', name: 'Course Maths',     desc: 'Course contre la montre en maths.', badge: 'Moyen' },
+      { to: '/jeux/bulles-calcul',  emoji: '🫧', name: 'Bulles de Calcul', desc: 'Creve la bulle avec la bonne reponse !', badge: 'Facile' },
+      { to: '/jeux/saute-mouton',   emoji: '🐑', name: 'Saute Mouton',     desc: 'Compte par 2, 5 et 10 avec le mouton !', badge: 'Facile' },
+      { to: '/jeux/horloge',        emoji: '🕐', name: 'Lis l\'Heure',     desc: 'Quelle heure est-il ? Trouve la bonne !', badge: 'Facile' },
+    ],
+  },
+  {
+    id: 'logique-lecture',
+    label: '📖 Logique Lecture',
+    color: '#10b981',
+    games: [
+      { to: '/jeux/phrase-mystere',  emoji: '🔍', name: 'Phrase Mystere',    desc: 'Quel mot complete cette phrase ?', badge: 'Facile' },
+      { to: '/jeux/histoire-ordre',  emoji: '📚', name: 'Histoire en Ordre', desc: 'Remets les images de l\'histoire en ordre !', badge: 'Facile' },
+      { to: '/jeux/detective-histoires', emoji: '📖', name: 'Detective d\'Histoires', desc: 'Lis une histoire et reponds aux questions.', badge: 'Moyen' },
+    ],
+  },
+  {
+    id: 'logique-nombre',
+    label: '🔢 Logique Nombres',
+    color: '#f43f5e',
+    games: [
+      { to: '/jeux/nombre-secret', emoji: '🔐', name: 'Nombre Secret',       desc: 'Devine le nombre en 6 essais !', badge: 'Moyen' },
+      { to: '/jeux/comparaison',   emoji: '📊', name: 'Plus Petit Plus Grand', desc: 'Range les nombres du plus petit au plus grand !', badge: 'Facile' },
+      { to: '/jeux/codeur-maths',  emoji: '🔣', name: 'Codeur de Maths',     desc: 'Decouvre la valeur de chaque symbole !', badge: 'Moyen' },
+      { to: '/jeux/suite-logique', emoji: '🔢', name: 'Suite Logique',       desc: 'Trouve le prochain nombre ou emoji !', badge: 'Facile' },
     ],
   },
   {
@@ -51,16 +89,8 @@ const CATEGORIES = [
     label: '🧩 Logique',
     color: '#ec4899',
     games: [
-      { to: '/jeux/intrus',        emoji: '🕵️', name: 'Trouve l\'Intrus',  desc: 'Quel mot ne va pas avec les autres ?', badge: 'Facile' },
-      { to: '/jeux/suite-logique', emoji: '🔢',  name: 'Suite Logique',    desc: 'Trouve le prochain nombre ou emoji !', badge: 'Facile' },
-    ],
-  },
-  {
-    id: 'langage2',
-    label: '🔤 Orthographe',
-    color: '#06b6d4',
-    games: [
-      { to: '/jeux/chasse-lettres', emoji: '🔤', name: 'Chasse Lettres', desc: 'Epelle le mot lettre par lettre !', badge: 'Facile' },
+      { to: '/jeux/intrus',       emoji: '🕵️', name: 'Trouve l\'Intrus', desc: 'Quel mot ne va pas avec les autres ?', badge: 'Facile' },
+      { to: '/jeux/trie-express', emoji: '🗂️', name: 'Trie Express',     desc: 'Trie les mots dans les bonnes categories !', badge: 'Facile' },
     ],
   },
   {
@@ -69,7 +99,14 @@ const CATEGORIES = [
     color: '#22c55e',
     games: [
       { to: '/jeux/memory', emoji: '🃏', name: 'Memory', desc: 'Retrouve les paires de cartes cachees.', badge: 'Facile' },
-      { to: '/jeux/detective-histoires', emoji: '📖', name: 'Detective d\'Histoires', desc: 'Lis une histoire et reponds aux questions.', badge: 'Moyen' },
+    ],
+  },
+  {
+    id: 'culture',
+    label: '🌍 Culture Generale',
+    color: '#f97316',
+    games: [
+      { to: '/jeux/quiz-culture', emoji: '🌍', name: 'Quiz Culture', desc: 'Belgique, France, monde — 10 questions !', badge: 'Facile' },
     ],
   },
 ];
