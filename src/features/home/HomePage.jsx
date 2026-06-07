@@ -260,6 +260,16 @@ export default function HomePage() {
               className="home-cta__arrow"
             />
           </Link>
+
+          {/* Secondary CTA — Jouer maintenant */}
+          <Link
+            className="home-cta home-cta--secondary"
+            to="/jeux"
+            data-testid="home-jeux-cta"
+          >
+            <span className="home-cta__icon" role="img" aria-hidden="true">🎮</span>
+            <span className="home-cta__label">Jouer maintenant</span>
+          </Link>
         </div>
 
         {/* Stats row */}

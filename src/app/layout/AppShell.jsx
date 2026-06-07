@@ -281,7 +281,7 @@ export default function AppShell() {
         </button>
 
         <nav className="sidebar-nav" aria-label="Primary">
-          {navItems.map((item) => (
+          {navItems.filter(item => !item.isHome).map((item) => (
             <NavLink
               key={item.to}
               className={() => `sidebar-link${item.isActive(location.pathname) ? ' is-active' : ''}`}
@@ -289,7 +289,7 @@ export default function AppShell() {
               onClick={playTapSound}
               data-testid={`nav-sidebar-${item.to.replace('/', '') || 'home'}`}
             >
-              <item.Icon size={22} className="sidebar-link__icon" />
+              {item.Icon && <item.Icon size={22} className="sidebar-link__icon" />}
               <span>{item.label}</span>
             </NavLink>
           ))}
@@ -340,7 +340,7 @@ export default function AppShell() {
         </button>
 
         <nav className="topbar-nav" aria-label="Primary">
-          {navItems.map((item) => (
+          {navItems.filter(item => !item.isHome).map((item) => (
             <NavLink
               key={item.to}
               className={() => `topbar-link${item.isActive(location.pathname) ? ' is-active' : ''}`}
@@ -348,7 +348,7 @@ export default function AppShell() {
               onClick={playTapSound}
               data-testid={`nav-${item.to.replace('/', '') || 'home'}`}
             >
-              <item.Icon size={22} className="topbar-link__icon" />
+              {item.Icon && <item.Icon size={22} className="topbar-link__icon" />}
               <span>{item.label}</span>
             </NavLink>
           ))}

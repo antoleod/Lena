@@ -385,6 +385,7 @@ export default function JeuxHubPage() {
                     <div className="jh-card__top">
                       <span className="jh-card__name">{g.name}</span>
                     </div>
+                    <span className="jh-card__desc">{g.desc}</span>
                     {gp?.bestScore > 0 && (
                       <div className="jh-card__prog">
                         ⭐ {gp.bestScore} pts · Niv.{gp.bestLevel}

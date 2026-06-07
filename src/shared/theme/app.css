@@ -13800,6 +13800,22 @@ body {
   transform: translateY(-3px);
 }
 
+/* ── Secondary CTA (Jouer maintenant) ─────────────────────────────────────── */
+.home-cta--secondary {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+  min-height: 52px;
+  margin-top: -8px;
+  backdrop-filter: blur(4px);
+  font-size: 1rem;
+}
+.home-cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 /* ── Quick-access tile grid ───────────────────────────────────────────────── */
 .home-quick-section {
   display: grid;
@@ -13890,7 +13906,7 @@ body {
 }
 
 .home-tile__desc {
-  display: none;
+  display: block;
   font-size: 0.82rem;
   color: rgba(255,255,255,0.85);
   line-height: 1.3;

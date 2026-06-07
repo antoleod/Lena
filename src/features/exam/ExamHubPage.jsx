@@ -68,9 +68,9 @@ export default function ExamHubPage() {
       <div className="exam-hub-header">
         <Link className="exam-back-btn" to="/">←</Link>
         <div>
-          <span className="eyebrow">Examens & Défis</span>
-          <h1>Arène des examens</h1>
-          <p className="exam-hub-sub">Choisis une matière et un mode de jeu.</p>
+          <span className="eyebrow">🏆 Quiz & Défis</span>
+          <h1>À toi de jouer !</h1>
+          <p className="exam-hub-sub">Choisis un sujet et un mode.</p>
         </div>
       </div>
 
@@ -79,21 +79,21 @@ export default function ExamHubPage() {
           📚 Lecture &amp; Examens
         </Link>
         <Link to="/exam/library" className="errors-cta" style={{ background: 'rgba(46,204,113,.18)', borderColor: 'rgba(46,204,113,.4)' }}>
-          🗂️ Bibliothèque d'examens
+          🗂️ Mes exercices
         </Link>
         <Link to="/exam/grade" className="errors-cta" style={{ background: 'rgba(236,72,153,.18)', borderColor: 'rgba(236,72,153,.4)' }}>
-          🎓 Prépare ton année
+          🎓 Quiz du jour
         </Link>
         {errorCount > 0 && (
           <Link to="/exam/errors" className="errors-cta">
-            ⚠️ Erreurs à réviser
+            ⚠️ À retravailler
             <span className="errors-cta__badge">{errorCount}</span>
           </Link>
         )}
       </div>
 
       <div className="exam-mode-legend">
-        <span className="exam-mode-legend__item exam-mode-legend__item--relax">😌 Relax — sans minuterie, explication après chaque réponse</span>
+        <span className="exam-mode-legend__item exam-mode-legend__item--relax">😌 Relax — pas de chrono, explication après chaque réponse</span>
         <span className="exam-mode-legend__item exam-mode-legend__item--chrono">⏱️ Chrono — 20 s par question</span>
         <span className="exam-mode-legend__item exam-mode-legend__item--defi">🏆 Défi — 3 vies, 3 minutes globales</span>
       </div>

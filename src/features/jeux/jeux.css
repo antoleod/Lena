@@ -402,7 +402,7 @@
   margin-bottom: 3px;
 }
 .jh-card__name {
-  font-size: .82rem;
+  font-size: .9rem;
   font-weight: 800;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -424,6 +424,17 @@
 .jh-card__info:hover {
   opacity: 1;
   transform: scale(1.1);
+}
+.jh-card__desc {
+  display: block;
+  font-size: .82rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.35;
+  margin-top: 3px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .jh-card__prog {
   margin-top: 5px;
