@@ -1,0 +1,347 @@
+{
+  "id": "mesures-21",
+  "category": "mesures",
+  "categoryLabel": "Mesures",
+  "categoryEmoji": "📏",
+  "categoryOrder": 12,
+  "title": "CE1 — Longueurs, Masses, Capacites",
+  "emoji": "📏",
+  "order": 21,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle unite utilise-t-on pour mesurer une distance courte ?",
+          "options": ["centimetres", "kilogrammes", "litres", "kilometres"],
+          "answer": "centimetres",
+          "correction": "On mesure les petites distances en centimetres (cm).",
+          "prompt_nl": "Welke eenheid gebruik je voor een korte afstand?",
+          "prompt_en": "Which unit do you use for a short distance?",
+          "prompt_es": "Que unidad se usa para medir una distancia corta?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quelle unite utilise-t-on pour peser de la farine ?",
+          "options": ["grammes", "metres", "litres", "secondes"],
+          "answer": "grammes",
+          "correction": "On pese la farine en grammes (g) ou kilogrammes (kg).",
+          "prompt_nl": "Welke eenheid gebruik je om meel te wegen?",
+          "prompt_en": "Which unit do you use to weigh flour?",
+          "prompt_es": "Que unidad se usa para pesar harina?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle unite utilise-t-on pour mesurer un liquide ?",
+          "options": ["litres", "metres", "kilogrammes", "kilometres"],
+          "answer": "litres",
+          "correction": "On mesure les liquides en litres (L) ou centilitres (cL).",
+          "prompt_nl": "Welke eenheid gebruik je om een vloeistof te meten?",
+          "prompt_en": "Which unit do you use to measure a liquid?",
+          "prompt_es": "Que unidad se usa para medir un liquido?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "1 metre = ___ centimetres",
+          "options": ["100", "10", "1000", "1"],
+          "answer": "100",
+          "correction": "1 metre = 100 centimetres.",
+          "prompt_nl": "1 meter = ___ centimeter",
+          "prompt_en": "1 metre = ___ centimetres",
+          "prompt_es": "1 metro = ___ centimetros"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "1 kilogramme = ___ grammes",
+          "options": ["1000", "100", "10", "500"],
+          "answer": "1000",
+          "correction": "1 kilogramme = 1000 grammes.",
+          "prompt_nl": "1 kilogram = ___ gram",
+          "prompt_en": "1 kilogram = ___ grams",
+          "prompt_es": "1 kilogramo = ___ gramos"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "1 litre = ___ centilitres",
+          "answer": 100,
+          "correction": "1 litre = 100 centilitres.",
+          "prompt_nl": "1 liter = ___ centiliter",
+          "prompt_en": "1 litre = ___ centilitres",
+          "prompt_es": "1 litro = ___ centilitros"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quel objet mesure environ 1 cm de long ?",
+          "options": ["un ongle", "une salle de classe", "un terrain de foot", "une rue"],
+          "answer": "un ongle",
+          "correction": "Un ongle mesure environ 1 cm.",
+          "prompt_nl": "Welk object is ongeveer 1 cm lang?",
+          "prompt_en": "Which object is about 1 cm long?",
+          "prompt_es": "Que objeto mide aproximadamente 1 cm de largo?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quelle est l'unite de mesure du temps ?",
+          "options": ["secondes", "grammes", "litres", "metres"],
+          "answer": "secondes",
+          "correction": "Le temps se mesure en secondes, minutes, heures.",
+          "prompt_nl": "Wat is de maateenheid voor tijd?",
+          "prompt_en": "What is the unit of measurement for time?",
+          "prompt_es": "Cual es la unidad de medida del tiempo?"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "1 heure = ___ minutes",
+          "answer": 60,
+          "correction": "1 heure = 60 minutes.",
+          "prompt_nl": "1 uur = ___ minuten",
+          "prompt_en": "1 hour = ___ minutes",
+          "prompt_es": "1 hora = ___ minutos"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Pour mesurer la longueur d'une salle de classe, quelle unite utilise-t-on ?",
+          "options": ["metres", "centimetres", "kilometres", "millimetres"],
+          "answer": "metres",
+          "correction": "On mesure une salle en metres.",
+          "prompt_nl": "Welke eenheid gebruik je voor de lengte van een klaslokaal?",
+          "prompt_en": "Which unit do you use to measure the length of a classroom?",
+          "prompt_es": "Que unidad se usa para medir la longitud de un aula?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "50 cm = ___ m",
+          "options": ["0,5", "5", "0,05", "50"],
+          "answer": "0,5",
+          "correction": "50 cm = 50 / 100 m = 0,5 m.",
+          "prompt_nl": "50 cm = ___ m",
+          "prompt_en": "50 cm = ___ m",
+          "prompt_es": "50 cm = ___ m"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "2,5 kg = ___ g",
+          "options": ["2500", "250", "25", "2050"],
+          "answer": "2500",
+          "correction": "2,5 kg = 2,5 x 1000 = 2500 g.",
+          "prompt_nl": "2,5 kg = ___ g",
+          "prompt_en": "2.5 kg = ___ g",
+          "prompt_es": "2,5 kg = ___ g"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "3 L = ___ cL",
+          "answer": 300,
+          "correction": "3 L = 3 x 100 = 300 cL.",
+          "prompt_nl": "3 L = ___ cL",
+          "prompt_en": "3 L = ___ cL",
+          "prompt_es": "3 L = ___ cL"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "200 cm = ___ m",
+          "options": ["2", "20", "0,2", "200"],
+          "answer": "2",
+          "correction": "200 cm = 200 / 100 m = 2 m.",
+          "prompt_nl": "200 cm = ___ m",
+          "prompt_en": "200 cm = ___ m",
+          "prompt_es": "200 cm = ___ m"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "4500 g = ___ kg",
+          "answer": 4.5,
+          "correction": "4500 g = 4500 / 1000 = 4,5 kg.",
+          "prompt_nl": "4500 g = ___ kg",
+          "prompt_en": "4500 g = ___ kg",
+          "prompt_es": "4500 g = ___ kg"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "1,5 L = ___ mL",
+          "options": ["1500", "150", "15", "1050"],
+          "answer": "1500",
+          "correction": "1,5 L = 1,5 x 1000 = 1500 mL.",
+          "prompt_nl": "1,5 L = ___ mL",
+          "prompt_en": "1.5 L = ___ mL",
+          "prompt_es": "1,5 L = ___ mL"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "90 minutes = ___ heure(s) ___ minutes. Ecrire en heures decimales: ___ h",
+          "answer": 1.5,
+          "correction": "90 minutes = 1 heure 30 minutes = 1,5 heure.",
+          "prompt_nl": "90 minuten = ___ uur",
+          "prompt_en": "90 minutes = ___ hour(s)",
+          "prompt_es": "90 minutos = ___ hora(s)"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un sac de riz pese 2 kg 500 g. Combien pese-t-il en grammes ?",
+          "options": ["2500 g", "250 g", "25000 g", "2050 g"],
+          "answer": "2500 g",
+          "correction": "2 kg 500 g = 2000 + 500 = 2500 g.",
+          "prompt_nl": "Een zak rijst weegt 2 kg 500 g. Hoeveel weegt hij in grammen?",
+          "prompt_en": "A bag of rice weighs 2 kg 500 g. How much does it weigh in grams?",
+          "prompt_es": "Una bolsa de arroz pesa 2 kg 500 g. Cuanto pesa en gramos?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Un ruban mesure 1 m 20 cm. Combien mesure-t-il en centimetres ?",
+          "options": ["120 cm", "12 cm", "1020 cm", "20 cm"],
+          "answer": "120 cm",
+          "correction": "1 m 20 cm = 100 + 20 = 120 cm.",
+          "prompt_nl": "Een lint is 1 m 20 cm lang. Hoeveel centimeter is dat?",
+          "prompt_en": "A ribbon is 1 m 20 cm long. How many centimetres is that?",
+          "prompt_es": "Una cinta mide 1 m 20 cm. Cuantos centimetros son?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "3 km = ___ m",
+          "answer": 3000,
+          "correction": "3 km = 3 x 1000 = 3000 m.",
+          "prompt_nl": "3 km = ___ m",
+          "prompt_en": "3 km = ___ m",
+          "prompt_es": "3 km = ___ m"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Marie a une bouteille de 75 cL. Paul a une bouteille de 1,5 L. Qui a le plus de liquide ?",
+          "options": ["Paul", "Marie", "Les deux pareil", "On ne peut pas savoir"],
+          "answer": "Paul",
+          "correction": "75 cL = 0,75 L. Paul a 1,5 L > 0,75 L.",
+          "prompt_nl": "Marie heeft een fles van 75 cL. Paul heeft een fles van 1,5 L. Wie heeft meer vloeistof?",
+          "prompt_en": "Marie has a bottle of 75 cL. Paul has a bottle of 1.5 L. Who has more liquid?",
+          "prompt_es": "Marie tiene una botella de 75 cL. Paul tiene una botella de 1,5 L. Quien tiene mas liquido?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un enfant mesure 1 m 28 cm. Son frere est plus grand de 15 cm. Combien mesure son frere ?",
+          "options": ["1 m 43 cm", "1 m 13 cm", "1 m 28 cm", "1 m 40 cm"],
+          "answer": "1 m 43 cm",
+          "correction": "128 cm + 15 cm = 143 cm = 1 m 43 cm.",
+          "prompt_nl": "Een kind is 1 m 28 cm groot. Zijn broer is 15 cm groter. Hoe groot is zijn broer?",
+          "prompt_en": "A child is 1 m 28 cm tall. His brother is 15 cm taller. How tall is his brother?",
+          "prompt_es": "Un nino mide 1 m 28 cm. Su hermano es 15 cm mas alto. Cuanto mide su hermano?"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Une recette necessite 250 g de beurre. On veut en faire 3 fois la quantite. Combien de grammes de beurre faut-il ?",
+          "answer": 750,
+          "correction": "3 x 250 = 750 g.",
+          "prompt_nl": "Een recept heeft 250 g boter nodig. Men wil de hoeveelheid 3 keer maken. Hoeveel gram boter heeft men nodig?",
+          "prompt_en": "A recipe needs 250 g of butter. You want to make 3 times the quantity. How many grams of butter are needed?",
+          "prompt_es": "Una receta necesita 250 g de mantequilla. Se quiere hacer 3 veces la cantidad. Cuantos gramos de mantequilla hacen falta?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un train parcourt 240 km en 2 heures. Quelle distance parcourt-il en 30 minutes ?",
+          "options": ["60 km", "120 km", "30 km", "80 km"],
+          "answer": "60 km",
+          "correction": "En 2h il fait 240 km, donc en 1h 120 km, en 30 min 60 km.",
+          "prompt_nl": "Een trein legt 240 km af in 2 uur. Welke afstand legt hij af in 30 minuten?",
+          "prompt_en": "A train covers 240 km in 2 hours. What distance does it cover in 30 minutes?",
+          "prompt_es": "Un tren recorre 240 km en 2 horas. Que distancia recorre en 30 minutos?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Une piscine contient 50 000 L d'eau. En combien de litres s'ecrit 50 000 L en kilolitres ?",
+          "answer": 50,
+          "correction": "50 000 L = 50 kL (1 kilolitre = 1000 litres).",
+          "prompt_nl": "Een zwembad bevat 50 000 L water. Hoeveel kiloliter is dat?",
+          "prompt_en": "A pool contains 50 000 L of water. How many kilolitres is that?",
+          "prompt_es": "Una piscina contiene 50 000 L de agua. Cuantos kilolitros son?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Classe du plus petit au plus grand: 5 cm, 1 m, 50 mm, 3 dm",
+          "options": ["50 mm, 5 cm, 3 dm, 1 m", "5 cm, 50 mm, 3 dm, 1 m", "50 mm, 3 dm, 5 cm, 1 m", "5 cm, 3 dm, 50 mm, 1 m"],
+          "answer": "50 mm, 5 cm, 3 dm, 1 m",
+          "correction": "50 mm = 5 cm = 5 cm. 3 dm = 30 cm. 1 m = 100 cm. Ordre: 50mm = 5cm < 3dm = 30cm < 1m = 100cm.",
+          "prompt_nl": "Orden van klein naar groot: 5 cm, 1 m, 50 mm, 3 dm",
+          "prompt_en": "Order from smallest to largest: 5 cm, 1 m, 50 mm, 3 dm",
+          "prompt_es": "Ordena de menor a mayor: 5 cm, 1 m, 50 mm, 3 dm"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Un ruban de 3 m est coupe en morceaux de 25 cm. Combien de morceaux obtient-on ?",
+          "answer": 12,
+          "correction": "3 m = 300 cm. 300 / 25 = 12 morceaux.",
+          "prompt_nl": "Een lint van 3 m wordt gesneden in stukken van 25 cm. Hoeveel stukken zijn er?",
+          "prompt_en": "A ribbon 3 m long is cut into pieces of 25 cm. How many pieces are obtained?",
+          "prompt_es": "Una cinta de 3 m se corta en trozos de 25 cm. Cuantos trozos se obtienen?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un seau contient 8 L. On remplit une baignoire avec 12 seaux. Combien de litres contient la baignoire ?",
+          "options": ["96 L", "20 L", "84 L", "48 L"],
+          "answer": "96 L",
+          "correction": "12 x 8 = 96 L.",
+          "prompt_nl": "Een emmer bevat 8 L. Men vult een bad met 12 emmers. Hoeveel liter bevat het bad?",
+          "prompt_en": "A bucket holds 8 L. A bath is filled with 12 buckets. How many litres does the bath contain?",
+          "prompt_es": "Un cubo contiene 8 L. Se llena una banera con 12 cubos. Cuantos litros contiene la banera?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Un enfant pese 32 kg 400 g. Son sac pese 5 kg 600 g. Quel est le poids total ?",
+          "options": ["38 kg", "27 kg", "37 kg 400 g", "38 kg 600 g"],
+          "answer": "38 kg",
+          "correction": "32 kg 400 g + 5 kg 600 g = 37 kg 1000 g = 38 kg.",
+          "prompt_nl": "Een kind weegt 32 kg 400 g. Zijn tas weegt 5 kg 600 g. Wat is het totale gewicht?",
+          "prompt_en": "A child weighs 32 kg 400 g. His bag weighs 5 kg 600 g. What is the total weight?",
+          "prompt_es": "Un nino pesa 32 kg 400 g. Su mochila pesa 5 kg 600 g. Cual es el peso total?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Un robinet goutte 2 mL par seconde. Combien de litres perd-on en 10 minutes ?",
+          "answer": 1.2,
+          "correction": "10 minutes = 600 secondes. 600 x 2 = 1200 mL = 1,2 L.",
+          "prompt_nl": "Een kraan druppelt 2 mL per seconde. Hoeveel liter verlies je in 10 minuten?",
+          "prompt_en": "A tap drips 2 mL per second. How many litres are lost in 10 minutes?",
+          "prompt_es": "Un grifo gotea 2 mL por segundo. Cuantos litros se pierden en 10 minutos?"
+        }
+      ]
+    }
+  }
+}

@@ -2,37 +2,43 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getErrorCount } from '../../services/storage/errorHistoryStore.js';
+import {
+  IconExamAddition, IconExamSoustraction, IconExamMultiplication,
+  IconExamDivision, IconExamCalculMental, IconExamFractions,
+  IconExamLogique, IconExamProblemes, IconExamCultureGenerale,
+  IconExamDecimaux, IconExamGeometrie, IconExamMesures,
+} from '../../assets/icons/ExamIcons.jsx';
 
 const SUBJECT_GROUPS = [
   {
     groupLabel: '➕ Calcul',
     subjects: [
-      { topic: 'addition',        label: 'Addition',         emoji: '➕', badge: 'P2–P3' },
-      { topic: 'subtraction',     label: 'Soustraction',     emoji: '➖', badge: 'P2–P3' },
-      { topic: 'multiplication',  label: 'Multiplication',   emoji: '✖️', badge: 'P3–P4' },
-      { topic: 'division',        label: 'Division',         emoji: '➗', badge: 'P4' },
-      { topic: 'mixed-operations',label: 'Calcul mental',    emoji: '🔢', badge: 'P4–P5' },
-      { topic: 'fractions',       label: 'Fractions',        emoji: '½',  badge: 'P4' },
+      { topic: 'addition',         label: 'Addition',            Icon: IconExamAddition,       badge: 'P2–P3' },
+      { topic: 'subtraction',      label: 'Soustraction',        Icon: IconExamSoustraction,   badge: 'P2–P3' },
+      { topic: 'multiplication',   label: 'Multiplication',      Icon: IconExamMultiplication, badge: 'P3–P4' },
+      { topic: 'division',         label: 'Division',            Icon: IconExamDivision,       badge: 'P4' },
+      { topic: 'mixed-operations', label: 'Calcul mental',       Icon: IconExamCalculMental,   badge: 'P4–P5' },
+      { topic: 'fractions',        label: 'Fractions',           Icon: IconExamFractions,      badge: 'P4' },
     ]
   },
   {
     groupLabel: '🧠 Raisonnement',
     subjects: [
-      { topic: 'logic',           label: 'Logique',          emoji: '🧠', badge: 'P3' },
-      { topic: 'word-problems',   label: 'Problèmes',        emoji: '📖', badge: 'P3–P4' },
-      { topic: 'general-knowledge',label:'Culture générale', emoji: '🌍', badge: 'P3' },
+      { topic: 'logic',            label: 'Logique',             Icon: IconExamLogique,        badge: 'P3' },
+      { topic: 'word-problems',    label: 'Problèmes',           Icon: IconExamProblemes,      badge: 'P3–P4' },
+      { topic: 'general-knowledge',label: 'Culture générale',    Icon: IconExamCultureGenerale,badge: 'P3' },
     ]
   },
   {
     groupLabel: '🔥 Niveau Expert',
     hard: true,
     subjects: [
-      { topic: 'decimals',        label: 'Décimaux',         emoji: '🔟', badge: 'P5', grade: 'P5' },
-      { topic: 'fractions',       label: 'Fractions avancées', emoji: '½', badge: 'P5', grade: 'P5' },
-      { topic: 'mixed-operations',label: 'Calcul avancé',   emoji: '⚡', badge: 'P5–P6', grade: 'P5' },
-      { topic: 'geometry',        label: 'Géométrie',        emoji: '📐', badge: 'P4–P5', grade: 'P4' },
-      { topic: 'measurement',     label: 'Mesures',          emoji: '📏', badge: 'P4', grade: 'P4' },
-      { topic: 'word-problems',   label: 'Problèmes complexes', emoji: '🧩', badge: 'P5', grade: 'P5' },
+      { topic: 'decimals',         label: 'Décimaux',            Icon: IconExamDecimaux,       badge: 'P5', grade: 'P5' },
+      { topic: 'fractions',        label: 'Fractions avancées',  Icon: IconExamFractions,      badge: 'P5', grade: 'P5' },
+      { topic: 'mixed-operations', label: 'Calcul avancé',       Icon: IconExamCalculMental,   badge: 'P5–P6', grade: 'P5' },
+      { topic: 'geometry',         label: 'Géométrie',           Icon: IconExamGeometrie,      badge: 'P4–P5', grade: 'P4' },
+      { topic: 'measurement',      label: 'Mesures',             Icon: IconExamMesures,        badge: 'P4', grade: 'P4' },
+      { topic: 'word-problems',    label: 'Problèmes complexes', Icon: IconExamProblemes,      badge: 'P5', grade: 'P5' },
     ]
   },
 ];
@@ -96,10 +102,12 @@ export default function ExamHubPage() {
             {hard && <span className="exam-hard-badge">Difficile</span>}
           </h2>
           <div className="exam-subject-grid">
-            {subjects.map(({ topic, label, emoji, badge, grade }) => (
+            {subjects.map(({ topic, label, Icon, badge, grade }) => (
               <div key={`${topic}-${grade || ''}`} className={`exam-subject-card${hard ? ' exam-subject-card--hard' : ''}`}>
                 <div className="exam-subject-card__top">
-                  <span className="exam-subject-card__emoji">{emoji}</span>
+                  <span className="exam-subject-card__emoji">
+                    {Icon ? <Icon size={36} /> : null}
+                  </span>
                   <div className="exam-subject-card__info">
                     <span className="exam-subject-card__name">{label}</span>
                     {badge && <span className="exam-subject-card__badge">{badge}</span>}

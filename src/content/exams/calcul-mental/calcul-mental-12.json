@@ -1,0 +1,441 @@
+{
+  "id": "calcul-mental-12",
+  "category": "calcul-mental",
+  "categoryLabel": "Calcul mental",
+  "categoryEmoji": "🔢",
+  "categoryOrder": 2,
+  "title": "Calcul CE2 — Multiplication et Tables",
+  "emoji": "⚡",
+  "order": 12,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "3 x 4 = ?",
+          "options": [
+            "12",
+            "9",
+            "15",
+            "8"
+          ],
+          "answer": "12",
+          "correction": "3 x 4 = 12.",
+          "prompt_nl": "3 x 4 = ?",
+          "prompt_en": "3 x 4 = ?",
+          "prompt_es": "3 x 4 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "2 x 7 = ?",
+          "options": [
+            "14",
+            "12",
+            "16",
+            "9"
+          ],
+          "answer": "14",
+          "correction": "2 x 7 = 14.",
+          "prompt_nl": "2 x 7 = ?",
+          "prompt_en": "2 x 7 = ?",
+          "prompt_es": "2 x 7 = ?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "5 x 6 = ?",
+          "options": [
+            "30",
+            "25",
+            "35",
+            "20"
+          ],
+          "answer": "30",
+          "correction": "5 x 6 = 30.",
+          "prompt_nl": "5 x 6 = ?",
+          "prompt_en": "5 x 6 = ?",
+          "prompt_es": "5 x 6 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "4 x 3 = ?",
+          "answer": 12,
+          "correction": "4 x 3 = 12.",
+          "prompt_nl": "4 x 3 = ?",
+          "prompt_en": "4 x 3 = ?",
+          "prompt_es": "4 x 3 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "2 x 9 = ?",
+          "options": [
+            "18",
+            "16",
+            "20",
+            "14"
+          ],
+          "answer": "18",
+          "correction": "2 x 9 = 18.",
+          "prompt_nl": "2 x 9 = ?",
+          "prompt_en": "2 x 9 = ?",
+          "prompt_es": "2 x 9 = ?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "3 x 7 = ?",
+          "options": [
+            "21",
+            "18",
+            "24",
+            "15"
+          ],
+          "answer": "21",
+          "correction": "3 x 7 = 21.",
+          "prompt_nl": "3 x 7 = ?",
+          "prompt_en": "3 x 7 = ?",
+          "prompt_es": "3 x 7 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "4 x 6 = ?",
+          "answer": 24,
+          "correction": "4 x 6 = 24.",
+          "prompt_nl": "4 x 6 = ?",
+          "prompt_en": "4 x 6 = ?",
+          "prompt_es": "4 x 6 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "5 x 8 = ?",
+          "options": [
+            "40",
+            "35",
+            "45",
+            "30"
+          ],
+          "answer": "40",
+          "correction": "5 x 8 = 40.",
+          "prompt_nl": "5 x 8 = ?",
+          "prompt_en": "5 x 8 = ?",
+          "prompt_es": "5 x 8 = ?"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "3 x 9 = ?",
+          "answer": 27,
+          "correction": "3 x 9 = 27.",
+          "prompt_nl": "3 x 9 = ?",
+          "prompt_en": "3 x 9 = ?",
+          "prompt_es": "3 x 9 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "4 x 8 = ?",
+          "options": [
+            "32",
+            "28",
+            "36",
+            "24"
+          ],
+          "answer": "32",
+          "correction": "4 x 8 = 32.",
+          "prompt_nl": "4 x 8 = ?",
+          "prompt_en": "4 x 8 = ?",
+          "prompt_es": "4 x 8 = ?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "6 x 7 = ?",
+          "options": [
+            "42",
+            "36",
+            "48",
+            "54"
+          ],
+          "answer": "42",
+          "correction": "6 x 7 = 42.",
+          "prompt_nl": "6 x 7 = ?",
+          "prompt_en": "6 x 7 = ?",
+          "prompt_es": "6 x 7 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "8 x 4 = ?",
+          "options": [
+            "32",
+            "28",
+            "36",
+            "24"
+          ],
+          "answer": "32",
+          "correction": "8 x 4 = 32.",
+          "prompt_nl": "8 x 4 = ?",
+          "prompt_en": "8 x 4 = ?",
+          "prompt_es": "8 x 4 = ?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "9 x 6 = ?",
+          "options": [
+            "54",
+            "48",
+            "60",
+            "42"
+          ],
+          "answer": "54",
+          "correction": "9 x 6 = 54.",
+          "prompt_nl": "9 x 6 = ?",
+          "prompt_en": "9 x 6 = ?",
+          "prompt_es": "9 x 6 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "7 x 8 = ?",
+          "answer": 56,
+          "correction": "7 x 8 = 56.",
+          "prompt_nl": "7 x 8 = ?",
+          "prompt_en": "7 x 8 = ?",
+          "prompt_es": "7 x 8 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "6 x 9 = ?",
+          "options": [
+            "54",
+            "48",
+            "60",
+            "42"
+          ],
+          "answer": "54",
+          "correction": "6 x 9 = 54.",
+          "prompt_nl": "6 x 9 = ?",
+          "prompt_en": "6 x 9 = ?",
+          "prompt_es": "6 x 9 = ?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "8 x 7 = ?",
+          "answer": 56,
+          "correction": "8 x 7 = 56.",
+          "prompt_nl": "8 x 7 = ?",
+          "prompt_en": "8 x 7 = ?",
+          "prompt_es": "8 x 7 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "9 x 9 = ?",
+          "options": [
+            "81",
+            "72",
+            "90",
+            "63"
+          ],
+          "answer": "81",
+          "correction": "9 x 9 = 81.",
+          "prompt_nl": "9 x 9 = ?",
+          "prompt_en": "9 x 9 = ?",
+          "prompt_es": "9 x 9 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "6 x 8 = ?",
+          "answer": 48,
+          "correction": "6 x 8 = 48.",
+          "prompt_nl": "6 x 8 = ?",
+          "prompt_en": "6 x 8 = ?",
+          "prompt_es": "6 x 8 = ?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "7 x 7 = ?",
+          "options": [
+            "49",
+            "42",
+            "56",
+            "35"
+          ],
+          "answer": "49",
+          "correction": "7 x 7 = 49.",
+          "prompt_nl": "7 x 7 = ?",
+          "prompt_en": "7 x 7 = ?",
+          "prompt_es": "7 x 7 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "9 x 8 = ?",
+          "answer": 72,
+          "correction": "9 x 8 = 72.",
+          "prompt_nl": "9 x 8 = ?",
+          "prompt_en": "9 x 8 = ?",
+          "prompt_es": "9 x 8 = ?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "24 / 4 = ?",
+          "options": [
+            "6",
+            "4",
+            "8",
+            "5"
+          ],
+          "answer": "6",
+          "correction": "24 / 4 = 6.",
+          "prompt_nl": "24 / 4 = ?",
+          "prompt_en": "24 / 4 = ?",
+          "prompt_es": "24 / 4 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "36 / 6 = ?",
+          "options": [
+            "6",
+            "5",
+            "7",
+            "4"
+          ],
+          "answer": "6",
+          "correction": "36 / 6 = 6.",
+          "prompt_nl": "36 / 6 = ?",
+          "prompt_en": "36 / 6 = ?",
+          "prompt_es": "36 / 6 = ?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Le double de 25 = ?",
+          "options": [
+            "50",
+            "40",
+            "60",
+            "45"
+          ],
+          "answer": "50",
+          "correction": "Le double de 25 = 2 x 25 = 50.",
+          "prompt_nl": "Het dubbele van 25 = ?",
+          "prompt_en": "Double of 25 = ?",
+          "prompt_es": "El doble de 25 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "La moitie de 48 = ?",
+          "answer": 24,
+          "correction": "La moitie de 48 = 48 / 2 = 24.",
+          "prompt_nl": "De helft van 48 = ?",
+          "prompt_en": "Half of 48 = ?",
+          "prompt_es": "La mitad de 48 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "45 / 9 = ?",
+          "options": [
+            "5",
+            "4",
+            "6",
+            "3"
+          ],
+          "answer": "5",
+          "correction": "45 / 9 = 5.",
+          "prompt_nl": "45 / 9 = ?",
+          "prompt_en": "45 / 9 = ?",
+          "prompt_es": "45 / 9 = ?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Le double de 37 = ?",
+          "answer": 74,
+          "correction": "Le double de 37 = 2 x 37 = 74.",
+          "prompt_nl": "Het dubbele van 37 = ?",
+          "prompt_en": "Double of 37 = ?",
+          "prompt_es": "El doble de 37 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "56 / 7 = ?",
+          "options": [
+            "8",
+            "6",
+            "9",
+            "7"
+          ],
+          "answer": "8",
+          "correction": "56 / 7 = 8.",
+          "prompt_nl": "56 / 7 = ?",
+          "prompt_en": "56 / 7 = ?",
+          "prompt_es": "56 / 7 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "La moitie de 66 = ?",
+          "answer": 33,
+          "correction": "La moitie de 66 = 66 / 2 = 33.",
+          "prompt_nl": "De helft van 66 = ?",
+          "prompt_en": "Half of 66 = ?",
+          "prompt_es": "La mitad de 66 = ?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "63 / 9 = ?",
+          "options": [
+            "7",
+            "6",
+            "8",
+            "5"
+          ],
+          "answer": "7",
+          "correction": "63 / 9 = 7.",
+          "prompt_nl": "63 / 9 = ?",
+          "prompt_en": "63 / 9 = ?",
+          "prompt_es": "63 / 9 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Le double de 49 = ?",
+          "answer": 98,
+          "correction": "Le double de 49 = 2 x 49 = 98.",
+          "prompt_nl": "Het dubbele van 49 = ?",
+          "prompt_en": "Double of 49 = ?",
+          "prompt_es": "El doble de 49 = ?"
+        }
+      ]
+    }
+  }
+}

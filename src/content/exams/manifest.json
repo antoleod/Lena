@@ -353,6 +353,24 @@
             "difficile": 60
           },
           "_path": "./calcul-mental/calcul-mental-10.json"
+        },
+        {
+          "id": "calcul-mental-11",
+          "title": "Calcul CE1 — Additions et Soustractions",
+          "emoji": "🔢",
+          "order": 11,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./calcul-mental/calcul-mental-11.json"
+        },
+        {
+          "id": "calcul-mental-12",
+          "title": "Calcul CE2 — Multiplication et Tables",
+          "emoji": "🔢",
+          "order": 12,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./calcul-mental/calcul-mental-12.json"
         }
       ]
     },
@@ -701,6 +719,24 @@
             "difficile": 60
           },
           "_path": "./problemes-mathematiques/problemes-mathematiques-20.json"
+        },
+        {
+          "id": "problemes-mathematiques-21",
+          "title": "Problemes CE1 — Une etape",
+          "emoji": "📖",
+          "order": 21,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./problemes-mathematiques/problemes-mathematiques-21.json"
+        },
+        {
+          "id": "problemes-mathematiques-22",
+          "title": "Problemes CE2 — Deux etapes",
+          "emoji": "📖",
+          "order": 22,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./problemes-mathematiques/problemes-mathematiques-22.json"
         }
       ]
     },
@@ -1772,6 +1808,24 @@
           "levelKeys": ["facile", "moyen", "difficile"],
           "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
           "_path": "./orthographe/orthographe-ecriture-03.json"
+        },
+        {
+          "id": "orthographe-21",
+          "title": "CE1 — Accords et mots frequents",
+          "emoji": "✏️",
+          "order": 21,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./orthographe/orthographe-21.json"
+        },
+        {
+          "id": "orthographe-22",
+          "title": "CE2 — Homophones grammaticaux",
+          "emoji": "✏️",
+          "order": 22,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./orthographe/orthographe-22.json"
         }
       ]
     },
@@ -2495,6 +2549,24 @@
           "levelKeys": ["facile","moyen","difficile"],
           "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
           "_path": "./grammaire/grammaire-23.json"
+        },
+        {
+          "id": "grammaire-24",
+          "title": "CE1 — Nature des mots",
+          "emoji": "📝",
+          "order": 24,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./grammaire/grammaire-24.json"
+        },
+        {
+          "id": "grammaire-25",
+          "title": "CE2 — Complements, Pronoms, Types de phrases",
+          "emoji": "📝",
+          "order": 25,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./grammaire/grammaire-25.json"
         }
       ]
     },
@@ -2870,6 +2942,24 @@
           "levelKeys": ["facile","moyen","difficile"],
           "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
           "_path": "./conjugaison/conjugaison-23.json"
+        },
+        {
+          "id": "conjugaison-24",
+          "title": "CE1 — Present des verbes en -ER et auxiliaires",
+          "emoji": "🔁",
+          "order": 24,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./conjugaison/conjugaison-24.json"
+        },
+        {
+          "id": "conjugaison-25",
+          "title": "CE2 — Passe compose, Imparfait, Futur",
+          "emoji": "🔁",
+          "order": 25,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./conjugaison/conjugaison-25.json"
         }
       ]
     },
@@ -3566,6 +3656,24 @@
             "difficile": 60
           },
           "_path": "./geometrie/geometrie-20.json"
+        },
+        {
+          "id": "geometrie-21",
+          "title": "CE1 — Figures et lignes",
+          "emoji": "📐",
+          "order": 21,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./geometrie/geometrie-21.json"
+        },
+        {
+          "id": "geometrie-22",
+          "title": "CE2 — Symetrie, Angles, Perimetre",
+          "emoji": "📐",
+          "order": 22,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./geometrie/geometrie-22.json"
         }
       ]
     },
@@ -3914,6 +4022,24 @@
             "difficile": 60
           },
           "_path": "./mesures/mesures-20.json"
+        },
+        {
+          "id": "mesures-21",
+          "title": "CE1 — Longueurs, Masses, Capacites",
+          "emoji": "📏",
+          "order": 21,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./mesures/mesures-21.json"
+        },
+        {
+          "id": "mesures-22",
+          "title": "CE2 — Conversions et fractions de mesures",
+          "emoji": "📏",
+          "order": 22,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./mesures/mesures-22.json"
         }
       ]
     },

@@ -1,0 +1,459 @@
+{
+  "id": "geometrie-21",
+  "category": "geometrie",
+  "categoryLabel": "Geometrie",
+  "categoryEmoji": "📐",
+  "categoryOrder": 11,
+  "title": "CE1 — Figures et lignes",
+  "emoji": "🔺",
+  "order": 21,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Combien de cotes a un triangle ?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "3",
+          "correction": "Un triangle a 3 cotes et 3 sommets.",
+          "prompt_nl": "Hoeveel zijden heeft een driehoek?",
+          "prompt_en": "How many sides does a triangle have?",
+          "prompt_es": "Cuantos lados tiene un triangulo?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Comment s'appelle une figure avec 4 cotes egaux et 4 angles droits ?",
+          "options": [
+            "carre",
+            "rectangle",
+            "triangle",
+            "cercle"
+          ],
+          "answer": "carre",
+          "correction": "Un carre a 4 cotes egaux et 4 angles droits.",
+          "prompt_nl": "Hoe heet een figuur met 4 gelijke zijden en 4 rechte hoeken?",
+          "prompt_en": "What do you call a shape with 4 equal sides and 4 right angles?",
+          "prompt_es": "Como se llama una figura con 4 lados iguales y 4 angulos rectos?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Combien de cotes a un hexagone ?",
+          "options": [
+            "6",
+            "5",
+            "4",
+            "8"
+          ],
+          "answer": "6",
+          "correction": "Un hexagone a 6 cotes. Hexa = 6.",
+          "prompt_nl": "Hoeveel zijden heeft een zeshoek?",
+          "prompt_en": "How many sides does a hexagon have?",
+          "prompt_es": "Cuantos lados tiene un hexagono?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Un rectangle a ___ angles droits.",
+          "answer": 4,
+          "correction": "Un rectangle a 4 angles droits (comme un carre).",
+          "prompt_nl": "Een rechthoek heeft ___ rechte hoeken.",
+          "prompt_en": "A rectangle has ___ right angles.",
+          "prompt_es": "Un rectangulo tiene ___ angulos rectos."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quelle figure n'a pas de cote droit ?",
+          "options": [
+            "cercle",
+            "carre",
+            "rectangle",
+            "triangle"
+          ],
+          "answer": "cercle",
+          "correction": "Le cercle est une courbe fermee, sans angle ni cote droit.",
+          "prompt_nl": "Welke figuur heeft geen rechte zijde?",
+          "prompt_en": "Which shape has no straight side?",
+          "prompt_es": "Que figura no tiene lado recto?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Combien de cotes a un pentagone ?",
+          "options": [
+            "5",
+            "4",
+            "6",
+            "3"
+          ],
+          "answer": "5",
+          "correction": "Un pentagone a 5 cotes. Penta = 5.",
+          "prompt_nl": "Hoeveel zijden heeft een vijfhoek?",
+          "prompt_en": "How many sides does a pentagon have?",
+          "prompt_es": "Cuantos lados tiene un pentagono?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Une ligne qui va d'un bord a l'autre en passant par le centre d'un cercle s'appelle ___.",
+          "options": [
+            "diametre",
+            "rayon",
+            "corde",
+            "arc"
+          ],
+          "answer": "diametre",
+          "correction": "Le diametre est le segment qui traverse le cercle en passant par son centre.",
+          "prompt_nl": "Een lijn die van rand tot rand loopt door het middelpunt van een cirkel heet ___.",
+          "prompt_en": "A line from one edge to another passing through the centre of a circle is called ___.",
+          "prompt_es": "Una linea que va de un borde a otro pasando por el centro de un circulo se llama ___."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Comment appelle-t-on la moitie du diametre d'un cercle ?",
+          "options": [
+            "rayon",
+            "corde",
+            "arc",
+            "secante"
+          ],
+          "answer": "rayon",
+          "correction": "Le rayon = distance du centre au bord = diametre / 2.",
+          "prompt_nl": "Hoe heet de helft van de diameter van een cirkel?",
+          "prompt_en": "What do you call half the diameter of a circle?",
+          "prompt_es": "Como se llama la mitad del diametro de un circulo?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Quel solide a 6 faces carrees ?",
+          "options": [
+            "cube",
+            "sphere",
+            "cylindre",
+            "pyramide"
+          ],
+          "answer": "cube",
+          "correction": "Le cube a 6 faces carrees identiques.",
+          "prompt_nl": "Welk lichaam heeft 6 vierkante vlakken?",
+          "prompt_en": "Which solid has 6 square faces?",
+          "prompt_es": "Que solido tiene 6 caras cuadradas?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Combien de faces a un cube ?",
+          "answer": 6,
+          "correction": "Un cube a 6 faces (toutes carrees).",
+          "prompt_nl": "Hoeveel vlakken heeft een kubus?",
+          "prompt_en": "How many faces does a cube have?",
+          "prompt_es": "Cuantas caras tiene un cubo?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Un carre est aussi un ___.",
+          "options": [
+            "rectangle",
+            "losange",
+            "triangle",
+            "hexagone"
+          ],
+          "answer": "rectangle",
+          "correction": "Un carre est un rectangle particulier dont tous les cotes sont egaux.",
+          "prompt_nl": "Een vierkant is ook een ___.",
+          "prompt_en": "A square is also a ___.",
+          "prompt_es": "Un cuadrado tambien es un ___."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Dans un rectangle de 8 cm de long et 5 cm de large, quel est le perimetre ?",
+          "options": [
+            "26 cm",
+            "40 cm",
+            "13 cm",
+            "24 cm"
+          ],
+          "answer": "26 cm",
+          "correction": "Perimetre = 2 x (longueur + largeur) = 2 x (8 + 5) = 26 cm.",
+          "prompt_nl": "In een rechthoek van 8 cm lang en 5 cm breed, wat is de omtrek?",
+          "prompt_en": "In a rectangle 8 cm long and 5 cm wide, what is the perimeter?",
+          "prompt_es": "En un rectangulo de 8 cm de largo y 5 cm de ancho, cual es el perimetro?"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Quel est le perimetre d'un carre de 6 cm de cote ?",
+          "answer": "24 cm",
+          "correction": "Perimetre = 4 x cote = 4 x 6 = 24 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 6 cm?",
+          "prompt_en": "What is the perimeter of a square with a 6 cm side?",
+          "prompt_es": "Cual es el perimetro de un cuadrado de 6 cm de lado?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Combien d'axes de symetrie a un carre ?",
+          "options": [
+            "4",
+            "2",
+            "1",
+            "8"
+          ],
+          "answer": "4",
+          "correction": "Un carre a 4 axes de symetrie: 2 diagonales et 2 mediatrices.",
+          "prompt_nl": "Hoeveel symmetrie-assen heeft een vierkant?",
+          "prompt_en": "How many axes of symmetry does a square have?",
+          "prompt_es": "Cuantos ejes de simetria tiene un cuadrado?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Combien d'axes de symetrie a un rectangle non carre ?",
+          "options": [
+            "2",
+            "4",
+            "1",
+            "0"
+          ],
+          "answer": "2",
+          "correction": "Un rectangle a 2 axes de symetrie: les deux mediatrices.",
+          "prompt_nl": "Hoeveel symmetrie-assen heeft een rechthoek die geen vierkant is?",
+          "prompt_en": "How many axes of symmetry does a non-square rectangle have?",
+          "prompt_es": "Cuantos ejes de simetria tiene un rectangulo que no es cuadrado?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Quel est le perimetre d'un triangle equilateral de 7 cm de cote ?",
+          "answer": "21 cm",
+          "correction": "Perimetre = 3 x cote = 3 x 7 = 21 cm.",
+          "prompt_nl": "Wat is de omtrek van een gelijkzijdige driehoek met zijde 7 cm?",
+          "prompt_en": "What is the perimeter of an equilateral triangle with a 7 cm side?",
+          "prompt_es": "Cual es el perimetro de un triangulo equilatero de 7 cm de lado?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Une droite qui coupe un angle en deux parties egales s'appelle ___.",
+          "options": [
+            "bissectrice",
+            "mediatrice",
+            "hauteur",
+            "diagonale"
+          ],
+          "answer": "bissectrice",
+          "correction": "La bissectrice d'un angle le divise en deux angles egaux.",
+          "prompt_nl": "Een lijn die een hoek in twee gelijke delen snijdt heet ___.",
+          "prompt_en": "A line that cuts an angle into two equal parts is called ___.",
+          "prompt_es": "Una linea que divide un angulo en dos partes iguales se llama ___."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Combien de sommets a une pyramide a base carree ?",
+          "options": [
+            "5",
+            "4",
+            "6",
+            "8"
+          ],
+          "answer": "5",
+          "correction": "Une pyramide carree a 4 sommets a la base + 1 au sommet = 5.",
+          "prompt_nl": "Hoeveel hoekpunten heeft een piramide met een vierkant grondvlak?",
+          "prompt_en": "How many vertices does a square-based pyramid have?",
+          "prompt_es": "Cuantos vertices tiene una piramide de base cuadrada?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Comment appelle-t-on un triangle avec 3 cotes egaux ?",
+          "options": [
+            "equilateral",
+            "isocele",
+            "scalene",
+            "rectangle"
+          ],
+          "answer": "equilateral",
+          "correction": "Equilateral = 3 cotes egaux. Isocele = 2 cotes egaux.",
+          "prompt_nl": "Hoe heet een driehoek met 3 gelijke zijden?",
+          "prompt_en": "What do you call a triangle with 3 equal sides?",
+          "prompt_es": "Como se llama un triangulo con 3 lados iguales?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel est l'angle forme par les cotes d'un carre ?",
+          "options": [
+            "90 degres",
+            "45 degres",
+            "180 degres",
+            "60 degres"
+          ],
+          "answer": "90 degres",
+          "correction": "Un angle droit mesure 90 degres.",
+          "prompt_nl": "Welke hoek vormen de zijden van een vierkant?",
+          "prompt_en": "What angle is formed by the sides of a square?",
+          "prompt_es": "Que angulo forman los lados de un cuadrado?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Un rectangle a un perimetre de 30 cm. Sa longueur est 9 cm. Quelle est sa largeur ?",
+          "options": [
+            "6 cm",
+            "7 cm",
+            "5 cm",
+            "8 cm"
+          ],
+          "answer": "6 cm",
+          "correction": "30 = 2 x (9 + l) -> 15 = 9 + l -> l = 6 cm.",
+          "prompt_nl": "Een rechthoek heeft een omtrek van 30 cm. De lengte is 9 cm. Wat is de breedte?",
+          "prompt_en": "A rectangle has a perimeter of 30 cm. Its length is 9 cm. What is its width?",
+          "prompt_es": "Un rectangulo tiene un perimetro de 30 cm. Su longitud es 9 cm. Cual es su ancho?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Quel est le perimetre d'un losange de 5 cm de cote ?",
+          "answer": "20 cm",
+          "correction": "Un losange a 4 cotes egaux. Perimetre = 4 x 5 = 20 cm.",
+          "prompt_nl": "Wat is de omtrek van een ruit met zijde 5 cm?",
+          "prompt_en": "What is the perimeter of a rhombus with a 5 cm side?",
+          "prompt_es": "Cual es el perimetro de un rombo de 5 cm de lado?"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Un triangle rectangle a deux cotes de 3 cm et 4 cm. Son hypotenuse mesure 5 cm. Quel est son perimetre ?",
+          "answer": "12 cm",
+          "correction": "3 + 4 + 5 = 12 cm.",
+          "prompt_nl": "Een rechthoekige driehoek heeft twee zijden van 3 cm en 4 cm. Zijn schuine zijde is 5 cm. Wat is zijn omtrek?",
+          "prompt_en": "A right-angled triangle has two sides of 3 cm and 4 cm. Its hypotenuse is 5 cm. What is its perimeter?",
+          "prompt_es": "Un triangulo rectangulo tiene dos lados de 3 cm y 4 cm. Su hipotenusa mide 5 cm. Cual es su perimetro?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Combien d'axes de symetrie a un cercle ?",
+          "options": [
+            "infini",
+            "4",
+            "2",
+            "1"
+          ],
+          "answer": "infini",
+          "correction": "Un cercle a une infinite d'axes de symetrie (tout diametre est un axe).",
+          "prompt_nl": "Hoeveel symmetrie-assen heeft een cirkel?",
+          "prompt_en": "How many axes of symmetry does a circle have?",
+          "prompt_es": "Cuantos ejes de simetria tiene un circulo?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Une figure a 5 angles. C'est un ___.",
+          "options": [
+            "pentagone",
+            "hexagone",
+            "octogone",
+            "quadrilatere"
+          ],
+          "answer": "pentagone",
+          "correction": "5 angles = 5 sommets = 5 cotes -> pentagone.",
+          "prompt_nl": "Een figuur heeft 5 hoeken. Het is een ___.",
+          "prompt_en": "A shape has 5 angles. It is a ___.",
+          "prompt_es": "Una figura tiene 5 angulos. Es un ___."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un carre de 4 cm de cote ?",
+          "options": [
+            "16 cm2",
+            "8 cm2",
+            "12 cm2",
+            "20 cm2"
+          ],
+          "answer": "16 cm2",
+          "correction": "Aire = cote x cote = 4 x 4 = 16 cm2.",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 4 cm?",
+          "prompt_en": "What is the area of a square with a 4 cm side?",
+          "prompt_es": "Cual es el area de un cuadrado de 4 cm de lado?"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Quelle est l'aire d'un rectangle de 6 cm x 3 cm ?",
+          "answer": "18 cm2",
+          "correction": "Aire = longueur x largeur = 6 x 3 = 18 cm2.",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 6 cm x 3 cm?",
+          "prompt_en": "What is the area of a rectangle 6 cm x 3 cm?",
+          "prompt_es": "Cual es el area de un rectangulo de 6 cm x 3 cm?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un solide a 8 sommets, 12 aretes et 6 faces. C'est un ___.",
+          "options": [
+            "cube",
+            "sphere",
+            "cylindre",
+            "pyramide"
+          ],
+          "answer": "cube",
+          "correction": "Le cube (ou pave) a 8 sommets, 12 aretes et 6 faces.",
+          "prompt_nl": "Een lichaam heeft 8 hoekpunten, 12 ribben en 6 vlakken. Het is een ___.",
+          "prompt_en": "A solid has 8 vertices, 12 edges and 6 faces. It is a ___.",
+          "prompt_es": "Un solido tiene 8 vertices, 12 aristas y 6 caras. Es un ___."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Quel est le perimetre d'un hexagone regulier de 4 cm de cote ?",
+          "answer": "24 cm",
+          "correction": "Perimetre = 6 x 4 = 24 cm.",
+          "prompt_nl": "Wat is de omtrek van een regelmatige zeshoek met zijde 4 cm?",
+          "prompt_en": "What is the perimeter of a regular hexagon with a 4 cm side?",
+          "prompt_es": "Cual es el perimetro de un hexagono regular de 4 cm de lado?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quelle est la formule de l'aire d'un triangle ?",
+          "options": [
+            "base x hauteur / 2",
+            "base x hauteur",
+            "cote x cote",
+            "perimetre x 2"
+          ],
+          "answer": "base x hauteur / 2",
+          "correction": "Aire triangle = (base x hauteur) / 2.",
+          "prompt_nl": "Wat is de formule voor de oppervlakte van een driehoek?",
+          "prompt_en": "What is the formula for the area of a triangle?",
+          "prompt_es": "Cual es la formula del area de un triangulo?"
+        }
+      ]
+    }
+  }
+}

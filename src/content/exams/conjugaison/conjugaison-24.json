@@ -1,0 +1,453 @@
+{
+  "id": "conjugaison-24",
+  "category": "conjugaison",
+  "categoryLabel": "Conjugaison",
+  "categoryEmoji": "🔁",
+  "categoryOrder": 9,
+  "title": "CE1 — Present des verbes en -ER et auxiliaires",
+  "emoji": "🌱",
+  "order": 24,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Je ___ content.",
+          "options": [
+            "suis",
+            "es",
+            "est",
+            "sommes"
+          ],
+          "answer": "suis",
+          "correction": "Je suis content. (etre au present, 1re pers. sing.)",
+          "prompt_nl": "Ik ___ blij.",
+          "prompt_en": "I ___ happy.",
+          "prompt_es": "Yo ___ contento."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tu ___ une belle maison.",
+          "options": [
+            "as",
+            "ai",
+            "avons",
+            "avez"
+          ],
+          "answer": "as",
+          "correction": "Tu as une belle maison. (avoir, 2e pers. sing.)",
+          "prompt_nl": "Jij ___ een mooi huis.",
+          "prompt_en": "You ___ a beautiful house.",
+          "prompt_es": "Tu ___ una casa bonita."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Il ___ tres grand.",
+          "options": [
+            "est",
+            "es",
+            "suis",
+            "sont"
+          ],
+          "answer": "est",
+          "correction": "Il est tres grand. (etre, 3e pers. sing.)",
+          "prompt_nl": "Hij ___ heel groot.",
+          "prompt_en": "He ___ very tall.",
+          "prompt_es": "El ___ muy alto."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Nous ___ faim.",
+          "options": [
+            "avons",
+            "avez",
+            "ont",
+            "ai"
+          ],
+          "answer": "avons",
+          "correction": "Nous avons faim. (avoir, 1re pers. plur.)",
+          "prompt_nl": "Wij ___ honger.",
+          "prompt_en": "We ___ hungry.",
+          "prompt_es": "Nosotros ___ hambre."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Vous ___ de la chance.",
+          "options": [
+            "avez",
+            "avons",
+            "ont",
+            "as"
+          ],
+          "answer": "avez",
+          "correction": "Vous avez de la chance. (avoir, 2e pers. plur.)",
+          "prompt_nl": "U ___ geluk.",
+          "prompt_en": "You ___ luck.",
+          "prompt_es": "Vosotros ___ suerte."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Elles ___ heureuses.",
+          "options": [
+            "sont",
+            "est",
+            "sommes",
+            "etes"
+          ],
+          "answer": "sont",
+          "correction": "Elles sont heureuses. (etre, 3e pers. plur.)",
+          "prompt_nl": "Zij ___ gelukkig.",
+          "prompt_en": "They ___ happy.",
+          "prompt_es": "Ellas ___ felices."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Nous ___ a l'ecole.",
+          "options": [
+            "sommes",
+            "etes",
+            "suis",
+            "est"
+          ],
+          "answer": "sommes",
+          "correction": "Nous sommes a l'ecole. (etre, 1re pers. plur.)",
+          "prompt_nl": "Wij ___ op school.",
+          "prompt_en": "We ___ at school.",
+          "prompt_es": "Nosotros ___ en la escuela."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Ils ___ trois chats.",
+          "options": [
+            "ont",
+            "avons",
+            "as",
+            "ai"
+          ],
+          "answer": "ont",
+          "correction": "Ils ont trois chats. (avoir, 3e pers. plur.)",
+          "prompt_nl": "Zij ___ drie katten.",
+          "prompt_en": "They ___ three cats.",
+          "prompt_es": "Ellos ___ tres gatos."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Je ___ fatigue.",
+          "answer": "suis",
+          "correction": "Je suis fatigue. (etre, 1re pers. sing.)",
+          "prompt_nl": "Ik ___ moe.",
+          "prompt_en": "I ___ tired.",
+          "prompt_es": "Yo ___ cansado."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Tu ___ raison.",
+          "answer": "as",
+          "correction": "Tu as raison. (avoir, 2e pers. sing.)",
+          "prompt_nl": "Jij ___ gelijk.",
+          "prompt_en": "You ___ right.",
+          "prompt_es": "Tu ___ razon."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Je ___ au football.",
+          "options": [
+            "joue",
+            "joues",
+            "jouent",
+            "jouons"
+          ],
+          "answer": "joue",
+          "correction": "Je joue. Verbe jouer, 1re pers. sing.: joue.",
+          "prompt_nl": "Ik ___ voetbal.",
+          "prompt_en": "I ___ football.",
+          "prompt_es": "Yo ___ al futbol."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tu ___ trop vite.",
+          "options": [
+            "parles",
+            "parle",
+            "parlent",
+            "parlons"
+          ],
+          "answer": "parles",
+          "correction": "Tu parles. Verbe parler, 2e pers. sing.: parles.",
+          "prompt_nl": "Jij ___ te snel.",
+          "prompt_en": "You ___ too fast.",
+          "prompt_es": "Tu ___ demasiado rapido."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Elle ___ une pomme.",
+          "options": [
+            "mange",
+            "manges",
+            "mangent",
+            "mangeons"
+          ],
+          "answer": "mange",
+          "correction": "Elle mange. Verbe manger, 3e pers. sing.: mange.",
+          "prompt_nl": "Zij ___ een appel.",
+          "prompt_en": "She ___ an apple.",
+          "prompt_es": "Ella ___ una manzana."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Nous ___ en choeur.",
+          "options": [
+            "chantons",
+            "chantez",
+            "chante",
+            "chantent"
+          ],
+          "answer": "chantons",
+          "correction": "Nous chantons. Verbe chanter, 1re pers. plur.: chantons.",
+          "prompt_nl": "Wij ___ in koor.",
+          "prompt_en": "We ___ in chorus.",
+          "prompt_es": "Nosotros ___ en coro."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Vous ___ les animaux.",
+          "options": [
+            "aimez",
+            "aimons",
+            "aiment",
+            "aime"
+          ],
+          "answer": "aimez",
+          "correction": "Vous aimez. Verbe aimer, 2e pers. plur.: aimez.",
+          "prompt_nl": "U ___ de dieren.",
+          "prompt_en": "You ___ animals.",
+          "prompt_es": "Vosotros ___ a los animales."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Ils ___ dans la cour.",
+          "options": [
+            "jouent",
+            "joue",
+            "joues",
+            "jouons"
+          ],
+          "answer": "jouent",
+          "correction": "Ils jouent. Verbe jouer, 3e pers. plur.: jouent.",
+          "prompt_nl": "Zij ___ op de speelplaats.",
+          "prompt_en": "They ___ in the yard.",
+          "prompt_es": "Ellos ___ en el patio."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Je ___ la musique.",
+          "answer": "aime",
+          "correction": "J'aime la musique. Verbe aimer, 1re pers. sing.: aime.",
+          "prompt_nl": "Ik ___ muziek.",
+          "prompt_en": "I ___ music.",
+          "prompt_es": "Yo ___ la musica."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Tu ___ tous les soirs.",
+          "answer": "chantes",
+          "correction": "Tu chantes. Verbe chanter, 2e pers. sing.: chantes.",
+          "prompt_nl": "Jij ___ elke avond.",
+          "prompt_en": "You ___ every evening.",
+          "prompt_es": "Tu ___ todas las noches."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Nous ___ des sandwichs.",
+          "options": [
+            "mangeons",
+            "mangez",
+            "mange",
+            "mangent"
+          ],
+          "answer": "mangeons",
+          "correction": "Nous mangeons. Verbe manger, 1re pers. plur.: mangeons.",
+          "prompt_nl": "Wij ___ sandwiches.",
+          "prompt_en": "We ___ sandwiches.",
+          "prompt_es": "Nosotros ___ bocadillos."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Elle ___ anglais.",
+          "answer": "parle",
+          "correction": "Elle parle. Verbe parler, 3e pers. sing.: parle.",
+          "prompt_nl": "Zij ___ Engels.",
+          "prompt_en": "She ___ English.",
+          "prompt_es": "Ella ___ ingles."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Il ___ au marche tous les dimanches.",
+          "options": [
+            "va",
+            "vas",
+            "vont",
+            "allons"
+          ],
+          "answer": "va",
+          "correction": "Il va. Verbe aller, 3e pers. sing.: va.",
+          "prompt_nl": "Hij ___ elke zondag naar de markt.",
+          "prompt_en": "He ___ to the market every Sunday.",
+          "prompt_es": "El ___ al mercado todos los domingos."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Nous ___ nos devoirs.",
+          "options": [
+            "faisons",
+            "faites",
+            "fait",
+            "font"
+          ],
+          "answer": "faisons",
+          "correction": "Nous faisons. Verbe faire, 1re pers. plur.: faisons.",
+          "prompt_nl": "Wij ___ onze huiswerkopdrachten.",
+          "prompt_en": "We ___ our homework.",
+          "prompt_es": "Nosotros ___ nuestros deberes."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Tu ___ d'ou ?",
+          "options": [
+            "viens",
+            "vient",
+            "venons",
+            "viennent"
+          ],
+          "answer": "viens",
+          "correction": "Tu viens. Verbe venir, 2e pers. sing.: viens.",
+          "prompt_nl": "Waar kom jij vandaan?",
+          "prompt_en": "Where do you ___ from?",
+          "prompt_es": "Tu ___ de donde?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Elles ___ du sport.",
+          "options": [
+            "font",
+            "faisons",
+            "fait",
+            "faites"
+          ],
+          "answer": "font",
+          "correction": "Elles font. Verbe faire, 3e pers. plur.: font.",
+          "prompt_nl": "Zij ___ aan sport.",
+          "prompt_en": "They ___ sport.",
+          "prompt_es": "Ellas ___ deporte."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Vous ___ en retard.",
+          "options": [
+            "venez",
+            "vient",
+            "viennent",
+            "venons"
+          ],
+          "answer": "venez",
+          "correction": "Vous venez. Verbe venir, 2e pers. plur.: venez.",
+          "prompt_nl": "U ___ te laat.",
+          "prompt_en": "You ___ late.",
+          "prompt_es": "Vosotros ___ tarde."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Autrefois, je ___ a la campagne. (imparfait d'habiter)",
+          "answer": "habitais",
+          "correction": "J'habitais. Verbe habiter, imparfait, 1re pers. sing.: habitais.",
+          "prompt_nl": "Vroeger ___ ik op het platteland. (onvoltooid verleden tijd van habiter)",
+          "prompt_en": "Long ago, I ___ in the countryside. (imperfect of habiter)",
+          "prompt_es": "Antes, yo ___ en el campo. (imperfecto de habitar)"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Quand il etait petit, il ___ beaucoup. (imparfait de pleurer)",
+          "answer": "pleurait",
+          "correction": "Il pleurait. Verbe pleurer, imparfait, 3e pers. sing.: pleurait.",
+          "prompt_nl": "Toen hij klein was, ___ hij veel. (onvoltooid verleden tijd van pleurer)",
+          "prompt_en": "When he was little, he ___ a lot. (imperfect of pleurer)",
+          "prompt_es": "Cuando era pequeno, el ___ mucho. (imperfecto de llorar)"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Avant, nous ___ au parc. (imparfait d'aller)",
+          "options": [
+            "allions",
+            "allons",
+            "allez",
+            "allaient"
+          ],
+          "answer": "allions",
+          "correction": "Nous allions. Verbe aller, imparfait, 1re pers. plur.: allions.",
+          "prompt_nl": "Vroeger ___ wij naar het park. (onvoltooid verleden tijd van aller)",
+          "prompt_en": "Before, we ___ to the park. (imperfect of aller)",
+          "prompt_es": "Antes, nosotros ___ al parque. (imperfecto de ir)"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Je ___ a l'ecole a pied. (imparfait de venir)",
+          "answer": "venais",
+          "correction": "Je venais. Verbe venir, imparfait, 1re pers. sing.: venais.",
+          "prompt_nl": "Ik ___ te voet naar school. (onvoltooid verleden tijd van venir)",
+          "prompt_en": "I ___ to school on foot. (imperfect of venir)",
+          "prompt_es": "Yo ___ a pie a la escuela. (imperfecto de venir)"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Ils ___ du pain chaque matin. (imparfait d'acheter)",
+          "answer": "achetaient",
+          "correction": "Ils achetaient. Verbe acheter, imparfait, 3e pers. plur.: achetaient.",
+          "prompt_nl": "Zij ___ elke ochtend brood. (onvoltooid verleden tijd van acheter)",
+          "prompt_en": "They ___ bread every morning. (imperfect of acheter)",
+          "prompt_es": "Ellos ___ pan cada manana. (imperfecto de comprar)"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "id": "mesures-22",
+  "category": "mesures",
+  "categoryLabel": "Mesures",
+  "categoryEmoji": "📏",
+  "categoryOrder": 12,
+  "title": "CE2 — Conversions et fractions de mesures",
+  "emoji": "⚖️",
+  "order": 22,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "1 m = ___ dm",
+          "options": [
+            "10",
+            "100",
+            "1000",
+            "1"
+          ],
+          "answer": "10",
+          "correction": "1 metre = 10 decimetres.",
+          "prompt_nl": "1 m = ___ dm",
+          "prompt_en": "1 m = ___ dm",
+          "prompt_es": "1 m = ___ dm"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "1 dm = ___ cm",
+          "options": [
+            "10",
+            "100",
+            "1000",
+            "1"
+          ],
+          "answer": "10",
+          "correction": "1 decimetre = 10 centimetres.",
+          "prompt_nl": "1 dm = ___ cm",
+          "prompt_en": "1 dm = ___ cm",
+          "prompt_es": "1 dm = ___ cm"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "1 cm = ___ mm",
+          "options": [
+            "10",
+            "100",
+            "1000",
+            "1"
+          ],
+          "answer": "10",
+          "correction": "1 centimetre = 10 millimetres.",
+          "prompt_nl": "1 cm = ___ mm",
+          "prompt_en": "1 cm = ___ mm",
+          "prompt_es": "1 cm = ___ mm"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "3 m = ___ cm",
+          "answer": 300,
+          "correction": "3 m = 3 x 100 = 300 cm.",
+          "prompt_nl": "3 m = ___ cm",
+          "prompt_en": "3 m = ___ cm",
+          "prompt_es": "3 m = ___ cm"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "25 mm = ___ cm",
+          "options": [
+            "2,5",
+            "25",
+            "0,25",
+            "250"
+          ],
+          "answer": "2,5",
+          "correction": "25 mm = 25 / 10 = 2,5 cm.",
+          "prompt_nl": "25 mm = ___ cm",
+          "prompt_en": "25 mm = ___ cm",
+          "prompt_es": "25 mm = ___ cm"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "5 dm = ___ cm",
+          "answer": 50,
+          "correction": "5 dm = 5 x 10 = 50 cm.",
+          "prompt_nl": "5 dm = ___ cm",
+          "prompt_en": "5 dm = ___ cm",
+          "prompt_es": "5 dm = ___ cm"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "150 cm = ___ m ___ cm",
+          "options": [
+            "1 m 50 cm",
+            "15 m 0 cm",
+            "1 m 5 cm",
+            "1 m 500 cm"
+          ],
+          "answer": "1 m 50 cm",
+          "correction": "150 cm = 100 cm + 50 cm = 1 m 50 cm.",
+          "prompt_nl": "150 cm = ___ m ___ cm",
+          "prompt_en": "150 cm = ___ m ___ cm",
+          "prompt_es": "150 cm = ___ m ___ cm"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "2 m 35 cm = ___ cm",
+          "answer": 235,
+          "correction": "2 m 35 cm = 200 + 35 = 235 cm.",
+          "prompt_nl": "2 m 35 cm = ___ cm",
+          "prompt_en": "2 m 35 cm = ___ cm",
+          "prompt_es": "2 m 35 cm = ___ cm"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "1 km = ___ m",
+          "options": [
+            "1000",
+            "100",
+            "10",
+            "10000"
+          ],
+          "answer": "1000",
+          "correction": "1 kilometre = 1000 metres.",
+          "prompt_nl": "1 km = ___ m",
+          "prompt_en": "1 km = ___ m",
+          "prompt_es": "1 km = ___ m"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "2500 m = ___ km ___ m",
+          "answer": 2.5,
+          "correction": "2500 m = 2 km 500 m = 2,5 km.",
+          "prompt_nl": "2500 m = ___ km",
+          "prompt_en": "2500 m = ___ km",
+          "prompt_es": "2500 m = ___ km"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "3,5 kg = ___ g",
+          "options": [
+            "3500",
+            "350",
+            "35",
+            "3050"
+          ],
+          "answer": "3500",
+          "correction": "3,5 kg = 3,5 x 1000 = 3500 g.",
+          "prompt_nl": "3,5 kg = ___ g",
+          "prompt_en": "3.5 kg = ___ g",
+          "prompt_es": "3,5 kg = ___ g"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "750 g = ___ kg",
+          "answer": 0.75,
+          "correction": "750 g = 750 / 1000 = 0,75 kg.",
+          "prompt_nl": "750 g = ___ kg",
+          "prompt_en": "750 g = ___ kg",
+          "prompt_es": "750 g = ___ kg"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "2 L 50 cL = ___ cL",
+          "options": [
+            "250",
+            "205",
+            "2050",
+            "25"
+          ],
+          "answer": "250",
+          "correction": "2 L = 200 cL. 200 + 50 = 250 cL.",
+          "prompt_nl": "2 L 50 cL = ___ cL",
+          "prompt_en": "2 L 50 cL = ___ cL",
+          "prompt_es": "2 L 50 cL = ___ cL"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "1 L 250 mL = ___ mL",
+          "answer": 1250,
+          "correction": "1 L = 1000 mL. 1000 + 250 = 1250 mL.",
+          "prompt_nl": "1 L 250 mL = ___ mL",
+          "prompt_en": "1 L 250 mL = ___ mL",
+          "prompt_es": "1 L 250 mL = ___ mL"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "La moitie de 1 kg est ___.",
+          "options": [
+            "500 g",
+            "200 g",
+            "250 g",
+            "750 g"
+          ],
+          "answer": "500 g",
+          "correction": "La moitie de 1 kg = 1000 / 2 = 500 g.",
+          "prompt_nl": "De helft van 1 kg is ___.",
+          "prompt_en": "Half of 1 kg is ___.",
+          "prompt_es": "La mitad de 1 kg es ___."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Le quart de 1 litre = ___ mL",
+          "answer": 250,
+          "correction": "1 litre = 1000 mL. 1000 / 4 = 250 mL.",
+          "prompt_nl": "Een kwart liter = ___ mL",
+          "prompt_en": "A quarter of a litre = ___ mL",
+          "prompt_es": "Un cuarto de litro = ___ mL"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "2 h 30 min = ___ min",
+          "options": [
+            "150",
+            "230",
+            "130",
+            "250"
+          ],
+          "answer": "150",
+          "correction": "2 h = 120 min. 120 + 30 = 150 min.",
+          "prompt_nl": "2 u 30 min = ___ min",
+          "prompt_en": "2 h 30 min = ___ min",
+          "prompt_es": "2 h 30 min = ___ min"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "180 min = ___ h",
+          "answer": 3,
+          "correction": "180 min = 180 / 60 = 3 h.",
+          "prompt_nl": "180 min = ___ u",
+          "prompt_en": "180 min = ___ h",
+          "prompt_es": "180 min = ___ h"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Le tiers de 3 kg est ___.",
+          "options": [
+            "1 kg",
+            "500 g",
+            "750 g",
+            "1,5 kg"
+          ],
+          "answer": "1 kg",
+          "correction": "Le tiers de 3 kg = 3 / 3 = 1 kg.",
+          "prompt_nl": "Een derde van 3 kg is ___.",
+          "prompt_en": "A third of 3 kg is ___.",
+          "prompt_es": "Un tercio de 3 kg es ___."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "3/4 de 1 L = ___ mL",
+          "answer": 750,
+          "correction": "3/4 de 1000 mL = 750 mL.",
+          "prompt_nl": "3/4 van 1 L = ___ mL",
+          "prompt_en": "3/4 of 1 L = ___ mL",
+          "prompt_es": "3/4 de 1 L = ___ mL"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Une piece pese 5 g. Combien pese 1 kg de ces pieces ?",
+          "options": [
+            "200 pieces",
+            "100 pieces",
+            "500 pieces",
+            "1000 pieces"
+          ],
+          "answer": "200 pieces",
+          "correction": "1 kg = 1000 g. 1000 / 5 = 200 pieces.",
+          "prompt_nl": "Een muntstuk weegt 5 g. Hoeveel stuks zijn er in 1 kg?",
+          "prompt_en": "A coin weighs 5 g. How many coins are there in 1 kg?",
+          "prompt_es": "Una moneda pesa 5 g. Cuantas monedas hay en 1 kg?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Un coureur parcourt 2,4 km. Combien de metres a-t-il parcourus ?",
+          "answer": 2400,
+          "correction": "2,4 km = 2,4 x 1000 = 2400 m.",
+          "prompt_nl": "Een loper legt 2,4 km af. Hoeveel meter heeft hij afgelegd?",
+          "prompt_en": "A runner covers 2.4 km. How many metres has he covered?",
+          "prompt_es": "Un corredor recorre 2,4 km. Cuantos metros ha recorrido?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Une recette demande 3/4 de litre de lait. Combien de cL cela represente-t-il ?",
+          "options": [
+            "75 cL",
+            "50 cL",
+            "25 cL",
+            "100 cL"
+          ],
+          "answer": "75 cL",
+          "correction": "3/4 de 1 L = 3/4 x 100 cL = 75 cL.",
+          "prompt_nl": "Een recept vraagt 3/4 liter melk. Hoeveel cL is dat?",
+          "prompt_en": "A recipe needs 3/4 of a litre of milk. How many cL is that?",
+          "prompt_es": "Una receta pide 3/4 de litro de leche. Cuantos cL son?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Un athlete court 1500 m. Combien de km parcourt-il ?",
+          "answer": 1.5,
+          "correction": "1500 m = 1500 / 1000 = 1,5 km.",
+          "prompt_nl": "Een atleet loopt 1500 m. Hoeveel km legt hij af?",
+          "prompt_en": "An athlete runs 1500 m. How many km does he run?",
+          "prompt_es": "Un atleta corre 1500 m. Cuantos km recorre?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "On verse 3 fois 33 cL dans un pichet. Combien y a-t-il de litres dans le pichet ?",
+          "options": [
+            "0,99 L",
+            "9,9 L",
+            "99 L",
+            "1 L"
+          ],
+          "answer": "0,99 L",
+          "correction": "3 x 33 cL = 99 cL = 0,99 L.",
+          "prompt_nl": "Men schenkt 3 keer 33 cL in een kruik. Hoeveel liter is er in de kruik?",
+          "prompt_en": "You pour 3 times 33 cL into a jug. How many litres are in the jug?",
+          "prompt_es": "Se vierten 3 veces 33 cL en una jarra. Cuantos litros hay en la jarra?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Un mur de briques est haut de 2 m 45 cm. Chaque brique a 5 cm de hauteur. Combien de rangees de briques y a-t-il ?",
+          "answer": 49,
+          "correction": "2 m 45 cm = 245 cm. 245 / 5 = 49 rangees.",
+          "prompt_nl": "Een bakstenen muur is 2 m 45 cm hoog. Elke steen is 5 cm hoog. Hoeveel rijen stenen zijn er?",
+          "prompt_en": "A brick wall is 2 m 45 cm high. Each brick is 5 cm high. How many rows of bricks are there?",
+          "prompt_es": "Un muro de ladrillos tiene 2 m 45 cm de altura. Cada ladrillo tiene 5 cm de altura. Cuantas filas de ladrillos hay?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Un bebe pese 3 kg 750 g a la naissance. Il grossit de 200 g par semaine. Combien pesera-t-il apres 4 semaines ?",
+          "options": [
+            "4 kg 550 g",
+            "4 kg 750 g",
+            "3 kg 950 g",
+            "4 kg 150 g"
+          ],
+          "answer": "4 kg 550 g",
+          "correction": "4 x 200 = 800 g. 3750 + 800 = 4550 g = 4 kg 550 g.",
+          "prompt_nl": "Een baby weegt 3 kg 750 g bij de geboorte. Hij groeit 200 g per week. Hoeveel weegt hij na 4 weken?",
+          "prompt_en": "A baby weighs 3 kg 750 g at birth. He gains 200 g per week. How much will he weigh after 4 weeks?",
+          "prompt_es": "Un bebe pesa 3 kg 750 g al nacer. Engorda 200 g por semana. Cuanto pesara despues de 4 semanas?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Paul marche 45 minutes. Il parcourt 3 km. Combien de metres parcourt-il par minute ?",
+          "answer": 66.67,
+          "correction": "3 km = 3000 m. 3000 / 45 = 66,67 m par minute (environ 67 m).",
+          "prompt_nl": "Paul wandelt 45 minuten. Hij legt 3 km af. Hoeveel meter per minuut legt hij af?",
+          "prompt_en": "Paul walks 45 minutes. He covers 3 km. How many metres does he cover per minute?",
+          "prompt_es": "Paul camina 45 minutos. Recorre 3 km. Cuantos metros recorre por minuto?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Un bidon de 5 L est plein aux 3/5. Combien contient-il de litres ?",
+          "options": [
+            "3 L",
+            "2 L",
+            "4 L",
+            "2,5 L"
+          ],
+          "answer": "3 L",
+          "correction": "3/5 de 5 L = 3/5 x 5 = 3 L.",
+          "prompt_nl": "Een jerrycan van 5 L is voor 3/5 gevuld. Hoeveel liter bevat hij?",
+          "prompt_en": "A 5 L jerrycan is 3/5 full. How many litres does it contain?",
+          "prompt_es": "Un bidon de 5 L esta lleno a los 3/5. Cuantos litros contiene?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un train roule a 120 km/h. En 30 minutes, quelle distance parcourt-il ?",
+          "options": [
+            "60 km",
+            "30 km",
+            "90 km",
+            "120 km"
+          ],
+          "answer": "60 km",
+          "correction": "En 1h: 120 km. En 30 min (=1/2 h): 120/2 = 60 km.",
+          "prompt_nl": "Een trein rijdt 120 km/h. Welke afstand legt hij in 30 minuten af?",
+          "prompt_en": "A train travels at 120 km/h. What distance does it cover in 30 minutes?",
+          "prompt_es": "Un tren circula a 120 km/h. Que distancia recorre en 30 minutos?"
+        }
+      ]
+    }
+  }
+}

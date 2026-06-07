@@ -1,0 +1,459 @@
+{
+  "id": "geometrie-22",
+  "category": "geometrie",
+  "categoryLabel": "Geometrie",
+  "categoryEmoji": "📐",
+  "categoryOrder": 11,
+  "title": "CE2 — Symetrie, Angles, Perimetre",
+  "emoji": "🔻",
+  "order": 22,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Une figure a un axe de symetrie. Cela signifie que ___.",
+          "options": [
+            "on peut la plier en deux parties identiques",
+            "elle a 4 angles droits",
+            "elle a 4 cotes egaux",
+            "c'est un cercle"
+          ],
+          "answer": "on peut la plier en deux parties identiques",
+          "correction": "Un axe de symetrie partage la figure en deux parties parfaitement superposables.",
+          "prompt_nl": "Een figuur heeft een symmetrie-as. Dat betekent dat ___.",
+          "prompt_en": "A shape has an axis of symmetry. This means that ___.",
+          "prompt_es": "Una figura tiene un eje de simetria. Eso significa que ___."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "La lettre 'A' a ___ axe(s) de symetrie.",
+          "options": [
+            "1",
+            "2",
+            "0",
+            "4"
+          ],
+          "answer": "1",
+          "correction": "La lettre A a 1 axe de symetrie vertical.",
+          "prompt_nl": "De letter 'A' heeft ___ symmetrie-as(sen).",
+          "prompt_en": "The letter 'A' has ___ axis/axes of symmetry.",
+          "prompt_es": "La letra 'A' tiene ___ eje(s) de simetria."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "La lettre 'H' a ___ axe(s) de symetrie.",
+          "options": [
+            "2",
+            "1",
+            "0",
+            "4"
+          ],
+          "answer": "2",
+          "correction": "La lettre H a 2 axes de symetrie: un horizontal et un vertical.",
+          "prompt_nl": "De letter 'H' heeft ___ symmetrie-as(sen).",
+          "prompt_en": "The letter 'H' has ___ axis/axes of symmetry.",
+          "prompt_es": "La letra 'H' tiene ___ eje(s) de simetria."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "La lettre 'F' a ___ axe(s) de symetrie.",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "answer": "0",
+          "correction": "La lettre F n'a pas d'axe de symetrie.",
+          "prompt_nl": "De letter 'F' heeft ___ symmetrie-as(sen).",
+          "prompt_en": "The letter 'F' has ___ axis/axes of symmetry.",
+          "prompt_es": "La letra 'F' tiene ___ eje(s) de simetria."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Un triangle equilateral a ___ axe(s) de symetrie.",
+          "options": [
+            "3",
+            "1",
+            "2",
+            "0"
+          ],
+          "answer": "3",
+          "correction": "Un triangle equilateral a 3 axes de symetrie (un par cote).",
+          "prompt_nl": "Een gelijkzijdige driehoek heeft ___ symmetrie-as(sen).",
+          "prompt_en": "An equilateral triangle has ___ axis/axes of symmetry.",
+          "prompt_es": "Un triangulo equilatero tiene ___ eje(s) de simetria."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Combien d'axes de symetrie a un carre ?",
+          "answer": 4,
+          "correction": "Un carre a 4 axes de symetrie: 2 mediatrices et 2 diagonales.",
+          "prompt_nl": "Hoeveel symmetrie-assen heeft een vierkant?",
+          "prompt_en": "How many axes of symmetry does a square have?",
+          "prompt_es": "Cuantos ejes de simetria tiene un cuadrado?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "La lettre 'X' a ___ axe(s) de symetrie.",
+          "options": [
+            "2",
+            "1",
+            "4",
+            "0"
+          ],
+          "answer": "2",
+          "correction": "La lettre X a 2 axes de symetrie: un vertical et un horizontal.",
+          "prompt_nl": "De letter 'X' heeft ___ symmetrie-as(sen).",
+          "prompt_en": "The letter 'X' has ___ axis/axes of symmetry.",
+          "prompt_es": "La letra 'X' tiene ___ eje(s) de simetria."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un rectangle (non carre) a ___ axe(s) de symetrie.",
+          "options": [
+            "2",
+            "4",
+            "1",
+            "0"
+          ],
+          "answer": "2",
+          "correction": "Un rectangle a 2 axes de symetrie: les deux mediatrices.",
+          "prompt_nl": "Een rechthoek (geen vierkant) heeft ___ symmetrie-as(sen).",
+          "prompt_en": "A rectangle (not a square) has ___ axis/axes of symmetry.",
+          "prompt_es": "Un rectangulo (no cuadrado) tiene ___ eje(s) de simetria."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Un cercle a combien d'axes de symetrie ?",
+          "answer": "infini",
+          "correction": "Un cercle a une infinite d'axes de symetrie (tout diametre est un axe).",
+          "prompt_nl": "Hoeveel symmetrie-assen heeft een cirkel?",
+          "prompt_en": "How many axes of symmetry does a circle have?",
+          "prompt_es": "Cuantos ejes de simetria tiene un circulo?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un isocele a ___ axe(s) de symetrie.",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "0"
+          ],
+          "answer": "1",
+          "correction": "Un triangle isocele a 1 axe de symetrie (la hauteur issue du sommet principal).",
+          "prompt_nl": "Een gelijkbenige driehoek heeft ___ symmetrie-as(sen).",
+          "prompt_en": "An isosceles triangle has ___ axis/axes of symmetry.",
+          "prompt_es": "Un triangulo isosceles tiene ___ eje(s) de simetria."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Un angle droit mesure ___.",
+          "options": [
+            "90 degres",
+            "45 degres",
+            "180 degres",
+            "60 degres"
+          ],
+          "answer": "90 degres",
+          "correction": "Un angle droit mesure exactement 90 degres.",
+          "prompt_nl": "Een rechte hoek meet ___.",
+          "prompt_en": "A right angle measures ___.",
+          "prompt_es": "Un angulo recto mide ___."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un angle aigu est un angle ___.",
+          "options": [
+            "plus petit que 90 degres",
+            "egal a 90 degres",
+            "plus grand que 90 degres",
+            "egal a 180 degres"
+          ],
+          "answer": "plus petit que 90 degres",
+          "correction": "Un angle aigu mesure moins de 90 degres.",
+          "prompt_nl": "Een scherpe hoek is een hoek ___.",
+          "prompt_en": "An acute angle is an angle ___.",
+          "prompt_es": "Un angulo agudo es un angulo ___."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Un angle obtus est un angle ___.",
+          "options": [
+            "plus grand que 90 degres",
+            "egal a 90 degres",
+            "plus petit que 90 degres",
+            "egal a 180 degres"
+          ],
+          "answer": "plus grand que 90 degres",
+          "correction": "Un angle obtus mesure plus de 90 degres (et moins de 180).",
+          "prompt_nl": "Een stompe hoek is een hoek ___.",
+          "prompt_en": "An obtuse angle is an angle ___.",
+          "prompt_es": "Un angulo obtuso es un angulo ___."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un angle plat mesure ___.",
+          "options": [
+            "180 degres",
+            "90 degres",
+            "360 degres",
+            "45 degres"
+          ],
+          "answer": "180 degres",
+          "correction": "Un angle plat mesure 180 degres (c'est une ligne droite).",
+          "prompt_nl": "Een gestrekte hoek meet ___.",
+          "prompt_en": "A straight angle measures ___.",
+          "prompt_es": "Un angulo llano mide ___."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Dans un triangle, la somme des angles est ___.",
+          "options": [
+            "180 degres",
+            "90 degres",
+            "360 degres",
+            "270 degres"
+          ],
+          "answer": "180 degres",
+          "correction": "La somme des angles d'un triangle est toujours 180 degres.",
+          "prompt_nl": "In een driehoek is de som van de hoeken ___.",
+          "prompt_en": "In a triangle, the sum of the angles is ___.",
+          "prompt_es": "En un triangulo, la suma de los angulos es ___."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Un triangle a deux angles de 60 degres chacun. Quel est le troisieme angle ?",
+          "answer": 60,
+          "correction": "180 - 60 - 60 = 60 degres.",
+          "prompt_nl": "Een driehoek heeft twee hoeken van elk 60 graden. Wat is de derde hoek?",
+          "prompt_en": "A triangle has two angles of 60 degrees each. What is the third angle?",
+          "prompt_es": "Un triangulo tiene dos angulos de 60 grados cada uno. Cual es el tercer angulo?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Un angle de 120 degres est ___.",
+          "options": [
+            "obtus",
+            "aigu",
+            "droit",
+            "plat"
+          ],
+          "answer": "obtus",
+          "correction": "120 degres > 90 degres -> angle obtus.",
+          "prompt_nl": "Een hoek van 120 graden is ___.",
+          "prompt_en": "An angle of 120 degrees is ___.",
+          "prompt_es": "Un angulo de 120 grados es ___."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un angle de 45 degres est ___.",
+          "options": [
+            "aigu",
+            "obtus",
+            "droit",
+            "plat"
+          ],
+          "answer": "aigu",
+          "correction": "45 degres < 90 degres -> angle aigu.",
+          "prompt_nl": "Een hoek van 45 graden is ___.",
+          "prompt_en": "An angle of 45 degrees is ___.",
+          "prompt_es": "Un angulo de 45 grados es ___."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Un triangle rectangle a un angle de 90 degres et un angle de 40 degres. Quel est le troisieme angle ?",
+          "answer": 50,
+          "correction": "180 - 90 - 40 = 50 degres.",
+          "prompt_nl": "Een rechthoekige driehoek heeft een hoek van 90 graden en een hoek van 40 graden. Wat is de derde hoek?",
+          "prompt_en": "A right-angled triangle has an angle of 90 degrees and an angle of 40 degrees. What is the third angle?",
+          "prompt_es": "Un triangulo rectangulo tiene un angulo de 90 grados y uno de 40 grados. Cual es el tercer angulo?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel outil utilise-t-on pour mesurer les angles ?",
+          "options": [
+            "rapporteur",
+            "regle",
+            "compas",
+            "equerre"
+          ],
+          "answer": "rapporteur",
+          "correction": "Le rapporteur est l'instrument pour mesurer les angles en degres.",
+          "prompt_nl": "Welk instrument gebruik je om hoeken te meten?",
+          "prompt_en": "Which tool do you use to measure angles?",
+          "prompt_es": "Que instrumento se usa para medir angulos?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quel est le perimetre d'un rectangle de 12 cm de long et 7 cm de large ?",
+          "options": [
+            "38 cm",
+            "84 cm",
+            "19 cm",
+            "40 cm"
+          ],
+          "answer": "38 cm",
+          "correction": "Perimetre = 2 x (12 + 7) = 2 x 19 = 38 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 12 cm lang en 7 cm breed?",
+          "prompt_en": "What is the perimeter of a rectangle 12 cm long and 7 cm wide?",
+          "prompt_es": "Cual es el perimetro de un rectangulo de 12 cm de largo y 7 cm de ancho?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Quelle est l'aire d'un rectangle de 10 cm de long et 4 cm de large ?",
+          "answer": "40 cm2",
+          "correction": "Aire = 10 x 4 = 40 cm2.",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 10 cm lang en 4 cm breed?",
+          "prompt_en": "What is the area of a rectangle 10 cm long and 4 cm wide?",
+          "prompt_es": "Cual es el area de un rectangulo de 10 cm de largo y 4 cm de ancho?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Un carre a un perimetre de 32 cm. Quelle est la longueur de son cote ?",
+          "options": [
+            "8 cm",
+            "4 cm",
+            "16 cm",
+            "6 cm"
+          ],
+          "answer": "8 cm",
+          "correction": "Cote = perimetre / 4 = 32 / 4 = 8 cm.",
+          "prompt_nl": "Een vierkant heeft een omtrek van 32 cm. Hoe lang is zijn zijde?",
+          "prompt_en": "A square has a perimeter of 32 cm. What is the length of its side?",
+          "prompt_es": "Un cuadrado tiene un perimetro de 32 cm. Cual es la longitud de su lado?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Quelle est l'aire d'un carre de 9 cm de cote ?",
+          "answer": "81 cm2",
+          "correction": "Aire = 9 x 9 = 81 cm2.",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 9 cm?",
+          "prompt_en": "What is the area of a square with a 9 cm side?",
+          "prompt_es": "Cual es el area de un cuadrado de 9 cm de lado?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Un rectangle a une aire de 48 cm2 et une largeur de 6 cm. Quelle est sa longueur ?",
+          "options": [
+            "8 cm",
+            "6 cm",
+            "10 cm",
+            "12 cm"
+          ],
+          "answer": "8 cm",
+          "correction": "Longueur = aire / largeur = 48 / 6 = 8 cm.",
+          "prompt_nl": "Een rechthoek heeft een oppervlakte van 48 cm2 en een breedte van 6 cm. Wat is zijn lengte?",
+          "prompt_en": "A rectangle has an area of 48 cm2 and a width of 6 cm. What is its length?",
+          "prompt_es": "Un rectangulo tiene un area de 48 cm2 y un ancho de 6 cm. Cual es su longitud?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Quel est le perimetre d'un triangle dont les cotes mesurent 5 cm, 7 cm et 8 cm ?",
+          "answer": "20 cm",
+          "correction": "Perimetre = 5 + 7 + 8 = 20 cm.",
+          "prompt_nl": "Wat is de omtrek van een driehoek met zijden van 5 cm, 7 cm en 8 cm?",
+          "prompt_en": "What is the perimeter of a triangle with sides of 5 cm, 7 cm and 8 cm?",
+          "prompt_es": "Cual es el perimetro de un triangulo con lados de 5 cm, 7 cm y 8 cm?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Un rectangle a un perimetre de 40 cm et une longueur de 12 cm. Quelle est sa largeur ?",
+          "options": [
+            "8 cm",
+            "10 cm",
+            "6 cm",
+            "14 cm"
+          ],
+          "answer": "8 cm",
+          "correction": "40 = 2 x (12 + l) -> 20 = 12 + l -> l = 8 cm.",
+          "prompt_nl": "Een rechthoek heeft een omtrek van 40 cm en een lengte van 12 cm. Wat is zijn breedte?",
+          "prompt_en": "A rectangle has a perimeter of 40 cm and a length of 12 cm. What is its width?",
+          "prompt_es": "Un rectangulo tiene un perimetro de 40 cm y una longitud de 12 cm. Cual es su anchura?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un triangle de base 10 cm et de hauteur 6 cm ?",
+          "options": [
+            "30 cm2",
+            "60 cm2",
+            "16 cm2",
+            "20 cm2"
+          ],
+          "answer": "30 cm2",
+          "correction": "Aire = base x hauteur / 2 = 10 x 6 / 2 = 30 cm2.",
+          "prompt_nl": "Wat is de oppervlakte van een driehoek met basis 10 cm en hoogte 6 cm?",
+          "prompt_en": "What is the area of a triangle with base 10 cm and height 6 cm?",
+          "prompt_es": "Cual es el area de un triangulo de base 10 cm y altura 6 cm?"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Un carre a une aire de 64 cm2. Quelle est la longueur de son cote ?",
+          "answer": "8 cm",
+          "correction": "Cote = racine de 64 = 8 cm. (8 x 8 = 64).",
+          "prompt_nl": "Een vierkant heeft een oppervlakte van 64 cm2. Hoe lang is zijn zijde?",
+          "prompt_en": "A square has an area of 64 cm2. What is the length of its side?",
+          "prompt_es": "Un cuadrado tiene un area de 64 cm2. Cual es la longitud de su lado?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un terrain rectangulaire mesure 15 m de long et 8 m de large. Quel est son perimetre ?",
+          "options": [
+            "46 m",
+            "23 m",
+            "120 m",
+            "30 m"
+          ],
+          "answer": "46 m",
+          "correction": "Perimetre = 2 x (15 + 8) = 2 x 23 = 46 m.",
+          "prompt_nl": "Een rechthoekig terrein is 15 m lang en 8 m breed. Wat is zijn omtrek?",
+          "prompt_en": "A rectangular field is 15 m long and 8 m wide. What is its perimeter?",
+          "prompt_es": "Un terreno rectangular mide 15 m de largo y 8 m de ancho. Cual es su perimetro?"
+        }
+      ]
+    }
+  }
+}

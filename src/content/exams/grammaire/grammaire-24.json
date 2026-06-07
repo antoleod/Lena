@@ -1,0 +1,349 @@
+{
+  "id": "grammaire-24",
+  "category": "grammaire",
+  "categoryLabel": "Grammaire",
+  "categoryEmoji": "📝",
+  "categoryOrder": 8,
+  "title": "CE1 — Nature des mots",
+  "emoji": "📝",
+  "order": 24,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Dans la phrase 'Le chien court', quel mot est un verbe ?",
+          "options": ["court", "chien", "le", "petit"],
+          "answer": "court",
+          "correction": "'Court' est le verbe: il indique l'action. 'Chien' est un nom.",
+          "prompt_nl": "In 'De hond loopt', welk woord is een werkwoord?",
+          "prompt_en": "In 'The dog runs', which word is a verb?",
+          "prompt_es": "En 'El perro corre', cual es el verbo?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quel mot est un nom commun ?",
+          "options": ["maison", "belle", "courir", "tres"],
+          "answer": "maison",
+          "correction": "'Maison' est un nom commun: il designe une chose.",
+          "prompt_nl": "Welk woord is een gewoon zelfstandig naamwoord?",
+          "prompt_en": "Which word is a common noun?",
+          "prompt_es": "Cual de estas palabras es un nombre comun?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quel mot est un verbe ?",
+          "options": ["chante", "chanson", "belle", "vite"],
+          "answer": "chante",
+          "correction": "'Chante' est un verbe: il indique une action.",
+          "prompt_nl": "Welk woord is een werkwoord?",
+          "prompt_en": "Which word is a verb?",
+          "prompt_es": "Cual de estas palabras es un verbo?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Lequel de ces mots est un nom ?",
+          "options": ["arbre", "vert", "pousser", "tres"],
+          "answer": "arbre",
+          "correction": "'Arbre' est un nom commun: il designe un etre vivant.",
+          "prompt_nl": "Welk van deze woorden is een zelfstandig naamwoord?",
+          "prompt_en": "Which of these words is a noun?",
+          "prompt_es": "Cual de estas palabras es un nombre?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Dans 'Les enfants rient', quel est le verbe ?",
+          "options": ["rient", "enfants", "les", "joyeux"],
+          "answer": "rient",
+          "correction": "'Rient' est le verbe conjugue de la phrase.",
+          "prompt_nl": "In 'De kinderen lachen', wat is het werkwoord?",
+          "prompt_en": "In 'The children laugh', what is the verb?",
+          "prompt_es": "En 'Los ninos rien', cual es el verbo?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quel mot peut etre precede de 'un' ou 'une' ?",
+          "options": ["chat", "petit", "jouer", "sous"],
+          "answer": "chat",
+          "correction": "On dit 'un chat'. Un/une annonce un nom.",
+          "prompt_nl": "Welk woord kan voorafgegaan worden door 'un' of 'une'?",
+          "prompt_en": "Which word can be preceded by 'un' or 'une'?",
+          "prompt_es": "Que palabra puede ir precedida de 'un' o 'una'?"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Dans 'Ma mere cuisine', quel mot est un verbe ?",
+          "answer": "cuisine",
+          "correction": "'Cuisine' est le verbe: c'est l'action que fait la mere.",
+          "prompt_nl": "In 'Mijn moeder kookt', welk woord is een werkwoord?",
+          "prompt_en": "In 'My mother cooks', which word is a verb?",
+          "prompt_es": "En 'Mi madre cocina', cual es el verbo?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Quel est le nom dans 'Un beau jardin' ?",
+          "answer": "jardin",
+          "correction": "'Jardin' est le nom. 'Un' est l'article, 'beau' est l'adjectif.",
+          "prompt_nl": "Wat is het zelfstandig naamwoord in 'Een mooie tuin'?",
+          "prompt_en": "What is the noun in 'A beautiful garden'?",
+          "prompt_es": "Cual es el nombre en 'Un hermoso jardin'?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Dans 'Le soleil brille', quel est le sujet ?",
+          "options": ["soleil", "brille", "le", "fort"],
+          "answer": "soleil",
+          "correction": "'Soleil' est le sujet: c'est lui qui fait l'action.",
+          "prompt_nl": "In 'De zon schijnt', wat is het onderwerp?",
+          "prompt_en": "In 'The sun shines', what is the subject?",
+          "prompt_es": "En 'El sol brilla', cual es el sujeto?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel mot est un article ?",
+          "options": ["le", "maison", "courir", "rouge"],
+          "answer": "le",
+          "correction": "'Le' est un article defini. Il accompagne le nom.",
+          "prompt_nl": "Welk woord is een lidwoord?",
+          "prompt_en": "Which word is an article?",
+          "prompt_es": "Cual de estas palabras es un articulo?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quel est le pluriel de 'chat' ?",
+          "options": ["chats", "chates", "chateurs", "chat"],
+          "answer": "chats",
+          "correction": "Au pluriel, on ajoute -s: chat -> chats.",
+          "prompt_nl": "Wat is het meervoud van 'chat'?",
+          "prompt_en": "What is the plural of 'chat'?",
+          "prompt_es": "Cual es el plural de 'chat'?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quel est le feminin de 'boulanger' ?",
+          "options": ["boulangere", "boulangeuse", "boulangesse", "boulangerine"],
+          "answer": "boulangere",
+          "correction": "Le feminin de boulanger est boulangere (on ajoute -e).",
+          "prompt_nl": "Wat is de vrouwelijke vorm van 'boulanger'?",
+          "prompt_en": "What is the feminine of 'boulanger'?",
+          "prompt_es": "Cual es el femenino de 'boulanger'?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quel est le pluriel de 'cheval' ?",
+          "options": ["chevaux", "chevals", "chevales", "cheval"],
+          "answer": "chevaux",
+          "correction": "Certains mots en -al font -aux au pluriel: cheval -> chevaux.",
+          "prompt_nl": "Wat is het meervoud van 'cheval'?",
+          "prompt_en": "What is the plural of 'cheval'?",
+          "prompt_es": "Cual es el plural de 'cheval'?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quel est le feminin de 'directeur' ?",
+          "options": ["directrice", "directeure", "directoresse", "directeuse"],
+          "answer": "directrice",
+          "correction": "Le feminin de directeur est directrice.",
+          "prompt_nl": "Wat is de vrouwelijke vorm van 'directeur'?",
+          "prompt_en": "What is the feminine of 'directeur'?",
+          "prompt_es": "Cual es el femenino de 'directeur'?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quel est le pluriel de 'voix' ?",
+          "options": ["voix", "voixs", "voixes", "voicent"],
+          "answer": "voix",
+          "correction": "Les mots deja termines en -x ne changent pas au pluriel: voix -> voix.",
+          "prompt_nl": "Wat is het meervoud van 'voix'?",
+          "prompt_en": "What is the plural of 'voix'?",
+          "prompt_es": "Cual es el plural de 'voix'?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Le feminin de 'lion' est ___.",
+          "answer": "lionne",
+          "correction": "Le feminin de lion est lionne.",
+          "prompt_nl": "De vrouwelijke vorm van 'lion' is ___.",
+          "prompt_en": "The feminine of 'lion' is ___.",
+          "prompt_es": "El femenino de 'lion' es ___."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Le pluriel de 'bal' est ___.",
+          "answer": "bals",
+          "correction": "Le pluriel de bal est bals (exception: on ne dit pas 'baux').",
+          "prompt_nl": "Het meervoud van 'bal' is ___.",
+          "prompt_en": "The plural of 'bal' is ___.",
+          "prompt_es": "El plural de 'bal' es ___."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quel est le feminin de 'chanteur' ?",
+          "options": ["chanteuse", "chantrice", "chanteresse", "chanteurse"],
+          "answer": "chanteuse",
+          "correction": "Chanteur -> chanteuse (suffixe -eur -> -euse).",
+          "prompt_nl": "Wat is de vrouwelijke vorm van 'chanteur'?",
+          "prompt_en": "What is the feminine of 'chanteur'?",
+          "prompt_es": "Cual es el femenino de 'chanteur'?"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Le pluriel de 'oeil' est ___.",
+          "answer": "yeux",
+          "correction": "Oeil fait yeux au pluriel (pluriel irregulier).",
+          "prompt_nl": "Het meervoud van 'oeil' is ___.",
+          "prompt_en": "The plural of 'oeil' is ___.",
+          "prompt_es": "El plural de 'oeil' es ___."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Le feminin de 'roi' est ___.",
+          "answer": "reine",
+          "correction": "Le feminin de roi est reine (forme completement differente).",
+          "prompt_nl": "De vrouwelijke vorm van 'roi' is ___.",
+          "prompt_en": "The feminine of 'roi' is ___.",
+          "prompt_es": "El femenino de 'roi' es ___."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Dans 'Les fleurs poussent dans le jardin', quel est le sujet ?",
+          "options": ["fleurs", "poussent", "jardin", "dans"],
+          "answer": "fleurs",
+          "correction": "'Les fleurs' est le groupe sujet: ce sont elles qui poussent.",
+          "prompt_nl": "In 'De bloemen groeien in de tuin', wat is het onderwerp?",
+          "prompt_en": "In 'The flowers grow in the garden', what is the subject?",
+          "prompt_es": "En 'Las flores crecen en el jardin', cual es el sujeto?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Choisis la bonne forme: 'Les enfants ___ une chanson.'",
+          "options": ["chantent", "chante", "chantes", "chantons"],
+          "answer": "chantent",
+          "correction": "Sujet 'les enfants' (3e pers. plur.) -> chantent.",
+          "prompt_nl": "Kies de juiste vorm: 'De kinderen ___ een lied.'",
+          "prompt_en": "Choose the correct form: 'The children ___ a song.'",
+          "prompt_es": "Elige la forma correcta: 'Los ninos ___ una cancion.'"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Choisis la bonne forme: 'Mon frere et moi ___ fatigues.'",
+          "options": ["sommes", "est", "suis", "etes"],
+          "answer": "sommes",
+          "correction": "'Mon frere et moi' = nous -> sommes.",
+          "prompt_nl": "Kies de juiste vorm: 'Mijn broer en ik ___ moe.'",
+          "prompt_en": "Choose the correct form: 'My brother and I ___ tired.'",
+          "prompt_es": "Elige la forma correcta: 'Mi hermano y yo ___ cansados.'"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quel groupe de mots est le sujet dans 'Mes amis jouent au foot' ?",
+          "options": ["Mes amis", "jouent", "au foot", "Mes"],
+          "answer": "Mes amis",
+          "correction": "'Mes amis' est le groupe sujet.",
+          "prompt_nl": "Welke woordgroep is het onderwerp in 'Mijn vrienden spelen voetbal'?",
+          "prompt_en": "Which group of words is the subject in 'My friends play football'?",
+          "prompt_es": "Que grupo de palabras es el sujeto en 'Mis amigos juegan al futbol'?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Choisis le bon accord: 'La route ___ longue.'",
+          "options": ["est", "sont", "sommes", "etes"],
+          "answer": "est",
+          "correction": "Sujet 'la route' (3e pers. sing.) -> est.",
+          "prompt_nl": "Kies de juiste vervoeging: 'De weg ___ lang.'",
+          "prompt_en": "Choose the correct agreement: 'The road ___ long.'",
+          "prompt_es": "Elige la concordancia correcta: 'La carretera ___ larga.'"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Dans 'Chaque jour, il mange une pomme', quel est le verbe ?",
+          "answer": "mange",
+          "correction": "'Mange' est le verbe: il decrit l'action.",
+          "prompt_nl": "In 'Elke dag eet hij een appel', wat is het werkwoord?",
+          "prompt_en": "In 'Every day, he eats an apple', what is the verb?",
+          "prompt_es": "En 'Cada dia, el come una manzana', cual es el verbo?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Choisis la bonne forme: 'Tu et lui ___ arrives.'",
+          "options": ["etes", "est", "sommes", "sont"],
+          "answer": "etes",
+          "correction": "'Tu et lui' = vous -> vous etes arrives.",
+          "prompt_nl": "Kies de juiste vorm: 'Jij en hij ___ aangekomen.'",
+          "prompt_en": "Choose the correct form: 'You and he ___ arrived.'",
+          "prompt_es": "Elige la forma correcta: 'Tu y el ___ llegados.'"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quel est l'adjectif dans 'Un grand arbre vert pousse' ?",
+          "options": ["grand", "arbre", "pousse", "un"],
+          "answer": "grand",
+          "correction": "'Grand' et 'vert' sont des adjectifs qualificatifs.",
+          "prompt_nl": "Wat is het bijvoeglijk naamwoord in 'Een grote groene boom groeit'?",
+          "prompt_en": "What is the adjective in 'A tall green tree grows'?",
+          "prompt_es": "Cual es el adjetivo en 'Un gran arbol verde crece'?"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Quel est l'adjectif dans 'La belle robe rouge' ?",
+          "answer": "belle",
+          "correction": "'Belle' et 'rouge' sont les adjectifs de la phrase.",
+          "prompt_nl": "Wat is het bijvoeglijk naamwoord in 'De mooie rode jurk'?",
+          "prompt_en": "What is the adjective in 'The beautiful red dress'?",
+          "prompt_es": "Cual es el adjetivo en 'El hermoso vestido rojo'?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Dans 'Pierre mange une pomme rouge', quel est le COD ?",
+          "options": ["une pomme rouge", "mange", "Pierre", "rouge"],
+          "answer": "une pomme rouge",
+          "correction": "'Une pomme rouge' est le complement d'objet direct.",
+          "prompt_nl": "In 'Pierre eet een rode appel', wat is het lijdend voorwerp?",
+          "prompt_en": "In 'Pierre eats a red apple', what is the direct object?",
+          "prompt_es": "En 'Pierre come una manzana roja', cual es el CD?"
+        }
+      ]
+    }
+  }
+}

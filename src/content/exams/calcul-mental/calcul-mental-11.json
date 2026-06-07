@@ -1,0 +1,447 @@
+{
+  "id": "calcul-mental-11",
+  "category": "calcul-mental",
+  "categoryLabel": "Calcul mental",
+  "categoryEmoji": "🔢",
+  "categoryOrder": 2,
+  "title": "Calcul CE1 — Additions et Soustractions",
+  "emoji": "🧮",
+  "order": 11,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "12 + 5 = ?",
+          "options": [
+            "17",
+            "16",
+            "18",
+            "15"
+          ],
+          "answer": "17",
+          "correction": "12 + 5 = 17.",
+          "prompt_nl": "12 + 5 = ?",
+          "prompt_en": "12 + 5 = ?",
+          "prompt_es": "12 + 5 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "8 + 7 = ?",
+          "options": [
+            "14",
+            "15",
+            "16",
+            "13"
+          ],
+          "answer": "15",
+          "correction": "8 + 7 = 15.",
+          "prompt_nl": "8 + 7 = ?",
+          "prompt_en": "8 + 7 = ?",
+          "prompt_es": "8 + 7 = ?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "20 - 8 = ?",
+          "options": [
+            "12",
+            "13",
+            "11",
+            "10"
+          ],
+          "answer": "12",
+          "correction": "20 - 8 = 12.",
+          "prompt_nl": "20 - 8 = ?",
+          "prompt_en": "20 - 8 = ?",
+          "prompt_es": "20 - 8 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "6 + 9 = ?",
+          "options": [
+            "14",
+            "15",
+            "16",
+            "13"
+          ],
+          "answer": "15",
+          "correction": "6 + 9 = 15.",
+          "prompt_nl": "6 + 9 = ?",
+          "prompt_en": "6 + 9 = ?",
+          "prompt_es": "6 + 9 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "17 - 5 = ?",
+          "options": [
+            "12",
+            "13",
+            "11",
+            "10"
+          ],
+          "answer": "12",
+          "correction": "17 - 5 = 12.",
+          "prompt_nl": "17 - 5 = ?",
+          "prompt_en": "17 - 5 = ?",
+          "prompt_es": "17 - 5 = ?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "14 + 3 = ?",
+          "answer": 17,
+          "correction": "14 + 3 = 17.",
+          "prompt_nl": "14 + 3 = ?",
+          "prompt_en": "14 + 3 = ?",
+          "prompt_es": "14 + 3 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "19 - 4 = ?",
+          "answer": 15,
+          "correction": "19 - 4 = 15.",
+          "prompt_nl": "19 - 4 = ?",
+          "prompt_en": "19 - 4 = ?",
+          "prompt_es": "19 - 4 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "7 + 8 = ?",
+          "options": [
+            "14",
+            "15",
+            "16",
+            "13"
+          ],
+          "answer": "15",
+          "correction": "7 + 8 = 15.",
+          "prompt_nl": "7 + 8 = ?",
+          "prompt_en": "7 + 8 = ?",
+          "prompt_es": "7 + 8 = ?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "16 - 9 = ?",
+          "options": [
+            "6",
+            "7",
+            "8",
+            "5"
+          ],
+          "answer": "7",
+          "correction": "16 - 9 = 7.",
+          "prompt_nl": "16 - 9 = ?",
+          "prompt_en": "16 - 9 = ?",
+          "prompt_es": "16 - 9 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "11 + 6 = ?",
+          "answer": 17,
+          "correction": "11 + 6 = 17.",
+          "prompt_nl": "11 + 6 = ?",
+          "prompt_en": "11 + 6 = ?",
+          "prompt_es": "11 + 6 = ?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "35 + 24 = ?",
+          "options": [
+            "59",
+            "58",
+            "60",
+            "57"
+          ],
+          "answer": "59",
+          "correction": "35 + 24 = 59.",
+          "prompt_nl": "35 + 24 = ?",
+          "prompt_en": "35 + 24 = ?",
+          "prompt_es": "35 + 24 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "72 - 31 = ?",
+          "options": [
+            "41",
+            "42",
+            "40",
+            "43"
+          ],
+          "answer": "41",
+          "correction": "72 - 31 = 41.",
+          "prompt_nl": "72 - 31 = ?",
+          "prompt_en": "72 - 31 = ?",
+          "prompt_es": "72 - 31 = ?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "48 + 15 = ?",
+          "options": [
+            "62",
+            "63",
+            "61",
+            "64"
+          ],
+          "answer": "63",
+          "correction": "48 + 15 = 63.",
+          "prompt_nl": "48 + 15 = ?",
+          "prompt_en": "48 + 15 = ?",
+          "prompt_es": "48 + 15 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "67 - 28 = ?",
+          "options": [
+            "39",
+            "40",
+            "38",
+            "41"
+          ],
+          "answer": "39",
+          "correction": "67 - 28 = 39.",
+          "prompt_nl": "67 - 28 = ?",
+          "prompt_en": "67 - 28 = ?",
+          "prompt_es": "67 - 28 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "54 + 37 = ?",
+          "options": [
+            "91",
+            "90",
+            "92",
+            "89"
+          ],
+          "answer": "91",
+          "correction": "54 + 37 = 91.",
+          "prompt_nl": "54 + 37 = ?",
+          "prompt_en": "54 + 37 = ?",
+          "prompt_es": "54 + 37 = ?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "83 - 46 = ?",
+          "answer": 37,
+          "correction": "83 - 46 = 37.",
+          "prompt_nl": "83 - 46 = ?",
+          "prompt_en": "83 - 46 = ?",
+          "prompt_es": "83 - 46 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "29 + 44 = ?",
+          "answer": 73,
+          "correction": "29 + 44 = 73.",
+          "prompt_nl": "29 + 44 = ?",
+          "prompt_en": "29 + 44 = ?",
+          "prompt_es": "29 + 44 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "76 - 38 = ?",
+          "options": [
+            "38",
+            "39",
+            "37",
+            "40"
+          ],
+          "answer": "38",
+          "correction": "76 - 38 = 38.",
+          "prompt_nl": "76 - 38 = ?",
+          "prompt_en": "76 - 38 = ?",
+          "prompt_es": "76 - 38 = ?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "55 + 27 = ?",
+          "options": [
+            "82",
+            "83",
+            "81",
+            "84"
+          ],
+          "answer": "82",
+          "correction": "55 + 27 = 82.",
+          "prompt_nl": "55 + 27 = ?",
+          "prompt_en": "55 + 27 = ?",
+          "prompt_es": "55 + 27 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "91 - 54 = ?",
+          "answer": 37,
+          "correction": "91 - 54 = 37.",
+          "prompt_nl": "91 - 54 = ?",
+          "prompt_en": "91 - 54 = ?",
+          "prompt_es": "91 - 54 = ?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "6 x 2 = ?",
+          "options": [
+            "12",
+            "10",
+            "14",
+            "8"
+          ],
+          "answer": "12",
+          "correction": "6 x 2 = 12.",
+          "prompt_nl": "6 x 2 = ?",
+          "prompt_en": "6 x 2 = ?",
+          "prompt_es": "6 x 2 = ?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "7 x 5 = ?",
+          "options": [
+            "35",
+            "30",
+            "40",
+            "25"
+          ],
+          "answer": "35",
+          "correction": "7 x 5 = 35.",
+          "prompt_nl": "7 x 5 = ?",
+          "prompt_en": "7 x 5 = ?",
+          "prompt_es": "7 x 5 = ?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "100 - 37 = ?",
+          "options": [
+            "63",
+            "62",
+            "64",
+            "61"
+          ],
+          "answer": "63",
+          "correction": "100 - 37 = 63.",
+          "prompt_nl": "100 - 37 = ?",
+          "prompt_en": "100 - 37 = ?",
+          "prompt_es": "100 - 37 = ?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "4 x 2 = ?",
+          "answer": 8,
+          "correction": "4 x 2 = 8.",
+          "prompt_nl": "4 x 2 = ?",
+          "prompt_en": "4 x 2 = ?",
+          "prompt_es": "4 x 2 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "9 x 5 = ?",
+          "options": [
+            "45",
+            "40",
+            "50",
+            "35"
+          ],
+          "answer": "45",
+          "correction": "9 x 5 = 45.",
+          "prompt_nl": "9 x 5 = ?",
+          "prompt_en": "9 x 5 = ?",
+          "prompt_es": "9 x 5 = ?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "100 - 58 = ?",
+          "answer": 42,
+          "correction": "100 - 58 = 42.",
+          "prompt_nl": "100 - 58 = ?",
+          "prompt_en": "100 - 58 = ?",
+          "prompt_es": "100 - 58 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "8 x 2 = ?",
+          "options": [
+            "16",
+            "14",
+            "18",
+            "12"
+          ],
+          "answer": "16",
+          "correction": "8 x 2 = 16.",
+          "prompt_nl": "8 x 2 = ?",
+          "prompt_en": "8 x 2 = ?",
+          "prompt_es": "8 x 2 = ?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "6 x 5 = ?",
+          "answer": 30,
+          "correction": "6 x 5 = 30.",
+          "prompt_nl": "6 x 5 = ?",
+          "prompt_en": "6 x 5 = ?",
+          "prompt_es": "6 x 5 = ?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "3 x 10 = ?",
+          "options": [
+            "30",
+            "20",
+            "40",
+            "10"
+          ],
+          "answer": "30",
+          "correction": "3 x 10 = 30.",
+          "prompt_nl": "3 x 10 = ?",
+          "prompt_en": "3 x 10 = ?",
+          "prompt_es": "3 x 10 = ?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "100 - 73 = ?",
+          "answer": 27,
+          "correction": "100 - 73 = 27.",
+          "prompt_nl": "100 - 73 = ?",
+          "prompt_en": "100 - 73 = ?",
+          "prompt_es": "100 - 73 = ?"
+        }
+      ]
+    }
+  }
+}

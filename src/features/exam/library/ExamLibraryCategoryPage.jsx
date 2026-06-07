@@ -4,6 +4,13 @@ import { getCategories, getExamsByCategory } from '../../../content/exams/regist
 import { getCategoryLabel, getCategoryEmoji, getDifficultyLevels, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { getResult, starsFor } from './examLibraryProgress.js';
+import { IconDiffFacile, IconDiffMoyen, IconDiffDifficile } from '../../../assets/icons/DifficultyIcons.jsx';
+
+const DIFF_ICON = {
+  facile:    IconDiffFacile,
+  moyen:     IconDiffMoyen,
+  difficile: IconDiffDifficile,
+};
 
 function Stars({ count }) {
   return (
@@ -14,6 +21,23 @@ function Stars({ count }) {
     </span>
   );
 }
+
+const NEW_EXAM_IDS = new Set([
+  'calcul-mental-11','calcul-mental-12',
+  'problemes-mathematiques-21','problemes-mathematiques-22',
+  'conjugaison-24','conjugaison-25',
+  'grammaire-24','grammaire-25',
+  'orthographe-21','orthographe-22',
+  'geometrie-21','geometrie-22',
+  'mesures-21','mesures-22',
+]);
+
+const NEW_BADGE_LABEL = {
+  fr: { ce1: 'Nouveau · CE1', ce2: 'Nouveau · CE2' },
+  nl: { ce1: 'Nieuw · CE1',   ce2: 'Nieuw · CE2'   },
+  en: { ce1: 'New · Year 2',  ce2: 'New · Year 3'  },
+  es: { ce1: 'Nuevo · CE1',   ce2: 'Nuevo · CE2'   },
+};
 
 /** Returns the best star count across all 3 difficulty levels for an exam stub. */
 function bestStarsForExam(exam) {
@@ -105,12 +129,19 @@ export default function ExamLibraryCategoryPage() {
       <div className="exam-subject-grid">
         {exams.map((exam) => {
           const best = bestStarsForExam(exam);
+          const isNew = NEW_EXAM_IDS.has(exam.id);
+          const isCE1 = isNew && exam.id.endsWith('1') || (isNew && !exam.id.endsWith('2'));
+          const badgeLabels = NEW_BADGE_LABEL[locale] || NEW_BADGE_LABEL.fr;
+          const badgeLabel = isNew ? (exam.title.includes('CE2') ? badgeLabels.ce2 : badgeLabels.ce1) : null;
           return (
-            <div key={exam.id} className="exam-subject-card">
+            <div key={exam.id} className={`exam-subject-card${isNew ? ' exam-subject-card--new' : ''}`}>
               <div className="exam-subject-card__top">
                 <span className="exam-subject-card__emoji">{exam.emoji}</span>
                 <div className="exam-subject-card__info">
                   <span className="exam-subject-card__name">{exam.title}</span>
+                  {isNew && (
+                    <span className="exam-subject-card__new-badge">✨ {badgeLabel}</span>
+                  )}
                   {best > 0 && (
                     <span className="exam-subject-card__best-badge">
                       <Stars count={best} />
@@ -132,7 +163,8 @@ export default function ExamLibraryCategoryPage() {
                       style={{ flexDirection: 'column', gap: 2 }}
                       onClick={() => navigate(`/exam/library/play?exam=${exam.id}&level=${lvl.key}`)}
                     >
-                      <span>{lvl.emoji} {lvl.label}</span>
+                      {(() => { const DIcon = DIFF_ICON[lvl.key]; return DIcon ? <DIcon size={28} /> : lvl.emoji; })()}
+                      <span>{lvl.label}</span>
                       {res && <Stars count={stars} />}
                     </button>
                   );

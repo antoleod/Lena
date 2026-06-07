@@ -1,0 +1,423 @@
+{
+  "id": "orthographe-22",
+  "category": "orthographe",
+  "categoryLabel": "Orthographe",
+  "categoryEmoji": "✏️",
+  "categoryOrder": 6,
+  "title": "CE2 — Homophones grammaticaux",
+  "emoji": "🔀",
+  "order": 22,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Choisis: 'Elle ___ tres bien dormi.'",
+          "options": [
+            "a",
+            "à",
+            "as",
+            "avait"
+          ],
+          "answer": "a",
+          "correction": "'A' = verbe avoir conjugue (elle avait bien dormi -> a bien dormi).",
+          "prompt_nl": "Kies: 'Ze heeft heel goed geslapen.'",
+          "prompt_en": "Choose: 'She ___ slept very well.'",
+          "prompt_es": "Elige: 'Ella ___ dormido muy bien.'"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Choisis: 'Je vais ___ Paris.'",
+          "options": [
+            "à",
+            "a",
+            "as",
+            "az"
+          ],
+          "answer": "à",
+          "correction": "'A' accent = preposition de lieu. Je vais a Paris.",
+          "prompt_nl": "Kies: 'Ik ga ___ Parijs.'",
+          "prompt_en": "Choose: 'I go ___ Paris.'",
+          "prompt_es": "Elige: 'Voy ___ Paris.'"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Choisis: '___ a sonne a la porte.'",
+          "options": [
+            "On",
+            "Ont",
+            "An",
+            "En"
+          ],
+          "answer": "On",
+          "correction": "'On' est pronom sujet. 'Ont' ne peut pas etre sujet ici.",
+          "prompt_nl": "Kies: '___ heeft aangebeld.'",
+          "prompt_en": "Choose: '___ rang the doorbell.'",
+          "prompt_es": "Elige: '___ ha llamado a la puerta.'"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Choisis: 'Ils ___ froid.'",
+          "options": [
+            "ont",
+            "on",
+            "an",
+            "en"
+          ],
+          "answer": "ont",
+          "correction": "'Ont' = verbe avoir (ils avaient froid -> ont froid).",
+          "prompt_nl": "Kies: 'Zij ___ het koud.'",
+          "prompt_en": "Choose: 'They ___ cold.'",
+          "prompt_es": "Elige: 'Ellos ___ frio.'"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Choisis: 'Il va ___ la plage.'",
+          "options": [
+            "à",
+            "a",
+            "ai",
+            "az"
+          ],
+          "answer": "à",
+          "correction": "Preposition de lieu -> a avec accent grave.",
+          "prompt_nl": "Kies: 'Hij gaat ___ het strand.'",
+          "prompt_en": "Choose: 'He goes ___ the beach.'",
+          "prompt_es": "Elige: 'El va ___ la playa.'"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Elle ___ perdu son cartable.'",
+          "answer": "a",
+          "correction": "Verbe avoir conjugue: elle avait perdu -> elle a perdu.",
+          "prompt_nl": "Kies: 'Ze heeft haar schooltas verloren.'",
+          "prompt_en": "Choose: 'She ___ lost her schoolbag.'",
+          "prompt_es": "Elige: 'Ella ___ perdido su mochila.'"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Ils ___ decide de partir.'",
+          "answer": "ont",
+          "correction": "Verbe avoir conjugue: ils avaient decide -> ils ont decide.",
+          "prompt_nl": "Kies: 'Zij ___ besloten te vertrekken.'",
+          "prompt_en": "Choose: 'They ___ decided to leave.'",
+          "prompt_es": "Elige: 'Ellos ___ decidido irse.'"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Choisis: '___ peut tout apprendre.'",
+          "options": [
+            "On",
+            "Ont",
+            "An",
+            "En"
+          ],
+          "answer": "On",
+          "correction": "'On' est un pronom sujet.",
+          "prompt_nl": "Kies: '___ kan alles leren.'",
+          "prompt_en": "Choose: '___ can learn everything.'",
+          "prompt_es": "Elige: '___ puede aprender todo.'"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Il habite ___ Lyon.'",
+          "answer": "à",
+          "correction": "Preposition de lieu -> a accent grave.",
+          "prompt_nl": "Kies: 'Hij woont ___ Lyon.'",
+          "prompt_en": "Choose: 'He lives ___ Lyon.'",
+          "prompt_es": "Elige: 'El vive ___ Lyon.'"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Mes parents ___ voyage.'",
+          "answer": "ont",
+          "correction": "Verbe avoir: mes parents avaient voyage -> ont voyage.",
+          "prompt_nl": "Kies: 'Mijn ouders ___ gereisd.'",
+          "prompt_en": "Choose: 'My parents ___ travelled.'",
+          "prompt_es": "Elige: 'Mis padres ___ viajado.'"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Choisis: 'Le chat ___ le chien jouent.'",
+          "options": [
+            "et",
+            "est",
+            "ai",
+            "es"
+          ],
+          "answer": "et",
+          "correction": "'Et' relie deux noms. Test: on ne peut pas remplacer par 'etait'.",
+          "prompt_nl": "Kies: 'De kat ___ de hond spelen.'",
+          "prompt_en": "Choose: 'The cat ___ the dog play.'",
+          "prompt_es": "Elige: 'El gato ___ el perro juegan.'"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Choisis: 'Paul ___ fatigue.'",
+          "options": [
+            "est",
+            "et",
+            "ai",
+            "es"
+          ],
+          "answer": "est",
+          "correction": "'Est' = verbe etre. Test: on peut remplacer par 'etait'.",
+          "prompt_nl": "Kies: 'Paul ___ moe.'",
+          "prompt_en": "Choose: 'Paul ___ tired.'",
+          "prompt_es": "Elige: 'Paul ___ cansado.'"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Choisis: 'Il prend ___ sac.'",
+          "options": [
+            "son",
+            "sont",
+            "sens",
+            "se"
+          ],
+          "answer": "son",
+          "correction": "'Son' est un adjectif possessif (masculin singulier).",
+          "prompt_nl": "Kies: 'Hij neemt ___ tas.'",
+          "prompt_en": "Choose: 'He takes ___ bag.'",
+          "prompt_es": "Elige: 'El toma ___ bolsa.'"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Choisis: 'Ils ___ arrives hier.'",
+          "options": [
+            "sont",
+            "son",
+            "sen",
+            "cion"
+          ],
+          "answer": "sont",
+          "correction": "'Sont' = verbe etre au pluriel. Test: on peut remplacer par 'etaient'.",
+          "prompt_nl": "Kies: 'Zij ___ gisteren aangekomen.'",
+          "prompt_en": "Choose: 'They ___ arrived yesterday.'",
+          "prompt_es": "Elige: 'Ellos ___ llegado ayer.'"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Choisis: 'Je cherche mes cles, ___ les ai-je mises ?'",
+          "options": [
+            "où",
+            "ou",
+            "au",
+            "eau"
+          ],
+          "answer": "où",
+          "correction": "'Ou' accent = adverbe de lieu interrogatif. 'Ou' sans accent = conjonction.",
+          "prompt_nl": "Kies: 'Ik zoek mijn sleutels, ___ heb ik ze gelegd?'",
+          "prompt_en": "Choose: 'I am looking for my keys, ___ did I put them?'",
+          "prompt_es": "Elige: 'Busco mis llaves, ___ las puse?'"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Marie ___ Julie partent ensemble.'",
+          "answer": "et",
+          "correction": "'Et' = conjonction de coordination. Test: on ne peut pas remplacer par 'etait'.",
+          "prompt_nl": "Kies: 'Marie ___ Julie vertrekken samen.'",
+          "prompt_en": "Choose: 'Marie ___ Julie leave together.'",
+          "prompt_es": "Elige: 'Marie ___ Julie se van juntas.'"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Viens ici ___ la-bas.'",
+          "answer": "ou",
+          "correction": "'Ou' sans accent = conjonction (soit...soit). Pas question de lieu.",
+          "prompt_nl": "Kies: 'Kom hier ___ daar.'",
+          "prompt_en": "Choose: 'Come here ___ there.'",
+          "prompt_es": "Elige: 'Ven aqui ___ alli.'"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Quel est ton pays d'origine, ___ habites-tu ?'",
+          "answer": "où",
+          "correction": "Question sur un lieu -> ou avec accent grave.",
+          "prompt_nl": "Kies: 'Wat is je geboorteland, ___ woon je?'",
+          "prompt_en": "Choose: 'What is your country of origin, ___ do you live?'",
+          "prompt_es": "Elige: 'Cual es tu pais de origen, ___ vives?'"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Mon chien a perdu ___ os.'",
+          "answer": "son",
+          "correction": "'Son' adjectif possessif masculin singulier.",
+          "prompt_nl": "Kies: 'Mijn hond heeft ___ bot verloren.'",
+          "prompt_en": "Choose: 'My dog has lost ___ bone.'",
+          "prompt_es": "Elige: 'Mi perro ha perdido ___ hueso.'"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Ils ___ partis en vacances.'",
+          "answer": "sont",
+          "correction": "'Sont' = verbe etre au pluriel.",
+          "prompt_nl": "Kies: 'Zij ___ op vakantie gegaan.'",
+          "prompt_en": "Choose: 'They ___ gone on holiday.'",
+          "prompt_es": "Elige: 'Ellos ___ ido de vacaciones.'"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Choisis: 'Les enfants rangent ___ affaires.'",
+          "options": [
+            "leurs",
+            "leur",
+            "eur",
+            "leure"
+          ],
+          "answer": "leurs",
+          "correction": "'Leurs' adjectif possessif pluriel (plusieurs enfants, plusieurs affaires).",
+          "prompt_nl": "Kies: 'De kinderen ruimen ___ spullen op.'",
+          "prompt_en": "Choose: 'The children put away ___ things.'",
+          "prompt_es": "Elige: 'Los ninos recogen ___ cosas.'"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Choisis: 'Je ___ ai dit la verite.'",
+          "options": [
+            "leur",
+            "leurs",
+            "leure",
+            "leurz"
+          ],
+          "answer": "leur",
+          "correction": "'Leur' pronom personnel COI (je dis a eux -> je leur dis).",
+          "prompt_nl": "Kies: 'Ik ___ de waarheid verteld.'",
+          "prompt_en": "Choose: 'I told ___ the truth.'",
+          "prompt_es": "Elige: 'Les ___ dije la verdad.'"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Choisis: '___ un beau tableau.'",
+          "options": [
+            "C'est",
+            "Ces",
+            "Ses",
+            "Cest"
+          ],
+          "answer": "C'est",
+          "correction": "'C'est' = ce + est. Suivi d'un attribut.",
+          "prompt_nl": "Kies: '___ een mooi schilderij.'",
+          "prompt_en": "Choose: '___ a beautiful painting.'",
+          "prompt_es": "Elige: '___ un cuadro bonito.'"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Choisis: '___ livres sont sur la table.'",
+          "options": [
+            "Ces",
+            "Ses",
+            "C'est",
+            "Se"
+          ],
+          "answer": "Ces",
+          "correction": "'Ces' = adjectif demonstratif pluriel (ces livres).",
+          "prompt_nl": "Kies: '___ boeken liggen op tafel.'",
+          "prompt_en": "Choose: '___ books are on the table.'",
+          "prompt_es": "Elige: '___ libros estan en la mesa.'"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Choisis: 'Il ___ blesse en tombant.'",
+          "options": [
+            "s'est",
+            "c'est",
+            "ses",
+            "ces"
+          ],
+          "answer": "s'est",
+          "correction": "'S'est' = se + est. Il se + est blesse -> il s'est blesse.",
+          "prompt_nl": "Kies: 'Hij ___ gewond gevallen.'",
+          "prompt_en": "Choose: 'He ___ hurt himself falling.'",
+          "prompt_es": "Elige: 'El ___ herido al caer.'"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Elle a oublie ___ cles.'",
+          "answer": "ses",
+          "correction": "'Ses' = adjectif possessif pluriel (a elle, plusieurs cles).",
+          "prompt_nl": "Kies: 'Ze is ___ sleutels vergeten.'",
+          "prompt_en": "Choose: 'She forgot ___ keys.'",
+          "prompt_es": "Elige: 'Ella se ha olvidado ___ llaves.'"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Choisis: '___ la meilleure solution.'",
+          "answer": "C'est",
+          "correction": "'C'est' precede un attribut.",
+          "prompt_nl": "Kies: '___ de beste oplossing.'",
+          "prompt_en": "Choose: '___ the best solution.'",
+          "prompt_es": "Elige: '___ la mejor solucion.'"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Il a range ___ jouets.'",
+          "answer": "ses",
+          "correction": "'Ses' adjectif possessif pluriel.",
+          "prompt_nl": "Kies: 'Hij heeft ___ speelgoed opgeruimd.'",
+          "prompt_en": "Choose: 'He put away ___ toys.'",
+          "prompt_es": "Elige: 'El ha guardado ___ juguetes.'"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Choisis: 'Elle ___ levee de bonne heure.'",
+          "answer": "s'est",
+          "correction": "'S'est' = pronom reflechi + verbe etre.",
+          "prompt_nl": "Kies: 'Ze ___ vroeg opgestaan.'",
+          "prompt_en": "Choose: 'She ___ got up early.'",
+          "prompt_es": "Elige: 'Ella ___ levantado temprano.'"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Choisis: '___ manteaux sont mouilles.'",
+          "answer": "Ces",
+          "correction": "'Ces' demonstratif pluriel.",
+          "prompt_nl": "Kies: '___ jassen zijn nat.'",
+          "prompt_en": "Choose: '___ coats are wet.'",
+          "prompt_es": "Elige: '___ abrigos estan mojados.'"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "id": "orthographe-21",
+  "category": "orthographe",
+  "categoryLabel": "Orthographe",
+  "categoryEmoji": "✏️",
+  "categoryOrder": 6,
+  "title": "CE1 — Accords et mots frequents",
+  "emoji": "🎓",
+  "order": 21,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Comment s'ecrit l'animal qui miaule ?",
+          "options": [
+            "chat",
+            "cha",
+            "chas",
+            "cas"
+          ],
+          "answer": "chat",
+          "correction": "L'animal qui miaule s'ecrit 'chat'.",
+          "prompt_nl": "Hoe schrijf je het dier dat miauwt?",
+          "prompt_en": "How do you spell the animal that meows?",
+          "prompt_es": "Como se escribe el animal que maulla?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe: La ___ est ronde.",
+          "options": [
+            "lune",
+            "lun",
+            "lunne",
+            "lure"
+          ],
+          "answer": "lune",
+          "correction": "Le satellite naturel de la Terre s'ecrit 'lune'.",
+          "prompt_nl": "Kies de juiste spelling: De ___ is rond.",
+          "prompt_en": "Choose the correct spelling: The ___ is round.",
+          "prompt_es": "Elige la ortografia correcta: La ___ es redonda."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe du pluriel: des ___ (arbre)",
+          "options": [
+            "arbres",
+            "arbre",
+            "arbrees",
+            "arbre's"
+          ],
+          "answer": "arbres",
+          "correction": "Au pluriel, on ajoute un -s: arbre -> arbres.",
+          "prompt_nl": "Kies de juiste meervoudsspelling: de ___ (boom)",
+          "prompt_en": "Choose the correct plural spelling: some ___ (tree)",
+          "prompt_es": "Elige la ortografia correcta del plural: unos ___ (arbol)"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe: Il fait ___.",
+          "options": [
+            "chaud",
+            "cho",
+            "chaus",
+            "chaut"
+          ],
+          "answer": "chaud",
+          "correction": "La temperature s'ecrit 'chaud'.",
+          "prompt_nl": "Kies de juiste spelling: Het is ___.",
+          "prompt_en": "Choose the correct spelling: It is ___.",
+          "prompt_es": "Elige la ortografia correcta: Hace ___."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Choisis le pluriel correct: des ___",
+          "options": [
+            "maisons",
+            "maison's",
+            "maisones",
+            "maisonnes"
+          ],
+          "answer": "maisons",
+          "correction": "Maison -> maisons. On ajoute -s au pluriel.",
+          "prompt_nl": "Kies het juiste meervoud: de ___",
+          "prompt_en": "Choose the correct plural: some ___",
+          "prompt_es": "Elige el plural correcto: unas ___"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Choisis la bonne forme du feminin: une chatte ___",
+          "options": [
+            "noire",
+            "noir",
+            "noirs",
+            "noirre"
+          ],
+          "answer": "noire",
+          "correction": "L'adjectif feminin s'accorde avec noire.",
+          "prompt_nl": "Kies de juiste vrouwelijke vorm: een zwarte poes ___",
+          "prompt_en": "Choose the correct feminine form: a black cat ___",
+          "prompt_es": "Elige la forma femenina correcta: una gata ___"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe: Il ___ dans sa chambre.",
+          "options": [
+            "dort",
+            "dors",
+            "dore",
+            "dord"
+          ],
+          "answer": "dort",
+          "correction": "Dormir a la 3e personne du singulier: il dort.",
+          "prompt_nl": "Kies de juiste spelling: Hij ___ in zijn kamer.",
+          "prompt_en": "Choose the correct spelling: He ___ in his room.",
+          "prompt_es": "Elige la ortografia correcta: El ___ en su habitacion."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quel est le feminin de 'ami' ?",
+          "options": [
+            "amie",
+            "amis",
+            "amies",
+            "amisse"
+          ],
+          "answer": "amie",
+          "correction": "Le feminin de ami est amie (on ajoute -e).",
+          "prompt_nl": "Wat is de vrouwelijke vorm van 'ami'?",
+          "prompt_en": "What is the feminine of 'ami'?",
+          "prompt_es": "Cual es el femenino de 'ami'?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe: ___ livre est interessant.",
+          "options": [
+            "Ce",
+            "Se",
+            "Cet",
+            "Cette"
+          ],
+          "answer": "Ce",
+          "correction": "Devant un nom masculin singulier commencant par une consonne: ce livre.",
+          "prompt_nl": "Kies de juiste spelling: ___ boek is interessant.",
+          "prompt_en": "Choose the correct spelling: ___ book is interesting.",
+          "prompt_es": "Elige la ortografia correcta: ___ libro es interesante."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe: Elle ___ belle.",
+          "options": [
+            "est",
+            "et",
+            "es",
+            "ai"
+          ],
+          "answer": "est",
+          "correction": "'Est' est le verbe etre conjugue a la 3e pers. sing.",
+          "prompt_nl": "Kies de juiste spelling: Zij ___ mooi.",
+          "prompt_en": "Choose the correct spelling: She ___ beautiful.",
+          "prompt_es": "Elige la ortografia correcta: Ella ___ guapa."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Mets au pluriel: 'un bateau'",
+          "options": [
+            "des bateaux",
+            "des bateaus",
+            "des bateau",
+            "des bateauxs"
+          ],
+          "answer": "des bateaux",
+          "correction": "Les noms en -eau font -eaux au pluriel: bateau -> bateaux.",
+          "prompt_nl": "Zet in het meervoud: 'een boot'",
+          "prompt_en": "Put in plural: 'a boat'",
+          "prompt_es": "Pon en plural: 'un barco'"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Mets au pluriel: 'un chapeau'",
+          "answer": "des chapeaux",
+          "correction": "Chapeau -> chapeaux (pluriel en -eaux).",
+          "prompt_nl": "Zet in het meervoud: 'een hoed'",
+          "prompt_en": "Put in plural: 'a hat'",
+          "prompt_es": "Pon en plural: 'un sombrero'"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Mets au pluriel: 'un animal'",
+          "options": [
+            "des animaux",
+            "des animals",
+            "des animales",
+            "des animeaux"
+          ],
+          "answer": "des animaux",
+          "correction": "Les noms en -al font -aux au pluriel: animal -> animaux.",
+          "prompt_nl": "Zet in het meervoud: 'een dier'",
+          "prompt_en": "Put in plural: 'an animal'",
+          "prompt_es": "Pon en plural: 'un animal'"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quel est le pluriel de 'nez' ?",
+          "options": [
+            "nez",
+            "nezs",
+            "nezes",
+            "neses"
+          ],
+          "answer": "nez",
+          "correction": "Les noms en -z ne changent pas au pluriel: nez -> nez.",
+          "prompt_nl": "Wat is het meervoud van 'nez'?",
+          "prompt_en": "What is the plural of 'nez'?",
+          "prompt_es": "Cual es el plural de 'nez'?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Mets au pluriel: 'le jeu'",
+          "answer": "les jeux",
+          "correction": "Jeu -> jeux (les noms en -eu prennent -x).",
+          "prompt_nl": "Zet in het meervoud: 'het spel'",
+          "prompt_en": "Put in plural: 'the game'",
+          "prompt_es": "Pon en plural: 'el juego'"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Mets au pluriel: 'la voix'",
+          "answer": "les voix",
+          "correction": "Voix -> voix (les noms en -x ne changent pas).",
+          "prompt_nl": "Zet in het meervoud: 'de stem'",
+          "prompt_en": "Put in plural: 'the voice'",
+          "prompt_es": "Pon en plural: 'la voz'"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Mets au pluriel: 'le travail'",
+          "options": [
+            "les travaux",
+            "les travails",
+            "les travailles",
+            "les travailx"
+          ],
+          "answer": "les travaux",
+          "correction": "Travail -> travaux (pluriel en -aux).",
+          "prompt_nl": "Zet in het meervoud: 'het werk'",
+          "prompt_en": "Put in plural: 'the work'",
+          "prompt_es": "Pon en plural: 'el trabajo'"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Choisis la bonne forme: 'Les enfants ___ contents.'",
+          "options": [
+            "sont",
+            "est",
+            "sommes",
+            "etes"
+          ],
+          "answer": "sont",
+          "correction": "Sujet pluriel 'les enfants' -> sont.",
+          "prompt_nl": "Kies de juiste vorm: 'De kinderen ___ tevreden.'",
+          "prompt_en": "Choose the correct form: 'The children ___ happy.'",
+          "prompt_es": "Elige la forma correcta: 'Los ninos ___ contentos.'"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Choisis la bonne forme: 'Les fleurs ___ belles.'",
+          "options": [
+            "sont",
+            "est",
+            "suis",
+            "etes"
+          ],
+          "answer": "sont",
+          "correction": "Sujet pluriel 'les fleurs' -> sont.",
+          "prompt_nl": "Kies de juiste vorm: 'De bloemen ___ mooi.'",
+          "prompt_en": "Choose the correct form: 'The flowers ___ beautiful.'",
+          "prompt_es": "Elige la forma correcta: 'Las flores ___ bonitas.'"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Accordez l'adjectif: 'des fleurs ___' (rouge)",
+          "options": [
+            "rouges",
+            "rouge",
+            "rougs",
+            "rougees"
+          ],
+          "answer": "rouges",
+          "correction": "Adjectif au feminin pluriel: rouge -> rouges.",
+          "prompt_nl": "Vervoeg het bijvoeglijk naamwoord: 'de ___ bloemen' (rood)",
+          "prompt_en": "Agree the adjective: 'some ___ flowers' (red)",
+          "prompt_es": "Concuerda el adjetivo: 'unas flores ___' (rojo)"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Choisis: 'Il ___ mange sa soupe.'",
+          "options": [
+            "a",
+            "a",
+            "as",
+            "avez"
+          ],
+          "answer": "a",
+          "correction": "'A' est le verbe avoir conjugue: il a mange. 'A' avec accent est une preposition.",
+          "prompt_nl": "Kies: 'Hij ___ zijn soep gegeten.'",
+          "prompt_en": "Choose: 'He ___ eaten his soup.'",
+          "prompt_es": "Elige: 'El ___ comido su sopa.'"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Choisis: 'Elle va ___ l'ecole.'",
+          "options": [
+            "à",
+            "a",
+            "as",
+            "az"
+          ],
+          "answer": "à",
+          "correction": "'A' avec accent est une preposition de lieu: aller a l'ecole.",
+          "prompt_nl": "Kies: 'Ze gaat ___ school.'",
+          "prompt_en": "Choose: 'She goes ___ school.'",
+          "prompt_es": "Elige: 'Ella va ___ la escuela.'"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Choisis: 'Le chat ___ la souris ont disparu.'",
+          "options": [
+            "et",
+            "est",
+            "ai",
+            "es"
+          ],
+          "answer": "et",
+          "correction": "'Et' est une conjonction de coordination qui relie deux noms.",
+          "prompt_nl": "Kies: 'De kat ___ de muis zijn verdwenen.'",
+          "prompt_en": "Choose: 'The cat ___ the mouse have disappeared.'",
+          "prompt_es": "Elige: 'El gato ___ el raton han desaparecido.'"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Choisis: 'Marie ___ malade.'",
+          "options": [
+            "est",
+            "et",
+            "ai",
+            "es"
+          ],
+          "answer": "est",
+          "correction": "'Est' est le verbe etre: elle est malade. On peut remplacer par 'etait'.",
+          "prompt_nl": "Kies: 'Marie ___ ziek.'",
+          "prompt_en": "Choose: 'Marie ___ sick.'",
+          "prompt_es": "Elige: 'Marie ___ enferma.'"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Choisis: '___ mange quand on a faim.'",
+          "options": [
+            "On",
+            "Ont",
+            "An",
+            "En"
+          ],
+          "answer": "On",
+          "correction": "'On' est un pronom sujet. 'Ont' est le verbe avoir (ils ont).",
+          "prompt_nl": "Kies: '___ eet als men honger heeft.'",
+          "prompt_en": "Choose: '___ eats when hungry.'",
+          "prompt_es": "Elige: '___ come cuando se tiene hambre.'"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Choisis: 'Ils ___ perdu leurs cles.'",
+          "options": [
+            "ont",
+            "on",
+            "an",
+            "en"
+          ],
+          "answer": "ont",
+          "correction": "'Ont' est le verbe avoir au pluriel. Test: 'ils avaient perdu' -> ont.",
+          "prompt_nl": "Kies: 'Zij ___ hun sleutels verloren.'",
+          "prompt_en": "Choose: 'They ___ lost their keys.'",
+          "prompt_es": "Elige: 'Ellos ___ perdido sus llaves.'"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Choisis: 'Viens ___ moi !'",
+          "options": [
+            "avec",
+            "avek",
+            "aveck",
+            "aveque"
+          ],
+          "answer": "avec",
+          "correction": "La preposition s'ecrit 'avec'.",
+          "prompt_nl": "Kies: 'Kom ___ mij!'",
+          "prompt_en": "Choose: 'Come ___ me!'",
+          "prompt_es": "Elige: 'Ven ___ mi!'"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Choisis: '___ tu manges des legumes ?",
+          "options": [
+            "Est-ce que",
+            "Esque",
+            "Est-ce-que",
+            "Esk"
+          ],
+          "answer": "Est-ce que",
+          "correction": "La locution interrogative s'ecrit 'Est-ce que' (en trois mots).",
+          "prompt_nl": "Kies: '___ eet jij groenten?",
+          "prompt_en": "Choose: '___ you eat vegetables?",
+          "prompt_es": "Elige: '___ comes verduras?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Choisis: 'Paul ___ Tom sont freres.'",
+          "options": [
+            "et",
+            "est",
+            "ai",
+            "e"
+          ],
+          "answer": "et",
+          "correction": "'Et' relie deux noms. 'Est' est le verbe etre.",
+          "prompt_nl": "Kies: 'Paul ___ Tom zijn broers.'",
+          "prompt_en": "Choose: 'Paul ___ Tom are brothers.'",
+          "prompt_es": "Elige: 'Paul ___ Tom son hermanos.'"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Choisis: 'Le chat ___ assis sur le toit.'",
+          "options": [
+            "est",
+            "et",
+            "ai",
+            "es"
+          ],
+          "answer": "est",
+          "correction": "'Est' est le verbe etre conjugue. On peut remplacer par 'etait': le chat etait assis.",
+          "prompt_nl": "Kies: 'De kat ___ op het dak gezeten.'",
+          "prompt_en": "Choose: 'The cat ___ sitting on the roof.'",
+          "prompt_es": "Elige: 'El gato ___ sentado en el tejado.'"
+        }
+      ]
+    }
+  }
+}

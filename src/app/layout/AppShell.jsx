@@ -7,6 +7,10 @@ import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
 import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
+import {
+  IconNavApprendre, IconNavPratiquer, IconNavExamens,
+  IconNavProgres, IconNavReglages,
+} from '../../assets/icons/NavIcons.jsx';
 import { getParentalState, verifyPin } from '../../services/storage/parentalStore.js';
 import { getTodayStudySeconds } from '../../services/storage/progressStore.js';
 import { addAppTime } from '../../services/storage/gameProgressStore.js';
@@ -146,16 +150,17 @@ export default function AppShell() {
   const globalLevel = computeGlobalLevel(session.profile?.totalActivitiesCompleted || 0);
 
   const NAV_LABELS = {
-    fr: { learn: 'Apprendre', practise: 'Pratiquer', progress: 'Progres', settings: 'Reglages', stats: 'Stats' },
-    nl: { learn: 'Leren', practise: 'Oefenen', progress: 'Voortgang', settings: 'Instellingen', stats: 'Stats' },
-    en: { learn: 'Learn', practise: 'Practise', progress: 'Progress', settings: 'Settings', stats: 'Stats' },
-    es: { learn: 'Aprender', practise: 'Practicar', progress: 'Progreso', settings: 'Ajustes', stats: 'Stats' },
+    fr: { learn: 'Apprendre', practise: 'Pratiquer', progress: 'Progres', settings: 'Reglages', exams: 'Examens' },
+    nl: { learn: 'Leren', practise: 'Oefenen', progress: 'Voortgang', settings: 'Instellingen', exams: 'Examens' },
+    en: { learn: 'Learn', practise: 'Practise', progress: 'Progress', settings: 'Settings', exams: 'Exams' },
+    es: { learn: 'Aprender', practise: 'Practicar', progress: 'Progreso', settings: 'Ajustes', exams: 'Examenes' },
   };
   const nl = NAV_LABELS[locale] || NAV_LABELS.fr;
 
   const navItems = useMemo(() => {
     const LEARN_PREFIXES = ['/apprendre', '/map', '/subjects', '/activities', '/lessons', '/stories', '/renforcement'];
-    const PRACTISE_PREFIXES = ['/pratiquer', '/exam', '/cahier', '/tables', '/practice'];
+    const PRACTISE_PREFIXES = ['/pratiquer', '/cahier', '/tables', '/practice'];
+    const EXAM_PREFIXES = ['/exam'];
     function matchPrefix(prefixes, path) {
       return prefixes.some((p) => path === p || path.startsWith(p + '/'));
     }
@@ -163,37 +168,32 @@ export default function AppShell() {
       {
         to: '/apprendre',
         label: nl.learn,
-        icon: 'icon-home',
-        emoji: '🌍',
+        Icon: IconNavApprendre,
         isActive: (path) => matchPrefix(LEARN_PREFIXES, path) || path === '/apprendre',
       },
       {
         to: '/pratiquer',
         label: nl.practise,
-        icon: 'icon-trophy',
-        emoji: '🎯',
+        Icon: IconNavPratiquer,
         isActive: (path) => matchPrefix(PRACTISE_PREFIXES, path),
+      },
+      {
+        to: '/exam/library',
+        label: nl.exams,
+        Icon: IconNavExamens,
+        isActive: (path) => matchPrefix(EXAM_PREFIXES, path),
       },
       {
         to: '/history',
         label: nl.progress,
-        icon: 'icon-star',
-        emoji: '📈',
+        Icon: IconNavProgres,
         isActive: (path) => path === '/history' || path.startsWith('/history/'),
       },
       {
         to: '/settings',
         label: nl.settings,
-        icon: 'icon-settings',
-        emoji: '⚙️',
+        Icon: IconNavReglages,
         isActive: (path) => path === '/settings' || path.startsWith('/settings/'),
-      },
-      {
-        to: '/stats',
-        label: nl.stats || 'Stats',
-        icon: 'icon-star',
-        emoji: '📊',
-        isActive: (path) => path === '/stats' || path.startsWith('/stats/'),
       },
     ];
   }, [locale]); // nl is derived from locale, stable reference not needed
@@ -288,7 +288,7 @@ export default function AppShell() {
               onClick={playTapSound}
               data-testid={`nav-sidebar-${item.to.replace('/', '') || 'home'}`}
             >
-              <img src={assetUrl(`assets/icons/${item.icon}.svg`)} alt="" className="sidebar-link__icon" />
+              <item.Icon size={22} className="sidebar-link__icon" />
               <span>{item.label}</span>
             </NavLink>
           ))}
@@ -347,7 +347,7 @@ export default function AppShell() {
               onClick={playTapSound}
               data-testid={`nav-${item.to.replace('/', '') || 'home'}`}
             >
-              <img src={assetUrl(`assets/icons/${item.icon}.svg`)} alt="" className="topbar-link__icon" />
+              <item.Icon size={22} className="topbar-link__icon" />
               <span>{item.label}</span>
             </NavLink>
           ))}
@@ -401,7 +401,7 @@ export default function AppShell() {
             onClick={playTapSound}
             data-testid={`nav-bottom-${item.to.replace('/', '') || 'home'}`}
           >
-            <span className="app-bottom-nav__icon" aria-hidden="true">{item.emoji}</span>
+            <span className="app-bottom-nav__icon" aria-hidden="true"><item.Icon size={28} /></span>
             <span className="app-bottom-nav__label">{item.label}</span>
           </NavLink>
         ))}

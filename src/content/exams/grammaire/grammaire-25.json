@@ -1,0 +1,453 @@
+{
+  "id": "grammaire-25",
+  "category": "grammaire",
+  "categoryLabel": "Grammaire",
+  "categoryEmoji": "📝",
+  "categoryOrder": 8,
+  "title": "CE2 — Complements, Pronoms, Types de phrases",
+  "emoji": "📋",
+  "order": 25,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Dans 'Je mange une pomme', quel est le COD ?",
+          "options": [
+            "une pomme",
+            "mange",
+            "je",
+            "rouge"
+          ],
+          "answer": "une pomme",
+          "correction": "'Une pomme' repond a la question 'je mange quoi ?': COD.",
+          "prompt_nl": "In 'Ik eet een appel', wat is het lijdend voorwerp?",
+          "prompt_en": "In 'I eat an apple', what is the direct object?",
+          "prompt_es": "En 'Como una manzana', cual es el CD?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Dans 'Paul lit un livre', quel est le COD ?",
+          "options": [
+            "un livre",
+            "lit",
+            "Paul",
+            "vite"
+          ],
+          "answer": "un livre",
+          "correction": "'Un livre' repond a 'Paul lit quoi ?': COD.",
+          "prompt_nl": "In 'Paul leest een boek', wat is het lijdend voorwerp?",
+          "prompt_en": "In 'Paul reads a book', what is the direct object?",
+          "prompt_es": "En 'Paul lee un libro', cual es el CD?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Dans 'Marie appelle sa mere', quel est le COD ?",
+          "options": [
+            "sa mere",
+            "appelle",
+            "Marie",
+            "souvent"
+          ],
+          "answer": "sa mere",
+          "correction": "'Sa mere' repond a 'Marie appelle qui ?': COD.",
+          "prompt_nl": "In 'Marie roept haar moeder', wat is het lijdend voorwerp?",
+          "prompt_en": "In 'Marie calls her mother', what is the direct object?",
+          "prompt_es": "En 'Marie llama a su madre', cual es el CD?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Laquelle de ces phrases contient un COD ?",
+          "options": [
+            "Je mange du pain.",
+            "Je dors bien.",
+            "Il pleut.",
+            "Elle court vite."
+          ],
+          "answer": "Je mange du pain.",
+          "correction": "'Du pain' est le COD de 'mange'. Les autres n'ont pas de COD.",
+          "prompt_nl": "Welke van deze zinnen bevat een lijdend voorwerp?",
+          "prompt_en": "Which of these sentences contains a direct object?",
+          "prompt_es": "Cual de estas frases contiene un CD?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Dans 'Le chien cherche son os', quel est le COD ?",
+          "answer": "son os",
+          "correction": "'Son os' repond a 'le chien cherche quoi ?': COD.",
+          "prompt_nl": "In 'De hond zoekt zijn bot', wat is het lijdend voorwerp?",
+          "prompt_en": "In 'The dog looks for its bone', what is the direct object?",
+          "prompt_es": "En 'El perro busca su hueso', cual es el CD?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Dans 'Elle regarde la television', quel est le COD ?",
+          "answer": "la television",
+          "correction": "'La television' repond a 'elle regarde quoi ?': COD.",
+          "prompt_nl": "In 'Zij kijkt televisie', wat is het lijdend voorwerp?",
+          "prompt_en": "In 'She watches television', what is the direct object?",
+          "prompt_es": "En 'Ella mira la television', cual es el CD?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Remplace 'le livre' par un pronom: 'Marie lit le livre.'",
+          "options": [
+            "Marie le lit.",
+            "Marie la lit.",
+            "Marie lui lit.",
+            "Marie les lit."
+          ],
+          "answer": "Marie le lit.",
+          "correction": "Le livre (masculin singulier) -> le.",
+          "prompt_nl": "Vervang 'het boek' door een voornaamwoord: 'Marie leest het boek.'",
+          "prompt_en": "Replace 'the book' with a pronoun: 'Marie reads the book.'",
+          "prompt_es": "Sustituye 'el libro' por un pronombre: 'Marie lee el libro.'"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Remplace 'les enfants' par un pronom: 'Je connais les enfants.'",
+          "options": [
+            "Je les connais.",
+            "Je le connais.",
+            "Je leur connais.",
+            "Je la connais."
+          ],
+          "answer": "Je les connais.",
+          "correction": "Les enfants (pluriel) -> les.",
+          "prompt_nl": "Vervang 'de kinderen' door een voornaamwoord: 'Ik ken de kinderen.'",
+          "prompt_en": "Replace 'the children' with a pronoun: 'I know the children.'",
+          "prompt_es": "Sustituye 'los ninos' por un pronombre: 'Conozco a los ninos.'"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Dans 'Il offre des fleurs a sa mere', quel est le COI ?",
+          "options": [
+            "a sa mere",
+            "des fleurs",
+            "il",
+            "offre"
+          ],
+          "answer": "a sa mere",
+          "correction": "'A sa mere' repond a 'il offre a qui ?': COI.",
+          "prompt_nl": "In 'Hij biedt bloemen aan zijn moeder aan', wat is het meewerkend voorwerp?",
+          "prompt_en": "In 'He offers flowers to his mother', what is the indirect object?",
+          "prompt_es": "En 'El ofrece flores a su madre', cual es el CI?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Dans 'Elle parle a son ami', quel est le COI ?",
+          "answer": "a son ami",
+          "correction": "'A son ami' repond a 'elle parle a qui ?': COI.",
+          "prompt_nl": "In 'Zij praat met haar vriend', wat is het meewerkend voorwerp?",
+          "prompt_en": "In 'She talks to her friend', what is the indirect object?",
+          "prompt_es": "En 'Ella habla a su amigo', cual es el CI?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Dans 'Elle chante doucement', quel est le CC de maniere ?",
+          "options": [
+            "doucement",
+            "chante",
+            "elle",
+            "toujours"
+          ],
+          "answer": "doucement",
+          "correction": "'Doucement' repond a 'comment ?': CC de maniere.",
+          "prompt_nl": "In 'Ze zingt zacht', wat is de bijwoordelijke bepaling van wijze?",
+          "prompt_en": "In 'She sings softly', what is the adverb of manner?",
+          "prompt_es": "En 'Ella canta suavemente', cual es el CC de modo?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Dans 'Nous partons demain', quel est le CC de temps ?",
+          "options": [
+            "demain",
+            "partons",
+            "nous",
+            "vite"
+          ],
+          "answer": "demain",
+          "correction": "'Demain' repond a 'quand ?': CC de temps.",
+          "prompt_nl": "In 'Wij vertrekken morgen', wat is de bijwoordelijke bepaling van tijd?",
+          "prompt_en": "In 'We leave tomorrow', what is the time adverbial?",
+          "prompt_es": "En 'Nosotros salimos manana', cual es el CC de tiempo?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Dans 'Il habite a Paris', quel est le CC de lieu ?",
+          "options": [
+            "a Paris",
+            "habite",
+            "il",
+            "souvent"
+          ],
+          "answer": "a Paris",
+          "correction": "'A Paris' repond a 'ou ?': CC de lieu.",
+          "prompt_nl": "In 'Hij woont in Parijs', wat is de bijwoordelijke bepaling van plaats?",
+          "prompt_en": "In 'He lives in Paris', what is the place adverbial?",
+          "prompt_es": "En 'El vive en Paris', cual es el CC de lugar?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Identifie le CC de temps: 'Hier, les eleves ont passe un examen.'",
+          "options": [
+            "Hier",
+            "les eleves",
+            "ont passe",
+            "un examen"
+          ],
+          "answer": "Hier",
+          "correction": "'Hier' repond a 'quand ?': CC de temps.",
+          "prompt_nl": "Identificeer de bijwoordelijke bepaling van tijd: 'Gisteren hebben de leerlingen een examen gemaakt.'",
+          "prompt_en": "Identify the time adverbial: 'Yesterday, the pupils took an exam.'",
+          "prompt_es": "Identifica el CC de tiempo: 'Ayer, los alumnos hicieron un examen.'"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Identifie le CC de maniere: 'Il court tres rapidement.'",
+          "answer": "tres rapidement",
+          "correction": "'Tres rapidement' repond a 'comment ?': CC de maniere.",
+          "prompt_nl": "Identificeer de bijwoordelijke bepaling van wijze: 'Hij loopt heel snel.'",
+          "prompt_en": "Identify the manner adverbial: 'He runs very quickly.'",
+          "prompt_es": "Identifica el CC de modo: 'El corre muy rapidamente.'"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Identifie le CC de lieu: 'Les enfants jouent dans le jardin.'",
+          "answer": "dans le jardin",
+          "correction": "'Dans le jardin' repond a 'ou ?': CC de lieu.",
+          "prompt_nl": "Identificeer de bijwoordelijke bepaling van plaats: 'De kinderen spelen in de tuin.'",
+          "prompt_en": "Identify the place adverbial: 'The children play in the garden.'",
+          "prompt_es": "Identifica el CC de lugar: 'Los ninos juegan en el jardin.'"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle question pose-t-on pour trouver le CC de temps ?",
+          "options": [
+            "Quand ?",
+            "Ou ?",
+            "Comment ?",
+            "Pourquoi ?"
+          ],
+          "answer": "Quand ?",
+          "correction": "Le CC de temps repond a la question 'quand ?'",
+          "prompt_nl": "Welke vraag stelt men om de bijwoordelijke bepaling van tijd te vinden?",
+          "prompt_en": "What question do you ask to find the time adverbial?",
+          "prompt_es": "Que pregunta se hace para encontrar el CC de tiempo?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Dans 'Chaque matin, il se leve tot', le CC de temps est ___.",
+          "answer": "Chaque matin",
+          "correction": "'Chaque matin' repond a 'quand ?': CC de temps.",
+          "prompt_nl": "In 'Elke ochtend staat hij vroeg op', de bijwoordelijke bepaling van tijd is ___.",
+          "prompt_en": "In 'Every morning, he gets up early', the time adverbial is ___.",
+          "prompt_es": "En 'Cada manana, el se levanta temprano', el CC de tiempo es ___."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Quel est le CC de lieu dans 'Il range ses livres sur l'etagere' ?",
+          "answer": "sur l'etagere",
+          "correction": "'Sur l'etagere' repond a 'ou ?': CC de lieu.",
+          "prompt_nl": "Wat is de bijwoordelijke bepaling van plaats in 'Hij legt zijn boeken op de plank'?",
+          "prompt_en": "What is the place adverbial in 'He puts his books on the shelf'?",
+          "prompt_es": "Cual es el CC de lugar en 'El pone sus libros en la estanteria'?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Dans 'Avec soin, elle range ses affaires', quel est le CC de maniere ?",
+          "answer": "Avec soin",
+          "correction": "'Avec soin' repond a 'comment ?': CC de maniere.",
+          "prompt_nl": "In 'Met zorg ruimt ze haar spullen op', wat is de bijwoordelijke bepaling van wijze?",
+          "prompt_en": "In 'Carefully, she puts away her things', what is the manner adverbial?",
+          "prompt_es": "En 'Con cuidado, ella guarda sus cosas', cual es el CC de modo?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Transforme en phrase interrogative: 'Tu aimes le chocolat.'",
+          "options": [
+            "Aimes-tu le chocolat ?",
+            "Tu aimes le chocolat ?",
+            "Que tu aimes le chocolat.",
+            "Si tu aimes le chocolat."
+          ],
+          "answer": "Aimes-tu le chocolat ?",
+          "correction": "Pour poser une question, on inverse sujet et verbe.",
+          "prompt_nl": "Verander in een vraagzin: 'Jij houdt van chocola.'",
+          "prompt_en": "Turn into a question: 'You like chocolate.'",
+          "prompt_es": "Convierte en pregunta: 'Tu amas el chocolate.'"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Transforme a la forme negative: 'Il vient demain.'",
+          "options": [
+            "Il ne vient pas demain.",
+            "Il pas vient demain.",
+            "Ne il vient pas demain.",
+            "Il vient ne pas demain."
+          ],
+          "answer": "Il ne vient pas demain.",
+          "correction": "Forme negative: ne + verbe + pas.",
+          "prompt_nl": "Verander in een ontkennende zin: 'Hij komt morgen.'",
+          "prompt_en": "Turn into negative form: 'He comes tomorrow.'",
+          "prompt_es": "Transforma en forma negativa: 'El viene manana.'"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Identifie le type de phrase: 'Quelle belle journee !'",
+          "options": [
+            "exclamative",
+            "interrogative",
+            "declarative",
+            "imperative"
+          ],
+          "answer": "exclamative",
+          "correction": "La phrase se termine par ! -> phrase exclamative.",
+          "prompt_nl": "Identificeer het type zin: 'Wat een mooie dag!'",
+          "prompt_en": "Identify the type of sentence: 'What a beautiful day!'",
+          "prompt_es": "Identifica el tipo de oracion: 'Que dia tan bonito!'"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Identifie le type de phrase: 'Ferme la porte !'",
+          "options": [
+            "imperative",
+            "interrogative",
+            "declarative",
+            "exclamative"
+          ],
+          "answer": "imperative",
+          "correction": "La phrase donne un ordre -> phrase imperative.",
+          "prompt_nl": "Identificeer het type zin: 'Doe de deur dicht!'",
+          "prompt_en": "Identify the type of sentence: 'Close the door!'",
+          "prompt_es": "Identifica el tipo de oracion: 'Cierra la puerta!'"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quel pronom remplace 'le directeur' ?",
+          "options": [
+            "il",
+            "elle",
+            "ils",
+            "on"
+          ],
+          "answer": "il",
+          "correction": "'Le directeur' est masculin singulier -> il.",
+          "prompt_nl": "Welk voornaamwoord vervangt 'le directeur'?",
+          "prompt_en": "Which pronoun replaces 'le directeur'?",
+          "prompt_es": "Que pronombre sustituye a 'le directeur'?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Quel pronom remplace 'Marie et Lea' ?",
+          "options": [
+            "elles",
+            "ils",
+            "on",
+            "elle"
+          ],
+          "answer": "elles",
+          "correction": "Deux personnes feminines -> elles.",
+          "prompt_nl": "Welk voornaamwoord vervangt 'Marie et Lea'?",
+          "prompt_en": "Which pronoun replaces 'Marie and Lea'?",
+          "prompt_es": "Que pronombre sustituye a 'Marie y Lea'?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Transforme en forme passive: 'Le chat mange la souris.'",
+          "options": [
+            "La souris est mangee par le chat.",
+            "La souris mange le chat.",
+            "La souris a ete mangee.",
+            "Le chat est mange par la souris."
+          ],
+          "answer": "La souris est mangee par le chat.",
+          "correction": "A la voix passive: sujet devient complement d'agent (par le chat).",
+          "prompt_nl": "Zet om in de lijdende vorm: 'De kat eet de muis.'",
+          "prompt_en": "Transform into passive voice: 'The cat eats the mouse.'",
+          "prompt_es": "Transforma en voz pasiva: 'El gato come al raton.'"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Dans 'On le lui a donne', 'le' remplace ___.",
+          "options": [
+            "l'objet donne",
+            "la personne",
+            "celui qui a donne",
+            "l'action"
+          ],
+          "answer": "l'objet donne",
+          "correction": "'Le' est un pronom COD qui remplace l'objet masculin singulier.",
+          "prompt_nl": "In 'Men heeft het hem gegeven', 'het' vervangt ___.",
+          "prompt_en": "In 'They gave it to him', 'it' replaces ___.",
+          "prompt_es": "En 'Se lo dieron', 'lo' sustituye a ___."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Choisis le bon pronom relatif: 'La maison ___ j'habite est vieille.'",
+          "options": [
+            "ou",
+            "que",
+            "qui",
+            "dont"
+          ],
+          "answer": "ou",
+          "correction": "'Ou' remplace un lieu apres le nom 'maison'.",
+          "prompt_nl": "Kies het juiste betrekkelijk voornaamwoord: 'Het huis ___ ik woon is oud.'",
+          "prompt_en": "Choose the correct relative pronoun: 'The house ___ I live is old.'",
+          "prompt_es": "Elige el pronombre relativo correcto: 'La casa ___ vivo es vieja.'"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Choisis le bon pronom relatif: 'Le livre ___ je lis est passionnant.'",
+          "answer": "que",
+          "correction": "'Que' est COD du verbe 'lis': le livre que je lis.",
+          "prompt_nl": "Kies het juiste betrekkelijk voornaamwoord: 'Het boek ___ ik lees is boeiend.'",
+          "prompt_en": "Choose the correct relative pronoun: 'The book ___ I am reading is fascinating.'",
+          "prompt_es": "Elige el pronombre relativo correcto: 'El libro ___ leo es apasionante.'"
+        }
+      ]
+    }
+  }
+}

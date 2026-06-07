@@ -2,28 +2,80 @@ import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllGameProgress, getTotalStats, formatDuration } from '../../services/storage/gameProgressStore.js';
 import {
-  IconGameMotsMelanges,
-  IconGameMotsCaches,
-  IconGameDevinettes,
-  IconGameCompletePhrase,
-  IconGameCalculRapide,
-  IconGameCourseMaths,
-  IconGameTrouveIntrus,
-  IconGameMemory,
-  IconGameDetective,
+  IconGameTetris, IconGameTaupesMaths, IconGameBombesMaths,
+  IconGameCasseBriques, IconGameSnake, IconGameNinjaFruits,
+  IconGameMotsMelanges, IconGameMotsCaches, IconGameDevinettes,
+  IconGameCompletePhrase, IconGameChasseLettres, IconGameAtonymes,
+  IconGameOrdreAlpha, IconGameConjugue, IconGameMotsCroises,
+  IconGameSynonymes, IconGameAnagrammes, IconGamePoesie,
+  IconGameCalculRapide, IconGameCourseMaths, IconGameBullesCalcul,
+  IconGameSauteMouton, IconGameHorloge, IconGameFractions,
+  IconGameGeometrie, IconGameMultiplications,
+  IconGamePhraseMystere, IconGameHistoireOrdre, IconGameDetective,
+  IconGameLectureVitesse, IconGameVraiFaux, IconGameMotsIntrus,
+  IconGameNombreSecret, IconGameComparaison, IconGameCodeurMaths,
+  IconGameSuiteLogique, IconGamePairImpair, IconGamePyramideNombres,
+  IconGameEstimation,
+  IconGameTrouveIntrus, IconGameTrieExpress, IconGameSudokuImages,
+  IconGameLabyrinthe, IconGameMotifs,
+  IconGameMemory, IconGameSimon, IconGameObjetsCache, IconGameMemoireChiffres,
+  IconGameQuizCulture, IconGameCapitales, IconGameAnimaux, IconGameInventions,
 } from '../../assets/icons/GameIcons.jsx';
 import './jeux.css';
 
 const GAME_ICON_MAP = {
-  '/jeux/mots-melanges':      IconGameMotsMelanges,
-  '/jeux/mots-caches':        IconGameMotsCaches,
-  '/jeux/devinettes':         IconGameDevinettes,
-  '/jeux/complete-phrase':    IconGameCompletePhrase,
-  '/jeux/calcul-rapide':      IconGameCalculRapide,
-  '/jeux/course-maths':       IconGameCourseMaths,
-  '/jeux/intrus':             IconGameTrouveIntrus,
-  '/jeux/memory':             IconGameMemory,
+  '/jeux/tetris':              IconGameTetris,
+  '/jeux/taupes':              IconGameTaupesMaths,
+  '/jeux/bombes-maths':        IconGameBombesMaths,
+  '/jeux/casse-briques':       IconGameCasseBriques,
+  '/jeux/snake':               IconGameSnake,
+  '/jeux/ninja-fruits':        IconGameNinjaFruits,
+  '/jeux/mots-melanges':       IconGameMotsMelanges,
+  '/jeux/mots-caches':         IconGameMotsCaches,
+  '/jeux/devinettes':          IconGameDevinettes,
+  '/jeux/complete-phrase':     IconGameCompletePhrase,
+  '/jeux/chasse-lettres':      IconGameChasseLettres,
+  '/jeux/antonymes':           IconGameAtonymes,
+  '/jeux/ordre-alpha':         IconGameOrdreAlpha,
+  '/jeux/conjugue':            IconGameConjugue,
+  '/jeux/mots-croises':        IconGameMotsCroises,
+  '/jeux/synonymes':           IconGameSynonymes,
+  '/jeux/anagrammes':          IconGameAnagrammes,
+  '/jeux/poesie':              IconGamePoesie,
+  '/jeux/calcul-rapide':       IconGameCalculRapide,
+  '/jeux/course-maths':        IconGameCourseMaths,
+  '/jeux/bulles-calcul':       IconGameBullesCalcul,
+  '/jeux/saute-mouton':        IconGameSauteMouton,
+  '/jeux/horloge':             IconGameHorloge,
+  '/jeux/fractions':           IconGameFractions,
+  '/jeux/geometrie':           IconGameGeometrie,
+  '/jeux/multiplications':     IconGameMultiplications,
+  '/jeux/phrase-mystere':      IconGamePhraseMystere,
+  '/jeux/histoire-ordre':      IconGameHistoireOrdre,
   '/jeux/detective-histoires': IconGameDetective,
+  '/jeux/lecture-vitesse':     IconGameLectureVitesse,
+  '/jeux/vrai-faux':           IconGameVraiFaux,
+  '/jeux/mots-intrus-texte':   IconGameMotsIntrus,
+  '/jeux/nombre-secret':       IconGameNombreSecret,
+  '/jeux/comparaison':         IconGameComparaison,
+  '/jeux/codeur-maths':        IconGameCodeurMaths,
+  '/jeux/suite-logique':       IconGameSuiteLogique,
+  '/jeux/pair-impair':         IconGamePairImpair,
+  '/jeux/pyramide-nombres':    IconGamePyramideNombres,
+  '/jeux/estimation':          IconGameEstimation,
+  '/jeux/intrus':              IconGameTrouveIntrus,
+  '/jeux/trie-express':        IconGameTrieExpress,
+  '/jeux/sudoku-images':       IconGameSudokuImages,
+  '/jeux/labyrinthe':          IconGameLabyrinthe,
+  '/jeux/motifs':              IconGameMotifs,
+  '/jeux/memory':              IconGameMemory,
+  '/jeux/simon':               IconGameSimon,
+  '/jeux/objets-caches':       IconGameObjetsCache,
+  '/jeux/memoire-chiffres':    IconGameMemoireChiffres,
+  '/jeux/quiz-culture':        IconGameQuizCulture,
+  '/jeux/capitales':           IconGameCapitales,
+  '/jeux/animaux':             IconGameAnimaux,
+  '/jeux/inventions':          IconGameInventions,
 };
 
 const CATEGORIES = [
@@ -332,9 +384,6 @@ export default function JeuxHubPage() {
                   <div className="jh-card__body">
                     <div className="jh-card__top">
                       <span className="jh-card__name">{g.name}</span>
-                      <span className="jh-card__info" title={g.desc} aria-label={g.desc}>
-                        ℹ️
-                      </span>
                     </div>
                     {gp?.bestScore > 0 && (
                       <div className="jh-card__prog">

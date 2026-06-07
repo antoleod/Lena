@@ -1,0 +1,429 @@
+{
+  "id": "conjugaison-25",
+  "category": "conjugaison",
+  "categoryLabel": "Conjugaison",
+  "categoryEmoji": "🔁",
+  "categoryOrder": 9,
+  "title": "CE2 — Passe compose, Imparfait, Futur",
+  "emoji": "🌿",
+  "order": 25,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Hier, j' ___ un livre.",
+          "options": [
+            "ai lu",
+            "lis",
+            "lisais",
+            "lirai"
+          ],
+          "answer": "ai lu",
+          "correction": "Passe compose: avoir + participe passe. J'ai lu.",
+          "prompt_nl": "Gisteren ___ ik een boek.",
+          "prompt_en": "Yesterday I ___ a book.",
+          "prompt_es": "Ayer ___ un libro."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tu ___ ton repas.",
+          "options": [
+            "as fini",
+            "finissais",
+            "finiras",
+            "finissent"
+          ],
+          "answer": "as fini",
+          "correction": "Tu as fini. (passe compose, avoir + fini)",
+          "prompt_nl": "Jij ___ je maaltijd.",
+          "prompt_en": "You ___ your meal.",
+          "prompt_es": "Tu ___ tu comida."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Il ___ une lettre.",
+          "options": [
+            "a ecrit",
+            "ecrira",
+            "ecrivait",
+            "ecrit"
+          ],
+          "answer": "a ecrit",
+          "correction": "Il a ecrit. (passe compose, avoir + ecrit)",
+          "prompt_nl": "Hij ___ een brief.",
+          "prompt_en": "He ___ a letter.",
+          "prompt_es": "El ___ una carta."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Nous ___ le match.",
+          "options": [
+            "avons gagne",
+            "gagnons",
+            "gagnions",
+            "gagnerons"
+          ],
+          "answer": "avons gagne",
+          "correction": "Nous avons gagne. (passe compose, avoir + gagne)",
+          "prompt_nl": "Wij ___ de wedstrijd.",
+          "prompt_en": "We ___ the match.",
+          "prompt_es": "Nosotros ___ el partido."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Elles ___ beaucoup.",
+          "options": [
+            "ont couru",
+            "courent",
+            "couraient",
+            "courront"
+          ],
+          "answer": "ont couru",
+          "correction": "Elles ont couru. (passe compose, avoir + couru)",
+          "prompt_nl": "Zij ___ veel.",
+          "prompt_en": "They ___ a lot.",
+          "prompt_es": "Ellas ___ mucho."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Vous ___ la chanson. (chanter, passe compose)",
+          "answer": "avez chante",
+          "correction": "Vous avez chante. (passe compose, avoir + chante)",
+          "prompt_nl": "U ___ het lied. (chanter, voltooid verleden tijd)",
+          "prompt_en": "You ___ the song. (chanter, past tense)",
+          "prompt_es": "Vosotros ___ la cancion. (chanter, preterito perfecto)"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Il ___ son velo. (reparer, passe compose)",
+          "answer": "a repare",
+          "correction": "Il a repare. (passe compose, avoir + repare)",
+          "prompt_nl": "Hij ___ zijn fiets. (reparer, voltooid verleden tijd)",
+          "prompt_en": "He ___ his bike. (reparer, past tense)",
+          "prompt_es": "El ___ su bicicleta. (reparar, preterito perfecto)"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Nous ___ au cinema. (aller, passe compose)",
+          "options": [
+            "sommes alles",
+            "allons",
+            "allions",
+            "irons"
+          ],
+          "answer": "sommes alles",
+          "correction": "Nous sommes alles. Aller prend etre au passe compose.",
+          "prompt_nl": "Wij ___ naar de bioscoop. (aller, voltooid verleden tijd)",
+          "prompt_en": "We ___ to the cinema. (aller, past tense)",
+          "prompt_es": "Nosotros ___ al cine. (aller, preterito perfecto)"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Elle ___ la veille. (partir, passe compose)",
+          "answer": "est partie",
+          "correction": "Elle est partie. Partir prend etre au passe compose.",
+          "prompt_nl": "Zij ___ de dag ervoor. (partir, voltooid verleden tijd)",
+          "prompt_en": "She ___ the day before. (partir, past tense)",
+          "prompt_es": "Ella ___ el dia anterior. (partir, preterito perfecto)"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Ils ___ hier matin. (arriver, passe compose)",
+          "options": [
+            "sont arrives",
+            "arrivaient",
+            "arriveront",
+            "arrivent"
+          ],
+          "answer": "sont arrives",
+          "correction": "Ils sont arrives. Arriver prend etre au passe compose.",
+          "prompt_nl": "Zij ___ gistermorgen. (arriver, voltooid verleden tijd)",
+          "prompt_en": "They ___ yesterday morning. (arriver, past tense)",
+          "prompt_es": "Ellos ___ ayer por la manana. (arriver, preterito perfecto)"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quand j'etais petit, je ___ beaucoup. (dormir, imparfait)",
+          "options": [
+            "dormais",
+            "dors",
+            "dormirai",
+            "ai dormi"
+          ],
+          "answer": "dormais",
+          "correction": "Imparfait: je dormais. (dormir, 1re sing.)",
+          "prompt_nl": "Toen ik klein was, ___ ik veel. (dormir, onvoltooid verleden tijd)",
+          "prompt_en": "When I was little, I ___ a lot. (dormir, imperfect)",
+          "prompt_es": "Cuando era pequeno, ___ mucho. (dormir, imperfecto)"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Il ___ tous les jours. (travailler, imparfait)",
+          "options": [
+            "travaillait",
+            "travaille",
+            "travaillera",
+            "a travaille"
+          ],
+          "answer": "travaillait",
+          "correction": "Il travaillait. (travailler, imparfait, 3e sing.)",
+          "prompt_nl": "Hij ___ elke dag. (travailler, onvoltooid verleden tijd)",
+          "prompt_en": "He ___ every day. (travailler, imperfect)",
+          "prompt_es": "El ___ todos los dias. (trabajar, imperfecto)"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Nous ___ souvent au parc. (jouer, imparfait)",
+          "answer": "jouions",
+          "correction": "Nous jouions. (jouer, imparfait, 1re plur.)",
+          "prompt_nl": "Wij ___ vaak in het park. (jouer, onvoltooid verleden tijd)",
+          "prompt_en": "We ___ often in the park. (jouer, imperfect)",
+          "prompt_es": "Nosotros ___ a menudo en el parque. (jugar, imperfecto)"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Vous ___ tres bien. (chanter, imparfait)",
+          "options": [
+            "chantiez",
+            "chantez",
+            "chanterez",
+            "avez chante"
+          ],
+          "answer": "chantiez",
+          "correction": "Vous chantiez. (chanter, imparfait, 2e plur.)",
+          "prompt_nl": "U ___ heel goed. (chanter, onvoltooid verleden tijd)",
+          "prompt_en": "You ___ very well. (chanter, imperfect)",
+          "prompt_es": "Vosotros ___ muy bien. (cantar, imperfecto)"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Elles ___ chaque matin. (se lever, imparfait)",
+          "answer": "se levaient",
+          "correction": "Elles se levaient. (se lever, imparfait, 3e plur.)",
+          "prompt_nl": "Zij ___ elke ochtend op. (se lever, onvoltooid verleden tijd)",
+          "prompt_en": "They ___ every morning. (se lever, imperfect)",
+          "prompt_es": "Ellas ___ cada manana. (levantarse, imperfecto)"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Autrefois, on ___ l'ecole en octobre. (commencer, imparfait)",
+          "options": [
+            "commencait",
+            "commence",
+            "commencera",
+            "a commence"
+          ],
+          "answer": "commencait",
+          "correction": "On commencait. (commencer, imparfait, 3e sing.)",
+          "prompt_nl": "Vroeger ___ het schooljaar in oktober. (commencer, onvoltooid verleden tijd)",
+          "prompt_en": "Long ago, school ___ in October. (commencer, imperfect)",
+          "prompt_es": "Antes, el colegio ___ en octubre. (empezar, imperfecto)"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Tu ___ souvent des gateaux. (faire, imparfait)",
+          "answer": "faisais",
+          "correction": "Tu faisais. (faire, imparfait, 2e sing.)",
+          "prompt_nl": "Jij ___ vaak taarten. (faire, onvoltooid verleden tijd)",
+          "prompt_en": "You ___ cakes often. (faire, imperfect)",
+          "prompt_es": "Tu ___ pasteles a menudo. (hacer, imperfecto)"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Il ___ la tele le soir. (regarder, imparfait)",
+          "options": [
+            "regardait",
+            "regarde",
+            "regardera",
+            "a regarde"
+          ],
+          "answer": "regardait",
+          "correction": "Il regardait. (regarder, imparfait, 3e sing.)",
+          "prompt_nl": "Hij ___ 's avonds tv. (regarder, onvoltooid verleden tijd)",
+          "prompt_en": "He ___ TV in the evening. (regarder, imperfect)",
+          "prompt_es": "El ___ la tele por la noche. (mirar, imperfecto)"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Nous ___ tous les etes. (partir, imparfait)",
+          "answer": "partions",
+          "correction": "Nous partions. (partir, imparfait, 1re plur.)",
+          "prompt_nl": "Wij ___ elke zomer. (partir, onvoltooid verleden tijd)",
+          "prompt_en": "We ___ every summer. (partir, imperfect)",
+          "prompt_es": "Nosotros ___ todos los veranos. (partir, imperfecto)"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Elles ___ souvent la foret. (traverser, imparfait)",
+          "answer": "traversaient",
+          "correction": "Elles traversaient. (traverser, imparfait, 3e plur.)",
+          "prompt_nl": "Zij ___ het bos vaak. (traverser, onvoltooid verleden tijd)",
+          "prompt_en": "They ___ the forest often. (traverser, imperfect)",
+          "prompt_es": "Ellas ___ el bosque a menudo. (atravesar, imperfecto)"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Demain, je ___ mes amis. (voir, futur)",
+          "options": [
+            "verrai",
+            "vois",
+            "voyais",
+            "ai vu"
+          ],
+          "answer": "verrai",
+          "correction": "Je verrai. (voir, futur simple, 1re sing.)",
+          "prompt_nl": "Morgen ___ ik mijn vrienden. (voir, toekomende tijd)",
+          "prompt_en": "Tomorrow I ___ my friends. (voir, future)",
+          "prompt_es": "Manana ___ a mis amigos. (voir, futuro)"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Tu ___ en France l'annee prochaine. (aller, futur)",
+          "options": [
+            "iras",
+            "vas",
+            "allais",
+            "es alle"
+          ],
+          "answer": "iras",
+          "correction": "Tu iras. (aller, futur, 2e sing.)",
+          "prompt_nl": "Jij ___ volgend jaar naar Frankrijk. (aller, toekomende tijd)",
+          "prompt_en": "You ___ to France next year. (aller, future)",
+          "prompt_es": "Tu ___ a Francia el ano que viene. (aller, futuro)"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Il ___ president un jour. (etre, futur)",
+          "options": [
+            "sera",
+            "est",
+            "etait",
+            "a ete"
+          ],
+          "answer": "sera",
+          "correction": "Il sera. (etre, futur, 3e sing.)",
+          "prompt_nl": "Hij ___ ooit president. (etre, toekomende tijd)",
+          "prompt_en": "He ___ president one day. (etre, future)",
+          "prompt_es": "El ___ presidente algun dia. (etre, futuro)"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Nous ___ de bons resultats. (avoir, futur)",
+          "answer": "aurons",
+          "correction": "Nous aurons. (avoir, futur, 1re plur.)",
+          "prompt_nl": "Wij ___ goede resultaten. (avoir, toekomende tijd)",
+          "prompt_en": "We ___ good results. (avoir, future)",
+          "prompt_es": "Nosotros ___ buenos resultados. (avoir, futuro)"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Vous ___ votre programme. (finir, futur)",
+          "options": [
+            "finirez",
+            "finissez",
+            "finissiez",
+            "avez fini"
+          ],
+          "answer": "finirez",
+          "correction": "Vous finirez. (finir, futur, 2e plur.)",
+          "prompt_nl": "U ___ uw programma. (finir, toekomende tijd)",
+          "prompt_en": "You ___ your programme. (finir, future)",
+          "prompt_es": "Vosotros ___ vuestro programa. (finir, futuro)"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Ils ___ a la campagne. (vivre, futur)",
+          "answer": "vivront",
+          "correction": "Ils vivront. (vivre, futur, 3e plur.)",
+          "prompt_nl": "Zij ___ op het platteland. (vivre, toekomende tijd)",
+          "prompt_en": "They ___ in the countryside. (vivre, future)",
+          "prompt_es": "Ellos ___ en el campo. (vivre, futuro)"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Quand tu grandiras, tu ___ docteur. (devenir, futur)",
+          "answer": "deviendras",
+          "correction": "Tu deviendras. (devenir, futur, 2e sing.)",
+          "prompt_nl": "Als je groot bent, ___ je dokter. (devenir, toekomende tijd)",
+          "prompt_en": "When you grow up, you ___ a doctor. (devenir, future)",
+          "prompt_es": "Cuando crezcas, ___ medico. (devenir, futuro)"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Nous ___ notre maison. (construire, futur)",
+          "options": [
+            "construirons",
+            "construisons",
+            "construisions",
+            "avons construit"
+          ],
+          "answer": "construirons",
+          "correction": "Nous construirons. (construire, futur, 1re plur.)",
+          "prompt_nl": "Wij ___ ons huis. (construire, toekomende tijd)",
+          "prompt_en": "We ___ our house. (construire, future)",
+          "prompt_es": "Nosotros ___ nuestra casa. (construire, futuro)"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Elle ___ son billet demain. (prendre, futur)",
+          "answer": "prendra",
+          "correction": "Elle prendra. (prendre, futur, 3e sing.)",
+          "prompt_nl": "Zij ___ morgen haar kaartje. (prendre, toekomende tijd)",
+          "prompt_en": "She ___ her ticket tomorrow. (prendre, future)",
+          "prompt_es": "Ella ___ su billete manana. (prendre, futuro)"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Ils ___ leurs affaires. (ranger, futur)",
+          "answer": "rangeront",
+          "correction": "Ils rangeront. (ranger, futur, 3e plur.)",
+          "prompt_nl": "Zij ___ hun spullen op. (ranger, toekomende tijd)",
+          "prompt_en": "They ___ their belongings. (ranger, future)",
+          "prompt_es": "Ellos ___ sus cosas. (ranger, futuro)"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,423 @@
+{
+  "id": "problemes-mathematiques-22",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problemes mathematiques",
+  "categoryEmoji": "📐",
+  "categoryOrder": 3,
+  "title": "Problemes CE2 �\u001d Deux etapes",
+  "emoji": "📊",
+  "order": 22,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Marie a 24 billes. Elle en gagne 8, puis en perd 5. Combien en a-t-elle ?",
+          "options": [
+            "27",
+            "26",
+            "28",
+            "25"
+          ],
+          "answer": "27",
+          "correction": "24 + 8 = 32, puis 32 - 5 = 27 billes.",
+          "prompt_nl": "Marie heeft 24 knikkers. Ze wint er 8, dan verliest ze er 5. Hoeveel heeft ze?",
+          "prompt_en": "Marie has 24 marbles. She wins 8, then loses 5. How many does she have?",
+          "prompt_es": "Marie tiene 24 canicas. Gana 8 y luego pierde 5. Cuantas tiene?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un marchand avait 50 pommes. Il en vend 18 le matin et 14 l'apres-midi. Combien lui en reste-t-il ?",
+          "options": [
+            "18",
+            "17",
+            "19",
+            "16"
+          ],
+          "answer": "18",
+          "correction": "18 + 14 = 32 vendues. 50 - 32 = 18 restantes.",
+          "prompt_nl": "Een koopman had 50 appels. Hij verkoopt er 18 's ochtends en 14 's middags. Hoeveel heeft hij nog?",
+          "prompt_en": "A merchant had 50 apples. He sells 18 in the morning and 14 in the afternoon. How many are left?",
+          "prompt_es": "Un vendedor tenia 50 manzanas. Vende 18 por la manana y 14 por la tarde. Cuantas le quedan?"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Une classe a 28 eleves. 3 nouveaux arrivent et 2 partent. Combien y a-t-il d'eleves ?",
+          "answer": 29,
+          "correction": "28 + 3 - 2 = 29 eleves.",
+          "prompt_nl": "Een klas heeft 28 leerlingen. 3 nieuwe komen en 2 vertrekken. Hoeveel leerlingen zijn er?",
+          "prompt_en": "A class has 28 pupils. 3 new ones arrive and 2 leave. How many pupils are there?",
+          "prompt_es": "Una clase tiene 28 alumnos. Llegan 3 nuevos y se van 2. Cuantos alumnos hay?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Tom lit 15 pages le lundi et 20 pages le mardi. Le mercredi il lit autant que lundi et mardi reunis. Combien lit-il mercredi ?",
+          "answer": 35,
+          "correction": "15 + 20 = 35 pages mercredi.",
+          "prompt_nl": "Tom leest 15 pagina's op maandag en 20 op dinsdag. Op woensdag leest hij evenveel als maandag en dinsdag samen. Hoeveel leest hij woensdag?",
+          "prompt_en": "Tom reads 15 pages on Monday and 20 on Tuesday. On Wednesday he reads as many as Monday and Tuesday combined. How many does he read on Wednesday?",
+          "prompt_es": "Tom lee 15 paginas el lunes y 20 el martes. El miercoles lee tanto como lunes y martes juntos. Cuantas lee el miercoles?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Une boulangere fait 4 fournees de 24 pains. Elle en vend 75. Combien lui reste-t-il ?",
+          "options": [
+            "21",
+            "20",
+            "22",
+            "19"
+          ],
+          "answer": "21",
+          "correction": "4 x 24 = 96 pains. 96 - 75 = 21 pains restants.",
+          "prompt_nl": "Een bakker maakt 4 bakbeurten van 24 broden. Ze verkoopt er 75. Hoeveel heeft ze nog?",
+          "prompt_en": "A baker makes 4 batches of 24 loaves. She sells 75. How many does she have left?",
+          "prompt_es": "Una panadera hace 4 hornadas de 24 panes. Vende 75. Cuantos le quedan?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Un jardin a 3 rangees de 12 arbres. On plante encore 8 arbres. Combien y a-t-il d'arbres ?",
+          "answer": 44,
+          "correction": "3 x 12 = 36. 36 + 8 = 44 arbres.",
+          "prompt_nl": "Een tuin heeft 3 rijen van 12 bomen. Er worden nog 8 bomen geplant. Hoeveel bomen zijn er?",
+          "prompt_en": "A garden has 3 rows of 12 trees. 8 more are planted. How many trees are there?",
+          "prompt_es": "Un jardin tiene 3 filas de 12 arboles. Se plantan 8 mas. Cuantos arboles hay?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Lea a 45 euros. Elle achete un livre a 12 euros et des crayons a 7 euros. Combien lui reste-t-il ?",
+          "options": [
+            "26",
+            "25",
+            "27",
+            "24"
+          ],
+          "answer": "26",
+          "correction": "12 + 7 = 19 euros depenses. 45 - 19 = 26 euros.",
+          "prompt_nl": "Lea heeft 45 euro. Ze koopt een boek voor 12 euro en potloden voor 7 euro. Hoeveel heeft ze nog?",
+          "prompt_en": "Lea has 45 euros. She buys a book for 12 euros and pencils for 7 euros. How much does she have left?",
+          "prompt_es": "Lea tiene 45 euros. Compra un libro a 12 euros y lapices a 7 euros. Cuanto le queda?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Un eleveur a 5 poulaillers de 18 poules. 12 poules s'echappent. Combien reste-t-il de poules ?",
+          "answer": 78,
+          "correction": "5 x 18 = 90. 90 - 12 = 78 poules.",
+          "prompt_nl": "Een boer heeft 5 kippenhokken met 18 kippen. 12 kippen ontsnappen. Hoeveel kippen zijn er nog?",
+          "prompt_en": "A farmer has 5 hen houses of 18 hens. 12 hens escape. How many hens are left?",
+          "prompt_es": "Un ganadero tiene 5 gallineros de 18 gallinas. 12 gallinas se escapan. Cuantas gallinas quedan?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Paul gagne 8 euros par heure. Il travaille 6 heures puis depense 15 euros. Combien lui reste-t-il ?",
+          "options": [
+            "33",
+            "32",
+            "34",
+            "31"
+          ],
+          "answer": "33",
+          "correction": "8 x 6 = 48 euros. 48 - 15 = 33 euros.",
+          "prompt_nl": "Paul verdient 8 euro per uur. Hij werkt 6 uur en geeft dan 15 euro uit. Hoeveel heeft hij nog?",
+          "prompt_en": "Paul earns 8 euros per hour. He works 6 hours then spends 15 euros. How much does he have left?",
+          "prompt_es": "Paul gana 8 euros por hora. Trabaja 6 horas y luego gasta 15 euros. Cuanto le queda?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Un bus a 48 places. 35 personnes sont assises. A l'arret, 12 descendent et 9 montent. Combien de personnes sont maintenant dans le bus ?",
+          "answer": 32,
+          "correction": "35 - 12 + 9 = 32 personnes.",
+          "prompt_nl": "Een bus heeft 48 plaatsen. 35 mensen zitten. Op de halte stappen 12 uit en 9 in. Hoeveel mensen zijn er nu in de bus?",
+          "prompt_en": "A bus has 48 seats. 35 people are seated. At the stop, 12 get off and 9 get on. How many people are now on the bus?",
+          "prompt_es": "Un autobus tiene 48 plazas. 35 personas estan sentadas. En la parada bajan 12 y suben 9. Cuantas personas hay ahora en el autobus?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Une tablette de chocolat coute 2,50 euros. Julie en achete 4. Elle paie avec 12 euros. Quelle est sa monnaie ?",
+          "options": [
+            "2 euros",
+            "1 euro",
+            "3 euros",
+            "1,50 euro"
+          ],
+          "answer": "2 euros",
+          "correction": "4 x 2,50 = 10 euros. 12 - 10 = 2 euros de monnaie.",
+          "prompt_nl": "Een reep chocolade kost 2,50 euro. Julie koopt er 4. Ze betaalt met 12 euro. Hoeveel wisselgeld krijgt ze?",
+          "prompt_en": "A chocolate bar costs 2.50 euros. Julie buys 4. She pays with 12 euros. What is her change?",
+          "prompt_es": "Una tableta de chocolate cuesta 2,50 euros. Julie compra 4. Paga con 12 euros. Cuanto recibe de cambio?"
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Un livre coute 8 euros, un stylo 3 euros, une gomme 1 euro. Theo a 15 euros et achete le livre et le stylo. Combien lui reste-t-il ?",
+          "answer": 4,
+          "correction": "8 + 3 = 11 euros. 15 - 11 = 4 euros.",
+          "prompt_nl": "Een boek kost 8 euro, een pen 3 euro, een gum 1 euro. Theo heeft 15 euro en koopt het boek en de pen. Hoeveel heeft hij nog?",
+          "prompt_en": "A book costs 8 euros, a pen 3 euros, a rubber 1 euro. Theo has 15 euros and buys the book and pen. How much does he have left?",
+          "prompt_es": "Un libro cuesta 8 euros, un boligrafo 3 euros, una goma 1 euro. Theo tiene 15 euros y compra el libro y el boligrafo. Cuanto le queda?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Un boulanger fait 7 fournees par jour. Chaque fournee donne 48 baguettes. Il a deja 36 baguettes. Combien en aura-t-il apres la 1ere fournee ?",
+          "options": [
+            "84",
+            "82",
+            "86",
+            "80"
+          ],
+          "answer": "84",
+          "correction": "36 + 48 = 84 baguettes.",
+          "prompt_nl": "Een bakker maakt 7 bakbeurten per dag. Elke beurt geeft 48 stokbroden. Hij heeft al 36 stokbroden. Hoeveel zal hij hebben na de 1e beurt?",
+          "prompt_en": "A baker makes 7 batches per day. Each batch gives 48 baguettes. He already has 36 baguettes. How many will he have after the 1st batch?",
+          "prompt_es": "Un panadero hace 7 hornadas al dia. Cada hornada da 48 baguettes. Ya tiene 36 baguettes. Cuantas tendra despues de la 1a hornada?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Une boite de 6 oranges coute 3 euros. Combien coute 4 boites ?",
+          "answer": 12,
+          "correction": "4 x 3 = 12 euros.",
+          "prompt_nl": "Een doos van 6 sinaasappels kost 3 euro. Hoeveel kosten 4 dozen?",
+          "prompt_en": "A box of 6 oranges costs 3 euros. How much do 4 boxes cost?",
+          "prompt_es": "Una caja de 6 naranjas cuesta 3 euros. Cuanto cuestan 4 cajas?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Un voyage dure 3 heures 30 minutes. Le train part a 9h00. A quelle heure arrive-t-il ?",
+          "options": [
+            "12h30",
+            "12h00",
+            "13h00",
+            "11h30"
+          ],
+          "answer": "12h30",
+          "correction": "9h00 + 3h30 = 12h30.",
+          "prompt_nl": "Een reis duurt 3 uur 30 minuten. De trein vertrekt om 9u00. Hoe laat komt hij aan?",
+          "prompt_en": "A journey lasts 3 hours 30 minutes. The train leaves at 9:00. What time does it arrive?",
+          "prompt_es": "Un viaje dura 3 horas 30 minutos. El tren sale a las 9h00. A que hora llega?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Une piscine a 6 couloirs de 25 metres de long et 4 metres de large. Quelle est la longueur de la piscine ?",
+          "options": [
+            "25 m",
+            "100 m",
+            "150 m",
+            "24 m"
+          ],
+          "answer": "25 m",
+          "correction": "La longueur d'un couloir est 25 metres.",
+          "prompt_nl": "Een zwembad heeft 6 banen van 25 meter lang en 4 meter breed. Wat is de lengte van het zwembad?",
+          "prompt_en": "A pool has 6 lanes, each 25 metres long and 4 metres wide. What is the length of the pool?",
+          "prompt_es": "Una piscina tiene 6 calles de 25 metros de largo y 4 metros de ancho. Cual es la longitud de la piscina?"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Paul achete 3 stylos a 1,50 euro et 2 cahiers a 2 euros. Combien depense-t-il en tout ?",
+          "answer": 8.5,
+          "correction": "3 x 1,50 + 2 x 2 = 4,50 + 4 = 8,50 euros.",
+          "prompt_nl": "Paul koopt 3 pennen van 1,50 euro en 2 schriften van 2 euro. Hoeveel geeft hij in totaal uit?",
+          "prompt_en": "Paul buys 3 pens at 1.50 euros and 2 notebooks at 2 euros. How much does he spend in total?",
+          "prompt_es": "Paul compra 3 boligrafos a 1,50 euros y 2 cuadernos a 2 euros. Cuanto gasta en total?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Une ferme a 4 vaches, chacune donne 15 litres de lait par jour. Combien de litres par semaine ?",
+          "options": [
+            "420",
+            "360",
+            "480",
+            "300"
+          ],
+          "answer": "420",
+          "correction": "4 x 15 = 60 litres/jour. 60 x 7 = 420 litres/semaine.",
+          "prompt_nl": "Een boerderij heeft 4 koeien, elke geeft 15 liter melk per dag. Hoeveel liter per week?",
+          "prompt_en": "A farm has 4 cows, each giving 15 litres of milk per day. How many litres per week?",
+          "prompt_es": "Una granja tiene 4 vacas, cada una da 15 litros de leche al dia. Cuantos litros por semana?"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Une equipe de football a 11 joueurs. Pour un tournoi, on forme 6 equipes. Combien de joueurs au total ?",
+          "answer": 66,
+          "correction": "11 x 6 = 66 joueurs.",
+          "prompt_nl": "Een voetbalteam heeft 11 spelers. Voor een toernooi worden 6 teams gevormd. Hoeveel spelers in totaal?",
+          "prompt_en": "A football team has 11 players. For a tournament, 6 teams are formed. How many players in total?",
+          "prompt_es": "Un equipo de futbol tiene 11 jugadores. Para un torneo se forman 6 equipos. Cuantos jugadores en total?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un robinet laisse couler 3 litres par minute. Un bain necessite 120 litres. Combien de minutes faut-il ?",
+          "options": [
+            "40",
+            "30",
+            "50",
+            "60"
+          ],
+          "answer": "40",
+          "correction": "120 / 3 = 40 minutes.",
+          "prompt_nl": "Een kraan laat 3 liter per minuut stromen. Een bad heeft 120 liter nodig. Hoeveel minuten zijn nodig?",
+          "prompt_en": "A tap runs at 3 litres per minute. A bath needs 120 litres. How many minutes are needed?",
+          "prompt_es": "Un grifo deja correr 3 litros por minuto. Un bano necesita 120 litros. Cuantos minutos hacen falta?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Un cinema a 3 salles. La grande salle a 200 places, les 2 petites ont 120 places chacune. Combien de places en tout ?",
+          "answer": 440,
+          "correction": "200 + 2 x 120 = 200 + 240 = 440 places.",
+          "prompt_nl": "Een bioscoop heeft 3 zalen. De grote zaal heeft 200 plaatsen, de 2 kleine hebben elk 120 plaatsen. Hoeveel plaatsen in totaal?",
+          "prompt_en": "A cinema has 3 screens. The large one has 200 seats, the 2 small ones have 120 each. How many seats in total?",
+          "prompt_es": "Un cine tiene 3 salas. La grande tiene 200 plazas, las 2 pequenas tienen 120 cada una. Cuantas plazas en total?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Une voiture roule a 80 km/h. Apres 3 heures, quelle distance a-t-elle parcourue ?",
+          "options": [
+            "240",
+            "180",
+            "320",
+            "200"
+          ],
+          "answer": "240",
+          "correction": "80 x 3 = 240 km.",
+          "prompt_nl": "Een auto rijdt 80 km/u. Na 3 uur, welke afstand heeft hij afgelegd?",
+          "prompt_en": "A car travels at 80 km/h. After 3 hours, what distance has it covered?",
+          "prompt_es": "Un coche circula a 80 km/h. Despues de 3 horas, que distancia ha recorrido?"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Un epicier achete 8 caisses de 24 bouteilles a 1,25 euro la bouteille. Combien depense-t-il ?",
+          "answer": 240,
+          "correction": "8 x 24 = 192 bouteilles. 192 x 1,25 = 240 euros.",
+          "prompt_nl": "Een kruidenier koopt 8 kratten van 24 flessen aan 1,25 euro per fles. Hoeveel geeft hij uit?",
+          "prompt_en": "A grocer buys 8 crates of 24 bottles at 1.25 euros per bottle. How much does he spend?",
+          "prompt_es": "Un tendero compra 8 cajas de 24 botellas a 1,25 euros la botella. Cuanto gasta?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un jardinier plante des tulipes en rangees de 15. Il a 4 rangees completes et 7 tulipes en plus. Combien de tulipes en tout ?",
+          "options": [
+            "67",
+            "65",
+            "70",
+            "62"
+          ],
+          "answer": "67",
+          "correction": "4 x 15 + 7 = 60 + 7 = 67 tulipes.",
+          "prompt_nl": "Een tuinier plant tulpen in rijen van 15. Hij heeft 4 volledige rijen en 7 extra tulpen. Hoeveel tulpen in totaal?",
+          "prompt_en": "A gardener plants tulips in rows of 15. He has 4 complete rows and 7 extra tulips. How many tulips in total?",
+          "prompt_es": "Un jardinero planta tulipanes en filas de 15. Tiene 4 filas completas y 7 tulipanes extra. Cuantos tulipanes en total?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Anna economise 5 euros par semaine. Dans combien de semaines aura-t-elle 85 euros ?",
+          "options": [
+            "17",
+            "15",
+            "20",
+            "12"
+          ],
+          "answer": "17",
+          "correction": "85 / 5 = 17 semaines.",
+          "prompt_nl": "Anna spaart 5 euro per week. Over hoeveel weken heeft ze 85 euro?",
+          "prompt_en": "Anna saves 5 euros per week. In how many weeks will she have 85 euros?",
+          "prompt_es": "Anna ahorra 5 euros por semana. En cuantas semanas tendra 85 euros?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Un mur de 72 briques est construit en 6 rangees egales. Combien de briques par rangee ?",
+          "answer": 12,
+          "correction": "72 / 6 = 12 briques.",
+          "prompt_nl": "Een muur van 72 stenen wordt gebouwd in 6 gelijke rijen. Hoeveel stenen per rij?",
+          "prompt_en": "A wall of 72 bricks is built in 6 equal rows. How many bricks per row?",
+          "prompt_es": "Un muro de 72 ladrillos se construye en 6 filas iguales. Cuantos ladrillos por fila?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Un train parcourt 480 km en 4 heures. Quelle est sa vitesse par heure ?",
+          "options": [
+            "120",
+            "100",
+            "140",
+            "80"
+          ],
+          "answer": "120",
+          "correction": "480 / 4 = 120 km/h.",
+          "prompt_nl": "Een trein legt 480 km af in 4 uur. Wat is zijn snelheid per uur?",
+          "prompt_en": "A train covers 480 km in 4 hours. What is its speed per hour?",
+          "prompt_es": "Un tren recorre 480 km en 4 horas. Cual es su velocidad por hora?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Une boulangere vend des croissants par 6. Elle en a fait 108. Combien de sachets peut-elle remplir ?",
+          "answer": 18,
+          "correction": "108 / 6 = 18 sachets.",
+          "prompt_nl": "Een bakster verkoopt croissants per 6. Ze heeft er 108 gemaakt. Hoeveel zakjes kan ze vullen?",
+          "prompt_en": "A baker sells croissants in packs of 6. She has made 108. How many packs can she fill?",
+          "prompt_es": "Una panadera vende cruasanes de 6 en 6. Ha hecho 108. Cuantas bolsas puede llenar?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Un rectangle a un perimetre de 36 cm. Sa longueur est 12 cm. Quelle est sa largeur ?",
+          "options": [
+            "6",
+            "8",
+            "10",
+            "4"
+          ],
+          "answer": "6",
+          "correction": "Perimetre = 2 x (longueur + largeur). 36 = 2 x (12 + l). l = 36/2 - 12 = 6 cm.",
+          "prompt_nl": "Een rechthoek heeft een omtrek van 36 cm. Zijn lengte is 12 cm. Wat is zijn breedte?",
+          "prompt_en": "A rectangle has a perimeter of 36 cm. Its length is 12 cm. What is its width?",
+          "prompt_es": "Un rectangulo tiene un perimetro de 36 cm. Su longitud es 12 cm. Cual es su anchura?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Tom a le triple de l'age de sa soeur. Sa soeur a 4 ans. Quel age a Tom ?",
+          "answer": 12,
+          "correction": "3 x 4 = 12 ans.",
+          "prompt_nl": "Tom is driemaal zo oud als zijn zusje. Zijn zusje is 4 jaar. Hoe oud is Tom?",
+          "prompt_en": "Tom is three times the age of his sister. His sister is 4 years old. How old is Tom?",
+          "prompt_es": "Tom tiene el triple de la edad de su hermana. Su hermana tiene 4 anos. Cuantos anos tiene Tom?"
+        }
+      ]
+    }
+  }
+}

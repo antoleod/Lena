@@ -2,10 +2,10 @@
   "id": "problemes-mathematiques-14",
   "category": "problemes-mathematiques",
   "categoryLabel": "Problèmes mathématiques",
-  "categoryEmoji": "📖",
+  "categoryEmoji": "📐",
   "categoryOrder": 3,
   "title": "Problèmes : les galets",
-  "emoji": "📖",
+  "emoji": "🪨",
   "order": 14,
   "levels": {
     "facile": {
@@ -42,7 +42,7 @@
           "type": "fill_blank",
           "prompt": "Théo a 12 galets. Théo en perd 8. Combien en reste-t-il ?",
           "answer": "4",
-          "correction": "12 − 8 = 4 galets."
+          "correction": "12 ��\u0019 8 = 4 galets."
         },
         {
           "id": "q4",
@@ -75,7 +75,7 @@
           "type": "fill_blank",
           "prompt": "Tom a 12 galets. Tom en perd 5. Combien en reste-t-il ?",
           "answer": "7",
-          "correction": "12 − 5 = 7 galets."
+          "correction": "12 ��\u0019 5 = 7 galets."
         },
         {
           "id": "q7",
@@ -88,7 +88,7 @@
             "7"
           ],
           "answer": "3",
-          "correction": "12 − 9 = 3 galets."
+          "correction": "12 ��\u0019 9 = 3 galets."
         },
         {
           "id": "q8",
@@ -101,7 +101,7 @@
             "13"
           ],
           "answer": "9",
-          "correction": "11 − 2 = 9 galets."
+          "correction": "11 ��\u0019 2 = 9 galets."
         },
         {
           "id": "q9",
@@ -121,7 +121,7 @@
             "8"
           ],
           "answer": "6",
-          "correction": "11 − 5 = 6 galets."
+          "correction": "11 ��\u0019 5 = 6 galets."
         }
       ]
     },
@@ -139,7 +139,7 @@
             "11"
           ],
           "answer": "4",
-          "correction": "10 − 6 = 4 galets."
+          "correction": "10 ��\u0019 6 = 4 galets."
         },
         {
           "id": "q2",
@@ -152,14 +152,14 @@
             "10"
           ],
           "answer": "15",
-          "correction": "17 − 2 = 15 galets."
+          "correction": "17 ��\u0019 2 = 15 galets."
         },
         {
           "id": "q3",
           "type": "fill_blank",
           "prompt": "Nina a 5 boîtes de 6 galets. Combien de galets en tout ?",
           "answer": "30",
-          "correction": "5 × 6 = 30 galets."
+          "correction": "5 �\u0014 6 = 30 galets."
         },
         {
           "id": "q4",
@@ -172,7 +172,7 @@
             "3"
           ],
           "answer": "13",
-          "correction": "19 − 6 = 13 galets."
+          "correction": "19 ��\u0019 6 = 13 galets."
         },
         {
           "id": "q5",
@@ -185,14 +185,14 @@
             "10"
           ],
           "answer": "8",
-          "correction": "2 × 4 = 8 galets."
+          "correction": "2 �\u0014 4 = 8 galets."
         },
         {
           "id": "q6",
           "type": "fill_blank",
           "prompt": "Hugo a 3 boîtes de 3 galets. Combien de galets en tout ?",
           "answer": "9",
-          "correction": "3 × 3 = 9 galets."
+          "correction": "3 �\u0014 3 = 9 galets."
         },
         {
           "id": "q7",
@@ -205,7 +205,7 @@
             "3"
           ],
           "answer": "6",
-          "correction": "14 − 8 = 6 galets."
+          "correction": "14 ��\u0019 8 = 6 galets."
         },
         {
           "id": "q8",
@@ -238,7 +238,7 @@
             "23"
           ],
           "answer": "22",
-          "correction": "23 − 1 = 22 galets."
+          "correction": "23 ��\u0019 1 = 22 galets."
         }
       ]
     },
@@ -302,7 +302,7 @@
             "23"
           ],
           "answer": "8",
-          "correction": "4 × 2 = 8 galets."
+          "correction": "4 �\u0014 2 = 8 galets."
         },
         {
           "id": "q6",
@@ -355,7 +355,7 @@
             "18"
           ],
           "answer": "18",
-          "correction": "3 × 6 = 18 galets."
+          "correction": "3 �\u0014 6 = 18 galets."
         }
       ]
     }

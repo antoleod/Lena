@@ -1,0 +1,435 @@
+{
+  "id": "problemes-mathematiques-21",
+  "category": "problemes-mathematiques",
+  "categoryLabel": "Problemes mathematiques",
+  "categoryEmoji": "📐",
+  "categoryOrder": 3,
+  "title": "Problemes CE1 �\u001d Une etape",
+  "emoji": "🧮",
+  "order": 21,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Paul a 8 billes. Il gagne 5 billes. Combien en a-t-il maintenant ?",
+          "options": [
+            "13",
+            "12",
+            "14",
+            "11"
+          ],
+          "answer": "13",
+          "correction": "8 + 5 = 13 billes.",
+          "prompt_nl": "Paul heeft 8 knikkers. Hij wint er 5. Hoeveel heeft hij nu?",
+          "prompt_en": "Paul has 8 marbles. He wins 5. How many does he have now?",
+          "prompt_es": "Paul tiene 8 canicas. Gana 5. Cuantas tiene ahora?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Dans un panier, il y a 15 pommes. On en mange 6. Combien reste-t-il ?",
+          "options": [
+            "9",
+            "8",
+            "10",
+            "7"
+          ],
+          "answer": "9",
+          "correction": "15 - 6 = 9 pommes.",
+          "prompt_nl": "In een mand liggen 15 appels. We eten er 6. Hoeveel blijven er over?",
+          "prompt_en": "In a basket there are 15 apples. We eat 6. How many are left?",
+          "prompt_es": "En una cesta hay 15 manzanas. Se comen 6. Cuantas quedan?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Une classe a 12 filles et 11 garcons. Combien y a-t-il d'eleves ?",
+          "options": [
+            "23",
+            "22",
+            "24",
+            "21"
+          ],
+          "answer": "23",
+          "correction": "12 + 11 = 23 eleves.",
+          "prompt_nl": "Een klas heeft 12 meisjes en 11 jongens. Hoeveel leerlingen zijn er?",
+          "prompt_en": "A class has 12 girls and 11 boys. How many pupils are there?",
+          "prompt_es": "Una clase tiene 12 ninas y 11 ninos. Cuantos alumnos hay?"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Lea a 20 euros. Elle depense 7 euros. Combien lui reste-t-il ?",
+          "answer": 13,
+          "correction": "20 - 7 = 13 euros.",
+          "prompt_nl": "Lea heeft 20 euro. Ze geeft 7 euro uit. Hoeveel heeft ze nog?",
+          "prompt_en": "Lea has 20 euros. She spends 7 euros. How much does she have left?",
+          "prompt_es": "Lea tiene 20 euros. Gasta 7 euros. Cuanto le queda?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Un bouquet a 9 roses et 8 tulipes. Combien y a-t-il de fleurs ?",
+          "options": [
+            "17",
+            "16",
+            "18",
+            "15"
+          ],
+          "answer": "17",
+          "correction": "9 + 8 = 17 fleurs.",
+          "prompt_nl": "Een boeket heeft 9 rozen en 8 tulpen. Hoeveel bloemen zijn er?",
+          "prompt_en": "A bouquet has 9 roses and 8 tulips. How many flowers are there?",
+          "prompt_es": "Un ramo tiene 9 rosas y 8 tulipanes. Cuantas flores hay?"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Tom lit 14 pages le matin et 5 pages le soir. Combien lit-il de pages ?",
+          "answer": 19,
+          "correction": "14 + 5 = 19 pages.",
+          "prompt_nl": "Tom leest 14 pagina's 's ochtends en 5 's avonds. Hoeveel pagina's leest hij?",
+          "prompt_en": "Tom reads 14 pages in the morning and 5 in the evening. How many pages does he read?",
+          "prompt_es": "Tom lee 14 paginas por la manana y 5 por la noche. Cuantas paginas lee?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Il y a 18 oiseaux dans un arbre. 7 s'envolent. Combien restent ?",
+          "options": [
+            "11",
+            "10",
+            "12",
+            "9"
+          ],
+          "answer": "11",
+          "correction": "18 - 7 = 11 oiseaux.",
+          "prompt_nl": "Er zijn 18 vogels in een boom. 7 vliegen weg. Hoeveel blijven er?",
+          "prompt_en": "There are 18 birds in a tree. 7 fly away. How many remain?",
+          "prompt_es": "Hay 18 pajaros en un arbol. 7 se van volando. Cuantos quedan?"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Une boite contient 25 bonbons. On en mange 8. Combien reste-t-il ?",
+          "answer": 17,
+          "correction": "25 - 8 = 17 bonbons.",
+          "prompt_nl": "Een doos bevat 25 snoepjes. We eten er 8. Hoeveel blijven er over?",
+          "prompt_en": "A box contains 25 sweets. We eat 8. How many are left?",
+          "prompt_es": "Una caja contiene 25 caramelos. Comemos 8. Cuantos quedan?"
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Dans un zoo, il y a 7 lions et 9 tigres. Combien y a-t-il de fauves ?",
+          "options": [
+            "16",
+            "15",
+            "17",
+            "14"
+          ],
+          "answer": "16",
+          "correction": "7 + 9 = 16 fauves.",
+          "prompt_nl": "In een dierentuin zijn 7 leeuwen en 9 tijgers. Hoeveel grote katten zijn er?",
+          "prompt_en": "In a zoo there are 7 lions and 9 tigers. How many big cats are there?",
+          "prompt_es": "En un zoo hay 7 leones y 9 tigres. Cuantos felinos hay?"
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Sara a 30 images. Elle en donne 12. Combien lui en reste-t-il ?",
+          "answer": 18,
+          "correction": "30 - 12 = 18 images.",
+          "prompt_nl": "Sara heeft 30 plaatjes. Ze geeft er 12 weg. Hoeveel houdt ze over?",
+          "prompt_en": "Sara has 30 pictures. She gives away 12. How many does she have left?",
+          "prompt_es": "Sara tiene 30 cromos. Da 12. Cuantos le quedan?"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Un magasin vend 45 glaces le matin et 38 le soir. Combien de glaces au total ?",
+          "options": [
+            "83",
+            "82",
+            "84",
+            "81"
+          ],
+          "answer": "83",
+          "correction": "45 + 38 = 83 glaces.",
+          "prompt_nl": "Een winkel verkoopt 45 ijsjes 's ochtends en 38 's avonds. Hoeveel ijsjes in totaal?",
+          "prompt_en": "A shop sells 45 ice creams in the morning and 38 in the evening. How many in total?",
+          "prompt_es": "Una tienda vende 45 helados por la manana y 38 por la tarde. Cuantos en total?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Un train a 74 passagers. A l'arret, 29 descendent. Combien reste-t-il ?",
+          "options": [
+            "45",
+            "44",
+            "46",
+            "43"
+          ],
+          "answer": "45",
+          "correction": "74 - 29 = 45 passagers.",
+          "prompt_nl": "Een trein heeft 74 passagiers. Op het station stappen 29 uit. Hoeveel blijven er?",
+          "prompt_en": "A train has 74 passengers. At the stop, 29 get off. How many remain?",
+          "prompt_es": "Un tren tiene 74 pasajeros. En la parada bajan 29. Cuantos quedan?"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Sur un marche, il y a 56 oranges et 37 citrons. Combien y a-t-il de fruits ?",
+          "answer": 93,
+          "correction": "56 + 37 = 93 fruits.",
+          "prompt_nl": "Op een markt zijn 56 sinaasappels en 37 citroenen. Hoeveel fruit is er?",
+          "prompt_en": "At a market there are 56 oranges and 37 lemons. How many fruits are there?",
+          "prompt_es": "En un mercado hay 56 naranjas y 37 limones. Cuantas frutas hay?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Un livre a 120 pages. Marie en a lu 48. Combien lui en reste-t-il ?",
+          "options": [
+            "72",
+            "71",
+            "73",
+            "70"
+          ],
+          "answer": "72",
+          "correction": "120 - 48 = 72 pages.",
+          "prompt_nl": "Een boek heeft 120 pagina's. Marie heeft er 48 gelezen. Hoeveel moet ze nog lezen?",
+          "prompt_en": "A book has 120 pages. Marie has read 48. How many does she have left?",
+          "prompt_es": "Un libro tiene 120 paginas. Marie ha leido 48. Cuantas le quedan?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Une ecole a 345 eleves. 28 sont absents. Combien sont presents ?",
+          "answer": 317,
+          "correction": "345 - 28 = 317 eleves.",
+          "prompt_nl": "Een school heeft 345 leerlingen. 28 zijn afwezig. Hoeveel zijn aanwezig?",
+          "prompt_en": "A school has 345 pupils. 28 are absent. How many are present?",
+          "prompt_es": "Una escuela tiene 345 alumnos. 28 estan ausentes. Cuantos estan presentes?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Un fermier recolte 68 kg de pommes et 47 kg de poires. Quel est le poids total ?",
+          "options": [
+            "115",
+            "114",
+            "116",
+            "113"
+          ],
+          "answer": "115",
+          "correction": "68 + 47 = 115 kg.",
+          "prompt_nl": "Een boer oogst 68 kg appels en 47 kg peren. Wat is het totale gewicht?",
+          "prompt_en": "A farmer harvests 68 kg of apples and 47 kg of pears. What is the total weight?",
+          "prompt_es": "Un granjero cosecha 68 kg de manzanas y 47 kg de peras. Cual es el peso total?"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Il y a 200 ballons dans une salle. On en enleve 75. Combien reste-t-il ?",
+          "answer": 125,
+          "correction": "200 - 75 = 125 ballons.",
+          "prompt_nl": "Er zijn 200 ballonnen in een zaal. 75 worden weggenomen. Hoeveel blijven er?",
+          "prompt_en": "There are 200 balloons in a room. 75 are removed. How many are left?",
+          "prompt_es": "Hay 200 globos en una sala. Se quitan 75. Cuantos quedan?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Un club a 89 membres. 34 nouveaux membres arrivent. Combien y en a-t-il maintenant ?",
+          "options": [
+            "123",
+            "122",
+            "124",
+            "121"
+          ],
+          "answer": "123",
+          "correction": "89 + 34 = 123 membres.",
+          "prompt_nl": "Een club heeft 89 leden. 34 nieuwe leden komen erbij. Hoeveel zijn er nu?",
+          "prompt_en": "A club has 89 members. 34 new members join. How many are there now?",
+          "prompt_es": "Un club tiene 89 miembros. Llegan 34 nuevos miembros. Cuantos hay ahora?"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Un boucher prepare 150 steaks. Il en vend 87. Combien lui en reste-t-il ?",
+          "answer": 63,
+          "correction": "150 - 87 = 63 steaks.",
+          "prompt_nl": "Een slager bereidt 150 steaks. Hij verkoopt er 87. Hoeveel heeft hij nog?",
+          "prompt_en": "A butcher prepares 150 steaks. He sells 87. How many does he have left?",
+          "prompt_es": "Un carnicero prepara 150 filetes. Vende 87. Cuantos le quedan?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Un bus a 45 sieges. 38 sont occupes. Combien de sieges sont libres ?",
+          "options": [
+            "7",
+            "6",
+            "8",
+            "5"
+          ],
+          "answer": "7",
+          "correction": "45 - 38 = 7 sieges.",
+          "prompt_nl": "Een bus heeft 45 plaatsen. 38 zijn bezet. Hoeveel plaatsen zijn vrij?",
+          "prompt_en": "A bus has 45 seats. 38 are occupied. How many seats are free?",
+          "prompt_es": "Un autobus tiene 45 asientos. 38 estan ocupados. Cuantos asientos estan libres?"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Une boite contient 6 chocolats. Tom achete 4 boites. Combien de chocolats a-t-il ?",
+          "options": [
+            "24",
+            "20",
+            "28",
+            "18"
+          ],
+          "answer": "24",
+          "correction": "6 x 4 = 24 chocolats.",
+          "prompt_nl": "Een doos bevat 6 chocolaatjes. Tom koopt 4 dozen. Hoeveel chocolaatjes heeft hij?",
+          "prompt_en": "A box contains 6 chocolates. Tom buys 4 boxes. How many chocolates does he have?",
+          "prompt_es": "Una caja contiene 6 chocolates. Tom compra 4 cajas. Cuantos chocolates tiene?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "3 enfants se partagent 15 bonbons egalement. Combien chacun en recoit-il ?",
+          "options": [
+            "5",
+            "4",
+            "6",
+            "3"
+          ],
+          "answer": "5",
+          "correction": "15 / 3 = 5 bonbons chacun.",
+          "prompt_nl": "3 kinderen verdelen 15 snoepjes gelijk. Hoeveel krijgt ieder kind?",
+          "prompt_en": "3 children share 15 sweets equally. How many does each one get?",
+          "prompt_es": "3 ninos se reparten 15 caramelos por igual. Cuantos recibe cada uno?"
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Un bouquet a 8 fleurs. La fleuriste fait 5 bouquets. Combien de fleurs en tout ?",
+          "answer": 40,
+          "correction": "8 x 5 = 40 fleurs.",
+          "prompt_nl": "Een boeket heeft 8 bloemen. De bloemiste maakt 5 boeketten. Hoeveel bloemen in totaal?",
+          "prompt_en": "A bouquet has 8 flowers. The florist makes 5 bouquets. How many flowers in total?",
+          "prompt_es": "Un ramo tiene 8 flores. La florista hace 5 ramos. Cuantas flores en total?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "24 eleves forment des equipes de 4. Combien d'equipes y a-t-il ?",
+          "options": [
+            "6",
+            "5",
+            "7",
+            "4"
+          ],
+          "answer": "6",
+          "correction": "24 / 4 = 6 equipes.",
+          "prompt_nl": "24 leerlingen vormen teams van 4. Hoeveel teams zijn er?",
+          "prompt_en": "24 pupils form teams of 4. How many teams are there?",
+          "prompt_es": "24 alumnos forman equipos de 4. Cuantos equipos hay?"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Un sac de billes contient 9 billes. Luc a 7 sacs. Combien de billes a-t-il ?",
+          "answer": 63,
+          "correction": "9 x 7 = 63 billes.",
+          "prompt_nl": "Een zakje knikkers bevat 9 knikkers. Luc heeft 7 zakjes. Hoeveel knikkers heeft hij?",
+          "prompt_en": "A bag of marbles contains 9 marbles. Luc has 7 bags. How many marbles does he have?",
+          "prompt_es": "Una bolsa de canicas contiene 9 canicas. Luc tiene 7 bolsas. Cuantas canicas tiene?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "30 images sont reparties en piles de 5. Combien de piles y a-t-il ?",
+          "options": [
+            "6",
+            "5",
+            "7",
+            "4"
+          ],
+          "answer": "6",
+          "correction": "30 / 5 = 6 piles.",
+          "prompt_nl": "30 plaatjes worden verdeeld in stapels van 5. Hoeveel stapels zijn er?",
+          "prompt_en": "30 pictures are divided into piles of 5. How many piles are there?",
+          "prompt_es": "30 imagenes se distribuyen en pilas de 5. Cuantas pilas hay?"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Une plante grandit de 3 cm par semaine. Apres 8 semaines, de combien a-t-elle grandi ?",
+          "answer": 24,
+          "correction": "3 x 8 = 24 cm.",
+          "prompt_nl": "Een plant groeit 3 cm per week. Na 8 weken, hoeveel is hij gegroeid?",
+          "prompt_en": "A plant grows 3 cm per week. After 8 weeks, how much has it grown?",
+          "prompt_es": "Una planta crece 3 cm por semana. Despues de 8 semanas, cuanto ha crecido?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "42 eleves font du sport par groupes de 6. Combien de groupes ?",
+          "options": [
+            "7",
+            "6",
+            "8",
+            "5"
+          ],
+          "answer": "7",
+          "correction": "42 / 6 = 7 groupes.",
+          "prompt_nl": "42 leerlingen sporten in groepen van 6. Hoeveel groepen zijn er?",
+          "prompt_en": "42 pupils do sport in groups of 6. How many groups are there?",
+          "prompt_es": "42 alumnos hacen deporte en grupos de 6. Cuantos grupos hay?"
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Un paquet de crayons contient 12 crayons. La maitresse prend 5 paquets. Combien de crayons ?",
+          "answer": 60,
+          "correction": "12 x 5 = 60 crayons.",
+          "prompt_nl": "Een pak potloden bevat 12 potloden. De juf neemt 5 pakken. Hoeveel potloden?",
+          "prompt_en": "A packet of pencils contains 12 pencils. The teacher takes 5 packets. How many pencils?",
+          "prompt_es": "Un paquete de lapices contiene 12 lapices. La maestra toma 5 paquetes. Cuantos lapices?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "56 gateaux sont mis dans des boites de 8. Combien de boites faut-il ?",
+          "options": [
+            "7",
+            "6",
+            "8",
+            "5"
+          ],
+          "answer": "7",
+          "correction": "56 / 8 = 7 boites.",
+          "prompt_nl": "56 taartjes worden in dozen van 8 gedaan. Hoeveel dozen zijn er nodig?",
+          "prompt_en": "56 cakes are put in boxes of 8. How many boxes are needed?",
+          "prompt_es": "56 pasteles se meten en cajas de 8. Cuantas cajas hacen falta?"
+        }
+      ]
+    }
+  }
+}
