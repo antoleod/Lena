@@ -34,6 +34,8 @@ import ExamLibraryHubPage from '../../features/exam/library/ExamLibraryHubPage.j
 import ExamLibraryCategoryPage from '../../features/exam/library/ExamLibraryCategoryPage.jsx';
 import ExamRunnerPage from '../../features/exam/library/ExamRunnerPage.jsx';
 import ExamHistoryPage from '../../features/exam/library/ExamHistoryPage.jsx';
+import ExamMegaBuilderPage from '../../features/exam/library/ExamMegaBuilderPage.jsx';
+import ExamMegaRunnerPage from '../../features/exam/library/ExamMegaRunnerPage.jsx';
 import CahierHistoryPage from '../../features/exerciseGenerator/CahierHistoryPage.jsx';
 import ExerciseGeneratorPage from '../../features/exerciseGenerator/ExerciseGeneratorPage.jsx';
 import GeometryPage from '../../features/mathGeometry/GeometryPage.jsx';
@@ -82,6 +84,17 @@ import LexiPage from '../../features/lexi/LexiPage.jsx';
 import StatsPage from '../../features/stats/StatsPage.jsx';
 import VerbPage from '../../features/verbes/VerbPage.jsx';
 import DicoPage from '../../features/dico/DicoPage.jsx';
+import ComingSoonPage from '../../features/jeux/ComingSoonPage.jsx';
+import SynonymesPage from '../../features/jeux/SynonymesPage.jsx';
+import VraiFauxPage from '../../features/jeux/VraiFauxPage.jsx';
+import CapitalesPage from '../../features/jeux/CapitalesPage.jsx';
+import PairImpairPage from '../../features/jeux/PairImpairPage.jsx';
+import PyramideNombresPage from '../../features/jeux/PyramideNombresPage.jsx';
+import SimonDitPage from '../../features/jeux/SimonDitPage.jsx';
+import FractionsPage from '../../features/jeux/FractionsPage.jsx';
+import MultiplicationsPage from '../../features/jeux/MultiplicationsPage.jsx';
+import MotsIntrusPage from '../../features/jeux/MotsIntrusPage.jsx';
+import MemChiffresPage from '../../features/jeux/MemChiffresPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -183,6 +196,8 @@ export default function AppRouter() {
         <Route path="/exam/errors" element={<ErrorReviewPage />} />
         <Route path="/exam/library" element={<ExamLibraryHubPage />} />
         <Route path="/exam/history" element={<ExamHistoryPage />} />
+        <Route path="/exam/mega" element={<ExamMegaBuilderPage />} />
+        <Route path="/exam/mega/play" element={<ExamMegaRunnerPage />} />
         <Route path="/exam/library/play" element={<ExamRunnerPage />} />
         <Route path="/exam/library/:categoryId" element={<ExamLibraryCategoryPage />} />
         <Route path="/cahier" element={<ExerciseGeneratorPage />} />
@@ -231,6 +246,34 @@ export default function AppRouter() {
         <Route path="/jeux/comparaison" element={<PlusPetitPlusGrandPage />} />
         <Route path="/jeux/plus-petit-plus-grand" element={<Navigate to="/jeux/comparaison" replace />} />
         <Route path="/jeux/codeur-maths" element={<CodeurMathsPage />} />
+        {/* ── Games coming soon (placeholder pages) ── */}
+        <Route path="/jeux/casse-briques"   element={<ComingSoonPage />} />
+        <Route path="/jeux/snake"           element={<ComingSoonPage />} />
+        <Route path="/jeux/ninja-fruits"    element={<ComingSoonPage />} />
+        <Route path="/jeux/synonymes"       element={<ComingSoonPage />} />
+        <Route path="/jeux/anagrammes"      element={<ComingSoonPage />} />
+        <Route path="/jeux/poesie"          element={<ComingSoonPage />} />
+        <Route path="/jeux/geometrie"       element={<ComingSoonPage />} />
+        <Route path="/jeux/lecture-vitesse" element={<ComingSoonPage />} />
+        <Route path="/jeux/sudoku-images"   element={<ComingSoonPage />} />
+        <Route path="/jeux/labyrinthe"      element={<ComingSoonPage />} />
+        <Route path="/jeux/motifs"          element={<ComingSoonPage />} />
+        <Route path="/jeux/objets-caches"   element={<ComingSoonPage />} />
+        <Route path="/jeux/inventions"      element={<ComingSoonPage />} />
+        <Route path="/jeux/animaux"         element={<ComingSoonPage />} />
+        {/* ── New educational games (batch A) ── */}
+        <Route path="/jeux/synonymes"         element={<SynonymesPage />} />
+        <Route path="/jeux/vrai-faux"         element={<VraiFauxPage />} />
+        <Route path="/jeux/capitales"         element={<CapitalesPage />} />
+        <Route path="/jeux/pair-impair"       element={<PairImpairPage />} />
+        <Route path="/jeux/pyramide-nombres"  element={<PyramideNombresPage />} />
+        {/* ── New educational games (batch B) ── */}
+        <Route path="/jeux/simon"             element={<SimonDitPage />} />
+        <Route path="/jeux/fractions"         element={<FractionsPage />} />
+        <Route path="/jeux/multiplications"   element={<MultiplicationsPage />} />
+        <Route path="/jeux/mots-intrus-texte" element={<MotsIntrusPage />} />
+        <Route path="/jeux/memoire-chiffres"  element={<MemChiffresPage />} />
+        <Route path="/jeux/estimation"        element={<ComingSoonPage />} />
         <Route path="/grammi" element={<GrammiPage />} />
         <Route path="/metri" element={<MetriPage />} />
         <Route path="/lexi" element={<LexiPage />} />
