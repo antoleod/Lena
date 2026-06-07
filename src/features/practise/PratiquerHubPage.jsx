@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
-  IconExamens, IconCahier, IconTables, IconStories, IconJeux
+  IconExamens, IconCahier, IconTables, IconStories, IconJeux, IconMath
 } from '../../assets/icons/AppIcons.jsx';
 
 const HUB_UI = {
@@ -14,6 +14,7 @@ const HUB_UI = {
       { to: '/tables', icon: 'tables', title: 'Tables', desc: 'Tables de multiplication', color: '#e67e22' },
       { to: '/stories', icon: 'stories', title: 'Contes & Lecture', desc: '19 histoires interactives', color: '#1abc9c' },
       { to: '/jeux', icon: 'jeux', title: 'Jeux Cerebraux', desc: 'Memory, calcul, mots...', color: '#6366f1' },
+      { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Soustractions avec passage a la dizaine', color: '#6366f1' },
     ],
   },
   nl: {
@@ -25,6 +26,7 @@ const HUB_UI = {
       { to: '/tables', icon: 'tables', title: 'Tafels', desc: 'Vermenigvuldigingstafels', color: '#e67e22' },
       { to: '/stories', icon: 'stories', title: 'Verhalen', desc: '19 interactieve verhalen', color: '#1abc9c' },
       { to: '/jeux', icon: 'jeux', title: 'Hersengames', desc: 'Memory, rekenen, woorden...', color: '#6366f1' },
+      { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Aftrekken met overdracht', color: '#6366f1' },
     ],
   },
   en: {
@@ -36,6 +38,7 @@ const HUB_UI = {
       { to: '/tables', icon: 'tables', title: 'Times tables', desc: 'Multiplication tables', color: '#e67e22' },
       { to: '/stories', icon: 'stories', title: 'Stories', desc: '19 interactive stories', color: '#1abc9c' },
       { to: '/jeux', icon: 'jeux', title: 'Brain Games', desc: 'Memory, speed math, words...', color: '#6366f1' },
+      { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Subtractions with borrowing', color: '#6366f1' },
     ],
   },
   es: {
@@ -47,6 +50,7 @@ const HUB_UI = {
       { to: '/tables', icon: 'tables', title: 'Tablas', desc: 'Tablas de multiplicar', color: '#e67e22' },
       { to: '/stories', icon: 'stories', title: 'Cuentos', desc: '19 historias interactivas', color: '#1abc9c' },
       { to: '/jeux', icon: 'jeux', title: 'Juegos Cerebrales', desc: 'Memoria, calculo, palabras...', color: '#6366f1' },
+      { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Restas con llevada', color: '#6366f1' },
     ],
   },
 };
@@ -57,6 +61,7 @@ const ICON_MAP = {
   tables: IconTables,
   stories: IconStories,
   jeux: IconJeux,
+  dudu: IconMath,
 };
 
 export default function PratiquerHubPage() {
