@@ -162,8 +162,14 @@ export default function GrammiPage() {
   // GN builder
   const [gnTapped, setGnTapped] = useState([]);
   const [gnStatus, setGnStatus] = useState('idle');
+  // Mega Reto
+  const [megaReto, setMegaReto] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(15);
+  const timerRef = useRef(null);
 
   function startMode(mode) {
+    clearInterval(timerRef.current);
+    setTimeLeft(15);
     setCurrentMode(mode);
     setPhase(mode);
     setQIdx(0);
@@ -181,20 +187,22 @@ export default function GrammiPage() {
     setColorSentenceIdx(0);
     setTypedAnswer('');
 
+    const qCount = megaReto ? 20 : 10;
+
     if (mode === 'chasse-noms') {
-      setQuestions(Array.from({ length: 10 }, () => genClassifyQuestion('nom_commun')));
+      setQuestions(Array.from({ length: qCount }, () => genClassifyQuestion('nom_commun')));
     } else if (mode === 'noms-propres') {
-      setQuestions(Array.from({ length: 10 }, () => genClassifyQuestion('nom_propre')));
+      setQuestions(Array.from({ length: qCount }, () => genClassifyQuestion('nom_propre')));
     } else if (mode === 'adjectifs') {
-      setQuestions(Array.from({ length: 10 }, () => genClassifyQuestion('adjectif')));
+      setQuestions(Array.from({ length: qCount }, () => genClassifyQuestion('adjectif')));
     } else if (mode === 'robot-verbes') {
-      setQuestions(Array.from({ length: 10 }, genVerbQuestion));
+      setQuestions(Array.from({ length: qCount }, genVerbQuestion));
     } else if (mode === 'gn-builder') {
-      setQuestions(GN_TEMPLATES.slice().sort(() => Math.random() - .5).slice(0, 10));
+      setQuestions(GN_TEMPLATES.slice().sort(() => Math.random() - .5).slice(0, qCount));
     } else if (mode === 'coloriage') {
-      setQuestions(ANNOTATED_SENTENCES.slice().sort(() => Math.random() - .5).slice(0, 5));
+      setQuestions(ANNOTATED_SENTENCES.slice().sort(() => Math.random() - .5).slice(0, megaReto ? 10 : 5));
     } else if (mode === 'complete-phrase') {
-      setQuestions(PHRASE_TEMPLATES.slice().sort(() => Math.random() - .5).slice(0, 10));
+      setQuestions(PHRASE_TEMPLATES.slice().sort(() => Math.random() - .5).slice(0, qCount));
     } else if (mode === 'lecture-detective' || mode === 'compte-phrases') {
       setQuestions([...TEXTS]);
     } else if (mode === 'enqueteur') {
@@ -219,7 +227,7 @@ export default function GrammiPage() {
     } else {
       const t = tries + 1;
       setTries(t);
-      setEncourage(ENCOURAGEMENTS_GRAMMI[Math.floor(Math.random() * ENCOURAGEMENTS_GRAMMI.length)]);
+      if (!megaReto) setEncourage(ENCOURAGEMENTS_GRAMMI[Math.floor(Math.random() * ENCOURAGEMENTS_GRAMMI.length)]);
       if (t >= 2) {
         setTimeout(() => advance(), 1800);
       } else {
@@ -249,6 +257,50 @@ export default function GrammiPage() {
   const pct = progress.totalAttempts > 0
     ? Math.min(100, Math.round((progress.totalCorrect / progress.totalAttempts) * 100))
     : 0;
+
+  const GM_QUIZ_PHASES = ['chasse-noms','noms-propres','adjectifs','robot-verbes','gn-builder','complete-phrase','lecture-detective','compte-phrases','enqueteur'];
+
+  function handleTimeOut() {
+    const newProg = recordAnswer(false);
+    setProgress(newProg);
+    setStatus('wrong');
+    setEncourage('');
+    setTimeout(() => {
+      if (qIdx + 1 >= questions.length) {
+        setPhase('results');
+      } else {
+        setQIdx(i => i + 1);
+        setStatus('idle');
+        setSelectedInput(null);
+        setTries(0);
+        setGnTapped([]);
+        setGnStatus('idle');
+        setWordColors({});
+        setColorValidated(false);
+        setColorScore(0);
+        setTypedAnswer('');
+      }
+    }, 800);
+  }
+
+  useEffect(() => {
+    if (!megaReto) return;
+    if (!GM_QUIZ_PHASES.includes(phase)) return;
+    if (status !== 'idle') return;
+    clearInterval(timerRef.current);
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          handleTimeOut();
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [phase, qIdx, megaReto, status]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── HUB ─────────────────────────────────────────────────────────────
   if (phase === 'hub') {
@@ -329,6 +381,14 @@ export default function GrammiPage() {
               </button>
             ))}
           </div>
+
+          <button
+            type="button"
+            className={`gm-mega-btn${megaReto ? ' is-active' : ''}`}
+            onPointerDown={e => { e.preventDefault(); setMegaReto(m => !m); }}
+          >
+            {megaReto ? '🔥 Mega Reto ACTIF — Touche pour desactiver' : '🔥 Activer le Mega Reto'}
+          </button>
 
           {GRAMMI_BADGES.length > 0 && (
             <>
@@ -432,6 +492,12 @@ export default function GrammiPage() {
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="gm-prog-bar"><div className="gm-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="gm-timer-bar">
+            <div className={`gm-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="gm-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'gm-word-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           <div className="gm-word-display__word">{q.word}</div>
@@ -486,6 +552,12 @@ export default function GrammiPage() {
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="gm-prog-bar"><div className="gm-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="gm-timer-bar">
+            <div className={`gm-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="gm-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'gm-word-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           <div className="gm-word-display__word">{q.word}</div>
@@ -597,6 +669,12 @@ export default function GrammiPage() {
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="gm-prog-bar"><div className="gm-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="gm-timer-bar">
+            <div className={`gm-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="gm-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className="gm-question">Tape les mots dans le bon ordre : DET + NOM + ADJ</div>
 
@@ -756,6 +834,12 @@ export default function GrammiPage() {
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="gm-prog-bar"><div className="gm-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="gm-timer-bar">
+            <div className={`gm-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="gm-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className="gm-question" style={{ marginBottom: 6 }}>{q.question}</div>
 
@@ -817,6 +901,12 @@ export default function GrammiPage() {
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="gm-prog-bar"><div className="gm-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="gm-timer-bar">
+            <div className={`gm-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="gm-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className="gm-text-card">
           <div className="gm-text-card__title">{text.title}</div>
@@ -856,6 +946,12 @@ export default function GrammiPage() {
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="gm-prog-bar"><div className="gm-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="gm-timer-bar">
+            <div className={`gm-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="gm-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className="gm-text-card">
           <div className="gm-text-card__title">{text.title}</div>
@@ -917,6 +1013,12 @@ export default function GrammiPage() {
           <span className="gm-quiz-bar__counter">{qIdx + 1}/{enqueteurQuestions.length}</span>
         </div>
         <div className="gm-prog-bar"><div className="gm-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="gm-timer-bar">
+            <div className={`gm-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="gm-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className="gm-text-card">
           <div className="gm-text-card__title">{eq.text.title}</div>
@@ -1001,7 +1103,9 @@ export default function GrammiPage() {
   if (phase === 'results') {
     const total = questions.length;
     const pctR = total > 0 ? Math.round((score / total) * 100) : 0;
-    const stars = pctR >= 90 ? 3 : pctR >= 70 ? 2 : pctR >= 50 ? 1 : 0;
+    const stars = megaReto
+      ? (pctR >= 95 ? 3 : pctR >= 80 ? 2 : pctR >= 60 ? 1 : 0)
+      : (pctR >= 90 ? 3 : pctR >= 70 ? 2 : pctR >= 50 ? 1 : 0);
     const trophy = pctR >= 90 ? '🏆' : pctR >= 70 ? '🎉' : pctR >= 50 ? '👍' : '💪';
     const title = pctR >= 90 ? 'Bravo ! Tu es fantastique !' : pctR >= 70 ? 'Tres bien fait !' : pctR >= 50 ? 'Bon travail !' : 'Continue, tu progresses !';
 

@@ -61,10 +61,11 @@ const MODES = [
 ];
 
 const DIFFICULTIES = [
-  { id: 'easy',   emoji: '🌱', label: 'Facile',    color: '#22c55e', maxTable: 5,  questions: 10, time: 0   },
-  { id: 'medium', emoji: '⭐', label: 'Moyen',     color: '#6366f1', maxTable: 10, questions: 15, time: 60  },
-  { id: 'hard',   emoji: '🔥', label: 'Difficile', color: '#f59e0b', maxTable: 15, questions: 20, time: 90  },
-  { id: 'expert', emoji: '💎', label: 'Expert',    color: '#ef4444', maxTable: 20, questions: 50, time: 120 },
+  { id: 'easy',   emoji: '🌱', label: 'Facile',    color: '#22c55e', maxTable: 5,  questions: 10,  time: 0   },
+  { id: 'medium', emoji: '⭐', label: 'Moyen',     color: '#6366f1', maxTable: 10, questions: 15,  time: 60  },
+  { id: 'hard',   emoji: '🔥', label: 'Difficile', color: '#f59e0b', maxTable: 15, questions: 20,  time: 90  },
+  { id: 'expert', emoji: '💎', label: 'Expert',    color: '#ef4444', maxTable: 20, questions: 50,  time: 120 },
+  { id: 'mega',   emoji: '🔥', label: 'Mega Reto', color: '#f43f5e', tables: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], count: 100, questions: 100, maxTable: 20, time: 45 },
 ];
 
 // ── Progression ───────────────────────────────────────────────────────────────
@@ -111,7 +112,7 @@ function genQuestions(table, mode, difficulty) {
   }
 
   if (table === 'mix') {
-    const max = diff.maxTable;
+    const max = diff.maxTable || 20;
     for (let a = 1; a <= max; a++)
       for (let b = 1; b <= 10; b++)
         pool.push({ a, b });

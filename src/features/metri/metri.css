@@ -228,3 +228,50 @@
     padding-bottom: 16px;
   }
 }
+
+/* ── Mega Reto ────────────────────────────────────────────────────────── */
+.mt-mega-btn {
+  display: block; width: 100%; padding: 14px 20px;
+  border-radius: 40px; border: 2px solid rgba(244,63,94,.5);
+  background: transparent; color: rgba(255,255,255,.7);
+  font-size: 1rem; font-weight: 800; cursor: pointer;
+  margin: 12px 0; text-align: center;
+  transition: background .2s, color .2s, border-color .2s;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.mt-mega-btn.is-active {
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+  border-color: transparent; color: #fff;
+  box-shadow: 0 4px 20px rgba(244,63,94,.5);
+  animation: mtPulse 1.8s ease-in-out infinite;
+}
+@keyframes mtPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(244,63,94,.5); }
+  50%       { box-shadow: 0 4px 32px rgba(244,63,94,.85); }
+}
+
+/* Timer bar */
+.mt-timer-bar {
+  position: relative; height: 8px;
+  background: rgba(255,255,255,.1); border-radius: 4px;
+  margin: 4px 14px 8px; overflow: hidden;
+}
+.mt-timer-bar__fill {
+  height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, #f43f5e, #fb7185);
+  transition: width .25s linear;
+}
+.mt-timer-bar__fill.is-urgent {
+  background: linear-gradient(90deg, #ef4444, #fca5a5);
+  animation: mtUrgent .4s ease-in-out infinite;
+}
+@keyframes mtUrgent {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .5; }
+}
+.mt-timer-bar__num {
+  position: absolute; right: 4px; top: 50%;
+  transform: translateY(-50%);
+  font-size: .6rem; font-weight: 800; color: rgba(255,255,255,.8);
+  line-height: 1;
+}

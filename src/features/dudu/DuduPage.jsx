@@ -117,9 +117,11 @@ function BadgePopup({ badge, onClose }) {
 }
 
 // ── ResultsPhase ──────────────────────────────────────────────────────────────
-function ResultsPhase({ correct, total, onRetry, onHub }) {
+function ResultsPhase({ correct, total, onRetry, onHub, megaReto }) {
   const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
-  const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 50 ? 1 : 0;
+  const stars = megaReto
+    ? (pct >= 95 ? 3 : pct >= 80 ? 2 : pct >= 60 ? 1 : 0)
+    : (pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 50 ? 1 : 0);
   const trophy = pct >= 90 ? '🏆' : pct >= 70 ? '🎉' : pct >= 50 ? '👍' : '💪';
 
   useEffect(() => {
@@ -316,8 +318,9 @@ function DecompHint({ a, b }) {
 }
 
 // ── GuidedPhase ───────────────────────────────────────────────────────────────
-function GuidedPhase({ onFinish, onBack }) {
-  const exercises = useRef(shuffle(GUIDED_EXERCISES));
+function GuidedPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLeft }) {
+  const qCount = megaReto ? 20 : GUIDED_EXERCISES.length;
+  const exercises = useRef(shuffle(GUIDED_EXERCISES).slice(0, qCount));
   const [idx, setIdx]         = useState(0);
   const [input, setInput]     = useState('');
   const [state, setState]     = useState('borrow-q'); // 'borrow-q' | 'input' | 'correct' | 'wrong'
@@ -334,6 +337,35 @@ function GuidedPhase({ onFinish, onBack }) {
 
   const total = exercises.current.length;
   const progress = total > 0 ? (idx / total) * 100 : 0;
+
+  useEffect(() => {
+    if (!megaReto) return;
+    if (state !== 'input') return;
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          setState('wrong');
+          setEncouragement('');
+          setTimeout(() => {
+            if (idx + 1 >= total) {
+              onFinish({ correct, total });
+            } else {
+              setIdx(i => i + 1);
+              setInput('');
+              setState('borrow-q');
+              setBorrowWrong(false);
+              setTryCount(0);
+            }
+          }, 800);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [idx, megaReto, state]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleBorrowAnswer(e, answer) {
     e.preventDefault();
@@ -377,7 +409,7 @@ function GuidedPhase({ onFinish, onBack }) {
       playChime(false);
       setTryCount(t => t + 1);
       setState('wrong');
-      setEncouragement(randEncouragement());
+      if (!megaReto) setEncouragement(randEncouragement());
       setShowDecomp(true);
       setTimeout(() => {
         setInput('');
@@ -395,6 +427,12 @@ function GuidedPhase({ onFinish, onBack }) {
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
       <div className="dd-prog-bar"><div className="dd-prog-bar__fill" style={{width: progress + '%'}} /></div>
+      {megaReto && (
+        <div className="dd-timer-bar">
+          <div className={`dd-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+          <span className="dd-timer-bar__num">{timeLeft}s</span>
+        </div>
+      )}
 
       <div className="dd-stats">
         <div className="dd-stat"><span className="dd-stat__emoji">✅</span><span className="dd-stat__val">{correct}</span><span className="dd-stat__lbl">Correct</span></div>
@@ -443,8 +481,9 @@ function GuidedPhase({ onFinish, onBack }) {
 }
 
 // ── AutonomousPhase ───────────────────────────────────────────────────────────
-function AutonomousPhase({ onFinish, onBack }) {
-  const questions = useRef(Array.from({length: 10}, () => genSubtraction(true)));
+function AutonomousPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLeft }) {
+  const qCount = megaReto ? 20 : 10;
+  const questions = useRef(Array.from({length: qCount}, () => genSubtraction(true)));
   const [idx, setIdx]         = useState(0);
   const [input, setInput]     = useState('');
   const [state, setState]     = useState('input');
@@ -458,6 +497,35 @@ function AutonomousPhase({ onFinish, onBack }) {
   if (!q) return null;
   const total = questions.current.length;
   const progress = (idx / total) * 100;
+
+  useEffect(() => {
+    if (!megaReto) return;
+    if (state !== 'input') return;
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          setState('wrong');
+          setTimeout(() => {
+            if (idx + 1 >= total) {
+              onFinish({ correct, total });
+            } else {
+              setIdx(i => i + 1);
+              setInput('');
+              setState('input');
+              setTryCount(0);
+              setShowHint(false);
+              setEncouragement('');
+            }
+          }, 800);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [idx, megaReto, state]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleSubmit() {
     if (!input) return;
@@ -489,7 +557,7 @@ function AutonomousPhase({ onFinish, onBack }) {
       const newTry = tryCount + 1;
       setTryCount(newTry);
       setState('wrong');
-      setEncouragement(randEncouragement());
+      if (!megaReto) setEncouragement(randEncouragement());
       if (newTry >= 2) {
         setShowHint(true);
         setTimeout(() => {
@@ -523,6 +591,12 @@ function AutonomousPhase({ onFinish, onBack }) {
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
       <div className="dd-prog-bar"><div className="dd-prog-bar__fill" style={{width: progress + '%'}} /></div>
+      {megaReto && (
+        <div className="dd-timer-bar">
+          <div className={`dd-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+          <span className="dd-timer-bar__num">{timeLeft}s</span>
+        </div>
+      )}
 
       <div className="dd-stats">
         <div className="dd-stat"><span className="dd-stat__emoji">✅</span><span className="dd-stat__val">{correct}</span><span className="dd-stat__lbl">Correct</span></div>
@@ -550,8 +624,9 @@ function AutonomousPhase({ onFinish, onBack }) {
 }
 
 // ── ProblemsPhase ─────────────────────────────────────────────────────────────
-function ProblemsPhase({ onFinish, onBack }) {
-  const problems = useRef(Array.from({length: 8}, () => generateProblem(true)));
+function ProblemsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLeft }) {
+  const qCount = megaReto ? 20 : 8;
+  const problems = useRef(Array.from({length: qCount}, () => generateProblem(true)));
   const [idx, setIdx]         = useState(0);
   const [input, setInput]     = useState('');
   const [state, setState]     = useState('input');
@@ -563,6 +638,33 @@ function ProblemsPhase({ onFinish, onBack }) {
   if (!p) return null;
   const total = problems.current.length;
   const progress = (idx / total) * 100;
+
+  useEffect(() => {
+    if (!megaReto) return;
+    if (state !== 'input') return;
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          setState('wrong');
+          setTimeout(() => {
+            if (idx + 1 >= total) {
+              onFinish({ correct, total });
+            } else {
+              setIdx(i => i + 1);
+              setInput('');
+              setState('input');
+              setEncouragement('');
+            }
+          }, 800);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [idx, megaReto, state]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleSubmit() {
     if (!input) return;
@@ -590,7 +692,7 @@ function ProblemsPhase({ onFinish, onBack }) {
     } else {
       playChime(false);
       setState('wrong');
-      setEncouragement(randEncouragement());
+      if (!megaReto) setEncouragement(randEncouragement());
       setTimeout(() => {
         setInput('');
         setState('input');
@@ -607,6 +709,12 @@ function ProblemsPhase({ onFinish, onBack }) {
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
       <div className="dd-prog-bar"><div className="dd-prog-bar__fill" style={{width: progress + '%'}} /></div>
+      {megaReto && (
+        <div className="dd-timer-bar">
+          <div className={`dd-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+          <span className="dd-timer-bar__num">{timeLeft}s</span>
+        </div>
+      )}
 
       <div className="dd-stats">
         <div className="dd-stat"><span className="dd-stat__emoji">✅</span><span className="dd-stat__val">{correct}</span><span className="dd-stat__lbl">Correct</span></div>
@@ -638,10 +746,11 @@ function ProblemsPhase({ onFinish, onBack }) {
 }
 
 // ── TensUnitsPhase ────────────────────────────────────────────────────────────
-function TensUnitsPhase({ onFinish, onBack }) {
-  const numbers = useRef(Array.from({length: 10}, () => 10 + Math.floor(Math.random() * 90)));
+function TensUnitsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLeft }) {
+  const qCount = megaReto ? 20 : 10;
+  const numbers = useRef(Array.from({length: qCount}, () => 10 + Math.floor(Math.random() * 90)));
   const [idx, setIdx]         = useState(0);
-  const [phase, setPhase]     = useState('tens'); // 'tens' | 'units'
+  const [subPhase, setSubPhase] = useState('tens'); // 'tens' | 'units'
   const [input, setInput]     = useState('');
   const [state, setState]     = useState('input');
   const [correct, setCorrect] = useState(0);
@@ -653,10 +762,43 @@ function TensUnitsPhase({ onFinish, onBack }) {
   const progress = (idx / total) * 100;
   const d = decomposeNumber(n);
 
+  useEffect(() => {
+    if (!megaReto) return;
+    if (state !== 'input') return;
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          setState('wrong');
+          setTimeout(() => {
+            if (subPhase === 'tens') {
+              setSubPhase('units');
+              setInput('');
+              setState('input');
+              setEncouragement('');
+            } else if (idx + 1 >= total) {
+              onFinish({ correct, total });
+            } else {
+              setIdx(i => i + 1);
+              setSubPhase('tens');
+              setInput('');
+              setState('input');
+              setEncouragement('');
+            }
+          }, 800);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [idx, subPhase, megaReto, state]); // eslint-disable-line react-hooks/exhaustive-deps
+
   function handleSubmit() {
     if (!input) return;
     const val = parseInt(input, 10);
-    const expected = phase === 'tens' ? d.tens : d.units;
+    const expected = subPhase === 'tens' ? d.tens : d.units;
     const isCorrect = val === expected;
 
     recordAnswer('tens-units', isCorrect);
@@ -664,9 +806,9 @@ function TensUnitsPhase({ onFinish, onBack }) {
     if (isCorrect) {
       playChime(true);
       setState('correct');
-      if (phase === 'tens') {
+      if (subPhase === 'tens') {
         setTimeout(() => {
-          setPhase('units');
+          setSubPhase('units');
           setInput('');
           setState('input');
           setEncouragement('');
@@ -678,7 +820,7 @@ function TensUnitsPhase({ onFinish, onBack }) {
             onFinish({ correct: correct + 1, total });
           } else {
             setIdx(i => i + 1);
-            setPhase('tens');
+            setSubPhase('tens');
             setInput('');
             setState('input');
             setEncouragement('');
@@ -688,7 +830,7 @@ function TensUnitsPhase({ onFinish, onBack }) {
     } else {
       playChime(false);
       setState('wrong');
-      setEncouragement(randEncouragement());
+      if (!megaReto) setEncouragement(randEncouragement());
       setTimeout(() => {
         setInput('');
         setState('input');
@@ -704,6 +846,12 @@ function TensUnitsPhase({ onFinish, onBack }) {
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
       <div className="dd-prog-bar"><div className="dd-prog-bar__fill" style={{width: progress + '%'}} /></div>
+      {megaReto && (
+        <div className="dd-timer-bar">
+          <div className={`dd-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+          <span className="dd-timer-bar__num">{timeLeft}s</span>
+        </div>
+      )}
 
       <div className="dd-stats">
         <div className="dd-stat"><span className="dd-stat__emoji">✅</span><span className="dd-stat__val">{correct}</span><span className="dd-stat__lbl">Correct</span></div>
@@ -713,13 +861,13 @@ function TensUnitsPhase({ onFinish, onBack }) {
       <div className="dd-tu-number">
         <div className="dd-tu-number__big">{n}</div>
         <div className="dd-tu-number__q">
-          {phase === 'tens' ? 'Combien de dizaines ?' : 'Combien d\'unites ?'}
+          {subPhase === 'tens' ? 'Combien de dizaines ?' : 'Combien d\'unites ?'}
         </div>
       </div>
 
       <div className={`dd-equation${state === 'correct' ? ' is-correct' : state === 'wrong' ? ' is-wrong' : ''}`}>
         <div className="dd-equation__nums">
-          <span className="dd-equation__big" style={{fontSize:'2rem'}}>{phase === 'tens' ? 'Dizaines' : 'Unites'} =</span>
+          <span className="dd-equation__big" style={{fontSize:'2rem'}}>{subPhase === 'tens' ? 'Dizaines' : 'Unites'} =</span>
           <span className={`dd-equation__answer${input ? ' has-input' : ''}${state === 'correct' ? ' is-correct' : state === 'wrong' ? ' is-wrong' : ''}`}>
             {input || '?'}
           </span>
@@ -779,8 +927,9 @@ function buildTeacherQuestion(idx) {
   }
 }
 
-function TeacherPhase({ onFinish, onBack }) {
-  const questions = useRef(Array.from({length: 8}, (_, i) => buildTeacherQuestion(i)));
+function TeacherPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLeft }) {
+  const qCount = megaReto ? 20 : 8;
+  const questions = useRef(Array.from({length: qCount}, (_, i) => buildTeacherQuestion(i)));
   const [idx, setIdx]         = useState(0);
   const [selected, setSelected] = useState(null);
   const [correct, setCorrect] = useState(0);
@@ -791,6 +940,31 @@ function TeacherPhase({ onFinish, onBack }) {
   const progress = (idx / total) * 100;
   const aD = decomposeNumber(q.eq.a);
   const bD = decomposeNumber(q.eq.b);
+
+  useEffect(() => {
+    if (!megaReto) return;
+    if (selected !== null) return;
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          setSelected('__timeout__');
+          setTimeout(() => {
+            if (idx + 1 >= total) {
+              onFinish({ correct, total });
+            } else {
+              setIdx(i => i + 1);
+              setSelected(null);
+            }
+          }, 800);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [idx, megaReto, selected]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleOpt(e, opt) {
     e.preventDefault();
@@ -822,6 +996,12 @@ function TeacherPhase({ onFinish, onBack }) {
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
       <div className="dd-prog-bar"><div className="dd-prog-bar__fill" style={{width: progress + '%'}} /></div>
+      {megaReto && (
+        <div className="dd-timer-bar">
+          <div className={`dd-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+          <span className="dd-timer-bar__num">{timeLeft}s</span>
+        </div>
+      )}
 
       <div className="dd-stats">
         <div className="dd-stat"><span className="dd-stat__emoji">✅</span><span className="dd-stat__val">{correct}</span><span className="dd-stat__lbl">Correct</span></div>
@@ -863,8 +1043,9 @@ function TeacherPhase({ onFinish, onBack }) {
 }
 
 // ── SaucissePhase (Methode Saucisse — same as Guided but forced carry always shown) ──
-function SaucissePhase({ onFinish, onBack }) {
-  const questions = useRef(Array.from({length: 10}, () => genSubtraction(true)));
+function SaucissePhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLeft }) {
+  const qCount = megaReto ? 20 : 10;
+  const questions = useRef(Array.from({length: qCount}, () => genSubtraction(true)));
   const [idx, setIdx]         = useState(0);
   const [input, setInput]     = useState('');
   const [state, setState]     = useState('input');
@@ -876,6 +1057,33 @@ function SaucissePhase({ onFinish, onBack }) {
   if (!q) return null;
   const total = questions.current.length;
   const progress = (idx / total) * 100;
+
+  useEffect(() => {
+    if (!megaReto) return;
+    if (state !== 'input') return;
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          setState('wrong');
+          setTimeout(() => {
+            if (idx + 1 >= total) {
+              onFinish({ correct, total });
+            } else {
+              setIdx(i => i + 1);
+              setInput('');
+              setState('input');
+              setEncouragement('');
+            }
+          }, 800);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [idx, megaReto, state]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleSubmit() {
     if (!input) return;
@@ -903,7 +1111,7 @@ function SaucissePhase({ onFinish, onBack }) {
     } else {
       playChime(false);
       setState('wrong');
-      setEncouragement(randEncouragement());
+      if (!megaReto) setEncouragement(randEncouragement());
       setTimeout(() => {
         setInput('');
         setState('input');
@@ -920,6 +1128,12 @@ function SaucissePhase({ onFinish, onBack }) {
         <span className="dd-quiz-bar__counter">{idx + 1}/{total}</span>
       </div>
       <div className="dd-prog-bar"><div className="dd-prog-bar__fill" style={{width: progress + '%'}} /></div>
+      {megaReto && (
+        <div className="dd-timer-bar">
+          <div className={`dd-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+          <span className="dd-timer-bar__num">{timeLeft}s</span>
+        </div>
+      )}
 
       <div className="dd-stats">
         <div className="dd-stat"><span className="dd-stat__emoji">✅</span><span className="dd-stat__val">{correct}</span><span className="dd-stat__lbl">Correct</span></div>
@@ -948,7 +1162,7 @@ function SaucissePhase({ onFinish, onBack }) {
 }
 
 // ── Hub ───────────────────────────────────────────────────────────────────────
-function HubPhase({ onMode, progress }) {
+function HubPhase({ onMode, progress, megaReto, setMegaReto }) {
   const navigate = useNavigate();
   const pct = progress.totalAttempts > 0
     ? Math.min(100, Math.round((progress.totalCorrect / progress.totalAttempts) * 100))
@@ -1032,6 +1246,14 @@ function HubPhase({ onMode, progress }) {
           ))}
         </div>
 
+        <button
+          type="button"
+          className={`dd-mega-btn${megaReto ? ' is-active' : ''}`}
+          onPointerDown={e => { e.preventDefault(); setMegaReto(m => !m); }}
+        >
+          {megaReto ? '🔥 Mega Reto ACTIF — Touche pour desactiver' : '🔥 Activer le Mega Reto'}
+        </button>
+
         {BADGES.length > 0 && (
           <>
             <p className="dd-section-label">Badges</p>
@@ -1063,6 +1285,9 @@ export default function DuduPage() {
   const [resultData, setResultData] = useState(null);
   const [lastMode, setLastMode] = useState(null);
   const [progress, setProgress] = useState(() => loadProgress());
+  const [megaReto, setMegaReto] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(15);
+  const timerRef = useRef(null);
 
   function refreshProgress() {
     setProgress(loadProgress());
@@ -1074,13 +1299,16 @@ export default function DuduPage() {
   }
 
   function handleFinish(data) {
+    clearInterval(timerRef.current);
     setResultData(data);
     setPhase('results');
     refreshProgress();
   }
 
-  function handleBack() {
+  function goHub() {
+    clearInterval(timerRef.current);
     setPhase('hub');
+    setTimeLeft(15);
     refreshProgress();
   }
 
@@ -1089,15 +1317,19 @@ export default function DuduPage() {
       <HubPhase
         progress={progress}
         onMode={handleMode}
+        megaReto={megaReto}
+        setMegaReto={setMegaReto}
       />
     );
   }
+
+  const megaProps = { megaReto, timerRef, timeLeft, setTimeLeft };
 
   if (phase === 'theory') {
     return (
       <TheoryPhase
         onPractice={() => handleMode('guided')}
-        onBack={handleBack}
+        onBack={goHub}
       />
     );
   }
@@ -1106,7 +1338,8 @@ export default function DuduPage() {
     return (
       <GuidedPhase
         onFinish={handleFinish}
-        onBack={handleBack}
+        onBack={goHub}
+        {...megaProps}
       />
     );
   }
@@ -1115,7 +1348,8 @@ export default function DuduPage() {
     return (
       <AutonomousPhase
         onFinish={handleFinish}
-        onBack={handleBack}
+        onBack={goHub}
+        {...megaProps}
       />
     );
   }
@@ -1124,7 +1358,8 @@ export default function DuduPage() {
     return (
       <ProblemsPhase
         onFinish={handleFinish}
-        onBack={handleBack}
+        onBack={goHub}
+        {...megaProps}
       />
     );
   }
@@ -1133,7 +1368,8 @@ export default function DuduPage() {
     return (
       <TensUnitsPhase
         onFinish={handleFinish}
-        onBack={handleBack}
+        onBack={goHub}
+        {...megaProps}
       />
     );
   }
@@ -1142,7 +1378,8 @@ export default function DuduPage() {
     return (
       <TeacherPhase
         onFinish={handleFinish}
-        onBack={handleBack}
+        onBack={goHub}
+        {...megaProps}
       />
     );
   }
@@ -1151,7 +1388,8 @@ export default function DuduPage() {
     return (
       <SaucissePhase
         onFinish={handleFinish}
-        onBack={handleBack}
+        onBack={goHub}
+        {...megaProps}
       />
     );
   }
@@ -1162,8 +1400,9 @@ export default function DuduPage() {
         <ResultsPhase
           correct={resultData?.correct ?? 0}
           total={resultData?.total ?? 0}
+          megaReto={megaReto}
           onRetry={() => handleMode(lastMode)}
-          onHub={handleBack}
+          onHub={goHub}
         />
       </div>
     );

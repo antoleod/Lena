@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   genClockExercise, genChoices, formatDigital,
   genDurationProblem, DAILY_EVENTS, DETECTIVE_TEMPLATES, CHRONO_BADGES, ENCOURAGEMENTS,
@@ -136,6 +136,11 @@ export default function ChronoPage() {
   const [modeLabel, setModeLabel] = useState('');
   const [typedAnswer, setTypedAnswer] = useState('');
 
+  // Mega Reto state
+  const [megaReto, setMegaReto] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(15);
+  const timerRef = useRef(null);
+
   // Theory state
   const [stepIdx, setStepIdx] = useState(0);
 
@@ -143,20 +148,24 @@ export default function ChronoPage() {
   const [watchBracelet, setWatchBracelet] = useState(() => loadProgress().watchDesign?.bracelet || 'Classique');
   const [watchColor, setWatchColor] = useState(() => loadProgress().watchDesign?.color || '#0891b2');
 
-  function buildQuestions(mode) {
-    if (mode === 'full-hours') return Array.from({ length: 10 }, () => genClockExercise(1));
-    if (mode === 'analog')     return Array.from({ length: 10 }, () => genClockExercise(4));
-    if (mode === 'digital')    return Array.from({ length: 10 }, () => genClockExercise(5));
-    if (mode === 'convert')    return Array.from({ length: 10 }, () => genClockExercise(4));
-    if (mode === 'place-hands')return Array.from({ length: 10 }, () => genClockExercise(3));
-    if (mode === 'detective')  return [...DETECTIVE_TEMPLATES].sort(() => Math.random() - .5).slice(0, 8);
-    if (mode === 'duration')   return Array.from({ length: 8 }, genDurationProblem);
-    if (mode === 'missions')   return Array.from({ length: 8 }, genDurationProblem);
+  function buildQuestions(mode, isMega) {
+    const qCount = isMega ? 20 : 10;
+    const qCount8 = isMega ? 20 : 8;
+    if (mode === 'full-hours') return Array.from({ length: qCount }, () => genClockExercise(1));
+    if (mode === 'analog')     return Array.from({ length: qCount }, () => genClockExercise(4));
+    if (mode === 'digital')    return Array.from({ length: qCount }, () => genClockExercise(5));
+    if (mode === 'convert')    return Array.from({ length: qCount }, () => genClockExercise(4));
+    if (mode === 'place-hands')return Array.from({ length: qCount }, () => genClockExercise(3));
+    if (mode === 'detective')  return [...DETECTIVE_TEMPLATES].sort(() => Math.random() - .5).slice(0, qCount8);
+    if (mode === 'duration')   return Array.from({ length: qCount8 }, genDurationProblem);
+    if (mode === 'missions')   return Array.from({ length: qCount8 }, genDurationProblem);
     return [];
   }
 
   function startMode(mode, label) {
-    const qs = buildQuestions(mode);
+    clearInterval(timerRef.current);
+    setTimeLeft(15);
+    const qs = buildQuestions(mode, megaReto);
     setCurrentMode(mode);
     setModeLabel(label || mode);
     setQuestions(qs);
@@ -208,7 +217,7 @@ export default function ChronoPage() {
       setStatus('wrong');
       const t = tries + 1;
       setTries(t);
-      setEncourage(ENCOURAGEMENTS[Math.floor(Math.random() * ENCOURAGEMENTS.length)]);
+      if (!megaReto) setEncourage(ENCOURAGEMENTS[Math.floor(Math.random() * ENCOURAGEMENTS.length)]);
       if (t >= 2) {
         setTimeout(() => {
           if (qIdx + 1 >= questions.length) {
@@ -229,7 +238,47 @@ export default function ChronoPage() {
   }
 
   const pct = questions.length > 0 ? Math.round(score / questions.length * 100) : 0;
-  const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 50 ? 1 : 0;
+  const stars = megaReto
+    ? (pct >= 95 ? 3 : pct >= 80 ? 2 : pct >= 60 ? 1 : 0)
+    : (pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 50 ? 1 : 0);
+
+  const QUIZ_PHASES = ['full-hours','analog','digital','convert','detective','duration','missions'];
+
+  function handleTimeOut() {
+    setStatus('wrong');
+    setEncourage('');
+    setTimeout(() => {
+      if (qIdx + 1 >= questions.length) {
+        setPhase('results');
+      } else {
+        setQIdx(i => i + 1);
+        setInput('');
+        setTypedAnswer('');
+        setStatus('idle');
+        setEncourage('');
+        setTries(0);
+      }
+    }, 800);
+  }
+
+  useEffect(() => {
+    if (!megaReto) return;
+    if (!QUIZ_PHASES.includes(phase)) return;
+    if (status !== 'idle') return;
+    clearInterval(timerRef.current);
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          handleTimeOut();
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [phase, qIdx, megaReto, status]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Discover phase ────────────────────────────────────────────────────────
   if (phase === 'discover') {
@@ -289,6 +338,12 @@ export default function ChronoPage() {
         <div className="ch-prog-bar">
           <div className="ch-prog-bar__fill" style={{ width: (qIdx / questions.length * 100) + '%' }} />
         </div>
+        {megaReto && (
+          <div className="ch-timer-bar">
+            <div className={`ch-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="ch-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
         <div className="ch-clock-wrap">
           <AnalogClock hours={q.h} minutes={q.m} size={220} />
         </div>
@@ -326,6 +381,12 @@ export default function ChronoPage() {
         <div className="ch-prog-bar">
           <div className="ch-prog-bar__fill" style={{ width: (qIdx / questions.length * 100) + '%' }} />
         </div>
+        {megaReto && (
+          <div className="ch-timer-bar">
+            <div className={`ch-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="ch-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
         <div className="ch-clock-wrap">
           <AnalogClock hours={q.h} minutes={q.m} size={200} />
         </div>
@@ -363,6 +424,12 @@ export default function ChronoPage() {
         <div className="ch-prog-bar">
           <div className="ch-prog-bar__fill" style={{ width: (qIdx / questions.length * 100) + '%' }} />
         </div>
+        {megaReto && (
+          <div className="ch-timer-bar">
+            <div className={`ch-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="ch-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
         <div className="ch-digital">{q.digital}</div>
         <p className="ch-time-label">Heure correspondante :</p>
         {encourage ? <div className="ch-encourage">{encourage}</div> : null}
@@ -397,6 +464,12 @@ export default function ChronoPage() {
         <div className="ch-prog-bar">
           <div className="ch-prog-bar__fill" style={{ width: (qIdx / questions.length * 100) + '%' }} />
         </div>
+        {megaReto && (
+          <div className="ch-timer-bar">
+            <div className={`ch-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="ch-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
         <div className="ch-duration-card" style={{ marginBottom: 8 }}>
           <p className="ch-duration-card__question" style={{ fontSize: '1.2rem', textAlign: 'center' }}>
             {q.emoji} {q.text}
@@ -437,6 +510,12 @@ export default function ChronoPage() {
         <div className="ch-prog-bar">
           <div className="ch-prog-bar__fill" style={{ width: (qIdx / questions.length * 100) + '%' }} />
         </div>
+        {megaReto && (
+          <div className="ch-timer-bar">
+            <div className={`ch-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="ch-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
         <div className="ch-duration-card">
           <p className="ch-duration-card__question">
             {phase === 'missions'
@@ -645,6 +724,14 @@ export default function ChronoPage() {
             </button>
           ))}
         </div>
+
+        <button
+          type="button"
+          className={`ch-mega-btn${megaReto ? ' is-active' : ''}`}
+          onPointerDown={e => { e.preventDefault(); setMegaReto(m => !m); }}
+        >
+          {megaReto ? '🔥 Mega Reto ACTIF — Touche pour desactiver' : '🔥 Activer le Mega Reto'}
+        </button>
 
         {earnedBadges.length > 0 && (
           <>

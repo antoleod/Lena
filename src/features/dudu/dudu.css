@@ -315,6 +315,43 @@
 }
 .dd-borrow-btn:active { transform: scale(.94); }
 
+/* Mega Reto toggle */
+.dd-mega-btn {
+  width: 100%; padding: 14px 16px; border-radius: 18px;
+  background: rgba(244,63,94,.1);
+  border: 2px solid rgba(244,63,94,.3);
+  color: rgba(255,255,255,.7); font-size: .9rem; font-weight: 800;
+  cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  margin: 0 0 12px; transition: all .2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.dd-mega-btn.is-active {
+  background: linear-gradient(135deg, #f43f5e, #dc2626);
+  border-color: transparent; color: #fff;
+  box-shadow: 0 4px 20px rgba(244,63,94,.5);
+  animation: ddPulse 1.5s ease-in-out infinite;
+}
+@keyframes ddPulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(244,63,94,.5); }
+  50% { box-shadow: 0 4px 32px rgba(244,63,94,.8); }
+}
+
+/* Mega Reto timer bar */
+.dd-timer-bar {
+  height: 6px; margin: 0 12px 6px; border-radius: 3px;
+  background: rgba(244,63,94,.2); overflow: hidden; position: relative; flex-shrink: 0;
+}
+.dd-timer-bar__fill {
+  height: 100%; background: linear-gradient(90deg, #f43f5e, #fbbf24);
+  border-radius: 3px; transition: width .9s linear;
+}
+.dd-timer-bar__fill.is-urgent { background: #f43f5e; animation: ddUrgent .4s ease infinite alternate; }
+@keyframes ddUrgent { from { opacity: 1; } to { opacity: .4; } }
+.dd-timer-bar__num {
+  position: absolute; right: 4px; top: -14px;
+  font-size: .65rem; font-weight: 800; color: #f43f5e;
+}
+
 /* Overlay backdrop */
 .dd-overlay {
   position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 199;

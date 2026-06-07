@@ -116,36 +116,44 @@ export default function MetriPage() {
   const [tries, setTries] = useState(0);
   const [stepIdx, setStepIdx] = useState(0);
   const [typedAnswer, setTypedAnswer] = useState('');
+  // Mega Reto
+  const [megaReto, setMegaReto] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(15);
+  const timerRef = useRef(null);
 
   const pct = progress.totalAttempts > 0
     ? Math.min(100, Math.round((progress.totalCorrect / progress.totalAttempts) * 100))
     : 0;
 
   function startMode(mode) {
+    clearInterval(timerRef.current);
+    setTimeLeft(15);
     setCurrentMode(mode);
     setPhase(mode);
     setQIdx(0); setScore(0); setStatus('idle'); setTries(0);
     setEncourage(''); setSelectedInput(null); setStepIdx(0); setTypedAnswer('');
+    const qCount = megaReto ? 20 : 10;
+    const qCount8 = megaReto ? 20 : 8;
     const cats = Object.keys(CATEGORIES);
     if (mode === 'unit-hunt') {
-      setQuestions(Array.from({ length: 10 }, (_, i) => genUnitHunt(cats[i % cats.length])));
+      setQuestions(Array.from({ length: qCount }, (_, i) => genUnitHunt(cats[i % cats.length])));
     } else if (mode === 'what-for' || mode === 'match-grandeur') {
       const shuffled = [...QUANTITY_EXAMPLES].sort(() => Math.random() - .5);
-      setQuestions(shuffled.slice(0, 10).map(q => {
+      setQuestions(shuffled.slice(0, qCount).map(q => {
         const otherCats = cats.filter(c => c !== q.cat);
         const opts = [q.cat, ...otherCats.slice(0, 3)].sort(() => Math.random() - .5);
         return { ...q, options: opts };
       }));
     } else if (mode === 'choose-unit') {
-      setQuestions([...UNIT_SENTENCES].sort(() => Math.random() - .5).slice(0, 10));
+      setQuestions([...UNIT_SENTENCES].sort(() => Math.random() - .5).slice(0, qCount));
     } else if (mode === 'market') {
-      setQuestions(Array.from({ length: 8 }, genMarketQuestion));
+      setQuestions(Array.from({ length: qCount8 }, genMarketQuestion));
     } else if (mode === 'estimation') {
-      setQuestions([...ESTIMATIONS].sort(() => Math.random() - .5).slice(0, 10));
+      setQuestions([...ESTIMATIONS].sort(() => Math.random() - .5).slice(0, qCount));
     } else if (mode === 'detective') {
-      setQuestions([...DETECTIVE_SITUATIONS].sort(() => Math.random() - .5).slice(0, 10));
+      setQuestions([...DETECTIVE_SITUATIONS].sort(() => Math.random() - .5).slice(0, qCount));
     } else if (mode === 'missions') {
-      setQuestions([...MISSIONS].sort(() => Math.random() - .5).slice(0, 8));
+      setQuestions([...MISSIONS].sort(() => Math.random() - .5).slice(0, qCount8));
     }
   }
 
@@ -166,7 +174,7 @@ export default function MetriPage() {
     } else {
       const t = tries + 1;
       setTries(t);
-      setEncourage(ENCOURAGEMENTS_METRI[Math.floor(Math.random() * ENCOURAGEMENTS_METRI.length)]);
+      if (!megaReto) setEncourage(ENCOURAGEMENTS_METRI[Math.floor(Math.random() * ENCOURAGEMENTS_METRI.length)]);
       if (t >= 2) {
         setTimeout(() => advance(), 1800);
       } else {
@@ -187,6 +195,46 @@ export default function MetriPage() {
       setTypedAnswer('');
     }
   }
+
+  const MT_QUIZ_PHASES = ['unit-hunt','what-for','match-grandeur','choose-unit','market','estimation','detective','missions'];
+
+  function handleTimeOut() {
+    const newProg = recordAnswer(false);
+    setProgress(newProg);
+    setStatus('wrong');
+    setEncourage('');
+    setTimeout(() => {
+      if (qIdx + 1 >= questions.length) {
+        setPhase('results');
+      } else {
+        setQIdx(i => i + 1);
+        setStatus('idle');
+        setSelectedInput(null);
+        setEncourage('');
+        setTries(0);
+        setTypedAnswer('');
+      }
+    }, 800);
+  }
+
+  useEffect(() => {
+    if (!megaReto) return;
+    if (!MT_QUIZ_PHASES.includes(phase)) return;
+    if (status !== 'idle') return;
+    clearInterval(timerRef.current);
+    setTimeLeft(15);
+    timerRef.current = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          handleTimeOut();
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timerRef.current);
+  }, [phase, qIdx, megaReto, status]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── HUB ────────────────────────────────────────────────────────────────
   if (phase === 'hub') {
@@ -265,6 +313,14 @@ export default function MetriPage() {
               </button>
             ))}
           </div>
+
+          <button
+            type="button"
+            className={`mt-mega-btn${megaReto ? ' is-active' : ''}`}
+            onPointerDown={e => { e.preventDefault(); setMegaReto(m => !m); }}
+          >
+            {megaReto ? '🔥 Mega Reto ACTIF — Touche pour desactiver' : '🔥 Activer le Mega Reto'}
+          </button>
 
           {METRI_BADGES.length > 0 && (
             <>
@@ -356,6 +412,12 @@ export default function MetriPage() {
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="mt-prog-bar"><div className="mt-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="mt-timer-bar">
+            <div className={`mt-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="mt-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'mt-word-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           <div style={{ fontSize: '2.5rem' }}>{CATEGORIES[q.targetCat].emoji}</div>
@@ -410,6 +472,12 @@ export default function MetriPage() {
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="mt-prog-bar"><div className="mt-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="mt-timer-bar">
+            <div className={`mt-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="mt-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'mt-word-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#fff' }}>{q.text}</div>
@@ -452,6 +520,12 @@ export default function MetriPage() {
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="mt-prog-bar"><div className="mt-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="mt-timer-bar">
+            <div className={`mt-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="mt-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'mt-word-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#fff' }}>{q.text}</div>
@@ -497,6 +571,12 @@ export default function MetriPage() {
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="mt-prog-bar"><div className="mt-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="mt-timer-bar">
+            <div className={`mt-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="mt-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'mt-phrase-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           {parts[0]}
@@ -554,6 +634,12 @@ export default function MetriPage() {
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="mt-prog-bar"><div className="mt-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="mt-timer-bar">
+            <div className={`mt-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="mt-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className="mt-market-card">
           <div style={{ fontSize: '2rem' }}>🛒</div>
@@ -610,6 +696,12 @@ export default function MetriPage() {
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="mt-prog-bar"><div className="mt-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="mt-timer-bar">
+            <div className={`mt-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="mt-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'mt-word-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           <div style={{ fontSize: '3rem' }}>{q.emoji}</div>
@@ -664,6 +756,12 @@ export default function MetriPage() {
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="mt-prog-bar"><div className="mt-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="mt-timer-bar">
+            <div className={`mt-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="mt-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'mt-word-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           <div style={{ fontSize: '2.5rem' }}>{q.emoji}</div>
@@ -709,6 +807,12 @@ export default function MetriPage() {
           <span className="mt-quiz-bar__counter">{qIdx + 1}/{questions.length}</span>
         </div>
         <div className="mt-prog-bar"><div className="mt-prog-bar__fill" style={{ width: progW + '%' }} /></div>
+        {megaReto && (
+          <div className="mt-timer-bar">
+            <div className={`mt-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+            <span className="mt-timer-bar__num">{timeLeft}s</span>
+          </div>
+        )}
 
         <div className={'mt-word-display' + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
           <div style={{ fontSize: '2.5rem' }}>{q.emoji}</div>
@@ -766,7 +870,9 @@ export default function MetriPage() {
   if (phase === 'results') {
     const total = questions.length;
     const pctR = total > 0 ? Math.round((score / total) * 100) : 0;
-    const stars = pctR >= 90 ? 3 : pctR >= 70 ? 2 : pctR >= 50 ? 1 : 0;
+    const stars = megaReto
+      ? (pctR >= 95 ? 3 : pctR >= 80 ? 2 : pctR >= 60 ? 1 : 0)
+      : (pctR >= 90 ? 3 : pctR >= 70 ? 2 : pctR >= 50 ? 1 : 0);
     const trophy = pctR >= 90 ? '🏆' : pctR >= 70 ? '🎉' : pctR >= 50 ? '👍' : '💪';
     const title = pctR >= 90 ? 'Bravo ! Tu es fantastique !' : pctR >= 70 ? 'Tres bien fait !' : pctR >= 50 ? 'Bon travail !' : 'Continue, tu progresses !';
     return (

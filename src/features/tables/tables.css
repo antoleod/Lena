@@ -227,6 +227,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
 }
+@media (min-width: 360px) { .tp-diff-row { grid-template-columns: repeat(5, 1fr); } }
 
 .tp-diff-btn {
   border-radius: 14px; padding: 11px 4px;
