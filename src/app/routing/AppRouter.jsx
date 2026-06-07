@@ -36,6 +36,8 @@ import ExamRunnerPage from '../../features/exam/library/ExamRunnerPage.jsx';
 import ExamHistoryPage from '../../features/exam/library/ExamHistoryPage.jsx';
 import ExamMegaBuilderPage from '../../features/exam/library/ExamMegaBuilderPage.jsx';
 import ExamMegaRunnerPage from '../../features/exam/library/ExamMegaRunnerPage.jsx';
+import GradeExamHubPage from '../../features/exam/grade/GradeExamHubPage.jsx';
+import GradeExamPackPage from '../../features/exam/grade/GradeExamPackPage.jsx';
 import CahierHistoryPage from '../../features/exerciseGenerator/CahierHistoryPage.jsx';
 import ExerciseGeneratorPage from '../../features/exerciseGenerator/ExerciseGeneratorPage.jsx';
 import GeometryPage from '../../features/mathGeometry/GeometryPage.jsx';
@@ -200,6 +202,8 @@ export default function AppRouter() {
         <Route path="/exam/mega/play" element={<ExamMegaRunnerPage />} />
         <Route path="/exam/library/play" element={<ExamRunnerPage />} />
         <Route path="/exam/library/:categoryId" element={<ExamLibraryCategoryPage />} />
+        <Route path="/exam/grade" element={<GradeExamHubPage />} />
+        <Route path="/exam/grade/:grade" element={<GradeExamPackPage />} />
         <Route path="/cahier" element={<ExerciseGeneratorPage />} />
         <Route path="/cahier/historique" element={<CahierHistoryPage />} />
         <Route path="/cahier/geometrie" element={<GeometryPage />} />

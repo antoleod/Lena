@@ -13163,11 +13163,54 @@ body {
   color: rgba(255,255,255,0.45);
 }
 
+/* Mes Matières header (top of Apprendre page) */
+.al-subjects-header {
+  padding: 16px 16px 0;
+}
+.al-subjects-header__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.al-subjects-header__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+.al-subjects-header__pct {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+.al-subjects-header__bar {
+  height: 6px;
+  background: rgba(255,255,255,.12);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.al-subjects-header__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed, #fbbf24);
+  border-radius: 3px;
+  transition: width .6s ease;
+}
+.al-subjects-header__sub {
+  font-size: .78rem;
+  color: rgba(255,255,255,.45);
+  margin: 0 0 12px;
+}
+
 /* Subject cards grid */
 .al-subjects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+}
+.al-subjects-grid--top {
+  padding: 0 16px 8px;
 }
 
 @media (min-width: 480px) {
@@ -14304,3 +14347,53 @@ body {
 .mega-entry-banner__text span  { font-size: .85rem; color: rgba(255,255,255,.6); }
 .mega-entry-banner__arrow { font-size: 1.2rem; color: #c4b5fd; font-weight: 700; }
 
+
+/* ── Grade Exam Hub ──────────────────────────────────────────────────── */
+.grade-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 0 16px 32px;
+}
+.grade-hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 14px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(0,0,0,.3);
+  transition: transform .15s, box-shadow .15s;
+  position: relative;
+  overflow: hidden;
+}
+.grade-hub-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.08);
+  border-radius: 20px;
+  pointer-events: none;
+}
+.grade-hub-card:active { transform: scale(.96); }
+.grade-hub-card__emoji { font-size: 2.6rem; line-height: 1; }
+.grade-hub-card__body { text-align: center; }
+.grade-hub-card__label { display: block; font-size: 1.5rem; font-weight: 900; letter-spacing: -.5px; }
+.grade-hub-card__sub { display: block; font-size: .75rem; opacity: .85; font-weight: 600; margin-top: 2px; }
+.grade-hub-card__desc { display: block; font-size: .72rem; opacity: .7; margin-top: 6px; line-height: 1.35; }
+.grade-hub-card__footer { width: 100%; display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.grade-hub-card__track { flex: 1; height: 6px; border-radius: 4px; background: rgba(255,255,255,.2); overflow: hidden; }
+.grade-hub-card__fill { height: 100%; border-radius: 4px; background: rgba(255,255,255,.8); transition: width .4s; }
+.grade-hub-card__count { font-size: .72rem; font-weight: 800; opacity: .9; white-space: nowrap; }
+
+/* grade pack stars */
+.grade-pack-card__stars { display: inline-flex; gap: 1px; font-size: .88rem; margin-top: 2px; }
+
+@media (min-width: 640px) {
+  .grade-hub-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .grade-hub-grid { grid-template-columns: repeat(6, 1fr); max-width: 900px; margin: 0 auto; }
+}

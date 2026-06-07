@@ -81,6 +81,9 @@ export default function ExamHubPage() {
         <Link to="/exam/library" className="errors-cta" style={{ background: 'rgba(46,204,113,.18)', borderColor: 'rgba(46,204,113,.4)' }}>
           🗂️ Bibliothèque d'examens
         </Link>
+        <Link to="/exam/grade" className="errors-cta" style={{ background: 'rgba(236,72,153,.18)', borderColor: 'rgba(236,72,153,.4)' }}>
+          🎓 Prépare ton année
+        </Link>
         {errorCount > 0 && (
           <Link to="/exam/errors" className="errors-cta">
             ⚠️ Erreurs à réviser
