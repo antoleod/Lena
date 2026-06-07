@@ -496,26 +496,46 @@ export default function ExamRunnerPage() {
   function answer(value) {
     if (selected !== null) return;
     const ok = isCorrect(currentQ, value);
-    setSelected(value);
-    setFeedback(ok ? 'correct' : 'wrong');
-    if (ok) {
-      setScore((s) => s + 1);
-    } else {
-      setWrongQuestions((prev) => {
-        if (prev.find((q) => q === currentQ)) return prev;
-        return [...prev, { ...currentQ, _userWrongAnswer: value }];
-      });
+
+    if (isGuided && !ok && !guidedRetry) {
+      // First wrong in guided mode — show hint, don't advance
+      const hint = getLocalizedField(currentQ, 'correction', locale) || `La bonne réponse est : ${String(currentQ.answer)}`;
+      setGuidedHint(hint);
+      setGuidedRetry(true);
+      // Record the error for review, but don't lock the question
       recordError({
         topic: exam.category,
         question: getLocalizedField(currentQ, 'prompt', locale),
         correctAnswer: String(currentQ.answer),
         userAnswer: String(value),
-        source: 'exam-library',
+        source: 'exam-library-guide',
       });
+      return;
     }
-    const weight = isComprehension
-      ? Math.max(0.6, 1 - helpCount * 0.1)
-      : 1.0;
+
+    setSelected(value);
+    setFeedback(ok ? 'correct' : 'wrong');
+
+    const firstTry = isGuided ? !guidedRetry : true;
+    if (ok) {
+      setScore((s) => s + (isGuided && !firstTry ? 0.5 : 1));
+      if (isGuided) setGuidedAttempts((prev) => [...prev, { firstTry }]);
+    } else {
+      setWrongQuestions((prev) => {
+        if (prev.find((q) => q === currentQ)) return prev;
+        return [...prev, { ...currentQ, _userWrongAnswer: value }];
+      });
+      if (!isGuided) {
+        recordError({
+          topic: exam.category,
+          question: getLocalizedField(currentQ, 'prompt', locale),
+          correctAnswer: String(currentQ.answer),
+          userAnswer: String(value),
+          source: 'exam-library',
+        });
+      }
+    }
+    const weight = isComprehension ? Math.max(0.6, 1 - helpCount * 0.1) : 1.0;
     setHelpWeights(prev => [...prev, ok ? weight : 0]);
     if (helpCount > 0) setTotalHelpsUsed(t => t + 1);
   }
@@ -601,6 +621,8 @@ export default function ExamRunnerPage() {
       setHelpCount(0);
       setShowHelp(false);
       setAudioHelpUsed(false);
+      setGuidedRetry(false);
+      setGuidedHint('');
     }
   }
 
@@ -621,6 +643,9 @@ export default function ExamRunnerPage() {
     setHelpCount(0);
     setShowHelp(false);
     setAudioHelpUsed(false);
+    setGuidedRetry(false);
+    setGuidedHint('');
+    setGuidedAttempts([]);
     startRef.current = Date.now();
   }
 
@@ -772,6 +797,30 @@ export default function ExamRunnerPage() {
           <p style={{ fontSize: '1.8rem', letterSpacing: 4 }}>
             {[1, 2, 3].map((i) => <span key={i} style={{ opacity: i <= stars ? 1 : 0.25 }}>⭐</span>)}
           </p>
+          {isGuided && guidedAttempts.length > 0 && (() => {
+            const firstTryCount = guidedAttempts.filter((a) => a.firstTry).length;
+            const total = guidedAttempts.length;
+            const pctFirst = Math.round((firstTryCount / total) * 100);
+            return (
+              <div className="exam-help-summary">
+                <div className="exam-help-summary__row">
+                  <span>🎯 Du premier coup</span>
+                  <strong>{firstTryCount}/{total} ({pctFirst}%)</strong>
+                </div>
+                <div className="exam-help-summary__row exam-help-summary__row--sub">
+                  <span>💡 Avec aide</span>
+                  <span>{total - firstTryCount}</span>
+                </div>
+                <p className="exam-help-summary__msg">
+                  {firstTryCount === total
+                    ? '🌟 Bravo ! Tu as tout réussi du premier coup !'
+                    : firstTryCount >= total * 0.7
+                      ? '👍 Très bien ! Tu maîtrises bien le sujet.'
+                      : '💪 Continue à t\'entraîner, tu progresses !'}
+                </p>
+              </div>
+            );
+          })()}
           {isComprehension && helpWeights.length > 0 && (() => {
             const weightedPct = helpWeights.length > 0
               ? Math.round((helpWeights.reduce((a, b) => a + b, 0) / helpWeights.length) * 100)
@@ -902,6 +951,23 @@ export default function ExamRunnerPage() {
         );
       })()}
 
+      {isGuided && guidedRetry && (
+        <div className="guided-hint-banner">
+          <span className="guided-hint-banner__icon">💡</span>
+          <div>
+            <strong>Pas tout à fait… Regarde bien :</strong>
+            <p>{guidedHint}</p>
+          </div>
+          <button
+            type="button"
+            className="guided-hint-banner__retry"
+            onClick={() => { setGuidedRetry(false); setInput(''); setOptions(currentQ.type === 'mcq' ? shuffle(currentQ.options) : []); }}
+          >
+            Réessaie →
+          </button>
+        </div>
+      )}
+
       <div className="reader-card" style={{ minHeight: 90 }}>
         <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(currentQ, 'prompt', locale)}</p>
       </div>
@@ -951,7 +1017,7 @@ export default function ExamRunnerPage() {
         );
       })()}
 
-      <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 10, opacity: guidedRetry ? 0.35 : 1, pointerEvents: guidedRetry ? 'none' : 'auto' }}>
         {currentQ.type === 'mcq' && options.map((opt) => {
           const displayOpt = currentQ.options_i18n?.[locale]?.[currentQ.options.indexOf(opt)] ?? opt;
           let style = {};
