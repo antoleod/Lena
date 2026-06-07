@@ -13169,3 +13169,91 @@ body {
 .al-academy-card__title { display: block; font-size: .95rem; font-weight: 800; color: #fff; }
 .al-academy-card__desc { display: block; font-size: .72rem; color: rgba(255,255,255,.5); margin-top: 2px; }
 .al-academy-card__arrow { color: rgba(255,255,255,.4); font-size: 1.2rem; flex-shrink: 0; }
+
+/* ── Academy Group sections (ApprendreHubPage redesign) ─────────────────── */
+.al-group {
+  margin: 16px 14px 0;
+}
+.al-group__header {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--g-c, #7c3aed);
+}
+.al-group__emoji { font-size: 1.3rem; }
+.al-group__title {
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .2px;
+}
+.al-group__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (min-width: 600px) {
+  .al-group__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Academy card (used inside GroupSection) */
+.al-ac-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  background: rgba(255,255,255,.07);
+  border: 1.5px solid rgba(255,255,255,.12);
+  border-top: 3px solid var(--ac-c, #7c3aed);
+  border-radius: 18px;
+  padding: 14px 12px 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .12s, background .15s;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+.al-ac-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: rgba(255,255,255,.04);
+  pointer-events: none;
+}
+.al-ac-card:active { transform: scale(.95); background: rgba(255,255,255,.11); }
+.al-ac-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+  position: relative;
+}
+.al-ac-card__body { flex: 1; }
+.al-ac-card__title {
+  display: block;
+  font-size: .9rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+.al-ac-card__desc {
+  display: block;
+  font-size: .72rem;
+  color: rgba(255,255,255,.5);
+  margin-top: 3px;
+  line-height: 1.35;
+}
+.al-ac-card__badge {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: var(--ac-c, #7c3aed);
+  color: #fff;
+  opacity: .9;
+  margin-top: 2px;
+  align-self: flex-start;
+}
