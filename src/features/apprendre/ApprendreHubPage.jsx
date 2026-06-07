@@ -5,6 +5,7 @@ import { getSubjectUniverse } from '../../shared/gameplay/subjectThemes.js';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getActivitiesBySubject } from '../curriculum/catalog.js';
+import { SUBJECT_ICONS } from '../../assets/icons/AppIcons.jsx';
 
 const HUB_UI = {
   fr: {
@@ -60,7 +61,7 @@ function SubjectCard({ subject, locale, t, progress }) {
       }}
     >
       <div className="al-subject-card__sky">
-        <span className="al-subject-card__icon">{universe.icon}</span>
+        {(() => { const Icon = SUBJECT_ICONS[subject.id]; return Icon ? <Icon size={52} /> : <span className="al-subject-card__icon">{universe.icon}</span>; })()}
         {pct === 100 && <span className="al-subject-card__crown">👑</span>}
       </div>
       <div className="al-subject-card__body">

@@ -1,6 +1,318 @@
 // Premium SVG icon components for Lena app
 // Style: soft 3D, vibrant gradients, child-friendly, Duolingo-inspired
 
+// ─── Subject icons (Apprendre hub) ────────────────────────────────────────
+
+export function IconMathematics({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sm-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#818cf8"/>
+          <stop offset="100%" stopColor="#3730a3"/>
+        </radialGradient>
+        <filter id="sm-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#1e1b4b" floodOpacity="0.4"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#sm-bg)" filter="url(#sm-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Large + block */}
+      <rect x="8" y="20" width="14" height="8" rx="2.5" fill="#fbbf24"/>
+      <rect x="12" y="16" width="6" height="16" rx="2.5" fill="#fbbf24"/>
+      {/* Shadow on + */}
+      <rect x="8" y="24" width="14" height="4" rx="2.5" fill="#b45309" opacity="0.25"/>
+      <rect x="12" y="24" width="6" height="8" rx="2.5" fill="#b45309" opacity="0.25"/>
+      {/* = block */}
+      <rect x="26" y="19" width="14" height="4" rx="2" fill="white" opacity="0.9"/>
+      <rect x="26" y="25" width="14" height="4" rx="2" fill="white" opacity="0.9"/>
+      {/* Small floating numbers */}
+      <circle cx="39" cy="11" r="4.5" fill="#c7d2fe" opacity="0.9"/>
+      <text x="36.8" y="14.5" fontSize="6.5" fontWeight="900" fill="#3730a3" fontFamily="system-ui">7</text>
+      <circle cx="9" cy="38" r="4" fill="#a5b4fc" opacity="0.8"/>
+      <text x="7" y="41.5" fontSize="6" fontWeight="900" fill="#3730a3" fontFamily="system-ui">×</text>
+      <circle cx="39" cy="37" r="3.5" fill="#fde68a" opacity="0.9"/>
+      <text x="37" y="40.5" fontSize="5.5" fontWeight="900" fill="#92400e" fontFamily="system-ui">2</text>
+    </svg>
+  );
+}
+
+export function IconFrench({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sf-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#f472b6"/>
+          <stop offset="100%" stopColor="#9d174d"/>
+        </radialGradient>
+        <filter id="sf-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#500724" floodOpacity="0.4"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#sf-bg)" filter="url(#sf-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Quill / plume */}
+      <path d="M38 8 C30 14 20 24 18 38 C22 30 28 22 38 8Z" fill="white" opacity="0.95"/>
+      <path d="M38 8 C34 16 26 24 20 38 C24 30 30 20 38 8Z" fill="#fce7f3" opacity="0.7"/>
+      <path d="M38 8 L20 38 L18 38 C22 30 32 18 38 8Z" fill="#f9a8d4" opacity="0.5"/>
+      {/* Ink tip */}
+      <path d="M18 38 L16 42 L21 39 Z" fill="#831843"/>
+      {/* Ink line */}
+      <path d="M10 36 Q14 33 18 38" stroke="#fce7f3" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      {/* French flag stripes */}
+      <rect x="8" y="10" width="5" height="14" rx="1.5" fill="#2563eb" opacity="0.85"/>
+      <rect x="13" y="10" width="5" height="14" rx="0" fill="white" opacity="0.9"/>
+      <rect x="18" y="10" width="5" height="14" rx="1.5" fill="#dc2626" opacity="0.85"/>
+      {/* Stars */}
+      <path d="M38 30 L39 33 L42 33 L39.5 35 L40.5 38 L38 36.5 L35.5 38 L36.5 35 L34 33 L37 33 Z" fill="#fbbf24" opacity="0.9"/>
+      <circle cx="10" cy="39" r="2.5" fill="#fde68a" opacity="0.8"/>
+    </svg>
+  );
+}
+
+export function IconDutch({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sd-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#38bdf8"/>
+          <stop offset="100%" stopColor="#0369a1"/>
+        </radialGradient>
+        <filter id="sd-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#082f49" floodOpacity="0.4"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#sd-bg)" filter="url(#sd-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Speech bubble main */}
+      <rect x="8" y="12" width="24" height="18" rx="6" fill="white" opacity="0.95"/>
+      <path d="M14 30 L12 38 L20 32" fill="white" opacity="0.95"/>
+      {/* "NL" text */}
+      <text x="12" y="25" fontSize="11" fontWeight="900" fill="#0369a1" fontFamily="system-ui">NL</text>
+      {/* Windmill silhouette */}
+      <rect x="35" y="28" width="3" height="10" rx="1" fill="white" opacity="0.85"/>
+      <rect x="33.5" y="22" width="6" height="2" rx="1" fill="white" opacity="0.85" transform="rotate(45 36.5 23)"/>
+      <rect x="33.5" y="22" width="6" height="2" rx="1" fill="white" opacity="0.85" transform="rotate(-45 36.5 23)"/>
+      <rect x="33.5" y="22" width="6" height="2" rx="1" fill="white" opacity="0.85"/>
+      <rect x="33.5" y="22" width="6" height="2" rx="1" fill="white" opacity="0.85" transform="rotate(90 36.5 23)"/>
+      <circle cx="36.5" cy="23" r="2" fill="#bae6fd"/>
+      {/* Stars */}
+      <circle cx="38" cy="38" r="3" fill="#fbbf24" opacity="0.9"/>
+      <path d="M38 35.5 L38.5 37.2 L40.5 37.2 L38.9 38.2 L39.4 40 L38 39 L36.6 40 L37.1 38.2 L35.5 37.2 L37.5 37.2 Z" fill="white" opacity="0.9"/>
+      <circle cx="9" cy="10" r="2.5" fill="#e0f2fe" opacity="0.8"/>
+    </svg>
+  );
+}
+
+export function IconEnglish({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="se-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#4ade80"/>
+          <stop offset="100%" stopColor="#14532d"/>
+        </radialGradient>
+        <filter id="se-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#052e16" floodOpacity="0.4"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#se-bg)" filter="url(#se-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Globe */}
+      <circle cx="24" cy="26" r="14" fill="#bbf7d0" opacity="0.25" stroke="white" strokeWidth="1.2"/>
+      {/* Meridians */}
+      <ellipse cx="24" cy="26" rx="6" ry="14" stroke="white" strokeWidth="1" fill="none" opacity="0.6"/>
+      <line x1="10" y1="26" x2="38" y2="26" stroke="white" strokeWidth="1" opacity="0.6"/>
+      <line x1="11" y1="20" x2="37" y2="20" stroke="white" strokeWidth="0.8" opacity="0.4"/>
+      <line x1="11" y1="32" x2="37" y2="32" stroke="white" strokeWidth="0.8" opacity="0.4"/>
+      {/* UK flag cross simplified */}
+      <line x1="10" y1="26" x2="38" y2="26" stroke="white" strokeWidth="2" opacity="0.7"/>
+      <line x1="24" y1="12" x2="24" y2="40" stroke="white" strokeWidth="2" opacity="0.7"/>
+      {/* EN badge */}
+      <rect x="17" y="19" width="14" height="14" rx="3" fill="#166534" opacity="0.85"/>
+      <text x="18.5" y="30" fontSize="9" fontWeight="900" fill="white" fontFamily="system-ui">EN</text>
+      {/* Stars */}
+      <path d="M40 11 L40.8 13.5 L43.5 13.5 L41.4 15 L42.2 17.5 L40 16 L37.8 17.5 L38.6 15 L36.5 13.5 L39.2 13.5 Z" fill="#fbbf24" opacity="0.9"/>
+      <circle cx="9" cy="38" r="2.5" fill="#d1fae5" opacity="0.8"/>
+    </svg>
+  );
+}
+
+export function IconSpanish({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="ss-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#fb923c"/>
+          <stop offset="100%" stopColor="#9a3412"/>
+        </radialGradient>
+        <filter id="ss-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#431407" floodOpacity="0.4"/></filter>
+        <radialGradient id="ss-sun" cx="50%" cy="40%" r="55%">
+          <stop offset="0%" stopColor="#fde68a"/>
+          <stop offset="100%" stopColor="#fbbf24"/>
+        </radialGradient>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#ss-bg)" filter="url(#ss-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Sun */}
+      <circle cx="24" cy="25" r="10" fill="url(#ss-sun)"/>
+      {/* Sun rays */}
+      {[0,30,60,90,120,150,180,210,240,270,300,330].map(a => (
+        <line key={a}
+          x1={24 + 12*Math.cos(a*Math.PI/180)} y1={25 + 12*Math.sin(a*Math.PI/180)}
+          x2={24 + 15*Math.cos(a*Math.PI/180)} y2={25 + 15*Math.sin(a*Math.PI/180)}
+          stroke="#fbbf24" strokeWidth="1.5" strokeLinecap="round"/>
+      ))}
+      {/* Sun face */}
+      <circle cx="21" cy="24" r="1.5" fill="#92400e"/>
+      <circle cx="27" cy="24" r="1.5" fill="#92400e"/>
+      <path d="M20 28 Q24 31 28 28" stroke="#92400e" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+      {/* Spanish flag stripe at top */}
+      <rect x="8" y="9" width="32" height="4" rx="1.5" fill="#dc2626" opacity="0.85"/>
+      <rect x="8" y="13" width="32" height="4" rx="0" fill="#fbbf24" opacity="0.7"/>
+      <rect x="8" y="17" width="32" height="4" rx="1.5" fill="#dc2626" opacity="0.85"/>
+      {/* Stars */}
+      <circle cx="40" cy="36" r="3" fill="#fde68a" opacity="0.9"/>
+      <circle cx="8" cy="36" r="2.5" fill="#fed7aa" opacity="0.8"/>
+    </svg>
+  );
+}
+
+export function IconReasoning({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sr-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#a78bfa"/>
+          <stop offset="100%" stopColor="#5b21b6"/>
+        </radialGradient>
+        <filter id="sr-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#2e1065" floodOpacity="0.45"/></filter>
+        <filter id="sr-glow"><feDropShadow dx="0" dy="0" stdDeviation="2.5" floodColor="#fbbf24" floodOpacity="0.7"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#sr-bg)" filter="url(#sr-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Puzzle piece top-left */}
+      <path d="M8 14 L18 14 L18 18 Q21 18 21 21 Q21 24 18 24 L18 28 L8 28 L8 24 Q5 24 5 21 Q5 18 8 18 Z" fill="#34d399" opacity="0.9"/>
+      {/* Puzzle piece bottom-right */}
+      <path d="M30 20 L40 20 L40 24 Q43 24 43 27 Q43 30 40 30 L40 34 L30 34 L30 30 Q27 30 27 27 Q27 24 30 24 Z" fill="#60a5fa" opacity="0.9"/>
+      {/* Connecting arc */}
+      <path d="M18 21 Q24 14 30 27" stroke="white" strokeWidth="1.5" fill="none" strokeDasharray="2.5 2" strokeLinecap="round" opacity="0.7"/>
+      {/* Lightbulb */}
+      <circle cx="36" cy="12" r="5" fill="#fde68a" filter="url(#sr-glow)"/>
+      <path d="M34 16 L34 18 L38 18 L38 16" stroke="#f59e0b" strokeWidth="1" fill="none"/>
+      <line x1="36" y1="18" x2="36" y2="20" stroke="#f59e0b" strokeWidth="1" strokeLinecap="round"/>
+      {/* Question mark */}
+      <circle cx="11" cy="37" r="5.5" fill="#fbbf24" opacity="0.9"/>
+      <text x="8.5" y="40.5" fontSize="8" fontWeight="900" fill="white" fontFamily="system-ui">?</text>
+    </svg>
+  );
+}
+
+export function IconStoriesSubject({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sst-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#fb923c"/>
+          <stop offset="100%" stopColor="#9a3412"/>
+        </radialGradient>
+        <linearGradient id="sst-pg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#fff7ed"/>
+          <stop offset="100%" stopColor="#fed7aa"/>
+        </linearGradient>
+        <filter id="sst-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#431407" floodOpacity="0.4"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#sst-bg)" filter="url(#sst-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Open scroll / book */}
+      <path d="M24 37 C24 37 9 32 9 16 L9 14 C12 14 17 16 24 21 Z" fill="url(#sst-pg)"/>
+      <path d="M24 37 C24 37 39 32 39 16 L39 14 C36 14 31 16 24 21 Z" fill="url(#sst-pg)" opacity="0.8"/>
+      <rect x="23" y="21" width="2" height="17" rx="1" fill="#c2410c"/>
+      {/* Scroll top curls */}
+      <ellipse cx="9" cy="14" rx="3.5" ry="2" fill="#fdba74"/>
+      <ellipse cx="39" cy="14" rx="3.5" ry="2" fill="#fdba74"/>
+      {/* Text lines on left page */}
+      <line x1="12" y1="24" x2="21" y2="22" stroke="#fed7aa" strokeWidth="1.2" strokeLinecap="round"/>
+      <line x1="12" y1="27" x2="21" y2="25" stroke="#fed7aa" strokeWidth="1.2" strokeLinecap="round"/>
+      <line x1="12" y1="30" x2="18" y2="28.5" stroke="#fed7aa" strokeWidth="1.2" strokeLinecap="round"/>
+      {/* Moon + stars (night story) */}
+      <path d="M36 10 C33 7 30 8 29 11 C32 10 35 12 36 10Z" fill="#e0f2fe" opacity="0.9"/>
+      <path d="M40 18 L40.6 20 L42.5 20 L41 21.2 L41.6 23 L40 22 L38.4 23 L39 21.2 L37.5 20 L39.4 20 Z" fill="#fbbf24" opacity="0.9"/>
+      <circle cx="9" cy="38" r="2.5" fill="#fde68a" opacity="0.8"/>
+      <circle cx="38" cy="35" r="1.5" fill="#fde68a" opacity="0.6"/>
+    </svg>
+  );
+}
+
+export function IconSciences({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sc-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#4ade80"/>
+          <stop offset="100%" stopColor="#14532d"/>
+        </radialGradient>
+        <filter id="sc-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#052e16" floodOpacity="0.4"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#sc-bg)" filter="url(#sc-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Microscope body */}
+      <rect x="20" y="30" width="10" height="6" rx="2" fill="white" opacity="0.9"/>
+      <rect x="22" y="24" width="6" height="8" rx="1.5" fill="#bbf7d0" opacity="0.9"/>
+      <rect x="23" y="14" width="4" height="12" rx="1.5" fill="white" opacity="0.9"/>
+      <circle cx="25" cy="13" r="3.5" fill="#6ee7b7"/>
+      <circle cx="25" cy="13" r="2" fill="white" opacity="0.8"/>
+      <rect x="17" y="35" width="16" height="3" rx="1.5" fill="white" opacity="0.8"/>
+      {/* Bubbles / molecules */}
+      <circle cx="37" cy="16" r="5" fill="#a7f3d0" opacity="0.8" stroke="#059669" strokeWidth="1"/>
+      <circle cx="39" cy="13" r="2.5" fill="#6ee7b7" opacity="0.7" stroke="#059669" strokeWidth="0.8"/>
+      <line x1="37" y1="16" x2="39" y2="13" stroke="#059669" strokeWidth="1"/>
+      <circle cx="10" cy="20" r="4" fill="#86efac" opacity="0.7" stroke="#16a34a" strokeWidth="0.8"/>
+      <circle cx="7" cy="16" r="2.5" fill="#4ade80" opacity="0.7" stroke="#16a34a" strokeWidth="0.8"/>
+      <line x1="10" y1="20" x2="7" y2="16" stroke="#16a34a" strokeWidth="1"/>
+      {/* Star */}
+      <path d="M40 34 L40.7 36.5 L43.5 36.5 L41.3 38 L42 40.5 L40 39 L38 40.5 L38.7 38 L36.5 36.5 L39.3 36.5 Z" fill="#fbbf24" opacity="0.9"/>
+    </svg>
+  );
+}
+
+export function IconHistoire({ size = 48 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sh-bg" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#fbbf24"/>
+          <stop offset="100%" stopColor="#92400e"/>
+        </radialGradient>
+        <filter id="sh-sh"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#451a03" floodOpacity="0.4"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#sh-bg)" filter="url(#sh-sh)"/>
+      <ellipse cx="20" cy="13" rx="10" ry="6" fill="white" opacity="0.22"/>
+      {/* Columns */}
+      <rect x="9" y="16" width="5" height="18" rx="1" fill="white" opacity="0.9"/>
+      <rect x="16" y="16" width="5" height="18" rx="1" fill="#fde68a" opacity="0.9"/>
+      <rect x="27" y="16" width="5" height="18" rx="1" fill="#fde68a" opacity="0.9"/>
+      <rect x="34" y="16" width="5" height="18" rx="1" fill="white" opacity="0.9"/>
+      {/* Entablature / roof */}
+      <rect x="7" y="12" width="34" height="5" rx="1.5" fill="white" opacity="0.95"/>
+      <rect x="6" y="33" width="36" height="4" rx="1.5" fill="white" opacity="0.95"/>
+      {/* Pediment triangle */}
+      <path d="M7 12 L24 4 L41 12 Z" fill="#fde68a" opacity="0.9"/>
+      <path d="M7 12 L24 4 L41 12 Z" fill="none" stroke="white" strokeWidth="1"/>
+      {/* Door */}
+      <rect x="20" y="26" width="8" height="11" rx="2" fill="#92400e" opacity="0.6"/>
+      <path d="M20 26 Q24 22 28 26" fill="#78350f" opacity="0.8"/>
+      {/* Stars */}
+      <path d="M41 20 L41.6 22 L43.5 22 L42 23.2 L42.5 25 L41 24 L39.5 25 L40 23.2 L38.5 22 L40.4 22 Z" fill="#fbbf24" opacity="0.9"/>
+      <circle cx="8" cy="38" r="2.5" fill="#fde68a" opacity="0.8"/>
+    </svg>
+  );
+}
+
+export const SUBJECT_ICONS = {
+  mathematics: IconMathematics,
+  french: IconFrench,
+  dutch: IconDutch,
+  english: IconEnglish,
+  spanish: IconSpanish,
+  reasoning: IconReasoning,
+  stories: IconStoriesSubject,
+  sciences: IconSciences,
+  histoire: IconHistoire,
+};
+
 export function IconExamens({ size = 48 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -411,39 +723,6 @@ export function IconLangues({ size = 48 }) {
       <rect x="18" y="24" width="24" height="16" rx="6" fill="#0891b2" opacity=".8"/>
       <path d="M40 40 L44 46 L36 42" fill="#0891b2" opacity=".8"/>
       <text x="22" y="36" fontSize="9" fontWeight="900" fill="white" fontFamily="system-ui">abc</text>
-    </svg>
-  );
-}
-
-export function IconSciences({ size = 48 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="48" height="48" rx="14" fill="#22c55e" fillOpacity=".15"/>
-      <circle cx="24" cy="24" r="4" fill="#22c55e"/>
-      <ellipse cx="24" cy="24" rx="18" ry="7" stroke="#22c55e" strokeWidth="2" fill="none"/>
-      <ellipse cx="24" cy="24" rx="18" ry="7" stroke="#4ade80" strokeWidth="1.5" fill="none" transform="rotate(60 24 24)"/>
-      <ellipse cx="24" cy="24" rx="18" ry="7" stroke="#86efac" strokeWidth="1.5" fill="none" transform="rotate(-60 24 24)"/>
-      <circle cx="42" cy="24" r="2.5" fill="#fbbf24"/>
-      <circle cx="14" cy="36" r="2.5" fill="#fbbf24"/>
-      <circle cx="14" cy="12" r="2.5" fill="#fbbf24"/>
-    </svg>
-  );
-}
-
-export function IconHistoire({ size = 48 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="48" height="48" rx="14" fill="#8b5cf6" fillOpacity=".15"/>
-      <rect x="7" y="22" width="9" height="18" rx="1" fill="#8b5cf6"/>
-      <rect x="7" y="18" width="3" height="6" rx="1" fill="#8b5cf6"/>
-      <rect x="13" y="18" width="3" height="6" rx="1" fill="#8b5cf6"/>
-      <rect x="16" y="26" width="16" height="14" rx="1" fill="#7c3aed"/>
-      <path d="M22 40 L22 33 Q24 30 26 33 L26 40" fill="#0d0b1e" opacity=".5"/>
-      <rect x="32" y="22" width="9" height="18" rx="1" fill="#8b5cf6"/>
-      <rect x="32" y="18" width="3" height="6" rx="1" fill="#8b5cf6"/>
-      <rect x="38" y="18" width="3" height="6" rx="1" fill="#8b5cf6"/>
-      <rect x="23" y="8" width="2" height="10" rx="1" fill="#fbbf24"/>
-      <path d="M25 8 L33 11 L25 14 Z" fill="#ef4444"/>
     </svg>
   );
 }
