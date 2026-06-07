@@ -59,9 +59,16 @@ function speak(text) {
   speechSynthesis.speak(u);
 }
 
+function getWordDef(word, locale) {
+  return word.i18n?.[locale]?.definition || word.definition;
+}
+function getWordEx(word, locale) {
+  return word.i18n?.[locale]?.example || word.example;
+}
+
 // ── Helper components (top-level) ───────────────────────────
 
-function WordRow({ word, isFav, onSelect, onToggleFav }) {
+function WordRow({ word, isFav, onSelect, onToggleFav, locale }) {
   return (
     <div
       className="dc-word-row"
@@ -70,7 +77,7 @@ function WordRow({ word, isFav, onSelect, onToggleFav }) {
       <span className="dc-word-row__emoji">{word.emoji}</span>
       <div className="dc-word-row__main">
         <div className="dc-word-row__word">{word.word}</div>
-        <div className="dc-word-row__def">{word.definition}</div>
+        <div className="dc-word-row__def">{getWordDef(word, locale)}</div>
       </div>
       <span
         className={`dc-word-row__star${isFav ? ' is-fav' : ''}`}
@@ -95,7 +102,7 @@ function ThemeBtn({ theme, isActive, onSelect }) {
   );
 }
 
-function WordDetail({ word, ui, isFav, onBack, onToggleFav, onChipNav }) {
+function WordDetail({ word, ui, locale, isFav, onBack, onToggleFav, onChipNav }) {
   return (
     <div className="dc-detail">
       <div className="dc-detail-header">
@@ -148,12 +155,12 @@ function WordDetail({ word, ui, isFav, onBack, onToggleFav, onChipNav }) {
 
       <div className="dc-card">
         <div className="dc-card__label">{ui.definition}</div>
-        <p className="dc-card__text">{word.definition}</p>
+        <p className="dc-card__text">{getWordDef(word, locale)}</p>
       </div>
 
       <div className="dc-card">
         <div className="dc-card__label">{ui.example}</div>
-        <p className="dc-card__example">{word.example}</p>
+        <p className="dc-card__example">{getWordEx(word, locale)}</p>
       </div>
 
       {word.synonyms && word.synonyms.length > 0 && (
@@ -243,11 +250,12 @@ export default function DicoPage() {
         (w) =>
           w.word.toLowerCase().includes(q) ||
           w.definition.toLowerCase().includes(q) ||
+          (w.i18n?.[locale]?.definition || '').toLowerCase().includes(q) ||
           w.synonyms.some((s) => s.toLowerCase().includes(q))
       );
     }
     return list;
-  }, [activeTheme, searchQuery]);
+  }, [activeTheme, searchQuery, locale]);
 
   const favWords = useMemo(
     () => DICO_WORDS.filter((w) => progress.favorites.includes(w.id)),
@@ -320,6 +328,7 @@ export default function DicoPage() {
         <WordDetail
           word={selectedWord}
           ui={ui}
+          locale={locale}
           isFav={progress.favorites.includes(selectedWord.id)}
           onBack={goBack}
           onToggleFav={handleToggleFav}
@@ -382,6 +391,7 @@ export default function DicoPage() {
                     isFav={progress.favorites.includes(w.id)}
                     onSelect={(id) => goWord(id, 'browse')}
                     onToggleFav={handleToggleFav}
+                    locale={locale}
                   />
                 ))}
               </div>
@@ -414,7 +424,7 @@ export default function DicoPage() {
               <span className="dc-wod__class">{(UI.fr.classMap[wod.class] || wod.class)}</span>
             </div>
           </div>
-          <div className="dc-wod__def">{wod.definition}</div>
+          <div className="dc-wod__def">{getWordDef(wod, locale)}</div>
         </div>
 
         {/* Theme grid */}
@@ -455,6 +465,7 @@ export default function DicoPage() {
                   isFav={true}
                   onSelect={(id) => goWord(id, 'home')}
                   onToggleFav={handleToggleFav}
+                  locale={locale}
                 />
               ))}
             </div>
@@ -473,6 +484,7 @@ export default function DicoPage() {
                   isFav={progress.favorites.includes(w.id)}
                   onSelect={(id) => goWord(id, 'home')}
                   onToggleFav={handleToggleFav}
+                  locale={locale}
                 />
               ))}
             </div>
