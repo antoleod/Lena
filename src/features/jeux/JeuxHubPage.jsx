@@ -41,8 +41,9 @@ const CATEGORIES = [
     label: '🔢 Mathematiques',
     color: '#f59e0b',
     games: [
-      { to: '/jeux/calcul-rapide', emoji: '⚡', name: 'Calcul Rapide', desc: 'Resous le plus de calculs en 60 s !', badge: 'Moyen' },
-      { to: '/jeux/course-maths',  emoji: '🏁', name: 'Course Maths',  desc: 'Course contre la montre en maths.', badge: 'Moyen' },
+      { to: '/jeux/calcul-rapide',   emoji: '⚡', name: 'Calcul Rapide',    desc: 'Resous le plus de calculs en 60 s !', badge: 'Moyen' },
+      { to: '/jeux/course-maths',    emoji: '🏁', name: 'Course Maths',     desc: 'Course contre la montre en maths.', badge: 'Moyen' },
+      { to: '/jeux/bulles-calcul',   emoji: '🫧', name: 'Bulles de Calcul', desc: 'Creve la bulle avec la bonne reponse !', badge: 'Facile' },
     ],
   },
   {
@@ -50,7 +51,16 @@ const CATEGORIES = [
     label: '🧩 Logique',
     color: '#ec4899',
     games: [
-      { to: '/jeux/intrus', emoji: '🕵️', name: 'Trouve l\'Intrus', desc: 'Quel mot ne va pas avec les autres ?', badge: 'Facile' },
+      { to: '/jeux/intrus',        emoji: '🕵️', name: 'Trouve l\'Intrus',  desc: 'Quel mot ne va pas avec les autres ?', badge: 'Facile' },
+      { to: '/jeux/suite-logique', emoji: '🔢',  name: 'Suite Logique',    desc: 'Trouve le prochain nombre ou emoji !', badge: 'Facile' },
+    ],
+  },
+  {
+    id: 'langage2',
+    label: '🔤 Orthographe',
+    color: '#06b6d4',
+    games: [
+      { to: '/jeux/chasse-lettres', emoji: '🔤', name: 'Chasse Lettres', desc: 'Epelle le mot lettre par lettre !', badge: 'Facile' },
     ],
   },
   {

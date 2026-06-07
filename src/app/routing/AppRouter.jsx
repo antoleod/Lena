@@ -57,6 +57,9 @@ import CompleteLaPhrasePage from '../../features/jeux/CompleteLaPhrasePage.jsx';
 import TrouveIntrusPage from '../../features/jeux/TrouveIntrusPage.jsx';
 import CourseMathsPage from '../../features/jeux/CourseMathsPage.jsx';
 import DetectiveHistoiresPage from '../../features/jeux/DetectiveHistoiresPage.jsx';
+import BullesCalculPage from '../../features/jeux/BullesCalculPage.jsx';
+import ChasseLettrePage from '../../features/jeux/ChasseLettrePage.jsx';
+import SuiteLogiquePage from '../../features/jeux/SuiteLogiquePage.jsx';
 import GrammiPage from '../../features/grammi/GrammiPage.jsx';
 import MetriPage from '../../features/metri/MetriPage.jsx';
 import LexiPage from '../../features/lexi/LexiPage.jsx';
@@ -186,6 +189,9 @@ export default function AppRouter() {
         <Route path="/jeux/intrus" element={<TrouveIntrusPage />} />
         <Route path="/jeux/course-maths" element={<CourseMathsPage />} />
         <Route path="/jeux/detective-histoires" element={<DetectiveHistoiresPage />} />
+        <Route path="/jeux/bulles-calcul" element={<BullesCalculPage />} />
+        <Route path="/jeux/chasse-lettres" element={<ChasseLettrePage />} />
+        <Route path="/jeux/suite-logique" element={<SuiteLogiquePage />} />
         <Route path="/grammi" element={<GrammiPage />} />
         <Route path="/metri" element={<MetriPage />} />
         <Route path="/lexi" element={<LexiPage />} />
