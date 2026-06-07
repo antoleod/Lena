@@ -173,7 +173,7 @@ const THEORY_STEPS = [
   {
     num: 'Etape 3', color: '#ef4444',
     content: '4 < 7 — Je ne peux pas faire 4 − 7 !',
-    visual: () => <><span className="dd-units-block">4</span><span style={{color:'rgba(255,255,255,.6)'}}>{'<'}</span><span className="dd-units-block">7</span><span style={{fontSize:'1.8rem'}}>❌</span></>,
+    visual: () => <><span className="dd-units-block">4</span><span style={{color:'rgba(255,255,255,.6)'}}>{'<'}</span><span className="dd-units-block">7</span><span style={{fontSize:'1.8rem'}}>🛑</span><span style={{fontSize:'.85rem', color:'rgba(255,255,255,.6)', marginLeft:4}}>Pas de panique !</span></>,
   },
   {
     num: 'Etape 4', color: '#fbbf24',
@@ -741,22 +741,44 @@ function TensUnitsPhase({ onFinish, onBack }) {
 }
 
 // ── TeacherPhase ──────────────────────────────────────────────────────────────
-function generateTeacherQuestion() {
-  const eq = genSubtraction(true);
+function buildTeacherQuestion(idx) {
+  const forceCarry = idx % 4 !== 0;
+  const eq = genSubtraction(forceCarry);
+  const needsBorrow = eq.borrow;
   const aD = decomposeNumber(eq.a);
   const bD = decomposeNumber(eq.b);
-  const correctAnswer = `Parce que ${aD.units} < ${bD.units}`;
-  const distractors = [
-    `Parce que ${aD.tens} > ${bD.tens}`,
-    'Parce que c\'est difficile',
-    `Parce que ${eq.a} est grand`,
-  ];
-  const opts = shuffle([correctAnswer, ...distractors]);
-  return { eq, correctAnswer, opts };
+
+  if (needsBorrow) {
+    const options = [
+      `Parce que ${aD.units} < ${bD.units}`,
+      `Parce que ${aD.tens} > ${bD.tens}`,
+      `Parce que c'est difficile`,
+      `Parce que ${eq.a} est grand`,
+    ].sort(() => Math.random() - .5);
+    return {
+      eq,
+      question: `${eq.a} - ${eq.b} : Pourquoi faut-il emprunter ?`,
+      options,
+      correct: `Parce que ${aD.units} < ${bD.units}`,
+    };
+  } else {
+    const options = [
+      `Je n'ai pas besoin d'emprunter !`,
+      `Parce que ${aD.units} < ${bD.tens}`,
+      `Parce que c'est facile`,
+      `Parce que ${eq.a} est petit`,
+    ].sort(() => Math.random() - .5);
+    return {
+      eq,
+      question: `${eq.a} - ${eq.b} : Faut-il emprunter une dizaine ?`,
+      options,
+      correct: `Je n'ai pas besoin d'emprunter !`,
+    };
+  }
 }
 
 function TeacherPhase({ onFinish, onBack }) {
-  const questions = useRef(Array.from({length: 8}, generateTeacherQuestion));
+  const questions = useRef(Array.from({length: 8}, (_, i) => buildTeacherQuestion(i)));
   const [idx, setIdx]         = useState(0);
   const [selected, setSelected] = useState(null);
   const [correct, setCorrect] = useState(0);
@@ -772,7 +794,7 @@ function TeacherPhase({ onFinish, onBack }) {
     e.preventDefault();
     if (selected !== null) return;
     setSelected(opt);
-    const isCorrect = opt === q.correctAnswer;
+    const isCorrect = opt === q.correct;
     recordAnswer('teacher', isCorrect);
     if (isCorrect) {
       setCorrect(c => c + 1);
@@ -805,9 +827,7 @@ function TeacherPhase({ onFinish, onBack }) {
       </div>
 
       <div className="dd-teacher-card" style={{margin:'0 14px 10px'}}>
-        <p className="dd-teacher-card__q">
-          Pour {q.eq.a} − {q.eq.b}, pourquoi faut-il emprunter une dizaine ?
-        </p>
+        <p className="dd-teacher-card__q">{q.question}</p>
         <div style={{display:'flex',gap:12,justifyContent:'center',fontSize:'2.5rem',marginBottom:4}}>
           <span style={{color:'#6366f1',fontWeight:900}}>{q.eq.a}</span>
           <span style={{color:'rgba(255,255,255,.4)'}}>−</span>
@@ -823,11 +843,11 @@ function TeacherPhase({ onFinish, onBack }) {
       </div>
 
       <div className="dd-teacher-options">
-        {q.opts.map((opt, i) => {
+        {q.options.map((opt, i) => {
           let cls = 'dd-teacher-opt';
           if (selected !== null) {
-            if (opt === q.correctAnswer) cls += ' is-correct';
-            else if (opt === selected)   cls += ' is-wrong';
+            if (opt === q.correct) cls += ' is-correct';
+            else if (opt === selected) cls += ' is-wrong';
           }
           return (
             <button key={i} className={cls} onPointerDown={e => handleOpt(e, opt)} type="button">

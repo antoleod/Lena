@@ -52,10 +52,10 @@
 /* ── ANALOG CLOCK SVG ───────────────────────────────────────────────── */
 .ch-clock-wrap { display: flex; justify-content: center; align-items: center; padding: 12px 0; flex-shrink: 0; }
 .ch-clock-svg { width: min(280px, 72vw); height: min(280px, 72vw); }
-.ch-clock-face { fill: #1e3a5f; stroke: #0891b2; stroke-width: 3; }
-.ch-clock-center { fill: #0891b2; }
+.ch-clock-face { fill: #1e3a5f; stroke: var(--ch-clock-accent, #0891b2); stroke-width: 3; }
+.ch-clock-center { fill: var(--ch-clock-accent, #0891b2); }
 .ch-hand-hour { stroke: #fff; stroke-width: 6; stroke-linecap: round; transition: transform .4s ease; transform-origin: 50% 50%; }
-.ch-hand-min  { stroke: #06b6d4; stroke-width: 4; stroke-linecap: round; transition: transform .4s ease; transform-origin: 50% 50%; }
+.ch-hand-min  { stroke: var(--ch-clock-accent, #0891b2); stroke-width: 4; stroke-linecap: round; transition: transform .4s ease; transform-origin: 50% 50%; }
 .ch-hand-sec  { stroke: #f59e0b; stroke-width: 2; stroke-linecap: round; transform-origin: 50% 50%; }
 .ch-clock-num { fill: rgba(255,255,255,.8); font-size: 11px; font-weight: 700; font-family: inherit; text-anchor: middle; dominant-baseline: central; }
 .ch-clock-tick { stroke: rgba(255,255,255,.3); stroke-width: 1; }
@@ -117,43 +117,6 @@
   font-size: .9rem; color: rgba(255,255,255,.85); text-align: center; line-height: 1.5;
 }
 
-/* Numpad (same design as DUDU) */
-.ch-numpad {
-  flex: 1; display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 8px;
-  padding: 4px 14px calc(var(--nav-height-mobile, 64px) + 8px);
-  min-height: 0;
-}
-.ch-key {
-  border-radius: 18px; border: 2px solid rgba(255,255,255,.15);
-  background: rgba(255,255,255,.09); color: #fff;
-  font-size: 1.6rem; font-weight: 800;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  user-select: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
-  transition: transform .07s, background .1s;
-}
-.ch-key:active { transform: scale(.88); background: rgba(255,255,255,.22); }
-.ch-key--del { background: rgba(255,255,255,.06); color: rgba(255,255,255,.7); font-size: 1.4rem; }
-.ch-key--ok  { background: linear-gradient(135deg, #0891b2, #0e7490); border-color: transparent; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(8,145,178,.4); }
-.ch-key--ok.is-disabled { background: rgba(255,255,255,.07); box-shadow: none; color: rgba(255,255,255,.25); }
-
-/* Answer input box */
-.ch-answer-input {
-  margin: 0 14px 10px; flex-shrink: 0;
-  background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.15);
-  border-radius: 18px; padding: 16px;
-  text-align: center; font-size: 2.4rem; font-weight: 900; color: #fff;
-  letter-spacing: 2px; font-family: 'Courier New', monospace;
-  transition: border-color .15s;
-  min-height: 72px; display: flex; align-items: center; justify-content: center;
-}
-.ch-answer-input.has-input { border-color: rgba(255,255,255,.5); }
-.ch-answer-input.is-correct { border-color: #22c55e; background: rgba(34,197,94,.12); color: #4ade80; }
-.ch-answer-input.is-wrong   { border-color: #f97316; background: rgba(249,115,22,.1); color: #fb923c; animation: chShake .35s; }
-@keyframes chShake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-6px)} 40%,80%{transform:translateX(6px)} }
-
 /* Time label above clock */
 .ch-time-label {
   text-align: center; font-size: 1.1rem; font-weight: 700; color: rgba(255,255,255,.7);
@@ -212,6 +175,13 @@
 .ch-badge-popup__title { font-size: 1.3rem; font-weight: 900; color: #fbbf24; margin: 8px 0 4px; }
 .ch-badge-popup__sub { font-size: .85rem; color: rgba(255,255,255,.7); }
 .ch-badge-popup__close { margin-top: 16px; padding: 10px 24px; background: #0891b2; color: #fff; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; font-size: .95rem; }
+
+.ch-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 199;
+  display: flex; align-items: center; justify-content: center;
+}
 
 /* Watch builder */
 .ch-watch-builder { flex: 1; overflow-y: auto; padding: 0 14px calc(var(--nav-height-mobile,64px) + 8px); display: flex; flex-direction: column; gap: 12px; }

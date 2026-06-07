@@ -51,44 +51,16 @@ function AnalogClock({ hours, minutes, size = 240 }) {
   );
 }
 
-// ── NumPad ────────────────────────────────────────────────────────────────────
-function NumPad({ value, onChange, onSubmit }) {
-  function press(k) {
-    if (k === 'del') { onChange(value.slice(0, -1)); return; }
-    if (k === 'ok') { onSubmit(); return; }
-    if (value.length < 5) onChange(value + k);
-  }
-  const keys = ['1','2','3','4','5','6','7','8','9','del','0','ok'];
-  return (
-    <div className="ch-numpad">
-      {keys.map(k => (
-        <button
-          key={k}
-          type="button"
-          className={`ch-key${k === 'del' ? ' ch-key--del' : ''}${k === 'ok' ? ' ch-key--ok' + (value === '' ? ' is-disabled' : '') : ''}`}
-          onPointerDown={e => { e.preventDefault(); press(k); }}
-        >
-          {k === 'del' ? '⌫' : k === 'ok' ? '✓' : k}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 // ── BadgePopup ────────────────────────────────────────────────────────────────
 function BadgePopup({ badge, onClose }) {
   return (
-    <div className="ch-badge-popup">
-      <div className="ch-badge-popup__emoji">{badge.emoji}</div>
-      <div className="ch-badge-popup__title">{badge.label}</div>
-      <div className="ch-badge-popup__sub">Nouveau badge obtenu !</div>
-      <button
-        type="button"
-        className="ch-badge-popup__close"
-        onPointerDown={e => { e.preventDefault(); onClose(); }}
-      >
-        Super !
-      </button>
+    <div className="ch-overlay">
+      <div className="ch-badge-popup">
+        <div className="ch-badge-popup__emoji">{badge.emoji}</div>
+        <div className="ch-badge-popup__title">{badge.label}</div>
+        <div className="ch-badge-popup__sub">Nouveau badge obtenu !</div>
+        <button className="ch-badge-popup__close" onPointerDown={e => { e.preventDefault(); onClose(); }}>Super !</button>
+      </div>
     </div>
   );
 }
@@ -139,8 +111,8 @@ export default function ChronoPage() {
   const [stepIdx, setStepIdx] = useState(0);
 
   // Watch builder state
-  const [watchBracelet, setWatchBracelet] = useState('Classique');
-  const [watchColor, setWatchColor] = useState('#0891b2');
+  const [watchBracelet, setWatchBracelet] = useState(() => loadProgress().watchDesign?.bracelet || 'Classique');
+  const [watchColor, setWatchColor] = useState(() => loadProgress().watchDesign?.color || '#0891b2');
 
   function buildQuestions(mode) {
     if (mode === 'full-hours') return Array.from({ length: 10 }, () => genClockExercise(1));
@@ -423,8 +395,11 @@ export default function ChronoPage() {
   if (phase === 'duration' || phase === 'missions') {
     if (questions.length === 0) return null;
     const q = questions[qIdx];
-    const raw = [q.durationMins, q.durationMins + 15, q.durationMins - 15, q.durationMins + 30];
-    const durationChoices = raw.filter(v => v > 0).slice(0, 4).sort(() => Math.random() - .5).map(String);
+    const correctVal = q.durationMins;
+    const distractorPool = [correctVal + 15, correctVal + 30, correctVal + 45, correctVal - 15, correctVal - 30]
+      .filter(v => v > 0 && v !== correctVal);
+    const distractors = distractorPool.slice(0, 3);
+    const durationChoices = [correctVal, ...distractors].sort(() => Math.random() - .5).map(String);
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
@@ -483,9 +458,8 @@ export default function ChronoPage() {
           ))}
         </div>
         <div className="ch-step-nav">
-          <button type="button" className="ch-step-btn ch-step-btn--next" onPointerDown={e => { e.preventDefault(); startMode('detective', 'Detectif du Temps'); }}>
-            Jouer avec le temps &rarr;
-          </button>
+          <button className="ch-step-btn ch-step-btn--prev" type="button" onPointerDown={e => { e.preventDefault(); setPhase('hub'); }}>&#8592; Retour</button>
+          <button className="ch-step-btn ch-step-btn--next" type="button" onPointerDown={e => { e.preventDefault(); startMode('detective', 'Detectif du Temps'); }}>Jouer &#8594;</button>
         </div>
       </div>
     );
@@ -510,7 +484,7 @@ export default function ChronoPage() {
           <span className="ch-quiz-bar__title">Construis Ma Montre</span>
         </div>
         <div className="ch-watch-builder">
-          <div className="ch-watch-builder__preview">
+          <div className="ch-watch-builder__preview" style={{ '--ch-clock-accent': watchColor }}>
             <AnalogClock hours={now.getHours()} minutes={now.getMinutes()} size={200} />
           </div>
           <p className="ch-section-label" style={{ padding: '4px 2px 8px' }}>Bracelet</p>
@@ -627,8 +601,9 @@ export default function ChronoPage() {
         <p className="ch-section-label">Modes d'apprentissage</p>
         <div className="ch-cat-grid">
           {MODES.map(m => (
-            <div
+            <button
               key={m.id}
+              type="button"
               className="ch-cat-card"
               style={{ '--cat-color': m.color }}
               onPointerDown={e => {
@@ -644,7 +619,7 @@ export default function ChronoPage() {
                 <span className="ch-cat-card__desc">{m.desc}</span>
                 <span className="ch-cat-card__badge">{m.badge}</span>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
