@@ -32,6 +32,91 @@ function normalize(v) {
   return String(v).trim().toLowerCase().replace(/\s+/g, ' ');
 }
 
+function HelpCard({ helpCount, maxHelp, onClose, onNextLevel, keyword, sentence, halfPages, allPages, levelKey, onAudio, audioHelpUsed }) {
+  const showLevel = helpCount;
+
+  const encouragements = [
+    'Tu es proche ! Cherche le mot important.',
+    'Relis bien cette partie du texte.',
+    'Prends ton temps, la reponse est la.',
+    'Regarde tout le texte attentivement.',
+  ];
+  const msg = encouragements[Math.min(showLevel - 1, encouragements.length - 1)] || encouragements[0];
+
+  return (
+    <div className="help-overlay" role="dialog" aria-modal="true" aria-label="Aide">
+      <div className="help-card">
+        <div className="help-card__header">
+          <span className="help-card__icon">💡</span>
+          <strong className="help-card__title">Besoin d'aide ?</strong>
+          <button
+            className="help-card__close"
+            type="button"
+            onPointerDown={e => { e.preventDefault(); onClose(); }}
+            aria-label="Fermer l'aide"
+          >×</button>
+        </div>
+
+        <p className="help-card__msg">{msg}</p>
+
+        {showLevel >= 1 && keyword && (
+          <div className="help-card__block help-card__block--keyword">
+            <span className="help-card__block-label">🔑 Mot important</span>
+            <span className="help-card__keyword">{keyword}</span>
+          </div>
+        )}
+
+        {showLevel >= 2 && sentence && (
+          <div className="help-card__block help-card__block--phrase">
+            <span className="help-card__block-label">📝 Phrase importante</span>
+            <p className="help-card__phrase">"{sentence}"</p>
+          </div>
+        )}
+
+        {showLevel >= 3 && halfPages && halfPages.length > 0 && (
+          <div className="help-card__block help-card__block--text">
+            <span className="help-card__block-label">📖 Debut du texte</span>
+            {halfPages.map((p, i) => (
+              <p key={i} className="help-card__text-excerpt">{p.text}</p>
+            ))}
+          </div>
+        )}
+
+        {showLevel >= 4 && allPages && allPages.length > 0 && (
+          <div className="help-card__block help-card__block--full">
+            <span className="help-card__block-label">📚 Texte complet</span>
+            {allPages.map((p, i) => (
+              <p key={i} className="help-card__text-excerpt">{p.text}</p>
+            ))}
+          </div>
+        )}
+
+        <div className="help-card__actions">
+          {!audioHelpUsed && (
+            <button
+              className="help-card__btn help-card__btn--audio"
+              type="button"
+              onPointerDown={e => { e.preventDefault(); onAudio(); }}
+            >🔊 Ecouter</button>
+          )}
+          {helpCount < maxHelp && (
+            <button
+              className="help-card__btn help-card__btn--more"
+              type="button"
+              onPointerDown={e => { e.preventDefault(); onNextLevel(); }}
+            >➕ Plus d'aide</button>
+          )}
+          <button
+            className="help-card__btn help-card__btn--ok"
+            type="button"
+            onPointerDown={e => { e.preventDefault(); onClose(); }}
+          >✅ J'ai compris</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function isCorrect(q, value) {
   if (q.type === 'true_false') return value === q.answer;
   if (q.type === 'fill_blank') {
@@ -146,6 +231,13 @@ export default function ExamRunnerPage() {
   const [revFeedback, setRevFeedback] = useState(null);
   const [revOptions, setRevOptions] = useState([]);
 
+  // Help system
+  const [helpCount, setHelpCount] = useState(0);
+  const [showHelp, setShowHelp] = useState(false);
+  const [totalHelpsUsed, setTotalHelpsUsed] = useState(0);
+  const [helpWeights, setHelpWeights] = useState([]);
+  const [audioHelpUsed, setAudioHelpUsed] = useState(false);
+
   // Feature A — mute toggle, persisted to localStorage
   const [muted, setMuted] = useState(() => {
     try { return localStorage.getItem('lena:exam-mute') === 'true'; } catch (_) { return false; }
@@ -258,6 +350,9 @@ export default function ExamRunnerPage() {
 
   const { exam, level } = data;
   const pages = level.story?.pages || [];
+
+  const isComprehension = exam?.category === 'comprehension-lecture' || exam?.category === 'comprehension-orale';
+  const maxHelp = levelKey === 'facile' ? 4 : levelKey === 'moyen' ? 2 : 1;
 
   // ── CONFIG ────────────────────────────────────────────────────────────────
   if (phase === 'config') {
@@ -373,6 +468,11 @@ export default function ExamRunnerPage() {
               setInput('');
               setFeedback(null);
               setWrongQuestions([]);
+              setHelpWeights([]);
+              setTotalHelpsUsed(0);
+              setHelpCount(0);
+              setShowHelp(false);
+              setAudioHelpUsed(false);
               startRef.current = Date.now();
               setPhase(hasStory ? 'read' : 'quiz');
             }}
@@ -404,6 +504,11 @@ export default function ExamRunnerPage() {
         source: 'exam-library',
       });
     }
+    const weight = isComprehension
+      ? Math.max(0.6, 1 - helpCount * 0.1)
+      : 1.0;
+    setHelpWeights(prev => [...prev, ok ? weight : 0]);
+    if (helpCount > 0) setTotalHelpsUsed(t => t + 1);
   }
 
   // Keep endExamRef in sync with latest score/totalQ so the timer can call it.
@@ -457,6 +562,9 @@ export default function ExamRunnerPage() {
       setSelected(null);
       setInput('');
       setFeedback(null);
+      setHelpCount(0);
+      setShowHelp(false);
+      setAudioHelpUsed(false);
     }
   }
 
@@ -472,6 +580,11 @@ export default function ExamRunnerPage() {
     setTimerSecondsLeft(null);
     setWrongQuestions([]);
     setNumberRange({ min: 0, max: 100 });
+    setHelpWeights([]);
+    setTotalHelpsUsed(0);
+    setHelpCount(0);
+    setShowHelp(false);
+    setAudioHelpUsed(false);
     startRef.current = Date.now();
   }
 
@@ -620,6 +733,32 @@ export default function ExamRunnerPage() {
           <p style={{ fontSize: '1.8rem', letterSpacing: 4 }}>
             {[1, 2, 3].map((i) => <span key={i} style={{ opacity: i <= stars ? 1 : 0.25 }}>⭐</span>)}
           </p>
+          {isComprehension && helpWeights.length > 0 && (() => {
+            const weightedPct = helpWeights.length > 0
+              ? Math.round((helpWeights.reduce((a, b) => a + b, 0) / helpWeights.length) * 100)
+              : Math.round((score / totalQ) * 100);
+            return (
+              <div className="exam-help-summary">
+                <div className="exam-help-summary__row">
+                  <span>🎯 Score ajuste avec aides</span>
+                  <strong>{weightedPct}%</strong>
+                </div>
+                {totalHelpsUsed > 0 && (
+                  <div className="exam-help-summary__row exam-help-summary__row--sub">
+                    <span>💡 Aides utilisees</span>
+                    <span>{totalHelpsUsed}</span>
+                  </div>
+                )}
+                <p className="exam-help-summary__msg">
+                  {totalHelpsUsed === 0
+                    ? 'Bravo, tu as repondu sans aide !'
+                    : totalHelpsUsed <= 2
+                      ? 'Bien joue ! Tu as utilise un peu d\'aide.'
+                      : 'Continue a t\'entrainer pour ne plus avoir besoin d\'aide !'}
+                </p>
+              </div>
+            );
+          })()}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', marginTop: 8 }}>
             <button type="button" className="reader-btn reader-btn--next" style={{ width: '100%' }} onClick={restart}>{ui.restart}</button>
             {wrongQuestions.length > 0 && (
@@ -718,6 +857,51 @@ export default function ExamRunnerPage() {
       <div className="reader-card" style={{ minHeight: 90 }}>
         <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(currentQ, 'prompt', locale)}</p>
       </div>
+
+      {isComprehension && selected === null && (
+        <button
+          className="exam-help-btn"
+          type="button"
+          onPointerDown={e => { e.preventDefault(); setShowHelp(true); if (helpCount === 0) { setHelpCount(1); setTotalHelpsUsed(t => t + 1); } }}
+        >
+          💡 Besoin d'aide ?
+        </button>
+      )}
+
+      {showHelp && isComprehension && (() => {
+        const storyPages = level?.story?.pages || [];
+        const pageIdx = parseInt((currentQ?.pageRef || 'p1').replace(/\D/g, ''), 10) - 1;
+        const page = storyPages[Math.max(0, pageIdx)] || storyPages[0] || {};
+        const kw = page?.keywords?.[0] || '';
+        const sent = ((page?.text || '').split(/[.!?]/)[0] || '') + '.';
+        const half = storyPages.slice(0, Math.ceil(storyPages.length / 2));
+        return (
+          <HelpCard
+            helpCount={helpCount}
+            maxHelp={maxHelp}
+            keyword={kw}
+            sentence={sent}
+            halfPages={half}
+            allPages={storyPages}
+            levelKey={levelKey}
+            audioHelpUsed={audioHelpUsed}
+            onClose={() => setShowHelp(false)}
+            onNextLevel={() => {
+              const next = Math.min(helpCount + 1, maxHelp);
+              setHelpCount(next);
+            }}
+            onAudio={() => {
+              setAudioHelpUsed(true);
+              if (typeof speechSynthesis !== 'undefined') {
+                speechSynthesis.cancel();
+                const u = new SpeechSynthesisUtterance(page?.text || currentQ?.prompt || '');
+                u.lang = 'fr-FR'; u.rate = 0.85;
+                speechSynthesis.speak(u);
+              }
+            }}
+          />
+        );
+      })()}
 
       <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
         {currentQ.type === 'mcq' && options.map((opt) => {

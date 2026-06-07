@@ -13257,3 +13257,178 @@ body {
   margin-top: 2px;
   align-self: flex-start;
 }
+
+/* ── Exam Help System ─────────────────────────────────────────────────────── */
+.exam-help-btn {
+  width: calc(100% - 28px);
+  margin: 0 14px 10px;
+  padding: 11px 16px;
+  border-radius: 16px;
+  background: rgba(251,191,36,.1);
+  border: 1.5px solid rgba(251,191,36,.35);
+  color: rgba(255,255,255,.85);
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background .15s, transform .1s;
+  flex-shrink: 0;
+}
+.exam-help-btn:active { transform: scale(.97); background: rgba(251,191,36,.18); }
+
+/* Help overlay */
+.help-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 300;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+.help-card {
+  width: 100%;
+  max-width: 540px;
+  max-height: 80svh;
+  overflow-y: auto;
+  background: linear-gradient(160deg, #0f1a2e 0%, #1a2340 100%);
+  border: 1.5px solid rgba(251,191,36,.3);
+  border-radius: 24px 24px 0 0;
+  padding: 20px 18px 24px;
+  animation: helpSlideUp .25s cubic-bezier(.34,1.2,.64,1);
+}
+@keyframes helpSlideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.help-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.help-card__icon { font-size: 1.5rem; }
+.help-card__title {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fbbf24;
+}
+.help-card__close {
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,.1);
+  border: none; border-radius: 50%;
+  color: #fff; font-size: 1.2rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.help-card__msg {
+  font-size: .88rem;
+  color: rgba(255,255,255,.7);
+  margin: 0 0 14px;
+  line-height: 1.5;
+  font-style: italic;
+}
+.help-card__block {
+  background: rgba(255,255,255,.07);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-left: 3px solid transparent;
+}
+.help-card__block--keyword { border-left-color: #fbbf24; }
+.help-card__block--phrase  { border-left-color: #a78bfa; }
+.help-card__block--text    { border-left-color: #34d399; }
+.help-card__block--full    { border-left-color: #60a5fa; }
+
+.help-card__block-label {
+  display: block;
+  font-size: .7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 6px;
+}
+.help-card__keyword {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fbbf24;
+  background: rgba(251,191,36,.12);
+  padding: 4px 16px;
+  border-radius: 10px;
+}
+.help-card__phrase {
+  font-size: .92rem;
+  color: #e0e7ff;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
+}
+.help-card__text-excerpt {
+  font-size: .85rem;
+  color: rgba(255,255,255,.8);
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+.help-card__text-excerpt:last-child { margin-bottom: 0; }
+
+.help-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.help-card__btn {
+  flex: 1;
+  min-width: 80px;
+  padding: 11px 12px;
+  border-radius: 14px;
+  border: none;
+  font-size: .85rem;
+  font-weight: 800;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform .08s;
+}
+.help-card__btn:active { transform: scale(.94); }
+.help-card__btn--audio { background: rgba(99,102,241,.2); color: #a5b4fc; border: 1.5px solid rgba(99,102,241,.35); }
+.help-card__btn--more  { background: rgba(251,191,36,.15); color: #fbbf24; border: 1.5px solid rgba(251,191,36,.35); }
+.help-card__btn--ok    { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
+
+/* End-screen help summary */
+.exam-help-summary {
+  background: rgba(251,191,36,.08);
+  border: 1.5px solid rgba(251,191,36,.25);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 12px 0 0;
+  width: 100%;
+  max-width: 320px;
+}
+.exam-help-summary__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .88rem;
+  color: rgba(255,255,255,.85);
+  margin-bottom: 6px;
+}
+.exam-help-summary__row--sub { font-size: .78rem; color: rgba(255,255,255,.55); }
+.exam-help-summary__row strong { color: #fbbf24; font-size: 1.1rem; }
+.exam-help-summary__msg {
+  font-size: .78rem;
+  color: rgba(255,255,255,.5);
+  font-style: italic;
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
