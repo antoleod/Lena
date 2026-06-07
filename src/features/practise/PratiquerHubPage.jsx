@@ -21,6 +21,7 @@ const HUB_UI = {
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'Le laboratoire des grandeurs', color: '#f59e0b' },
       { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'L\'Academie des Mots et des Phrases', color: '#7c3aed' },
       { to: '/verbes', icon: 'verbes', title: 'Le Royaume des Verbes', desc: 'Conjugaison magique', color: '#10b981' },
+      { to: '/dico', icon: 'dico', title: 'Mon Dictionnaire', desc: '120 mots avec definitions et audio', color: '#f59e0b' },
     ],
   },
   nl: {
@@ -38,6 +39,7 @@ const HUB_UI = {
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'Het laboratorium der grootheden', color: '#f59e0b' },
       { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Woorden en Zinnen Academie', color: '#7c3aed' },
       { to: '/verbes', icon: 'verbes', title: 'Het Rijk der Werkwoorden', desc: 'Magische vervoeging', color: '#10b981' },
+      { to: '/dico', icon: 'dico', title: 'Mijn Woordenboek', desc: '120 woorden met definitie', color: '#f59e0b' },
     ],
   },
   en: {
@@ -55,6 +57,7 @@ const HUB_UI = {
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'The measurement laboratory', color: '#f59e0b' },
       { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Words and Sentences Academy', color: '#7c3aed' },
       { to: '/verbes', icon: 'verbes', title: 'The Verb Kingdom', desc: 'Magic conjugation', color: '#10b981' },
+      { to: '/dico', icon: 'dico', title: 'My Dictionary', desc: '120 words with definitions', color: '#f59e0b' },
     ],
   },
   es: {
@@ -72,6 +75,7 @@ const HUB_UI = {
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'El laboratorio de medidas', color: '#f59e0b' },
       { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Academia de Palabras y Frases', color: '#7c3aed' },
       { to: '/verbes', icon: 'verbes', title: 'El Reino de los Verbos', desc: 'Conjugacion magica', color: '#10b981' },
+      { to: '/dico', icon: 'dico', title: 'Mi Diccionario', desc: '120 palabras con definiciones', color: '#f59e0b' },
     ],
   },
 };
@@ -88,6 +92,7 @@ const ICON_MAP = {
   metri: IconMetri,
   lexi: IconLangues,
   verbes: IconLangues,
+  dico: IconLangues,
 };
 
 export default function PratiquerHubPage() {

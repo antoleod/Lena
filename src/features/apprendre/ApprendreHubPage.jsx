@@ -22,6 +22,7 @@ const HUB_UI = {
       { to: '/lexi', emoji: '📚', title: 'LexiLena', desc: 'L\'Academie des Mots et des Phrases', color: '#7c3aed', badge: '9 modes' },
       { to: '/grammi', emoji: '🏰', title: 'GrammiLena', desc: 'Le Royaume Magique des Mots', color: '#10b981', badge: '8 niveaux' },
       { to: '/verbes', emoji: '🧙', title: 'Royaume des Verbes', desc: 'Conjugaison et mini-jeux', color: '#059669', badge: '10 niveaux' },
+      { to: '/dico', emoji: '📖', title: 'Mon Dictionnaire', desc: '120 mots avec definitions', color: '#f59e0b', badge: '120 mots' },
     ],
     mathCards: [
       { to: '/chrono', emoji: '🕐', title: 'ChronoLena', desc: 'J\'apprends l\'heure en jouant', color: '#0891b2', badge: '6 modes' },
@@ -49,6 +50,7 @@ const HUB_UI = {
       { to: '/lexi', emoji: '📚', title: 'LexiLena', desc: 'Woorden en Zinnen Academie', color: '#7c3aed', badge: '9 modi' },
       { to: '/grammi', emoji: '🏰', title: 'GrammiLena', desc: 'Het Magische Woordenkoninkrijk', color: '#10b981', badge: '8 niveaus' },
       { to: '/verbes', emoji: '🧙', title: 'Werkwoordenrijk', desc: 'Vervoeging en mini-spellen', color: '#059669', badge: '10 niveaus' },
+      { to: '/dico', emoji: '📖', title: 'Mijn Woordenboek', desc: '120 woorden', color: '#f59e0b', badge: '120 woorden' },
     ],
     mathCards: [
       { to: '/chrono', emoji: '🕐', title: 'ChronoLena', desc: 'Leer klokkijken spelenderwijs', color: '#0891b2', badge: '6 modi' },
@@ -76,6 +78,7 @@ const HUB_UI = {
       { to: '/lexi', emoji: '📚', title: 'LexiLena', desc: 'Words and Sentences Academy', color: '#7c3aed', badge: '9 modes' },
       { to: '/grammi', emoji: '🏰', title: 'GrammiLena', desc: 'The Magical Kingdom of Words', color: '#10b981', badge: '8 levels' },
       { to: '/verbes', emoji: '🧙', title: 'Verb Kingdom', desc: 'Conjugation and mini-games', color: '#059669', badge: '10 levels' },
+      { to: '/dico', emoji: '📖', title: 'My Dictionary', desc: '120 words', color: '#f59e0b', badge: '120 words' },
     ],
     mathCards: [
       { to: '/chrono', emoji: '🕐', title: 'ChronoLena', desc: 'Learn to tell the time', color: '#0891b2', badge: '6 modes' },
@@ -103,6 +106,7 @@ const HUB_UI = {
       { to: '/lexi', emoji: '📚', title: 'LexiLena', desc: 'Academia de Palabras y Frases', color: '#7c3aed', badge: '9 modos' },
       { to: '/grammi', emoji: '🏰', title: 'GrammiLena', desc: 'El Reino Magico de las Palabras', color: '#10b981', badge: '8 niveles' },
       { to: '/verbes', emoji: '🧙', title: 'Reino de los Verbos', desc: 'Conjugacion y mini-juegos', color: '#059669', badge: '10 niveles' },
+      { to: '/dico', emoji: '📖', title: 'Mi Diccionario', desc: '120 palabras', color: '#f59e0b', badge: '120 palabras' },
     ],
     mathCards: [
       { to: '/chrono', emoji: '🕐', title: 'ChronoLena', desc: 'Aprendo a leer el reloj jugando', color: '#0891b2', badge: '6 modos' },
