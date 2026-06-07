@@ -465,6 +465,35 @@ function PhaseHeader({ conte, tag, onBack }) {
   );
 }
 
+// ── Floating dust particles ───────────────────────────────────────────────────
+function DustParticles() {
+  const particles = [
+    { size: 4,  left: '18%', bottom: '30%', duration: '7s',  delay: '0s'   },
+    { size: 3,  left: '35%', bottom: '25%', duration: '9s',  delay: '1.5s' },
+    { size: 5,  left: '52%', bottom: '20%', duration: '6s',  delay: '0.8s' },
+    { size: 3,  left: '68%', bottom: '35%', duration: '11s', delay: '2s'   },
+    { size: 4,  left: '82%', bottom: '28%', duration: '8s',  delay: '3s'   },
+    { size: 2,  left: '25%', bottom: '15%', duration: '10s', delay: '1s'   },
+    { size: 3,  left: '75%', bottom: '18%', duration: '7.5s',delay: '4s'   },
+  ];
+  return (
+    <>
+      {particles.map((p, i) => (
+        <div
+          key={i}
+          className="sa-dust-particle"
+          style={{
+            width: p.size, height: p.size,
+            left: p.left, bottom: p.bottom,
+            animationDuration: p.duration,
+            animationDelay: p.delay,
+          }}
+        />
+      ))}
+    </>
+  );
+}
+
 // ── Main reader ───────────────────────────────────────────────────────────────
 export default function StoryReaderPage() {
   const { id } = useParams();
@@ -658,6 +687,9 @@ export default function StoryReaderPage() {
   }
 
   // ── SCENES — magic book ───────────────────────────────────────────────────
+  const firstChar = scene.text.charAt(0);
+  const restText  = scene.text.slice(1);
+
   return (
     <div
       className="sa-book-wrap"
@@ -665,6 +697,8 @@ export default function StoryReaderPage() {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
+      <DustParticles />
+
       {/* Top bar */}
       <header className="sa-topbar">
         <button type="button" className="sa-topbar__back" onClick={goBack} aria-label={ui.backToLib}>
@@ -689,28 +723,41 @@ export default function StoryReaderPage() {
         </button>
       </header>
 
-      {/* The open book */}
-      <div className="sa-book" ref={bookRef}>
-        <div className="sa-bookmark" aria-hidden="true" />
+      {/* Leather-bound book */}
+      <div className="sa-book-outer">
+        <div className="sa-book" ref={bookRef}>
+          <div className="sa-bookmark" aria-hidden="true" />
 
-        {/* Left page — illustration */}
-        <div className="sa-page-left">
-          <span className="sa-scene-emoji" role="img" aria-hidden="true">
-            {getSceneEmoji(conte.id, sceneIdx)}
-          </span>
-          <span className="sa-page-num">{sceneIdx * 2 + 1}</span>
-        </div>
-
-        {/* Right page — story text */}
-        <div className={`sa-page-right${turning ? ' is-turning' : ''}`}>
-          <p className="sa-story-text">{scene.text}</p>
-          {scene.dialogue && (
-            <div className="sa-dialogue">
-              <span className="sa-dialogue__speaker">{scene.dialogue.speaker}</span>
-              <p className="sa-dialogue__line">&laquo;&nbsp;{scene.dialogue.line}&nbsp;&raquo;</p>
+          {/* Left page — illustration */}
+          <div className="sa-page-left">
+            <div className="sa-illustration-frame">
+              <span className="sa-scene-emoji" role="img" aria-hidden="true">
+                {getSceneEmoji(conte.id, sceneIdx)}
+              </span>
             </div>
-          )}
-          <span className="sa-page-num">{sceneIdx * 2 + 2}</span>
+            <span className="sa-page-num">{sceneIdx * 2 + 1}</span>
+          </div>
+
+          {/* Right page — story text */}
+          <div className={`sa-page-right${turning ? ' is-turning' : ''}`}>
+            <div className="sa-page-right-vignette" aria-hidden="true" />
+            <p className="sa-story-text">
+              <span className="sa-drop-cap" aria-hidden="true">{firstChar}</span>
+              {restText}
+            </p>
+            {scene.dialogue && (
+              <>
+                <div className="sa-divider" aria-hidden="true">
+                  <span className="sa-divider__ornament">❧</span>
+                </div>
+                <div className="sa-dialogue">
+                  <span className="sa-dialogue__speaker">{scene.dialogue.speaker}</span>
+                  <p className="sa-dialogue__line">&laquo;&nbsp;{scene.dialogue.line}&nbsp;&raquo;</p>
+                </div>
+              </>
+            )}
+            <span className="sa-page-num">{sceneIdx * 2 + 2}</span>
+          </div>
         </div>
       </div>
 
