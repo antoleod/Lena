@@ -7,6 +7,7 @@ import { getLessonsByContext } from '../../content/lessons/lessonsCatalog.js';
 import { getGradeJourney } from '../../shared/gameplay/moduleJourney.js';
 import { inferLevelNumFromGrade } from '../../services/learning/levelSystem.js';
 import { getSubjectUniverse, getGradeWorld, getDomainTheme } from '../../shared/gameplay/subjectThemes.js';
+import { GRADE_WORLD_ICON_MAP } from '../../assets/icons/GradeWorldIcons.jsx';
 
 const PATH_COLS  = [1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1, 0];
 const NODE_SHAPES = ['circle', 'squircle', 'diamond', 'squircle', 'circle'];
@@ -78,6 +79,7 @@ export default function GradePage() {
 
   const activeNodeId = allNodes.find(n => n.pct < 100)?.id || null;
   const contextLessons = getLessonsByContext(subjectId, gradeId);
+  const WorldIcon = GRADE_WORLD_ICON_MAP[`${subjectId}_${gradeId}`];
 
   return (
     <div
@@ -95,7 +97,7 @@ export default function GradePage() {
       {/* Topbar */}
       <div className="cc-topbar sw-grade-topbar">
         <Link className="cc-back-btn" to={`/subjects/${subjectId}`}>←</Link>
-        <div className="cc-topbar__title">{gradeWorld.emoji} {gradeWorld.name}</div>
+        <div className="cc-topbar__title">{WorldIcon ? <WorldIcon size={22} /> : gradeWorld.emoji} {gradeWorld.name}</div>
         <div className="cc-topbar__progress">
           <div className="cc-xp-bar"><div className="cc-xp-fill" style={{ width: `${overallPct}%`, background: gradeWorld.bg }} /></div>
           <span className="cc-xp-text" style={{ color: gradeWorld.color }}>{overallPct}%</span>
@@ -105,7 +107,7 @@ export default function GradePage() {
       {/* World hero banner */}
       <div className="sw-grade-hero">
         <div className="sw-grade-hero__planet">
-          <span>{gradeWorld.emoji}</span>
+          <span>{WorldIcon ? <WorldIcon size={48} /> : gradeWorld.emoji}</span>
           {[...Array(5)].map((_, i) => (
             <span key={i} className="sw-grade-hero__orbit-dot" style={{ '--i': i, '--c': gradeWorld.color }}>•</span>
           ))}
@@ -129,7 +131,7 @@ export default function GradePage() {
             <Link key={g} to={`/subjects/${subjectId}/grades/${g}`}
               className={`cc-grade-chip ${g === gradeId ? 'cc-grade-chip--active' : ''}`}
               style={g === gradeId ? { background: gradeWorld.bg, borderColor: gradeWorld.color, color: 'white' } : {}}>
-              {gw.emoji} {g}
+              {(() => { const GwIcon = GRADE_WORLD_ICON_MAP[`${subjectId}_${g}`]; return GwIcon ? <GwIcon size={16} /> : gw.emoji; })()} {g}
             </Link>
           );
         })}
@@ -188,7 +190,7 @@ export default function GradePage() {
           {allNodes.length > 0 && (
             <div className="cc-row">
               <div className="cc-end-trophy">
-                <span style={{ filter: `drop-shadow(0 4px 12px ${gradeWorld.color}88)` }}>{gradeWorld.emoji}</span>
+                <span style={{ filter: `drop-shadow(0 4px 12px ${gradeWorld.color}88)` }}>{WorldIcon ? <WorldIcon size={64} /> : gradeWorld.emoji}</span>
                 <span className="cc-end-trophy__label">¡{gradeWorld.name} completado!</span>
               </div>
             </div>

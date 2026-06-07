@@ -4,6 +4,7 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getSubjectDescription, getSubjectLabel, getSubjectRoadmap } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getSubjectUniverse, getGradeWorld } from '../../shared/gameplay/subjectThemes.js';
+import { GRADE_WORLD_ICON_MAP } from '../../assets/icons/GradeWorldIcons.jsx';
 
 function getGradeStats(subjectId, gradeId, progress) {
   const acts = activities.filter(a => a.subject === subjectId && a.gradeBand.includes(gradeId));
@@ -134,7 +135,7 @@ export default function SubjectPage() {
 
                 {/* Planet */}
                 <div className="sw-world-card__planet">
-                  <span className="sw-world-card__emoji">{w.emoji}</span>
+                  <span className="sw-world-card__emoji">{(() => { const WIcon = GRADE_WORLD_ICON_MAP[`${subjectId}_${grade.gradeId}`]; return WIcon ? <WIcon size={32} /> : w.emoji; })()}</span>
                   {grade.stats.percent === 100 && <div className="sw-world-card__check">✓</div>}
                   <Stars percent={grade.stats.percent} />
                 </div>
