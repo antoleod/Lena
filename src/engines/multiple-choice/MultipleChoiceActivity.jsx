@@ -302,6 +302,11 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
         </div>
       )}
 
+      {/* Divider between context and question */}
+      {currentContextSlots.length > 0 && (
+        <hr className="mc-context-divider" />
+      )}
+
       {/* Question prompt */}
       <div className="mc-prompt-area">
         <p className="mc-prompt">{current.prompt}</p>
@@ -309,6 +314,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
           <button
             type="button"
             className={`mc-speak-btn${speaking ? ' is-playing' : ''}`}
+            onPointerDown={(e) => e.preventDefault()}
             onClick={() => speaking ? stop() : speak(speechText)}
             data-testid="play-question"
             aria-label={speaking ? 'Detener lectura' : 'Leer pregunta'}
@@ -328,22 +334,29 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
 
       {/* Choices */}
       <div className={`mc-choices${hasMedia ? ' mc-choices--media' : ''}${compactChoices ? ' mc-choices--compact' : ''}`}>
-        {currentOptions.map((option) => {
+        {currentOptions.map((option, i) => {
           const isSelected = selected === option.id;
           const isAnswer = option.id === correctOptionId;
           const stateClass = feedback
             ? isAnswer ? ' mc-choice--correct' : isSelected ? ' mc-choice--wrong' : ''
             : isSelected ? ' mc-choice--selected' : '';
+          const rowClass = !hasMedia ? ' mc-choice--row' : '';
 
           return (
             <button
               key={option.id}
-              className={`mc-choice${hasMedia ? ' mc-choice--visual' : ''}${compactChoices ? ' mc-choice--compact' : ''}${stateClass}`}
+              className={`mc-choice${hasMedia ? ' mc-choice--visual' : ''}${compactChoices ? ' mc-choice--compact' : ''}${rowClass}${stateClass}`}
               disabled={Boolean(feedback) || isLocked}
               type="button"
+              onPointerDown={(e) => e.preventDefault()}
               onClick={() => handleChoiceClick(option)}
               data-testid={`choice-${option.id}`}
             >
+              {!hasMedia && (
+                <span className="mc-choice__letter" aria-hidden="true">
+                  {['A', 'B', 'C', 'D'][i] || ''}
+                </span>
+              )}
               {option.media?.src && (
                 <span className="mc-choice__media">
                   <img src={option.media.src} alt={option.media.alt || option.label} />
@@ -371,6 +384,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
             <button
               type="button"
               className="mc-feedback__continue"
+              onPointerDown={(e) => e.preventDefault()}
               onClick={handleContinueClick}
               aria-label="Continuer"
             >
