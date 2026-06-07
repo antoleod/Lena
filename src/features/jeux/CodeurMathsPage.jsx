@@ -363,6 +363,7 @@ export default function CodeurMathsPage() {
         // DECODING SECTOR_{levelNum} — {round.label}
       </div>
 
+      <div style={{ maxWidth: '700px', margin: '0 auto', width: '100%' }}>
       <div className="cm2-equation-card" style={{ background: 'rgba(0,200,80,.06)', border: '1px solid rgba(0,200,80,.3)', borderRadius: 12, padding: 16, fontFamily: 'monospace' }}>
         {round.equations.map((eq, i) => (
           <div key={i} className="cm2-equation" style={{ color: '#00ff88', fontSize: '1.8rem', letterSpacing: 4, textShadow: '0 0 10px rgba(0,255,136,.5)' }}>{eq}</div>
@@ -392,6 +393,7 @@ export default function CodeurMathsPage() {
             </button>
           );
         })}
+      </div>
       </div>
     </div>
   );

@@ -1133,3 +1133,154 @@
 .mp-back-link { color: rgba(0,0,0,.55) !important; }
 .mp-badge { background: rgba(255,255,255,.4); border-color: rgba(255,255,255,.6); color: #1e293b; }
 .exam-back-btn.mp-back-btn { color: #1e293b; background: rgba(255,255,255,.4); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLET / iPAD — Responsive layout for all game pages
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  /* ── Back button ─────────────────────────────────────────────────────── */
+  .exam-back-btn { padding: 10px 18px; font-size: 1.1rem; min-height: 52px; }
+
+  /* ── Jeux Hub ────────────────────────────────────────────────────────── */
+  .jh-page { padding: 32px 36px 56px; }
+  .jh-hero { padding: 32px 0 36px; }
+  .jh-hero__icon { font-size: 5rem; }
+  .jh-hero__title { font-size: 3rem; }
+  .jh-hero__subtitle { font-size: 1.15rem; }
+  .jh-category { margin-bottom: 36px; }
+  .jh-category__label { font-size: 1.15rem; padding: 10px 20px; margin-bottom: 18px; }
+  .jh-card { padding: 22px; gap: 20px; border-radius: 22px; }
+  .jh-card__icon { width: 80px; height: 80px; min-width: 80px; font-size: 2.8rem; border-radius: 20px; }
+  .jh-card__name { font-size: 1.2rem; }
+  .jh-card__desc { font-size: .92rem; }
+  .jh-card__play { height: 68px; font-size: 1.05rem; padding: 0 24px; border-radius: 16px; }
+  .jh-total-stats { gap: 24px; margin-bottom: 24px; }
+
+  /* ── SHARED SHELL — all game page containers ─────────────────────────── */
+  /* These games use a centered column layout */
+  .mc-page, .dv-page, .clp-page, .ti-page, .cm-page,
+  .dh-page, .qc-page, .mx-page,
+  .pm-page, .hi-page, .ns-page, .pp-page, .cm2-page {
+    max-width: 820px;
+    padding: 28px 40px 56px;
+  }
+  .an-page  { max-width: 820px; padding: 28px 40px 56px; }
+  .cv-page  { max-width: 760px; padding: 28px 40px 56px; }
+  .tm-page  { max-width: 720px; padding: 28px 40px 56px; }
+  .bm-page  { max-width: 760px; padding: 28px 40px 56px; }
+  .oa-page  { max-width: 760px; padding: 28px 40px 56px; }
+
+  /* Full-bleed games: fill viewport height cleanly */
+  .bc-page, .cl-page, .sl-page {
+    padding: 28px 40px 48px;
+    min-height: 100dvh;
+  }
+
+  /* ── Choice grids: go 2-column on tablet ─────────────────────────────── */
+  /* Quiz Culture */
+  .qc-choices { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .qc-choice { min-height: 80px; font-size: 1.2rem; padding: 22px 18px; border-radius: 20px; }
+  /* Devinettes / Intrus */
+  .dv-choices, .ti-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .dv-choice, .ti-choice { min-height: 76px; font-size: 1.2rem; padding: 20px 16px; border-radius: 18px; }
+  /* Conjugue Vite */
+  .cv-choices { gap: 16px; }
+  .cv-choice { font-size: 1.4rem; min-height: 80px; padding: 22px 16px; border-radius: 20px; }
+  .cv-verb-hint { font-size: 2.2rem; }
+  .cv-question-card { padding: 36px 32px; }
+  /* Antonymes */
+  .an-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .an-choice { min-height: 76px; font-size: 1.2rem; padding: 20px 14px; border-radius: 18px; }
+  /* Course Maths */
+  .cm-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .cm-choice { min-height: 76px; font-size: 1.2rem; padding: 20px 14px; border-radius: 18px; }
+  /* Saute Mouton */
+  .mp-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .mp-choice { min-height: 76px; font-size: 1.2rem; padding: 20px 14px; }
+
+  /* ── Suite Logique — wider sequence ──────────────────────────────────── */
+  .sl-page { align-items: center; }
+  .sl-sequence { width: 100%; max-width: 760px; gap: 14px; }
+  .sl-choices   { width: 100%; max-width: 600px; gap: 18px; }
+  .sl-hint { width: 100%; max-width: 760px; }
+  .sl-seq-item { min-width: 86px; height: 86px; font-size: 2.2rem; border-radius: 20px; }
+  .sl-choice { min-width: 110px; padding: 24px 28px; font-size: 2.2rem; min-height: 80px; border-radius: 20px; }
+
+  /* ── Bulles de Calcul — bigger arena ─────────────────────────────────── */
+  .bc-page { align-items: center; }
+  .bc-question { font-size: 4rem; margin-bottom: 16px; }
+  .bc-bubbles { height: 420px; width: 100%; max-width: 860px; }
+  .bc-bubble { width: 126px; height: 126px; font-size: 2.2rem; }
+  .bc-hud { width: 100%; max-width: 860px; }
+  .bc-timer-bar { width: 100%; max-width: 860px; }
+
+  /* ── Taupes Maths — bigger grid ──────────────────────────────────────── */
+  .tm-grid { gap: 18px; width: 100%; max-width: 660px; margin: 0 auto; }
+  .tm-hole { border-radius: 20px; }
+  .tm-mole-emoji { font-size: 3.5rem; }
+  .tm-mole-problem { font-size: 1.1rem; padding: 4px 10px; }
+  .tm-choices { gap: 18px; margin-top: 24px; }
+  .tm-choice { max-width: 150px; min-height: 80px; font-size: 2rem; padding: 20px 12px; border-radius: 20px; }
+
+  /* ── Tetris — scale up board ─────────────────────────────────────────── */
+  .tet-page { padding: 20px 24px 32px; }
+  .tet-page-inner { max-width: 700px; display: flex; flex-direction: row; align-items: flex-start; gap: 24px; flex-wrap: wrap; justify-content: center; }
+  .tet-cell { width: 36px; height: 36px; }
+  .tet-ctrl-btn { width: 80px; height: 80px; font-size: 1.9rem; border-radius: 22px; }
+  .tet-controls { gap: 16px; margin-top: 16px; }
+
+  /* ── Mots Cachés — larger grid cells ────────────────────────────────── */
+  .mc-page { max-width: 840px; }
+  .mc-grid { gap: 5px; padding: 16px; }
+  .mc-cell { font-size: 1.15rem; border-radius: 10px; }
+
+  /* ── Mots Croisés — larger keyboard ─────────────────────────────────── */
+  .mx-key { width: 58px; height: 58px; font-size: 1.25rem; }
+  .mx-grid { gap: 6px; }
+
+  /* ── Bombes Maths — larger numpad ────────────────────────────────────── */
+  .bm-keypad { gap: 12px; }
+  .bm-key { min-height: 80px; font-size: 1.5rem; border-radius: 20px; }
+  .bm-display { font-size: 2.5rem; }
+
+  /* ── Nombre Secret / Comparaison — scale up ─────────────────────────── */
+  .ns-keypad { gap: 12px; }
+  .ns-key { min-height: 80px; font-size: 1.5rem; border-radius: 18px; }
+
+  /* ── Shared game-feel components ─────────────────────────────────────── */
+  .game-hud { padding: 16px 24px; border-radius: 22px; margin-bottom: 20px; }
+  .game-hud__score { font-size: 1.5rem; }
+  .game-hud__round { font-size: 1rem; }
+  .game-question-card { padding: 40px 36px; border-radius: 30px; margin-bottom: 32px; }
+  .game-question-text { font-size: 3.2rem; }
+  .game-question-sub { font-size: 1.1rem; }
+  .game-btn { font-size: 1.5rem; padding: 24px 28px; border-radius: 24px; min-height: 80px; }
+  .game-results { padding: 48px 36px; }
+  .game-results__emoji { font-size: 6rem; }
+  .game-results__title { font-size: 2.4rem; }
+  .game-results__stars { font-size: 3rem; letter-spacing: 14px; }
+  .game-results__stat { padding: 16px 28px; border-radius: 20px; }
+  .game-results__stat-val { font-size: 1.8rem; }
+  .game-results__btn { padding: 22px; font-size: 1.2rem; border-radius: 22px; }
+  .game-timer-bar { height: 14px; border-radius: 7px; margin-bottom: 22px; }
+
+  /* ── Level selector ──────────────────────────────────────────────────── */
+  .jeux-level-grid { grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .jeux-level-btn { min-height: 80px; font-size: 1.15rem; border-radius: 20px; }
+  .jeux-setup-stats { gap: 20px; }
+}
+
+@media (min-width: 1024px) {
+  .mc-page, .dv-page, .clp-page, .ti-page, .cm-page,
+  .dh-page, .qc-page, .mx-page,
+  .pm-page, .hi-page, .ns-page, .pp-page, .cm2-page,
+  .an-page, .bm-page, .cv-page, .tm-page, .oa-page { max-width: 920px; padding: 32px 56px 64px; }
+  .tet-page-inner { max-width: 620px; }
+  .tet-cell { width: 40px; height: 40px; }
+  .bc-bubbles { height: 480px; }
+  .bc-bubble { width: 140px; height: 140px; font-size: 2.4rem; }
+  .sl-sequence { max-width: 860px; }
+  .sl-choices   { max-width: 680px; }
+  .jh-page { padding: 36px 48px 64px; }
+}

@@ -248,6 +248,7 @@ export default function NombreSecretPage() {
         <span className="ns-score" style={{ color: '#06b6d4', background: 'rgba(6,182,212,.12)', borderRadius: 20, padding: '3px 12px' }}>SCORE: {wins}</span>
       </div>
 
+      <div style={{ maxWidth: '640px', margin: '0 auto', width: '100%' }}>
       <div className="ns-info-card">
         <p className="ns-info-text">
           Trouve le nombre secret a {cfg.digits} chiffre{cfg.digits > 1 ? 's' : ''}{cfg.digits > 1 ? ' (pas de chiffres repetes)' : ''} !
@@ -335,6 +336,7 @@ export default function NombreSecretPage() {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 }

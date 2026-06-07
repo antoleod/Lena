@@ -250,6 +250,7 @@ export default function PlusPetitPlusGrandPage() {
           {streak > 0 ? `🏎️ ×${streak}` : `⭐ ${score}`}
         </span>
       </div>
+      <div style={{ maxWidth: '640px', margin: '0 auto', width: '100%' }}>
       <div className="pp-instruction" style={{ fontWeight: 700, color: '#fbbf24', fontSize: '1rem' }}>
         Tape du plus petit au plus grand ({cfg.cardCount} nombres)
       </div>
@@ -286,6 +287,7 @@ export default function PlusPetitPlusGrandPage() {
           ↺ Recommencer
         </button>
       )}
+      </div>
     </div>
   );
 }
