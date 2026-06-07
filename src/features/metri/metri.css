@@ -275,3 +275,43 @@
   font-size: .6rem; font-weight: 800; color: rgba(255,255,255,.8);
   line-height: 1;
 }
+
+/* ── Level Picker ─────────────────────────────── */
+.mt-level-picker {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 16px 14px max(16px, env(safe-area-inset-bottom));
+  max-width: 480px; margin: 0 auto;
+  min-height: 100svh;
+  background: linear-gradient(165deg, #1a0e00 0%, #2d1800 50%, #1a0e00 100%);
+}
+.mt-back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 16px; border-radius: 14px;
+  background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.18);
+  color: #fff; font-size: .9rem; font-weight: 700; cursor: pointer;
+  align-self: flex-start;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+.mt-back-btn:active { transform: scale(.96); }
+.mt-level-picker__title {
+  font-size: 1.4rem; font-weight: 900; color: #fbbf24;
+  font-family: 'Fredoka', sans-serif; margin: 4px 0 0; text-align: center;
+}
+.mt-level-picker__mode {
+  text-align: center; font-size: .85rem; color: rgba(255,255,255,.5); margin: 0 0 4px;
+}
+.mt-level-btn {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 16px 18px; border-radius: 18px;
+  background: rgba(255,255,255,.07); border: 2px solid var(--lvl-c, #f59e0b);
+  cursor: pointer; text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .1s, background .12s;
+}
+.mt-level-btn:active { transform: scale(.97); background: rgba(255,255,255,.12); }
+.mt-level-btn__label {
+  font-size: 1.05rem; font-weight: 900; color: #fff;
+}
+.mt-level-btn__desc {
+  font-size: .78rem; color: rgba(255,255,255,.5); font-weight: 600;
+}
