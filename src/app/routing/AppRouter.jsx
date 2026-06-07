@@ -59,6 +59,7 @@ import CourseMathsPage from '../../features/jeux/CourseMathsPage.jsx';
 import DetectiveHistoiresPage from '../../features/jeux/DetectiveHistoiresPage.jsx';
 import GrammiPage from '../../features/grammi/GrammiPage.jsx';
 import MetriPage from '../../features/metri/MetriPage.jsx';
+import LexiPage from '../../features/lexi/LexiPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -186,6 +187,7 @@ export default function AppRouter() {
         <Route path="/jeux/detective-histoires" element={<DetectiveHistoiresPage />} />
         <Route path="/grammi" element={<GrammiPage />} />
         <Route path="/metri" element={<MetriPage />} />
+        <Route path="/lexi" element={<LexiPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

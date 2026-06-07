@@ -12798,3 +12798,25 @@ body {
   transition: width 0.6s ease;
   min-width: 0;
 }
+
+/* ── Language Academy cards (ApprendreHubPage) ───────────────────────────── */
+.al-academy-grid {
+  display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px;
+}
+@media (min-width: 480px) { .al-academy-grid { grid-template-columns: repeat(2, 1fr); } }
+.al-academy-card {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,.07);
+  border: 2px solid rgba(255,255,255,.1);
+  border-left: 4px solid var(--ac-color, #7c3aed);
+  border-radius: 16px; padding: 14px 16px;
+  text-decoration: none; color: #fff;
+  transition: transform .12s, background .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.al-academy-card:active { transform: scale(.97); background: rgba(255,255,255,.11); }
+.al-academy-card__emoji { font-size: 2rem; flex-shrink: 0; }
+.al-academy-card__body { flex: 1; }
+.al-academy-card__title { display: block; font-size: .95rem; font-weight: 800; color: #fff; }
+.al-academy-card__desc { display: block; font-size: .72rem; color: rgba(255,255,255,.5); margin-top: 2px; }
+.al-academy-card__arrow { color: rgba(255,255,255,.4); font-size: 1.2rem; flex-shrink: 0; }

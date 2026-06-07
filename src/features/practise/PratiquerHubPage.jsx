@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   IconExamens, IconCahier, IconTables, IconStories, IconJeux,
-  IconDudu, IconChrono, IconGrammi, IconMetri,
+  IconDudu, IconChrono, IconGrammi, IconMetri, IconLangues,
 } from '../../assets/icons/AppIcons.jsx';
 
 const HUB_UI = {
@@ -19,6 +19,7 @@ const HUB_UI = {
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'J\'apprends l\'heure en jouant', color: '#0891b2' },
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'Le royaume magique des mots', color: '#10b981' },
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'Le laboratoire des grandeurs', color: '#f59e0b' },
+      { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'L\'Academie des Mots et des Phrases', color: '#7c3aed' },
     ],
   },
   nl: {
@@ -34,6 +35,7 @@ const HUB_UI = {
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'Leer klokkijken spelenderwijs', color: '#0891b2' },
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'Het magische koninkrijk van woorden', color: '#10b981' },
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'Het laboratorium der grootheden', color: '#f59e0b' },
+      { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Woorden en Zinnen Academie', color: '#7c3aed' },
     ],
   },
   en: {
@@ -49,6 +51,7 @@ const HUB_UI = {
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'I learn to tell the time', color: '#0891b2' },
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'The magical kingdom of words', color: '#10b981' },
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'The measurement laboratory', color: '#f59e0b' },
+      { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Words and Sentences Academy', color: '#7c3aed' },
     ],
   },
   es: {
@@ -64,6 +67,7 @@ const HUB_UI = {
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'Aprendo a leer el reloj jugando', color: '#0891b2' },
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'El reino magico de las palabras', color: '#10b981' },
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'El laboratorio de medidas', color: '#f59e0b' },
+      { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Academia de Palabras y Frases', color: '#7c3aed' },
     ],
   },
 };
@@ -78,6 +82,7 @@ const ICON_MAP = {
   chrono: IconChrono,
   grammi: IconGrammi,
   metri: IconMetri,
+  lexi: IconLangues,
 };
 
 export default function PratiquerHubPage() {

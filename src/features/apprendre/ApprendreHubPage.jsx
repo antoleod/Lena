@@ -103,6 +103,35 @@ export default function ApprendreHubPage() {
         </div>
       </Link>
 
+      {/* Language Academies */}
+      <div className="al-section">
+        <h2 className="al-section__title">
+          {locale === 'nl' ? 'Taal Academies' : locale === 'en' ? 'Language Academies' : locale === 'es' ? 'Academias de Lengua' : 'Academies de Langue'}
+        </h2>
+        <div className="al-academy-grid">
+          <Link to="/lexi" className="al-academy-card" style={{ '--ac-color': '#7c3aed' }}>
+            <span className="al-academy-card__emoji">📚</span>
+            <div className="al-academy-card__body">
+              <strong className="al-academy-card__title">LexiLena</strong>
+              <span className="al-academy-card__desc">
+                {locale === 'nl' ? 'Woorden en Zinnen' : locale === 'en' ? 'Words and Sentences' : locale === 'es' ? 'Palabras y Frases' : 'Mots et Phrases'}
+              </span>
+            </div>
+            <span className="al-academy-card__arrow">→</span>
+          </Link>
+          <Link to="/grammi" className="al-academy-card" style={{ '--ac-color': '#10b981' }}>
+            <span className="al-academy-card__emoji">🏠</span>
+            <div className="al-academy-card__body">
+              <strong className="al-academy-card__title">GrammiLena</strong>
+              <span className="al-academy-card__desc">
+                {locale === 'nl' ? 'Het Rijk van de Woorden' : locale === 'en' ? 'The Magic Kingdom of Words' : locale === 'es' ? 'El Reino Magico de las Palabras' : 'Le Royaume Magique des Mots'}
+              </span>
+            </div>
+            <span className="al-academy-card__arrow">→</span>
+          </Link>
+        </div>
+      </div>
+
       {/* Subjects grid */}
       <div className="al-section">
         <h2 className="al-section__title">{ui.subjectsTitle}</h2>
