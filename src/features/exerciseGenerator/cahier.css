@@ -309,3 +309,110 @@
 @media (min-width: 1024px) {
   .cahier-page { max-width: 980px; }
 }
+
+/* ── Exercise type selector — rich visual cards ──────────────────────────── */
+.ex-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.ex-type-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  background: rgba(255,255,255,.13);
+  border: 2px solid rgba(255,255,255,.25);
+  border-radius: 20px;
+  padding: 16px 14px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform .12s, background .15s, border-color .15s, box-shadow .15s;
+  min-height: 90px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+  overflow: hidden;
+}
+.ex-type-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--card-accent, rgba(255,255,255,.08)) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.ex-type-card:active { transform: scale(.97); }
+.ex-type-card:hover::before { opacity: 1; }
+
+.ex-type-card.is-selected {
+  background: rgba(255,255,255,.22);
+  border-color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25), 0 0 0 3px rgba(255,255,255,.35);
+  transform: scale(1.03);
+}
+.ex-type-card.is-selected::before { opacity: 1; }
+
+/* Mixte card — special golden highlight */
+.ex-type-card--mixte {
+  background: rgba(245,158,11,.18);
+  border-color: rgba(245,158,11,.55);
+}
+.ex-type-card--mixte.is-selected {
+  background: rgba(245,158,11,.32);
+  border-color: #fbbf24;
+  box-shadow: 0 6px 20px rgba(245,158,11,.35), 0 0 0 3px rgba(251,191,36,.4);
+}
+
+.ex-type-card__emoji {
+  font-size: 1.9rem;
+  line-height: 1;
+  margin-bottom: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.3));
+}
+.ex-type-card__label {
+  font-size: .95rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
+  line-height: 1.2;
+}
+.ex-type-card__desc {
+  font-size: .75rem;
+  color: rgba(255,255,255,.65);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.ex-type-card__check {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  background: #2ecc71;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  font-weight: 900;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(46,204,113,.5);
+  animation: checkPop .2s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes checkPop {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+
+@media (min-width: 480px) {
+  .ex-type-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 768px) {
+  .ex-type-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .ex-type-card { min-height: 110px; padding: 18px 16px 16px; }
+  .ex-type-card__emoji { font-size: 2.2rem; }
+  .ex-type-card__label { font-size: 1rem; }
+  .ex-type-card__desc { font-size: .82rem; }
+}

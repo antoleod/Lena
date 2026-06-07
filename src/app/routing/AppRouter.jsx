@@ -209,22 +209,27 @@ export default function AppRouter() {
         <Route path="/jeux/detective-histoires" element={<DetectiveHistoiresPage />} />
         <Route path="/jeux/bulles-calcul" element={<BullesCalculPage />} />
         <Route path="/jeux/chasse-lettres" element={<ChasseLettrePage />} />
+        <Route path="/jeux/chasse-lettre" element={<Navigate to="/jeux/chasse-lettres" replace />} />
         <Route path="/jeux/suite-logique" element={<SuiteLogiquePage />} />
         <Route path="/jeux/quiz-culture" element={<QuizCulturePage />} />
         <Route path="/jeux/mots-croises" element={<MotsCroisesPage />} />
         <Route path="/jeux/saute-mouton" element={<SauteMoutonPage />} />
         <Route path="/jeux/tetris" element={<TetrisPage />} />
         <Route path="/jeux/taupes" element={<TaupesMathsPage />} />
+        <Route path="/jeux/taupe-maths" element={<Navigate to="/jeux/taupes" replace />} />
         <Route path="/jeux/conjugue" element={<ConjugueVitePage />} />
+        <Route path="/jeux/conjugue-vite" element={<Navigate to="/jeux/conjugue" replace />} />
         <Route path="/jeux/horloge" element={<HorlogePage />} />
         <Route path="/jeux/antonymes" element={<AntonymesPage />} />
         <Route path="/jeux/trie-express" element={<TrieExpressPage />} />
         <Route path="/jeux/bombes-maths" element={<BombesMathsPage />} />
         <Route path="/jeux/ordre-alpha" element={<OrdreAlphaPage />} />
         <Route path="/jeux/phrase-mystere" element={<PhraseMysteryPage />} />
+        <Route path="/jeux/phrase-mystery" element={<Navigate to="/jeux/phrase-mystere" replace />} />
         <Route path="/jeux/histoire-ordre" element={<SequenceImagePage />} />
         <Route path="/jeux/nombre-secret" element={<NombreSecretPage />} />
         <Route path="/jeux/comparaison" element={<PlusPetitPlusGrandPage />} />
+        <Route path="/jeux/plus-petit-plus-grand" element={<Navigate to="/jeux/comparaison" replace />} />
         <Route path="/jeux/codeur-maths" element={<CodeurMathsPage />} />
         <Route path="/grammi" element={<GrammiPage />} />
         <Route path="/metri" element={<MetriPage />} />

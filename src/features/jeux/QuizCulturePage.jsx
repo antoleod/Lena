@@ -85,7 +85,7 @@ const QUESTION_POOLS = [
     { q: 'Qui a découvert l\'Amérique en 1492 ?', a: 'Christophe Colomb', choices: ['Christophe Colomb', 'Vasco de Gama', 'Magellan', 'Amerigo Vespucci'], fact: 'Colomb cherchait les Indes et a découvert les Amériques !' },
     { q: 'Combien d\'étoiles y a-t-il dans la Voie Lactée ?', a: '200 milliards', choices: ['200 milliards', '1 million', '1 milliard', '1 billion'], fact: 'Notre galaxie contient entre 100 et 400 milliards d\'étoiles !' },
     { q: 'Si un train part à 9h et arrive à 11h30, combien de temps dure le trajet ?', a: '2h30', choices: ['2h30', '2h', '3h', '1h30'], fact: '11h30 - 9h00 = 2 heures et 30 minutes !' },
-    { q: 'Quel est le symbole chimique du fer ?', a: 'Fe', choices: ['Fe', 'Fe', 'Fr', 'Ir', 'F'], fact: 'Fe vient du latin "ferrum" qui signifie fer !' },
+    { q: 'Quel est le symbole chimique du fer ?', a: 'Fe', choices: ['Fe', 'Fr', 'Ir', 'Au'], fact: 'Fe vient du latin "ferrum" qui signifie fer !' },
     { q: 'Quelle est la plus longue rivière du monde ?', a: 'Le Nil', choices: ['Le Nil', 'L\'Amazone', 'Le Mississippi', 'Le Yangtsé'], fact: 'Le Nil mesure environ 6 650 km, légèrement plus que l\'Amazone !' },
     { q: 'Si j\'ai 48 bonbons à partager en 6 parts égales, combien chacun reçoit-il ?', a: '8', choices: ['8', '6', '7', '9'], fact: '48 ÷ 6 = 8 bonbons chacun !' },
     { q: 'Qui a écrit "Astérix" ?', a: 'Goscinny et Uderzo', choices: ['Goscinny et Uderzo', 'Hergé', 'Franquin', 'Peyo'], fact: 'René Goscinny (texte) et Albert Uderzo (dessin) ont créé Astérix en 1959 !' },

@@ -261,16 +261,19 @@ export default function ExerciseGeneratorPage() {
       {/* Type */}
       <section className="cahier-section">
         <h2 className="cahier-section__title">{L.t('typeExercice')}</h2>
-        <div className="cahier-choice-grid">
+        <div className="ex-type-grid">
           {currentSubject?.types.map((tp) => (
             <button
               key={tp.id}
               type="button"
-              className={`cahier-chip${type === tp.id ? ' is-selected' : ''}`}
+              className={`ex-type-card${type === tp.id ? ' is-selected' : ''}${tp.id === 'mixte' ? ' ex-type-card--mixte' : ''}`}
+              style={tp.color ? { '--card-accent': tp.color } : {}}
               onClick={() => setType(tp.id)}
             >
-              <span className="cahier-chip__emoji">{tp.emoji}</span>
-              <span>{tp.label}</span>
+              <span className="ex-type-card__emoji">{tp.emoji}</span>
+              <span className="ex-type-card__label">{tp.label}</span>
+              {tp.desc && <span className="ex-type-card__desc">{tp.desc}</span>}
+              {type === tp.id && <span className="ex-type-card__check">✓</span>}
             </button>
           ))}
         </div>

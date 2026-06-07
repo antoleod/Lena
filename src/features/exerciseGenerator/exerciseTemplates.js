@@ -558,4 +558,8 @@ export const GENERATORS = {
   'french:grammaire': frGrammaire,
   'dictee:mots': dicteeMots,
   'dictee:phrases': dicteePhrases,
+  'math:mixte': (level, i, opts) => {
+    const ops = [mathAdd, mathSub, mathMul];
+    return ops[Math.floor(Math.random() * ops.length)](level, i, opts);
+  },
 };
