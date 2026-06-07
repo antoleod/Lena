@@ -15,6 +15,7 @@ const HUB_UI = {
       { to: '/stories', icon: 'stories', title: 'Contes & Lecture', desc: '19 histoires interactives', color: '#1abc9c' },
       { to: '/jeux', icon: 'jeux', title: 'Jeux Cerebraux', desc: 'Memory, calcul, mots...', color: '#6366f1' },
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Soustractions avec passage a la dizaine', color: '#6366f1' },
+      { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'J\'apprends l\'heure en jouant', color: '#0891b2' },
     ],
   },
   nl: {
@@ -27,6 +28,7 @@ const HUB_UI = {
       { to: '/stories', icon: 'stories', title: 'Verhalen', desc: '19 interactieve verhalen', color: '#1abc9c' },
       { to: '/jeux', icon: 'jeux', title: 'Hersengames', desc: 'Memory, rekenen, woorden...', color: '#6366f1' },
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Aftrekken met overdracht', color: '#6366f1' },
+      { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'Leer klokkijken spelenderwijs', color: '#0891b2' },
     ],
   },
   en: {
@@ -39,6 +41,7 @@ const HUB_UI = {
       { to: '/stories', icon: 'stories', title: 'Stories', desc: '19 interactive stories', color: '#1abc9c' },
       { to: '/jeux', icon: 'jeux', title: 'Brain Games', desc: 'Memory, speed math, words...', color: '#6366f1' },
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Subtractions with borrowing', color: '#6366f1' },
+      { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'I learn to tell the time', color: '#0891b2' },
     ],
   },
   es: {
@@ -51,6 +54,7 @@ const HUB_UI = {
       { to: '/stories', icon: 'stories', title: 'Cuentos', desc: '19 historias interactivas', color: '#1abc9c' },
       { to: '/jeux', icon: 'jeux', title: 'Juegos Cerebrales', desc: 'Memoria, calculo, palabras...', color: '#6366f1' },
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Restas con llevada', color: '#6366f1' },
+      { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'Aprendo a leer el reloj jugando', color: '#0891b2' },
     ],
   },
 };
@@ -62,6 +66,7 @@ const ICON_MAP = {
   stories: IconStories,
   jeux: IconJeux,
   dudu: IconMath,
+  chrono: IconMath,
 };
 
 export default function PratiquerHubPage() {

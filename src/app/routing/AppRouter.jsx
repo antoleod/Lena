@@ -42,6 +42,7 @@ import MixedCalcPage from '../../features/mathChallenges/MixedCalcPage.jsx';
 import MixedModePage from '../../features/exerciseGenerator/MixedModePage.jsx';
 import TablesPage from '../../features/tables/TablesPage.jsx';
 import DuduPage from '../../features/dudu/DuduPage.jsx';
+import ChronoPage from '../../features/chrono/ChronoPage.jsx';
 import StoryLibraryPage from '../../features/stories/StoryLibraryPage.jsx';
 import StoryReaderPage from '../../features/stories/StoryReaderPage.jsx';
 import PratiquerHubPage from '../../features/practise/PratiquerHubPage.jsx';
@@ -166,6 +167,7 @@ export default function AppRouter() {
         <Route path="/cahier/calculs-melanges" element={<MixedModePage />} />
         <Route path="/tables" element={<TablesPage />} />
         <Route path="/dudu" element={<DuduPage />} />
+        <Route path="/chrono" element={<ChronoPage />} />
         <Route path="/stories" element={<StoryLibraryPage />} />
         <Route path="/stories/:id" element={<StoryReaderPage />} />
         <Route path="/pratiquer" element={<PratiquerHubPage />} />
