@@ -495,7 +495,7 @@ export default function ExamRunnerPage() {
     } else {
       setWrongQuestions((prev) => {
         if (prev.find((q) => q === currentQ)) return prev;
-        return [...prev, currentQ];
+        return [...prev, { ...currentQ, _userWrongAnswer: value }];
       });
       recordError({
         topic: exam.category,
@@ -510,6 +510,31 @@ export default function ExamRunnerPage() {
       : 1.0;
     setHelpWeights(prev => [...prev, ok ? weight : 0]);
     if (helpCount > 0) setTotalHelpsUsed(t => t + 1);
+  }
+
+  function saveRepasoData(wqs) {
+    if (wqs.length > 0) {
+      sessionStorage.setItem('lena:repaso:questions', JSON.stringify(wqs.map((q) => ({
+        id: q.id,
+        type: q.type,
+        prompt: q.prompt,
+        prompt_nl: q.prompt_nl,
+        prompt_en: q.prompt_en,
+        prompt_es: q.prompt_es,
+        options: q.options,
+        answer: q.answer,
+        correction: q.correction,
+        _userWrongAnswer: q._userWrongAnswer,
+        _examId: exam?.id,
+        _levelKey: levelKey,
+      }))));
+      sessionStorage.setItem('lena:repaso:meta', JSON.stringify({
+        examId: exam?.id,
+        levelKey,
+        category: exam?.category,
+        wrongCount: wqs.length,
+      }));
+    }
   }
 
   // Keep endExamRef in sync with latest score/totalQ so the timer can call it.
@@ -533,6 +558,7 @@ export default function ExamRunnerPage() {
         correct: false,
       })),
     });
+    saveRepasoData(wrongQuestions);
     setPhase('end');
   };
 
@@ -557,6 +583,7 @@ export default function ExamRunnerPage() {
           correct: false,
         })),
       });
+      saveRepasoData(wrongQuestions);
       setPhase('end');
     } else {
       setQIndex((i) => i + 1);
@@ -720,6 +747,8 @@ export default function ExamRunnerPage() {
     );
   }
 
+  const repasoLabel = { fr: 'Repas & Pratique', nl: 'Herhaling & Oefening', en: 'Review & Practice', es: 'Repaso y Practica' };
+
   // ── END ──────────────────────────────────────────────────────────────────
   if (phase === 'end') {
     const pct = Math.round((score / totalQ) * 100);
@@ -777,6 +806,15 @@ export default function ExamRunnerPage() {
                 }}
               >
                 📝 {ui.reviserErreurs} ({wrongQuestions.length})
+              </button>
+            )}
+            {wrongQuestions.length > 0 && (
+              <button
+                type="button"
+                className="repaso-btn"
+                onPointerDown={e => { e.preventDefault(); navigate('/exam/repaso'); }}
+              >
+                📚 {repasoLabel[locale]} ({wrongQuestions.length})
               </button>
             )}
             <button type="button" className="reader-btn reader-btn--start" style={{ width: '100%' }} onClick={() => navigate(`/exam/library/${exam.category}`)}>{ui.otherExams}</button>

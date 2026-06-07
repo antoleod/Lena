@@ -36,6 +36,7 @@ import ExamRunnerPage from '../../features/exam/library/ExamRunnerPage.jsx';
 import ExamHistoryPage from '../../features/exam/library/ExamHistoryPage.jsx';
 import ExamMegaBuilderPage from '../../features/exam/library/ExamMegaBuilderPage.jsx';
 import ExamMegaRunnerPage from '../../features/exam/library/ExamMegaRunnerPage.jsx';
+import ExamRepasoPage from '../../features/exam/library/ExamRepasoPage.jsx';
 import GradeExamHubPage from '../../features/exam/grade/GradeExamHubPage.jsx';
 import GradeExamPackPage from '../../features/exam/grade/GradeExamPackPage.jsx';
 import CahierHistoryPage from '../../features/exerciseGenerator/CahierHistoryPage.jsx';
@@ -198,6 +199,7 @@ export default function AppRouter() {
         <Route path="/exam/errors" element={<ErrorReviewPage />} />
         <Route path="/exam/library" element={<ExamLibraryHubPage />} />
         <Route path="/exam/history" element={<ExamHistoryPage />} />
+        <Route path="/exam/repaso" element={<ExamRepasoPage />} />
         <Route path="/exam/mega" element={<ExamMegaBuilderPage />} />
         <Route path="/exam/mega/play" element={<ExamMegaRunnerPage />} />
         <Route path="/exam/library/play" element={<ExamRunnerPage />} />

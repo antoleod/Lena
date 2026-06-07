@@ -17,13 +17,16 @@ const MSGS = {
   correctAnswer: {
     fr: 'La bonne reponse etait', nl: 'Het goede antwoord was', en: 'The correct answer was', es: 'La respuesta correcta era',
   },
+  repaso: {
+    fr: 'Repas rapide', nl: 'Herhaling', en: 'Quick Review', es: 'Repaso rapido',
+  },
 };
 
 function pickMsg(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export default function FeedbackCard({ isCorrect, correctAnswer, locale, onNext, explanation }) {
+export default function FeedbackCard({ isCorrect, correctAnswer, locale, onNext, explanation, onRepaso }) {
   const loc = MSGS.correct[locale] ? locale : 'fr';
   const icon = isCorrect ? '✅' : '❌';
   const title = isCorrect
@@ -43,13 +46,24 @@ export default function FeedbackCard({ isCorrect, correctAnswer, locale, onNext,
         {explanation && (
           <div className="fb-card__explanation">{explanation}</div>
         )}
-        <button
-          className="fb-card__next"
-          type="button"
-          onPointerDown={(e) => { e.preventDefault(); onNext(); }}
-        >
-          {MSGS.next[loc]} &rarr;
-        </button>
+        <div className="fb-card__actions">
+          <button
+            className="fb-card__next"
+            type="button"
+            onPointerDown={(e) => { e.preventDefault(); onNext(); }}
+          >
+            {MSGS.next[loc]} &rarr;
+          </button>
+          {!isCorrect && onRepaso && (
+            <button
+              className="fb-card__repaso"
+              type="button"
+              onPointerDown={(e) => { e.preventDefault(); onNext(); onRepaso(); }}
+            >
+              📚 {MSGS.repaso[loc]}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
