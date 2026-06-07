@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CONTES } from '../../content/stories/contes.js';
+import { CONTES_NL } from '../../content/stories/contes.nl.js';
+import { CONTES_EN } from '../../content/stories/contes.en.js';
+import { CONTES_ES } from '../../content/stories/contes.es.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+
+const STORY_TRANSLATIONS = { nl: CONTES_NL, en: CONTES_EN, es: CONTES_ES };
 import { STORY_COVER_MAP } from '../../assets/icons/StoryCovers.jsx';
 import './stories.css';
 
@@ -81,6 +86,8 @@ export default function StoryLibraryPage() {
             : 'linear-gradient(135deg,#6366f1,#8b5cf6)';
 
           const CoverIcon = STORY_COVER_MAP[conte.id] || null;
+          const tl = STORY_TRANSLATIONS[locale]?.[conte.id];
+          const displayTitle = tl?.title ?? conte.title;
 
           return (
             <Link
@@ -97,7 +104,7 @@ export default function StoryLibraryPage() {
                 {conte.coverImage && (
                   <img
                     src={conte.coverImage}
-                    alt={conte.title}
+                    alt={displayTitle}
                     className="sl-card__cover-img"
                     loading="lazy"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -111,7 +118,7 @@ export default function StoryLibraryPage() {
                 {isRead && <span className="sl-card__crown">👑</span>}
               </div>
               <div className="sl-card__body">
-                <span className="sl-card__title">{conte.title}</span>
+                <span className="sl-card__title">{displayTitle}</span>
                 <span className={`sl-card__badge sl-card__badge--${diffKey}`}>{diffLabel}</span>
                 <div className="sl-card__meta">
                   <span>⏱ {duration} {ui.minutes}</span>

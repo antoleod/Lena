@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getConteById } from '../../content/stories/contes.js';
+import { CONTES_NL } from '../../content/stories/contes.nl.js';
+import { CONTES_EN } from '../../content/stories/contes.en.js';
+import { CONTES_ES } from '../../content/stories/contes.es.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import './stories.css';
 import '../../engines/story/storyActivity.css';
@@ -108,6 +111,26 @@ const STORY_UI = {
     speechLang:   'es-ES',
   },
 };
+
+// ── Story translation helpers ─────────────────────────────────────────────────
+const STORY_TRANSLATIONS = { nl: CONTES_NL, en: CONTES_EN, es: CONTES_ES };
+
+function localizeStory(story, locale) {
+  if (!story || locale === 'fr') return story;
+  const t = STORY_TRANSLATIONS[locale]?.[story.id];
+  if (!t) return story;
+  return {
+    ...story,
+    title: t.title ?? story.title,
+    summary: t.summary ?? story.summary,
+    theme: t.theme ?? story.theme,
+    scenes: t.scenes ?? story.scenes,
+    vocabulary: t.vocabulary ?? story.vocabulary,
+    miniGame: t.miniGame ?? story.miniGame,
+    emotionalMoment: t.emotionalMoment ?? story.emotionalMoment,
+    rewardName: t.rewardName ?? story.rewardName,
+  };
+}
 
 // ── Per-story scene emoji pools ───────────────────────────────────────────────
 const STORY_SCENE_EMOJIS = {
@@ -500,7 +523,7 @@ export default function StoryReaderPage() {
   const navigate = useNavigate();
   const { locale } = useLocale();
   const ui = STORY_UI[locale] || STORY_UI.fr;
-  const conte = getConteById(id);
+  const conte = localizeStory(getConteById(id), locale);
 
   const [phase, setPhase]       = useState(PHASE_SCENES);
   const [sceneIdx, setSceneIdx] = useState(0);
