@@ -1,0 +1,55 @@
+{
+  "id": "grammaire-23",
+  "category": "grammaire",
+  "categoryLabel": "Grammaire",
+  "categoryEmoji": "🧩",
+  "categoryOrder": 8,
+  "title": "Les pronoms personnels",
+  "emoji": "👤",
+  "order": 23,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Remplace 'Le chat' par un pronom : '___ dort.'", "options": ["Il","Elle","Ils"], "answer": "Il", "correction": "chat = masculin singulier → Il." },
+        { "id": "q2", "type": "mcq", "prompt": "Remplace 'La fleur' par un pronom : '___ est belle.'", "options": ["Elle","Il","Elles"], "answer": "Elle", "correction": "fleur = feminin singulier → Elle." },
+        { "id": "q3", "type": "mcq", "prompt": "Remplace 'Les enfants' par un pronom : '___ jouent.'", "options": ["Ils","Il","Elle"], "answer": "Ils", "correction": "enfants = masculin pluriel → Ils." },
+        { "id": "q4", "type": "mcq", "prompt": "Remplace 'Lena et Emma' par un pronom : '___ chantent.'", "options": ["Elles","Ils","Elle"], "answer": "Elles", "correction": "Deux filles = feminin pluriel → Elles." },
+        { "id": "q5", "type": "mcq", "prompt": "___ m'appelle Lucas.", "options": ["Je","Tu","Il"], "answer": "Je", "correction": "1ere personne = Je." },
+        { "id": "q6", "type": "mcq", "prompt": "___ es mon ami.", "options": ["Tu","Je","Il"], "answer": "Tu", "correction": "2e personne = Tu." },
+        { "id": "q7", "type": "mcq", "prompt": "Remplace 'Les maisons' : '___ sont grandes.'", "options": ["Elles","Ils","Elle"], "answer": "Elles", "correction": "maisons = feminin pluriel → Elles." },
+        { "id": "q8", "type": "mcq", "prompt": "___ allons a l'ecole.", "options": ["Nous","Vous","Ils"], "answer": "Nous", "correction": "1ere personne pluriel = Nous." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Quel pronom remplace 'Papa et Maman' ?", "options": ["Ils","Elles","Il"], "answer": "Ils", "correction": "Groupe mixte = masculin pluriel → Ils." },
+        { "id": "q2", "type": "true_false", "prompt": "On remplace 'la table' par le pronom 'il'.", "answer": false, "correction": "table = feminin → on dit 'elle'." },
+        { "id": "q3", "type": "mcq", "prompt": "Remplace le GN sujet : 'Les chats et les chiens dorment.' →", "options": ["Ils dorment.","Elles dorment.","Il dort."], "answer": "Ils dorment.", "correction": "Groupe mixte = Ils." },
+        { "id": "q4", "type": "fill_blank", "prompt": "Hugo mange une pomme. ___ la mange avec appetit.", "answer": "Il", "accept": ["Il","il"], "correction": "Hugo = masculin singulier → Il." },
+        { "id": "q5", "type": "mcq", "prompt": "Le pronom COD dans 'Je le vois' remplace :", "options": ["un nom masculin singulier","un nom feminin singulier","un nom pluriel"], "answer": "un nom masculin singulier", "correction": "le = pronom COD masculin singulier." },
+        { "id": "q6", "type": "mcq", "prompt": "Quel pronom COD remplace 'la pomme' dans 'Je mange la pomme' ?", "options": ["la","le","les"], "answer": "la", "correction": "Je la mange. (feminin singulier)." },
+        { "id": "q7", "type": "true_false", "prompt": "Le pronom personnel 'nous' designe plusieurs personnes dont le locuteur.", "answer": true, "correction": "Oui : Nous = moi + d'autres." },
+        { "id": "q8", "type": "mcq", "prompt": "Quel pronom remplace 'les livres' dans 'Je lis les livres' ?", "options": ["les","le","la"], "answer": "les", "correction": "Je les lis. (pluriel)." },
+        { "id": "q9", "type": "fill_blank", "prompt": "Emma chante bien. ___ a une belle voix.", "answer": "Elle", "accept": ["Elle","elle"], "correction": "Emma = feminin singulier → Elle." },
+        { "id": "q10", "type": "mcq", "prompt": "'Vous' peut designer :", "options": ["plusieurs personnes ou une personne de politesse","seulement plusieurs personnes","seulement une personne"], "answer": "plusieurs personnes ou une personne de politesse", "correction": "Vous = pluriel ou politesse (vouvoiement)." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "Je ___ appelle tous les jours. (lui/leur — ami)", "answer": "lui", "accept": ["lui"], "correction": "ami = singulier → je lui telephone." },
+        { "id": "q2", "type": "mcq", "prompt": "Il ___ donne des bonbons. (les enfants)", "options": ["leur","lui","les"], "answer": "leur", "correction": "enfants = pluriel → leur donne." },
+        { "id": "q3", "type": "mcq", "prompt": "Dans 'Emma le regarde', que remplace 'le' ?", "options": ["un nom masculin singulier","un nom feminin","un pluriel"], "answer": "un nom masculin singulier", "correction": "le = COD masculin singulier." },
+        { "id": "q4", "type": "fill_blank", "prompt": "Mes parents voyagent. Je ___ ecris souvent.", "answer": "leur", "accept": ["leur"], "correction": "parents = pluriel → je leur ecris." },
+        { "id": "q5", "type": "mcq", "prompt": "Quel est le pronom reflechi pour 'il' ?", "options": ["se","me","te"], "answer": "se", "correction": "Il se lave. (pronom reflechi 3e personne)." },
+        { "id": "q6", "type": "true_false", "prompt": "Dans 'Lena se regarde', 'se' remplace 'Lena'.", "answer": true, "correction": "Oui : elle se regarde elle-meme." },
+        { "id": "q7", "type": "mcq", "prompt": "Le pronom tonique de 'je' est :", "options": ["moi","toi","lui"], "answer": "moi", "correction": "Pronom tonique 1ere personne = moi." },
+        { "id": "q8", "type": "fill_blank", "prompt": "C'est ___ qui a gagne la course. (je, forme tonique)", "answer": "moi", "accept": ["moi"], "correction": "Pronom tonique de je = moi." },
+        { "id": "q9", "type": "mcq", "prompt": "Quel pronom peut remplacer 'a ma soeur' dans une phrase ?", "options": ["lui","la","le"], "answer": "lui", "correction": "Je lui parle. (pronom indirect feminin singulier)." },
+        { "id": "q10", "type": "true_false", "prompt": "'En' peut remplacer 'de quelque chose' dans une phrase.", "answer": true, "correction": "Oui : J'en veux. = Je veux de cela." }
+      ]
+    }
+  }
+}

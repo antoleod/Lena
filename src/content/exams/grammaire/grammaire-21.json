@@ -1,0 +1,55 @@
+{
+  "id": "grammaire-21",
+  "category": "grammaire",
+  "categoryLabel": "Grammaire",
+  "categoryEmoji": "🧩",
+  "categoryOrder": 8,
+  "title": "Les accords",
+  "emoji": "✅",
+  "order": 21,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "La ___ fleur est belle. (rouge)", "options": ["rouge","rouges","roux"], "answer": "rouge", "correction": "fleur = feminin singulier → rouge." },
+        { "id": "q2", "type": "mcq", "prompt": "Les ___ chats jouent. (petit)", "options": ["petits","petit","petite"], "answer": "petits", "correction": "chats = masculin pluriel → petits." },
+        { "id": "q3", "type": "mcq", "prompt": "Une ___ maison est a vendre. (grand)", "options": ["grande","grand","grands"], "answer": "grande", "correction": "maison = feminin singulier → grande." },
+        { "id": "q4", "type": "mcq", "prompt": "Les ___ filles chantent. (joli)", "options": ["jolies","jolis","joli"], "answer": "jolies", "correction": "filles = feminin pluriel → jolies." },
+        { "id": "q5", "type": "mcq", "prompt": "Le chat ___ dans le jardin.", "options": ["court","courent","coure"], "answer": "court", "correction": "sujet singulier → verbe singulier." },
+        { "id": "q6", "type": "mcq", "prompt": "Les chiens ___ dans la cour.", "options": ["courent","court","coure"], "answer": "courent", "correction": "sujet pluriel → verbe pluriel." },
+        { "id": "q7", "type": "mcq", "prompt": "Un ___ garcon arrive. (courageux)", "options": ["courageux","courageuse","courageuzes"], "answer": "courageux", "correction": "garcon = masculin → courageux." },
+        { "id": "q8", "type": "mcq", "prompt": "Des ___ amies arrivent. (beau)", "options": ["belles","beaux","beau"], "answer": "belles", "correction": "amies = feminin pluriel → belles." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Mon pere et ma mere ___ arrives. (etre, passe compose)", "options": ["sont","est","etaient"], "answer": "sont", "correction": "Deux sujets → pluriel : sont arrives." },
+        { "id": "q2", "type": "mcq", "prompt": "Cette ___ robe est trop petite.", "options": ["belle","beau","beaux"], "answer": "belle", "correction": "robe = feminin → belle." },
+        { "id": "q3", "type": "mcq", "prompt": "Des arbres ___ (bruler) dans la foret.", "options": ["brulent","brule","brules"], "answer": "brulent", "correction": "arbres = pluriel → brulent." },
+        { "id": "q4", "type": "true_false", "prompt": "On dit 'une robe bleu' au feminin.", "answer": false, "correction": "Feminin : une robe bleue (avec e)." },
+        { "id": "q5", "type": "mcq", "prompt": "Lena et Hugo ___ joues ensemble. (avoir, passe compose)", "options": ["ont","a","avons"], "answer": "ont", "correction": "Deux sujets = pluriel : ont joues." },
+        { "id": "q6", "type": "true_false", "prompt": "L'adjectif s'accorde avec le nom qu'il qualifie.", "answer": true, "correction": "Oui, l'adjectif suit le genre et le nombre du nom." },
+        { "id": "q7", "type": "mcq", "prompt": "De ___ enfants jouent dehors. (nombreux)", "options": ["nombreux","nombreuses","nombreux"], "answer": "nombreux", "correction": "enfants = masculin pluriel → nombreux." },
+        { "id": "q8", "type": "fill_blank", "prompt": "Ma soeur est ___ (heureux, accord au feminin).", "answer": "heureuse", "accept": ["heureuse"], "correction": "Feminin de heureux = heureuse." },
+        { "id": "q9", "type": "mcq", "prompt": "Les lions ___ tres forts. (etre, present)", "options": ["sont","est","es"], "answer": "sont", "correction": "lions = pluriel → sont." },
+        { "id": "q10", "type": "mcq", "prompt": "Une ___ amie m'attend. (nouveau)", "options": ["nouvelle","nouveau","nouveaux"], "answer": "nouvelle", "correction": "amie = feminin → nouvelle." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "Ces maisons sont ___ (beau).", "answer": "belles", "accept": ["belles"], "correction": "maisons = feminin pluriel → belles." },
+        { "id": "q2", "type": "mcq", "prompt": "Ni Pierre ni Paul n'___ venu.", "options": ["est","sont","avons"], "answer": "est", "correction": "Avec ni...ni, le verbe est au singulier." },
+        { "id": "q3", "type": "fill_blank", "prompt": "Les fleurs ___ (etre) tres ___ (beau, accord).", "answer": "sont", "accept": ["sont"], "correction": "fleurs = pluriel → sont." },
+        { "id": "q4", "type": "mcq", "prompt": "Tout le monde ___ content.", "options": ["est","sont","etait"], "answer": "est", "correction": "Tout le monde = singulier → est." },
+        { "id": "q5", "type": "fill_blank", "prompt": "Emma est partie, mais ses amies ___ (rester).", "answer": "restent", "accept": ["restent"], "correction": "amies = pluriel → restent." },
+        { "id": "q6", "type": "mcq", "prompt": "Des fenetres ___ (etre) ouvertes.", "options": ["sont","est","etaient"], "answer": "sont", "correction": "fenetres = pluriel → sont." },
+        { "id": "q7", "type": "true_false", "prompt": "On ecrit 'des chansons joyeuses' (feminin pluriel).", "answer": true, "correction": "chansons = feminin pluriel → joyeuses." },
+        { "id": "q8", "type": "mcq", "prompt": "Le garcon ___ son sac. (porter, present)", "options": ["porte","portent","portes"], "answer": "porte", "correction": "sujet singulier → porte." },
+        { "id": "q9", "type": "fill_blank", "prompt": "Les garcons sont ___ (grand).", "answer": "grands", "accept": ["grands"], "correction": "garcons = masculin pluriel → grands." },
+        { "id": "q10", "type": "true_false", "prompt": "On ecrit 'une fille joli' sans e.", "answer": false, "correction": "fille = feminin → une fille jolie (avec e)." }
+      ]
+    }
+  }
+}

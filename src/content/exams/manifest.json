@@ -2441,6 +2441,33 @@
             "difficile": 60
           },
           "_path": "./grammaire/grammaire-20.json"
+        },
+        {
+          "id": "grammaire-21",
+          "title": "Les accords",
+          "emoji": "✅",
+          "order": 21,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./grammaire/grammaire-21.json"
+        },
+        {
+          "id": "grammaire-22",
+          "title": "Les types de phrases",
+          "emoji": "❓",
+          "order": 22,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./grammaire/grammaire-22.json"
+        },
+        {
+          "id": "grammaire-23",
+          "title": "Les pronoms personnels",
+          "emoji": "👤",
+          "order": 23,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./grammaire/grammaire-23.json"
         }
       ]
     },
@@ -2789,6 +2816,33 @@
             "difficile": 60
           },
           "_path": "./conjugaison/conjugaison-20.json"
+        },
+        {
+          "id": "conjugaison-21",
+          "title": "L'imparfait",
+          "emoji": "📜",
+          "order": 21,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./conjugaison/conjugaison-21.json"
+        },
+        {
+          "id": "conjugaison-22",
+          "title": "Le futur simple",
+          "emoji": "🚀",
+          "order": 22,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./conjugaison/conjugaison-22.json"
+        },
+        {
+          "id": "conjugaison-23",
+          "title": "Les verbes irreguliers",
+          "emoji": "⚡",
+          "order": 23,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./conjugaison/conjugaison-23.json"
         }
       ]
     },
@@ -5573,6 +5627,59 @@
             "difficile": 60
           },
           "_path": "./geographie-belgique/geographie-belgique-20.json"
+        }
+      ]
+    },
+    {
+      "id": "grand-defi",
+      "label": "Grand Defi",
+      "emoji": "🏆",
+      "order": 18,
+      "exams": [
+        {
+          "id": "grand-defi-01",
+          "title": "Le Grand Mix CE1",
+          "emoji": "🎯",
+          "order": 1,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./grand-defi/grand-defi-01.json"
+        },
+        {
+          "id": "grand-defi-02",
+          "title": "Defi Francais et Maths",
+          "emoji": "📚",
+          "order": 2,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./grand-defi/grand-defi-02.json"
+        },
+        {
+          "id": "grand-defi-03",
+          "title": "Champion des Savoirs",
+          "emoji": "🌟",
+          "order": 3,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./grand-defi/grand-defi-03.json"
+        },
+        {
+          "id": "grand-defi-04",
+          "title": "Tournoi des Champions",
+          "emoji": "⚔️",
+          "order": 4,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./grand-defi/grand-defi-04.json"
+        },
+        {
+          "id": "grand-defi-05",
+          "title": "Le Defi Ultime",
+          "emoji": "🔥",
+          "order": 5,
+          "levelKeys": ["facile","moyen","difficile"],
+          "levelPassPercent": {"facile":60,"moyen":60,"difficile":60},
+          "_path": "./grand-defi/grand-defi-05.json"
         }
       ]
     }

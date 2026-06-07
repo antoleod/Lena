@@ -1,0 +1,55 @@
+{
+  "id": "conjugaison-22",
+  "category": "conjugaison",
+  "categoryLabel": "Conjugaison",
+  "categoryEmoji": "🔁",
+  "categoryOrder": 9,
+  "title": "Le futur simple",
+  "emoji": "🚀",
+  "order": 22,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Demain, je ___ (jouer) au parc.", "options": ["jouerai","jouerait","joueras"], "answer": "jouerai", "correction": "Futur : je jouerai." },
+        { "id": "q2", "type": "mcq", "prompt": "Demain, tu ___ (manger) chez grand-mere.", "options": ["mangeras","mangerai","mangera"], "answer": "mangeras", "correction": "Futur : tu mangeras." },
+        { "id": "q3", "type": "mcq", "prompt": "Il ___ (etre) heureux demain.", "options": ["sera","serai","serez"], "answer": "sera", "correction": "Futur : il sera." },
+        { "id": "q4", "type": "mcq", "prompt": "Elle ___ (avoir) un cadeau.", "options": ["aura","aurai","aurez"], "answer": "aura", "correction": "Futur : elle aura." },
+        { "id": "q5", "type": "mcq", "prompt": "Nous ___ (chanter) une chanson.", "options": ["chanterons","chanterez","chanteront"], "answer": "chanterons", "correction": "Futur : nous chanterons." },
+        { "id": "q6", "type": "mcq", "prompt": "Vous ___ (partir) en vacances.", "options": ["partirez","partirons","partiront"], "answer": "partirez", "correction": "Futur : vous partirez." },
+        { "id": "q7", "type": "mcq", "prompt": "Ils ___ (jouer) ensemble.", "options": ["joueront","jouerai","jouerez"], "answer": "joueront", "correction": "Futur : ils joueront." },
+        { "id": "q8", "type": "mcq", "prompt": "Je ___ (aller) a l'ecole.", "options": ["irai","iras","ira"], "answer": "irai", "correction": "Futur irregulier : j'irai." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Plus tard, je ___ (faire) du sport.", "options": ["ferai","feras","fera"], "answer": "ferai", "correction": "Futur irregulier : je ferai." },
+        { "id": "q2", "type": "mcq", "prompt": "Tu ___ (venir) me voir samedi.", "options": ["viendras","viendra","viendrai"], "answer": "viendras", "correction": "Futur irregulier : tu viendras." },
+        { "id": "q3", "type": "mcq", "prompt": "Il ___ (pouvoir) venir a la fete.", "options": ["pourra","pourrai","pourrez"], "answer": "pourra", "correction": "Futur irregulier : il pourra." },
+        { "id": "q4", "type": "mcq", "prompt": "Nous ___ (aller) au cinema ce soir.", "options": ["irons","irez","iront"], "answer": "irons", "correction": "Futur irregulier : nous irons." },
+        { "id": "q5", "type": "mcq", "prompt": "Vous ___ (avoir) de la chance.", "options": ["aurez","aurons","auront"], "answer": "aurez", "correction": "Futur : vous aurez." },
+        { "id": "q6", "type": "mcq", "prompt": "Ils ___ (etre) tres fiers.", "options": ["seront","serai","serez"], "answer": "seront", "correction": "Futur : ils seront." },
+        { "id": "q7", "type": "true_false", "prompt": "Le futur de 'je faire' est 'je ferai'.", "answer": true, "correction": "Oui, futur irregulier : je ferai." },
+        { "id": "q8", "type": "true_false", "prompt": "Le futur de 'tu aller' est 'tu alleras'.", "answer": false, "correction": "Non : futur irregulier de aller = tu iras." },
+        { "id": "q9", "type": "mcq", "prompt": "Elle ___ (savoir) la reponse.", "options": ["saura","saurai","saurez"], "answer": "saura", "correction": "Futur : elle saura." },
+        { "id": "q10", "type": "mcq", "prompt": "Demain, il ___ (neiger) en montagne.", "options": ["neigera","neigerai","neigerons"], "answer": "neigera", "correction": "Futur : il neigera." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "Demain, nous ___ (venir) te chercher a 8h.", "answer": "viendrons", "accept": ["viendrons"], "correction": "Futur irregulier : nous viendrons." },
+        { "id": "q2", "type": "fill_blank", "prompt": "Tu ___ (voir) comme c'est beau.", "answer": "verras", "accept": ["verras"], "correction": "Futur irregulier : tu verras." },
+        { "id": "q3", "type": "mcq", "prompt": "Je ___ (vouloir) un grand gateau.", "options": ["voudrai","voudras","voudra"], "answer": "voudrai", "correction": "Futur irregulier : je voudrai." },
+        { "id": "q4", "type": "fill_blank", "prompt": "Ils ___ (devoir) travailler dur.", "answer": "devront", "accept": ["devront"], "correction": "Futur irregulier : ils devront." },
+        { "id": "q5", "type": "mcq", "prompt": "Vous ___ (recevoir) votre recompense.", "options": ["recevrez","recevrons","recevront"], "answer": "recevrez", "correction": "Futur : vous recevrez." },
+        { "id": "q6", "type": "fill_blank", "prompt": "Elle ___ (tenir) sa promesse.", "answer": "tiendra", "accept": ["tiendra"], "correction": "Futur irregulier : elle tiendra." },
+        { "id": "q7", "type": "mcq", "prompt": "Nous ___ (prendre) le train de 8h.", "options": ["prendrons","prendrez","prendront"], "answer": "prendrons", "correction": "Futur : nous prendrons." },
+        { "id": "q8", "type": "true_false", "prompt": "Le futur de 'ils vouloir' est 'ils voudront'.", "answer": true, "correction": "Futur irregulier : ils voudront." },
+        { "id": "q9", "type": "fill_blank", "prompt": "Tu ___ (pleuvoir) des idees geniales.", "answer": "pleuvras", "accept": ["pleuvras"], "correction": "Futur : tu pleuvras (figure)." },
+        { "id": "q10", "type": "mcq", "prompt": "Je ___ (courir) plus vite l'annee prochaine.", "options": ["courrai","courrais","courras"], "answer": "courrai", "correction": "Futur irregulier : je courrai." }
+      ]
+    }
+  }
+}

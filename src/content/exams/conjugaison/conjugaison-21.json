@@ -1,0 +1,55 @@
+{
+  "id": "conjugaison-21",
+  "category": "conjugaison",
+  "categoryLabel": "Conjugaison",
+  "categoryEmoji": "🔁",
+  "categoryOrder": 9,
+  "title": "L'imparfait",
+  "emoji": "📜",
+  "order": 21,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Je ___ (jouer) dans le jardin chaque soir.", "options": ["jouais","jouait","jouais"], "answer": "jouais", "correction": "Imparfait : je jouais." },
+        { "id": "q2", "type": "mcq", "prompt": "Tu ___ (manger) des pommes le matin.", "options": ["mangeais","mangeait","mangions"], "answer": "mangeais", "correction": "Imparfait : tu mangeais." },
+        { "id": "q3", "type": "mcq", "prompt": "Il ___ (etre) très content.", "options": ["etait","etais","etions"], "answer": "etait", "correction": "Imparfait : il etait." },
+        { "id": "q4", "type": "mcq", "prompt": "Elle ___ (avoir) un beau chat.", "options": ["avait","avais","avions"], "answer": "avait", "correction": "Imparfait : elle avait." },
+        { "id": "q5", "type": "mcq", "prompt": "Nous ___ (chanter) tous les jours.", "options": ["chantions","chantiez","chantaient"], "answer": "chantions", "correction": "Imparfait : nous chantions." },
+        { "id": "q6", "type": "mcq", "prompt": "Vous ___ (danser) avec plaisir.", "options": ["dansiez","dansions","dansaient"], "answer": "dansiez", "correction": "Imparfait : vous dansiez." },
+        { "id": "q7", "type": "mcq", "prompt": "Ils ___ (jouer) au football le mercredi.", "options": ["jouaient","jouait","jouions"], "answer": "jouaient", "correction": "Imparfait : ils jouaient." },
+        { "id": "q8", "type": "mcq", "prompt": "Elles ___ (etre) heureuses.", "options": ["etaient","etais","etait"], "answer": "etaient", "correction": "Imparfait : elles etaient." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Quand j'etais petit, je ___ (aimer) les bonbons.", "options": ["aimais","aimait","aimiez"], "answer": "aimais", "correction": "Imparfait : j'aimais." },
+        { "id": "q2", "type": "mcq", "prompt": "Avant, tu ___ (avoir) un velo rouge.", "options": ["avais","avait","aviez"], "answer": "avais", "correction": "Imparfait : tu avais." },
+        { "id": "q3", "type": "mcq", "prompt": "Il ___ (faire) chaud en ete.", "options": ["faisait","faisais","faisions"], "answer": "faisait", "correction": "Imparfait : il faisait." },
+        { "id": "q4", "type": "mcq", "prompt": "Nous ___ (aller) a la plage chaque ete.", "options": ["allions","alliez","allaient"], "answer": "allions", "correction": "Imparfait : nous allions." },
+        { "id": "q5", "type": "mcq", "prompt": "Vous ___ (venir) souvent chez nous.", "options": ["veniez","venions","venaient"], "answer": "veniez", "correction": "Imparfait : vous veniez." },
+        { "id": "q6", "type": "mcq", "prompt": "Les enfants ___ (regarder) la television.", "options": ["regardaient","regardait","regardions"], "answer": "regardaient", "correction": "Imparfait : ils regardaient." },
+        { "id": "q7", "type": "true_false", "prompt": "L'imparfait de 'je jouer' est 'je jouais'.", "answer": true, "correction": "Oui : je jouais." },
+        { "id": "q8", "type": "true_false", "prompt": "L'imparfait de 'nous chanter' est 'nous chantions'.", "answer": true, "correction": "Oui : nous chantions." },
+        { "id": "q9", "type": "mcq", "prompt": "Mon chien ___ (aboyer) souvent la nuit.", "options": ["aboyait","aboyais","aboyiez"], "answer": "aboyait", "correction": "Imparfait : il aboyait." },
+        { "id": "q10", "type": "mcq", "prompt": "Je ___ (etre) en retard ce matin-la.", "options": ["etais","etait","etions"], "answer": "etais", "correction": "Imparfait : j'etais." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "Tu ___ (etre) tres courageux a ce moment-la.", "answer": "etais", "accept": ["etais"], "correction": "Imparfait : tu etais." },
+        { "id": "q2", "type": "fill_blank", "prompt": "Elle ___ (avoir) peur du tonnerre.", "answer": "avait", "accept": ["avait"], "correction": "Imparfait : elle avait." },
+        { "id": "q3", "type": "mcq", "prompt": "Autrefois, les gens ___ (voyager) a cheval.", "options": ["voyageaient","voyageait","voyagions"], "answer": "voyageaient", "correction": "Imparfait : ils voyageaient." },
+        { "id": "q4", "type": "fill_blank", "prompt": "Nous ___ (finir) toujours notre travail a temps.", "answer": "finissions", "accept": ["finissions"], "correction": "Imparfait : nous finissions." },
+        { "id": "q5", "type": "mcq", "prompt": "Je ___ (savoir) ma lecon par coeur.", "options": ["savais","savait","saviez"], "answer": "savais", "correction": "Imparfait : je savais." },
+        { "id": "q6", "type": "mcq", "prompt": "Vous ___ (pouvoir) venir quand vous vouliez.", "options": ["pouviez","pouvions","pouvaient"], "answer": "pouviez", "correction": "Imparfait : vous pouviez." },
+        { "id": "q7", "type": "fill_blank", "prompt": "Il ___ (vouloir) devenir astronaute.", "answer": "voulait", "accept": ["voulait"], "correction": "Imparfait : il voulait." },
+        { "id": "q8", "type": "mcq", "prompt": "Ils ___ (prendre) le bus chaque matin.", "options": ["prenaient","prenait","prenions"], "answer": "prenaient", "correction": "Imparfait : ils prenaient." },
+        { "id": "q9", "type": "true_false", "prompt": "L'imparfait de 'vous danser' est 'vous dansiez'.", "answer": true, "correction": "Oui : vous dansiez." },
+        { "id": "q10", "type": "fill_blank", "prompt": "Lena ___ (chanter) mieux que tout le monde.", "answer": "chantait", "accept": ["chantait"], "correction": "Imparfait : elle chantait." }
+      ]
+    }
+  }
+}

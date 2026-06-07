@@ -1,0 +1,55 @@
+{
+  "id": "conjugaison-23",
+  "category": "conjugaison",
+  "categoryLabel": "Conjugaison",
+  "categoryEmoji": "🔁",
+  "categoryOrder": 9,
+  "title": "Les verbes irreguliers",
+  "emoji": "⚡",
+  "order": 23,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Je ___ (vouloir) du gateau, s'il vous plait.", "options": ["veux","veut","voulons"], "answer": "veux", "correction": "Je veux." },
+        { "id": "q2", "type": "mcq", "prompt": "Tu ___ (pouvoir) venir jouer.", "options": ["peux","peut","pouvons"], "answer": "peux", "correction": "Tu peux." },
+        { "id": "q3", "type": "mcq", "prompt": "Il ___ (savoir) nager.", "options": ["sait","sais","savons"], "answer": "sait", "correction": "Il sait." },
+        { "id": "q4", "type": "mcq", "prompt": "Nous ___ (vouloir) jouer dehors.", "options": ["voulons","voulez","veulent"], "answer": "voulons", "correction": "Nous voulons." },
+        { "id": "q5", "type": "mcq", "prompt": "Vous ___ (pouvoir) rentrer maintenant.", "options": ["pouvez","peuvent","pouvons"], "answer": "pouvez", "correction": "Vous pouvez." },
+        { "id": "q6", "type": "mcq", "prompt": "Ils ___ (vouloir) une glace.", "options": ["veulent","veux","veut"], "answer": "veulent", "correction": "Ils veulent." },
+        { "id": "q7", "type": "mcq", "prompt": "Elle ___ (devoir) partir tot.", "options": ["doit","dois","devons"], "answer": "doit", "correction": "Elle doit." },
+        { "id": "q8", "type": "mcq", "prompt": "Je ___ (prendre) mon sac.", "options": ["prends","prend","prenons"], "answer": "prends", "correction": "Je prends." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Tu ___ (devoir) finir tes devoirs.", "options": ["dois","doit","devons"], "answer": "dois", "correction": "Tu dois." },
+        { "id": "q2", "type": "mcq", "prompt": "Nous ___ (prendre) le bus.", "options": ["prenons","prenez","prennent"], "answer": "prenons", "correction": "Nous prenons." },
+        { "id": "q3", "type": "mcq", "prompt": "Ils ___ (savoir) la reponse.", "options": ["savent","sait","savez"], "answer": "savent", "correction": "Ils savent." },
+        { "id": "q4", "type": "mcq", "prompt": "Elle ___ (voir) bien sans lunettes.", "options": ["voit","vois","voyons"], "answer": "voit", "correction": "Elle voit." },
+        { "id": "q5", "type": "mcq", "prompt": "Vous ___ (dire) la verite.", "options": ["dites","disent","disons"], "answer": "dites", "correction": "Vous dites." },
+        { "id": "q6", "type": "true_false", "prompt": "Le present de 'je vouloir' est 'je veux'.", "answer": true, "correction": "Oui : je veux." },
+        { "id": "q7", "type": "true_false", "prompt": "Le present de 'ils savoir' est 'ils savont'.", "answer": false, "correction": "Non : ils savent." },
+        { "id": "q8", "type": "mcq", "prompt": "Je ___ (voir) les etoiles ce soir.", "options": ["vois","voit","voyons"], "answer": "vois", "correction": "Je vois." },
+        { "id": "q9", "type": "mcq", "prompt": "Nous ___ (devoir) etre a l'heure.", "options": ["devons","devez","doivent"], "answer": "devons", "correction": "Nous devons." },
+        { "id": "q10", "type": "mcq", "prompt": "Tu ___ (connaitre) cette chanson ?", "options": ["connais","connait","connaissez"], "answer": "connais", "correction": "Tu connais." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "Vous ___ (connaitre) bien la ville.", "answer": "connaissez", "accept": ["connaissez"], "correction": "Vous connaissez." },
+        { "id": "q2", "type": "fill_blank", "prompt": "Ils ___ (voir) le film ce soir.", "answer": "voient", "accept": ["voient"], "correction": "Ils voient." },
+        { "id": "q3", "type": "mcq", "prompt": "Je ___ (mettre) mon manteau.", "options": ["mets","met","mettons"], "answer": "mets", "correction": "Je mets." },
+        { "id": "q4", "type": "fill_blank", "prompt": "Elle ___ (connaitre) la reponse.", "answer": "connait", "accept": ["connait","connaît"], "correction": "Elle connait." },
+        { "id": "q5", "type": "mcq", "prompt": "Nous ___ (suivre) le chemin.", "options": ["suivons","suivez","suivent"], "answer": "suivons", "correction": "Nous suivons." },
+        { "id": "q6", "type": "fill_blank", "prompt": "Tu ___ (lire) un livre interessant.", "answer": "lis", "accept": ["lis"], "correction": "Tu lis." },
+        { "id": "q7", "type": "mcq", "prompt": "Vous ___ (ecrire) une lettre.", "options": ["ecrivez","ecrivent","ecrivons"], "answer": "ecrivez", "correction": "Vous ecrivez." },
+        { "id": "q8", "type": "fill_blank", "prompt": "Ils ___ (vivre) dans une grande ville.", "answer": "vivent", "accept": ["vivent"], "correction": "Ils vivent." },
+        { "id": "q9", "type": "mcq", "prompt": "Je ___ (conduire) prudemment.", "options": ["conduis","conduit","conduisons"], "answer": "conduis", "correction": "Je conduis." },
+        { "id": "q10", "type": "true_false", "prompt": "Le present de 'vous mettre' est 'vous mettez'.", "answer": true, "correction": "Oui : vous mettez." }
+      ]
+    }
+  }
+}

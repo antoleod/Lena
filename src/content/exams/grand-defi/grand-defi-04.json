@@ -1,0 +1,55 @@
+{
+  "id": "grand-defi-04",
+  "category": "grand-defi",
+  "categoryLabel": "Grand Defi",
+  "categoryEmoji": "🏆",
+  "categoryOrder": 18,
+  "title": "Tournoi des Champions",
+  "emoji": "⚔️",
+  "order": 4,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "[LOGIQUE] Quelle vient apres ? Lundi, Mardi, ___", "options": ["Mercredi","Jeudi","Vendredi"], "answer": "Mercredi", "correction": "L-M-M-J-V-S-D." },
+        { "id": "q2", "type": "mcq", "prompt": "[CONJUGAISON] Elle ___ (chanter, imparfait) chaque soir.", "options": ["chantait","chante","chantera"], "answer": "chantait", "correction": "Imparfait : elle chantait." },
+        { "id": "q3", "type": "mcq", "prompt": "[LOGIQUE] Quel mois vient apres mars ?", "options": ["Avril","Mai","Fevrier"], "answer": "Avril", "correction": "Janvier, Fevrier, Mars, Avril..." },
+        { "id": "q4", "type": "mcq", "prompt": "[MATHS] Combien de minutes dans 1 heure ?", "options": ["60","100","30"], "answer": "60", "correction": "1 heure = 60 minutes." },
+        { "id": "q5", "type": "mcq", "prompt": "[VOCABULAIRE] 'Timide' signifie :", "options": ["qui a peur des autres","qui aime les autres","qui est mechant"], "answer": "qui a peur des autres", "correction": "Timide = qui est gene, qui a peur du regard des autres." },
+        { "id": "q6", "type": "mcq", "prompt": "[MATHS] Il est 14h00. Quelle heure est-il en heure civile ?", "options": ["2h de l'apres-midi","2h du matin","14h du soir"], "answer": "2h de l'apres-midi", "correction": "14h = 2h de l'apres-midi." },
+        { "id": "q7", "type": "mcq", "prompt": "[LOGIQUE] Trouve l'intrus : pomme, poire, carotte, fraise.", "options": ["carotte","pomme","poire"], "answer": "carotte", "correction": "Carotte est un legume, les autres sont des fruits." },
+        { "id": "q8", "type": "mcq", "prompt": "[CONJUGAISON] Vous ___ (faire, present) vos devoirs.", "options": ["faites","faisons","font"], "answer": "faites", "correction": "Vous faites." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "[LOGIQUE] Sequence : 2, 4, 6, 8, ___", "options": ["10","9","12"], "answer": "10", "correction": "+2 a chaque fois." },
+        { "id": "q2", "type": "mcq", "prompt": "[CONJUGAISON] Demain matin, nous ___ (se lever, futur).", "options": ["nous leverons","nous levions","nous levons"], "answer": "nous leverons", "correction": "Futur : nous nous leverons." },
+        { "id": "q3", "type": "mcq", "prompt": "[LOGIQUE] Sequence : 100, 90, 80, ___", "options": ["70","60","75"], "answer": "70", "correction": "-10 a chaque fois." },
+        { "id": "q4", "type": "fill_blank", "prompt": "[MATHS] Il est 10h15. Dans 45 minutes il sera ___ h ___.", "answer": "11h00", "accept": ["11h00","11h 00","11:00","11h"], "correction": "10h15 + 45 min = 11h00." },
+        { "id": "q5", "type": "mcq", "prompt": "[VOCABULAIRE] Le mot 'aquatique' est relie a :", "options": ["l'eau","la terre","le feu"], "answer": "l'eau", "correction": "Aqua = eau (latin)." },
+        { "id": "q6", "type": "mcq", "prompt": "[LOGIQUE] Trouve l'intrus : bus, train, avion, velo, chaise.", "options": ["chaise","bus","avion"], "answer": "chaise", "correction": "La chaise ne se deplace pas = pas un transport." },
+        { "id": "q7", "type": "fill_blank", "prompt": "[MATHS] Quelle fraction est egale a 0,5 ? ___", "answer": "1/2", "accept": ["1/2","0,5"], "correction": "0,5 = 1/2." },
+        { "id": "q8", "type": "mcq", "prompt": "[CONJUGAISON] Avant, ils ___ (pouvoir, imparfait) venir.", "options": ["pouvaient","pouvaient","pourront"], "answer": "pouvaient", "correction": "Imparfait : ils pouvaient." },
+        { "id": "q9", "type": "mcq", "prompt": "[LOGIQUE] Sequence : 1, 2, 4, 8, ___", "options": ["16","12","10"], "answer": "16", "correction": "x2 a chaque fois : 8 × 2 = 16." },
+        { "id": "q10", "type": "true_false", "prompt": "[MATHS] 1 annee bissextile a 366 jours.", "answer": true, "correction": "Oui : annee bissextile = 366 jours." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "[LOGIQUE] Sequence : 1, 1, 2, 3, 5, 8, ___", "answer": "13", "accept": ["13"], "correction": "Suite de Fibonacci : chaque nombre = somme des deux precedents." },
+        { "id": "q2", "type": "fill_blank", "prompt": "[CONJUGAISON] Tu ___ (se souvenir, futur) de ce jour.", "answer": "te souviendras", "accept": ["te souviendras"], "correction": "Futur irregulier : tu te souviendras." },
+        { "id": "q3", "type": "mcq", "prompt": "[VOCABULAIRE] 'Ephemere' signifie :", "options": ["qui dure peu de temps","qui dure longtemps","qui ne change pas"], "answer": "qui dure peu de temps", "correction": "Ephemere = qui ne dure qu'une journee (du grec)." },
+        { "id": "q4", "type": "fill_blank", "prompt": "[MATHS] Il est 23h45. Dans 20 minutes il sera ___ h ___.", "answer": "00h05", "accept": ["00h05","0h05","00:05","minuit 5"], "correction": "23h45 + 20 min = 00h05 (minuit et 5)." },
+        { "id": "q5", "type": "mcq", "prompt": "[LOGIQUE] Si tous les chats sont des animaux et Minou est un chat, alors :", "options": ["Minou est un animal","Minou est un chien","Minou n'est pas un animal"], "answer": "Minou est un animal", "correction": "Raisonnement deductif : chat → animal, donc Minou → animal." },
+        { "id": "q6", "type": "fill_blank", "prompt": "[MATHS] Exprimer 2h30min en minutes : ___ minutes.", "answer": "150", "accept": ["150"], "correction": "2 × 60 + 30 = 150 minutes." },
+        { "id": "q7", "type": "mcq", "prompt": "[CONJUGAISON] Hier soir, vous ___ (devoir, imparfait) rentrer tard.", "options": ["deviez","devez","devront"], "answer": "deviez", "correction": "Imparfait : vous deviez." },
+        { "id": "q8", "type": "mcq", "prompt": "[VOCABULAIRE] Le suffixe '-logie' signifie :", "options": ["etude de","amour de","contre"], "answer": "etude de", "correction": "Biologie = etude du vivant (-logie = etude)." },
+        { "id": "q9", "type": "fill_blank", "prompt": "[LOGIQUE] Sequence : 3, 6, 12, 24, ___", "answer": "48", "accept": ["48"], "correction": "x2 : 24 × 2 = 48." },
+        { "id": "q10", "type": "fill_blank", "prompt": "[MATHS] Dans 1 000, combien y a-t-il de dizaines ? ___", "answer": "100", "accept": ["100"], "correction": "1 000 = 100 dizaines." }
+      ]
+    }
+  }
+}

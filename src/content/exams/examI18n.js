@@ -71,6 +71,10 @@ export const CATEGORY_LABELS = {
     fr: 'Géographie Belgique', nl: 'Geografie België', en: 'Belgian Geography', es: 'Geografía Bélgica',
     emoji: '🇧🇪',
   },
+  'grand-defi': {
+    fr: 'Grand Defi', nl: 'Grote Uitdaging', en: 'Grand Challenge', es: 'Gran Desafio',
+    emoji: '🏆',
+  },
 };
 
 export const DIFFICULTY_LABELS = {

@@ -1,0 +1,55 @@
+{
+  "id": "grammaire-22",
+  "category": "grammaire",
+  "categoryLabel": "Grammaire",
+  "categoryEmoji": "🧩",
+  "categoryOrder": 8,
+  "title": "Les types de phrases",
+  "emoji": "❓",
+  "order": 22,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "« Il fait beau. » est une phrase :", "options": ["declarative","interrogative","exclamative"], "answer": "declarative", "correction": "Elle affirme un fait → declarative." },
+        { "id": "q2", "type": "mcq", "prompt": "« Est-ce qu'il fait beau ? » est une phrase :", "options": ["interrogative","declarative","imperative"], "answer": "interrogative", "correction": "Elle pose une question → interrogative." },
+        { "id": "q3", "type": "mcq", "prompt": "« Quel beau soleil ! » est une phrase :", "options": ["exclamative","declarative","interrogative"], "answer": "exclamative", "correction": "Elle exprime une emotion → exclamative." },
+        { "id": "q4", "type": "mcq", "prompt": "La phrase « Viens ici ! » se termine par :", "options": ["!","?","."], "answer": "!", "correction": "Ordre ou exclamation → point d'exclamation." },
+        { "id": "q5", "type": "mcq", "prompt": "La phrase « Quelle heure est-il ? » se termine par :", "options": ["?","!","."], "answer": "?", "correction": "Question → point d'interrogation." },
+        { "id": "q6", "type": "mcq", "prompt": "« Mange tes legumes. » est une phrase :", "options": ["imperative","declarative","interrogative"], "answer": "imperative", "correction": "C'est un ordre → phrase imperative." },
+        { "id": "q7", "type": "true_false", "prompt": "Une phrase declarative se termine par un point.", "answer": true, "correction": "Oui : La maison est grande." },
+        { "id": "q8", "type": "true_false", "prompt": "Une phrase interrogative commence toujours par Est-ce que.", "answer": false, "correction": "Non, elle peut aussi commencer par un mot interrogatif : Ou, Quand, Comment..." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "Quelle est la ponctuation d'une phrase exclamative ?", "options": ["!","?","."], "answer": "!", "correction": "Point d'exclamation : !" },
+        { "id": "q2", "type": "mcq", "prompt": "Transforme en interrogatif : « Tu aimes le chocolat. »", "options": ["Est-ce que tu aimes le chocolat ?","Tu aimes le chocolat !","Aime le chocolat."], "answer": "Est-ce que tu aimes le chocolat ?", "correction": "On ajoute Est-ce que + ?." },
+        { "id": "q3", "type": "mcq", "prompt": "« Les enfants jouent dans la cour. » → Le sujet est :", "options": ["Les enfants","jouent","dans la cour"], "answer": "Les enfants", "correction": "Qui joue ? Les enfants → sujet." },
+        { "id": "q4", "type": "mcq", "prompt": "Dans « Le gros chat mange. » → le groupe nominal sujet est :", "options": ["Le gros chat","mange","gros"], "answer": "Le gros chat", "correction": "Le gros chat = GN sujet." },
+        { "id": "q5", "type": "true_false", "prompt": "Une phrase negative contient 'ne...pas'.", "answer": true, "correction": "Oui : Je ne mange pas." },
+        { "id": "q6", "type": "mcq", "prompt": "Transforme en negatif : « Je mange du pain. »", "options": ["Je ne mange pas de pain.","Je mange pas le pain.","Je ne pas mange du pain."], "answer": "Je ne mange pas de pain.", "correction": "Negatif : ne...pas encadrent le verbe." },
+        { "id": "q7", "type": "mcq", "prompt": "Le mot interrogatif pour demander un endroit est :", "options": ["Ou","Quand","Comment"], "answer": "Ou", "correction": "Ou = lieu." },
+        { "id": "q8", "type": "mcq", "prompt": "Le mot interrogatif pour demander un moment est :", "options": ["Quand","Ou","Pourquoi"], "answer": "Quand", "correction": "Quand = moment." },
+        { "id": "q9", "type": "true_false", "prompt": "On peut poser une question avec l'intonation montante.", "answer": true, "correction": "Oui : Tu viens ? (voix monte)." },
+        { "id": "q10", "type": "mcq", "prompt": "Dans « Emma mange une pomme. » → le verbe est :", "options": ["mange","Emma","pomme"], "answer": "mange", "correction": "mange = verbe." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "Ecris le mot interrogatif pour demander la raison : ___ est-ce que tu pleures ?", "answer": "Pourquoi", "accept": ["Pourquoi","pourquoi"], "correction": "Pourquoi = raison/cause." },
+        { "id": "q2", "type": "mcq", "prompt": "Quelle est la forme negative de « Ils ont reussi. »", "options": ["Ils n'ont pas reussi.","Ils ont pas reussi.","Pas ils ont reussi."], "answer": "Ils n'ont pas reussi.", "correction": "n'...pas encadrent l'auxiliaire." },
+        { "id": "q3", "type": "mcq", "prompt": "Dans « La jolie fleur rouge embaume le jardin. » → le GN sujet est :", "options": ["La jolie fleur rouge","embaume","le jardin"], "answer": "La jolie fleur rouge", "correction": "Qui embaume ? La jolie fleur rouge = GN sujet." },
+        { "id": "q4", "type": "fill_blank", "prompt": "___ heure est-il maintenant ?", "answer": "Quelle", "accept": ["Quelle","quelle"], "correction": "Quelle heure = mot interrogatif." },
+        { "id": "q5", "type": "true_false", "prompt": "La phrase imperative a un sujet exprime.", "answer": false, "correction": "Non : Mange tes legumes ! (pas de sujet exprime)." },
+        { "id": "q6", "type": "mcq", "prompt": "Transforme en interrogatif avec inversion : « Tu viens. »", "options": ["Viens-tu ?","Est-tu viens ?","Tu viens ?"], "answer": "Viens-tu ?", "correction": "Inversion sujet-verbe : Viens-tu ?" },
+        { "id": "q7", "type": "mcq", "prompt": "Dans « Ce soir, Lena lit un livre. » → le complement circonstanciel est :", "options": ["Ce soir","Lena","lit"], "answer": "Ce soir", "correction": "Ce soir = CC de temps." },
+        { "id": "q8", "type": "fill_blank", "prompt": "La phrase negative encadre le verbe avec ne et ___.", "answer": "pas", "accept": ["pas"], "correction": "ne...pas = negation." },
+        { "id": "q9", "type": "true_false", "prompt": "Le sujet repond a la question 'Qui est-ce qui + verbe ?'.", "answer": true, "correction": "Oui : Qui est-ce qui joue ? → Les enfants." },
+        { "id": "q10", "type": "mcq", "prompt": "Quelle phrase est incorrecte ?", "options": ["Il n'a pas mange.","Il a pas mange.","Il ne mange pas."], "answer": "Il a pas mange.", "correction": "Il manque 'ne' : Il n'a pas mange." }
+      ]
+    }
+  }
+}

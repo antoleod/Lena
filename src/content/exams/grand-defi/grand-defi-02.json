@@ -1,0 +1,55 @@
+{
+  "id": "grand-defi-02",
+  "category": "grand-defi",
+  "categoryLabel": "Grand Defi",
+  "categoryEmoji": "🏆",
+  "categoryOrder": 18,
+  "title": "Defi Francais et Maths",
+  "emoji": "📚",
+  "order": 2,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "[ORTHOGRAPHE] Comment ecrit-on le son [o] dans 'bateau' ?", "options": ["eau","o","au"], "answer": "eau", "correction": "ba-teau : eau fait le son [o]." },
+        { "id": "q2", "type": "mcq", "prompt": "[MATHS] Combien font 1/2 de 20 ?", "options": ["10","5","15"], "answer": "10", "correction": "La moitie de 20 = 10." },
+        { "id": "q3", "type": "mcq", "prompt": "[VOCABULAIRE] Le contraire de 'froid' est :", "options": ["chaud","tiede","doux"], "answer": "chaud", "correction": "Contraire de froid = chaud." },
+        { "id": "q4", "type": "mcq", "prompt": "[MATHS] Combien de centimetres dans 1 metre ?", "options": ["100","10","1000"], "answer": "100", "correction": "1 m = 100 cm." },
+        { "id": "q5", "type": "mcq", "prompt": "[ORTHOGRAPHE] Le pluriel de 'un cheval' est :", "options": ["des chevaux","des chevals","un chevaux"], "answer": "des chevaux", "correction": "Pluriel irregulier : cheval → chevaux." },
+        { "id": "q6", "type": "mcq", "prompt": "[MATHS] Une semaine a combien de jours ?", "options": ["7","5","6"], "answer": "7", "correction": "1 semaine = 7 jours." },
+        { "id": "q7", "type": "mcq", "prompt": "[VOCABULAIRE] 'Enorme' veut dire :", "options": ["tres grand","tres petit","tres beau"], "answer": "tres grand", "correction": "Enorme = tres grand." },
+        { "id": "q8", "type": "mcq", "prompt": "[MATHS] 1/4 de 40 = ?", "options": ["10","8","20"], "answer": "10", "correction": "Le quart de 40 = 10." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "[ORTHOGRAPHE] Le pluriel de 'un oeil' est :", "options": ["des yeux","des oeils","des yeuxs"], "answer": "des yeux", "correction": "Pluriel irregulier : oeil → yeux." },
+        { "id": "q2", "type": "fill_blank", "prompt": "[MATHS] 3/4 de 100 = ___.", "answer": "75", "accept": ["75"], "correction": "3/4 de 100 = 75." },
+        { "id": "q3", "type": "mcq", "prompt": "[VOCABULAIRE] Un synonyme de 'joyeux' est :", "options": ["heureux","triste","calme"], "answer": "heureux", "correction": "joyeux = heureux (synonymes)." },
+        { "id": "q4", "type": "fill_blank", "prompt": "[MATHS] Combien de grammes dans 1 kilogramme ? ___.", "answer": "1000", "accept": ["1000"], "correction": "1 kg = 1000 g." },
+        { "id": "q5", "type": "mcq", "prompt": "[ORTHOGRAPHE] « ail » s'ecrit : a-i-l ou a-y-l ?", "options": ["a-i-l","a-y-l","aille"], "answer": "a-i-l", "correction": "ail = a-i-l." },
+        { "id": "q6", "type": "true_false", "prompt": "[MATHS] Un triangle a 4 cotes.", "answer": false, "correction": "Non : un triangle a 3 cotes." },
+        { "id": "q7", "type": "mcq", "prompt": "[VOCABULAIRE] Le mot 'bibliothèque' vient du grec et signifie :", "options": ["endroit pour les livres","endroit pour lire","ecole pour les enfants"], "answer": "endroit pour les livres", "correction": "Biblio = livre, theque = endroit." },
+        { "id": "q8", "type": "true_false", "prompt": "[MATHS] 2,5 est plus grand que 2.", "answer": true, "correction": "Oui : 2,5 > 2." },
+        { "id": "q9", "type": "mcq", "prompt": "[ORTHOGRAPHE] Trouve la faute dans : 'Les fleures sont belles.'", "options": ["fleures (fleurs)","sont","belles"], "answer": "fleures (fleurs)", "correction": "Fleurs sans e." },
+        { "id": "q10", "type": "fill_blank", "prompt": "[MATHS] Perimetre d'un carre de cote 5 cm = ___ cm.", "answer": "20", "accept": ["20"], "correction": "4 × 5 = 20 cm." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "[MATHS] Aire d'un rectangle 6 cm × 4 cm = ___ cm².", "answer": "24", "accept": ["24"], "correction": "6 × 4 = 24 cm²." },
+        { "id": "q2", "type": "mcq", "prompt": "[ORTHOGRAPHE] Laquelle de ces phrases est correcte ?", "options": ["Les enfants ont mange leurs gouters.","Les enfants ont manges leurs gouter.","Les enfants ont mange leurs gouter."], "answer": "Les enfants ont mange leurs gouters.", "correction": "Participe passe apres avoir reste invariable. Gouters = pluriel." },
+        { "id": "q3", "type": "fill_blank", "prompt": "[MATHS] 3/5 + 1/5 = ___.", "answer": "4/5", "accept": ["4/5"], "correction": "Fractions de meme denominateur : 3+1 = 4, on garde /5." },
+        { "id": "q4", "type": "mcq", "prompt": "[VOCABULAIRE] Quel mot contient le son 'euil' ?", "options": ["ecureuil","soleil","bataille"], "answer": "ecureuil", "correction": "E-cu-reuil contient euil." },
+        { "id": "q5", "type": "fill_blank", "prompt": "[MATHS] 0,75 litre = ___ ml.", "answer": "750", "accept": ["750"], "correction": "0,75 L = 750 ml." },
+        { "id": "q6", "type": "mcq", "prompt": "[ORTHOGRAPHE] Le pluriel de 'bail' est :", "options": ["baux","bails","bailes"], "answer": "baux", "correction": "bail → baux (pluriel en -aux)." },
+        { "id": "q7", "type": "fill_blank", "prompt": "[MATHS] 25% de 200 = ___.", "answer": "50", "accept": ["50"], "correction": "25% = 1/4 : 200/4 = 50." },
+        { "id": "q8", "type": "mcq", "prompt": "[VOCABULAIRE] Le prefixe 're-' dans 'relire' signifie :", "options": ["faire a nouveau","faire a l'envers","faire mal"], "answer": "faire a nouveau", "correction": "Re- = repetition." },
+        { "id": "q9", "type": "fill_blank", "prompt": "[MATHS] 1/2 + 1/4 = ___.", "answer": "3/4", "accept": ["3/4"], "correction": "2/4 + 1/4 = 3/4." },
+        { "id": "q10", "type": "mcq", "prompt": "[ORTHOGRAPHE] Choisis la bonne orthographe : une ___ (cerise/cerize/searise).", "options": ["cerise","cerize","searise"], "answer": "cerise", "correction": "Une cerise, s'ecrit c-e-r-i-s-e." }
+      ]
+    }
+  }
+}

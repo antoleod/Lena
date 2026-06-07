@@ -1,0 +1,57 @@
+{
+  "id": "grand-defi-01",
+  "category": "grand-defi",
+  "categoryLabel": "Grand Defi",
+  "categoryEmoji": "🏆",
+  "categoryOrder": 18,
+  "title": "Le Grand Mix CE1",
+  "emoji": "🎯",
+  "order": 1,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "[GRAMMAIRE] « courir » est un :", "options": ["verbe","nom","adjectif"], "answer": "verbe", "correction": "courir = verbe (action)." },
+        { "id": "q2", "type": "mcq", "prompt": "[CONJUGAISON] Je ___ (etre) content.", "options": ["suis","es","est"], "answer": "suis", "correction": "Je suis." },
+        { "id": "q3", "type": "mcq", "prompt": "[MATHS] 15 + 8 = ?", "options": ["23","22","24"], "answer": "23", "correction": "15 + 8 = 23." },
+        { "id": "q4", "type": "mcq", "prompt": "[GRAMMAIRE] Le pluriel de 'un chat' :", "options": ["des chats","des chat","un chats"], "answer": "des chats", "correction": "On ajoute s au pluriel." },
+        { "id": "q5", "type": "mcq", "prompt": "[CONJUGAISON] Tu ___ (avoir) un livre.", "options": ["as","ai","a"], "answer": "as", "correction": "Tu as." },
+        { "id": "q6", "type": "mcq", "prompt": "[MATHS] 20 - 7 = ?", "options": ["13","12","14"], "answer": "13", "correction": "20 - 7 = 13." },
+        { "id": "q7", "type": "mcq", "prompt": "[VOCABULAIRE] Le contraire de 'grand' est :", "options": ["petit","fort","lourd"], "answer": "petit", "correction": "Contraire de grand = petit." },
+        { "id": "q8", "type": "mcq", "prompt": "[MATHS] 3 × 4 = ?", "options": ["12","11","13"], "answer": "12", "correction": "3 × 4 = 12." }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "mcq", "prompt": "[GRAMMAIRE] Dans 'le gros chien', l'adjectif est :", "options": ["gros","chien","le"], "answer": "gros", "correction": "gros qualifie chien → adjectif." },
+        { "id": "q2", "type": "mcq", "prompt": "[CONJUGAISON] Demain, je ___ (aller) au parc. (futur)", "options": ["irai","vais","allais"], "answer": "irai", "correction": "Futur irregulier : j'irai." },
+        { "id": "q3", "type": "mcq", "prompt": "[MATHS] 48 + 35 = ?", "options": ["83","82","84"], "answer": "83", "correction": "48 + 35 = 83." },
+        { "id": "q4", "type": "mcq", "prompt": "[GRAMMAIRE] Le feminin de 'beau' est :", "options": ["belle","bello","beaux"], "answer": "belle", "correction": "Feminin de beau = belle." },
+        { "id": "q5", "type": "mcq", "prompt": "[CONJUGAISON] Nous ___ (chanter) une chanson. (present)", "options": ["chantons","chantez","chantent"], "answer": "chantons", "correction": "Nous chantons." },
+        { "id": "q6", "type": "fill_blank", "prompt": "[MATHS] 7 × 8 = ___.", "answer": "56", "accept": ["56"], "correction": "7 × 8 = 56." },
+        { "id": "q7", "type": "mcq", "prompt": "[VOCABULAIRE] Un synonyme de 'rapide' est :", "options": ["vite","lent","lourd"], "answer": "vite", "correction": "rapide = vite (synonymes)." },
+        { "id": "q8", "type": "true_false", "prompt": "[GRAMMAIRE] 'manger' est un verbe du 1er groupe.", "answer": true, "correction": "Oui : termine en -er → 1er groupe." },
+        { "id": "q9", "type": "fill_blank", "prompt": "[MATHS] 100 - 37 = ___.", "answer": "63", "accept": ["63"], "correction": "100 - 37 = 63." },
+        { "id": "q10", "type": "mcq", "prompt": "[CONJUGAISON] Ils ___ (jouer) dehors. (present)", "options": ["jouent","joue","joues"], "answer": "jouent", "correction": "Ils jouent." }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        { "id": "q1", "type": "fill_blank", "prompt": "[CONJUGAISON] Hier, nous ___ (partir, imparfait) tot.", "answer": "partions", "accept": ["partions"], "correction": "Imparfait : nous partions." },
+        { "id": "q2", "type": "fill_blank", "prompt": "[MATHS] 125 + 248 = ___.", "answer": "373", "accept": ["373"], "correction": "125 + 248 = 373." },
+        { "id": "q3", "type": "mcq", "prompt": "[GRAMMAIRE] Quel mot est un adverbe ?", "options": ["rapidement","rouge","maison"], "answer": "rapidement", "correction": "rapidement = adverbe (-ment)." },
+        { "id": "q4", "type": "fill_blank", "prompt": "[CONJUGAISON] Vous ___ (voir, present) la difference.", "answer": "voyez", "accept": ["voyez"], "correction": "Vous voyez." },
+        { "id": "q5", "type": "fill_blank", "prompt": "[MATHS] 9 × 7 = ___.", "answer": "63", "accept": ["63"], "correction": "9 × 7 = 63." },
+        { "id": "q6", "type": "mcq", "prompt": "[GRAMMAIRE] Dans 'Emma chante une belle chanson', le complement d'objet direct est :", "options": ["une belle chanson","chante","Emma"], "answer": "une belle chanson", "correction": "COD = ce qu'Emma chante." },
+        { "id": "q7", "type": "fill_blank", "prompt": "[CONJUGAISON] Plus tard, ils ___ (pouvoir, futur) venir.", "answer": "pourront", "accept": ["pourront"], "correction": "Futur irregulier : ils pourront." },
+        { "id": "q8", "type": "fill_blank", "prompt": "[MATHS] 500 - 163 = ___.", "answer": "337", "accept": ["337"], "correction": "500 - 163 = 337." },
+        { "id": "q9", "type": "mcq", "prompt": "[GRAMMAIRE] Le pronom qui remplace 'les chats' est :", "options": ["ils","elles","il"], "answer": "ils", "correction": "chats = masculin pluriel → ils." },
+        { "id": "q10", "type": "fill_blank", "prompt": "[CONJUGAISON] Demain, tu ___ (etre, futur) a l'heure.", "answer": "seras", "accept": ["seras"], "correction": "Futur : tu seras." },
+        { "id": "q11", "type": "fill_blank", "prompt": "[MATHS] 12 × 12 = ___.", "answer": "144", "accept": ["144"], "correction": "12 × 12 = 144." },
+        { "id": "q12", "type": "mcq", "prompt": "[GRAMMAIRE] La phrase negative de 'Je mange' est :", "options": ["Je ne mange pas.","Je mange pas.","Ne mange je pas."], "answer": "Je ne mange pas.", "correction": "Negation : ne...pas." }
+      ]
+    }
+  }
+}
