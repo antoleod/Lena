@@ -651,6 +651,7 @@ export default function ExamRunnerPage() {
 
         <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
           {revQ.type === 'mcq' && revOptions.map((opt) => {
+            const displayOpt = revQ.options_i18n?.[locale]?.[revQ.options.indexOf(opt)] ?? opt;
             let style = {};
             if (revSelected !== null) {
               if (normalize(opt) === normalize(revQ.answer)) style = { background: '#27ae60', color: '#fff' };
@@ -658,7 +659,7 @@ export default function ExamRunnerPage() {
               else style = { opacity: 0.45 };
             }
             return (
-              <button key={opt} type="button" className="exam-choice" style={style} disabled={revSelected !== null} onClick={() => revAnswer(opt)}>{opt}</button>
+              <button key={opt} type="button" className="exam-choice" style={style} disabled={revSelected !== null} onClick={() => revAnswer(opt)}>{displayOpt}</button>
             );
           })}
 
@@ -905,6 +906,7 @@ export default function ExamRunnerPage() {
 
       <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
         {currentQ.type === 'mcq' && options.map((opt) => {
+          const displayOpt = currentQ.options_i18n?.[locale]?.[currentQ.options.indexOf(opt)] ?? opt;
           let style = {};
           if (selected !== null) {
             if (normalize(opt) === normalize(currentQ.answer)) style = { background: '#27ae60', color: '#fff' };
@@ -912,7 +914,7 @@ export default function ExamRunnerPage() {
             else style = { opacity: 0.45 };
           }
           return (
-            <button key={opt} type="button" className="exam-choice" style={style} disabled={selected !== null} onClick={() => answer(opt)}>{opt}</button>
+            <button key={opt} type="button" className="exam-choice" style={style} disabled={selected !== null} onClick={() => answer(opt)}>{displayOpt}</button>
           );
         })}
 

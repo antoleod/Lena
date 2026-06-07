@@ -11,46 +11,398 @@
     "facile": {
       "passPercent": 60,
       "questions": [
-        { "id": "q1", "type": "mcq", "prompt": "[GRAMMAIRE] Quel mot est un nom ?", "options": ["maison","belle","courir"], "answer": "maison", "correction": "maison = nom commun." },
-        { "id": "q2", "type": "mcq", "prompt": "[MATHS] 5 + 5 + 5 = ?", "options": ["15","10","20"], "answer": "15", "correction": "3 × 5 = 15." },
-        { "id": "q3", "type": "mcq", "prompt": "[CONJUGAISON] Tu ___ (aller) a l'ecole. (present)", "options": ["vas","vais","allons"], "answer": "vas", "correction": "Tu vas." },
-        { "id": "q4", "type": "mcq", "prompt": "[SCIENCES] Le coeur pompe :", "options": ["le sang","l'air","l'eau"], "answer": "le sang", "correction": "Le coeur pompe le sang dans le corps." },
-        { "id": "q5", "type": "mcq", "prompt": "[ORTHOGRAPHE] On ecrit :", "options": ["un chapeau","un chapeaux","un chapau"], "answer": "un chapeau", "correction": "chapeau, s'ecrit e-a-u." },
-        { "id": "q6", "type": "mcq", "prompt": "[MATHS] 25 + 25 = ?", "options": ["50","45","55"], "answer": "50", "correction": "25 + 25 = 50." },
-        { "id": "q7", "type": "mcq", "prompt": "[GEOGRAPHIE] Paris est la capitale de :", "options": ["la France","l'Espagne","l'Italie"], "answer": "la France", "correction": "Paris = capitale de la France." },
-        { "id": "q8", "type": "mcq", "prompt": "[CONJUGAISON] Je ___ (avoir) un chat. (present)", "options": ["ai","as","a"], "answer": "ai", "correction": "J'ai." }
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "[GRAMMAIRE] Quel mot est un nom ?",
+          "options": [
+            "maison",
+            "belle",
+            "courir"
+          ],
+          "answer": "maison",
+          "correction": "maison = nom commun."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "[MATHS] 5 + 5 + 5 = ?",
+          "options": [
+            "15",
+            "10",
+            "20"
+          ],
+          "answer": "15",
+          "correction": "3 × 5 = 15.",
+          "prompt_nl": "[MATHS] 5 + 5 + 5 = ?",
+          "prompt_en": "[MATHS] 5 + 5 + 5 = ?",
+          "prompt_es": "[MATHS] 5 + 5 + 5 = ?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "[CONJUGAISON] Tu ___ (aller) a l'ecole. (present)",
+          "options": [
+            "vas",
+            "vais",
+            "allons"
+          ],
+          "answer": "vas",
+          "correction": "Tu vas."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "[SCIENCES] Le coeur pompe :",
+          "options": [
+            "le sang",
+            "l'air",
+            "l'eau"
+          ],
+          "answer": "le sang",
+          "correction": "Le coeur pompe le sang dans le corps.",
+          "prompt_nl": "[SCIENCES] Het hart pompt:",
+          "prompt_en": "[SCIENCES] The heart pumps:",
+          "prompt_es": "[SCIENCES] El corazon bombea:"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "[ORTHOGRAPHE] On ecrit :",
+          "options": [
+            "un chapeau",
+            "un chapeaux",
+            "un chapau"
+          ],
+          "answer": "un chapeau",
+          "correction": "chapeau, s'ecrit e-a-u."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "[MATHS] 25 + 25 = ?",
+          "options": [
+            "50",
+            "45",
+            "55"
+          ],
+          "answer": "50",
+          "correction": "25 + 25 = 50.",
+          "prompt_nl": "[MATHS] 25 + 25 = ?",
+          "prompt_en": "[MATHS] 25 + 25 = ?",
+          "prompt_es": "[MATHS] 25 + 25 = ?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "[GEOGRAPHIE] Paris est la capitale de :",
+          "options": [
+            "la France",
+            "l'Espagne",
+            "l'Italie"
+          ],
+          "answer": "la France",
+          "correction": "Paris = capitale de la France.",
+          "prompt_nl": "[GEOGRAPHIE] Parijs is de hoofdstad van:",
+          "prompt_en": "[GEOGRAPHIE] Paris is the capital of:",
+          "prompt_es": "[GEOGRAPHIE] Paris es la capital de:"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "[CONJUGAISON] Je ___ (avoir) un chat. (present)",
+          "options": [
+            "ai",
+            "as",
+            "a"
+          ],
+          "answer": "ai",
+          "correction": "J'ai."
+        }
       ]
     },
     "moyen": {
       "passPercent": 60,
       "questions": [
-        { "id": "q1", "type": "mcq", "prompt": "[GRAMMAIRE] Accorde : Les arbres sont ___ (grand).", "options": ["grands","grande","grand"], "answer": "grands", "correction": "arbres = masculin pluriel → grands." },
-        { "id": "q2", "type": "fill_blank", "prompt": "[MATHS] 8 × 7 = ___.", "answer": "56", "accept": ["56"], "correction": "8 × 7 = 56." },
-        { "id": "q3", "type": "mcq", "prompt": "[CONJUGAISON] Avant, elle ___ (habiter, imparfait) a Paris.", "options": ["habitait","habite","habitera"], "answer": "habitait", "correction": "Imparfait : elle habitait." },
-        { "id": "q4", "type": "mcq", "prompt": "[SCIENCES] La metamorphose : chenille → cocon → ___", "options": ["papillon","abeille","cigale"], "answer": "papillon", "correction": "chenille → coccon → papillon." },
-        { "id": "q5", "type": "fill_blank", "prompt": "[ORTHOGRAPHE] L'ecureuil grimpe aux ___. (arbre au pluriel)", "answer": "arbres", "accept": ["arbres"], "correction": "arbre → arbres au pluriel." },
-        { "id": "q6", "type": "fill_blank", "prompt": "[MATHS] 144 ÷ 12 = ___.", "answer": "12", "accept": ["12"], "correction": "144 ÷ 12 = 12." },
-        { "id": "q7", "type": "mcq", "prompt": "[GEOGRAPHIE] Quel pays est voisin de la Belgique a l'est ?", "options": ["l'Allemagne","l'Espagne","le Portugal"], "answer": "l'Allemagne", "correction": "L'Allemagne borde la Belgique a l'est." },
-        { "id": "q8", "type": "mcq", "prompt": "[CONJUGAISON] Demain matin, je ___ (se lever, futur).", "options": ["me leverai","me levais","me leve"], "answer": "me leverai", "correction": "Futur : je me leverai." },
-        { "id": "q9", "type": "mcq", "prompt": "[LOGIQUE] Sequence : 5, 10, 15, 20, ___", "options": ["25","22","30"], "answer": "25", "correction": "+5 a chaque fois." },
-        { "id": "q10", "type": "mcq", "prompt": "[VOCABULAIRE] 'Melancolie' signifie :", "options": ["tristesse douce","grande joie","forte peur"], "answer": "tristesse douce", "correction": "Melancolie = tristesse legere et profonde." }
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "[GRAMMAIRE] Accorde : Les arbres sont ___ (grand).",
+          "options": [
+            "grands",
+            "grande",
+            "grand"
+          ],
+          "answer": "grands",
+          "correction": "arbres = masculin pluriel → grands."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "[MATHS] 8 × 7 = ___.",
+          "answer": "56",
+          "accept": [
+            "56"
+          ],
+          "correction": "8 × 7 = 56.",
+          "prompt_nl": "[MATHS] 8 × 7 = ___.",
+          "prompt_en": "[MATHS] 8 × 7 = ___.",
+          "prompt_es": "[MATHS] 8 × 7 = ___."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "[CONJUGAISON] Avant, elle ___ (habiter, imparfait) a Paris.",
+          "options": [
+            "habitait",
+            "habite",
+            "habitera"
+          ],
+          "answer": "habitait",
+          "correction": "Imparfait : elle habitait."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "[SCIENCES] La metamorphose : chenille → cocon → ___",
+          "options": [
+            "papillon",
+            "abeille",
+            "cigale"
+          ],
+          "answer": "papillon",
+          "correction": "chenille → coccon → papillon.",
+          "prompt_nl": "[SCIENCES] De metamorfose: rups → cocon → ___",
+          "prompt_en": "[SCIENCES] Metamorphosis: caterpillar → cocoon → ___",
+          "prompt_es": "[SCIENCES] La metamorfosis: oruga → capullo → ___"
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "[ORTHOGRAPHE] L'ecureuil grimpe aux ___. (arbre au pluriel)",
+          "answer": "arbres",
+          "accept": [
+            "arbres"
+          ],
+          "correction": "arbre → arbres au pluriel."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "[MATHS] 144 ÷ 12 = ___.",
+          "answer": "12",
+          "accept": [
+            "12"
+          ],
+          "correction": "144 ÷ 12 = 12.",
+          "prompt_nl": "[MATHS] 144 ÷ 12 = ___.",
+          "prompt_en": "[MATHS] 144 ÷ 12 = ___.",
+          "prompt_es": "[MATHS] 144 ÷ 12 = ___."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "[GEOGRAPHIE] Quel pays est voisin de la Belgique a l'est ?",
+          "options": [
+            "l'Allemagne",
+            "l'Espagne",
+            "le Portugal"
+          ],
+          "answer": "l'Allemagne",
+          "correction": "L'Allemagne borde la Belgique a l'est.",
+          "prompt_nl": "[GEOGRAPHIE] Welk land grenst aan Belgie in het oosten?",
+          "prompt_en": "[GEOGRAPHIE] Which country neighbours Belgium to the east?",
+          "prompt_es": "[GEOGRAPHIE] Que pais vecino tiene Belgica por el este?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "[CONJUGAISON] Demain matin, je ___ (se lever, futur).",
+          "options": [
+            "me leverai",
+            "me levais",
+            "me leve"
+          ],
+          "answer": "me leverai",
+          "correction": "Futur : je me leverai."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "[LOGIQUE] Sequence : 5, 10, 15, 20, ___",
+          "options": [
+            "25",
+            "22",
+            "30"
+          ],
+          "answer": "25",
+          "correction": "+5 a chaque fois.",
+          "prompt_nl": "[LOGIQUE] Reeks: 5, 10, 15, 20, ___",
+          "prompt_en": "[LOGIQUE] Sequence: 5, 10, 15, 20, ___",
+          "prompt_es": "[LOGIQUE] Secuencia: 5, 10, 15, 20, ___"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "[VOCABULAIRE] 'Melancolie' signifie :",
+          "options": [
+            "tristesse douce",
+            "grande joie",
+            "forte peur"
+          ],
+          "answer": "tristesse douce",
+          "correction": "Melancolie = tristesse legere et profonde."
+        }
       ]
     },
     "difficile": {
       "passPercent": 60,
       "questions": [
-        { "id": "q1", "type": "fill_blank", "prompt": "[CONJUGAISON] Elle ___ (se souvenir, imparfait) de tout.", "answer": "se souvenait", "accept": ["se souvenait"], "correction": "Imparfait : elle se souvenait." },
-        { "id": "q2", "type": "fill_blank", "prompt": "[MATHS] 2/5 de 200 = ___.", "answer": "80", "accept": ["80"], "correction": "200 ÷ 5 = 40 ; 40 × 2 = 80." },
-        { "id": "q3", "type": "mcq", "prompt": "[GRAMMAIRE] Quelle phrase contient un complement circonstanciel de lieu ?", "options": ["Il joue dans le jardin.","Il joue bien.","Il joue vite."], "answer": "Il joue dans le jardin.", "correction": "dans le jardin = CC de lieu." },
-        { "id": "q4", "type": "fill_blank", "prompt": "[CONJUGAISON] Vous ___ (se rappeler, futur) cette journee.", "answer": "vous rappellerez", "accept": ["vous rappellerez"], "correction": "Futur : vous vous rappellerez." },
-        { "id": "q5", "type": "fill_blank", "prompt": "[MATHS] 3/4 - 1/4 = ___.", "answer": "2/4", "accept": ["2/4","1/2"], "correction": "3/4 - 1/4 = 2/4 = 1/2." },
-        { "id": "q6", "type": "mcq", "prompt": "[SCIENCES] L'ADN se trouve dans :", "options": ["le noyau des cellules","le sang","les os"], "answer": "le noyau des cellules", "correction": "L'ADN = support du patrimoine genetique, dans le noyau." },
-        { "id": "q7", "type": "fill_blank", "prompt": "[GRAMMAIRE] Accord : Mes soeurs sont ___ (courageux).", "answer": "courageuses", "accept": ["courageuses"], "correction": "soeurs = feminin pluriel → courageuses." },
-        { "id": "q8", "type": "fill_blank", "prompt": "[MATHS] 1 000 000 s'appelle ___ (en lettres).", "answer": "un million", "accept": ["un million","1 million"], "correction": "1 000 000 = un million." },
-        { "id": "q9", "type": "mcq", "prompt": "[VOCABULAIRE] 'Metamorphose' signifie :", "options": ["transformation complete","petite amelioration","repetition"], "answer": "transformation complete", "correction": "Metamorphose = changement de forme total." },
-        { "id": "q10", "type": "fill_blank", "prompt": "[CONJUGAISON] Ils ___ (devoir, conditionnel) partir maintenant.", "answer": "devraient", "accept": ["devraient"], "correction": "Conditionnel : ils devraient." },
-        { "id": "q11", "type": "fill_blank", "prompt": "[MATHS] Quel est le PGCD de 12 et 8 ? ___", "answer": "4", "accept": ["4"], "correction": "12 = 4×3, 8 = 4×2 → PGCD = 4." },
-        { "id": "q12", "type": "mcq", "prompt": "[GRAMMAIRE] Le sujet de 'Chantent les oiseaux' est :", "options": ["les oiseaux","chantent","les"], "answer": "les oiseaux", "correction": "Inversion poetique : les oiseaux = sujet." }
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "[CONJUGAISON] Elle ___ (se souvenir, imparfait) de tout.",
+          "answer": "se souvenait",
+          "accept": [
+            "se souvenait"
+          ],
+          "correction": "Imparfait : elle se souvenait."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "[MATHS] 2/5 de 200 = ___.",
+          "answer": "80",
+          "accept": [
+            "80"
+          ],
+          "correction": "200 ÷ 5 = 40 ; 40 × 2 = 80.",
+          "prompt_nl": "[MATHS] 2/5 van 200 = ___.",
+          "prompt_en": "[MATHS] 2/5 of 200 = ___.",
+          "prompt_es": "[MATHS] 2/5 de 200 = ___."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "[GRAMMAIRE] Quelle phrase contient un complement circonstanciel de lieu ?",
+          "options": [
+            "Il joue dans le jardin.",
+            "Il joue bien.",
+            "Il joue vite."
+          ],
+          "answer": "Il joue dans le jardin.",
+          "correction": "dans le jardin = CC de lieu."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "[CONJUGAISON] Vous ___ (se rappeler, futur) cette journee.",
+          "answer": "vous rappellerez",
+          "accept": [
+            "vous rappellerez"
+          ],
+          "correction": "Futur : vous vous rappellerez."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "[MATHS] 3/4 - 1/4 = ___.",
+          "answer": "2/4",
+          "accept": [
+            "2/4",
+            "1/2"
+          ],
+          "correction": "3/4 - 1/4 = 2/4 = 1/2.",
+          "prompt_nl": "[MATHS] 3/4 - 1/4 = ___.",
+          "prompt_en": "[MATHS] 3/4 - 1/4 = ___.",
+          "prompt_es": "[MATHS] 3/4 - 1/4 = ___."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "[SCIENCES] L'ADN se trouve dans :",
+          "options": [
+            "le noyau des cellules",
+            "le sang",
+            "les os"
+          ],
+          "answer": "le noyau des cellules",
+          "correction": "L'ADN = support du patrimoine genetique, dans le noyau.",
+          "prompt_nl": "[SCIENCES] DNA bevindt zich in:",
+          "prompt_en": "[SCIENCES] DNA is found in:",
+          "prompt_es": "[SCIENCES] El ADN se encuentra en:"
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "[GRAMMAIRE] Accord : Mes soeurs sont ___ (courageux).",
+          "answer": "courageuses",
+          "accept": [
+            "courageuses"
+          ],
+          "correction": "soeurs = feminin pluriel → courageuses."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "[MATHS] 1 000 000 s'appelle ___ (en lettres).",
+          "answer": "un million",
+          "accept": [
+            "un million",
+            "1 million"
+          ],
+          "correction": "1 000 000 = un million.",
+          "prompt_nl": "[MATHS] 1.000.000 heet ___ (in letters).",
+          "prompt_en": "[MATHS] 1,000,000 is called ___ (in words).",
+          "prompt_es": "[MATHS] 1.000.000 se llama ___ (en letras)."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "[VOCABULAIRE] 'Metamorphose' signifie :",
+          "options": [
+            "transformation complete",
+            "petite amelioration",
+            "repetition"
+          ],
+          "answer": "transformation complete",
+          "correction": "Metamorphose = changement de forme total."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "[CONJUGAISON] Ils ___ (devoir, conditionnel) partir maintenant.",
+          "answer": "devraient",
+          "accept": [
+            "devraient"
+          ],
+          "correction": "Conditionnel : ils devraient."
+        },
+        {
+          "id": "q11",
+          "type": "fill_blank",
+          "prompt": "[MATHS] Quel est le PGCD de 12 et 8 ? ___",
+          "answer": "4",
+          "accept": [
+            "4"
+          ],
+          "correction": "12 = 4×3, 8 = 4×2 → PGCD = 4.",
+          "prompt_nl": "[MATHS] Wat is de GGD van 12 en 8? ___",
+          "prompt_en": "[MATHS] What is the GCD of 12 and 8? ___",
+          "prompt_es": "[MATHS] Cual es el MCD de 12 y 8? ___"
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "[GRAMMAIRE] Le sujet de 'Chantent les oiseaux' est :",
+          "options": [
+            "les oiseaux",
+            "chantent",
+            "les"
+          ],
+          "answer": "les oiseaux",
+          "correction": "Inversion poetique : les oiseaux = sujet."
+        }
       ]
     }
   }

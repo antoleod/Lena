@@ -22,7 +22,30 @@
             "hélium"
           ],
           "answer": "azote et oxygène",
-          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%)."
+          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%).",
+          "prompt_nl": "Waaruit bestaat de lucht die we inademen?",
+          "prompt_en": "What is the air we breathe mainly made of?",
+          "prompt_es": "De que esta compuesto principalmente el aire que respiramos?",
+          "options_i18n": {
+            "nl": [
+              "stikstof en zuurstof",
+              "koolstofdioxide",
+              "waterdamp",
+              "helium"
+            ],
+            "en": [
+              "nitrogen and oxygen",
+              "carbon dioxide",
+              "water vapour",
+              "helium"
+            ],
+            "es": [
+              "nitrogeno y oxigeno",
+              "dioxido de carbono",
+              "vapor de agua",
+              "helio"
+            ]
+          }
         },
         {
           "id": "q4",
@@ -35,7 +58,30 @@
             "des poissons"
           ],
           "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes."
+          "correction": "Un herbivore mange uniquement des plantes.",
+          "prompt_nl": "Een herbivoor eet:",
+          "prompt_en": "A herbivore eats:",
+          "prompt_es": "Un herbivoro come:",
+          "options_i18n": {
+            "nl": [
+              "planten",
+              "vlees",
+              "insecten",
+              "vissen"
+            ],
+            "en": [
+              "plants",
+              "meat",
+              "insects",
+              "fish"
+            ],
+            "es": [
+              "plantas",
+              "carne",
+              "insectos",
+              "peces"
+            ]
+          }
         },
         {
           "id": "q6",
@@ -48,7 +94,30 @@
             "le toucher"
           ],
           "answer": "l'ouïe",
-          "correction": "On écoute avec l'ouïe (les oreilles)."
+          "correction": "On écoute avec l'ouïe (les oreilles).",
+          "prompt_nl": "Welk zintuig gebruik je om naar muziek te luisteren?",
+          "prompt_en": "Which sense do you use to listen to music?",
+          "prompt_es": "Que sentido se usa para escuchar musica?",
+          "options_i18n": {
+            "nl": [
+              "het gehoor",
+              "het zicht",
+              "de reuk",
+              "het gevoel"
+            ],
+            "en": [
+              "hearing",
+              "sight",
+              "smell",
+              "touch"
+            ],
+            "es": [
+              "el oido",
+              "la vista",
+              "el olfato",
+              "el tacto"
+            ]
+          }
         },
         {
           "id": "q8",
@@ -61,7 +130,30 @@
             "le serpent"
           ],
           "answer": "le chien",
-          "correction": "Le chien est un mammifère."
+          "correction": "Le chien est un mammifère.",
+          "prompt_nl": "Welk dier is een zoogdier?",
+          "prompt_en": "Which animal is a mammal?",
+          "prompt_es": "Que animal es un mamifero?",
+          "options_i18n": {
+            "nl": [
+              "de hond",
+              "de arend",
+              "de kikker",
+              "de slang"
+            ],
+            "en": [
+              "the dog",
+              "the eagle",
+              "the frog",
+              "the snake"
+            ],
+            "es": [
+              "el perro",
+              "el aguila",
+              "la rana",
+              "la serpiente"
+            ]
+          }
         },
         {
           "id": "q10",
@@ -74,14 +166,40 @@
             "des graines"
           ],
           "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande."
+          "correction": "Un carnivore mange de la viande.",
+          "prompt_nl": "Een carnivoor eet:",
+          "prompt_en": "A carnivore eats:",
+          "prompt_es": "Un carnivoro come:",
+          "options_i18n": {
+            "nl": [
+              "vlees",
+              "planten",
+              "fruit",
+              "zaden"
+            ],
+            "en": [
+              "meat",
+              "plants",
+              "fruit",
+              "seeds"
+            ],
+            "es": [
+              "carne",
+              "plantas",
+              "fruta",
+              "semillas"
+            ]
+          }
         },
         {
           "id": "q12",
           "type": "true_false",
           "prompt": "Les plantes produisent de l'oxygène.",
           "answer": true,
-          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse."
+          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse.",
+          "prompt_nl": "Planten produceren zuurstof.",
+          "prompt_en": "Plants produce oxygen.",
+          "prompt_es": "Las plantas producen oxigeno."
         },
         {
           "id": "q14",
@@ -94,7 +212,30 @@
             "la rosée"
           ],
           "answer": "la glace",
-          "correction": "L'eau solide = la glace."
+          "correction": "L'eau solide = la glace.",
+          "prompt_nl": "Water in vaste toestand is:",
+          "prompt_en": "Water in solid state is:",
+          "prompt_es": "El agua en estado solido es:",
+          "options_i18n": {
+            "nl": [
+              "ijs",
+              "damp",
+              "regen",
+              "dauw"
+            ],
+            "en": [
+              "ice",
+              "vapour",
+              "rain",
+              "dew"
+            ],
+            "es": [
+              "hielo",
+              "vapor",
+              "lluvia",
+              "rocio"
+            ]
+          }
         },
         {
           "id": "q16",
@@ -107,7 +248,30 @@
             "le toucher"
           ],
           "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez)."
+          "correction": "On sent avec l'odorat (le nez).",
+          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
+          "prompt_en": "Which sense do you use to smell a flower?",
+          "prompt_es": "Que sentido se usa para oler una flor?",
+          "options_i18n": {
+            "nl": [
+              "de reuk",
+              "de smaak",
+              "het zicht",
+              "het gevoel"
+            ],
+            "en": [
+              "smell",
+              "taste",
+              "sight",
+              "touch"
+            ],
+            "es": [
+              "el olfato",
+              "el gusto",
+              "la vista",
+              "el tacto"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +289,30 @@
             "sable et sel"
           ],
           "answer": "lumière, eau et terre",
-          "correction": "Les plantes ont besoin de lumière, eau et terre."
+          "correction": "Les plantes ont besoin de lumière, eau et terre.",
+          "prompt_nl": "Planten hebben nodig:",
+          "prompt_en": "Plants need:",
+          "prompt_es": "Las plantas necesitan:",
+          "options_i18n": {
+            "nl": [
+              "licht, water en aarde",
+              "chocolade en melk",
+              "kou en duisternis",
+              "zand en zout"
+            ],
+            "en": [
+              "light, water and soil",
+              "chocolate and milk",
+              "cold and darkness",
+              "sand and salt"
+            ],
+            "es": [
+              "luz, agua y tierra",
+              "chocolate y leche",
+              "frio y oscuridad",
+              "arena y sal"
+            ]
+          }
         },
         {
           "id": "q4",
@@ -138,14 +325,40 @@
             "hélium"
           ],
           "answer": "azote et oxygène",
-          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%)."
+          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%).",
+          "prompt_nl": "Waaruit bestaat de lucht die we inademen?",
+          "prompt_en": "What is the air we breathe mainly made of?",
+          "prompt_es": "De que esta compuesto principalmente el aire que respiramos?",
+          "options_i18n": {
+            "nl": [
+              "stikstof en zuurstof",
+              "koolstofdioxide",
+              "waterdamp",
+              "helium"
+            ],
+            "en": [
+              "nitrogen and oxygen",
+              "carbon dioxide",
+              "water vapour",
+              "helium"
+            ],
+            "es": [
+              "nitrogeno y oxigeno",
+              "dioxido de carbono",
+              "vapor de agua",
+              "helio"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "true_false",
           "prompt": "L'eau bout à 100°C.",
           "answer": true,
-          "correction": "L'eau bout à 100 degrés Celsius."
+          "correction": "L'eau bout à 100 degrés Celsius.",
+          "prompt_nl": "Water kookt bij 100°C.",
+          "prompt_en": "Water boils at 100°C.",
+          "prompt_es": "El agua hierve a 100°C."
         },
         {
           "id": "q8",
@@ -158,7 +371,30 @@
             "des poissons"
           ],
           "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes."
+          "correction": "Un herbivore mange uniquement des plantes.",
+          "prompt_nl": "Een herbivoor eet:",
+          "prompt_en": "A herbivore eats:",
+          "prompt_es": "Un herbivoro come:",
+          "options_i18n": {
+            "nl": [
+              "planten",
+              "vlees",
+              "insecten",
+              "vissen"
+            ],
+            "en": [
+              "plants",
+              "meat",
+              "insects",
+              "fish"
+            ],
+            "es": [
+              "plantas",
+              "carne",
+              "insectos",
+              "peces"
+            ]
+          }
         },
         {
           "id": "q10",
@@ -171,7 +407,30 @@
             "2"
           ],
           "answer": "6",
-          "correction": "Les insectes ont 6 pattes."
+          "correction": "Les insectes ont 6 pattes.",
+          "prompt_nl": "Hoeveel poten heeft een insect?",
+          "prompt_en": "How many legs does an insect have?",
+          "prompt_es": "Cuantas patas tiene un insecto?",
+          "options_i18n": {
+            "nl": [
+              "6",
+              "4",
+              "8",
+              "2"
+            ],
+            "en": [
+              "6",
+              "4",
+              "8",
+              "2"
+            ],
+            "es": [
+              "6",
+              "4",
+              "8",
+              "2"
+            ]
+          }
         },
         {
           "id": "q12",
@@ -184,14 +443,40 @@
             "l'estomac"
           ],
           "answer": "le cœur",
-          "correction": "Le cœur pompe le sang."
+          "correction": "Le cœur pompe le sang.",
+          "prompt_nl": "Welk orgaan pompt het bloed door het lichaam?",
+          "prompt_en": "Which organ pumps blood through the body?",
+          "prompt_es": "Que organo bombea la sangre por el cuerpo?",
+          "options_i18n": {
+            "nl": [
+              "het hart",
+              "de long",
+              "de hersenen",
+              "de maag"
+            ],
+            "en": [
+              "the heart",
+              "the lung",
+              "the brain",
+              "the stomach"
+            ],
+            "es": [
+              "el corazon",
+              "el pulmon",
+              "el cerebro",
+              "el estomago"
+            ]
+          }
         },
         {
           "id": "q14",
           "type": "true_false",
           "prompt": "Le Soleil tourne autour de la Terre.",
           "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil."
+          "correction": "C'est la Terre qui tourne autour du Soleil.",
+          "prompt_nl": "De Zon draait om de Aarde.",
+          "prompt_en": "The Sun revolves around the Earth.",
+          "prompt_es": "El Sol gira alrededor de la Tierra."
         },
         {
           "id": "q16",
@@ -204,7 +489,30 @@
             "la rosée"
           ],
           "answer": "la glace",
-          "correction": "L'eau solide = la glace."
+          "correction": "L'eau solide = la glace.",
+          "prompt_nl": "Water in vaste toestand is:",
+          "prompt_en": "Water in solid state is:",
+          "prompt_es": "El agua en estado solido es:",
+          "options_i18n": {
+            "nl": [
+              "ijs",
+              "damp",
+              "regen",
+              "dauw"
+            ],
+            "en": [
+              "ice",
+              "vapour",
+              "rain",
+              "dew"
+            ],
+            "es": [
+              "hielo",
+              "vapor",
+              "lluvia",
+              "rocio"
+            ]
+          }
         },
         {
           "id": "q18",
@@ -217,7 +525,30 @@
             "attirer les insectes"
           ],
           "answer": "absorber l'eau",
-          "correction": "Les racines absorbent l'eau du sol."
+          "correction": "Les racines absorbent l'eau du sol.",
+          "prompt_nl": "Wat is de rol van de wortels van een plant?",
+          "prompt_en": "What is the role of a plant's roots?",
+          "prompt_es": "Cual es la funcion de las raices de una planta?",
+          "options_i18n": {
+            "nl": [
+              "water opnemen",
+              "fotosynthese doen",
+              "zaden produceren",
+              "insecten aantrekken"
+            ],
+            "en": [
+              "absorb water",
+              "do photosynthesis",
+              "produce seeds",
+              "attract insects"
+            ],
+            "es": [
+              "absorber agua",
+              "hacer fotosintesis",
+              "producir semillas",
+              "atraer insectos"
+            ]
+          }
         },
         {
           "id": "q20",
@@ -230,7 +561,30 @@
             "l'énergie nucléaire"
           ],
           "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire."
+          "correction": "Le Soleil donne l'énergie solaire.",
+          "prompt_nl": "Welke energie komt van de Zon?",
+          "prompt_en": "Which energy comes from the Sun?",
+          "prompt_es": "Que energia proviene del Sol?",
+          "options_i18n": {
+            "nl": [
+              "zonne-energie",
+              "windenergie",
+              "waterkrachtenergie",
+              "kernenergie"
+            ],
+            "en": [
+              "solar energy",
+              "wind energy",
+              "hydraulic energy",
+              "nuclear energy"
+            ],
+            "es": [
+              "energia solar",
+              "energia eolica",
+              "energia hidraulica",
+              "energia nuclear"
+            ]
+          }
         }
       ]
     },
@@ -248,7 +602,30 @@
             "Jupiter"
           ],
           "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie)."
+          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
+          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
+          "prompt_en": "Which celestial body lights up the night?",
+          "prompt_es": "Que astro ilumina la noche?",
+          "options_i18n": {
+            "nl": [
+              "de Maan",
+              "de Zon",
+              "Mars",
+              "Jupiter"
+            ],
+            "en": [
+              "the Moon",
+              "the Sun",
+              "Mars",
+              "Jupiter"
+            ],
+            "es": [
+              "la Luna",
+              "el Sol",
+              "Marte",
+              "Jupiter"
+            ]
+          }
         },
         {
           "id": "q4",
@@ -261,7 +638,30 @@
             "la vache"
           ],
           "answer": "la poule",
-          "correction": "La poule pond des oeufs."
+          "correction": "La poule pond des oeufs.",
+          "prompt_nl": "Welk dier legt eieren?",
+          "prompt_en": "Which animal lays eggs?",
+          "prompt_es": "Que animal pone huevos?",
+          "options_i18n": {
+            "nl": [
+              "de kip",
+              "de kat",
+              "de hond",
+              "de koe"
+            ],
+            "en": [
+              "the hen",
+              "the cat",
+              "the dog",
+              "the cow"
+            ],
+            "es": [
+              "la gallina",
+              "el gato",
+              "el perro",
+              "la vaca"
+            ]
+          }
         },
         {
           "id": "q6",
@@ -274,7 +674,30 @@
             "l'énergie nucléaire"
           ],
           "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire."
+          "correction": "Le Soleil donne l'énergie solaire.",
+          "prompt_nl": "Welke energie komt van de Zon?",
+          "prompt_en": "Which energy comes from the Sun?",
+          "prompt_es": "Que energia proviene del Sol?",
+          "options_i18n": {
+            "nl": [
+              "zonne-energie",
+              "windenergie",
+              "waterkrachtenergie",
+              "kernenergie"
+            ],
+            "en": [
+              "solar energy",
+              "wind energy",
+              "hydraulic energy",
+              "nuclear energy"
+            ],
+            "es": [
+              "energia solar",
+              "energia eolica",
+              "energia hidraulica",
+              "energia nuclear"
+            ]
+          }
         },
         {
           "id": "q8",
@@ -287,7 +710,30 @@
             "les décomposeurs"
           ],
           "answer": "les plantes",
-          "correction": "La chaîne alimentaire commence par les plantes."
+          "correction": "La chaîne alimentaire commence par les plantes.",
+          "prompt_nl": "De voedselketen begint bij:",
+          "prompt_en": "The food chain starts with:",
+          "prompt_es": "La cadena alimentaria empieza por:",
+          "options_i18n": {
+            "nl": [
+              "de planten",
+              "de herbivoren",
+              "de carnivoren",
+              "de afbrekers"
+            ],
+            "en": [
+              "plants",
+              "herbivores",
+              "carnivores",
+              "decomposers"
+            ],
+            "es": [
+              "las plantas",
+              "los herbivoros",
+              "los carnivoros",
+              "los descomponedores"
+            ]
+          }
         },
         {
           "id": "q10",
@@ -300,7 +746,30 @@
             "des graines"
           ],
           "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande."
+          "correction": "Un carnivore mange de la viande.",
+          "prompt_nl": "Een carnivoor eet:",
+          "prompt_en": "A carnivore eats:",
+          "prompt_es": "Un carnivoro come:",
+          "options_i18n": {
+            "nl": [
+              "vlees",
+              "planten",
+              "fruit",
+              "zaden"
+            ],
+            "en": [
+              "meat",
+              "plants",
+              "fruit",
+              "seeds"
+            ],
+            "es": [
+              "carne",
+              "plantas",
+              "fruta",
+              "semillas"
+            ]
+          }
         },
         {
           "id": "q12",
@@ -313,7 +782,30 @@
             "le toucher"
           ],
           "answer": "l'ouïe",
-          "correction": "On écoute avec l'ouïe (les oreilles)."
+          "correction": "On écoute avec l'ouïe (les oreilles).",
+          "prompt_nl": "Welk zintuig gebruik je om naar muziek te luisteren?",
+          "prompt_en": "Which sense do you use to listen to music?",
+          "prompt_es": "Que sentido se usa para escuchar musica?",
+          "options_i18n": {
+            "nl": [
+              "het gehoor",
+              "het zicht",
+              "de reuk",
+              "het gevoel"
+            ],
+            "en": [
+              "hearing",
+              "sight",
+              "smell",
+              "touch"
+            ],
+            "es": [
+              "el oido",
+              "la vista",
+              "el olfato",
+              "el tacto"
+            ]
+          }
         },
         {
           "id": "q14",
@@ -326,14 +818,40 @@
             "les reins"
           ],
           "answer": "les poumons",
-          "correction": "On respire avec les poumons."
+          "correction": "On respire avec les poumons.",
+          "prompt_nl": "Waarmee ademen we?",
+          "prompt_en": "What do we breathe with?",
+          "prompt_es": "Con que respiramos?",
+          "options_i18n": {
+            "nl": [
+              "de longen",
+              "de maag",
+              "de lever",
+              "de nieren"
+            ],
+            "en": [
+              "the lungs",
+              "the stomach",
+              "the liver",
+              "the kidneys"
+            ],
+            "es": [
+              "los pulmones",
+              "el estomago",
+              "el higado",
+              "los rinones"
+            ]
+          }
         },
         {
           "id": "q16",
           "type": "true_false",
           "prompt": "Le Soleil tourne autour de la Terre.",
           "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil."
+          "correction": "C'est la Terre qui tourne autour du Soleil.",
+          "prompt_nl": "De Zon draait om de Aarde.",
+          "prompt_en": "The Sun revolves around the Earth.",
+          "prompt_es": "El Sol gira alrededor de la Tierra."
         },
         {
           "id": "q18",
@@ -346,7 +864,30 @@
             "la rosée"
           ],
           "answer": "la glace",
-          "correction": "L'eau solide = la glace."
+          "correction": "L'eau solide = la glace.",
+          "prompt_nl": "Water in vaste toestand is:",
+          "prompt_en": "Water in solid state is:",
+          "prompt_es": "El agua en estado solido es:",
+          "options_i18n": {
+            "nl": [
+              "ijs",
+              "damp",
+              "regen",
+              "dauw"
+            ],
+            "en": [
+              "ice",
+              "vapour",
+              "rain",
+              "dew"
+            ],
+            "es": [
+              "hielo",
+              "vapor",
+              "lluvia",
+              "rocio"
+            ]
+          }
         },
         {
           "id": "q20",
@@ -359,7 +900,30 @@
             "la grêle"
           ],
           "answer": "la vapeur",
-          "correction": "L'eau gazeuse = la vapeur."
+          "correction": "L'eau gazeuse = la vapeur.",
+          "prompt_nl": "Water in gasvormige toestand is:",
+          "prompt_en": "Water in gaseous state is:",
+          "prompt_es": "El agua en estado gaseoso es:",
+          "options_i18n": {
+            "nl": [
+              "damp",
+              "ijs",
+              "sneeuw",
+              "hagel"
+            ],
+            "en": [
+              "vapour",
+              "ice",
+              "snow",
+              "hail"
+            ],
+            "es": [
+              "vapor",
+              "hielo",
+              "nieve",
+              "granizo"
+            ]
+          }
         }
       ]
     }

@@ -22,7 +22,10 @@
             "10"
           ],
           "answer": "10",
-          "correction": "1 + 9 = 10."
+          "correction": "1 + 9 = 10.",
+          "prompt_nl": "___ − 9 = 1",
+          "prompt_en": "___ − 9 = 1",
+          "prompt_es": "___ − 9 = 1"
         },
         {
           "id": "q2",
@@ -35,14 +38,20 @@
             "18"
           ],
           "answer": "20",
-          "correction": "15 + 5 = 20."
+          "correction": "15 + 5 = 20.",
+          "prompt_nl": "___ − 5 = 15",
+          "prompt_en": "___ − 5 = 15",
+          "prompt_es": "___ − 5 = 15"
         },
         {
           "id": "q3",
           "type": "fill_blank",
           "prompt": "___ − 3 = 14",
           "answer": 17,
-          "correction": "14 + 3 = 17."
+          "correction": "14 + 3 = 17.",
+          "prompt_nl": "___ − 3 = 14",
+          "prompt_en": "___ − 3 = 14",
+          "prompt_es": "___ − 3 = 14"
         },
         {
           "id": "q4",
@@ -55,7 +64,10 @@
             "16"
           ],
           "answer": "13",
-          "correction": "11 + 2 = 13."
+          "correction": "11 + 2 = 13.",
+          "prompt_nl": "___ − 2 = 11",
+          "prompt_en": "___ − 2 = 11",
+          "prompt_es": "___ − 2 = 11"
         },
         {
           "id": "q5",
@@ -68,14 +80,20 @@
             "10"
           ],
           "answer": "12",
-          "correction": "4 + 8 = 12."
+          "correction": "4 + 8 = 12.",
+          "prompt_nl": "___ − 8 = 4",
+          "prompt_en": "___ − 8 = 4",
+          "prompt_es": "___ − 8 = 4"
         },
         {
           "id": "q6",
           "type": "fill_blank",
           "prompt": "___ − 0 = 0",
           "answer": 0,
-          "correction": "0 + 0 = 0."
+          "correction": "0 + 0 = 0.",
+          "prompt_nl": "___ − 0 = 0",
+          "prompt_en": "___ − 0 = 0",
+          "prompt_es": "___ − 0 = 0"
         },
         {
           "id": "q7",
@@ -88,7 +106,10 @@
             "0"
           ],
           "answer": "0",
-          "correction": "0 + 0 = 0."
+          "correction": "0 + 0 = 0.",
+          "prompt_nl": "___ − 0 = 0",
+          "prompt_en": "___ − 0 = 0",
+          "prompt_es": "___ − 0 = 0"
         },
         {
           "id": "q8",
@@ -101,14 +122,20 @@
             "15"
           ],
           "answer": "11",
-          "correction": "9 + 2 = 11."
+          "correction": "9 + 2 = 11.",
+          "prompt_nl": "___ − 2 = 9",
+          "prompt_en": "___ − 2 = 9",
+          "prompt_es": "___ − 2 = 9"
         },
         {
           "id": "q9",
           "type": "fill_blank",
           "prompt": "___ − 4 = 7",
           "answer": 11,
-          "correction": "7 + 4 = 11."
+          "correction": "7 + 4 = 11.",
+          "prompt_nl": "___ − 4 = 7",
+          "prompt_en": "___ − 4 = 7",
+          "prompt_es": "___ − 4 = 7"
         },
         {
           "id": "q10",
@@ -121,7 +148,10 @@
             "22"
           ],
           "answer": "18",
-          "correction": "1 + 17 = 18."
+          "correction": "1 + 17 = 18.",
+          "prompt_nl": "___ − 17 = 1",
+          "prompt_en": "___ − 17 = 1",
+          "prompt_es": "___ − 17 = 1"
         }
       ]
     },
@@ -139,7 +169,10 @@
             "18"
           ],
           "answer": "17",
-          "correction": "10 + 7 = 17."
+          "correction": "10 + 7 = 17.",
+          "prompt_nl": "___ − 7 = 10",
+          "prompt_en": "___ − 7 = 10",
+          "prompt_es": "___ − 7 = 10"
         },
         {
           "id": "q2",
@@ -152,14 +185,20 @@
             "22"
           ],
           "answer": "22",
-          "correction": "0 + 22 = 22."
+          "correction": "0 + 22 = 22.",
+          "prompt_nl": "___ − 22 = 0",
+          "prompt_en": "___ − 22 = 0",
+          "prompt_es": "___ − 22 = 0"
         },
         {
           "id": "q3",
           "type": "fill_blank",
           "prompt": "___ − 22 = 7",
           "answer": 29,
-          "correction": "7 + 22 = 29."
+          "correction": "7 + 22 = 29.",
+          "prompt_nl": "___ − 22 = 7",
+          "prompt_en": "___ − 22 = 7",
+          "prompt_es": "___ − 22 = 7"
         },
         {
           "id": "q4",
@@ -172,7 +211,10 @@
             "21"
           ],
           "answer": "21",
-          "correction": "9 + 12 = 21."
+          "correction": "9 + 12 = 21.",
+          "prompt_nl": "___ − 12 = 9",
+          "prompt_en": "___ − 12 = 9",
+          "prompt_es": "___ − 12 = 9"
         },
         {
           "id": "q5",
@@ -185,14 +227,20 @@
             "9"
           ],
           "answer": "17",
-          "correction": "16 + 1 = 17."
+          "correction": "16 + 1 = 17.",
+          "prompt_nl": "___ − 1 = 16",
+          "prompt_en": "___ − 1 = 16",
+          "prompt_es": "___ − 1 = 16"
         },
         {
           "id": "q6",
           "type": "fill_blank",
           "prompt": "___ − 0 = 2",
           "answer": 2,
-          "correction": "2 + 0 = 2."
+          "correction": "2 + 0 = 2.",
+          "prompt_nl": "___ − 0 = 2",
+          "prompt_en": "___ − 0 = 2",
+          "prompt_es": "___ − 0 = 2"
         },
         {
           "id": "q7",
@@ -205,7 +253,10 @@
             "19"
           ],
           "answer": "26",
-          "correction": "9 + 17 = 26."
+          "correction": "9 + 17 = 26.",
+          "prompt_nl": "___ − 17 = 9",
+          "prompt_en": "___ − 17 = 9",
+          "prompt_es": "___ − 17 = 9"
         },
         {
           "id": "q8",
@@ -218,14 +269,20 @@
             "18"
           ],
           "answer": "21",
-          "correction": "14 + 7 = 21."
+          "correction": "14 + 7 = 21.",
+          "prompt_nl": "___ − 7 = 14",
+          "prompt_en": "___ − 7 = 14",
+          "prompt_es": "___ − 7 = 14"
         },
         {
           "id": "q9",
           "type": "fill_blank",
           "prompt": "___ − 5 = 12",
           "answer": 17,
-          "correction": "12 + 5 = 17."
+          "correction": "12 + 5 = 17.",
+          "prompt_nl": "___ − 5 = 12",
+          "prompt_en": "___ − 5 = 12",
+          "prompt_es": "___ − 5 = 12"
         },
         {
           "id": "q10",
@@ -238,7 +295,10 @@
             "8"
           ],
           "answer": "8",
-          "correction": "1 + 7 = 8."
+          "correction": "1 + 7 = 8.",
+          "prompt_nl": "___ − 7 = 1",
+          "prompt_en": "___ − 7 = 1",
+          "prompt_es": "___ − 7 = 1"
         }
       ]
     },
@@ -256,7 +316,10 @@
             "36"
           ],
           "answer": "43",
-          "correction": "25 + 18 = 43."
+          "correction": "25 + 18 = 43.",
+          "prompt_nl": "___ − 18 = 25",
+          "prompt_en": "___ − 18 = 25",
+          "prompt_es": "___ − 18 = 25"
         },
         {
           "id": "q2",
@@ -269,14 +332,20 @@
             "2"
           ],
           "answer": "2",
-          "correction": "1 + 1 = 2."
+          "correction": "1 + 1 = 2.",
+          "prompt_nl": "___ − 1 = 1",
+          "prompt_en": "___ − 1 = 1",
+          "prompt_es": "___ − 1 = 1"
         },
         {
           "id": "q3",
           "type": "fill_blank",
           "prompt": "___ − 4 = 19",
           "answer": 23,
-          "correction": "19 + 4 = 23."
+          "correction": "19 + 4 = 23.",
+          "prompt_nl": "___ − 4 = 19",
+          "prompt_en": "___ − 4 = 19",
+          "prompt_es": "___ − 4 = 19"
         },
         {
           "id": "q4",
@@ -289,7 +358,10 @@
             "34"
           ],
           "answer": "40",
-          "correction": "3 + 37 = 40."
+          "correction": "3 + 37 = 40.",
+          "prompt_nl": "___ − 37 = 3",
+          "prompt_en": "___ − 37 = 3",
+          "prompt_es": "___ − 37 = 3"
         },
         {
           "id": "q5",
@@ -302,14 +374,20 @@
             "44"
           ],
           "answer": "34",
-          "correction": "9 + 25 = 34."
+          "correction": "9 + 25 = 34.",
+          "prompt_nl": "___ − 25 = 9",
+          "prompt_en": "___ − 25 = 9",
+          "prompt_es": "___ − 25 = 9"
         },
         {
           "id": "q6",
           "type": "fill_blank",
           "prompt": "___ − 0 = 5",
           "answer": 5,
-          "correction": "5 + 0 = 5."
+          "correction": "5 + 0 = 5.",
+          "prompt_nl": "___ − 0 = 5",
+          "prompt_en": "___ − 0 = 5",
+          "prompt_es": "___ − 0 = 5"
         },
         {
           "id": "q7",
@@ -322,7 +400,10 @@
             "38"
           ],
           "answer": "34",
-          "correction": "31 + 3 = 34."
+          "correction": "31 + 3 = 34.",
+          "prompt_nl": "___ − 3 = 31",
+          "prompt_en": "___ − 3 = 31",
+          "prompt_es": "___ − 3 = 31"
         },
         {
           "id": "q8",
@@ -335,14 +416,20 @@
             "25"
           ],
           "answer": "16",
-          "correction": "16 + 0 = 16."
+          "correction": "16 + 0 = 16.",
+          "prompt_nl": "___ − 0 = 16",
+          "prompt_en": "___ − 0 = 16",
+          "prompt_es": "___ − 0 = 16"
         },
         {
           "id": "q9",
           "type": "fill_blank",
           "prompt": "___ − 0 = 29",
           "answer": 29,
-          "correction": "29 + 0 = 29."
+          "correction": "29 + 0 = 29.",
+          "prompt_nl": "___ − 0 = 29",
+          "prompt_en": "___ − 0 = 29",
+          "prompt_es": "___ − 0 = 29"
         },
         {
           "id": "q10",
@@ -355,7 +442,10 @@
             "39"
           ],
           "answer": "47",
-          "correction": "3 + 44 = 47."
+          "correction": "3 + 44 = 47.",
+          "prompt_nl": "___ − 44 = 3",
+          "prompt_en": "___ − 44 = 3",
+          "prompt_es": "___ − 44 = 3"
         }
       ]
     }

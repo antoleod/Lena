@@ -11,44 +11,385 @@
     "facile": {
       "passPercent": 60,
       "questions": [
-        { "id": "q1", "type": "mcq", "prompt": "[SCIENCES] La photosynthese se fait dans :", "options": ["les feuilles","les racines","les fleurs"], "answer": "les feuilles", "correction": "Les feuilles captent la lumiere pour la photosynthese." },
-        { "id": "q2", "type": "mcq", "prompt": "[CONJUGAISON] Demain, elle ___ (partir, futur).", "options": ["partira","partait","part"], "answer": "partira", "correction": "Futur : elle partira." },
-        { "id": "q3", "type": "mcq", "prompt": "[GEOGRAPHIE] La capitale de la Belgique est :", "options": ["Bruxelles","Liege","Gand"], "answer": "Bruxelles", "correction": "Bruxelles est la capitale de la Belgique." },
-        { "id": "q4", "type": "mcq", "prompt": "[MATHS] 6 × 9 = ?", "options": ["54","56","52"], "answer": "54", "correction": "6 × 9 = 54." },
-        { "id": "q5", "type": "mcq", "prompt": "[SCIENCES] Un herbivore mange :", "options": ["des plantes","des animaux","des plantes et des animaux"], "answer": "des plantes", "correction": "Herbivore = mange des herbes/plantes." },
-        { "id": "q6", "type": "mcq", "prompt": "[CONJUGAISON] Nous ___ (avoir, present) faim.", "options": ["avons","avez","ont"], "answer": "avons", "correction": "Nous avons." },
-        { "id": "q7", "type": "mcq", "prompt": "[GEOGRAPHIE] La Belgique a combien de communautes linguistiques ?", "options": ["3","2","4"], "answer": "3", "correction": "Francophone, flamande et germanophone." },
-        { "id": "q8", "type": "mcq", "prompt": "[MATHS] 72 ÷ 8 = ?", "options": ["9","8","7"], "answer": "9", "correction": "72 ÷ 8 = 9." }
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "[SCIENCES] La photosynthese se fait dans :",
+          "options": [
+            "les feuilles",
+            "les racines",
+            "les fleurs"
+          ],
+          "answer": "les feuilles",
+          "correction": "Les feuilles captent la lumiere pour la photosynthese.",
+          "prompt_nl": "[SCIENCES] Fotosynthese vindt plaats in:",
+          "prompt_en": "[SCIENCES] Photosynthesis takes place in:",
+          "prompt_es": "[SCIENCES] La fotosintesis ocurre en:"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "[CONJUGAISON] Demain, elle ___ (partir, futur).",
+          "options": [
+            "partira",
+            "partait",
+            "part"
+          ],
+          "answer": "partira",
+          "correction": "Futur : elle partira."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "[GEOGRAPHIE] La capitale de la Belgique est :",
+          "options": [
+            "Bruxelles",
+            "Liege",
+            "Gand"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique.",
+          "prompt_nl": "[GEOGRAPHIE] De hoofdstad van Belgie is:",
+          "prompt_en": "[GEOGRAPHIE] The capital of Belgium is:",
+          "prompt_es": "[GEOGRAPHIE] La capital de Belgica es:"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "[MATHS] 6 × 9 = ?",
+          "options": [
+            "54",
+            "56",
+            "52"
+          ],
+          "answer": "54",
+          "correction": "6 × 9 = 54.",
+          "prompt_nl": "[MATHS] 6 × 9 = ?",
+          "prompt_en": "[MATHS] 6 × 9 = ?",
+          "prompt_es": "[MATHS] 6 × 9 = ?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "[SCIENCES] Un herbivore mange :",
+          "options": [
+            "des plantes",
+            "des animaux",
+            "des plantes et des animaux"
+          ],
+          "answer": "des plantes",
+          "correction": "Herbivore = mange des herbes/plantes.",
+          "prompt_nl": "[SCIENCES] Een herbivoor eet:",
+          "prompt_en": "[SCIENCES] A herbivore eats:",
+          "prompt_es": "[SCIENCES] Un herbivoro come:"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "[CONJUGAISON] Nous ___ (avoir, present) faim.",
+          "options": [
+            "avons",
+            "avez",
+            "ont"
+          ],
+          "answer": "avons",
+          "correction": "Nous avons."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "[GEOGRAPHIE] La Belgique a combien de communautes linguistiques ?",
+          "options": [
+            "3",
+            "2",
+            "4"
+          ],
+          "answer": "3",
+          "correction": "Francophone, flamande et germanophone.",
+          "prompt_nl": "[GEOGRAPHIE] Hoeveel taalgemeenschappen heeft Belgie?",
+          "prompt_en": "[GEOGRAPHIE] How many linguistic communities does Belgium have?",
+          "prompt_es": "[GEOGRAPHIE] Cuantas comunidades linguisticas tiene Belgica?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "[MATHS] 72 ÷ 8 = ?",
+          "options": [
+            "9",
+            "8",
+            "7"
+          ],
+          "answer": "9",
+          "correction": "72 ÷ 8 = 9.",
+          "prompt_nl": "[MATHS] 72 ÷ 8 = ?",
+          "prompt_en": "[MATHS] 72 ÷ 8 = ?",
+          "prompt_es": "[MATHS] 72 ÷ 8 = ?"
+        }
       ]
     },
     "moyen": {
       "passPercent": 60,
       "questions": [
-        { "id": "q1", "type": "mcq", "prompt": "[SCIENCES] L'eau bout a :", "options": ["100°C","0°C","50°C"], "answer": "100°C", "correction": "L'eau bout a 100 degres Celsius." },
-        { "id": "q2", "type": "mcq", "prompt": "[CONJUGAISON] Avant, tu ___ (jouer, imparfait) souvent dehors.", "options": ["jouais","jouait","jouions"], "answer": "jouais", "correction": "Imparfait : tu jouais." },
-        { "id": "q3", "type": "mcq", "prompt": "[GEOGRAPHIE] Le fleuve qui traverse Bruxelles s'appelle :", "options": ["la Senne","la Meuse","l'Escaut"], "answer": "la Senne", "correction": "Bruxelles est traversee par la Senne." },
-        { "id": "q4", "type": "fill_blank", "prompt": "[MATHS] 11 × 11 = ___.", "answer": "121", "accept": ["121"], "correction": "11 × 11 = 121." },
-        { "id": "q5", "type": "true_false", "prompt": "[SCIENCES] Les insectes ont 6 pattes.", "answer": true, "correction": "Oui : tous les insectes ont 6 pattes." },
-        { "id": "q6", "type": "mcq", "prompt": "[VOCABULAIRE] Un 'carnivore' mange :", "options": ["de la viande","des plantes","tout"], "answer": "de la viande", "correction": "Carni = chair/viande." },
-        { "id": "q7", "type": "fill_blank", "prompt": "[MATHS] Perimetre d'un rectangle 8 cm × 3 cm = ___ cm.", "answer": "22", "accept": ["22"], "correction": "(8+3) × 2 = 22 cm." },
-        { "id": "q8", "type": "mcq", "prompt": "[CONJUGAISON] Ils ___ (venir, futur) nous voir.", "options": ["viendront","viendraient","venaient"], "answer": "viendront", "correction": "Futur irregulier : ils viendront." },
-        { "id": "q9", "type": "true_false", "prompt": "[SCIENCES] La Terre tourne autour du Soleil.", "answer": true, "correction": "Oui : c'est la revolution terrestre." },
-        { "id": "q10", "type": "mcq", "prompt": "[GEOGRAPHIE] Quel ocean borde l'Europe a l'ouest ?", "options": ["Atlantique","Pacifique","Indien"], "answer": "Atlantique", "correction": "L'ocean Atlantique borde l'Europe a l'ouest." }
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "[SCIENCES] L'eau bout a :",
+          "options": [
+            "100°C",
+            "0°C",
+            "50°C"
+          ],
+          "answer": "100°C",
+          "correction": "L'eau bout a 100 degres Celsius.",
+          "prompt_nl": "[SCIENCES] Water kookt bij:",
+          "prompt_en": "[SCIENCES] Water boils at:",
+          "prompt_es": "[SCIENCES] El agua hierve a:"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "[CONJUGAISON] Avant, tu ___ (jouer, imparfait) souvent dehors.",
+          "options": [
+            "jouais",
+            "jouait",
+            "jouions"
+          ],
+          "answer": "jouais",
+          "correction": "Imparfait : tu jouais."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "[GEOGRAPHIE] Le fleuve qui traverse Bruxelles s'appelle :",
+          "options": [
+            "la Senne",
+            "la Meuse",
+            "l'Escaut"
+          ],
+          "answer": "la Senne",
+          "correction": "Bruxelles est traversee par la Senne.",
+          "prompt_nl": "[GEOGRAPHIE] De rivier die door Brussel stroomt heet:",
+          "prompt_en": "[GEOGRAPHIE] The river that flows through Brussels is called:",
+          "prompt_es": "[GEOGRAPHIE] El rio que atraviesa Bruselas se llama:"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "[MATHS] 11 × 11 = ___.",
+          "answer": "121",
+          "accept": [
+            "121"
+          ],
+          "correction": "11 × 11 = 121.",
+          "prompt_nl": "[MATHS] 11 × 11 = ___.",
+          "prompt_en": "[MATHS] 11 × 11 = ___.",
+          "prompt_es": "[MATHS] 11 × 11 = ___."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "[SCIENCES] Les insectes ont 6 pattes.",
+          "answer": true,
+          "correction": "Oui : tous les insectes ont 6 pattes.",
+          "prompt_nl": "[SCIENCES] Insecten hebben 6 poten.",
+          "prompt_en": "[SCIENCES] Insects have 6 legs.",
+          "prompt_es": "[SCIENCES] Los insectos tienen 6 patas."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "[VOCABULAIRE] Un 'carnivore' mange :",
+          "options": [
+            "de la viande",
+            "des plantes",
+            "tout"
+          ],
+          "answer": "de la viande",
+          "correction": "Carni = chair/viande."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "[MATHS] Perimetre d'un rectangle 8 cm × 3 cm = ___ cm.",
+          "answer": "22",
+          "accept": [
+            "22"
+          ],
+          "correction": "(8+3) × 2 = 22 cm.",
+          "prompt_nl": "[MATHS] Omtrek van een rechthoek 8 cm × 3 cm = ___ cm.",
+          "prompt_en": "[MATHS] Perimeter of a rectangle 8 cm × 3 cm = ___ cm.",
+          "prompt_es": "[MATHS] Perimetro de un rectangulo 8 cm × 3 cm = ___ cm."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "[CONJUGAISON] Ils ___ (venir, futur) nous voir.",
+          "options": [
+            "viendront",
+            "viendraient",
+            "venaient"
+          ],
+          "answer": "viendront",
+          "correction": "Futur irregulier : ils viendront."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "[SCIENCES] La Terre tourne autour du Soleil.",
+          "answer": true,
+          "correction": "Oui : c'est la revolution terrestre.",
+          "prompt_nl": "[SCIENCES] De Aarde draait om de Zon.",
+          "prompt_en": "[SCIENCES] The Earth revolves around the Sun.",
+          "prompt_es": "[SCIENCES] La Tierra gira alrededor del Sol."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "[GEOGRAPHIE] Quel ocean borde l'Europe a l'ouest ?",
+          "options": [
+            "Atlantique",
+            "Pacifique",
+            "Indien"
+          ],
+          "answer": "Atlantique",
+          "correction": "L'ocean Atlantique borde l'Europe a l'ouest.",
+          "prompt_nl": "[GEOGRAPHIE] Welke oceaan begrenst Europa in het westen?",
+          "prompt_en": "[GEOGRAPHIE] Which ocean borders Europe to the west?",
+          "prompt_es": "[GEOGRAPHIE] Que oceano bordea Europa por el oeste?"
+        }
       ]
     },
     "difficile": {
       "passPercent": 60,
       "questions": [
-        { "id": "q1", "type": "fill_blank", "prompt": "[SCIENCES] Les plantes fabriquent leur nourriture grace a la ___.", "answer": "photosynthese", "accept": ["photosynthese","photosynthèse"], "correction": "La photosynthese utilise l'eau, le CO2 et la lumiere." },
-        { "id": "q2", "type": "fill_blank", "prompt": "[CONJUGAISON] Hier, nous ___ (devoir, imparfait) partir tot.", "answer": "devions", "accept": ["devions"], "correction": "Imparfait : nous devions." },
-        { "id": "q3", "type": "mcq", "prompt": "[GEOGRAPHIE] La region francophone de Belgique s'appelle :", "options": ["la Wallonie","la Flandre","Bruxelles"], "answer": "la Wallonie", "correction": "La Wallonie est la region francophone." },
-        { "id": "q4", "type": "fill_blank", "prompt": "[MATHS] 15% de 80 = ___.", "answer": "12", "accept": ["12"], "correction": "15% de 80 : 80 × 15/100 = 12." },
-        { "id": "q5", "type": "mcq", "prompt": "[SCIENCES] Un mammifere se distingue par :", "options": ["il allaite ses petits","il pond des oeufs","il nage"], "answer": "il allaite ses petits", "correction": "Les mammiferes allaitent leurs petits." },
-        { "id": "q6", "type": "fill_blank", "prompt": "[CONJUGAISON] Demain, vous ___ (savoir, futur) la reponse.", "answer": "saurez", "accept": ["saurez"], "correction": "Futur : vous saurez." },
-        { "id": "q7", "type": "mcq", "prompt": "[GEOGRAPHIE] La Meuse est :", "options": ["un fleuve belge","une montagne","une ville"], "answer": "un fleuve belge", "correction": "La Meuse traverse la Wallonie." },
-        { "id": "q8", "type": "fill_blank", "prompt": "[MATHS] Angle d'un carre : ___ degres.", "answer": "90", "accept": ["90"], "correction": "Un carre a 4 angles droits de 90 degres." },
-        { "id": "q9", "type": "true_false", "prompt": "[SCIENCES] La lumiere voyage plus vite que le son.", "answer": true, "correction": "Oui : lumiere = 300 000 km/s, son = 340 m/s." },
-        { "id": "q10", "type": "fill_blank", "prompt": "[MATHS] 2/3 de 120 = ___.", "answer": "80", "accept": ["80"], "correction": "120 ÷ 3 = 40 ; 40 × 2 = 80." }
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "[SCIENCES] Les plantes fabriquent leur nourriture grace a la ___.",
+          "answer": "photosynthese",
+          "accept": [
+            "photosynthese",
+            "photosynthèse"
+          ],
+          "correction": "La photosynthese utilise l'eau, le CO2 et la lumiere.",
+          "prompt_nl": "[SCIENCES] Planten maken hun voedsel dankzij ___.",
+          "prompt_en": "[SCIENCES] Plants make their food through ___.",
+          "prompt_es": "[SCIENCES] Las plantas fabrican su alimento gracias a la ___."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "[CONJUGAISON] Hier, nous ___ (devoir, imparfait) partir tot.",
+          "answer": "devions",
+          "accept": [
+            "devions"
+          ],
+          "correction": "Imparfait : nous devions."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "[GEOGRAPHIE] La region francophone de Belgique s'appelle :",
+          "options": [
+            "la Wallonie",
+            "la Flandre",
+            "Bruxelles"
+          ],
+          "answer": "la Wallonie",
+          "correction": "La Wallonie est la region francophone.",
+          "prompt_nl": "[GEOGRAPHIE] De Franstalige regio van Belgie heet:",
+          "prompt_en": "[GEOGRAPHIE] The French-speaking region of Belgium is called:",
+          "prompt_es": "[GEOGRAPHIE] La region francofona de Belgica se llama:"
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "[MATHS] 15% de 80 = ___.",
+          "answer": "12",
+          "accept": [
+            "12"
+          ],
+          "correction": "15% de 80 : 80 × 15/100 = 12.",
+          "prompt_nl": "[MATHS] 15% van 80 = ___.",
+          "prompt_en": "[MATHS] 15% of 80 = ___.",
+          "prompt_es": "[MATHS] 15% de 80 = ___."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "[SCIENCES] Un mammifere se distingue par :",
+          "options": [
+            "il allaite ses petits",
+            "il pond des oeufs",
+            "il nage"
+          ],
+          "answer": "il allaite ses petits",
+          "correction": "Les mammiferes allaitent leurs petits.",
+          "prompt_nl": "[SCIENCES] Een zoogdier onderscheidt zich doordat:",
+          "prompt_en": "[SCIENCES] A mammal is distinguished by:",
+          "prompt_es": "[SCIENCES] Un mamifero se distingue por:"
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "[CONJUGAISON] Demain, vous ___ (savoir, futur) la reponse.",
+          "answer": "saurez",
+          "accept": [
+            "saurez"
+          ],
+          "correction": "Futur : vous saurez."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "[GEOGRAPHIE] La Meuse est :",
+          "options": [
+            "un fleuve belge",
+            "une montagne",
+            "une ville"
+          ],
+          "answer": "un fleuve belge",
+          "correction": "La Meuse traverse la Wallonie.",
+          "prompt_nl": "[GEOGRAPHIE] De Maas is:",
+          "prompt_en": "[GEOGRAPHIE] The Meuse is:",
+          "prompt_es": "[GEOGRAPHIE] El Mosa es:"
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "[MATHS] Angle d'un carre : ___ degres.",
+          "answer": "90",
+          "accept": [
+            "90"
+          ],
+          "correction": "Un carre a 4 angles droits de 90 degres.",
+          "prompt_nl": "[MATHS] Hoek van een vierkant: ___ graden.",
+          "prompt_en": "[MATHS] Angle of a square: ___ degrees.",
+          "prompt_es": "[MATHS] Angulo de un cuadrado: ___ grados."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "[SCIENCES] La lumiere voyage plus vite que le son.",
+          "answer": true,
+          "correction": "Oui : lumiere = 300 000 km/s, son = 340 m/s.",
+          "prompt_nl": "[SCIENCES] Licht reist sneller dan geluid.",
+          "prompt_en": "[SCIENCES] Light travels faster than sound.",
+          "prompt_es": "[SCIENCES] La luz viaja mas rapido que el sonido."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "[MATHS] 2/3 de 120 = ___.",
+          "answer": "80",
+          "accept": [
+            "80"
+          ],
+          "correction": "120 ÷ 3 = 40 ; 40 × 2 = 80.",
+          "prompt_nl": "[MATHS] 2/3 van 120 = ___.",
+          "prompt_en": "[MATHS] 2/3 of 120 = ___.",
+          "prompt_es": "[MATHS] 2/3 de 120 = ___."
+        }
       ]
     }
   }

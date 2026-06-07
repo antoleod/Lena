@@ -22,7 +22,10 @@
             "15"
           ],
           "answer": "13",
-          "correction": "31 − 18 = 13."
+          "correction": "31 − 18 = 13.",
+          "prompt_nl": "18 + ___ = 31",
+          "prompt_en": "18 + ___ = 31",
+          "prompt_es": "18 + ___ = 31"
         },
         {
           "id": "q2",
@@ -35,14 +38,20 @@
             "5"
           ],
           "answer": "6",
-          "correction": "26 − 20 = 6."
+          "correction": "26 − 20 = 6.",
+          "prompt_nl": "20 + ___ = 26",
+          "prompt_en": "20 + ___ = 26",
+          "prompt_es": "20 + ___ = 26"
         },
         {
           "id": "q3",
           "type": "fill_blank",
           "prompt": "5 + ___ = 20",
           "answer": 15,
-          "correction": "20 − 5 = 15."
+          "correction": "20 − 5 = 15.",
+          "prompt_nl": "5 + ___ = 20",
+          "prompt_en": "5 + ___ = 20",
+          "prompt_es": "5 + ___ = 20"
         },
         {
           "id": "q4",
@@ -55,7 +64,10 @@
             "18"
           ],
           "answer": "16",
-          "correction": "20 − 4 = 16."
+          "correction": "20 − 4 = 16.",
+          "prompt_nl": "4 + ___ = 20",
+          "prompt_en": "4 + ___ = 20",
+          "prompt_es": "4 + ___ = 20"
         },
         {
           "id": "q5",
@@ -68,14 +80,20 @@
             "1"
           ],
           "answer": "0",
-          "correction": "8 − 8 = 0."
+          "correction": "8 − 8 = 0.",
+          "prompt_nl": "8 + ___ = 8",
+          "prompt_en": "8 + ___ = 8",
+          "prompt_es": "8 + ___ = 8"
         },
         {
           "id": "q6",
           "type": "fill_blank",
           "prompt": "14 + ___ = 20",
           "answer": 6,
-          "correction": "20 − 14 = 6."
+          "correction": "20 − 14 = 6.",
+          "prompt_nl": "14 + ___ = 20",
+          "prompt_en": "14 + ___ = 20",
+          "prompt_es": "14 + ___ = 20"
         },
         {
           "id": "q7",
@@ -88,7 +106,10 @@
             "15"
           ],
           "answer": "14",
-          "correction": "17 − 3 = 14."
+          "correction": "17 − 3 = 14.",
+          "prompt_nl": "3 + ___ = 17",
+          "prompt_en": "3 + ___ = 17",
+          "prompt_es": "3 + ___ = 17"
         },
         {
           "id": "q8",
@@ -101,14 +122,20 @@
             "2"
           ],
           "answer": "6",
-          "correction": "20 − 14 = 6."
+          "correction": "20 − 14 = 6.",
+          "prompt_nl": "14 + ___ = 20",
+          "prompt_en": "14 + ___ = 20",
+          "prompt_es": "14 + ___ = 20"
         },
         {
           "id": "q9",
           "type": "fill_blank",
           "prompt": "0 + ___ = 2",
           "answer": 2,
-          "correction": "2 − 0 = 2."
+          "correction": "2 − 0 = 2.",
+          "prompt_nl": "0 + ___ = 2",
+          "prompt_en": "0 + ___ = 2",
+          "prompt_es": "0 + ___ = 2"
         },
         {
           "id": "q10",
@@ -121,7 +148,10 @@
             "3"
           ],
           "answer": "3",
-          "correction": "15 − 12 = 3."
+          "correction": "15 − 12 = 3.",
+          "prompt_nl": "12 + ___ = 15",
+          "prompt_en": "12 + ___ = 15",
+          "prompt_es": "12 + ___ = 15"
         }
       ]
     },
@@ -139,7 +169,10 @@
             "16"
           ],
           "answer": "20",
-          "correction": "20 − 0 = 20."
+          "correction": "20 − 0 = 20.",
+          "prompt_nl": "0 + ___ = 20",
+          "prompt_en": "0 + ___ = 20",
+          "prompt_es": "0 + ___ = 20"
         },
         {
           "id": "q2",
@@ -152,14 +185,20 @@
             "25"
           ],
           "answer": "32",
-          "correction": "48 − 16 = 32."
+          "correction": "48 − 16 = 32.",
+          "prompt_nl": "16 + ___ = 48",
+          "prompt_en": "16 + ___ = 48",
+          "prompt_es": "16 + ___ = 48"
         },
         {
           "id": "q3",
           "type": "fill_blank",
           "prompt": "9 + ___ = 29",
           "answer": 20,
-          "correction": "29 − 9 = 20."
+          "correction": "29 − 9 = 20.",
+          "prompt_nl": "9 + ___ = 29",
+          "prompt_en": "9 + ___ = 29",
+          "prompt_es": "9 + ___ = 29"
         },
         {
           "id": "q4",
@@ -172,7 +211,10 @@
             "22"
           ],
           "answer": "27",
-          "correction": "30 − 3 = 27."
+          "correction": "30 − 3 = 27.",
+          "prompt_nl": "3 + ___ = 30",
+          "prompt_en": "3 + ___ = 30",
+          "prompt_es": "3 + ___ = 30"
         },
         {
           "id": "q5",
@@ -185,14 +227,20 @@
             "25"
           ],
           "answer": "27",
-          "correction": "57 − 30 = 27."
+          "correction": "57 − 30 = 27.",
+          "prompt_nl": "30 + ___ = 57",
+          "prompt_en": "30 + ___ = 57",
+          "prompt_es": "30 + ___ = 57"
         },
         {
           "id": "q6",
           "type": "fill_blank",
           "prompt": "8 + ___ = 17",
           "answer": 9,
-          "correction": "17 − 8 = 9."
+          "correction": "17 − 8 = 9.",
+          "prompt_nl": "8 + ___ = 17",
+          "prompt_en": "8 + ___ = 17",
+          "prompt_es": "8 + ___ = 17"
         },
         {
           "id": "q7",
@@ -205,7 +253,10 @@
             "6"
           ],
           "answer": "14",
-          "correction": "44 − 30 = 14."
+          "correction": "44 − 30 = 14.",
+          "prompt_nl": "30 + ___ = 44",
+          "prompt_en": "30 + ___ = 44",
+          "prompt_es": "30 + ___ = 44"
         },
         {
           "id": "q8",
@@ -218,14 +269,20 @@
             "18"
           ],
           "answer": "24",
-          "correction": "52 − 28 = 24."
+          "correction": "52 − 28 = 24.",
+          "prompt_nl": "28 + ___ = 52",
+          "prompt_en": "28 + ___ = 52",
+          "prompt_es": "28 + ___ = 52"
         },
         {
           "id": "q9",
           "type": "fill_blank",
           "prompt": "25 + ___ = 53",
           "answer": 28,
-          "correction": "53 − 25 = 28."
+          "correction": "53 − 25 = 28.",
+          "prompt_nl": "25 + ___ = 53",
+          "prompt_en": "25 + ___ = 53",
+          "prompt_es": "25 + ___ = 53"
         },
         {
           "id": "q10",
@@ -238,7 +295,10 @@
             "3"
           ],
           "answer": "8",
-          "correction": "28 − 20 = 8."
+          "correction": "28 − 20 = 8.",
+          "prompt_nl": "20 + ___ = 28",
+          "prompt_en": "20 + ___ = 28",
+          "prompt_es": "20 + ___ = 28"
         }
       ]
     },
@@ -256,7 +316,10 @@
             "41"
           ],
           "answer": "41",
-          "correction": "65 − 24 = 41."
+          "correction": "65 − 24 = 41.",
+          "prompt_nl": "24 + ___ = 65",
+          "prompt_en": "24 + ___ = 65",
+          "prompt_es": "24 + ___ = 65"
         },
         {
           "id": "q2",
@@ -269,14 +332,20 @@
             "4"
           ],
           "answer": "12",
-          "correction": "59 − 47 = 12."
+          "correction": "59 − 47 = 12.",
+          "prompt_nl": "47 + ___ = 59",
+          "prompt_en": "47 + ___ = 59",
+          "prompt_es": "47 + ___ = 59"
         },
         {
           "id": "q3",
           "type": "fill_blank",
           "prompt": "31 + ___ = 41",
           "answer": 10,
-          "correction": "41 − 31 = 10."
+          "correction": "41 − 31 = 10.",
+          "prompt_nl": "31 + ___ = 41",
+          "prompt_en": "31 + ___ = 41",
+          "prompt_es": "31 + ___ = 41"
         },
         {
           "id": "q4",
@@ -289,7 +358,10 @@
             "31"
           ],
           "answer": "25",
-          "correction": "62 − 37 = 25."
+          "correction": "62 − 37 = 25.",
+          "prompt_nl": "37 + ___ = 62",
+          "prompt_en": "37 + ___ = 62",
+          "prompt_es": "37 + ___ = 62"
         },
         {
           "id": "q5",
@@ -302,14 +374,20 @@
             "15"
           ],
           "answer": "12",
-          "correction": "48 − 36 = 12."
+          "correction": "48 − 36 = 12.",
+          "prompt_nl": "36 + ___ = 48",
+          "prompt_en": "36 + ___ = 48",
+          "prompt_es": "36 + ___ = 48"
         },
         {
           "id": "q6",
           "type": "fill_blank",
           "prompt": "1 + ___ = 2",
           "answer": 1,
-          "correction": "2 − 1 = 1."
+          "correction": "2 − 1 = 1.",
+          "prompt_nl": "1 + ___ = 2",
+          "prompt_en": "1 + ___ = 2",
+          "prompt_es": "1 + ___ = 2"
         },
         {
           "id": "q7",
@@ -322,7 +400,10 @@
             "8"
           ],
           "answer": "8",
-          "correction": "47 − 39 = 8."
+          "correction": "47 − 39 = 8.",
+          "prompt_nl": "39 + ___ = 47",
+          "prompt_en": "39 + ___ = 47",
+          "prompt_es": "39 + ___ = 47"
         },
         {
           "id": "q8",
@@ -335,14 +416,20 @@
             "20"
           ],
           "answer": "11",
-          "correction": "38 − 27 = 11."
+          "correction": "38 − 27 = 11.",
+          "prompt_nl": "27 + ___ = 38",
+          "prompt_en": "27 + ___ = 38",
+          "prompt_es": "27 + ___ = 38"
         },
         {
           "id": "q9",
           "type": "fill_blank",
           "prompt": "27 + ___ = 46",
           "answer": 19,
-          "correction": "46 − 27 = 19."
+          "correction": "46 − 27 = 19.",
+          "prompt_nl": "27 + ___ = 46",
+          "prompt_en": "27 + ___ = 46",
+          "prompt_es": "27 + ___ = 46"
         },
         {
           "id": "q10",
@@ -355,7 +442,10 @@
             "40"
           ],
           "answer": "46",
-          "correction": "88 − 42 = 46."
+          "correction": "88 − 42 = 46.",
+          "prompt_nl": "42 + ___ = 88",
+          "prompt_en": "42 + ___ = 88",
+          "prompt_es": "42 + ___ = 88"
         }
       ]
     }

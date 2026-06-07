@@ -22,7 +22,30 @@
             "l'anglais"
           ],
           "answer": "le néerlandais",
-          "correction": "En Flandre on parle néerlandais."
+          "correction": "En Flandre on parle néerlandais.",
+          "prompt_nl": "Welke taal wordt gesproken in Vlaanderen?",
+          "prompt_en": "What language is spoken in Flanders?",
+          "prompt_es": "Que idioma se habla en Flandes?",
+          "options_i18n": {
+            "nl": [
+              "Nederlands",
+              "Frans",
+              "Duits",
+              "Engels"
+            ],
+            "en": [
+              "Dutch",
+              "French",
+              "German",
+              "English"
+            ],
+            "es": [
+              "neerlandes",
+              "frances",
+              "aleman",
+              "ingles"
+            ]
+          }
         },
         {
           "id": "q4",
@@ -35,7 +58,30 @@
             "Gand"
           ],
           "answer": "Bruxelles",
-          "correction": "Bruxelles est la capitale de la Belgique."
+          "correction": "Bruxelles est la capitale de la Belgique.",
+          "prompt_nl": "Wat is de hoofdstad van Belgie?",
+          "prompt_en": "What is the capital of Belgium?",
+          "prompt_es": "Cual es la capital de Belgica?",
+          "options_i18n": {
+            "nl": [
+              "Brussel",
+              "Antwerpen",
+              "Luik",
+              "Gent"
+            ],
+            "en": [
+              "Brussels",
+              "Antwerp",
+              "Liege",
+              "Ghent"
+            ],
+            "es": [
+              "Bruselas",
+              "Amberes",
+              "Lieja",
+              "Gante"
+            ]
+          }
         },
         {
           "id": "q6",
@@ -48,7 +94,30 @@
             "l'Amérique"
           ],
           "answer": "l'Europe",
-          "correction": "La Belgique est en Europe."
+          "correction": "La Belgique est en Europe.",
+          "prompt_nl": "Op welk continent ligt Belgie?",
+          "prompt_en": "On which continent is Belgium?",
+          "prompt_es": "En que continente esta Belgica?",
+          "options_i18n": {
+            "nl": [
+              "Europa",
+              "Azie",
+              "Afrika",
+              "Amerika"
+            ],
+            "en": [
+              "Europe",
+              "Asia",
+              "Africa",
+              "America"
+            ],
+            "es": [
+              "Europa",
+              "Asia",
+              "Africa",
+              "America"
+            ]
+          }
         },
         {
           "id": "q8",
@@ -61,7 +130,30 @@
             "l'Angleterre"
           ],
           "answer": "la France",
-          "correction": "La France borde la Belgique au sud."
+          "correction": "La France borde la Belgique au sud.",
+          "prompt_nl": "Welk land grenst aan Belgie in het zuiden?",
+          "prompt_en": "Which country borders Belgium to the south?",
+          "prompt_es": "Que pais limita con Belgica por el sur?",
+          "options_i18n": {
+            "nl": [
+              "Frankrijk",
+              "Nederland",
+              "Duitsland",
+              "Engeland"
+            ],
+            "en": [
+              "France",
+              "Netherlands",
+              "Germany",
+              "England"
+            ],
+            "es": [
+              "Francia",
+              "Paises Bajos",
+              "Alemania",
+              "Inglaterra"
+            ]
+          }
         },
         {
           "id": "q10",
@@ -74,7 +166,30 @@
             "Ardenne"
           ],
           "answer": "Flandre",
-          "correction": "Gand est en Flandre."
+          "correction": "Gand est en Flandre.",
+          "prompt_nl": "In welke regio ligt Gent?",
+          "prompt_en": "In which region is Ghent located?",
+          "prompt_es": "En que region se encuentra Gante?",
+          "options_i18n": {
+            "nl": [
+              "Vlaanderen",
+              "Wallonie",
+              "Brussel",
+              "Ardennen"
+            ],
+            "en": [
+              "Flanders",
+              "Wallonia",
+              "Brussels",
+              "Ardennes"
+            ],
+            "es": [
+              "Flandes",
+              "Valonia",
+              "Bruselas",
+              "Ardenas"
+            ]
+          }
         },
         {
           "id": "q12",
@@ -87,14 +202,40 @@
             "Ardenne"
           ],
           "answer": "Wallonie",
-          "correction": "Liège est en Wallonie."
+          "correction": "Liège est en Wallonie.",
+          "prompt_nl": "In welke regio ligt Luik?",
+          "prompt_en": "In which region is Liege located?",
+          "prompt_es": "En que region se encuentra Lieja?",
+          "options_i18n": {
+            "nl": [
+              "Wallonie",
+              "Vlaanderen",
+              "Brussel",
+              "Ardennen"
+            ],
+            "en": [
+              "Wallonia",
+              "Flanders",
+              "Brussels",
+              "Ardennes"
+            ],
+            "es": [
+              "Valonia",
+              "Flandes",
+              "Bruselas",
+              "Ardenas"
+            ]
+          }
         },
         {
           "id": "q14",
           "type": "true_false",
           "prompt": "Anvers est un grand port maritime.",
           "answer": true,
-          "correction": "Anvers est l'un des plus grands ports d'Europe."
+          "correction": "Anvers est l'un des plus grands ports d'Europe.",
+          "prompt_nl": "Antwerpen is een grote zeehaven.",
+          "prompt_en": "Antwerp is a major seaport.",
+          "prompt_es": "Amberes es un gran puerto maritimo."
         },
         {
           "id": "q16",
@@ -107,7 +248,30 @@
             "Charles"
           ],
           "answer": "Philippe",
-          "correction": "Le roi de Belgique est Philippe (depuis 2013)."
+          "correction": "Le roi de Belgique est Philippe (depuis 2013).",
+          "prompt_nl": "Hoe heet de koning van Belgie?",
+          "prompt_en": "What is the name of the King of Belgium?",
+          "prompt_es": "Como se llama el rey de Belgica?",
+          "options_i18n": {
+            "nl": [
+              "Philippe",
+              "Albert",
+              "Leopold",
+              "Karel"
+            ],
+            "en": [
+              "Philippe",
+              "Albert",
+              "Leopold",
+              "Charles"
+            ],
+            "es": [
+              "Felipe",
+              "Alberto",
+              "Leopoldo",
+              "Carlos"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +289,30 @@
             "Liège"
           ],
           "answer": "Bruxelles",
-          "correction": "Bruxelles est la plus grande ville."
+          "correction": "Bruxelles est la plus grande ville.",
+          "prompt_nl": "Wat is de grootste stad van Belgie?",
+          "prompt_en": "What is the largest city in Belgium?",
+          "prompt_es": "Cual es la ciudad mas grande de Belgica?",
+          "options_i18n": {
+            "nl": [
+              "Brussel",
+              "Antwerpen",
+              "Gent",
+              "Luik"
+            ],
+            "en": [
+              "Brussels",
+              "Antwerp",
+              "Ghent",
+              "Liege"
+            ],
+            "es": [
+              "Bruselas",
+              "Amberes",
+              "Gante",
+              "Lieja"
+            ]
+          }
         },
         {
           "id": "q4",
@@ -138,7 +325,30 @@
             "l'Angleterre"
           ],
           "answer": "la France",
-          "correction": "La France borde la Belgique au sud."
+          "correction": "La France borde la Belgique au sud.",
+          "prompt_nl": "Welk land grenst aan Belgie in het zuiden?",
+          "prompt_en": "Which country borders Belgium to the south?",
+          "prompt_es": "Que pais limita con Belgica por el sur?",
+          "options_i18n": {
+            "nl": [
+              "Frankrijk",
+              "Nederland",
+              "Duitsland",
+              "Engeland"
+            ],
+            "en": [
+              "France",
+              "Netherlands",
+              "Germany",
+              "England"
+            ],
+            "es": [
+              "Francia",
+              "Paises Bajos",
+              "Alemania",
+              "Inglaterra"
+            ]
+          }
         },
         {
           "id": "q6",
@@ -151,7 +361,30 @@
             "Mons"
           ],
           "answer": "Bruxelles",
-          "correction": "La Grand-Place est à Bruxelles."
+          "correction": "La Grand-Place est à Bruxelles.",
+          "prompt_nl": "Welke stad herbergt de Grote Markt?",
+          "prompt_en": "Which city hosts the Grand Place?",
+          "prompt_es": "Que ciudad alberga la Gran Plaza?",
+          "options_i18n": {
+            "nl": [
+              "Brussel",
+              "Luik",
+              "Namen",
+              "Bergen"
+            ],
+            "en": [
+              "Brussels",
+              "Liege",
+              "Namur",
+              "Mons"
+            ],
+            "es": [
+              "Bruselas",
+              "Lieja",
+              "Namur",
+              "Mons"
+            ]
+          }
         },
         {
           "id": "q8",
@@ -164,7 +397,30 @@
             "l'espagnol"
           ],
           "answer": "le français",
-          "correction": "En Wallonie on parle français."
+          "correction": "En Wallonie on parle français.",
+          "prompt_nl": "Welke taal wordt gesproken in Wallonie?",
+          "prompt_en": "What language is spoken in Wallonia?",
+          "prompt_es": "Que idioma se habla en Valonia?",
+          "options_i18n": {
+            "nl": [
+              "Frans",
+              "Nederlands",
+              "Duits",
+              "Spaans"
+            ],
+            "en": [
+              "French",
+              "Dutch",
+              "German",
+              "Spanish"
+            ],
+            "es": [
+              "frances",
+              "neerlandes",
+              "aleman",
+              "espanol"
+            ]
+          }
         },
         {
           "id": "q10",
@@ -177,7 +433,30 @@
             "le Luxembourg"
           ],
           "answer": "les Pays-Bas",
-          "correction": "Les Pays-Bas bordent la Belgique au nord."
+          "correction": "Les Pays-Bas bordent la Belgique au nord.",
+          "prompt_nl": "Welk land grenst aan Belgie in het noorden?",
+          "prompt_en": "Which country borders Belgium to the north?",
+          "prompt_es": "Que pais limita con Belgica por el norte?",
+          "options_i18n": {
+            "nl": [
+              "Nederland",
+              "Frankrijk",
+              "Duitsland",
+              "Luxemburg"
+            ],
+            "en": [
+              "Netherlands",
+              "France",
+              "Germany",
+              "Luxembourg"
+            ],
+            "es": [
+              "Paises Bajos",
+              "Francia",
+              "Alemania",
+              "Luxemburgo"
+            ]
+          }
         },
         {
           "id": "q12",
@@ -190,7 +469,30 @@
             "Gand"
           ],
           "answer": "Bruxelles",
-          "correction": "Bruxelles est la capitale de la Belgique."
+          "correction": "Bruxelles est la capitale de la Belgique.",
+          "prompt_nl": "Wat is de hoofdstad van Belgie?",
+          "prompt_en": "What is the capital of Belgium?",
+          "prompt_es": "Cual es la capital de Belgica?",
+          "options_i18n": {
+            "nl": [
+              "Brussel",
+              "Antwerpen",
+              "Luik",
+              "Gent"
+            ],
+            "en": [
+              "Brussels",
+              "Antwerp",
+              "Liege",
+              "Ghent"
+            ],
+            "es": [
+              "Bruselas",
+              "Amberes",
+              "Lieja",
+              "Gante"
+            ]
+          }
         },
         {
           "id": "q14",
@@ -203,14 +505,40 @@
             "Ardenne"
           ],
           "answer": "Flandre",
-          "correction": "Gand est en Flandre."
+          "correction": "Gand est en Flandre.",
+          "prompt_nl": "In welke regio ligt Gent?",
+          "prompt_en": "In which region is Ghent located?",
+          "prompt_es": "En que region se encuentra Gante?",
+          "options_i18n": {
+            "nl": [
+              "Vlaanderen",
+              "Wallonie",
+              "Brussel",
+              "Ardennen"
+            ],
+            "en": [
+              "Flanders",
+              "Wallonia",
+              "Brussels",
+              "Ardennes"
+            ],
+            "es": [
+              "Flandes",
+              "Valonia",
+              "Bruselas",
+              "Ardenas"
+            ]
+          }
         },
         {
           "id": "q16",
           "type": "true_false",
           "prompt": "Anvers est un grand port maritime.",
           "answer": true,
-          "correction": "Anvers est l'un des plus grands ports d'Europe."
+          "correction": "Anvers est l'un des plus grands ports d'Europe.",
+          "prompt_nl": "Antwerpen is een grote zeehaven.",
+          "prompt_en": "Antwerp is a major seaport.",
+          "prompt_es": "Amberes es un gran puerto maritimo."
         },
         {
           "id": "q18",
@@ -223,7 +551,30 @@
             "le taureau"
           ],
           "answer": "le lion",
-          "correction": "Le lion est le symbole national belge."
+          "correction": "Le lion est le symbole national belge.",
+          "prompt_nl": "Wat is het nationale symbool van Belgie?",
+          "prompt_en": "What is the national symbol of Belgium?",
+          "prompt_es": "Cual es el simbolo nacional belga?",
+          "options_i18n": {
+            "nl": [
+              "de leeuw",
+              "de arend",
+              "de haan",
+              "de stier"
+            ],
+            "en": [
+              "the lion",
+              "the eagle",
+              "the rooster",
+              "the bull"
+            ],
+            "es": [
+              "el leon",
+              "el aguila",
+              "el gallo",
+              "el toro"
+            ]
+          }
         },
         {
           "id": "q20",
@@ -236,7 +587,30 @@
             "un château"
           ],
           "answer": "un monument à Bruxelles",
-          "correction": "L'Atomium est un monument à Bruxelles (1958)."
+          "correction": "L'Atomium est un monument à Bruxelles (1958).",
+          "prompt_nl": "Wat is het Atomium?",
+          "prompt_en": "What is the Atomium?",
+          "prompt_es": "Que es el Atomium?",
+          "options_i18n": {
+            "nl": [
+              "een monument in Brussel",
+              "een vulkaan",
+              "een woud",
+              "een kasteel"
+            ],
+            "en": [
+              "a monument in Brussels",
+              "a volcano",
+              "a forest",
+              "a castle"
+            ],
+            "es": [
+              "un monumento en Bruselas",
+              "un volcan",
+              "un bosque",
+              "un castillo"
+            ]
+          }
         }
       ]
     },
@@ -254,7 +628,30 @@
             "l'Amérique"
           ],
           "answer": "l'Europe",
-          "correction": "La Belgique est en Europe."
+          "correction": "La Belgique est en Europe.",
+          "prompt_nl": "Op welk continent ligt Belgie?",
+          "prompt_en": "On which continent is Belgium?",
+          "prompt_es": "En que continente esta Belgica?",
+          "options_i18n": {
+            "nl": [
+              "Europa",
+              "Azie",
+              "Afrika",
+              "Amerika"
+            ],
+            "en": [
+              "Europe",
+              "Asia",
+              "Africa",
+              "America"
+            ],
+            "es": [
+              "Europa",
+              "Asia",
+              "Africa",
+              "America"
+            ]
+          }
         },
         {
           "id": "q4",
@@ -267,14 +664,40 @@
             "Bruges"
           ],
           "answer": "Bruxelles",
-          "correction": "Bruxelles est très connue pour ses chocolats."
+          "correction": "Bruxelles est très connue pour ses chocolats.",
+          "prompt_nl": "Welke Belgische stad is bekend om zijn chocolade?",
+          "prompt_en": "Which Belgian city is known for its chocolates?",
+          "prompt_es": "Que ciudad belga es conocida por sus chocolates?",
+          "options_i18n": {
+            "nl": [
+              "Brussel",
+              "Namen",
+              "Dinant",
+              "Brugge"
+            ],
+            "en": [
+              "Brussels",
+              "Namur",
+              "Dinant",
+              "Bruges"
+            ],
+            "es": [
+              "Bruselas",
+              "Namur",
+              "Dinant",
+              "Brujas"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "true_false",
           "prompt": "Bruxelles est en Flandre.",
           "answer": false,
-          "correction": "Bruxelles est une région à part, bilingue."
+          "correction": "Bruxelles est une région à part, bilingue.",
+          "prompt_nl": "Brussel ligt in Vlaanderen.",
+          "prompt_en": "Brussels is in Flanders.",
+          "prompt_es": "Bruselas esta en Flandes."
         },
         {
           "id": "q8",
@@ -287,14 +710,40 @@
             "la Semois"
           ],
           "answer": "la Meuse",
-          "correction": "La Meuse traverse Liège."
+          "correction": "La Meuse traverse Liège.",
+          "prompt_nl": "Welke rivier stroomt door Luik?",
+          "prompt_en": "Which river flows through Liege?",
+          "prompt_es": "Que rio atraviesa Lieja?",
+          "options_i18n": {
+            "nl": [
+              "de Maas",
+              "de Schelde",
+              "de Samber",
+              "de Semois"
+            ],
+            "en": [
+              "the Meuse",
+              "the Scheldt",
+              "the Sambre",
+              "the Semois"
+            ],
+            "es": [
+              "el Mosa",
+              "el Escalda",
+              "el Sambre",
+              "el Semois"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "true_false",
           "prompt": "La Belgique a une façade sur la mer du Nord.",
           "answer": true,
-          "correction": "La Belgique a 67 km de côte sur la mer du Nord."
+          "correction": "La Belgique a 67 km de côte sur la mer du Nord.",
+          "prompt_nl": "Belgie heeft een kustlijn aan de Noordzee.",
+          "prompt_en": "Belgium has a coastline on the North Sea.",
+          "prompt_es": "Belgica tiene costa en el Mar del Norte."
         },
         {
           "id": "q12",
@@ -307,7 +756,30 @@
             "l'anglais"
           ],
           "answer": "le néerlandais",
-          "correction": "En Flandre on parle néerlandais."
+          "correction": "En Flandre on parle néerlandais.",
+          "prompt_nl": "Welke taal wordt gesproken in Vlaanderen?",
+          "prompt_en": "What language is spoken in Flanders?",
+          "prompt_es": "Que idioma se habla en Flandes?",
+          "options_i18n": {
+            "nl": [
+              "Nederlands",
+              "Frans",
+              "Duits",
+              "Engels"
+            ],
+            "en": [
+              "Dutch",
+              "French",
+              "German",
+              "English"
+            ],
+            "es": [
+              "neerlandes",
+              "frances",
+              "aleman",
+              "ingles"
+            ]
+          }
         },
         {
           "id": "q14",
@@ -320,7 +792,30 @@
             "la Camargue"
           ],
           "answer": "l'Ardenne",
-          "correction": "L'Ardenne est la grande forêt belge."
+          "correction": "L'Ardenne est la grande forêt belge.",
+          "prompt_nl": "Welk Belgisch woud is heel bekend?",
+          "prompt_en": "Which Belgian forest is very well known?",
+          "prompt_es": "Que bosque belga es muy conocido?",
+          "options_i18n": {
+            "nl": [
+              "de Ardennen",
+              "het Zwarte Woud",
+              "de Vogezen",
+              "de Camargue"
+            ],
+            "en": [
+              "the Ardennes",
+              "the Black Forest",
+              "the Vosges",
+              "the Camargue"
+            ],
+            "es": [
+              "las Ardenas",
+              "la Selva Negra",
+              "los Vosgos",
+              "la Camarga"
+            ]
+          }
         },
         {
           "id": "q16",
@@ -333,7 +828,30 @@
             "Ardenne"
           ],
           "answer": "Wallonie",
-          "correction": "Liège est en Wallonie."
+          "correction": "Liège est en Wallonie.",
+          "prompt_nl": "In welke regio ligt Luik?",
+          "prompt_en": "In which region is Liege located?",
+          "prompt_es": "En que region se encuentra Lieja?",
+          "options_i18n": {
+            "nl": [
+              "Wallonie",
+              "Vlaanderen",
+              "Brussel",
+              "Ardennen"
+            ],
+            "en": [
+              "Wallonia",
+              "Flanders",
+              "Brussels",
+              "Ardennes"
+            ],
+            "es": [
+              "Valonia",
+              "Flandes",
+              "Bruselas",
+              "Ardenas"
+            ]
+          }
         },
         {
           "id": "q18",
@@ -346,7 +864,30 @@
             "Liège"
           ],
           "answer": "Bruges",
-          "correction": "Bruges est surnommée la Venise du Nord."
+          "correction": "Bruges est surnommée la Venise du Nord.",
+          "prompt_nl": "Welke Belgische stad wordt het Venetie van het Noorden genoemd?",
+          "prompt_en": "Which Belgian city is nicknamed the Venice of the North?",
+          "prompt_es": "Que ciudad belga es conocida como la Venecia del Norte?",
+          "options_i18n": {
+            "nl": [
+              "Brugge",
+              "Gent",
+              "Antwerpen",
+              "Luik"
+            ],
+            "en": [
+              "Bruges",
+              "Ghent",
+              "Antwerp",
+              "Liege"
+            ],
+            "es": [
+              "Brujas",
+              "Gante",
+              "Amberes",
+              "Lieja"
+            ]
+          }
         },
         {
           "id": "q20",
@@ -359,7 +900,30 @@
             "l'espagnol"
           ],
           "answer": "le français",
-          "correction": "En Wallonie on parle français."
+          "correction": "En Wallonie on parle français.",
+          "prompt_nl": "Welke taal wordt gesproken in Wallonie?",
+          "prompt_en": "What language is spoken in Wallonia?",
+          "prompt_es": "Que idioma se habla en Valonia?",
+          "options_i18n": {
+            "nl": [
+              "Frans",
+              "Nederlands",
+              "Duits",
+              "Spaans"
+            ],
+            "en": [
+              "French",
+              "Dutch",
+              "German",
+              "Spanish"
+            ],
+            "es": [
+              "frances",
+              "neerlandes",
+              "aleman",
+              "espanol"
+            ]
+          }
         }
       ]
     }
