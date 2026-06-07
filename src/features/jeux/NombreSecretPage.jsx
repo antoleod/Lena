@@ -151,10 +151,10 @@ export default function NombreSecretPage() {
   // ── Setup ──────────────────────────────────────────────────────────────────
   if (phase === 'setup') {
     return (
-      <div className="ns-page">
+      <div className="ns-page" style={{ background: 'radial-gradient(ellipse at center, #0d0d2b 0%, #000510 100%)' }}>
         <Link to="/jeux" className="exam-back-btn">←</Link>
         <h1 style={{ fontSize: '1.4rem', fontWeight: 900, textAlign: 'center', margin: '16px 0 4px' }}>
-          Nombre Secret
+          🛸 Signal Cosmique
         </h1>
         <p style={{ textAlign: 'center', opacity: .7, fontSize: '.9rem', marginBottom: 8 }}>
           Devine le nombre en quelques essais
@@ -211,7 +211,7 @@ export default function NombreSecretPage() {
     const stars = calcStars(wins, cfg.totalRounds);
     const starStr = '★'.repeat(stars) + '☆'.repeat(3 - stars);
     return (
-      <div className="ns-page">
+      <div className="ns-page" style={{ background: 'radial-gradient(ellipse at center, #0d0d2b 0%, #000510 100%)' }}>
         <h2 className="ns-result-title">
           {stars === 3 ? '🎉 Genial !' : stars === 2 ? '👍 Bien joue !' : '🔢 Continue !'}
         </h2>
@@ -241,11 +241,11 @@ export default function NombreSecretPage() {
   const isFuzzy = cfg.fuzzy;
 
   return (
-    <div className="ns-page">
+    <div className="ns-page" style={{ background: 'radial-gradient(ellipse at center, #0d0d2b 0%, #000510 100%)' }}>
       <Link to="/jeux" className="exam-back-btn">←</Link>
-      <div className="ns-hud">
-        <span className="ns-progress">Manche {roundNum} / {cfg.totalRounds}</span>
-        <span className="ns-score">🏆 {wins}  N{levelNum}</span>
+      <div className="ns-hud" style={{ fontFamily: 'monospace', color: '#06b6d4' }}>
+        <span className="ns-progress" style={{ color: '#06b6d4' }}>TENTATIVES: {attempts.length}/{cfg.maxAttempts} | MANCHE: {roundNum}/{cfg.totalRounds}</span>
+        <span className="ns-score" style={{ color: '#06b6d4', background: 'rgba(6,182,212,.12)', borderRadius: 20, padding: '3px 12px' }}>SCORE: {wins}</span>
       </div>
 
       <div className="ns-info-card">
@@ -310,6 +310,7 @@ export default function NombreSecretPage() {
             : `❌ C'etait ${secret.join('')}`}
           <button
             className="ns-cta ns-cta--next"
+            style={{ background: 'linear-gradient(135deg, #0891b2, #06b6d4)', boxShadow: '0 4px 20px rgba(6,182,212,.4)' }}
             onPointerDown={e => { e.preventDefault(); nextRound(roundResult === 'win' ? wins + 1 : wins); }}
           >
             {roundNum >= cfg.totalRounds ? 'Voir resultats' : 'Manche suivante →'}
@@ -321,6 +322,7 @@ export default function NombreSecretPage() {
             <button
               key={key}
               className={`ns-key${key === 'OK' ? ' ns-key--ok' : key === '←' ? ' ns-key--back' : ''}`}
+              style={key === 'OK' ? { background: 'linear-gradient(135deg, #0891b2, #06b6d4)', fontFamily: 'monospace', border: '1.5px solid #06b6d4' } : { fontFamily: 'monospace', background: 'rgba(6,182,212,.08)', border: '1.5px solid rgba(6,182,212,.25)', color: '#06b6d4' }}
               onPointerDown={e => {
                 e.preventDefault();
                 if (key === '←') handleBackspace();

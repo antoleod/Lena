@@ -123,7 +123,7 @@ function buildRound(levelIdx) {
 }
 
 export default function QuizCulturePage() {
-  const { progress, saveSession, resetTimer, elapsedSecs } = useGameSession('quiz-culture');
+  const { progress, saveSession, resetTimer, elapsedSecs, logError } = useGameSession('quiz-culture');
 
   const [phase, setPhase]         = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(Math.min(progress.unlockedLevel, 5));
@@ -161,6 +161,11 @@ export default function QuizCulturePage() {
     } else {
       setShakeIdx(ci);
       setTimeout(() => setShakeIdx(null), 500);
+      logError({
+        label: q.q,
+        correct: q.a,
+        given: choice,
+      });
     }
     setTimeout(() => {
       setPicked(null);

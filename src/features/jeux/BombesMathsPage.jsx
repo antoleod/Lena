@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useGameSession } from '../../shared/hooks/useGameSession.js';
+import { GameFeedback, useGameFeedback } from './GameFeedback.jsx';
 import './jeux.css';
 
 const LEVEL_CONFIG = [
@@ -91,7 +92,8 @@ function formatTime(secs) {
 }
 
 export default function BombesMathsPage() {
-  const { progress, saveSession, resetTimer } = useGameSession('bombes-maths');
+  const { progress, saveSession, resetTimer, logError } = useGameSession('bombes-maths');
+  const { feedbackRef, triggerCorrect, triggerWrong, triggerScore } = useGameFeedback();
 
   const [phase, setPhase] = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(1);
@@ -143,6 +145,16 @@ export default function BombesMathsPage() {
             setExplosions(e => e + 1);
             setBombState('explode');
             setFeedback('bad');
+            setQuestion(q => {
+              if (q) {
+                logError({
+                  label: q.text,
+                  correct: String(q.answer),
+                  given: 'timeout',
+                });
+              }
+              return q;
+            });
             scheduleNextRound();
           }
           return 0;
@@ -190,9 +202,18 @@ export default function BombesMathsPage() {
     const correct = parseInt(input, 10) === question.answer;
     setFeedback(correct ? 'ok' : 'bad');
     setBombState(correct ? 'defused' : 'explode');
-    if (!correct) {
+    if (correct) {
+      triggerCorrect();
+      triggerScore('+10');
+    } else {
       explosionsRef.current += 1;
       setExplosions(e => e + 1);
+      triggerWrong();
+      logError({
+        label: question.text,
+        correct: String(question.answer),
+        given: input,
+      });
     }
     scheduleNextRound();
   }
@@ -265,20 +286,30 @@ export default function BombesMathsPage() {
   if (phase === 'results') {
     const expl = explosions;
     const stars = expl === 0 ? 3 : expl <= 2 ? 2 : 1;
-    const msg = stars === 3 ? '🎉 Héros du démineur !' : stars === 2 ? '👍 Bien joué !' : '📚 Entraîne-toi encore !';
+    const emoji = stars === 3 ? '🏆' : stars === 2 ? '👍' : '💣';
+    const title = stars === 3 ? 'Héros du démineur !' : stars === 2 ? 'Bien joué !' : 'Entraîne-toi encore !';
     return (
       <div className="bm-page">
-        <h2 className="bm-result-title">{msg}</h2>
-        <div className="jeux-stars">{'★'.repeat(stars) + '☆'.repeat(3 - stars)}</div>
-        <div className="jeux-result-stat"><span>Explosions</span><span>{expl} / {cfg.rounds}</span></div>
-        {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
-        {sessionResult?.newUnlocked && (
-          <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>
-        )}
-        <div className="bm-result-btns">
-          <button className="bm-cta" onPointerDown={e => { e.preventDefault(); startGame(); }}>Rejouer</button>
-          <button className="bm-cta bm-cta--soft" onPointerDown={() => setPhase('setup')}>Niveaux</button>
-          <Link to="/jeux" className="bm-cta bm-cta--soft">← Jeux</Link>
+        <GameFeedback ref={feedbackRef} />
+        <div className="game-results">
+          <div className="game-results__emoji">{emoji}</div>
+          <div className="game-results__title">{title}</div>
+          <div className="game-results__stars">{'★'.repeat(stars)}{'☆'.repeat(3 - stars)}</div>
+          {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
+          {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
+          <div className="game-results__stats">
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{expl}</span>
+              <span className="game-results__stat-lbl">Explosions</span>
+            </div>
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{cfg.rounds - expl}</span>
+              <span className="game-results__stat-lbl">Désamorcées</span>
+            </div>
+          </div>
+          <button className="game-results__btn" onPointerDown={e => { e.preventDefault(); startGame(); }}>Rejouer</button>
+          <button className="game-results__btn game-results__btn--soft" onPointerDown={() => setPhase('setup')}>Niveaux</button>
+          <Link to="/jeux" className="game-results__btn game-results__btn--soft" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>← Jeux</Link>
         </div>
       </div>
     );
@@ -286,15 +317,16 @@ export default function BombesMathsPage() {
 
   return (
     <div className="bm-page">
+      <GameFeedback ref={feedbackRef} />
       <Link to="/jeux" className="exam-back-btn">←</Link>
-      <div className="bm-hud">
-        <span className="bm-score">💥 {explosions}</span>
-        <span className="bm-round">Bombe {roundNum + 1} / {cfg.rounds}</span>
+      <div className="bm-hud game-hud">
+        <span className="bm-score game-hud__score">💥 {explosions}</span>
+        <span className="bm-round game-hud__round">Bombe {roundNum + 1} / {cfg.rounds}</span>
       </div>
 
-      <div className="bm-timer-bar">
+      <div className="bm-timer-bar game-timer-bar">
         <div
-          className={`bm-timer-fill${timeLeft <= 2 ? ' bm-timer-fill--urgent' : ''}`}
+          className={`bm-timer-fill game-timer-fill${timeLeft <= 2 ? ' bm-timer-fill--urgent game-timer-fill--urgent' : ''}`}
           style={{ width: `${timerPct}%` }}
         />
       </div>
@@ -317,7 +349,9 @@ export default function BombesMathsPage() {
         </div>
       </div>
 
-      <div className="bm-question">{question?.text} = ?</div>
+      <div className="bm-question game-question-card">
+        <div className="game-question-text">{question?.text} = ?</div>
+      </div>
 
       <div className="bm-input-display">
         {input || <span className="bm-input-placeholder">_</span>}
@@ -335,7 +369,7 @@ export default function BombesMathsPage() {
         ))}
         <button className="bm-key bm-key--del" onPointerDown={e => { e.preventDefault(); handleDelete(); }}>⌫</button>
         <button className="bm-key" onPointerDown={e => { e.preventDefault(); handleDigit('0'); }}>0</button>
-        <button className="bm-key bm-key--ok" onPointerDown={e => { e.preventDefault(); handleConfirm(); }}>✓</button>
+        <button className="bm-key bm-key--ok game-btn" style={{ '--btn-color': '#22c55e' }} onPointerDown={e => { e.preventDefault(); handleConfirm(); }}>✓</button>
       </div>
     </div>
   );

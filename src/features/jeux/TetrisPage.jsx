@@ -387,10 +387,10 @@ export default function TetrisPage() {
           </div>
         </div>
         <div className="tet-controls">
-          <button className="tet-btn" onPointerDown={() => move(-1)} aria-label="Gauche">←</button>
-          <button className="tet-btn" onPointerDown={rotate} aria-label="Pivoter">↻</button>
-          <button className="tet-btn" onPointerDown={() => move(1)} aria-label="Droite">→</button>
-          <button className="tet-btn" onPointerDown={hardDrop} aria-label="Tomber">↓</button>
+          <button className="tet-ctrl-btn" onPointerDown={e => { e.preventDefault(); move(-1); }} aria-label="Gauche">←</button>
+          <button className="tet-ctrl-btn" onPointerDown={e => { e.preventDefault(); rotate(); }} aria-label="Pivoter">↻</button>
+          <button className="tet-ctrl-btn" onPointerDown={e => { e.preventDefault(); hardDrop(); }} aria-label="Tomber">↓</button>
+          <button className="tet-ctrl-btn" onPointerDown={e => { e.preventDefault(); move(1); }} aria-label="Droite">→</button>
         </div>
       </div>
     </div>

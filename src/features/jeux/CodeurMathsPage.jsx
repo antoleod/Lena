@@ -263,7 +263,7 @@ export default function CodeurMathsPage() {
   // ── Setup ──────────────────────────────────────────────────────────────────
   if (phase === 'setup') {
     return (
-      <div className="cm2-page">
+      <div className="cm2-page" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #0d1117 60%, #001a0e 100%)' }}>
         <Link to="/jeux" className="exam-back-btn">←</Link>
         <h1 style={{ fontSize: '1.4rem', fontWeight: 900, textAlign: 'center', margin: '16px 0 4px' }}>
           Codeur de Maths
@@ -309,7 +309,7 @@ export default function CodeurMathsPage() {
 
         <button
           className="cm2-cta"
-          style={{ marginTop: 16 }}
+          style={{ marginTop: 16, background: 'linear-gradient(135deg, #00cc66, #00ff88)', color: '#000', fontWeight: 900 }}
           onPointerDown={e => { e.preventDefault(); startGame(); }}
         >
           Jouer !
@@ -323,7 +323,7 @@ export default function CodeurMathsPage() {
     const stars = calcStars(score, rounds.length);
     const starStr = '★'.repeat(stars) + '☆'.repeat(3 - stars);
     return (
-      <div className="cm2-page">
+      <div className="cm2-page" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #0d1117 60%, #001a0e 100%)' }}>
         <h2 className="cm2-result-title">
           {stars === 3 ? '🎉 Genie des maths !' : stars === 2 ? '👍 Bien joue !' : '🔢 Continue !'}
         </h2>
@@ -353,19 +353,21 @@ export default function CodeurMathsPage() {
   const round = rounds[idx];
 
   return (
-    <div className="cm2-page">
+    <div className="cm2-page" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #0d1117 60%, #001a0e 100%)' }}>
       <Link to="/jeux" className="exam-back-btn">←</Link>
-      <div className="cm2-hud">
-        <span className="cm2-progress">Defi {idx + 1} / {rounds.length}</span>
-        <span className="cm2-score">⭐ {score}  N{levelNum}</span>
+      <div className="cm2-hud" style={{ fontFamily: 'monospace', color: '#00ff88' }}>
+        <span className="cm2-progress" style={{ color: 'rgba(0,255,136,.7)' }}>[SCORE: {score}] [LVL: {levelNum}]</span>
+        <span style={{ color: 'rgba(0,255,136,.4)', fontSize: '.8rem' }}>Defi {idx + 1}/{rounds.length}</span>
       </div>
-      <div className="cm2-phase-label">{round.label}</div>
+      <div className="cm2-phase-label" style={{ color: 'rgba(0,255,136,.4)', fontFamily: 'monospace' }}>
+        // DECODING SECTOR_{levelNum} — {round.label}
+      </div>
 
-      <div className="cm2-equation-card">
+      <div className="cm2-equation-card" style={{ background: 'rgba(0,200,80,.06)', border: '1px solid rgba(0,200,80,.3)', borderRadius: 12, padding: 16, fontFamily: 'monospace' }}>
         {round.equations.map((eq, i) => (
-          <div key={i} className="cm2-equation">{eq}</div>
+          <div key={i} className="cm2-equation" style={{ color: '#00ff88', fontSize: '1.8rem', letterSpacing: 4, textShadow: '0 0 10px rgba(0,255,136,.5)' }}>{eq}</div>
         ))}
-        <div className="cm2-question">{round.question}</div>
+        <div className="cm2-question" style={{ color: '#00ff88', textShadow: '0 0 10px rgba(0,255,136,.5)' }}>{round.question}</div>
       </div>
 
       <div className="cm2-choices">
@@ -376,10 +378,13 @@ export default function CodeurMathsPage() {
             else if (picked === val) cls += ' cm2-choice--wrong';
           }
           if (shakeVal === val) cls += ' cm2-choice--shake';
+          const isCorrectShown = picked !== null && val === round.answer;
+          const isWrongShown = picked !== null && picked === val && val !== round.answer;
           return (
             <button
               key={ci}
               className={cls}
+              style={!isCorrectShown && !isWrongShown ? { background: 'rgba(0,0,0,.6)', border: '1.5px solid #00cc66', color: '#00ff88', fontFamily: 'monospace', borderRadius: 8, padding: 12, fontSize: '1.2rem' } : undefined}
               onPointerDown={e => { e.preventDefault(); handleChoice(val); }}
               disabled={picked !== null}
             >

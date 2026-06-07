@@ -90,7 +90,7 @@ export default function SauteMoutonPage() {
 
   if (phase === 'setup') {
     return (
-      <div className="mp-page">
+      <div className="mp-page" style={{ background: 'linear-gradient(180deg, #0ea5e9 0%, #38bdf8 35%, #86efac 65%, #4ade80 100%)' }}>
         <Link to="/jeux" className="exam-back-btn">←</Link>
         <div className="mp-setup-hero">
           <div className="mp-setup-icon">🐑</div>
@@ -127,7 +127,7 @@ export default function SauteMoutonPage() {
     const starStr = '★'.repeat(stars) + '☆'.repeat(3 - stars);
     const msg = stars === 3 ? '🎉 Champion !' : stars === 2 ? '👍 Bien joué !' : '🐑 Encore !';
     return (
-      <div className="mp-page">
+      <div className="mp-page" style={{ background: 'linear-gradient(180deg, #0ea5e9 0%, #38bdf8 35%, #86efac 65%, #4ade80 100%)' }}>
         <h2 className="mp-result-title">{msg}</h2>
         <div className="jeux-stars">{starStr}</div>
         <div className="jeux-result-stat"><span>Score</span><span>{score} / {TOTAL}</span></div>
@@ -146,7 +146,7 @@ export default function SauteMoutonPage() {
 
   // play phase
   return (
-    <div className="mp-page">
+    <div className="mp-page" style={{ background: 'linear-gradient(180deg, #0ea5e9 0%, #38bdf8 35%, #86efac 65%, #4ade80 100%)' }}>
       <Link to="/jeux" className="exam-back-btn">←</Link>
       <div className="mp-hud">
         <span className="mp-progress">Saut {idx + 1} / {TOTAL}</span>
@@ -159,7 +159,7 @@ export default function SauteMoutonPage() {
         <div className="mp-sheep-row">
           {q.seq.map((n, i) => (
             <div key={i} className={`mp-stone-col${i === q.blankPos ? ' mp-stone-col--blank' : ''}`}>
-              <div className="mp-stone-emoji">
+              <div className="mp-stone-emoji" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,.4))' }}>
                 {i === q.blankPos ? '🐑' : ''}
               </div>
               <div className={`mp-stone${i === q.blankPos ? ' mp-stone--blank' : ''}`}>

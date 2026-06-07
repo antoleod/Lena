@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useGameSession } from '../../shared/hooks/useGameSession.js';
+import { GameFeedback, useGameFeedback } from './GameFeedback.jsx';
 import './jeux.css';
 
 // ─── Verb data ────────────────────────────────────────────────────────────────
@@ -171,8 +172,11 @@ function formatTime(secs) {
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
+const CV_CHOICE_COLORS = ['#6366f1', '#ec4899', '#06b6d4', '#f97316'];
+
 export default function ConjugueVitePage() {
-  const { progress, saveSession, resetTimer } = useGameSession('conjugue');
+  const { progress, saveSession, resetTimer, logError } = useGameSession('conjugue');
+  const { feedbackRef, triggerCorrect, triggerWrong, triggerScore, triggerCombo } = useGameFeedback();
 
   const [phase, setPhase] = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(1);
@@ -230,6 +234,14 @@ export default function ConjugueVitePage() {
           if (!lockRef.current) {
             lockRef.current = true;
             setStreak(0);
+            const tq = questions[qIdx];
+            if (tq) {
+              logError({
+                label: `${tq.pronoun} ___ (${VERBS[tq.verbKey].label} — ${TENSE_LABELS[tq.tense]})`,
+                correct: tq.correct,
+                given: 'timeout',
+              });
+            }
             setSelected({ choice: null, correct: questions[qIdx]?.correct });
             setTimeout(() => advanceQuestion(qIdx, c), 1000);
           }
@@ -252,9 +264,21 @@ export default function ConjugueVitePage() {
     if (isCorrect) {
       scoreRef.current += 1;
       setScore(s => s + 1);
-      setStreak(s => s + 1);
+      setStreak(s => {
+        const newStreak = s + 1;
+        triggerCorrect();
+        triggerScore('+10');
+        if (newStreak >= 3) triggerCombo(newStreak);
+        return newStreak;
+      });
     } else {
       setStreak(0);
+      triggerWrong();
+      logError({
+        label: `${q.pronoun} ___ (${VERBS[q.verbKey].label} — ${TENSE_LABELS[q.tense]})`,
+        correct: q.correct,
+        given: choice,
+      });
     }
     setTimeout(() => advanceQuestion(qIdx, c), 900);
   };
@@ -313,21 +337,26 @@ export default function ConjugueVitePage() {
 
   if (phase === 'results') {
     const stars = starsFor(score, cfg.questions);
+    const emoji = stars === 3 ? '🏆' : stars === 2 ? '🎉' : '📚';
+    const title = stars === 3 ? 'Parfait !' : stars === 2 ? 'Bien joué !' : 'Continue !';
     return (
       <div className="cv-page">
-        <div className="cv-result-title">Terminé !</div>
-        <div className="jeux-stars">{'★'.repeat(stars) + '☆'.repeat(3 - stars)}</div>
-        <div className="jeux-result-stat"><span>Bonnes réponses</span><span>{score}/{cfg.questions}</span></div>
-        {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
-        {sessionResult?.newUnlocked && (
-          <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>
-        )}
-        <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <button className="cv-cta" onPointerDown={startGame}>Rejouer</button>
-          <button className="cv-cta cv-cta--soft" onPointerDown={() => setPhase('setup')}>Niveaux</button>
-          <Link to="/jeux" style={{ display: 'block', textAlign: 'center', color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginTop: 8 }}>
-            Retour aux jeux
-          </Link>
+        <GameFeedback ref={feedbackRef} />
+        <div className="game-results">
+          <div className="game-results__emoji">{emoji}</div>
+          <div className="game-results__title">{title}</div>
+          <div className="game-results__stars">{'★'.repeat(stars)}{'☆'.repeat(3 - stars)}</div>
+          {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
+          {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
+          <div className="game-results__stats">
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{score}/{cfg.questions}</span>
+              <span className="game-results__stat-lbl">Bonnes réponses</span>
+            </div>
+          </div>
+          <button className="game-results__btn" onPointerDown={startGame}>Rejouer</button>
+          <button className="game-results__btn game-results__btn--soft" onPointerDown={() => setPhase('setup')}>Niveaux</button>
+          <Link to="/jeux" className="game-results__btn game-results__btn--soft" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>← Jeux</Link>
         </div>
       </div>
     );
@@ -340,34 +369,40 @@ export default function ConjugueVitePage() {
 
   return (
     <div className="cv-page">
+      <GameFeedback ref={feedbackRef} />
       <div className="cv-header">
         <Link to="/jeux" className="cv-back">← Jeux</Link>
         <div className="cv-title">Conjugue Vite</div>
       </div>
-      <div className="cv-hud">
-        <div className="cv-progress">{qIdx + 1}/{cfg.questions}</div>
-        <div className="cv-score">{score} pts</div>
-        {streak >= 3 && <div className="cv-streak">🔥 x{streak}</div>}
+      <div className="cv-hud game-hud">
+        <div className="cv-progress game-hud__round">{qIdx + 1}/{cfg.questions}</div>
+        <div className="cv-score game-hud__score">{score} pts</div>
+        {streak >= 3 && <div className="cv-streak game-hud__streak">🔥 x{streak}</div>}
       </div>
-      <div className="cv-timer-bar">
-        <div className={`cv-timer-fill${urgent ? ' cv-timer-fill--urgent' : ''}`} style={{ width: `${timerPct}%` }} />
+      <div className="cv-timer-bar game-timer-bar">
+        <div className={`cv-timer-fill game-timer-fill${urgent ? ' cv-timer-fill--urgent game-timer-fill--urgent' : ''}`} style={{ width: `${timerPct}%` }} />
       </div>
-      <div className="cv-question-card">
-        <div className="cv-tense-label">{TENSE_LABELS[q.tense]}</div>
-        <div className="cv-pronoun">{q.pronoun.charAt(0).toUpperCase() + q.pronoun.slice(1)}</div>
+      <div className="cv-question-card game-question-card">
+        <div className="cv-tense-label game-question-sub">{TENSE_LABELS[q.tense]}</div>
+        <div className="cv-pronoun game-question-text">{q.pronoun.charAt(0).toUpperCase() + q.pronoun.slice(1)}</div>
         <div className="cv-verb-hint">
           <span className="cv-blank">___</span> ({VERBS[q.verbKey].label})
         </div>
       </div>
       <div className="cv-choices">
         {q.choices.map((c, i) => {
-          let cls = 'cv-choice';
+          let cls = `cv-choice game-btn`;
           if (selected) {
-            if (c === selected.correct) cls += ' cv-choice--correct';
-            else if (c === selected.choice) cls += ' cv-choice--wrong';
+            if (c === selected.correct) cls += ' cv-choice--correct game-btn--correct';
+            else if (c === selected.choice) cls += ' cv-choice--wrong game-btn--wrong';
           }
           return (
-            <button key={i} className={cls} onPointerDown={() => handleChoice(c)}>
+            <button
+              key={i}
+              className={cls}
+              style={{ '--btn-color': CV_CHOICE_COLORS[i % CV_CHOICE_COLORS.length] }}
+              onPointerDown={() => handleChoice(c)}
+            >
               {c}
             </button>
           );

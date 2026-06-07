@@ -79,6 +79,7 @@ import CodeurMathsPage from '../../features/jeux/CodeurMathsPage.jsx';
 import GrammiPage from '../../features/grammi/GrammiPage.jsx';
 import MetriPage from '../../features/metri/MetriPage.jsx';
 import LexiPage from '../../features/lexi/LexiPage.jsx';
+import StatsPage from '../../features/stats/StatsPage.jsx';
 import VerbPage from '../../features/verbes/VerbPage.jsx';
 import DicoPage from '../../features/dico/DicoPage.jsx';
 
@@ -230,6 +231,7 @@ export default function AppRouter() {
         <Route path="/lexi" element={<LexiPage />} />
         <Route path="/verbes" element={<VerbPage />} />
         <Route path="/dico" element={<DicoPage />} />
+        <Route path="/stats" element={<StatsPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

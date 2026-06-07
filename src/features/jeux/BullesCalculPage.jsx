@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useGameSession } from '../../shared/hooks/useGameSession.js';
 import { formatDuration } from '../../services/storage/gameProgressStore.js';
+import { GameFeedback, useGameFeedback } from './GameFeedback.jsx';
 import './jeux.css';
 
 const LEVELS = [
@@ -77,6 +78,7 @@ const ROUNDS = 10;
 
 export default function BullesCalculPage() {
   const { progress, saveSession, resetTimer, elapsedSecs } = useGameSession('bulles-calcul');
+  const { feedbackRef, triggerCorrect, triggerWrong, triggerScore, triggerCombo } = useGameFeedback();
 
   const [phase, setPhase]       = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(Math.min(progress.unlockedLevel, 5));
@@ -143,9 +145,13 @@ export default function BullesCalculPage() {
       newStreak = streak + 1;
       setScore(newScore);
       setStreak(newStreak);
+      triggerCorrect();
+      triggerScore(`+${bonus * 10}`);
+      if (newStreak >= 3) triggerCombo(newStreak);
     } else {
       newStreak = 0;
       setStreak(0);
+      triggerWrong();
     }
     const nextRound = round + 1;
     setTimeout(() => {
@@ -205,20 +211,37 @@ export default function BullesCalculPage() {
 
   if (phase === 'results') {
     const stars = score >= ROUNDS * 1.8 ? 3 : score >= ROUNDS ? 2 : 1;
+    const emoji = stars === 3 ? '🏆' : stars === 2 ? '🎉' : '📚';
+    const title = stars === 3 ? 'Super !' : stars === 2 ? 'Bien joué !' : 'Continue !';
     return (
       <div className="bc-page">
-        <h2 className="bc-result-title">{stars === 3 ? '🎉 Super !' : stars === 2 ? '👍 Bien !' : '📚 Continue !'}</h2>
-        <div className="jeux-stars">{'★'.repeat(stars) + '☆'.repeat(3 - stars)}</div>
-        {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
-        {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
-        {sessionResult && <div className="jeux-session-time">⏱ {sessionResult.timeSecs}s</div>}
-        <div className="jeux-result-stat"><span>Score</span><span>{score} pts</span></div>
-        <div className="jeux-result-stat"><span>Questions</span><span>{ROUNDS}</span></div>
-        <div style={{ marginTop: 20, display: 'flex', gap: 12 }}>
-          <button className="bc-cta" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); startGame(); }}>Rejouer</button>
-          <button className="bc-cta bc-cta--soft" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); setPhase('setup'); }}>Niveaux</button>
+        <GameFeedback ref={feedbackRef} />
+        <div className="game-results">
+          <div className="game-results__emoji">{emoji}</div>
+          <div className="game-results__title">{title}</div>
+          <div className="game-results__stars">{'★'.repeat(stars)}{'☆'.repeat(3 - stars)}</div>
+          {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
+          {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
+          <div className="game-results__stats">
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{score}</span>
+              <span className="game-results__stat-lbl">Score</span>
+            </div>
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{ROUNDS}</span>
+              <span className="game-results__stat-lbl">Questions</span>
+            </div>
+            {sessionResult && (
+              <div className="game-results__stat">
+                <span className="game-results__stat-val">{sessionResult.timeSecs}s</span>
+                <span className="game-results__stat-lbl">Temps</span>
+              </div>
+            )}
+          </div>
+          <button className="game-results__btn" onPointerDown={e => { e.preventDefault(); startGame(); }}>Rejouer</button>
+          <button className="game-results__btn game-results__btn--soft" onPointerDown={e => { e.preventDefault(); setPhase('setup'); }}>Niveaux</button>
+          <Link to="/jeux" className="game-results__btn game-results__btn--soft" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>← Jeux</Link>
         </div>
-        <Link to="/jeux" className="bc-cta bc-cta--soft" style={{ display: 'block', textAlign: 'center', textDecoration: 'none', marginTop: 12 }}>← Jeux</Link>
       </div>
     );
   }
@@ -227,23 +250,29 @@ export default function BullesCalculPage() {
 
   return (
     <div className="bc-page">
+      <GameFeedback ref={feedbackRef} />
       <Link to="/jeux" className="exam-back-btn">←</Link>
-      <div className="bc-hud">
-        <span className="bc-score">⭐ {score}</span>
-        {streak >= 2 && <span className="bc-streak">🔥 ×{streak}</span>}
-        <span className="bc-round">{round + 1} / {ROUNDS}</span>
+      <div className="bc-hud game-hud">
+        <span className="bc-score game-hud__score">⭐ {score}</span>
+        {streak >= 2 && <span className="bc-streak game-hud__streak">🔥 ×{streak}</span>}
+        <span className="bc-round game-hud__round">{round + 1} / {ROUNDS}</span>
       </div>
-      <div className="bc-timer-bar">
-        <div className="bc-timer-fill" style={{ width: `${timerPct}%`, background: timerPct < 30 ? '#ef4444' : '#22c55e' }} />
+      <div className="bc-timer-bar game-timer-bar">
+        <div
+          className={`bc-timer-fill game-timer-fill${timerPct < 30 ? ' game-timer-fill--urgent' : ''}`}
+          style={{ width: `${timerPct}%` }}
+        />
       </div>
 
-      <div className="bc-question">{question?.text}</div>
+      <div className="bc-question game-question-card">
+        <div className="game-question-text">{question?.text}</div>
+      </div>
 
       <div className={`bc-bubbles${feedback === 'ok' ? ' bc-flash-ok' : feedback === 'bad' ? ' bc-flash-bad' : ''}`}>
         {question?.choices.map((choice, i) => (
           <button
             key={choice}
-            className="bc-bubble"
+            className="bc-bubble bc-bubble--gamefeel"
             style={{
               '--bc-color': BUBBLE_COLORS[i],
               left: BUBBLE_POSITIONS[i].left,

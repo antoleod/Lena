@@ -174,6 +174,24 @@ function buildRound(cfg) {
   return shuffle(cfg.pool).slice(0, cfg.roundSize);
 }
 
+function HangmanSVG({ errors }) {
+  return (
+    <svg viewBox="0 0 120 140" width="120" height="140" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round">
+      {/* Gallows — always visible */}
+      <line x1="10" y1="135" x2="110" y2="135" />
+      <line x1="30" y1="135" x2="30" y2="10" />
+      <line x1="30" y1="10" x2="80" y2="10" />
+      <line x1="80" y1="10" x2="80" y2="30" />
+      {errors >= 1 && <circle cx="80" cy="42" r="12" />}
+      {errors >= 2 && <line x1="80" y1="54" x2="80" y2="95" />}
+      {errors >= 3 && <line x1="80" y1="65" x2="55" y2="82" />}
+      {errors >= 4 && <line x1="80" y1="65" x2="105" y2="82" />}
+      {errors >= 5 && <line x1="80" y1="95" x2="55" y2="118" />}
+      {errors >= 6 && <line x1="80" y1="95" x2="105" y2="118" />}
+    </svg>
+  );
+}
+
 export default function PhraseMysteryPage() {
   const { progress, saveSession, resetTimer } = useGameSession('phrase-mystere');
 
@@ -185,6 +203,7 @@ export default function PhraseMysteryPage() {
   const [picked, setPicked]     = useState(null);
   const [shakeIdx, setShakeIdx] = useState(null);
   const [lastResult, setLastResult] = useState(null);
+  const [wrongCount, setWrongCount] = useState(0);
 
   const cfg = LEVEL_CONFIG[levelNum - 1];
 
@@ -195,6 +214,7 @@ export default function PhraseMysteryPage() {
     setScore(0);
     setPicked(null);
     setShakeIdx(null);
+    setWrongCount(0);
     setPhase('play');
   }
 
@@ -206,6 +226,7 @@ export default function PhraseMysteryPage() {
       setScore(s => s + 1);
     } else {
       setShakeIdx(ci);
+      setWrongCount(w => Math.min(w + 1, 6));
       setTimeout(() => setShakeIdx(null), 500);
     }
     setTimeout(() => {
@@ -320,11 +341,15 @@ export default function PhraseMysteryPage() {
   const parts = sentence.text.split('___');
 
   return (
-    <div className="pm-page">
+    <div className="pm-page" style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)' }}>
       <Link to="/jeux" className="exam-back-btn">←</Link>
       <div className="pm-hud">
         <span className="pm-progress">Question {idx + 1} / {round.length}</span>
         <span className="pm-score">⭐ {score}  N{levelNum}</span>
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
+        <HangmanSVG errors={wrongCount} />
       </div>
 
       <div className="pm-sentence-card">
@@ -348,6 +373,7 @@ export default function PhraseMysteryPage() {
             <button
               key={ci}
               className={cls}
+              style={{ minHeight: 44, padding: '10px 8px' }}
               onPointerDown={e => { e.preventDefault(); handleChoice(c, ci); }}
               disabled={picked !== null}
             >

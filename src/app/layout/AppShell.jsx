@@ -146,10 +146,10 @@ export default function AppShell() {
   const globalLevel = computeGlobalLevel(session.profile?.totalActivitiesCompleted || 0);
 
   const NAV_LABELS = {
-    fr: { learn: 'Apprendre', practise: 'Pratiquer', progress: 'Progres', settings: 'Reglages' },
-    nl: { learn: 'Leren', practise: 'Oefenen', progress: 'Voortgang', settings: 'Instellingen' },
-    en: { learn: 'Learn', practise: 'Practise', progress: 'Progress', settings: 'Settings' },
-    es: { learn: 'Aprender', practise: 'Practicar', progress: 'Progreso', settings: 'Ajustes' },
+    fr: { learn: 'Apprendre', practise: 'Pratiquer', progress: 'Progres', settings: 'Reglages', stats: 'Stats' },
+    nl: { learn: 'Leren', practise: 'Oefenen', progress: 'Voortgang', settings: 'Instellingen', stats: 'Stats' },
+    en: { learn: 'Learn', practise: 'Practise', progress: 'Progress', settings: 'Settings', stats: 'Stats' },
+    es: { learn: 'Aprender', practise: 'Practicar', progress: 'Progreso', settings: 'Ajustes', stats: 'Stats' },
   };
   const nl = NAV_LABELS[locale] || NAV_LABELS.fr;
 
@@ -187,6 +187,13 @@ export default function AppShell() {
         icon: 'icon-settings',
         emoji: '⚙️',
         isActive: (path) => path === '/settings' || path.startsWith('/settings/'),
+      },
+      {
+        to: '/stats',
+        label: nl.stats || 'Stats',
+        icon: 'icon-star',
+        emoji: '📊',
+        isActive: (path) => path === '/stats' || path.startsWith('/stats/'),
       },
     ];
   }, [locale]); // nl is derived from locale, stable reference not needed

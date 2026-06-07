@@ -157,9 +157,9 @@ export default function PlusPetitPlusGrandPage() {
   // ── Setup ──────────────────────────────────────────────────────────────────
   if (phase === 'setup') {
     return (
-      <div className="pp-page">
+      <div className="pp-page" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #0f0a1e 60%)' }}>
         <Link to="/jeux" className="exam-back-btn">←</Link>
-        <h1 className="pp-title">Plus Petit ou Plus Grand ?</h1>
+        <h1 className="pp-title">⚡ Plus Vite!</h1>
         <p className="pp-subtitle">Tape les nombres du plus petit au plus grand</p>
 
         {progress.sessionsPlayed > 0 && (
@@ -213,7 +213,7 @@ export default function PlusPetitPlusGrandPage() {
     const stars = calcStars(score, cfg.totalRounds);
     const starStr = '★'.repeat(stars) + '☆'.repeat(3 - stars);
     return (
-      <div className="pp-page">
+      <div className="pp-page" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #0f0a1e 60%)' }}>
         <h2 className="pp-result-title">
           {stars === 3 ? '🎉 Parfait !' : stars === 2 ? '👍 Bien joue !' : '🔢 Continue !'}
         </h2>
@@ -240,14 +240,17 @@ export default function PlusPetitPlusGrandPage() {
   }
 
   // ── Play ───────────────────────────────────────────────────────────────────
+  const streak = tapped.length;
   return (
-    <div className="pp-page">
+    <div className="pp-page" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #0f0a1e 60%)' }}>
       <Link to="/jeux" className="exam-back-btn">←</Link>
       <div className="pp-hud">
-        <span className="pp-progress">Tour {roundNum} / {cfg.totalRounds}</span>
-        <span className="pp-score">⭐ {score}  N{levelNum}</span>
+        <span className="pp-progress" style={{ fontFamily: 'monospace' }}>Tour {roundNum} / {cfg.totalRounds}</span>
+        <span className="pp-score" style={{ fontFamily: 'monospace', color: '#fbbf24' }}>
+          {streak > 0 ? `🏎️ ×${streak}` : `⭐ ${score}`}
+        </span>
       </div>
-      <div className="pp-instruction">
+      <div className="pp-instruction" style={{ fontWeight: 700, color: '#fbbf24', fontSize: '1rem' }}>
         Tape du plus petit au plus grand ({cfg.cardCount} nombres)
       </div>
       <div className={`pp-cards${shaking ? ' pp-cards--shake' : ''}${flashing ? ' pp-cards--flash' : ''}`}>
@@ -258,9 +261,18 @@ export default function PlusPetitPlusGrandPage() {
             <button
               key={idx}
               className={`pp-card${isTapped ? ' pp-card--tapped' : ''}`}
+              style={{
+                minHeight: 120,
+                borderRadius: 20,
+                background: isTapped
+                  ? 'linear-gradient(135deg, #7c3aed, #a855f7)'
+                  : 'rgba(255,255,255,.09)',
+                border: isTapped ? '2px solid #a855f7' : '2px solid rgba(255,255,255,.2)',
+                boxShadow: isTapped ? '0 0 20px rgba(168,85,247,.5)' : undefined,
+              }}
               onPointerDown={e => { e.preventDefault(); handleTap(idx); }}
             >
-              <span className="pp-card-num">{displayVal(n)}</span>
+              <span className="pp-card-num" style={{ fontSize: '2rem', fontWeight: 900, color: isTapped ? '#fff' : '#fbbf24', textShadow: '0 0 15px rgba(251,191,36,.4)' }}>{displayVal(n)}</span>
               {isTapped && <span className="pp-card-badge">{tapPos + 1}</span>}
             </button>
           );

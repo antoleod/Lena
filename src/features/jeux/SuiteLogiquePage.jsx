@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useGameSession } from '../../shared/hooks/useGameSession.js';
 import { formatDuration } from '../../services/storage/gameProgressStore.js';
+import { GameFeedback, useGameFeedback } from './GameFeedback.jsx';
 import './jeux.css';
 
 // Patterns by level
@@ -84,8 +85,11 @@ function makeRound(levelIdx) {
   return { seq, answer, choices: shuffle([answer, ...[...wrongs]]), hint };
 }
 
+const CHOICE_COLORS = ['#6366f1', '#ec4899', '#06b6d4'];
+
 export default function SuiteLogiquePage() {
   const { progress, saveSession, resetTimer, elapsedSecs } = useGameSession('suite-logique');
+  const { feedbackRef, triggerCorrect, triggerWrong, triggerScore } = useGameFeedback();
 
   const [phase, setPhase]         = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(Math.min(progress.unlockedLevel, 5));
@@ -111,6 +115,10 @@ export default function SuiteLogiquePage() {
     if (correct) {
       newScore = score + (showHint ? 1 : 2);
       setScore(newScore);
+      triggerCorrect();
+      triggerScore(showHint ? '+1' : '+2');
+    } else {
+      triggerWrong();
     }
     setTimeout(() => {
       const next = roundNum + 1;
@@ -178,32 +186,51 @@ export default function SuiteLogiquePage() {
 
   if (phase === 'results') {
     const stars = score >= ROUNDS * 1.8 ? 3 : score >= ROUNDS * 1.2 ? 2 : 1;
+    const emoji = stars === 3 ? '🏆' : stars === 2 ? '🎉' : '📚';
+    const title = stars === 3 ? 'Génial !' : stars === 2 ? 'Bien !' : 'Continue !';
     return (
       <div className="sl-page">
-        <h2 className="sl-result-title">{stars === 3 ? '🎉 Génial !' : stars === 2 ? '👍 Bien !' : '📚 Continue !'}</h2>
-        <div className="jeux-stars">{'★'.repeat(stars) + '☆'.repeat(3 - stars)}</div>
-        {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
-        {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
-        {sessionResult && <div className="jeux-session-time">⏱ {sessionResult.timeSecs}s</div>}
-        <div className="jeux-result-stat"><span>Score</span><span>{score} pts</span></div>
-        <div style={{ marginTop: 20, display: 'flex', gap: 12 }}>
-          <button className="sl-cta" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); startGame(); }}>Rejouer</button>
-          <button className="sl-cta sl-cta--soft" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); setPhase('setup'); }}>Niveaux</button>
+        <GameFeedback ref={feedbackRef} />
+        <div className="game-results">
+          <div className="game-results__emoji">{emoji}</div>
+          <div className="game-results__title">{title}</div>
+          <div className="game-results__stars">{'★'.repeat(stars)}{'☆'.repeat(3 - stars)}</div>
+          {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
+          {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
+          <div className="game-results__stats">
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{score}</span>
+              <span className="game-results__stat-lbl">Score</span>
+            </div>
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{ROUNDS}</span>
+              <span className="game-results__stat-lbl">Suites</span>
+            </div>
+            {sessionResult && (
+              <div className="game-results__stat">
+                <span className="game-results__stat-val">{sessionResult.timeSecs}s</span>
+                <span className="game-results__stat-lbl">Temps</span>
+              </div>
+            )}
+          </div>
+          <button className="game-results__btn" onPointerDown={e => { e.preventDefault(); startGame(); }}>Rejouer</button>
+          <button className="game-results__btn game-results__btn--soft" onPointerDown={e => { e.preventDefault(); setPhase('setup'); }}>Niveaux</button>
+          <Link to="/jeux" className="game-results__btn game-results__btn--soft" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>← Jeux</Link>
         </div>
-        <Link to="/jeux" className="sl-cta sl-cta--soft" style={{ display: 'block', textAlign: 'center', textDecoration: 'none', marginTop: 12 }}>← Jeux</Link>
       </div>
     );
   }
 
   return (
     <div className={`sl-page${feedback === 'ok' ? ' sl-flash-ok' : feedback === 'bad' ? ' sl-flash-bad' : ''}`}>
+      <GameFeedback ref={feedbackRef} />
       <Link to="/jeux" className="exam-back-btn">←</Link>
-      <div className="sl-hud">
-        <span className="sl-score">⭐ {score}</span>
-        <span className="sl-round">{roundNum + 1} / {ROUNDS}</span>
+      <div className="sl-hud game-hud">
+        <span className="sl-score game-hud__score">⭐ {score}</span>
+        <span className="sl-round game-hud__round">{roundNum + 1} / {ROUNDS}</span>
       </div>
 
-      <div className="sl-sequence">
+      <div className="sl-sequence game-question-card">
         {round?.seq.map((item, i) => (
           <div key={i} className="sl-seq-item">{item}</div>
         ))}
@@ -221,7 +248,8 @@ export default function SuiteLogiquePage() {
         {round?.choices.map((choice, i) => (
           <button
             key={i}
-            className="sl-choice"
+            className="sl-choice game-btn"
+            style={{ '--btn-color': CHOICE_COLORS[i % CHOICE_COLORS.length] }}
             onPointerDown={e => { e.preventDefault(); handleAnswer(choice); }}
           >
             {choice}

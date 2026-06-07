@@ -11174,6 +11174,30 @@ input.exam-choice:hover { transform: none; }
     margin: 0;
   }
 
+  /* Stats page: reduce bottom padding (no bottom nav on tablet) */
+  .stats-page {
+    padding-bottom: 32px;
+  }
+
+  /* Stats page: 2-column game cards on tablet */
+  .stats-game-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Stats hero pills: more breathing room */
+  .stats-hero {
+    gap: 14px;
+  }
+
+  /* Insights: 2 columns on tablet */
+  .stats-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
   /* ── Home page ─────────────────────────────────────────────────────────── */
 
   /* Stats: 4 columns */

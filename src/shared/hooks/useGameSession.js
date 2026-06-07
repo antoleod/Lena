@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react';
-import { getGameProgress, saveGameSession } from '../../services/storage/gameProgressStore.js';
+import { useRef } from 'react';
+import { getGameProgress, saveGameSession, saveGameErrors } from '../../services/storage/gameProgressStore.js';
 
 /**
  * Hook for tracking a single game session.
@@ -23,10 +23,20 @@ export function useGameSession(gameId) {
     return Math.max(1, Math.round((Date.now() - startRef.current) / 1000));
   }
 
+  const errorsRef = useRef([]);
+
+  function logError(error) {
+    errorsRef.current.push(error);
+  }
+
   function saveSession({ score, level, stars }) {
     const timeSecs = elapsedSecs();
+    if (errorsRef.current.length > 0) {
+      saveGameErrors(gameId, errorsRef.current);
+      errorsRef.current = [];
+    }
     return saveGameSession(gameId, { score, level, stars, timeSecs });
   }
 
-  return { progress, saveSession, resetTimer, elapsedSecs };
+  return { progress, saveSession, resetTimer, elapsedSecs, logError };
 }

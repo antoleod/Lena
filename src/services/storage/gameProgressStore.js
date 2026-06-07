@@ -98,6 +98,39 @@ export function getAppTime() {
   }
 }
 
+// ── Per-game error log ────────────────────────────────────────────────────
+
+const ERRORS_KEY = 'lena:gameErrors';
+
+/**
+ * Save wrong answers for a game session.
+ * @param {string} gameId
+ * @param {Array<{label: string, correct: string|number, given: string|number}>} errors
+ */
+export function saveGameErrors(gameId, errors) {
+  if (!errors || errors.length === 0) return;
+  try {
+    const all = JSON.parse(localStorage.getItem(ERRORS_KEY) || '{}');
+    const prev = all[gameId] || [];
+    all[gameId] = [
+      ...errors.map(e => ({ ...e, date: new Date().toISOString() })),
+      ...prev,
+    ].slice(0, 100);
+    localStorage.setItem(ERRORS_KEY, JSON.stringify(all));
+  } catch {}
+}
+
+export function getGameErrors(gameId) {
+  try {
+    const all = JSON.parse(localStorage.getItem(ERRORS_KEY) || '{}');
+    return all[gameId] || [];
+  } catch { return []; }
+}
+
+export function getAllErrors() {
+  try { return JSON.parse(localStorage.getItem(ERRORS_KEY) || '{}'); } catch { return {}; }
+}
+
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 export function formatDuration(secs) {

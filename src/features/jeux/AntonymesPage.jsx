@@ -88,7 +88,7 @@ function formatTime(secs) {
 }
 
 export default function AntonymesPage() {
-  const { progress, saveSession, resetTimer } = useGameSession('antonymes');
+  const { progress, saveSession, resetTimer, logError } = useGameSession('antonymes');
 
   const [phase, setPhase] = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(1);
@@ -124,7 +124,15 @@ export default function AntonymesPage() {
     const correct = choice === round.correct;
     setChosenIdx(idx);
     setFeedback(correct ? 'ok' : 'bad');
-    if (correct) setScore(s => s + 1);
+    if (correct) {
+      setScore(s => s + 1);
+    } else {
+      logError({
+        label: `Contraire de "${round.word}"`,
+        correct: round.correct,
+        given: choice,
+      });
+    }
     setTimeout(() => {
       const next = roundIndex + 1;
       if (next >= cfg.questions) {

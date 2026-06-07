@@ -1,0 +1,418 @@
+.stats-page {
+  min-height: 100vh;
+  padding: 20px 16px 80px;
+  background: linear-gradient(160deg, #0f172a, #1e1b4b);
+}
+
+/* Back link */
+.stats-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+.stats-back:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Page title */
+.stats-page-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 20px;
+  letter-spacing: -0.5px;
+}
+
+/* ── Hero pills ─────────────────────────────────────────────────────── */
+.stats-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.stats-pill {
+  flex: 1;
+  min-width: 80px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 12px 8px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.stats-pill__val {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #fff;
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.stats-pill__lbl {
+  font-size: 0.68rem;
+  opacity: 0.6;
+  color: #fff;
+  display: block;
+  line-height: 1.3;
+}
+
+.stats-pill__emoji {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ── Section titles ─────────────────────────────────────────────────── */
+.stats-section-title {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 28px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-left: 8px;
+}
+
+/* ── Category radar bars ─────────────────────────────────────────────── */
+.stats-cat-row {
+  margin-bottom: 16px;
+}
+
+.stats-cat-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.stats-cat-label__pct {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+}
+
+.stats-cat-stars {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #fbbf24;
+  margin-left: 6px;
+}
+
+.stats-cat-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.stats-cat-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Insights ───────────────────────────────────────────────────────── */
+.stats-insight {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stats-insight--struggle { border-color: rgba(239, 68, 68, 0.3); }
+.stats-insight--progress { border-color: rgba(34, 197, 94, 0.3); }
+.stats-insight--unlock   { border-color: rgba(99, 102, 241, 0.4); }
+.stats-insight--error    { border-color: rgba(251, 191, 36, 0.3); }
+
+.stats-insight__icon {
+  font-size: 1.4rem;
+}
+
+.stats-insight__game {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats-insight__tip {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.stats-insight__btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 10px;
+  padding: 7px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  align-self: flex-start;
+  transition: background 0.15s;
+}
+
+.stats-insight__btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Tabs ───────────────────────────────────────────────────────────── */
+.stats-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.stats-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.stats-tab {
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.83rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.stats-tab:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.stats-tab.is-active {
+  background: #6366f1;
+  border-color: #818cf8;
+  color: #fff;
+}
+
+/* ── Game cards ─────────────────────────────────────────────────────── */
+.stats-game-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s;
+}
+
+.stats-game-card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.stats-game-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stats-game-card__name {
+  font-weight: 900;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.stats-game-card__level {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #a5b4fc;
+  white-space: nowrap;
+}
+
+.stats-game-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 12px;
+}
+
+.stats-game-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Mini trend bars */
+.stats-mini-bars {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.stats-mini-bar {
+  width: 12px;
+  border-radius: 3px;
+  min-height: 4px;
+  transition: height 0.4s ease;
+}
+
+.stats-game-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-game-stars {
+  color: #fbbf24;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.stats-replay-btn {
+  background: #6366f1;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.stats-replay-btn:hover {
+  background: #4f46e5;
+}
+
+/* ── Error cards ────────────────────────────────────────────────────── */
+.stats-error-card {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1.5px solid rgba(239, 68, 68, 0.2);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.stats-error-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stats-error-card__title {
+  font-weight: 900;
+  color: #fca5a5;
+  font-size: 0.95rem;
+}
+
+.stats-error-item {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  line-height: 1.4;
+}
+
+.stats-error-item:last-child {
+  border-bottom: none;
+}
+
+.stats-error-item strong {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.stats-error-revise-btn {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1.5px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  border-radius: 10px;
+  padding: 5px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.stats-error-revise-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+/* ── Empty state ────────────────────────────────────────────────────── */
+.stats-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.stats-empty__icon {
+  font-size: 3.5rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.stats-empty__text {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* ── No data section placeholder ─────────────────────────────────────── */
+.stats-no-data {
+  text-align: center;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ── Last played date ─────────────────────────────────────────────────── */
+.stats-game-card__date {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 2px;
+}
