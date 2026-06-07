@@ -17,7 +17,7 @@ function BadgePopup({ badge, onClose }) {
       <div className="lx-badge-popup">
         <div className="lx-badge-popup__emoji">{badge.emoji}</div>
         <div className="lx-badge-popup__title" id="lx-badge-title">{badge.label}</div>
-        <div className="lx-badge-popup__sub">Nouveau badge debloque !</div>
+        <div className="lx-badge-popup__sub">Nouveau badge débloqué !</div>
         <button
           ref={closeRef}
           className="lx-badge-popup__close"
@@ -47,7 +47,9 @@ function TimerBar({ timeLeft, megaReto }) {
   if (!megaReto) return null;
   return (
     <div className="lx-timer-bar">
-      <div className={`lx-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+      <div className="lx-timer-bar__track">
+        <div className={`lx-timer-bar__fill${timeLeft <= 5 ? ' is-urgent' : ''}`} style={{ width: `${(timeLeft / 15) * 100}%` }} />
+      </div>
       <span className="lx-timer-bar__num">{timeLeft}s</span>
     </div>
   );
@@ -190,7 +192,11 @@ export default function LexiPage() {
       const pool = megaReto
         ? [...MOTS_CACHES].filter(q => q.difficulty === 'difficile')
         : [...MOTS_CACHES].filter(q => q.difficulty !== 'difficile');
-      setQuestions(pool.sort(() => Math.random() - .5).slice(0, Math.min(count, pool.length)));
+      const picked = pool.sort(() => Math.random() - .5).slice(0, Math.min(count, pool.length));
+      setQuestions(picked.map(item => {
+        const others = pool.filter(x => x.word !== item.word).sort(() => Math.random() - .5).slice(0, 3).map(x => x.word);
+        return { ...item, mcqOptions: [item.word, ...others].sort(() => Math.random() - .5) };
+      }));
     } else if (mode === 'reconstruction') {
       const pool = megaReto
         ? [...RECONSTRUCTIONS].filter(q => q.difficulty === 'difficile')
@@ -219,7 +225,13 @@ export default function LexiPage() {
     } else if (mode === 'lecture-rapide') {
       const lvl = megaReto ? [4, 5] : [1, 2, 3];
       const filtered = LECTURE_RAPIDE.filter(item => lvl.includes(item.level));
-      setQuestions(filtered.sort(() => Math.random() - .5).slice(0, count));
+      const picked = filtered.sort(() => Math.random() - .5).slice(0, count);
+      setQuestions(picked.map(item => {
+        const pool = filtered.filter(x => x.text !== item.text);
+        const d = pool.sort(() => Math.random() - .5).slice(0, 3).map(x => x.text);
+        while (d.length < 3) d.push('...');
+        return { ...item, flashOpts: [item.text, ...d.slice(0, 3)].sort(() => Math.random() - .5) };
+      }));
     } else if (mode === 'vocabulaire') {
       const allThemes = Object.keys(VOCAB_THEMES);
       if (megaReto) {
@@ -446,11 +458,8 @@ export default function LexiPage() {
   if (phase === 'mots-caches') {
     const wordLetters = q.word.replace(/-/g, '').split('');
     const revealLetters = wordLetters.slice(0, revealedCount);
-    const mcqOptions = (() => {
-      const others = MOTS_CACHES.filter(x => x.word !== q.word);
-      const d = others.sort(() => Math.random() - .5).slice(0, 3).map(x => x.word);
-      return [q.word, ...d].sort(() => Math.random() - .5);
-    })();
+    void revealLetters;
+    const mcqOptions = q.mcqOptions;
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
@@ -494,23 +503,10 @@ export default function LexiPage() {
 
   // ── RECONSTRUCTION ──────────────────────────────────────────────────
   if (phase === 'reconstruction') {
-    const shuffled = [...q.words].sort(() => Math.random() - .5);
-    // Use stable shuffle per question index
     const seed = qIdx;
     const stableShuffled = [...q.words].map((w, i) => ({ w, r: ((i * 7 + seed * 13) % q.words.length) })).sort((a, b) => a.r - b.r).map(x => x.w);
     const builtSentence = tappedWords.join(' ');
     const allTapped = tappedWords.length >= q.words.length;
-
-    function handleWordTap(word, idx) {
-      if (stableShuffled.filter((w, i) => tappedWords.filter((_, ti) => true).length > i).length > 0) {
-        // find a not-yet-tapped occurrence
-      }
-      // Count occurrences tapped vs available
-      const tappedCountOfWord = tappedWords.filter(w => w === word).length;
-      const totalCountOfWord = stableShuffled.filter(w => w === word).length;
-      if (tappedCountOfWord >= totalCountOfWord) return;
-      setTappedWords(prev => [...prev, word]);
-    }
 
     function validateReconstruct() {
       const built = tappedWords.join(' ');
@@ -735,12 +731,7 @@ export default function LexiPage() {
 
   // ── LECTURE RAPIDE ──────────────────────────────────────────────────
   if (phase === 'lecture-rapide') {
-    const flashOpts = (() => {
-      const pool = LECTURE_RAPIDE.filter(x => x.text !== q.text);
-      const d = pool.sort(() => Math.random() - .5).slice(0, 3).map(x => x.text);
-      while (d.length < 3) d.push('...');
-      return [q.text, ...d.slice(0, 3)].sort(() => Math.random() - .5);
-    })();
+    const flashOpts = q.flashOpts;
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
