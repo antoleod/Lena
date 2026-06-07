@@ -7,27 +7,71 @@ import {
   getRewardCatalog,
   getRewardState
 } from '../../services/storage/rewardStore.js';
+import { getProfile } from '../../services/storage/profileStore.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
 
-// Daily deal: rotate based on day of year
 function getDailyDealId(catalog) {
   const day = Math.floor(Date.now() / 86400000);
   const buyable = catalog.filter(i => i.price > 0);
   return buyable[day % buyable.length]?.id || null;
 }
 
+// Avatar background colors per avatar id
+const AVATAR_BG = {
+  'avatar-unicorn':   'linear-gradient(145deg,#ffb8e8,#ff7cc0)',
+  'avatar-panda':     'linear-gradient(145deg,#e8e8e8,#b0b0c0)',
+  'avatar-dragon':    'linear-gradient(145deg,#a8f0a0,#4db870)',
+  'avatar-owl':       'linear-gradient(145deg,#d4c08a,#a07840)',
+  'avatar-fox':       'linear-gradient(145deg,#ffb87a,#e07030)',
+  'avatar-lion':      'linear-gradient(145deg,#ffe08a,#d09820)',
+  'avatar-dolphin':   'linear-gradient(145deg,#88d8f8,#3098c8)',
+  'avatar-frog':      'linear-gradient(145deg,#88e898,#28a840)',
+  'avatar-penguin':   'linear-gradient(145deg,#b0c8e8,#3868a8)',
+  'avatar-apple':     'linear-gradient(145deg,#ff8888,#d03030)',
+  'avatar-banana':    'linear-gradient(145deg,#ffe870,#c8a020)',
+  'avatar-pineapple': 'linear-gradient(145deg,#f8d060,#c08020)',
+  'avatar-strawberry':'linear-gradient(145deg,#ff8888,#d03030)',
+  'avatar-cat':       'linear-gradient(145deg,#f0c890,#c89040)',
+  'avatar-rabbit':    'linear-gradient(145deg,#f8e0f0,#e8a0c8)',
+  'avatar-bear':      'linear-gradient(145deg,#c8a878,#906030)',
+  'avatar-butterfly': 'linear-gradient(145deg,#c0a8f8,#8060e0)',
+  'avatar-turtle':    'linear-gradient(145deg,#90d890,#408040)',
+};
+
+// 3D Avatar display component
+function Avatar3D({ item, size = 110 }) {
+  if (!item) return null;
+  const bg = AVATAR_BG[item.id] || 'linear-gradient(145deg,#d0c0f8,#9060e0)';
+  return (
+    <div className="avatar3d" style={{ '--av-size': `${size}px`, '--av-bg': bg }}>
+      <div className="avatar3d__glow" aria-hidden="true" />
+      <div className="avatar3d__sphere">
+        <div className="avatar3d__highlight" aria-hidden="true" />
+        {item.assetPath ? (
+          <img className="avatar3d__img" src={assetUrl(item.assetPath)} alt="" />
+        ) : (
+          <span className="avatar3d__emoji">{item.icon}</span>
+        )}
+      </div>
+      <div className="avatar3d__shadow" aria-hidden="true" />
+    </div>
+  );
+}
+
 const CATEGORY_TABS = [
   { key: 'all',       label: 'Tout',          emoji: '🌟' },
-  { key: 'theme',     label: 'Thèmes',        emoji: '🎨' },
   { key: 'avatar',    label: 'Avatars',       emoji: '🐾' },
+  { key: 'theme',     label: 'Thèmes',        emoji: '🎨' },
   { key: 'effect',    label: 'Effets',        emoji: '✨' },
-  { key: 'sticker',   label: 'Autocollants',  emoji: '🏷️' },
-  { key: 'accessory', label: 'Accessoires',   emoji: '🎀' },
-  { key: 'badge',     label: 'Badges',        emoji: '🏅' },
   { key: 'wallpaper', label: 'Fonds',         emoji: '🖼️' },
+  { key: 'accessory', label: 'Accessoires',   emoji: '🎀' },
   { key: 'pet',       label: 'Animaux',       emoji: '🐶' },
+  { key: 'badge',     label: 'Badges',        emoji: '🏅' },
+  { key: 'frame',     label: 'Cadres',        emoji: '🪞' },
+  { key: 'title',     label: 'Titres',        emoji: '📜' },
+  { key: 'sticker',   label: 'Autocollants',  emoji: '🏷️' },
 ];
 
 const BUY_REACTIONS = [
@@ -38,8 +82,9 @@ export default function ShopPage() {
   const { locale, t } = useLocale();
   const { themeId } = useTheme();
   const [shopState, setShopState] = useState(() => getRewardState());
+  const [profile] = useState(() => getProfile());
   const [toast, setToast] = useState('');
-  const [toastKind, setToastKind] = useState('info'); // 'success' | 'info' | 'warn'
+  const [toastKind, setToastKind] = useState('info');
   const [activeCategory, setActiveCategory] = useState('all');
   const [justBought, setJustBought] = useState(null);
   const catalog = getRewardCatalog();
@@ -53,13 +98,12 @@ export default function ShopPage() {
 
   useEffect(() => {
     if (!toast) return;
-    const t = setTimeout(() => setToast(''), 2500);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setToast(''), 2500);
+    return () => clearTimeout(timer);
   }, [toast]);
 
   const visibleItems = useMemo(() => {
     const base = activeCategory === 'all' ? catalog : catalog.filter(i => i.type === activeCategory);
-    // Daily deal first, then unowned, then owned
     return [...base].sort((a, b) => {
       if (a.id === dailyDealId) return -1;
       if (b.id === dailyDealId) return 1;
@@ -69,20 +113,16 @@ export default function ShopPage() {
     });
   }, [catalog, activeCategory, shopState, dailyDealId]);
 
-  // Category counts
   const categoryCounts = useMemo(() => {
     const counts = {};
-    catalog.forEach(item => {
-      counts[item.type] = (counts[item.type] || 0) + 1;
-    });
+    catalog.forEach(item => { counts[item.type] = (counts[item.type] || 0) + 1; });
     return counts;
   }, [catalog]);
 
-  const ownedCount = useMemo(() => {
-    return catalog.filter(i => isOwnedId(i.id)).length;
-  }, [shopState, catalog]);
+  const ownedCount = useMemo(() => catalog.filter(i => isOwnedId(i.id)).length, [shopState, catalog]);
 
   function getLabel(item) {
+    if (!item) return '';
     if (locale === 'nl') return item.nameNl || item.name;
     return item.name;
   }
@@ -118,27 +158,28 @@ export default function ShopPage() {
       }
       return;
     }
-
     let result = { ok: false };
     if (item.type === 'theme') result = equipTheme(item.id);
     if (item.type === 'effect') result = equipEffect(item.id);
     if (item.type === 'wallpaper') result = equipWallpaper(item.id);
-
     if (result.ok) {
       setShopState(getRewardState());
       setToastKind('success');
-      setToast(`🎨 Thème appliqué !`);
+      setToast(`✨ ${getLabel(item)} appliqué !`);
     }
   }
 
   function renderVisual(item) {
+    if (item.type === 'avatar') {
+      return <Avatar3D item={item} size={72} />;
+    }
     if (item.assetPath) {
       return <img className="shop-card__image" src={assetUrl(item.assetPath)} alt="" />;
     }
     if (item.type === 'effect') {
       return <div className={`effect-preview effect-preview--${item.id.replace('effect-', '')}`} />;
     }
-    if (item.preview?.length > 0 && !['rain','snow','rainbow'].includes(item.preview[0])) {
+    if (item.preview?.length > 0 && !['rain','snow','rainbow','stars','bubbles'].includes(item.preview[0])) {
       return (
         <div className="shop-card__theme-preview">
           {item.preview.map(color => <span key={color} style={{ backgroundColor: color }} />)}
@@ -152,16 +193,29 @@ export default function ShopPage() {
   const dailyDealItem = catalog.find(i => i.id === dailyDealId);
   const canAfford = (price) => shopState.balance >= price;
 
+  // Current avatar item
+  const currentAvatarId = profile.avatarId || 'avatar-unicorn';
+  const currentAvatarItem = catalog.find(i => i.id === currentAvatarId);
+
+  const progressPct = Math.round(ownedCount / catalog.length * 100);
+
   return (
     <div className="shop-page" data-testid="shop-page">
 
-      {/* Hero balance header */}
+      {/* Premium hero with 3D avatar */}
       <div className="shop-hero">
-        <div className="shop-hero__left">
-          <span className="shop-hero__title">🛍️ Boutique</span>
-          <span className="shop-hero__sub">{ownedCount} / {catalog.length} objets débloqués</span>
-          <div className="shop-hero__progress">
-            <div className="shop-hero__progress-fill" style={{ width: `${Math.round(ownedCount / catalog.length * 100)}%` }} />
+        <div className="shop-hero__avatar-col">
+          <Avatar3D item={currentAvatarItem} size={96} />
+          <span className="shop-hero__avatar-name">{getLabel(currentAvatarItem)}</span>
+        </div>
+        <div className="shop-hero__center">
+          <span className="shop-hero__title">Boutique</span>
+          <span className="shop-hero__sub">{ownedCount} / {catalog.length} débloqués</span>
+          <div className="shop-hero__bar-wrap">
+            <div className="shop-hero__progress">
+              <div className="shop-hero__progress-fill" style={{ width: `${progressPct}%` }} />
+            </div>
+            <span className="shop-hero__pct">{progressPct}%</span>
           </div>
         </div>
         <div className="shop-hero__balance">
@@ -205,6 +259,7 @@ export default function ShopPage() {
       <div className="shop-tabs" role="tablist" aria-label="Catégories">
         {CATEGORY_TABS.map(tab => {
           const count = tab.key === 'all' ? catalog.length : (categoryCounts[tab.key] || 0);
+          if (tab.key !== 'all' && count === 0) return null;
           return (
             <button
               key={tab.key}
@@ -236,7 +291,7 @@ export default function ShopPage() {
 
           const btnLabel = !owned
             ? `${displayPrice} 💎`
-            : active ? '✓ Équipé' : canEquip ? t('shopEquip') : '✓';
+            : active ? '✓ Équipé' : canEquip ? t('shopEquip') : '✓ Acquis';
 
           return (
             <article
@@ -265,7 +320,7 @@ export default function ShopPage() {
                 <p className={`shop-card__price${!affordable ? ' shop-card__price--low' : ''}`}>
                   {isDaily && <s className="shop-card__old-price">{item.price}</s>}
                   {displayPrice} 💎
-                  {!affordable && <span className="shop-card__need"> · manque {displayPrice - shopState.balance}</span>}
+                  {!affordable && <span className="shop-card__need"> manque {displayPrice - shopState.balance}</span>}
                 </p>
               )}
 

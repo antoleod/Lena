@@ -23,7 +23,9 @@ const wallpaperRewards = [
 const effectRewards = [
   { id: 'effect-rain', type: 'effect', name: 'Pluie douce', nameNl: 'Zachte regen', price: 58, icon: '🌧️', preview: ['rain'] },
   { id: 'effect-rainbow', type: 'effect', name: 'Arc en ciel', nameNl: 'Regenboog', price: 64, icon: '🌈', preview: ['rainbow'] },
-  { id: 'effect-snow', type: 'effect', name: 'Neige legere', nameNl: 'Lichte sneeuw', price: 60, icon: '❄️', preview: ['snow'] }
+  { id: 'effect-snow', type: 'effect', name: 'Neige legere', nameNl: 'Lichte sneeuw', price: 60, icon: '❄️', preview: ['snow'] },
+  { id: 'effect-stars', type: 'effect', name: 'Etoiles filantes', nameNl: 'Vallende sterren', price: 62, icon: '⭐', preview: ['stars'] },
+  { id: 'effect-bubbles', type: 'effect', name: 'Bulles magiques', nameNl: 'Magische bellen', price: 58, icon: '🫧', preview: ['bubbles'] },
 ];
 
 const stickerRewards = [
@@ -50,7 +52,12 @@ const avatarRewards = [
   { id: 'avatar-apple', type: 'avatar', name: 'Pomme', nameNl: 'Appel', price: 40, assetPath: 'assets/avatars/pomme.svg' },
   { id: 'avatar-banana', type: 'avatar', name: 'Banane', nameNl: 'Banaan', price: 40, assetPath: 'assets/avatars/banane.svg' },
   { id: 'avatar-pineapple', type: 'avatar', name: 'Ananas', nameNl: 'Ananas', price: 40, assetPath: 'assets/avatars/ananas.svg' },
-  { id: 'avatar-strawberry', type: 'avatar', name: 'Fraise', nameNl: 'Aardbei', price: 40, assetPath: 'assets/avatars/fraise.svg' }
+  { id: 'avatar-strawberry', type: 'avatar', name: 'Fraise', nameNl: 'Aardbei', price: 40, assetPath: 'assets/avatars/fraise.svg' },
+  { id: 'avatar-cat', type: 'avatar', name: 'Petit chat', nameNl: 'Kleine kat', price: 44, icon: '🐱' },
+  { id: 'avatar-rabbit', type: 'avatar', name: 'Lapin rieur', nameNl: 'Lachend konijn', price: 44, icon: '🐰' },
+  { id: 'avatar-bear', type: 'avatar', name: 'Petit ours', nameNl: 'Kleine beer', price: 48, icon: '🐻' },
+  { id: 'avatar-butterfly', type: 'avatar', name: 'Papillon magique', nameNl: 'Magische vlinder', price: 52, icon: '🦋' },
+  { id: 'avatar-turtle', type: 'avatar', name: 'Tortue sage', nameNl: 'Wijze schildpad', price: 46, icon: '🐢' },
 ];
 
 const accessoryRewards = [
@@ -61,7 +68,10 @@ const accessoryRewards = [
   { id: 'accessory-glasses', type: 'accessory', name: 'Lunettes etoilees', nameNl: 'Sterrenbril', price: 30, icon: '🕶️' },
   { id: 'accessory-cape', type: 'accessory', name: 'Cape douce', nameNl: 'Zachte cape', price: 34, icon: '🦸' },
   { id: 'accessory-boots', type: 'accessory', name: 'Bottes de pluie', nameNl: 'Regenlaarsjes', price: 28, icon: '🥾' },
-  { id: 'accessory-lantern', type: 'accessory', name: 'Lanterne brillante', nameNl: 'Lichtlantaarn', price: 31, icon: '🏮' }
+  { id: 'accessory-lantern', type: 'accessory', name: 'Lanterne brillante', nameNl: 'Lichtlantaarn', price: 31, icon: '🏮' },
+  { id: 'accessory-wizard-hat', type: 'accessory', name: 'Chapeau de sorcier', nameNl: 'Tovenaarshoed', price: 38, icon: '🎩' },
+  { id: 'accessory-shield', type: 'accessory', name: 'Bouclier brave', nameNl: 'Dappere schild', price: 35, icon: '🛡️' },
+  { id: 'accessory-trophy', type: 'accessory', name: 'Trophee champion', nameNl: 'Kampioensbeker', price: 40, icon: '🏆' },
 ];
 
 const badgeRewards = [
@@ -87,7 +97,18 @@ const petRewards = [
   { id: 'pet-spark', type: 'pet', name: 'Etincelle', nameNl: 'Sprankel', price: 52, icon: '✨' },
   { id: 'pet-shell', type: 'pet', name: 'Coquillage', nameNl: 'Schelpie', price: 44, icon: '🐚' },
   { id: 'pet-berry', type: 'pet', name: 'Baie magique', nameNl: 'Magische bes', price: 44, icon: '🫐' },
-  { id: 'pet-comet', type: 'pet', name: 'Mini comete', nameNl: 'Mini komeet', price: 56, icon: '🌠' }
+  { id: 'pet-comet', type: 'pet', name: 'Mini comete', nameNl: 'Mini komeet', price: 56, icon: '🌠' },
+  { id: 'pet-firefly', type: 'pet', name: 'Luciole', nameNl: 'Glimworm', price: 50, icon: '🪲' },
+  { id: 'pet-mushroom', type: 'pet', name: 'Champignon ami', nameNl: 'Vriendelijke paddenstoel', price: 44, icon: '🍄' },
+  { id: 'pet-ghost', type: 'pet', name: 'Mini fantome', nameNl: 'Mini spook', price: 48, icon: '👻' },
+];
+
+const titleRewards = [
+  { id: 'title-explorer', type: 'title', name: 'Explorateur', nameNl: 'Ontdekker', price: 30, icon: '🗺️' },
+  { id: 'title-champion', type: 'title', name: 'Champion', nameNl: 'Kampioen', price: 36, icon: '🏆' },
+  { id: 'title-wizard', type: 'title', name: 'Grand Sorcier', nameNl: 'Grote Tovenaar', price: 38, icon: '🧙' },
+  { id: 'title-star', type: 'title', name: 'Etoile Brillante', nameNl: 'Stralende Ster', price: 32, icon: '⭐' },
+  { id: 'title-dragon', type: 'title', name: 'Dompteur de Dragons', nameNl: 'Drakentammer', price: 42, icon: '🐉' },
 ];
 
 const rewardCatalog = [
@@ -99,7 +120,8 @@ const rewardCatalog = [
   ...accessoryRewards,
   ...badgeRewards,
   ...frameRewards,
-  ...petRewards
+  ...petRewards,
+  ...titleRewards
 ];
 
 function defaultStore() {
