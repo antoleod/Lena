@@ -56,7 +56,13 @@
 .jeux-hub-card__desc  { font-size: .85rem; opacity: .75; margin-top: 2px; }
 
 /* Premium Games Hub */
-.jh-page { padding: 16px 12px 32px; max-width: 960px; margin: 0 auto; }
+.jh-page {
+  padding: 16px 12px 32px;
+  max-width: 960px;
+  margin: 0 auto;
+  min-height: 100svh;
+  background: linear-gradient(165deg, #0d0a2e 0%, #1a1060 50%, #0a1a3a 100%);
+}
 .jh-hero { text-align: center; padding: 24px 0 28px; }
 .jh-hero__icon { font-size: 3.5rem; line-height: 1; margin-bottom: 8px; }
 .jh-hero__title { font-size: 2rem; font-weight: 900; color: #fff; margin: 0 0 6px; }
@@ -90,8 +96,9 @@
   padding: 16px 12px 32px;
   max-width: 540px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100svh;
   color: #fff;
+  background: linear-gradient(165deg, #0d0a2e 0%, #1a1060 50%, #0a1a3a 100%);
 }
 .exam-back-btn { display: inline-flex; align-items: center; font-size: 1.1rem; color: rgba(255,255,255,.7); text-decoration: none; margin-bottom: 12px; background: rgba(255,255,255,.1); border-radius: 10px; padding: 6px 14px; }
 
