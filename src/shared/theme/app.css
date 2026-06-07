@@ -560,7 +560,7 @@ button {
   border: 1px solid var(--line);
   box-shadow: var(--shadow-soft);
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.85rem;
   font-weight: 800;
   line-height: 1.2;
   min-height: 44px;
@@ -621,7 +621,7 @@ button {
   color: var(--primary-strong);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 900;
 }
 
@@ -2984,7 +2984,7 @@ button {
 }
 
 .cc-act-header__crumb-text {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: rgba(255,255,255,0.6);
   white-space: nowrap;
@@ -3993,7 +3993,7 @@ button {
   .onboarding-progress__dot {
     width: 30px;
     height: 30px;
-    font-size: 0.76rem;
+    font-size: 0.85rem;
   }
 
   .onboarding-modal__footer {
@@ -5185,7 +5185,7 @@ button {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(144, 118, 166, 0.12);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 800;
   color: var(--muted);
   line-height: 1.2;
@@ -7135,7 +7135,7 @@ button {
 .sw-universe__progress-label {
   display: flex;
   justify-content: space-between;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: rgba(255,255,255,0.6);
 }
@@ -7378,7 +7378,7 @@ button {
 }
 
 .sw-world-card__meta {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: rgba(255,255,255,0.7);
   font-weight: 600;
 }
@@ -7537,7 +7537,7 @@ button {
 
 .cc-subject-card__name {
   flex: 1;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: rgba(255,255,255,0.9);
   font-family: 'Fredoka', sans-serif;
@@ -7618,7 +7618,7 @@ button {
 }
 
 .cc-roadmap-item__text {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: rgba(255,255,255,0.85);
   white-space: nowrap;
@@ -7971,7 +7971,7 @@ button {
   }
 
   .duo-progress-text {
-    font-size: 0.72rem;
+    font-size: 0.82rem;
   }
 
   .mc-prompt {
@@ -9883,7 +9883,7 @@ label {
 .sw-grade-lesson-card__meta {
   display: block;
   color: rgba(255,255,255,0.65);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   margin-top: 4px;
 }
 .sw-grade-lesson-card__done {
@@ -9941,7 +9941,7 @@ label {
 }
 .cc-completion__suggestion small {
   color: rgba(255,255,255,0.45);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   flex-shrink: 0;
   margin-left: 8px;
 }
@@ -10187,7 +10187,7 @@ label {
 .parental-activity-score { font-size: 0.78rem; color: var(--muted); }
 
 .parental-pill {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 20px;
@@ -11022,7 +11022,7 @@ input.exam-choice:hover { transform: none; }
     cursor: pointer;
     text-decoration: none;
     color: rgba(255,255,255,0.45);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.02em;
     transition: color 0.15s ease;
@@ -11049,6 +11049,24 @@ input.exam-choice:hover { transform: none; }
     display: block;
     line-height: 1.2;
     white-space: nowrap;
+    font-size: 11px;
+  }
+
+  /* Home center button — larger, elevated */
+  .app-bottom-nav__item--home {
+    position: relative;
+  }
+
+  .app-bottom-nav__home-icon {
+    font-size: 32px !important;
+    filter: drop-shadow(0 2px 6px rgba(255,140,80,0.5));
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+
+  .app-bottom-nav__item--home.is-active .app-bottom-nav__home-icon,
+  .app-bottom-nav__item--home:hover .app-bottom-nav__home-icon {
+    transform: scale(1.2);
+    filter: drop-shadow(0 3px 10px rgba(255,140,80,0.7));
   }
 
   /* Full-screen pages own their own bottom space — no double-padding */
@@ -11774,7 +11792,7 @@ input.exam-choice:hover { transform: none; }
 .shop-card__price {
   margin: 0;
   padding: 0 8px 6px;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: var(--muted);
   font-weight: 600;
 }
@@ -13742,7 +13760,7 @@ body {
 }
 
 .home-level-bar__next {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--muted);
   text-align: right;
@@ -13873,7 +13891,7 @@ body {
 
 .home-tile__desc {
   display: none;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: rgba(255,255,255,0.85);
   line-height: 1.3;
 }

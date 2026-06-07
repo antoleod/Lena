@@ -150,16 +150,16 @@ export default function AppShell() {
   const globalLevel = computeGlobalLevel(session.profile?.totalActivitiesCompleted || 0);
 
   const NAV_LABELS = {
-    fr: { learn: 'Apprendre', practise: 'Pratiquer', progress: 'Progres', settings: 'Reglages', exams: 'Examens' },
-    nl: { learn: 'Leren', practise: 'Oefenen', progress: 'Voortgang', settings: 'Instellingen', exams: 'Examens' },
-    en: { learn: 'Learn', practise: 'Practise', progress: 'Progress', settings: 'Settings', exams: 'Exams' },
-    es: { learn: 'Aprender', practise: 'Practicar', progress: 'Progreso', settings: 'Ajustes', exams: 'Examenes' },
+    fr: { learn: 'Apprendre', practise: 'Jouer', progress: 'Mes Étoiles', settings: 'Reglages', exams: 'Quiz' },
+    nl: { learn: 'Leren', practise: 'Spelen', progress: 'Mijn Sterren', settings: 'Instellingen', exams: 'Quiz' },
+    en: { learn: 'Learn', practise: 'Play', progress: 'My Stars', settings: 'Settings', exams: 'Quiz' },
+    es: { learn: 'Aprender', practise: 'Jugar', progress: 'Mis Estrellas', settings: 'Ajustes', exams: 'Quiz' },
   };
   const nl = NAV_LABELS[locale] || NAV_LABELS.fr;
 
   const navItems = useMemo(() => {
     const LEARN_PREFIXES = ['/apprendre', '/map', '/subjects', '/activities', '/lessons', '/stories', '/renforcement'];
-    const PRACTISE_PREFIXES = ['/pratiquer', '/cahier', '/tables', '/practice'];
+    const PRACTISE_PREFIXES = ['/pratiquer', '/jeux', '/cahier', '/tables', '/practice'];
     const EXAM_PREFIXES = ['/exam'];
     function matchPrefix(prefixes, path) {
       return prefixes.some((p) => path === p || path.startsWith(p + '/'));
@@ -178,6 +178,13 @@ export default function AppShell() {
         isActive: (path) => matchPrefix(PRACTISE_PREFIXES, path),
       },
       {
+        to: '/',
+        label: { fr: 'Accueil', nl: 'Thuis', en: 'Home', es: 'Inicio' }[locale] || 'Accueil',
+        Icon: null,
+        isHome: true,
+        isActive: (path) => path === '/',
+      },
+      {
         to: '/exam/library',
         label: nl.exams,
         Icon: IconNavExamens,
@@ -188,12 +195,6 @@ export default function AppShell() {
         label: nl.progress,
         Icon: IconNavProgres,
         isActive: (path) => path === '/history' || path.startsWith('/history/'),
-      },
-      {
-        to: '/settings',
-        label: nl.settings,
-        Icon: IconNavReglages,
-        isActive: (path) => path === '/settings' || path.startsWith('/settings/'),
       },
     ];
   }, [locale]); // nl is derived from locale, stable reference not needed
@@ -376,16 +377,6 @@ export default function AppShell() {
             <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
             <span>Personnaliser</span>
           </button>
-
-          <button
-            type="button"
-            className="icon-link icon-link--logout"
-            data-testid="shell-logout"
-            onClick={handleLogout}
-          >
-            <img src={assetUrl('assets/icons/icon-close.svg')} alt="" className="icon-link__icon" />
-            <span>{t('logoutLabel') || 'Logout'}</span>
-          </button>
         </div>
       </header>
 
@@ -394,16 +385,30 @@ export default function AppShell() {
       {/* Bottom nav — mobile only (CSS hides on tablet+) */}
       <nav className="app-bottom-nav" aria-label="Navigation principale">
         {navItems.map((item) => (
-          <NavLink
-            key={item.to}
-            className={() => `app-bottom-nav__item${item.isActive(location.pathname) ? ' is-active' : ''}`}
-            to={item.to}
-            onClick={playTapSound}
-            data-testid={`nav-bottom-${item.to.replace('/', '') || 'home'}`}
-          >
-            <span className="app-bottom-nav__icon" aria-hidden="true"><item.Icon size={28} /></span>
-            <span className="app-bottom-nav__label">{item.label}</span>
-          </NavLink>
+          item.isHome ? (
+            <NavLink
+              key={item.to}
+              className={() => `app-bottom-nav__item app-bottom-nav__item--home${item.isActive(location.pathname) ? ' is-active' : ''}`}
+              to={item.to}
+              onClick={playTapSound}
+              data-testid="nav-bottom-home"
+              aria-label={item.label}
+            >
+              <span className="app-bottom-nav__icon app-bottom-nav__home-icon" aria-hidden="true">🏠</span>
+              <span className="app-bottom-nav__label">{item.label}</span>
+            </NavLink>
+          ) : (
+            <NavLink
+              key={item.to}
+              className={() => `app-bottom-nav__item${item.isActive(location.pathname) ? ' is-active' : ''}`}
+              to={item.to}
+              onClick={playTapSound}
+              data-testid={`nav-bottom-${item.to.replace('/', '') || 'home'}`}
+            >
+              <span className="app-bottom-nav__icon" aria-hidden="true"><item.Icon size={28} /></span>
+              <span className="app-bottom-nav__label">{item.label}</span>
+            </NavLink>
+          )
         ))}
       </nav>
 
