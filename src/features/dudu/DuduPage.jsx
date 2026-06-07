@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './dudu.css';
+import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
 import {
   BADGES, GUIDED_EXERCISES, LEVELS, generateProblem, genSubtraction,
   decomposeNumber, explainBorrowing, needsBorrowing,
@@ -331,12 +332,27 @@ function GuidedPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLe
   const [attempts, setAttempts] = useState(0);
   const [badge, setBadge]     = useState(null);
   const [tryCount, setTryCount] = useState(0);
+  const [fbState, setFbState] = useState(null);
 
   const ex = exercises.current[idx];
   if (!ex) return null;
 
   const total = exercises.current.length;
   const progress = total > 0 ? (idx / total) * 100 : 0;
+
+  function handleNext() {
+    setFbState(null);
+    setState('borrow-q');
+    setInput('');
+    setBorrowWrong(false);
+    setTryCount(0);
+    setEncouragement('');
+    if (idx + 1 >= total) {
+      onFinish({ correct, total });
+    } else {
+      setIdx(i => i + 1);
+    }
+  }
 
   useEffect(() => {
     if (!megaReto) return;
@@ -348,17 +364,8 @@ function GuidedPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLe
           clearInterval(timerRef.current);
           setState('wrong');
           setEncouragement('');
-          setTimeout(() => {
-            if (idx + 1 >= total) {
-              onFinish({ correct, total });
-            } else {
-              setIdx(i => i + 1);
-              setInput('');
-              setState('borrow-q');
-              setBorrowWrong(false);
-              setTryCount(0);
-            }
-          }, 800);
+          setFbState({ isCorrect: false, correctAnswer: String(ex.result) });
+          setTimeout(() => handleNext(), 2500);
           return 0;
         }
         return t - 1;
@@ -394,17 +401,7 @@ function GuidedPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLe
       setState('correct');
       playChime(true);
       setShowDecomp(false);
-      setTimeout(() => {
-        if (idx + 1 >= total) {
-          onFinish({ correct: correct + 1, total });
-        } else {
-          setIdx(i => i + 1);
-          setInput('');
-          setState('borrow-q');
-          setBorrowWrong(false);
-          setTryCount(0);
-        }
-      }, 800);
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       playChime(false);
       setTryCount(t => t + 1);
@@ -476,6 +473,7 @@ function GuidedPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLe
           disabled={state === 'correct'}
         />
       )}
+      {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale="fr" onNext={handleNext} />}
     </div>
   );
 }
@@ -492,11 +490,26 @@ function AutonomousPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTi
   const [showHint, setShowHint] = useState(false);
   const [encouragement, setEncouragement] = useState('');
   const [badge, setBadge]     = useState(null);
+  const [fbState, setFbState] = useState(null);
 
   const q = questions.current[idx];
   if (!q) return null;
   const total = questions.current.length;
   const progress = (idx / total) * 100;
+
+  function handleNext() {
+    setFbState(null);
+    setState('input');
+    setInput('');
+    setTryCount(0);
+    setShowHint(false);
+    setEncouragement('');
+    if (idx + 1 >= total) {
+      onFinish({ correct, total });
+    } else {
+      setIdx(i => i + 1);
+    }
+  }
 
   useEffect(() => {
     if (!megaReto) return;
@@ -507,18 +520,8 @@ function AutonomousPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTi
         if (t <= 1) {
           clearInterval(timerRef.current);
           setState('wrong');
-          setTimeout(() => {
-            if (idx + 1 >= total) {
-              onFinish({ correct, total });
-            } else {
-              setIdx(i => i + 1);
-              setInput('');
-              setState('input');
-              setTryCount(0);
-              setShowHint(false);
-              setEncouragement('');
-            }
-          }, 800);
+          setFbState({ isCorrect: false, correctAnswer: String(q.result) });
+          setTimeout(() => handleNext(), 2500);
           return 0;
         }
         return t - 1;
@@ -540,18 +543,7 @@ function AutonomousPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTi
       setCorrect(c => c + 1);
       setState('correct');
       playChime(true);
-      setTimeout(() => {
-        if (idx + 1 >= total) {
-          onFinish({ correct: correct + 1, total });
-        } else {
-          setIdx(i => i + 1);
-          setInput('');
-          setState('input');
-          setTryCount(0);
-          setShowHint(false);
-          setEncouragement('');
-        }
-      }, 800);
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       playChime(false);
       const newTry = tryCount + 1;
@@ -560,18 +552,7 @@ function AutonomousPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTi
       if (!megaReto) setEncouragement(randEncouragement());
       if (newTry >= 2) {
         setShowHint(true);
-        setTimeout(() => {
-          if (idx + 1 >= total) {
-            onFinish({ correct, total });
-          } else {
-            setIdx(i => i + 1);
-            setInput('');
-            setState('input');
-            setTryCount(0);
-            setShowHint(false);
-            setEncouragement('');
-          }
-        }, 2000);
+        setFbState({ isCorrect: false, correctAnswer: String(q.result) });
       } else {
         setTimeout(() => {
           setInput('');
@@ -619,6 +600,7 @@ function AutonomousPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTi
         onSubmit={handleSubmit}
         disabled={state === 'correct' || (tryCount >= 2 && state === 'wrong')}
       />
+      {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale="fr" onNext={handleNext} />}
     </div>
   );
 }
@@ -633,11 +615,24 @@ function ProblemsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
   const [correct, setCorrect] = useState(0);
   const [badge, setBadge]     = useState(null);
   const [encouragement, setEncouragement] = useState('');
+  const [fbState, setFbState] = useState(null);
 
   const p = problems.current[idx];
   if (!p) return null;
   const total = problems.current.length;
   const progress = (idx / total) * 100;
+
+  function handleNext() {
+    setFbState(null);
+    setState('input');
+    setInput('');
+    setEncouragement('');
+    if (idx + 1 >= total) {
+      onFinish({ correct, total });
+    } else {
+      setIdx(i => i + 1);
+    }
+  }
 
   useEffect(() => {
     if (!megaReto) return;
@@ -648,16 +643,8 @@ function ProblemsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
         if (t <= 1) {
           clearInterval(timerRef.current);
           setState('wrong');
-          setTimeout(() => {
-            if (idx + 1 >= total) {
-              onFinish({ correct, total });
-            } else {
-              setIdx(i => i + 1);
-              setInput('');
-              setState('input');
-              setEncouragement('');
-            }
-          }, 800);
+          setFbState({ isCorrect: false, correctAnswer: String(p.result) });
+          setTimeout(() => handleNext(), 2500);
           return 0;
         }
         return t - 1;
@@ -679,24 +666,12 @@ function ProblemsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
       setCorrect(c => c + 1);
       setState('correct');
       playChime(true);
-      setTimeout(() => {
-        if (idx + 1 >= total) {
-          onFinish({ correct: correct + 1, total });
-        } else {
-          setIdx(i => i + 1);
-          setInput('');
-          setState('input');
-          setEncouragement('');
-        }
-      }, 800);
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       playChime(false);
       setState('wrong');
       if (!megaReto) setEncouragement(randEncouragement());
-      setTimeout(() => {
-        setInput('');
-        setState('input');
-      }, 1200);
+      setFbState({ isCorrect: false, correctAnswer: String(p.result) });
     }
   }
 
@@ -741,6 +716,7 @@ function ProblemsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
         onSubmit={handleSubmit}
         disabled={state === 'correct'}
       />
+      {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale="fr" onNext={handleNext} />}
     </div>
   );
 }
@@ -755,12 +731,26 @@ function TensUnitsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTim
   const [state, setState]     = useState('input');
   const [correct, setCorrect] = useState(0);
   const [encouragement, setEncouragement] = useState('');
+  const [fbState, setFbState] = useState(null);
 
   const n = numbers.current[idx];
   if (n === undefined) return null;
   const total = numbers.current.length;
   const progress = (idx / total) * 100;
   const d = decomposeNumber(n);
+
+  function handleNext() {
+    setFbState(null);
+    setState('input');
+    setInput('');
+    setSubPhase('tens');
+    setEncouragement('');
+    if (idx + 1 >= total) {
+      onFinish({ correct, total });
+    } else {
+      setIdx(i => i + 1);
+    }
+  }
 
   useEffect(() => {
     if (!megaReto) return;
@@ -771,22 +761,18 @@ function TensUnitsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTim
         if (t <= 1) {
           clearInterval(timerRef.current);
           setState('wrong');
-          setTimeout(() => {
-            if (subPhase === 'tens') {
+          if (subPhase === 'tens') {
+            setTimeout(() => {
               setSubPhase('units');
               setInput('');
               setState('input');
               setEncouragement('');
-            } else if (idx + 1 >= total) {
-              onFinish({ correct, total });
-            } else {
-              setIdx(i => i + 1);
-              setSubPhase('tens');
-              setInput('');
-              setState('input');
-              setEncouragement('');
-            }
-          }, 800);
+            }, 800);
+          } else {
+            const expected = d.units;
+            setFbState({ isCorrect: false, correctAnswer: String(expected) });
+            setTimeout(() => handleNext(), 2500);
+          }
           return 0;
         }
         return t - 1;
@@ -815,17 +801,7 @@ function TensUnitsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTim
         }, 700);
       } else {
         setCorrect(c => c + 1);
-        setTimeout(() => {
-          if (idx + 1 >= total) {
-            onFinish({ correct: correct + 1, total });
-          } else {
-            setIdx(i => i + 1);
-            setSubPhase('tens');
-            setInput('');
-            setState('input');
-            setEncouragement('');
-          }
-        }, 700);
+        setFbState({ isCorrect: true, correctAnswer: null });
       }
     } else {
       playChime(false);
@@ -886,6 +862,7 @@ function TensUnitsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTim
         onSubmit={handleSubmit}
         disabled={state === 'correct'}
       />
+      {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale="fr" onNext={handleNext} />}
     </div>
   );
 }
@@ -933,6 +910,7 @@ function TeacherPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeL
   const [idx, setIdx]         = useState(0);
   const [selected, setSelected] = useState(null);
   const [correct, setCorrect] = useState(0);
+  const [fbState, setFbState] = useState(null);
 
   const q = questions.current[idx];
   if (!q) return null;
@@ -940,6 +918,16 @@ function TeacherPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeL
   const progress = (idx / total) * 100;
   const aD = decomposeNumber(q.eq.a);
   const bD = decomposeNumber(q.eq.b);
+
+  function handleNext() {
+    setFbState(null);
+    setSelected(null);
+    if (idx + 1 >= total) {
+      onFinish({ correct, total });
+    } else {
+      setIdx(i => i + 1);
+    }
+  }
 
   useEffect(() => {
     if (!megaReto) return;
@@ -950,14 +938,8 @@ function TeacherPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeL
         if (t <= 1) {
           clearInterval(timerRef.current);
           setSelected('__timeout__');
-          setTimeout(() => {
-            if (idx + 1 >= total) {
-              onFinish({ correct, total });
-            } else {
-              setIdx(i => i + 1);
-              setSelected(null);
-            }
-          }, 800);
+          setFbState({ isCorrect: false, correctAnswer: q.correct });
+          setTimeout(() => handleNext(), 2500);
           return 0;
         }
         return t - 1;
@@ -978,14 +960,7 @@ function TeacherPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeL
     } else {
       playChime(false);
     }
-    setTimeout(() => {
-      if (idx + 1 >= total) {
-        onFinish({ correct: isCorrect ? correct + 1 : correct, total });
-      } else {
-        setIdx(i => i + 1);
-        setSelected(null);
-      }
-    }, 1100);
+    setFbState({ isCorrect, correctAnswer: isCorrect ? null : q.correct });
   }
 
   return (
@@ -1038,6 +1013,7 @@ function TeacherPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeL
           );
         })}
       </div>
+      {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale="fr" onNext={handleNext} />}
     </div>
   );
 }
@@ -1052,11 +1028,24 @@ function SaucissePhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
   const [correct, setCorrect] = useState(0);
   const [badge, setBadge]     = useState(null);
   const [encouragement, setEncouragement] = useState('');
+  const [fbState, setFbState] = useState(null);
 
   const q = questions.current[idx];
   if (!q) return null;
   const total = questions.current.length;
   const progress = (idx / total) * 100;
+
+  function handleNext() {
+    setFbState(null);
+    setState('input');
+    setInput('');
+    setEncouragement('');
+    if (idx + 1 >= total) {
+      onFinish({ correct, total });
+    } else {
+      setIdx(i => i + 1);
+    }
+  }
 
   useEffect(() => {
     if (!megaReto) return;
@@ -1067,16 +1056,8 @@ function SaucissePhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
         if (t <= 1) {
           clearInterval(timerRef.current);
           setState('wrong');
-          setTimeout(() => {
-            if (idx + 1 >= total) {
-              onFinish({ correct, total });
-            } else {
-              setIdx(i => i + 1);
-              setInput('');
-              setState('input');
-              setEncouragement('');
-            }
-          }, 800);
+          setFbState({ isCorrect: false, correctAnswer: String(q.result) });
+          setTimeout(() => handleNext(), 2500);
           return 0;
         }
         return t - 1;
@@ -1098,16 +1079,7 @@ function SaucissePhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
       setCorrect(c => c + 1);
       setState('correct');
       playChime(true);
-      setTimeout(() => {
-        if (idx + 1 >= total) {
-          onFinish({ correct: correct + 1, total });
-        } else {
-          setIdx(i => i + 1);
-          setInput('');
-          setState('input');
-          setEncouragement('');
-        }
-      }, 800);
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       playChime(false);
       setState('wrong');
@@ -1157,6 +1129,7 @@ function SaucissePhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
         onSubmit={handleSubmit}
         disabled={state === 'correct'}
       />
+      {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale="fr" onNext={handleNext} />}
     </div>
   );
 }

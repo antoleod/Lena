@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './verb.css';
+import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   VERBES, NIVEAUX, VERB_BADGES, ENCOURAGEMENTS_VERB, HISTOIRES,
   PHRASES_VERBES, MINI_LECONS, PUZZLE_PHRASES, SUJETS_DISPLAY, SUJET_EMOJI,
@@ -183,6 +185,8 @@ function leconKeyForNiveau(niveauId) {
 // ── Main component ─────────────────────────────────────────────────────
 export default function VerbPage() {
   // All hooks at top level
+  const { locale } = useLocale();
+  const [fbState, setFbState] = useState(null);
   const [phase, setPhase] = useState('hub');
   const [currentNiveau, setCurrentNiveau] = useState(null);
   const [currentJeu, setCurrentJeu] = useState('');
@@ -318,19 +322,23 @@ export default function VerbPage() {
         setCoursePos(p => Math.min(100, p + 10));
       }
       setEncourage(pickRandom(ENCOURAGEMENTS_VERB));
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       setEncourage('Presque ! La bonne reponse est : ' + q.answer);
+      setFbState({ isCorrect: false, correctAnswer: q.answer });
     }
+  }
 
-    setTimeout(() => {
-      setSelectedInput(null);
-      setEncourage('');
-      if (qIdx + 1 >= questions.length) {
-        goToResults();
-      } else {
-        setQIdx(i => i + 1);
-      }
-    }, 1200);
+  function handleDragonNext() {
+    setFbState(null);
+    setStatus('idle');
+    setSelectedInput(null);
+    setEncourage('');
+    if (qIdx + 1 >= questions.length) {
+      goToResults();
+    } else {
+      setQIdx(i => i + 1);
+    }
   }
 
   // ── Handle chasse answer ──
@@ -345,17 +353,19 @@ export default function VerbPage() {
       setScore(s => s + 1);
       awardXP(currentNiveau.id, 5);
     }
+    setFbState({ isCorrect: correct, correctAnswer: correct ? null : q.verbe });
+  }
 
-    setTimeout(() => {
-      setSelectedWord(null);
-      const nextIdx = qIdx + 1;
-      if (nextIdx >= questions.length) {
-        goToResults();
-      } else {
-        setQIdx(nextIdx);
-        setCurrentPhrase(questions[nextIdx]);
-      }
-    }, 1000);
+  function handleChasseNext() {
+    setFbState(null);
+    setSelectedWord(null);
+    const nextIdx = qIdx + 1;
+    if (nextIdx >= questions.length) {
+      goToResults();
+    } else {
+      setQIdx(nextIdx);
+      setCurrentPhrase(questions[nextIdx]);
+    }
   }
 
   // ── Handle memory card tap ──
@@ -395,17 +405,20 @@ export default function VerbPage() {
       setStoryScore(s => s + 1);
       awardXP(currentNiveau.id, 5);
     }
+    setFbState({ isCorrect: correct, correctAnswer: correct ? null : sentence.answer });
+  }
 
-    setTimeout(() => {
-      setSelectedInput(null);
-      const next = currentPhraseIdx + 1;
-      if (next >= currentStory.sentences.length) {
-        setScore(storyScore + (correct ? 1 : 0));
-        goToResultsWithScore(storyScore + (correct ? 1 : 0), currentStory.sentences.length);
-      } else {
-        setCurrentPhraseIdx(next);
-      }
-    }, 1100);
+  function handleHistoireNext() {
+    setFbState(null);
+    setSelectedInput(null);
+    const next = currentPhraseIdx + 1;
+    if (next >= currentStory.sentences.length) {
+      const finalScore = storyScore + (fbState?.isCorrect ? 0 : 0); // storyScore already set
+      setScore(storyScore);
+      goToResultsWithScore(storyScore, currentStory.sentences.length);
+    } else {
+      setCurrentPhraseIdx(next);
+    }
   }
 
   // ── Handle puzzle ──
@@ -430,19 +443,21 @@ export default function VerbPage() {
     } else {
       setEncourage('Essaie encore ! Regarde l\'ordre des mots.');
     }
+    setFbState({ isCorrect: correct, correctAnswer: correct ? null : q.answer });
+  }
 
-    setTimeout(() => {
-      setEncourage('');
-      const next = qIdx + 1;
-      if (next >= questions.length) {
-        goToResults();
-      } else {
-        setQIdx(next);
-        const nextQ = questions[next];
-        setPuzzleWords(shuffle(nextQ.words));
-        setPuzzleBuilt([]);
-      }
-    }, 1400);
+  function handlePuzzleNext() {
+    setFbState(null);
+    setEncourage('');
+    const next = qIdx + 1;
+    if (next >= questions.length) {
+      goToResults();
+    } else {
+      setQIdx(next);
+      const nextQ = questions[next];
+      setPuzzleWords(shuffle(nextQ.words));
+      setPuzzleBuilt([]);
+    }
   }
 
   // ── Go to results ──
@@ -582,6 +597,21 @@ export default function VerbPage() {
     );
   }
 
+  // ── FeedbackCard overlay ──
+  const fbOverlay = fbState !== null ? (
+    <FeedbackCard
+      isCorrect={fbState.isCorrect}
+      correctAnswer={fbState.correctAnswer}
+      locale={locale}
+      onNext={
+        phase === 'chasse' ? handleChasseNext :
+        phase === 'histoire' ? handleHistoireNext :
+        phase === 'puzzle' ? handlePuzzleNext :
+        handleDragonNext
+      }
+    />
+  ) : null;
+
   // ── Render dragon / terminaison / course / combat / boss ──
   if (phase === 'dragon') {
     const q = questions[qIdx];
@@ -593,6 +623,7 @@ export default function VerbPage() {
       <div className="vb-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         {xpPopup && <XPPopup text={xpPopup} />}
+        {fbOverlay}
         <QuizBar
           title={currentNiveau?.label || ''}
           idx={qIdx}
@@ -655,6 +686,7 @@ export default function VerbPage() {
       <div className="vb-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         {xpPopup && <XPPopup text={xpPopup} />}
+        {fbOverlay}
         <QuizBar
           title="Chasse aux verbes"
           idx={qIdx}
@@ -751,6 +783,7 @@ export default function VerbPage() {
       <div className="vb-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         {xpPopup && <XPPopup text={xpPopup} />}
+        {fbOverlay}
         <QuizBar
           title={story.title}
           idx={currentPhraseIdx}
@@ -791,6 +824,7 @@ export default function VerbPage() {
       <div className="vb-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
         {xpPopup && <XPPopup text={xpPopup} />}
+        {fbOverlay}
         <QuizBar
           title="Puzzle de phrases"
           idx={qIdx}

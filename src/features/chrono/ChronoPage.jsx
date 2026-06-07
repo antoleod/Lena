@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   genClockExercise, genChoices, formatDigital,
   genDurationProblem, DAILY_EVENTS, DETECTIVE_TEMPLATES, CHRONO_BADGES, ENCOURAGEMENTS,
@@ -120,6 +122,8 @@ function NumPad({ value, onChange, onSubmit }) {
 
 // ── ChronoPage ────────────────────────────────────────────────────────────────
 export default function ChronoPage() {
+  const { locale } = useLocale();
+  const [fbState, setFbState] = useState(null);
   const [phase, setPhase] = useState('hub');
   const [progress, setProgress] = useState(() => loadProgress());
   const [badge, setBadge] = useState(null);
@@ -198,42 +202,36 @@ export default function ChronoPage() {
     const newBadges = checkNewBadges(newProgress, CHRONO_BADGES);
     if (newBadges.length > 0) setBadge(newBadges[0]);
 
+    const correctAnswer = q.digital || formatDigital(q.h, q.m) || String(q.durationMins) || String(q.answer) || '';
     if (correct) {
       setStatus('correct');
       setScore(s => s + 1);
       setTries(0);
-      setTimeout(() => {
-        if (qIdx + 1 >= questions.length) {
-          setPhase('results');
-        } else {
-          setQIdx(i => i + 1);
-          setInput('');
-          setTypedAnswer('');
-          setStatus('idle');
-          setEncourage('');
-        }
-      }, 700);
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       setStatus('wrong');
       const t = tries + 1;
       setTries(t);
       if (!megaReto) setEncourage(ENCOURAGEMENTS[Math.floor(Math.random() * ENCOURAGEMENTS.length)]);
       if (t >= 2) {
-        setTimeout(() => {
-          if (qIdx + 1 >= questions.length) {
-            setPhase('results');
-          } else {
-            setQIdx(i => i + 1);
-            setInput('');
-            setTypedAnswer('');
-            setStatus('idle');
-            setEncourage('');
-            setTries(0);
-          }
-        }, 1800);
+        setFbState({ isCorrect: false, correctAnswer: String(correctAnswer) });
       } else {
         setTimeout(() => { setStatus('idle'); setInput(''); setTypedAnswer(''); }, 1200);
       }
+    }
+  }
+
+  function handleNext() {
+    setFbState(null);
+    setStatus('idle');
+    if (qIdx + 1 >= questions.length) {
+      setPhase('results');
+    } else {
+      setQIdx(i => i + 1);
+      setInput('');
+      setTypedAnswer('');
+      setEncourage('');
+      setTries(0);
     }
   }
 
@@ -247,18 +245,10 @@ export default function ChronoPage() {
   function handleTimeOut() {
     setStatus('wrong');
     setEncourage('');
-    setTimeout(() => {
-      if (qIdx + 1 >= questions.length) {
-        setPhase('results');
-      } else {
-        setQIdx(i => i + 1);
-        setInput('');
-        setTypedAnswer('');
-        setStatus('idle');
-        setEncourage('');
-        setTries(0);
-      }
-    }, 800);
+    const q = questions[qIdx];
+    const correctAnswer = q ? (q.digital || (q.h !== undefined ? formatDigital(q.h, q.m) : '') || String(q.durationMins || q.answer || '')) : '';
+    setFbState({ isCorrect: false, correctAnswer: String(correctAnswer) });
+    setTimeout(() => handleNext(), 2500);
   }
 
   useEffect(() => {
@@ -361,6 +351,7 @@ export default function ChronoPage() {
             </button>
           ))}
         </div>
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       </div>
     );
@@ -404,6 +395,7 @@ export default function ChronoPage() {
             </button>
           ))}
         </div>
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       </div>
     );
@@ -445,6 +437,7 @@ export default function ChronoPage() {
             </button>
           ))}
         </div>
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       </div>
     );
@@ -491,6 +484,7 @@ export default function ChronoPage() {
             </button>
           ))}
         </div>
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       </div>
     );
@@ -537,6 +531,7 @@ export default function ChronoPage() {
           onChange={setTypedAnswer}
           onSubmit={() => handleAnswer(typedAnswer)}
         />
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       </div>
     );
@@ -665,6 +660,7 @@ export default function ChronoPage() {
             </button>
           </div>
         </div>
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       </div>
     );

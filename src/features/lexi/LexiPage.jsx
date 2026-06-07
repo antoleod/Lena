@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './lexi.css';
+import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   MOT_MANQUANT, MOTS_CACHES, RECONSTRUCTIONS, MEMOIRE_PHRASES,
   CLASSIFICATION_ITEMS, SONS_FAMILLES, DETECTIVE_ERREURS, LECTURE_RAPIDE,
@@ -93,6 +95,8 @@ function Choices({ options, correct, selected, onSelect, col1 }) {
 // ── LexiPage ───────────────────────────────────────────────────────────
 export default function LexiPage() {
   // All hooks at top level
+  const { locale } = useLocale();
+  const [fbState, setFbState] = useState(null);
   const [phase, setPhase] = useState('hub');
   const [currentMode, setCurrentMode] = useState('');
   const [progress, setProgress] = useState(() => loadProgress());
@@ -143,14 +147,10 @@ export default function LexiPage() {
     const newProg = recordAnswer(false);
     setProgress(newProg);
     setStatus('wrong');
-    setTimeout(() => {
-      const next = qIdx + 1;
-      if (next >= questions.length) { setPhase('results'); return; }
-      setQIdx(next);
-      setStatus('idle'); setSelectedInput(null); setTries(0);
-      setEncourage(''); setTappedWords([]); setRevealedCount(0);
-      setIsHidden(false); setFlashVisible(true); setClassified({});
-    }, 800);
+    const q = questions[qIdx];
+    const correctAnswer = q ? (q.answer || q.word || q.text || q.suffix || q.correct || q.correctTheme || q.type || '') : '';
+    setFbState({ isCorrect: false, correctAnswer: String(correctAnswer) });
+    setTimeout(() => handleNext(), 2500);
   }
 
   // Mega Reto timer effect
@@ -259,12 +259,15 @@ export default function LexiPage() {
     if (isCorrect) {
       setScore(s => s + 1);
       setTries(0);
-      setTimeout(() => advance(), 700);
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       const t = tries + 1; setTries(t);
       if (!megaReto) setEncourage(ENCOURAGEMENTS_LEXI[Math.floor(Math.random() * ENCOURAGEMENTS_LEXI.length)]);
-      if (t >= 2) setTimeout(() => advance(), 1400);
-      else setTimeout(() => { setStatus('idle'); setSelectedInput(null); }, 1000);
+      if (t >= 2) {
+        setFbState({ isCorrect: false, correctAnswer: String(correct) });
+      } else {
+        setTimeout(() => { setStatus('idle'); setSelectedInput(null); }, 1000);
+      }
     }
   }
 
@@ -275,6 +278,12 @@ export default function LexiPage() {
     setQIdx(next);
     setStatus('idle'); setSelectedInput(null); setEncourage(''); setTries(0);
     setTappedWords([]); setRevealedCount(0); setIsHidden(false); setFlashVisible(true);
+  }
+
+  function handleNext() {
+    setFbState(null);
+    setStatus('idle');
+    advance();
   }
 
   function goHub() { clearInterval(timerRef.current); setPhase('hub'); setTimeLeft(15); }
@@ -436,6 +445,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Mot Manquant" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
@@ -463,6 +473,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Mots Caches" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
@@ -522,6 +533,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Reconstruis la Phrase" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
@@ -594,6 +606,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Memoire Visuelle" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
@@ -626,6 +639,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Adjectif ou Verbe ?" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
@@ -667,6 +681,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Sons Complexes" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
@@ -709,6 +724,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Detective des Erreurs" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
@@ -735,6 +751,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Lecture Rapide" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
@@ -762,6 +779,7 @@ export default function LexiPage() {
     return (
       <div className="lx-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         <QuizBar title="Laboratoire de Vocab" idx={qIdx} total={questions.length} onBack={goHub} />
         <ProgBar idx={qIdx} total={questions.length} />
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />

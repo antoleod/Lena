@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   WORD_COLORS, ANNOTATED_SENTENCES, TEXTS, GN_TEMPLATES, PHRASE_TEMPLATES,
   GRAMMI_BADGES, ENCOURAGEMENTS_GRAMMI,
@@ -171,6 +173,8 @@ function NumPad({ value, onChange, onSubmit }) {
 // ── GrammiPage ─────────────────────────────────────────────────────────
 export default function GrammiPage() {
   // All hooks at top level
+  const { locale } = useLocale();
+  const [fbState, setFbState] = useState(null);
   const [phase, setPhase] = useState('hub');
   const [currentMode, setCurrentMode] = useState('');
   const [progress, setProgress] = useState(() => loadProgress());
@@ -254,17 +258,23 @@ export default function GrammiPage() {
     if (isCorrect) {
       setScore(s => s + 1);
       setTries(0);
-      setTimeout(() => advance(), 700);
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       const t = tries + 1;
       setTries(t);
       if (!megaReto) setEncourage(ENCOURAGEMENTS_GRAMMI[Math.floor(Math.random() * ENCOURAGEMENTS_GRAMMI.length)]);
       if (t >= 2) {
-        setTimeout(() => advance(), 1800);
+        setFbState({ isCorrect: false, correctAnswer: String(correct) });
       } else {
         setTimeout(() => { setStatus('idle'); setSelectedInput(null); }, 1200);
       }
     }
+  }
+
+  function handleNext() {
+    setFbState(null);
+    setStatus('idle');
+    advance();
   }
 
   function advance() {
@@ -296,22 +306,10 @@ export default function GrammiPage() {
     setProgress(newProg);
     setStatus('wrong');
     setEncourage('');
-    setTimeout(() => {
-      if (qIdx + 1 >= questions.length) {
-        setPhase('results');
-      } else {
-        setQIdx(i => i + 1);
-        setStatus('idle');
-        setSelectedInput(null);
-        setTries(0);
-        setGnTapped([]);
-        setGnStatus('idle');
-        setWordColors({});
-        setColorValidated(false);
-        setColorScore(0);
-        setTypedAnswer('');
-      }
-    }, 800);
+    const q = questions[qIdx];
+    const correctAnswer = q ? String(q.correct ?? q.answer ?? q.correctLabel ?? q.word ?? '') : '';
+    setFbState({ isCorrect: false, correctAnswer });
+    setTimeout(() => handleNext(), 2500);
   }
 
   useEffect(() => {
@@ -568,6 +566,7 @@ export default function GrammiPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="gm-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -628,6 +627,7 @@ export default function GrammiPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="gm-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -749,6 +749,7 @@ export default function GrammiPage() {
         {encourage !== '' && (
           <div className="gm-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -775,10 +776,11 @@ export default function GrammiPage() {
       setProgress(newProg);
       const newBadges = checkNewBadges(newProg, GRAMMI_BADGES);
       if (newBadges.length > 0) setBadge(newBadges[0]);
-      if (correct >= Math.ceil(nonPunct.length * 0.7)) setScore(s => s + 1);
+      const isCorrectEnough = correct >= Math.ceil(nonPunct.length * 0.7);
+      if (isCorrectEnough) setScore(s => s + 1);
       setColorValidated(true);
       setColorScore(correct);
-      setTimeout(() => advance(), 2000);
+      setFbState({ isCorrect: isCorrectEnough, correctAnswer: null });
     }
 
     return (
@@ -852,6 +854,7 @@ export default function GrammiPage() {
             {colorScore} mot{colorScore > 1 ? 's' : ''} bien colorie{colorScore > 1 ? 's' : ''} ! 🎨
           </div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -920,6 +923,7 @@ export default function GrammiPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="gm-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -965,6 +969,7 @@ export default function GrammiPage() {
           onChange={setTypedAnswer}
           onSubmit={() => { setSelectedInput(Number(typedAnswer)); handleAnswer(Number(typedAnswer), correctCount); }}
         />
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -1010,6 +1015,7 @@ export default function GrammiPage() {
           onChange={setTypedAnswer}
           onSubmit={() => { setSelectedInput(Number(typedAnswer)); handleAnswer(Number(typedAnswer), n); }}
         />
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -1092,33 +1098,13 @@ export default function GrammiPage() {
                   if (isCorrect) {
                     setScore(s => s + 1);
                     setTries(0);
-                    setTimeout(() => {
-                      if (qIdx + 1 >= enqueteurQuestions.length) {
-                        setPhase('results');
-                      } else {
-                        setQIdx(idx => idx + 1);
-                        setStatus('idle');
-                        setSelectedInput(null);
-                        setEncourage('');
-                        setTries(0);
-                      }
-                    }, 700);
+                    setFbState({ isCorrect: true, correctAnswer: null });
                   } else {
                     const t = tries + 1;
                     setTries(t);
                     setEncourage(ENCOURAGEMENTS_GRAMMI[Math.floor(Math.random() * ENCOURAGEMENTS_GRAMMI.length)]);
                     if (t >= 2) {
-                      setTimeout(() => {
-                        if (qIdx + 1 >= enqueteurQuestions.length) {
-                          setPhase('results');
-                        } else {
-                          setQIdx(idx => idx + 1);
-                          setStatus('idle');
-                          setSelectedInput(null);
-                          setEncourage('');
-                          setTries(0);
-                        }
-                      }, 1800);
+                      setFbState({ isCorrect: false, correctAnswer: String(eq.answer) });
                     } else {
                       setTimeout(() => { setStatus('idle'); setSelectedInput(null); }, 1200);
                     }
@@ -1134,6 +1120,18 @@ export default function GrammiPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="gm-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={() => {
+          setFbState(null);
+          setStatus('idle');
+          setSelectedInput(null);
+          setEncourage('');
+          setTries(0);
+          if (qIdx + 1 >= enqueteurQuestions.length) {
+            setPhase('results');
+          } else {
+            setQIdx(i => i + 1);
+          }
+        }} />}
       </div>
     );
   }

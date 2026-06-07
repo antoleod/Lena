@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
 import { getExamLevel } from '../../../content/exams/registry.js';
 import { getDifficultyLevels, getLocalizedField, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
@@ -955,20 +956,13 @@ export default function ExamRunnerPage() {
       </div>
 
       {feedback && (
-        <div style={{ padding: '0 16px' }}>
-          <div className={`exam-explanation--${feedback}`} style={{ borderRadius: 14, padding: '14px 16px' }}>
-            <p style={{ margin: 0, fontWeight: 700 }}>{feedback === 'correct' ? ui.correct : ui.wrong}</p>
-            {feedback === 'wrong' && (
-              <div className="mc-feedback__correct-answer" style={{ marginTop: 8 }}>
-                {ui.correctAnswer} <strong>{currentQ.type === 'true_false' ? (currentQ.answer ? ui.vrai : ui.faux) : String(currentQ.answer)}</strong>
-              </div>
-            )}
-            {currentQ.correction && <p style={{ margin: '8px 0 0', fontSize: '.88rem', opacity: 0.85 }}>{getLocalizedField(currentQ, 'correction', locale)}</p>}
-            <button type="button" className="reader-btn reader-btn--next" style={{ marginTop: 12, width: '100%' }} onClick={next}>
-              {qIndex + 1 < totalQ ? ui.next : ui.seeResult}
-            </button>
-          </div>
-        </div>
+        <FeedbackCard
+          isCorrect={feedback === 'correct'}
+          correctAnswer={feedback === 'wrong' ? (currentQ.type === 'true_false' ? (currentQ.answer ? ui.vrai : ui.faux) : String(currentQ.answer)) : null}
+          locale={locale}
+          onNext={next}
+          explanation={currentQ.correction ? getLocalizedField(currentQ, 'correction', locale) : undefined}
+        />
       )}
     </div>
   );

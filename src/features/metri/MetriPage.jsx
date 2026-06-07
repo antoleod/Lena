@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './metri.css';
+import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   CATEGORIES, QUANTITY_EXAMPLES, UNIT_SENTENCES, ESTIMATIONS,
   DETECTIVE_SITUATIONS, MISSIONS, METRI_BADGES, ENCOURAGEMENTS_METRI,
@@ -103,6 +105,8 @@ function NumPad({ value, onChange, onSubmit }) {
 // ── MetriPage ───────────────────────────────────────────────────────────
 export default function MetriPage() {
   // All hooks at top level
+  const { locale } = useLocale();
+  const [fbState, setFbState] = useState(null);
   const [phase, setPhase] = useState('hub');
   const [currentMode, setCurrentMode] = useState('');
   const [progress, setProgress] = useState(() => loadProgress());
@@ -170,17 +174,23 @@ export default function MetriPage() {
     if (isCorrect) {
       setScore(s => s + 1);
       setTries(0);
-      setTimeout(() => advance(), 700);
+      setFbState({ isCorrect: true, correctAnswer: null });
     } else {
       const t = tries + 1;
       setTries(t);
       if (!megaReto) setEncourage(ENCOURAGEMENTS_METRI[Math.floor(Math.random() * ENCOURAGEMENTS_METRI.length)]);
       if (t >= 2) {
-        setTimeout(() => advance(), 1800);
+        setFbState({ isCorrect: false, correctAnswer: String(correct) });
       } else {
         setTimeout(() => { setStatus('idle'); setSelectedInput(null); }, 1200);
       }
     }
+  }
+
+  function handleNext() {
+    setFbState(null);
+    setStatus('idle');
+    advance();
   }
 
   function advance() {
@@ -203,18 +213,10 @@ export default function MetriPage() {
     setProgress(newProg);
     setStatus('wrong');
     setEncourage('');
-    setTimeout(() => {
-      if (qIdx + 1 >= questions.length) {
-        setPhase('results');
-      } else {
-        setQIdx(i => i + 1);
-        setStatus('idle');
-        setSelectedInput(null);
-        setEncourage('');
-        setTries(0);
-        setTypedAnswer('');
-      }
-    }, 800);
+    const q = questions[qIdx];
+    const correctAnswer = q ? String(q.answer ?? q.correct ?? '') : '';
+    setFbState({ isCorrect: false, correctAnswer });
+    setTimeout(() => handleNext(), 2500);
   }
 
   useEffect(() => {
@@ -454,6 +456,7 @@ export default function MetriPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -502,6 +505,7 @@ export default function MetriPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -551,6 +555,7 @@ export default function MetriPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -616,6 +621,7 @@ export default function MetriPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -678,6 +684,7 @@ export default function MetriPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -738,6 +745,7 @@ export default function MetriPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -787,6 +795,7 @@ export default function MetriPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }
@@ -862,6 +871,7 @@ export default function MetriPage() {
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
         )}
+        {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
       </div>
     );
   }

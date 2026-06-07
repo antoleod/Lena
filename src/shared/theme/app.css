@@ -13456,3 +13456,72 @@ body {
   margin: 8px 0 0;
   line-height: 1.5;
 }
+
+/* ── Shared FeedbackCard — pause-on-feedback system ──────── */
+.fb-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 200;
+  display: flex; align-items: flex-end;
+  animation: fbFadeIn .15s ease;
+}
+@keyframes fbFadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+.fb-card {
+  width: 100%; max-width: 480px; margin: 0 auto;
+  background: #1e1b4b;
+  border-radius: 28px 28px 0 0;
+  padding: 20px 20px max(20px, env(safe-area-inset-bottom));
+  animation: fbSlideUp .22s cubic-bezier(.34,1.36,.64,1);
+  border-top: 3px solid rgba(255,255,255,.12);
+}
+@keyframes fbSlideUp {
+  from { transform: translateY(100%) }
+  to   { transform: translateY(0) }
+}
+
+.fb-card.is-correct { background: #064e3b; border-top-color: #34d399; }
+.fb-card.is-wrong   { background: #4c0519; border-top-color: #f43f5e; }
+
+.fb-card__icon {
+  font-size: 2.2rem; text-align: center; margin-bottom: 8px; display: block;
+}
+.fb-card__title {
+  font-size: 1.2rem; font-weight: 900; text-align: center;
+  color: #fff; margin: 0 0 8px; font-family: 'Fredoka', sans-serif;
+}
+.fb-card.is-correct .fb-card__title { color: #6ee7b7; }
+.fb-card.is-wrong   .fb-card__title { color: #fca5a5; }
+
+.fb-card__answer-label {
+  font-size: .72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .6px; color: rgba(255,255,255,.45);
+  text-align: center; margin: 10px 0 6px;
+}
+.fb-card__answer {
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 14px; padding: 10px 16px;
+  font-size: 1rem; font-weight: 800; color: #fff;
+  text-align: center; margin-bottom: 14px;
+}
+.fb-card__explanation {
+  font-size: .8rem; color: rgba(255,255,255,.6);
+  text-align: center; margin-bottom: 12px;
+}
+.fb-card__next {
+  width: 100%; padding: 14px;
+  border-radius: 16px; border: none;
+  font-size: 1rem; font-weight: 900;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .08s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.fb-card__next:active { transform: scale(.96); }
+.fb-card.is-correct .fb-card__next {
+  background: linear-gradient(135deg, #10b981, #34d399); color: #fff;
+}
+.fb-card.is-wrong .fb-card__next {
+  background: linear-gradient(135deg, #f43f5e, #fb7185); color: #fff;
+}

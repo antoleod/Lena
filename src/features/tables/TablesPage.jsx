@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './tables.css';
+import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
 
 // ── Audio ─────────────────────────────────────────────────────────────────────
 function playChime(ok) {
@@ -247,6 +248,7 @@ function QuizMode({ table, mode, difficulty, onBack, onDone }) {
   const [qIdx, setQIdx] = useState(0);
   const [input, setInput]  = useState('');
   const [feedback, setFeedback] = useState(null); // null | 'correct' | 'wrong'
+  const [fbState, setFbState] = useState(null);
   const [score, setScore]       = useState(0);
   const [streak, setStreak]     = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
@@ -328,24 +330,17 @@ function QuizMode({ table, mode, difficulty, onBack, onDone }) {
       playChime(false);
     }
 
-    advanceRef.current = setTimeout(() => {
-      const nextIdx = qIdxRef.current + 1;
-      const isLast  = !isChallenge && nextIdx >= totalQ;
-      if (isLast) {
-        clearInterval(timerRef.current);
-        const finalScore = correct ? scoreRef.current : scoreRef.current;
-        const finalErrors = correct
-          ? errors
-          : [...errors, { q, userAnswer: answer, correct: q.a * q.b }];
-        updateProg(table, finalScore, totalQ);
-        onDone({ score: finalScore, total: totalQ, errors: finalErrors, mode, table });
-      } else {
-        setQIdx(nextIdx);
+    if (isChallenge) {
+      // Challenge mode: auto-advance fast (no pause)
+      advanceRef.current = setTimeout(() => {
+        setQIdx(qIdxRef.current + 1);
         setInput('');
         setFeedback(null);
         setShowExplain(false);
-      }
-    }, correct ? 650 : 1500);
+      }, correct ? 400 : 900);
+    } else {
+      setFbState({ isCorrect: correct, correctAnswer: String(q.a * q.b) });
+    }
   }, [q, errors, totalQ, isChallenge, mode, table, onDone]);
 
   // Physical keyboard
@@ -363,6 +358,25 @@ function QuizMode({ table, mode, difficulty, onBack, onDone }) {
     clearTimeout(advanceRef.current);
     clearInterval(timerRef.current);
   }, []);
+
+  function handleNext() {
+    const nextIdx = qIdxRef.current + 1;
+    const isLast = nextIdx >= totalQ;
+    if (isLast) {
+      clearInterval(timerRef.current);
+      const finalErrors = fbState && !fbState.isCorrect
+        ? [...errors, { q, userAnswer: parseInt(input, 10), correct: q.a * q.b }]
+        : errors;
+      updateProg(table, scoreRef.current, totalQ);
+      onDone({ score: scoreRef.current, total: totalQ, errors: finalErrors, mode, table });
+    } else {
+      setQIdx(nextIdx);
+      setInput('');
+      setFeedback(null);
+      setShowExplain(false);
+    }
+    setFbState(null);
+  }
 
   const progress = isChallenge
     ? ((totalTime - timeLeft) / totalTime) * 100
@@ -490,6 +504,14 @@ function QuizMode({ table, mode, difficulty, onBack, onDone }) {
         onOk={handleOk}
         canOk={feedback === null && input !== ''}
       />
+      {fbState !== null && (
+        <FeedbackCard
+          isCorrect={fbState.isCorrect}
+          correctAnswer={fbState.isCorrect ? null : fbState.correctAnswer}
+          locale="fr"
+          onNext={handleNext}
+        />
+      )}
     </div>
   );
 }
