@@ -12434,34 +12434,42 @@ body {
   max-width: 540px;
   margin: 0 auto;
 }
-.hub-header { margin-bottom: var(--sp-lg); text-align: center; }
-.hub-header__title { font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin: 0 0 var(--sp-xs); }
-.hub-header__sub { font-size: 1rem; color: var(--text-secondary); margin: 0; }
+.hub-header { padding: 10px 16px 8px; text-align: center; }
+.hub-header__title { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 0 0 var(--sp-xs); }
+.hub-header__sub { font-size: .78rem; color: var(--text-secondary); margin: 0; }
 
-.hub-cards { display: flex; flex-direction: column; gap: var(--sp-md); }
+.hub-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding-bottom: calc(var(--nav-height-mobile, 64px) + 12px);
+}
+@media (min-width: 480px) {
+  .hub-cards { grid-template-columns: repeat(2, 1fr); }
+}
 
 .hub-card {
   display: flex;
   align-items: center;
   gap: var(--sp-md);
-  padding: var(--sp-md) var(--sp-lg);
+  padding: 10px 14px;
   background: var(--surface-1);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   border-left: 5px solid var(--card-color, var(--lena-purple));
   text-decoration: none;
   transition: transform 0.15s, box-shadow 0.15s;
-  min-height: 76px;
+  min-height: 60px;
 }
 .hub-card:active { transform: scale(0.97); }
 .hub-card__emoji { font-size: 2.2rem; flex-shrink: 0; }
 .hub-card__icon-wrap {
-  width: 52px; height: 52px; flex-shrink: 0;
+  width: 36px; height: 36px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
 .hub-card__body { flex: 1; min-width: 0; }
-.hub-card__title { display: block; font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
-.hub-card__desc { display: block; font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px; }
+.hub-card__title { display: block; font-size: .88rem; font-weight: 700; color: var(--text-primary); }
+.hub-card__desc { display: block; font-size: .72rem; color: var(--text-secondary); margin-top: 2px; }
 .hub-card__arrow { font-size: 1.4rem; color: var(--card-color, var(--lena-purple)); flex-shrink: 0; }
 
 /* home stat row (simplified hero) */

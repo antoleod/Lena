@@ -110,6 +110,30 @@ function BadgePopup({ badge, onClose }) {
   );
 }
 
+// ── NumPad ─────────────────────────────────────────────────────────────
+function NumPad({ value, onChange, onSubmit }) {
+  const keys = ['1','2','3','4','5','6','7','8','9','del','0','ok'];
+  return (
+    <div className="gm-numpad">
+      {keys.map(k => (
+        <button
+          type="button"
+          key={k}
+          className={'gm-key' + (k === 'del' ? ' gm-key--del' : '') + (k === 'ok' ? ' gm-key--ok' + (value === '' ? ' is-disabled' : '') : '')}
+          onPointerDown={e => {
+            e.preventDefault();
+            if (k === 'del') { onChange(value.slice(0, -1)); return; }
+            if (k === 'ok') { if (value !== '') onSubmit(); return; }
+            if (value.length < 6) onChange(value + k);
+          }}
+        >
+          {k === 'del' ? '⌫' : k === 'ok' ? '✓' : k}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 // ── GrammiPage ─────────────────────────────────────────────────────────
 export default function GrammiPage() {
   // All hooks at top level
@@ -125,6 +149,7 @@ export default function GrammiPage() {
   const [tries, setTries] = useState(0);
   const [selectedInput, setSelectedInput] = useState(null);
   const [stepIdx, setStepIdx] = useState(0);
+  const [typedAnswer, setTypedAnswer] = useState('');
   // Coloriage-specific
   const [wordColors, setWordColors] = useState({});
   const [selectedColor, setSelectedColor] = useState('nom_commun');
@@ -151,6 +176,7 @@ export default function GrammiPage() {
     setColorValidated(false);
     setColorScore(0);
     setColorSentenceIdx(0);
+    setTypedAnswer('');
 
     if (mode === 'chasse-noms') {
       setQuestions(Array.from({ length: 10 }, () => genClassifyQuestion('nom_commun')));
@@ -213,6 +239,7 @@ export default function GrammiPage() {
       setWordColors({});
       setColorValidated(false);
       setColorScore(0);
+      setTypedAnswer('');
     }
   }
 
@@ -774,12 +801,6 @@ export default function GrammiPage() {
     if (!text) return null;
     const progW = questions.length > 0 ? ((qIdx / questions.length) * 100) : 0;
     const correctCount = Array.isArray(text.noms_propres) ? text.noms_propres.length : text.noms_propres;
-    const wrongOptions = [
-      Math.max(0, correctCount - 1),
-      correctCount + 1,
-      correctCount + 2,
-    ].filter(n => n !== correctCount);
-    const allOptions = [correctCount, ...wrongOptions.slice(0, 3)].sort(() => Math.random() - .5);
 
     return (
       <div className="gm-quiz-page">
@@ -798,33 +819,17 @@ export default function GrammiPage() {
 
         <div className="gm-question">Combien y a-t-il de noms propres 👑 dans ce texte ?</div>
 
-        <div className="gm-choices">
-          {allOptions.map((opt, i) => {
-            let cls = 'gm-choice';
-            if (selectedInput !== null) {
-              if (opt === correctCount) cls += ' is-correct';
-              else if (opt === selectedInput) cls += ' is-wrong';
-            }
-            return (
-              <button
-                key={i}
-                className={cls}
-                type="button"
-                onPointerDown={e => {
-                  e.preventDefault();
-                  if (status !== 'idle') return;
-                  handleAnswer(opt, correctCount);
-                }}
-              >
-                {opt}
-              </button>
-            );
-          })}
-        </div>
-
         {encourage !== '' && status === 'wrong' && (
           <div className="gm-encourage">{encourage}</div>
         )}
+        <div className={'gm-answer-input' + (typedAnswer ? ' has-input' : '') + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
+          {typedAnswer || '?'}
+        </div>
+        <NumPad
+          value={typedAnswer}
+          onChange={setTypedAnswer}
+          onSubmit={() => { setSelectedInput(Number(typedAnswer)); handleAnswer(Number(typedAnswer), correctCount); }}
+        />
       </div>
     );
   }
@@ -835,7 +840,6 @@ export default function GrammiPage() {
     if (!text) return null;
     const progW = questions.length > 0 ? ((qIdx / questions.length) * 100) : 0;
     const n = text.sentences;
-    const allOptions = [n, Math.max(1, n - 1), n + 1, n + 2].filter((v, i, a) => a.indexOf(v) === i).sort(() => Math.random() - .5);
 
     return (
       <div className="gm-quiz-page">
@@ -854,33 +858,17 @@ export default function GrammiPage() {
 
         <div className="gm-question">Combien de phrases y a-t-il dans ce texte ?</div>
 
-        <div className="gm-choices">
-          {allOptions.map((opt, i) => {
-            let cls = 'gm-choice';
-            if (selectedInput !== null) {
-              if (opt === n) cls += ' is-correct';
-              else if (opt === selectedInput) cls += ' is-wrong';
-            }
-            return (
-              <button
-                key={i}
-                className={cls}
-                type="button"
-                onPointerDown={e => {
-                  e.preventDefault();
-                  if (status !== 'idle') return;
-                  handleAnswer(opt, n);
-                }}
-              >
-                {opt}
-              </button>
-            );
-          })}
-        </div>
-
         {encourage !== '' && status === 'wrong' && (
           <div className="gm-encourage">{encourage}</div>
         )}
+        <div className={'gm-answer-input' + (typedAnswer ? ' has-input' : '') + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
+          {typedAnswer || '?'}
+        </div>
+        <NumPad
+          value={typedAnswer}
+          onChange={setTypedAnswer}
+          onSubmit={() => { setSelectedInput(Number(typedAnswer)); handleAnswer(Number(typedAnswer), n); }}
+        />
       </div>
     );
   }

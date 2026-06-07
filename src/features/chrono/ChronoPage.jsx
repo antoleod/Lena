@@ -90,6 +90,30 @@ const MODES = [
   { id: 'missions',   emoji: '🎯', name: 'Missions du Quotidien',    desc: 'Resous des problemes',                    color: '#f97316', badge: 'Expert',      label: 'Missions' },
 ];
 
+// ── NumPad ────────────────────────────────────────────────────────────────────
+function NumPad({ value, onChange, onSubmit }) {
+  const keys = ['1','2','3','4','5','6','7','8','9','del','0','ok'];
+  return (
+    <div className="ch-numpad">
+      {keys.map(k => (
+        <button
+          type="button"
+          key={k}
+          className={'ch-key' + (k === 'del' ? ' ch-key--del' : '') + (k === 'ok' ? ' ch-key--ok' + (value === '' ? ' is-disabled' : '') : '')}
+          onPointerDown={e => {
+            e.preventDefault();
+            if (k === 'del') { onChange(value.slice(0, -1)); return; }
+            if (k === 'ok') { if (value !== '') onSubmit(); return; }
+            if (value.length < 6) onChange(value + k);
+          }}
+        >
+          {k === 'del' ? '⌫' : k === 'ok' ? '✓' : k}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 // ── ChronoPage ────────────────────────────────────────────────────────────────
 export default function ChronoPage() {
   const [phase, setPhase] = useState('hub');
@@ -106,6 +130,7 @@ export default function ChronoPage() {
   const [tries, setTries] = useState(0);
   const [currentMode, setCurrentMode] = useState('analog');
   const [modeLabel, setModeLabel] = useState('');
+  const [typedAnswer, setTypedAnswer] = useState('');
 
   // Theory state
   const [stepIdx, setStepIdx] = useState(0);
@@ -137,6 +162,7 @@ export default function ChronoPage() {
     setStatus('idle');
     setTries(0);
     setEncourage('');
+    setTypedAnswer('');
     setPhase(mode);
   }
 
@@ -169,6 +195,7 @@ export default function ChronoPage() {
         } else {
           setQIdx(i => i + 1);
           setInput('');
+          setTypedAnswer('');
           setStatus('idle');
           setEncourage('');
         }
@@ -185,13 +212,14 @@ export default function ChronoPage() {
           } else {
             setQIdx(i => i + 1);
             setInput('');
+            setTypedAnswer('');
             setStatus('idle');
             setEncourage('');
             setTries(0);
           }
         }, 1800);
       } else {
-        setTimeout(() => { setStatus('idle'); setInput(''); }, 1200);
+        setTimeout(() => { setStatus('idle'); setInput(''); setTypedAnswer(''); }, 1200);
       }
     }
   }
@@ -395,11 +423,6 @@ export default function ChronoPage() {
   if (phase === 'duration' || phase === 'missions') {
     if (questions.length === 0) return null;
     const q = questions[qIdx];
-    const correctVal = q.durationMins;
-    const distractorPool = [correctVal + 15, correctVal + 30, correctVal + 45, correctVal - 15, correctVal - 30]
-      .filter(v => v > 0 && v !== correctVal);
-    const distractors = distractorPool.slice(0, 3);
-    const durationChoices = [correctVal, ...distractors].sort(() => Math.random() - .5).map(String);
     return (
       <div className="ch-quiz-page">
         <div className="ch-quiz-bar">
@@ -423,18 +446,14 @@ export default function ChronoPage() {
           </div>
         </div>
         {encourage ? <div className="ch-encourage">{encourage}</div> : null}
-        <div className="ch-choices">
-          {durationChoices.map(c => (
-            <button
-              key={c}
-              type="button"
-              className={'ch-choice' + (status !== 'idle' ? (c === String(q.durationMins) ? ' is-correct' : (status === 'wrong' && c === input ? ' is-wrong' : '')) : '')}
-              onPointerDown={e => { e.preventDefault(); if (status === 'idle') { setInput(c); handleAnswer(c); } }}
-            >
-              {c} min
-            </button>
-          ))}
+        <div className={'ch-answer-input' + (typedAnswer ? ' has-input' : '') + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
+          {typedAnswer ? typedAnswer + ' min' : '?'}
         </div>
+        <NumPad
+          value={typedAnswer}
+          onChange={setTypedAnswer}
+          onSubmit={() => handleAnswer(typedAnswer)}
+        />
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
       </div>
     );

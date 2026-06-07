@@ -73,6 +73,30 @@ function BadgePopup({ badge, onClose }) {
   );
 }
 
+// ── NumPad ───────────────────────────────────────────────────────────────
+function NumPad({ value, onChange, onSubmit }) {
+  const keys = ['1','2','3','4','5','6','7','8','9','del','0','ok'];
+  return (
+    <div className="mt-numpad">
+      {keys.map(k => (
+        <button
+          type="button"
+          key={k}
+          className={'mt-key' + (k === 'del' ? ' mt-key--del' : '') + (k === 'ok' ? ' mt-key--ok' + (value === '' ? ' is-disabled' : '') : '')}
+          onPointerDown={e => {
+            e.preventDefault();
+            if (k === 'del') { onChange(value.slice(0, -1)); return; }
+            if (k === 'ok') { if (value !== '') onSubmit(); return; }
+            if (value.length < 6) onChange(value + k);
+          }}
+        >
+          {k === 'del' ? '⌫' : k === 'ok' ? '✓' : k}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 // ── MetriPage ───────────────────────────────────────────────────────────
 export default function MetriPage() {
   // All hooks at top level
@@ -88,6 +112,7 @@ export default function MetriPage() {
   const [encourage, setEncourage] = useState('');
   const [tries, setTries] = useState(0);
   const [stepIdx, setStepIdx] = useState(0);
+  const [typedAnswer, setTypedAnswer] = useState('');
 
   const pct = progress.totalAttempts > 0
     ? Math.min(100, Math.round((progress.totalCorrect / progress.totalAttempts) * 100))
@@ -97,7 +122,7 @@ export default function MetriPage() {
     setCurrentMode(mode);
     setPhase(mode);
     setQIdx(0); setScore(0); setStatus('idle'); setTries(0);
-    setEncourage(''); setSelectedInput(null); setStepIdx(0);
+    setEncourage(''); setSelectedInput(null); setStepIdx(0); setTypedAnswer('');
     const cats = Object.keys(CATEGORIES);
     if (mode === 'unit-hunt') {
       setQuestions(Array.from({ length: 10 }, (_, i) => genUnitHunt(cats[i % cats.length])));
@@ -156,6 +181,7 @@ export default function MetriPage() {
       setSelectedInput(null);
       setEncourage('');
       setTries(0);
+      setTypedAnswer('');
     }
   }
 
@@ -669,7 +695,8 @@ export default function MetriPage() {
     const q = questions[qIdx];
     if (!q) return null;
     const progW = questions.length > 0 ? ((qIdx / questions.length) * 100) : 0;
-    const shuffledOptions = [...q.options].sort(() => Math.random() - .5);
+    const useNumpad = typeof q.answer === 'number';
+    const shuffledOptions = useNumpad ? [] : [...q.options].sort(() => Math.random() - .5);
     return (
       <div className="mt-quiz-page">
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}
@@ -687,30 +714,43 @@ export default function MetriPage() {
 
         <div className="mt-question">{q.question}{q.unit ? ' (' + q.unit + ')' : ''}</div>
 
-        <div className="mt-choices">
-          {shuffledOptions.map((opt, i) => {
-            let cls = 'mt-choice';
-            if (selectedInput !== null) {
-              if (String(opt) === String(q.answer)) cls += ' is-correct';
-              else if (String(opt) === String(selectedInput)) cls += ' is-wrong';
-            }
-            return (
-              <button
-                key={i}
-                className={cls}
-                type="button"
-                onPointerDown={e => {
-                  e.preventDefault();
-                  if (status !== 'idle') return;
-                  setSelectedInput(opt);
-                  handleAnswer(opt, q.answer);
-                }}
-              >
-                {opt}{q.unit ? ' ' + q.unit : ''}
-              </button>
-            );
-          })}
-        </div>
+        {useNumpad ? (
+          <>
+            <div className={'mt-answer-input' + (typedAnswer ? ' has-input' : '') + (status === 'correct' ? ' is-correct' : status === 'wrong' ? ' is-wrong' : '')}>
+              {typedAnswer ? typedAnswer + (q.unit ? ' ' + q.unit : '') : '?'}
+            </div>
+            <NumPad
+              value={typedAnswer}
+              onChange={setTypedAnswer}
+              onSubmit={() => { setSelectedInput(typedAnswer); handleAnswer(Number(typedAnswer), q.answer); }}
+            />
+          </>
+        ) : (
+          <div className="mt-choices">
+            {shuffledOptions.map((opt, i) => {
+              let cls = 'mt-choice';
+              if (selectedInput !== null) {
+                if (String(opt) === String(q.answer)) cls += ' is-correct';
+                else if (String(opt) === String(selectedInput)) cls += ' is-wrong';
+              }
+              return (
+                <button
+                  key={i}
+                  className={cls}
+                  type="button"
+                  onPointerDown={e => {
+                    e.preventDefault();
+                    if (status !== 'idle') return;
+                    setSelectedInput(opt);
+                    handleAnswer(opt, q.answer);
+                  }}
+                >
+                  {opt}{q.unit ? ' ' + q.unit : ''}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {encourage !== '' && status === 'wrong' && (
           <div className="mt-encourage">{encourage}</div>
