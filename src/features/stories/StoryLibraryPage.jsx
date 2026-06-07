@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CONTES } from '../../content/stories/contes.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+import { STORY_COVER_MAP } from '../../assets/icons/StoryCovers.jsx';
 import './stories.css';
 
 const STORY_LIB_UI = {
@@ -79,6 +80,8 @@ export default function StoryLibraryPage() {
             ? `linear-gradient(135deg, ${conte.palette.primary}cc, ${conte.palette.accent || conte.palette.primary}88)`
             : 'linear-gradient(135deg,#6366f1,#8b5cf6)';
 
+          const CoverIcon = STORY_COVER_MAP[conte.id] || null;
+
           return (
             <Link
               key={conte.id}
@@ -86,7 +89,12 @@ export default function StoryLibraryPage() {
               className="sl-card"
             >
               <div className="sl-card__cover" style={{ background: coverBg }}>
-                {conte.coverImage ? (
+                {CoverIcon && (
+                  <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 0 }}>
+                    <CoverIcon size={80} />
+                  </div>
+                )}
+                {conte.coverImage && (
                   <img
                     src={conte.coverImage}
                     alt={conte.title}
@@ -94,7 +102,8 @@ export default function StoryLibraryPage() {
                     loading="lazy"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
-                ) : (
+                )}
+                {!CoverIcon && !conte.coverImage && (
                   <span role="img" aria-label={conte.title} style={{ fontSize: '3rem' }}>
                     {conte.emoji || sceneEmoji(conteIdx)}
                   </span>

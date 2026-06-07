@@ -1,11 +1,42 @@
 import { useEffect, useRef, useState } from 'react';
-import './grammi.css';
 import {
   WORD_COLORS, ANNOTATED_SENTENCES, TEXTS, GN_TEMPLATES, PHRASE_TEMPLATES,
   GRAMMI_BADGES, ENCOURAGEMENTS_GRAMMI,
   genClassifyQuestion, genVerbQuestion, pickRandom,
 } from './grammiEngine.js';
 import { checkNewBadges, loadProgress, recordAnswer } from './grammiProgress.js';
+import {
+  IconGrammiNomCommun,
+  IconGrammiNomPropre,
+  IconGrammiAdjectif,
+  IconGrammiVerbe,
+  IconGrammiDeterminant,
+} from '../../assets/icons/GrammiIcons.jsx';
+import './grammi.css';
+
+// Map emoji → SVG icon component for grammar categories
+const GRAMMI_ICON_MAP = {
+  '🏠': IconGrammiNomCommun,
+  '👑': IconGrammiNomPropre,
+  '🎨': IconGrammiAdjectif,
+  '⚡': IconGrammiVerbe,
+  '📦': IconGrammiDeterminant,
+};
+
+// Render a title string that may contain a grammar emoji, replacing it with an SVG icon
+function GrammiTitle({ title, size = 22 }) {
+  const entry = Object.entries(GRAMMI_ICON_MAP).find(([emoji]) => title.includes(emoji));
+  if (!entry) return <>{title}</>;
+  const [emoji, IconComponent] = entry;
+  const parts = title.split(emoji);
+  return (
+    <>
+      {parts[0]}
+      <IconComponent size={size} style={{ verticalAlign: 'middle', marginInline: '4px' }} />
+      {parts[1]}
+    </>
+  );
+}
 
 // ── Theory data ────────────────────────────────────────────────────────
 const THEORY_STEPS = [
@@ -373,7 +404,11 @@ export default function GrammiPage() {
               >
                 <div className="gm-cat-card__stripe" />
                 <div className="gm-cat-card__body">
-                  <span className="gm-cat-card__emoji">{c.emoji}</span>
+                  <span className="gm-cat-card__emoji">
+                    {GRAMMI_ICON_MAP[c.emoji]
+                      ? (() => { const Ic = GRAMMI_ICON_MAP[c.emoji]; return <Ic size={28} />; })()
+                      : c.emoji}
+                  </span>
                   <span className="gm-cat-card__name">{c.name}</span>
                   <span className="gm-cat-card__desc">{c.desc}</span>
                   {c.badge && <span className="gm-cat-card__badge">{c.badge}</span>}
@@ -434,7 +469,7 @@ export default function GrammiPage() {
               style={{ '--step-color': s.color }}
             >
               <p className="gm-step-card__num">{s.num}</p>
-              <p className="gm-step-card__content" style={{ fontWeight: 700 }}><strong>{s.title}</strong></p>
+              <p className="gm-step-card__content" style={{ fontWeight: 700 }}><strong><GrammiTitle title={s.title} size={20} /></strong></p>
               <p className="gm-step-card__content">{s.content}</p>
               {s.examples.length > 0 && (
                 <div className="gm-step-card__examples">
@@ -767,7 +802,11 @@ export default function GrammiPage() {
               style={{ background: ct.bg }}
               onPointerDown={e => { e.preventDefault(); setSelectedColor(ct.key); }}
             >
-              <span>{ct.emoji}</span>
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {GRAMMI_ICON_MAP[ct.emoji]
+                  ? (() => { const Ic = GRAMMI_ICON_MAP[ct.emoji]; return <Ic size={18} />; })()
+                  : ct.emoji}
+              </span>
               <span>{ct.label}</span>
             </button>
           ))}

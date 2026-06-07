@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LECTURE_STORIES } from '../../content/lecture/stories.js';
 import { getErrorCount } from '../../services/storage/errorHistoryStore.js';
+import { STORY_COVER_MAP } from '../../assets/icons/StoryCovers.jsx';
 
 const PROGRESS_KEY = 'lena:lecture:v1';
 
@@ -75,7 +76,11 @@ export default function LectureHubPage() {
               className="lecture-card"
               onClick={() => navigate(`/exam/lecture/play?story=${story.id}`)}
             >
-              <span className="lecture-card__emoji">{story.emoji}</span>
+              <span className="lecture-card__emoji">
+                {STORY_COVER_MAP[story.id]
+                  ? (() => { const Ic = STORY_COVER_MAP[story.id]; return <Ic size={48} />; })()
+                  : story.emoji}
+              </span>
               <span className="lecture-card__title">{story.title}</span>
               <span className="lecture-card__meta">Niveau {story.level} · ~{story.estimatedMinutes} min</span>
               {attempted && <StarsDisplay count={stars} />}

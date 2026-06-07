@@ -1,5 +1,28 @@
 import { Link } from 'react-router-dom';
+import {
+  IconGameMotsMelanges,
+  IconGameMotsCaches,
+  IconGameDevinettes,
+  IconGameCompletePhrase,
+  IconGameCalculRapide,
+  IconGameCourseMaths,
+  IconGameTrouveIntrus,
+  IconGameMemory,
+  IconGameDetective,
+} from '../../assets/icons/GameIcons.jsx';
 import './jeux.css';
+
+const GAME_ICON_MAP = {
+  '/jeux/mots-melanges':      IconGameMotsMelanges,
+  '/jeux/mots-caches':        IconGameMotsCaches,
+  '/jeux/devinettes':         IconGameDevinettes,
+  '/jeux/complete-phrase':    IconGameCompletePhrase,
+  '/jeux/calcul-rapide':      IconGameCalculRapide,
+  '/jeux/course-maths':       IconGameCourseMaths,
+  '/jeux/intrus':             IconGameTrouveIntrus,
+  '/jeux/memory':             IconGameMemory,
+  '/jeux/detective-histoires': IconGameDetective,
+};
 
 const CATEGORIES = [
   {
@@ -64,7 +87,9 @@ export default function JeuxHubPage() {
                 style={{ '--card-accent': cat.color }}
               >
                 <div className="jh-card__icon" style={{ '--icon-bg': cat.color + '33' }}>
-                  {g.emoji}
+                  {GAME_ICON_MAP[g.to]
+                    ? (() => { const Icon = GAME_ICON_MAP[g.to]; return <Icon size={36} />; })()
+                    : g.emoji}
                 </div>
                 <div className="jh-card__body">
                   <div className="jh-card__top">
