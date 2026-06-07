@@ -208,6 +208,14 @@ export default function AppShell() {
   }, [session.rewards.equippedEffectId]);
 
   useEffect(() => {
+    if (session.profile?.settings?.effectsEnabled === false) {
+      document.documentElement.dataset.effectsOff = '';
+    } else {
+      delete document.documentElement.dataset.effectsOff;
+    }
+  }, [session.profile?.settings?.effectsEnabled]);
+
+  useEffect(() => {
     document.documentElement.dataset.wallpaper = session.rewards.equippedWallpaperId || 'wallpaper-dreamy-sky';
   }, [session.rewards.equippedWallpaperId]);
 

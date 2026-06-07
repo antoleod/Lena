@@ -133,6 +133,18 @@ export default function SettingsPage() {
                   <option value="off">Silencio</option>
                 </select>
               </div>
+
+              <div className="form-field">
+                <label htmlFor="settings-effects-toggle">Efectos visuales</label>
+                <select
+                  id="settings-effects-toggle"
+                  value={profile.settings?.effectsEnabled === false ? 'off' : 'on'}
+                  onChange={(event) => handleSettingPreference('effectsEnabled', event.target.value === 'on')}
+                >
+                  <option value="on">Activados</option>
+                  <option value="off">Desactivados</option>
+                </select>
+              </div>
             </div>
           </section>
 
