@@ -72,7 +72,7 @@ export default function SubjectPage() {
       <div className="sw-universe__hero">
         <div className="sw-universe__hero-orb">
           <span>{universe.icon}</span>
-          {[...Array(8)].map((_, i) => (
+          {[...Array(6)].map((_, i) => (
             <span key={i} className="sw-universe__hero-particle" style={{ '--i': i }}>{universe.particle}</span>
           ))}
         </div>
@@ -80,17 +80,31 @@ export default function SubjectPage() {
           <h2 className="sw-universe__hero-name">{getSubjectLabel(subject, locale, t)}</h2>
           <p className="sw-universe__hero-desc">{getSubjectDescription(subject, locale)}</p>
           <div className="sw-universe__hero-stats">
-            <span>{totalDone} / {totalActs} actividades</span>
+            <span>✦</span>
+            <span>{totalDone} / {totalActs}</span>
             <span>·</span>
-            <span>{grades.length} mundos</span>
+            <span>{grades.length} {locale === 'nl' ? 'werelden' : locale === 'en' ? 'worlds' : 'mondes'}</span>
           </div>
         </div>
       </div>
 
-      {/* Roadmap scroll */}
+      {/* Overall progress bar */}
+      <div className="sw-universe__progress">
+        <div className="sw-universe__progress-label">
+          <span>{locale === 'nl' ? 'Voortgang' : locale === 'en' ? 'Progress' : 'Progression'}</span>
+          <span>{overallPct}%</span>
+        </div>
+        <div className="sw-universe__progress-bar">
+          <div className="sw-universe__progress-fill" style={{ width: `${overallPct}%` }} />
+        </div>
+      </div>
+
+      {/* Roadmap — skill pills */}
       {roadmap.length > 0 && (
         <div className="sw-roadmap">
-          <span className="sw-roadmap__label">Ruta de aprendizaje</span>
+          <span className="sw-roadmap__label">
+            {locale === 'nl' ? 'Leerpad' : locale === 'en' ? 'Learning path' : 'Parcours'}
+          </span>
           <div className="sw-roadmap__track">
             {roadmap.map((item, i) => (
               <div key={item} className="sw-roadmap__step" style={{ animationDelay: `${i * 60}ms` }}>
@@ -104,7 +118,9 @@ export default function SubjectPage() {
 
       {/* Worlds — one per grade */}
       <div className="sw-worlds">
-        <h3 className="sw-worlds__heading">Mundos dentro del universo</h3>
+        <h3 className="sw-worlds__heading">
+          {locale === 'nl' ? 'Werelden' : locale === 'en' ? 'Worlds' : 'Mondes'}
+        </h3>
         <div className="sw-worlds__grid">
           {grades.map((grade, index) => {
             const w = grade.world;
