@@ -1,7 +1,56 @@
 .stats-page {
   min-height: 100vh;
-  padding: 20px 16px 80px;
+  padding: 0 0 80px;
   background: linear-gradient(160deg, #0f172a, #1e1b4b);
+  position: relative;
+}
+
+/* ── Hero gradient top section ───────────────────────────────────────── */
+.stats-page > .stats-back,
+.stats-page > .stats-page-title,
+.stats-page > .stats-hero {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.stats-page > .stats-back {
+  padding-top: 20px;
+}
+
+/* Hero gradient band behind pills */
+.stats-page::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 260px;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(99, 102, 241, 0.45) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 0%, rgba(168, 85, 247, 0.35) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(99, 102, 241, 0.25) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content sits above the gradient */
+.stats-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Horizontal padding for inner sections */
+.stats-section-title,
+.stats-cat-row,
+.stats-insights-grid,
+.stats-tabs,
+.stats-game-grid,
+.stats-no-data,
+.stats-error-card,
+.stats-empty {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /* Back link */
@@ -38,12 +87,39 @@
 .stats-pill {
   flex: 1;
   min-width: 80px;
-  background: rgba(255, 255, 255, 0.09);
-  border: 1.5px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  padding: 12px 8px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06));
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 16px 8px 12px;
   text-align: center;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(12px) saturate(1.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Colored top accent per pill */
+.stats-pill:nth-child(1) { border-top: 3px solid #6366f1; }
+.stats-pill:nth-child(2) { border-top: 3px solid #10b981; }
+.stats-pill:nth-child(3) { border-top: 3px solid #f59e0b; }
+.stats-pill:nth-child(4) { border-top: 3px solid #ec4899; }
+
+/* Subtle inner glow */
+.stats-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .stats-pill__val {
@@ -123,10 +199,22 @@
   overflow: hidden;
 }
 
+@keyframes stats-bar-slide-in {
+  from {
+    width: 0 !important;
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .stats-cat-fill {
   height: 100%;
   border-radius: 4px;
   transition: width 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: stats-bar-slide-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
 /* ── Insights ───────────────────────────────────────────────────────── */
@@ -224,17 +312,32 @@
 
 /* ── Game cards ─────────────────────────────────────────────────────── */
 .stats-game-card {
-  background: rgba(255, 255, 255, 0.07);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
   border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #6366f1;
   border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 12px;
-  transition: border-color 0.15s;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .stats-game-card:hover {
   border-color: rgba(255, 255, 255, 0.22);
+  border-left-color: #818cf8;
+  transform: translateX(2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
+
+/* Per-category left border color — set via data attribute on the card */
+/* These classes can be applied from JS using GAME_CATEGORIES lookup */
+.stats-game-card--langage { border-left-color: #6366f1; }
+.stats-game-card--maths   { border-left-color: #f59e0b; }
+.stats-game-card--logique { border-left-color: #ec4899; }
+.stats-game-card--lecture { border-left-color: #10b981; }
+.stats-game-card--culture { border-left-color: #f97316; }
+.stats-game-card--memoire { border-left-color: #22c55e; }
+.stats-game-card--arcade  { border-left-color: #a855f7; }
 
 .stats-game-card__header {
   display: flex;

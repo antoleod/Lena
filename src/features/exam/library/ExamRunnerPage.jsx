@@ -200,15 +200,18 @@ export default function ExamRunnerPage() {
   const examId = params.get('exam');
   const levelKey = params.get('level') || 'facile';
 
+  const isGuided = levelKey === 'guide';
+
   const [data, setData] = useState(undefined); // undefined = loading, null = not found
   useEffect(() => {
     let cancelled = false;
     setData(undefined);
-    getExamLevel(examId, levelKey).then((result) => {
+    // guided mode reuses facile questions
+    getExamLevel(examId, isGuided ? 'facile' : levelKey).then((result) => {
       if (!cancelled) setData(result ?? null);
     });
     return () => { cancelled = true; };
-  }, [examId, levelKey]);
+  }, [examId, levelKey, isGuided]);
 
   const levelMeta = getDifficultyLevels(locale).find((l) => l.key === levelKey);
   const ui = getExamUi(locale);
@@ -231,6 +234,11 @@ export default function ExamRunnerPage() {
   const [revInput, setRevInput] = useState('');
   const [revFeedback, setRevFeedback] = useState(null);
   const [revOptions, setRevOptions] = useState([]);
+
+  // Guided mode state
+  const [guidedRetry, setGuidedRetry] = useState(false);   // showing hint, waiting for retry
+  const [guidedAttempts, setGuidedAttempts] = useState([]); // [{firstTry: bool}] per question
+  const [guidedHint, setGuidedHint] = useState('');
 
   // Help system
   const [helpCount, setHelpCount] = useState(0);

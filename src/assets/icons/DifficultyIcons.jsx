@@ -76,6 +76,24 @@ export function IconDiffMoyen({ size = 32 }) {
   );
 }
 
+/* ── Guidé — teal compass / guiding star ─────────────────────────────── */
+export function IconDiffGuide({ size = 32 }) {
+  return (
+    <Base id="di-gd" c0="#67e8f9" c1="#0e7490" shadow="#082f49" size={size}>
+      {/* outer ring */}
+      <circle cx="24" cy="24" r="14" stroke="#a5f3fc" strokeWidth="2" fill="none" opacity="0.5" />
+      {/* compass needle N */}
+      <path d="M24 12 L27 24 L24 21 L21 24 Z" fill="#f0fdfa" opacity="0.95" />
+      {/* compass needle S */}
+      <path d="M24 36 L21 24 L24 27 L27 24 Z" fill="#67e8f9" opacity="0.7" />
+      {/* center dot */}
+      <circle cx="24" cy="24" r="2.5" fill="#ecfeff" />
+      {/* N label */}
+      <text x="24" y="11" textAnchor="middle" fontSize="5" fill="#ecfeff" fontWeight="bold">N</text>
+    </Base>
+  );
+}
+
 /* ── Difficile — red lightning bolt ──────────────────────────────────── */
 export function IconDiffDifficile({ size = 32 }) {
   return (

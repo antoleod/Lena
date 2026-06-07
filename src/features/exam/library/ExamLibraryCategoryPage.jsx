@@ -4,12 +4,13 @@ import { getCategories, getExamsByCategory } from '../../../content/exams/regist
 import { getCategoryLabel, getCategoryEmoji, getDifficultyLevels, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { getResult, starsFor } from './examLibraryProgress.js';
-import { IconDiffFacile, IconDiffMoyen, IconDiffDifficile } from '../../../assets/icons/DifficultyIcons.jsx';
+import { IconDiffFacile, IconDiffMoyen, IconDiffDifficile, IconDiffGuide } from '../../../assets/icons/DifficultyIcons.jsx';
 
 const DIFF_ICON = {
   facile:    IconDiffFacile,
   moyen:     IconDiffMoyen,
   difficile: IconDiffDifficile,
+  guide:     IconDiffGuide,
 };
 
 function Stars({ count }) {
@@ -150,6 +151,16 @@ export default function ExamLibraryCategoryPage() {
                 </div>
               </div>
               <div className="exam-subject-card__modes">
+                {/* guided mode button */}
+                <button
+                  type="button"
+                  className="exam-mode-btn exam-mode-btn--guide"
+                  style={{ flexDirection: 'column', gap: 2 }}
+                  onClick={() => navigate(`/exam/library/play?exam=${exam.id}&level=guide`)}
+                >
+                  <IconDiffGuide size={28} />
+                  <span>Guidé</span>
+                </button>
                 {difficultyLevels.map((lvl) => {
                   const res = getResult(exam.id, lvl.key);
                   // stubs carry levelPassPercent instead of the full levels object

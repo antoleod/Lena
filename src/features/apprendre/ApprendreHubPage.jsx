@@ -191,9 +191,41 @@ export default function ApprendreHubPage() {
     s.grades?.some(g => ['P2','P3','P4','P5','P6'].includes(g))
   );
 
+  const totalActs = activeSubjects.reduce((sum, s) => sum + getActivitiesBySubject(s.id).length, 0);
+  const doneActs  = activeSubjects.reduce((sum, s) => {
+    const acts = getActivitiesBySubject(s.id);
+    return sum + acts.filter(a => progress.activities?.[a.id]?.completed).length;
+  }, 0);
+  const globalPct = totalActs > 0 ? Math.round((doneActs / totalActs) * 100) : 0;
+
   return (
     <div className="al-hub">
-      {/* Adventure map shortcut */}
+
+      {/* ── Mes Matières — TOP ────────────────────────────────── */}
+      <div className="al-subjects-header">
+        <div className="al-subjects-header__top">
+          <h2 className="al-subjects-header__title">{ui.subjectsTitle}</h2>
+          <span className="al-subjects-header__pct">{globalPct}%</span>
+        </div>
+        <div className="al-subjects-header__bar">
+          <div className="al-subjects-header__bar-fill" style={{ width: `${globalPct}%` }} />
+        </div>
+        <p className="al-subjects-header__sub">{ui.subjectsDesc}</p>
+      </div>
+
+      <div className="al-subjects-grid al-subjects-grid--top">
+        {activeSubjects.map(s => (
+          <SubjectCard
+            key={s.id}
+            subject={s}
+            locale={locale}
+            t={t}
+            progress={progress}
+          />
+        ))}
+      </div>
+
+      {/* ── Adventure map shortcut ────────────────────────────── */}
       <Link to="/map" className="al-map-banner">
         <div className="al-map-banner__bg" aria-hidden="true">
           {['☁️','🌟','✨','☁️','⭐'].map((e, i) => (
@@ -210,37 +242,19 @@ export default function ApprendreHubPage() {
         </div>
       </Link>
 
-      {/* Language Academies */}
+      {/* ── Academies ─────────────────────────────────────────── */}
       <GroupSection emoji="🗣️" title={ui.langTitle} color="#7c3aed">
         {ui.langCards.map(c => <AcademyCard key={c.to} {...c} />)}
       </GroupSection>
 
-      {/* Maths Academies */}
       <GroupSection emoji="🔢" title={ui.mathTitle} color="#0891b2">
         {ui.mathCards.map(c => <AcademyCard key={c.to} {...c} />)}
       </GroupSection>
 
-      {/* Games & Challenges */}
       <GroupSection emoji="🎮" title={ui.gamesTitle} color="#f59e0b">
         {ui.gamesCards.map(c => <AcademyCard key={c.to} {...c} />)}
       </GroupSection>
 
-      {/* Subjects grid */}
-      <div className="al-section">
-        <h2 className="al-section__title">{ui.subjectsTitle}</h2>
-        <p className="al-section__sub">{ui.subjectsDesc}</p>
-        <div className="al-subjects-grid">
-          {activeSubjects.map(s => (
-            <SubjectCard
-              key={s.id}
-              subject={s}
-              locale={locale}
-              t={t}
-              progress={progress}
-            />
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

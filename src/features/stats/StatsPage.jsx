@@ -506,8 +506,9 @@ export default function StatsPage() {
               : 0,
           );
 
+          const cat = GAME_CATEGORIES[gameId];
           return (
-            <div key={gameId} className="stats-game-card">
+            <div key={gameId} className={`stats-game-card${cat ? ` stats-game-card--${cat}` : ''}`}>
               <div className="stats-game-card__header">
                 <span className="stats-game-card__name">{emoji} {name}</span>
                 <span className="stats-game-card__level">Niv. {gp.bestLevel ?? 1}</span>

@@ -1,9 +1,10 @@
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { GRADE_PACKS } from './gradeExamPacks.js';
 import { getResult, starsFor } from '../library/examLibraryProgress.js';
-import { IconDiffFacile, IconDiffMoyen, IconDiffDifficile } from '../../../assets/icons/DifficultyIcons.jsx';
+import { IconDiffFacile, IconDiffMoyen, IconDiffDifficile, IconDiffGuide } from '../../../assets/icons/DifficultyIcons.jsx';
 
 const LEVELS = [
+  { key: 'guide',     label: 'Guidé',     Icon: IconDiffGuide },
   { key: 'facile',    label: 'Facile',    Icon: IconDiffFacile },
   { key: 'moyen',     label: 'Moyen',     Icon: IconDiffMoyen },
   { key: 'difficile', label: 'Difficile', Icon: IconDiffDifficile },
