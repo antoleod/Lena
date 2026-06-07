@@ -79,13 +79,15 @@ function digitRange(digits) {
   if (digits === 4) return [1000, 9999];
   return null;
 }
-// "Taille des nombres" and "Nombre d'opérations" are INDEPENDENT now.
+// "Taille des nombres" and "Nombre d\'opérations" are INDEPENDENT now.
 // Auto (no value) → progression adapted to the level.
 function autoTerms(level) { return level === 'easy' ? 2 : level === 'medium' ? 3 : 4; }
 function operandRange(level, digits) {
   const dr = digitRange(digits);
   if (dr) return dr;
-  return [1, level === 'easy' ? 10 : level === 'medium' ? 50 : 100];
+  if (level === 'easy')   return [1, 10];
+  if (level === 'medium') return [10, 200];
+  return [100, 999]; // hard: 3-digit numbers
 }
 
 // ── Primary-level explanation: decompose into dizaines (tens) + unités (units) ─
@@ -151,7 +153,7 @@ function mathAdd(level, i, opts = {}) {
     improvementTip: 'Sépare les dizaines et les unités, puis regroupe.',
     hints: [
       'Sépare chaque nombre en dizaines et unités.',
-      'Additionne d’abord les dizaines, puis les unités.',
+      'Additionne d\'abord les dizaines, puis les unités.',
       'Regroupe : les dizaines plus les unités.',
     ],
     inputType: 'number',
@@ -194,8 +196,39 @@ function mathSub(level, i, opts = {}) {
 }
 
 function mathMul(level, i) {
-  const t = level === 'easy' ? rint(2, 5) : level === 'medium' ? rint(2, 9) : rint(6, 12);
-  const b = level === 'hard' ? rint(2, 12) : rint(1, 10);
+  if (level === 'hard') {
+    // Hard: multi-digit × single-digit  OR  2-digit × 2-digit
+    const useDouble = Math.random() < 0.4;
+    if (useDouble) {
+      const a = rint(12, 49), b = rint(12, 29);
+      const answer = a * b;
+      const MUL2 = { fr: `Combien font ${a} × ${b} ?`, nl: `Hoeveel is ${a} × ${b}?`, en: `How much is ${a} × ${b}?`, es: `¿Cuánto es ${a} × ${b}?` };
+      return base('math', 'multiplications', level, i, {
+        question: `${a} × ${b} = ……`,
+        testQuestion: (MUL2[_locale] || MUL2.fr),
+        answer: String(answer),
+        explanation: `${a} × ${b} = ${answer}.`,
+        method: `${a} × ${b} : ${a} × ${Math.floor(b/10)*10} + ${a} × ${b%10} = ${a*Math.floor(b/10)*10} + ${a*(b%10)} = ${answer}`,
+        improvementTip: 'Décompose : ${a} × ${b} = ${a} × (${Math.floor(b/10)*10} + ${b%10}).',
+        hints: [`Décompose ${b} en ${Math.floor(b/10)*10} + ${b%10}.`, `${a} × ${Math.floor(b/10)*10} = ?`, `Puis ajoute ${a} × ${b%10}.`],
+        inputType: 'number',
+      });
+    }
+    const a = rint(12, 99), b = rint(6, 12);
+    const answer = a * b;
+    return base('math', 'multiplications', level, i, {
+      question: `${a} × ${b} = ……`,
+      testQuestion: mq('×', a, b),
+      answer: String(answer),
+      explanation: `${a} × ${b} = ${answer}.`,
+      method: `${a} × ${b} : ${a} × ${Math.floor(b/2)*2} + ${a} × ${b - Math.floor(b/2)*2} = ${a*Math.floor(b/2)*2} + ${a*(b-Math.floor(b/2)*2)} = ${answer}`,
+      improvementTip: 'Décompose le multiplicateur pour simplifier.',
+      hints: [`Décompose ${b}.`, `${a} × ${Math.floor(b/2)} = ${a*Math.floor(b/2)}, puis double.`, `Additionne les deux parties.`],
+      inputType: 'number',
+    });
+  }
+  const t = level === 'easy' ? rint(2, 5) : rint(2, 9);
+  const b = rint(1, 10);
   const answer = t * b;
   return base('math', 'multiplications', level, i, {
     question: `${t} × ${b} = ……`,
@@ -203,33 +236,27 @@ function mathMul(level, i) {
     answer: String(answer),
     explanation: `${t} × ${b} = ${answer}. (${t} rangées de ${b})`,
     method: `${t} × ${b} = ${b}${t > 1 ? ` + ${b}`.repeat(t - 1) : ''} = ${answer}`,
-    improvementTip: 'Apprends tes tables par cœur, c’est très utile !',
-    hints: [
-      `C’est ${t} fois le nombre ${b}.`,
-      `Additionne ${b} ${t} fois.`,
-      `${t} × ${b}, pense à ta table de ${b}.`,
-    ],
+    improvementTip: 'Apprends tes tables par cœur, c\'est très utile !',
+    hints: [`C\'est ${t} fois le nombre ${b}.`, `Additionne ${b} ${t} fois.`, `${t} × ${b}, pense à ta table de ${b}.`],
     inputType: 'number',
     visual: buildArrayVisual(t, b),
   });
 }
 
 function mathDiv(level, i) {
-  const b = level === 'easy' ? rint(2, 5) : level === 'medium' ? rint(2, 9) : rint(2, 12);
-  const q = level === 'easy' ? rint(1, 5) : rint(2, 10);
-  const a = b * q; // exact division
+  let b, q;
+  if (level === 'easy')        { b = rint(2, 5);  q = rint(1, 5); }
+  else if (level === 'medium') { b = rint(2, 9);  q = rint(2, 12); }
+  else                         { b = rint(2, 12); q = rint(10, 99); } // hard: 3-digit ÷ 1-digit
+  const a = b * q;
   return base('math', 'divisions', level, i, {
     question: `${a} ÷ ${b} = ……`,
     testQuestion: mq('÷', a, b),
     answer: String(q),
     explanation: `${a} ÷ ${b} = ${q}, car ${b} × ${q} = ${a}.`,
     method: `Combien de fois ${b} dans ${a} ? ${b} × ${q} = ${a}, donc ${a} ÷ ${b} = ${q}.`,
-    improvementTip: 'La division, c’est l’inverse de la multiplication.',
-    hints: [
-      `Combien de fois ${b} entre dans ${a} ?`,
-      `Cherche dans la table de ${b}.`,
-      `${b} × ? = ${a}.`,
-    ],
+    improvementTip: 'La division, c\'est l\'inverse de la multiplication.',
+    hints: [`Combien de fois ${b} entre dans ${a} ?`, `Cherche dans la table de ${b}.`, `${b} × ? = ${a}.`],
     inputType: 'number',
   });
 }
@@ -238,8 +265,8 @@ function mathMeasure(level, i) {
   const kinds = level === 'easy'
     ? ['cm-mm']
     : level === 'medium'
-      ? ['cm-mm', 'm-cm', 'euro-cent']
-      : ['cm-mm', 'm-cm', 'euro-cent', 'kg-g'];
+      ? ['cm-mm', 'm-cm', 'euro-cent', 'kg-g']
+      : ['m-cm', 'euro-cent', 'kg-g', 'km-m', 'L-mL', 'cm-m', 'g-kg'];
   const kind = choice(kinds);
   let q, answer, explanation, accepted;
   const cv = CONVERT[_locale] || CONVERT.fr;
@@ -259,8 +286,28 @@ function mathMeasure(level, i) {
     answer = String(n * 1000); accepted = [answer, `${answer} g`];
     q = cv(n, 'kg', 'g');
     explanation = `1 kg = 1000 g → ${n} kg = ${n * 1000} g.`;
-  } else {
+  } else if (kind === 'km-m') {
+    const n = rint(1, 15);
+    answer = String(n * 1000); accepted = [answer, `${answer} m`];
+    q = cv(n, 'km', 'm');
+    explanation = `1 km = 1000 m → ${n} km = ${n * 1000} m.`;
+  } else if (kind === 'L-mL') {
     const n = rint(1, 9);
+    answer = String(n * 1000); accepted = [answer, `${answer} mL`];
+    q = cv(n, 'L', 'mL');
+    explanation = `1 L = 1000 mL → ${n} L = ${n * 1000} mL.`;
+  } else if (kind === 'cm-m') {
+    const n = rint(1, 9) * 100;
+    answer = String(n / 100); accepted = [answer, `${answer} m`];
+    q = cv(n, 'cm', 'm');
+    explanation = `100 cm = 1 m → ${n} cm = ${n / 100} m.`;
+  } else if (kind === 'g-kg') {
+    const n = rint(1, 9) * 1000;
+    answer = String(n / 1000); accepted = [answer, `${answer} kg`];
+    q = cv(n, 'g', 'kg');
+    explanation = `1000 g = 1 kg → ${n} g = ${n / 1000} kg.`;
+  } else {
+    const n = rint(1, level === 'hard' ? 20 : 9);
     answer = String(n * 100); accepted = [answer, `${answer} c`, `${answer} ${centWord}`];
     q = cv(n, '€', centWord);
     explanation = `1 € = 100 ${centWord} → ${n} € = ${n * 100} ${centWord}.`;
@@ -270,12 +317,8 @@ function mathMeasure(level, i) {
     testQuestion: q,
     answer, acceptedAnswers: accepted, explanation,
     method: explanation,
-    improvementTip: 'Retiens les conversions clés : 1 cm = 10 mm, 1 m = 100 cm, 1 € = 100 centimes.',
-    hints: [
-      'Rappelle-toi la règle de conversion.',
-      'Multiplie par 10, 100 ou 1000 selon l’unité.',
-      explanation,
-    ],
+    improvementTip: 'Retiens les conversions : 1 cm=10mm, 1 m=100cm, 1 km=1000m, 1 kg=1000g, 1 L=1000mL, 1€=100c.',
+    hints: ['Rappelle-toi la règle de conversion.', 'Multiplie ou divise par 10, 100 ou 1000.', explanation],
     inputType: 'text',
   });
 }
@@ -332,11 +375,39 @@ function mathProbleme(level, i) {
     const a = rint(2, 9), b = rint(1, 9);
     answer = a + b; q = L.add(name, a, item, b); op = '+'; x = a; y = b;
   } else if (level === 'medium') {
-    const a = rint(10, 30), b = rint(2, 9);
-    answer = a - b; q = L.sub(name, a, item, b); op = '−'; x = a; y = b;
+    const a = rint(20, 80), b = rint(5, 25);
+    if (Math.random() < 0.5) {
+      answer = a + b; q = L.add(name, a, item, b); op = '+'; x = a; y = b;
+    } else {
+      answer = a - b; q = L.sub(name, a, item, b); op = '−'; x = a; y = b;
+    }
   } else {
-    const groups = rint(2, 5), each = rint(2, 6);
-    answer = groups * each; q = L.mul(name, groups, each, item); op = '×'; x = groups; y = each;
+    // Hard: two-step problems or large multiplication/division
+    const kind = choice(['add-sub', 'mul-large', 'div', 'two-step']);
+    if (kind === 'mul-large') {
+      const groups = rint(4, 12), each = rint(8, 25);
+      answer = groups * each; q = L.mul(name, groups, each, item); op = '×'; x = groups; y = each;
+    } else if (kind === 'div') {
+      const b2 = rint(3, 8), q2 = rint(8, 20);
+      const a2 = b2 * q2;
+      const DIVQ = {
+        fr: `${name} répartit ${a2} ${item} en ${b2} parts égales. Combien de ${item} dans chaque part ?`,
+        nl: `${name} verdeelt ${a2} ${item} in ${b2} gelijke delen. Hoeveel ${item} per deel?`,
+        en: `${name} shares ${a2} ${item} equally into ${b2} groups. How many per group?`,
+        es: `${name} reparte ${a2} ${item} en ${b2} partes iguales. ¿Cuántas por parte?`,
+      };
+      answer = q2; q = (DIVQ[_locale] || DIVQ.fr); op = '÷'; x = a2; y = b2;
+    } else {
+      // two-step: buy then give away
+      const start = rint(30, 100), buy = rint(10, 40), give = rint(5, 20);
+      const TWO = {
+        fr: `${name} a ${start} ${item}. ${name} en achète ${buy} de plus, puis en donne ${give}. Combien reste-t-il ?`,
+        nl: `${name} heeft ${start} ${item}, koopt er ${buy} bij en geeft er ${give} weg. Hoeveel blijven er?`,
+        en: `${name} has ${start} ${item}, buys ${buy} more, then gives away ${give}. How many are left?`,
+        es: `${name} tiene ${start} ${item}, compra ${buy} más y da ${give}. ¿Cuántos quedan?`,
+      };
+      answer = start + buy - give; q = (TWO[_locale] || TWO.fr); op = '+−'; x = start; y = buy;
+    }
   }
   const explanation = `${x} ${op} ${y} = ${answer} ${item}.`;
   return base('math', 'problemes', level, i, {
@@ -354,19 +425,36 @@ function mathProbleme(level, i) {
 
 // ── FRANÇAIS ──────────────────────────────────────────────────────────────────
 
-const FR_COMPLETE = [
-  { s: 'Le chat boit du ……', a: 'lait', opts: ['lait', 'pain', 'sel'], h: ['Pense à ce que boit un chat.', 'C’est blanc et ça vient de la vache.', 'Le mot commence par L.'] },
-  { s: 'Je mange une …… rouge.', a: 'pomme', opts: ['pomme', 'porte', 'lune'], h: ['Cherche un fruit rouge.', 'On le croque, il est rond.', 'Le mot commence par P.'] },
-  { s: 'Le soleil est dans le ……', a: 'ciel', opts: ['ciel', 'lit', 'bus'], h: ['Lève la tête dehors.', 'C’est tout en haut, au-dessus de nous.', 'Le mot commence par C.'] },
-  { s: "L'oiseau vole dans le ……", a: 'ciel', opts: ['ciel', 'verre', 'pré'], h: ['Où volent les oiseaux ?', 'Tout en haut, dans les airs.', 'Le mot commence par C.'] },
-  { s: 'La nuit, je vais me ……', a: 'coucher', opts: ['coucher', 'laver', 'lever'], h: ['Que fait-on le soir pour dormir ?', 'On va dans son lit.', 'Le mot commence par C.'] },
-  { s: 'En hiver, il fait …….', a: 'froid', opts: ['froid', 'chaud', 'beau'], h: ['Pense à la météo en hiver.', 'Est-ce qu’il fait chaud ou froid ?', 'Le mot commence par F.'] },
-  { s: 'Le poisson nage dans l’……', a: 'eau', opts: ['eau', 'air', 'arbre'], h: ['Où vit le poisson ?', 'On en boit aussi, c’est liquide.', 'Le mot commence par E.'] },
-  { s: 'Je lis un …… à la bibliothèque.', a: 'livre', opts: ['livre', 'lit', 'bol'], h: ['Que lit-on ?', 'Il a des pages avec des histoires.', 'Le mot commence par L.'] },
-];
+const FR_COMPLETE_BY_LEVEL = {
+  easy: [
+    { s: 'Le chat boit du ……', a: 'lait', opts: ['lait', 'pain', 'sel'], h: ['Pense à ce que boit un chat.', "C\'est blanc.", 'Commence par L.'] },
+    { s: 'Je mange une …… rouge.', a: 'pomme', opts: ['pomme', 'porte', 'lune'], h: ['Un fruit rouge.', 'On le croque.', 'Commence par P.'] },
+    { s: 'Le soleil est dans le ……', a: 'ciel', opts: ['ciel', 'lit', 'bus'], h: ["Lève la tête.", "C\'est en haut.", 'Commence par C.'] },
+    { s: 'En hiver, il fait ……', a: 'froid', opts: ['froid', 'chaud', 'beau'], h: ['On met un manteau.', 'Le contraire de chaud.', 'Commence par F.'] },
+    { s: "Le poisson nage dans l'……", a: 'eau', opts: ['eau', 'air', 'arbre'], h: ['Où vit le poisson ?', "On en boit aussi.", 'Commence par E.'] },
+    { s: 'Je lis un …… à la bibliothèque.', a: 'livre', opts: ['livre', 'lit', 'bol'], h: ['Il a des pages.', 'On le lit.', 'Commence par L.'] },
+  ],
+  medium: [
+    { s: 'Le médecin soigne les ……', a: 'malades', opts: ['malades', 'voitures', 'nuages'], h: ['Qui consulte un médecin ?', 'Des personnes avec de la fièvre.', 'Commence par M.'] },
+    { s: 'Les abeilles fabriquent du ……', a: 'miel', opts: ['miel', 'lait', 'jus'], h: ["C\'est sucré et doré.", 'Produit par les abeilles.', 'Commence par M.'] },
+    { s: 'La bibliothécaire range les ……', a: 'livres', opts: ['livres', 'jouets', 'vêtements'], h: ["Dans une bibliothèque.", 'On les lit pour apprendre.', 'Commence par L.'] },
+    { s: "L\'astronaute voyage dans l'……", a: 'espace', opts: ['espace', 'océan', 'forêt'], h: ['Où vont les fusées ?', "Là où se trouvent les étoiles.", 'Commence par E.'] },
+    { s: 'Le boulanger prépare le …… chaque matin.', a: 'pain', opts: ['pain', 'lait', 'bois'], h: ['On le mange au petit-déjeuner.', 'Il est chaud et croustillant.', 'Commence par P.'] },
+    { s: 'Les pompiers éteignent les ……', a: 'incendies', opts: ['incendies', 'nuages', 'rivières'], h: ['Que combattent les pompiers ?', 'C\'est très chaud et dangereux.', 'Commence par I.'] },
+  ],
+  hard: [
+    { s: 'Malgré la pluie, les enfants jouèrent …… dans le jardin.', a: 'dehors', opts: ['dehors', 'dedans', 'ailleurs'], h: ["Ils n'étaient pas à l\'intérieur.", "À l\'extérieur.", 'Commence par D.'] },
+    { s: 'Les scientifiques ont …… un nouveau vaccin contre la grippe.', a: 'découvert', opts: ['découvert', 'inventé', 'oublié'], h: ["Trouver quelque chose qui existait déjà.", "Différent d\'inventer.", 'Commence par D.'] },
+    { s: 'Pour résoudre ce problème, il faut …… attentivement les données.', a: 'analyser', opts: ['analyser', 'ignorer', 'copier'], h: ["Étudier, examiner.", "Ce que fait un scientifique.", 'Commence par A.'] },
+    { s: "La forêt …… abrite des centaines d\'espèces d\'animaux.", a: 'tropicale', opts: ['tropicale', 'désertique', 'polaire'], h: ['Chaude et humide.', "Près de l'équateur.", 'Commence par T.'] },
+    { s: "Ce roman décrit avec …… la vie au Moyen Âge.", a: 'précision', opts: ['précision', 'rapidité', 'légèreté'], h: ["Très détaillé et exact.", "Synonyme d\'exactitude.", 'Commence par P.'] },
+    { s: 'Le gouvernement a adopté une nouvelle loi pour …… l\'environnement.', a: 'protéger', opts: ['protéger', 'détruire', 'ignorer'], h: ['Défendre, préserver.', 'Le contraire de détruire.', 'Commence par P.'] },
+  ],
+};
 
 function frCompleter(level, i) {
-  const item = choice(FR_COMPLETE);
+  const pool = FR_COMPLETE_BY_LEVEL[level] || FR_COMPLETE_BY_LEVEL.easy;
+  const item = choice(pool);
   return base('french', 'completer', level, i, {
     question: item.s,
     notebookInstruction: 'Recopie la phrase complète dans ton cahier.',
@@ -381,16 +469,35 @@ function frCompleter(level, i) {
   });
 }
 
-const FR_BONMOT = [
-  { q: 'On écrit :', a: 'maman', opts: ['maman', 'mamen', 'momen'] },
-  { q: 'On écrit :', a: 'école', opts: ['école', 'ékole', 'écolle'] },
-  { q: 'On écrit :', a: 'oiseau', opts: ['oiseau', 'oizeau', 'oisau'] },
-  { q: 'On écrit :', a: 'bateau', opts: ['bateau', 'batau', 'bato'] },
-  { q: 'On écrit :', a: 'maison', opts: ['maison', 'mayson', 'mèson'] },
-];
+const FR_BONMOT_BY_LEVEL = {
+  easy: [
+    { q: 'On écrit :', a: 'maman', opts: ['maman', 'mamen', 'momen'] },
+    { q: 'On écrit :', a: 'école', opts: ['école', 'ékole', 'écolle'] },
+    { q: 'On écrit :', a: 'oiseau', opts: ['oiseau', 'oizeau', 'oisau'] },
+    { q: 'On écrit :', a: 'bateau', opts: ['bateau', 'batau', 'bato'] },
+    { q: 'On écrit :', a: 'maison', opts: ['maison', 'mayson', 'mèson'] },
+  ],
+  medium: [
+    { q: 'On écrit :', a: 'château', opts: ['château', 'chateau', 'chato'] },
+    { q: 'On écrit :', a: 'aujourd\'hui', opts: ["aujourd\'hui", 'ogourdhui', "aujord\'hui"] },
+    { q: 'On écrit :', a: 'bicyclette', opts: ['bicyclette', 'biciclete', 'bysyclette'] },
+    { q: 'On écrit :', a: 'hôpital', opts: ['hôpital', 'hopital', 'hôpitale'] },
+    { q: 'On écrit :', a: 'gymnase', opts: ['gymnase', 'jimnase', 'gymnaze'] },
+    { q: 'On écrit :', a: 'réveil', opts: ['réveil', 'réveille', 'reveil'] },
+  ],
+  hard: [
+    { q: 'On écrit :', a: 'chrysanthème', opts: ['chrysanthème', 'crisantème', 'chrysantème'] },
+    { q: 'On écrit :', a: 'onomatopée', opts: ['onomatopée', 'onomatopé', 'onomathopée'] },
+    { q: 'On écrit :', a: 'parachute', opts: ['parachute', 'parashute', 'parachûte'] },
+    { q: 'On écrit :', a: 'rhinocéros', opts: ['rhinocéros', 'rhinoceros', 'rinocéros'] },
+    { q: 'On écrit :', a: 'cauchemar', opts: ['cauchemar', 'cauchemare', 'côchmar'] },
+    { q: 'On écrit :', a: 'envahisseur', opts: ['envahisseur', 'envahiseur', 'envaisseur'] },
+  ],
+};
 
 function frBonMot(level, i) {
-  const item = choice(FR_BONMOT);
+  const pool = FR_BONMOT_BY_LEVEL[level] || FR_BONMOT_BY_LEVEL.easy;
+  const item = choice(pool);
   return base('french', 'bon-mot', level, i, {
     question: `Quel mot est bien écrit ? (${item.opts.join(' / ')})`,
     notebookInstruction: 'Écris le mot correct dans ton cahier.',
@@ -404,17 +511,27 @@ function frBonMot(level, i) {
   });
 }
 
-const FR_TEXTS = [
-  { text: 'Léa a un petit chien noir. Il s’appelle Filou. Filou aime courir dans le jardin.',
-    q: 'Comment s’appelle le chien ?', a: 'Filou', opts: ['Filou', 'Léa', 'Rex'] },
-  { text: 'Tom va à la mer avec sa maman. Il construit un château de sable.',
-    q: 'Où va Tom ?', a: 'à la mer', opts: ['à la mer', 'à la montagne', 'à l’école'] },
-  { text: 'Maya plante une fleur jaune dans un pot. Chaque jour, elle l’arrose.',
-    q: 'De quelle couleur est la fleur ?', a: 'jaune', opts: ['jaune', 'rouge', 'bleue'] },
-];
+const FR_TEXTS_BY_LEVEL = {
+  easy: [
+    { text: "Léa a un petit chien noir. Il s\'appelle Filou. Filou aime courir dans le jardin.", q: "Comment s\'appelle le chien ?", a: 'Filou', opts: ['Filou', 'Léa', 'Rex'] },
+    { text: 'Tom va à la mer avec sa maman. Il construit un château de sable.', q: 'Où va Tom ?', a: 'à la mer', opts: ['à la mer', 'à la montagne', "à l'école"] },
+    { text: 'Maya plante une fleur jaune dans un pot. Chaque jour, elle l\'arrose.', q: 'De quelle couleur est la fleur ?', a: 'jaune', opts: ['jaune', 'rouge', 'bleue'] },
+  ],
+  medium: [
+    { text: "Hugo adore les sciences. Chaque soir, il observe les étoiles avec sa lunette. Son étoile préférée est Sirius, la plus brillante du ciel.", q: "Quelle est l'étoile préférée de Hugo ?", a: 'Sirius', opts: ['Sirius', 'Venus', 'Bételgeuse'] },
+    { text: "Nina a trouvé un chaton abandonné sous un banc du parc. Elle l\'a emmené chez elle et l\'a soigné pendant trois jours. Aujourd\'hui, il est en bonne santé.", q: 'Où Nina a-t-elle trouvé le chaton ?', a: 'sous un banc du parc', opts: ['sous un banc du parc', 'dans une boîte', 'près de son école'] },
+    { text: "Sami participe à un concours de dessin. Il a représenté sa ville natale avec beaucoup de détails. Le jury a été très impressionné par son travail.", q: "Qu\'a représenté Sami dans son dessin ?", a: 'sa ville natale', opts: ['sa ville natale', 'sa maison', 'son école'] },
+  ],
+  hard: [
+    { text: "En 1969, Neil Armstrong est devenu le premier être humain à marcher sur la Lune. Cette mission, appelée Apollo 11, a duré huit jours. Les astronautes ont rapporté des échantillons de roche lunaire pour les scientifiques.", q: "Combien de jours a duré la mission Apollo 11 ?", a: 'huit jours', opts: ['huit jours', 'trois jours', 'vingt jours'] },
+    { text: "La photosynthèse est le processus par lequel les plantes fabriquent leur nourriture. Elles utilisent la lumière du soleil, le dioxyde de carbone et l\'eau pour produire du glucose et de l\'oxygène. Ce processus est essentiel à la vie sur Terre.", q: "Que produisent les plantes grâce à la photosynthèse ?", a: 'du glucose et de l\'oxygène', opts: ["du glucose et de l\'oxygène", "de l\'eau et du sel", 'de la lumière et du carbone'] },
+    { text: "Le cycle de l\'eau comprend plusieurs étapes : l'évaporation transforme l\'eau des océans en vapeur, la condensation forme les nuages, et les précipitations ramènent l\'eau sous forme de pluie ou de neige.", q: "Quelle étape transforme l\'eau en vapeur ?", a: "l'évaporation", opts: ["l'évaporation", 'la condensation', 'les précipitations'] },
+  ],
+};
 
 function frComprehension(level, i) {
-  const item = choice(FR_TEXTS);
+  const pool = FR_TEXTS_BY_LEVEL[level] || FR_TEXTS_BY_LEVEL.easy;
+  const item = choice(pool);
   return base('french', 'comprehension', level, i, {
     question: `${item.text}\n\nQuestion : ${item.q}`,
     notebookInstruction: 'Lis le texte et écris ta réponse.',
@@ -428,16 +545,35 @@ function frComprehension(level, i) {
   });
 }
 
-const FR_VOCAB = [
-  { q: 'Le contraire de « grand » :', a: 'petit', opts: ['petit', 'gros', 'haut'] },
-  { q: 'Le contraire de « chaud » :', a: 'froid', opts: ['froid', 'tiède', 'doux'] },
-  { q: 'Un synonyme de « content » :', a: 'heureux', opts: ['heureux', 'triste', 'fâché'] },
-  { q: 'Le contraire de « jour » :', a: 'nuit', opts: ['nuit', 'soir', 'matin'] },
-  { q: 'Un fruit :', a: 'banane', opts: ['banane', 'carotte', 'pain'] },
-];
+const FR_VOCAB_BY_LEVEL = {
+  easy: [
+    { q: 'Le contraire de « grand » :', a: 'petit', opts: ['petit', 'gros', 'haut'] },
+    { q: 'Le contraire de « chaud » :', a: 'froid', opts: ['froid', 'tiède', 'doux'] },
+    { q: 'Un synonyme de « content » :', a: 'heureux', opts: ['heureux', 'triste', 'fâché'] },
+    { q: 'Le contraire de « jour » :', a: 'nuit', opts: ['nuit', 'soir', 'matin'] },
+    { q: 'Un fruit :', a: 'banane', opts: ['banane', 'carotte', 'pain'] },
+  ],
+  medium: [
+    { q: 'Un synonyme de « rapide » :', a: 'vite', opts: ['vite', 'lent', 'calme'] },
+    { q: 'Le contraire de « courageux » :', a: 'peureux', opts: ['peureux', 'fort', 'sage'] },
+    { q: 'Un synonyme de « regarder » :', a: 'observer', opts: ['observer', 'écouter', 'parler'] },
+    { q: 'Le contraire de « victoire » :', a: 'défaite', opts: ['défaite', 'succès', 'match'] },
+    { q: 'Un synonyme de « construire » :', a: 'bâtir', opts: ['bâtir', 'détruire', 'vendre'] },
+    { q: "Le contraire de « généreux » :", a: 'avare', opts: ['avare', 'gentil', 'grand'] },
+  ],
+  hard: [
+    { q: 'Un synonyme de « périlleux » :', a: 'dangereux', opts: ['dangereux', 'simple', 'tranquille'] },
+    { q: 'Le contraire de « prospère » :', a: 'déclin', opts: ['déclin', 'richesse', 'croissance'] },
+    { q: 'Un synonyme d\'« élucider » :', a: 'éclaircir', opts: ['éclaircir', 'compliquer', 'ignorer'] },
+    { q: 'Le contraire de « bénin » :', a: 'malin', opts: ['malin', 'doux', 'léger'] },
+    { q: 'Un synonyme de « pragmatique » :', a: 'pratique', opts: ['pratique', 'théorique', 'abstrait'] },
+    { q: 'Le contraire de « concis » :', a: 'prolixe', opts: ['prolixe', 'bref', 'précis'] },
+  ],
+};
 
 function frVocab(level, i) {
-  const item = choice(FR_VOCAB);
+  const pool = FR_VOCAB_BY_LEVEL[level] || FR_VOCAB_BY_LEVEL.easy;
+  const item = choice(pool);
   return base('french', 'vocabulaire', level, i, {
     question: item.q,
     notebookInstruction: 'Écris le bon mot dans ton cahier.',
@@ -470,7 +606,7 @@ function frGrammaire(level, i) {
       acceptedAnswers: [item.plur],
       explanation: `Au pluriel : ${item.plur} (on ajoute un « s »).`,
       improvementTip: 'Au pluriel, on ajoute souvent un « s » à la fin.',
-      hints: ['Le pluriel, c’est plusieurs.', 'Change « un/une » en « des ».', 'Ajoute un « s » à la fin du mot.'],
+      hints: ['Le pluriel, c\'est plusieurs.', 'Change « un/une » en « des ».', 'Ajoute un « s » à la fin du mot.'],
       inputType: 'text',
     });
   }
@@ -489,25 +625,48 @@ function frGrammaire(level, i) {
 
 // ── DICTÉE ────────────────────────────────────────────────────────────────────
 
-const DICTEE_MOTS = ['chat', 'maison', 'école', 'maman', 'soleil', 'fleur', 'oiseau', 'voiture', 'banane', 'jardin', 'cheval', 'bateau'];
-const DICTEE_PHRASES = [
-  'Le chat dort sur le lit.',
-  'Maman prépare le repas.',
-  'Léa joue dans le jardin.',
-  'Le soleil brille aujourd’hui.',
-  'Tom lit un beau livre.',
-  'Les oiseaux chantent le matin.',
-];
+const DICTEE_MOTS_BY_LEVEL = {
+  easy:   ['chat', 'maison', 'école', 'maman', 'soleil', 'fleur', 'oiseau', 'voiture', 'banane', 'jardin', 'cheval', 'bateau'],
+  medium: ['château', 'papillon', 'bibliothèque', "aujourd\'hui", 'mercredi', 'septembre', 'hôpital', 'professeur', 'musique', 'gymnase', 'anniversaire', 'vocabulaire'],
+  hard:   ['chrysanthème', 'parachute', 'rhinocéros', 'cauchemar', 'extraordinaire', 'bienveillance', 'orthographe', 'enthousiasme', 'authentique', 'bourgeoisie', 'exceptionnel', 'onomatopée'],
+};
+const DICTEE_PHRASES_BY_LEVEL = {
+  easy: [
+    'Le chat dort sur le lit.',
+    'Maman prépare le repas.',
+    'Léa joue dans le jardin.',
+    "Le soleil brille aujourd\'hui.",
+    'Tom lit un beau livre.',
+    'Les oiseaux chantent le matin.',
+  ],
+  medium: [
+    'Les enfants jouent dans la cour de récréation.',
+    "L\'astronaute voyage dans l\'espace étoilé.",
+    'Le boucher vend de la viande fraîche chaque matin.',
+    "Aujourd\'hui, nous allons à la bibliothèque municipale.",
+    "L\'hirondelle annonce toujours le retour du printemps.",
+    'Le médecin examine attentivement ses patients.',
+  ],
+  hard: [
+    "Les scientifiques étudient méticuleusement les phénomènes atmosphériques.",
+    "L\'extraordinaire biodiversité de la forêt équatoriale fascine les biologistes.",
+    "Le gouvernement a promulgué une loi exceptionnelle pour protéger l\'environnement.",
+    "L\'enthousiasme et la persévérance sont indispensables à la réussite scolaire.",
+    "La chrysanthème symbolise traditionnellement le souvenir et la commémoration.",
+    "L\'hypocrisie est une qualité que les honnêtes gens réprouvent vivement.",
+  ],
+};
 
 function dicteeMots(level, i) {
-  const word = choice(DICTEE_MOTS);
+  const pool = DICTEE_MOTS_BY_LEVEL[level] || DICTEE_MOTS_BY_LEVEL.easy;
+  const word = choice(pool);
   return base('dictee', 'mots', level, i, {
-    question: '🎧 Mot à dicter (pour l’adulte).',
+    question: '🎧 Mot à dicter (pour l\'adulte).',
     notebookInstruction: 'Écoute le mot et écris-le dans ton cahier.',
     testQuestion: 'Écris le mot que tu as entendu :',
     answer: word,
     explanation: `Le mot était : « ${word} ».`,
-    improvementTip: 'Découpe le mot en syllabes pour bien l’écrire.',
+    improvementTip: 'Découpe le mot en syllabes pour bien l\'écrire.',
     hints: ['Écoute encore le mot.', 'Découpe-le en syllabes.', `Le mot commence par « ${word[0]} ».`],
     inputType: 'text',
     dictation: word,
@@ -515,14 +674,15 @@ function dicteeMots(level, i) {
 }
 
 function dicteePhrases(level, i) {
-  const phrase = choice(DICTEE_PHRASES);
+  const pool = DICTEE_PHRASES_BY_LEVEL[level] || DICTEE_PHRASES_BY_LEVEL.easy;
+  const phrase = choice(pool);
   return base('dictee', 'phrases', level, i, {
-    question: '🎧 Phrase à dicter (pour l’adulte).',
+    question: '🎧 Phrase à dicter (pour l\'adulte).',
     notebookInstruction: 'Écoute la phrase et écris-la dans ton cahier.',
     testQuestion: 'Écris la phrase que tu as entendue :',
     answer: phrase,
     explanation: `La phrase était : « ${phrase} ».`,
-    improvementTip: 'N’oublie pas la majuscule au début et le point à la fin.',
+    improvementTip: 'N\'oublie pas la majuscule au début et le point à la fin.',
     hints: ['Réécoute la phrase en entier.', 'Écris mot après mot.', 'Pense à la majuscule et au point.'],
     inputType: 'text',
     dictation: phrase,
