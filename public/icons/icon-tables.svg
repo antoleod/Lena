@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="grad-tables-bg" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#FB923C"/>
+      <stop offset="100%" stop-color="#C2410C"/>
+    </radialGradient>
+    <linearGradient id="grad-tables-block" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FED7AA"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="grad-tables-center" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFEDD5"/>
+      <stop offset="100%" stop-color="#FED7AA"/>
+    </linearGradient>
+    <linearGradient id="grad-tables-b2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="100%" stop-color="#EAB308"/>
+    </linearGradient>
+    <linearGradient id="grad-tables-b3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#BBF7D0"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="grad-tables-b4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#BFDBFE"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="grad-tables-star" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="shadow-tables">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#7C2D12" flood-opacity="0.5"/>
+    </filter>
+    <filter id="shadow-block">
+      <feDropShadow dx="1" dy="3" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad-tables-bg)" filter="url(#shadow-tables)"/>
+
+  <!-- Bottom glow -->
+  <ellipse cx="64" cy="112" rx="42" ry="7" fill="#000" opacity="0.2"/>
+
+  <!-- Central multiply block -->
+  <rect x="44" y="44" width="40" height="40" rx="8" fill="url(#grad-tables-center)" filter="url(#shadow-block)"/>
+  <!-- Center highlight -->
+  <rect x="46" y="46" width="36" height="16" rx="5" fill="#fff" opacity="0.3"/>
+  <!-- Multiply sign -->
+  <text x="64" y="71" font-family="Arial Black, Arial" font-size="28" font-weight="900" fill="#EA580C" text-anchor="middle">×</text>
+  <!-- Multiply sign inner -->
+  <text x="64" y="71" font-family="Arial Black, Arial" font-size="28" font-weight="900" fill="#C2410C" text-anchor="middle" opacity="0.4">×</text>
+
+  <!-- Block "2" - top left -->
+  <rect x="20" y="22" width="28" height="26" rx="6" fill="url(#grad-tables-b2)" filter="url(#shadow-block)"/>
+  <rect x="22" y="24" width="24" height="10" rx="4" fill="#fff" opacity="0.35"/>
+  <text x="34" y="40" font-family="Arial Black, Arial" font-size="17" font-weight="900" fill="#713F12" text-anchor="middle">2</text>
+
+  <!-- Block "3" - top right -->
+  <rect x="80" y="22" width="28" height="26" rx="6" fill="url(#grad-tables-b3)" filter="url(#shadow-block)"/>
+  <rect x="82" y="24" width="24" height="10" rx="4" fill="#fff" opacity="0.35"/>
+  <text x="94" y="40" font-family="Arial Black, Arial" font-size="17" font-weight="900" fill="#14532D" text-anchor="middle">3</text>
+
+  <!-- Block "4" - bottom center -->
+  <rect x="50" y="92" width="28" height="24" rx="6" fill="url(#grad-tables-b4)" filter="url(#shadow-block)"/>
+  <rect x="52" y="94" width="24" height="10" rx="4" fill="#fff" opacity="0.35"/>
+  <text x="64" y="109" font-family="Arial Black, Arial" font-size="16" font-weight="900" fill="#1E3A8A" text-anchor="middle">4</text>
+
+  <!-- Stars -->
+  <polygon points="22,70 23.5,75 28,75 24.5,78 26,83 22,80 18,83 19.5,78 16,75 20.5,75" fill="url(#grad-tables-star)" opacity="0.95"/>
+  <polygon points="106,60 107,64 111,64 108,66.5 109,70.5 106,68 103,70.5 104,66.5 101,64 105,64" fill="url(#grad-tables-star)" opacity="0.9"/>
+  <polygon points="35,90 36,93 39,93 36.5,95 37.5,98 35,96.5 32.5,98 33.5,95 31,93 34,93" fill="#FDE68A" opacity="0.85"/>
+
+  <!-- Shine sparkles -->
+  <line x1="103" y1="22" x2="103" y2="32" stroke="#FDE68A" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="98" y1="27" x2="108" y2="27" stroke="#FDE68A" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="20" y1="96" x2="20" y2="104" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="16" y1="100" x2="24" y2="100" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Equation hint small -->
+  <text x="64" y="18" font-family="Arial, sans-serif" font-size="8" fill="#FED7AA" text-anchor="middle" opacity="0.8">2 × 3 = 6</text>
+
+  <!-- Top highlight on circle -->
+  <ellipse cx="54" cy="24" rx="28" ry="13" fill="#fff" opacity="0.12"/>
+
+  <!-- Glow under center block -->
+  <ellipse cx="64" cy="86" rx="22" ry="4" fill="#EA580C" opacity="0.2"/>
+</svg>

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="grad-metri-bg" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </radialGradient>
+    <linearGradient id="grad-metri-ruler" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF9C3"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="grad-metri-tube" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A7F3D0"/>
+      <stop offset="100%" stop-color="#6EE7B7"/>
+    </linearGradient>
+    <linearGradient id="grad-metri-liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="grad-metri-tape" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FED7AA"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="grad-metri-tape-reel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDBA74"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+    <filter id="shadow-metri">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#78350F" flood-opacity="0.5"/>
+    </filter>
+    <filter id="shadow-obj">
+      <feDropShadow dx="1" dy="3" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad-metri-bg)" filter="url(#shadow-metri)"/>
+  <ellipse cx="64" cy="112" rx="42" ry="7" fill="#000" opacity="0.2"/>
+
+  <!-- Objects shadow -->
+  <ellipse cx="64" cy="94" rx="35" ry="5" fill="#000" opacity="0.13"/>
+
+  <!-- RULER (horizontal) -->
+  <rect x="22" y="58" width="84" height="20" rx="4" fill="url(#grad-metri-ruler)" filter="url(#shadow-obj)"/>
+  <!-- Ruler top highlight -->
+  <rect x="24" y="60" width="80" height="7" rx="3" fill="#fff" opacity="0.35"/>
+  <!-- Ruler bottom edge -->
+  <rect x="22" y="74" width="84" height="4" rx="2" fill="#D97706" opacity="0.4"/>
+
+  <!-- Ruler tick marks (major) -->
+  <line x1="32" y1="58" x2="32" y2="68" stroke="#92400E" stroke-width="1.5"/>
+  <line x1="42" y1="58" x2="42" y2="68" stroke="#92400E" stroke-width="1.5"/>
+  <line x1="52" y1="58" x2="52" y2="68" stroke="#92400E" stroke-width="1.5"/>
+  <line x1="62" y1="58" x2="62" y2="68" stroke="#92400E" stroke-width="1.5"/>
+  <line x1="72" y1="58" x2="72" y2="68" stroke="#92400E" stroke-width="1.5"/>
+  <line x1="82" y1="58" x2="82" y2="68" stroke="#92400E" stroke-width="1.5"/>
+  <line x1="92" y1="58" x2="92" y2="68" stroke="#92400E" stroke-width="1.5"/>
+
+  <!-- Ruler tick marks (minor) -->
+  <line x1="27" y1="58" x2="27" y2="63" stroke="#B45309" stroke-width="1"/>
+  <line x1="37" y1="58" x2="37" y2="63" stroke="#B45309" stroke-width="1"/>
+  <line x1="47" y1="58" x2="47" y2="63" stroke="#B45309" stroke-width="1"/>
+  <line x1="57" y1="58" x2="57" y2="63" stroke="#B45309" stroke-width="1"/>
+  <line x1="67" y1="58" x2="67" y2="63" stroke="#B45309" stroke-width="1"/>
+  <line x1="77" y1="58" x2="77" y2="63" stroke="#B45309" stroke-width="1"/>
+  <line x1="87" y1="58" x2="87" y2="63" stroke="#B45309" stroke-width="1"/>
+  <line x1="97" y1="58" x2="97" y2="63" stroke="#B45309" stroke-width="1"/>
+
+  <!-- Ruler numbers -->
+  <text x="32" y="75" font-family="Arial, sans-serif" font-size="6.5" fill="#92400E" text-anchor="middle" font-weight="bold">1</text>
+  <text x="42" y="75" font-family="Arial, sans-serif" font-size="6.5" fill="#92400E" text-anchor="middle" font-weight="bold">2</text>
+  <text x="52" y="75" font-family="Arial, sans-serif" font-size="6.5" fill="#92400E" text-anchor="middle" font-weight="bold">3</text>
+  <text x="62" y="75" font-family="Arial, sans-serif" font-size="6.5" fill="#92400E" text-anchor="middle" font-weight="bold">4</text>
+  <text x="72" y="75" font-family="Arial, sans-serif" font-size="6.5" fill="#92400E" text-anchor="middle" font-weight="bold">5</text>
+  <text x="82" y="75" font-family="Arial, sans-serif" font-size="6.5" fill="#92400E" text-anchor="middle" font-weight="bold">6</text>
+  <text x="92" y="75" font-family="Arial, sans-serif" font-size="6.5" fill="#92400E" text-anchor="middle" font-weight="bold">7</text>
+
+  <!-- TEST TUBE (right side, tilted) -->
+  <g transform="rotate(15, 90, 60)" filter="url(#shadow-obj)">
+    <!-- Tube body -->
+    <rect x="83" y="30" width="12" height="44" rx="6" fill="url(#grad-metri-tube)"/>
+    <!-- Liquid inside -->
+    <rect x="85" y="52" width="8" height="22" rx="4" fill="url(#grad-metri-liquid)"/>
+    <!-- Liquid highlight -->
+    <rect x="86" y="54" width="2" height="14" rx="1" fill="#fff" opacity="0.4"/>
+    <!-- Tube top rim -->
+    <rect x="82" y="28" width="14" height="6" rx="3" fill="#6EE7B7"/>
+    <!-- Bubbles in liquid -->
+    <circle cx="90" cy="60" r="1.5" fill="#fff" opacity="0.5"/>
+    <circle cx="88" cy="66" r="1" fill="#fff" opacity="0.4"/>
+    <!-- Tube body highlight -->
+    <rect x="84" y="32" width="3" height="18" rx="1.5" fill="#fff" opacity="0.3"/>
+  </g>
+
+  <!-- MEASURING TAPE REEL (left side) -->
+  <g transform="translate(32, 38)" filter="url(#shadow-obj)">
+    <!-- Reel outer -->
+    <circle r="18" fill="url(#grad-metri-tape-reel)"/>
+    <!-- Reel inner -->
+    <circle r="12" fill="#FED7AA"/>
+    <!-- Reel center hole -->
+    <circle r="5" fill="#EA580C"/>
+    <circle r="3" fill="#fff" opacity="0.4"/>
+    <!-- Reel ridges -->
+    <circle r="18" fill="none" stroke="#D97706" stroke-width="2"/>
+    <circle r="12" fill="none" stroke="#F97316" stroke-width="1.5"/>
+    <!-- Reel highlight -->
+    <ellipse cx="-4" cy="-8" rx="10" ry="6" fill="#fff" opacity="0.25"/>
+    <!-- Tape coming out -->
+    <rect x="16" y="-4" width="20" height="6" rx="3" fill="url(#grad-metri-tape)"/>
+    <line x1="18" y1="-2" x2="34" y2="-2" stroke="#D97706" stroke-width="1" opacity="0.5"/>
+    <line x1="18" y1="0" x2="34" y2="0" stroke="#D97706" stroke-width="0.8" opacity="0.4"/>
+    <!-- Tape marks -->
+    <line x1="20" y1="-4" x2="20" y2="2" stroke="#92400E" stroke-width="1"/>
+    <line x1="25" y1="-4" x2="25" y2="2" stroke="#92400E" stroke-width="1"/>
+    <line x1="30" y1="-4" x2="30" y2="2" stroke="#92400E" stroke-width="1"/>
+    <text x="22" y="8" font-family="Arial, sans-serif" font-size="5" fill="#92400E" font-weight="bold">cm</text>
+  </g>
+
+  <!-- Scale indicator / measurement arrow -->
+  <g opacity="0.9">
+    <line x1="22" y1="50" x2="106" y2="50" stroke="#D97706" stroke-width="1.5" stroke-dasharray="4,3" stroke-linecap="round"/>
+    <polygon points="22,50 28,47 28,53" fill="#D97706"/>
+    <polygon points="106,50 100,47 100,53" fill="#D97706"/>
+  </g>
+  <text x="64" y="47" font-family="Arial Black, Arial" font-size="7" fill="#D97706" text-anchor="middle" font-weight="bold">84 cm</text>
+
+  <!-- Small star decorations -->
+  <polygon points="104,25 105.5,30 110,30 106.5,33 108,38 104,35 100,38 101.5,33 98,30 102.5,30" fill="#FDE68A" opacity="0.9"/>
+  <polygon points="18,88 19.5,92 24,92 20.5,95 22,99 18,96.5 14,99 15.5,95 12,92 16.5,92" fill="#FDE68A" opacity="0.85"/>
+  <circle cx="106" cy="88" r="3" fill="#FDE68A" opacity="0.8"/>
+  <circle cx="22" cy="24" r="2.5" fill="#FDE68A" opacity="0.75"/>
+
+  <!-- Top highlight on circle -->
+  <ellipse cx="54" cy="24" rx="28" ry="13" fill="#fff" opacity="0.13"/>
+</svg>

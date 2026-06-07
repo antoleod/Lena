@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="grad-grammi-bg" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#065F46"/>
+    </radialGradient>
+    <linearGradient id="grad-grammi-bubble" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#D1FAE5"/>
+    </linearGradient>
+    <linearGradient id="grad-grammi-crown" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="grad-grammi-book" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#A7F3D0"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow-grammi">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#064E3B" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glow-grammi-bubble">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#34D399" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow-crown-g">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#FEF08A" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad-grammi-bg)" filter="url(#shadow-grammi)"/>
+  <ellipse cx="64" cy="112" rx="42" ry="7" fill="#000" opacity="0.2"/>
+
+  <!-- Bubble shadow -->
+  <ellipse cx="64" cy="86" rx="30" ry="5" fill="#000" opacity="0.15"/>
+
+  <!-- Main speech bubble -->
+  <path d="
+    M32 38
+    Q32 30 40 30
+    L88 30
+    Q96 30 96 38
+    L96 72
+    Q96 80 88 80
+    L72 80
+    L64 94
+    L56 80
+    L40 80
+    Q32 80 32 72
+    Z
+  " fill="url(#grad-grammi-bubble)" filter="url(#glow-grammi-bubble)"/>
+
+  <!-- Bubble inner highlight -->
+  <path d="M36 33 Q36 30 40 30 L88 30 Q93 30 94 34 L94 44 Q70 38 36 44 Z" fill="#fff" opacity="0.3"/>
+
+  <!-- Letter "A" floating -->
+  <g transform="translate(46,56)">
+    <circle r="14" fill="#059669" opacity="0.9"/>
+    <circle r="14" fill="none" stroke="#34D399" stroke-width="2"/>
+    <text x="0" y="6" font-family="Georgia, Times New Roman, serif" font-size="18" font-weight="bold" fill="#FDE68A" text-anchor="middle">A</text>
+    <ellipse cx="0" cy="-8" rx="9" ry="5" fill="#fff" opacity="0.2"/>
+  </g>
+
+  <!-- Exclamation mark bubble -->
+  <g transform="translate(68,48)">
+    <circle r="12" fill="#F59E0B" opacity="0.9"/>
+    <circle r="12" fill="none" stroke="#FDE68A" stroke-width="2"/>
+    <text x="0" y="5" font-family="Arial Black, Arial" font-size="16" font-weight="900" fill="#fff" text-anchor="middle">!</text>
+    <ellipse cx="0" cy="-7" rx="7" ry="4" fill="#fff" opacity="0.25"/>
+  </g>
+
+  <!-- Question mark bubble (smaller) -->
+  <g transform="translate(82,64)">
+    <circle r="9" fill="#A855F7" opacity="0.9"/>
+    <circle r="9" fill="none" stroke="#C084FC" stroke-width="1.5"/>
+    <text x="0" y="4" font-family="Georgia, serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">?</text>
+    <ellipse cx="0" cy="-5" rx="5" ry="3" fill="#fff" opacity="0.25"/>
+  </g>
+
+  <!-- Crown above bubble -->
+  <g filter="url(#glow-crown-g)">
+    <path d="M46 28 L46 20 L54 25 L64 14 L74 25 L82 20 L82 28 Z" fill="url(#grad-grammi-crown)"/>
+    <rect x="46" y="26" width="36" height="5" rx="2.5" fill="#D97706"/>
+    <!-- Crown jewels -->
+    <circle cx="64" cy="22" r="3" fill="#EF4444"/>
+    <circle cx="50" cy="26" r="2" fill="#60A5FA"/>
+    <circle cx="78" cy="26" r="2" fill="#A855F7"/>
+    <path d="M48 23 L54 25 L64 15 L74 25 L80 23" fill="none" stroke="#FDE68A" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Mini book at bottom -->
+  <g transform="translate(50, 92)">
+    <!-- Book left -->
+    <path d="M-12 -6 Q-12 -10 -8 -10 L0 -10 L0 10 L-8 10 Q-12 10 -12 6 Z" fill="url(#grad-grammi-book)"/>
+    <!-- Book right -->
+    <path d="M2 -10 L10 -10 Q14 -10 14 -6 L14 6 Q14 10 10 10 L2 10 Z" fill="#6EE7B7"/>
+    <!-- Spine -->
+    <rect x="-1" y="-11" width="4" height="22" rx="2" fill="#059669"/>
+    <rect x="0" y="-10" width="1" height="20" rx="1" fill="#fff" opacity="0.25"/>
+    <!-- Book lines -->
+    <line x1="-9" y1="-4" x2="-2" y2="-4" stroke="#34D399" stroke-width="1"/>
+    <line x1="-9" y1="0" x2="-2" y2="0" stroke="#34D399" stroke-width="1"/>
+    <line x1="-9" y1="4" x2="-2" y2="4" stroke="#34D399" stroke-width="1"/>
+    <line x1="4" y1="-4" x2="11" y2="-4" stroke="#A7F3D0" stroke-width="1"/>
+    <line x1="4" y1="0" x2="11" y2="0" stroke="#A7F3D0" stroke-width="1"/>
+    <line x1="4" y1="4" x2="11" y2="4" stroke="#A7F3D0" stroke-width="1"/>
+  </g>
+
+  <!-- Floating sparkle dots -->
+  <circle cx="22" cy="46" r="3" fill="#FDE68A" opacity="0.85"/>
+  <circle cx="24" cy="80" r="2.5" fill="#FDE68A" opacity="0.8"/>
+  <circle cx="104" cy="42" r="2.5" fill="#FDE68A" opacity="0.8"/>
+  <circle cx="106" cy="76" r="2" fill="#FDE68A" opacity="0.7"/>
+
+  <!-- Stars -->
+  <polygon points="22,58 23.5,63 28,63 24.5,66 26,71 22,68 18,71 19.5,66 16,63 20.5,63" fill="#FDE68A" opacity="0.85"/>
+  <polygon points="106,56 107,59 110,59 107.5,61 108.5,64 106,62.5 103.5,64 104.5,61 102,59 105,59" fill="#FDE68A" opacity="0.8"/>
+
+  <!-- Top highlight on circle -->
+  <ellipse cx="54" cy="24" rx="28" ry="13" fill="#fff" opacity="0.13"/>
+</svg>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="grad-contes-bg" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </radialGradient>
+    <linearGradient id="grad-contes-book-l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D1FAE5"/>
+      <stop offset="100%" stop-color="#A7F3D0"/>
+    </linearGradient>
+    <linearGradient id="grad-contes-book-r" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#D1FAE5"/>
+    </linearGradient>
+    <linearGradient id="grad-contes-spine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16A34A"/>
+      <stop offset="100%" stop-color="#14532D"/>
+    </linearGradient>
+    <linearGradient id="grad-contes-crown" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="grad-contes-castle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E9D5FF"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+    <filter id="shadow-contes">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#14532D" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glow-contes">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#86EFAC" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad-contes-bg)" filter="url(#shadow-contes)"/>
+  <ellipse cx="64" cy="112" rx="42" ry="7" fill="#000" opacity="0.2"/>
+
+  <!-- Book shadow -->
+  <ellipse cx="64" cy="89" rx="30" ry="5" fill="#000" opacity="0.15"/>
+
+  <!-- Castle silhouette on right page (small) -->
+  <g opacity="0.6">
+    <rect x="72" y="64" width="5" height="9" fill="url(#grad-contes-castle)"/>
+    <rect x="80" y="62" width="5" height="11" fill="url(#grad-contes-castle)"/>
+    <rect x="71" y="60" width="7" height="5" rx="1" fill="url(#grad-contes-castle)"/>
+    <rect x="79" y="58" width="7" height="5" rx="1" fill="url(#grad-contes-castle)"/>
+    <rect x="72" y="58" width="2" height="3" fill="#A855F7"/>
+    <rect x="75" y="58" width="2" height="3" fill="#A855F7"/>
+    <rect x="80" y="56" width="2" height="3" fill="#A855F7"/>
+    <rect x="83" y="56" width="2" height="3" fill="#A855F7"/>
+    <rect x="74" y="64" width="3" height="9" fill="#14532D" opacity="0.3"/>
+  </g>
+
+  <!-- Book left page -->
+  <path d="M34 52 Q34 46 40 46 L62 46 L62 85 L40 85 Q34 85 34 79 Z" fill="url(#grad-contes-book-l)"/>
+
+  <!-- Book right page -->
+  <path d="M66 46 L88 46 Q94 46 94 52 L94 79 Q94 85 88 85 L66 85 Z" fill="url(#grad-contes-book-r)"/>
+
+  <!-- Book spine -->
+  <rect x="60" y="44" width="8" height="43" rx="3" fill="url(#grad-contes-spine)"/>
+  <rect x="62" y="46" width="2" height="39" rx="1" fill="#fff" opacity="0.25"/>
+
+  <!-- Left page: once upon a time lines -->
+  <line x1="40" y1="56" x2="59" y2="56" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="40" y1="62" x2="59" y2="62" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="40" y1="68" x2="59" y2="68" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="40" y1="74" x2="55" y2="74" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Decorative "Il était" -->
+  <text x="47" y="55" font-family="Georgia, serif" font-size="6" fill="#16A34A" text-anchor="middle" opacity="0.7">Il était une fois...</text>
+
+  <!-- Right page lines below castle -->
+  <line x1="68" y1="76" x2="91" y2="76" stroke="#A7F3D0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="68" y1="81" x2="88" y2="81" stroke="#A7F3D0" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Crown above book -->
+  <g filter="url(#glow-contes)">
+    <path d="M48 43 L48 35 L56 40 L64 30 L72 40 L80 35 L80 43 Z" fill="url(#grad-contes-crown)"/>
+    <rect x="48" y="41" width="32" height="5" rx="2" fill="#F59E0B"/>
+    <!-- Crown jewels -->
+    <circle cx="64" cy="38" r="3" fill="#EF4444"/>
+    <circle cx="52" cy="41" r="2" fill="#60A5FA"/>
+    <circle cx="76" cy="41" r="2" fill="#A855F7"/>
+    <!-- Crown highlight -->
+    <path d="M50 37 L56 40 L64 31 L72 40 L78 37" fill="none" stroke="#FDE68A" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Magic stars floating -->
+  <g transform="translate(22,46)">
+    <polygon points="0,-7 2,-2.5 7,-2.5 3,0.5 4.5,6 0,3 -4.5,6 -3,0.5 -7,-2.5 -2,-2.5" fill="url(#grad-contes-crown)" opacity="0.95"/>
+  </g>
+  <g transform="translate(106,46)">
+    <polygon points="0,-6 1.8,-2 6,-2 2.5,0.5 3.8,5 0,2.8 -3.8,5 -2.5,0.5 -6,-2 -1.8,-2" fill="url(#grad-contes-crown)" opacity="0.9"/>
+  </g>
+  <g transform="translate(100,88)">
+    <polygon points="0,-5 1.5,-1.5 5,-1.5 2,1 3.5,4.5 0,2.5 -3.5,4.5 -2,1 -5,-1.5 -1.5,-1.5" fill="#FDE68A" opacity="0.85"/>
+  </g>
+
+  <!-- Magic sparkles -->
+  <circle cx="28" cy="80" r="2.5" fill="#FDE68A" opacity="0.8"/>
+  <circle cx="30" cy="35" r="2" fill="#FDE68A" opacity="0.7"/>
+  <circle cx="98" cy="30" r="2" fill="#FDE68A" opacity="0.7"/>
+
+  <!-- Sparkle cross at top right -->
+  <line x1="100" y1="20" x2="100" y2="28" stroke="#FDE68A" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="96" y1="24" x2="104" y2="24" stroke="#FDE68A" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Top highlight on circle -->
+  <ellipse cx="54" cy="24" rx="28" ry="13" fill="#fff" opacity="0.15"/>
+</svg>

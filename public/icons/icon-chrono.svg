@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="grad-chrono-bg" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#0E7490"/>
+    </radialGradient>
+    <radialGradient id="grad-chrono-clock" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#F0FAFA"/>
+      <stop offset="100%" stop-color="#CFFAFE"/>
+    </radialGradient>
+    <linearGradient id="grad-chrono-rim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0891B2"/>
+      <stop offset="100%" stop-color="#164E63"/>
+    </linearGradient>
+    <linearGradient id="grad-chrono-sun" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="grad-chrono-moon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E0E7FF"/>
+      <stop offset="100%" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <filter id="shadow-chrono">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0C4A6E" flood-opacity="0.5"/>
+    </filter>
+    <filter id="shadow-clock">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0E7490" flood-opacity="0.35"/>
+    </filter>
+    <filter id="glow-sun">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#FEF08A" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad-chrono-bg)" filter="url(#shadow-chrono)"/>
+  <ellipse cx="64" cy="112" rx="42" ry="7" fill="#000" opacity="0.2"/>
+
+  <!-- Clock shadow -->
+  <ellipse cx="64" cy="96" rx="28" ry="5" fill="#000" opacity="0.18"/>
+
+  <!-- Clock rim (outer) -->
+  <circle cx="64" cy="68" r="32" fill="url(#grad-chrono-rim)" filter="url(#shadow-clock)"/>
+
+  <!-- Clock face -->
+  <circle cx="64" cy="68" r="27" fill="url(#grad-chrono-clock)"/>
+
+  <!-- Clock face highlight -->
+  <ellipse cx="56" cy="52" rx="14" ry="8" fill="#fff" opacity="0.25"/>
+
+  <!-- Hour marks -->
+  <line x1="64" y1="43" x2="64" y2="48" stroke="#0E7490" stroke-width="2.5" stroke-linecap="round"/><!-- 12 -->
+  <line x1="89" y1="68" x2="84" y2="68" stroke="#0E7490" stroke-width="2.5" stroke-linecap="round"/><!-- 3 -->
+  <line x1="64" y1="93" x2="64" y2="88" stroke="#0E7490" stroke-width="2.5" stroke-linecap="round"/><!-- 6 -->
+  <line x1="39" y1="68" x2="44" y2="68" stroke="#0E7490" stroke-width="2.5" stroke-linecap="round"/><!-- 9 -->
+  <!-- Minor marks -->
+  <line x1="76.5" y1="46.2" x2="74.8" y2="49.1" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="86.8" y1="55.5" x2="83.9" y2="57.2" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="86.8" y1="80.5" x2="83.9" y2="78.8" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="76.5" y1="89.8" x2="74.8" y2="86.9" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="51.5" y1="89.8" x2="53.2" y2="86.9" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="41.2" y1="80.5" x2="44.1" y2="78.8" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="41.2" y1="55.5" x2="44.1" y2="57.2" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="51.5" y1="46.2" x2="53.2" y2="49.1" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Clock numbers -->
+  <text x="64" y="52" font-family="Arial Black, Arial" font-size="8" font-weight="bold" fill="#0E7490" text-anchor="middle">12</text>
+  <text x="86" y="72" font-family="Arial Black, Arial" font-size="8" font-weight="bold" fill="#0E7490" text-anchor="middle">3</text>
+  <text x="64" y="91" font-family="Arial Black, Arial" font-size="8" font-weight="bold" fill="#0E7490" text-anchor="middle">6</text>
+  <text x="42" y="72" font-family="Arial Black, Arial" font-size="8" font-weight="bold" fill="#0E7490" text-anchor="middle">9</text>
+
+  <!-- Hour hand (pointing to 12) -->
+  <line x1="64" y1="68" x2="64" y2="52" stroke="#0C4A6E" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Minute hand (pointing to 3) -->
+  <line x1="64" y1="68" x2="80" y2="68" stroke="#155E75" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Center knob -->
+  <circle cx="64" cy="68" r="4" fill="#0E7490"/>
+  <circle cx="64" cy="68" r="2" fill="#67E8F9"/>
+
+  <!-- Bell top left -->
+  <ellipse cx="48" cy="37" rx="8" ry="7" fill="#0891B2"/>
+  <ellipse cx="48" cy="37" rx="5" ry="4.5" fill="#22D3EE"/>
+  <circle cx="48" cy="43" r="2.5" fill="#0E7490"/>
+  <line x1="44" y1="30" x2="42" y2="26" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="41" cy="25" r="2.5" fill="#0891B2"/>
+  <!-- Bell right -->
+  <ellipse cx="80" cy="37" rx="8" ry="7" fill="#0891B2"/>
+  <ellipse cx="80" cy="37" rx="5" ry="4.5" fill="#22D3EE"/>
+  <circle cx="80" cy="43" r="2.5" fill="#0E7490"/>
+  <line x1="84" y1="30" x2="86" y2="26" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="87" cy="25" r="2.5" fill="#0891B2"/>
+
+  <!-- Sun (right side) -->
+  <g transform="translate(100,52)" filter="url(#glow-sun)">
+    <circle r="10" fill="url(#grad-chrono-sun)"/>
+    <ellipse rx="9" ry="4" fill="#fff" opacity="0.25" transform="translate(0,-3)"/>
+    <!-- Sun rays -->
+    <line x1="0" y1="-13" x2="0" y2="-11" stroke="#FDE68A" stroke-width="2" stroke-linecap="round"/>
+    <line x1="0" y1="11" x2="0" y2="13" stroke="#FDE68A" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-13" y1="0" x2="-11" y2="0" stroke="#FDE68A" stroke-width="2" stroke-linecap="round"/>
+    <line x1="11" y1="0" x2="13" y2="0" stroke="#FDE68A" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-9" y1="-9" x2="-8" y2="-8" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="8" y1="-8" x2="9" y2="-9" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Smiley face on sun -->
+    <circle cx="-3" cy="-1" r="1.5" fill="#D97706"/>
+    <circle cx="3" cy="-1" r="1.5" fill="#D97706"/>
+    <path d="M-3 3 Q0 5.5 3 3" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Moon (left side) -->
+  <g transform="translate(24,52)">
+    <path d="M-6 0 A10 10 0 1 0 6 0 A7 7 0 1 1 -6 0 Z" fill="url(#grad-chrono-moon)"/>
+    <circle cx="2" cy="-5" r="1.5" fill="#C7D2FE" opacity="0.6"/>
+    <circle cx="5" cy="2" r="1" fill="#C7D2FE" opacity="0.5"/>
+  </g>
+
+  <!-- Stars near moon -->
+  <circle cx="14" cy="38" r="2" fill="#FDE68A" opacity="0.8"/>
+  <circle cx="22" cy="32" r="1.5" fill="#FDE68A" opacity="0.7"/>
+
+  <!-- Top highlight on circle -->
+  <ellipse cx="54" cy="24" rx="28" ry="13" fill="#fff" opacity="0.14"/>
+</svg>

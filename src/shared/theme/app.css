@@ -9746,7 +9746,19 @@ label {
     font-size: clamp(1.1rem, 3vw, 1.5rem);
   }
   .cc-completion__suggestions {
-    display: none;
+    margin-top: 2px;
+  }
+  .cc-completion__suggestions-label {
+    font-size: 0.62rem;
+    margin-bottom: 4px;
+  }
+  .cc-completion__suggestion {
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+  }
+  .cc-completion__suggestions-list {
+    gap: 4px;
   }
 }
 

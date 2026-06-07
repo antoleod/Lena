@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="grad-cahier-bg" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </radialGradient>
+    <linearGradient id="grad-cahier-cover" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+    <linearGradient id="grad-cahier-page" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAFAFA"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <linearGradient id="grad-cahier-pencil" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="70%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="grad-cahier-star" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="shadow-cahier">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1E3A8A" flood-opacity="0.5"/>
+    </filter>
+    <filter id="shadow-cahier-sm">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#1E3A8A" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad-cahier-bg)" filter="url(#shadow-cahier)"/>
+
+  <!-- Bottom shadow -->
+  <ellipse cx="64" cy="112" rx="42" ry="7" fill="#000" opacity="0.2"/>
+
+  <!-- Notebook shadow -->
+  <ellipse cx="67" cy="90" rx="32" ry="5" fill="#000" opacity="0.15"/>
+
+  <!-- Notebook cover back -->
+  <rect x="34" y="42" width="58" height="46" rx="5" fill="url(#grad-cahier-cover)" filter="url(#shadow-cahier-sm)"/>
+
+  <!-- Notebook page -->
+  <rect x="38" y="39" width="52" height="45" rx="4" fill="url(#grad-cahier-page)"/>
+
+  <!-- Page red margin line -->
+  <line x1="50" y1="39" x2="50" y2="84" stroke="#FCA5A5" stroke-width="1.5"/>
+
+  <!-- Ruled lines -->
+  <line x1="53" y1="48" x2="86" y2="48" stroke="#BFDBFE" stroke-width="1.2"/>
+  <line x1="53" y1="54" x2="86" y2="54" stroke="#BFDBFE" stroke-width="1.2"/>
+  <line x1="53" y1="60" x2="86" y2="60" stroke="#BFDBFE" stroke-width="1.2"/>
+  <line x1="53" y1="66" x2="86" y2="66" stroke="#BFDBFE" stroke-width="1.2"/>
+  <line x1="53" y1="72" x2="86" y2="72" stroke="#BFDBFE" stroke-width="1.2"/>
+  <line x1="53" y1="78" x2="86" y2="78" stroke="#BFDBFE" stroke-width="1.2"/>
+
+  <!-- Handwriting hint lines -->
+  <line x1="53" y1="48" x2="75" y2="48" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="53" y1="54" x2="80" y2="54" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="53" y1="60" x2="68" y2="60" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Spiral binding circles -->
+  <circle cx="38" cy="47" r="4" fill="none" stroke="#60A5FA" stroke-width="2.5"/>
+  <circle cx="38" cy="56" r="4" fill="none" stroke="#60A5FA" stroke-width="2.5"/>
+  <circle cx="38" cy="65" r="4" fill="none" stroke="#60A5FA" stroke-width="2.5"/>
+  <circle cx="38" cy="74" r="4" fill="none" stroke="#60A5FA" stroke-width="2.5"/>
+  <circle cx="38" cy="83" r="4" fill="none" stroke="#60A5FA" stroke-width="2.5"/>
+
+  <!-- Spiral binding dots center -->
+  <circle cx="38" cy="47" r="1.5" fill="#3B82F6"/>
+  <circle cx="38" cy="56" r="1.5" fill="#3B82F6"/>
+  <circle cx="38" cy="65" r="1.5" fill="#3B82F6"/>
+  <circle cx="38" cy="74" r="1.5" fill="#3B82F6"/>
+  <circle cx="38" cy="83" r="1.5" fill="#3B82F6"/>
+
+  <!-- Pencil body (diagonal) -->
+  <g transform="rotate(-35, 85, 55)">
+    <rect x="74" y="28" width="9" height="40" rx="2" fill="url(#grad-cahier-pencil)"/>
+    <!-- Pencil stripe -->
+    <rect x="74" y="44" width="9" height="3" fill="#D97706"/>
+    <!-- Pencil eraser -->
+    <rect x="74" y="28" width="9" height="7" rx="2" fill="#FCA5A5"/>
+    <!-- Pencil tip -->
+    <polygon points="74,68 83,68 78.5,76" fill="#FBBF24"/>
+    <!-- Pencil tip point -->
+    <polygon points="76,72 81,72 78.5,76" fill="#92400E"/>
+    <!-- Pencil highlight -->
+    <rect x="76" y="31" width="2" height="30" rx="1" fill="#fff" opacity="0.35"/>
+  </g>
+
+  <!-- Star sticker on corner -->
+  <g transform="translate(80, 37)">
+    <circle r="9" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+    <polygon points="0,-6 1.8,-1.8 6.3,-1.8 2.7,1 4.2,6.3 0,3.6 -4.2,6.3 -2.7,1 -6.3,-1.8 -1.8,-1.8" fill="url(#grad-cahier-star)"/>
+  </g>
+
+  <!-- Top highlight on circle -->
+  <ellipse cx="54" cy="24" rx="28" ry="13" fill="#fff" opacity="0.15"/>
+
+  <!-- Small decorative dots -->
+  <circle cx="28" cy="45" r="3" fill="#FDE68A" opacity="0.9"/>
+  <circle cx="24" cy="80" r="2.5" fill="#FDE68A" opacity="0.8"/>
+  <circle cx="100" cy="48" r="2" fill="#FDE68A" opacity="0.7"/>
+</svg>
