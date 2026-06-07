@@ -5,54 +5,67 @@ import { formatDuration } from '../../services/storage/gameProgressStore.js';
 import { GameFeedback, useGameFeedback } from './GameFeedback.jsx';
 import './jeux.css';
 
-// Patterns by level
-const PATTERN_POOLS = [
-  // Niveau 1: simple +1, +2, numbers 1-20
-  [
-    () => { const s = Math.floor(Math.random()*10)+1; const seq = [s,s+1,s+2,s+3]; return { seq, answer: s+4, hint: '+1', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*8)+1; const seq = [s,s+2,s+4,s+6]; return { seq, answer: s+8, hint: '+2', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*6)+2; const seq = [s,s-1,s-2,s-3]; return { seq, answer: s-4, hint: '-1', type: 'number' }; },
-    () => { const s = (Math.floor(Math.random()*5)+1)*2; const seq = [s,s+2,s+4,s+6]; return { seq, answer: s+8, hint: 'Pairs +2', type: 'number' }; },
-    () => { const sets = [['🐱','🐶','🐸'],['⭐','🌙','☀️'],['🍎','🍊','🍋']]; const s = sets[Math.floor(Math.random()*sets.length)]; const seq = [s[0],s[1],s[2],s[0]]; return { seq, answer: s[1], hint: 'Répète !', type: 'emoji' }; },
+// ─── Pattern factories by level ───────────────────────────────────────────────
+const PATTERN_POOLS = {
+  1: [
+    () => { const s=Math.floor(Math.random()*8)+1; return { seq:[s,s+1,s+2,s+3], answer:s+4, hint:'+1', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*6)+1; return { seq:[s,s+2,s+4,s+6], answer:s+8, hint:'+2', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*6)+6; return { seq:[s,s-1,s-2,s-3], answer:s-4, hint:'-1', type:'number' }; },
+    () => { const s=(Math.floor(Math.random()*5)+1)*2; return { seq:[s,s+2,s+4,s+6], answer:s+8, hint:'Pairs +2', type:'number' }; },
+    () => { const n=Math.floor(Math.random()*5)+2; return { seq:[n,n,n,n], answer:n, hint:'Meme nombre', type:'number' }; },
+    () => { const sets=[['🐱','🐶','🐸'],['⭐','🌙','☀️'],['🍎','🍊','🍋']]; const s=sets[Math.floor(Math.random()*sets.length)]; return { seq:[s[0],s[1],s[2],s[0]], answer:s[1], hint:'Repete !', type:'emoji' }; },
   ],
-  // Niveau 2: +2, +3, ×2
-  [
-    () => { const s = Math.floor(Math.random()*6)+1; const seq = [s,s+3,s+6,s+9]; return { seq, answer: s+12, hint: '+3', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*3)+1; const seq = [s,s*2,s*4,s*8]; return { seq, answer: s*16, hint: '×2', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*4)+1; const seq = [s,s+2,s+4,s+6]; return { seq, answer: s+8, hint: '+2', type: 'number' }; },
-    () => { const s = (Math.floor(Math.random()*4)+1)*5; const seq = [s,s+5,s+10,s+15]; return { seq, answer: s+20, hint: '+5', type: 'number' }; },
-    () => { const sets = [['🔴','🔵','🟢'],['🌞','🌛','🌟'],['🐱','🐶','🐰','🐱']]; const s = sets[Math.floor(Math.random()*sets.length)]; const seq = [s[0],s[1],s[2],s[0]]; return { seq, answer: s[1], hint: 'Répète !', type: 'emoji' }; },
+  2: [
+    () => { const s=Math.floor(Math.random()*6)+1; return { seq:[s,s+3,s+6,s+9], answer:s+12, hint:'+3', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*3)+1; return { seq:[s,s*2,s*4,s*8], answer:s*16, hint:'×2', type:'number' }; },
+    () => { const s=(Math.floor(Math.random()*4)+1)*5; return { seq:[s,s+5,s+10,s+15], answer:s+20, hint:'+5', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*5)+1; return { seq:[s,s+2,s+4,s+6], answer:s+8, hint:'+2', type:'number' }; },
+    () => { const n=(Math.floor(Math.random()*5)+1)*10; return { seq:[n,n-10,n-20,n-30], answer:n-40, hint:'-10', type:'number' }; },
+    () => { const sets=[['🔴','🔵','🟢'],['🌞','🌛','🌟']]; const s=sets[Math.floor(Math.random()*sets.length)]; return { seq:[s[0],s[1],s[2],s[0]], answer:s[1], hint:'Repete !', type:'emoji' }; },
   ],
-  // Niveau 3: mixed arithmetic + emoji alternating
-  [
-    () => { const s = Math.floor(Math.random()*5)+1; const d = Math.floor(Math.random()*3)+2; const seq = [s,s+d,s+2*d,s+3*d]; return { seq, answer: s+4*d, hint: `+${d}`, type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*4)+2; const seq = [s,s*2,s*4,s*8]; return { seq, answer: s*16, hint: '×2', type: 'number' }; },
-    () => { const emoji = ['⭐','🌟','💫','✨','🌠']; const seq = [emoji[0],emoji[1],emoji[2],emoji[3]]; return { seq, answer: emoji[4], hint: 'Continue !', type: 'emoji' }; },
-    () => { const a = ['🔴','🔵'], b = [1,2,1,2]; const seq = [a[0],a[1],a[0],a[1]]; return { seq, answer: a[0], hint: 'Alterne !', type: 'emoji' }; },
-    () => { const s = Math.floor(Math.random()*5)+1; const seq = [s,s+1,s+3,s+4]; return { seq, answer: s+6, hint: '+1+2+1+2', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*10)+10; const seq = [s,s-2,s-4,s-6]; return { seq, answer: s-8, hint: '-2', type: 'number' }; },
+  3: [
+    () => { const s=Math.floor(Math.random()*5)+1; const d=Math.floor(Math.random()*3)+2; return { seq:[s,s+d,s+2*d,s+3*d], answer:s+4*d, hint:`+${d}`, type:'number' }; },
+    () => { const s=Math.floor(Math.random()*4)+2; return { seq:[s,s*2,s*4,s*8], answer:s*16, hint:'×2', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*10)+10; return { seq:[s,s-2,s-4,s-6], answer:s-8, hint:'-2', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*5)+1; return { seq:[s,s+1,s+3,s+4], answer:s+6, hint:'+1+2+1+2', type:'number' }; },
+    () => { const a=['🔴','🔵']; return { seq:[a[0],a[1],a[0],a[1]], answer:a[0], hint:'Alterne !', type:'emoji' }; },
+    () => { const emoji=['⭐','🌟','💫','✨','🌠']; return { seq:[emoji[0],emoji[1],emoji[2],emoji[3]], answer:emoji[4], hint:'Continue !', type:'emoji' }; },
   ],
-  // Niveau 4: two-step +1+2, decreasing, alternating
-  [
-    () => { const s = Math.floor(Math.random()*5)+1; const seq = [s,s+1,s+3,s+4]; return { seq, answer: s+6, hint: '+1 +2 +1 +2', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*10)+15; const seq = [s,s-3,s-6,s-9]; return { seq, answer: s-12, hint: '-3', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*5)+1; const seq = [s,s+4,s+8,s+12]; return { seq, answer: s+16, hint: '+4', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*3)+1; const seq = [s,s+2,s+6,s+14]; return { seq, answer: s+30, hint: '×2+...', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*20)+20; const seq = [s,s-4,s-8,s-12]; return { seq, answer: s-16, hint: '-4', type: 'number' }; },
-    () => { const emoji = ['🌙','⭐','🌙','⭐']; return { seq: emoji, answer: '🌙', hint: 'Alterne !', type: 'emoji' }; },
+  4: [
+    () => { const s=Math.floor(Math.random()*5)+1; return { seq:[s,s+1,s+3,s+4], answer:s+6, hint:'+1 +2 +1 +2', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*10)+20; return { seq:[s,s-3,s-6,s-9], answer:s-12, hint:'-3', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*5)+1; return { seq:[s,s+4,s+8,s+12], answer:s+16, hint:'+4', type:'number' }; },
+    () => { const a=Math.floor(Math.random()*3)+1,b=a; const c=a+b,d=b+c; return { seq:[a,b,c,d], answer:c+d, hint:'Fibonacci !', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*20)+20; return { seq:[s,s-4,s-8,s-12], answer:s-16, hint:'-4', type:'number' }; },
+    () => { const emoji=['🌙','⭐','🌙','⭐']; return { seq:emoji, answer:'🌙', hint:'Alterne !', type:'emoji' }; },
   ],
-  // Niveau 5: Fibonacci-like, skip 7, geometry
-  [
-    () => { const a = Math.floor(Math.random()*3)+1, b = Math.floor(Math.random()*3)+1; const c=a+b,d=b+c; const seq=[a,b,c,d]; return { seq, answer: c+d, hint: 'Fibonacci !', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*7)+1; const seq=[s,s+7,s+14,s+21]; return { seq, answer: s+28, hint: '+7', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*2)+1; const seq=[s,s*3,s*9,s*27]; return { seq, answer: s*81, hint: '×3', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*5)+2; const seq=[s*s,(s+1)*(s+1),(s+2)*(s+2),(s+3)*(s+3)]; return { seq, answer: (s+4)*(s+4), hint: 'Carrés !', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*3)+1; const seq=[s,s+6,s+11,s+15]; return { seq, answer: s+18, hint: '+6+5+4...', type: 'number' }; },
-    () => { const s = Math.floor(Math.random()*5)+1; const seq=[s,s+8,s+15,s+21]; return { seq, answer: s+26, hint: '+8+7+6...', type: 'number' }; },
+  5: [
+    () => { const a=Math.floor(Math.random()*3)+1,b=Math.floor(Math.random()*3)+1; const c=a+b,d=b+c; return { seq:[a,b,c,d], answer:c+d, hint:'Fibonacci !', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*2)+1; return { seq:[s,s*3,s*9,s*27], answer:s*81, hint:'×3', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*5)+2; return { seq:[s*s,(s+1)*(s+1),(s+2)*(s+2),(s+3)*(s+3)], answer:(s+4)*(s+4), hint:'Carres !', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*7)+1; return { seq:[s,s+7,s+14,s+21], answer:s+28, hint:'+7', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*5)+1; return { seq:[s,s+6,s+11,s+15], answer:s+18, hint:'+6+5+4...', type:'number' }; },
+    () => { const s=Math.floor(Math.random()*3)+1; return { seq:[s*1,s*2,s*4,s*7], answer:s*11, hint:'+1+2+3+4...', type:'number' }; },
   ],
-];
+};
 
-const ROUNDS = 10;
+const LEVEL_CONFIG = [
+  { id:1,  label:'N1',  n:6,  poolLvl:[1],   hints:true  },
+  { id:2,  label:'N2',  n:6,  poolLvl:[1],   hints:true  },
+  { id:3,  label:'N3',  n:8,  poolLvl:[1,2], hints:true  },
+  { id:4,  label:'N4',  n:8,  poolLvl:[1,2], hints:true  },
+  { id:5,  label:'N5',  n:8,  poolLvl:[2],   hints:true  },
+  { id:6,  label:'N6',  n:10, poolLvl:[2],   hints:false },
+  { id:7,  label:'N7',  n:10, poolLvl:[2,3], hints:false },
+  { id:8,  label:'N8',  n:10, poolLvl:[2,3], hints:false },
+  { id:9,  label:'N9',  n:10, poolLvl:[3],   hints:false },
+  { id:10, label:'N10', n:12, poolLvl:[3],   hints:false },
+  { id:11, label:'N11', n:12, poolLvl:[3,4], hints:false },
+  { id:12, label:'N12', n:12, poolLvl:[4],   hints:false },
+  { id:13, label:'N13', n:15, poolLvl:[4,5], hints:false },
+  { id:14, label:'N14', n:15, poolLvl:[4,5], hints:false },
+  { id:15, label:'N15', n:15, poolLvl:[5],   hints:false },
+];
 
 function shuffle(arr) {
   const a = [...arr];
@@ -63,23 +76,27 @@ function shuffle(arr) {
   return a;
 }
 
-function makeRound(levelIdx) {
-  const pool = PATTERN_POOLS[levelIdx];
-  const factory = pool[Math.floor(Math.random() * pool.length)];
+function makeRound(levelCfg) {
+  // Collect factories from all pool levels
+  const factories = levelCfg.poolLvl.flatMap(lvl => PATTERN_POOLS[lvl] || []);
+  const factory = factories[Math.floor(Math.random() * factories.length)];
   const { seq, answer, hint, type } = factory();
   const wrongs = new Set();
   if (type === 'number') {
-    while (wrongs.size < 2) {
+    let attempts = 0;
+    while (wrongs.size < 2 && attempts < 60) {
+      attempts++;
       const delta = Math.floor(Math.random() * 6) + 1;
       const sign = Math.random() < 0.5 ? 1 : -1;
-      const w = answer + sign * delta;
-      if (w !== answer && w > 0 && !wrongs.has(w)) wrongs.add(w);
+      const w = typeof answer === 'number' ? answer + sign * delta : null;
+      if (w !== null && w !== answer && w > 0) wrongs.add(w);
     }
+    if (wrongs.size < 2) { wrongs.add(answer + 1); wrongs.add(answer + 2); }
   } else {
     const pool2 = ['🌈','🦄','🎸','🏆','🍕','🚀','🐙','🦁','🎯','🔥'];
     while (wrongs.size < 2) {
       const w = pool2[Math.floor(Math.random() * pool2.length)];
-      if (w !== answer && !wrongs.has(w)) wrongs.add(w);
+      if (w !== answer) wrongs.add(w);
     }
   }
   return { seq, answer, choices: shuffle([answer, ...[...wrongs]]), hint };
@@ -92,7 +109,7 @@ export default function SuiteLogiquePage() {
   const { feedbackRef, triggerCorrect, triggerWrong, triggerScore } = useGameFeedback();
 
   const [phase, setPhase]         = useState('setup');
-  const [selectedLevel, setSelectedLevel] = useState(Math.min(progress.unlockedLevel, 5));
+  const [selectedLevel, setSelectedLevel] = useState(Math.min(progress.unlockedLevel, 15));
   const [round, setRound]         = useState(null);
   const [roundNum, setRoundNum]   = useState(0);
   const [score, setScore]         = useState(0);
@@ -100,15 +117,19 @@ export default function SuiteLogiquePage() {
   const [showHint, setShowHint]   = useState(false);
   const [sessionResult, setSessionResult] = useState(null);
 
+  const cfg = LEVEL_CONFIG[selectedLevel - 1];
+
   function startGame() {
+    const c = LEVEL_CONFIG[selectedLevel - 1];
     setScore(0); setRoundNum(0); setFeedback(null); setShowHint(false); setSessionResult(null);
     resetTimer();
-    setRound(makeRound(selectedLevel - 1));
+    setRound(makeRound(c));
     setPhase('play');
   }
 
   function handleAnswer(val) {
     if (feedback !== null) return;
+    const c = LEVEL_CONFIG[selectedLevel - 1];
     const correct = val === round.answer || String(val) === String(round.answer);
     setFeedback(correct ? 'ok' : 'bad');
     let newScore = score;
@@ -122,8 +143,8 @@ export default function SuiteLogiquePage() {
     }
     setTimeout(() => {
       const next = roundNum + 1;
-      if (next >= ROUNDS) {
-        const stars = newScore >= ROUNDS * 1.8 ? 3 : newScore >= ROUNDS * 1.2 ? 2 : 1;
+      if (next >= c.n) {
+        const stars = newScore >= c.n * 1.8 ? 3 : newScore >= c.n * 1.2 ? 2 : 1;
         const secs = elapsedSecs();
         const result = saveSession({ score: newScore, level: selectedLevel, stars });
         setSessionResult({ ...result, timeSecs: secs, stars });
@@ -131,7 +152,7 @@ export default function SuiteLogiquePage() {
         return;
       }
       setRoundNum(next);
-      setRound(makeRound(selectedLevel - 1));
+      setRound(makeRound(c));
       setFeedback(null);
       setShowHint(false);
     }, 900);
@@ -142,7 +163,7 @@ export default function SuiteLogiquePage() {
       <div className="sl-page">
         <Link to="/jeux" className="exam-back-btn">←</Link>
         <h1 className="sl-title">🔢 Suite Logique</h1>
-        <p className="sl-subtitle">Trouve le prochain élément de la suite !</p>
+        <p className="sl-subtitle">Trouve le prochain element de la suite !</p>
 
         <div className="jeux-setup-stats">
           <div className="jeux-setup-stat">
@@ -160,19 +181,24 @@ export default function SuiteLogiquePage() {
         </div>
 
         <div className="jeux-level-grid">
-          {[1, 2, 3, 4, 5].map(lvl => {
-            const locked = lvl > progress.unlockedLevel;
+          {LEVEL_CONFIG.map(lc => {
+            const locked = lc.id > progress.unlockedLevel;
             return (
               <button
-                key={lvl}
-                className={`jeux-level-btn${selectedLevel === lvl ? ' is-selected' : ''}${locked ? ' is-locked' : ''}`}
-                onPointerDown={e => { e.preventDefault(); if (!locked) setSelectedLevel(lvl); }}
+                key={lc.id}
+                className={`jeux-level-btn${selectedLevel === lc.id ? ' is-selected' : ''}${locked ? ' is-locked' : ''}`}
+                onPointerDown={e => { e.preventDefault(); if (!locked) setSelectedLevel(lc.id); }}
               >
-                {locked ? '🔒' : `Niveau ${lvl}`}
-                {!locked && progress.bestLevel >= lvl && <span className="jeux-level-stars">★</span>}
+                {locked ? '🔒' : lc.label}
+                {!locked && progress.bestLevel >= lc.id && <span className="jeux-level-stars">★</span>}
               </button>
             );
           })}
+        </div>
+
+        <div className="an-info-row">
+          <span>📝 {cfg.n} suites</span>
+          {cfg.hints && <span>💡 Indices disponibles</span>}
         </div>
 
         <div className="sl-demo">
@@ -185,9 +211,10 @@ export default function SuiteLogiquePage() {
   }
 
   if (phase === 'results') {
-    const stars = score >= ROUNDS * 1.8 ? 3 : score >= ROUNDS * 1.2 ? 2 : 1;
+    const c = LEVEL_CONFIG[selectedLevel - 1];
+    const stars = score >= c.n * 1.8 ? 3 : score >= c.n * 1.2 ? 2 : 1;
     const emoji = stars === 3 ? '🏆' : stars === 2 ? '🎉' : '📚';
-    const title = stars === 3 ? 'Génial !' : stars === 2 ? 'Bien !' : 'Continue !';
+    const title = stars === 3 ? 'Genial !' : stars === 2 ? 'Bien !' : 'Continue !';
     return (
       <div className="sl-page">
         <GameFeedback ref={feedbackRef} />
@@ -196,14 +223,14 @@ export default function SuiteLogiquePage() {
           <div className="game-results__title">{title}</div>
           <div className="game-results__stars">{'★'.repeat(stars)}{'☆'.repeat(3 - stars)}</div>
           {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
-          {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
+          {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} debloque !</div>}
           <div className="game-results__stats">
             <div className="game-results__stat">
               <span className="game-results__stat-val">{score}</span>
               <span className="game-results__stat-lbl">Score</span>
             </div>
             <div className="game-results__stat">
-              <span className="game-results__stat-val">{ROUNDS}</span>
+              <span className="game-results__stat-val">{c.n}</span>
               <span className="game-results__stat-lbl">Suites</span>
             </div>
             {sessionResult && (
@@ -221,13 +248,14 @@ export default function SuiteLogiquePage() {
     );
   }
 
+  const c = LEVEL_CONFIG[selectedLevel - 1];
   return (
     <div className={`sl-page${feedback === 'ok' ? ' sl-flash-ok' : feedback === 'bad' ? ' sl-flash-bad' : ''}`}>
       <GameFeedback ref={feedbackRef} />
       <Link to="/jeux" className="exam-back-btn">←</Link>
       <div className="sl-hud game-hud">
         <span className="sl-score game-hud__score">⭐ {score}</span>
-        <span className="sl-round game-hud__round">{roundNum + 1} / {ROUNDS}</span>
+        <span className="sl-round game-hud__round">{roundNum + 1} / {c.n}</span>
       </div>
 
       <div className="sl-sequence game-question-card">
@@ -238,7 +266,7 @@ export default function SuiteLogiquePage() {
       </div>
 
       {showHint && <p className="sl-hint">Indice : {round?.hint}</p>}
-      {!showHint && (
+      {!showHint && cfg.hints && (
         <button className="sl-hint-btn" onPointerDown={e => { e.preventDefault(); setShowHint(true); }}>
           💡 Indice (-1 pt)
         </button>
