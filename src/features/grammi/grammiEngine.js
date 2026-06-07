@@ -190,6 +190,7 @@ export const ANNOTATED_SENTENCES = [
   [{w:'La',type:'determinant'},{w:'petite',type:'adjectif'},{w:'grenouille',type:'nom_commun'},{w:'verte',type:'adjectif'},{w:'saute',type:'verbe'},{w:'.',type:'autre'}],
   [{w:'Papa',type:'nom_commun'},{w:'lit',type:'verbe'},{w:'une',type:'determinant'},{w:'histoire',type:'nom_commun'},{w:'drole',type:'adjectif'},{w:'.',type:'autre'}],
   [{w:'Le',type:'determinant'},{w:'dauphin',type:'nom_commun'},{w:'rapide',type:'adjectif'},{w:'nage',type:'verbe'},{w:'dans',type:'autre'},{w:'l\'',type:'determinant'},{w:'ocean',type:'nom_commun'},{w:'.',type:'autre'}],
+  [{w:'Axel',type:'nom_propre'},{w:'construit',type:'verbe'},{w:'un',type:'determinant'},{w:'grand',type:'adjectif'},{w:'chateau',type:'nom_commun'},{w:'de',type:'autre'},{w:'sable',type:'nom_commun'},{w:'.',type:'autre'}],
 ];
 
 export const TEXTS = [
