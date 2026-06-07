@@ -607,24 +607,43 @@ export default function StoryReaderPage() {
   // ── REWARD ────────────────────────────────────────────────────────────────
   if (phase === PHASE_REWARD) {
     return (
-      <div className="sr-page" style={pageStyle}>
-        <div className="sr-reward">
-          <span className="sr-reward__emoji">{rewardEmoji}</span>
-          <h2 className="sr-reward__name">{rewardName}</h2>
-          <p className="sr-reward__label">{ui.finishedLabel}</p>
-          <div className="sr-reward__stars">
-            <span className="sr-reward__star">⭐</span>
-            <span className="sr-reward__star">⭐</span>
-            <span className="sr-reward__star">⭐</span>
+      <div className="sr-reward-wrap">
+        {/* Shooting stars */}
+        <div className="sr-shooting-star sr-shooting-star--1" aria-hidden="true" />
+        <div className="sr-shooting-star sr-shooting-star--2" aria-hidden="true" />
+        <div className="sr-shooting-star sr-shooting-star--3" aria-hidden="true" />
+
+        {/* Certificate */}
+        <div className="sr-reward-cert">
+          <span className="sr-reward-cert__crown" role="img" aria-hidden="true">👑</span>
+          <span className="sr-reward-cert__eyebrow">Histoire terminée</span>
+          <h2 className="sr-reward-cert__title">{rewardName || conte.title}</h2>
+          <p className="sr-reward-cert__sub">{ui.finishedLabel}</p>
+
+          <div className="sr-reward-cert__divider" aria-hidden="true">
+            <span className="sr-reward-cert__divider-gem">✦</span>
           </div>
-          <div className="sr-reward__actions">
-            <button type="button" className="story-btn story-btn--primary" onClick={() => navigate('/stories')}>
-              📚 {ui.newStory}
-            </button>
-            <button type="button" className="story-btn" onClick={() => { setPhase(PHASE_SCENES); setSceneIdx(0); }}>
-              🔄 {ui.readAgain}
-            </button>
+
+          <div className="sr-reward-cert__stars" role="img" aria-label="3 étoiles">
+            <span className="sr-reward-cert__star">⭐</span>
+            <span className="sr-reward-cert__star">⭐</span>
+            <span className="sr-reward-cert__star">⭐</span>
           </div>
+
+          {/* Wax seal */}
+          <div className="sr-reward-cert__seal" aria-hidden="true">
+            {rewardEmoji || '✨'}
+          </div>
+        </div>
+
+        {/* Action buttons */}
+        <div className="sr-reward-actions">
+          <button type="button" className="story-btn story-btn--primary" onClick={() => navigate('/stories')}>
+            📚 {ui.newStory}
+          </button>
+          <button type="button" className="story-btn" onClick={() => { setPhase(PHASE_SCENES); setSceneIdx(0); }}>
+            🔄 {ui.readAgain}
+          </button>
         </div>
       </div>
     );
@@ -635,7 +654,12 @@ export default function StoryReaderPage() {
     return (
       <div className="sr-page" style={pageStyle}>
         <div className="sr-emotional">
-          <span className="sr-emotional__icon">💭</span>
+          {/* Animated candle */}
+          <div className="sr-emotional__candle" aria-hidden="true">
+            <div className="sr-emotional__halo" />
+            <span className="sr-emotional__flame">🕯️</span>
+            <div className="sr-emotional__candle-body" />
+          </div>
           <span className="sr-emotional__badge">{emotionalMoment.feeling}</span>
           <p className="sr-emotional__prompt">{emotionalMoment.prompt}</p>
           <button type="button" className="story-btn story-btn--primary"
@@ -651,10 +675,19 @@ export default function StoryReaderPage() {
   if (phase === PHASE_MINIGAME) {
     return (
       <div className="sr-page" style={pageStyle}>
-        <PhaseHeader conte={conte} tag="🎮" onBack={goBack} />
+        <div className="sr-phase-header">
+          <button type="button" className="sr-phase-header__back" onClick={goBack}>←</button>
+          <h1 className="sr-phase-header__title">{conte.emoji} {conte.title}</h1>
+          <span className="sr-phase-tag">🎮 {ui.miniGame}</span>
+        </div>
         <div className="sr-minigame-body">
-          <span className="sr-minigame-eyebrow">{ui.miniGame}</span>
-          <MiniGameDispatch game={miniGame} onDone={() => setPhase(PHASE_EMOTIONAL)} ui={ui} />
+          {/* Scroll-style prompt area */}
+          <div className="sr-minigame-scroll">
+            <span className="sr-minigame-eyebrow">Défi du sage</span>
+            {miniGame && <p className="story-minigame__prompt">{miniGame.prompt}</p>}
+          </div>
+          {/* Game options outside scroll for dark contrast */}
+          <MiniGameDispatch game={miniGame ? { ...miniGame, prompt: '' } : miniGame} onDone={() => setPhase(PHASE_EMOTIONAL)} ui={ui} />
         </div>
       </div>
     );
@@ -664,18 +697,31 @@ export default function StoryReaderPage() {
   if (phase === PHASE_VOCAB) {
     return (
       <div className="sr-page" style={pageStyle}>
-        <PhaseHeader conte={conte} tag="📖" onBack={goBack} />
-        <div className="sr-vocab-list">
-          {vocabulary.map((v) => (
-            <div key={v.word} className="sr-vocab-card">
-              <span className="sr-vocab-card__emoji">{v.emoji}</span>
-              <div>
-                <div className="sr-vocab-card__word">{v.word}</div>
-                <div className="sr-vocab-card__meaning">{v.meaning}</div>
-              </div>
-            </div>
-          ))}
+        <div className="sr-phase-header">
+          <button type="button" className="sr-phase-header__back" onClick={goBack}>←</button>
+          <h1 className="sr-phase-header__title">{conte.emoji} {conte.title}</h1>
+          <span className="sr-phase-tag">📖 {ui.vocabulary}</span>
         </div>
+
+        {/* Parchment scroll */}
+        <div className="sr-vocab-scroll" style={{ margin: '14px', flex: 1 }}>
+          <div className="sr-vocab-scroll__head">
+            <span className="sr-vocab-scroll__chapter">Glossaire du conte</span>
+            <h2 className="sr-vocab-scroll__title">Mots à retenir</h2>
+          </div>
+          <div className="sr-vocab-list">
+            {vocabulary.map((v) => (
+              <div key={v.word} className="sr-vocab-card">
+                <span className="sr-vocab-card__emoji">{v.emoji}</span>
+                <div>
+                  <div className="sr-vocab-card__word">{v.word}</div>
+                  <div className="sr-vocab-card__meaning">{v.meaning}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="sr-nav">
           <button type="button" className="sr-nav-btn sr-nav-btn--next"
             onClick={() => setPhase(PHASE_MINIGAME)}>
