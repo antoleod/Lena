@@ -3,7 +3,7 @@ import './lexi.css';
 import {
   MOT_MANQUANT, MOTS_CACHES, RECONSTRUCTIONS, MEMOIRE_PHRASES,
   CLASSIFICATION_ITEMS, SONS_FAMILLES, DETECTIVE_ERREURS, LECTURE_RAPIDE,
-  VOCAB_THEMES, LEXI_BADGES, ENCOURAGEMENTS_LEXI,
+  VOCAB_THEMES, VOCAB_DEFINITIONS, LEXI_BADGES, ENCOURAGEMENTS_LEXI,
   genDetectiveQuestion, genVocabQuestion,
 } from './lexiEngine.js';
 import { checkNewBadges, loadProgress, recordAnswer } from './lexiProgress.js';
@@ -117,21 +117,23 @@ export default function LexiPage() {
   const [classified, setClassified] = useState({});
   const [selectedTheme, setSelectedTheme] = useState(null);
 
-  // Mémoire timer
+  // Mémoire timer — 2s in Mega Reto (très long phrases), 3s otherwise
   useEffect(() => {
     if (phase !== 'memoire') return;
     setIsHidden(false);
-    const t = setTimeout(() => setIsHidden(true), 3000);
+    const delay = megaReto ? 2000 : 3000;
+    const t = setTimeout(() => setIsHidden(true), delay);
     return () => clearTimeout(t);
-  }, [phase, qIdx]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [phase, qIdx, megaReto]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Lecture rapide flash timer
+  // Lecture rapide flash timer — 1s in Mega Reto, 2s otherwise
   useEffect(() => {
     if (phase !== 'lecture-rapide') return;
     setFlashVisible(true);
-    const t = setTimeout(() => setFlashVisible(false), 2000);
+    const delay = megaReto ? 1000 : 2000;
+    const t = setTimeout(() => setFlashVisible(false), delay);
     return () => clearTimeout(t);
-  }, [phase, qIdx]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [phase, qIdx, megaReto]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const LX_QUIZ_PHASES = ['mot-manquant','mots-caches','reconstruction','memoire','classification','sons','detective','lecture-rapide','vocabulaire'];
 
@@ -180,30 +182,57 @@ export default function LexiPage() {
     const count = megaReto ? 20 : 10;
 
     if (mode === 'mot-manquant') {
-      setQuestions([...MOT_MANQUANT].sort(() => Math.random() - .5).slice(0, count));
+      const pool = megaReto
+        ? [...MOT_MANQUANT].filter(q => q.difficulty === 'difficile')
+        : [...MOT_MANQUANT].filter(q => q.difficulty !== 'difficile');
+      setQuestions(pool.sort(() => Math.random() - .5).slice(0, count));
     } else if (mode === 'mots-caches') {
-      setQuestions([...MOTS_CACHES].sort(() => Math.random() - .5).slice(0, Math.min(count, MOTS_CACHES.length)));
+      const pool = megaReto
+        ? [...MOTS_CACHES].filter(q => q.difficulty === 'difficile')
+        : [...MOTS_CACHES].filter(q => q.difficulty !== 'difficile');
+      setQuestions(pool.sort(() => Math.random() - .5).slice(0, Math.min(count, pool.length)));
     } else if (mode === 'reconstruction') {
-      setQuestions([...RECONSTRUCTIONS].sort(() => Math.random() - .5).slice(0, Math.min(count, RECONSTRUCTIONS.length)));
+      const pool = megaReto
+        ? [...RECONSTRUCTIONS].filter(q => q.difficulty === 'difficile')
+        : [...RECONSTRUCTIONS].filter(q => q.difficulty !== 'difficile');
+      setQuestions(pool.sort(() => Math.random() - .5).slice(0, Math.min(count, pool.length)));
     } else if (mode === 'memoire') {
-      const level = megaReto ? 'long' : 'court';
-      const filtered = MEMOIRE_PHRASES.filter(p => p.level === level || p.level === 'moyen');
+      const levels = megaReto ? ['tres_long', 'long'] : ['court', 'moyen'];
+      const filtered = MEMOIRE_PHRASES.filter(p => levels.includes(p.level));
       setQuestions(filtered.sort(() => Math.random() - .5).slice(0, count));
     } else if (mode === 'classification') {
-      setQuestions([...CLASSIFICATION_ITEMS].sort(() => Math.random() - .5).slice(0, count));
+      const pool = megaReto
+        ? [...CLASSIFICATION_ITEMS].filter(q => q.difficulty === 'difficile')
+        : [...CLASSIFICATION_ITEMS].filter(q => q.difficulty !== 'difficile');
+      setQuestions(pool.sort(() => Math.random() - .5).slice(0, count));
     } else if (mode === 'sons') {
-      const items = SONS_FAMILLES.flatMap(f => f.words.map(w => ({ ...w, family: f.family, options: f.options, description: f.description })));
+      const familles = megaReto
+        ? SONS_FAMILLES.filter(f => f.difficulty === 'difficile')
+        : SONS_FAMILLES.filter(f => f.difficulty !== 'difficile');
+      const items = familles.flatMap(f => f.words.map(w => ({ ...w, family: f.family, options: f.options, description: f.description })));
       setQuestions(items.sort(() => Math.random() - .5).slice(0, count));
     } else if (mode === 'detective') {
-      setQuestions([...DETECTIVE_ERREURS].sort(() => Math.random() - .5).slice(0, Math.min(count, DETECTIVE_ERREURS.length)).map(genDetectiveQuestion));
+      const pool = megaReto
+        ? [...DETECTIVE_ERREURS].filter(q => q.difficulty === 'difficile')
+        : [...DETECTIVE_ERREURS].filter(q => q.difficulty !== 'difficile');
+      setQuestions(pool.sort(() => Math.random() - .5).slice(0, Math.min(count, pool.length)).map(genDetectiveQuestion));
     } else if (mode === 'lecture-rapide') {
-      const lvl = megaReto ? [3, 4] : [1, 2];
+      const lvl = megaReto ? [4, 5] : [1, 2, 3];
       const filtered = LECTURE_RAPIDE.filter(item => lvl.includes(item.level));
       setQuestions(filtered.sort(() => Math.random() - .5).slice(0, count));
     } else if (mode === 'vocabulaire') {
-      const themes = Object.keys(VOCAB_THEMES);
-      const qs = Array.from({ length: count }, (_, i) => genVocabQuestion(themes[i % themes.length]));
-      setQuestions(qs);
+      const allThemes = Object.keys(VOCAB_THEMES);
+      if (megaReto) {
+        const defs = [...VOCAB_DEFINITIONS].sort(() => Math.random() - .5).slice(0, count);
+        setQuestions(defs.map(d => {
+          const others = allThemes.filter(t => t !== d.correct).sort(() => Math.random() - .5).slice(0, 3);
+          return { ...d, correctTheme: d.correct, options: [d.correct, ...others].sort(() => Math.random() - .5) };
+        }));
+      } else {
+        const themes = allThemes.filter(t => !VOCAB_THEMES[t].difficulty);
+        const qs = Array.from({ length: count }, (_, i) => genVocabQuestion(themes[i % themes.length]));
+        setQuestions(qs);
+      }
     }
   }
 
@@ -747,6 +776,7 @@ export default function LexiPage() {
         <TimerBar timeLeft={timeLeft} megaReto={megaReto} />
         <div className="lx-word-display">
           <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff' }}>{q.word}</div>
+          {q.hint && <div style={{ fontSize: '.8rem', color: 'rgba(255,255,255,.6)', marginTop: 6, fontStyle: 'italic' }}>{q.hint}</div>}
         </div>
         <div className="lx-question">A quel theme appartient ce mot ?</div>
         <div className="lx-vocab-theme-grid">

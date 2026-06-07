@@ -93,6 +93,43 @@ export const MOT_MANQUANT = [
   { sentence: 'Les ___ construisent des barrages dans les rivieres.', answer: 'castors', options: ['castors','loutres','grenouilles','poissons'], type: 'nom_commun' },
   { sentence: 'Le ___ est le roi de la foret.', answer: 'cerf', options: ['cerf','loup','renard','sanglier'], type: 'nom_commun' },
   { sentence: 'Emma ___ son anniversaire avec ses amis.', answer: 'fete', options: ['fete','passe','oublie','prepare'], type: 'verbe' },
+
+  // ── DIFFICILE : homophones + accords + conjugaisons complexes ──
+  { sentence: 'Le chien ___ a son maitre depuis la fenetre.', answer: 'obeit', options: ['obeit','appartient','ressemble','repond'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Il ___ beaucoup de courage pour traverser ce pont.', answer: 'faut', options: ['faut','fait','faisait','fallait'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Les eleves ont ___ leurs cahiers de brouillon.', answer: 'rempli', options: ['rempli','remplis','remplies','remplir'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'La chaleur ___ sur la ville comme une couverture.', answer: 'pesait', options: ['pesait','tombait','planait','reposait'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Mon grand-pere ___ toujours les memes histoires.', answer: 'raconte', options: ['raconte','repete','rappelle','retient'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Les voyageurs ___ leurs valises avec soin.', answer: 'preparent', options: ['preparent','remplissent','ferment','glissent'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'La foret ___ sous le poids de la neige.', answer: 'ploie', options: ['ploie','plie','tombe','gémit'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Cette histoire ___ a une belle lecon de vie.', answer: 'aboutit', options: ['aboutit','conduit','mene','finit'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Le capitaine ___ ses matelots d\'un regard severe.', answer: 'surveille', options: ['surveille','observe','regarde','examine'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'L\'odeur du pain ___ tout le quartier.', answer: 'envahit', options: ['envahit','parfume','emplit','traverse'], type: 'verbe', difficulty: 'difficile' },
+  // Homophones comme distracteurs
+  { sentence: 'Le maitre ___ une question difficile au tableau.', answer: 'pose', options: ['pose','pause','paux','pauze'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Ma tante ___ arrive hier soir de voyage.', answer: 'est', options: ['est','et','ai','a'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Le renard ___ cache derriere un rocher.', answer: 's\'est', options: ['s\'est','c\'est','sait','ces'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Les enfants ___ bien sages ce matin.', answer: 'sont', options: ['sont','son','s\'ont','son\'t'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'Le chat mange ___ croquettes avec appetit.', answer: 'ses', options: ['ses','ces','c\'est','s\'est'], type: 'adjectif', difficulty: 'difficile' },
+  { sentence: 'Je ne sais pas ___ il va venir.', answer: 'si', options: ['si','s\'il','sy','ci'], type: 'mot_outil', difficulty: 'difficile' },
+  { sentence: 'Tu peux prendre ce livre ___ tu veux.', answer: 'ou', options: ['ou','ou','ou bien','ni'], type: 'mot_outil', difficulty: 'difficile' },
+  { sentence: 'Il ___ tres froid dehors ce matin.', answer: 'fait', options: ['fait','fais','faisait','fera'], type: 'verbe', difficulty: 'difficile' },
+  // Adjectifs difficiles (accords)
+  { sentence: 'Les feuilles mortes sont ___ et fragiles.', answer: 'seches', options: ['seches','secs','sec','seche'], type: 'adjectif', difficulty: 'difficile' },
+  { sentence: 'La tornade ___ a tout detruit sur son passage.', answer: 'destructrice', options: ['destructrice','destructeur','destructrice','destruite'], type: 'adjectif', difficulty: 'difficile' },
+  { sentence: 'Les athletes ___ ont gagne la medaille d\'or.', answer: 'belges', options: ['belges','belge','belgique','belgo'], type: 'adjectif', difficulty: 'difficile' },
+  { sentence: 'Une reponse ___ s\'impose dans cette situation.', answer: 'precise', options: ['precise','precis','precises','precisee'], type: 'adjectif', difficulty: 'difficile' },
+  // Vocabulaire recherche
+  { sentence: 'Le ___ du poème evoque la melancolie de l\'automne.', answer: 'rythme', options: ['rythme','ton','style','sens'], type: 'nom_commun', difficulty: 'difficile' },
+  { sentence: 'L\'___ de la foret attire de nombreux touristes.', answer: 'etendue', options: ['etendue','espace','grandeur','superficie'], type: 'nom_commun', difficulty: 'difficile' },
+  { sentence: 'Le ___ du soleil rechauffait les pierres du chateau.', answer: 'rayonnement', options: ['rayonnement','eclat','reflet','brillance'], type: 'nom_commun', difficulty: 'difficile' },
+  { sentence: 'La ___ de l\'eau en vapeur s\'appelle l\'evaporation.', answer: 'transformation', options: ['transformation','conversion','changement','passage'], type: 'nom_commun', difficulty: 'difficile' },
+  { sentence: 'Les ___ du vent faisaient danser les branches.', answer: 'rafales', options: ['rafales','souffles','bourrasques','courants'], type: 'nom_commun', difficulty: 'difficile' },
+  { sentence: 'Le vieux sage ___ ses connaissances aux jeunes villageois.', answer: 'transmettait', options: ['transmettait','enseignait','expliquait','racontait'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'La ___ de cette legende remonte au Moyen Age.', answer: 'origine', options: ['origine','naissance','creation','invention'], type: 'nom_commun', difficulty: 'difficile' },
+  { sentence: 'Les navigateurs ___ les etoiles pour s\'orienter.', answer: 'observaient', options: ['observaient','contemplaient','regardaient','suivaient'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'L\'enfant ___ avec curiosite le vieux grimoire.', answer: 'feuilleta', options: ['feuilleta','parcourut','lut','consulta'], type: 'verbe', difficulty: 'difficile' },
+  { sentence: 'La ___ des oiseaux au printemps annonce le beau temps.', answer: 'migration', options: ['migration','arrivee','retour','presence'], type: 'nom_commun', difficulty: 'difficile' },
 ];
 
 // ── MOTS CACHES (Univers 2) ──────────────────────────────────────────────
@@ -127,6 +164,23 @@ export const MOTS_CACHES = [
   { word: 'trampoline', hint: 'On saute dessus pour s\'amuser.', emoji: '🤸', letters: 10 },
   { word: 'tournesol', hint: 'Une grande fleur jaune qui suit le soleil.', emoji: '🌻', letters: 9 },
   { word: 'citronnelle', hint: 'Une plante qui repousse les moustiques.', emoji: '🌿', letters: 11 },
+
+  // ── DIFFICILE : mots longs + indices vagues ──
+  { word: 'chrysantheme', hint: 'Une fleur souvent deposee au cimetiere.', emoji: '🌸', letters: 12, difficulty: 'difficile' },
+  { word: 'prestidigitateur', hint: 'Il fait des tours de magie avec ses mains.', emoji: '🎩', letters: 16, difficulty: 'difficile' },
+  { word: 'encyclopedie', hint: 'Un grand livre qui contient tout le savoir.', emoji: '📖', letters: 12, difficulty: 'difficile' },
+  { word: 'extraterrestre', hint: 'Il vient d\'une autre planete.', emoji: '👽', letters: 14, difficulty: 'difficile' },
+  { word: 'thermometre', hint: 'Il mesure la temperature.', emoji: '🌡️', letters: 11, difficulty: 'difficile' },
+  { word: 'photographe', hint: 'Il prend des photos avec son appareil.', emoji: '📷', letters: 11, difficulty: 'difficile' },
+  { word: 'kaleidoscope', hint: 'Un tube magique avec des formes colorees.', emoji: '🔭', letters: 12, difficulty: 'difficile' },
+  { word: 'imperméable', hint: 'Un vetement qu\'on porte sous la pluie.', emoji: '🧥', letters: 11, difficulty: 'difficile' },
+  { word: 'microbiologiste', hint: 'Un scientifique qui etudie les bacteries.', emoji: '🔬', letters: 15, difficulty: 'difficile' },
+  { word: 'metamorphose', hint: 'La transformation d\'une chenille en papillon.', emoji: '🦋', letters: 12, difficulty: 'difficile' },
+  { word: 'paleontologue', hint: 'Il etudie les fossiles et les dinosaures.', emoji: '🦕', letters: 13, difficulty: 'difficile' },
+  { word: 'velocipede', hint: 'L\'ancetre de la bicyclette.', emoji: '🚲', letters: 10, difficulty: 'difficile' },
+  { word: 'philanthrope', hint: 'Quelqu\'un qui aime les autres et aide les pauvres.', emoji: '❤️', letters: 12, difficulty: 'difficile' },
+  { word: 'constellation', hint: 'Un groupe d\'etoiles qui forment une figure.', emoji: '⭐', letters: 13, difficulty: 'difficile' },
+  { word: 'volcanologie', hint: 'La science qui etudie les volcans.', emoji: '🌋', letters: 12, difficulty: 'difficile' },
 ];
 
 // ── PHRASE RECONSTRUCTION (Univers 4) ─────────────────────────────────────
@@ -156,6 +210,18 @@ export const RECONSTRUCTIONS = [
   { words: ['Les','enfants','font','un','bonhomme','de','neige','.'], answer: 'Les enfants font un bonhomme de neige.' },
   { words: ['La','riviere','coule','doucement','vers','la','mer','.'], answer: 'La riviere coule doucement vers la mer.' },
   { words: ['Noah','apprend','a','lire','avec','sa','maman','.'], answer: 'Noah apprend a lire avec sa maman.' },
+
+  // ── DIFFICILE : 10-14 mots + subordonnees ──
+  { words: ['Quand','le','soleil','se','couche',',','le','ciel','devient','orange','et','rose','.'], answer: 'Quand le soleil se couche, le ciel devient orange et rose.', difficulty: 'difficile' },
+  { words: ['L\'','astronaute','flottait','dans','l\'','espace','et','regardait','la','Terre','tourner','.'], answer: 'L\'astronaute flottait dans l\'espace et regardait la Terre tourner.', difficulty: 'difficile' },
+  { words: ['Si','tu','travailles','bien',',','tu','pourras','regarder','la','television','ce','soir','.'], answer: 'Si tu travailles bien, tu pourras regarder la television ce soir.', difficulty: 'difficile' },
+  { words: ['Les','fourmis','transportaient','des','miettes','de','pain','vers','leur','fourmiliere','.'], answer: 'Les fourmis transportaient des miettes de pain vers leur fourmiliere.', difficulty: 'difficile' },
+  { words: ['La','petite','fille','aux','cheveux','roux','lisait','un','livre','sous','le','grand','chene','.'], answer: 'La petite fille aux cheveux roux lisait un livre sous le grand chene.', difficulty: 'difficile' },
+  { words: ['Bien','que','le','temps','soit','nuageux',',','les','enfants','jouent','dehors','avec','entrain','.'], answer: 'Bien que le temps soit nuageux, les enfants jouent dehors avec entrain.', difficulty: 'difficile' },
+  { words: ['Depuis','que','ma','soeur','a','commence','la','guitare',',','elle','s\'','entraine','chaque','soir','.'], answer: 'Depuis que ma soeur a commence la guitare, elle s\'entraine chaque soir.', difficulty: 'difficile' },
+  { words: ['Le','vieux','fermier','rentrait','chez','lui','apres','une','longue','journee','de','travail','.'], answer: 'Le vieux fermier rentrait chez lui apres une longue journee de travail.', difficulty: 'difficile' },
+  { words: ['Malgre','la','pluie',',','les','supporters','chantaient','pour','encourager','leur','equipe','favorite','.'], answer: 'Malgre la pluie, les supporters chantaient pour encourager leur equipe favorite.', difficulty: 'difficile' },
+  { words: ['Le','scientifique','observait','les','etoiles','a','travers','son','puissant','telescope','chaque','nuit','.'], answer: 'Le scientifique observait les etoiles a travers son puissant telescope chaque nuit.', difficulty: 'difficile' },
 ];
 
 // ── MEMOIRE VISUELLE (Univers 6) ────────────────────────────────────────
@@ -188,6 +254,13 @@ export const MEMOIRE_PHRASES = [
   { text: 'Ma grand-mere habite dans une belle maison rouge avec un grand jardin plein de fleurs.', level: 'long' },
   { text: 'L\'astronaute courageuse regarde la Terre depuis son vaisseau spatial en orbite autour de notre planete.', level: 'long' },
   { text: 'En automne, les feuilles des arbres changent de couleur et tombent doucement sur le sol du jardin.', level: 'long' },
+
+  // ── TRES LONG : 18-28 mots ──
+  { text: 'Le vieux savant aux lunettes rondes rangea soigneusement ses notes dans sa serviette de cuir avant de quitter le laboratoire.', level: 'tres_long' },
+  { text: 'Chaque soir d\'ete, les villageois se reunissaient sur la place pour ecouter les musiciens et danser jusqu\'a la nuit tombee.', level: 'tres_long' },
+  { text: 'La bibliothecaire aux cheveux blancs guidait les enfants entre les etageres, leur soufflant le nom des livres les plus merveilleux.', level: 'tres_long' },
+  { text: 'Quand les premieres neiges de l\'annee tombent sur les toits de la ville, les enfants pressent leur nez contre les vitres froides.', level: 'tres_long' },
+  { text: 'Le capitaine du voilier observait l\'horizon depuis le pont, cherchant le signe d\'une ile qui n\'apparaissait pas encore sur les cartes.', level: 'tres_long' },
 ];
 
 // ── CLASSIFICATION GRAMMAR (Univers 7) ───────────────────────────────────
@@ -254,6 +327,28 @@ export const CLASSIFICATION_ITEMS = [
   { word: 'tenir', type: 'verbe_infinitif' },
   { word: 'je viens', type: 'verbe_conjugue' },
   { word: 'fatigue', type: 'adjectif' },
+
+  // ── DIFFICILE : participes, -ant, homophones grammaticaux ──
+  { word: 'charmant', type: 'adjectif', difficulty: 'difficile' },
+  { word: 'en chantant', type: 'verbe_infinitif', difficulty: 'difficile' },
+  { word: 'obéissant', type: 'adjectif', difficulty: 'difficile' },
+  { word: 'elle avait mange', type: 'verbe_conjugue', difficulty: 'difficile' },
+  { word: 'surprenant', type: 'adjectif', difficulty: 'difficile' },
+  { word: 'resoudre', type: 'verbe_infinitif', difficulty: 'difficile' },
+  { word: 'ils auraient voulu', type: 'verbe_conjugue', difficulty: 'difficile' },
+  { word: 'passionnant', type: 'adjectif', difficulty: 'difficile' },
+  { word: 'se souvenir', type: 'verbe_infinitif', difficulty: 'difficile' },
+  { word: 'nous serions partis', type: 'verbe_conjugue', difficulty: 'difficile' },
+  { word: 'touchant', type: 'adjectif', difficulty: 'difficile' },
+  { word: 'se plaindre', type: 'verbe_infinitif', difficulty: 'difficile' },
+  { word: 'tu auras fini', type: 'verbe_conjugue', difficulty: 'difficile' },
+  { word: 'etonnant', type: 'adjectif', difficulty: 'difficile' },
+  { word: 'prevenir', type: 'verbe_infinitif', difficulty: 'difficile' },
+  { word: 'on aurait pu', type: 'verbe_conjugue', difficulty: 'difficile' },
+  { word: 'vieillissant', type: 'adjectif', difficulty: 'difficile' },
+  { word: 'se taire', type: 'verbe_infinitif', difficulty: 'difficile' },
+  { word: 'vous etiez arrives', type: 'verbe_conjugue', difficulty: 'difficile' },
+  { word: 'reconfortant', type: 'adjectif', difficulty: 'difficile' },
 ];
 
 // ── SONS COMPLEXES (Univers 9) ─────────────────────────────────────────────
@@ -320,6 +415,50 @@ export const SONS_FAMILLES = [
     ],
     options: ['ille', 'ile', 'ill', 'il'],
   },
+
+  // ── DIFFICILE : nouvelles familles de sons ──
+  {
+    family: 'tion / sion',
+    description: 'Le son "sion" s\'ecrit -tion (apres une consonne) ou -sion (apres une voyelle ou s)',
+    words: [
+      { word: 'nation', blank: 'na__', suffix: 'tion', example: 'La ___ belge a gagne la coupe.' },
+      { word: 'passion', blank: 'pas__', suffix: 'sion', example: 'La musique est sa grande ___.' },
+      { word: 'attention', blank: 'atten__', suffix: 'tion', example: '___ ! La voiture arrive.' },
+      { word: 'mission', blank: 'mis__', suffix: 'sion', example: 'L\'astronaute a accompli sa ___.' },
+      { word: 'solution', blank: 'solu__', suffix: 'tion', example: 'J\'ai trouve la ___ au probleme.' },
+      { word: 'invasion', blank: 'inva__', suffix: 'sion', example: 'L\'___ des sauterelles a ravage les champs.' },
+    ],
+    options: ['tion', 'sion', 'cion', 'zion'],
+    difficulty: 'difficile',
+  },
+  {
+    family: 'ent / ant',
+    description: 'La terminaison -ent est souvent muette au pluriel des verbes. -ant est le participe present.',
+    words: [
+      { word: 'patient', blank: 'pa__', suffix: 'tient', example: 'Le docteur est tres ___.' },
+      { word: 'chantant', blank: 'chan__', suffix: 'tant', example: 'Elle rit en ___ une chanson.' },
+      { word: 'evident', blank: 'evi__', suffix: 'dent', example: 'C\'est ___ comme reponse.' },
+      { word: 'courant', blank: 'cou__', suffix: 'rant', example: 'Il est sorti en ___ de la maison.' },
+      { word: 'prudent', blank: 'pru__', suffix: 'dent', example: 'Sois ___ en traversant la rue.' },
+      { word: 'souriant', blank: 'sou__', suffix: 'riant', example: 'Il arrive toujours ___.' },
+    ],
+    options: ['tient', 'tant', 'dent', 'rant'],
+    difficulty: 'difficile',
+  },
+  {
+    family: 'eau / au / o',
+    description: 'Le son [o] peut s\'ecrire "eau", "au" ou "o".',
+    words: [
+      { word: 'chapeau', blank: 'chap__', suffix: 'eau', example: 'Il porte un ___ sur la tete.' },
+      { word: 'chauffeur', blank: 'ch__ffeur', suffix: 'au', example: 'Le ___ conduit la voiture.' },
+      { word: 'peau', blank: 'p__', suffix: 'eau', example: 'La ___ de la peche est douce.' },
+      { word: 'automne', blank: '__tomne', suffix: 'au', example: 'En ___, les feuilles tombent.' },
+      { word: 'oiseau', blank: 'ois__', suffix: 'eau', example: 'L\'___ chante dans l\'arbre.' },
+      { word: 'bureau', blank: 'bur__', suffix: 'eau', example: 'Papa travaille a son ___.' },
+    ],
+    options: ['eau', 'au', 'o', 'ot'],
+    difficulty: 'difficile',
+  },
 ];
 
 // ── DETECTIVE DES ERREURS (Univers 10) ──────────────────────────────────
@@ -350,6 +489,23 @@ export const DETECTIVE_ERREURS = [
   { wrong: 'Les enfants joue dans la cour.', correct: 'Les enfants jouent dans la cour.', error_type: 'accord', error_word: 'joue', fix: 'jouent' },
   { wrong: 'la lune brille la nuit.', correct: 'La lune brille la nuit.', error_type: 'majuscule', error_word: 'la', fix: 'La' },
   { wrong: 'Mon chat mange des croquette.', correct: 'Mon chat mange des croquettes.', error_type: 'accord', error_word: 'croquette', fix: 'croquettes' },
+
+  // ── DIFFICILE : homophones grammaticaux ──
+  { wrong: 'Il a beaucoup neige hier.', correct: 'Il a beaucoup neige hier.', error_type: 'accord', error_word: 'neige', fix: 'neige', difficulty: 'difficile' },
+  { wrong: 'Mon frere et moi on joues ensemble.', correct: 'Mon frere et moi on joue ensemble.', error_type: 'orthographe', error_word: 'joues', fix: 'joue', difficulty: 'difficile' },
+  { wrong: 'Elle c\'est blessée en tombant.', correct: 'Elle s\'est blessee en tombant.', error_type: 'orthographe', error_word: 'c\'est', fix: 's\'est', difficulty: 'difficile' },
+  { wrong: 'Les athletes on gagne la course.', correct: 'Les athletes ont gagne la course.', error_type: 'orthographe', error_word: 'on', fix: 'ont', difficulty: 'difficile' },
+  { wrong: 'Ce matin, il fait beau mais je sais pas ou aller.', correct: 'Ce matin, il fait beau mais je ne sais pas ou aller.', error_type: 'orthographe', error_word: 'sais', fix: 'ne sais', difficulty: 'difficile' },
+  { wrong: 'Mes parents sont rentres de voyages.', correct: 'Mes parents sont rentres de voyage.', error_type: 'accord', error_word: 'voyages', fix: 'voyage', difficulty: 'difficile' },
+  { wrong: 'Tu peut venir chez moi ce soir ?', correct: 'Tu peux venir chez moi ce soir ?', error_type: 'orthographe', error_word: 'peut', fix: 'peux', difficulty: 'difficile' },
+  { wrong: 'Le chien a mordu son os avec plaisirs.', correct: 'Le chien a mordu son os avec plaisir.', error_type: 'accord', error_word: 'plaisirs', fix: 'plaisir', difficulty: 'difficile' },
+  { wrong: 'Nous avons des beaux souvenirs de vacances.', correct: 'Nous avons de beaux souvenirs de vacances.', error_type: 'orthographe', error_word: 'des', fix: 'de', difficulty: 'difficile' },
+  { wrong: 'Son frere et elle sont partis a l\'ecoles.', correct: 'Son frere et elle sont partis a l\'ecole.', error_type: 'accord', error_word: 'ecoles', fix: 'ecole', difficulty: 'difficile' },
+  { wrong: 'Il ce levait tot chaque matin.', correct: 'Il se levait tot chaque matin.', error_type: 'orthographe', error_word: 'ce', fix: 'se', difficulty: 'difficile' },
+  { wrong: 'Vous etes tres courageuse.', correct: 'Vous etes tres courageux.', error_type: 'accord', error_word: 'courageuse', fix: 'courageux', difficulty: 'difficile' },
+  { wrong: 'Les enfants leurs ont dit au revoir.', correct: 'Les enfants leur ont dit au revoir.', error_type: 'orthographe', error_word: 'leurs', fix: 'leur', difficulty: 'difficile' },
+  { wrong: 'Cette nuit, j\'ai rever d\'une belle aventure.', correct: 'Cette nuit, j\'ai reve d\'une belle aventure.', error_type: 'orthographe', error_word: 'rever', fix: 'reve', difficulty: 'difficile' },
+  { wrong: 'Ma tante a une belle mais-on.', correct: 'Ma tante a une belle maison.', error_type: 'orthographe', error_word: 'mais-on', fix: 'maison', difficulty: 'difficile' },
 ];
 
 // Show the wrong sentence + 4 options (1 correct version + 3 similar wrong ones)
@@ -403,6 +559,18 @@ export const LECTURE_RAPIDE = [
   { text: 'Les enfants jouent dans la cour.', type: 'phrase_m', level: 4 },
   { text: 'Mon institutrice est tres gentille.', type: 'phrase_m', level: 4 },
   { text: 'Les papillons volent de fleur en fleur.', type: 'phrase_m', level: 4 },
+
+  // ── NIVEAU 5 : longues phrases complexes, flash 1 seconde ──
+  { text: 'Le vieux chat tigre dormait paisiblement pres de la cheminee.', type: 'phrase_l', level: 5 },
+  { text: 'Les astronautes flottaient dans leur capsule en regardant la Terre.', type: 'phrase_l', level: 5 },
+  { text: 'Emma et Hugo cherchaient des champignons dans la foret en automne.', type: 'phrase_l', level: 5 },
+  { text: 'Le boulanger se levait chaque matin avant l\'aube pour petrir la pate.', type: 'phrase_l', level: 5 },
+  { text: 'La petite tortue avancait lentement mais surement vers la mer scintillante.', type: 'phrase_l', level: 5 },
+  { text: 'Depuis la fenetre de sa chambre, Lena regardait les flocons tomber doucement.', type: 'phrase_l', level: 5 },
+  { text: 'Les fourmis transportaient methodiquement leurs provisions vers le nid souterrain.', type: 'phrase_l', level: 5 },
+  { text: 'Le capitaine ordonna a son equipage de rentrer au port avant la tempete.', type: 'phrase_l', level: 5 },
+  { text: 'Malgre la pluie battante, les enfants jouaient joyeusement dans les flaques.', type: 'phrase_l', level: 5 },
+  { text: 'La bibliothecaire rangea soigneusement les livres sur les etageres en bois sombre.', type: 'phrase_l', level: 5 },
 ];
 
 // ── VOCABULARY THEMES (Univers 12) ────────────────────────────────────────
@@ -415,6 +583,12 @@ export const VOCAB_THEMES = {
   metiers: { label: 'Les Metiers', emoji: '👷', words: ['medecin','pompier','policier','boulanger','jardinier','professeur','infirmiere','pilote','charpentier','cuisinier','peintre','musicien','acteur','veterinaire','facteur','architecte','pharmacien','dentiste','astronaute','pompiste'] },
   transports: { label: 'Les Transports', emoji: '🚂', words: ['voiture','train','avion','bateau','velo','moto','bus','tramway','metro','helicoptere','fusee','camion','ambulance','taxi','canoe','sous-marin','montgolfiere','scooter','trottinette','kayak'] },
   maison: { label: 'La Maison', emoji: '🏠', words: ['cuisine','salon','chambre','salle-de-bain','jardin','garage','grenier','cave','couloir','escalier','fenetre','porte','mur','toit','cheminee','meuble','canape','lit','table','armoire'] },
+
+  // ── THEMES DIFFICILES ──
+  corps: { label: 'Le Corps Humain', emoji: '🫀', difficulty: 'difficile', words: ['cerveau','poumon','coeur','foie','rein','estomac','intestin','muscle','squelette','articulation','vaisseau','nerf','peau','os','tendon','colonne','cote','phalange','tempe','nuque'] },
+  instruments: { label: 'Les Instruments', emoji: '🎸', difficulty: 'difficile', words: ['violon','alto','violoncelle','contrebasse','flute','hautbois','clarinette','basson','trompette','trombone','tuba','cor','guitare','harpe','piano','orgue','accordeon','xylophone','marimba','batterie'] },
+  sports: { label: 'Les Sports', emoji: '🏊', difficulty: 'difficile', words: ['natation','athletisme','escrime','aviron','haltérophilie','luge','bobsleigh','skeleton','biathlon','pentathlon','trampoline','gymnastique','equitation','taekwondo','judo','karate','boxe','lutte','tir','cyclisme'] },
+  pays: { label: 'Les Pays', emoji: '🌍', difficulty: 'difficile', words: ['Belgique','Allemagne','Autriche','Suisse','Luxembourg','Pays-Bas','Danemark','Norvege','Suede','Finlande','Islande','Pologne','Republique-tcheque','Hongrie','Roumanie','Bulgarie','Grece','Portugal','Irlande','Ecosse'] },
 };
 
 // Generate vocab quiz: show a word, ask which theme it belongs to
@@ -426,6 +600,25 @@ export function genVocabQuestion(targetTheme) {
   const options = [targetTheme, ...distractors].sort(() => Math.random() - .5);
   return { word, correctTheme: targetTheme, options };
 }
+
+// Harder vocab: show the definition/context, not just the word
+export const VOCAB_DEFINITIONS = [
+  { word: 'abdomen', correct: 'corps', hint: 'Partie du corps entre la poitrine et les hanches.' },
+  { word: 'xylophone', correct: 'instruments', hint: 'Instrument a percussion avec des lames en bois.' },
+  { word: 'biathlon', correct: 'sports', hint: 'Combinaison du ski de fond et du tir.' },
+  { word: 'Luxembourg', correct: 'pays', hint: 'Petit pays voisin de la Belgique.' },
+  { word: 'trombone', correct: 'instruments', hint: 'Instrument a vent avec une coulisse.' },
+  { word: 'fémur', correct: 'corps', hint: 'L\'os le plus long du corps humain dans la jambe.' },
+  { word: 'escrime', correct: 'sports', hint: 'Sport de combat avec des epees.' },
+  { word: 'Islande', correct: 'pays', hint: 'Ile nordique pres du cercle arctique.' },
+  { word: 'diaphragme', correct: 'corps', hint: 'Muscle qui permet la respiration.' },
+  { word: 'hautbois', correct: 'instruments', hint: 'Instrument a anche double de l\'orchestre.' },
+  { word: 'luge', correct: 'sports', hint: 'Sport d\'hiver: glisse couche sur le dos.' },
+  { word: 'Suisse', correct: 'pays', hint: 'Pays connu pour ses montres et son chocolat.' },
+  { word: 'marimba', correct: 'instruments', hint: 'Grand xylophone africain avec des resonateurs.' },
+  { word: 'pentathlon', correct: 'sports', hint: 'Competition combinant cinq epreuves differentes.' },
+  { word: 'pancreas', correct: 'corps', hint: 'Organe qui produit l\'insuline.' },
+];
 
 export const LEXI_BADGES = [
   { id: 'lecteur-debutant', label: 'Lecteur Debutant',  emoji: '📖', threshold: 5   },
