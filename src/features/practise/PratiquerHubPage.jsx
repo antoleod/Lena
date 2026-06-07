@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
-  IconExamens, IconCahier, IconTables, IconStories, IconJeux, IconMath, IconLangues
+  IconExamens, IconCahier, IconTables, IconStories, IconJeux,
+  IconDudu, IconChrono, IconGrammi, IconMetri,
 } from '../../assets/icons/AppIcons.jsx';
 
 const HUB_UI = {
@@ -73,10 +74,10 @@ const ICON_MAP = {
   tables: IconTables,
   stories: IconStories,
   jeux: IconJeux,
-  dudu: IconMath,
-  chrono: IconMath,
-  grammi: IconLangues,
-  metri: IconMath,
+  dudu: IconDudu,
+  chrono: IconChrono,
+  grammi: IconGrammi,
+  metri: IconMetri,
 };
 
 export default function PratiquerHubPage() {
