@@ -57,6 +57,7 @@ import CompleteLaPhrasePage from '../../features/jeux/CompleteLaPhrasePage.jsx';
 import TrouveIntrusPage from '../../features/jeux/TrouveIntrusPage.jsx';
 import CourseMathsPage from '../../features/jeux/CourseMathsPage.jsx';
 import DetectiveHistoiresPage from '../../features/jeux/DetectiveHistoiresPage.jsx';
+import GrammiPage from '../../features/grammi/GrammiPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -182,6 +183,7 @@ export default function AppRouter() {
         <Route path="/jeux/intrus" element={<TrouveIntrusPage />} />
         <Route path="/jeux/course-maths" element={<CourseMathsPage />} />
         <Route path="/jeux/detective-histoires" element={<DetectiveHistoiresPage />} />
+        <Route path="/grammi" element={<GrammiPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>

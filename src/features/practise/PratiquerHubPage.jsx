@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
-  IconExamens, IconCahier, IconTables, IconStories, IconJeux, IconMath
+  IconExamens, IconCahier, IconTables, IconStories, IconJeux, IconMath, IconLangues
 } from '../../assets/icons/AppIcons.jsx';
 
 const HUB_UI = {
@@ -16,6 +16,7 @@ const HUB_UI = {
       { to: '/jeux', icon: 'jeux', title: 'Jeux Cerebraux', desc: 'Memory, calcul, mots...', color: '#6366f1' },
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Soustractions avec passage a la dizaine', color: '#6366f1' },
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'J\'apprends l\'heure en jouant', color: '#0891b2' },
+      { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'Le royaume magique des mots', color: '#10b981' },
     ],
   },
   nl: {
@@ -29,6 +30,7 @@ const HUB_UI = {
       { to: '/jeux', icon: 'jeux', title: 'Hersengames', desc: 'Memory, rekenen, woorden...', color: '#6366f1' },
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Aftrekken met overdracht', color: '#6366f1' },
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'Leer klokkijken spelenderwijs', color: '#0891b2' },
+      { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'Het magische koninkrijk van woorden', color: '#10b981' },
     ],
   },
   en: {
@@ -42,6 +44,7 @@ const HUB_UI = {
       { to: '/jeux', icon: 'jeux', title: 'Brain Games', desc: 'Memory, speed math, words...', color: '#6366f1' },
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Subtractions with borrowing', color: '#6366f1' },
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'I learn to tell the time', color: '#0891b2' },
+      { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'The magical kingdom of words', color: '#10b981' },
     ],
   },
   es: {
@@ -55,6 +58,7 @@ const HUB_UI = {
       { to: '/jeux', icon: 'jeux', title: 'Juegos Cerebrales', desc: 'Memoria, calculo, palabras...', color: '#6366f1' },
       { to: '/dudu', icon: 'dudu', title: 'DUDU', desc: 'Restas con llevada', color: '#6366f1' },
       { to: '/chrono', icon: 'chrono', title: 'ChronoLena', desc: 'Aprendo a leer el reloj jugando', color: '#0891b2' },
+      { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'El reino magico de las palabras', color: '#10b981' },
     ],
   },
 };
@@ -67,6 +71,7 @@ const ICON_MAP = {
   jeux: IconJeux,
   dudu: IconMath,
   chrono: IconMath,
+  grammi: IconLangues,
 };
 
 export default function PratiquerHubPage() {
