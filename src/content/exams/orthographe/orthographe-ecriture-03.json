@@ -1,0 +1,251 @@
+{
+  "id": "orthographe-ecriture-03",
+  "category": "orthographe",
+  "categoryLabel": "Orthographe",
+  "categoryEmoji": "✏️",
+  "categoryOrder": 6,
+  "title": "Lettres muettes et pieges",
+  "emoji": "🔍",
+  "order": 32,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Comment ecrit-on l'animal qui fait 'miaou' ?",
+          "options": ["chat", "cha", "sha"],
+          "answer": "chat",
+          "correction": "CHAT : c-h-a-t. Le t final est une lettre muette."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Comment ecrit-on l'animal qui fait 'ouaf' ?",
+          "options": ["chien", "chein", "shien"],
+          "answer": "chien",
+          "correction": "CHIEN : c-h-i-e-n. Le n final est muet."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Comment s'ecrit le nombre qui suit 9 ?",
+          "options": ["dix", "dis", "diz"],
+          "answer": "dix",
+          "correction": "DIX : d-i-x. Le x fait le son [s] ici."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Comment s'ecrit la maison ronde des esquimaux ?",
+          "options": ["igloo", "iglou", "iglu"],
+          "answer": "igloo",
+          "correction": "IGLOO : i-g-l-o-o. Deux o a la fin, mot emprunte a l'inuktitut."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": ["hibou", "ibou", "hhibou"],
+          "answer": "hibou",
+          "correction": "HIBOU : h-i-b-o-u. Le h est muet (on dit 'un hibou' pas 'l'hibou')."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "Comment ecrit-on le repas du midi ?",
+          "options": ["dejeuner", "dejeune", "dejeuné"],
+          "answer": "dejeuner",
+          "correction": "DEJEUNER : d-e-j-e-u-n-e-r. Le r final se prononce."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Comment s'ecrit l'animal a longue trompe ?",
+          "options": ["elephant", "elefant", "elephan"],
+          "answer": "elephant",
+          "correction": "ELEPHANT : e-l-e-p-h-a-n-t. Le ph fait le son [f], le t final est muet."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Trouve l'orthographe correcte :",
+          "options": ["beau", "bo", "biau"],
+          "answer": "beau",
+          "correction": "BEAU : b-e-a-u. Le son [o] s'ecrit e-a-u ici. Feminin : belle."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot avec la bonne lettre finale : 'Le ___ court vite.' 💡 Animal des bois, 4 lettres : l-o-u-? (t ou p ?)",
+          "answer": "loup",
+          "accept": ["loup"],
+          "correction": "LOUP : l-o-u-p. Le p final est muet : on dit [lou]."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot avec la bonne lettre finale : 'Il fait ___.' 💡 Temperature elevee, 5 lettres : c-h-a-u-? (d ou t ?)",
+          "answer": "chaud",
+          "accept": ["chaud"],
+          "correction": "CHAUD : c-h-a-u-d. Le d final est muet. Feminin : chaude (le d se prononce alors)."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot avec la bonne lettre finale : 'Mon ___ est vieux.' 💡 Gros animal de la ferme, 6 lettres : c-h-e-v-a-? (l ou le ?)",
+          "answer": "cheval",
+          "accept": ["cheval"],
+          "correction": "CHEVAL : c-h-e-v-a-l. Le l final se prononce. Pluriel : chevaux."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe de l'oiseau qui dit 'coin-coin' ?",
+          "options": ["canard", "canart", "cannard"],
+          "answer": "canard",
+          "correction": "CANARD : c-a-n-a-r-d. Le d final est muet."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Ecris sans faute : 'J'ai ___ ans.' 💡 Nombre entre 7 et 9, 4 lettres : h-u-i-?",
+          "answer": "huit",
+          "accept": ["huit"],
+          "correction": "HUIT : h-u-i-t. Le h est aspire (on dit 'le huit', pas 'l'huit'). Le t final se prononce parfois."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Ecris sans faute : 'La ___ est remplie de farine.' 💡 Recipient de cuisine, 5 lettres : b-o-i-t-?",
+          "answer": "boite",
+          "accept": ["boite", "boîte"],
+          "correction": "BOITE : b-o-i-t-e. Le i peut prendre un accent circonflexe : boite."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Ecris sans faute : 'Le ___ est vert.' 💡 Reptile, 6 lettres : l-e-z-a-r-?",
+          "answer": "lezard",
+          "accept": ["lezard", "lézard"],
+          "correction": "LEZARD : l-e-z-a-r-d. Le d final est muet."
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": ["automne", "otomne", "autone"],
+          "answer": "automne",
+          "correction": "AUTOMNE : a-u-t-o-m-n-e. Le m-n-e final est muet : on dit [oton]."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Ecris sans faute : 'Je mange dans un ___.' 💡 Recipient rond, 3 lettres : b-o-?",
+          "answer": "bol",
+          "accept": ["bol"],
+          "correction": "BOL : b-o-l. Le l final se prononce."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quelle orthographe est correcte ?",
+          "options": ["genou", "jenou", "guenou"],
+          "answer": "genou",
+          "correction": "GENOU : g-e-n-o-u. Le g devant e donne le son [j]. Pluriel : genoux."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'J'ai un ___ de chocolat.' 💡 Petit bout, 7 lettres : m-o-r-c-e-a-?",
+          "answer": "morceau",
+          "accept": ["morceau"],
+          "correction": "MORCEAU : m-o-r-c-e-a-u. Le c devant e donne [s]. Le son [o] = e-a-u."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'Ce paysage est tres ___.' 💡 Masculin, 4 lettres : b-e-a-? (feminin : belle)",
+          "answer": "beau",
+          "accept": ["beau", "belle"],
+          "correction": "BEAU (masc.) / BELLE (fem.) : le son [o] s'ecrit e-a-u au masculin."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'Le ___ creuse un terrier.' 💡 Animal fouisseur, 5 lettres : l-a-p-i-?",
+          "answer": "lapin",
+          "accept": ["lapin"],
+          "correction": "LAPIN : l-a-p-i-n. Le n final se prononce. Le son [in] s'ecrit i-n."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Mon grand-pere est ___.' 💡 Tres age, 5 lettres : v-i-e-u-?",
+          "answer": "vieux",
+          "accept": ["vieux"],
+          "correction": "VIEUX : v-i-e-u-x. Le x final est muet. Feminin : vieille."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Nous sommes ___.' 💡 1er jour de la semaine, 5 lettres : l-u-n-d-?",
+          "answer": "lundi",
+          "accept": ["lundi"],
+          "correction": "LUNDI : l-u-n-d-i. Derive de 'Lune' (jour de la Lune)."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Il est toujours ___ a l'heure.' 💡 Pas en retard, 8 lettres : p-o-n-c-t-u-e-?",
+          "answer": "ponctuel",
+          "accept": ["ponctuel", "ponctuelle"],
+          "correction": "PONCTUEL : p-o-n-c-t-u-e-l. Le ct ensemble font [kt]. Feminin : ponctuelle."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'On entend la ___ des vagues.' 💡 Bruit sourd, 6 lettres : r-u-m-e-u-?",
+          "answer": "rumeur",
+          "accept": ["rumeur"],
+          "correction": "RUMEUR : r-u-m-e-u-r. Le r final se prononce."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Il a un ___ brillant.' 💡 Pierre precieuse, 7 lettres : d-i-a-m-a-n-?",
+          "answer": "diamant",
+          "accept": ["diamant"],
+          "correction": "DIAMANT : d-i-a-m-a-n-t. Le t final est muet."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'C'est ___ de gagner.' 💡 Formidable, 11 lettres : f-a-n-t-a-s-t-i-q-u-?",
+          "answer": "fantastique",
+          "accept": ["fantastique"],
+          "correction": "FANTASTIQUE : f-a-n-t-a-s-t-i-q-u-e. Le qu fait le son [k]."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Mon ___ sent bon.' 💡 Arbuste a fleurs rouges, 6 lettres : r-o-s-i-e-?",
+          "answer": "rosier",
+          "accept": ["rosier", "rose"],
+          "correction": "ROSIER : r-o-s-i-e-r. L'arbuste qui porte les roses. ROSE : r-o-s-e, la fleur."
+        }
+      ]
+    }
+  }
+}

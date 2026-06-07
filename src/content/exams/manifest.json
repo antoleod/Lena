@@ -1745,6 +1745,33 @@
             "difficile": 60
           },
           "_path": "./orthographe/orthographe-20.json"
+        },
+        {
+          "id": "orthographe-ecriture-01",
+          "title": "Dictee des mots simples",
+          "emoji": "🖊️",
+          "order": 30,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./orthographe/orthographe-ecriture-01.json"
+        },
+        {
+          "id": "orthographe-ecriture-02",
+          "title": "Les mots du quotidien",
+          "emoji": "🏠",
+          "order": 31,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./orthographe/orthographe-ecriture-02.json"
+        },
+        {
+          "id": "orthographe-ecriture-03",
+          "title": "Lettres muettes et pieges",
+          "emoji": "🔍",
+          "order": 32,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": {"facile": 60, "moyen": 60, "difficile": 60},
+          "_path": "./orthographe/orthographe-ecriture-03.json"
         }
       ]
     },

@@ -1,0 +1,251 @@
+{
+  "id": "orthographe-ecriture-01",
+  "category": "orthographe",
+  "categoryLabel": "Orthographe",
+  "categoryEmoji": "✏️",
+  "categoryOrder": 6,
+  "title": "Dictee des mots simples",
+  "emoji": "🖊️",
+  "order": 30,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Complete : 'Le ___ dort sur le tapis.' 💡 Animal domestique, 4 lettres : c-h-a-?",
+          "answer": "chat",
+          "accept": ["chat"],
+          "correction": "CHAT : c-h-a-t. Le son [ch] s'ecrit toujours ch en francais."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complete : 'Le ___ aboie dans le jardin.' 💡 Animal fidele, 5 lettres : c-h-i-e-?",
+          "answer": "chien",
+          "accept": ["chien"],
+          "correction": "CHIEN : c-h-i-e-n. Attention au n final qui ne se prononce pas."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Complete : 'La ___ pousse dans le pre.' 💡 Vegetation, 5 lettres : h-e-r-b-?",
+          "answer": "herbe",
+          "accept": ["herbe"],
+          "correction": "HERBE : h-e-r-b-e. Le h est muet et ne se prononce pas."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Complete : 'Maman fait le ___ chaque matin.' 💡 Meuble pour dormir, 3 lettres : l-i-?",
+          "answer": "lit",
+          "accept": ["lit"],
+          "correction": "LIT : l-i-t. Le t final est muet : on dit [li]."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Complete : 'Je mange une ___ rouge.' 💡 Fruit, 5 lettres : p-o-m-m-?",
+          "answer": "pomme",
+          "accept": ["pomme"],
+          "correction": "POMME : p-o-m-m-e. Deux m et un e final muet."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Complete : 'Le ___ brille dans le ciel.' 💡 Astre du jour, 6 lettres : s-o-l-e-i-?",
+          "answer": "soleil",
+          "accept": ["soleil"],
+          "correction": "SOLEIL : s-o-l-e-i-l. Le son [eill] s'ecrit e-i-l a la fin."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Complete : 'La ___ est froide ce matin.' 💡 Liquide pour se laver, 3 lettres : e-a-?",
+          "answer": "eau",
+          "accept": ["eau"],
+          "correction": "EAU : e-a-u. Trois lettres pour le son [o] : e-a-u."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Complete : 'Mon ___ est dans mon sac.' 💡 Objet pour ecrire, 6 lettres : c-r-a-y-o-?",
+          "answer": "crayon",
+          "accept": ["crayon"],
+          "correction": "CRAYON : c-r-a-y-o-n. Le son [on] s'ecrit o-n a la fin."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'La ___ est jolie.' 💡 Fleur preferee, 4 lettres : r-o-s-?",
+          "answer": "rose",
+          "accept": ["rose"],
+          "correction": "ROSE : r-o-s-e. Le s entre voyelles se prononce [z]."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'J'ai un nouveau ___.' 💡 Objet a lire, 5 lettres : l-i-v-r-?",
+          "answer": "livre",
+          "accept": ["livre"],
+          "correction": "LIVRE : l-i-v-r-e. Le e final est muet mais change la prononciation du r."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'La ___ est ouverte.' 💡 On entre par la..., 5 lettres : p-o-r-t-?",
+          "answer": "porte",
+          "accept": ["porte"],
+          "correction": "PORTE : p-o-r-t-e. Le e final est muet : on dit [port]."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'Je regarde par la ___.' 💡 Pour voir dehors, 7 lettres : f-e-n-e-t-r-?",
+          "answer": "fenetre",
+          "accept": ["fenetre", "fenêtre"],
+          "correction": "FENETRE : f-e-n-e-t-r-e. Deux e qui ne se prononcent pas pareil."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'Mon ___ est doux et moelleux.' 💡 Pour dormir, 8 lettres : o-r-e-i-l-l-e-?",
+          "answer": "oreiller",
+          "accept": ["oreiller"],
+          "correction": "OREILLER : o-r-e-i-l-l-e-r. Le son [eill] + le r final qui se prononce."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'Je prends mon ___ pour aller a l'ecole.' 💡 Sac special, 3 lettres : s-a-?",
+          "answer": "sac",
+          "accept": ["sac"],
+          "correction": "SAC : s-a-c. Le c final se prononce : [sak]."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'Il y a des ___ dans le ciel.' 💡 Petits et blancs, 6 lettres : n-u-a-g-e-?",
+          "answer": "nuages",
+          "accept": ["nuages", "nuage"],
+          "correction": "NUAGES : n-u-a-g-e-s. Pluriel avec s. Le g suivi de e se prononce [j]."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'La ___ tourne autour du Soleil.' 💡 Notre planete, 5 lettres : T-e-r-r-?",
+          "answer": "Terre",
+          "accept": ["Terre", "terre"],
+          "correction": "TERRE : T-e-r-r-e. Deux r et un e final. On peut mettre une majuscule pour la planete."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'Les ___ tombent en automne.' 💡 Partie de l'arbre, 8 lettres : f-e-u-i-l-l-e-?",
+          "answer": "feuilles",
+          "accept": ["feuilles", "feuille"],
+          "correction": "FEUILLES : f-e-u-i-l-l-e-s. Le son [euill] s'ecrit e-u-i-l-l."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'J'adore les ___ au chocolat.' 💡 Gateau rond, 7 lettres : g-a-t-e-a-u-?",
+          "answer": "gateaux",
+          "accept": ["gateaux", "gâteaux"],
+          "correction": "GATEAUX : pluriel de gateau. On remplace le u par x au pluriel."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Ecris correctement : 'Les enfants ___ dans la cour.' (jouer, present) 💡 Ils... j-o-u-e-?-?",
+          "answer": "jouent",
+          "accept": ["jouent"],
+          "correction": "JOUENT : j-o-u-e-n-t. A la 3eme personne du pluriel, le verbe prend -ent."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Ecris correctement : 'Ma ___ soeur adore danser.' 💡 Accord : petite ou petit ? p-e-t-i-t-?",
+          "answer": "petite",
+          "accept": ["petite"],
+          "correction": "PETITE : soeur est feminin → on ajoute un e : petite."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Ecris le mot : 'Je suis ___ de ma reponse.' 💡 Synonyme de content, 4 lettres : f-i-e-?",
+          "answer": "fier",
+          "accept": ["fier", "fiere"],
+          "correction": "FIER (masc.) ou FIERE (fem.) : fier de sa reponse."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Ecris sans faute : 'Il y a beaucoup de ___ dans cette salle.' 💡 Qui vient voir un spectacle, 11 lettres : s-p-e-c-t-a-t-e-u-r-?",
+          "answer": "spectateurs",
+          "accept": ["spectateurs", "spectateur"],
+          "correction": "SPECTATEURS : s-p-e-c-t-a-t-e-u-r-s. Au pluriel, -eurs."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Ecris sans faute : 'La ___ de mon frere est jaune.' 💡 Pour se deplacer, 4 lettres : v-e-l-?",
+          "answer": "velo",
+          "accept": ["velo", "vélo"],
+          "correction": "VELO : v-e-l-o. Le e prend un accent aigu : velo."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Ecris sans faute : 'Nous ___ a la piscine.' (aller, present) 💡 Nous a-l-l-o-?-?",
+          "answer": "allons",
+          "accept": ["allons"],
+          "correction": "ALLONS : a-l-l-o-n-s. Deux l et -ons pour nous."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'La ___ est pleine de poissons.' 💡 Grande etendue d'eau salee, 3 lettres : m-e-?",
+          "answer": "mer",
+          "accept": ["mer"],
+          "correction": "MER : m-e-r. Attention a ne pas confondre avec mere (m-e-r-e) et maire (m-a-i-r-e)."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Mon pere est ___.' 💡 Le contraire de mechant, 6 lettres : g-e-n-t-i-?",
+          "answer": "gentil",
+          "accept": ["gentil"],
+          "correction": "GENTIL : g-e-n-t-i-l. Le l final ne se prononce pas (masculin)."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Elle est ___ malade.' 💡 Adverbe intensif, 8 lettres : v-r-a-i-m-e-n-?",
+          "answer": "vraiment",
+          "accept": ["vraiment"],
+          "correction": "VRAIMENT : vrai + ment. On garde le i de vrai avant -ment."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Je lis un livre ___.' 💡 Avec de l'interet, 11 lettres : p-a-s-s-i-o-n-n-a-n-?",
+          "answer": "passionnant",
+          "accept": ["passionnant"],
+          "correction": "PASSIONNANT : deux n. Vient de passion + n + ant."
+        }
+      ]
+    }
+  }
+}

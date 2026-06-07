@@ -1,0 +1,251 @@
+{
+  "id": "orthographe-ecriture-02",
+  "category": "orthographe",
+  "categoryLabel": "Orthographe",
+  "categoryEmoji": "✏️",
+  "categoryOrder": 6,
+  "title": "Les mots du quotidien",
+  "emoji": "🏠",
+  "order": 31,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Ou vas-tu chaque matin ? 'Je vais a l'___.' 💡 Lieu d'apprentissage, 5 lettres : e-c-o-l-?",
+          "answer": "ecole",
+          "accept": ["ecole", "école"],
+          "correction": "ECOLE : e-c-o-l-e. Attention au e final muet."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Ou habites-tu ? 'J'habite dans une ___.' 💡 Batiment ou on vit, 6 lettres : m-a-i-s-o-?",
+          "answer": "maison",
+          "accept": ["maison"],
+          "correction": "MAISON : m-a-i-s-o-n. Le s entre voyelles se prononce [z]."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Qu'est-ce qu'on aime boire le matin ? 'Du ___.' 💡 Boisson blanche, 4 lettres : l-a-i-?",
+          "answer": "lait",
+          "accept": ["lait"],
+          "correction": "LAIT : l-a-i-t. Le t final est muet : on dit [le]."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Avec quoi mange-t-on la soupe ? 'Avec une ___.' 💡 Ustensile, 8 lettres : c-u-i-l-l-e-r-?",
+          "answer": "cuillere",
+          "accept": ["cuillere", "cuillère"],
+          "correction": "CUILLERE : c-u-i-l-l-e-r-e. Deux l et un e final."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Qu'est-ce qu'on lit ? 'Un ___.' 💡 Objet culturel, 5 lettres : l-i-v-r-?",
+          "answer": "livre",
+          "accept": ["livre"],
+          "correction": "LIVRE : l-i-v-r-e. Le e final est muet."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Ou dort-on ? 'Dans un ___.' 💡 Meuble pour dormir, 3 lettres : l-i-?",
+          "answer": "lit",
+          "accept": ["lit"],
+          "correction": "LIT : l-i-t. Le t final est muet."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Comment s'appelle l'animal qui fait miaou ? 'Un ___.' 💡 4 lettres : c-h-a-?",
+          "answer": "chat",
+          "accept": ["chat"],
+          "correction": "CHAT : c-h-a-t. Le t final est muet."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Que prend-on quand il pleut ? 'Un ___.' 💡 Il protege de la pluie, 9 lettres : p-a-r-a-p-l-u-i-?",
+          "answer": "parapluie",
+          "accept": ["parapluie"],
+          "correction": "PARAPLUIE : p-a-r-a-p-l-u-i-e. Il protege de la pluie."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Je mange du ___ au petit-dejeuner.' 💡 Vient du ble, 4 lettres : p-a-i-?",
+          "answer": "pain",
+          "accept": ["pain"],
+          "correction": "PAIN : p-a-i-n. Le son [in] s'ecrit a-i-n ici."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Je porte un ___ chaud en hiver.' 💡 Vetement long, 7 lettres : m-a-n-t-e-a-?",
+          "answer": "manteau",
+          "accept": ["manteau"],
+          "correction": "MANTEAU : m-a-n-t-e-a-u. Pluriel : manteaux."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'J'ecris avec mon ___.' 💡 Instrument d'ecriture, 6 lettres : c-r-a-y-o-?",
+          "answer": "crayon",
+          "accept": ["crayon"],
+          "correction": "CRAYON : c-r-a-y-o-n. Le y remplace le i dans certains mots."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Il y a un ___ dans mon cartable.' 💡 Pour ranger les feuilles, 6 lettres : c-a-h-i-e-?",
+          "answer": "cahier",
+          "accept": ["cahier"],
+          "correction": "CAHIER : c-a-h-i-e-r. Le h est muet."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Je joue avec mes ___.' 💡 Compagnons de jeu, 4 lettres : a-m-i-?",
+          "answer": "amis",
+          "accept": ["amis"],
+          "correction": "AMIS : a-m-i-s. Pluriel de ami, on ajoute s."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Nous habitons dans un ___.' 💡 Grande residence, 11 lettres : a-p-p-a-r-t-e-m-e-n-?",
+          "answer": "appartement",
+          "accept": ["appartement"],
+          "correction": "APPARTEMENT : deux p, a-r-t-e-m-e-n-t. Vient du latin."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Je prends une ___.' 💡 Pour se laver, 6 lettres : d-o-u-c-h-?",
+          "answer": "douche",
+          "accept": ["douche"],
+          "correction": "DOUCHE : d-o-u-c-h-e. Le ch fait le son [ch]."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'La ___ de la cuisine est grande.' 💡 Surface plane, 5 lettres : t-a-b-l-?",
+          "answer": "table",
+          "accept": ["table"],
+          "correction": "TABLE : t-a-b-l-e. Le e final est muet."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Mon ___ est rouge.' 💡 Vetement tricoter, 6 lettres : t-r-i-c-o-?",
+          "answer": "tricot",
+          "accept": ["tricot"],
+          "correction": "TRICOT : t-r-i-c-o-t. Le t final est muet."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Il fait chaud en ___.' 💡 Saison chaude, 3 lettres : e-t-?",
+          "answer": "ete",
+          "accept": ["ete", "été"],
+          "correction": "ETE : e-t-e. Deux e : le premier prend un accent : ete."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Ecris sans erreur : 'Les ___ sont belles cet automne.' 💡 Couleur de l'automne, 8 lettres : f-e-u-i-l-l-e-?",
+          "answer": "feuilles",
+          "accept": ["feuilles"],
+          "correction": "FEUILLES : f-e-u-i-l-l-e-s. Le son [euill] s'ecrit e-u-i-l-l."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Ecris sans erreur : 'Je mange des ___ au petit-dejeuner.' 💡 Fruit jaune courbe, 7 lettres : b-a-n-a-n-e-?",
+          "answer": "bananes",
+          "accept": ["bananes", "banane"],
+          "correction": "BANANES : b-a-n-a-n-e-s. Pluriel de banane, qui prend deux fois la lettre n."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Ecris sans erreur : 'Mon ___ prefere est le football.' 💡 Ce qu'on aime faire, 5 lettres : s-p-o-r-?",
+          "answer": "sport",
+          "accept": ["sport"],
+          "correction": "SPORT : s-p-o-r-t. Le t final se prononce dans sport."
+        },
+        {
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "Ecris sans erreur : 'Il fait froid en ___.' 💡 Saison froide, 5 lettres : h-i-v-e-?",
+          "answer": "hiver",
+          "accept": ["hiver"],
+          "correction": "HIVER : h-i-v-e-r. Le h est muet (hiver = [iver])."
+        },
+        {
+          "id": "q5",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Les ___ sont dans le jardin.' 💡 Insectes qui font du miel, 8 lettres : a-b-e-i-l-l-e-?",
+          "answer": "abeilles",
+          "accept": ["abeilles", "abeille"],
+          "correction": "ABEILLES : a-b-e-i-l-l-e-s. Le son [eill] s'ecrit e-i-l-l."
+        },
+        {
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'J'aime la ___ aux fruits.' 💡 Dessert sucre, 9 lettres : c-o-n-f-i-t-u-r-?",
+          "answer": "confiture",
+          "accept": ["confiture"],
+          "correction": "CONFITURE : c-o-n-f-i-t-u-r-e. Le son [on] devant f s'ecrit o-n ici."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Mon ___ me raconte des histoires.' 💡 Parent masculin, 4 lettres : p-e-r-?",
+          "answer": "pere",
+          "accept": ["pere", "père"],
+          "correction": "PERE : p-e-r-e. Attention : ne pas confondre mere (m-e-r-e) et pere (p-e-r-e)."
+        },
+        {
+          "id": "q8",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Le ___ est plein d'eau.' 💡 Grande etendue d'eau douce, 3 lettres : l-a-?",
+          "answer": "lac",
+          "accept": ["lac"],
+          "correction": "LAC : l-a-c. Le c final se prononce : [lak]."
+        },
+        {
+          "id": "q9",
+          "type": "fill_blank",
+          "prompt": "Ecris : 'Je suis tres ___.' 💡 Synonyme de content, 7 lettres : h-e-u-r-e-u-?",
+          "answer": "heureux",
+          "accept": ["heureux"],
+          "correction": "HEUREUX : h-e-u-r-e-u-x. Le x final ne se prononce pas."
+        },
+        {
+          "id": "q10",
+          "type": "fill_blank",
+          "prompt": "Ecris : '___ est une belle ville.' 💡 Capitale de la Belgique, 9 lettres : B-r-u-x-e-l-l-e-?",
+          "answer": "Bruxelles",
+          "accept": ["Bruxelles", "bruxelles"],
+          "correction": "BRUXELLES : B-r-u-x-e-l-l-e-s. Deux l, et majuscule car c'est un nom de ville."
+        }
+      ]
+    }
+  }
+}
