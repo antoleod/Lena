@@ -20,6 +20,7 @@ const HUB_UI = {
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'Le royaume magique des mots', color: '#10b981' },
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'Le laboratoire des grandeurs', color: '#f59e0b' },
       { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'L\'Academie des Mots et des Phrases', color: '#7c3aed' },
+      { to: '/verbes', icon: 'verbes', title: 'Le Royaume des Verbes', desc: 'Conjugaison magique', color: '#10b981' },
     ],
   },
   nl: {
@@ -36,6 +37,7 @@ const HUB_UI = {
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'Het magische koninkrijk van woorden', color: '#10b981' },
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'Het laboratorium der grootheden', color: '#f59e0b' },
       { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Woorden en Zinnen Academie', color: '#7c3aed' },
+      { to: '/verbes', icon: 'verbes', title: 'Het Rijk der Werkwoorden', desc: 'Magische vervoeging', color: '#10b981' },
     ],
   },
   en: {
@@ -52,6 +54,7 @@ const HUB_UI = {
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'The magical kingdom of words', color: '#10b981' },
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'The measurement laboratory', color: '#f59e0b' },
       { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Words and Sentences Academy', color: '#7c3aed' },
+      { to: '/verbes', icon: 'verbes', title: 'The Verb Kingdom', desc: 'Magic conjugation', color: '#10b981' },
     ],
   },
   es: {
@@ -68,6 +71,7 @@ const HUB_UI = {
       { to: '/grammi', icon: 'grammi', title: 'GrammiLena', desc: 'El reino magico de las palabras', color: '#10b981' },
       { to: '/metri', icon: 'metri', title: 'MetriLena', desc: 'El laboratorio de medidas', color: '#f59e0b' },
       { to: '/lexi', icon: 'lexi', title: 'LexiLena', desc: 'Academia de Palabras y Frases', color: '#7c3aed' },
+      { to: '/verbes', icon: 'verbes', title: 'El Reino de los Verbos', desc: 'Conjugacion magica', color: '#10b981' },
     ],
   },
 };
@@ -83,6 +87,7 @@ const ICON_MAP = {
   grammi: IconGrammi,
   metri: IconMetri,
   lexi: IconLangues,
+  verbes: IconLangues,
 };
 
 export default function PratiquerHubPage() {

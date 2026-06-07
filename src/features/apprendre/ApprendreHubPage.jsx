@@ -129,6 +129,16 @@ export default function ApprendreHubPage() {
             </div>
             <span className="al-academy-card__arrow">→</span>
           </Link>
+          <Link to="/verbes" className="al-academy-card" style={{ '--ac-color': '#10b981' }}>
+            <span className="al-academy-card__emoji">🧙</span>
+            <div className="al-academy-card__body">
+              <strong className="al-academy-card__title">Le Royaume des Verbes</strong>
+              <span className="al-academy-card__desc">
+                {locale === 'nl' ? 'Werkwoorden vervoegen' : locale === 'en' ? 'Verb conjugation' : locale === 'es' ? 'Conjugacion de verbos' : 'Conjugaison magique'}
+              </span>
+            </div>
+            <span className="al-academy-card__arrow">→</span>
+          </Link>
         </div>
       </div>
 
