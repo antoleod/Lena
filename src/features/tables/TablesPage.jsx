@@ -154,15 +154,20 @@ function NumPad({ onDigit, onBackspace, onOk, canOk }) {
 // ── Learn mode ────────────────────────────────────────────────────────────────
 function LearnMode({ table, onBack, onPractice }) {
   const [highlight, setHighlight] = useState(0);
+  const [speed, setSpeed] = useState(() => {
+    try { return parseInt(localStorage.getItem('lena:tables-speed') || '8', 10); } catch { return 8; }
+  });
+  const [showSettings, setShowSettings] = useState(false);
   const facts = Array.from({ length: 12 }, (_, i) => ({ b: i + 1, result: table * (i + 1) }));
   const f = facts[highlight] || facts[0];
 
   useEffect(() => {
+    setHighlight(0);
     const id = setInterval(() => {
       setHighlight(h => (h + 1) % facts.length);
-    }, 900);
+    }, speed * 1000);
     return () => clearInterval(id);
-  }, [facts.length]);
+  }, [facts.length, speed]);
 
   return (
     <div className="tp-page">
@@ -172,7 +177,38 @@ function LearnMode({ table, onBack, onPractice }) {
           <p className="tp-header__title">Table de {table}</p>
           <p className="tp-header__sub">Memoriser</p>
         </div>
+        <button type="button" className="tp-back" onPointerDown={(e) => { e.preventDefault(); setShowSettings((s) => !s); }}>⚙️</button>
       </header>
+
+      {showSettings && (
+        <div style={{ margin: '0 14px 10px', background: 'rgba(255,255,255,.08)', borderRadius: 14, padding: '12px 14px', border: '1.5px solid rgba(255,255,255,.15)' }}>
+          <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '.75rem', fontWeight: 700, margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '.6px' }}>
+            Vitesse de defilement
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6 }}>
+            {[5, 8, 10, 15, 20, 30].map((s) => (
+              <button
+                key={s}
+                type="button"
+                style={{
+                  padding: '10px 4px', borderRadius: 10, border: '2px solid',
+                  borderColor: speed === s ? '#6366f1' : 'rgba(255,255,255,.15)',
+                  background: speed === s ? '#6366f1' : 'rgba(255,255,255,.07)',
+                  color: '#fff', fontWeight: 800, fontSize: '.85rem', cursor: 'pointer',
+                }}
+                onPointerDown={(e) => {
+                  e.preventDefault();
+                  setSpeed(s);
+                  try { localStorage.setItem('lena:tables-speed', String(s)); } catch {}
+                  setShowSettings(false);
+                }}
+              >
+                {s}s
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Hero — current highlighted fact */}
       <div className="tp-learn-hero">

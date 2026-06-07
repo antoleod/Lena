@@ -6,6 +6,7 @@ import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { recordError } from '../../../services/storage/errorHistoryStore.js';
 import { recordStudyTime } from '../../../services/storage/progressStore.js';
 import { saveResult, starsFor } from './examLibraryProgress.js';
+import { saveHistoryEntry } from './examHistoryStore.js';
 import { generateExercises } from '../../exerciseGenerator/exerciseEngine.js';
 
 function shuffle(arr) {
@@ -410,6 +411,22 @@ export default function ExamRunnerPage() {
     const elapsed = Math.round((Date.now() - startRef.current) / 1000);
     recordStudyTime(elapsed);
     saveResult(exam?.id, levelKey, score, totalQ);
+    saveHistoryEntry({
+      examId: exam?.id,
+      examTitle: exam?.title,
+      examEmoji: exam?.emoji || '📝',
+      levelKey,
+      score,
+      total: totalQ,
+      pct: Math.round((score / totalQ) * 100),
+      ts: Date.now(),
+      questions: (activeQuestions || allQuestions).map((q) => ({
+        prompt: getLocalizedField(q, 'prompt', locale),
+        answer: q.answer,
+        userAnswer: '?',
+        correct: false,
+      })),
+    });
     setPhase('end');
   };
 
@@ -418,6 +435,22 @@ export default function ExamRunnerPage() {
       const elapsed = Math.round((Date.now() - startRef.current) / 1000);
       recordStudyTime(elapsed);
       saveResult(exam.id, levelKey, score, totalQ);
+      saveHistoryEntry({
+        examId: exam.id,
+        examTitle: exam.title,
+        examEmoji: exam.emoji || '📝',
+        levelKey,
+        score,
+        total: totalQ,
+        pct: Math.round((score / totalQ) * 100),
+        ts: Date.now(),
+        questions: (activeQuestions || allQuestions).map((q) => ({
+          prompt: getLocalizedField(q, 'prompt', locale),
+          answer: q.answer,
+          userAnswer: '?',
+          correct: false,
+        })),
+      });
       setPhase('end');
     } else {
       setQIndex((i) => i + 1);

@@ -38,6 +38,16 @@ export default function ExamLibraryHubPage() {
         </div>
       </div>
 
+      <div style={{ padding: '0 16px 12px' }}>
+        <Link
+          to="/exam/history"
+          className="exam-choice"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, textDecoration: 'none', padding: '8px 18px', fontSize: '.88rem', fontWeight: 700 }}
+        >
+          📋 Historique
+        </Link>
+      </div>
+
       <div className="lecture-grid">
         {categories.map((cat) => {
           const { passed, total } = getCategoryProgress(cat);

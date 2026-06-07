@@ -33,6 +33,8 @@ import ErrorReviewPage from '../../features/exam/ErrorReviewPage.jsx';
 import ExamLibraryHubPage from '../../features/exam/library/ExamLibraryHubPage.jsx';
 import ExamLibraryCategoryPage from '../../features/exam/library/ExamLibraryCategoryPage.jsx';
 import ExamRunnerPage from '../../features/exam/library/ExamRunnerPage.jsx';
+import ExamHistoryPage from '../../features/exam/library/ExamHistoryPage.jsx';
+import CahierHistoryPage from '../../features/exerciseGenerator/CahierHistoryPage.jsx';
 import ExerciseGeneratorPage from '../../features/exerciseGenerator/ExerciseGeneratorPage.jsx';
 import GeometryPage from '../../features/mathGeometry/GeometryPage.jsx';
 import CalculationChallengePage from '../../features/mathChallenges/CalculationChallengePage.jsx';
@@ -153,9 +155,11 @@ export default function AppRouter() {
         <Route path="/exam/lecture/play" element={<LectureReaderPage />} />
         <Route path="/exam/errors" element={<ErrorReviewPage />} />
         <Route path="/exam/library" element={<ExamLibraryHubPage />} />
+        <Route path="/exam/history" element={<ExamHistoryPage />} />
         <Route path="/exam/library/play" element={<ExamRunnerPage />} />
         <Route path="/exam/library/:categoryId" element={<ExamLibraryCategoryPage />} />
         <Route path="/cahier" element={<ExerciseGeneratorPage />} />
+        <Route path="/cahier/historique" element={<CahierHistoryPage />} />
         <Route path="/cahier/geometrie" element={<GeometryPage />} />
         <Route path="/cahier/defis-calcul" element={<CalculationChallengePage />} />
         <Route path="/cahier/calculs-melanges" element={<MixedModePage />} />

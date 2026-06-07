@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { SUBJECTS, LEVELS, COUNTS, getSubject } from './exerciseTypes.js';
 import { generateExercises } from './exerciseEngine.js';
 import { saveSession, getErrorCount } from './exerciseStorage.js';
@@ -15,6 +15,7 @@ import './cahier.css';
 // plus 'errors'. Solutions are revealed ONLY after the child finishes her cahier.
 export default function ExerciseGeneratorPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const L = useCahierT();
   const [phase, setPhase] = useState('setup');
 
@@ -33,6 +34,31 @@ export default function ExerciseGeneratorPage() {
   const [errorCount, setErrorCount] = useState(() => getErrorCount());
 
   const currentSubject = useMemo(() => getSubject(subject), [subject]);
+
+  useEffect(() => {
+    if (location.state?.retake) {
+      const s = location.state.retake;
+      setSubject(s.subject || 'math');
+      setType(s.type || 'additions');
+      setLevel(s.level || 'easy');
+      setCount(s.total || 10);
+      const list = (s.exercises || []).map((e) => ({
+        id: e.id,
+        subject: e.subject,
+        type: e.type,
+        question: e.question,
+        testQuestion: e.question,
+        answer: e.answer,
+        correctAnswer: e.answer,
+        inputType: 'number',
+      }));
+      if (list.length > 0) {
+        setExercises(list);
+        setGraded([]);
+        setPhase('notebook');
+      }
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function chooseSubject(id) {
     setSubject(id);
@@ -176,11 +202,20 @@ export default function ExerciseGeneratorPage() {
           <h1>{L.t('monCahierTitle')}</h1>
           <p className="cahier-sub">{L.t('chooseWork')}</p>
         </div>
-        {errorCount > 0 && (
-          <button type="button" className="cahier-errors-cta" onClick={() => setPhase('errors')}>
-            ⚠️ {L.t('mesErreurs')} <span className="cahier-badge">{errorCount}</span>
-          </button>
-        )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          <Link
+            to="/cahier/historique"
+            className="cahier-chip"
+            style={{ textDecoration: 'none', fontSize: '.82rem', fontWeight: 700, padding: '6px 14px' }}
+          >
+            📋 Historique
+          </Link>
+          {errorCount > 0 && (
+            <button type="button" className="cahier-errors-cta" onClick={() => setPhase('errors')}>
+              ⚠️ {L.t('mesErreurs')} <span className="cahier-badge">{errorCount}</span>
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Modules spéciaux de maths */}

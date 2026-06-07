@@ -33,6 +33,15 @@ export function saveSession(meta, graded) {
     total: graded.length,
     correct,
     wrong: graded.length - correct,
+    exercises: graded.map((g) => ({
+      id: g.exercise.id,
+      question: g.exercise.question || g.exercise.testQuestion,
+      answer: String(g.exercise.answer ?? g.exercise.correctAnswer ?? ''),
+      userAnswer: String(g.userAnswer ?? ''),
+      correct: g.correct,
+      type: g.exercise.type,
+      subject: g.exercise.subject,
+    })),
   };
   const sessions = read(SESSIONS_KEY, []);
   sessions.unshift(session);
