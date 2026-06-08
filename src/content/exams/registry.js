@@ -82,16 +82,49 @@ export async function getExam(examId) {
   return promise;
 }
 
+/** Ordered difficulty keys — lower index = easier. */
+const LEVEL_ORDER = ['facile', 'moyen', 'difficile'];
+
 /**
  * Async equivalent of the old sync getExamLevel(). Returns
  * { exam, level, levelKey } or null.
+ *
+ * Questions are deduplicated against all lower-difficulty levels so a prompt
+ * that already appeared in "facile" is never shown again in "moyen" or
+ * "difficile", and so on.
  */
 export async function getExamLevel(examId, levelKey) {
   const exam = await getExam(examId);
   if (!exam) return null;
   const level = exam.levels?.[levelKey];
   if (!level) return null;
-  return { exam, level, levelKey };
+
+  // Collect prompts already seen in easier levels
+  const seenPrompts = new Set();
+  const myIdx = LEVEL_ORDER.indexOf(levelKey);
+  if (myIdx > 0) {
+    for (let i = 0; i < myIdx; i++) {
+      const lowerLevel = exam.levels?.[LEVEL_ORDER[i]];
+      if (lowerLevel?.questions) {
+        for (const q of lowerLevel.questions) {
+          seenPrompts.add(String(q.prompt ?? '').trim().toLowerCase());
+        }
+      }
+    }
+  }
+
+  // Filter out duplicates (return a shallow copy so we don't mutate the cache)
+  const filteredQuestions = seenPrompts.size === 0
+    ? level.questions
+    : level.questions.filter(
+        (q) => !seenPrompts.has(String(q.prompt ?? '').trim().toLowerCase())
+      );
+
+  const filteredLevel = filteredQuestions === level.questions
+    ? level
+    : { ...level, questions: filteredQuestions };
+
+  return { exam, level: filteredLevel, levelKey };
 }
 
 // Keep the old sync name as an alias so any direct callers of getExamById get a

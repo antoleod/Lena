@@ -140,18 +140,18 @@
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "27 + 0 = ?",
+          "prompt": "23 + 8 = ?",
           "options": [
-            "26",
-            "28",
-            "21",
+            "29",
+            "31",
+            "33",
             "27"
           ],
-          "answer": "27",
-          "correction": "27 + 0 = 27.",
-          "prompt_nl": "27 + 0 = ?",
-          "prompt_en": "27 + 0 = ?",
-          "prompt_es": "27 + 0 = ?"
+          "answer": "31",
+          "correction": "23 + 8 = 31.",
+          "prompt_nl": "23 + 8 = ?",
+          "prompt_en": "23 + 8 = ?",
+          "prompt_es": "23 + 8 = ?"
         }
       ]
     },

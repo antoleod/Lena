@@ -261,21 +261,21 @@
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "0 + ___ = 32",
+          "prompt": "17 + ___ = 32",
           "options": [
-            "32",
-            "29",
-            "35",
-            "24"
+            "13",
+            "15",
+            "17",
+            "11"
           ],
-          "answer": "32",
-          "correction": "Pour aller de 0 à 32, il faut 32.",
-          "correction_nl": "Van 0 naar 32: 32.",
-          "correction_en": "From 0 to 32: 32.",
-          "correction_es": "De 0 a 32: 32.",
-          "prompt_nl": "0 + ___ = 32",
-          "prompt_en": "0 + ___ = 32",
-          "prompt_es": "0 + ___ = 32"
+          "answer": "15",
+          "correction": "Pour aller de 17 à 32, il faut 15.",
+          "correction_nl": "Van 17 naar 32: 15.",
+          "correction_en": "From 17 to 32: 15.",
+          "correction_es": "De 17 a 32: 15.",
+          "prompt_nl": "17 + ___ = 32",
+          "prompt_en": "17 + ___ = 32",
+          "prompt_es": "17 + ___ = 32"
         },
         {
           "id": "q6",
@@ -293,40 +293,40 @@
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "0 + ___ = 32",
+          "prompt": "8 + ___ = 32",
           "options": [
-            "25",
-            "32",
-            "28",
-            "31"
+            "22",
+            "24",
+            "26",
+            "20"
           ],
-          "answer": "32",
-          "correction": "Pour aller de 0 à 32, il faut 32.",
-          "correction_nl": "Van 0 naar 32: 32.",
-          "correction_en": "From 0 to 32: 32.",
-          "correction_es": "De 0 a 32: 32.",
-          "prompt_nl": "0 + ___ = 32",
-          "prompt_en": "0 + ___ = 32",
-          "prompt_es": "0 + ___ = 32"
+          "answer": "24",
+          "correction": "Pour aller de 8 à 32, il faut 24.",
+          "correction_nl": "Van 8 naar 32: 24.",
+          "correction_en": "From 8 to 32: 24.",
+          "correction_es": "De 8 a 32: 24.",
+          "prompt_nl": "8 + ___ = 32",
+          "prompt_en": "8 + ___ = 32",
+          "prompt_es": "8 + ___ = 32"
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "13 + ___ = 32",
+          "prompt": "14 + ___ = 32",
           "options": [
-            "23",
-            "26",
-            "19",
-            "20"
+            "16",
+            "18",
+            "20",
+            "22"
           ],
-          "answer": "19",
-          "correction": "Pour aller de 13 à 32, il faut 19.",
-          "correction_nl": "Van 13 naar 32: 19.",
-          "correction_en": "From 13 to 32: 19.",
-          "correction_es": "De 13 a 32: 19.",
-          "prompt_nl": "13 + ___ = 32",
-          "prompt_en": "13 + ___ = 32",
-          "prompt_es": "13 + ___ = 32"
+          "answer": "18",
+          "correction": "Pour aller de 14 à 32, il faut 18.",
+          "correction_nl": "Van 14 naar 32: 18.",
+          "correction_en": "From 14 to 32: 18.",
+          "correction_es": "De 14 a 32: 18.",
+          "prompt_nl": "14 + ___ = 32",
+          "prompt_en": "14 + ___ = 32",
+          "prompt_es": "14 + ___ = 32"
         },
         {
           "id": "q9",
@@ -508,34 +508,34 @@
         {
           "id": "q9",
           "type": "fill_blank",
-          "prompt": "2 + ___ = 48",
-          "answer": 46,
-          "correction": "Pour aller de 2 à 48, il faut 46.",
-          "correction_nl": "Van 2 naar 48: 46.",
-          "correction_en": "From 2 to 48: 46.",
-          "correction_es": "De 2 a 48: 46.",
-          "prompt_nl": "2 + ___ = 48",
-          "prompt_en": "2 + ___ = 48",
-          "prompt_es": "2 + ___ = 48"
+          "prompt": "19 + ___ = 48",
+          "answer": 29,
+          "correction": "Pour aller de 19 à 48, il faut 29.",
+          "correction_nl": "Van 19 naar 48: 29.",
+          "correction_en": "From 19 to 48: 29.",
+          "correction_es": "De 19 a 48: 29.",
+          "prompt_nl": "19 + ___ = 48",
+          "prompt_en": "19 + ___ = 48",
+          "prompt_es": "19 + ___ = 48"
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "6 + ___ = 48",
+          "prompt": "31 + ___ = 48",
           "options": [
-            "46",
-            "44",
-            "42",
-            "33"
+            "13",
+            "15",
+            "17",
+            "19"
           ],
-          "answer": "42",
-          "correction": "Pour aller de 6 à 48, il faut 42.",
-          "correction_nl": "Van 6 naar 48: 42.",
-          "correction_en": "From 6 to 48: 42.",
-          "correction_es": "De 6 a 48: 42.",
-          "prompt_nl": "6 + ___ = 48",
-          "prompt_en": "6 + ___ = 48",
-          "prompt_es": "6 + ___ = 48"
+          "answer": "17",
+          "correction": "Pour aller de 31 à 48, il faut 17.",
+          "correction_nl": "Van 31 naar 48: 17.",
+          "correction_en": "From 31 to 48: 17.",
+          "correction_es": "De 31 a 48: 17.",
+          "prompt_nl": "31 + ___ = 48",
+          "prompt_en": "31 + ___ = 48",
+          "prompt_es": "31 + ___ = 48"
         }
       ]
     }

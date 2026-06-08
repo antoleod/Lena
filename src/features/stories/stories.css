@@ -9,26 +9,34 @@
 
 .sl-page {
   min-height: 100vh;
-  background: linear-gradient(160deg, #0f0826 0%, #1a1040 50%, #0d1a35 100%);
+  background: var(--surface, #f2f2f7);
   padding: 0 0 calc(var(--nav-height-mobile, 64px) + 24px);
 }
 
-.sl-header { padding: 16px 16px 12px; text-align: center; }
+.sl-header {
+  padding: 28px 20px 20px;
+  text-align: center;
+  background: linear-gradient(160deg, #6c3fc5 0%, #a855f7 45%, #ec4899 100%);
+  border-radius: 0 0 28px 28px;
+  margin-bottom: 20px;
+}
 
 .sl-header__title {
-  font-size: 1.5rem; font-weight: 900; color: #fff;
-  margin: 0 0 2px; letter-spacing: -.5px;
+  font-size: 1.75rem; font-weight: 900; color: #fff;
+  margin: 0 0 6px; letter-spacing: -.5px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
 
 .sl-header__sub {
-  font-size: .85rem; color: rgba(255,255,255,.55); margin: 0 0 12px;
+  font-size: .9rem; color: rgba(255,255,255,.85); margin: 0;
+  font-weight: 500;
 }
 
 .sl-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 0 12px;
+  gap: 14px;
+  padding: 0 14px;
 }
 
 @media (min-width: 600px)  { .sl-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -37,13 +45,14 @@
 
 .sl-card {
   border-radius: 18px; overflow: hidden;
-  background: rgba(255,255,255,.07);
-  border: 1.5px solid rgba(255,255,255,.12);
-  text-decoration: none; color: #fff;
+  background: var(--surface-strong, #ffffff);
+  border: 1.5px solid rgba(0,0,0,.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  text-decoration: none; color: var(--text, #1c1c1e);
   display: flex; flex-direction: column; min-height: 180px;
   transition: transform .2s, box-shadow .2s; cursor: pointer;
 }
-.sl-card:hover  { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.55); }
+.sl-card:hover  { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.15); }
 .sl-card:active { transform: scale(.97); }
 
 .sl-card__cover {
@@ -68,7 +77,7 @@
   padding: 10px 12px 12px; flex: 1;
   display: flex; flex-direction: column; gap: 6px;
 }
-.sl-card__title { font-size: .95rem; font-weight: 800; line-height: 1.2; }
+.sl-card__title { font-size: .95rem; font-weight: 800; line-height: 1.2; color: var(--text, #1c1c1e); }
 
 .sl-card__badge {
   display: inline-block; font-size: .7rem; font-weight: 700;
@@ -79,7 +88,7 @@
 .sl-card__badge--explorateur { background: #a855f7; color: #fff; }
 
 .sl-card__meta {
-  font-size: .75rem; color: rgba(255,255,255,.6);
+  font-size: .75rem; color: var(--muted, #6e6e73);
   display: flex; gap: 8px; align-items: center; margin-top: auto;
 }
 

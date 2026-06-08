@@ -46,12 +46,12 @@
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "19 + 0 = ?",
-          "answer": 19,
-          "correction": "19 + 0 = 19.",
-          "prompt_nl": "19 + 0 = ?",
-          "prompt_en": "19 + 0 = ?",
-          "prompt_es": "19 + 0 = ?"
+          "prompt": "9 + 5 = ?",
+          "answer": 14,
+          "correction": "9 + 5 = 14.",
+          "prompt_nl": "9 + 5 = ?",
+          "prompt_en": "9 + 5 = ?",
+          "prompt_es": "9 + 5 = ?"
         },
         {
           "id": "q4",
@@ -88,12 +88,12 @@
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "18 + 0 = ?",
-          "answer": 18,
-          "correction": "18 + 0 = 18.",
-          "prompt_nl": "18 + 0 = ?",
-          "prompt_en": "18 + 0 = ?",
-          "prompt_es": "18 + 0 = ?"
+          "prompt": "8 + 7 = ?",
+          "answer": 15,
+          "correction": "8 + 7 = 15.",
+          "prompt_nl": "8 + 7 = ?",
+          "prompt_en": "8 + 7 = ?",
+          "prompt_es": "8 + 7 = ?"
         },
         {
           "id": "q7",
@@ -203,34 +203,34 @@
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "29 + 0 = ?",
+          "prompt": "14 + 9 = ?",
           "options": [
-            "37",
             "21",
-            "29",
-            "22"
+            "24",
+            "23",
+            "20"
           ],
-          "answer": "29",
-          "correction": "29 + 0 = 29.",
-          "prompt_nl": "29 + 0 = ?",
-          "prompt_en": "29 + 0 = ?",
-          "prompt_es": "29 + 0 = ?"
+          "answer": "23",
+          "correction": "14 + 9 = 23.",
+          "prompt_nl": "14 + 9 = ?",
+          "prompt_en": "14 + 9 = ?",
+          "prompt_es": "14 + 9 = ?"
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "31 + 1 = ?",
+          "prompt": "16 + 8 = ?",
           "options": [
-            "38",
-            "32",
-            "29",
-            "36"
+            "22",
+            "24",
+            "26",
+            "20"
           ],
-          "answer": "32",
-          "correction": "31 + 1 = 32.",
-          "prompt_nl": "31 + 1 = ?",
-          "prompt_en": "31 + 1 = ?",
-          "prompt_es": "31 + 1 = ?"
+          "answer": "24",
+          "correction": "16 + 8 = 24.",
+          "prompt_nl": "16 + 8 = ?",
+          "prompt_en": "16 + 8 = ?",
+          "prompt_es": "16 + 8 = ?"
         },
         {
           "id": "q6",
@@ -340,54 +340,54 @@
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "7 + 6 = ?",
-          "answer": 13,
-          "correction": "7 + 6 = 13.",
-          "prompt_nl": "7 + 6 = ?",
-          "prompt_en": "7 + 6 = ?",
-          "prompt_es": "7 + 6 = ?"
+          "prompt": "28 + 17 = ?",
+          "answer": 45,
+          "correction": "28 + 17 = 45.",
+          "prompt_nl": "28 + 17 = ?",
+          "prompt_en": "28 + 17 = ?",
+          "prompt_es": "28 + 17 = ?"
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "0 + 36 = ?",
+          "prompt": "37 + 16 = ?",
           "options": [
-            "38",
-            "36",
-            "27",
-            "39"
+            "51",
+            "53",
+            "49",
+            "55"
           ],
-          "answer": "36",
-          "correction": "0 + 36 = 36.",
-          "prompt_nl": "0 + 36 = ?",
-          "prompt_en": "0 + 36 = ?",
-          "prompt_es": "0 + 36 = ?"
+          "answer": "53",
+          "correction": "37 + 16 = 53.",
+          "prompt_nl": "37 + 16 = ?",
+          "prompt_en": "37 + 16 = ?",
+          "prompt_es": "37 + 16 = ?"
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "48 + 0 = ?",
+          "prompt": "29 + 18 = ?",
           "options": [
-            "59",
-            "41",
-            "46",
-            "48"
+            "43",
+            "47",
+            "51",
+            "45"
           ],
-          "answer": "48",
-          "correction": "48 + 0 = 48.",
-          "prompt_nl": "48 + 0 = ?",
-          "prompt_en": "48 + 0 = ?",
-          "prompt_es": "48 + 0 = ?"
+          "answer": "47",
+          "correction": "29 + 18 = 47.",
+          "prompt_nl": "29 + 18 = ?",
+          "prompt_en": "29 + 18 = ?",
+          "prompt_es": "29 + 18 = ?"
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "48 + 0 = ?",
-          "answer": 48,
-          "correction": "48 + 0 = 48.",
-          "prompt_nl": "48 + 0 = ?",
-          "prompt_en": "48 + 0 = ?",
-          "prompt_es": "48 + 0 = ?"
+          "prompt": "33 + 19 = ?",
+          "answer": 52,
+          "correction": "33 + 19 = 52.",
+          "prompt_nl": "33 + 19 = ?",
+          "prompt_en": "33 + 19 = ?",
+          "prompt_es": "33 + 19 = ?"
         },
         {
           "id": "q7",

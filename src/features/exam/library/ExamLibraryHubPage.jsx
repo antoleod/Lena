@@ -33,8 +33,13 @@ const LIBRARY_ICON_MAP = {
   'grand-defi':                IconLibGrandDefi,
 };
 
-/** Returns { passed, total } for a category — an exam counts as passed if any
- *  difficulty level has >= 1 star. */
+const CATEGORY_COLORS = [
+  '#007aff', '#34c759', '#ff9500', '#ff3b30', '#af52de',
+  '#5ac8fa', '#ff2d55', '#ff6b35', '#30b0c7', '#64d2ff',
+  '#30d158', '#ffd60a', '#bf5af2', '#ff6961', '#4fc3f7',
+  '#a29bfe', '#fd79a8', '#00b894',
+];
+
 function getCategoryProgress(cat) {
   const total = cat.exams.length;
   let passed = 0;
@@ -43,95 +48,96 @@ function getCategoryProgress(cat) {
     const anyPassed = levelKeys.some((lk) => {
       const res = getResult(exam.id, lk);
       if (!res) return false;
-      const passPercent = exam.levelPassPercent?.[lk];
-      return starsFor(res.bestScore, res.total, passPercent) >= 1;
+      return starsFor(res.bestScore, res.total, exam.levelPassPercent?.[lk]) >= 1;
     });
     if (anyPassed) passed++;
   }
-  return { passed, total };
+  return { passed, total, pct: total > 0 ? Math.round((passed / total) * 100) : 0 };
 }
+
+const MEGA_LABELS = {
+  fr: { title: 'Mega Examen', sub: 'Combine plusieurs thèmes' },
+  nl: { title: 'Mega Examen', sub: 'Combineer meerdere thema\'s' },
+  en: { title: 'Mega Exam',   sub: 'Combine multiple topics' },
+  es: { title: 'Mega Examen', sub: 'Combina varios temas' },
+};
 
 export default function ExamLibraryHubPage() {
   const { locale } = useLocale();
   const categories = getCategories();
   const ui = getExamUi(locale);
+  const mega = MEGA_LABELS[locale] || MEGA_LABELS.fr;
 
   return (
-    <div className="exam-hub-page">
-      <div className="exam-hub-header">
-        <Link className="exam-back-btn" to="/exam">←</Link>
-        <div>
-          <span className="eyebrow">{ui.libraryTitle}</span>
-          <h1>{ui.librarySubtitle}</h1>
-          <p className="exam-hub-sub">{ui.libraryHint}</p>
+    <div className="elh-page">
+
+      {/* ── Hero header ── */}
+      <div className="elh-hero">
+        <Link className="elh-hero__back" to="/exam" aria-label="Retour">←</Link>
+        <div className="elh-hero__text">
+          <span className="elh-hero__eyebrow">{ui.libraryTitle}</span>
+          <h1 className="elh-hero__title">{ui.librarySubtitle}</h1>
+          <p className="elh-hero__sub">{ui.libraryHint}</p>
         </div>
       </div>
 
-      <div style={{ padding: '0 16px 12px' }}>
-        <Link
-          to="/exam/history"
-          className="exam-choice"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, textDecoration: 'none', padding: '8px 18px', fontSize: '.88rem', fontWeight: 700 }}
-        >
-          📋 Historique
+      {/* ── Action row ── */}
+      <div className="elh-actions">
+        <Link to="/exam/history" className="elh-action-pill">
+          <span>📋</span>
+          <span>Historique</span>
         </Link>
       </div>
 
-      <Link
-        to="/exam/mega"
-        className="mega-entry-banner"
-      >
-        <span className="mega-entry-banner__icon">🏆</span>
-        <div className="mega-entry-banner__text">
-          <strong>{locale === 'nl' ? 'Mega Examen' : locale === 'en' ? 'Mega Exam' : locale === 'es' ? 'Mega Examen' : 'Mega Examen'}</strong>
-          <span>{locale === 'nl' ? 'Combineer meerdere themas' : locale === 'en' ? 'Combine multiple topics' : locale === 'es' ? 'Combina varios temas' : 'Combine plusieurs themes'}</span>
+      {/* ── Mega Examen banner ── */}
+      <Link to="/exam/mega" className="elh-mega">
+        <div className="elh-mega__glow" aria-hidden="true" />
+        <div className="elh-mega__icon">🏆</div>
+        <div className="elh-mega__body">
+          <strong className="elh-mega__title">{mega.title}</strong>
+          <span className="elh-mega__sub">{mega.sub}</span>
         </div>
-        <span className="mega-entry-banner__arrow">→</span>
+        <span className="elh-mega__arrow">→</span>
       </Link>
 
-      <div className="lecture-grid">
-        {categories.map((cat) => {
-          const { passed, total } = getCategoryProgress(cat);
-          const pct = total > 0 ? Math.round((passed / total) * 100) : 0;
+      {/* ── Category grid ── */}
+      <div className="elh-grid">
+        {categories.map((cat, idx) => {
+          const { passed, total, pct } = getCategoryProgress(cat);
+          const color = CATEGORY_COLORS[idx % CATEGORY_COLORS.length];
+          const Icon = LIBRARY_ICON_MAP[cat.id];
+          const isDone = total > 0 && passed === total;
+
           return (
             <Link
               key={cat.id}
               to={`/exam/library/${cat.id}`}
-              className="lecture-card"
+              className={`elh-cat-card${isDone ? ' elh-cat-card--done' : ''}`}
+              style={{ '--cat-color': color }}
             >
-              <span className="lecture-card__emoji">
-                {LIBRARY_ICON_MAP[cat.id]
-                  ? (() => { const Icon = LIBRARY_ICON_MAP[cat.id]; return <Icon size={40} />; })()
-                  : (cat.emoji || '📚')}
-              </span>
-              <span className="lecture-card__title">{getCategoryLabel(cat.id, locale) || cat.label}</span>
-              <span className="lecture-card__meta">
+              {isDone && <span className="elh-cat-card__crown" aria-label="Complété">👑</span>}
+              <div className="elh-cat-card__icon-wrap">
+                {Icon ? <Icon size={36} /> : <span style={{ fontSize: '2rem' }}>{cat.emoji || '📚'}</span>}
+              </div>
+              <span className="elh-cat-card__title">{getCategoryLabel(cat.id, locale) || cat.label}</span>
+              <span className="elh-cat-card__meta">
                 {ui.exams(cat.exams.length)} · {ui.levels(cat.exams[0]?.levelKeys?.length ?? 3)}
               </span>
               {total > 0 && (
-                <div className="lecture-card__progress">
-                  <div
-                    className="lecture-card__progress-track"
-                    role="progressbar"
-                    aria-valuenow={pct}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  >
-                    <div
-                      className="lecture-card__progress-fill"
-                      style={{ width: `${pct}%` }}
-                    />
+                <div className="elh-cat-card__prog">
+                  <div className="elh-cat-card__prog-track">
+                    <div className="elh-cat-card__prog-fill" style={{ width: `${pct}%` }} />
                   </div>
-                  <span className="lecture-card__progress-label">
-                    {ui.progress(passed, total)}
-                  </span>
+                  <span className="elh-cat-card__prog-label">{ui.progress(passed, total)}</span>
                 </div>
               )}
             </Link>
           );
         })}
         {categories.length === 0 && (
-          <p style={{ color: 'rgba(255,255,255,.6)' }}>Aucun examen disponible.</p>
+          <p style={{ color: 'var(--muted)', padding: '32px 0', textAlign: 'center', gridColumn: '1/-1' }}>
+            Aucun examen disponible.
+          </p>
         )}
       </div>
     </div>

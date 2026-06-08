@@ -98,18 +98,18 @@
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "6 + 0 = ?",
+          "prompt": "11 + 6 = ?",
           "options": [
-            "3",
-            "6",
-            "4",
-            "10"
+            "15",
+            "17",
+            "16",
+            "18"
           ],
-          "answer": "6",
-          "correction": "6 + 0 = 6.",
-          "prompt_nl": "6 + 0 = ?",
-          "prompt_en": "6 + 0 = ?",
-          "prompt_es": "6 + 0 = ?"
+          "answer": "17",
+          "correction": "11 + 6 = 17.",
+          "prompt_nl": "11 + 6 = ?",
+          "prompt_en": "11 + 6 = ?",
+          "prompt_es": "11 + 6 = ?"
         },
         {
           "id": "q8",
@@ -203,18 +203,18 @@
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "27 + 0 = ?",
+          "prompt": "22 + 9 = ?",
           "options": [
-            "27",
+            "29",
             "31",
-            "22",
-            "26"
+            "33",
+            "28"
           ],
-          "answer": "27",
-          "correction": "27 + 0 = 27.",
-          "prompt_nl": "27 + 0 = ?",
-          "prompt_en": "27 + 0 = ?",
-          "prompt_es": "27 + 0 = ?"
+          "answer": "31",
+          "correction": "22 + 9 = 31.",
+          "prompt_nl": "22 + 9 = ?",
+          "prompt_en": "22 + 9 = ?",
+          "prompt_es": "22 + 9 = ?"
         },
         {
           "id": "q5",
@@ -261,18 +261,18 @@
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "27 + 0 = ?",
+          "prompt": "18 + 7 = ?",
           "options": [
-            "26",
-            "34",
+            "23",
+            "25",
             "27",
-            "28"
+            "21"
           ],
-          "answer": "27",
-          "correction": "27 + 0 = 27.",
-          "prompt_nl": "27 + 0 = ?",
-          "prompt_en": "27 + 0 = ?",
-          "prompt_es": "27 + 0 = ?"
+          "answer": "25",
+          "correction": "18 + 7 = 25.",
+          "prompt_nl": "18 + 7 = ?",
+          "prompt_en": "18 + 7 = ?",
+          "prompt_es": "18 + 7 = ?"
         },
         {
           "id": "q9",
@@ -324,28 +324,28 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "43 + 0 = ?",
+          "prompt": "43 − 18 = ?",
           "options": [
-            "54",
-            "43",
-            "40",
-            "50"
+            "21",
+            "27",
+            "25",
+            "23"
           ],
-          "answer": "43",
-          "correction": "43 + 0 = 43.",
-          "prompt_nl": "43 + 0 = ?",
-          "prompt_en": "43 + 0 = ?",
-          "prompt_es": "43 + 0 = ?"
+          "answer": "25",
+          "correction": "43 − 18 = 25.",
+          "prompt_nl": "43 − 18 = ?",
+          "prompt_en": "43 − 18 = ?",
+          "prompt_es": "43 − 18 = ?"
         },
         {
           "id": "q3",
           "type": "fill_blank",
-          "prompt": "6 + 7 = ?",
-          "answer": 13,
-          "correction": "6 + 7 = 13.",
-          "prompt_nl": "6 + 7 = ?",
-          "prompt_en": "6 + 7 = ?",
-          "prompt_es": "6 + 7 = ?"
+          "prompt": "47 − 19 = ?",
+          "answer": 28,
+          "correction": "47 − 19 = 28.",
+          "prompt_nl": "47 − 19 = ?",
+          "prompt_en": "47 − 19 = ?",
+          "prompt_es": "47 − 19 = ?"
         },
         {
           "id": "q4",

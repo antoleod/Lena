@@ -4,6 +4,35 @@ import { getCategories, getExamsByCategory } from '../../../content/exams/regist
 import { getCategoryLabel, getCategoryEmoji, getDifficultyLevels, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { getResult, starsFor } from './examLibraryProgress.js';
+import {
+  IconGeoB01, IconGeoB02, IconGeoB03, IconGeoB04, IconGeoB05,
+  IconGeoB06, IconGeoB07, IconGeoB08, IconGeoB09, IconGeoB10,
+  IconGeoB11, IconGeoB12, IconGeoB13, IconGeoB14, IconGeoB15,
+  IconGeoB16, IconGeoB17, IconGeoB18, IconGeoB19, IconGeoB20,
+} from '../../../assets/icons/ExamIcons.jsx';
+
+const GEO_BELGIQUE_ICONS = {
+  'geographie-belgique-01': IconGeoB01,
+  'geographie-belgique-02': IconGeoB02,
+  'geographie-belgique-03': IconGeoB03,
+  'geographie-belgique-04': IconGeoB04,
+  'geographie-belgique-05': IconGeoB05,
+  'geographie-belgique-06': IconGeoB06,
+  'geographie-belgique-07': IconGeoB07,
+  'geographie-belgique-08': IconGeoB08,
+  'geographie-belgique-09': IconGeoB09,
+  'geographie-belgique-10': IconGeoB10,
+  'geographie-belgique-11': IconGeoB11,
+  'geographie-belgique-12': IconGeoB12,
+  'geographie-belgique-13': IconGeoB13,
+  'geographie-belgique-14': IconGeoB14,
+  'geographie-belgique-15': IconGeoB15,
+  'geographie-belgique-16': IconGeoB16,
+  'geographie-belgique-17': IconGeoB17,
+  'geographie-belgique-18': IconGeoB18,
+  'geographie-belgique-19': IconGeoB19,
+  'geographie-belgique-20': IconGeoB20,
+};
 
 /* ── Accent palette: 16 distinct hues cycling per exam order ── */
 const CARD_ACCENTS = [
@@ -182,9 +211,12 @@ export default function ExamLibraryCategoryPage() {
               className={`ec-card${isDone ? ' ec-card--done' : ''}${isNew ? ' ec-card--new' : ''}`}
               style={{ '--accent': cardAccent }}
             >
-              {/* Banner with emoji */}
+              {/* Banner with icon */}
               <div className="ec-card__header">
-                <span className="ec-card__emoji">{exam.emoji}</span>
+                {GEO_BELGIQUE_ICONS[exam.id]
+                  ? (() => { const Icon = GEO_BELGIQUE_ICONS[exam.id]; return <Icon size={44} />; })()
+                  : <span className="ec-card__emoji">{exam.emoji}</span>
+                }
                 {isDone && <span className="ec-card__crown" aria-hidden="true">👑</span>}
                 {isDone && <span className="ec-card__check-badge" aria-hidden="true">✓</span>}
                 {isNew && <span className="ec-card__new-tag">✨ {badgeLabel}</span>}

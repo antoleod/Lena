@@ -130,12 +130,12 @@
         {
           "id": "q9",
           "type": "fill_blank",
-          "prompt": "0 + ___ = 2",
-          "answer": 2,
-          "correction": "2 − 0 = 2.",
-          "prompt_nl": "0 + ___ = 2",
-          "prompt_en": "0 + ___ = 2",
-          "prompt_es": "0 + ___ = 2"
+          "prompt": "8 + ___ = 15",
+          "answer": 7,
+          "correction": "15 − 8 = 7.",
+          "prompt_nl": "8 + ___ = 15",
+          "prompt_en": "8 + ___ = 15",
+          "prompt_es": "8 + ___ = 15"
         },
         {
           "id": "q10",
@@ -161,18 +161,18 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "0 + ___ = 20",
+          "prompt": "12 + ___ = 20",
           "options": [
-            "18",
-            "20",
-            "19",
-            "16"
+            "6",
+            "8",
+            "10",
+            "4"
           ],
-          "answer": "20",
-          "correction": "20 − 0 = 20.",
-          "prompt_nl": "0 + ___ = 20",
-          "prompt_en": "0 + ___ = 20",
-          "prompt_es": "0 + ___ = 20"
+          "answer": "8",
+          "correction": "20 − 12 = 8.",
+          "prompt_nl": "12 + ___ = 20",
+          "prompt_en": "12 + ___ = 20",
+          "prompt_es": "12 + ___ = 20"
         },
         {
           "id": "q2",
