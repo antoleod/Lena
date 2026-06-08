@@ -4,6 +4,7 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { logoutProfile } from '../../services/storage/profileStore.js';
 import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
+import PetMascot from '../../shared/ui/PetMascot.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
 import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
@@ -422,6 +423,8 @@ export default function AppShell() {
       <main className="app-main app-main--game">
         <Outlet />
       </main>
+
+      <PetMascot />
 
       {limitBlocked && (
         <ParentalLimitOverlay locale={locale} onUnlock={() => setLimitBlocked(false)} />

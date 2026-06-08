@@ -31,7 +31,9 @@
   padding: 0 12px;
 }
 
-@media (min-width: 600px) { .sl-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 600px)  { .sl-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px)  { .sl-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1200px) { .sl-grid { grid-template-columns: repeat(5, 1fr); } }
 
 .sl-card {
   border-radius: 18px; overflow: hidden;
@@ -127,7 +129,7 @@
 }
 
 .sr-phase-header__back {
-  min-width: 40px; min-height: 40px;
+  min-width: 44px; min-height: 44px;
   background: rgba(80,40,10,.6);
   border: 1.5px solid rgba(212,168,67,.3);
   border-radius: 10px;
@@ -687,8 +689,8 @@
 }
 
 @keyframes srShoot1 {
-  0%   { transform: translate(0,0)          opacity: 1; }
-  100% { transform: translate(-120px, 80px); opacity: 0; }
+  0%   { transform: translate(0,0);           opacity: 1; }
+  100% { transform: translate(-120px, 80px);  opacity: 0; }
 }
 
 /* ────────────────────────────────────────────────────────────────────────────

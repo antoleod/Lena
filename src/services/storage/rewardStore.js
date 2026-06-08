@@ -134,7 +134,8 @@ function defaultStore() {
     missionRewards: {},
     equippedThemeId: 'theme-minimal',
     equippedEffectId: 'effect-rainbow',
-    equippedWallpaperId: 'wallpaper-dreamy-sky'
+    equippedWallpaperId: 'wallpaper-dreamy-sky',
+    equippedPetId: null
   };
 }
 
@@ -286,4 +287,14 @@ export function equipWallpaper(wallpaperId) {
   store.equippedWallpaperId = wallpaperId;
   writeStore(store);
   return { ok: true, wallpaperId };
+}
+
+export function equipPet(petId) {
+  const store = readStore();
+  if (!store.inventory.includes(petId)) {
+    return { ok: false, reason: 'pet-not-owned' };
+  }
+  store.equippedPetId = store.equippedPetId === petId ? null : petId;
+  writeStore(store);
+  return { ok: true, petId: store.equippedPetId };
 }

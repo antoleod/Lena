@@ -4,23 +4,54 @@ import { getCategories, getExamsByCategory } from '../../../content/exams/regist
 import { getCategoryLabel, getCategoryEmoji, getDifficultyLevels, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { getResult, starsFor } from './examLibraryProgress.js';
-import { IconDiffFacile, IconDiffMoyen, IconDiffDifficile, IconDiffGuide } from '../../../assets/icons/DifficultyIcons.jsx';
 
-const DIFF_ICON = {
-  facile:    IconDiffFacile,
-  moyen:     IconDiffMoyen,
-  difficile: IconDiffDifficile,
-  guide:     IconDiffGuide,
-};
+/* ── Accent palette: 16 distinct hues cycling per exam order ── */
+const CARD_ACCENTS = [
+  '#ff6b6b', '#ff8c42', '#ffc857', '#9cde7c',
+  '#56cfe1', '#6c9bcf', '#9b72cf', '#e05f87',
+  '#3ddc97', '#ffb347', '#a18cd1', '#4ecdc4',
+  '#f7b731', '#fc5c65', '#45aaf2', '#26de81',
+];
 
-function Stars({ count }) {
+function accent(order) {
+  return CARD_ACCENTS[(order - 1) % CARD_ACCENTS.length];
+}
+
+/* ── Stars display ── */
+function StarRow({ count }) {
   return (
-    <span className="lecture-card__stars">
+    <div className="ec-stars">
       {[1, 2, 3].map((i) => (
-        <span key={i} style={{ opacity: i <= count ? 1 : 0.25 }}>&#11088;</span>
+        <span key={i} className={`ec-star${i <= count ? ' ec-star--on' : ''}`}>⭐</span>
       ))}
-    </span>
+    </div>
   );
+}
+
+/* ── Per-exam progress: total stars earned / max ── */
+function examProgress(exam) {
+  const levelKeys = exam.levelKeys ?? ['facile', 'moyen', 'difficile'];
+  let earned = 0;
+  for (const lk of levelKeys) {
+    const res = getResult(exam.id, lk);
+    if (!res) continue;
+    earned += starsFor(res.bestScore, res.total, exam.levelPassPercent?.[lk]);
+  }
+  const maxStars = levelKeys.length * 3;
+  return { earned, maxStars, pct: maxStars > 0 ? Math.round((earned / maxStars) * 100) : 0 };
+}
+
+/* ── Best stars across all difficulty levels ── */
+function bestStarsForExam(exam) {
+  const levelKeys = exam.levelKeys ?? ['facile', 'moyen', 'difficile'];
+  let best = 0;
+  for (const lk of levelKeys) {
+    const res = getResult(exam.id, lk);
+    if (!res) continue;
+    const s = starsFor(res.bestScore, res.total, exam.levelPassPercent?.[lk]);
+    if (s > best) best = s;
+  }
+  return best;
 }
 
 const NEW_EXAM_IDS = new Set([
@@ -40,40 +71,25 @@ const NEW_BADGE_LABEL = {
   es: { ce1: 'Nuevo · CE1',   ce2: 'Nuevo · CE2'   },
 };
 
-/** Returns the best star count across all 3 difficulty levels for an exam stub. */
-function bestStarsForExam(exam) {
-  const levelKeys = exam.levelKeys ?? ['facile', 'moyen', 'difficile'];
-  let best = 0;
-  for (const lk of levelKeys) {
-    const res = getResult(exam.id, lk);
-    if (!res) continue;
-    const passPercent = exam.levelPassPercent?.[lk];
-    const s = starsFor(res.bestScore, res.total, passPercent);
-    if (s > best) best = s;
-  }
-  return best;
-}
-
-/** Returns count of exams in list that have at least 1 star on any level. */
-function countPassedExams(exams) {
-  let count = 0;
-  for (const exam of exams) {
-    if (bestStarsForExam(exam) >= 1) count++;
-  }
-  return count;
-}
+/* ── Level dot config ── */
+const LEVEL_STYLE = {
+  guide:     { bg: 'rgba(99,102,241,0.12)', border: 'rgba(99,102,241,0.3)', color: '#4338ca', dot: '#6366f1', label: 'ⓘ' },
+  facile:    { bg: 'rgba(34,197,94,0.1)',   border: 'rgba(34,197,94,0.3)', color: '#15803d', dot: '#22c55e', label: null },
+  moyen:     { bg: 'rgba(245,158,11,0.1)',  border: 'rgba(245,158,11,0.3)', color: '#92400e', dot: '#f59e0b', label: null },
+  difficile: { bg: 'rgba(239,68,68,0.1)',   border: 'rgba(239,68,68,0.3)', color: '#b91c1c', dot: '#ef4444', label: null },
+};
 
 export default function ExamLibraryCategoryPage() {
   const { categoryId } = useParams();
   const navigate = useNavigate();
   const { locale } = useLocale();
 
-  // getCategories() is still sync (reads the manifest)
   const cat = getCategories().find((c) => c.id === categoryId);
   const difficultyLevels = getDifficultyLevels(locale);
   const ui = getExamUi(locale);
+  const badgeLabels = NEW_BADGE_LABEL[locale] || NEW_BADGE_LABEL.fr;
 
-  const [exams, setExams] = useState(null); // null = loading
+  const [exams, setExams] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -86,9 +102,11 @@ export default function ExamLibraryCategoryPage() {
   if (!cat) {
     return (
       <div className="exam-hub-page">
-        <div className="exam-hub-header">
-          <Link className="exam-back-btn" to="/exam/library">←</Link>
-          <div><h1>{ui.notFound}</h1></div>
+        <div className="ec-header">
+          <div className="ec-header__back">
+            <Link className="exam-back-btn" to="/exam/library">←</Link>
+            <h1>{ui.notFound}</h1>
+          </div>
         </div>
       </div>
     );
@@ -97,86 +115,136 @@ export default function ExamLibraryCategoryPage() {
   if (exams === null) {
     return (
       <div className="exam-hub-page">
-        <div className="exam-hub-header">
-          <Link className="exam-back-btn" to="/exam/library">←</Link>
-          <div>
-            <span className="eyebrow">{getCategoryEmoji(cat.id)} {getCategoryLabel(cat.id, locale)}</span>
-            <h1>Chargement…</h1>
+        <div className="ec-header">
+          <div className="ec-header__back">
+            <Link className="exam-back-btn" to="/exam/library">←</Link>
+            <span>Chargement…</span>
           </div>
         </div>
       </div>
     );
   }
 
-  const passed = countPassedExams(exams);
-  const total = exams.length;
+  /* ── Global stats ── */
+  let totalEarned = 0;
+  let totalMax = 0;
+  let passedCount = 0;
+  for (const exam of exams) {
+    const p = examProgress(exam);
+    totalEarned += p.earned;
+    totalMax += p.maxStars;
+    if (p.earned > 0) passedCount++;
+  }
+  const globalPct = totalMax > 0 ? Math.round((totalEarned / totalMax) * 100) : 0;
+  const catEmoji = getCategoryEmoji(cat.id);
 
   return (
     <div className="exam-hub-page">
-      <div className="exam-hub-header">
-        <Link className="exam-back-btn" to="/exam/library">←</Link>
-        <div>
-          <span className="eyebrow">{getCategoryEmoji(cat.id)} {getCategoryLabel(cat.id, locale)}</span>
-          <h1>{ui.exams(exams.length)}</h1>
-          <p className="exam-hub-sub">{ui.categoryHint}</p>
-          {total > 0 && (
-            <p className="exam-category-progress-summary">
-              {ui.progress(passed, total)}
-            </p>
-          )}
+
+      {/* ── Rich header ── */}
+      <div className="ec-header">
+        <div className="ec-header__back">
+          <Link className="exam-back-btn" to="/exam/library">←</Link>
+          <span className="eyebrow">{catEmoji} {getCategoryLabel(cat.id, locale)}</span>
+        </div>
+
+        <div className="ec-header__progress-card">
+          <span className="ec-header__cat-icon">{catEmoji}</span>
+          <div className="ec-header__stats">
+            <h1 className="ec-header__title">{getCategoryLabel(cat.id, locale)}</h1>
+            <div className="ec-header__row">
+              <span>⭐ {totalEarned}/{totalMax}</span>
+              <span>·</span>
+              <span>📚 {passedCount}/{exams.length} {ui.exams ? '' : 'terminés'}</span>
+              <span>·</span>
+              <span>{globalPct}%</span>
+            </div>
+            <div className="ec-header__global-bar">
+              <div className="ec-header__global-fill" style={{ width: `${globalPct}%` }} />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="exam-subject-grid">
+      {/* ── Exam card grid ── */}
+      <div className="ec-grid">
         {exams.map((exam) => {
           const best = bestStarsForExam(exam);
+          const prog = examProgress(exam);
           const isNew = NEW_EXAM_IDS.has(exam.id);
-          const isCE1 = isNew && exam.id.endsWith('1') || (isNew && !exam.id.endsWith('2'));
-          const badgeLabels = NEW_BADGE_LABEL[locale] || NEW_BADGE_LABEL.fr;
+          const isDone = prog.pct >= 100;
           const badgeLabel = isNew ? (exam.title.includes('CE2') ? badgeLabels.ce2 : badgeLabels.ce1) : null;
+          const cardAccent = accent(exam.order ?? 1);
+
           return (
-            <div key={exam.id} className={`exam-subject-card${isNew ? ' exam-subject-card--new' : ''}`}>
-              <div className="exam-subject-card__top">
-                <span className="exam-subject-card__emoji">{exam.emoji}</span>
-                <div className="exam-subject-card__info">
-                  <span className="exam-subject-card__name">{exam.title}</span>
-                  {isNew && (
-                    <span className="exam-subject-card__new-badge">✨ {badgeLabel}</span>
-                  )}
-                  {best > 0 && (
-                    <span className="exam-subject-card__best-badge">
-                      <Stars count={best} />
-                    </span>
-                  )}
+            <div
+              key={exam.id}
+              className={`ec-card${isDone ? ' ec-card--done' : ''}${isNew ? ' ec-card--new' : ''}`}
+              style={{ '--accent': cardAccent }}
+            >
+              {/* Banner with emoji */}
+              <div className="ec-card__header">
+                <span className="ec-card__emoji">{exam.emoji}</span>
+                {isDone && <span className="ec-card__crown" aria-hidden="true">👑</span>}
+                {isDone && <span className="ec-card__check-badge" aria-hidden="true">✓</span>}
+                {isNew && <span className="ec-card__new-tag">✨ {badgeLabel}</span>}
+              </div>
+
+              {/* Body */}
+              <div className="ec-card__body">
+                <h3 className="ec-card__name">{exam.title}</h3>
+                <StarRow count={best} />
+                <div className="ec-card__progress">
+                  <div className="ec-card__progress-bar">
+                    <div className="ec-card__progress-fill" style={{ width: `${prog.pct}%` }} />
+                  </div>
+                  <span className="ec-card__progress-pct">{prog.pct}%</span>
                 </div>
               </div>
-              <div className="exam-subject-card__modes">
-                {/* guided mode button */}
+
+              {/* Level dots */}
+              <div className="ec-card__levels">
+                {/* Guide */}
                 <button
                   type="button"
-                  className="exam-mode-btn exam-mode-btn--guide"
-                  style={{ flexDirection: 'column', gap: 2 }}
+                  className="ec-lvl ec-lvl--guide"
+                  data-tooltip="Guidé"
+                  style={{
+                    background: LEVEL_STYLE.guide.bg,
+                    borderColor: LEVEL_STYLE.guide.border,
+                    color: LEVEL_STYLE.guide.color,
+                  }}
                   onClick={() => navigate(`/exam/library/play?exam=${exam.id}&level=guide`)}
+                  aria-label="Mode guidé"
                 >
-                  <IconDiffGuide size={28} />
-                  <span>Guidé</span>
+                  ⓘ
                 </button>
+
+                {/* Difficulty levels */}
                 {difficultyLevels.map((lvl) => {
                   const res = getResult(exam.id, lvl.key);
-                  // stubs carry levelPassPercent instead of the full levels object
-                  const passPercent = exam.levelPassPercent?.[lvl.key];
-                  const stars = res ? starsFor(res.bestScore, res.total, passPercent) : 0;
+                  const stars = res ? starsFor(res.bestScore, res.total, exam.levelPassPercent?.[lvl.key]) : 0;
+                  const sty = LEVEL_STYLE[lvl.key] || {};
                   return (
                     <button
                       key={lvl.key}
                       type="button"
-                      className="exam-mode-btn"
-                      style={{ flexDirection: 'column', gap: 2 }}
+                      className={`ec-lvl ec-lvl--${lvl.key}${stars > 0 ? ' ec-lvl--done' : ''}`}
+                      data-tooltip={lvl.label}
+                      style={{
+                        background: sty.bg,
+                        borderColor: sty.border,
+                        color: sty.color,
+                      }}
                       onClick={() => navigate(`/exam/library/play?exam=${exam.id}&level=${lvl.key}`)}
+                      aria-label={lvl.label}
                     >
-                      {(() => { const DIcon = DIFF_ICON[lvl.key]; return DIcon ? <DIcon size={28} /> : lvl.emoji; })()}
-                      <span>{lvl.label}</span>
-                      {res && <Stars count={stars} />}
+                      <span
+                        className="ec-lvl__dot"
+                        style={{ background: sty.dot }}
+                        aria-hidden="true"
+                      />
+                      {stars > 0 && <span className="ec-lvl__check">✓</span>}
                     </button>
                   );
                 })}

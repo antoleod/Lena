@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CONTES } from '../../content/stories/contes.js';
 import { CONTES_NL } from '../../content/stories/contes.nl.js';
@@ -61,8 +61,11 @@ export default function StoryLibraryPage() {
   const ui = STORY_LIB_UI[locale] || STORY_LIB_UI.fr;
   const [readIds, setReadIds] = useState(() => getReadIds());
 
-  // setReadIds kept for future reactive updates
-  void setReadIds;
+  useEffect(() => {
+    function sync() { setReadIds(getReadIds()); }
+    window.addEventListener('storage', sync);
+    return () => window.removeEventListener('storage', sync);
+  }, []);
 
   return (
     <div className="sl-page">
@@ -80,7 +83,7 @@ export default function StoryLibraryPage() {
               ? ui.adventure
               : ui.explorer;
           const isRead = readIds.includes(conte.id);
-          const duration = Math.ceil((conte.scenes?.length || 4) * 0.5);
+          const duration = Math.ceil((conte.scenes?.length || 4) * 0.75);
           const coverBg = conte.palette?.primary
             ? `linear-gradient(135deg, ${conte.palette.primary}cc, ${conte.palette.accent || conte.palette.primary}88)`
             : 'linear-gradient(135deg,#6366f1,#8b5cf6)';

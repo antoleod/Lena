@@ -10,6 +10,78 @@ import { saveResult, starsFor } from './examLibraryProgress.js';
 import { saveHistoryEntry } from './examHistoryStore.js';
 import { generateExercises } from '../../exerciseGenerator/exerciseEngine.js';
 
+/* ── Guided hint: build a rich hint object from question + wrong answer ── */
+function buildRichHint(q, wrongAnswer, locale) {
+  const correctionText = getLocalizedField(q, 'correction', locale)
+    || `La bonne réponse est : ${String(q.answer)}`;
+  const rightAnswer = String(q.answer);
+  const wrong = String(wrongAnswer);
+
+  // For MCQ: list all options, mark wrong ❌ and right ✅
+  let choices = null;
+  if (q.type === 'mcq' && Array.isArray(q.options)) {
+    choices = q.options.map((opt) => {
+      const s = String(opt);
+      if (s === rightAnswer) return { label: s, state: 'correct' };
+      if (s === wrong) return { label: s, state: 'wrong' };
+      return { label: s, state: 'neutral' };
+    });
+  }
+
+  // Detect a simple arithmetic expression in the prompt for visual breakdown
+  const mathMatch = correctionText.match(/^(.+?)\s*=\s*(.+?)\.?\s*$/);
+  const equationLeft = mathMatch ? mathMatch[1].trim() : null;
+  const equationRight = mathMatch ? mathMatch[2].trim() : null;
+
+  return { correctionText, rightAnswer, wrong, choices, equationLeft, equationRight };
+}
+
+/* ── GuidedHintCard component ── */
+function GuidedHintCard({ hint, onRetry }) {
+  if (!hint) return null;
+  const { correctionText, rightAnswer, wrong, choices, equationLeft, equationRight } = hint;
+
+  return (
+    <div className="ghc">
+      {/* Header row */}
+      <div className="ghc__head">
+        <span className="ghc__mascot" aria-hidden="true">🦉</span>
+        <div className="ghc__head-text">
+          <strong className="ghc__label">Pas tout à fait… regarde bien !</strong>
+          <p className="ghc__correction">{correctionText}</p>
+        </div>
+      </div>
+
+      {/* Equation visual (math) */}
+      {equationLeft && (
+        <div className="ghc__equation">
+          <span className="ghc__eq-left">{equationLeft}</span>
+          <span className="ghc__eq-eq">=</span>
+          <span className="ghc__eq-right">{equationRight}</span>
+        </div>
+      )}
+
+      {/* MCQ: show wrong vs right */}
+      {choices && (
+        <div className="ghc__choices">
+          {choices.map((c, i) => (
+            <span key={i} className={`ghc__choice ghc__choice--${c.state}`}>
+              {c.state === 'correct' && <span aria-hidden="true">✓ </span>}
+              {c.state === 'wrong' && <span aria-hidden="true" style={{ textDecoration: 'line-through' }}>✗ </span>}
+              {c.label}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Retry button */}
+      <button type="button" className="ghc__retry" onClick={onRetry}>
+        Réessaie ! →
+      </button>
+    </div>
+  );
+}
+
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -238,7 +310,7 @@ export default function ExamRunnerPage() {
   // Guided mode state
   const [guidedRetry, setGuidedRetry] = useState(false);   // showing hint, waiting for retry
   const [guidedAttempts, setGuidedAttempts] = useState([]); // [{firstTry: bool}] per question
-  const [guidedHint, setGuidedHint] = useState('');
+  const [guidedHint, setGuidedHint] = useState(null);
 
   // Help system
   const [helpCount, setHelpCount] = useState(0);
@@ -498,9 +570,8 @@ export default function ExamRunnerPage() {
     const ok = isCorrect(currentQ, value);
 
     if (isGuided && !ok && !guidedRetry) {
-      // First wrong in guided mode — show hint, don't advance
-      const hint = getLocalizedField(currentQ, 'correction', locale) || `La bonne réponse est : ${String(currentQ.answer)}`;
-      setGuidedHint(hint);
+      // First wrong in guided mode — show rich hint, don't advance
+      setGuidedHint(buildRichHint(currentQ, value, locale));
       setGuidedRetry(true);
       // Record the error for review, but don't lock the question
       recordError({
@@ -952,20 +1023,10 @@ export default function ExamRunnerPage() {
       })()}
 
       {isGuided && guidedRetry && (
-        <div className="guided-hint-banner">
-          <span className="guided-hint-banner__icon">💡</span>
-          <div>
-            <strong>Pas tout à fait… Regarde bien :</strong>
-            <p>{guidedHint}</p>
-          </div>
-          <button
-            type="button"
-            className="guided-hint-banner__retry"
-            onClick={() => { setGuidedRetry(false); setInput(''); setOptions(currentQ.type === 'mcq' ? shuffle(currentQ.options) : []); }}
-          >
-            Réessaie →
-          </button>
-        </div>
+        <GuidedHintCard
+          hint={guidedHint}
+          onRetry={() => { setGuidedRetry(false); setInput(''); setOptions(currentQ.type === 'mcq' ? shuffle(currentQ.options) : []); }}
+        />
       )}
 
       <div className="reader-card" style={{ minHeight: 90 }}>

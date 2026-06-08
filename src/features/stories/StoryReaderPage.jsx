@@ -11,104 +11,132 @@ import '../../engines/story/storyActivity.css';
 // ── i18n ─────────────────────────────────────────────────────────────────────
 const STORY_UI = {
   fr: {
-    scene:        (i, n) => `${i} / ${n}`,
-    vocabulary:   'Vocabulaire',
-    miniGame:     'Mini-jeu',
-    emotional:    'Moment emotion',
-    reward:       'Bravo !',
-    prevScene:    '←',
-    nextScene:    'Suivant',
-    toVocab:      'Vocabulaire',
-    toMiniGame:   'Jouer',
-    toEmotional:  'Continuer',
-    toReward:     'Terminer',
-    muteOn:       'Activer le son',
-    muteOff:      'Couper le son',
-    backToLib:    'Bibliotheque',
-    newStory:     'Nouvelle histoire',
-    readAgain:    'Lire encore',
-    finishedLabel:'Histoire terminee !',
-    validate:     'Valider',
-    correct:      'Bravo !',
-    incorrect:    'Essaie encore...',
-    notFound:     'Histoire introuvable.',
-    noGame:       'Pas de mini-jeu.',
-    speechLang:   'fr-FR',
+    scene:           (i, n) => `${i} / ${n}`,
+    sceneProgress:   (i, n) => `Page ${i} sur ${n}`,
+    vocabulary:      'Vocabulaire',
+    miniGame:        'Mini-jeu',
+    emotional:       'Moment emotion',
+    reward:          'Bravo !',
+    prevScene:       '←',
+    nextScene:       'Suivant',
+    toVocab:         'Vocabulaire',
+    toMiniGame:      'Jouer',
+    toEmotional:     'Continuer',
+    toReward:        'Terminer',
+    muteOn:          'Activer la lecture',
+    muteOff:         'Arrêter la lecture',
+    backToLib:       'Bibliothèque',
+    newStory:        'Nouvelle histoire',
+    readAgain:       'Lire encore',
+    finishedLabel:   'Histoire terminée !',
+    finishedEyebrow: 'Histoire terminée',
+    validate:        'Valider',
+    correct:         'Bravo !',
+    incorrect:       'Essaie encore...',
+    notFound:        'Histoire introuvable.',
+    notFoundBack:    '← Retour à la bibliothèque',
+    noGame:          'Pas de mini-jeu.',
+    speechLang:      'fr-FR',
+    seqHint:         'Appuie sur deux cases pour les échanger.',
+    challengeEyebrow:'Défi du sage',
+    glossaryChapter: 'Glossaire du conte',
+    glossaryTitle:   'Mots à retenir',
   },
   nl: {
-    scene:        (i, n) => `${i} / ${n}`,
-    vocabulary:   'Woordenschat',
-    miniGame:     'Mini-spel',
-    emotional:    'Gevoelsmoment',
-    reward:       'Goed gedaan!',
-    prevScene:    '←',
-    nextScene:    'Volgende',
-    toVocab:      'Woordenschat',
-    toMiniGame:   'Spelen',
-    toEmotional:  'Doorgaan',
-    toReward:     'Afsluiten',
-    muteOn:       'Geluid aan',
-    muteOff:      'Geluid uit',
-    backToLib:    'Bibliotheek',
-    newStory:     'Nieuw verhaal',
-    readAgain:    'Opnieuw lezen',
-    finishedLabel:'Verhaal klaar!',
-    validate:     'Bevestigen',
-    correct:      'Goed gedaan!',
-    incorrect:    'Probeer opnieuw...',
-    notFound:     'Verhaal niet gevonden.',
-    noGame:       'Geen mini-spel.',
-    speechLang:   'nl-NL',
+    scene:           (i, n) => `${i} / ${n}`,
+    sceneProgress:   (i, n) => `Pagina ${i} van ${n}`,
+    vocabulary:      'Woordenschat',
+    miniGame:        'Mini-spel',
+    emotional:       'Gevoelsmoment',
+    reward:          'Goed gedaan!',
+    prevScene:       '←',
+    nextScene:       'Volgende',
+    toVocab:         'Woordenschat',
+    toMiniGame:      'Spelen',
+    toEmotional:     'Doorgaan',
+    toReward:        'Afsluiten',
+    muteOn:          'Voorlezen inschakelen',
+    muteOff:         'Voorlezen stoppen',
+    backToLib:       'Bibliotheek',
+    newStory:        'Nieuw verhaal',
+    readAgain:       'Opnieuw lezen',
+    finishedLabel:   'Verhaal klaar!',
+    finishedEyebrow: 'Verhaal voltooid',
+    validate:        'Bevestigen',
+    correct:         'Goed gedaan!',
+    incorrect:       'Probeer opnieuw...',
+    notFound:        'Verhaal niet gevonden.',
+    notFoundBack:    '← Terug naar bibliotheek',
+    noGame:          'Geen mini-spel.',
+    speechLang:      'nl-NL',
+    seqHint:         'Tik op twee vakjes om ze om te wisselen.',
+    challengeEyebrow:'Uitdaging van de wijze',
+    glossaryChapter: 'Woordenlijst',
+    glossaryTitle:   'Woorden om te onthouden',
   },
   en: {
-    scene:        (i, n) => `${i} / ${n}`,
-    vocabulary:   'Vocabulary',
-    miniGame:     'Mini-game',
-    emotional:    'Emotional moment',
-    reward:       'Well done!',
-    prevScene:    '←',
-    nextScene:    'Next',
-    toVocab:      'Vocabulary',
-    toMiniGame:   'Play',
-    toEmotional:  'Continue',
-    toReward:     'Finish',
-    muteOn:       'Unmute',
-    muteOff:      'Mute',
-    backToLib:    'Library',
-    newStory:     'New story',
-    readAgain:    'Read again',
-    finishedLabel:'Story complete!',
-    validate:     'Validate',
-    correct:      'Well done!',
-    incorrect:    'Try again...',
-    notFound:     'Story not found.',
-    noGame:       'No mini-game.',
-    speechLang:   'en-US',
+    scene:           (i, n) => `${i} / ${n}`,
+    sceneProgress:   (i, n) => `Page ${i} of ${n}`,
+    vocabulary:      'Vocabulary',
+    miniGame:        'Mini-game',
+    emotional:       'Emotional moment',
+    reward:          'Well done!',
+    prevScene:       '←',
+    nextScene:       'Next',
+    toVocab:         'Vocabulary',
+    toMiniGame:      'Play',
+    toEmotional:     'Continue',
+    toReward:        'Finish',
+    muteOn:          'Read aloud',
+    muteOff:         'Stop reading',
+    backToLib:       'Library',
+    newStory:        'New story',
+    readAgain:       'Read again',
+    finishedLabel:   'Story complete!',
+    finishedEyebrow: 'Story complete',
+    validate:        'Validate',
+    correct:         'Well done!',
+    incorrect:       'Try again...',
+    notFound:        'Story not found.',
+    notFoundBack:    '← Back to library',
+    noGame:          'No mini-game.',
+    speechLang:      'en-US',
+    seqHint:         'Tap two boxes to swap them.',
+    challengeEyebrow:'Wise one\'s challenge',
+    glossaryChapter: 'Story glossary',
+    glossaryTitle:   'Words to remember',
   },
   es: {
-    scene:        (i, n) => `${i} / ${n}`,
-    vocabulary:   'Vocabulario',
-    miniGame:     'Minijuego',
-    emotional:    'Momento emocional',
-    reward:       'Muy bien!',
-    prevScene:    '←',
-    nextScene:    'Siguiente',
-    toVocab:      'Vocabulario',
-    toMiniGame:   'Jugar',
-    toEmotional:  'Continuar',
-    toReward:     'Terminar',
-    muteOn:       'Activar sonido',
-    muteOff:      'Silenciar',
-    backToLib:    'Biblioteca',
-    newStory:     'Nueva historia',
-    readAgain:    'Leer de nuevo',
-    finishedLabel:'Historia completada!',
-    validate:     'Validar',
-    correct:      'Bravo!',
-    incorrect:    'Intentalo otra vez...',
-    notFound:     'Historia no encontrada.',
-    noGame:       'Sin minijuego.',
-    speechLang:   'es-ES',
+    scene:           (i, n) => `${i} / ${n}`,
+    sceneProgress:   (i, n) => `Página ${i} de ${n}`,
+    vocabulary:      'Vocabulario',
+    miniGame:        'Minijuego',
+    emotional:       'Momento emocional',
+    reward:          'Muy bien!',
+    prevScene:       '←',
+    nextScene:       'Siguiente',
+    toVocab:         'Vocabulario',
+    toMiniGame:      'Jugar',
+    toEmotional:     'Continuar',
+    toReward:        'Terminar',
+    muteOn:          'Leer en voz alta',
+    muteOff:         'Detener lectura',
+    backToLib:       'Biblioteca',
+    newStory:        'Nueva historia',
+    readAgain:       'Leer de nuevo',
+    finishedLabel:   'Historia completada!',
+    finishedEyebrow: 'Historia terminada',
+    validate:        'Validar',
+    correct:         'Bravo!',
+    incorrect:       'Inténtalo otra vez...',
+    notFound:        'Historia no encontrada.',
+    notFoundBack:    '← Volver a la biblioteca',
+    noGame:          'Sin minijuego.',
+    speechLang:      'es-ES',
+    seqHint:         'Toca dos casillas para intercambiarlas.',
+    challengeEyebrow:'Desafío del sabio',
+    glossaryChapter: 'Glosario del cuento',
+    glossaryTitle:   'Palabras que recordar',
   },
 };
 
@@ -193,7 +221,7 @@ function markRead(id) {
   } catch (_) { /* ignore */ }
 }
 
-function fireConfetti() {
+function fireConfetti(wrapRef) {
   const STYLE_ID = 'confetti-kf';
   if (!document.getElementById(STYLE_ID)) {
     const s = document.createElement('style');
@@ -211,7 +239,8 @@ function fireConfetti() {
     wrap.appendChild(el);
   }
   document.body.appendChild(wrap);
-  setTimeout(() => { if (wrap.parentNode) wrap.parentNode.removeChild(wrap); }, 4500);
+  if (wrapRef) wrapRef.current = wrap;
+  setTimeout(() => { if (wrap.parentNode) wrap.parentNode.removeChild(wrap); if (wrapRef) wrapRef.current = null; }, 4500);
 }
 
 function speakText(text, lang, onEnd) {
@@ -320,7 +349,7 @@ function MiniGameSequence({ game, onDone, ui }) {
     <div className="story-minigame">
       <p className="story-minigame__prompt">{game.prompt}</p>
       <p style={{ fontSize: '.8rem', color: 'rgba(255,255,255,.6)', margin: '-6px 0 6px' }}>
-        Appuie sur deux cases pour les echanger.
+        {ui.seqHint}
       </p>
       <div className="story-minigame__sequence">
         {order.map((item, i) => (
@@ -532,13 +561,17 @@ export default function StoryReaderPage() {
   const [turning, setTurning]   = useState(false);
   const bookRef                  = useRef(null);
   const swipeRef                 = useRef({ startX: 0, startY: 0 });
+  const confettiWrapRef          = useRef(null);
 
   useEffect(() => {
     if (!conte) return;
     if (phase === PHASE_REWARD) markRead(conte.id);
   }, [conte, phase]);
 
-  useEffect(() => () => stopSpeech(), []);
+  useEffect(() => () => {
+    stopSpeech();
+    if (confettiWrapRef.current?.parentNode) confettiWrapRef.current.parentNode.removeChild(confettiWrapRef.current);
+  }, []);
   useEffect(() => {
     stopSpeech();
     setSpeaking(false);
@@ -560,11 +593,11 @@ export default function StoryReaderPage() {
 
   if (!conte) {
     return (
-      <div style={{ padding: 32, textAlign: 'center', color: '#fff' }}>
-        <p>{ui.notFound}</p>
+      <div style={{ padding: 32, textAlign: 'center', color: 'var(--text, #1c1c1e)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, minHeight: '60vh', justifyContent: 'center' }}>
+        <p style={{ fontSize: '1.1rem', margin: 0 }}>{ui.notFound}</p>
         <button type="button" onClick={() => navigate('/stories')}
-          style={{ color: '#a5b4fc', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>
-          ← {ui.backToLib}
+          style={{ color: '#007aff', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', fontSize: '1rem' }}>
+          {ui.notFoundBack}
         </button>
       </div>
     );
@@ -639,7 +672,7 @@ export default function StoryReaderPage() {
         {/* Certificate */}
         <div className="sr-reward-cert">
           <span className="sr-reward-cert__crown" role="img" aria-hidden="true">👑</span>
-          <span className="sr-reward-cert__eyebrow">Histoire terminée</span>
+          <span className="sr-reward-cert__eyebrow">{ui.finishedEyebrow}</span>
           <h2 className="sr-reward-cert__title">{rewardName || conte.title}</h2>
           <p className="sr-reward-cert__sub">{ui.finishedLabel}</p>
 
@@ -686,7 +719,7 @@ export default function StoryReaderPage() {
           <span className="sr-emotional__badge">{emotionalMoment.feeling}</span>
           <p className="sr-emotional__prompt">{emotionalMoment.prompt}</p>
           <button type="button" className="story-btn story-btn--primary"
-            onClick={() => { fireConfetti(); setPhase(PHASE_REWARD); }}>
+            onClick={() => { fireConfetti(confettiWrapRef); setPhase(PHASE_REWARD); }}>
             {ui.toReward} ✨
           </button>
         </div>
@@ -706,7 +739,7 @@ export default function StoryReaderPage() {
         <div className="sr-minigame-body">
           {/* Scroll-style prompt area */}
           <div className="sr-minigame-scroll">
-            <span className="sr-minigame-eyebrow">Défi du sage</span>
+            <span className="sr-minigame-eyebrow">{ui.challengeEyebrow}</span>
             {miniGame && <p className="story-minigame__prompt">{miniGame.prompt}</p>}
           </div>
           {/* Game options outside scroll for dark contrast */}
@@ -729,8 +762,8 @@ export default function StoryReaderPage() {
         {/* Parchment scroll */}
         <div className="sr-vocab-scroll" style={{ margin: '14px', flex: 1 }}>
           <div className="sr-vocab-scroll__head">
-            <span className="sr-vocab-scroll__chapter">Glossaire du conte</span>
-            <h2 className="sr-vocab-scroll__title">Mots à retenir</h2>
+            <span className="sr-vocab-scroll__chapter">{ui.glossaryChapter}</span>
+            <h2 className="sr-vocab-scroll__title">{ui.glossaryTitle}</h2>
           </div>
           <div className="sr-vocab-list">
             {vocabulary.map((v) => (
@@ -774,11 +807,12 @@ export default function StoryReaderPage() {
           ←
         </button>
         <h1 className="sa-topbar__title">{conte.emoji} {conte.title}</h1>
-        <div className="sa-progress-dots" aria-hidden="true">
+        <div className="sa-progress-dots" role="group" aria-label={ui.sceneProgress(sceneIdx + 1, totalScenes)}>
           {scenes.map((_, i) => (
             <span
               key={i}
               className={`sa-dot${i < sceneIdx ? ' done' : i === sceneIdx ? ' current' : ''}`}
+              aria-hidden="true"
             />
           ))}
         </div>
@@ -786,7 +820,7 @@ export default function StoryReaderPage() {
           type="button"
           className={`sa-topbar__speak${speaking ? ' sa-topbar__speak--active' : ''}`}
           onClick={handleSpeak}
-          title={speaking ? ui.muteOff : ui.muteOn}
+          aria-label={speaking ? ui.muteOff : ui.muteOn}
         >
           🔊
         </button>

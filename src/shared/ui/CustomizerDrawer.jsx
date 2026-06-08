@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import { useTheme } from '../theme/ThemeContext.jsx';
 import { getProfile, saveProfile } from '../../services/storage/profileStore.js';
-import { 
-  getRewardState, 
-  getRewardCatalog, 
-  equipTheme, 
-  equipEffect, 
-  equipWallpaper 
+import {
+  getRewardState,
+  getRewardCatalog,
+  equipTheme,
+  equipEffect,
+  equipWallpaper,
+  equipPet
 } from '../../services/storage/rewardStore.js';
 
 export default function CustomizerDrawer({ isOpen, onClose }) {
@@ -22,6 +23,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
   const themeOptions = catalog.filter((item) => item.type === 'theme');
   const wallpaperOptions = catalog.filter((item) => item.type === 'wallpaper');
   const effectOptions = catalog.filter((item) => item.type === 'effect');
+  const petOptions = catalog.filter((item) => item.type === 'pet');
 
   useEffect(() => {
     function sync() {
@@ -62,6 +64,12 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
     }
   }
 
+  function handlePetClick(petId) {
+    if (rewards.inventory.includes(petId)) {
+      equipPet(petId);
+    }
+  }
+
   function handleSoundToggle(e) {
     const nextSettings = {
       ...(profile.settings || {}),
@@ -73,6 +81,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
   const isThemeOwned = (id) => FREE_THEMES.includes(id) || rewards.inventory.includes(id);
   const isWallpaperOwned = (id) => id === 'wallpaper-dreamy-sky' || rewards.inventory.includes(id);
   const isEffectOwned = (id) => id === 'effect-rainbow' || rewards.inventory.includes(id);
+  const isPetOwned = (id) => rewards.inventory.includes(id);
 
   if (!isOpen) return null;
 
@@ -174,6 +183,35 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
                     <span className="drawer-rect-label">{effect.name}</span>
                     {!owned && (
                       <span className="drawer-item-lock">🔒 {effect.price}💎</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Mascots / Pets */}
+          <section className="drawer-section">
+            <h3 className="drawer-section__title">🐾 Mascotas</h3>
+            <div className="drawer-options-grid">
+              {petOptions.map((pet) => {
+                const owned = isPetOwned(pet.id);
+                const active = rewards.equippedPetId === pet.id;
+
+                return (
+                  <button
+                    key={pet.id}
+                    type="button"
+                    className={`drawer-rect-btn ${active ? 'is-active' : ''} ${!owned ? 'is-locked' : ''}`}
+                    onClick={() => handlePetClick(pet.id)}
+                  >
+                    <span className="drawer-rect-icon">{pet.icon}</span>
+                    <span className="drawer-rect-label">{pet.name}</span>
+                    {!owned && (
+                      <span className="drawer-item-lock">🔒 {pet.price}💎</span>
+                    )}
+                    {owned && active && (
+                      <span className="drawer-item-lock" style={{ color: 'var(--primary)' }}>✓</span>
                     )}
                   </button>
                 );
