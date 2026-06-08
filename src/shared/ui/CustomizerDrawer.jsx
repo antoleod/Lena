@@ -17,6 +17,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
   const [rewards, setRewards] = useState(() => getRewardState());
   const [draftName, setDraftName] = useState(() => getProfile().name || '');
 
+  const FREE_THEMES = ['theme-candy', 'theme-minimal'];
   const catalog = getRewardCatalog();
   const themeOptions = catalog.filter((item) => item.type === 'theme');
   const wallpaperOptions = catalog.filter((item) => item.type === 'wallpaper');
@@ -43,7 +44,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
   }
 
   function handleThemeClick(themeOption) {
-    if (themeOption.id === 'theme-candy' || rewards.inventory.includes(themeOption.id)) {
+    if (FREE_THEMES.includes(themeOption.id) || rewards.inventory.includes(themeOption.id)) {
       setThemeId(themeOption.id);
       saveProfile({ themeId: themeOption.id });
     }
@@ -69,7 +70,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
     saveProfile({ settings: nextSettings });
   }
 
-  const isThemeOwned = (id) => id === 'theme-candy' || rewards.inventory.includes(id);
+  const isThemeOwned = (id) => FREE_THEMES.includes(id) || rewards.inventory.includes(id);
   const isWallpaperOwned = (id) => id === 'wallpaper-dreamy-sky' || rewards.inventory.includes(id);
   const isEffectOwned = (id) => id === 'effect-rainbow' || rewards.inventory.includes(id);
 

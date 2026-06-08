@@ -1,6 +1,7 @@
 const STORAGE_KEY = 'lena:rewards:v1';
 
 const themeRewards = [
+  { id: 'theme-minimal', type: 'theme', name: 'Style epure', nameNl: 'Strak design', price: 0, icon: '🍎', preview: ['#f2f2f7', '#ffffff', '#007aff'] },
   { id: 'theme-candy', type: 'theme', name: 'Nuage sucre', nameNl: 'Suikerwolk', price: 68, icon: '🍭', preview: ['#ff8fc6', '#ffd977', '#8dd8ff'] },
   { id: 'theme-ocean', type: 'theme', name: 'Lagune claire', nameNl: 'Heldere lagune', price: 74, icon: '🌊', preview: ['#5bc6ff', '#7be4c8', '#fff1a8'] },
   { id: 'theme-sunset', type: 'theme', name: 'Coucher dore', nameNl: 'Gouden zonsondergang', price: 78, icon: '🌇', preview: ['#ff9a76', '#ffd670', '#ff8fc6'] },
@@ -131,7 +132,7 @@ function defaultStore() {
     purchases: [],
     rewardsByActivity: {},
     missionRewards: {},
-    equippedThemeId: 'theme-candy',
+    equippedThemeId: 'theme-minimal',
     equippedEffectId: 'effect-rainbow',
     equippedWallpaperId: 'wallpaper-dreamy-sky'
   };
@@ -144,11 +145,16 @@ function readStore() {
       return defaultStore();
     }
     const parsed = JSON.parse(raw);
-    return {
+    const merged = {
       ...defaultStore(),
       ...parsed,
       missionRewards: parsed.missionRewards || {}
     };
+    // migrate: if still on old default candy, switch to minimal
+    if (merged.equippedThemeId === 'theme-candy' && !parsed.userChoseTheme) {
+      merged.equippedThemeId = 'theme-minimal';
+    }
+    return merged;
   } catch {
     return defaultStore();
   }
@@ -251,11 +257,13 @@ export function buyReward(itemId) {
 export function equipTheme(themeId) {
   const store = readStore();
 
-  if (themeId !== 'theme-candy' && !store.inventory.includes(themeId)) {
+  const freeThemes = ['theme-candy', 'theme-minimal'];
+  if (!freeThemes.includes(themeId) && !store.inventory.includes(themeId)) {
     return { ok: false, reason: 'theme-not-owned' };
   }
 
   store.equippedThemeId = themeId;
+  store.userChoseTheme = true;
   writeStore(store);
   return { ok: true, themeId };
 }

@@ -4,11 +4,11 @@ import { equipTheme, getRewardState } from '../../services/storage/rewardStore.j
 const ThemeContext = createContext(null);
 
 export function ThemeProvider({ children }) {
-  const [themeId, setThemeId] = useState(() => getRewardState().equippedThemeId || 'theme-candy');
+  const [themeId, setThemeId] = useState(() => getRewardState().equippedThemeId || 'theme-minimal');
 
   useEffect(() => {
     function syncTheme() {
-      setThemeId(getRewardState().equippedThemeId || 'theme-candy');
+      setThemeId(getRewardState().equippedThemeId || 'theme-minimal');
     }
 
     syncTheme();
