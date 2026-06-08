@@ -88,8 +88,38 @@
 .cahier-cta--go { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 8px 20px rgba(39,174,96,.35); }
 .cahier-cta--soft { background: rgba(0,0,0,.28); box-shadow: none; }
 .cahier-cta--inline { padding: 12px 18px; font-size: 1rem; margin: 0; white-space: nowrap; }
+.cahier-cta--sticky { position: sticky; bottom: 16px; z-index: 10; box-shadow: 0 8px 28px rgba(0,0,0,.35); }
 
 .cahier-actions { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── Advanced options toggle ───────────────────────────────────────────────── */
+.cahier-advanced-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.1);
+  border: 2px dashed rgba(255,255,255,.35);
+  color: rgba(255,255,255,.8); border-radius: 14px; padding: 10px 16px;
+  font-size: .92rem; font-weight: 700; cursor: pointer;
+  transition: background .15s, border-color .15s;
+  align-self: flex-start;
+}
+.cahier-advanced-toggle:hover { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.55); }
+.cahier-advanced-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #ffd166; box-shadow: 0 0 6px #ffd166;
+}
+.cahier-advanced-box {
+  display: flex; flex-direction: column; gap: 10px;
+  background: rgba(0,0,0,.18); border-radius: 16px; padding: 14px 16px;
+}
+
+/* ── Number range row ──────────────────────────────────────────────────────── */
+.cahier-range-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.cahier-range-label { color: #fff; font-weight: 600; font-size: .95rem; }
+.cahier-range-input {
+  width: 72px; padding: 8px 10px; border-radius: 12px;
+  border: 2px solid rgba(255,255,255,.5); background: rgba(255,255,255,.18);
+  color: #fff; font-size: 1rem; text-align: center;
+}
 
 /* ── Notebook sheet ────────────────────────────────────────────────────────── */
 .cahier-instruction {
@@ -415,4 +445,244 @@
   .ex-type-card__emoji { font-size: 2.2rem; }
   .ex-type-card__label { font-size: 1rem; }
   .ex-type-card__desc { font-size: .82rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   iOS-style setup page — scoped to .cahier-page--setup
+   Everything below overrides the purple design only for the setup phase.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.cahier-page--setup {
+  background: #f2f2f7;
+  gap: 6px;
+  padding: 16px 16px 80px;
+}
+
+/* Header */
+.cahier-page--setup .cahier-header {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  margin-bottom: 10px;
+}
+.cahier-page--setup .cahier-header h1 {
+  color: #1c1c1e;
+  font-size: 1.25rem;
+}
+.cahier-page--setup .cahier-header .eyebrow { color: #007aff; }
+.cahier-page--setup .cahier-sub { color: #8e8e93; }
+.cahier-page--setup .exam-back-btn { color: #007aff; }
+
+/* Header chips / error CTA */
+.cahier-page--setup .cahier-chip[href],
+.cahier-page--setup a.cahier-chip {
+  background: #e8f0fe; border-color: transparent; color: #007aff;
+  text-shadow: none;
+}
+.cahier-page--setup .cahier-errors-cta {
+  background: rgba(255,59,48,.08); border-color: rgba(255,59,48,.25); color: #ff3b30;
+}
+.cahier-page--setup .cahier-badge { background: #ff3b30; }
+
+/* Sections — iOS grouped card style */
+.cahier-page--setup .cahier-section {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  gap: 12px;
+}
+.cahier-page--setup .cahier-section__title {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: #8e8e93;
+  margin-bottom: 2px;
+}
+
+/* Chips on white background */
+.cahier-page--setup .cahier-chip {
+  background: #f2f2f7;
+  border: 1.5px solid transparent;
+  color: #1c1c1e;
+  text-shadow: none;
+  font-size: .95rem;
+  min-height: 46px;
+}
+.cahier-page--setup .cahier-chip.is-selected {
+  background: #007aff;
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0,122,255,.3);
+  transform: none;
+}
+
+/* Exercise type cards on white background */
+.cahier-page--setup .ex-type-card {
+  background: #f2f2f7;
+  border-color: transparent;
+  box-shadow: none;
+  min-height: 80px;
+}
+.cahier-page--setup .ex-type-card.is-selected {
+  background: #e8f0fe;
+  border-color: #007aff;
+  box-shadow: 0 2px 8px rgba(0,122,255,.18);
+  transform: none;
+}
+.cahier-page--setup .ex-type-card__label { color: #1c1c1e; text-shadow: none; }
+.cahier-page--setup .ex-type-card__desc  { color: #8e8e93; }
+.cahier-page--setup .ex-type-card__check { background: #007aff; box-shadow: 0 2px 6px rgba(0,122,255,.4); }
+.cahier-page--setup .ex-type-card--mixte {
+  background: rgba(245,158,11,.1);
+  border-color: rgba(245,158,11,.3);
+}
+.cahier-page--setup .ex-type-card--mixte.is-selected {
+  background: rgba(245,158,11,.18);
+  border-color: #f59e0b;
+  box-shadow: 0 2px 8px rgba(245,158,11,.25);
+}
+
+/* Ateliers chips (big navigation chips) */
+.cahier-page--setup .cahier-chip--big {
+  background: #f2f2f7;
+  border: 1.5px solid #e5e5ea;
+}
+.cahier-page--setup .cahier-chip--big:active { background: #e5e5ea; }
+
+/* Advanced toggle on white card background */
+.cahier-page--setup .cahier-advanced-toggle {
+  background: #f2f2f7;
+  border: 1.5px solid #e5e5ea;
+  color: #007aff;
+}
+.cahier-page--setup .cahier-advanced-toggle:hover { background: #e8e8ed; }
+.cahier-page--setup .cahier-advanced-box {
+  background: #f9f9fb;
+  border: 1px solid #e5e5ea;
+}
+.cahier-page--setup .cahier-advanced-box .cahier-section__title { color: #8e8e93; }
+
+/* Number range inputs */
+.cahier-page--setup .cahier-range-label { color: #1c1c1e; }
+.cahier-page--setup .cahier-range-input {
+  background: #f2f2f7;
+  border-color: #e5e5ea;
+  color: #1c1c1e;
+}
+
+/* CTA button — iOS blue */
+.cahier-page--setup .cahier-cta {
+  background: #007aff;
+  box-shadow: 0 4px 14px rgba(0,122,255,.3);
+}
+.cahier-page--setup .cahier-cta:active { filter: brightness(.9); transform: scale(.98); }
+
+
+@media (min-width: 768px) {
+  .cahier-page--setup { padding: 20px 28px 80px; gap: 8px; }
+  .cahier-page--setup .cahier-section { padding: 16px 20px 18px; }
+}
+
+/* ── Segmented control (subject selector) ──────────────────────────────────── */
+.cahier-segmented {
+  display: flex;
+  background: #e5e5ea;
+  border-radius: 11px;
+  padding: 3px;
+  gap: 2px;
+}
+.cahier-segmented__btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  border-radius: 9px;
+  padding: 9px 6px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #636366;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  transition: background .15s, color .15s, box-shadow .15s;
+  line-height: 1.2;
+}
+.cahier-segmented__btn.is-selected {
+  background: #fff;
+  color: #1c1c1e;
+  box-shadow: 0 1px 5px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.08);
+}
+.cahier-segmented__emoji { font-size: 1.2rem; }
+
+/* ── Atelier grid ──────────────────────────────────────────────────────────── */
+.atelier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.atelier-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1.5px solid #e5e5ea;
+  border-radius: 14px;
+  padding: 14px 8px 12px;
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s, transform .1s;
+  text-align: center;
+}
+.atelier-card:active { transform: scale(.96); border-color: #007aff; }
+.atelier-card__icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.atelier-card__label {
+  font-size: .78rem;
+  font-weight: 600;
+  color: #1c1c1e;
+  line-height: 1.25;
+}
+
+/* ── Exercise type card icon wrapper ───────────────────────────────────────── */
+.ex-type-card__icon-wrap {
+  width: 42px; height: 42px;
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,122,255,.1);
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+/* Scoped overrides for ex-type cards inside setup */
+.cahier-page--setup .ex-type-card {
+  align-items: center;
+  text-align: center;
+  min-height: 96px;
+}
+.cahier-page--setup .ex-type-card__emoji {
+  font-size: 1.55rem;
+  filter: none;
+}
+.cahier-page--setup .ex-type-card--mixte .ex-type-card__icon-wrap {
+  background: rgba(245,158,11,.15);
+}
+
+@media (min-width: 480px) {
+  .atelier-grid { grid-template-columns: repeat(5, 1fr); }
+}
+@media (min-width: 768px) {
+  .atelier-card { padding: 16px 10px 14px; }
+  .atelier-card__icon { width: 52px; height: 52px; font-size: 1.7rem; }
+  .atelier-card__label { font-size: .82rem; }
+  .cahier-segmented__btn { font-size: .95rem; padding: 10px 8px; }
+  .cahier-segmented__emoji { font-size: 1.35rem; }
 }

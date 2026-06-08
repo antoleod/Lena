@@ -9,7 +9,7 @@ import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
 import {
   IconNavApprendre, IconNavPratiquer, IconNavExamens,
-  IconNavProgres, IconNavReglages,
+  IconNavProgres, IconNavCahier,
 } from '../../assets/icons/NavIcons.jsx';
 import { getParentalState, verifyPin } from '../../services/storage/parentalStore.js';
 import { getTodayStudySeconds } from '../../services/storage/progressStore.js';
@@ -150,17 +150,18 @@ export default function AppShell() {
   const globalLevel = computeGlobalLevel(session.profile?.totalActivitiesCompleted || 0);
 
   const NAV_LABELS = {
-    fr: { learn: 'Apprendre', practise: 'Jouer', progress: 'Mes Étoiles', settings: 'Reglages', exams: 'Quiz' },
-    nl: { learn: 'Leren', practise: 'Spelen', progress: 'Mijn Sterren', settings: 'Instellingen', exams: 'Quiz' },
-    en: { learn: 'Learn', practise: 'Play', progress: 'My Stars', settings: 'Settings', exams: 'Quiz' },
-    es: { learn: 'Aprender', practise: 'Jugar', progress: 'Mis Estrellas', settings: 'Ajustes', exams: 'Quiz' },
+    fr: { learn: 'Apprendre', practise: 'Jouer', cahier: 'Cahier', progress: 'Mes Étoiles', settings: 'Reglages', exams: 'Quiz' },
+    nl: { learn: 'Leren', practise: 'Spelen', cahier: 'Schrift', progress: 'Mijn Sterren', settings: 'Instellingen', exams: 'Quiz' },
+    en: { learn: 'Learn', practise: 'Play', cahier: 'Notebook', progress: 'My Stars', settings: 'Settings', exams: 'Quiz' },
+    es: { learn: 'Aprender', practise: 'Jugar', cahier: 'Cuaderno', progress: 'Mis Estrellas', settings: 'Ajustes', exams: 'Quiz' },
   };
   const nl = NAV_LABELS[locale] || NAV_LABELS.fr;
 
   const navItems = useMemo(() => {
     const LEARN_PREFIXES = ['/apprendre', '/map', '/subjects', '/activities', '/lessons', '/stories', '/renforcement'];
-    const PRACTISE_PREFIXES = ['/pratiquer', '/jeux', '/cahier', '/tables', '/practice'];
+    const PRACTISE_PREFIXES = ['/pratiquer', '/jeux', '/tables', '/practice'];
     const EXAM_PREFIXES = ['/exam'];
+    const CAHIER_PREFIXES = ['/cahier'];
     function matchPrefix(prefixes, path) {
       return prefixes.some((p) => path === p || path.startsWith(p + '/'));
     }
@@ -172,10 +173,16 @@ export default function AppShell() {
         isActive: (path) => matchPrefix(LEARN_PREFIXES, path) || path === '/apprendre',
       },
       {
-        to: '/pratiquer',
-        label: nl.practise,
-        Icon: IconNavPratiquer,
-        isActive: (path) => matchPrefix(PRACTISE_PREFIXES, path),
+        to: '/exam/library',
+        label: nl.exams,
+        Icon: IconNavExamens,
+        isActive: (path) => matchPrefix(EXAM_PREFIXES, path),
+      },
+      {
+        to: '/cahier',
+        label: nl.cahier,
+        Icon: IconNavCahier,
+        isActive: (path) => matchPrefix(CAHIER_PREFIXES, path),
       },
       {
         to: '/',
@@ -185,10 +192,10 @@ export default function AppShell() {
         isActive: (path) => path === '/',
       },
       {
-        to: '/exam/library',
-        label: nl.exams,
-        Icon: IconNavExamens,
-        isActive: (path) => matchPrefix(EXAM_PREFIXES, path),
+        to: '/pratiquer',
+        label: nl.practise,
+        Icon: IconNavPratiquer,
+        isActive: (path) => matchPrefix(PRACTISE_PREFIXES, path),
       },
       {
         to: '/history',

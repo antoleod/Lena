@@ -26,6 +26,7 @@ export default function ExerciseGeneratorPage() {
   const [digits, setDigits] = useState(null); // null = auto; 1|2|3|4 chiffres
   const [terms, setTerms] = useState(null);   // null = auto; 2|3|4|5 nombres
   const [timerMinutes, setTimerMinutes] = useState(null); // Feature 1: countdown
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const [minVal, setMinVal] = useState('');   // Feature 2: number range
   const [maxVal, setMaxVal] = useState('');   // Feature 2: number range
 
@@ -194,7 +195,7 @@ export default function ExerciseGeneratorPage() {
 
   // ── Setup phase ────────────────────────────────────────────────────────────
   return (
-    <div className="cahier-page">
+    <div className="cahier-page cahier-page--setup">
       <div className="cahier-header">
         <Link className="exam-back-btn" to="/">←</Link>
         <div>
@@ -221,37 +222,42 @@ export default function ExerciseGeneratorPage() {
       {/* Modules spéciaux de maths */}
       <section className="cahier-section">
         <h2 className="cahier-section__title">{L.t('ateliers')}</h2>
-        <div className="cahier-choice-row">
-          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/geometrie')}>
-            <span className="cahier-chip__emoji">📐</span><span>Les figures géométriques</span>
+        <div className="atelier-grid">
+          <button type="button" className="atelier-card" onClick={() => navigate('/cahier/geometrie')}>
+            <span className="atelier-card__icon" style={{ background: '#e8f4fd' }}>📐</span>
+            <span className="atelier-card__label">Figures géométriques</span>
           </button>
-          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/defis-calcul')}>
-            <span className="cahier-chip__emoji">🧮</span><span>Défis de calcul</span>
+          <button type="button" className="atelier-card" onClick={() => navigate('/cahier/defis-calcul')}>
+            <span className="atelier-card__icon" style={{ background: '#fdf3e8' }}>🧮</span>
+            <span className="atelier-card__label">Défis de calcul</span>
           </button>
-          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/cahier/calculs-melanges')}>
-            <span className="cahier-chip__emoji">🧩</span><span>Calculs à composer</span>
+          <button type="button" className="atelier-card" onClick={() => navigate('/cahier/calculs-melanges')}>
+            <span className="atelier-card__icon" style={{ background: '#edf8ee' }}>🧩</span>
+            <span className="atelier-card__label">Calculs mélangés</span>
           </button>
-          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => navigate('/tables')}>
-            <span className="cahier-chip__emoji">✖️</span><span>Tables de multiplication</span>
+          <button type="button" className="atelier-card" onClick={() => navigate('/tables')}>
+            <span className="atelier-card__icon" style={{ background: '#f3eefe' }}>✖️</span>
+            <span className="atelier-card__label">Tables de multiplication</span>
           </button>
-          <button type="button" className="cahier-chip cahier-chip--big" onClick={() => setPhase('retravailler')}>
-            <span className="cahier-chip__emoji">💪</span><span>{L.t('aRetravailler')}</span>
+          <button type="button" className="atelier-card" onClick={() => setPhase('retravailler')}>
+            <span className="atelier-card__icon" style={{ background: '#fdeef0' }}>💪</span>
+            <span className="atelier-card__label">{L.t('aRetravailler')}</span>
           </button>
         </div>
       </section>
 
-      {/* Matière */}
+      {/* Matière — segmented control */}
       <section className="cahier-section">
         <h2 className="cahier-section__title">{L.t('matiere')}</h2>
-        <div className="cahier-choice-grid">
+        <div className="cahier-segmented">
           {SUBJECTS.map((s) => (
             <button
               key={s.id}
               type="button"
-              className={`cahier-chip cahier-chip--big${subject === s.id ? ' is-selected' : ''}`}
+              className={`cahier-segmented__btn${subject === s.id ? ' is-selected' : ''}`}
               onClick={() => chooseSubject(s.id)}
             >
-              <span className="cahier-chip__emoji">{s.emoji}</span>
+              <span className="cahier-segmented__emoji">{s.emoji}</span>
               <span>{L.label(s.id)}</span>
             </button>
           ))}
@@ -270,7 +276,9 @@ export default function ExerciseGeneratorPage() {
               style={tp.color ? { '--card-accent': tp.color } : {}}
               onClick={() => setType(tp.id)}
             >
-              <span className="ex-type-card__emoji">{tp.emoji}</span>
+              <span className="ex-type-card__icon-wrap" style={tp.color ? { background: tp.color + '22' } : {}}>
+                <span className="ex-type-card__emoji">{tp.emoji}</span>
+              </span>
               <span className="ex-type-card__label">{tp.label}</span>
               {tp.desc && <span className="ex-type-card__desc">{tp.desc}</span>}
               {type === tp.id && <span className="ex-type-card__check">✓</span>}
@@ -279,82 +287,94 @@ export default function ExerciseGeneratorPage() {
         </div>
       </section>
 
-      {/* Taille des nombres + Nombre d'opérations — indépendants (add/sous) */}
-      {isMath && (type === 'additions' || type === 'soustractions') && (
-        <>
-          <section className="cahier-section">
-            <h2 className="cahier-section__title">{L.t('tailleNombres')}</h2>
-            <div className="cahier-choice-row">
-              {[
-                { id: null, label: L.t('auto') },
-                { id: 1, label: `1 ${L.t('chiffres')}` },
-                { id: 2, label: `2 ${L.t('chiffres')}` },
-                { id: 3, label: `3 ${L.t('chiffres')}` },
-                { id: 4, label: `4 ${L.t('chiffres')}` },
-              ].map((d) => (
-                <button
-                  key={String(d.id)}
-                  type="button"
-                  className={`cahier-chip${digits === d.id ? ' is-selected' : ''}`}
-                  onClick={() => setDigits(d.id)}
-                >
-                  {d.label}
-                </button>
-              ))}
-            </div>
-          </section>
-
-          <section className="cahier-section">
-            <h2 className="cahier-section__title">{L.t('nombreOperations')}</h2>
-            <div className="cahier-choice-row">
-              {[
-                { id: null, label: L.t('auto') },
-                { id: 2, label: `2 ${L.t('nombres')}` },
-                { id: 3, label: `3 ${L.t('nombres')}` },
-                { id: 4, label: `4 ${L.t('nombres')}` },
-                { id: 5, label: `5 ${L.t('nombres')}` },
-              ].map((tcfg) => (
-                <button
-                  key={String(tcfg.id)}
-                  type="button"
-                  className={`cahier-chip${terms === tcfg.id ? ' is-selected' : ''}`}
-                  onClick={() => setTerms(tcfg.id)}
-                >
-                  {tcfg.label}
-                </button>
-              ))}
-            </div>
-          </section>
-        </>
-      )}
-
-      {/* Plage de nombres — Feature 2 */}
+      {/* Options avancées — collapsible for add/sous */}
       {isMath && (type === 'additions' || type === 'soustractions') && (
         <section className="cahier-section">
-          <h2 className="cahier-section__title">{L.t('plage')}</h2>
-          <div className="cahier-choice-row" style={{ alignItems: 'center', gap: 12 }}>
-            <label style={{ color: '#fff', fontWeight: 600, fontSize: '.95rem' }}>{L.t('de')}</label>
-            <input
-              type="number"
-              min={0}
-              value={minVal}
-              onChange={(e) => setMinVal(e.target.value)}
-              placeholder="0"
-              style={{ width: 72, padding: '8px 10px', borderRadius: 12, border: '2px solid rgba(255,255,255,.5)', background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '1rem', textAlign: 'center' }}
-            />
-            <label style={{ color: '#fff', fontWeight: 600, fontSize: '.95rem' }}>{L.t('a')}</label>
-            <input
-              type="number"
-              min={0}
-              value={maxVal}
-              onChange={(e) => setMaxVal(e.target.value)}
-              placeholder="100"
-              style={{ width: 72, padding: '8px 10px', borderRadius: 12, border: '2px solid rgba(255,255,255,.5)', background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '1rem', textAlign: 'center' }}
-            />
-            {(minVal !== '' || maxVal !== '') && (
-              <button type="button" className="cahier-chip" onClick={() => { setMinVal(''); setMaxVal(''); }} style={{ padding: '6px 12px', fontSize: '.85rem' }}>✕</button>
+          <button
+            type="button"
+            className="cahier-advanced-toggle"
+            onClick={() => setShowAdvanced((v) => !v)}
+          >
+            <span>{showAdvanced ? '▲' : '▼'} {L.t('optionsAvancees') || 'Options avancées'}</span>
+            {(digits !== null || terms !== null || minVal !== '' || maxVal !== '') && (
+              <span className="cahier-advanced-dot" />
             )}
-          </div>
+          </button>
+
+          {showAdvanced && (
+            <>
+              <div className="cahier-advanced-box">
+                <h2 className="cahier-section__title">{L.t('tailleNombres')}</h2>
+                <div className="cahier-choice-row">
+                  {[
+                    { id: null, label: L.t('auto') },
+                    { id: 1, label: `1 ${L.t('chiffres')}` },
+                    { id: 2, label: `2 ${L.t('chiffres')}` },
+                    { id: 3, label: `3 ${L.t('chiffres')}` },
+                    { id: 4, label: `4 ${L.t('chiffres')}` },
+                  ].map((d) => (
+                    <button
+                      key={String(d.id)}
+                      type="button"
+                      className={`cahier-chip${digits === d.id ? ' is-selected' : ''}`}
+                      onClick={() => setDigits(d.id)}
+                    >
+                      {d.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="cahier-advanced-box">
+                <h2 className="cahier-section__title">{L.t('nombreOperations')}</h2>
+                <div className="cahier-choice-row">
+                  {[
+                    { id: null, label: L.t('auto') },
+                    { id: 2, label: `2 ${L.t('nombres')}` },
+                    { id: 3, label: `3 ${L.t('nombres')}` },
+                    { id: 4, label: `4 ${L.t('nombres')}` },
+                    { id: 5, label: `5 ${L.t('nombres')}` },
+                  ].map((tcfg) => (
+                    <button
+                      key={String(tcfg.id)}
+                      type="button"
+                      className={`cahier-chip${terms === tcfg.id ? ' is-selected' : ''}`}
+                      onClick={() => setTerms(tcfg.id)}
+                    >
+                      {tcfg.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="cahier-advanced-box">
+                <h2 className="cahier-section__title">{L.t('plage')}</h2>
+                <div className="cahier-range-row">
+                  <label className="cahier-range-label">{L.t('de')}</label>
+                  <input
+                    type="number"
+                    min={0}
+                    value={minVal}
+                    onChange={(e) => setMinVal(e.target.value)}
+                    placeholder="0"
+                    className="cahier-range-input"
+                  />
+                  <label className="cahier-range-label">{L.t('a')}</label>
+                  <input
+                    type="number"
+                    min={0}
+                    value={maxVal}
+                    onChange={(e) => setMaxVal(e.target.value)}
+                    placeholder="100"
+                    className="cahier-range-input"
+                  />
+                  {(minVal !== '' || maxVal !== '') && (
+                    <button type="button" className="cahier-chip" onClick={() => { setMinVal(''); setMaxVal(''); }} style={{ padding: '6px 12px', fontSize: '.85rem' }}>✕</button>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
         </section>
       )}
 
@@ -417,7 +437,7 @@ export default function ExerciseGeneratorPage() {
         </div>
       </section>
 
-      <button type="button" className="cahier-cta" onClick={startNotebook}>
+      <button type="button" className="cahier-cta cahier-cta--sticky" onClick={startNotebook}>
         {L.t('creerCahier')}
       </button>
     </div>

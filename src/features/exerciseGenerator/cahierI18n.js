@@ -48,6 +48,7 @@ const UI = {
     corrigerPapa: '👨‍👧 Corriger avec papa', papaTitle: 'On corrige ensemble', aRetravailler: 'À retravailler', aRetravaillerTitle: 'Mes points à renforcer', rienARetravailler: 'Rien à retravailler pour l’instant. Bravo !', retravaillerIntro: 'Choisis un point à renforcer : je te prépare des exercices similaires.',
     duree: 'Durée', illimite: 'Illimité', tempsRestant: 'Temps restant', tempsEcoule: 'Temps écoulé !',
     plage: 'Plage de nombres', de: 'De', a: 'À', nombreMinMax: 'Plage personnalisée',
+    optionsAvancees: 'Options avancées',
     // Mode mixte
     modeMixteTitle: '🔀 Mode mixte intelligent', modeMixteSubtitle: "Mélange les opérations selon ton niveau",
     age: 'Âge', niveauScolaire: 'Niveau scolaire', typeExercices: "Type d'exercices",
@@ -92,7 +93,7 @@ const UI = {
     pasGrave: 'Geen probleem, we kijken samen.', aide: '💡 Hulp',
     corrigerPapa: '👨‍👧 Verbeteren met papa', papaTitle: 'We verbeteren samen', aRetravailler: 'Te oefenen', aRetravaillerTitle: 'Mijn aandachtspunten', rienARetravailler: 'Niets te oefenen voor nu. Goed gedaan!', retravaillerIntro: 'Kies een punt om te versterken: ik maak gelijkaardige oefeningen.',
     duree: 'Duur', illimite: 'Onbeperkt', tempsRestant: 'Resterende tijd', tempsEcoule: 'Tijd is om!',
-    plage: 'Getallenbereik', de: 'Van', a: 'Tot', nombreMinMax: 'Aangepast bereik',
+    plage: 'Getallenbereik', de: 'Van', a: 'Tot', nombreMinMax: 'Aangepast bereik', optionsAvancees: 'Geavanceerde opties',
     // Mode mixte
     modeMixteTitle: '🔀 Slim gemengde modus', modeMixteSubtitle: 'Combineer bewerkingen op jouw niveau',
     age: 'Leeftijd', niveauScolaire: 'Schoolniveau', typeExercices: 'Soort oefeningen',
@@ -137,7 +138,7 @@ const UI = {
     pasGrave: 'It’s okay, let’s look together.', aide: '💡 Help',
     corrigerPapa: '👨‍👧 Correct with dad', papaTitle: 'Let’s correct together', aRetravailler: 'To practise', aRetravaillerTitle: 'My weak points', rienARetravailler: 'Nothing to practise yet. Well done!', retravaillerIntro: 'Pick a point to strengthen: I’ll make similar exercises.',
     duree: 'Duration', illimite: 'Unlimited', tempsRestant: 'Time left', tempsEcoule: 'Time is up!',
-    plage: 'Number range', de: 'From', a: 'To', nombreMinMax: 'Custom range',
+    plage: 'Number range', de: 'From', a: 'To', nombreMinMax: 'Custom range', optionsAvancees: 'Advanced options',
     // Mode mixte
     modeMixteTitle: '🔀 Smart mixed mode', modeMixteSubtitle: 'Mix operations for your level',
     age: 'Age', niveauScolaire: 'School level', typeExercices: 'Exercise type',
@@ -182,7 +183,7 @@ const UI = {
     pasGrave: 'No pasa nada, lo miramos juntos.', aide: '💡 Ayuda',
     corrigerPapa: '👨‍👧 Corregir con papá', papaTitle: 'Corregimos juntos', aRetravailler: 'Para repasar', aRetravaillerTitle: 'Mis puntos a reforzar', rienARetravailler: 'Nada que repasar por ahora. ¡Bravo!', retravaillerIntro: 'Elige un punto a reforzar: te preparo ejercicios parecidos.',
     duree: 'Duración', illimite: 'Ilimitado', tempsRestant: 'Tiempo restante', tempsEcoule: '¡Se acabó el tiempo!',
-    plage: 'Rango de números', de: 'De', a: 'A', nombreMinMax: 'Rango personalizado',
+    plage: 'Rango de números', de: 'De', a: 'A', nombreMinMax: 'Rango personalizado', optionsAvancees: 'Opciones avanzadas',
     // Mode mixte
     modeMixteTitle: '🔀 Modo mixto inteligente', modeMixteSubtitle: 'Combina operaciones según tu nivel',
     age: 'Edad', niveauScolaire: 'Nivel escolar', typeExercices: 'Tipo de ejercicios',

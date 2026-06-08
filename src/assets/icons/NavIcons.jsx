@@ -133,7 +133,33 @@ export function IconNavProgres({ size = 24 }) {
   );
 }
 
-/* ── 5. Réglages — gear with sparkle center ───────────────────────────── */
+/* ── 5. Cahier — notebook with pencil ────────────────────────────────── */
+export function IconNavCahier({ size = 24 }) {
+  return (
+    <Nav size={size}>
+      {/* notebook body */}
+      <rect x="4" y="3" width="13" height="17" rx="2"
+        fill="currentColor" fillOpacity="0.15"
+        stroke="currentColor" strokeWidth="1.5" />
+      {/* spine binding dots */}
+      <circle cx="4" cy="8"  r="1" fill="currentColor" />
+      <circle cx="4" cy="12" r="1" fill="currentColor" />
+      <circle cx="4" cy="16" r="1" fill="currentColor" />
+      {/* ruled lines */}
+      <line x1="8" y1="8"  x2="14" y2="8"  stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <line x1="8" y1="11" x2="14" y2="11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <line x1="8" y1="14" x2="12" y2="14" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      {/* pencil */}
+      <path d="M15 17l4-4 1.5 1.5-4 4L15 17Z"
+        fill="currentColor" fillOpacity="0.5"
+        stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
+      <path d="M19 13l1.5 1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M15 17l-.5 2 2-.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+    </Nav>
+  );
+}
+
+/* ── 6. Réglages — gear with sparkle center ───────────────────────────── */
 export function IconNavReglages({ size = 24 }) {
   return (
     <Nav size={size}>

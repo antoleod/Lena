@@ -33,10 +33,10 @@ export function VerificationView({ subject, onBack, onSeeAnswers, onSeeExplanati
       </div>
 
       <div className="cahier-actions">
-        <button type="button" className="cahier-cta" onClick={onSeeAnswers}>👀 {L.t('voirReponses')}</button>
-        <button type="button" className="cahier-cta" onClick={onSeeExplanations}>{L.t('voirExplications')}</button>
         <button type="button" className="cahier-cta cahier-cta--go" onClick={onDoTest}>{L.t('faireTest')}</button>
         <button type="button" className="cahier-cta" onClick={onPapa} style={{ background: 'linear-gradient(135deg,#5dade2,#2e86c1)' }}>{L.t('corrigerPapa')}</button>
+        <button type="button" className="cahier-cta cahier-cta--soft" onClick={onSeeAnswers}>👀 {L.t('voirReponses')}</button>
+        <button type="button" className="cahier-cta cahier-cta--soft" onClick={onSeeExplanations}>{L.t('voirExplications')}</button>
         {errorCount > 0 && (
           <button type="button" className="cahier-cta cahier-cta--soft" onClick={onSeeErrors}>🎯 {L.t('mesErreurs')} ({errorCount})</button>
         )}
