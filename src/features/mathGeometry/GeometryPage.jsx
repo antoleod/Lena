@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GeometryFigure } from './geometrySvgFactory.jsx';
+import NumPad from '../../shared/ui/NumPad.jsx';
 import {
   generateGeometrySet, GEOMETRY_TYPES, COLORS,
 } from './geometryExerciseEngine.js';
@@ -219,10 +220,13 @@ function GeometryTest({ exercises, onBack, onFinish }) {
               <button key={opt} type="button" className="test-choice" onClick={() => submit(opt)}>{opt}</button>
             ))}
             {ex.inputType === 'number' && (
-              <form className="test-input-row" onSubmit={(e) => { e.preventDefault(); if (draft.trim()) submit(draft.trim()); }}>
-                <input className="test-input" inputMode="numeric" value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="Ta réponse…" autoFocus />
-                <button type="submit" className="cahier-cta cahier-cta--inline" disabled={!draft.trim()}>Vérifier</button>
-              </form>
+              <NumPad
+                value={draft}
+                onChange={setDraft}
+                onSubmit={(v) => submit(v)}
+                placeholder="Ta réponse…"
+                allowNegative
+              />
             )}
             {ex.inputType === 'color' && (
               <button type="button" className="cahier-cta cahier-cta--go" onClick={() => submit(selectedIds)} disabled={selectedIds.length === 0}>

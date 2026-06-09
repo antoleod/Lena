@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
+import NumPad from '../../../shared/ui/NumPad.jsx';
 import { getExamsByCategory, getExam } from '../../../content/exams/registry.js';
 import { getLocalizedField } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
@@ -85,8 +86,22 @@ const UI = {
 };
 
 // FillBlankInput component — defined at top level
-function FillBlankInput({ onSubmit }) {
+function FillBlankInput({ onSubmit, question }) {
   const [val, setVal] = useState('');
+  const isNumeric = /^-?\d+([.,]\d+)?$/.test(String(question?.answer ?? '').trim());
+
+  if (isNumeric) {
+    return (
+      <NumPad
+        value={val}
+        onChange={setVal}
+        onSubmit={(v) => onSubmit(v)}
+        placeholder="..."
+        allowNegative={/^-/.test(String(question?.answer ?? '').trim())}
+      />
+    );
+  }
+
   return (
     <div className="repaso-fill">
       <input
@@ -300,7 +315,7 @@ export default function ExamRepasoPage() {
 
       {/* Fill blank */}
       {q.type === 'fill_blank' && !showFeedback && (
-        <FillBlankInput onSubmit={handleAnswer} />
+        <FillBlankInput onSubmit={handleAnswer} question={q} />
       )}
 
       {showFeedback && (

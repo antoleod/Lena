@@ -4,445 +4,591 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 7",
-  "emoji": "🔑",
+  "title": "Déduis la réponse 🕵️",
+  "emoji": "🕵️",
   "order": 7,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l07-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 5, 8, 11, …",
+          "prompt": "Tous les chats ont 4 pattes. Minou est un chat. Combien de pattes a Minou ?",
+          "prompt_nl": "Alle katten hebben 4 poten. Minou is een kat. Hoeveel poten heeft Minou?",
+          "prompt_en": "All cats have 4 legs. Minou is a cat. How many legs does Minou have?",
+          "prompt_es": "Todos los gatos tienen 4 patas. Minou es un gato. ¿Cuántas patas tiene?",
           "options": [
-            "16",
-            "14",
-            "18",
-            "15"
+            "2",
+            "3",
+            "4",
+            "8"
           ],
-          "answer": "14",
-          "correction": "On ajoute 3 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 2, 5, 8, 11, …",
-          "prompt_en": "Continue the sequence: 2, 5, 8, 11, …",
-          "prompt_es": "Continúa la serie: 2, 5, 8, 11, …",
-          "correction_nl": "Elke keer +3: 14.",
-          "correction_en": "Add 3 each time: 14.",
-          "correction_es": "Se suma 3 cada vez: 14."
+          "answer": "4",
+          "correction": "Tous les chats ont 4 pattes → Minou aussi.",
+          "correction_nl": "Alle katten: 4 poten → Minou ook.",
+          "correction_en": "All cats → Minou too.",
+          "correction_es": "Todos los gatos → Minou también."
         },
         {
-          "id": "q10",
+          "id": "l07-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 5, 6, 7, …",
+          "prompt": "Il y a 5 pommes. On en mange 2. Combien reste-t-il ?",
+          "prompt_nl": "Er zijn 5 appels. Er worden 2 opgegeten. Hoeveel zijn er nog?",
+          "prompt_en": "There are 5 apples. 2 are eaten. How many remain?",
+          "prompt_es": "Hay 5 manzanas. Se comen 2. ¿Cuántas quedan?",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "3",
+          "correction": "5 - 2 = 3.",
+          "correction_nl": "5 - 2 = 3.",
+          "correction_en": "5 - 2 = 3.",
+          "correction_es": "5 - 2 = 3."
+        },
+        {
+          "id": "l07-f03",
+          "type": "mcq",
+          "prompt": "Léa a plus de bonbons que Tom. Tom a plus de bonbons que Sara. Qui en a le plus ?",
+          "prompt_nl": "Léa heeft meer snoep dan Tom. Tom meer dan Sara. Wie heeft het meest?",
+          "prompt_en": "Léa has more sweets than Tom. Tom has more than Sara. Who has the most?",
+          "prompt_es": "Léa tiene más caramelos que Tom. Tom tiene más que Sara. ¿Quién tiene más?",
+          "options": [
+            "Tom",
+            "Sara",
+            "Léa",
+            "On ne sait pas"
+          ],
+          "answer": "Léa",
+          "correction": "Léa > Tom > Sara.",
+          "correction_nl": "Léa > Tom > Sara.",
+          "correction_en": "Léa > Tom > Sara.",
+          "correction_es": "Léa > Tom > Sara."
+        },
+        {
+          "id": "l07-f04",
+          "type": "mcq",
+          "prompt": "Si aujourd'hui est lundi, quel jour sera-t-il dans 3 jours ?",
+          "prompt_nl": "Als het vandaag maandag is, welke dag is het over 3 dagen?",
+          "prompt_en": "If today is Monday, what day is it in 3 days?",
+          "prompt_es": "Si hoy es lunes, ¿qué día será en 3 días?",
+          "options": [
+            "mercredi",
+            "jeudi",
+            "vendredi",
+            "samedi"
+          ],
+          "answer": "jeudi",
+          "correction": "Lun + 3 = Jeudi.",
+          "correction_nl": "Ma + 3 = Do.",
+          "correction_en": "Mon + 3 = Thu.",
+          "correction_es": "Lun + 3 = Jue."
+        },
+        {
+          "id": "l07-f05",
+          "type": "mcq",
+          "prompt": "Chaque boîte contient 3 crayons. Il y a 4 boîtes. Combien de crayons en tout ?",
+          "prompt_nl": "Elke doos bevat 3 potloden. Er zijn 4 dozen. Hoeveel potloden in totaal?",
+          "prompt_en": "Each box has 3 pencils. There are 4 boxes. How many pencils total?",
+          "prompt_es": "Cada caja tiene 3 lápices. Hay 4 cajas. ¿Cuántos lápices en total?",
           "options": [
             "7",
-            "6",
-            "8",
-            "11"
-          ],
-          "answer": "8",
-          "correction": "On ajoute 1 à chaque fois : 8.",
-          "prompt_nl": "Maak de rij af: 4, 5, 6, 7, …",
-          "prompt_en": "Continue the sequence: 4, 5, 6, 7, …",
-          "prompt_es": "Continúa la serie: 4, 5, 6, 7, …",
-          "correction_nl": "Elke keer +1: 8.",
-          "correction_en": "Add 1 each time: 8.",
-          "correction_es": "Se suma 1 cada vez: 8."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Continue la suite : 8, 9, 10, 11, …",
-          "options": [
             "10",
             "12",
-            "13",
             "15"
           ],
           "answer": "12",
-          "correction": "On ajoute 1 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 8, 9, 10, 11, …",
-          "prompt_en": "Continue the sequence: 8, 9, 10, 11, …",
-          "prompt_es": "Continúa la serie: 8, 9, 10, 11, …",
-          "correction_nl": "Elke keer +1: 12.",
-          "correction_en": "Add 1 each time: 12.",
-          "correction_es": "Se suma 1 cada vez: 12."
+          "correction": "4 × 3 = 12.",
+          "correction_nl": "4 × 3 = 12.",
+          "correction_en": "4 × 3 = 12.",
+          "correction_es": "4 × 3 = 12."
         },
         {
-          "id": "q12",
+          "id": "l07-f06",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 9, 11, 13, …",
+          "prompt": "Paul est plus jeune que Marie. Marie est plus jeune que Sophie. Qui est la plus âgée ?",
+          "prompt_nl": "Paul is jonger dan Marie. Marie is jonger dan Sophie. Wie is het oudst?",
+          "prompt_en": "Paul is younger than Marie. Marie is younger than Sophie. Who is oldest?",
+          "prompt_es": "Paul es más joven que Marie. Marie es más joven que Sophie. ¿Quién es mayor?",
           "options": [
-            "16",
-            "13",
-            "17",
-            "15"
+            "Paul",
+            "Marie",
+            "Sophie",
+            "On ne sait pas"
           ],
-          "answer": "15",
-          "correction": "On ajoute 2 à chaque fois : 15.",
-          "prompt_nl": "Maak de rij af: 7, 9, 11, 13, …",
-          "prompt_en": "Continue the sequence: 7, 9, 11, 13, …",
-          "prompt_es": "Continúa la serie: 7, 9, 11, 13, …",
-          "correction_nl": "Elke keer +2: 15.",
-          "correction_en": "Add 2 each time: 15.",
-          "correction_es": "Se suma 2 cada vez: 15."
+          "answer": "Sophie",
+          "correction": "Paul < Marie < Sophie.",
+          "correction_nl": "Paul < Marie < Sophie.",
+          "correction_en": "Paul < Marie < Sophie.",
+          "correction_es": "Paul < Marie < Sophie."
         },
         {
-          "id": "q13",
+          "id": "l07-f07",
           "type": "mcq",
-          "prompt": "Continue la suite : 6, 8, 10, 12, …",
+          "prompt": "Il y a 10 élèves. La moitié est absente. Combien sont présents ?",
+          "prompt_nl": "Er zijn 10 leerlingen. De helft is afwezig. Hoeveel zijn aanwezig?",
+          "prompt_en": "There are 10 students. Half are absent. How many are present?",
+          "prompt_es": "Hay 10 alumnos. La mitad está ausente. ¿Cuántos están presentes?",
           "options": [
-            "14",
-            "16",
-            "15",
-            "17"
+            "4",
+            "5",
+            "6",
+            "8"
           ],
-          "answer": "14",
-          "correction": "On ajoute 2 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
-          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
-          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
-          "correction_nl": "Elke keer +2: 14.",
-          "correction_en": "Add 2 each time: 14.",
-          "correction_es": "Se suma 2 cada vez: 14."
+          "answer": "5",
+          "correction": "10 ÷ 2 = 5.",
+          "correction_nl": "10 ÷ 2 = 5.",
+          "correction_en": "10 ÷ 2 = 5.",
+          "correction_es": "10 ÷ 2 = 5."
         },
         {
-          "id": "q14",
+          "id": "l07-f08",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Un livre coûte 4 €. Anna a 10 €. Combien de livres peut-elle acheter ?",
+          "prompt_nl": "Een boek kost 4 €. Anna heeft 10 €. Hoeveel boeken kan ze kopen?",
+          "prompt_en": "A book costs 4 €. Anna has 10 €. How many can she buy?",
+          "prompt_es": "Un libro cuesta 4 €. Anna tiene 10 €. ¿Cuántos puede comprar?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "1",
+            "2",
+            "3",
+            "4"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "2",
+          "correction": "10 ÷ 4 = 2 (reste 2).",
+          "correction_nl": "10 ÷ 4 = 2 (rest 2).",
+          "correction_en": "10 ÷ 4 = 2 (remainder 2).",
+          "correction_es": "10 ÷ 4 = 2 (resto 2)."
         },
         {
-          "id": "q15",
+          "id": "l07-f09",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Si tous les B sont C et X est B, X est-il C ?",
+          "prompt_nl": "Als alle B C zijn en X is B, is X dan C?",
+          "prompt_en": "If all B are C and X is B, is X a C?",
+          "prompt_es": "Si todos los B son C y X es B, ¿X es C?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "On ne sait pas"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "Oui",
+          "correction": "Syllogisme direct.",
+          "correction_nl": "Direct syllogisme.",
+          "correction_en": "Direct syllogism.",
+          "correction_es": "Silogismo directo."
         },
         {
-          "id": "q16",
+          "id": "l07-f10",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Il y a 3 rangées de 4 chaises. Combien de chaises en tout ?",
+          "prompt_nl": "Er zijn 3 rijen van 4 stoelen. Hoeveel stoelen in totaal?",
+          "prompt_en": "There are 3 rows of 4 chairs. How many chairs total?",
+          "prompt_es": "Hay 3 filas de 4 sillas. ¿Cuántas sillas en total?",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "7",
+            "10",
+            "12",
+            "14"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "12",
+          "correction": "3 × 4 = 12.",
+          "correction_nl": "3 × 4 = 12.",
+          "correction_en": "3 × 4 = 12.",
+          "correction_es": "3 × 4 = 12."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l07-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Alice, Bob et Clara font la course. Alice finit avant Bob. Bob finit avant Clara. Qui est 2ème ?",
+          "prompt_nl": "Alice, Bob en Clara lopen een race. Alice voor Bob. Bob voor Clara. Wie is 2e?",
+          "prompt_en": "Alice, Bob, Clara race. Alice before Bob. Bob before Clara. Who is 2nd?",
+          "prompt_es": "Alice, Bob y Clara corren. Alice antes que Bob. Bob antes que Clara. ¿Quién es 2.º?",
+          "options": [
+            "Alice",
+            "Bob",
+            "Clara",
+            "On ne sait pas"
+          ],
+          "answer": "Bob",
+          "correction": "Alice(1) > Bob(2) > Clara(3).",
+          "correction_nl": "Alice(1) > Bob(2) > Clara(3).",
+          "correction_en": "Alice(1) > Bob(2) > Clara(3).",
+          "correction_es": "Alice(1) > Bob(2) > Clara(3)."
+        },
+        {
+          "id": "l07-m02",
+          "type": "mcq",
+          "prompt": "3 enfants partagent équitablement 15 €. Chacun reçoit combien ?",
+          "prompt_nl": "3 kinderen delen 15 € gelijk. Hoeveel krijgt elk kind?",
+          "prompt_en": "3 children share 15 € equally. How much does each get?",
+          "prompt_es": "3 niños reparten 15 € equitativamente. ¿Cuánto recibe cada uno?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "5",
+          "correction": "15 ÷ 3 = 5.",
+          "correction_nl": "15 ÷ 3 = 5.",
+          "correction_en": "15 ÷ 3 = 5.",
+          "correction_es": "15 ÷ 3 = 5."
+        },
+        {
+          "id": "l07-m03",
+          "type": "mcq",
+          "prompt": "Un train part à 9h00 et met 2h15 pour arriver. À quelle heure arrive-t-il ?",
+          "prompt_nl": "Een trein vertrekt om 9u00 en doet er 2u15 over. Hoe laat komt hij aan?",
+          "prompt_en": "Train departs 9:00 and takes 2h15. What time does it arrive?",
+          "prompt_es": "Un tren sale a las 9:00 y tarda 2h15. ¿A qué hora llega?",
+          "options": [
+            "11h00",
+            "11h15",
+            "11h30",
+            "12h00"
+          ],
+          "answer": "11h15",
+          "correction": "9h00 + 2h15 = 11h15.",
+          "correction_nl": "9u00 + 2u15 = 11u15.",
+          "correction_en": "9:00 + 2:15 = 11:15.",
+          "correction_es": "9:00 + 2:15 = 11:15."
+        },
+        {
+          "id": "l07-m04",
+          "type": "mcq",
+          "prompt": "Il y a 24 élèves. 1/3 sont absents. Combien sont présents ?",
+          "prompt_nl": "Er zijn 24 leerlingen. 1/3 is afwezig. Hoeveel zijn aanwezig?",
+          "prompt_en": "24 students, 1/3 absent. How many present?",
+          "prompt_es": "24 alumnos, 1/3 ausentes. ¿Cuántos presentes?",
+          "options": [
+            "8",
+            "12",
+            "16",
+            "18"
+          ],
+          "answer": "16",
+          "correction": "24 - 24/3 = 24 - 8 = 16.",
+          "correction_nl": "24 - 8 = 16.",
+          "correction_en": "24 - 8 = 16.",
+          "correction_es": "24 - 8 = 16."
+        },
+        {
+          "id": "l07-m05",
+          "type": "mcq",
+          "prompt": "Aucun X n'est Y. Z est un X. Z est-il Y ?",
+          "prompt_nl": "Geen enkele X is Y. Z is een X. Is Z dan Y?",
+          "prompt_en": "No X is Y. Z is an X. Is Z a Y?",
+          "prompt_es": "Ningún X es Y. Z es X. ¿Z es Y?",
+          "options": [
+            "Oui",
+            "Non",
+            "Peut-être",
+            "On ne sait pas"
+          ],
+          "answer": "Non",
+          "correction": "Si aucun X n'est Y et Z est X, alors Z n'est pas Y.",
+          "correction_nl": "Geen enkele X is Y, Z is X → Z is geen Y.",
+          "correction_en": "No X is Y, Z is X → Z is not Y.",
+          "correction_es": "Ningún X es Y, Z es X → Z no es Y."
+        },
+        {
+          "id": "l07-m06",
+          "type": "mcq",
+          "prompt": "Un magasin vend 3 types de glace et 2 types de cône. Combien de combinaisons ?",
+          "prompt_nl": "Een winkel heeft 3 soorten ijs en 2 soorten kegel. Hoeveel combinaties?",
+          "prompt_en": "A shop has 3 ice cream flavors and 2 cone types. How many combinations?",
+          "prompt_es": "Una tienda tiene 3 sabores y 2 tipos de cono. ¿Cuántas combinaciones?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "8"
+          ],
+          "answer": "6",
+          "correction": "3 × 2 = 6.",
+          "correction_nl": "3 × 2 = 6.",
+          "correction_en": "3 × 2 = 6.",
+          "correction_es": "3 × 2 = 6."
+        },
+        {
+          "id": "l07-m07",
+          "type": "mcq",
+          "prompt": "La moitié de la moitié de 40 est … ?",
+          "prompt_nl": "De helft van de helft van 40 is … ?",
+          "prompt_en": "Half of half of 40 is … ?",
+          "prompt_es": "La mitad de la mitad de 40 es … ?",
+          "options": [
+            "5",
+            "10",
+            "15",
+            "20"
+          ],
+          "answer": "10",
+          "correction": "40/2=20, 20/2=10.",
+          "correction_nl": "40/2=20, 20/2=10.",
+          "correction_en": "40/2=20, 20/2=10.",
+          "correction_es": "40/2=20, 20/2=10."
+        },
+        {
+          "id": "l07-m08",
+          "type": "mcq",
+          "prompt": "Tous les félins sont des mammifères. Les lions sont des félins. Les lions sont-ils des mammifères ?",
+          "prompt_nl": "Alle katten zijn zoogdieren. Leeuwen zijn katten. Zijn leeuwen zoogdieren?",
+          "prompt_en": "All felines are mammals. Lions are felines. Are lions mammals?",
+          "prompt_es": "Todos los felinos son mamíferos. Los leones son felinos. ¿Los leones son mamíferos?",
+          "options": [
+            "Oui",
+            "Non",
+            "Peut-être",
+            "On ne sait pas"
+          ],
+          "answer": "Oui",
+          "correction": "Syllogisme valide.",
+          "correction_nl": "Geldig syllogisme.",
+          "correction_en": "Valid syllogism.",
+          "correction_es": "Silogismo válido."
+        },
+        {
+          "id": "l07-m09",
+          "type": "mcq",
+          "prompt": "Si x + 5 = 12, quelle est la valeur de 2x ?",
+          "prompt_nl": "Als x + 5 = 12, wat is de waarde van 2x?",
+          "prompt_en": "If x + 5 = 12, what is 2x?",
+          "prompt_es": "Si x + 5 = 12, ¿cuál es el valor de 2x?",
           "options": [
             "10",
             "12",
-            "16",
-            "14"
+            "14",
+            "16"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "14",
+          "correction": "x=7, 2×7=14.",
+          "correction_nl": "x=7, 2×7=14.",
+          "correction_en": "x=7, 2×7=14.",
+          "correction_es": "x=7, 2×7=14."
         },
         {
-          "id": "qm2",
+          "id": "l07-m10",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Dans une classe, 60% des élèves sont des filles. Il y a 30 élèves. Combien de garçons ?",
+          "prompt_nl": "In een klas zijn 60% meisjes. Er zijn 30 leerlingen. Hoeveel jongens?",
+          "prompt_en": "In a class, 60% are girls. 30 students total. How many boys?",
+          "prompt_es": "En una clase, el 60% son niñas. Hay 30 alumnos. ¿Cuántos niños?",
           "options": [
-            "18",
-            "24",
-            "32",
-            "20"
+            "10",
+            "12",
+            "14",
+            "18"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
-        },
-        {
-          "id": "qm3",
-          "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
-          "options": [
-            "36",
-            "48",
-            "30",
-            "42"
-          ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
-        },
-        {
-          "id": "qm4",
-          "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
-          "options": [
-            "65",
-            "55",
-            "60",
-            "50"
-          ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
-        },
-        {
-          "id": "qm5",
-          "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
-          "options": [
-            "54",
-            "81",
-            "36",
-            "63"
-          ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
-        },
-        {
-          "id": "qm6",
-          "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
-          "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
-          ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
-        },
-        {
-          "id": "qm7",
-          "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
-          "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
-          ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
-        },
-        {
-          "id": "qm8",
-          "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
-          "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
-          ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
-        },
-        {
-          "id": "qm9",
-          "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
-          "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
-          ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
-        },
-        {
-          "id": "qm10",
-          "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
-          "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
-          ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "12",
+          "correction": "40% × 30 = 12.",
+          "correction_nl": "40% × 30 = 12.",
+          "correction_en": "40% × 30 = 12.",
+          "correction_es": "40% × 30 = 12."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l07-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 25, 26, 27, 28, …",
+          "prompt": "5 amis s'échangent chacun 1 poignée de main. Combien de poignées en tout ?",
+          "prompt_nl": "5 vrienden geven elkaar elk 1 handdruk. Hoeveel handdrukken in totaal?",
+          "prompt_en": "5 friends each shake hands once. How many handshakes total?",
+          "prompt_es": "5 amigos se dan 1 apretón de manos cada uno. ¿Cuántos apretones en total?",
           "options": [
-            "29",
-            "30",
-            "26",
-            "31"
+            "5",
+            "8",
+            "10",
+            "12"
           ],
-          "answer": "29",
-          "correction": "On ajoute 1 à chaque fois : 29.",
-          "prompt_nl": "Maak de rij af: 25, 26, 27, 28, …",
-          "prompt_en": "Continue the sequence: 25, 26, 27, 28, …",
-          "prompt_es": "Continúa la serie: 25, 26, 27, 28, …",
-          "correction_nl": "Elke keer +1: 29.",
-          "correction_en": "Add 1 each time: 29.",
-          "correction_es": "Se suma 1 cada vez: 29."
+          "answer": "10",
+          "correction": "C(5,2) = 10.",
+          "correction_nl": "C(5,2) = 10.",
+          "correction_en": "C(5,2) = 10.",
+          "correction_es": "C(5,2) = 10."
         },
         {
-          "id": "q12",
+          "id": "l07-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 9, 14, 19, 24, …",
+          "prompt": "Un escargot monte 3 m par jour et descend 1 m la nuit. Combien de jours pour monter 10 m ?",
+          "prompt_nl": "Een slak klimt 3 m per dag en daalt 1 m per nacht. Hoeveel dagen om 10 m te beklimmen?",
+          "prompt_en": "A snail climbs 3 m per day, slides 1 m per night. Days to climb 10 m?",
+          "prompt_es": "Un caracol sube 3 m de día y baja 1 m de noche. ¿Días para subir 10 m?",
           "options": [
-            "30",
-            "25",
-            "29",
-            "23"
+            "4",
+            "5",
+            "6",
+            "7"
           ],
-          "answer": "29",
-          "correction": "On ajoute 5 à chaque fois : 29.",
-          "prompt_nl": "Maak de rij af: 9, 14, 19, 24, …",
-          "prompt_en": "Continue the sequence: 9, 14, 19, 24, …",
-          "prompt_es": "Continúa la serie: 9, 14, 19, 24, …",
-          "correction_nl": "Elke keer +5: 29.",
-          "correction_en": "Add 5 each time: 29.",
-          "correction_es": "Se suma 5 cada vez: 29."
+          "answer": "5",
+          "correction": "Après 4 nuits = 8 m, jour 5 : 8+3=11≥10.",
+          "correction_nl": "Na 4 nachten = 8 m, dag 5: 11≥10.",
+          "correction_en": "After 4 nights = 8 m, day 5: 11≥10.",
+          "correction_es": "Tras 4 noches = 8 m, día 5: 11≥10."
         },
         {
-          "id": "q13",
+          "id": "l07-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 22, 24, 26, 28, …",
+          "prompt": "Il y a 7 ponts entre les îles A, B, C. Peut-on traverser chaque pont exactement une fois et revenir au départ ?",
+          "prompt_nl": "Er zijn 7 bruggen tussen eilanden A, B, C. Kan je elke brug precies één keer oversteken en terugkomen?",
+          "prompt_en": "7 bridges between islands A, B, C. Can you cross each bridge exactly once and return to start?",
+          "prompt_es": "7 puentes entre islas A, B, C. ¿Se puede cruzar cada puente exactamente una vez y volver?",
           "options": [
-            "30",
-            "32",
-            "29",
-            "28"
+            "Oui",
+            "Non",
+            "Seulement si on part de B",
+            "Ça dépend"
           ],
-          "answer": "30",
-          "correction": "On ajoute 2 à chaque fois : 30.",
-          "prompt_nl": "Maak de rij af: 22, 24, 26, 28, …",
-          "prompt_en": "Continue the sequence: 22, 24, 26, 28, …",
-          "prompt_es": "Continúa la serie: 22, 24, 26, 28, …",
-          "correction_nl": "Elke keer +2: 30.",
-          "correction_en": "Add 2 each time: 30.",
-          "correction_es": "Se suma 2 cada vez: 30."
+          "answer": "Non",
+          "correction": "Problème des ponts de Königsberg : impossible si > 2 nœuds de degré impair.",
+          "correction_nl": "Königsberg: onmogelijk met > 2 knopen van oneven graad.",
+          "correction_en": "Königsberg bridges: impossible with >2 odd-degree nodes.",
+          "correction_es": "Puentes de Königsberg: imposible con >2 nodos de grado impar."
         },
         {
-          "id": "q14",
+          "id": "l07-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 5, 9, 13, …",
+          "prompt": "3 × 4 lignes dans un tableau. Combien de rectangles différents peut-on y tracer ?",
+          "prompt_nl": "3 × 4 raster. Hoeveel verschillende rechthoeken kan je tekenen?",
+          "prompt_en": "3×4 grid. How many different rectangles can you draw?",
+          "prompt_es": "Cuadrícula 3×4. ¿Cuántos rectángulos diferentes se pueden trazar?",
           "options": [
-            "14",
-            "16",
-            "17",
-            "20"
-          ],
-          "answer": "17",
-          "correction": "On ajoute 4 à chaque fois : 17.",
-          "prompt_nl": "Maak de rij af: 1, 5, 9, 13, …",
-          "prompt_en": "Continue the sequence: 1, 5, 9, 13, …",
-          "prompt_es": "Continúa la serie: 1, 5, 9, 13, …",
-          "correction_nl": "Elke keer +4: 17.",
-          "correction_en": "Add 4 each time: 17.",
-          "correction_es": "Se suma 4 cada vez: 17."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 13, 15, 17, 19, …",
-          "options": [
-            "22",
-            "21",
+            "18",
             "24",
-            "20"
+            "36",
+            "54"
           ],
-          "answer": "21",
-          "correction": "On ajoute 2 à chaque fois : 21.",
-          "prompt_nl": "Maak de rij af: 13, 15, 17, 19, …",
-          "prompt_en": "Continue the sequence: 13, 15, 17, 19, …",
-          "prompt_es": "Continúa la serie: 13, 15, 17, 19, …",
-          "correction_nl": "Elke keer +2: 21.",
-          "correction_en": "Add 2 each time: 21.",
-          "correction_es": "Se suma 2 cada vez: 21."
+          "answer": "18",
+          "correction": "C(4,2)×C(3,2)=6×3=18.",
+          "correction_nl": "C(4,2)×C(3,2)=18.",
+          "correction_en": "C(4,2)×C(3,2)=18.",
+          "correction_es": "C(4,2)×C(3,2)=18."
         },
         {
-          "id": "q16",
+          "id": "l07-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 13, 17, 21, 25, …",
+          "prompt": "Si lundi = 1, mardi = 2, …, dimanche = 7, quel jour est le 100e jour de l'année (commence lundi) ?",
+          "prompt_nl": "Als ma=1 … zo=7, welke dag is de 100e dag (start maandag)?",
+          "prompt_en": "If Mon=1…Sun=7, what day is day 100 (starts Monday)?",
+          "prompt_es": "Si lun=1…dom=7, ¿qué día es el 100.º día (empieza lunes)?",
           "options": [
-            "34",
+            "lundi",
+            "mercredi",
+            "jeudi",
+            "vendredi"
+          ],
+          "answer": "mercredi",
+          "correction": "(100-1) mod 7 = 99 mod 7 = 1 → lun+1 = mercredi.",
+          "correction_nl": "(100-1) mod 7 = 1 → woensdag.",
+          "correction_en": "(100-1) mod 7 = 1 → Wednesday.",
+          "correction_es": "(100-1) mod 7 = 1 → miércoles."
+        },
+        {
+          "id": "l07-d06",
+          "type": "mcq",
+          "prompt": "Un menteur dit toujours le contraire. Il dit \"Il fait beau.\" Fait-il beau ?",
+          "prompt_nl": "Een leugenaar zegt altijd het tegenovergestelde. Hij zegt \"Het is mooi weer.\" Is het mooi weer?",
+          "prompt_en": "A liar always says the opposite. He says \"It is sunny.\" Is it sunny?",
+          "prompt_es": "Un mentiroso siempre dice lo contrario. Dice \"Hace buen tiempo.\" ¿Hace buen tiempo?",
+          "options": [
+            "Oui",
+            "Non",
+            "On ne sait pas",
+            "Peut-être"
+          ],
+          "answer": "Non",
+          "correction": "Il ment, donc il ne fait pas beau.",
+          "correction_nl": "Hij liegt, dus het is geen mooi weer.",
+          "correction_en": "He lies, so it is not sunny.",
+          "correction_es": "Miente, así que no hace buen tiempo."
+        },
+        {
+          "id": "l07-d07",
+          "type": "mcq",
+          "prompt": "5! (5 factorielle) = ?",
+          "prompt_nl": "5! (5 faculteit) = ?",
+          "prompt_en": "5! (5 factorial) = ?",
+          "prompt_es": "5! (5 factorial) = ?",
+          "options": [
             "24",
-            "29",
-            "35"
+            "60",
+            "100",
+            "120"
           ],
-          "answer": "29",
-          "correction": "On ajoute 4 à chaque fois : 29.",
-          "prompt_nl": "Maak de rij af: 13, 17, 21, 25, …",
-          "prompt_en": "Continue the sequence: 13, 17, 21, 25, …",
-          "prompt_es": "Continúa la serie: 13, 17, 21, 25, …",
-          "correction_nl": "Elke keer +4: 29.",
-          "correction_en": "Add 4 each time: 29.",
-          "correction_es": "Se suma 4 cada vez: 29."
+          "answer": "120",
+          "correction": "5×4×3×2×1=120.",
+          "correction_nl": "5×4×3×2×1=120.",
+          "correction_en": "5×4×3×2×1=120.",
+          "correction_es": "5×4×3×2×1=120."
         },
         {
-          "id": "q17",
+          "id": "l07-d08",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Si p→q est vrai et ¬q est vrai, que peut-on conclure ?",
+          "prompt_nl": "Als p→q waar is en ¬q waar is, wat kunnen we concluderen?",
+          "prompt_en": "If p→q is true and ¬q is true, what can we conclude?",
+          "prompt_es": "Si p→q es verdad y ¬q es verdad, ¿qué podemos concluir?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "p est vrai",
+            "¬p est vrai",
+            "q est vrai",
+            "On ne sait pas"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "¬p est vrai",
+          "correction": "Modus tollens : ¬q ∧ (p→q) → ¬p.",
+          "correction_nl": "Modus tollens: ¬p.",
+          "correction_en": "Modus tollens: ¬p.",
+          "correction_es": "Modus tollens: ¬p."
         },
         {
-          "id": "q18",
+          "id": "l07-d09",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
+          "prompt": "Combien de façons d'ordonner les lettres A, B, C ?",
+          "prompt_nl": "Hoeveel manieren om A, B, C te ordenen?",
+          "prompt_en": "How many ways to order A, B, C?",
+          "prompt_es": "¿De cuántas formas se pueden ordenar A, B, C?",
           "options": [
             "3",
+            "4",
             "6",
             "8"
           ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
+          "answer": "6",
+          "correction": "3! = 6.",
+          "correction_nl": "3! = 6.",
+          "correction_en": "3! = 6.",
+          "correction_es": "3! = 6."
         },
         {
-          "id": "q19",
+          "id": "l07-d10",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
-          "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+          "prompt": "Pierre, Paul, Jacques — chacun ment ou dit la vérité. Pierre : \"Je dis la vérité.\" Paul : \"Pierre ment.\" Qui ment ?",
+          "prompt_nl": "Pierre, Paul, Jacques — elk liegt of zegt de waarheid. Pierre: \"Ik zeg de waarheid.\" Paul: \"Pierre liegt.\"",
+          "prompt_en": [
+            "Pierre",
+            "Paul",
+            "Les deux",
+            "Ni l'un ni l'autre"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
-          "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
-          ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "prompt_es": "Paul",
+          "options": "Si Pierre dit la vérité, Paul ment. Si Pierre ment, sa phrase est fausse mais ça crée un paradoxe → Paul ment.",
+          "answer": "Als Pierre de waarheid zegt, liegt Paul.",
+          "correction": "If Pierre tells truth, Paul lies.",
+          "correction_nl": "Si Pierre dice la verdad, Paul miente.",
+          "correction_en": "lol"
         }
       ]
     }

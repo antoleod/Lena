@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 5",
-  "emoji": "🧩",
+  "title": "Analogies 🔗",
+  "emoji": "🔗",
   "order": 5,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l05-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 6, 8, 10, …",
+          "prompt": "Chien est à animal comme rose est à … ?",
+          "prompt_nl": "Hond staat tot dier als roos tot … ?",
+          "prompt_en": "Dog is to animal as rose is to … ?",
+          "prompt_es": "Perro es a animal como rosa es a … ?",
           "options": [
-            "12",
-            "10",
-            "13",
-            "9"
+            "couleur",
+            "fleur",
+            "arbre",
+            "jardin"
           ],
-          "answer": "12",
-          "correction": "On ajoute 2 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 4, 6, 8, 10, …",
-          "prompt_en": "Continue the sequence: 4, 6, 8, 10, …",
-          "prompt_es": "Continúa la serie: 4, 6, 8, 10, …",
-          "correction_nl": "Elke keer +2: 12.",
-          "correction_en": "Add 2 each time: 12.",
-          "correction_es": "Se suma 2 cada vez: 12."
+          "answer": "fleur",
+          "correction": "Rose est une fleur.",
+          "correction_nl": "Roos is een bloem.",
+          "correction_en": "A rose is a flower.",
+          "correction_es": "Una rosa es una flor."
         },
         {
-          "id": "q10",
+          "id": "l05-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 10, 13, 16, …",
+          "prompt": "Jour est à nuit comme chaud est à … ?",
+          "prompt_nl": "Dag staat tot nacht als warm tot … ?",
+          "prompt_en": "Day is to night as hot is to … ?",
+          "prompt_es": "Día es a noche como caliente es a … ?",
           "options": [
-            "17",
-            "19",
-            "22",
-            "18"
+            "soleil",
+            "été",
+            "froid",
+            "lumière"
           ],
-          "answer": "19",
-          "correction": "On ajoute 3 à chaque fois : 19.",
-          "prompt_nl": "Maak de rij af: 7, 10, 13, 16, …",
-          "prompt_en": "Continue the sequence: 7, 10, 13, 16, …",
-          "prompt_es": "Continúa la serie: 7, 10, 13, 16, …",
-          "correction_nl": "Elke keer +3: 19.",
-          "correction_en": "Add 3 each time: 19.",
-          "correction_es": "Se suma 3 cada vez: 19."
+          "answer": "froid",
+          "correction": "Opposé de chaud.",
+          "correction_nl": "Tegengestelde van warm.",
+          "correction_en": "Opposite of hot.",
+          "correction_es": "Opuesto de caliente."
         },
         {
-          "id": "q11",
+          "id": "l05-f03",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 10, 13, 16, …",
+          "prompt": "2 est à 4 comme 3 est à … ?",
+          "prompt_nl": "2 staat tot 4 als 3 tot … ?",
+          "prompt_en": "2 is to 4 as 3 is to … ?",
+          "prompt_es": "2 es a 4 como 3 es a … ?",
           "options": [
-            "22",
-            "20",
-            "14",
-            "19"
-          ],
-          "answer": "19",
-          "correction": "On ajoute 3 à chaque fois : 19.",
-          "prompt_nl": "Maak de rij af: 7, 10, 13, 16, …",
-          "prompt_en": "Continue the sequence: 7, 10, 13, 16, …",
-          "prompt_es": "Continúa la serie: 7, 10, 13, 16, …",
-          "correction_nl": "Elke keer +3: 19.",
-          "correction_en": "Add 3 each time: 19.",
-          "correction_es": "Se suma 3 cada vez: 19."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 6, 9, 12, 15, …",
-          "options": [
-            "18",
-            "22",
-            "23",
-            "14"
-          ],
-          "answer": "18",
-          "correction": "On ajoute 3 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 6, 9, 12, 15, …",
-          "prompt_en": "Continue the sequence: 6, 9, 12, 15, …",
-          "prompt_es": "Continúa la serie: 6, 9, 12, 15, …",
-          "correction_nl": "Elke keer +3: 18.",
-          "correction_en": "Add 3 each time: 18.",
-          "correction_es": "Se suma 3 cada vez: 18."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 6, 8, 10, 12, …",
-          "options": [
-            "18",
-            "12",
-            "14",
-            "13"
-          ],
-          "answer": "14",
-          "correction": "On ajoute 2 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
-          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
-          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
-          "correction_nl": "Elke keer +2: 14.",
-          "correction_en": "Add 2 each time: 14.",
-          "correction_es": "Se suma 2 cada vez: 14."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
-          "options": [
-            "3",
+            "5",
             "6",
+            "7",
             "8"
           ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
+          "answer": "6",
+          "correction": "×2 : 6.",
+          "correction_nl": "×2: 6.",
+          "correction_en": "×2: 6.",
+          "correction_es": "×2: 6."
         },
         {
-          "id": "q15",
+          "id": "l05-f04",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Main est à doigt comme pied est à … ?",
+          "prompt_nl": "Hand staat tot vinger als voet tot … ?",
+          "prompt_en": "Hand is to finger as foot is to … ?",
+          "prompt_es": "Mano es a dedo como pie es a … ?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "jambe",
+            "chaussure",
+            "orteil",
+            "genou"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "orteil",
+          "correction": "Les orteils sont les doigts du pied.",
+          "correction_nl": "Teenvingers zijn de vingers van de voet.",
+          "correction_en": "Toes are foot fingers.",
+          "correction_es": "Los dedos del pie."
         },
         {
-          "id": "q16",
+          "id": "l05-f05",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Chat est à miaou comme chien est à … ?",
+          "prompt_nl": "Kat staat tot miauw als hond tot … ?",
+          "prompt_en": "Cat is to meow as dog is to … ?",
+          "prompt_es": "Gato es a miau como perro es a … ?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "cri",
+            "rugit",
+            "aboie",
+            "siffle"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "aboie",
+          "correction": "Le chien aboie.",
+          "correction_nl": "De hond blaft.",
+          "correction_en": "Dog barks.",
+          "correction_es": "El perro ladra."
+        },
+        {
+          "id": "l05-f06",
+          "type": "mcq",
+          "prompt": "1 est à 10 comme 10 est à … ?",
+          "prompt_nl": "1 staat tot 10 als 10 tot … ?",
+          "prompt_en": "1 is to 10 as 10 is to … ?",
+          "prompt_es": "1 es a 10 como 10 es a … ?",
+          "options": [
+            "11",
+            "20",
+            "50",
+            "100"
+          ],
+          "answer": "100",
+          "correction": "×10.",
+          "correction_nl": "×10.",
+          "correction_en": "×10.",
+          "correction_es": "×10."
+        },
+        {
+          "id": "l05-f07",
+          "type": "mcq",
+          "prompt": "Livre est à lire comme crayon est à … ?",
+          "prompt_nl": "Boek staat tot lezen als potlood tot … ?",
+          "prompt_en": "Book is to read as pencil is to … ?",
+          "prompt_es": "Libro es a leer como lápiz es a … ?",
+          "options": [
+            "gomme",
+            "dessin",
+            "écrire",
+            "école"
+          ],
+          "answer": "écrire",
+          "correction": "On écrit avec un crayon.",
+          "correction_nl": "Je schrijft met een potlood.",
+          "correction_en": "You write with a pencil.",
+          "correction_es": "Se escribe con un lápiz."
+        },
+        {
+          "id": "l05-f08",
+          "type": "mcq",
+          "prompt": "Printemps est à été comme automne est à … ?",
+          "prompt_nl": "Lente staat tot zomer als herfst tot … ?",
+          "prompt_en": "Spring is to summer as autumn is to … ?",
+          "prompt_es": "Primavera es a verano como otoño es a … ?",
+          "options": [
+            "pluie",
+            "hiver",
+            "froid",
+            "vent"
+          ],
+          "answer": "hiver",
+          "correction": "La saison après l'automne.",
+          "correction_nl": "Het seizoen na de herfst.",
+          "correction_en": "Season after autumn.",
+          "correction_es": "La estación después del otoño."
+        },
+        {
+          "id": "l05-f09",
+          "type": "mcq",
+          "prompt": "Triangle est à 3 comme carré est à … ?",
+          "prompt_nl": "Driehoek staat tot 3 als vierkant tot … ?",
+          "prompt_en": "Triangle is to 3 as square is to … ?",
+          "prompt_es": "Triángulo es a 3 como cuadrado es a … ?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "Un carré a 4 côtés.",
+          "correction_nl": "Een vierkant heeft 4 zijden.",
+          "correction_en": "A square has 4 sides.",
+          "correction_es": "Un cuadrado tiene 4 lados."
+        },
+        {
+          "id": "l05-f10",
+          "type": "mcq",
+          "prompt": "Eau est à boire comme pain est à … ?",
+          "prompt_nl": "Water staat tot drinken als brood tot … ?",
+          "prompt_en": "Water is to drink as bread is to … ?",
+          "prompt_es": "Agua es a beber como pan es a … ?",
+          "options": [
+            "cuisine",
+            "manger",
+            "four",
+            "blé"
+          ],
+          "answer": "manger",
+          "correction": "On mange le pain.",
+          "correction_nl": "Je eet brood.",
+          "correction_en": "You eat bread.",
+          "correction_es": "Se come el pan."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l05-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "5 est à 25 comme 3 est à … ?",
+          "prompt_nl": "5 staat tot 25 als 3 tot … ?",
+          "prompt_en": "5 is to 25 as 3 is to … ?",
+          "prompt_es": "5 es a 25 como 3 es a … ?",
           "options": [
-            "10",
+            "6",
+            "9",
             "12",
-            "16",
-            "14"
+            "15"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "9",
+          "correction": "Carré : 3²=9.",
+          "correction_nl": "Kwadraat: 9.",
+          "correction_en": "Square: 3²=9.",
+          "correction_es": "Cuadrado: 3²=9."
         },
         {
-          "id": "qm2",
+          "id": "l05-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Médecin est à hôpital comme pilote est à … ?",
+          "prompt_nl": "Dokter staat tot ziekenhuis als piloot tot … ?",
+          "prompt_en": "Doctor is to hospital as pilot is to … ?",
+          "prompt_es": "Médico es a hospital como piloto es a … ?",
           "options": [
-            "18",
-            "24",
-            "32",
-            "20"
+            "train",
+            "avion",
+            "mer",
+            "aéroport"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "avion",
+          "correction": "Le pilote conduit un avion.",
+          "correction_nl": "Een piloot bestuurt een vliegtuig.",
+          "correction_en": "A pilot flies a plane.",
+          "correction_es": "Un piloto vuela un avión."
         },
         {
-          "id": "qm3",
+          "id": "l05-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Français est à France comme néerlandais est à … ?",
+          "prompt_nl": "Frans staat tot Frankrijk als Nederlands tot … ?",
+          "prompt_en": "French is to France as Dutch is to … ?",
+          "prompt_es": "Francés es a Francia como neerlandés es a … ?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "Belgique",
+            "Angleterre",
+            "Pays-Bas",
+            "Suisse"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "Pays-Bas",
+          "correction": "Le néerlandais est la langue des Pays-Bas.",
+          "correction_nl": "Nederlands is de taal van Nederland.",
+          "correction_en": "Dutch is the language of Netherlands.",
+          "correction_es": "El neerlandés es el idioma de los Países Bajos."
         },
         {
-          "id": "qm4",
+          "id": "l05-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "8 est à 64 comme 7 est à … ?",
+          "prompt_nl": "8 staat tot 64 als 7 tot … ?",
+          "prompt_en": "8 is to 64 as 7 is to … ?",
+          "prompt_es": "8 es a 64 como 7 es a … ?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "35",
+            "42",
+            "49",
+            "56"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "49",
+          "correction": "Carré : 7²=49.",
+          "correction_nl": "Kwadraat: 49.",
+          "correction_en": "Square: 7²=49.",
+          "correction_es": "Cuadrado: 7²=49."
         },
         {
-          "id": "qm5",
+          "id": "l05-m05",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Peintre est à peinture comme sculpteur est à … ?",
+          "prompt_nl": "Schilder staat tot schilderij als beeldhouwer tot … ?",
+          "prompt_en": "Painter is to painting as sculptor is to … ?",
+          "prompt_es": "Pintor es a pintura como escultor es a … ?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "musée",
+            "statue",
+            "argile",
+            "art"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "statue",
+          "correction": "Le sculpteur crée des statues.",
+          "correction_nl": "Een beeldhouwer maakt beelden.",
+          "correction_en": "A sculptor makes statues.",
+          "correction_es": "Un escultor hace estatuas."
         },
         {
-          "id": "qm6",
+          "id": "l05-m06",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Planète est à galaxie comme cellule est à … ?",
+          "prompt_nl": "Planeet staat tot sterrenstelsel als cel tot … ?",
+          "prompt_en": "Planet is to galaxy as cell is to … ?",
+          "prompt_es": "Planeta es a galaxia como célula es a … ?",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "atome",
+            "organisme",
+            "virus",
+            "tissu"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "organisme",
+          "correction": "La cellule compose un organisme.",
+          "correction_nl": "Cellen vormen een organisme.",
+          "correction_en": "Cells make up an organism.",
+          "correction_es": "Las células forman un organismo."
         },
         {
-          "id": "qm7",
+          "id": "l05-m07",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "12 est à 4 comme 21 est à … ?",
+          "prompt_nl": "12 staat tot 4 als 21 tot … ?",
+          "prompt_en": "12 is to 4 as 21 is to … ?",
+          "prompt_es": "12 es a 4 como 21 es a … ?",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "5",
+            "6",
+            "7",
+            "8"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "7",
+          "correction": "÷3 : 21÷3=7.",
+          "correction_nl": "÷3: 7.",
+          "correction_en": "÷3: 7.",
+          "correction_es": "÷3: 7."
         },
         {
-          "id": "qm8",
+          "id": "l05-m08",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Symphonie est à compositeur comme roman est à … ?",
+          "prompt_nl": "Symfonie staat tot componist als roman tot … ?",
+          "prompt_en": "Symphony is to composer as novel is to … ?",
+          "prompt_es": "Sinfonía es a compositor como novela es a … ?",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "livre",
+            "lecteur",
+            "auteur",
+            "éditeur"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "auteur",
+          "correction": "L'auteur écrit le roman.",
+          "correction_nl": "De auteur schrijft de roman.",
+          "correction_en": "The author writes the novel.",
+          "correction_es": "El autor escribe la novela."
         },
         {
-          "id": "qm9",
+          "id": "l05-m09",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "Eau est à liquide comme glace est à … ?",
+          "prompt_nl": "Water staat tot vloeistof als ijs tot … ?",
+          "prompt_en": "Water is to liquid as ice is to … ?",
+          "prompt_es": "Agua es a líquido como hielo es a … ?",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "froid",
+            "solide",
+            "blanc",
+            "hiver"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "solide",
+          "correction": "La glace est l'eau à l'état solide.",
+          "correction_nl": "IJs is vast water.",
+          "correction_en": "Ice is water in solid state.",
+          "correction_es": "El hielo es agua sólida."
         },
         {
-          "id": "qm10",
+          "id": "l05-m10",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "Rapide est à lent comme large est à … ?",
+          "prompt_nl": "Snel staat tot langzaam als breed tot … ?",
+          "prompt_en": "Fast is to slow as wide is to … ?",
+          "prompt_es": "Rápido es a lento como ancho es a … ?",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "court",
+            "haut",
+            "étroit",
+            "bas"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "étroit",
+          "correction": "Opposé de large.",
+          "correction_nl": "Tegengestelde van breed.",
+          "correction_en": "Opposite of wide.",
+          "correction_es": "Opuesto de ancho."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l05-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 17, 19, 21, 23, …",
+          "prompt": "Logarithme est à multiplication comme soustraction est à … ?",
+          "prompt_nl": "Logaritme staat tot vermenigvuldiging als aftrekking tot … ?",
+          "prompt_en": "Logarithm is to multiplication as subtraction is to … ?",
+          "prompt_es": "Logaritmo es a multiplicación como resta es a … ?",
           "options": [
-            "25",
-            "22",
-            "24",
-            "21"
+            "addition",
+            "division",
+            "carré",
+            "exponent"
           ],
-          "answer": "25",
-          "correction": "On ajoute 2 à chaque fois : 25.",
-          "prompt_nl": "Maak de rij af: 17, 19, 21, 23, …",
-          "prompt_en": "Continue the sequence: 17, 19, 21, 23, …",
-          "prompt_es": "Continúa la serie: 17, 19, 21, 23, …",
-          "correction_nl": "Elke keer +2: 25.",
-          "correction_en": "Add 2 each time: 25.",
-          "correction_es": "Se suma 2 cada vez: 25."
+          "answer": "addition",
+          "correction": "Soustraction inverse l'addition.",
+          "correction_nl": "Aftrekken is het omgekeerde van optellen.",
+          "correction_en": "Subtraction undoes addition.",
+          "correction_es": "La resta deshace la suma."
         },
         {
-          "id": "q12",
+          "id": "l05-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 17, 23, 29, 35, …",
+          "prompt": "3 est à 6 comme 5 est à 20 comme 4 est à … ?",
+          "prompt_nl": "3 staat tot 6 als 5 tot 20 als 4 tot … ?",
+          "prompt_en": "3 is to 6 as 5 is to 20 as 4 is to … ?",
+          "prompt_es": "3 es a 6 como 5 es a 20 como 4 es a … ?",
           "options": [
-            "36",
-            "41",
-            "49",
-            "34"
+            "8",
+            "12",
+            "16",
+            "20"
           ],
-          "answer": "41",
-          "correction": "On ajoute 6 à chaque fois : 41.",
-          "prompt_nl": "Maak de rij af: 17, 23, 29, 35, …",
-          "prompt_en": "Continue the sequence: 17, 23, 29, 35, …",
-          "prompt_es": "Continúa la serie: 17, 23, 29, 35, …",
-          "correction_nl": "Elke keer +6: 41.",
-          "correction_en": "Add 6 each time: 41.",
-          "correction_es": "Se suma 6 cada vez: 41."
+          "answer": "16",
+          "correction": "×n² ? Non : 3→6 ×2, 5→20 ×4, 4→? : ×4=16.",
+          "correction_nl": "3→6 ×2, 5→20 ×4, 4→16 ×4?",
+          "correction_en": "3→6 ×2, 5→20 ×4, 4→16 ×4.",
+          "correction_es": "3→6 ×2, 5→20 ×4, 4→16 ×4."
         },
         {
-          "id": "q13",
+          "id": "l05-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 23, 29, 35, 41, …",
+          "prompt": "Démocratie est à vote comme monarchie est à … ?",
+          "prompt_nl": "Democratie staat tot stemming als monarchie tot … ?",
+          "prompt_en": "Democracy is to vote as monarchy is to … ?",
+          "prompt_es": "Democracia es a voto como monarquía es a … ?",
           "options": [
-            "52",
-            "41",
-            "49",
-            "47"
+            "loi",
+            "naissance",
+            "roi",
+            "guerre"
           ],
-          "answer": "47",
-          "correction": "On ajoute 6 à chaque fois : 47.",
-          "prompt_nl": "Maak de rij af: 23, 29, 35, 41, …",
-          "prompt_en": "Continue the sequence: 23, 29, 35, 41, …",
-          "prompt_es": "Continúa la serie: 23, 29, 35, 41, …",
-          "correction_nl": "Elke keer +6: 47.",
-          "correction_en": "Add 6 each time: 47.",
-          "correction_es": "Se suma 6 cada vez: 47."
+          "answer": "naissance",
+          "correction": "Le pouvoir en monarchie est transmis par naissance.",
+          "correction_nl": "Macht via geboorte.",
+          "correction_en": "Power through birth.",
+          "correction_es": "Poder por nacimiento."
         },
         {
-          "id": "q14",
+          "id": "l05-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 8, 12, 16, …",
+          "prompt": "Carbone est à diamant comme silice est à … ?",
+          "prompt_nl": "Koolstof staat tot diamant als silicium tot … ?",
+          "prompt_en": "Carbon is to diamond as silicon is to … ?",
+          "prompt_es": "Carbono es a diamante como silicio es a … ?",
           "options": [
-            "20",
-            "14",
-            "15",
-            "17"
+            "sable",
+            "verre",
+            "cristal",
+            "quartz"
           ],
-          "answer": "20",
-          "correction": "On ajoute 4 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 4, 8, 12, 16, …",
-          "prompt_en": "Continue the sequence: 4, 8, 12, 16, …",
-          "prompt_es": "Continúa la serie: 4, 8, 12, 16, …",
-          "correction_nl": "Elke keer +4: 20.",
-          "correction_en": "Add 4 each time: 20.",
-          "correction_es": "Se suma 4 cada vez: 20."
+          "answer": "quartz",
+          "correction": "SiO₂ = quartz.",
+          "correction_nl": "SiO₂ = kwarts.",
+          "correction_en": "SiO₂ = quartz.",
+          "correction_es": "SiO₂ = cuarzo."
         },
         {
-          "id": "q15",
+          "id": "l05-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 6, 10, 14, 18, …",
+          "prompt": "4 est à 2 comme 9 est à … ?",
+          "prompt_nl": "4 staat tot 2 als 9 tot … ?",
+          "prompt_en": "4 is to 2 as 9 is to … ?",
+          "prompt_es": "4 es a 2 como 9 es a … ?",
           "options": [
-            "27",
-            "23",
-            "22",
-            "19"
-          ],
-          "answer": "22",
-          "correction": "On ajoute 4 à chaque fois : 22.",
-          "prompt_nl": "Maak de rij af: 6, 10, 14, 18, …",
-          "prompt_en": "Continue the sequence: 6, 10, 14, 18, …",
-          "prompt_es": "Continúa la serie: 6, 10, 14, 18, …",
-          "correction_nl": "Elke keer +4: 22.",
-          "correction_en": "Add 4 each time: 22.",
-          "correction_es": "Se suma 4 cada vez: 22."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Continue la suite : 16, 18, 20, 22, …",
-          "options": [
-            "21",
-            "28",
-            "25",
-            "24"
-          ],
-          "answer": "24",
-          "correction": "On ajoute 2 à chaque fois : 24.",
-          "prompt_nl": "Maak de rij af: 16, 18, 20, 22, …",
-          "prompt_en": "Continue the sequence: 16, 18, 20, 22, …",
-          "prompt_es": "Continúa la serie: 16, 18, 20, 22, …",
-          "correction_nl": "Elke keer +2: 24.",
-          "correction_en": "Add 2 each time: 24.",
-          "correction_es": "Se suma 2 cada vez: 24."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
-          "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
-          ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
-          "options": [
-            "table",
-            "chat",
-            "lapin"
-          ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
+            "2",
+            "3",
             "4",
-            "7"
+            "5"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "3",
+          "correction": "Racine carrée : √9=3.",
+          "correction_nl": "Vierkantswortel: 3.",
+          "correction_en": "Square root: 3.",
+          "correction_es": "Raíz cuadrada: 3."
         },
         {
-          "id": "q20",
+          "id": "l05-d06",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Aveuglement est à lumière comme surdité est à … ?",
+          "prompt_nl": "Blindheid staat tot licht als doofheid tot … ?",
+          "prompt_en": "Blindness is to light as deafness is to … ?",
+          "prompt_es": "Ceguera es a luz como sordera es a … ?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "son",
+            "œil",
+            "parole",
+            "musique"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "son",
+          "correction": "La surdité est l'absence de son.",
+          "correction_nl": "Doofheid is afwezigheid van geluid.",
+          "correction_en": "Deafness is absence of sound.",
+          "correction_es": "La sordera es ausencia de sonido."
+        },
+        {
+          "id": "l05-d07",
+          "type": "mcq",
+          "prompt": "Cercle est à π comme carré est à … ?",
+          "prompt_nl": "Cirkel staat tot π als vierkant tot … ?",
+          "prompt_en": "Circle is to π as square is to … ?",
+          "prompt_es": "Círculo es a π como cuadrado es a … ?",
+          "options": [
+            "√2",
+            "4",
+            "2",
+            "π/4"
+          ],
+          "answer": "4",
+          "correction": "Aire du carré = côté² — lié à 4 coins.",
+          "correction_nl": "Oppervlakte = zijde².",
+          "correction_en": "Area = side² — 4 corners.",
+          "correction_es": "Área = lado² — 4 esquinas."
+        },
+        {
+          "id": "l05-d08",
+          "type": "mcq",
+          "prompt": "Lune est à Terre comme Titan est à … ?",
+          "prompt_nl": "Maan staat tot Aarde als Titan tot … ?",
+          "prompt_en": "Moon is to Earth as Titan is to … ?",
+          "prompt_es": "Luna es a Tierra como Titán es a … ?",
+          "options": [
+            "Mars",
+            "Jupiter",
+            "Saturne",
+            "Uranus"
+          ],
+          "answer": "Saturne",
+          "correction": "Titan est une lune de Saturne.",
+          "correction_nl": "Titan is een maan van Saturnus.",
+          "correction_en": "Titan is a moon of Saturn.",
+          "correction_es": "Titán es una luna de Saturno."
+        },
+        {
+          "id": "l05-d09",
+          "type": "mcq",
+          "prompt": "Blanc est à noir comme pair est à … ?",
+          "prompt_nl": "Wit staat tot zwart als even tot … ?",
+          "prompt_en": "White is to black as even is to … ?",
+          "prompt_es": "Blanco es a negro como par es a … ?",
+          "options": [
+            "zéro",
+            "grand",
+            "impair",
+            "nombre"
+          ],
+          "answer": "impair",
+          "correction": "Opposé de pair.",
+          "correction_nl": "Tegengestelde van even.",
+          "correction_en": "Opposite of even.",
+          "correction_es": "Opuesto de par."
+        },
+        {
+          "id": "l05-d10",
+          "type": "mcq",
+          "prompt": "Hypothèse est à conclusion comme prémisse est à … ?",
+          "prompt_nl": "Hypothese staat tot conclusie als premisse tot … ?",
+          "prompt_en": "Hypothesis is to conclusion as premise is to … ?",
+          "prompt_es": "Hipótesis es a conclusión como premisa es a … ?",
+          "options": [
+            "question",
+            "théorème",
+            "axiome",
+            "déduction"
+          ],
+          "answer": "déduction",
+          "correction": "La prémisse mène à une déduction.",
+          "correction_nl": "Premisse leidt tot deductie.",
+          "correction_en": "Premise leads to deduction.",
+          "correction_es": "La premisa lleva a una deducción."
         }
       ]
     }

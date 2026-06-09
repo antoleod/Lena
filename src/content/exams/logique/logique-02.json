@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 2",
-  "emoji": "💡",
+  "title": "Suites qui descendent 📉",
+  "emoji": "📉",
   "order": 2,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l02-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 6, 8, 10, …",
+          "prompt": "Continue : 10, 9, 8, 7, …",
+          "prompt_nl": "Ga verder: 10, 9, 8, 7, …",
+          "prompt_en": "Continue: 10, 9, 8, 7, …",
+          "prompt_es": "Continúa: 10, 9, 8, 7, …",
           "options": [
-            "15",
+            "5",
+            "6",
+            "7",
+            "4"
+          ],
+          "answer": "6",
+          "correction": "-1 : 6.",
+          "correction_nl": "-1: 6.",
+          "correction_en": "Subtract 1: 6.",
+          "correction_es": "Resta 1: 6."
+        },
+        {
+          "id": "l02-f02",
+          "type": "mcq",
+          "prompt": "Continue : 20, 18, 16, 14, …",
+          "prompt_nl": "Ga verder: 20, 18, 16, 14, …",
+          "prompt_en": "Continue: 20, 18, 16, 14, …",
+          "prompt_es": "Continúa: 20, 18, 16, 14, …",
+          "options": [
+            "10",
+            "11",
             "12",
-            "16",
             "13"
           ],
           "answer": "12",
-          "correction": "On ajoute 2 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 4, 6, 8, 10, …",
-          "prompt_en": "Continue the sequence: 4, 6, 8, 10, …",
-          "prompt_es": "Continúa la serie: 4, 6, 8, 10, …",
-          "correction_nl": "Elke keer +2: 12.",
-          "correction_en": "Add 2 each time: 12.",
-          "correction_es": "Se suma 2 cada vez: 12."
+          "correction": "-2 : 12.",
+          "correction_nl": "-2: 12.",
+          "correction_en": "Subtract 2: 12.",
+          "correction_es": "Resta 2: 12."
         },
         {
-          "id": "q10",
+          "id": "l02-f03",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 3, 4, 5, …",
+          "prompt": "Continue : 15, 12, 9, 6, …",
+          "prompt_nl": "Ga verder: 15, 12, 9, 6, …",
+          "prompt_en": "Continue: 15, 12, 9, 6, …",
+          "prompt_es": "Continúa: 15, 12, 9, 6, …",
           "options": [
-            "7",
-            "6",
-            "9",
-            "8"
-          ],
-          "answer": "6",
-          "correction": "On ajoute 1 à chaque fois : 6.",
-          "prompt_nl": "Maak de rij af: 2, 3, 4, 5, …",
-          "prompt_en": "Continue the sequence: 2, 3, 4, 5, …",
-          "prompt_es": "Continúa la serie: 2, 3, 4, 5, …",
-          "correction_nl": "Elke keer +1: 6.",
-          "correction_en": "Add 1 each time: 6.",
-          "correction_es": "Se suma 1 cada vez: 6."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Continue la suite : 10, 11, 12, 13, …",
-          "options": [
-            "15",
-            "11",
-            "14",
-            "13"
-          ],
-          "answer": "14",
-          "correction": "On ajoute 1 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 10, 11, 12, 13, …",
-          "prompt_en": "Continue the sequence: 10, 11, 12, 13, …",
-          "prompt_es": "Continúa la serie: 10, 11, 12, 13, …",
-          "correction_nl": "Elke keer +1: 14.",
-          "correction_en": "Add 1 each time: 14.",
-          "correction_es": "Se suma 1 cada vez: 14."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 3, 4, …",
-          "options": [
-            "6",
+            "2",
+            "3",
             "4",
-            "5",
-            "3"
+            "5"
           ],
-          "answer": "5",
-          "correction": "On ajoute 1 à chaque fois : 5.",
-          "prompt_nl": "Maak de rij af: 1, 2, 3, 4, …",
-          "prompt_en": "Continue the sequence: 1, 2, 3, 4, …",
-          "prompt_es": "Continúa la serie: 1, 2, 3, 4, …",
-          "correction_nl": "Elke keer +1: 5.",
-          "correction_en": "Add 1 each time: 5.",
-          "correction_es": "Se suma 1 cada vez: 5."
+          "answer": "3",
+          "correction": "-3 : 3.",
+          "correction_nl": "-3: 3.",
+          "correction_en": "Subtract 3: 3.",
+          "correction_es": "Resta 3: 3."
         },
         {
-          "id": "q13",
+          "id": "l02-f04",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 5, 8, 11, …",
+          "prompt": "Continue : 30, 25, 20, 15, …",
+          "prompt_nl": "Ga verder: 30, 25, 20, 15, …",
+          "prompt_en": "Continue: 30, 25, 20, 15, …",
+          "prompt_es": "Continúa: 30, 25, 20, 15, …",
           "options": [
-            "17",
-            "18",
-            "14",
+            "8",
+            "9",
+            "10",
+            "11"
+          ],
+          "answer": "10",
+          "correction": "-5 : 10.",
+          "correction_nl": "-5: 10.",
+          "correction_en": "Subtract 5: 10.",
+          "correction_es": "Resta 5: 10."
+        },
+        {
+          "id": "l02-f05",
+          "type": "mcq",
+          "prompt": "Continue : 8, 7, 6, 5, …",
+          "prompt_nl": "Ga verder: 8, 7, 6, 5, …",
+          "prompt_en": "Continue: 8, 7, 6, 5, …",
+          "prompt_es": "Continúa: 8, 7, 6, 5, …",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "-1 : 4.",
+          "correction_nl": "-1: 4.",
+          "correction_en": "Subtract 1: 4.",
+          "correction_es": "Resta 1: 4."
+        },
+        {
+          "id": "l02-f06",
+          "type": "mcq",
+          "prompt": "Continue : 12, 10, 8, 6, …",
+          "prompt_nl": "Ga verder: 12, 10, 8, 6, …",
+          "prompt_en": "Continue: 12, 10, 8, 6, …",
+          "prompt_es": "Continúa: 12, 10, 8, 6, …",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "-2 : 4.",
+          "correction_nl": "-2: 4.",
+          "correction_en": "Subtract 2: 4.",
+          "correction_es": "Resta 2: 4."
+        },
+        {
+          "id": "l02-f07",
+          "type": "mcq",
+          "prompt": "Continue : 50, 40, 30, 20, …",
+          "prompt_nl": "Ga verder: 50, 40, 30, 20, …",
+          "prompt_en": "Continue: 50, 40, 30, 20, …",
+          "prompt_es": "Continúa: 50, 40, 30, 20, …",
+          "options": [
+            "5",
+            "8",
+            "10",
             "12"
           ],
-          "answer": "14",
-          "correction": "On ajoute 3 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 2, 5, 8, 11, …",
-          "prompt_en": "Continue the sequence: 2, 5, 8, 11, …",
-          "prompt_es": "Continúa la serie: 2, 5, 8, 11, …",
-          "correction_nl": "Elke keer +3: 14.",
-          "correction_en": "Add 3 each time: 14.",
-          "correction_es": "Se suma 3 cada vez: 14."
+          "answer": "10",
+          "correction": "-10 : 10.",
+          "correction_nl": "-10: 10.",
+          "correction_en": "Subtract 10: 10.",
+          "correction_es": "Resta 10: 10."
         },
         {
-          "id": "q14",
+          "id": "l02-f08",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Continue : 9, 8, 7, 6, …",
+          "prompt_nl": "Ga verder: 9, 8, 7, 6, …",
+          "prompt_en": "Continue: 9, 8, 7, 6, …",
+          "prompt_es": "Continúa: 9, 8, 7, 6, …",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
-          ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
+            "3",
             "4",
+            "5",
+            "6"
+          ],
+          "answer": "5",
+          "correction": "-1 : 5.",
+          "correction_nl": "-1: 5.",
+          "correction_en": "Subtract 1: 5.",
+          "correction_es": "Resta 1: 5."
+        },
+        {
+          "id": "l02-f09",
+          "type": "mcq",
+          "prompt": "Continue : 18, 15, 12, 9, …",
+          "prompt_nl": "Ga verder: 18, 15, 12, 9, …",
+          "prompt_en": "Continue: 18, 15, 12, 9, …",
+          "prompt_es": "Continúa: 18, 15, 12, 9, …",
+          "options": [
+            "4",
+            "5",
+            "6",
             "7"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "6",
+          "correction": "-3 : 6.",
+          "correction_nl": "-3: 6.",
+          "correction_en": "Subtract 3: 6.",
+          "correction_es": "Resta 3: 6."
         },
         {
-          "id": "q16",
+          "id": "l02-f10",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Continue : 20, 16, 12, 8, …",
+          "prompt_nl": "Ga verder: 20, 16, 12, 8, …",
+          "prompt_en": "Continue: 20, 16, 12, 8, …",
+          "prompt_es": "Continúa: 20, 16, 12, 8, …",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "2",
+            "3",
+            "4",
+            "5"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "4",
+          "correction": "-4 : 4.",
+          "correction_nl": "-4: 4.",
+          "correction_en": "Subtract 4: 4.",
+          "correction_es": "Resta 4: 4."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l02-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Continue : 100, 90, 80, 70, …",
+          "prompt_nl": "Ga verder: 100, 90, 80, 70, …",
+          "prompt_en": "Continue: 100, 90, 80, 70, …",
+          "prompt_es": "Continúa: 100, 90, 80, 70, …",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
-          ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
-        },
-        {
-          "id": "qm2",
-          "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
-          "options": [
-            "18",
-            "24",
-            "32",
-            "20"
-          ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
-        },
-        {
-          "id": "qm3",
-          "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
-          "options": [
-            "36",
-            "48",
-            "30",
-            "42"
-          ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
-        },
-        {
-          "id": "qm4",
-          "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
-          "options": [
-            "65",
             "55",
             "60",
-            "50"
+            "65",
+            "70"
           ],
           "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "correction": "-10 : 60.",
+          "correction_nl": "-10: 60.",
+          "correction_en": "Subtract 10: 60.",
+          "correction_es": "Resta 10: 60."
         },
         {
-          "id": "qm5",
+          "id": "l02-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Continue : 50, 43, 36, 29, …",
+          "prompt_nl": "Ga verder: 50, 43, 36, 29, …",
+          "prompt_en": "Continue: 50, 43, 36, 29, …",
+          "prompt_es": "Continúa: 50, 43, 36, 29, …",
           "options": [
-            "54",
-            "81",
+            "20",
+            "22",
+            "24",
+            "26"
+          ],
+          "answer": "22",
+          "correction": "-7 : 22.",
+          "correction_nl": "-7: 22.",
+          "correction_en": "Subtract 7: 22.",
+          "correction_es": "Resta 7: 22."
+        },
+        {
+          "id": "l02-m03",
+          "type": "mcq",
+          "prompt": "Continue : 80, 71, 62, 53, …",
+          "prompt_nl": "Ga verder: 80, 71, 62, 53, …",
+          "prompt_en": "Continue: 80, 71, 62, 53, …",
+          "prompt_es": "Continúa: 80, 71, 62, 53, …",
+          "options": [
+            "42",
+            "44",
+            "46",
+            "48"
+          ],
+          "answer": "44",
+          "correction": "-9 : 44.",
+          "correction_nl": "-9: 44.",
+          "correction_en": "Subtract 9: 44.",
+          "correction_es": "Resta 9: 44."
+        },
+        {
+          "id": "l02-m04",
+          "type": "mcq",
+          "prompt": "Continue : 60, 54, 48, 42, …",
+          "prompt_nl": "Ga verder: 60, 54, 48, 42, …",
+          "prompt_en": "Continue: 60, 54, 48, 42, …",
+          "prompt_es": "Continúa: 60, 54, 48, 42, …",
+          "options": [
+            "34",
             "36",
-            "63"
+            "38",
+            "40"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "36",
+          "correction": "-6 : 36.",
+          "correction_nl": "-6: 36.",
+          "correction_en": "Subtract 6: 36.",
+          "correction_es": "Resta 6: 36."
         },
         {
-          "id": "qm6",
+          "id": "l02-m05",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Continue : 99, 88, 77, 66, …",
+          "prompt_nl": "Ga verder: 99, 88, 77, 66, …",
+          "prompt_en": "Continue: 99, 88, 77, 66, …",
+          "prompt_es": "Continúa: 99, 88, 77, 66, …",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "53",
+            "55",
+            "57",
+            "59"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "55",
+          "correction": "-11 : 55.",
+          "correction_nl": "-11: 55.",
+          "correction_en": "Subtract 11: 55.",
+          "correction_es": "Resta 11: 55."
         },
         {
-          "id": "qm7",
+          "id": "l02-m06",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "Continue : 47, 40, 33, 26, …",
+          "prompt_nl": "Ga verder: 47, 40, 33, 26, …",
+          "prompt_en": "Continue: 47, 40, 33, 26, …",
+          "prompt_es": "Continúa: 47, 40, 33, 26, …",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "17",
+            "19",
+            "21",
+            "23"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "19",
+          "correction": "-7 : 19.",
+          "correction_nl": "-7: 19.",
+          "correction_en": "Subtract 7: 19.",
+          "correction_es": "Resta 7: 19."
         },
         {
-          "id": "qm8",
+          "id": "l02-m07",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Continue : 75, 70, 65, 60, …",
+          "prompt_nl": "Ga verder: 75, 70, 65, 60, …",
+          "prompt_en": "Continue: 75, 70, 65, 60, …",
+          "prompt_es": "Continúa: 75, 70, 65, 60, …",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "53",
+            "55",
+            "57",
+            "59"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "55",
+          "correction": "-5 : 55.",
+          "correction_nl": "-5: 55.",
+          "correction_en": "Subtract 5: 55.",
+          "correction_es": "Resta 5: 55."
         },
         {
-          "id": "qm9",
+          "id": "l02-m08",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "Continue : 36, 30, 24, 18, …",
+          "prompt_nl": "Ga verder: 36, 30, 24, 18, …",
+          "prompt_en": "Continue: 36, 30, 24, 18, …",
+          "prompt_es": "Continúa: 36, 30, 24, 18, …",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "10",
+            "11",
+            "12",
+            "13"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "12",
+          "correction": "-6 : 12.",
+          "correction_nl": "-6: 12.",
+          "correction_en": "Subtract 6: 12.",
+          "correction_es": "Resta 6: 12."
         },
         {
-          "id": "qm10",
+          "id": "l02-m09",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "Continue : 64, 56, 48, 40, …",
+          "prompt_nl": "Ga verder: 64, 56, 48, 40, …",
+          "prompt_en": "Continue: 64, 56, 48, 40, …",
+          "prompt_es": "Continúa: 64, 56, 48, 40, …",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "30",
+            "32",
+            "34",
+            "36"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "32",
+          "correction": "-8 : 32.",
+          "correction_nl": "-8: 32.",
+          "correction_en": "Subtract 8: 32.",
+          "correction_es": "Resta 8: 32."
+        },
+        {
+          "id": "l02-m10",
+          "type": "mcq",
+          "prompt": "Continue : 55, 50, 45, 40, …",
+          "prompt_nl": "Ga verder: 55, 50, 45, 40, …",
+          "prompt_en": "Continue: 55, 50, 45, 40, …",
+          "prompt_es": "Continúa: 55, 50, 45, 40, …",
+          "options": [
+            "33",
+            "35",
+            "37",
+            "39"
+          ],
+          "answer": "35",
+          "correction": "-5 : 35.",
+          "correction_nl": "-5: 35.",
+          "correction_en": "Subtract 5: 35.",
+          "correction_es": "Resta 5: 35."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l02-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 15, 17, 19, 21, …",
+          "prompt": "Continue : 243, 81, 27, 9, …",
+          "prompt_nl": "Ga verder: 243, 81, 27, 9, …",
+          "prompt_en": "Continue: 243, 81, 27, 9, …",
+          "prompt_es": "Continúa: 243, 81, 27, 9, …",
           "options": [
-            "24",
-            "26",
-            "20",
-            "23"
-          ],
-          "answer": "23",
-          "correction": "On ajoute 2 à chaque fois : 23.",
-          "prompt_nl": "Maak de rij af: 15, 17, 19, 21, …",
-          "prompt_en": "Continue the sequence: 15, 17, 19, 21, …",
-          "prompt_es": "Continúa la serie: 15, 17, 19, 21, …",
-          "correction_nl": "Elke keer +2: 23.",
-          "correction_en": "Add 2 each time: 23.",
-          "correction_es": "Se suma 2 cada vez: 23."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 11, 15, 19, 23, …",
-          "options": [
-            "27",
-            "21",
-            "31",
-            "32"
-          ],
-          "answer": "27",
-          "correction": "On ajoute 4 à chaque fois : 27.",
-          "prompt_nl": "Maak de rij af: 11, 15, 19, 23, …",
-          "prompt_en": "Continue the sequence: 11, 15, 19, 23, …",
-          "prompt_es": "Continúa la serie: 11, 15, 19, 23, …",
-          "correction_nl": "Elke keer +4: 27.",
-          "correction_en": "Add 4 each time: 27.",
-          "correction_es": "Se suma 4 cada vez: 27."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 9, 12, 15, 18, …",
-          "options": [
-            "21",
-            "20",
-            "26",
-            "25"
-          ],
-          "answer": "21",
-          "correction": "On ajoute 3 à chaque fois : 21.",
-          "prompt_nl": "Maak de rij af: 9, 12, 15, 18, …",
-          "prompt_en": "Continue the sequence: 9, 12, 15, 18, …",
-          "prompt_es": "Continúa la serie: 9, 12, 15, 18, …",
-          "correction_nl": "Elke keer +3: 21.",
-          "correction_en": "Add 3 each time: 21.",
-          "correction_es": "Se suma 3 cada vez: 21."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Continue la suite : 23, 26, 29, 32, …",
-          "options": [
-            "31",
-            "30",
-            "39",
-            "35"
-          ],
-          "answer": "35",
-          "correction": "On ajoute 3 à chaque fois : 35.",
-          "prompt_nl": "Maak de rij af: 23, 26, 29, 32, …",
-          "prompt_en": "Continue the sequence: 23, 26, 29, 32, …",
-          "prompt_es": "Continúa la serie: 23, 26, 29, 32, …",
-          "correction_nl": "Elke keer +3: 35.",
-          "correction_en": "Add 3 each time: 35.",
-          "correction_es": "Se suma 3 cada vez: 35."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 9, 12, …",
-          "options": [
-            "11",
-            "15",
-            "19",
-            "20"
-          ],
-          "answer": "15",
-          "correction": "On ajoute 3 à chaque fois : 15.",
-          "prompt_nl": "Maak de rij af: 3, 6, 9, 12, …",
-          "prompt_en": "Continue the sequence: 3, 6, 9, 12, …",
-          "prompt_es": "Continúa la serie: 3, 6, 9, 12, …",
-          "correction_nl": "Elke keer +3: 15.",
-          "correction_en": "Add 3 each time: 15.",
-          "correction_es": "Se suma 3 cada vez: 15."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Continue la suite : 19, 24, 29, 34, …",
-          "options": [
-            "39",
-            "35",
-            "40",
-            "38"
-          ],
-          "answer": "39",
-          "correction": "On ajoute 5 à chaque fois : 39.",
-          "prompt_nl": "Maak de rij af: 19, 24, 29, 34, …",
-          "prompt_en": "Continue the sequence: 19, 24, 29, 34, …",
-          "prompt_es": "Continúa la serie: 19, 24, 29, 34, …",
-          "correction_nl": "Elke keer +5: 39.",
-          "correction_en": "Add 5 each time: 39.",
-          "correction_es": "Se suma 5 cada vez: 39."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
-          "options": [
+            "1",
+            "2",
             "3",
-            "6",
-            "8"
+            "4"
           ],
           "answer": "3",
-          "correction": "3 est le plus petit."
+          "correction": "÷3 : 3.",
+          "correction_nl": "÷3: 3.",
+          "correction_en": "Divide by 3: 3.",
+          "correction_es": "Divide entre 3: 3."
         },
         {
-          "id": "q18",
+          "id": "l02-d02",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Continue : 1000, 500, 250, 125, …",
+          "prompt_nl": "Ga verder: 1000, 500, 250, 125, …",
+          "prompt_en": "Continue: 1000, 500, 250, 125, …",
+          "prompt_es": "Continúa: 1000, 500, 250, 125, …",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "50",
+            "60",
+            "62.5",
+            "65"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "62.5",
+          "correction": "÷2 : 62.5.",
+          "correction_nl": "÷2: 62,5.",
+          "correction_en": "Divide by 2: 62.5.",
+          "correction_es": "Divide entre 2: 62.5."
         },
         {
-          "id": "q19",
+          "id": "l02-d03",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Continue : 96, 48, 24, 12, …",
+          "prompt_nl": "Ga verder: 96, 48, 24, 12, …",
+          "prompt_en": "Continue: 96, 48, 24, 12, …",
+          "prompt_es": "Continúa: 96, 48, 24, 12, …",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "4",
+            "5",
+            "6",
+            "7"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "6",
+          "correction": "÷2 : 6.",
+          "correction_nl": "÷2: 6.",
+          "correction_en": "Divide by 2: 6.",
+          "correction_es": "Divide entre 2: 6."
         },
         {
-          "id": "q20",
+          "id": "l02-d04",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Continue : 81, 27, 9, 3, …",
+          "prompt_nl": "Ga verder: 81, 27, 9, 3, …",
+          "prompt_en": "Continue: 81, 27, 9, 3, …",
+          "prompt_es": "Continúa: 81, 27, 9, 3, …",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "0",
+            "1",
+            "2",
+            "3"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "1",
+          "correction": "÷3 : 1.",
+          "correction_nl": "÷3: 1.",
+          "correction_en": "Divide by 3: 1.",
+          "correction_es": "Divide entre 3: 1."
+        },
+        {
+          "id": "l02-d05",
+          "type": "mcq",
+          "prompt": "Continue : 200, 100, 50, 25, …",
+          "prompt_nl": "Ga verder: 200, 100, 50, 25, …",
+          "prompt_en": "Continue: 200, 100, 50, 25, …",
+          "prompt_es": "Continúa: 200, 100, 50, 25, …",
+          "options": [
+            "10",
+            "12.5",
+            "15",
+            "20"
+          ],
+          "answer": "12.5",
+          "correction": "÷2 : 12.5.",
+          "correction_nl": "÷2: 12,5.",
+          "correction_en": "Divide by 2: 12.5.",
+          "correction_es": "Divide entre 2: 12.5."
+        },
+        {
+          "id": "l02-d06",
+          "type": "mcq",
+          "prompt": "Règle cachée : 256, 64, 16, 4, …",
+          "prompt_nl": "Verborgen regel: 256, 64, 16, 4, …",
+          "prompt_en": "Hidden rule: 256, 64, 16, 4, …",
+          "prompt_es": "Regla oculta: 256, 64, 16, 4, …",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "answer": "1",
+          "correction": "÷4 : 1.",
+          "correction_nl": "÷4: 1.",
+          "correction_en": "Divide by 4: 1.",
+          "correction_es": "Divide entre 4: 1."
+        },
+        {
+          "id": "l02-d07",
+          "type": "mcq",
+          "prompt": "Continue : 120, 60, 30, 15, …",
+          "prompt_nl": "Ga verder: 120, 60, 30, 15, …",
+          "prompt_en": "Continue: 120, 60, 30, 15, …",
+          "prompt_es": "Continúa: 120, 60, 30, 15, …",
+          "options": [
+            "6",
+            "7",
+            "7.5",
+            "8"
+          ],
+          "answer": "7.5",
+          "correction": "÷2 : 7.5.",
+          "correction_nl": "÷2: 7,5.",
+          "correction_en": "Divide by 2: 7.5.",
+          "correction_es": "Divide entre 2: 7.5."
+        },
+        {
+          "id": "l02-d08",
+          "type": "mcq",
+          "prompt": "Continue : 3125, 625, 125, 25, …",
+          "prompt_nl": "Ga verder: 3125, 625, 125, 25, …",
+          "prompt_en": "Continue: 3125, 625, 125, 25, …",
+          "prompt_es": "Continúa: 3125, 625, 125, 25, …",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "5",
+          "correction": "÷5 : 5.",
+          "correction_nl": "÷5: 5.",
+          "correction_en": "Divide by 5: 5.",
+          "correction_es": "Divide entre 5: 5."
+        },
+        {
+          "id": "l02-d09",
+          "type": "mcq",
+          "prompt": "Continue : 512, 256, 128, 64, …",
+          "prompt_nl": "Ga verder: 512, 256, 128, 64, …",
+          "prompt_en": "Continue: 512, 256, 128, 64, …",
+          "prompt_es": "Continúa: 512, 256, 128, 64, …",
+          "options": [
+            "28",
+            "30",
+            "32",
+            "34"
+          ],
+          "answer": "32",
+          "correction": "÷2 : 32.",
+          "correction_nl": "÷2: 32.",
+          "correction_en": "Divide by 2: 32.",
+          "correction_es": "Divide entre 2: 32."
+        },
+        {
+          "id": "l02-d10",
+          "type": "mcq",
+          "prompt": "Continue : 10000, 1000, 100, 10, …",
+          "prompt_nl": "Ga verder: 10000, 1000, 100, 10, …",
+          "prompt_en": "Continue: 10000, 1000, 100, 10, …",
+          "prompt_es": "Continúa: 10000, 1000, 100, 10, …",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "answer": "1",
+          "correction": "÷10 : 1.",
+          "correction_nl": "÷10: 1.",
+          "correction_en": "Divide by 10: 1.",
+          "correction_es": "Divide entre 10: 1."
         }
       ]
     }

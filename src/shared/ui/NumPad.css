@@ -1,0 +1,168 @@
+/* ── NumPad — child-friendly on-screen numeric keyboard ── */
+.numpad {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* ── Display ── */
+.numpad__display {
+  min-height: 64px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2.5px solid var(--primary, #7c3aed);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  transition: border-color 0.15s;
+}
+
+.numpad__display--empty {
+  border-color: var(--line, #d0c8e8);
+  border-style: dashed;
+}
+
+.numpad__value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text, #2c1654);
+  letter-spacing: 0.05em;
+}
+
+.numpad__placeholder {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--muted, #9e8ab8);
+}
+
+/* ── 3×3 digit grid ── */
+.numpad__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+/* ── Bottom row ── */
+.numpad__row {
+  display: grid;
+  gap: 8px;
+}
+
+.numpad__row--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.numpad__row--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ── Buttons (shared) ── */
+.numpad__btn {
+  height: 58px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s, background 0.08s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.numpad__btn:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+/* Digit buttons */
+.numpad__btn--digit {
+  background: #fff;
+  color: var(--text, #2c1654);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1.5px solid var(--line, #d0c8e8);
+}
+
+.numpad__btn--digit:hover:not(:disabled) {
+  background: var(--primary-tint, #f0eaff);
+  border-color: var(--primary, #7c3aed);
+}
+
+/* Delete / backspace */
+.numpad__btn--del {
+  background: #fff0f0;
+  color: #c0392b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid #fca5a5;
+  font-size: 1.4rem;
+}
+
+.numpad__btn--del:hover:not(:disabled) {
+  background: #fee2e2;
+  border-color: #ef4444;
+}
+
+.numpad__btn--del:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* Sign toggle ± */
+.numpad__btn--sign {
+  background: #fff8e1;
+  color: #92400e;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid #fde68a;
+  font-size: 1.3rem;
+}
+
+.numpad__btn--sign:hover:not(:disabled) {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.numpad__btn--sign:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* OK button */
+.numpad__btn--ok {
+  background: var(--primary, #7c3aed);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(124, 58, 237, 0.35);
+  border: none;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+}
+
+.numpad__btn--ok:hover:not(:disabled):not(.numpad__btn--ok-empty) {
+  background: var(--primary-strong, #5b21b6);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.45);
+}
+
+.numpad__btn--ok.numpad__btn--ok-empty,
+.numpad__btn--ok:disabled {
+  background: var(--muted, #9e8ab8);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Disabled state */
+.numpad--disabled .numpad__btn {
+  cursor: not-allowed;
+}
+
+.numpad--disabled .numpad__btn--digit {
+  opacity: 0.45;
+}
+
+.numpad--disabled .numpad__display {
+  border-style: solid;
+  border-color: var(--line, #d0c8e8);
+  background: rgba(255, 255, 255, 0.6);
+}

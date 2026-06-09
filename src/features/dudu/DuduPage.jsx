@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './dudu.css';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import NumPad from '../../shared/ui/NumPad.jsx';
 import {
   BADGES, GUIDED_EXERCISES, LEVELS, generateProblem, genSubtraction,
   decomposeNumber, explainBorrowing, needsBorrowing,
@@ -69,35 +70,6 @@ function shuffle(arr) {
   return a;
 }
 
-// ── NumPad ────────────────────────────────────────────────────────────────────
-function NumPad({ value, onChange, onSubmit, disabled }) {
-  function press(e, digit) {
-    e.preventDefault();
-    if (disabled) return;
-    if (digit === 'del') { onChange(value.slice(0, -1)); return; }
-    if (digit === 'ok')  { onSubmit(); return; }
-    if (value.length >= 3) return;
-    onChange(value + digit);
-  }
-
-  const keys = ['7','8','9','4','5','6','1','2','3'];
-  const hasVal = value.length > 0;
-
-  return (
-    <div className="dd-numpad">
-      {keys.map(k => (
-        <button key={k} className="dd-key" onPointerDown={e => press(e, k)} type="button">{k}</button>
-      ))}
-      <button className="dd-key dd-key--del" onPointerDown={e => press(e, 'del')} type="button">⌫</button>
-      <button className="dd-key" onPointerDown={e => press(e, '0')} type="button">0</button>
-      <button
-        className={`dd-key dd-key--ok${!hasVal ? ' is-disabled' : ''}`}
-        onPointerDown={e => press(e, 'ok')}
-        type="button"
-      >✓</button>
-    </div>
-  );
-}
 
 // ── BadgePopup ────────────────────────────────────────────────────────────────
 function BadgePopup({ badge, onClose }) {

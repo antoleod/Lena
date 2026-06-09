@@ -145,6 +145,52 @@
   display: block;
 }
 
+/* Answer button (replaces inline input in exam-mode list) */
+.mixed-exam-answer-btn {
+  min-width: 64px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 2px dashed var(--line, #d0c8e8);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--muted, #9e8ab8);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+}
+
+.mixed-exam-answer-btn--filled {
+  border-style: solid;
+  border-color: var(--primary, #7c3aed);
+  color: var(--text, #2c1654);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.mixed-exam-answer-btn--active {
+  border-style: solid;
+  border-color: var(--primary, #7c3aed);
+  background: var(--primary-tint, #f0eaff);
+  color: var(--primary, #7c3aed);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.18);
+}
+
+.mixed-exam-item--active {
+  background: var(--primary-tint, #f0eaff);
+  border-radius: 12px;
+}
+
+/* Sticky numpad dock at bottom of exam-mode list */
+.mixed-exam-numpad-dock {
+  padding: 12px 16px 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 1.5px solid var(--line, #d0c8e8);
+  border-radius: 20px 20px 0 0;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
 .mixed-exam-item__result {
   display: flex;
   flex-wrap: wrap;

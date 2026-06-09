@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
+import NumPad from '../../../shared/ui/NumPad.jsx';
 import { getCategories, getExamsByCategory, getExam } from '../../../content/exams/registry.js';
 import { getCategoryLabel, getLocalizedField } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
@@ -18,8 +19,21 @@ function normalize(v) {
   return String(v).trim().toLowerCase().replace(/\s+/g, ' ');
 }
 
-function FillBlankInput({ onSubmit }) {
+function FillBlankInput({ onSubmit, question }) {
   const [val, setVal] = useState('');
+  const isNumeric = /^-?\d+([.,]\d+)?$/.test(String(question?.answer ?? '').trim());
+
+  if (isNumeric) {
+    return (
+      <NumPad
+        value={val}
+        onChange={setVal}
+        onSubmit={(v) => onSubmit(v)}
+        placeholder="Ta reponse..."
+        allowNegative={/^-/.test(String(question?.answer ?? '').trim())}
+      />
+    );
+  }
 
   return (
     <div className="mega-runner__fill">
@@ -252,7 +266,7 @@ export default function ExamMegaRunnerPage() {
       )}
 
       {q.type === 'fill_blank' && !showFeedback && (
-        <FillBlankInput onSubmit={handleAnswer} />
+        <FillBlankInput onSubmit={handleAnswer} question={q} />
       )}
 
       {showFeedback && (

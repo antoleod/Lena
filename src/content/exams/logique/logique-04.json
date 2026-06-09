@@ -4,445 +4,591 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 4",
-  "emoji": "🎯",
+  "title": "Trouve l'intrus 🔍",
+  "emoji": "🔍",
   "order": 4,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l04-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 9, 11, 13, 15, …",
-          "options": [
-            "17",
-            "14",
-            "18",
-            "21"
-          ],
-          "answer": "17",
-          "correction": "On ajoute 2 à chaque fois : 17.",
-          "prompt_nl": "Maak de rij af: 9, 11, 13, 15, …",
-          "prompt_en": "Continue the sequence: 9, 11, 13, 15, …",
-          "prompt_es": "Continúa la serie: 9, 11, 13, 15, …",
-          "correction_nl": "Elke keer +2: 17.",
-          "correction_en": "Add 2 each time: 17.",
-          "correction_es": "Se suma 2 cada vez: 17."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Continue la suite : 6, 8, 10, 12, …",
-          "options": [
-            "17",
-            "16",
-            "13",
-            "14"
-          ],
-          "answer": "14",
-          "correction": "On ajoute 2 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
-          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
-          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
-          "correction_nl": "Elke keer +2: 14.",
-          "correction_en": "Add 2 each time: 14.",
-          "correction_es": "Se suma 2 cada vez: 14."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Continue la suite : 8, 11, 14, 17, …",
-          "options": [
-            "20",
-            "21",
-            "25",
-            "15"
-          ],
-          "answer": "20",
-          "correction": "On ajoute 3 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 8, 11, 14, 17, …",
-          "prompt_en": "Continue the sequence: 8, 11, 14, 17, …",
-          "prompt_es": "Continúa la serie: 8, 11, 14, 17, …",
-          "correction_nl": "Elke keer +3: 20.",
-          "correction_en": "Add 3 each time: 20.",
-          "correction_es": "Se suma 3 cada vez: 20."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 5, 8, 11, 14, …",
-          "options": [
-            "12",
-            "13",
-            "22",
-            "17"
-          ],
-          "answer": "17",
-          "correction": "On ajoute 3 à chaque fois : 17.",
-          "prompt_nl": "Maak de rij af: 5, 8, 11, 14, …",
-          "prompt_en": "Continue the sequence: 5, 8, 11, 14, …",
-          "prompt_es": "Continúa la serie: 5, 8, 11, 14, …",
-          "correction_nl": "Elke keer +3: 17.",
-          "correction_en": "Add 3 each time: 17.",
-          "correction_es": "Se suma 3 cada vez: 17."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 7, 8, 9, 10, …",
-          "options": [
-            "9",
-            "10",
-            "11",
-            "14"
-          ],
-          "answer": "11",
-          "correction": "On ajoute 1 à chaque fois : 11.",
-          "prompt_nl": "Maak de rij af: 7, 8, 9, 10, …",
-          "prompt_en": "Continue the sequence: 7, 8, 9, 10, …",
-          "prompt_es": "Continúa la serie: 7, 8, 9, 10, …",
-          "correction_nl": "Elke keer +1: 11.",
-          "correction_en": "Add 1 each time: 11.",
-          "correction_es": "Se suma 1 cada vez: 11."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
-          "options": [
-            "voiture",
-            "pomme",
-            "fraise"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Quel mot n'est pas un animal ? chien, chat, table, lapin",
+          "prompt_nl": "Welk woord is geen dier? hond, kat, tafel, konijn",
+          "prompt_en": "Which is not an animal? dog, cat, table, rabbit",
+          "prompt_es": "¿Cuál no es un animal? perro, gato, mesa, conejo",
           "options": [
             "chien",
-            "rouge",
-            "vert"
+            "chat",
+            "table",
+            "lapin"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "table",
+          "correction": "Table est un meuble, pas un animal.",
+          "correction_nl": "Tafel is een meubel.",
+          "correction_en": "Table is furniture.",
+          "correction_es": "Mesa es un mueble."
         },
         {
-          "id": "q16",
+          "id": "l04-f02",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Quel mot n'est pas une couleur ? rouge, bleu, lourd, vert",
+          "prompt_nl": "Welk woord is geen kleur? rood, blauw, zwaar, groen",
+          "prompt_en": "Which is not a color? red, blue, heavy, green",
+          "prompt_es": "¿Cuál no es un color? rojo, azul, pesado, verde",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "rouge",
+            "bleu",
+            "lourd",
+            "vert"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "lourd",
+          "correction": "Lourd est un adjectif de poids.",
+          "correction_nl": "Zwaar is een gewicht.",
+          "correction_en": "Heavy is a weight adj.",
+          "correction_es": "Pesado es un adjetivo de peso."
+        },
+        {
+          "id": "l04-f03",
+          "type": "mcq",
+          "prompt": "Quel nombre n'est pas pair ? 2, 4, 7, 8",
+          "prompt_nl": "Welk getal is geen even getal? 2, 4, 7, 8",
+          "prompt_en": "Which is not even? 2, 4, 7, 8",
+          "prompt_es": "¿Cuál no es par? 2, 4, 7, 8",
+          "options": [
+            "2",
+            "4",
+            "7",
+            "8"
+          ],
+          "answer": "7",
+          "correction": "7 est impair.",
+          "correction_nl": "7 is oneven.",
+          "correction_en": "7 is odd.",
+          "correction_es": "7 es impar."
+        },
+        {
+          "id": "l04-f04",
+          "type": "mcq",
+          "prompt": "Quel fruit n'est pas jaune ? banane, citron, fraise, ananas",
+          "prompt_nl": "Welk fruit is niet geel? banaan, citroen, aardbei, ananas",
+          "prompt_en": "Which fruit is not yellow? banana, lemon, strawberry, pineapple",
+          "prompt_es": "¿Cuál no es amarillo? plátano, limón, fresa, piña",
+          "options": [
+            "banane",
+            "citron",
+            "fraise",
+            "ananas"
+          ],
+          "answer": "fraise",
+          "correction": "La fraise est rouge.",
+          "correction_nl": "Aardbei is rood.",
+          "correction_en": "Strawberry is red.",
+          "correction_es": "La fresa es roja."
+        },
+        {
+          "id": "l04-f05",
+          "type": "mcq",
+          "prompt": "Quel mot n'est pas une forme ? rond, carré, rapide, triangle",
+          "prompt_nl": "Welk woord is geen vorm? rond, vierkant, snel, driehoek",
+          "prompt_en": "Which is not a shape? round, square, fast, triangle",
+          "prompt_es": "¿Cuál no es una forma? redondo, cuadrado, rápido, triángulo",
+          "options": [
+            "rond",
+            "carré",
+            "rapide",
+            "triangle"
+          ],
+          "answer": "rapide",
+          "correction": "Rapide est un adjectif de vitesse.",
+          "correction_nl": "Snel is een snelheid.",
+          "correction_en": "Fast is a speed adj.",
+          "correction_es": "Rápido es un adjetivo de velocidad."
+        },
+        {
+          "id": "l04-f06",
+          "type": "mcq",
+          "prompt": "Quel nombre n'est pas impair ? 1, 3, 5, 6",
+          "prompt_nl": "Welk getal is niet oneven? 1, 3, 5, 6",
+          "prompt_en": "Which is not odd? 1, 3, 5, 6",
+          "prompt_es": "¿Cuál no es impar? 1, 3, 5, 6",
+          "options": [
+            "1",
+            "3",
+            "5",
+            "6"
+          ],
+          "answer": "6",
+          "correction": "6 est pair.",
+          "correction_nl": "6 is even.",
+          "correction_en": "6 is even.",
+          "correction_es": "6 es par."
+        },
+        {
+          "id": "l04-f07",
+          "type": "mcq",
+          "prompt": "Quel mot n'est pas un sport ? football, tennis, natation, pizza",
+          "prompt_nl": "Welk woord is geen sport? voetbal, tennis, zwemmen, pizza",
+          "prompt_en": "Which is not a sport? football, tennis, swimming, pizza",
+          "prompt_es": "¿Cuál no es un deporte? fútbol, tenis, natación, pizza",
+          "options": [
+            "football",
+            "tennis",
+            "natation",
+            "pizza"
+          ],
+          "answer": "pizza",
+          "correction": "La pizza est un aliment.",
+          "correction_nl": "Pizza is een voedsel.",
+          "correction_en": "Pizza is food.",
+          "correction_es": "La pizza es un alimento."
+        },
+        {
+          "id": "l04-f08",
+          "type": "mcq",
+          "prompt": "Quel nombre n'est pas multiple de 5 ? 5, 10, 13, 20",
+          "prompt_nl": "Welk getal is geen veelvoud van 5? 5, 10, 13, 20",
+          "prompt_en": "Which is not a multiple of 5? 5, 10, 13, 20",
+          "prompt_es": "¿Cuál no es múltiplo de 5? 5, 10, 13, 20",
+          "options": [
+            "5",
+            "10",
+            "13",
+            "20"
+          ],
+          "answer": "13",
+          "correction": "13 n'est pas divisible par 5.",
+          "correction_nl": "13 is niet deelbaar door 5.",
+          "correction_en": "13 is not divisible by 5.",
+          "correction_es": "13 no es divisible entre 5."
+        },
+        {
+          "id": "l04-f09",
+          "type": "mcq",
+          "prompt": "Quel mot n'est pas un jour ? lundi, mardi, mars, vendredi",
+          "prompt_nl": "Welk woord is geen dag? maandag, dinsdag, maart, vrijdag",
+          "prompt_en": "Which is not a day? Monday, Tuesday, March, Friday",
+          "prompt_es": "¿Cuál no es un día? lunes, martes, marzo, viernes",
+          "options": [
+            "lundi",
+            "mardi",
+            "mars",
+            "vendredi"
+          ],
+          "answer": "mars",
+          "correction": "Mars est un mois.",
+          "correction_nl": "Maart is een maand.",
+          "correction_en": "March is a month.",
+          "correction_es": "Marzo es un mes."
+        },
+        {
+          "id": "l04-f10",
+          "type": "mcq",
+          "prompt": "Quel mot n'est pas un légume ? carotte, tomate, guitare, haricot",
+          "prompt_nl": "Welk woord is geen groente? wortel, tomaat, gitaar, boon",
+          "prompt_en": "Which is not a vegetable? carrot, tomato, guitar, bean",
+          "prompt_es": "¿Cuál no es una verdura? zanahoria, tomate, guitarra, judía",
+          "options": [
+            "carotte",
+            "tomate",
+            "guitare",
+            "haricot"
+          ],
+          "answer": "guitare",
+          "correction": "Guitare est un instrument de musique.",
+          "correction_nl": "Gitaar is een instrument.",
+          "correction_en": "Guitar is an instrument.",
+          "correction_es": "Guitarra es un instrumento."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l04-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Intrus : 4, 8, 12, 15, 20",
+          "prompt_nl": "Intrus: 4, 8, 12, 15, 20",
+          "prompt_en": "Odd one: 4, 8, 12, 15, 20",
+          "prompt_es": "Intruso: 4, 8, 12, 15, 20",
           "options": [
-            "10",
+            "4",
+            "8",
             "12",
+            "15"
+          ],
+          "answer": "15",
+          "correction": "15 n'est pas multiple de 4.",
+          "correction_nl": "15 is geen veelvoud van 4.",
+          "correction_en": "15 is not a multiple of 4.",
+          "correction_es": "15 no es múltiplo de 4."
+        },
+        {
+          "id": "l04-m02",
+          "type": "mcq",
+          "prompt": "Intrus : 9, 16, 25, 35, 49",
+          "prompt_nl": "Intrus: 9, 16, 25, 35, 49",
+          "prompt_en": "Odd one: 9, 16, 25, 35, 49",
+          "prompt_es": "Intruso: 9, 16, 25, 35, 49",
+          "options": [
+            "9",
             "16",
+            "25",
+            "35"
+          ],
+          "answer": "35",
+          "correction": "35 n'est pas un carré parfait.",
+          "correction_nl": "35 is geen kwadraat.",
+          "correction_en": "35 is not a perfect square.",
+          "correction_es": "35 no es un cuadrado perfecto."
+        },
+        {
+          "id": "l04-m03",
+          "type": "mcq",
+          "prompt": "Intrus parmi les nombres premiers : 2, 7, 11, 9, 13",
+          "prompt_nl": "Priemgetallen: 2, 7, 11, 9, 13",
+          "prompt_en": "Prime numbers: 2, 7, 11, 9, 13",
+          "prompt_es": "Números primos: 2, 7, 11, 9, 13",
+          "options": [
+            "2",
+            "7",
+            "9",
+            "13"
+          ],
+          "answer": "9",
+          "correction": "9=3×3, n'est pas premier.",
+          "correction_nl": "9=3×3, geen priemgetal.",
+          "correction_en": "9=3×3, not prime.",
+          "correction_es": "9=3×3, no es primo."
+        },
+        {
+          "id": "l04-m04",
+          "type": "mcq",
+          "prompt": "Intrus : triangle, cercle, cube, carré",
+          "prompt_nl": "Intrus: driehoek, cirkel, kubus, vierkant",
+          "prompt_en": "Odd one: triangle, circle, cube, square",
+          "prompt_es": "Intruso: triángulo, círculo, cubo, cuadrado",
+          "options": [
+            "triangle",
+            "cercle",
+            "cube",
+            "carré"
+          ],
+          "answer": "cube",
+          "correction": "Cube est un solide (3D), les autres sont des figures planes.",
+          "correction_nl": "Kubus is 3D.",
+          "correction_en": "Cube is 3D.",
+          "correction_es": "Cubo es 3D."
+        },
+        {
+          "id": "l04-m05",
+          "type": "mcq",
+          "prompt": "Intrus : 2, 4, 8, 16, 30, 64",
+          "prompt_nl": "Intrus: 2, 4, 8, 16, 30, 64",
+          "prompt_en": "Odd one: 2, 4, 8, 16, 30, 64",
+          "prompt_es": "Intruso: 2, 4, 8, 16, 30, 64",
+          "options": [
+            "4",
+            "8",
+            "16",
+            "30"
+          ],
+          "answer": "30",
+          "correction": "30 n'est pas une puissance de 2.",
+          "correction_nl": "30 is geen macht van 2.",
+          "correction_en": "30 is not a power of 2.",
+          "correction_es": "30 no es potencia de 2."
+        },
+        {
+          "id": "l04-m06",
+          "type": "mcq",
+          "prompt": "Intrus : œil, nez, oreille, genou, bouche",
+          "prompt_nl": "Intrus: oog, neus, oor, knie, mond",
+          "prompt_en": "Odd one: eye, nose, ear, knee, mouth",
+          "prompt_es": "Intruso: ojo, nariz, oreja, rodilla, boca",
+          "options": [
+            "œil",
+            "nez",
+            "oreille",
+            "genou"
+          ],
+          "answer": "genou",
+          "correction": "Genou est sur la jambe, les autres sont sur le visage.",
+          "correction_nl": "Knie is op het been.",
+          "correction_en": "Knee is on the leg.",
+          "correction_es": "Rodilla está en la pierna."
+        },
+        {
+          "id": "l04-m07",
+          "type": "mcq",
+          "prompt": "Intrus : 100, 200, 350, 400, 500",
+          "prompt_nl": "Intrus: 100, 200, 350, 400, 500",
+          "prompt_en": "Odd one: 100, 200, 350, 400, 500",
+          "prompt_es": "Intruso: 100, 200, 350, 400, 500",
+          "options": [
+            "100",
+            "200",
+            "350",
+            "400"
+          ],
+          "answer": "350",
+          "correction": "350 n'est pas multiple de 100.",
+          "correction_nl": "350 is geen veelvoud van 100.",
+          "correction_en": "350 is not a multiple of 100.",
+          "correction_es": "350 no es múltiplo de 100."
+        },
+        {
+          "id": "l04-m08",
+          "type": "mcq",
+          "prompt": "Intrus : lundi, mercredi, samedi, mars, dimanche",
+          "prompt_nl": "Intrus: maandag, woensdag, zaterdag, maart, zondag",
+          "prompt_en": "Odd one: Monday, Wednesday, Saturday, March, Sunday",
+          "prompt_es": "Intruso: lunes, miércoles, sábado, marzo, domingo",
+          "options": [
+            "lundi",
+            "mercredi",
+            "samedi",
+            "mars"
+          ],
+          "answer": "mars",
+          "correction": "Mars est un mois, les autres sont des jours.",
+          "correction_nl": "Maart is een maand.",
+          "correction_en": "March is a month.",
+          "correction_es": "Marzo es un mes."
+        },
+        {
+          "id": "l04-m09",
+          "type": "mcq",
+          "prompt": "Intrus : 1/2, 2/4, 3/6, 3/5, 4/8",
+          "prompt_nl": "Intrus: 1/2, 2/4, 3/6, 3/5, 4/8",
+          "prompt_en": "Odd one: 1/2, 2/4, 3/6, 3/5, 4/8",
+          "prompt_es": "Intruso: 1/2, 2/4, 3/6, 3/5, 4/8",
+          "options": [
+            "1/2",
+            "2/4",
+            "3/6",
+            "3/5"
+          ],
+          "answer": "3/5",
+          "correction": "3/5 ≠ 1/2, les autres sont équivalentes.",
+          "correction_nl": "3/5 ≠ 1/2.",
+          "correction_en": "3/5 ≠ 1/2.",
+          "correction_es": "3/5 ≠ 1/2."
+        },
+        {
+          "id": "l04-m10",
+          "type": "mcq",
+          "prompt": "Intrus : 3, 6, 9, 12, 14, 18",
+          "prompt_nl": "Intrus: 3, 6, 9, 12, 14, 18",
+          "prompt_en": "Odd one: 3, 6, 9, 12, 14, 18",
+          "prompt_es": "Intruso: 3, 6, 9, 12, 14, 18",
+          "options": [
+            "6",
+            "9",
+            "12",
             "14"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
-        },
-        {
-          "id": "qm2",
-          "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
-          "options": [
-            "18",
-            "24",
-            "32",
-            "20"
-          ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
-        },
-        {
-          "id": "qm3",
-          "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
-          "options": [
-            "36",
-            "48",
-            "30",
-            "42"
-          ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
-        },
-        {
-          "id": "qm4",
-          "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
-          "options": [
-            "65",
-            "55",
-            "60",
-            "50"
-          ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
-        },
-        {
-          "id": "qm5",
-          "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
-          "options": [
-            "54",
-            "81",
-            "36",
-            "63"
-          ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
-        },
-        {
-          "id": "qm6",
-          "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
-          "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
-          ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
-        },
-        {
-          "id": "qm7",
-          "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
-          "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
-          ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
-        },
-        {
-          "id": "qm8",
-          "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
-          "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
-          ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
-        },
-        {
-          "id": "qm9",
-          "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
-          "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
-          ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
-        },
-        {
-          "id": "qm10",
-          "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
-          "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
-          ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "14",
+          "correction": "14 n'est pas multiple de 3.",
+          "correction_nl": "14 is geen veelvoud van 3.",
+          "correction_en": "14 is not a multiple of 3.",
+          "correction_es": "14 no es múltiplo de 3."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l04-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 12, 17, 22, 27, …",
+          "prompt": "Intrus logique : eau, lait, beurre, jus, thé",
+          "prompt_nl": "Logisch intrus: water, melk, boter, sap, thee",
+          "prompt_en": "Logical odd one: water, milk, butter, juice, tea",
+          "prompt_es": "Intruso lógico: agua, leche, mantequilla, zumo, té",
           "options": [
-            "33",
-            "32",
-            "30",
-            "29"
+            "eau",
+            "lait",
+            "beurre",
+            "thé"
           ],
-          "answer": "32",
-          "correction": "On ajoute 5 à chaque fois : 32.",
-          "prompt_nl": "Maak de rij af: 12, 17, 22, 27, …",
-          "prompt_en": "Continue the sequence: 12, 17, 22, 27, …",
-          "prompt_es": "Continúa la serie: 12, 17, 22, 27, …",
-          "correction_nl": "Elke keer +5: 32.",
-          "correction_en": "Add 5 each time: 32.",
-          "correction_es": "Se suma 5 cada vez: 32."
+          "answer": "beurre",
+          "correction": "Beurre est solide, les autres sont liquides.",
+          "correction_nl": "Boter is vast.",
+          "correction_en": "Butter is solid.",
+          "correction_es": "Mantequilla es sólida."
         },
         {
-          "id": "q12",
+          "id": "l04-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 14, 17, 20, 23, …",
+          "prompt": "Intrus : {2,4,6}, {3,6,9}, {5,10,15}, {4,9,14}",
+          "prompt_nl": "Intrus: {2,4,6}, {3,6,9}, {5,10,15}, {4,9,14}",
+          "prompt_en": "Odd one: {2,4,6},{3,6,9},{5,10,15},{4,9,14}",
+          "prompt_es": "Intruso: {2,4,6},{3,6,9},{5,10,15},{4,9,14}",
           "options": [
-            "25",
-            "21",
-            "24",
-            "26"
+            "{2,4,6}",
+            "{3,6,9}",
+            "{5,10,15}",
+            "{4,9,14}"
           ],
-          "answer": "26",
-          "correction": "On ajoute 3 à chaque fois : 26.",
-          "prompt_nl": "Maak de rij af: 14, 17, 20, 23, …",
-          "prompt_en": "Continue the sequence: 14, 17, 20, 23, …",
-          "prompt_es": "Continúa la serie: 14, 17, 20, 23, …",
-          "correction_nl": "Elke keer +3: 26.",
-          "correction_en": "Add 3 each time: 26.",
-          "correction_es": "Se suma 3 cada vez: 26."
+          "answer": "{4,9,14}",
+          "correction": "{4,9,14} : différence 5 puis 5, mais 4→9 +5, 9→14 +5 — non : 4,9,14 diff=5 mais pas mult d'un nombre.",
+          "correction_nl": "Verschil is altijd 5, maar 4 en 14 zijn geen veelvouden.",
+          "correction_en": "4,9,14: difference 5, but not multiples of same number.",
+          "correction_es": "4,9,14: diferencia 5, pero no múltiplos del mismo número."
         },
         {
-          "id": "q13",
+          "id": "l04-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 16, 17, 18, 19, …",
+          "prompt": "Intrus parmi les puissances de 3 : 1, 3, 9, 27, 54, 81",
+          "prompt_nl": "Intrus tussen machten van 3: 1, 3, 9, 27, 54, 81",
+          "prompt_en": "Odd one among powers of 3: 1, 3, 9, 27, 54, 81",
+          "prompt_es": "Intruso entre potencias de 3: 1, 3, 9, 27, 54, 81",
           "options": [
-            "20",
-            "18",
-            "23",
-            "17"
-          ],
-          "answer": "20",
-          "correction": "On ajoute 1 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 16, 17, 18, 19, …",
-          "prompt_en": "Continue the sequence: 16, 17, 18, 19, …",
-          "prompt_es": "Continúa la serie: 16, 17, 18, 19, …",
-          "correction_nl": "Elke keer +1: 20.",
-          "correction_en": "Add 1 each time: 20.",
-          "correction_es": "Se suma 1 cada vez: 20."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Continue la suite : 21, 23, 25, 27, …",
-          "options": [
-            "25",
-            "30",
-            "29",
-            "32"
-          ],
-          "answer": "29",
-          "correction": "On ajoute 2 à chaque fois : 29.",
-          "prompt_nl": "Maak de rij af: 21, 23, 25, 27, …",
-          "prompt_en": "Continue the sequence: 21, 23, 25, 27, …",
-          "prompt_es": "Continúa la serie: 21, 23, 25, 27, …",
-          "correction_nl": "Elke keer +2: 29.",
-          "correction_en": "Add 2 each time: 29.",
-          "correction_es": "Se suma 2 cada vez: 29."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 10, 11, 12, 13, …",
-          "options": [
-            "12",
-            "14",
-            "15",
-            "11"
-          ],
-          "answer": "14",
-          "correction": "On ajoute 1 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 10, 11, 12, 13, …",
-          "prompt_en": "Continue the sequence: 10, 11, 12, 13, …",
-          "prompt_es": "Continúa la serie: 10, 11, 12, 13, …",
-          "correction_nl": "Elke keer +1: 14.",
-          "correction_en": "Add 1 each time: 14.",
-          "correction_es": "Se suma 1 cada vez: 14."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Continue la suite : 20, 22, 24, 26, …",
-          "options": [
-            "27",
-            "29",
-            "28",
-            "24"
-          ],
-          "answer": "28",
-          "correction": "On ajoute 2 à chaque fois : 28.",
-          "prompt_nl": "Maak de rij af: 20, 22, 24, 26, …",
-          "prompt_en": "Continue the sequence: 20, 22, 24, 26, …",
-          "prompt_es": "Continúa la serie: 20, 22, 24, 26, …",
-          "correction_nl": "Elke keer +2: 28.",
-          "correction_en": "Add 2 each time: 28.",
-          "correction_es": "Se suma 2 cada vez: 28."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
-          "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
-          ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
-          "options": [
-            "table",
-            "chat",
-            "lapin"
-          ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
-          "options": [
-            "chien",
-            "rouge",
-            "vert"
-          ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
+            "3",
             "9",
-            "4",
-            "7"
+            "27",
+            "54"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "54",
+          "correction": "54 = 2×27, n'est pas 3ⁿ.",
+          "correction_nl": "54 = 2×27, geen macht van 3.",
+          "correction_en": "54 = 2×27, not a power of 3.",
+          "correction_es": "54 = 2×27, no es potencia de 3."
+        },
+        {
+          "id": "l04-d04",
+          "type": "mcq",
+          "prompt": "Intrus : addition, soustraction, conjugaison, multiplication",
+          "prompt_nl": "Intrus: optelling, aftrekking, vervoeging, vermenigvuldiging",
+          "prompt_en": "Odd one: addition, subtraction, conjugation, multiplication",
+          "prompt_es": "Intruso: suma, resta, conjugación, multiplicación",
+          "options": [
+            "addition",
+            "soustraction",
+            "conjugaison",
+            "multiplication"
+          ],
+          "answer": "conjugaison",
+          "correction": "Conjugaison est une notion de grammaire.",
+          "correction_nl": "Vervoeging is grammatica.",
+          "correction_en": "Conjugation is grammar.",
+          "correction_es": "Conjugación es gramática."
+        },
+        {
+          "id": "l04-d05",
+          "type": "mcq",
+          "prompt": "Intrus parmi les nombres : 17, 23, 29, 37, 39, 41",
+          "prompt_nl": "Intrus bij priemgetallen: 17, 23, 29, 37, 39, 41",
+          "prompt_en": "Odd one in primes: 17, 23, 29, 37, 39, 41",
+          "prompt_es": "Intruso en primos: 17, 23, 29, 37, 39, 41",
+          "options": [
+            "23",
+            "29",
+            "37",
+            "39"
+          ],
+          "answer": "39",
+          "correction": "39 = 3×13, n'est pas premier.",
+          "correction_nl": "39 = 3×13, geen priemgetal.",
+          "correction_en": "39 = 3×13, not prime.",
+          "correction_es": "39 = 3×13, no es primo."
+        },
+        {
+          "id": "l04-d06",
+          "type": "mcq",
+          "prompt": "Intrus : équilatéral, isocèle, scalène, rectangle, pyramide",
+          "prompt_nl": "Intrus: gelijkzijdig, gelijkbenig, ongelijkzijdig, rechthoekig, piramide",
+          "prompt_en": "Odd one: equilateral, isosceles, scalene, right-angled, pyramid",
+          "prompt_es": "Intruso: equilátero, isósceles, escaleno, rectángulo, pirámide",
+          "options": [
+            "équilatéral",
+            "isocèle",
+            "scalène",
+            "rectangle"
+          ],
+          "answer": "pyramide",
+          "correction": "Pyramide est un solide 3D, les autres sont des triangles.",
+          "correction_nl": "Piramide is 3D.",
+          "correction_en": "Pyramid is 3D.",
+          "correction_es": "Pirámide es 3D."
+        },
+        {
+          "id": "l04-d07",
+          "type": "mcq",
+          "prompt": "Intrus : 2³, 3², 4², 5², 6²",
+          "prompt_nl": "Intrus: 2³, 3², 4², 5², 6²",
+          "prompt_en": "Odd one: 2³, 3², 4², 5², 6²",
+          "prompt_es": [
+            "2³",
+            "3²",
+            "4²",
+            "5²"
+          ],
+          "options": "2³",
+          "answer": "2³=8 (cube), les autres sont des carrés.",
+          "correction": "2³=8 is een kubus.",
+          "correction_nl": "2³=8 is a cube.",
+          "correction_en": "2³=8 es un cubo."
+        },
+        {
+          "id": "l04-d08",
+          "type": "mcq",
+          "prompt": "Intrus conceptuel : hypothèse, conclusion, théorème, pizza",
+          "prompt_nl": "Conceptuele intrus: hypothese, conclusie, stelling, pizza",
+          "prompt_en": "Conceptual odd one: hypothesis, conclusion, theorem, pizza",
+          "prompt_es": "Intruso conceptual: hipótesis, conclusión, teorema, pizza",
+          "options": [
+            "hypothèse",
+            "conclusion",
+            "théorème",
+            "pizza"
+          ],
+          "answer": "pizza",
+          "correction": "Pizza est un aliment, les autres sont des termes logiques.",
+          "correction_nl": "Pizza is voedsel.",
+          "correction_en": "Pizza is food.",
+          "correction_es": "Pizza es un alimento."
+        },
+        {
+          "id": "l04-d09",
+          "type": "mcq",
+          "prompt": "Intrus : carré, losange, rectangle, trapèze, octogone",
+          "prompt_nl": "Intrus: vierkant, ruit, rechthoek, trapezium, achthoek",
+          "prompt_en": "Odd one: square, rhombus, rectangle, trapezoid, octagon",
+          "prompt_es": "Intruso: cuadrado, rombo, rectángulo, trapecio, octágono",
+          "options": [
+            "carré",
+            "losange",
+            "rectangle",
+            "trapèze"
+          ],
+          "answer": "octogone",
+          "correction": "Octogone a 8 côtés, les autres sont des quadrilatères.",
+          "correction_nl": "Achthoek heeft 8 zijden.",
+          "correction_en": "Octagon has 8 sides.",
+          "correction_es": "Octágono tiene 8 lados."
+        },
+        {
+          "id": "l04-d10",
+          "type": "mcq",
+          "prompt": "Intrus : 0!, 1!, 2!, 3!, 8",
+          "prompt_nl": "Intrus: 0!, 1!, 2!, 3!, 8",
+          "prompt_en": "Odd one: 0!, 1!, 2!, 3!, 8",
+          "prompt_es": "Intruso: 0!, 1!, 2!, 3!, 8",
+          "options": [
+            "0!",
+            "1!",
+            "2!",
+            "8"
+          ],
+          "answer": "8",
+          "correction": "0!=1, 1!=1, 2!=2, 3!=6 — 8 n'est pas une factorielle.",
+          "correction_nl": "8 is geen faculteit.",
+          "correction_en": "8 is not a factorial.",
+          "correction_es": "8 no es un factorial."
         }
       ]
     }

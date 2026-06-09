@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './tables.css';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import NumPad from '../../shared/ui/NumPad.jsx';
 
 // ── Audio ─────────────────────────────────────────────────────────────────────
 function playChime(ok) {
@@ -125,33 +126,6 @@ function genQuestions(table, mode, difficulty) {
   return shuffle(pool).slice(0, mode === 'exam' ? 12 : 10);
 }
 
-// ── NumPad ────────────────────────────────────────────────────────────────────
-function NumPad({ onDigit, onBackspace, onOk, canOk }) {
-  const KEYS = [7, 8, 9, 4, 5, 6, 1, 2, 3, 'del', 0, 'ok'];
-
-  function press(e, k) {
-    e.preventDefault();
-    e.stopPropagation();
-    if (k === 'del') onBackspace();
-    else if (k === 'ok') { if (canOk) onOk(); }
-    else onDigit(k);
-  }
-
-  return (
-    <div className="tp-numpad">
-      {KEYS.map((k, i) => (
-        <button
-          key={i}
-          type="button"
-          className={`tp-key${k === 'del' ? ' tp-key--del' : ''}${k === 'ok' ? ` tp-key--ok${canOk ? '' : ' is-disabled'}` : ''}`}
-          onPointerDown={(e) => press(e, k)}
-        >
-          {k === 'del' ? '⌫' : k === 'ok' ? '✓' : k}
-        </button>
-      ))}
-    </div>
-  );
-}
 
 // ── Learn mode ────────────────────────────────────────────────────────────────
 function LearnMode({ table, onBack, onPractice }) {
@@ -499,10 +473,10 @@ function QuizMode({ table, mode, difficulty, onBack, onDone }) {
 
       {/* Numpad fills remaining space */}
       <NumPad
-        onDigit={handleDigit}
-        onBackspace={handleBackspace}
-        onOk={handleOk}
-        canOk={feedback === null && input !== ''}
+        value={input}
+        onChange={setInput}
+        onSubmit={handleOk}
+        disabled={feedback !== null}
       />
       {fbState !== null && (
         <FeedbackCard

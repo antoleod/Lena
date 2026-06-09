@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './metri.css';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import NumPad from '../../shared/ui/NumPad.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   CATEGORIES, QUANTITY_EXAMPLES, UNIT_SENTENCES, ESTIMATIONS,
@@ -78,29 +79,6 @@ function BadgePopup({ badge, onClose }) {
   );
 }
 
-// ── NumPad ───────────────────────────────────────────────────────────────
-function NumPad({ value, onChange, onSubmit }) {
-  const keys = ['1','2','3','4','5','6','7','8','9','del','0','ok'];
-  return (
-    <div className="mt-numpad">
-      {keys.map(k => (
-        <button
-          type="button"
-          key={k}
-          className={'mt-key' + (k === 'del' ? ' mt-key--del' : '') + (k === 'ok' ? ' mt-key--ok' + (value === '' ? ' is-disabled' : '') : '')}
-          onPointerDown={e => {
-            e.preventDefault();
-            if (k === 'del') { onChange(value.slice(0, -1)); return; }
-            if (k === 'ok') { if (value !== '') onSubmit(); return; }
-            if (value.length < 6) onChange(value + k);
-          }}
-        >
-          {k === 'del' ? '⌫' : k === 'ok' ? '✓' : k}
-        </button>
-      ))}
-    </div>
-  );
-}
 
 // ── LevelPicker ──────────────────────────────────────────────────────────
 function LevelPicker({ modeName, onSelect, onBack, locale }) {
@@ -929,7 +907,7 @@ export default function MetriPage() {
             <NumPad
               value={typedAnswer}
               onChange={setTypedAnswer}
-              onSubmit={() => { setSelectedInput(typedAnswer); handleAnswer(Number(typedAnswer), q.answer); }}
+              onSubmit={(v) => { setSelectedInput(v); handleAnswer(Number(v), q.answer); }}
             />
           </>
         ) : (

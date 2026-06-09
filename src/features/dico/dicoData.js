@@ -17,9 +17,9 @@ export const DICO_WORDS = [
     example:'Le chat dort sur le tapis.',
     synonyms:['minou','matou'], antonym:null, family:['chatte','chaton','chatiere'],
     i18n:{
-      nl:{ definition:'Zacht huisdier dat spint en miauwt.', example:'De kat slaapt op het tapijt.' },
-      en:{ definition:'A soft domestic pet that purrs and meows.', example:'The cat sleeps on the carpet.' },
-      es:{ definition:'Animal domestico suave que ronronea y maulla.', example:'El gato duerme en la alfombra.' },
+      nl:{ word:'kat', definition:'Zacht huisdier dat spint en miauwt.', example:'De kat slaapt op het tapijt.' },
+      en:{ word:'cat', definition:'A soft domestic pet that purrs and meows.', example:'The cat sleeps on the carpet.' },
+      es:{ word:'gato', definition:'Animal domestico suave que ronronea y maulla.', example:'El gato duerme en la alfombra.' },
     },
   },
   {
@@ -28,9 +28,9 @@ export const DICO_WORDS = [
     example:'Le chien joue dans le jardin.',
     synonyms:['toutou'], antonym:null, family:['chienne','chiot','chenil'],
     i18n:{
-      nl:{ definition:'Trouw huisdier dat blaft en de beste vriend van de mens is.', example:'De hond speelt in de tuin.' },
-      en:{ definition:'A loyal domestic animal that barks and is man\'s best friend.', example:'The dog plays in the garden.' },
-      es:{ definition:'Animal domestico fiel que ladra y es el mejor amigo del hombre.', example:'El perro juega en el jardin.' },
+      nl:{ word:'hond', definition:'Trouw huisdier dat blaft en de beste vriend van de mens is.', example:'De hond speelt in de tuin.' },
+      en:{ word:'dog', definition:'A loyal domestic animal that barks and is man\'s best friend.', example:'The dog plays in the garden.' },
+      es:{ word:'perro', definition:'Animal domestico fiel que ladra y es el mejor amigo del hombre.', example:'El perro juega en el jardin.' },
     },
   },
   {
@@ -39,9 +39,9 @@ export const DICO_WORDS = [
     example:'L\'oiseau chante dans l\'arbre.',
     synonyms:[], antonym:null, family:['oisillon','oiselier','cage'],
     i18n:{
-      nl:{ definition:'Dier met veren dat kan vliegen en zingen.', example:'De vogel zingt in de boom.' },
-      en:{ definition:'An animal with feathers that can fly and sing.', example:'The bird sings in the tree.' },
-      es:{ definition:'Animal con plumas que puede volar y cantar.', example:'El pajaro canta en el arbol.' },
+      nl:{ word:'vogel', definition:'Dier met veren dat kan vliegen en zingen.', example:'De vogel zingt in de boom.' },
+      en:{ word:'bird', definition:'An animal with feathers that can fly and sing.', example:'The bird sings in the tree.' },
+      es:{ word:'pájaro', definition:'Animal con plumas que puede volar y cantar.', example:'El pajaro canta en el arbol.' },
     },
   },
   {
@@ -50,9 +50,9 @@ export const DICO_WORDS = [
     example:'Le lapin court dans l\'herbe.',
     synonyms:[], antonym:null, family:['lapine','lapereau','clapier'],
     i18n:{
-      nl:{ definition:'Klein zacht dier met lange oren dat wortels eet.', example:'Het konijn rent door het gras.' },
-      en:{ definition:'A small soft animal with long ears that eats carrots.', example:'The rabbit runs through the grass.' },
-      es:{ definition:'Pequeno animal suave con orejas largas que come zanahorias.', example:'El conejo corre por el cesped.' },
+      nl:{ word:'konijn', definition:'Klein zacht dier met lange oren dat wortels eet.', example:'Het konijn rent door het gras.' },
+      en:{ word:'rabbit', definition:'A small soft animal with long ears that eats carrots.', example:'The rabbit runs through the grass.' },
+      es:{ word:'conejo', definition:'Pequeno animal suave con orejas largas que come zanahorias.', example:'El conejo corre por el cesped.' },
     },
   },
   {
@@ -61,9 +61,9 @@ export const DICO_WORDS = [
     example:'La cavaliere monte son cheval.',
     synonyms:['coursier'], antonym:null, family:['jument','poulain','ecurie'],
     i18n:{
-      nl:{ definition:'Groot dier dat snel loopt en bereden kan worden.', example:'De ruiter rijdt op haar paard.' },
-      en:{ definition:'A large animal that runs fast and can be ridden.', example:'The rider rides her horse.' },
-      es:{ definition:'Gran animal que corre rapido y se puede montar.', example:'La amazona monta su caballo.' },
+      nl:{ word:'paard', definition:'Groot dier dat snel loopt en bereden kan worden.', example:'De ruiter rijdt op haar paard.' },
+      en:{ word:'horse', definition:'A large animal that runs fast and can be ridden.', example:'The rider rides her horse.' },
+      es:{ word:'caballo', definition:'Gran animal que corre rapido y se puede montar.', example:'La amazona monta su caballo.' },
     },
   },
   {
@@ -72,9 +72,9 @@ export const DICO_WORDS = [
     example:'La vache broute dans le pre.',
     synonyms:[], antonym:null, family:['veau','taureau','ferme'],
     i18n:{
-      nl:{ definition:'Groot boerderijdier dat melk geeft.', example:'De koe graast op de weide.' },
-      en:{ definition:'A large farm animal that gives milk.', example:'The cow grazes in the field.' },
-      es:{ definition:'Gran animal de granja que da leche.', example:'La vaca pasta en el prado.' },
+      nl:{ word:'koe', definition:'Groot boerderijdier dat melk geeft.', example:'De koe graast op de weide.' },
+      en:{ word:'cow', definition:'A large farm animal that gives milk.', example:'The cow grazes in the field.' },
+      es:{ word:'vaca', definition:'Gran animal de granja que da leche.', example:'La vaca pasta en el prado.' },
     },
   },
   {
@@ -83,9 +83,9 @@ export const DICO_WORDS = [
     example:'Un papillon jaune se pose sur la fleur.',
     synonyms:[], antonym:null, family:['chenille','cocon','chrysalide'],
     i18n:{
-      nl:{ definition:'Insect met mooie gekleurde vleugels dat van bloem naar bloem vliegt.', example:'Een gele vlinder landt op de bloem.' },
-      en:{ definition:'An insect with beautiful coloured wings that flies from flower to flower.', example:'A yellow butterfly lands on the flower.' },
-      es:{ definition:'Insecto con hermosas alas de colores que vuela de flor en flor.', example:'Una mariposa amarilla se posa en la flor.' },
+      nl:{ word:'vlinder', definition:'Insect met mooie gekleurde vleugels dat van bloem naar bloem vliegt.', example:'Een gele vlinder landt op de bloem.' },
+      en:{ word:'butterfly', definition:'An insect with beautiful coloured wings that flies from flower to flower.', example:'A yellow butterfly lands on the flower.' },
+      es:{ word:'mariposa', definition:'Insecto con hermosas alas de colores que vuela de flor en flor.', example:'Una mariposa amarilla se posa en la flor.' },
     },
   },
   {
@@ -94,9 +94,9 @@ export const DICO_WORDS = [
     example:'L\'abeille butine les fleurs.',
     synonyms:[], antonym:null, family:['ruche','miel','reine'],
     i18n:{
-      nl:{ definition:'Insect dat honing maakt en in een bijenkorf leeft.', example:'De bij bezoekt de bloemen.' },
-      en:{ definition:'An insect that makes honey and lives in a hive.', example:'The bee visits the flowers.' },
-      es:{ definition:'Insecto que hace miel y vive en una colmena.', example:'La abeja visita las flores.' },
+      nl:{ word:'bij', definition:'Insect dat honing maakt en in een bijenkorf leeft.', example:'De bij bezoekt de bloemen.' },
+      en:{ word:'bee', definition:'An insect that makes honey and lives in a hive.', example:'The bee visits the flowers.' },
+      es:{ word:'abeja', definition:'Insecto que hace miel y vive en una colmena.', example:'La abeja visita las flores.' },
     },
   },
   {
@@ -105,9 +105,9 @@ export const DICO_WORDS = [
     example:'La grenouille plonge dans l\'etang.',
     synonyms:[], antonym:null, family:['tetard','mare','coasser'],
     i18n:{
-      nl:{ definition:'Klein groen dier dat springt en bij het water leeft.', example:'De kikker duikt in de vijver.' },
-      en:{ definition:'A small green animal that jumps and lives near water.', example:'The frog dives into the pond.' },
-      es:{ definition:'Pequeno animal verde que salta y vive cerca del agua.', example:'La rana se zambulle en el estanque.' },
+      nl:{ word:'kikker', definition:'Klein groen dier dat springt en bij het water leeft.', example:'De kikker duikt in de vijver.' },
+      en:{ word:'frog', definition:'A small green animal that jumps and lives near water.', example:'The frog dives into the pond.' },
+      es:{ word:'rana', definition:'Pequeno animal verde que salta y vive cerca del agua.', example:'La rana se zambulle en el estanque.' },
     },
   },
   {
@@ -116,9 +116,9 @@ export const DICO_WORDS = [
     example:'L\'elephant boit avec sa trompe.',
     synonyms:[], antonym:null, family:['elephante','elephanteau','ivoire'],
     i18n:{
-      nl:{ definition:'Zeer groot grijs dier met een lange slurf.', example:'De olifant drinkt met zijn slurf.' },
-      en:{ definition:'A very large grey animal with a long trunk.', example:'The elephant drinks with its trunk.' },
-      es:{ definition:'Animal muy grande y gris con una larga trompa.', example:'El elefante bebe con su trompa.' },
+      nl:{ word:'olifant', definition:'Zeer groot grijs dier met een lange slurf.', example:'De olifant drinkt met zijn slurf.' },
+      en:{ word:'elephant', definition:'A very large grey animal with a long trunk.', example:'The elephant drinks with its trunk.' },
+      es:{ word:'elefante', definition:'Animal muy grande y gris con una larga trompa.', example:'El elefante bebe con su trompa.' },
     },
   },
   {
@@ -127,9 +127,9 @@ export const DICO_WORDS = [
     example:'L\'ecureuil cache ses noisettes dans le sol.',
     synonyms:[], antonym:null, family:['terrier','noisette','gland'],
     i18n:{
-      nl:{ definition:'Klein rood dier dat in bomen klimt en hazelnoten eet.', example:'De eekhoorn verstopt zijn noten in de grond.' },
-      en:{ definition:'A small red animal that climbs trees and eats hazelnuts.', example:'The squirrel hides its nuts in the ground.' },
-      es:{ definition:'Pequeno animal rojo que trepa a los arboles y come avellanas.', example:'La ardilla esconde sus nueces en el suelo.' },
+      nl:{ word:'eekhoorn', definition:'Klein rood dier dat in bomen klimt en hazelnoten eet.', example:'De eekhoorn verstopt zijn noten in de grond.' },
+      en:{ word:'squirrel', definition:'A small red animal that climbs trees and eats hazelnuts.', example:'The squirrel hides its nuts in the ground.' },
+      es:{ word:'ardilla', definition:'Pequeno animal rojo que trepa a los arboles y come avellanas.', example:'La ardilla esconde sus nueces en el suelo.' },
     },
   },
   {
@@ -138,9 +138,9 @@ export const DICO_WORDS = [
     example:'Le dauphin saute hors de l\'eau.',
     synonyms:[], antonym:null, family:['baleine','ocean','mammifere'],
     i18n:{
-      nl:{ definition:'Zeer intelligent zeezoogdier dat in de oceaan leeft.', example:'De dolfijn springt uit het water.' },
-      en:{ definition:'A very intelligent sea mammal that lives in the ocean.', example:'The dolphin leaps out of the water.' },
-      es:{ definition:'Mamifero marino muy inteligente que vive en el oceano.', example:'El delfin salta fuera del agua.' },
+      nl:{ word:'dolfijn', definition:'Zeer intelligent zeezoogdier dat in de oceaan leeft.', example:'De dolfijn springt uit het water.' },
+      en:{ word:'dolphin', definition:'A very intelligent sea mammal that lives in the ocean.', example:'The dolphin leaps out of the water.' },
+      es:{ word:'delfín', definition:'Mamifero marino muy inteligente que vive en el oceano.', example:'El delfin salta fuera del agua.' },
     },
   },
   {
@@ -149,9 +149,9 @@ export const DICO_WORDS = [
     example:'Le renard attrape un poulet dans le poulailler.',
     synonyms:['goupil'], antonym:null, family:['renarde','renardeau','terrier'],
     i18n:{
-      nl:{ definition:'Rood en slim dier dat in het bos leeft.', example:'De vos vangt een kip.' },
-      en:{ definition:'A red and cunning animal that lives in the forest.', example:'The fox catches a chicken.' },
-      es:{ definition:'Animal rojo y astuto que vive en el bosque.', example:'El zorro atrapa una gallina.' },
+      nl:{ word:'vos', definition:'Rood en slim dier dat in het bos leeft.', example:'De vos vangt een kip.' },
+      en:{ word:'fox', definition:'A red and cunning animal that lives in the forest.', example:'The fox catches a chicken.' },
+      es:{ word:'zorro', definition:'Animal rojo y astuto que vive en el bosque.', example:'El zorro atrapa una gallina.' },
     },
   },
   {
@@ -160,9 +160,9 @@ export const DICO_WORDS = [
     example:'La tortue sort la tete de sa carapace.',
     synonyms:[], antonym:null, family:['carapace','lenteur'],
     i18n:{
-      nl:{ definition:'Dier dat langzaam loopt en een schild op zijn rug draagt.', example:'De schildpad steekt zijn hoofd uit zijn schild.' },
-      en:{ definition:'An animal that walks slowly and carries a shell on its back.', example:'The tortoise sticks its head out of its shell.' },
-      es:{ definition:'Animal que camina lentamente y lleva un caparazon en la espalda.', example:'La tortuga saca la cabeza de su caparazon.' },
+      nl:{ word:'schildpad', definition:'Dier dat langzaam loopt en een schild op zijn rug draagt.', example:'De schildpad steekt zijn hoofd uit zijn schild.' },
+      en:{ word:'tortoise', definition:'An animal that walks slowly and carries a shell on its back.', example:'The tortoise sticks its head out of its shell.' },
+      es:{ word:'tortuga', definition:'Animal que camina lentamente y lleva un caparazon en la espalda.', example:'La tortuga saca la cabeza de su caparazon.' },
     },
   },
   {
@@ -171,9 +171,9 @@ export const DICO_WORDS = [
     example:'Le lion rugit dans la savane.',
     synonyms:['fauve'], antonym:null, family:['lionne','lionceau','criniere'],
     i18n:{
-      nl:{ definition:'Groot wild dier dat de koning der dieren wordt genoemd.', example:'De leeuw brult in de savanne.' },
-      en:{ definition:'A large wild animal called the king of animals.', example:'The lion roars on the savannah.' },
-      es:{ definition:'Gran animal salvaje llamado el rey de los animales.', example:'El leon ruge en la sabana.' },
+      nl:{ word:'leeuw', definition:'Groot wild dier dat de koning der dieren wordt genoemd.', example:'De leeuw brult in de savanne.' },
+      en:{ word:'lion', definition:'A large wild animal called the king of animals.', example:'The lion roars on the savannah.' },
+      es:{ word:'león', definition:'Gran animal salvaje llamado el rey de los animales.', example:'El leon ruge en la sabana.' },
     },
   },
 
@@ -184,9 +184,9 @@ export const DICO_WORDS = [
     example:'Je mange une pomme rouge.',
     synonyms:[], antonym:null, family:['pommier','jus','compote'],
     i18n:{
-      nl:{ definition:'Rond zoet fruit dat aan een appelboom groeit.', example:'Ik eet een rode appel.' },
-      en:{ definition:'A round sweet fruit that grows on an apple tree.', example:'I eat a red apple.' },
-      es:{ definition:'Fruta redonda y dulce que crece en un manzano.', example:'Me como una manzana roja.' },
+      nl:{ word:'appel', definition:'Rond zoet fruit dat aan een appelboom groeit.', example:'Ik eet een rode appel.' },
+      en:{ word:'apple', definition:'A round sweet fruit that grows on an apple tree.', example:'I eat a red apple.' },
+      es:{ word:'manzana', definition:'Fruta redonda y dulce que crece en un manzano.', example:'Me como una manzana roja.' },
     },
   },
   {
@@ -195,9 +195,9 @@ export const DICO_WORDS = [
     example:'Je mange du pain avec du beurre.',
     synonyms:['miche','baguette'], antonym:null, family:['farine','boulanger','boulangerie'],
     i18n:{
-      nl:{ definition:'Basisvoedsel gemaakt van meel en water, gebakken in de oven.', example:'Ik eet brood met boter.' },
-      en:{ definition:'A basic food made from flour and water, baked in the oven.', example:'I eat bread with butter.' },
-      es:{ definition:'Alimento basico hecho con harina y agua, cocido al horno.', example:'Como pan con mantequilla.' },
+      nl:{ word:'brood', definition:'Basisvoedsel gemaakt van meel en water, gebakken in de oven.', example:'Ik eet brood met boter.' },
+      en:{ word:'bread', definition:'A basic food made from flour and water, baked in the oven.', example:'I eat bread with butter.' },
+      es:{ word:'pan', definition:'Alimento basico hecho con harina y agua, cocido al horno.', example:'Como pan con mantequilla.' },
     },
   },
   {
@@ -206,9 +206,9 @@ export const DICO_WORDS = [
     example:'Je bois un grand verre de lait.',
     synonyms:[], antonym:null, family:['vache','fromage','yaourt'],
     i18n:{
-      nl:{ definition:'Wit vloeibaar voedsel dat koeien produceren, rijk aan calcium.', example:'Ik drink een groot glas melk.' },
-      en:{ definition:'A white liquid produced by cows, rich in calcium.', example:'I drink a big glass of milk.' },
-      es:{ definition:'Liquido blanco producido por las vacas, rico en calcio.', example:'Bebo un gran vaso de leche.' },
+      nl:{ word:'melk', definition:'Wit vloeibaar voedsel dat koeien produceren, rijk aan calcium.', example:'Ik drink een groot glas melk.' },
+      en:{ word:'milk', definition:'A white liquid produced by cows, rich in calcium.', example:'I drink a big glass of milk.' },
+      es:{ word:'leche', definition:'Liquido blanco producido por las vacas, rico en calcio.', example:'Bebo un gran vaso de leche.' },
     },
   },
   {
@@ -217,9 +217,9 @@ export const DICO_WORDS = [
     example:'Nous avons mange le gateau d\'anniversaire.',
     synonyms:['patisserie','dessert'], antonym:null, family:['farine','sucre','boulanger'],
     i18n:{
-      nl:{ definition:'Zoet gebak dat vaak versierd wordt bij feestjes.', example:'We aten de verjaardagstaart op.' },
-      en:{ definition:'A sweet baked treat, often decorated for parties.', example:'We ate the birthday cake.' },
-      es:{ definition:'Pasteleria dulce y a menudo decorada para las fiestas.', example:'Comimos el pastel de cumpleanos.' },
+      nl:{ word:'taart', definition:'Zoet gebak dat vaak versierd wordt bij feestjes.', example:'We aten de verjaardagstaart op.' },
+      en:{ word:'cake', definition:'A sweet baked treat, often decorated for parties.', example:'We ate the birthday cake.' },
+      es:{ word:'pastel', definition:'Pasteleria dulce y a menudo decorada para las fiestas.', example:'Comimos el pastel de cumpleanos.' },
     },
   },
   {
@@ -228,9 +228,9 @@ export const DICO_WORDS = [
     example:'La soupe de legumes est chaude.',
     synonyms:['potage','bouillon'], antonym:null, family:['legume','cuillere','bol'],
     i18n:{
-      nl:{ definition:'Warm vloeibaar gerecht gemaakt van gekookte groenten.', example:'De groentesoep is warm.' },
-      en:{ definition:'A hot liquid dish made from cooked vegetables.', example:'The vegetable soup is hot.' },
-      es:{ definition:'Plato caliente liquido hecho de verduras cocidas.', example:'La sopa de verduras esta caliente.' },
+      nl:{ word:'soep', definition:'Warm vloeibaar gerecht gemaakt van gekookte groenten.', example:'De groentesoep is warm.' },
+      en:{ word:'soup', definition:'A hot liquid dish made from cooked vegetables.', example:'The vegetable soup is hot.' },
+      es:{ word:'sopa', definition:'Plato caliente liquido hecho de verduras cocidas.', example:'La sopa de verduras esta caliente.' },
     },
   },
   {
@@ -239,9 +239,9 @@ export const DICO_WORDS = [
     example:'Le fromage sent fort mais il est delicieux.',
     synonyms:[], antonym:null, family:['lait','vache','cave'],
     i18n:{
-      nl:{ definition:'Voedsel gemaakt van gefermenteerde melk, er zijn honderden soorten.', example:'De kaas ruikt sterk maar is heerlijk.' },
-      en:{ definition:'A food made from fermented milk, with hundreds of varieties.', example:'The cheese smells strong but is delicious.' },
-      es:{ definition:'Alimento hecho con leche fermentada, hay cientos de variedades.', example:'El queso huele fuerte pero esta delicioso.' },
+      nl:{ word:'kaas', definition:'Voedsel gemaakt van gefermenteerde melk, er zijn honderden soorten.', example:'De kaas ruikt sterk maar is heerlijk.' },
+      en:{ word:'cheese', definition:'A food made from fermented milk, with hundreds of varieties.', example:'The cheese smells strong but is delicious.' },
+      es:{ word:'queso', definition:'Alimento hecho con leche fermentada, hay cientos de variedades.', example:'El queso huele fuerte pero esta delicioso.' },
     },
   },
   {
@@ -250,9 +250,9 @@ export const DICO_WORDS = [
     example:'Je cueille des fraises dans le jardin.',
     synonyms:[], antonym:null, family:['fraisier','confiture','tarte'],
     i18n:{
-      nl:{ definition:'Klein rood zoet fruit dat op een lage plant groeit.', example:'Ik pluk aardbeien in de tuin.' },
-      en:{ definition:'A small red sweet fruit that grows on a low plant.', example:'I pick strawberries in the garden.' },
-      es:{ definition:'Pequena fruta roja y dulce que crece en una planta baja.', example:'Recojo fresas en el jardin.' },
+      nl:{ word:'aardbei', definition:'Klein rood zoet fruit dat op een lage plant groeit.', example:'Ik pluk aardbeien in de tuin.' },
+      en:{ word:'strawberry', definition:'A small red sweet fruit that grows on a low plant.', example:'I pick strawberries in the garden.' },
+      es:{ word:'fresa', definition:'Pequena fruta roja y dulce que crece en una planta baja.', example:'Recojo fresas en el jardin.' },
     },
   },
   {
@@ -261,9 +261,9 @@ export const DICO_WORDS = [
     example:'Le lapin adore croquer des carottes.',
     synonyms:[], antonym:null, family:['legume','jardin','jus'],
     i18n:{
-      nl:{ definition:'Oranje langwerpige groente die onder de grond groeit, rijk aan vitaminen.', example:'Het konijn knabbelt graag wortels.' },
-      en:{ definition:'An orange elongated vegetable that grows underground, rich in vitamins.', example:'The rabbit loves crunching carrots.' },
-      es:{ definition:'Verdura naranja alargada que crece bajo tierra, rica en vitaminas.', example:'Al conejo le encanta morder zanahorias.' },
+      nl:{ word:'wortel', definition:'Oranje langwerpige groente die onder de grond groeit, rijk aan vitaminen.', example:'Het konijn knabbelt graag wortels.' },
+      en:{ word:'carrot', definition:'An orange elongated vegetable that grows underground, rich in vitamins.', example:'The rabbit loves crunching carrots.' },
+      es:{ word:'zanahoria', definition:'Verdura naranja alargada que crece bajo tierra, rica en vitaminas.', example:'Al conejo le encanta morder zanahorias.' },
     },
   },
   {
@@ -272,9 +272,9 @@ export const DICO_WORDS = [
     example:'J\'adore le chocolat au lait.',
     synonyms:[], antonym:null, family:['cacao','tablette','bonbon'],
     i18n:{
-      nl:{ definition:'Zoet zwart voedsel gemaakt van cacaobonen.', example:'Ik ben dol op melkchocolade.' },
-      en:{ definition:'A sweet dark food made from cocoa beans.', example:'I love milk chocolate.' },
-      es:{ definition:'Alimento dulce y oscuro hecho con granos de cacao.', example:'Me encanta el chocolate con leche.' },
+      nl:{ word:'chocolade', definition:'Zoet zwart voedsel gemaakt van cacaobonen.', example:'Ik ben dol op melkchocolade.' },
+      en:{ word:'chocolate', definition:'A sweet dark food made from cocoa beans.', example:'I love milk chocolate.' },
+      es:{ word:'chocolate', definition:'Alimento dulce y oscuro hecho con granos de cacao.', example:'Me encanta el chocolate con leche.' },
     },
   },
   {
@@ -283,9 +283,9 @@ export const DICO_WORDS = [
     example:'La tomate est rouge et ronde.',
     synonyms:[], antonym:null, family:['salade','sauce','jardin'],
     i18n:{
-      nl:{ definition:'Rood sappig fruit (vaak groente genoemd) vol zaadjes.', example:'De tomaat is rood en rond.' },
-      en:{ definition:'A red juicy fruit (often called a vegetable) full of seeds.', example:'The tomato is red and round.' },
-      es:{ definition:'Fruta roja y jugosa (a menudo llamada verdura) llena de semillas.', example:'El tomate es rojo y redondo.' },
+      nl:{ word:'tomaat', definition:'Rood sappig fruit (vaak groente genoemd) vol zaadjes.', example:'De tomaat is rood en rond.' },
+      en:{ word:'tomato', definition:'A red juicy fruit (often called a vegetable) full of seeds.', example:'The tomato is red and round.' },
+      es:{ word:'tomate', definition:'Fruta roja y jugosa (a menudo llamada verdura) llena de semillas.', example:'El tomate es rojo y redondo.' },
     },
   },
   {
@@ -294,9 +294,9 @@ export const DICO_WORDS = [
     example:'J\'ai mange une poignee de cerises.',
     synonyms:[], antonym:null, family:['cerisier','noyau','confiture'],
     i18n:{
-      nl:{ definition:'Klein glanzend rood fruit met een pit dat aan een kersenboom groeit.', example:'Ik at een handvol kersen.' },
-      en:{ definition:'A small shiny red fruit with a stone, growing on a cherry tree.', example:'I ate a handful of cherries.' },
-      es:{ definition:'Pequena fruta roja brillante con hueso que crece en un cerezo.', example:'Me comi un punado de cerezas.' },
+      nl:{ word:'kers', definition:'Klein glanzend rood fruit met een pit dat aan een kersenboom groeit.', example:'Ik at een handvol kersen.' },
+      en:{ word:'cherry', definition:'A small shiny red fruit with a stone, growing on a cherry tree.', example:'I ate a handful of cherries.' },
+      es:{ word:'cereza', definition:'Pequena fruta roja brillante con hueso que crece en un cerezo.', example:'Me comi un punado de cerezas.' },
     },
   },
   {
@@ -305,9 +305,9 @@ export const DICO_WORDS = [
     example:'Je mange un oeuf a la coque le matin.',
     synonyms:[], antonym:null, family:['poule','coque','omelette'],
     i18n:{
-      nl:{ definition:'Ovaalvormig voedsel geproduceerd door kippen, veel gebruikt in de keuken.', example:'Ik eet \'s ochtends een zachtgekookt ei.' },
-      en:{ definition:'An oval-shaped food produced by hens, widely used in cooking.', example:'I eat a soft-boiled egg in the morning.' },
-      es:{ definition:'Alimento de forma ovalada producido por las gallinas, muy usado en cocina.', example:'Como un huevo pasado por agua por la manana.' },
+      nl:{ word:'ei', definition:'Ovaalvormig voedsel geproduceerd door kippen, veel gebruikt in de keuken.', example:'Ik eet \'s ochtends een zachtgekookt ei.' },
+      en:{ word:'egg', definition:'An oval-shaped food produced by hens, widely used in cooking.', example:'I eat a soft-boiled egg in the morning.' },
+      es:{ word:'huevo', definition:'Alimento de forma ovalada producido por las gallinas, muy usado en cocina.', example:'Como un huevo pasado por agua por la manana.' },
     },
   },
   {
@@ -316,9 +316,9 @@ export const DICO_WORDS = [
     example:'Je mets du miel dans mon yaourt.',
     synonyms:[], antonym:null, family:['abeille','ruche','fleur'],
     i18n:{
-      nl:{ definition:'Heel zoete stof gemaakt door bijen.', example:'Ik doe honing in mijn yoghurt.' },
-      en:{ definition:'A very sweet substance made by bees.', example:'I put honey in my yoghurt.' },
-      es:{ definition:'Sustancia muy dulce fabricada por las abejas.', example:'Le pongo miel a mi yogur.' },
+      nl:{ word:'honing', definition:'Heel zoete stof gemaakt door bijen.', example:'Ik doe honing in mijn yoghurt.' },
+      en:{ word:'honey', definition:'A very sweet substance made by bees.', example:'I put honey in my yoghurt.' },
+      es:{ word:'miel', definition:'Sustancia muy dulce fabricada por las abejas.', example:'Le pongo miel a mi yogur.' },
     },
   },
   {
@@ -327,9 +327,9 @@ export const DICO_WORDS = [
     example:'Le citron est trop acide, il fait faire la grimace.',
     synonyms:[], antonym:null, family:['limonade','jus','citronnier'],
     i18n:{
-      nl:{ definition:'Geel zuur en scherp fruit.', example:'De citroen is te zuur, hij laat je een vies gezicht trekken.' },
-      en:{ definition:'A yellow fruit with a sour and sharp taste.', example:'The lemon is too sour, it makes you pull a face.' },
-      es:{ definition:'Fruta amarilla de sabor acido y picante.', example:'El limon es tan acido que hace poner mala cara.' },
+      nl:{ word:'citroen', definition:'Geel zuur en scherp fruit.', example:'De citroen is te zuur, hij laat je een vies gezicht trekken.' },
+      en:{ word:'lemon', definition:'A yellow fruit with a sour and sharp taste.', example:'The lemon is too sour, it makes you pull a face.' },
+      es:{ word:'limón', definition:'Fruta amarilla de sabor acido y picante.', example:'El limon es tan acido que hace poner mala cara.' },
     },
   },
   {
@@ -338,9 +338,9 @@ export const DICO_WORDS = [
     example:'Je mets du beurre sur ma tartine.',
     synonyms:[], antonym:null, family:['lait','tartine','croissant'],
     i18n:{
-      nl:{ definition:'Geel vet gemaakt van room.', example:'Ik smeer boter op mijn boterham.' },
-      en:{ definition:'A yellow fat made from cream.', example:'I spread butter on my slice of bread.' },
-      es:{ definition:'Grasa amarilla hecha con nata.', example:'Unto mantequilla en mi tostada.' },
+      nl:{ word:'boter', definition:'Geel vet gemaakt van room.', example:'Ik smeer boter op mijn boterham.' },
+      en:{ word:'butter', definition:'A yellow fat made from cream.', example:'I spread butter on my slice of bread.' },
+      es:{ word:'mantequilla', definition:'Grasa amarilla hecha con nata.', example:'Unto mantequilla en mi tostada.' },
     },
   },
 
@@ -351,9 +351,9 @@ export const DICO_WORDS = [
     example:'Je lis un livre passionnant.',
     synonyms:['ouvrage','bouquin'], antonym:null, family:['auteur','bibliotheque','lire'],
     i18n:{
-      nl:{ definition:'Voorwerp met gedrukte paginas dat je leest om te leren of te ontspannen.', example:'Ik lees een boeiend boek.' },
-      en:{ definition:'An object with printed pages that you read to learn or enjoy.', example:'I am reading a fascinating book.' },
-      es:{ definition:'Objeto con paginas impresas que se lee para aprender o disfrutar.', example:'Leo un libro apasionante.' },
+      nl:{ word:'boek', definition:'Voorwerp met gedrukte paginas dat je leest om te leren of te ontspannen.', example:'Ik lees een boeiend boek.' },
+      en:{ word:'book', definition:'An object with printed pages that you read to learn or enjoy.', example:'I am reading a fascinating book.' },
+      es:{ word:'libro', definition:'Objeto con paginas impresas que se lee para aprender o disfrutar.', example:'Leo un libro apasionante.' },
     },
   },
   {
@@ -362,9 +362,9 @@ export const DICO_WORDS = [
     example:'J\'ecris mes mots dans mon cahier.',
     synonyms:[], antonym:null, family:['feuille','stylo','ecrire'],
     i18n:{
-      nl:{ definition:'Gebundelde blaadjes waarop je je lessen schrijft.', example:'Ik schrijf mijn woorden in mijn schrift.' },
-      en:{ definition:'A collection of bound pages where you write your lessons.', example:'I write my words in my exercise book.' },
-      es:{ definition:'Conjunto de hojas encuadernadas en las que se escribe.', example:'Escribo mis palabras en mi cuaderno.' },
+      nl:{ word:'schrift', definition:'Gebundelde blaadjes waarop je je lessen schrijft.', example:'Ik schrijf mijn woorden in mijn schrift.' },
+      en:{ word:'exercise book', definition:'A collection of bound pages where you write your lessons.', example:'I write my words in my exercise book.' },
+      es:{ word:'cuaderno', definition:'Conjunto de hojas encuadernadas en las que se escribe.', example:'Escribo mis palabras en mi cuaderno.' },
     },
   },
   {
@@ -373,9 +373,9 @@ export const DICO_WORDS = [
     example:'Je dessine une maison avec mon crayon.',
     synonyms:['stylo'], antonym:null, family:['dessiner','ecrire','gomme'],
     i18n:{
-      nl:{ definition:'Klein staafje om op papier te schrijven of tekenen.', example:'Ik teken een huis met mijn potlood.' },
-      en:{ definition:'A small stick for writing or drawing on paper.', example:'I draw a house with my pencil.' },
-      es:{ definition:'Pequeno palo para escribir o dibujar en papel.', example:'Dibujo una casa con mi lapiz.' },
+      nl:{ word:'potlood', definition:'Klein staafje om op papier te schrijven of tekenen.', example:'Ik teken een huis met mijn potlood.' },
+      en:{ word:'pencil', definition:'A small stick for writing or drawing on paper.', example:'I draw a house with my pencil.' },
+      es:{ word:'lápiz', definition:'Pequeno palo para escribir o dibujar en papel.', example:'Dibujo una casa con mi lapiz.' },
     },
   },
   {
@@ -384,9 +384,9 @@ export const DICO_WORDS = [
     example:'J\'efface mon erreur avec la gomme.',
     synonyms:[], antonym:null, family:['crayon','effacer','correction'],
     i18n:{
-      nl:{ definition:'Klein voorwerp dat weghaalt wat je met een potlood hebt geschreven.', example:'Ik wis mijn fout uit met de gum.' },
-      en:{ definition:'A small object that removes pencil marks.', example:'I erase my mistake with the rubber.' },
-      es:{ definition:'Pequeno objeto que borra lo escrito a lapiz.', example:'Borro mi error con la goma.' },
+      nl:{ word:'gum', definition:'Klein voorwerp dat weghaalt wat je met een potlood hebt geschreven.', example:'Ik wis mijn fout uit met de gum.' },
+      en:{ word:'rubber', definition:'A small object that removes pencil marks.', example:'I erase my mistake with the rubber.' },
+      es:{ word:'goma', definition:'Pequeno objeto que borra lo escrito a lapiz.', example:'Borro mi error con la goma.' },
     },
   },
   {
@@ -395,9 +395,9 @@ export const DICO_WORDS = [
     example:'Je trace une ligne droite avec ma regle.',
     synonyms:[], antonym:null, family:['mesurer','tracer','centimetre'],
     i18n:{
-      nl:{ definition:'Plat lang instrument om rechte lijnen te trekken en te meten.', example:'Ik trek een rechte lijn met mijn liniaal.' },
-      en:{ definition:'A flat long instrument for drawing straight lines and measuring.', example:'I draw a straight line with my ruler.' },
-      es:{ definition:'Instrumento plano y largo para trazar lineas rectas y medir.', example:'Trazo una linea recta con mi regla.' },
+      nl:{ word:'liniaal', definition:'Plat lang instrument om rechte lijnen te trekken en te meten.', example:'Ik trek een rechte lijn met mijn liniaal.' },
+      en:{ word:'ruler', definition:'A flat long instrument for drawing straight lines and measuring.', example:'I draw a straight line with my ruler.' },
+      es:{ word:'regla', definition:'Instrumento plano y largo para trazar lineas rectas y medir.', example:'Trazo una linea recta con mi regla.' },
     },
   },
   {
@@ -406,9 +406,9 @@ export const DICO_WORDS = [
     example:'Mon cartable est lourd aujourd\'hui.',
     synonyms:['sac'], antonym:null, family:['livre','cahier','ecole'],
     i18n:{
-      nl:{ definition:'Tas die kinderen dragen om hun spullen naar school te vervoeren.', example:'Mijn schooltas is vandaag zwaar.' },
-      en:{ definition:'A bag that children carry to transport their belongings to school.', example:'My schoolbag is heavy today.' },
-      es:{ definition:'Bolsa que los ninos llevan para transportar sus cosas a la escuela.', example:'Mi mochila esta pesada hoy.' },
+      nl:{ word:'schooltas', definition:'Tas die kinderen dragen om hun spullen naar school te vervoeren.', example:'Mijn schooltas is vandaag zwaar.' },
+      en:{ word:'schoolbag', definition:'A bag that children carry to transport their belongings to school.', example:'My schoolbag is heavy today.' },
+      es:{ word:'mochila', definition:'Bolsa que los ninos llevan para transportar sus cosas a la escuela.', example:'Mi mochila esta pesada hoy.' },
     },
   },
   {
@@ -417,9 +417,9 @@ export const DICO_WORDS = [
     example:'Le professeur ecrit la lecon au tableau.',
     synonyms:[], antonym:null, family:['craie','professeur','effacer'],
     i18n:{
-      nl:{ definition:'Groot oppervlak waarop de leraar schrijft voor de leerlingen.', example:'De leraar schrijft de les op het bord.' },
-      en:{ definition:'A large surface on which the teacher writes for the pupils.', example:'The teacher writes the lesson on the board.' },
-      es:{ definition:'Gran superficie en la que el profesor escribe para los alumnos.', example:'El profesor escribe la leccion en la pizarra.' },
+      nl:{ word:'bord', definition:'Groot oppervlak waarop de leraar schrijft voor de leerlingen.', example:'De leraar schrijft de les op het bord.' },
+      en:{ word:'board', definition:'A large surface on which the teacher writes for the pupils.', example:'The teacher writes the lesson on the board.' },
+      es:{ word:'pizarra', definition:'Gran superficie en la que el profesor escribe para los alumnos.', example:'El profesor escribe la leccion en la pizarra.' },
     },
   },
   {
@@ -428,9 +428,9 @@ export const DICO_WORDS = [
     example:'Les eleves ecoutent le professeur.',
     synonyms:['ecolier','etudiant'], antonym:'professeur', family:['classe','ecole','apprendre'],
     i18n:{
-      nl:{ definition:'Kind of jongere die leert op school.', example:'De leerlingen luisteren naar de leraar.' },
-      en:{ definition:'A child or young person who learns at school.', example:'The pupils listen to the teacher.' },
-      es:{ definition:'Nino o joven que aprende en la escuela.', example:'Los alumnos escuchan al profesor.' },
+      nl:{ word:'leerling', definition:'Kind of jongere die leert op school.', example:'De leerlingen luisteren naar de leraar.' },
+      en:{ word:'pupil', definition:'A child or young person who learns at school.', example:'The pupils listen to the teacher.' },
+      es:{ word:'alumno', definition:'Nino o joven que aprende en la escuela.', example:'Los alumnos escuchan al profesor.' },
     },
   },
   {
@@ -439,9 +439,9 @@ export const DICO_WORDS = [
     example:'Le professeur explique la lecon.',
     synonyms:['maitre','enseignant'], antonym:'eleve', family:['classe','ecole','enseigner'],
     i18n:{
-      nl:{ definition:'Persoon die onderwijst en leerlingen laat leren in de klas.', example:'De leraar legt de les uit.' },
-      en:{ definition:'A person who teaches and helps pupils learn in class.', example:'The teacher explains the lesson.' },
-      es:{ definition:'Persona que ensena a los alumnos en clase.', example:'El profesor explica la leccion.' },
+      nl:{ word:'leraar', definition:'Persoon die onderwijst en leerlingen laat leren in de klas.', example:'De leraar legt de les uit.' },
+      en:{ word:'teacher', definition:'A person who teaches and helps pupils learn in class.', example:'The teacher explains the lesson.' },
+      es:{ word:'profesor', definition:'Persona que ensena a los alumnos en clase.', example:'El profesor explica la leccion.' },
     },
   },
   {
@@ -450,9 +450,9 @@ export const DICO_WORDS = [
     example:'On joue au ballon pendant la recreation.',
     synonyms:['pause'], antonym:null, family:['jouer','cour','ecole'],
     i18n:{
-      nl:{ definition:'Pauze tijdens de schooldag waarop leerlingen mogen spelen.', example:'We spelen met de bal tijdens de pauze.' },
-      en:{ definition:'A break during the school day when pupils can play.', example:'We play with the ball at break time.' },
-      es:{ definition:'Pausa durante la jornada escolar en la que los alumnos pueden jugar.', example:'Jugamos al balon en el recreo.' },
+      nl:{ word:'speelkwartier', definition:'Pauze tijdens de schooldag waarop leerlingen mogen spelen.', example:'We spelen met de bal tijdens de pauze.' },
+      en:{ word:'break', definition:'A break during the school day when pupils can play.', example:'We play with the ball at break time.' },
+      es:{ word:'recreo', definition:'Pausa durante la jornada escolar en la que los alumnos pueden jugar.', example:'Jugamos al balon en el recreo.' },
     },
   },
   {
@@ -461,9 +461,9 @@ export const DICO_WORDS = [
     example:'J\'ai appris une nouvelle lecon de maths.',
     synonyms:['cours','exercice'], antonym:null, family:['apprendre','cahier','revision'],
     i18n:{
-      nl:{ definition:'Onderwijs gegeven door de leraar over een bepaald onderwerp.', example:'Ik heb een nieuwe rekenles geleerd.' },
-      en:{ definition:'Teaching given by the teacher on a specific topic.', example:'I learned a new maths lesson.' },
-      es:{ definition:'Ensenanza dada por el profesor sobre un tema concreto.', example:'Aprendi una nueva leccion de matematicas.' },
+      nl:{ word:'les', definition:'Onderwijs gegeven door de leraar over een bepaald onderwerp.', example:'Ik heb een nieuwe rekenles geleerd.' },
+      en:{ word:'lesson', definition:'Teaching given by the teacher on a specific topic.', example:'I learned a new maths lesson.' },
+      es:{ word:'lección', definition:'Ensenanza dada por el profesor sobre un tema concreto.', example:'Aprendi una nueva leccion de matematicas.' },
     },
   },
   {
@@ -472,9 +472,9 @@ export const DICO_WORDS = [
     example:'Je fais mes devoirs avant de jouer.',
     synonyms:['exercice'], antonym:null, family:['cahier','stylo','maison'],
     i18n:{
-      nl:{ definition:'Werk dat leerlingen thuis doen om te oefenen.', example:'Ik maak mijn huiswerk voordat ik ga spelen.' },
-      en:{ definition:'Work that pupils do at home to practise.', example:'I do my homework before I go and play.' },
-      es:{ definition:'Trabajo que hacen los alumnos en casa para practicar.', example:'Hago los deberes antes de salir a jugar.' },
+      nl:{ word:'huiswerk', definition:'Werk dat leerlingen thuis doen om te oefenen.', example:'Ik maak mijn huiswerk voordat ik ga spelen.' },
+      en:{ word:'homework', definition:'Work that pupils do at home to practise.', example:'I do my homework before I go and play.' },
+      es:{ word:'deberes', definition:'Trabajo que hacen los alumnos en casa para practicar.', example:'Hago los deberes antes de salir a jugar.' },
     },
   },
   {
@@ -483,9 +483,9 @@ export const DICO_WORDS = [
     example:'Notre classe visite un musee.',
     synonyms:[], antonym:null, family:['eleve','professeur','ecole'],
     i18n:{
-      nl:{ definition:'Ruimte of groep leerlingen die samen leren.', example:'Onze klas bezoekt een museum.' },
-      en:{ definition:'A room or group of pupils who learn together.', example:'Our class visits a museum.' },
-      es:{ definition:'Sala o grupo de alumnos que aprenden juntos.', example:'Nuestra clase visita un museo.' },
+      nl:{ word:'klas', definition:'Ruimte of groep leerlingen die samen leren.', example:'Onze klas bezoekt een museum.' },
+      en:{ word:'class', definition:'A room or group of pupils who learn together.', example:'Our class visits a museum.' },
+      es:{ word:'clase', definition:'Sala o grupo de alumnos que aprenden juntos.', example:'Nuestra clase visita un museo.' },
     },
   },
   {
@@ -494,9 +494,9 @@ export const DICO_WORDS = [
     example:'Je decoupe la forme avec des ciseaux.',
     synonyms:[], antonym:null, family:['colle','papier','decouper'],
     i18n:{
-      nl:{ definition:'Gereedschap met twee messen om papier, stof of touw te knippen.', example:'Ik knip de vorm uit met de schaar.' },
-      en:{ definition:'A tool with two blades for cutting paper, fabric or string.', example:'I cut out the shape with scissors.' },
-      es:{ definition:'Herramienta con dos hojas para cortar papel, tela o hilo.', example:'Recorto la forma con las tijeras.' },
+      nl:{ word:'schaar', definition:'Gereedschap met twee messen om papier, stof of touw te knippen.', example:'Ik knip de vorm uit met de schaar.' },
+      en:{ word:'scissors', definition:'A tool with two blades for cutting paper, fabric or string.', example:'I cut out the shape with scissors.' },
+      es:{ word:'tijeras', definition:'Herramienta con dos hojas para cortar papel, tela o hilo.', example:'Recorto la forma con las tijeras.' },
     },
   },
   {
@@ -505,9 +505,9 @@ export const DICO_WORDS = [
     example:'Je colle les images dans mon cahier.',
     synonyms:[], antonym:null, family:['ciseaux','papier','coller'],
     i18n:{
-      nl:{ definition:'Kleverige stof die twee oppervlakken aan elkaar laat kleven.', example:'Ik plak de afbeeldingen in mijn schrift.' },
-      en:{ definition:'A sticky substance that makes two surfaces adhere together.', example:'I stick the pictures in my exercise book.' },
-      es:{ definition:'Sustancia adhesiva que hace que dos superficies queden pegadas.', example:'Pego las imagenes en mi cuaderno.' },
+      nl:{ word:'lijm', definition:'Kleverige stof die twee oppervlakken aan elkaar laat kleven.', example:'Ik plak de afbeeldingen in mijn schrift.' },
+      en:{ word:'glue', definition:'A sticky substance that makes two surfaces adhere together.', example:'I stick the pictures in my exercise book.' },
+      es:{ word:'pegamento', definition:'Sustancia adhesiva que hace que dos superficies queden pegadas.', example:'Pego las imagenes en mi cuaderno.' },
     },
   },
 
@@ -518,9 +518,9 @@ export const DICO_WORDS = [
     example:'Les enfants jouent sous l\'arbre.',
     synonyms:[], antonym:null, family:['feuille','racine','foret'],
     i18n:{
-      nl:{ definition:'Grote plant met een stevige stam, takken en bladeren.', example:'De kinderen spelen onder de boom.' },
-      en:{ definition:'A large plant with a solid trunk and branches and leaves.', example:'The children play under the tree.' },
-      es:{ definition:'Gran planta con un tronco solido y ramas y hojas.', example:'Los ninos juegan bajo el arbol.' },
+      nl:{ word:'boom', definition:'Grote plant met een stevige stam, takken en bladeren.', example:'De kinderen spelen onder de boom.' },
+      en:{ word:'tree', definition:'A large plant with a solid trunk and branches and leaves.', example:'The children play under the tree.' },
+      es:{ word:'árbol', definition:'Gran planta con un tronco solido y ramas y hojas.', example:'Los ninos juegan bajo el arbol.' },
     },
   },
   {
@@ -529,9 +529,9 @@ export const DICO_WORDS = [
     example:'La fleur sent tres bon.',
     synonyms:['plante'], antonym:null, family:['petale','tige','jardin'],
     i18n:{
-      nl:{ definition:'Kleurrijk en geurig deel van een plant, vaak heel mooi.', example:'De bloem ruikt heel lekker.' },
-      en:{ definition:'The colourful and fragrant part of a plant, often very beautiful.', example:'The flower smells very nice.' },
-      es:{ definition:'Parte colorida y perfumada de una planta, a menudo muy bonita.', example:'La flor huele muy bien.' },
+      nl:{ word:'bloem', definition:'Kleurrijk en geurig deel van een plant, vaak heel mooi.', example:'De bloem ruikt heel lekker.' },
+      en:{ word:'flower', definition:'The colourful and fragrant part of a plant, often very beautiful.', example:'The flower smells very nice.' },
+      es:{ word:'flor', definition:'Parte colorida y perfumada de una planta, a menudo muy bonita.', example:'La flor huele muy bien.' },
     },
   },
   {
@@ -540,9 +540,9 @@ export const DICO_WORDS = [
     example:'Les nuages cachent le soleil.',
     synonyms:[], antonym:null, family:['ciel','pluie','vent'],
     i18n:{
-      nl:{ definition:'Witte of grijze massa in de lucht gevormd uit waterdruppels.', example:'De wolken verbergen de zon.' },
-      en:{ definition:'A white or grey mass in the sky formed from water droplets.', example:'The clouds hide the sun.' },
-      es:{ definition:'Masa blanca o gris en el cielo formada por gotas de agua.', example:'Las nubes ocultan el sol.' },
+      nl:{ word:'wolk', definition:'Witte of grijze massa in de lucht gevormd uit waterdruppels.', example:'De wolken verbergen de zon.' },
+      en:{ word:'cloud', definition:'A white or grey mass in the sky formed from water droplets.', example:'The clouds hide the sun.' },
+      es:{ word:'nube', definition:'Masa blanca o gris en el cielo formada por gotas de agua.', example:'Las nubes ocultan el sol.' },
     },
   },
   {
@@ -551,9 +551,9 @@ export const DICO_WORDS = [
     example:'Le soleil brille dans le ciel bleu.',
     synonyms:['astre'], antonym:'lune', family:['lumiere','chaleur','journee'],
     i18n:{
-      nl:{ definition:'Ster die licht en warmte geeft aan de Aarde.', example:'De zon schijnt in de blauwe lucht.' },
-      en:{ definition:'The star that gives light and warmth to the Earth.', example:'The sun shines in the blue sky.' },
-      es:{ definition:'Estrella que da luz y calor a la Tierra.', example:'El sol brilla en el cielo azul.' },
+      nl:{ word:'zon', definition:'Ster die licht en warmte geeft aan de Aarde.', example:'De zon schijnt in de blauwe lucht.' },
+      en:{ word:'sun', definition:'The star that gives light and warmth to the Earth.', example:'The sun shines in the blue sky.' },
+      es:{ word:'sol', definition:'Estrella que da luz y calor a la Tierra.', example:'El sol brilla en el cielo azul.' },
     },
   },
   {

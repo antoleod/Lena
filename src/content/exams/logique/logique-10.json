@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 10",
-  "emoji": "🔧",
+  "title": "Chances et probabilités 🎲",
+  "emoji": "🎲",
   "order": 10,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l10-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 5, 7, 9, …",
-          "options": [
-            "10",
-            "8",
-            "11",
-            "9"
-          ],
-          "answer": "11",
-          "correction": "On ajoute 2 à chaque fois : 11.",
-          "prompt_nl": "Maak de rij af: 3, 5, 7, 9, …",
-          "prompt_en": "Continue the sequence: 3, 5, 7, 9, …",
-          "prompt_es": "Continúa la serie: 3, 5, 7, 9, …",
-          "correction_nl": "Elke keer +2: 11.",
-          "correction_en": "Add 2 each time: 11.",
-          "correction_es": "Se suma 2 cada vez: 11."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Continue la suite : 10, 12, 14, 16, …",
-          "options": [
-            "18",
-            "17",
-            "15",
-            "16"
-          ],
-          "answer": "18",
-          "correction": "On ajoute 2 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 10, 12, 14, 16, …",
-          "prompt_en": "Continue the sequence: 10, 12, 14, 16, …",
-          "prompt_es": "Continúa la serie: 10, 12, 14, 16, …",
-          "correction_nl": "Elke keer +2: 18.",
-          "correction_en": "Add 2 each time: 18.",
-          "correction_es": "Se suma 2 cada vez: 18."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Continue la suite : 5, 6, 7, 8, …",
-          "options": [
-            "11",
-            "7",
-            "6",
-            "9"
-          ],
-          "answer": "9",
-          "correction": "On ajoute 1 à chaque fois : 9.",
-          "prompt_nl": "Maak de rij af: 5, 6, 7, 8, …",
-          "prompt_en": "Continue the sequence: 5, 6, 7, 8, …",
-          "prompt_es": "Continúa la serie: 5, 6, 7, 8, …",
-          "correction_nl": "Elke keer +1: 9.",
-          "correction_en": "Add 1 each time: 9.",
-          "correction_es": "Se suma 1 cada vez: 9."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 1, 4, 7, 10, …",
-          "options": [
-            "16",
-            "12",
-            "13",
-            "15"
-          ],
-          "answer": "13",
-          "correction": "On ajoute 3 à chaque fois : 13.",
-          "prompt_nl": "Maak de rij af: 1, 4, 7, 10, …",
-          "prompt_en": "Continue the sequence: 1, 4, 7, 10, …",
-          "prompt_es": "Continúa la serie: 1, 4, 7, 10, …",
-          "correction_nl": "Elke keer +3: 13.",
-          "correction_en": "Add 3 each time: 13.",
-          "correction_es": "Se suma 3 cada vez: 13."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 9, 12, 15, 18, …",
-          "options": [
-            "25",
-            "22",
-            "21",
-            "24"
-          ],
-          "answer": "21",
-          "correction": "On ajoute 3 à chaque fois : 21.",
-          "prompt_nl": "Maak de rij af: 9, 12, 15, 18, …",
-          "prompt_en": "Continue the sequence: 9, 12, 15, 18, …",
-          "prompt_es": "Continúa la serie: 9, 12, 15, 18, …",
-          "correction_nl": "Elke keer +3: 21.",
-          "correction_en": "Add 3 each time: 21.",
-          "correction_es": "Se suma 3 cada vez: 21."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
+          "prompt": "On lance un dé à 6 faces. Combien de faces différentes ?",
+          "prompt_nl": "We gooien een dobbelsteeen met 6 kanten. Hoeveel verschillende kanten?",
+          "prompt_en": "Roll a 6-sided die. How many different faces?",
+          "prompt_es": "Se lanza un dado de 6 caras. ¿Cuántas caras diferentes?",
           "options": [
             "3",
-            "6",
-            "8"
-          ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
-          "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
-          ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
             "4",
-            "7"
+            "5",
+            "6"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "6",
+          "correction": "Un dé standard a 6 faces.",
+          "correction_nl": "Een standaard dobbelsteen heeft 6 kanten.",
+          "correction_en": "A standard die has 6 faces.",
+          "correction_es": "Un dado estándar tiene 6 caras."
+        },
+        {
+          "id": "l10-f02",
+          "type": "mcq",
+          "prompt": "Dans un sac : 1 bille rouge, 1 bille bleue. Probabilité de tirer rouge = ?",
+          "prompt_nl": "In een zak: 1 rode knikker, 1 blauwe. Kans op rood=?",
+          "prompt_en": "Bag: 1 red, 1 blue marble. P(red)=?",
+          "prompt_es": "Bolsa: 1 canica roja, 1 azul. P(rojo)=?",
+          "options": [
+            "1/4",
+            "1/3",
+            "1/2",
+            "1/1"
+          ],
+          "answer": "1/2",
+          "correction": "1 rouge sur 2 en tout.",
+          "correction_nl": "1 rood op 2 totaal.",
+          "correction_en": "1 red out of 2 total.",
+          "correction_es": "1 rojo de 2 total."
+        },
+        {
+          "id": "l10-f03",
+          "type": "mcq",
+          "prompt": "On tire une carte dans un jeu de 4 (As, 2, 3, 4). Probabilité de tirer l'As = ?",
+          "prompt_nl": "Kaart trekken uit 4 (A,2,3,4). Kans op A=?",
+          "prompt_en": "Draw from 4 cards (A,2,3,4). P(Ace)=?",
+          "prompt_es": "Sacar carta de 4 (A,2,3,4). P(As)=?",
+          "options": [
+            "1/4",
+            "1/2",
+            "1/3",
+            "1/1"
+          ],
+          "answer": "1/4",
+          "correction": "1 As sur 4 cartes.",
+          "correction_nl": "1 Aas op 4 kaarten.",
+          "correction_en": "1 Ace out of 4.",
+          "correction_es": "1 As de 4."
+        },
+        {
+          "id": "l10-f04",
+          "type": "mcq",
+          "prompt": "Dans un sac : 3 billes rouges, 1 bleue. Probabilité de tirer bleue = ?",
+          "prompt_nl": "Zak: 3 rode, 1 blauwe. Kans op blauw=?",
+          "prompt_en": "Bag: 3 red, 1 blue. P(blue)=?",
+          "prompt_es": "Bolsa: 3 rojas, 1 azul. P(azul)=?",
+          "options": [
+            "1/2",
+            "1/3",
+            "1/4",
+            "1/5"
+          ],
+          "answer": "1/4",
+          "correction": "1 bleue sur 4.",
+          "correction_nl": "1 blauw op 4.",
+          "correction_en": "1 blue out of 4.",
+          "correction_es": "1 azul de 4."
+        },
+        {
+          "id": "l10-f05",
+          "type": "mcq",
+          "prompt": "On lance une pièce. Probabilité de tomber sur face = ?",
+          "prompt_nl": "We gooien een munt. Kans op kop=?",
+          "prompt_en": "Flip a coin. P(heads)=?",
+          "prompt_es": "Se lanza una moneda. P(cara)=?",
+          "options": [
+            "1/4",
+            "1/3",
+            "1/2",
+            "1/1"
+          ],
+          "answer": "1/2",
+          "correction": "Face ou pile : 1/2.",
+          "correction_nl": "Kop of munt: 1/2.",
+          "correction_en": "Heads or tails: 1/2.",
+          "correction_es": "Cara o cruz: 1/2."
+        },
+        {
+          "id": "l10-f06",
+          "type": "mcq",
+          "prompt": "Dans un sac : 2 billes rouges, 2 bleues. Probabilité de rouge = ?",
+          "prompt_nl": "Zak: 2 rood, 2 blauw. Kans op rood=?",
+          "prompt_en": "Bag: 2 red, 2 blue. P(red)=?",
+          "prompt_es": "Bolsa: 2 rojas, 2 azules. P(rojo)=?",
+          "options": [
+            "1/4",
+            "1/3",
+            "1/2",
+            "2/3"
+          ],
+          "answer": "1/2",
+          "correction": "2/4 = 1/2.",
+          "correction_nl": "2/4 = 1/2.",
+          "correction_en": "2/4 = 1/2.",
+          "correction_es": "2/4 = 1/2."
+        },
+        {
+          "id": "l10-f07",
+          "type": "mcq",
+          "prompt": "On lance un dé. Probabilité d'obtenir un nombre pair = ?",
+          "prompt_nl": "Dobbelsteen gooien. Kans op een even getal=?",
+          "prompt_en": "Roll a die. P(even)=?",
+          "prompt_es": "Lanzar dado. P(par)=?",
+          "options": [
+            "1/3",
+            "1/2",
+            "2/3",
+            "1/6"
+          ],
+          "answer": "1/2",
+          "correction": "2,4,6 sont pairs : 3/6=1/2.",
+          "correction_nl": "2,4,6 zijn even: 3/6=1/2.",
+          "correction_en": "2,4,6 are even: 3/6=1/2.",
+          "correction_es": "2,4,6 son pares: 3/6=1/2."
+        },
+        {
+          "id": "l10-f08",
+          "type": "mcq",
+          "prompt": "Sachet : 5 bonbons (3 rouges, 2 verts). P(vert) = ?",
+          "prompt_nl": "Zakje: 5 snoepjes (3 rood, 2 groen). P(groen)=?",
+          "prompt_en": "Bag: 5 sweets (3 red, 2 green). P(green)=?",
+          "prompt_es": "Bolsita: 5 caramelos (3 rojos, 2 verdes). P(verde)=?",
+          "options": [
+            "1/5",
+            "2/5",
+            "3/5",
+            "2/3"
+          ],
+          "answer": "2/5",
+          "correction": "2/5.",
+          "correction_nl": "2/5.",
+          "correction_en": "2/5.",
+          "correction_es": "2/5."
+        },
+        {
+          "id": "l10-f09",
+          "type": "mcq",
+          "prompt": "P(événement impossible) = ?",
+          "prompt_nl": "P(onmogelijke gebeurtenis)=?",
+          "prompt_en": "P(impossible event)=?",
+          "prompt_es": "P(evento imposible)=?",
+          "options": [
+            "0",
+            "1/2",
+            "1",
+            "2"
+          ],
+          "answer": "0",
+          "correction": "Un événement impossible a probabilité 0.",
+          "correction_nl": "Een onmogelijke gebeurtenis heeft kans 0.",
+          "correction_en": "Impossible event: P=0.",
+          "correction_es": "Evento imposible: P=0."
+        },
+        {
+          "id": "l10-f10",
+          "type": "mcq",
+          "prompt": "P(événement certain) = ?",
+          "prompt_nl": "P(zekere gebeurtenis)=?",
+          "prompt_en": "P(certain event)=?",
+          "prompt_es": "P(evento seguro)=?",
+          "options": [
+            "0",
+            "1/2",
+            "1",
+            "2"
+          ],
+          "answer": "1",
+          "correction": "Un événement certain a probabilité 1.",
+          "correction_nl": "Een zekere gebeurtenis heeft kans 1.",
+          "correction_en": "Certain event: P=1.",
+          "correction_es": "Evento seguro: P=1."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l10-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Dé à 6 faces. P(obtenir 5 ou 6) = ?",
+          "prompt_nl": "Dobbelsteen. P(5 of 6)=?",
+          "prompt_en": "Die. P(5 or 6)=?",
+          "prompt_es": "Dado. P(5 o 6)=?",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
+            "1/6",
+            "1/3",
+            "1/2",
+            "2/3"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "1/3",
+          "correction": "2/6=1/3.",
+          "correction_nl": "2/6=1/3.",
+          "correction_en": "2/6=1/3.",
+          "correction_es": "2/6=1/3."
         },
         {
-          "id": "qm2",
+          "id": "l10-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Sac : 4 rouges, 3 bleues, 1 verte. P(non rouge) = ?",
+          "prompt_nl": "Zak: 4 rood, 3 blauw, 1 groen. P(niet rood)=?",
+          "prompt_en": "Bag: 4 red, 3 blue, 1 green. P(not red)=?",
+          "prompt_es": "Bolsa: 4 rojas, 3 azules, 1 verde. P(no rojo)=?",
           "options": [
-            "18",
-            "24",
-            "32",
-            "20"
+            "1/2",
+            "3/8",
+            "5/8",
+            "4/8"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "1/2",
+          "correction": "(3+1)/8 = 4/8 = 1/2.",
+          "correction_nl": "4/8=1/2.",
+          "correction_en": "4/8=1/2.",
+          "correction_es": "4/8=1/2."
         },
         {
-          "id": "qm3",
+          "id": "l10-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "On lance 2 pièces. P(2 faces) = ?",
+          "prompt_nl": "2 munten gooien. P(2 kop)=?",
+          "prompt_en": "Flip 2 coins. P(2 heads)=?",
+          "prompt_es": "Lanzar 2 monedas. P(2 caras)=?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "1/4",
+            "1/3",
+            "1/2",
+            "3/4"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "1/4",
+          "correction": "1/2 × 1/2 = 1/4.",
+          "correction_nl": "1/2×1/2=1/4.",
+          "correction_en": "1/2×1/2=1/4.",
+          "correction_es": "1/2×1/2=1/4."
         },
         {
-          "id": "qm4",
+          "id": "l10-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Dé : P(nombre > 4) = ?",
+          "prompt_nl": "Dobbelsteen: P(getal > 4)=?",
+          "prompt_en": "Die: P(number > 4)=?",
+          "prompt_es": "Dado: P(número > 4)=?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "1/6",
+            "1/4",
+            "1/3",
+            "1/2"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "1/3",
+          "correction": "5 et 6 : 2/6=1/3.",
+          "correction_nl": "5 en 6: 2/6=1/3.",
+          "correction_en": "5 and 6: 2/6=1/3.",
+          "correction_es": "5 y 6: 2/6=1/3."
         },
         {
-          "id": "qm5",
+          "id": "l10-m05",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "P(A)=0.3, P(B)=0.5, A et B sont mutuellement exclusifs. P(A ou B) = ?",
+          "prompt_nl": "P(A)=0,3, P(B)=0,5, A en B zijn wederzijds uitsluitend. P(A of B)=?",
+          "prompt_en": "P(A)=0.3, P(B)=0.5, mutually exclusive. P(A or B)=?",
+          "prompt_es": "P(A)=0.3, P(B)=0.5, mutuamente excluyentes. P(A o B)=?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "0.2",
+            "0.6",
+            "0.7",
+            "0.8"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "0.8",
+          "correction": "0.3+0.5=0.8.",
+          "correction_nl": "0.3+0.5=0.8.",
+          "correction_en": "0.3+0.5=0.8.",
+          "correction_es": "0.3+0.5=0.8."
         },
         {
-          "id": "qm6",
+          "id": "l10-m06",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Sac : 6 billes. P(rouge)=1/2. Combien de billes rouges ?",
+          "prompt_nl": "Zak: 6 knikkers. P(rood)=1/2. Hoeveel rode?",
+          "prompt_en": "Bag: 6 marbles. P(red)=1/2. How many red?",
+          "prompt_es": "Bolsa: 6 canicas. P(rojo)=1/2. ¿Cuántas rojas?",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "1",
+            "2",
+            "3",
+            "4"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "3",
+          "correction": "1/2 × 6 = 3.",
+          "correction_nl": "1/2×6=3.",
+          "correction_en": "1/2×6=3.",
+          "correction_es": "1/2×6=3."
         },
         {
-          "id": "qm7",
+          "id": "l10-m07",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "On lance un dé 2 fois. P(deux 6) = ?",
+          "prompt_nl": "Dobbelsteen 2 keer. P(twee 6)=?",
+          "prompt_en": "Roll die twice. P(two 6s)=?",
+          "prompt_es": "Dado 2 veces. P(dos 6)=?",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "1/36",
+            "1/12",
+            "1/6",
+            "1/3"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "1/36",
+          "correction": "1/6 × 1/6 = 1/36.",
+          "correction_nl": "1/6×1/6=1/36.",
+          "correction_en": "1/6×1/6=1/36.",
+          "correction_es": "1/6×1/6=1/36."
         },
         {
-          "id": "qm8",
+          "id": "l10-m08",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "P(A)=0.4. P(complément de A) = ?",
+          "prompt_nl": "P(A)=0,4. P(complement van A)=?",
+          "prompt_en": "P(A)=0.4. P(complement of A)=?",
+          "prompt_es": "P(A)=0.4. P(complemento de A)=?",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "0.4",
+            "0.5",
+            "0.6",
+            "0.7"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "0.6",
+          "correction": "1-0.4=0.6.",
+          "correction_nl": "1-0.4=0.6.",
+          "correction_en": "1-0.4=0.6.",
+          "correction_es": "1-0.4=0.6."
         },
         {
-          "id": "qm9",
+          "id": "l10-m09",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "Dans une classe de 20 élèves, 12 aiment les maths. Si on choisit un élève au hasard, P(aime les maths) = ?",
+          "prompt_nl": "20 leerlingen, 12 houden van wiskunde. P(houdt van wiskunde)=?",
+          "prompt_en": "20 students, 12 like maths. P(likes maths)=?",
+          "prompt_es": "20 alumnos, 12 les gustan las mates. P(le gustan las mates)=?",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "1/2",
+            "3/5",
+            "2/3",
+            "3/4"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "3/5",
+          "correction": "12/20=3/5.",
+          "correction_nl": "12/20=3/5.",
+          "correction_en": "12/20=3/5.",
+          "correction_es": "12/20=3/5."
         },
         {
-          "id": "qm10",
+          "id": "l10-m10",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "Dé pipé : P(6)=1/2, les autres faces sont équiprobables. P(1) = ?",
+          "prompt_nl": "Vals dobbelsteen: P(6)=1/2, rest gelijk. P(1)=?",
+          "prompt_en": "Loaded die: P(6)=1/2, rest equal. P(1)=?",
+          "prompt_es": "Dado cargado: P(6)=1/2, el resto igual. P(1)=?",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "1/10",
+            "1/8",
+            "1/6",
+            "1/5"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "1/10",
+          "correction": "(1-1/2)/5 = (1/2)/5 = 1/10.",
+          "correction_nl": "(1/2)÷5=1/10.",
+          "correction_en": "(1/2)÷5=1/10.",
+          "correction_es": "(1/2)÷5=1/10."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l10-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 8, 11, 14, 17, …",
+          "prompt": "P(A∩B) = P(A)×P(B) seulement si A et B sont … ?",
+          "prompt_nl": "P(A∩B) = P(A)×P(B) enkel als A en B … zijn?",
+          "prompt_en": "P(A∩B)=P(A)×P(B) only if A and B are … ?",
+          "prompt_es": "P(A∩B)=P(A)×P(B) solo si A y B son … ?",
           "options": [
-            "19",
-            "20",
-            "25",
-            "17"
+            "mutuellement exclusifs",
+            "indépendants",
+            "complémentaires",
+            "identiques"
           ],
-          "answer": "20",
-          "correction": "On ajoute 3 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 8, 11, 14, 17, …",
-          "prompt_en": "Continue the sequence: 8, 11, 14, 17, …",
-          "prompt_es": "Continúa la serie: 8, 11, 14, 17, …",
-          "correction_nl": "Elke keer +3: 20.",
-          "correction_en": "Add 3 each time: 20.",
-          "correction_es": "Se suma 3 cada vez: 20."
+          "answer": "indépendants",
+          "correction": "Définition des événements indépendants.",
+          "correction_nl": "Definitie van onafhankelijke gebeurtenissen.",
+          "correction_en": "Definition of independent events.",
+          "correction_es": "Definición de eventos independientes."
         },
         {
-          "id": "q12",
+          "id": "l10-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 14, 18, 22, …",
+          "prompt": "P(A)=0.5, P(B|A)=0.4. P(A∩B) = ?",
+          "prompt_nl": "P(A)=0,5, P(B|A)=0,4. P(A∩B)=?",
+          "prompt_en": "P(A)=0.5, P(B|A)=0.4. P(A∩B)=?",
+          "prompt_es": "P(A)=0.5, P(B|A)=0.4. P(A∩B)=?",
           "options": [
-            "26",
-            "27",
-            "22",
-            "28"
+            "0.1",
+            "0.2",
+            "0.3",
+            "0.4"
           ],
-          "answer": "26",
-          "correction": "On ajoute 4 à chaque fois : 26.",
-          "prompt_nl": "Maak de rij af: 10, 14, 18, 22, …",
-          "prompt_en": "Continue the sequence: 10, 14, 18, 22, …",
-          "prompt_es": "Continúa la serie: 10, 14, 18, 22, …",
-          "correction_nl": "Elke keer +4: 26.",
-          "correction_en": "Add 4 each time: 26.",
-          "correction_es": "Se suma 4 cada vez: 26."
+          "answer": "0.2",
+          "correction": "P(A∩B)=P(B|A)×P(A)=0.4×0.5=0.2.",
+          "correction_nl": "0.4×0.5=0.2.",
+          "correction_en": "0.4×0.5=0.2.",
+          "correction_es": "0.4×0.5=0.2."
         },
         {
-          "id": "q13",
+          "id": "l10-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 6, 9, 12, 15, …",
+          "prompt": "Urne : 3 rouges, 2 bleues. Tirage sans remise. P(rouge puis bleue) = ?",
+          "prompt_nl": "Urn: 3 rood, 2 blauw. Zonder teruglegging. P(rood dan blauw)=?",
+          "prompt_en": "Urn: 3 red, 2 blue. Without replacement. P(red then blue)=?",
+          "prompt_es": "Urna: 3 rojas, 2 azules. Sin reemplazo. P(roja luego azul)=?",
           "options": [
-            "19",
-            "21",
-            "20",
-            "18"
+            "3/10",
+            "6/20",
+            "3/20",
+            "2/5"
           ],
-          "answer": "18",
-          "correction": "On ajoute 3 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 6, 9, 12, 15, …",
-          "prompt_en": "Continue the sequence: 6, 9, 12, 15, …",
-          "prompt_es": "Continúa la serie: 6, 9, 12, 15, …",
-          "correction_nl": "Elke keer +3: 18.",
-          "correction_en": "Add 3 each time: 18.",
-          "correction_es": "Se suma 3 cada vez: 18."
+          "answer": "3/10",
+          "correction": "P(R)×P(B|R) = 3/5 × 2/4 = 6/20 = 3/10.",
+          "correction_nl": "3/5 × 2/4 = 3/10.",
+          "correction_en": "3/5 × 2/4 = 3/10.",
+          "correction_es": "3/5 × 2/4 = 3/10."
         },
         {
-          "id": "q14",
+          "id": "l10-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 12, 14, 16, …",
+          "prompt": "Théorème de Bayes : P(A|B) = P(B|A)×P(A)/P(B). P(B|A)=0.8, P(A)=0.3, P(B)=0.4. P(A|B) = ?",
+          "prompt_nl": "Bayes: P(A|B) = P(B|A)×P(A)/P(B). Waarden: 0.8, 0.3, 0.4. P(A|B)=?",
+          "prompt_en": "Bayes: P(A|B) = P(B|A)×P(A)/P(B). Values: 0.8, 0.3, 0.4. P(A|B)=?",
+          "prompt_es": "Bayes: P(A|B)=P(B|A)×P(A)/P(B). Valores: 0.8, 0.3, 0.4. P(A|B)=?",
           "options": [
-            "17",
-            "18",
-            "21",
-            "15"
+            "0.3",
+            "0.6",
+            "0.8",
+            "1.0"
           ],
-          "answer": "18",
-          "correction": "On ajoute 2 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 10, 12, 14, 16, …",
-          "prompt_en": "Continue the sequence: 10, 12, 14, 16, …",
-          "prompt_es": "Continúa la serie: 10, 12, 14, 16, …",
-          "correction_nl": "Elke keer +2: 18.",
-          "correction_en": "Add 2 each time: 18.",
-          "correction_es": "Se suma 2 cada vez: 18."
+          "answer": "0.6",
+          "correction": "0.8×0.3/0.4=0.24/0.4=0.6.",
+          "correction_nl": "0.8×0.3/0.4=0.6.",
+          "correction_en": "0.8×0.3/0.4=0.6.",
+          "correction_es": "0.8×0.3/0.4=0.6."
         },
         {
-          "id": "q15",
+          "id": "l10-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 24, 26, 28, 30, …",
+          "prompt": "Loi binomiale : n=3 lancers, P(pile)=1/2. P(exactement 2 piles) = ?",
+          "prompt_nl": "Binomiaalverdeling: n=3, P(munt)=1/2. P(exact 2 munten)=?",
+          "prompt_en": "Binomial: n=3, P(tails)=1/2. P(exactly 2 tails)=?",
+          "prompt_es": "Binomial: n=3, P(cruz)=1/2. P(exactamente 2 cruces)=?",
           "options": [
-            "36",
-            "31",
-            "30",
-            "32"
+            "1/8",
+            "2/8",
+            "3/8",
+            "4/8"
           ],
-          "answer": "32",
-          "correction": "On ajoute 2 à chaque fois : 32.",
-          "prompt_nl": "Maak de rij af: 24, 26, 28, 30, …",
-          "prompt_en": "Continue the sequence: 24, 26, 28, 30, …",
-          "prompt_es": "Continúa la serie: 24, 26, 28, 30, …",
-          "correction_nl": "Elke keer +2: 32.",
-          "correction_en": "Add 2 each time: 32.",
-          "correction_es": "Se suma 2 cada vez: 32."
+          "answer": "3/8",
+          "correction": "C(3,2)×(1/2)²×(1/2)=3×1/8=3/8.",
+          "correction_nl": "C(3,2)×(1/2)³=3/8.",
+          "correction_en": "C(3,2)×(1/2)²×(1/2)=3/8.",
+          "correction_es": "C(3,2)×(1/2)²×(1/2)=3/8."
         },
         {
-          "id": "q16",
+          "id": "l10-d06",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 13, 19, 25, …",
-          "options": [
-            "29",
-            "31",
-            "38",
-            "26"
-          ],
-          "answer": "31",
-          "correction": "On ajoute 6 à chaque fois : 31.",
-          "prompt_nl": "Maak de rij af: 7, 13, 19, 25, …",
-          "prompt_en": "Continue the sequence: 7, 13, 19, 25, …",
-          "prompt_es": "Continúa la serie: 7, 13, 19, 25, …",
-          "correction_nl": "Elke keer +6: 31.",
-          "correction_en": "Add 6 each time: 31.",
-          "correction_es": "Se suma 6 cada vez: 31."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
-          "options": [
-            "voiture",
-            "pomme",
-            "fraise"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
+          "prompt": "Espérance d'un dé équilibré à 6 faces = ?",
+          "prompt_nl": "Verwachting van een eerlijke dobbelsteen=?",
+          "prompt_en": "Expected value of a fair 6-sided die=?",
+          "prompt_es": "Esperanza de un dado equilibrado=?",
           "options": [
             "3",
-            "6",
-            "8"
-          ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
+            "3.5",
             "4",
-            "7"
+            "4.5"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "3.5",
+          "correction": "(1+2+3+4+5+6)/6=21/6=3.5.",
+          "correction_nl": "21/6=3.5.",
+          "correction_en": "21/6=3.5.",
+          "correction_es": "21/6=3.5."
         },
         {
-          "id": "q20",
+          "id": "l10-d07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "On tire 2 cartes d'un jeu de 52. P(2 as) = ?",
+          "prompt_nl": "2 kaarten uit een pak van 52. P(2 azen)=?",
+          "prompt_en": "Draw 2 cards from 52. P(2 aces)=?",
+          "prompt_es": "Sacar 2 cartas de 52. P(2 ases)=?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "4/52",
+            "6/1326",
+            "12/2652",
+            "1/169"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "6/1326",
+          "correction": "C(4,2)/C(52,2)=6/1326.",
+          "correction_nl": "C(4,2)/C(52,2)=6/1326.",
+          "correction_en": "C(4,2)/C(52,2)=6/1326.",
+          "correction_es": "C(4,2)/C(52,2)=6/1326."
+        },
+        {
+          "id": "l10-d08",
+          "type": "mcq",
+          "prompt": "Variable aléatoire X : P(X=0)=0.2, P(X=1)=0.5, P(X=2)=0.3. E[X] = ?",
+          "prompt_nl": "Stochastische variabele: P(X=0)=0,2, P(X=1)=0,5, P(X=2)=0,3. E[X]=?",
+          "prompt_en": "Random var: P(X=0)=0.2, P(X=1)=0.5, P(X=2)=0.3. E[X]=?",
+          "prompt_es": "Variable aleatoria: P(X=0)=0.2, P(X=1)=0.5, P(X=2)=0.3. E[X]=?",
+          "options": [
+            "0.9",
+            "1.0",
+            "1.1",
+            "1.2"
+          ],
+          "answer": "1.1",
+          "correction": "0×0.2+1×0.5+2×0.3=0.5+0.6=1.1.",
+          "correction_nl": "0+0.5+0.6=1.1.",
+          "correction_en": "0+0.5+0.6=1.1.",
+          "correction_es": "0+0.5+0.6=1.1."
+        },
+        {
+          "id": "l10-d09",
+          "type": "mcq",
+          "prompt": "Problème du anniversaire : dans un groupe de 23 personnes, P(deux même anniversaire) est approximativement ?",
+          "prompt_nl": "Verjaardagsparadox: groep van 23 personen. P(twee zelfde verjaardag)≈?",
+          "prompt_en": "Birthday paradox: group of 23. P(two same birthday)≈?",
+          "prompt_es": "Paradoja del cumpleaños: grupo de 23. P(dos mismo cumpleaños)≈?",
+          "options": [
+            "<25%",
+            "≈50%",
+            "≈75%",
+            ">90%"
+          ],
+          "answer": "≈50%",
+          "correction": "Le paradoxe des anniversaires : ≈50%.",
+          "correction_nl": "De verjaardagsparadox: ≈50%.",
+          "correction_en": "Birthday paradox: ≈50%.",
+          "correction_es": "Paradoja del cumpleaños: ≈50%."
+        },
+        {
+          "id": "l10-d10",
+          "type": "mcq",
+          "prompt": "Loi de Poisson : λ=2. P(X=0) = e^(-2) ≈ ?",
+          "prompt_nl": "Poisson: λ=2. P(X=0)=e^(-2)≈?",
+          "prompt_en": "Poisson: λ=2. P(X=0)=e^(-2)≈?",
+          "prompt_es": "Poisson: λ=2. P(X=0)=e^(-2)≈?",
+          "options": [
+            "0.05",
+            "0.10",
+            "0.14",
+            "0.18"
+          ],
+          "answer": "0.14",
+          "correction": "e^(-2) ≈ 0.135.",
+          "correction_nl": "e^(-2) ≈ 0,135.",
+          "correction_en": "e^(-2) ≈ 0.135.",
+          "correction_es": "e^(-2) ≈ 0.135."
         }
       ]
     }

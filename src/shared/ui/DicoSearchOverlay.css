@@ -1,0 +1,180 @@
+/* ── DicoSearchOverlay — quick dictionary lookup from mascot ── */
+
+.dso-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(20, 10, 50, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  animation: dso-fade-in 0.18s ease both;
+}
+
+@keyframes dso-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.dso-panel {
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -8px 40px rgba(80, 40, 160, 0.25);
+  overflow: hidden;
+  animation: dso-slide-up 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes dso-slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* ── Header ── */
+.dso-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 16px 12px;
+  border-bottom: 1.5px solid #f0eaff;
+  flex-shrink: 0;
+}
+
+.dso-header__icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.dso-input {
+  flex: 1;
+  border: 2px solid #d0c8e8;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c1654;
+  background: #faf9ff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.dso-input:focus {
+  border-color: #7c3aed;
+  background: #fff;
+}
+
+.dso-input::placeholder {
+  color: #b0a0cc;
+  font-weight: 400;
+}
+
+.dso-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #f0eaff;
+  color: #7c3aed;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.12s;
+}
+
+.dso-close:hover {
+  background: #e0d4ff;
+}
+
+/* ── Body ── */
+.dso-body {
+  overflow-y: auto;
+  padding: 16px;
+  flex: 1;
+  min-height: 80px;
+}
+
+.dso-hint {
+  text-align: center;
+  color: #9e8ab8;
+  font-size: 1rem;
+  padding: 12px 0;
+}
+
+.dso-not-found {
+  text-align: center;
+  color: #c0392b;
+  font-size: 1rem;
+  padding: 12px 0;
+}
+
+/* ── Word card ── */
+.dso-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: dso-fade-in 0.15s ease both;
+}
+
+.dso-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dso-card__emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.dso-card__word {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2c1654;
+}
+
+.dso-card__meta {
+  font-size: 0.85rem;
+  color: #9e8ab8;
+  font-weight: 500;
+}
+
+.dso-card__def,
+.dso-card__ex,
+.dso-card__synonyms {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #3d2a6b;
+  line-height: 1.55;
+}
+
+.dso-card__label {
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.dso-card__family {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.dso-card__family-tag {
+  background: #f0eaff;
+  color: #5b21b6;
+  border-radius: 8px;
+  padding: 3px 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}

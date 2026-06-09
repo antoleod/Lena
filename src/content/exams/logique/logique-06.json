@@ -4,445 +4,523 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 6",
-  "emoji": "🗝️",
+  "title": "Vrai ou Faux ✔️❌",
+  "emoji": "✔️",
   "order": 6,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l06-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 9, 11, 13, …",
+          "prompt": "Un chat est un oiseau.",
+          "prompt_nl": "Een kat is een vogel.",
+          "prompt_en": "A cat is a bird.",
+          "prompt_es": "Un gato es un pájaro.",
           "options": [
-            "15",
-            "14",
-            "19",
-            "17"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "15",
-          "correction": "On ajoute 2 à chaque fois : 15.",
-          "prompt_nl": "Maak de rij af: 7, 9, 11, 13, …",
-          "prompt_en": "Continue the sequence: 7, 9, 11, 13, …",
-          "prompt_es": "Continúa la serie: 7, 9, 11, 13, …",
-          "correction_nl": "Elke keer +2: 15.",
-          "correction_en": "Add 2 each time: 15.",
-          "correction_es": "Se suma 2 cada vez: 15."
+          "answer": "Faux",
+          "correction": "Un chat est un mammifère.",
+          "correction_nl": "Een kat is een zoogdier.",
+          "correction_en": "A cat is a mammal.",
+          "correction_es": "Un gato es un mamífero."
         },
         {
-          "id": "q10",
+          "id": "l06-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 4, 5, 6, …",
+          "prompt": "2 + 3 = 5",
+          "prompt_nl": "2 + 3 = 5",
+          "prompt_en": "2 + 3 = 5",
+          "prompt_es": "2 + 3 = 5",
           "options": [
-            "4",
-            "7",
-            "5",
-            "10"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "7",
-          "correction": "On ajoute 1 à chaque fois : 7.",
-          "prompt_nl": "Maak de rij af: 3, 4, 5, 6, …",
-          "prompt_en": "Continue the sequence: 3, 4, 5, 6, …",
-          "prompt_es": "Continúa la serie: 3, 4, 5, 6, …",
-          "correction_nl": "Elke keer +1: 7.",
-          "correction_en": "Add 1 each time: 7.",
-          "correction_es": "Se suma 1 cada vez: 7."
+          "answer": "Vrai",
+          "correction": "2 + 3 = 5, c'est vrai.",
+          "correction_nl": "2 + 3 = 5, dat klopt.",
+          "correction_en": "2 + 3 = 5, correct.",
+          "correction_es": "2 + 3 = 5, correcto."
         },
         {
-          "id": "q11",
+          "id": "l06-f03",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 8, 9, 10, …",
+          "prompt": "Le soleil se lève à l'ouest.",
+          "prompt_nl": "De zon komt op in het westen.",
+          "prompt_en": "The sun rises in the west.",
+          "prompt_es": "El sol sale por el oeste.",
           "options": [
-            "11",
-            "13",
-            "14",
-            "8"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "11",
-          "correction": "On ajoute 1 à chaque fois : 11.",
-          "prompt_nl": "Maak de rij af: 7, 8, 9, 10, …",
-          "prompt_en": "Continue the sequence: 7, 8, 9, 10, …",
-          "prompt_es": "Continúa la serie: 7, 8, 9, 10, …",
-          "correction_nl": "Elke keer +1: 11.",
-          "correction_en": "Add 1 each time: 11.",
-          "correction_es": "Se suma 1 cada vez: 11."
+          "answer": "Faux",
+          "correction": "Le soleil se lève à l'est.",
+          "correction_nl": "De zon komt op in het oosten.",
+          "correction_en": "The sun rises in the east.",
+          "correction_es": "El sol sale por el este."
         },
         {
-          "id": "q12",
+          "id": "l06-f04",
           "type": "mcq",
-          "prompt": "Continue la suite : 6, 8, 10, 12, …",
+          "prompt": "5 × 0 = 0",
+          "prompt_nl": "5 × 0 = 0",
+          "prompt_en": "5 × 0 = 0",
+          "prompt_es": "5 × 0 = 0",
           "options": [
-            "10",
-            "17",
-            "14",
-            "13"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "14",
-          "correction": "On ajoute 2 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
-          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
-          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
-          "correction_nl": "Elke keer +2: 14.",
-          "correction_en": "Add 2 each time: 14.",
-          "correction_es": "Se suma 2 cada vez: 14."
+          "answer": "Vrai",
+          "correction": "Tout nombre × 0 = 0.",
+          "correction_nl": "Elk getal × 0 = 0.",
+          "correction_en": "Any number × 0 = 0.",
+          "correction_es": "Cualquier número × 0 = 0."
         },
         {
-          "id": "q13",
+          "id": "l06-f05",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 6, 8, …",
+          "prompt": "Bruxelles est la capitale de la France.",
+          "prompt_nl": "Brussel is de hoofdstad van Frankrijk.",
+          "prompt_en": "Brussels is the capital of France.",
+          "prompt_es": "Bruselas es la capital de Francia.",
           "options": [
-            "8",
-            "6",
-            "10",
-            "13"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "10",
-          "correction": "On ajoute 2 à chaque fois : 10.",
-          "prompt_nl": "Maak de rij af: 2, 4, 6, 8, …",
-          "prompt_en": "Continue the sequence: 2, 4, 6, 8, …",
-          "prompt_es": "Continúa la serie: 2, 4, 6, 8, …",
-          "correction_nl": "Elke keer +2: 10.",
-          "correction_en": "Add 2 each time: 10.",
-          "correction_es": "Se suma 2 cada vez: 10."
+          "answer": "Faux",
+          "correction": "Bruxelles est la capitale de la Belgique.",
+          "correction_nl": "Brussel is de hoofdstad van België.",
+          "correction_en": "Brussels is Belgium's capital.",
+          "correction_es": "Bruselas es la capital de Bélgica."
         },
         {
-          "id": "q14",
+          "id": "l06-f06",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Un carré a 4 côtés égaux.",
+          "prompt_nl": "Een vierkant heeft 4 gelijke zijden.",
+          "prompt_en": "A square has 4 equal sides.",
+          "prompt_es": "Un cuadrado tiene 4 lados iguales.",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "Vrai",
+          "correction": "C'est la définition du carré.",
+          "correction_nl": "Dat is de definitie van een vierkant.",
+          "correction_en": "That's the definition of a square.",
+          "correction_es": "Es la definición del cuadrado."
         },
         {
-          "id": "q15",
+          "id": "l06-f07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "10 est un nombre impair.",
+          "prompt_nl": "10 is een oneven getal.",
+          "prompt_en": "10 is an odd number.",
+          "prompt_es": "10 es un número impar.",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "Faux",
+          "correction": "10 est pair (divisible par 2).",
+          "correction_nl": "10 is even (deelbaar door 2).",
+          "correction_en": "10 is even (divisible by 2).",
+          "correction_es": "10 es par (divisible entre 2)."
         },
         {
-          "id": "q16",
+          "id": "l06-f08",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Il y a 7 jours dans une semaine.",
+          "prompt_nl": "Er zijn 7 dagen in een week.",
+          "prompt_en": "There are 7 days in a week.",
+          "prompt_es": "Hay 7 días en una semana.",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "Vrai",
+          "correction": "Lundi à dimanche = 7 jours.",
+          "correction_nl": "Maandag tot zondag = 7.",
+          "correction_en": "Monday to Sunday = 7.",
+          "correction_es": "Lunes a domingo = 7."
+        },
+        {
+          "id": "l06-f09",
+          "type": "mcq",
+          "prompt": "3 > 5",
+          "prompt_nl": "3 > 5",
+          "prompt_en": "3 > 5",
+          "prompt_es": "3 > 5",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "answer": "Faux",
+          "correction": "3 est plus petit que 5.",
+          "correction_nl": "3 is kleiner dan 5.",
+          "correction_en": "3 is less than 5.",
+          "correction_es": "3 es menor que 5."
+        },
+        {
+          "id": "l06-f10",
+          "type": "mcq",
+          "prompt": "Les plantes ont besoin de lumière pour vivre.",
+          "prompt_nl": "Planten hebben licht nodig om te leven.",
+          "prompt_en": "Plants need light to live.",
+          "prompt_es": "Las plantas necesitan luz para vivir.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "answer": "Vrai",
+          "correction": "La photosynthèse nécessite la lumière.",
+          "correction_nl": "Fotosynthese vereist licht.",
+          "correction_en": "Photosynthesis requires light.",
+          "correction_es": "La fotosíntesis requiere luz."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l06-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Si tous les A sont B et X est A, alors X est B.",
+          "prompt_nl": "Als alle A B zijn en X is A, dan is X B.",
+          "prompt_en": "If all A are B and X is A, then X is B.",
+          "prompt_es": "Si todos los A son B y X es A, entonces X es B.",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "Vrai",
+          "correction": "Syllogisme valide.",
+          "correction_nl": "Geldig syllogisme.",
+          "correction_en": "Valid syllogism.",
+          "correction_es": "Silogismo válido."
         },
         {
-          "id": "qm2",
+          "id": "l06-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Un nombre divisible par 4 est toujours divisible par 2.",
+          "prompt_nl": "Een getal deelbaar door 4 is altijd deelbaar door 2.",
+          "prompt_en": "A number divisible by 4 is always divisible by 2.",
+          "prompt_es": "Un número divisible entre 4 siempre es divisible entre 2.",
           "options": [
-            "18",
-            "24",
-            "32",
-            "20"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "Vrai",
+          "correction": "4 = 2×2, donc si ÷4 alors ÷2.",
+          "correction_nl": "4=2×2, dus ook deelbaar door 2.",
+          "correction_en": "4=2×2, so divisible by 2.",
+          "correction_es": "4=2×2, por lo tanto divisible entre 2."
         },
         {
-          "id": "qm3",
+          "id": "l06-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Tous les carrés sont des rectangles.",
+          "prompt_nl": "Alle vierkanten zijn rechthoeken.",
+          "prompt_en": "All squares are rectangles.",
+          "prompt_es": "Todos los cuadrados son rectángulos.",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "Vrai",
+          "correction": "Un carré est un rectangle particulier.",
+          "correction_nl": "Een vierkant is een bijzondere rechthoek.",
+          "correction_en": "A square is a special rectangle.",
+          "correction_es": "Un cuadrado es un rectángulo especial."
         },
         {
-          "id": "qm4",
+          "id": "l06-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Si 3x = 12, alors x = 3.",
+          "prompt_nl": "Als 3x = 12, dan is x = 3.",
+          "prompt_en": "If 3x = 12, then x = 3.",
+          "prompt_es": "Si 3x = 12, entonces x = 3.",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "Faux",
+          "correction": "12÷3=4, donc x=4.",
+          "correction_nl": "12÷3=4, dus x=4.",
+          "correction_en": "12÷3=4, so x=4.",
+          "correction_es": "12÷3=4, entonces x=4."
         },
         {
-          "id": "qm5",
+          "id": "l06-m05",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Un nombre premier a exactement 2 diviseurs.",
+          "prompt_nl": "Een priemgetal heeft precies 2 delers.",
+          "prompt_en": "A prime number has exactly 2 divisors.",
+          "prompt_es": "Un número primo tiene exactamente 2 divisores.",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "Vrai",
+          "correction": "1 et lui-même.",
+          "correction_nl": "1 en zichzelf.",
+          "correction_en": "1 and itself.",
+          "correction_es": "1 y él mismo."
         },
         {
-          "id": "qm6",
+          "id": "l06-m06",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Si un triangle a un angle droit, il est rectangle.",
+          "prompt_nl": "Als een driehoek een rechte hoek heeft, is hij rechthoekig.",
+          "prompt_en": "If a triangle has a right angle, it is right-angled.",
+          "prompt_es": "Si un triángulo tiene un ángulo recto, es rectángulo.",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "Vrai",
+          "correction": "Définition du triangle rectangle.",
+          "correction_nl": "Definitie van een rechthoekige driehoek.",
+          "correction_en": "Definition of right triangle.",
+          "correction_es": "Definición del triángulo rectángulo."
         },
         {
-          "id": "qm7",
+          "id": "l06-m07",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "La somme des angles d'un triangle est 180°.",
+          "prompt_nl": "De som van de hoeken van een driehoek is 180°.",
+          "prompt_en": "The sum of angles in a triangle is 180°.",
+          "prompt_es": "La suma de ángulos de un triángulo es 180°.",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "Vrai",
+          "correction": "Propriété fondamentale.",
+          "correction_nl": "Fundamentele eigenschap.",
+          "correction_en": "Fundamental property.",
+          "correction_es": "Propiedad fundamental."
         },
         {
-          "id": "qm8",
+          "id": "l06-m08",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Tout nombre négatif est inférieur à zéro.",
+          "prompt_nl": "Elk negatief getal is kleiner dan nul.",
+          "prompt_en": "Every negative number is less than zero.",
+          "prompt_es": "Todo número negativo es menor que cero.",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "Vrai",
+          "correction": "Par définition.",
+          "correction_nl": "Per definitie.",
+          "correction_en": "By definition.",
+          "correction_es": "Por definición."
         },
         {
-          "id": "qm9",
+          "id": "l06-m09",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
-          "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+          "prompt": "Si Marie est plus grande que Julie et Julie est plus grande que Sara, alors Sara est plus grande que Marie.",
+          "prompt_nl": "Als Marie groter is dan Julie en Julie groter dan Sara, dan is Sara groter dan Marie.",
+          "prompt_en": [
+            "Vrai",
+            "Faux",
+            "On ne sait pas",
+            "Ça dépend"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "prompt_es": "Faux",
+          "options": "Marie > Julie > Sara : Sara est la plus petite.",
+          "answer": "Marie > Julie > Sara: Sara is de kleinste.",
+          "correction": "Marie > Julie > Sara: Sara is smallest.",
+          "correction_nl": "Marie > Julie > Sara: Sara es la más pequeña.",
+          "correction_en": "lol"
         },
         {
-          "id": "qm10",
+          "id": "l06-m10",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "2⁰ = 1",
+          "prompt_nl": "2⁰ = 1",
+          "prompt_en": "2⁰ = 1",
+          "prompt_es": "2⁰ = 1",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "Vrai",
+            "Faux"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "Vrai",
+          "correction": "Tout nombre non nul élevé à 0 vaut 1.",
+          "correction_nl": "Elk niet-nul getal tot de macht 0 = 1.",
+          "correction_en": "Any non-zero number to the power 0 = 1.",
+          "correction_es": "Cualquier número elevado a 0 = 1."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l06-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 14, 16, 18, 20, …",
-          "options": [
-            "25",
-            "18",
-            "26",
-            "22"
+          "prompt": "Si P implique Q et Q implique R, alors P implique R.",
+          "prompt_nl": "Als P Q impliceert en Q R impliceert, dan impliceert P R.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "22",
-          "correction": "On ajoute 2 à chaque fois : 22.",
-          "prompt_nl": "Maak de rij af: 14, 16, 18, 20, …",
-          "prompt_en": "Continue the sequence: 14, 16, 18, 20, …",
-          "prompt_es": "Continúa la serie: 14, 16, 18, 20, …",
-          "correction_nl": "Elke keer +2: 22.",
-          "correction_en": "Add 2 each time: 22.",
-          "correction_es": "Se suma 2 cada vez: 22."
+          "prompt_es": "Vrai",
+          "options": "Transitivité de l'implication.",
+          "answer": "Transitiviteit van implicatie.",
+          "correction": "Transitivity of implication.",
+          "correction_nl": "Transitividad de la implicación.",
+          "correction_en": "lol"
         },
         {
-          "id": "q12",
+          "id": "l06-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 15, 20, 25, 30, …",
-          "options": [
-            "39",
-            "41",
-            "40",
-            "35"
+          "prompt": "La négation de \"tous les A sont B\" est \"aucun A n'est B\".",
+          "prompt_nl": "De negatie van \"alle A zijn B\" is \"geen enkele A is B\".",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "35",
-          "correction": "On ajoute 5 à chaque fois : 35.",
-          "prompt_nl": "Maak de rij af: 15, 20, 25, 30, …",
-          "prompt_en": "Continue the sequence: 15, 20, 25, 30, …",
-          "prompt_es": "Continúa la serie: 15, 20, 25, 30, …",
-          "correction_nl": "Elke keer +5: 35.",
-          "correction_en": "Add 5 each time: 35.",
-          "correction_es": "Se suma 5 cada vez: 35."
+          "prompt_es": "Faux",
+          "options": "La négation est \"il existe un A qui n'est pas B\".",
+          "answer": "De negatie is \"er bestaat een A die geen B is\".",
+          "correction": "Negation is \"there exists an A that is not B\".",
+          "correction_nl": "La negación es \"existe un A que no es B\".",
+          "correction_en": "lol"
         },
         {
-          "id": "q13",
+          "id": "l06-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 6, 8, 10, …",
-          "options": [
-            "9",
-            "12",
-            "14",
-            "8"
+          "prompt": "√2 est un nombre rationnel.",
+          "prompt_nl": "√2 is een rationaal getal.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "12",
-          "correction": "On ajoute 2 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 4, 6, 8, 10, …",
-          "prompt_en": "Continue the sequence: 4, 6, 8, 10, …",
-          "prompt_es": "Continúa la serie: 4, 6, 8, 10, …",
-          "correction_nl": "Elke keer +2: 12.",
-          "correction_en": "Add 2 each time: 12.",
-          "correction_es": "Se suma 2 cada vez: 12."
+          "prompt_es": "Faux",
+          "options": "√2 est irrationnel — il ne peut pas s'écrire p/q.",
+          "answer": "√2 is irrationeel.",
+          "correction": "√2 is irrational.",
+          "correction_nl": "√2 es irracional.",
+          "correction_en": "lol"
         },
         {
-          "id": "q14",
+          "id": "l06-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 25, 31, 37, 43, …",
-          "options": [
-            "56",
-            "49",
-            "52",
-            "54"
+          "prompt": "Un carré est toujours un losange.",
+          "prompt_nl": "Een vierkant is altijd een ruit.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "49",
-          "correction": "On ajoute 6 à chaque fois : 49.",
-          "prompt_nl": "Maak de rij af: 25, 31, 37, 43, …",
-          "prompt_en": "Continue the sequence: 25, 31, 37, 43, …",
-          "prompt_es": "Continúa la serie: 25, 31, 37, 43, …",
-          "correction_nl": "Elke keer +6: 49.",
-          "correction_en": "Add 6 each time: 49.",
-          "correction_es": "Se suma 6 cada vez: 49."
+          "prompt_es": "Vrai",
+          "options": "Un losange a 4 côtés égaux — le carré aussi.",
+          "answer": "Een ruit heeft 4 gelijke zijden — net als een vierkant.",
+          "correction": "A rhombus has 4 equal sides — so does a square.",
+          "correction_nl": "Un rombo tiene 4 lados iguales — igual que el cuadrado.",
+          "correction_en": "lol"
         },
         {
-          "id": "q15",
+          "id": "l06-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 21, 25, 29, 33, …",
-          "options": [
-            "35",
-            "41",
-            "38",
-            "37"
+          "prompt": "Si a > b et c > 0, alors a×c > b×c.",
+          "prompt_nl": "Als a > b en c > 0, dan a×c > b×c.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "37",
-          "correction": "On ajoute 4 à chaque fois : 37.",
-          "prompt_nl": "Maak de rij af: 21, 25, 29, 33, …",
-          "prompt_en": "Continue the sequence: 21, 25, 29, 33, …",
-          "prompt_es": "Continúa la serie: 21, 25, 29, 33, …",
-          "correction_nl": "Elke keer +4: 37.",
-          "correction_en": "Add 4 each time: 37.",
-          "correction_es": "Se suma 4 cada vez: 37."
+          "prompt_es": "Vrai",
+          "options": "Multiplier par un positif conserve l'inégalité.",
+          "answer": "Vermenigvuldigen met positief getal behoudt ongelijkheid.",
+          "correction": "Multiplying by a positive preserves the inequality.",
+          "correction_nl": "Multiplicar por un positivo conserva la desigualdad.",
+          "correction_en": "lol"
         },
         {
-          "id": "q16",
+          "id": "l06-d06",
           "type": "mcq",
-          "prompt": "Continue la suite : 12, 18, 24, 30, …",
-          "options": [
-            "41",
-            "36",
-            "37",
-            "35"
+          "prompt": "Si a > b et c < 0, alors a×c > b×c.",
+          "prompt_nl": "Als a > b en c < 0, dan a×c > b×c.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "36",
-          "correction": "On ajoute 6 à chaque fois : 36.",
-          "prompt_nl": "Maak de rij af: 12, 18, 24, 30, …",
-          "prompt_en": "Continue the sequence: 12, 18, 24, 30, …",
-          "prompt_es": "Continúa la serie: 12, 18, 24, 30, …",
-          "correction_nl": "Elke keer +6: 36.",
-          "correction_en": "Add 6 each time: 36.",
-          "correction_es": "Se suma 6 cada vez: 36."
+          "prompt_es": "Faux",
+          "options": "Multiplier par un négatif inverse l'inégalité.",
+          "answer": "Vermenigvuldigen met negatief getal keert ongelijkheid om.",
+          "correction": "Multiplying by a negative reverses the inequality.",
+          "correction_nl": "Multiplicar por un negativo invierte la desigualdad.",
+          "correction_en": "lol"
         },
         {
-          "id": "q17",
+          "id": "l06-d07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
-          "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+          "prompt": "Tout nombre pair est divisible par 4.",
+          "prompt_nl": "Elk even getal is deelbaar door 4.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "prompt_es": "Faux",
+          "options": "2, 6, 10 sont pairs mais pas divisibles par 4.",
+          "answer": "2, 6, 10 zijn even maar niet deelbaar door 4.",
+          "correction": "2, 6, 10 are even but not divisible by 4.",
+          "correction_nl": "2, 6, 10 son pares pero no divisibles entre 4.",
+          "correction_en": "lol"
         },
         {
-          "id": "q18",
+          "id": "l06-d08",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
-            "4",
-            "7"
+          "prompt": "La somme de deux nombres irrationnels est toujours irrationnelle.",
+          "prompt_nl": "De som van twee irrationale getallen is altijd irrationeel.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "prompt_es": "Faux",
+          "options": "Exemple : √2 + (-√2) = 0, rationnel.",
+          "answer": "Voorbeeld: √2 + (-√2) = 0.",
+          "correction": "Example: √2 + (-√2) = 0, rational.",
+          "correction_nl": "Ejemplo: √2 + (-√2) = 0, racional.",
+          "correction_en": "lol"
         },
         {
-          "id": "q19",
+          "id": "l06-d09",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
-          "options": [
-            "table",
-            "chat",
-            "lapin"
+          "prompt": "Un losange est toujours un carré.",
+          "prompt_nl": "Een ruit is altijd een vierkant.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "prompt_es": "Faux",
+          "options": "Un losange a 4 côtés égaux mais ses angles ne sont pas forcément droits.",
+          "answer": "Een ruit heeft 4 gelijke zijden maar geen rechte hoeken.",
+          "correction": "A rhombus has equal sides but angles are not necessarily 90°.",
+          "correction_nl": "Un rombo tiene lados iguales pero no necesariamente ángulos rectos.",
+          "correction_en": "lol"
         },
         {
-          "id": "q20",
+          "id": "l06-d10",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
-          "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+          "prompt": "Si n est un entier, alors n² + n est toujours pair.",
+          "prompt_nl": "Als n een geheel getal is, is n² + n altijd even.",
+          "prompt_en": [
+            "Vrai",
+            "Faux"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "prompt_es": "Vrai",
+          "options": "n²+n = n(n+1) : produit de deux consécutifs, toujours pair.",
+          "answer": "n(n+1): product van twee opeenvolgende, altijd even.",
+          "correction": "n(n+1): product of two consecutive, always even.",
+          "correction_nl": "n(n+1): producto de dos consecutivos, siempre par.",
+          "correction_en": "lol"
         }
       ]
     }

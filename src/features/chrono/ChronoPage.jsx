@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import NumPad from '../../shared/ui/NumPad.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   genClockExercise, genChoices, formatDigital,
@@ -96,29 +97,6 @@ const MODES = [
   { id: 'missions',   emoji: '🎯', name: 'Missions du Quotidien',    desc: 'Resous des problemes',                    color: '#f97316', badge: 'Expert',      label: 'Missions' },
 ];
 
-// ── NumPad ────────────────────────────────────────────────────────────────────
-function NumPad({ value, onChange, onSubmit }) {
-  const keys = ['1','2','3','4','5','6','7','8','9','del','0','ok'];
-  return (
-    <div className="ch-numpad">
-      {keys.map(k => (
-        <button
-          type="button"
-          key={k}
-          className={'ch-key' + (k === 'del' ? ' ch-key--del' : '') + (k === 'ok' ? ' ch-key--ok' + (value === '' ? ' is-disabled' : '') : '')}
-          onPointerDown={e => {
-            e.preventDefault();
-            if (k === 'del') { onChange(value.slice(0, -1)); return; }
-            if (k === 'ok') { if (value !== '') onSubmit(); return; }
-            if (value.length < 6) onChange(value + k);
-          }}
-        >
-          {k === 'del' ? '⌫' : k === 'ok' ? '✓' : k}
-        </button>
-      ))}
-    </div>
-  );
-}
 
 // ── ChronoPage ────────────────────────────────────────────────────────────────
 export default function ChronoPage() {
@@ -529,7 +507,7 @@ export default function ChronoPage() {
         <NumPad
           value={typedAnswer}
           onChange={setTypedAnswer}
-          onSubmit={() => handleAnswer(typedAnswer)}
+          onSubmit={(v) => handleAnswer(v)}
         />
         {fbState !== null && <FeedbackCard isCorrect={fbState.isCorrect} correctAnswer={fbState.correctAnswer} locale={locale} onNext={handleNext} />}
         {badge && <BadgePopup badge={badge} onClose={() => setBadge(null)} />}

@@ -9,6 +9,7 @@ import { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useCahierT } from './cahierI18n.js';
 import { generateMixedExercises, generateRandomMixed, CONFIGS, AGE_TO_LEVEL } from './mixedEngine.js';
+import NumPad from '../../shared/ui/NumPad.jsx';
 import './cahier.css';
 import './mixed-mode.css';
 
@@ -327,9 +328,10 @@ function TrainingMode({ exercises, showVisual, L, onBack, onRetry }) {
   const ex = exercises[index];
   const total = exercises.length;
 
-  function submit() {
-    if (feedback || !draft.trim()) return;
-    const correct = String(draft.trim()) === ex.answer;
+  function submit(val) {
+    const v = (val ?? draft).trim();
+    if (feedback || !v) return;
+    const correct = String(v) === ex.answer;
     setFeedback({ correct });
     if (correct) setScore((s) => s + 1);
   }
@@ -386,19 +388,12 @@ function TrainingMode({ exercises, showVisual, L, onBack, onRetry }) {
       </div>
 
       {!feedback && (
-        <form className="test-input-row" onSubmit={(e) => { e.preventDefault(); submit(); }}>
-          <input
-            className="test-input"
-            inputMode="numeric"
-            value={draft}
-            onChange={(e) => setDraft(e.target.value)}
-            placeholder={L.t('taReponse')}
-            autoFocus
-          />
-          <button type="submit" className="cahier-cta cahier-cta--inline" disabled={!draft.trim()}>
-            {L.t('verifier')}
-          </button>
-        </form>
+        <NumPad
+          value={draft}
+          onChange={setDraft}
+          onSubmit={(v) => submit(v)}
+          placeholder={L.t('taReponse')}
+        />
       )}
 
       {feedback && (
@@ -478,12 +473,34 @@ function NotebookMode({ exercises, L, onBack }) {
 // ── Exam mode ─────────────────────────────────────────────────────────────────
 
 function ExamMode({ exercises, L, onBack, onRetry }) {
-  const [answers, setAnswers]   = useState({});
+  const [answers, setAnswers]     = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const [results, setResults]   = useState([]);
+  const [results, setResults]     = useState([]);
+  const [activeId, setActiveId]   = useState(exercises[0]?.id ?? null);
+  const [padDraft, setPadDraft]   = useState('');
 
-  function setAnswer(id, val) {
-    setAnswers((prev) => ({ ...prev, [id]: val }));
+  function focusItem(id) {
+    setActiveId(id);
+    setPadDraft(answers[id] || '');
+  }
+
+  function confirmPad(val) {
+    if (!activeId) return;
+    const trimmed = val.trim();
+    setAnswers((prev) => ({ ...prev, [activeId]: trimmed }));
+    // Auto-advance to next unanswered question
+    const ids = exercises.map((e) => e.id);
+    const cur = ids.indexOf(activeId);
+    const next = ids.slice(cur + 1).find((id) => !answers[id] && id !== activeId)
+      ?? ids.find((id) => !answers[id] && id !== activeId)
+      ?? null;
+    if (next) {
+      setActiveId(next);
+      setPadDraft('');
+    } else {
+      setActiveId(null);
+      setPadDraft('');
+    }
   }
 
   function submitAll() {
@@ -499,6 +516,7 @@ function ExamMode({ exercises, L, onBack, onRetry }) {
   const correctCount = results.filter((r) => r.correct).length;
   const total = exercises.length;
   const score20 = submitted ? Math.round((correctCount / total) * 20) : 0;
+  const allAnswered = exercises.every((ex) => (answers[ex.id] || '').trim() !== '');
 
   return (
     <div className="cahier-page">
@@ -521,23 +539,25 @@ function ExamMode({ exercises, L, onBack, onRetry }) {
       <div className="mixed-exam-list">
         {exercises.map((ex, i) => {
           const res = submitted ? results[i] : null;
+          const isActive = !submitted && activeId === ex.id;
+          const val = answers[ex.id] || '';
           return (
             <div
               key={ex.id}
-              className={`mixed-exam-item${res ? (res.correct ? ' mixed-exam-item--ok' : ' mixed-exam-item--ko') : ''}`}
+              className={`mixed-exam-item${res ? (res.correct ? ' mixed-exam-item--ok' : ' mixed-exam-item--ko') : ''}${isActive ? ' mixed-exam-item--active' : ''}`}
             >
               <div className="mixed-exam-item__row">
                 <span className="mixed-exam-item__num">{i + 1}.</span>
                 <span className="mixed-exam-item__q">{ex.testQuestion}</span>
               </div>
               {!submitted ? (
-                <input
-                  className="test-input mixed-exam-input"
-                  inputMode="numeric"
-                  value={answers[ex.id] || ''}
-                  onChange={(e) => setAnswer(ex.id, e.target.value)}
-                  placeholder="?"
-                />
+                <button
+                  type="button"
+                  className={`mixed-exam-answer-btn${val ? ' mixed-exam-answer-btn--filled' : ''}${isActive ? ' mixed-exam-answer-btn--active' : ''}`}
+                  onClick={() => focusItem(ex.id)}
+                >
+                  {val || '?'}
+                </button>
               ) : (
                 <div className="mixed-exam-item__result">
                   <span>{res.correct ? '✅' : '❌'}</span>
@@ -557,8 +577,19 @@ function ExamMode({ exercises, L, onBack, onRetry }) {
         })}
       </div>
 
+      {!submitted && activeId && (
+        <div className="mixed-exam-numpad-dock">
+          <NumPad
+            value={padDraft}
+            onChange={setPadDraft}
+            onSubmit={confirmPad}
+            placeholder="?"
+          />
+        </div>
+      )}
+
       {!submitted ? (
-        <button type="button" className="cahier-cta" onClick={submitAll}>
+        <button type="button" className="cahier-cta" onClick={submitAll} disabled={!allAnswered} style={!allAnswered ? { opacity: 0.5 } : {}}>
           {L.t('terminer')}
         </button>
       ) : (

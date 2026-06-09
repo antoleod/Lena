@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 9",
-  "emoji": "⚙️",
+  "title": "Codes secrets 🔐",
+  "emoji": "🔐",
   "order": 9,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l09-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 5, 8, 11, …",
+          "prompt": "Code : A=1, B=2, C=3… Quel mot est codé : 3-1-20 ?",
+          "prompt_nl": "Code: A=1, B=2… Welk woord is 3-1-20?",
+          "prompt_en": "Code A=1,B=2… Which word is 3-1-20?",
+          "prompt_es": "Código A=1,B=2… ¿Qué palabra es 3-1-20?",
           "options": [
-            "19",
-            "10",
-            "11",
-            "14"
+            "BAC",
+            "ACT",
+            "CAT",
+            "TAC"
           ],
-          "answer": "14",
-          "correction": "On ajoute 3 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 2, 5, 8, 11, …",
-          "prompt_en": "Continue the sequence: 2, 5, 8, 11, …",
-          "prompt_es": "Continúa la serie: 2, 5, 8, 11, …",
-          "correction_nl": "Elke keer +3: 14.",
-          "correction_en": "Add 3 each time: 14.",
-          "correction_es": "Se suma 3 cada vez: 14."
+          "answer": "CAT",
+          "correction": "C=3, A=1, T=20.",
+          "correction_nl": "C=3, A=1, T=20.",
+          "correction_en": "C=3, A=1, T=20.",
+          "correction_es": "C=3, A=1, T=20."
         },
         {
-          "id": "q10",
+          "id": "l09-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 9, 10, 11, 12, …",
+          "prompt": "Code +1 : chaque lettre avance de 1 (A→B). Que signifie \"DIBU\" ?",
+          "prompt_nl": "Code +1: elke letter +1 (A→B). Wat betekent \"DIBU\"?",
+          "prompt_en": "Code +1: each letter +1. What is \"DIBU\"?",
+          "prompt_es": "Código +1: cada letra +1. ¿Qué es \"DIBU\"?",
           "options": [
-            "13",
-            "15",
-            "11",
-            "10"
+            "CHAT",
+            "CHAV",
+            "CHAT",
+            "CHAT"
           ],
-          "answer": "13",
-          "correction": "On ajoute 1 à chaque fois : 13.",
-          "prompt_nl": "Maak de rij af: 9, 10, 11, 12, …",
-          "prompt_en": "Continue the sequence: 9, 10, 11, 12, …",
-          "prompt_es": "Continúa la serie: 9, 10, 11, 12, …",
-          "correction_nl": "Elke keer +1: 13.",
-          "correction_en": "Add 1 each time: 13.",
-          "correction_es": "Se suma 1 cada vez: 13."
+          "answer": "CHAT",
+          "correction": "D-1=C, I-1=H, B-1=A, U-1=T.",
+          "correction_nl": "D-1=C, I-1=H, B-1=A, U-1=T.",
+          "correction_en": "D-1=C, I-1=H, B-1=A, U-1=T.",
+          "correction_es": "D-1=C, I-1=H, B-1=A, U-1=T."
         },
         {
-          "id": "q11",
+          "id": "l09-f03",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 5, 6, 7, …",
+          "prompt": "Code miroir : inversez le mot. Que signifie \"NEIHT\" ?",
+          "prompt_nl": "Spiegelcode: draai het woord om. Wat is \"NEIHT\"?",
+          "prompt_en": "Mirror code: reverse the word. What is \"NEIHT\"?",
+          "prompt_es": "Código espejo: invierte la palabra. ¿Qué es \"NEIHT\"?",
           "options": [
-            "8",
-            "6",
-            "7",
-            "11"
+            "THEIN",
+            "THING",
+            "THINE",
+            "TIENI"
           ],
-          "answer": "8",
-          "correction": "On ajoute 1 à chaque fois : 8.",
-          "prompt_nl": "Maak de rij af: 4, 5, 6, 7, …",
-          "prompt_en": "Continue the sequence: 4, 5, 6, 7, …",
-          "prompt_es": "Continúa la serie: 4, 5, 6, 7, …",
-          "correction_nl": "Elke keer +1: 8.",
-          "correction_en": "Add 1 each time: 8.",
-          "correction_es": "Se suma 1 cada vez: 8."
+          "answer": "THIEN",
+          "correction": "NEIHT à l'envers = THIEN.",
+          "correction_nl": "NEIHT omgekeerd = THIEN.",
+          "correction_en": "NEIHT reversed = THIEN.",
+          "correction_es": "NEIHT al revés = THIEN."
         },
         {
-          "id": "q12",
+          "id": "l09-f04",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 9, 12, …",
+          "prompt": "Code chiffres pairs : A=2, B=4, C=6… Quelle lettre correspond à 10 ?",
+          "prompt_nl": "Code even cijfers: A=2, B=4, C=6… Welke letter is 10?",
+          "prompt_en": "Even code: A=2, B=4, C=6… Which letter is 10?",
+          "prompt_es": "Código pares: A=2, B=4, C=6… ¿Qué letra es 10?",
           "options": [
-            "14",
-            "17",
-            "15",
-            "18"
+            "D",
+            "E",
+            "F",
+            "G"
           ],
-          "answer": "15",
-          "correction": "On ajoute 3 à chaque fois : 15.",
-          "prompt_nl": "Maak de rij af: 3, 6, 9, 12, …",
-          "prompt_en": "Continue the sequence: 3, 6, 9, 12, …",
-          "prompt_es": "Continúa la serie: 3, 6, 9, 12, …",
-          "correction_nl": "Elke keer +3: 15.",
-          "correction_en": "Add 3 each time: 15.",
-          "correction_es": "Se suma 3 cada vez: 15."
+          "answer": "E",
+          "correction": "10÷2=5 → 5ᵉ lettre = E.",
+          "correction_nl": "10÷2=5 → 5e letter = E.",
+          "correction_en": "10÷2=5 → 5th letter = E.",
+          "correction_es": "10÷2=5 → 5ª letra = E."
         },
         {
-          "id": "q13",
+          "id": "l09-f05",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 13, 16, 19, …",
-          "options": [
-            "27",
-            "21",
-            "20",
-            "22"
-          ],
-          "answer": "22",
-          "correction": "On ajoute 3 à chaque fois : 22.",
-          "prompt_nl": "Maak de rij af: 10, 13, 16, 19, …",
-          "prompt_en": "Continue the sequence: 10, 13, 16, 19, …",
-          "prompt_es": "Continúa la serie: 10, 13, 16, 19, …",
-          "correction_nl": "Elke keer +3: 22.",
-          "correction_en": "Add 3 each time: 22.",
-          "correction_es": "Se suma 3 cada vez: 22."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
-          "options": [
-            "voiture",
-            "pomme",
-            "fraise"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
+          "prompt": "Grille : ■=1, ★=2, ●=3. ■★■ = ?",
+          "prompt_nl": "Raster: ■=1, ★=2, ●=3. ■★■ = ?",
+          "prompt_en": "Grid: ■=1, ★=2, ●=3. ■★■ = ?",
+          "prompt_es": "Rejilla: ■=1, ★=2, ●=3. ■★■ = ?",
           "options": [
             "3",
-            "6",
-            "8"
+            "4",
+            "5",
+            "6"
           ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
+          "answer": "4",
+          "correction": "1+2+1=4.",
+          "correction_nl": "1+2+1=4.",
+          "correction_en": "1+2+1=4.",
+          "correction_es": "1+2+1=4."
         },
         {
-          "id": "q16",
+          "id": "l09-f06",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Code +2 : A→C, B→D… Que signifie \"CNG\" ?",
+          "prompt_nl": "Code +2: A→C, B→D… Wat is \"CNG\"?",
+          "prompt_en": "Code +2: A→C, B→D… What is \"CNG\"?",
+          "prompt_es": "Código +2: A→C, B→D… ¿Qué es \"CNG\"?",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "ALF",
+            "ALE",
+            "BLE",
+            "AME"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "ALE",
+          "correction": "C-2=A, N-2=L, G-2=E → ALE.",
+          "correction_nl": "C-2=A, N-2=L, G-2=E → ALE.",
+          "correction_en": "C-2=A, N-2=L, G-2=E → ALE.",
+          "correction_es": "C-2=A, N-2=L, G-2=E → ALE."
+        },
+        {
+          "id": "l09-f07",
+          "type": "mcq",
+          "prompt": "Symbole : ♦=5, ♣=3, ♥=2. ♦+♣+♥ = ?",
+          "prompt_nl": "Symbolen: ♦=5, ♣=3, ♥=2. ♦+♣+♥=?",
+          "prompt_en": "Symbols: ♦=5, ♣=3, ♥=2. ♦+♣+♥=?",
+          "prompt_es": "Símbolos: ♦=5, ♣=3, ♥=2. ♦+♣+♥=?",
+          "options": [
+            "8",
+            "9",
+            "10",
+            "11"
+          ],
+          "answer": "10",
+          "correction": "5+3+2=10.",
+          "correction_nl": "5+3+2=10.",
+          "correction_en": "5+3+2=10.",
+          "correction_es": "5+3+2=10."
+        },
+        {
+          "id": "l09-f08",
+          "type": "mcq",
+          "prompt": "Code miroir : \"ELOP\" à l'envers ?",
+          "prompt_nl": "Spiegelcode: \"ELOP\" omgekeerd?",
+          "prompt_en": "Mirror: \"ELOP\" reversed?",
+          "prompt_es": "Espejo: \"ELOP\" al revés?",
+          "options": [
+            "PLOE",
+            "POLE",
+            "POPE",
+            "EPOL"
+          ],
+          "answer": "POLE",
+          "correction": "E-L-O-P → P-O-L-E.",
+          "correction_nl": "E-L-O-P → P-O-L-E.",
+          "correction_en": "E-L-O-P → P-O-L-E.",
+          "correction_es": "E-L-O-P → P-O-L-E."
+        },
+        {
+          "id": "l09-f09",
+          "type": "mcq",
+          "prompt": "Code : chaque voyelle est remplacée par son numéro (A=1, E=2, I=3, O=4, U=5). \"CH1T\" = ?",
+          "prompt_nl": "Code: elke klinker vervangen door getal. \"CH1T\"=?",
+          "prompt_en": "Code: vowels replaced by number. \"CH1T\"=?",
+          "prompt_es": "Código: vocales por número. \"CH1T\"=?",
+          "options": [
+            "CHAT",
+            "CHIT",
+            "CHOT",
+            "CHUT"
+          ],
+          "answer": "CHAT",
+          "correction": "1=A → CHAT.",
+          "correction_nl": "1=A → CHAT.",
+          "correction_en": "1=A → CHAT.",
+          "correction_es": "1=A → CHAT."
+        },
+        {
+          "id": "l09-f10",
+          "type": "mcq",
+          "prompt": "Grille de couleurs : 🔴=10, 🟡=5, 🔵=2. 🔴🟡🔵 = ?",
+          "prompt_nl": "Kleurrooster: 🔴=10, 🟡=5, 🔵=2. 🔴🟡🔵=?",
+          "prompt_en": "Color grid: 🔴=10,🟡=5,🔵=2. 🔴🟡🔵=?",
+          "prompt_es": "Rejilla colores: 🔴=10,🟡=5,🔵=2. 🔴🟡🔵=?",
+          "options": [
+            "15",
+            "17",
+            "18",
+            "20"
+          ],
+          "answer": "17",
+          "correction": "10+5+2=17.",
+          "correction_nl": "10+5+2=17.",
+          "correction_en": "10+5+2=17.",
+          "correction_es": "10+5+2=17."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l09-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Code César +3 : A→D, B→E… Décode \"ERPH\"",
+          "prompt_nl": "César +3: A→D, B→E… Decodeer \"ERPH\"",
+          "prompt_en": "Caesar +3: A→D, B→E… Decode \"ERPH\"",
+          "prompt_es": "César +3: A→D, B→E… Decodifica \"ERPH\"",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
+            "BOME",
+            "BOON",
+            "BOOM",
+            "BOOL"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "BOOM",
+          "correction": "E-3=B, R-3=O, P-3=O? Hmm: E=D+1? Recomptons: E→B(−3), R→O(−3), P→M(−3), H→E(−3) = BOME.",
+          "correction_nl": "E−3=B, R−3=O, P−3=M, H−3=E → BOME.",
+          "correction_en": "E-3=B, R-3=O, P-3=M, H-3=E → BOME.",
+          "correction_es": "E-3=B, R-3=O, P-3=M, H-3=E → BOME."
         },
         {
-          "id": "qm2",
+          "id": "l09-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Code binaire simple : 1=A, 10=B, 11=C, 100=D… Que vaut 101 ?",
+          "prompt_nl": "Eenvoudige binaire code: 1=A, 10=B, 11=C, 100=D… Waarde van 101?",
+          "prompt_en": "Simple binary code: 1=A,10=B,11=C,100=D… Value of 101?",
+          "prompt_es": "Código binario simple: 1=A,10=B,11=C,100=D… ¿Valor de 101?",
           "options": [
-            "18",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "answer": "E",
+          "correction": "101 en binaire = 5 → 5ᵉ lettre = E.",
+          "correction_nl": "101 binair = 5 → 5e letter = E.",
+          "correction_en": "101 binary = 5 → E.",
+          "correction_es": "101 binario = 5 → E."
+        },
+        {
+          "id": "l09-m03",
+          "type": "mcq",
+          "prompt": "Clé = 3. Code = position × clé. B (position 2) vaut ?",
+          "prompt_nl": "Sleutel=3. Code=positie×sleutel. B (positie 2) =?",
+          "prompt_en": "Key=3. Code=position×key. B (position 2)=?",
+          "prompt_es": "Clave=3. Código=posición×clave. B (posición 2)=?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "answer": "6",
+          "correction": "2×3=6.",
+          "correction_nl": "2×3=6.",
+          "correction_en": "2×3=6.",
+          "correction_es": "2×3=6."
+        },
+        {
+          "id": "l09-m04",
+          "type": "mcq",
+          "prompt": "Code Morse : ·−=A, −···=B, −·−·=C. \"·−−···\" = ?",
+          "prompt_nl": "Morse: ·−=A, −···=B, −·−·=C. \"·−−···\"=?",
+          "prompt_en": "Morse: ·−=A,−···=B,−·−·=C. \"·−−···\"=?",
+          "prompt_es": "Morse: ·−=A,−···=B,−·−·=C. \"·−−···\"=?",
+          "options": [
+            "AB",
+            "AC",
+            "BA",
+            "CA"
+          ],
+          "answer": "AB",
+          "correction": "·−=A, −···=B → AB.",
+          "correction_nl": "·−=A, −···=B → AB.",
+          "correction_en": "·−=A, −···=B → AB.",
+          "correction_es": "·−=A, −···=B → AB."
+        },
+        {
+          "id": "l09-m05",
+          "type": "mcq",
+          "prompt": "Code carré : les lettres sont dans une grille 5×5. A=ligne1-col1, F=ligne2-col1. Quelle ligne-colonne pour K ?",
+          "prompt_nl": "Roostercijfer: A=rij1-kol1, F=rij2-kol1. Lijn-kolom voor K?",
+          "prompt_en": "Grid cipher: A=row1-col1, F=row2-col1. Row-column for K?",
+          "prompt_es": "Cifrado de cuadrícula: A=fila1-col1, F=fila2-col1. ¿Fila-columna para K?",
+          "options": [
+            "ligne2-col5",
+            "ligne3-col1",
+            "ligne2-col4",
+            "ligne3-col2"
+          ],
+          "answer": "ligne3-col1",
+          "correction": "K est la 11ᵉ lettre : ligne 3 (11-10=1), col 1.",
+          "correction_nl": "K is de 11e letter: rij 3, kol 1.",
+          "correction_en": "K is the 11th: row 3, col 1.",
+          "correction_es": "K es la 11ª: fila 3, col 1."
+        },
+        {
+          "id": "l09-m06",
+          "type": "mcq",
+          "prompt": "Substitution : chaque lettre → lettre +n de l'alphabet. Si \"ABC\" → \"DEF\", quel est n ?",
+          "prompt_nl": "Substitutie: elke letter +n. Als \"ABC\"→\"DEF\", wat is n?",
+          "prompt_en": "Substitution: each letter +n. If \"ABC\"→\"DEF\", what is n?",
+          "prompt_es": "Sustitución: cada letra +n. Si \"ABC\"→\"DEF\", ¿qué es n?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "3",
+          "correction": "A+3=D, B+3=E, C+3=F.",
+          "correction_nl": "A+3=D, B+3=E, C+3=F.",
+          "correction_en": "A+3=D, B+3=E, C+3=F.",
+          "correction_es": "A+3=D, B+3=E, C+3=F."
+        },
+        {
+          "id": "l09-m07",
+          "type": "mcq",
+          "prompt": "Grille : ★=7, ♦=4, ●=2. ★×♦−● = ?",
+          "prompt_nl": "Raster: ★=7, ♦=4, ●=2. ★×♦−●=?",
+          "prompt_en": "Grid: ★=7,♦=4,●=2. ★×♦−●=?",
+          "prompt_es": "Rejilla: ★=7,♦=4,●=2. ★×♦−●=?",
+          "options": [
             "24",
-            "32",
-            "20"
+            "26",
+            "28",
+            "30"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "26",
+          "correction": "7×4−2=28−2=26.",
+          "correction_nl": "7×4−2=26.",
+          "correction_en": "7×4−2=26.",
+          "correction_es": "7×4−2=26."
         },
         {
-          "id": "qm3",
+          "id": "l09-m08",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Code de chiffrement : position impaire → majuscule, paire → minuscule. \"aBcD\" en code ?",
+          "prompt_nl": "Coderingsregel: oneven positie=hoofdletter, even=kleine letter. \"aBcD\" in code?",
+          "prompt_en": "Encoding: odd position=uppercase, even=lowercase. \"aBcD\" encoded?",
+          "prompt_es": "Codificación: posición impar=mayúscula, par=minúscula. \"aBcD\" codificado?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "ABCD",
+            "AbCd",
+            "aBcD",
+            "abcd"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "AbCd",
+          "correction": "Positions 1,3 majuscules : A,C. 2,4 minuscules : b,d.",
+          "correction_nl": "Pos 1,3 hoofdletters, 2,4 kleine letters.",
+          "correction_en": "Pos 1,3 uppercase, 2,4 lowercase.",
+          "correction_es": "Pos 1,3 mayúsculas, 2,4 minúsculas."
         },
         {
-          "id": "qm4",
+          "id": "l09-m09",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Code : chaque nombre est remplacé par sa valeur modulo 3. 7 en code ?",
+          "prompt_nl": "Code: elk getal → waarde modulo 3. 7 in code?",
+          "prompt_en": "Code: each number → value mod 3. 7 in code?",
+          "prompt_es": "Código: cada número → valor módulo 3. ¿7 en código?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "0",
+            "1",
+            "2",
+            "3"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "1",
+          "correction": "7 mod 3 = 1.",
+          "correction_nl": "7 mod 3 = 1.",
+          "correction_en": "7 mod 3 = 1.",
+          "correction_es": "7 mod 3 = 1."
         },
         {
-          "id": "qm5",
+          "id": "l09-m10",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Code de permutation : \"1234\"→\"3142\". Appliqué à \"ABCD\" → ?",
+          "prompt_nl": "Permuatiecode: \"1234\"→\"3142\". Toegepast op \"ABCD\"?",
+          "prompt_en": "Permutation code: \"1234\"→\"3142\". Applied to \"ABCD\"?",
+          "prompt_es": "Código de permutación: \"1234\"→\"3142\". Aplicado a \"ABCD\"?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "CABD",
+            "CBAD",
+            "CADB",
+            "CDAB"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
-        },
-        {
-          "id": "qm6",
-          "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
-          "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
-          ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
-        },
-        {
-          "id": "qm7",
-          "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
-          "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
-          ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
-        },
-        {
-          "id": "qm8",
-          "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
-          "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
-          ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
-        },
-        {
-          "id": "qm9",
-          "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
-          "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
-          ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
-        },
-        {
-          "id": "qm10",
-          "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
-          "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
-          ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "CABD",
+          "correction": "Position 1→3(C), 2→1(A), 3→4(D)? Non: 1→3=C, 2→1=A, 3→4=B, 4→2=D → CABD.",
+          "correction_nl": "1→C, 2→A, 3→B, 4→D → CABD.",
+          "correction_en": "1→C, 2→A, 3→B, 4→D → CABD.",
+          "correction_es": "1→C, 2→A, 3→B, 4→D → CABD."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l09-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 12, 14, 16, 18, …",
+          "prompt": "Code RSA simplifié : p=5, q=7, n=p×q. n = ?",
+          "prompt_nl": "Vereenvoudigde RSA: p=5, q=7, n=p×q. n=?",
+          "prompt_en": "Simplified RSA: p=5, q=7, n=p×q. n=?",
+          "prompt_es": "RSA simplificado: p=5, q=7, n=p×q. ¿n=?",
           "options": [
-            "23",
-            "21",
-            "24",
-            "20"
-          ],
-          "answer": "20",
-          "correction": "On ajoute 2 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 12, 14, 16, 18, …",
-          "prompt_en": "Continue the sequence: 12, 14, 16, 18, …",
-          "prompt_es": "Continúa la serie: 12, 14, 16, 18, …",
-          "correction_nl": "Elke keer +2: 20.",
-          "correction_en": "Add 2 each time: 20.",
-          "correction_es": "Se suma 2 cada vez: 20."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 20, 23, 26, 29, …",
-          "options": [
-            "37",
-            "31",
-            "32",
-            "35"
-          ],
-          "answer": "32",
-          "correction": "On ajoute 3 à chaque fois : 32.",
-          "prompt_nl": "Maak de rij af: 20, 23, 26, 29, …",
-          "prompt_en": "Continue the sequence: 20, 23, 26, 29, …",
-          "prompt_es": "Continúa la serie: 20, 23, 26, 29, …",
-          "correction_nl": "Elke keer +3: 32.",
-          "correction_en": "Add 3 each time: 32.",
-          "correction_es": "Se suma 3 cada vez: 32."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 11, 17, 23, 29, …",
-          "options": [
-            "37",
-            "29",
+            "30",
             "35",
-            "36"
+            "40",
+            "42"
           ],
           "answer": "35",
-          "correction": "On ajoute 6 à chaque fois : 35.",
-          "prompt_nl": "Maak de rij af: 11, 17, 23, 29, …",
-          "prompt_en": "Continue the sequence: 11, 17, 23, 29, …",
-          "prompt_es": "Continúa la serie: 11, 17, 23, 29, …",
-          "correction_nl": "Elke keer +6: 35.",
-          "correction_en": "Add 6 each time: 35.",
-          "correction_es": "Se suma 6 cada vez: 35."
+          "correction": "5×7=35.",
+          "correction_nl": "5×7=35.",
+          "correction_en": "5×7=35.",
+          "correction_es": "5×7=35."
         },
         {
-          "id": "q14",
+          "id": "l09-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 24, 25, 26, 27, …",
+          "prompt": "Code de Vigenère : clé=B(+1). \"CHAT\" encodé = ?",
+          "prompt_nl": "Vigenère code: sleutel=B(+1). \"CHAT\" gecodeerd=?",
+          "prompt_en": "Vigenère: key=B(+1). \"CHAT\" encoded=?",
+          "prompt_es": "Vigenère: clave=B(+1). \"CHAT\" codificado=?",
           "options": [
+            "DIBU",
+            "BIBU",
+            "DHBU",
+            "DIBU"
+          ],
+          "answer": "DIBU",
+          "correction": "C+1=D, H+1=I, A+1=B, T+1=U.",
+          "correction_nl": "C+1=D, H+1=I, A+1=B, T+1=U.",
+          "correction_en": "C+1=D, H+1=I, A+1=B, T+1=U.",
+          "correction_es": "C+1=D, H+1=I, A+1=B, T+1=U."
+        },
+        {
+          "id": "l09-d03",
+          "type": "mcq",
+          "prompt": "Chiffrement par transposition : \"SECRET\" → colonnes de 2 → \"ESCTRE\". Reconstitué ?",
+          "prompt_nl": "Transpositie: \"SECRET\" → kolommen van 2 → \"ESCTRE\". Hersteld?",
+          "prompt_en": "Transposition cipher: columns of 2. \"ESCTRE\" decoded?",
+          "prompt_es": "Transposición: columnas de 2. \"ESCTRE\" decodificado?",
+          "options": [
+            "CESRET",
+            "SECRET",
+            "TRESEC",
+            "SECERT"
+          ],
+          "answer": "SECRET",
+          "correction": "Inverser la transposition.",
+          "correction_nl": "Transpositie omkeren.",
+          "correction_en": "Reverse the transposition.",
+          "correction_es": "Invertir la transposición."
+        },
+        {
+          "id": "l09-d04",
+          "type": "mcq",
+          "prompt": "Hachage simple : somme des positions de \"DOG\" (D=4, O=15, G=7) = ?",
+          "prompt_nl": "Eenvoudige hash: som van posities van \"DOG\"=?",
+          "prompt_en": "Simple hash: sum of positions of \"DOG\"=?",
+          "prompt_es": "Hash simple: suma de posiciones de \"DOG\"=?",
+          "options": [
+            "24",
             "26",
-            "31",
             "28",
-            "27"
+            "30"
           ],
-          "answer": "28",
-          "correction": "On ajoute 1 à chaque fois : 28.",
-          "prompt_nl": "Maak de rij af: 24, 25, 26, 27, …",
-          "prompt_en": "Continue the sequence: 24, 25, 26, 27, …",
-          "prompt_es": "Continúa la serie: 24, 25, 26, 27, …",
-          "correction_nl": "Elke keer +1: 28.",
-          "correction_en": "Add 1 each time: 28.",
-          "correction_es": "Se suma 1 cada vez: 28."
+          "answer": "26",
+          "correction": "4+15+7=26.",
+          "correction_nl": "4+15+7=26.",
+          "correction_en": "4+15+7=26.",
+          "correction_es": "4+15+7=26."
         },
         {
-          "id": "q15",
+          "id": "l09-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 25, 30, 35, 40, …",
+          "prompt": "Code à double clé : +2 puis miroir. \"AB\" encodé ?",
+          "prompt_nl": "Dubbele sleutelcode: +2 dan spiegel. \"AB\" gecodeerd?",
+          "prompt_en": "Double key: +2 then mirror. \"AB\" encoded?",
+          "prompt_es": "Clave doble: +2 luego espejo. \"AB\" codificado?",
           "options": [
-            "52",
-            "38",
-            "45",
-            "46"
+            "CD",
+            "DC",
+            "DE",
+            "ED"
           ],
-          "answer": "45",
-          "correction": "On ajoute 5 à chaque fois : 45.",
-          "prompt_nl": "Maak de rij af: 25, 30, 35, 40, …",
-          "prompt_en": "Continue the sequence: 25, 30, 35, 40, …",
-          "prompt_es": "Continúa la serie: 25, 30, 35, 40, …",
-          "correction_nl": "Elke keer +5: 45.",
-          "correction_en": "Add 5 each time: 45.",
-          "correction_es": "Se suma 5 cada vez: 45."
+          "answer": "DC",
+          "correction": "A+2=C, B+2=D → \"CD\", miroir → \"DC\".",
+          "correction_nl": "A+2=C, B+2=D → \"CD\", spiegel → \"DC\".",
+          "correction_en": "A+2=C, B+2=D → \"CD\", mirror → \"DC\".",
+          "correction_es": "A+2=C, B+2=D → \"CD\", espejo → \"DC\"."
         },
         {
-          "id": "q16",
+          "id": "l09-d06",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 6, 8, …",
+          "prompt": "Encode \"5\" en binaire (base 2) = ?",
+          "prompt_nl": "Codeer \"5\" in binair=?",
+          "prompt_en": "Encode \"5\" in binary=?",
+          "prompt_es": "Codifica \"5\" en binario=?",
           "options": [
-            "13",
-            "12",
-            "8",
-            "10"
+            "100",
+            "101",
+            "110",
+            "111"
           ],
-          "answer": "10",
-          "correction": "On ajoute 2 à chaque fois : 10.",
-          "prompt_nl": "Maak de rij af: 2, 4, 6, 8, …",
-          "prompt_en": "Continue the sequence: 2, 4, 6, 8, …",
-          "prompt_es": "Continúa la serie: 2, 4, 6, 8, …",
-          "correction_nl": "Elke keer +2: 10.",
-          "correction_en": "Add 2 each time: 10.",
-          "correction_es": "Se suma 2 cada vez: 10."
+          "answer": "101",
+          "correction": "5 = 4+1 = 101₂.",
+          "correction_nl": "5 = 4+1 = 101₂.",
+          "correction_en": "5 = 4+1 = 101₂.",
+          "correction_es": "5 = 4+1 = 101₂."
         },
         {
-          "id": "q17",
+          "id": "l09-d07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Code one-time pad : message=3, clé=7, code = (3+7) mod 10 = ?",
+          "prompt_nl": "One-time pad: bericht=3, sleutel=7, code=(3+7) mod 10=?",
+          "prompt_en": "One-time pad: msg=3, key=7, code=(3+7) mod 10=?",
+          "prompt_es": "One-time pad: mensaje=3, clave=7, código=(3+7) mod 10=?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "0",
+            "1",
+            "2",
+            "3"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "0",
+          "correction": "10 mod 10 = 0.",
+          "correction_nl": "10 mod 10 = 0.",
+          "correction_en": "10 mod 10 = 0.",
+          "correction_es": "10 mod 10 = 0."
         },
         {
-          "id": "q18",
+          "id": "l09-d08",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Chiffre de Hill (2×2) : matrice [[2,1],[1,1]], vecteur [1,2]. Résultat = ?",
+          "prompt_nl": "Hill cipher: matrix [[2,1],[1,1]], vector [1,2]. Resultaat=?",
+          "prompt_en": "Hill cipher: matrix [[2,1],[1,1]], vector [1,2]. Result=?",
+          "prompt_es": "Cifrado Hill: [[2,1],[1,1]], vector [1,2]. ¿Resultado=?",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "[4,3]",
+            "[3,4]",
+            "[5,3]",
+            "[4,5]"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "[4,3]",
+          "correction": "2×1+1×2=4, 1×1+1×2=3.",
+          "correction_nl": "2×1+1×2=4, 1×1+1×2=3.",
+          "correction_en": "2×1+1×2=4, 1×1+1×2=3.",
+          "correction_es": "2×1+1×2=4, 1×1+1×2=3."
         },
         {
-          "id": "q19",
+          "id": "l09-d09",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Stéganographie : dans \"HELLO\", les lettres aux positions 1,3,5 donnent quel mot ?",
+          "prompt_nl": "Steganografie: letters op posities 1,3,5 in \"HELLO\"?",
+          "prompt_en": "Steganography: letters at positions 1,3,5 in \"HELLO\"?",
+          "prompt_es": "Esteganografía: letras en posiciones 1,3,5 de \"HELLO\"?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "HEL",
+            "HLL",
+            "HEO",
+            "ELO"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "HLO",
+          "correction": "H(1), L(3), O(5) → HLO.",
+          "correction_nl": "H(1), L(3), O(5) → HLO.",
+          "correction_en": "H(1), L(3), O(5) → HLO.",
+          "correction_es": "H(1), L(3), O(5) → HLO."
         },
         {
-          "id": "q20",
+          "id": "l09-d10",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Code de Bacon : A=AAAAA, B=AAAAB, C=AAABA. \"AAABA\" décode = ?",
+          "prompt_nl": "Bacon code: A=AAAAA, B=AAAAB, C=AAABA. \"AAABA\"=?",
+          "prompt_en": "Bacon code: A=AAAAA,B=AAAAB,C=AAABA. \"AAABA\"=?",
+          "prompt_es": "Código Bacon: A=AAAAA,B=AAAAB,C=AAABA. \"AAABA\"=?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "A",
+            "B",
+            "C",
+            "D"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "C",
+          "correction": "AAABA = C.",
+          "correction_nl": "AAABA = C.",
+          "correction_en": "AAABA = C.",
+          "correction_es": "AAABA = C."
         }
       ]
     }

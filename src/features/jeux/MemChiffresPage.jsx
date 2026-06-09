@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useGameSession } from '../../shared/hooks/useGameSession.js';
 import { GameFeedback, useGameFeedback } from './GameFeedback.jsx';
+import NumPad from '../../shared/ui/NumPad.jsx';
 import './jeux.css';
 
 const LEVEL_CONFIG = [
@@ -80,44 +81,6 @@ function ColorPicker({ selectedColor, onSelect }) {
   );
 }
 
-function NumPad({ onDigit, onDelete, onConfirm, disabled }) {
-  const rows = [[1,2,3],[4,5,6],[7,8,9],[null,0,null]];
-  return (
-    <div style={{ width: '100%', maxWidth: 320, margin: '0 auto' }}>
-      {rows.map((row, ri) => (
-        <div key={ri} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
-          {row.map((d, ci) => {
-            if (d === null && ci === 0) {
-              return (
-                <button key="del" className="an-choice"
-                  style={{ flex: 1, fontSize: '1.3rem' }}
-                  disabled={disabled}
-                  onPointerDown={e => { e.preventDefault(); onDelete(); }}
-                >⌫</button>
-              );
-            }
-            if (d === null && ci === 2) {
-              return (
-                <button key="ok" className="an-choice"
-                  style={{ flex: 1, fontSize: '1.1rem', background: '#22c55e', color: '#fff', borderColor: '#15803d' }}
-                  disabled={disabled}
-                  onPointerDown={e => { e.preventDefault(); onConfirm(); }}
-                >✓ OK</button>
-              );
-            }
-            return (
-              <button key={d} className="an-choice"
-                style={{ flex: 1, fontSize: '1.5rem', fontWeight: 700 }}
-                disabled={disabled}
-                onPointerDown={e => { e.preventDefault(); onDigit(d); }}
-              >{d}</button>
-            );
-          })}
-        </div>
-      ))}
-    </div>
-  );
-}
 
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function MemChiffresPage() {
@@ -397,9 +360,15 @@ export default function MemChiffresPage() {
 
               {!needsColor && (
                 <NumPad
-                  onDigit={handleDigit}
-                  onDelete={handleDelete}
-                  onConfirm={handleConfirm}
+                  value={inputDigits.join('')}
+                  onChange={(v) => {
+                    if (v.length > inputDigits.length) {
+                      handleDigit(Number(v[v.length - 1]));
+                    } else if (v.length < inputDigits.length) {
+                      handleDelete();
+                    }
+                  }}
+                  onSubmit={handleConfirm}
                   disabled={!canConfirm && inputDigits.length >= cfg.digits}
                 />
               )}

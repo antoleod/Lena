@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { generateMixedSet, OPERATIONS, TERM_CHOICES, DIGIT_CHOICES } from './mixedCalcEngine.js';
+import NumPad from '../../shared/ui/NumPad.jsx';
 import { saveSession } from '../exerciseGenerator/exerciseStorage.js';
 import { COUNTS } from '../exerciseGenerator/exerciseTypes.js';
 import MathVisualSvg from '../exerciseGenerator/MathVisualSvg.jsx';
@@ -171,11 +172,12 @@ function Test({ exercises, onBack, onFinish }) {
   const ex = exercises[index];
   const total = exercises.length;
 
-  function submit() {
-    if (feedback || !draft.trim()) return;
-    const correct = check(ex, draft.trim());
+  function submit(val) {
+    const v = (val ?? draft).trim();
+    if (feedback || !v) return;
+    const correct = check(ex, v);
     setFeedback({ correct });
-    setResults((r) => [...r, { exercise: ex, userAnswer: draft.trim(), correct }]);
+    setResults((r) => [...r, { exercise: ex, userAnswer: v, correct }]);
   }
   function next() {
     if (index + 1 >= total) { onFinish(results); return; }
@@ -201,10 +203,12 @@ function Test({ exercises, onBack, onFinish }) {
             ? <button type="button" className="geo-hint-btn" onClick={() => setShowHint(true)}>💡 J'ai besoin d'aide</button>
             : <p className="geo-hint">💡 {ex.hint}</p>}
           <div className="test-answer">
-            <form className="test-input-row" onSubmit={(e) => { e.preventDefault(); submit(); }}>
-              <input className="test-input" inputMode="numeric" value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="Ta réponse…" autoFocus />
-              <button type="submit" className="cahier-cta cahier-cta--inline" disabled={!draft.trim()}>Vérifier</button>
-            </form>
+            <NumPad
+              value={draft}
+              onChange={setDraft}
+              onSubmit={(v) => submit(v)}
+              placeholder="Ta réponse…"
+            />
           </div>
         </>
       )}
