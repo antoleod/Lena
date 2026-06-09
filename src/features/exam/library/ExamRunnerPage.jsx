@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
-import NumPad from '../../../shared/ui/NumPad.jsx';
+import NumericAnswerInput, { isNumericAnswerValue } from '../../../shared/ui/NumericAnswerInput.jsx';
 import { getExamLevel } from '../../../content/exams/registry.js';
 import ExamVisual, { autoVisual } from './ExamVisual.jsx';
 import { getDifficultyLevels, getLocalizedField, getExamUi } from '../../../content/exams/examI18n.js';
@@ -790,15 +790,20 @@ export default function ExamRunnerPage() {
           )}
 
           {revQ.type === 'fill_blank' && (
-            /^-?\d+([.,]\d+)?$/.test(String(revQ.answer ?? '').trim())
+            isNumericAnswerValue(String(revQ.answer ?? '').trim())
               ? (
-                <NumPad
+                <NumericAnswerInput
                   value={revSelected !== null ? String(revSelected) : revInput}
                   onChange={setRevInput}
                   onSubmit={(v) => revAnswer(v)}
+                  expectedAnswer={String(revQ.answer ?? '').trim()}
                   placeholder={ui.placeholder}
                   disabled={revSelected !== null}
                   allowNegative={/^-/.test(String(revQ.answer ?? '').trim())}
+                  valueLabel={ui.placeholder}
+                  readLabel={locale === 'nl' ? 'Ik lees' : locale === 'en' ? 'I read' : locale === 'es' ? 'He leído' : "J'ai lu"}
+                  handwritingLabel={locale === 'nl' ? 'Schrijf het antwoord' : locale === 'en' ? 'Write the answer' : locale === 'es' ? 'Escribir la respuesta' : 'Écrire la réponse'}
+                  keypadLabel={locale === 'nl' ? 'Cijfertoetsen' : locale === 'en' ? 'Number pad' : locale === 'es' ? 'Teclado numérico' : 'Clavier numérique'}
                 />
               )
               : (
@@ -1100,15 +1105,20 @@ export default function ExamRunnerPage() {
         )}
 
         {currentQ.type === 'fill_blank' && (
-          /^-?\d+([.,]\d+)?$/.test(String(currentQ.answer ?? '').trim())
+          isNumericAnswerValue(String(currentQ.answer ?? '').trim())
             ? (
-              <NumPad
+              <NumericAnswerInput
                 value={selected !== null ? String(selected) : input}
                 onChange={setInput}
                 onSubmit={(v) => answer(v)}
+                expectedAnswer={String(currentQ.answer ?? '').trim()}
                 placeholder={ui.placeholder}
                 disabled={selected !== null}
                 allowNegative={/^-/.test(String(currentQ.answer ?? '').trim())}
+                valueLabel={ui.placeholder}
+                readLabel={locale === 'nl' ? 'Ik lees' : locale === 'en' ? 'I read' : locale === 'es' ? 'He leído' : "J'ai lu"}
+                handwritingLabel={locale === 'nl' ? 'Schrijf het antwoord' : locale === 'en' ? 'Write the answer' : locale === 'es' ? 'Escribir la respuesta' : 'Écrire la réponse'}
+                keypadLabel={locale === 'nl' ? 'Cijfertoetsen' : locale === 'en' ? 'Number pad' : locale === 'es' ? 'Teclado numérico' : 'Clavier numérique'}
               />
             )
             : (

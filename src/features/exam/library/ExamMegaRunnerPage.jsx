@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
-import NumPad from '../../../shared/ui/NumPad.jsx';
+import NumericAnswerInput, { isNumericAnswerValue } from '../../../shared/ui/NumericAnswerInput.jsx';
 import { getCategories, getExamsByCategory, getExam } from '../../../content/exams/registry.js';
 import { getCategoryLabel, getLocalizedField } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 
 function shuffle(arr) {
   const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
+  for (let i = a.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
@@ -21,16 +21,22 @@ function normalize(v) {
 
 function FillBlankInput({ onSubmit, question }) {
   const [val, setVal] = useState('');
-  const isNumeric = /^-?\d+([.,]\d+)?$/.test(String(question?.answer ?? '').trim());
+  const answer = String(question?.answer ?? '').trim();
+  const isNumeric = isNumericAnswerValue(answer);
 
   if (isNumeric) {
     return (
-      <NumPad
+      <NumericAnswerInput
         value={val}
         onChange={setVal}
-        onSubmit={(v) => onSubmit(v)}
+        onSubmit={onSubmit}
+        expectedAnswer={answer}
         placeholder="Ta reponse..."
-        allowNegative={/^-/.test(String(question?.answer ?? '').trim())}
+        allowNegative={answer.startsWith('-')}
+        valueLabel="Ta réponse"
+        readLabel="J'ai lu"
+        handwritingLabel="Écrire la réponse"
+        keypadLabel="Clavier numérique"
       />
     );
   }
@@ -41,15 +47,15 @@ function FillBlankInput({ onSubmit, question }) {
         type="text"
         className="mega-runner__fill-input"
         value={val}
-        onChange={e => setVal(e.target.value)}
-        onKeyDown={e => { if (e.key === 'Enter' && val.trim()) onSubmit(val.trim()); }}
+        onChange={(e) => setVal(e.target.value)}
+        onKeyDown={(e) => { if (e.key === 'Enter' && val.trim()) onSubmit(val.trim()); }}
         autoFocus
         placeholder="Ta reponse..."
       />
       <button
         type="button"
         className="mega-runner__fill-submit"
-        onPointerDown={e => { e.preventDefault(); if (val.trim()) onSubmit(val.trim()); }}
+        onPointerDown={(e) => { e.preventDefault(); if (val.trim()) onSubmit(val.trim()); }}
       >
         →
       </button>
@@ -68,13 +74,15 @@ export default function ExamMegaRunnerPage() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [correct, setCorrect] = useState(false);
   const [score, setScore] = useState(0);
-  const [errors, setErrors] = useState([]);
   const [catResults, setCatResults] = useState({});
   const [config, setConfig] = useState(null);
 
   useEffect(() => {
     const raw = sessionStorage.getItem('lena:mega:config');
-    if (!raw) { navigate('/exam/mega'); return; }
+    if (!raw) {
+      navigate('/exam/mega');
+      return;
+    }
 
     const cfg = JSON.parse(raw);
     setConfig(cfg);
@@ -94,8 +102,7 @@ export default function ExamMegaRunnerPage() {
             allExamQs.push({ ...q, _catId: catId, _examTitle: exam.title });
           }
         }
-        const sample = shuffle(allExamQs).slice(0, cfg.maxPerCategory);
-        allQuestions.push(...sample);
+        allQuestions.push(...shuffle(allExamQs).slice(0, cfg.maxPerCategory));
       }
 
       setQuestions(shuffle(allQuestions));
@@ -103,29 +110,25 @@ export default function ExamMegaRunnerPage() {
     }
 
     load();
-  }, []); // intentionally empty — runs once on mount
+  }, [navigate]);
 
   function handleAnswer(opt) {
     if (showFeedback) return;
     const q = questions[qIndex];
-    const isCorrect = normalize(opt) === normalize(q.answer);
+    const nextCorrect = normalize(opt) === normalize(q.answer);
     setSelected(opt);
-    setCorrect(isCorrect);
+    setCorrect(nextCorrect);
     setShowFeedback(true);
 
-    if (isCorrect) {
-      setScore(s => s + 1);
-    } else {
-      setErrors(e => [...e, q]);
-    }
+    if (nextCorrect) setScore((s) => s + 1);
 
-    setCatResults(prev => {
+    setCatResults((prev) => {
       const cat = q._catId;
       const cur = prev[cat] || { correct: 0, total: 0 };
       return {
         ...prev,
         [cat]: {
-          correct: cur.correct + (isCorrect ? 1 : 0),
+          correct: cur.correct + (nextCorrect ? 1 : 0),
           total: cur.total + 1,
         },
       };
@@ -135,16 +138,11 @@ export default function ExamMegaRunnerPage() {
   function handleNext() {
     setShowFeedback(false);
     setSelected(null);
-    if (qIndex + 1 >= questions.length) {
-      setPhase('result');
-    } else {
-      setQIndex(i => i + 1);
-    }
+    if (qIndex + 1 >= questions.length) setPhase('result');
+    else setQIndex((i) => i + 1);
   }
 
-  if (phase === 'loading') {
-    return <div className="mega-runner__loading">⏳ Chargement...</div>;
-  }
+  if (phase === 'loading') return <div className="mega-runner__loading">⏳ Chargement...</div>;
 
   if (phase === 'result') {
     const pct = questions.length ? Math.round((score / questions.length) * 100) : 0;
@@ -158,11 +156,11 @@ export default function ExamMegaRunnerPage() {
           <p className="mega-result__pct">{pct}%</p>
 
           <div className="mega-result__cats">
-            {config?.categoryIds.map(catId => {
+            {config?.categoryIds.map((catId) => {
               const res = catResults[catId] || { correct: 0, total: 0 };
               const catLabel = getCategoryLabel(catId, locale);
               const catPct = res.total ? Math.round((res.correct / res.total) * 100) : 0;
-              const catDef = cats.find(c => c.id === catId);
+              const catDef = cats.find((c) => c.id === catId);
               return (
                 <div key={catId} className="mega-result__cat-row">
                   <span className="mega-result__cat-emoji">{catDef?.emoji || '📚'}</span>
@@ -188,14 +186,14 @@ export default function ExamMegaRunnerPage() {
             <button
               type="button"
               className="mega-result__btn mega-result__btn--retry"
-              onPointerDown={e => { e.preventDefault(); navigate('/exam/mega'); }}
+              onPointerDown={(e) => { e.preventDefault(); navigate('/exam/mega'); }}
             >
               🔄 {locale === 'nl' ? 'Opnieuw' : locale === 'en' ? 'Try Again' : locale === 'es' ? 'Repetir' : 'Recommencer'}
             </button>
             <button
               type="button"
               className="mega-result__btn"
-              onPointerDown={e => { e.preventDefault(); navigate('/exam/library'); }}
+              onPointerDown={(e) => { e.preventDefault(); navigate('/exam/library'); }}
             >
               📚 {locale === 'nl' ? 'Bibliotheek' : locale === 'en' ? 'Library' : locale === 'es' ? 'Biblioteca' : 'Bibliotheque'}
             </button>
@@ -208,25 +206,16 @@ export default function ExamMegaRunnerPage() {
   const q = questions[qIndex];
   const promptText = getLocalizedField(q, 'prompt', locale);
   const cats = getCategories();
-  const catDef = cats.find(c => c.id === q._catId);
+  const catDef = cats.find((c) => c.id === q._catId);
 
   return (
     <div className="mega-runner">
       <div className="mega-runner__progress-bar">
-        <div
-          className="mega-runner__progress-fill"
-          style={{ width: `${(qIndex / questions.length) * 100}%` }}
-        />
+        <div className="mega-runner__progress-fill" style={{ width: `${(qIndex / questions.length) * 100}%` }} />
       </div>
 
       <div className="mega-runner__header">
-        <button
-          type="button"
-          className="exam-back-btn"
-          onPointerDown={e => { e.preventDefault(); navigate('/exam/mega'); }}
-        >
-          ←
-        </button>
+        <button type="button" className="exam-back-btn" onPointerDown={(e) => { e.preventDefault(); navigate('/exam/mega'); }}>←</button>
         <span className="mega-runner__counter">{qIndex + 1} / {questions.length}</span>
         <span className="mega-runner__score">✅ {score}</span>
       </div>
@@ -255,7 +244,7 @@ export default function ExamMegaRunnerPage() {
                 key={i}
                 type="button"
                 className={cls}
-                onPointerDown={e => { e.preventDefault(); if (!showFeedback) handleAnswer(opt); }}
+                onPointerDown={(e) => { e.preventDefault(); if (!showFeedback) handleAnswer(opt); }}
               >
                 <span className="mega-runner__opt-letter">{String.fromCharCode(65 + i)}</span>
                 {opt}

@@ -1,10 +1,10 @@
-// Results phase — gentle, positive correction. Never harsh.
 import { useCahierT } from './cahierI18n.js';
 
 export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeErrors, onSeeExplanations, errorCount }) {
   const L = useCahierT();
   const total = graded.length;
   const correct = graded.filter((g) => g.correct).length;
+  const stars = graded.reduce((sum, g) => sum + (g.starsEarned || 0), 0);
   const pct = total ? Math.round((correct / total) * 100) : 0;
   const headline = pct >= 70 ? L.t('bravo') : L.t('continueTry');
 
@@ -22,6 +22,7 @@ export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeError
         <span className="results-score__emoji">{pct >= 70 ? '🏆' : '💪'}</span>
         <span className="results-score__num">{correct} / {total}</span>
         <span className="results-score__pct">{pct}%</span>
+        <span className="results-score__stars">⭐ {stars} {L.t('etoilesTotal')}</span>
       </div>
 
       <ul className="results-list">
@@ -34,7 +35,7 @@ export default function ResultsView({ graded, onRetryAll, onNewBatch, onSeeError
             <div className="results-item__body">
               <span>Ta réponse : <strong>{String(g.userAnswer) || '—'}</strong></span>
               {!g.correct && <span>Bonne réponse : <strong>{g.exercise.answer}</strong></span>}
-              {/* Explication détaillée réservée à l'écran « Voir les explications » */}
+              {!!g.starsEarned && <span>⭐ +{g.starsEarned}</span>}
             </div>
           </li>
         ))}

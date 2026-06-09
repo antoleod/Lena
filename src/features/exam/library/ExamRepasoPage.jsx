@@ -1,30 +1,29 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
-import NumPad from '../../../shared/ui/NumPad.jsx';
+import NumericAnswerInput, { isNumericAnswerValue } from '../../../shared/ui/NumericAnswerInput.jsx';
 import { getExamsByCategory, getExam } from '../../../content/exams/registry.js';
 import { getLocalizedField } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 
 function shuffle(arr) {
   const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
+  for (let i = a.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
 }
 
-function normalize(v) { return String(v).trim().toLowerCase().replace(/\s+/g, ' '); }
+function normalize(v) {
+  return String(v).trim().toLowerCase().replace(/\s+/g, ' ');
+}
 
-// Build MCQ options for a question, ALWAYS including the trap (user's wrong answer)
 function buildOptions(q) {
   if (q.type !== 'mcq' || !q.options) return q.options;
   const opts = [...q.options];
   const trap = q._userWrongAnswer;
-  // Ensure trap is in options (it should be already since it was chosen before)
-  if (trap && !opts.some(o => normalize(o) === normalize(trap))) {
-    // Replace last option with trap if not already there
+  if (trap && !opts.some((o) => normalize(o) === normalize(trap))) {
     opts[opts.length - 1] = trap;
   }
   return shuffle(opts);
@@ -33,16 +32,16 @@ function buildOptions(q) {
 const UI = {
   fr: {
     title: 'Repas & Pratique',
-    subtitle: 'Revois tes erreurs avec des pieges !',
-    loading: 'Preparation du repas...',
+    subtitle: 'Revois tes erreurs avec des pièges !',
+    loading: 'Préparation du repas...',
     result: (c, t) => `${c} / ${t} corrects`,
     great: 'Bravo ! Tu progresses !',
-    ok: 'Continue comme ca !',
+    ok: 'Continue comme ça !',
     retry: 'Recommencer',
     back: 'Retour aux examens',
-    trap: 'Attention, piege !',
+    trap: 'Attention, piège !',
     similar: 'Exercices similaires',
-    wrongWas: 'Tu avais repondu :',
+    wrongWas: 'Tu avais répondu :',
   },
   nl: {
     title: 'Herhaling & Oefening',
@@ -71,33 +70,38 @@ const UI = {
     wrongWas: 'You answered:',
   },
   es: {
-    title: 'Repaso y Practica',
+    title: 'Repaso y Práctica',
     subtitle: 'Repasa tus errores con trampas!',
     loading: 'Preparando repaso...',
     result: (c, t) => `${c} / ${t} correctos`,
-    great: 'Muy bien! Estas progresando!',
-    ok: 'Sigue asi!',
+    great: 'Muy bien! Estás progresando!',
+    ok: 'Sigue así!',
     retry: 'Repetir',
-    back: 'Volver a examenes',
+    back: 'Volver a exámenes',
     trap: 'Cuidado, trampa!',
     similar: 'Ejercicios similares',
     wrongWas: 'Respondiste:',
   },
 };
 
-// FillBlankInput component — defined at top level
 function FillBlankInput({ onSubmit, question }) {
   const [val, setVal] = useState('');
-  const isNumeric = /^-?\d+([.,]\d+)?$/.test(String(question?.answer ?? '').trim());
+  const answer = String(question?.answer ?? '').trim();
+  const isNumeric = isNumericAnswerValue(answer);
 
   if (isNumeric) {
     return (
-      <NumPad
+      <NumericAnswerInput
         value={val}
         onChange={setVal}
-        onSubmit={(v) => onSubmit(v)}
+        onSubmit={onSubmit}
+        expectedAnswer={answer}
         placeholder="..."
-        allowNegative={/^-/.test(String(question?.answer ?? '').trim())}
+        allowNegative={answer.startsWith('-')}
+        valueLabel="Ta réponse"
+        readLabel="J'ai lu"
+        handwritingLabel="Écrire la réponse"
+        keypadLabel="Clavier numérique"
       />
     );
   }
@@ -108,16 +112,18 @@ function FillBlankInput({ onSubmit, question }) {
         type="text"
         className="repaso-fill__input"
         value={val}
-        onChange={e => setVal(e.target.value)}
-        onKeyDown={e => { if (e.key === 'Enter' && val.trim()) onSubmit(val.trim()); }}
+        onChange={(e) => setVal(e.target.value)}
+        onKeyDown={(e) => { if (e.key === 'Enter' && val.trim()) onSubmit(val.trim()); }}
         autoFocus
         placeholder="..."
       />
       <button
         type="button"
         className="repaso-fill__submit"
-        onPointerDown={e => { e.preventDefault(); if (val.trim()) onSubmit(val.trim()); }}
-      >&rarr;</button>
+        onPointerDown={(e) => { e.preventDefault(); if (val.trim()) onSubmit(val.trim()); }}
+      >
+        →
+      </button>
     </div>
   );
 }
@@ -127,7 +133,6 @@ export default function ExamRepasoPage() {
   const navigate = useNavigate();
   const ui = UI[locale] || UI.fr;
 
-  // ALL STATE AT TOP LEVEL
   const [phase, setPhase] = useState('loading');
   const [questions, setQuestions] = useState([]);
   const [qIndex, setQIndex] = useState(0);
@@ -135,56 +140,53 @@ export default function ExamRepasoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
-  const [isTrapQ, setIsTrapQ] = useState(false);
 
   useEffect(() => {
     const raw = sessionStorage.getItem('lena:repaso:questions');
     const metaRaw = sessionStorage.getItem('lena:repaso:meta');
-    if (!raw) { navigate('/exam/library'); return; }
+    if (!raw) {
+      navigate('/exam/library');
+      return;
+    }
 
     const wrongQs = JSON.parse(raw);
     const meta = metaRaw ? JSON.parse(metaRaw) : {};
 
     async function load() {
-      // Build the repaso question list:
-      // 1. All wrong questions (with trap options)
-      // 2. Add up to 5 similar fresh questions from same category+level
-      const repasoQs = wrongQs.map(q => ({
+      const repasoQs = wrongQs.map((q) => ({
         ...q,
         _builtOptions: buildOptions(q),
-        _isTrap: true,  // these are the original wrong ones with trap
+        _isTrap: true,
       }));
 
-      // Load similar questions from same category
       let similar = [];
       if (meta.category && meta.levelKey) {
         try {
           const stubs = await getExamsByCategory(meta.category);
           for (const stub of stubs) {
             if (similar.length >= 5) break;
-            if (stub.id === meta.examId) continue; // skip the same exam
+            if (stub.id === meta.examId) continue;
             const exam = await getExam(stub.id);
             const level = exam?.levels?.[meta.levelKey];
             if (!level?.questions?.length) continue;
-            const freshQs = shuffle(level.questions).slice(0, 2).map(q => ({
+            const freshQs = shuffle(level.questions).slice(0, 2).map((q) => ({
               ...q,
               _builtOptions: q.type === 'mcq' ? shuffle(q.options) : null,
               _isTrap: false,
             }));
             similar.push(...freshQs);
           }
-        } catch (e) {
-          // silently ignore — similar questions are bonus
+        } catch (_) {
+          // Similar questions are a bonus.
         }
       }
 
-      const allQs = shuffle([...repasoQs, ...similar.slice(0, 5)]);
-      setQuestions(allQs);
+      setQuestions(shuffle([...repasoQs, ...similar.slice(0, 5)]));
       setPhase('quiz');
     }
 
     load();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [navigate]);
 
   function handleAnswer(opt) {
     if (showFeedback) return;
@@ -192,24 +194,18 @@ export default function ExamRepasoPage() {
     const correct = normalize(opt) === normalize(q.answer);
     setSelected(opt);
     setIsCorrect(correct);
-    setIsTrapQ(q._isTrap && !correct);
     setShowFeedback(true);
-    if (correct) setScore(s => s + 1);
+    if (correct) setScore((s) => s + 1);
   }
 
   function handleNext() {
     setShowFeedback(false);
     setSelected(null);
-    if (qIndex + 1 >= questions.length) {
-      setPhase('result');
-    } else {
-      setQIndex(i => i + 1);
-    }
+    if (qIndex + 1 >= questions.length) setPhase('result');
+    else setQIndex((i) => i + 1);
   }
 
-  if (phase === 'loading') {
-    return <div className="repaso-loading">&#x23F3; {ui.loading}</div>;
-  }
+  if (phase === 'loading') return <div className="repaso-loading">⏳ {ui.loading}</div>;
 
   if (phase === 'result') {
     const pct = questions.length ? Math.round((score / questions.length) * 100) : 0;
@@ -223,24 +219,26 @@ export default function ExamRepasoPage() {
             <button
               type="button"
               className="repaso-result__btn repaso-result__btn--primary"
-              onPointerDown={e => {
+              onPointerDown={(e) => {
                 e.preventDefault();
-                const allQs = shuffle([...questions]);
-                setQuestions(allQs);
+                setQuestions(shuffle([...questions]));
                 setQIndex(0);
                 setScore(0);
                 setSelected(null);
                 setShowFeedback(false);
                 setIsCorrect(false);
-                setIsTrapQ(false);
                 setPhase('quiz');
               }}
-            >&#x1F504; {ui.retry}</button>
+            >
+              🔄 {ui.retry}
+            </button>
             <button
               type="button"
               className="repaso-result__btn"
-              onPointerDown={e => { e.preventDefault(); navigate('/exam/library'); }}
-            >📚 {ui.back}</button>
+              onPointerDown={(e) => { e.preventDefault(); navigate('/exam/library'); }}
+            >
+              📚 {ui.back}
+            </button>
           </div>
         </div>
       </div>
@@ -253,13 +251,12 @@ export default function ExamRepasoPage() {
 
   return (
     <div className="repaso-page">
-      {/* Progress */}
       <div className="repaso-progress">
         <div className="repaso-progress__fill" style={{ width: `${(qIndex / questions.length) * 100}%` }} />
       </div>
 
       <div className="repaso-header">
-        <button type="button" className="exam-back-btn" onPointerDown={e => { e.preventDefault(); navigate('/exam/library'); }}>←</button>
+        <button type="button" className="exam-back-btn" onPointerDown={(e) => { e.preventDefault(); navigate('/exam/library'); }}>←</button>
         <div className="repaso-header__center">
           <span className="repaso-header__title">📚 {ui.title}</span>
           <span className="repaso-header__counter">{qIndex + 1} / {questions.length}</span>
@@ -267,7 +264,6 @@ export default function ExamRepasoPage() {
         <span className="repaso-header__score">✅ {score}</span>
       </div>
 
-      {/* Trap badge */}
       {q._isTrap && (
         <div className="repaso-trap-badge">
           ⚠️ {ui.trap}
@@ -276,16 +272,12 @@ export default function ExamRepasoPage() {
           )}
         </div>
       )}
-      {!q._isTrap && (
-        <div className="repaso-similar-badge">✨ {ui.similar}</div>
-      )}
+      {!q._isTrap && <div className="repaso-similar-badge">✨ {ui.similar}</div>}
 
-      {/* Question */}
       <div className="repaso-question">
         <p className="repaso-prompt">{promptText}</p>
       </div>
 
-      {/* MCQ options */}
       {q.type === 'mcq' && opts && (
         <div className="repaso-options">
           {opts.map((opt, i) => {
@@ -302,7 +294,7 @@ export default function ExamRepasoPage() {
                 key={i}
                 type="button"
                 className={cls}
-                onPointerDown={e => { e.preventDefault(); if (!showFeedback) handleAnswer(opt); }}
+                onPointerDown={(e) => { e.preventDefault(); if (!showFeedback) handleAnswer(opt); }}
               >
                 <span className="repaso-opt__letter">{String.fromCharCode(65 + i)}</span>
                 <span className="repaso-opt__text">{opt}</span>
@@ -313,7 +305,6 @@ export default function ExamRepasoPage() {
         </div>
       )}
 
-      {/* Fill blank */}
       {q.type === 'fill_blank' && !showFeedback && (
         <FillBlankInput onSubmit={handleAnswer} question={q} />
       )}

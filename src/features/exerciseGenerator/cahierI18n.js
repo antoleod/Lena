@@ -60,6 +60,11 @@ const UI = {
     noteFinale: 'Note finale', excellent: '🏆 Excellent !', tresBien: '⭐ Très bien !',
     bien: '👍 Bien !', aRevoir: '📖 À revoir',
     etapeLabel: 'Étape par étape :',
+    ecrireReponse: 'Écrire la réponse', handwritingTitle: 'Mini pizarra',
+    handwritingHelp: 'Écris un chiffre avec ton doigt, stylet ou souris.',
+    ecrire: 'Écrire', effacer: 'Effacer', reconnaitre: 'Reconnaître',
+    chiffreAttendu: 'Chiffre attendu :', jAiLu: 'J’ai lu :', recognitionRetry: 'Je n’ai pas bien reconnu. Réessaie.',
+    etoilesGagnees: 'Étoiles gagnées :', etoilesTotal: 'étoiles', retour: 'Retour', fermer: 'Fermer',
   },
   nl: {
     monCahier: 'Mijn schrift', monCahierTitle: 'Mijn oefenschrift',
@@ -105,6 +110,11 @@ const UI = {
     noteFinale: 'Eindcijfer', excellent: '🏆 Uitstekend!', tresBien: '⭐ Heel goed!',
     bien: '👍 Goed!', aRevoir: '📖 Nog oefenen',
     etapeLabel: 'Stap voor stap:',
+    ecrireReponse: 'Antwoord schrijven', handwritingTitle: 'Mini schrijfplaat',
+    handwritingHelp: 'Schrijf een cijfer met je vinger, pen of muis.',
+    ecrire: 'Schrijven', effacer: 'Gummen', reconnaitre: 'Herkennen',
+    chiffreAttendu: 'Verwacht cijfer:', jAiLu: 'Ik lees:', recognitionRetry: 'Ik kon het niet goed lezen. Probeer opnieuw.',
+    etoilesGagnees: 'Verdiende sterren:', etoilesTotal: 'sterren', retour: 'Terug', fermer: 'Sluiten',
   },
   en: {
     monCahier: 'My notebook', monCahierTitle: 'My exercise notebook',
@@ -150,6 +160,11 @@ const UI = {
     noteFinale: 'Final score', excellent: '🏆 Excellent!', tresBien: '⭐ Very good!',
     bien: '👍 Good!', aRevoir: '📖 Keep practising',
     etapeLabel: 'Step by step:',
+    ecrireReponse: 'Write the answer', handwritingTitle: 'Mini board',
+    handwritingHelp: 'Write one digit with your finger, stylus or mouse.',
+    ecrire: 'Write', effacer: 'Erase', reconnaitre: 'Recognize',
+    chiffreAttendu: 'Expected digit:', jAiLu: 'I read:', recognitionRetry: 'I could not read it well. Try again.',
+    etoilesGagnees: 'Stars earned:', etoilesTotal: 'stars', retour: 'Back', fermer: 'Close',
   },
   es: {
     monCahier: 'Mi cuaderno', monCahierTitle: 'Mi cuaderno de ejercicios',
@@ -195,6 +210,11 @@ const UI = {
     noteFinale: 'Nota final', excellent: '🏆 ¡Excelente!', tresBien: '⭐ ¡Muy bien!',
     bien: '👍 ¡Bien!', aRevoir: '📖 A repasar',
     etapeLabel: 'Paso a paso:',
+    ecrireReponse: 'Escribir la respuesta', handwritingTitle: 'Mini pizarra',
+    handwritingHelp: 'Escribe un número con el dedo, lápiz o ratón.',
+    ecrire: 'Escribir', effacer: 'Borrar', reconnaitre: 'Reconocer',
+    chiffreAttendu: 'Número esperado:', jAiLu: 'He leído:', recognitionRetry: 'No lo he reconocido bien. Inténtalo otra vez.',
+    etoilesGagnees: 'Estrellas ganadas:', etoilesTotal: 'estrellas', retour: 'Volver', fermer: 'Cerrar',
   },
 };
 

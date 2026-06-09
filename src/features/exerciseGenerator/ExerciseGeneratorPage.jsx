@@ -100,6 +100,8 @@ export default function ExerciseGeneratorPage() {
       exercise: ex,
       userAnswer: resultMap[ex.id]?.correct ? String(ex.answer ?? ex.correctAnswer) : '—',
       correct: !!resultMap[ex.id]?.correct,
+      starsEarned: resultMap[ex.id]?.starsEarned || 0,
+      answerMode: resultMap[ex.id]?.answerMode || 'keyboard',
     }));
     saveSession({ subject, type, level, count }, graded);
     setGraded(graded);
