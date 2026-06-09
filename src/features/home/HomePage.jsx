@@ -90,6 +90,14 @@ const QUICK_SECTIONS = [
     gradient: 'linear-gradient(135deg, #f59e0b, #fcd34d)',
     shadow: 'rgba(245, 158, 11, 0.35)',
   },
+  {
+    to: '/fun',
+    emoji: '😂',
+    label: 'Coin Amusant',
+    desc: 'Blagues, devinettes, poèmes…',
+    gradient: 'linear-gradient(135deg, #f43f5e, #ec4899)',
+    shadow: 'rgba(244, 63, 94, 0.35)',
+  },
 ];
 
 // ── Sub-components ─────────────────────────────────────────────────────────────

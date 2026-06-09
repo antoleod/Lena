@@ -49,6 +49,8 @@ import TablesPage from '../../features/tables/TablesPage.jsx';
 import DuduPage from '../../features/dudu/DuduPage.jsx';
 import ChronoPage from '../../features/chrono/ChronoPage.jsx';
 import StoryLibraryPage from '../../features/stories/StoryLibraryPage.jsx';
+import FunHubPage from '../../features/fun/FunHubPage.jsx';
+import FunReaderPage from '../../features/fun/FunReaderPage.jsx';
 import StoryReaderPage from '../../features/stories/StoryReaderPage.jsx';
 import PratiquerHubPage from '../../features/practise/PratiquerHubPage.jsx';
 import ApprendreHubPage from '../../features/apprendre/ApprendreHubPage.jsx';
@@ -280,6 +282,8 @@ export default function AppRouter() {
         <Route path="/jeux/mots-intrus-texte" element={<MotsIntrusPage />} />
         <Route path="/jeux/memoire-chiffres"  element={<MemChiffresPage />} />
         <Route path="/jeux/estimation"        element={<ComingSoonPage />} />
+        <Route path="/fun" element={<FunHubPage />} />
+        <Route path="/fun/:type" element={<FunReaderPage />} />
         <Route path="/grammi" element={<GrammiPage />} />
         <Route path="/metri" element={<MetriPage />} />
         <Route path="/lexi" element={<LexiPage />} />

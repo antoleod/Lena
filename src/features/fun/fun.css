@@ -1,0 +1,446 @@
+/* ══════════════════════════════════════════════════════════
+   FUN HUB — hub page
+══════════════════════════════════════════════════════════ */
+.fun-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fdf4ff 0%, #faf5eb 100%);
+  padding-bottom: 90px;
+}
+
+.fun-hero {
+  background: linear-gradient(135deg, #f43f5e 0%, #ec4899 40%, #8b5cf6 100%);
+  color: #fff;
+  padding: 28px 20px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.fun-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.fun-hero__stars {
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.2));
+}
+.fun-hero__title {
+  font-size: 1.9rem;
+  font-weight: 900;
+  margin: 0 0 6px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+.fun-hero__subtitle {
+  font-size: .95rem;
+  opacity: .92;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ── grid of category cards ── */
+.fun-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 20px 14px 0;
+}
+@media (min-width: 600px) {
+  .fun-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .fun-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* ── category card ── */
+.fun-card {
+  background: var(--card-bg, #fff);
+  border: 2px solid transparent;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  text-decoration: none;
+  display: block;
+  animation: fun-card-in .35s ease both;
+}
+.fun-card:nth-child(2) { animation-delay: .06s; }
+.fun-card:nth-child(3) { animation-delay: .12s; }
+.fun-card:nth-child(4) { animation-delay: .18s; }
+.fun-card:nth-child(5) { animation-delay: .24s; }
+
+@keyframes fun-card-in {
+  from { opacity: 0; transform: translateY(16px) scale(.95); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fun-card { animation: none; }
+}
+
+.fun-card:hover, .fun-card:focus-visible {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,.14);
+  border-color: var(--card-color, #8b5cf6);
+  outline: none;
+}
+
+.fun-card--blague    { --card-color: #f43f5e; --card-bg: #fff1f2; }
+.fun-card--devinette { --card-color: #8b5cf6; --card-bg: #f5f3ff; }
+.fun-card--proverbe  { --card-color: #f59e0b; --card-bg: #fffbeb; }
+.fun-card--poeme     { --card-color: #ec4899; --card-bg: #fdf2f8; }
+.fun-card--conte     { --card-color: #06b6d4; --card-bg: #ecfeff; }
+
+.fun-card__illus {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-gradient, linear-gradient(135deg, #e0e7ff, #c7d2fe));
+}
+.fun-card__body { padding: 12px 10px 16px; }
+.fun-card__emoji { font-size: 2.4rem; display: block; margin-bottom: 4px; }
+.fun-card__name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--card-color, #333);
+  margin: 0 0 4px;
+}
+.fun-card__count {
+  font-size: .78rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* ══════════════════════════════════════════════════════════
+   READER PAGE
+══════════════════════════════════════════════════════════ */
+.fun-reader {
+  min-height: 100vh;
+  background: var(--reader-bg, #fdf4ff);
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fun-reader-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 0;
+  position: sticky;
+  top: 0;
+  background: var(--reader-bg, #fdf4ff);
+  z-index: 10;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.fun-reader-back {
+  background: var(--card-bg, #fff);
+  border: 2px solid var(--card-color, #8b5cf6);
+  color: var(--card-color, #8b5cf6);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.fun-reader-back:hover { background: var(--card-color, #8b5cf6); color: #fff; }
+.fun-reader-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--card-color, #333);
+  margin: 0;
+}
+.fun-reader-count {
+  margin-left: auto;
+  font-size: .82rem;
+  color: #94a3b8;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── progress ── */
+.fun-progress {
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  margin: 0 16px 16px;
+  overflow: hidden;
+}
+.fun-progress__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--card-color, #8b5cf6), color-mix(in srgb, var(--card-color, #8b5cf6) 60%, white));
+  border-radius: 2px;
+  transition: width .4s ease;
+}
+
+/* ── item card ── */
+.fun-item-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 14px;
+  gap: 14px;
+}
+
+.fun-item-illus {
+  background: linear-gradient(135deg, var(--card-color, #8b5cf6)18, var(--card-color, #8b5cf6)06);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 160px;
+}
+
+/* ── flip card (blague / devinette) ── */
+.flip-card {
+  perspective: 1000px;
+  min-height: 220px;
+}
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  transition: transform .55s cubic-bezier(.4,0,.2,1);
+  transform-style: preserve-3d;
+}
+.flip-card--revealed .flip-card__inner {
+  transform: rotateY(180deg);
+}
+.flip-card__front,
+.flip-card__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+.flip-card__front {
+  background: var(--card-bg, #fff);
+  border: 2px solid var(--card-color, #8b5cf6);
+}
+.flip-card__back {
+  background: var(--card-color, #8b5cf6);
+  transform: rotateY(180deg);
+  color: #fff;
+}
+.flip-card__question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.55;
+}
+.flip-card__hint {
+  font-size: .82rem;
+  color: var(--card-color, #8b5cf6);
+  font-weight: 600;
+  letter-spacing: .03em;
+  animation: pulse-hint 2s ease-in-out infinite;
+}
+@keyframes pulse-hint {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .5; }
+}
+.flip-card__answer {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.flip-card__back-emoji {
+  font-size: 3rem;
+}
+
+/* ── proverbe card ── */
+.proverb-card {
+  background: var(--card-bg, #fffbeb);
+  border: 2px solid var(--card-color, #f59e0b);
+  border-radius: 20px;
+  padding: 24px;
+}
+.proverb-content {
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-style: italic;
+  color: #92400e;
+  line-height: 1.5;
+  padding: 12px 16px;
+  border-left: 4px solid var(--card-color, #f59e0b);
+  background: rgba(245,158,11,.08);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 16px;
+}
+.proverb-meaning-label {
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--card-color, #f59e0b);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+}
+.proverb-meaning {
+  font-size: 1rem;
+  color: #44403c;
+  line-height: 1.7;
+}
+
+/* ── poème card ── */
+.poem-card {
+  background: var(--card-bg, #fdf2f8);
+  border: 2px solid var(--card-color, #ec4899);
+  border-radius: 20px;
+  padding: 24px;
+}
+.poem-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--card-color, #ec4899);
+  margin: 0 0 16px;
+  text-align: center;
+}
+.poem-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  line-height: 1.95;
+  color: #374151;
+  white-space: pre-wrap;
+  text-align: center;
+}
+.poem-author {
+  text-align: right;
+  font-size: .82rem;
+  color: #9ca3af;
+  font-style: italic;
+  margin-top: 16px;
+}
+
+/* ── conte card ── */
+.conte-card {
+  background: #fff;
+  border: 2px solid var(--card-color, #06b6d4);
+  border-radius: 20px;
+  padding: 24px;
+}
+.conte-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--card-color, #06b6d4);
+  margin: 0 0 16px;
+}
+.conte-text {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #374151;
+  white-space: pre-wrap;
+}
+.conte-moral {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--card-color, #06b6d4)18, var(--card-color, #06b6d4)08);
+  border-radius: 12px;
+  border-left: 4px solid var(--card-color, #06b6d4);
+}
+.conte-moral-label {
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--card-color, #06b6d4);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 4px;
+}
+.conte-moral-text {
+  font-size: .95rem;
+  font-style: italic;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* ── navigation ── */
+.fun-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px 8px;
+  flex-wrap: wrap;
+}
+.fun-nav__btn {
+  background: var(--card-bg, #fff);
+  border: 2px solid var(--card-color, #8b5cf6);
+  color: var(--card-color, #8b5cf6);
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s, color .15s, transform .1s;
+}
+.fun-nav__btn:hover:not(:disabled) {
+  background: var(--card-color, #8b5cf6);
+  color: #fff;
+  transform: scale(1.04);
+}
+.fun-nav__btn:disabled { opacity: .35; cursor: not-allowed; }
+
+.fun-nav__dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.fun-nav__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: background .2s, width .2s;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.fun-nav__dot--active {
+  background: var(--card-color, #8b5cf6);
+  width: 22px;
+  border-radius: 4px;
+}
+
+/* ── reveal button ── */
+.fun-reveal-btn {
+  background: var(--card-color, #8b5cf6);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  transition: transform .15s, box-shadow .15s;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+.fun-reveal-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+.fun-reveal-btn--revealed {
+  background: #fff;
+  color: var(--card-color, #8b5cf6);
+  border: 2px solid var(--card-color, #8b5cf6);
+}
