@@ -33,21 +33,21 @@
         {
           "id": "l12-f02",
           "type": "mcq",
-          "prompt": "5 + ? = 9",
-          "prompt_nl": "5 + ? = 9",
-          "prompt_en": "5 + ? = 9",
-          "prompt_es": "5 + ? = 9",
+          "prompt": "7 + ? = 10",
+          "prompt_nl": "7 + ? = 10",
+          "prompt_en": "7 + ? = 10",
+          "prompt_es": "7 + ? = 10",
           "options": [
+            "1",
+            "2",
             "3",
-            "4",
-            "5",
-            "6"
+            "4"
           ],
-          "answer": "4",
-          "correction": "9-5=4.",
-          "correction_nl": "9-5=4.",
-          "correction_en": "9-5=4.",
-          "correction_es": "9-5=4."
+          "answer": "3",
+          "correction": "10-7=3.",
+          "correction_nl": "10-7=3.",
+          "correction_en": "10-7=3.",
+          "correction_es": "10-7=3."
         },
         {
           "id": "l12-f03",
@@ -71,40 +71,40 @@
         {
           "id": "l12-f04",
           "type": "mcq",
-          "prompt": "3 × ? = 12",
-          "prompt_nl": "3 × ? = 12",
-          "prompt_en": "3 × ? = 12",
-          "prompt_es": "3 × ? = 12",
+          "prompt": "? × 4 = 36",
+          "prompt_nl": "? × 4 = 36",
+          "prompt_en": "? × 4 = 36",
+          "prompt_es": "? × 4 = 36",
           "options": [
-            "3",
-            "4",
-            "5",
-            "6"
+            "7",
+            "8",
+            "9",
+            "10"
           ],
-          "answer": "4",
-          "correction": "12÷3=4.",
-          "correction_nl": "12÷3=4.",
-          "correction_en": "12÷3=4.",
-          "correction_es": "12÷3=4."
+          "answer": "9",
+          "correction": "36÷4=9.",
+          "correction_nl": "36÷4=9.",
+          "correction_en": "36÷4=9.",
+          "correction_es": "36÷4=9."
         },
         {
           "id": "l12-f05",
           "type": "mcq",
-          "prompt": "? × 5 = 20",
-          "prompt_nl": "? × 5 = 20",
-          "prompt_en": "? × 5 = 20",
-          "prompt_es": "? × 5 = 20",
+          "prompt": "? × 3 = 21",
+          "prompt_nl": "? × 3 = 21",
+          "prompt_en": "? × 3 = 21",
+          "prompt_es": "? × 3 = 21",
           "options": [
-            "3",
-            "4",
             "5",
-            "6"
+            "6",
+            "7",
+            "8"
           ],
-          "answer": "4",
-          "correction": "20÷5=4.",
-          "correction_nl": "20÷5=4.",
-          "correction_en": "20÷5=4.",
-          "correction_es": "20÷5=4."
+          "answer": "7",
+          "correction": "21÷3=7.",
+          "correction_nl": "21÷3=7.",
+          "correction_en": "21÷3=7.",
+          "correction_es": "21÷3=7."
         },
         {
           "id": "l12-f06",
@@ -166,21 +166,21 @@
         {
           "id": "l12-f09",
           "type": "mcq",
-          "prompt": "? / 4 = 3",
-          "prompt_nl": "? / 4 = 3",
-          "prompt_en": "? / 4 = 3",
-          "prompt_es": "? / 4 = 3",
+          "prompt": "? ÷ 5 = 3",
+          "prompt_nl": "? ÷ 5 = 3",
+          "prompt_en": "? ÷ 5 = 3",
+          "prompt_es": "? ÷ 5 = 3",
           "options": [
-            "9",
-            "10",
-            "11",
-            "12"
+            "13",
+            "14",
+            "15",
+            "16"
           ],
-          "answer": "12",
-          "correction": "3×4=12.",
-          "correction_nl": "3×4=12.",
-          "correction_en": "3×4=12.",
-          "correction_es": "3×4=12."
+          "answer": "15",
+          "correction": "3×5=15.",
+          "correction_nl": "3×5=15.",
+          "correction_en": "3×5=15.",
+          "correction_es": "3×5=15."
         },
         {
           "id": "l12-f10",
@@ -537,21 +537,21 @@
         {
           "id": "l12-d08",
           "type": "mcq",
-          "prompt": "La somme de ? termes de la suite géométrique 1, 2, 4… vaut 31",
-          "prompt_nl": "De som van ? termen van de meetkundige rij 1,2,4… = 31",
-          "prompt_en": "Sum of ? terms of geometric sequence 1,2,4…=31",
-          "prompt_es": "Suma de ? términos de la sucesión geométrica 1,2,4…=31",
+          "prompt": "Suite de Fibonacci : 1, 1, 2, 3, 5, 8, 13, 21, ? Quel est le terme manquant ?",
+          "prompt_nl": "Fibonacci-reeks: 1,1,2,3,5,8,13,21,? Welk getal ontbreekt?",
+          "prompt_en": "Fibonacci: 1,1,2,3,5,8,13,21,? Missing term?",
+          "prompt_es": "Fibonacci: 1,1,2,3,5,8,13,21,? ¿Término faltante?",
           "options": [
-            "3",
-            "4",
-            "5",
-            "6"
+            "28",
+            "32",
+            "34",
+            "40"
           ],
-          "answer": "5",
-          "correction": "S=2^n-1=31 → 2^n=32 → n=5.",
-          "correction_nl": "2^n-1=31, n=5.",
-          "correction_en": "2^n-1=31, n=5.",
-          "correction_es": "2^n-1=31, n=5."
+          "answer": "34",
+          "correction": "13+21=34.",
+          "correction_nl": "13+21=34.",
+          "correction_en": "13+21=34.",
+          "correction_es": "13+21=34."
         },
         {
           "id": "l12-d09",

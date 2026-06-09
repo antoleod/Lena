@@ -109,21 +109,21 @@
         {
           "id": "l17-f06",
           "type": "mcq",
-          "prompt": "Anna est l'arrière-grand-mère du fils du fils de la fille de Marie. Quel est le lien entre Anna et Marie ?",
-          "prompt_nl": "Anna is de achterovergrootmoeder van de zoon van de zoon van de dochter van Marie.",
-          "prompt_en": "Anna is the great-grandmother of the son of the son of the daughter of Marie.",
-          "prompt_es": "Anna es la bisabuela del hijo del hijo de la hija de Marie.",
+          "prompt": "Un magasin applique une remise de 20% sur un article à 50 €. Quel est le nouveau prix ?",
+          "prompt_nl": "Een winkel geeft 20% korting op een artikel van 50€. Wat is de nieuwe prijs?",
+          "prompt_en": "A shop applies a 20% discount on a €50 item. What is the new price?",
+          "prompt_es": "Una tienda aplica un 20% de descuento en un artículo de 50€. ¿Cuál es el nuevo precio?",
           "options": [
-            "Grand-mère",
-            "Arrière-grand-mère",
-            "Aucun",
-            "Mère"
+            "30 €",
+            "35 €",
+            "40 €",
+            "45 €"
           ],
-          "answer": "Arrière-grand-mère",
-          "correction": "Marie←fille←fils←fils=Anna est l'arrière-grand-mère de Marie.",
-          "correction_nl": "Terugtelregel: Anna is overgrootmoeder van Marie.",
-          "correction_en": "Counting back: Anna is great-grandmother of Marie.",
-          "correction_es": "Contando: Anna es bisabuela de Marie."
+          "answer": "40 €",
+          "correction": "50 × (1 - 0.20) = 50 × 0.80 = 40 €.",
+          "correction_nl": "50 × 0,80 = 40 €.",
+          "correction_en": "50 × 0.80 = 40 €.",
+          "correction_es": "50 × 0.80 = 40 €."
         },
         {
           "id": "l17-f07",
@@ -147,21 +147,21 @@
         {
           "id": "l17-f08",
           "type": "mcq",
-          "prompt": "Un homme regarde une photo : \"Les frères et sœurs je n'en ai point. Le père de cet homme est le fils de mon père.\" Qui est photographié ?",
-          "prompt_nl": "Een man kijkt naar een foto: \"Ik heb geen broers of zussen. De vader van deze man is de zoon van mijn vader.\" Wie staat er?",
-          "prompt_en": "Man looks at photo: \"I have no siblings. This man's father is my father's son.\" Who is in the photo?",
-          "prompt_es": "Un hombre mira foto: \"No tengo hermanos. El padre de este hombre es el hijo de mi padre.\" ¿Quién está?",
+          "prompt": "Il faut 5 minutes pour cuire 1 œuf dur. Combien de minutes faut-il pour cuire 5 œufs durs en même temps ?",
+          "prompt_nl": "Het duurt 5 minuten om 1 hard ei te koken. Hoeveel minuten om 5 eieren tegelijk te koken?",
+          "prompt_en": "It takes 5 minutes to boil 1 hard egg. How long to boil 5 at the same time?",
+          "prompt_es": "Se tarda 5 minutos en cocer 1 huevo duro. ¿Cuánto tiempo para cocer 5 a la vez?",
           "options": [
-            "Son père",
-            "Son fils",
-            "Lui-même",
-            "Son cousin"
+            "5 minutes",
+            "10 minutes",
+            "25 minutes",
+            "1 heure"
           ],
-          "answer": "Son fils",
-          "correction": "Son père = lui-même → c'est son propre fils.",
-          "correction_nl": "Zijn vader = hijzelf → het is zijn eigen zoon.",
-          "correction_en": "His father = himself → his own son.",
-          "correction_es": "Su padre = él mismo → su propio hijo."
+          "answer": "5 minutes",
+          "correction": "La cuisson est simultanée : 5 œufs cuisent en même temps en 5 minutes.",
+          "correction_nl": "Gelijktijdige kooktijd: 5 eieren koken samen in 5 minuten.",
+          "correction_en": "Parallel cooking: 5 eggs cook simultaneously in 5 minutes.",
+          "correction_es": "Cocción simultánea: 5 huevos cuecen a la vez en 5 minutos."
         },
         {
           "id": "l17-f09",
@@ -185,21 +185,21 @@
         {
           "id": "l17-f10",
           "type": "mcq",
-          "prompt": "Un marchand de vin avait 3 tonneaux : 3 L, 5 L et 8 L. Le 8 L est plein. Comment diviser en 2 parts égales avec seulement ces tonneaux ?",
-          "prompt_nl": "Een wijnhandelaar heeft 3 vaten: 3L, 5L, 8L. 8L vol. Verdeel in 2 gelijke delen.",
-          "prompt_en": "Wine merchant: 3 barrels 3L, 5L, 8L. 8L full. Divide into 2 equal parts.",
-          "prompt_es": "Comerciante: barriles 3L, 5L, 8L. 8L lleno. Dividir en 2 partes iguales.",
+          "prompt": "Un robinet remplit un bassin en 6 heures. Quelle fraction du bassin est remplie après 2 heures ?",
+          "prompt_nl": "Een kraan vult een bekken in 6 uur. Welk deel is gevuld na 2 uur?",
+          "prompt_en": "A tap fills a tank in 6 hours. What fraction is filled after 2 hours?",
+          "prompt_es": "Un grifo llena un depósito en 6 horas. ¿Qué fracción está llena tras 2 horas?",
           "options": [
-            "Impossible",
-            "8L→5L, 5L→3L, 3L→8L, 5L→3L, 3L→8L",
-            "4L chacun après 3 étapes",
-            "8L→5L (reste 3L), 5L→3L (reste 2L dans 5L)..."
+            "1/2",
+            "1/3",
+            "1/4",
+            "2/3"
           ],
-          "answer": "8L→5L, 5L→3L, 3L→8L, 5L→3L, 3L→8L",
-          "correction": "5+3=8, verser 5L dans 5L, remplir 3L, vider dans 8L → (0,2,6), puis (3,2,3)→(3,0,5)→(0,3,5)→(3,3,2)→(3,3,2) → (3,3,2): vider 3L dans 8L...",
-          "correction_nl": "Optimale sequentie bereikt 4L+4L.",
-          "correction_en": "Optimal sequence achieves 4L+4L.",
-          "correction_es": "Secuencia óptima logra 4L+4L."
+          "answer": "1/3",
+          "correction": "Vitesse = 1/6 par heure. Après 2 h : 2 × (1/6) = 1/3.",
+          "correction_nl": "Snelheid = 1/6 per uur. Na 2 uur: 2/6 = 1/3.",
+          "correction_en": "Rate = 1/6 per hour. After 2h: 2/6 = 1/3.",
+          "correction_es": "Velocidad = 1/6 por hora. Tras 2h: 2/6 = 1/3."
         }
       ]
     },

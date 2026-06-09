@@ -247,40 +247,40 @@
         {
           "id": "l15-m03",
           "type": "mcq",
-          "prompt": "Vous avez 2 seaux : 3 L et 5 L. Comment obtenir exactement 4 L ?",
-          "prompt_nl": "Je hebt 2 emmers: 3 L en 5 L. Hoe kom je aan precies 4 L?",
-          "prompt_en": "2 buckets: 3 L and 5 L. How to get exactly 4 L?",
-          "prompt_es": "2 cubos: 3 L y 5 L. ¿Cómo obtener exactamente 4 L?",
+          "prompt": "Une ferme a des vaches et des poules. Au total 20 têtes et 56 pattes. Combien de vaches ?",
+          "prompt_nl": "Een boerderij heeft koeien en kippen. Totaal 20 koppen en 56 poten. Hoeveel koeien?",
+          "prompt_en": "A farm has cows and chickens. Total 20 heads and 56 legs. How many cows?",
+          "prompt_es": "Una granja tiene vacas y gallinas. Total 20 cabezas y 56 patas. ¿Cuántas vacas?",
           "options": [
-            "Remplir 3 L deux fois dans 5 L, vider reste",
-            "Remplir 5 L, verser 3 L, revider 3 L, verser reste dans 5 L, remplir 3 L, compléter 5 L",
-            "Impossible",
-            "Remplir 5 L et vider 1 L"
+            "6",
+            "7",
+            "8",
+            "10"
           ],
-          "answer": "Remplir 5 L, verser 3 L, revider 3 L, verser reste dans 5 L, remplir 3 L, compléter 5 L",
-          "correction": "5-3=2 L dans 5 L. Vider 3 L. Verser 2 L. Remplir 3 L. Compléter 5 L = 4 L.",
-          "correction_nl": "5-3=2, leeg 3L, giet 2L, vul 3L, completeer 5L=4L.",
-          "correction_en": "5-3=2, empty 3L, pour 2L, fill 3L, complete 5L=4L.",
-          "correction_es": "5-3=2, vaciar 3L, verter 2L, llenar 3L, completar 5L=4L."
+          "answer": "8",
+          "correction": "v+p=20, 4v+2p=56 → 2v=16 → v=8.",
+          "correction_nl": "v+p=20, 4v+2p=56 → v=8.",
+          "correction_en": "v+p=20, 4v+2p=56 → v=8.",
+          "correction_es": "v+p=20, 4v+2p=56 → v=8."
         },
         {
           "id": "l15-m04",
           "type": "mcq",
-          "prompt": "Un homme regarde un portrait et dit : \"Je n'ai ni frère ni sœur, mais le père de cet homme est le fils de mon père.\" Qui est dans le portrait ?",
-          "prompt_nl": "Een man kijkt naar een portret: \"Ik heb geen broer of zus, maar de vader van deze man is de zoon van mijn vader.\" Wie staat er?",
-          "prompt_en": "A man looks at a portrait: \"I have no brothers or sisters, but this man's father is my father's son.\" Who is in the portrait?",
-          "prompt_es": "Un hombre mira un retrato: \"No tengo hermanos ni hermanas, pero el padre de este hombre es el hijo de mi padre.\" ¿Quién está?",
+          "prompt": "Un homme marche 3 km vers le nord, puis 4 km vers l'est. Quelle est sa distance en ligne droite depuis son point de départ ?",
+          "prompt_nl": "Een man loopt 3 km naar het noorden, dan 4 km naar het oosten. Wat is zijn afstand in vogelvlucht?",
+          "prompt_en": "A man walks 3 km north then 4 km east. What is his straight-line distance from the start?",
+          "prompt_es": "Un hombre camina 3 km al norte y 4 km al este. ¿Cuál es su distancia en línea recta desde el inicio?",
           "options": [
-            "Son père",
-            "Son fils",
-            "Lui-même",
-            "Son oncle"
+            "5 km",
+            "6 km",
+            "7 km",
+            "12 km"
           ],
-          "answer": "Son fils",
-          "correction": "Son père est lui-même → c'est son fils.",
-          "correction_nl": "Zijn vader = hijzelf → het is zijn zoon.",
-          "correction_en": "His father = himself → it is his son.",
-          "correction_es": "Su padre = él mismo → es su hijo."
+          "answer": "5 km",
+          "correction": "Théorème de Pythagore : √(3²+4²) = √25 = 5 km.",
+          "correction_nl": "Stelling van Pythagoras: √(9+16) = 5 km.",
+          "correction_en": "Pythagorean theorem: √(3²+4²) = 5 km.",
+          "correction_es": "Teorema de Pitágoras: √(9+16) = 5 km."
         },
         {
           "id": "l15-m05",

@@ -323,21 +323,21 @@
         {
           "id": "l14-m07",
           "type": "mcq",
-          "prompt": "Table de vérité : P=F, Q=F. P ∨ Q = ?",
-          "prompt_nl": "Waarheidstabel: P=F, Q=F. P ∨ Q=?",
-          "prompt_en": "Truth table: P=F, Q=F. P ∨ Q=?",
-          "prompt_es": "Tabla de verdad: P=F, Q=F. P ∨ Q=?",
+          "prompt": "Table de vérité : P=V, Q=F. P ⊕ Q (XOR, ou exclusif) = ?",
+          "prompt_nl": "Waarheidstabel: P=W, Q=F. P ⊕ Q (XOR, exclusieve of)=?",
+          "prompt_en": "Truth table: P=T, Q=F. P ⊕ Q (XOR, exclusive or)=?",
+          "prompt_es": "Tabla de verdad: P=V, Q=F. P ⊕ Q (XOR, o exclusivo)=?",
           "options": [
             "V",
             "F",
             "Indéterminé",
-            "Dépend"
+            "Dépend de P"
           ],
-          "answer": "F",
-          "correction": "F ∨ F = F.",
-          "correction_nl": "F ∨ F = F.",
-          "correction_en": "F ∨ F = F.",
-          "correction_es": "F ∨ F = F."
+          "answer": "V",
+          "correction": "XOR est vrai si exactement un des deux est vrai : V ⊕ F = V.",
+          "correction_nl": "XOR is waar als precies één van de twee waar is: W ⊕ F = W.",
+          "correction_en": "XOR is true when exactly one is true: T ⊕ F = T.",
+          "correction_es": "XOR es verdadero cuando exactamente uno es verdadero: V ⊕ F = V."
         },
         {
           "id": "l14-m08",
@@ -361,21 +361,21 @@
         {
           "id": "l14-m09",
           "type": "mcq",
-          "prompt": "Loi de De Morgan : ¬(P ∨ Q) = ?",
-          "prompt_nl": "Wet van De Morgan: ¬(P ∨ Q)=?",
-          "prompt_en": "De Morgan: ¬(P ∨ Q)=?",
-          "prompt_es": "De Morgan: ¬(P ∨ Q)=?",
+          "prompt": "Réciproque de 'Si P alors Q' = ?",
+          "prompt_nl": "Omkering van 'Als P dan Q'=?",
+          "prompt_en": "Converse of 'If P then Q'=?",
+          "prompt_es": "Recíproca de 'Si P entonces Q'=?",
           "options": [
-            "¬P ∨ ¬Q",
-            "¬P ∧ ¬Q",
-            "P ∧ Q",
-            "P ∨ Q"
+            "Si ¬Q alors ¬P",
+            "Si Q alors P",
+            "Si ¬P alors ¬Q",
+            "Si P alors ¬Q"
           ],
-          "answer": "¬P ∧ ¬Q",
-          "correction": "Loi de De Morgan.",
-          "correction_nl": "Wet van De Morgan.",
-          "correction_en": "De Morgan's law.",
-          "correction_es": "Ley de De Morgan."
+          "answer": "Si Q alors P",
+          "correction": "La réciproque inverse hypothèse et conclusion. Attention : elle n'est pas logiquement équivalente à P→Q (contrairement à la contraposée).",
+          "correction_nl": "De omkering verwisselt hypothese en conclusie. Let op: ze is niet logisch equivalent aan P→Q.",
+          "correction_en": "The converse swaps hypothesis and conclusion. Note: it is not logically equivalent to P→Q (unlike the contrapositive).",
+          "correction_es": "La recíproca intercambia hipótesis y conclusión. Nota: no es lógicamente equivalente a P→Q (a diferencia de la contrapositiva)."
         },
         {
           "id": "l14-m10",

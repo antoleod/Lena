@@ -562,9 +562,9 @@ export const DICO_WORDS = [
     example:'Il faut un impermeable quand il y a de la pluie.',
     synonyms:['averse','precipitation'], antonym:'soleil', family:['nuage','arc-en-ciel','parapluie'],
     i18n:{
-      nl:{ definition:'Water dat uit de lucht valt in de vorm van druppels.', example:'Je hebt een regenjas nodig bij regen.' },
-      en:{ definition:'Water that falls from the sky in the form of drops.', example:'You need a raincoat when it rains.' },
-      es:{ definition:'Agua que cae del cielo en forma de gotas.', example:'Hay que ponerse el impermeable cuando llueve.' },
+      nl:{ word:'regen', definition:'Water dat uit de lucht valt in de vorm van druppels.', example:'Je hebt een regenjas nodig bij regen.' },
+      en:{ word:'rain', definition:'Water that falls from the sky in the form of drops.', example:'You need a raincoat when it rains.' },
+      es:{ word:'lluvia', definition:'Agua que cae del cielo en forma de gotas.', example:'Hay que ponerse el impermeable cuando llueve.' },
     },
   },
   {
@@ -573,9 +573,9 @@ export const DICO_WORDS = [
     example:'Nous jouons sur la plage au bord de la mer.',
     synonyms:['ocean'], antonym:'montagne', family:['plage','vague','bateau'],
     i18n:{
-      nl:{ definition:'Grote uitgestrekte zoutwater zee waar vissen en dolfijnen leven.', example:'We spelen op het strand aan zee.' },
-      en:{ definition:'A large expanse of salt water where fish and dolphins live.', example:'We play on the beach by the sea.' },
-      es:{ definition:'Gran extension de agua salada donde viven peces y delfines.', example:'Jugamos en la playa junto al mar.' },
+      nl:{ word:'zee', definition:'Grote uitgestrekte zoutwater zee waar vissen en dolfijnen leven.', example:'We spelen op het strand aan zee.' },
+      en:{ word:'sea', definition:'A large expanse of salt water where fish and dolphins live.', example:'We play on the beach by the sea.' },
+      es:{ word:'mar', definition:'Gran extension de agua salada donde viven peces y delfines.', example:'Jugamos en la playa junto al mar.' },
     },
   },
   {
@@ -584,9 +584,9 @@ export const DICO_WORDS = [
     example:'On fait du ski en montagne.',
     synonyms:['sommet','pic'], antonym:'mer', family:['neige','ski','altitude'],
     i18n:{
-      nl:{ definition:'Heel hoog terrein, vaak bedekt met sneeuw op de top.', example:'We gaan skieen in de bergen.' },
-      en:{ definition:'A very high stretch of land, often covered with snow at the top.', example:'We go skiing in the mountains.' },
-      es:{ definition:'Terreno muy elevado, a menudo cubierto de nieve en la cima.', example:'Vamos a esquiar en la montana.' },
+      nl:{ word:'berg', definition:'Heel hoog terrein, vaak bedekt met sneeuw op de top.', example:'We gaan skieen in de bergen.' },
+      en:{ word:'mountain', definition:'A very high stretch of land, often covered with snow at the top.', example:'We go skiing in the mountains.' },
+      es:{ word:'montaña', definition:'Terreno muy elevado, a menudo cubierto de nieve en la cima.', example:'Vamos a esquiar en la montana.' },
     },
   },
   {
@@ -595,9 +595,9 @@ export const DICO_WORDS = [
     example:'On se promene dans la foret.',
     synonyms:['bois'], antonym:null, family:['arbre','animal','champignon'],
     i18n:{
-      nl:{ definition:'Grote ruimte met veel bomen waar dieren leven.', example:'We wandelen in het bos.' },
-      en:{ definition:'A large space with many trees where animals live.', example:'We walk through the forest.' },
-      es:{ definition:'Gran espacio con muchos arboles donde viven animales.', example:'Paseamos por el bosque.' },
+      nl:{ word:'bos', definition:'Grote ruimte met veel bomen waar dieren leven.', example:'We wandelen in het bos.' },
+      en:{ word:'forest', definition:'A large space with many trees where animals live.', example:'We walk through the forest.' },
+      es:{ word:'bosque', definition:'Gran espacio con muchos arboles donde viven animales.', example:'Paseamos por el bosque.' },
     },
   },
   {
@@ -606,9 +606,9 @@ export const DICO_WORDS = [
     example:'Les enfants pechent dans la riviere.',
     synonyms:['ruisseau'], antonym:null, family:['eau','poisson','berge'],
     i18n:{
-      nl:{ definition:'Zoetwaterloop die door een landschap stroomt.', example:'De kinderen vissen in de rivier.' },
-      en:{ definition:'A freshwater stream that flows through a landscape.', example:'The children fish in the river.' },
-      es:{ definition:'Curso de agua dulce que fluye por el paisaje.', example:'Los ninos pescan en el rio.' },
+      nl:{ word:'rivier', definition:'Zoetwaterloop die door een landschap stroomt.', example:'De kinderen vissen in de rivier.' },
+      en:{ word:'river', definition:'A freshwater stream that flows through a landscape.', example:'The children fish in the river.' },
+      es:{ word:'río', definition:'Curso de agua dulce que fluye por el paisaje.', example:'Los ninos pescan en el rio.' },
     },
   },
   {
@@ -617,9 +617,9 @@ export const DICO_WORDS = [
     example:'Les feuilles tombent en automne.',
     synonyms:[], antonym:null, family:['arbre','automne','chlorophylle'],
     i18n:{
-      nl:{ definition:'Plat groen deel van een plant of boom.', example:'De bladeren vallen in de herfst.' },
-      en:{ definition:'The flat green part of a plant or tree.', example:'The leaves fall in autumn.' },
-      es:{ definition:'Parte plana y verde de una planta o arbol.', example:'Las hojas caen en otono.' },
+      nl:{ word:'blad', definition:'Plat groen deel van een plant of boom.', example:'De bladeren vallen in de herfst.' },
+      en:{ word:'leaf', definition:'The flat green part of a plant or tree.', example:'The leaves fall in autumn.' },
+      es:{ word:'hoja', definition:'Parte plana y verde de una planta o arbol.', example:'Las hojas caen en otono.' },
     },
   },
   {
@@ -628,9 +628,9 @@ export const DICO_WORDS = [
     example:'Je plante une graine dans la terre.',
     synonyms:['semence'], antonym:null, family:['plante','terre','fleur'],
     i18n:{
-      nl:{ definition:'Heel klein deel van een plant dat een nieuwe plant kan laten groeien.', example:'Ik plant een zaadje in de aarde.' },
-      en:{ definition:'A very small part of a plant that can give birth to a new plant.', example:'I plant a seed in the soil.' },
-      es:{ definition:'Parte muy pequena de una planta de la que puede nacer una nueva planta.', example:'Planto una semilla en la tierra.' },
+      nl:{ word:'zaad', definition:'Heel klein deel van een plant dat een nieuwe plant kan laten groeien.', example:'Ik plant een zaadje in de aarde.' },
+      en:{ word:'seed', definition:'A very small part of a plant that can give birth to a new plant.', example:'I plant a seed in the soil.' },
+      es:{ word:'semilla', definition:'Parte muy pequena de una planta de la que puede nacer una nueva planta.', example:'Planto una semilla en la tierra.' },
     },
   },
   {
@@ -639,9 +639,9 @@ export const DICO_WORDS = [
     example:'Le ciel est tres bleu aujourd\'hui.',
     synonyms:['firmament'], antonym:'terre', family:['nuage','etoile','soleil'],
     i18n:{
-      nl:{ definition:'De blauwe ruimte boven ons hoofd waar wolken en sterren te vinden zijn.', example:'De lucht is vandaag heel blauw.' },
-      en:{ definition:'The blue space above our heads where clouds and stars are found.', example:'The sky is very blue today.' },
-      es:{ definition:'Espacio azul sobre nuestras cabezas donde se encuentran las nubes y las estrellas.', example:'El cielo esta muy azul hoy.' },
+      nl:{ word:'lucht', definition:'De blauwe ruimte boven ons hoofd waar wolken en sterren te vinden zijn.', example:'De lucht is vandaag heel blauw.' },
+      en:{ word:'sky', definition:'The blue space above our heads where clouds and stars are found.', example:'The sky is very blue today.' },
+      es:{ word:'cielo', definition:'Espacio azul sobre nuestras cabezas donde se encuentran las nubes y las estrellas.', example:'El cielo esta muy azul hoy.' },
     },
   },
   {
@@ -650,9 +650,9 @@ export const DICO_WORDS = [
     example:'On voit des milliers d\'etoiles dans le ciel la nuit.',
     synonyms:[], antonym:null, family:['ciel','nuit','constellation'],
     i18n:{
-      nl:{ definition:'Lichtend hemellichaam dat we \'s nachts zien schijnen.', example:'We zien duizenden sterren aan de nachtelijke hemel.' },
-      en:{ definition:'A luminous star in the sky that we see shining at night.', example:'We see thousands of stars in the night sky.' },
-      es:{ definition:'Astro luminoso en el cielo que vemos brillar de noche.', example:'Vemos miles de estrellas en el cielo nocturno.' },
+      nl:{ word:'ster', definition:'Lichtend hemellichaam dat we \'s nachts zien schijnen.', example:'We zien duizenden sterren aan de nachtelijke hemel.' },
+      en:{ word:'star', definition:'A luminous star in the sky that we see shining at night.', example:'We see thousands of stars in the night sky.' },
+      es:{ word:'estrella', definition:'Astro luminoso en el cielo que vemos brillar de noche.', example:'Vemos miles de estrellas en el cielo nocturno.' },
     },
   },
   {
@@ -661,9 +661,9 @@ export const DICO_WORDS = [
     example:'Le vent fait voler les feuilles.',
     synonyms:['brise','tempete'], antonym:null, family:['nuage','tempete','voilier'],
     i18n:{
-      nl:{ definition:'Beweging van de lucht die zacht of heel sterk kan zijn.', example:'De wind laat de bladeren vliegen.' },
-      en:{ definition:'A movement of air that can be gentle or very strong.', example:'The wind makes the leaves fly.' },
-      es:{ definition:'Movimiento del aire que puede ser suave o muy fuerte.', example:'El viento hace volar las hojas.' },
+      nl:{ word:'wind', definition:'Beweging van de lucht die zacht of heel sterk kan zijn.', example:'De wind laat de bladeren vliegen.' },
+      en:{ word:'wind', definition:'A movement of air that can be gentle or very strong.', example:'The wind makes the leaves fly.' },
+      es:{ word:'viento', definition:'Movimiento del aire que puede ser suave o muy fuerte.', example:'El viento hace volar las hojas.' },
     },
   },
   {
@@ -672,9 +672,9 @@ export const DICO_WORDS = [
     example:'Les enfants jouent dans la neige.',
     synonyms:['flocon'], antonym:null, family:['hiver','ski','bonhomme'],
     i18n:{
-      nl:{ definition:'Bevroren water dat uit de hemel valt als witte vlokjes als het heel koud is.', example:'De kinderen spelen in de sneeuw.' },
-      en:{ definition:'Frozen water that falls from the sky as white flakes when it is very cold.', example:'The children play in the snow.' },
-      es:{ definition:'Agua congelada que cae del cielo en copos blancos cuando hace mucho frio.', example:'Los ninos juegan en la nieve.' },
+      nl:{ word:'sneeuw', definition:'Bevroren water dat uit de hemel valt als witte vlokjes als het heel koud is.', example:'De kinderen spelen in de sneeuw.' },
+      en:{ word:'snow', definition:'Frozen water that falls from the sky as white flakes when it is very cold.', example:'The children play in the snow.' },
+      es:{ word:'nieve', definition:'Agua congelada que cae del cielo en copos blancos cuando hace mucho frio.', example:'Los ninos juegan en la nieve.' },
     },
   },
 
@@ -685,9 +685,9 @@ export const DICO_WORDS = [
     example:'Ma mere me lit une histoire le soir.',
     synonyms:['maman'], antonym:'pere', family:['maman','enfant','famille'],
     i18n:{
-      nl:{ definition:'Vrouw die een kind ter wereld heeft gebracht.', example:'Mijn moeder leest me \'s avonds een verhaal voor.' },
-      en:{ definition:'The woman who gave birth to a child.', example:'My mother reads me a story in the evening.' },
-      es:{ definition:'Mujer que dio a luz a un nino.', example:'Mi madre me lee un cuento por la noche.' },
+      nl:{ word:'moeder', definition:'Vrouw die een kind ter wereld heeft gebracht.', example:'Mijn moeder leest me \'s avonds een verhaal voor.' },
+      en:{ word:'mother', definition:'The woman who gave birth to a child.', example:'My mother reads me a story in the evening.' },
+      es:{ word:'madre', definition:'Mujer que dio a luz a un nino.', example:'Mi madre me lee un cuento por la noche.' },
     },
   },
   {
@@ -696,9 +696,9 @@ export const DICO_WORDS = [
     example:'Mon pere joue au foot avec moi.',
     synonyms:['papa'], antonym:'mere', family:['papa','enfant','famille'],
     i18n:{
-      nl:{ definition:'Man die de ouder van een kind is.', example:'Mijn vader speelt voetbal met mij.' },
-      en:{ definition:'The man who is the parent of a child.', example:'My father plays football with me.' },
-      es:{ definition:'Hombre que es el padre de un nino.', example:'Mi padre juega al futbol conmigo.' },
+      nl:{ word:'vader', definition:'Man die de ouder van een kind is.', example:'Mijn vader speelt voetbal met mij.' },
+      en:{ word:'father', definition:'The man who is the parent of a child.', example:'My father plays football with me.' },
+      es:{ word:'padre', definition:'Hombre que es el padre de un nino.', example:'Mi padre juega al futbol conmigo.' },
     },
   },
   {
@@ -707,9 +707,9 @@ export const DICO_WORDS = [
     example:'Ma soeur aime chanter.',
     synonyms:[], antonym:'frere', family:['frere','famille','parents'],
     i18n:{
-      nl:{ definition:'Het meisje dat dezelfde ouders heeft als een ander kind.', example:'Mijn zus houdt van zingen.' },
-      en:{ definition:'The girl who has the same parents as another child.', example:'My sister loves singing.' },
-      es:{ definition:'Nino que tiene los mismos padres que otro nino.', example:'Mi hermana le encanta cantar.' },
+      nl:{ word:'zus', definition:'Het meisje dat dezelfde ouders heeft als een ander kind.', example:'Mijn zus houdt van zingen.' },
+      en:{ word:'sister', definition:'The girl who has the same parents as another child.', example:'My sister loves singing.' },
+      es:{ word:'hermana', definition:'Nino que tiene los mismos padres que otro nino.', example:'Mi hermana le encanta cantar.' },
     },
   },
   {
@@ -718,9 +718,9 @@ export const DICO_WORDS = [
     example:'Mon frere est plus grand que moi.',
     synonyms:[], antonym:'soeur', family:['soeur','famille','parents'],
     i18n:{
-      nl:{ definition:'De jongen die dezelfde ouders heeft als een ander kind.', example:'Mijn broer is groter dan ik.' },
-      en:{ definition:'The boy who has the same parents as another child.', example:'My brother is taller than me.' },
-      es:{ definition:'Nino que tiene los mismos padres que otro nino.', example:'Mi hermano es mas alto que yo.' },
+      nl:{ word:'broer', definition:'De jongen die dezelfde ouders heeft als een ander kind.', example:'Mijn broer is groter dan ik.' },
+      en:{ word:'brother', definition:'The boy who has the same parents as another child.', example:'My brother is taller than me.' },
+      es:{ word:'hermano', definition:'Nino que tiene los mismos padres que otro nino.', example:'Mi hermano es mas alto que yo.' },
     },
   },
   {
@@ -729,9 +729,9 @@ export const DICO_WORDS = [
     example:'Ma grand-mere fait de bons gateaux.',
     synonyms:['mamie','meme'], antonym:null, family:['grand-pere','famille','ancetres'],
     i18n:{
-      nl:{ definition:'De moeder van de vader of moeder.', example:'Mijn oma maakt heerlijke taarten.' },
-      en:{ definition:'The mother of the father or mother.', example:'My grandmother makes delicious cakes.' },
-      es:{ definition:'La madre del padre o de la madre.', example:'Mi abuela hace pasteles deliciosos.' },
+      nl:{ word:'oma', definition:'De moeder van de vader of moeder.', example:'Mijn oma maakt heerlijke taarten.' },
+      en:{ word:'grandmother', definition:'The mother of the father or mother.', example:'My grandmother makes delicious cakes.' },
+      es:{ word:'abuela', definition:'La madre del padre o de la madre.', example:'Mi abuela hace pasteles deliciosos.' },
     },
   },
   {
@@ -740,9 +740,9 @@ export const DICO_WORDS = [
     example:'Mon grand-pere raconte des histoires.',
     synonyms:['papy','papi'], antonym:null, family:['grand-mere','famille','ancetres'],
     i18n:{
-      nl:{ definition:'De vader van de vader of moeder.', example:'Mijn opa vertelt verhalen.' },
-      en:{ definition:'The father of the father or mother.', example:'My grandfather tells stories.' },
-      es:{ definition:'El padre del padre o de la madre.', example:'Mi abuelo cuenta historias.' },
+      nl:{ word:'opa', definition:'De vader van de vader of moeder.', example:'Mijn opa vertelt verhalen.' },
+      en:{ word:'grandfather', definition:'The father of the father or mother.', example:'My grandfather tells stories.' },
+      es:{ word:'abuelo', definition:'El padre del padre o de la madre.', example:'Mi abuelo cuenta historias.' },
     },
   },
   {
@@ -751,9 +751,9 @@ export const DICO_WORDS = [
     example:'Le bebe dort dans son berceau.',
     synonyms:['nourrisson'], antonym:'adulte', family:['famille','pleurs','couche'],
     i18n:{
-      nl:{ definition:'Heel klein kind dat nog niet kan lopen.', example:'De baby slaapt in zijn wiegje.' },
-      en:{ definition:'A very young child who cannot walk yet.', example:'The baby sleeps in its cot.' },
-      es:{ definition:'Nino muy pequeno que todavia no sabe caminar.', example:'El bebe duerme en su cunita.' },
+      nl:{ word:'baby', definition:'Heel klein kind dat nog niet kan lopen.', example:'De baby slaapt in zijn wiegje.' },
+      en:{ word:'baby', definition:'A very young child who cannot walk yet.', example:'The baby sleeps in its cot.' },
+      es:{ word:'bebé', definition:'Nino muy pequeno que todavia no sabe caminar.', example:'El bebe duerme en su cunita.' },
     },
   },
   {
@@ -762,9 +762,9 @@ export const DICO_WORDS = [
     example:'Mon oncle m\'emmene au cinema.',
     synonyms:[], antonym:'tante', family:['tante','cousin','famille'],
     i18n:{
-      nl:{ definition:'De broer van de vader of moeder.', example:'Mijn oom neemt me mee naar de bioscoop.' },
-      en:{ definition:'The brother of the father or mother.', example:'My uncle takes me to the cinema.' },
-      es:{ definition:'El hermano del padre o de la madre.', example:'Mi tio me lleva al cine.' },
+      nl:{ word:'oom', definition:'De broer van de vader of moeder.', example:'Mijn oom neemt me mee naar de bioscoop.' },
+      en:{ word:'uncle', definition:'The brother of the father or mother.', example:'My uncle takes me to the cinema.' },
+      es:{ word:'tío', definition:'El hermano del padre o de la madre.', example:'Mi tio me lleva al cine.' },
     },
   },
   {
@@ -773,9 +773,9 @@ export const DICO_WORDS = [
     example:'Ma tante fait de bons biscuits.',
     synonyms:[], antonym:'oncle', family:['oncle','cousine','famille'],
     i18n:{
-      nl:{ definition:'De zus van de vader of moeder.', example:'Mijn tante maakt heerlijke koekjes.' },
-      en:{ definition:'The sister of the father or mother.', example:'My aunt makes lovely biscuits.' },
-      es:{ definition:'La hermana del padre o de la madre.', example:'Mi tia hace unas galletas ricas.' },
+      nl:{ word:'tante', definition:'De zus van de vader of moeder.', example:'Mijn tante maakt heerlijke koekjes.' },
+      en:{ word:'aunt', definition:'The sister of the father or mother.', example:'My aunt makes lovely biscuits.' },
+      es:{ word:'tía', definition:'La hermana del padre o de la madre.', example:'Mi tia hace unas galletas ricas.' },
     },
   },
   {
@@ -784,9 +784,9 @@ export const DICO_WORDS = [
     example:'Mon cousin habite dans une autre ville.',
     synonyms:[], antonym:null, family:['cousine','oncle','tante'],
     i18n:{
-      nl:{ definition:'Het kind van een oom of tante.', example:'Mijn neef woont in een andere stad.' },
-      en:{ definition:'The child of an uncle or aunt.', example:'My cousin lives in another city.' },
-      es:{ definition:'El hijo de un tio o una tia.', example:'Mi primo vive en otra ciudad.' },
+      nl:{ word:'neef', definition:'Het kind van een oom of tante.', example:'Mijn neef woont in een andere stad.' },
+      en:{ word:'cousin', definition:'The child of an uncle or aunt.', example:'My cousin lives in another city.' },
+      es:{ word:'primo', definition:'El hijo de un tio o una tia.', example:'Mi primo vive en otra ciudad.' },
     },
   },
   {
@@ -795,9 +795,9 @@ export const DICO_WORDS = [
     example:'Mon ami et moi jouons ensemble apres l\'ecole.',
     synonyms:['copain','camarade'], antonym:'ennemi', family:['amitie','jouer','confiance'],
     i18n:{
-      nl:{ definition:'Persoon van wie je houdt en met wie je graag tijd doorbrengt.', example:'Mijn vriend en ik spelen samen na school.' },
-      en:{ definition:'A person you like and enjoy spending time with.', example:'My friend and I play together after school.' },
-      es:{ definition:'Persona a la que quieres y con la que te gusta pasar tiempo.', example:'Mi amigo y yo jugamos juntos despues de la escuela.' },
+      nl:{ word:'vriend', definition:'Persoon van wie je houdt en met wie je graag tijd doorbrengt.', example:'Mijn vriend en ik spelen samen na school.' },
+      en:{ word:'friend', definition:'A person you like and enjoy spending time with.', example:'My friend and I play together after school.' },
+      es:{ word:'amigo', definition:'Persona a la que quieres y con la que te gusta pasar tiempo.', example:'Mi amigo y yo jugamos juntos despues de la escuela.' },
     },
   },
   {
@@ -806,9 +806,9 @@ export const DICO_WORDS = [
     example:'Nous fêtons Noel en famille.',
     synonyms:[], antonym:null, family:['parents','enfants','maison'],
     i18n:{
-      nl:{ definition:'Alle personen die met elkaar verbonden zijn door familiebanden.', example:'We vieren Kerstmis met de familie.' },
-      en:{ definition:'All the people connected by family ties.', example:'We celebrate Christmas as a family.' },
-      es:{ definition:'El conjunto de personas unidas por lazos familiares.', example:'Celebramos la Navidad en familia.' },
+      nl:{ word:'familie', definition:'Alle personen die met elkaar verbonden zijn door familiebanden.', example:'We vieren Kerstmis met de familie.' },
+      en:{ word:'family', definition:'All the people connected by family ties.', example:'We celebrate Christmas as a family.' },
+      es:{ word:'familia', definition:'El conjunto de personas unidas por lazos familiares.', example:'Celebramos la Navidad en familia.' },
     },
   },
   {
@@ -817,9 +817,9 @@ export const DICO_WORDS = [
     example:'Notre voisin a un grand chien.',
     synonyms:[], antonym:null, family:['maison','quartier','immeuble'],
     i18n:{
-      nl:{ definition:'Persoon die vlakbij woont, in dezelfde straat of hetzelfde gebouw.', example:'Onze buurman heeft een grote hond.' },
-      en:{ definition:'A person who lives close by, in the same street or building.', example:'Our neighbour has a big dog.' },
-      es:{ definition:'Persona que vive muy cerca, en la misma calle o edificio.', example:'Nuestro vecino tiene un perro grande.' },
+      nl:{ word:'buurman', definition:'Persoon die vlakbij woont, in dezelfde straat of hetzelfde gebouw.', example:'Onze buurman heeft een grote hond.' },
+      en:{ word:'neighbour', definition:'A person who lives close by, in the same street or building.', example:'Our neighbour has a big dog.' },
+      es:{ word:'vecino', definition:'Persona que vive muy cerca, en la misma calle o edificio.', example:'Nuestro vecino tiene un perro grande.' },
     },
   },
   {
@@ -828,9 +828,9 @@ export const DICO_WORDS = [
     example:'Les enfants jouent dans le parc.',
     synonyms:['gamin','petit'], antonym:'adulte', family:['famille','ecole','jouer'],
     i18n:{
-      nl:{ definition:'Jong menselijk wezen tussen de geboorte en de tienerjaren.', example:'De kinderen spelen in het park.' },
-      en:{ definition:'A young human being between birth and adolescence.', example:'The children play in the park.' },
-      es:{ definition:'Ser humano joven entre el nacimiento y la adolescencia.', example:'Los ninos juegan en el parque.' },
+      nl:{ word:'kind', definition:'Jong menselijk wezen tussen de geboorte en de tienerjaren.', example:'De kinderen spelen in het park.' },
+      en:{ word:'child', definition:'A young human being between birth and adolescence.', example:'The children play in the park.' },
+      es:{ word:'niño', definition:'Ser humano joven entre el nacimiento y la adolescencia.', example:'Los ninos juegan en el parque.' },
     },
   },
   {
@@ -839,9 +839,9 @@ export const DICO_WORDS = [
     example:'Les jumeaux se ressemblent beaucoup.',
     synonyms:[], antonym:null, family:['frere','soeur','naissance'],
     i18n:{
-      nl:{ definition:'Kind dat tegelijk met een ander kind van dezelfde moeder geboren is.', example:'De tweeling lijkt erg op elkaar.' },
-      en:{ definition:'A child born at the same time as another child from the same mother.', example:'The twins look very alike.' },
-      es:{ definition:'Nino nacido al mismo tiempo que otro nino de la misma madre.', example:'Los gemelos se parecen mucho.' },
+      nl:{ word:'tweeling', definition:'Kind dat tegelijk met een ander kind van dezelfde moeder geboren is.', example:'De tweeling lijkt erg op elkaar.' },
+      en:{ word:'twin', definition:'A child born at the same time as another child from the same mother.', example:'The twins look very alike.' },
+      es:{ word:'gemelo', definition:'Nino nacido al mismo tiempo que otro nino de la misma madre.', example:'Los gemelos se parecen mucho.' },
     },
   },
 
@@ -852,9 +852,9 @@ export const DICO_WORDS = [
     example:'Notre maison a un grand jardin.',
     synonyms:['demeure','logement'], antonym:null, family:['famille','jardin','quartier'],
     i18n:{
-      nl:{ definition:'Gebouw waar een gezin woont en zijn dagelijks leven leidt.', example:'Ons huis heeft een grote tuin.' },
-      en:{ definition:'A building where a family lives and leads daily life.', example:'Our house has a big garden.' },
-      es:{ definition:'Edificio donde vive una familia y lleva su vida cotidiana.', example:'Nuestra casa tiene un jardin grande.' },
+      nl:{ word:'huis', definition:'Gebouw waar een gezin woont en zijn dagelijks leven leidt.', example:'Ons huis heeft een grote tuin.' },
+      en:{ word:'house', definition:'A building where a family lives and leads daily life.', example:'Our house has a big garden.' },
+      es:{ word:'casa', definition:'Edificio donde vive una familia y lleva su vida cotidiana.', example:'Nuestra casa tiene un jardin grande.' },
     },
   },
   {
@@ -863,9 +863,9 @@ export const DICO_WORDS = [
     example:'Ferme la porte, il fait froid.',
     synonyms:[], antonym:null, family:['cle','fenetre','maison'],
     i18n:{
-      nl:{ definition:'Opening in een muur die je opent en sluit om binnen of buiten te komen.', example:'Doe de deur dicht als het koud is.' },
-      en:{ definition:'An opening in a wall that you open and close to enter or exit.', example:'Close the door if it is cold.' },
-      es:{ definition:'Abertura en una pared que se abre y cierra para entrar o salir.', example:'Cierra la puerta si hace frio.' },
+      nl:{ word:'deur', definition:'Opening in een muur die je opent en sluit om binnen of buiten te komen.', example:'Doe de deur dicht als het koud is.' },
+      en:{ word:'door', definition:'An opening in a wall that you open and close to enter or exit.', example:'Close the door if it is cold.' },
+      es:{ word:'puerta', definition:'Abertura en una pared que se abre y cierra para entrar o salir.', example:'Cierra la puerta si hace frio.' },
     },
   },
   {
@@ -874,9 +874,9 @@ export const DICO_WORDS = [
     example:'Je regarde par la fenetre.',
     synonyms:[], antonym:null, family:['vitre','rideau','lumiere'],
     i18n:{
-      nl:{ definition:'Opening in een muur met glas om licht door te laten.', example:'Ik kijk naar buiten door het raam.' },
-      en:{ definition:'An opening in a wall with glass to let light through.', example:'I look outside through the window.' },
-      es:{ definition:'Abertura en una pared con cristal para dejar pasar la luz.', example:'Miro por la ventana.' },
+      nl:{ word:'raam', definition:'Opening in een muur met glas om licht door te laten.', example:'Ik kijk naar buiten door het raam.' },
+      en:{ word:'window', definition:'An opening in a wall with glass to let light through.', example:'I look outside through the window.' },
+      es:{ word:'ventana', definition:'Abertura en una pared con cristal para dejar pasar la luz.', example:'Miro por la ventana.' },
     },
   },
   {
@@ -885,9 +885,9 @@ export const DICO_WORDS = [
     example:'Je range ma chambre chaque matin.',
     synonyms:['piece','dortoir'], antonym:null, family:['lit','nuit','dormir'],
     i18n:{
-      nl:{ definition:'Kamer in het huis waar je slaapt.', example:'Ik ruim elke ochtend mijn kamer op.' },
-      en:{ definition:'The room in the house where you sleep.', example:'I tidy my bedroom every morning.' },
-      es:{ definition:'Habitacion de la casa donde se duerme.', example:'Ordeno mi habitacion cada manana.' },
+      nl:{ word:'slaapkamer', definition:'Kamer in het huis waar je slaapt.', example:'Ik ruim elke ochtend mijn kamer op.' },
+      en:{ word:'bedroom', definition:'The room in the house where you sleep.', example:'I tidy my bedroom every morning.' },
+      es:{ word:'habitación', definition:'Habitacion de la casa donde se duerme.', example:'Ordeno mi habitacion cada manana.' },
     },
   },
   {
@@ -896,9 +896,9 @@ export const DICO_WORDS = [
     example:'Maman prepare le diner dans la cuisine.',
     synonyms:[], antonym:null, family:['four','frigo','repas'],
     i18n:{
-      nl:{ definition:'Kamer in het huis waar maaltijden worden bereid en gekookt.', example:'Mama maakt het avondeten in de keuken.' },
-      en:{ definition:'The room in the house where meals are prepared and cooked.', example:'Mum prepares dinner in the kitchen.' },
-      es:{ definition:'Habitacion de la casa donde se preparan y cocinan las comidas.', example:'Mama prepara la cena en la cocina.' },
+      nl:{ word:'keuken', definition:'Kamer in het huis waar maaltijden worden bereid en gekookt.', example:'Mama maakt het avondeten in de keuken.' },
+      en:{ word:'kitchen', definition:'The room in the house where meals are prepared and cooked.', example:'Mum prepares dinner in the kitchen.' },
+      es:{ word:'cocina', definition:'Habitacion de la casa donde se preparan y cocinan las comidas.', example:'Mama prepara la cena en la cocina.' },
     },
   },
   {
@@ -907,9 +907,9 @@ export const DICO_WORDS = [
     example:'Nous jouons dans le jardin.',
     synonyms:[], antonym:null, family:['fleur','plante','arrosoir'],
     i18n:{
-      nl:{ definition:'Buitenruimte van het huis waar bloemen en groenten groeien.', example:'We spelen in de tuin.' },
-      en:{ definition:'The outdoor space of the house where flowers and vegetables grow.', example:'We play in the garden.' },
-      es:{ definition:'Espacio exterior de la casa donde crecen flores y verduras.', example:'Jugamos en el jardin.' },
+      nl:{ word:'tuin', definition:'Buitenruimte van het huis waar bloemen en groenten groeien.', example:'We spelen in de tuin.' },
+      en:{ word:'garden', definition:'The outdoor space of the house where flowers and vegetables grow.', example:'We play in the garden.' },
+      es:{ word:'jardín', definition:'Espacio exterior de la casa donde crecen flores y verduras.', example:'Jugamos en el jardin.' },
     },
   },
   {
@@ -918,9 +918,9 @@ export const DICO_WORDS = [
     example:'Nous mangeons autour de la table.',
     synonyms:[], antonym:null, family:['chaise','repas','salle'],
     i18n:{
-      nl:{ definition:'Meubel met een vlak oppervlak op poten, om dingen op te leggen.', example:'We eten aan tafel.' },
-      en:{ definition:'A piece of furniture with a flat surface on legs, for placing objects on.', example:'We eat at the table.' },
-      es:{ definition:'Mueble con una superficie plana sobre patas para colocar objetos.', example:'Comemos alrededor de la mesa.' },
+      nl:{ word:'tafel', definition:'Meubel met een vlak oppervlak op poten, om dingen op te leggen.', example:'We eten aan tafel.' },
+      en:{ word:'table', definition:'A piece of furniture with a flat surface on legs, for placing objects on.', example:'We eat at the table.' },
+      es:{ word:'mesa', definition:'Mueble con una superficie plana sobre patas para colocar objetos.', example:'Comemos alrededor de la mesa.' },
     },
   },
   {
@@ -929,9 +929,9 @@ export const DICO_WORDS = [
     example:'Je me couche dans mon lit a 9 heures.',
     synonyms:['couchette'], antonym:null, family:['chambre','oreiller','couverture'],
     i18n:{
-      nl:{ definition:'Meubel waarop je gaat liggen om te slapen.', example:'Ik ga om 9 uur naar bed.' },
-      en:{ definition:'A piece of furniture on which you lie down to sleep.', example:'I go to bed at 9 o\'clock.' },
-      es:{ definition:'Mueble en el que te acuestas para dormir.', example:'Me acuesto en mi cama a las 9.' },
+      nl:{ word:'bed', definition:'Meubel waarop je gaat liggen om te slapen.', example:'Ik ga om 9 uur naar bed.' },
+      en:{ word:'bed', definition:'A piece of furniture on which you lie down to sleep.', example:'I go to bed at 9 o\'clock.' },
+      es:{ word:'cama', definition:'Mueble en el que te acuestas para dormir.', example:'Me acuesto en mi cama a las 9.' },
     },
   },
   {
@@ -940,9 +940,9 @@ export const DICO_WORDS = [
     example:'J\'allume la lampe pour lire.',
     synonyms:['lumiere'], antonym:null, family:['electricite','ampoule','interrupteur'],
     i18n:{
-      nl:{ definition:'Voorwerp dat elektrisch licht produceert.', example:'Ik doe de lamp aan om te lezen.' },
-      en:{ definition:'An object that produces electric light.', example:'I turn on the lamp to read.' },
-      es:{ definition:'Objeto que produce luz electrica.', example:'Enciendo la lampara para leer.' },
+      nl:{ word:'lamp', definition:'Voorwerp dat elektrisch licht produceert.', example:'Ik doe de lamp aan om te lezen.' },
+      en:{ word:'lamp', definition:'An object that produces electric light.', example:'I turn on the lamp to read.' },
+      es:{ word:'lámpara', definition:'Objeto que produce luz electrica.', example:'Enciendo la lampara para leer.' },
     },
   },
   {
@@ -951,9 +951,9 @@ export const DICO_WORDS = [
     example:'Le chat dort sur le tapis.',
     synonyms:['moquette'], antonym:null, family:['sol','chambre','decoration'],
     i18n:{
-      nl:{ definition:'Groot dik weefsel dat op de vloer ligt om het te bedekken en te versieren.', example:'De kat slaapt op het tapijt.' },
-      en:{ definition:'A large thick fabric laid on the floor to cover and decorate it.', example:'The cat sleeps on the rug.' },
-      es:{ definition:'Gran tela gruesa colocada en el suelo para cubrirlo y decorarlo.', example:'El gato duerme en la alfombra.' },
+      nl:{ word:'tapijt', definition:'Groot dik weefsel dat op de vloer ligt om het te bedekken en te versieren.', example:'De kat slaapt op het tapijt.' },
+      en:{ word:'rug', definition:'A large thick fabric laid on the floor to cover and decorate it.', example:'The cat sleeps on the rug.' },
+      es:{ word:'alfombra', definition:'Gran tela gruesa colocada en el suelo para cubrirlo y decorarlo.', example:'El gato duerme en la alfombra.' },
     },
   },
   {
@@ -962,9 +962,9 @@ export const DICO_WORDS = [
     example:'Je monte l\'escalier pour aller dans ma chambre.',
     synonyms:['marches'], antonym:null, family:['etage','marche','monte'],
     i18n:{
-      nl:{ definition:'Reeks treden om van de ene verdieping naar de andere te gaan.', example:'Ik klim de trap op om naar mijn kamer te gaan.' },
-      en:{ definition:'A series of steps to go from one floor to another.', example:'I go up the stairs to my bedroom.' },
-      es:{ definition:'Conjunto de escalones para ir de un piso a otro.', example:'Subo las escaleras para ir a mi habitacion.' },
+      nl:{ word:'trap', definition:'Reeks treden om van de ene verdieping naar de andere te gaan.', example:'Ik klim de trap op om naar mijn kamer te gaan.' },
+      en:{ word:'stairs', definition:'A series of steps to go from one floor to another.', example:'I go up the stairs to my bedroom.' },
+      es:{ word:'escaleras', definition:'Conjunto de escalones para ir de un piso a otro.', example:'Subo las escaleras para ir a mi habitacion.' },
     },
   },
   {
@@ -973,9 +973,9 @@ export const DICO_WORDS = [
     example:'Les oiseaux sont sur le toit.',
     synonyms:[], antonym:null, family:['maison','tuile','cheminee'],
     i18n:{
-      nl:{ definition:'Bovenkant van een huis dat het beschermt tegen regen en wind.', example:'De vogels zitten op het dak.' },
-      en:{ definition:'The top part of a house that protects it from rain and wind.', example:'The birds are on the roof.' },
-      es:{ definition:'Parte superior de una casa que la protege de la lluvia y el viento.', example:'Los pajaros estan en el tejado.' },
+      nl:{ word:'dak', definition:'Bovenkant van een huis dat het beschermt tegen regen en wind.', example:'De vogels zitten op het dak.' },
+      en:{ word:'roof', definition:'The top part of a house that protects it from rain and wind.', example:'The birds are on the roof.' },
+      es:{ word:'tejado', definition:'Parte superior de una casa que la protege de la lluvia y el viento.', example:'Los pajaros estan en el tejado.' },
     },
   },
   {
@@ -984,9 +984,9 @@ export const DICO_WORDS = [
     example:'Je prends ma douche dans la salle de bain.',
     synonyms:[], antonym:null, family:['savon','serviette','douche'],
     i18n:{
-      nl:{ definition:'Kamer in het huis met een bad of douche om jezelf te wassen.', example:'Ik douche in de badkamer.' },
-      en:{ definition:'The room in the house with a bath or shower for washing.', example:'I have a shower in the bathroom.' },
-      es:{ definition:'Habitacion de la casa con banera o ducha para lavarse.', example:'Me ducho en el bano.' },
+      nl:{ word:'badkamer', definition:'Kamer in het huis met een bad of douche om jezelf te wassen.', example:'Ik douche in de badkamer.' },
+      en:{ word:'bathroom', definition:'The room in the house with a bath or shower for washing.', example:'I have a shower in the bathroom.' },
+      es:{ word:'baño', definition:'Habitacion de la casa con banera o ducha para lavarse.', example:'Me ducho en el bano.' },
     },
   },
   {
@@ -995,9 +995,9 @@ export const DICO_WORDS = [
     example:'Nous regardons la television dans le salon.',
     synonyms:['sejour'], antonym:null, family:['canape','television','famille'],
     i18n:{
-      nl:{ definition:'Grote kamer in het huis waar de familie samenkomt om te ontspannen.', example:'We kijken televisie in de woonkamer.' },
-      en:{ definition:'The large room in the house where the family gathers to relax.', example:'We watch television in the living room.' },
-      es:{ definition:'Gran habitacion de la casa donde se reune la familia para descansar.', example:'Vemos la television en el salon.' },
+      nl:{ word:'woonkamer', definition:'Grote kamer in het huis waar de familie samenkomt om te ontspannen.', example:'We kijken televisie in de woonkamer.' },
+      en:{ word:'living room', definition:'The large room in the house where the family gathers to relax.', example:'We watch television in the living room.' },
+      es:{ word:'salón', definition:'Gran habitacion de la casa donde se reune la familia para descansar.', example:'Vemos la television en el salon.' },
     },
   },
   {
@@ -1006,9 +1006,9 @@ export const DICO_WORDS = [
     example:'Maman arrose ses fleurs sur le balcon.',
     synonyms:['terrasse'], antonym:null, family:['fleur','appartement','vue'],
     i18n:{
-      nl:{ definition:'Klein buitenterras aan een appartement.', example:'Mama waters haar bloemen op het balkon.' },
-      en:{ definition:'A small outdoor terrace attached to a flat.', example:'Mum waters her flowers on the balcony.' },
-      es:{ definition:'Pequena terraza exterior unida a un apartamento.', example:'Mama riega sus flores en el balcon.' },
+      nl:{ word:'balkon', definition:'Klein buitenterras aan een appartement.', example:'Mama waters haar bloemen op het balkon.' },
+      en:{ word:'balcony', definition:'A small outdoor terrace attached to a flat.', example:'Mum waters her flowers on the balcony.' },
+      es:{ word:'balcón', definition:'Pequena terraza exterior unida a un apartamento.', example:'Mama riega sus flores en el balcon.' },
     },
   },
 
@@ -1019,9 +1019,9 @@ export const DICO_WORDS = [
     example:'J\'ai mal a la tete.',
     synonyms:['crane','visage'], antonym:null, family:['cerveau','chapeau','coiffure'],
     i18n:{
-      nl:{ definition:'Bovenste deel van het lichaam waar het gezicht en de hersenen zich bevinden.', example:'Ik heb hoofdpijn.' },
-      en:{ definition:'The upper part of the body where the face and brain are.', example:'I have a headache.' },
-      es:{ definition:'Parte superior del cuerpo donde se encuentran la cara y el cerebro.', example:'Me duele la cabeza.' },
+      nl:{ word:'hoofd', definition:'Bovenste deel van het lichaam waar het gezicht en de hersenen zich bevinden.', example:'Ik heb hoofdpijn.' },
+      en:{ word:'head', definition:'The upper part of the body where the face and brain are.', example:'I have a headache.' },
+      es:{ word:'cabeza', definition:'Parte superior del cuerpo donde se encuentran la cara y el cerebro.', example:'Me duele la cabeza.' },
     },
   },
   {
@@ -1030,9 +1030,9 @@ export const DICO_WORDS = [
     example:'Je lave mes mains avant de manger.',
     synonyms:[], antonym:null, family:['doigt','bras','poignee'],
     i18n:{
-      nl:{ definition:'Uiteinde van de arm met vijf vingers om dingen vast te pakken en aan te raken.', example:'Ik was mijn handen voor het eten.' },
-      en:{ definition:'The end of the arm with five fingers for gripping and touching.', example:'I wash my hands before eating.' },
-      es:{ definition:'Extremidad del brazo con cinco dedos para agarrar y tocar.', example:'Me lavo las manos antes de comer.' },
+      nl:{ word:'hand', definition:'Uiteinde van de arm met vijf vingers om dingen vast te pakken en aan te raken.', example:'Ik was mijn handen voor het eten.' },
+      en:{ word:'hand', definition:'The end of the arm with five fingers for gripping and touching.', example:'I wash my hands before eating.' },
+      es:{ word:'mano', definition:'Extremidad del brazo con cinco dedos para agarrar y tocar.', example:'Me lavo las manos antes de comer.' },
     },
   },
   {
@@ -1041,9 +1041,9 @@ export const DICO_WORDS = [
     example:'Je mets mes chaussures sur mes pieds.',
     synonyms:[], antonym:null, family:['jambe','chaussure','orteil'],
     i18n:{
-      nl:{ definition:'Uiteinde van het been waarop je loopt.', example:'Ik doe mijn schoenen aan mijn voeten.' },
-      en:{ definition:'The end of the leg on which you walk.', example:'I put my shoes on my feet.' },
-      es:{ definition:'Extremidad de la pierna sobre la que se camina.', example:'Me pongo los zapatos en los pies.' },
+      nl:{ word:'voet', definition:'Uiteinde van het been waarop je loopt.', example:'Ik doe mijn schoenen aan mijn voeten.' },
+      en:{ word:'foot', definition:'The end of the leg on which you walk.', example:'I put my shoes on my feet.' },
+      es:{ word:'pie', definition:'Extremidad de la pierna sobre la que se camina.', example:'Me pongo los zapatos en los pies.' },
     },
   },
   {
@@ -1052,9 +1052,9 @@ export const DICO_WORDS = [
     example:'On entend le coeur battre.',
     synonyms:[], antonym:null, family:['sang','battement','amour'],
     i18n:{
-      nl:{ definition:'Orgaan in de borstkas dat bloed door het hele lichaam pompt.', example:'Je kunt het hart horen kloppen.' },
-      en:{ definition:'The organ in the chest that pumps blood through the whole body.', example:'You can hear the heart beating.' },
-      es:{ definition:'Organo del pecho que bombea la sangre por todo el cuerpo.', example:'Se puede oir latir el corazon.' },
+      nl:{ word:'hart', definition:'Orgaan in de borstkas dat bloed door het hele lichaam pompt.', example:'Je kunt het hart horen kloppen.' },
+      en:{ word:'heart', definition:'The organ in the chest that pumps blood through the whole body.', example:'You can hear the heart beating.' },
+      es:{ word:'corazón', definition:'Organo del pecho que bombea la sangre por todo el cuerpo.', example:'Se puede oir latir el corazon.' },
     },
   },
   {
@@ -1063,9 +1063,9 @@ export const DICO_WORDS = [
     example:'Mes yeux sont marron.',
     synonyms:[], antonym:null, family:['lunettes','voir','regard'],
     i18n:{
-      nl:{ definition:'Orgaan dat ons in staat stelt te zien. Het meervoud van oog is ogen.', example:'Mijn ogen zijn bruin.' },
-      en:{ definition:'The organ that allows us to see. The plural of eye is eyes.', example:'My eyes are brown.' },
-      es:{ definition:'Organo que permite ver. El plural de ojo es ojos.', example:'Mis ojos son marrones.' },
+      nl:{ word:'oog', definition:'Orgaan dat ons in staat stelt te zien. Het meervoud van oog is ogen.', example:'Mijn ogen zijn bruin.' },
+      en:{ word:'eye', definition:'The organ that allows us to see. The plural of eye is eyes.', example:'My eyes are brown.' },
+      es:{ word:'ojo', definition:'Organo que permite ver. El plural de ojo es ojos.', example:'Mis ojos son marrones.' },
     },
   },
   {
@@ -1074,9 +1074,9 @@ export const DICO_WORDS = [
     example:'Je brosse les dents dans ma bouche.',
     synonyms:[], antonym:null, family:['dent','langue','parole'],
     i18n:{
-      nl:{ definition:'Opening in het gezicht die dient om te eten, drinken en spreken.', example:'Ik poets mijn tanden in mijn mond.' },
-      en:{ definition:'The opening in the face used for eating, drinking and speaking.', example:'I brush my teeth in my mouth.' },
-      es:{ definition:'Apertura en la cara que sirve para comer, beber y hablar.', example:'Me cepillo los dientes en la boca.' },
+      nl:{ word:'mond', definition:'Opening in het gezicht die dient om te eten, drinken en spreken.', example:'Ik poets mijn tanden in mijn mond.' },
+      en:{ word:'mouth', definition:'The opening in the face used for eating, drinking and speaking.', example:'I brush my teeth in my mouth.' },
+      es:{ word:'boca', definition:'Apertura en la cara que sirve para comer, beber y hablar.', example:'Me cepillo los dientes en la boca.' },
     },
   },
   {
@@ -1085,9 +1085,9 @@ export const DICO_WORDS = [
     example:'Les fleurs sentent bon avec mon nez.',
     synonyms:[], antonym:null, family:['odeur','sentir','visage'],
     i18n:{
-      nl:{ definition:'Deel van het gezicht tussen de ogen en de mond, voor ruiken en ademen.', example:'De bloemen ruiken lekker met mijn neus.' },
-      en:{ definition:'The part of the face between the eyes and mouth, for smelling and breathing.', example:'The flowers smell lovely through my nose.' },
-      es:{ definition:'Parte de la cara entre los ojos y la boca para oler y respirar.', example:'Las flores huelen bien con la nariz.' },
+      nl:{ word:'neus', definition:'Deel van het gezicht tussen de ogen en de mond, voor ruiken en ademen.', example:'De bloemen ruiken lekker met mijn neus.' },
+      en:{ word:'nose', definition:'The part of the face between the eyes and mouth, for smelling and breathing.', example:'The flowers smell lovely through my nose.' },
+      es:{ word:'nariz', definition:'Parte de la cara entre los ojos y la boca para oler y respirar.', example:'Las flores huelen bien con la nariz.' },
     },
   },
   {
@@ -1096,9 +1096,9 @@ export const DICO_WORDS = [
     example:'J\'ecoute la musique avec mes oreilles.',
     synonyms:[], antonym:null, family:['entendre','son','musique'],
     i18n:{
-      nl:{ definition:'Gehoororgaan aan de zijkanten van het hoofd om geluiden te horen.', example:'Ik luister naar muziek met mijn oren.' },
-      en:{ definition:'The hearing organ on the sides of the head for hearing sounds.', example:'I listen to music with my ears.' },
-      es:{ definition:'Organo auditivo a los lados de la cabeza para oir sonidos.', example:'Escucho musica con mis orejas.' },
+      nl:{ word:'oor', definition:'Gehoororgaan aan de zijkanten van het hoofd om geluiden te horen.', example:'Ik luister naar muziek met mijn oren.' },
+      en:{ word:'ear', definition:'The hearing organ on the sides of the head for hearing sounds.', example:'I listen to music with my ears.' },
+      es:{ word:'oreja', definition:'Organo auditivo a los lados de la cabeza para oir sonidos.', example:'Escucho musica con mis orejas.' },
     },
   },
   {
@@ -1107,9 +1107,9 @@ export const DICO_WORDS = [
     example:'Je leve le bras pour repondre.',
     synonyms:[], antonym:null, family:['main','coude','epaule'],
     i18n:{
-      nl:{ definition:'Bovenste ledemaat van het lichaam, dat de schouder verbindt met de hand.', example:'Ik steek mijn arm op om te antwoorden.' },
-      en:{ definition:'The upper limb of the body, linking the shoulder to the hand.', example:'I raise my arm to answer.' },
-      es:{ definition:'Miembro superior del cuerpo que une el hombro a la mano.', example:'Levanto el brazo para responder.' },
+      nl:{ word:'arm', definition:'Bovenste ledemaat van het lichaam, dat de schouder verbindt met de hand.', example:'Ik steek mijn arm op om te antwoorden.' },
+      en:{ word:'arm', definition:'The upper limb of the body, linking the shoulder to the hand.', example:'I raise my arm to answer.' },
+      es:{ word:'brazo', definition:'Miembro superior del cuerpo que une el hombro a la mano.', example:'Levanto el brazo para responder.' },
     },
   },
   {
@@ -1118,9 +1118,9 @@ export const DICO_WORDS = [
     example:'Je cours vite avec mes jambes.',
     synonyms:[], antonym:null, family:['pied','genou','muscle'],
     i18n:{
-      nl:{ definition:'Onderste ledemaat van het lichaam waarmee je loopt en rent.', example:'Ik ren snel met mijn benen.' },
-      en:{ definition:'The lower limb of the body that lets you walk and run.', example:'I run fast with my legs.' },
-      es:{ definition:'Miembro inferior del cuerpo con el que se camina y corre.', example:'Corro rapido con mis piernas.' },
+      nl:{ word:'been', definition:'Onderste ledemaat van het lichaam waarmee je loopt en rent.', example:'Ik ren snel met mijn benen.' },
+      en:{ word:'leg', definition:'The lower limb of the body that lets you walk and run.', example:'I run fast with my legs.' },
+      es:{ word:'pierna', definition:'Miembro inferior del cuerpo con el que se camina y corre.', example:'Corro rapido con mis piernas.' },
     },
   },
   {
@@ -1129,9 +1129,9 @@ export const DICO_WORDS = [
     example:'Je brosse mes dents deux fois par jour.',
     synonyms:[], antonym:null, family:['bouche','brosse','dentiste'],
     i18n:{
-      nl:{ definition:'Hard wit deel in de mond dat dient om voedsel te kauwen.', example:'Ik poets mijn tanden twee keer per dag.' },
-      en:{ definition:'The hard white part of the mouth used for chewing food.', example:'I brush my teeth twice a day.' },
-      es:{ definition:'Parte dura y blanca de la boca que sirve para masticar.', example:'Me cepillo los dientes dos veces al dia.' },
+      nl:{ word:'tand', definition:'Hard wit deel in de mond dat dient om voedsel te kauwen.', example:'Ik poets mijn tanden twee keer per dag.' },
+      en:{ word:'tooth', definition:'The hard white part of the mouth used for chewing food.', example:'I brush my teeth twice a day.' },
+      es:{ word:'diente', definition:'Parte dura y blanca de la boca que sirve para masticar.', example:'Me cepillo los dientes dos veces al dia.' },
     },
   },
   {
@@ -1140,9 +1140,9 @@ export const DICO_WORDS = [
     example:'Mes cheveux sont bruns.',
     synonyms:[], antonym:null, family:['peigne','coiffeur','shampoing'],
     i18n:{
-      nl:{ definition:'Dun draad dat op het hoofd groeit.', example:'Mijn haar is bruin.' },
-      en:{ definition:'A fine thread that grows on the head.', example:'My hair is brown.' },
-      es:{ definition:'Filamento fino que crece en la cabeza.', example:'Mi pelo es marron.' },
+      nl:{ word:'haar', definition:'Dun draad dat op het hoofd groeit.', example:'Mijn haar is bruin.' },
+      en:{ word:'hair', definition:'A fine thread that grows on the head.', example:'My hair is brown.' },
+      es:{ word:'pelo', definition:'Filamento fino que crece en la cabeza.', example:'Mi pelo es marron.' },
     },
   },
   {
@@ -1151,9 +1151,9 @@ export const DICO_WORDS = [
     example:'Mon dos me fait mal apres le sport.',
     synonyms:[], antonym:'ventre', family:['colonne','muscle','posture'],
     i18n:{
-      nl:{ definition:'Achterkant van het lichaam, tussen de schouders en de heupen.', example:'Mijn rug doet pijn na het sporten.' },
-      en:{ definition:'The back of the body, between the shoulders and hips.', example:'My back hurts after sport.' },
-      es:{ definition:'Parte trasera del cuerpo entre los hombros y las caderas.', example:'Me duele la espalda despues del deporte.' },
+      nl:{ word:'rug', definition:'Achterkant van het lichaam, tussen de schouders en de heupen.', example:'Mijn rug doet pijn na het sporten.' },
+      en:{ word:'back', definition:'The back of the body, between the shoulders and hips.', example:'My back hurts after sport.' },
+      es:{ word:'espalda', definition:'Parte trasera del cuerpo entre los hombros y las caderas.', example:'Me duele la espalda despues del deporte.' },
     },
   },
   {
@@ -1162,9 +1162,9 @@ export const DICO_WORDS = [
     example:'J\'ai mal au ventre quand je suis nerveux.',
     synonyms:['abdomen'], antonym:'dos', family:['estomac','nourriture','digestion'],
     i18n:{
-      nl:{ definition:'Voorkant van het lichaam waar de maag zich bevindt.', example:'Ik heb buikpijn als ik zenuwachtig ben.' },
-      en:{ definition:'The front of the body where the stomach is.', example:'I get a stomach ache when I am nervous.' },
-      es:{ definition:'Parte delantera del cuerpo donde se encuentra el estomago.', example:'Me duele el estomago cuando estoy nervioso.' },
+      nl:{ word:'buik', definition:'Voorkant van het lichaam waar de maag zich bevindt.', example:'Ik heb buikpijn als ik zenuwachtig ben.' },
+      en:{ word:'belly', definition:'The front of the body where the stomach is.', example:'I get a stomach ache when I am nervous.' },
+      es:{ word:'barriga', definition:'Parte delantera del cuerpo donde se encuentra el estomago.', example:'Me duele el estomago cuando estoy nervioso.' },
     },
   },
   {
@@ -1173,9 +1173,9 @@ export const DICO_WORDS = [
     example:'Je hausse les epaules quand je ne sais pas.',
     synonyms:[], antonym:null, family:['bras','dos','musculature'],
     i18n:{
-      nl:{ definition:'Gewricht tussen de arm en het lichaam.', example:'Ik haal mijn schouders op als ik het niet weet.' },
-      en:{ definition:'The joint between the arm and the body.', example:'I shrug my shoulders when I do not know.' },
-      es:{ definition:'Articulacion entre el brazo y el cuerpo.', example:'Me encojo de hombros cuando no se.' },
+      nl:{ word:'schouder', definition:'Gewricht tussen de arm en het lichaam.', example:'Ik haal mijn schouders op als ik het niet weet.' },
+      en:{ word:'shoulder', definition:'The joint between the arm and the body.', example:'I shrug my shoulders when I do not know.' },
+      es:{ word:'hombro', definition:'Articulacion entre el brazo y el cuerpo.', example:'Me encojo de hombros cuando no se.' },
     },
   },
 
@@ -1186,9 +1186,9 @@ export const DICO_WORDS = [
     example:'Je suis heureux quand je recois un cadeau.',
     synonyms:['content','joyeux'], antonym:'triste', family:['bonheur','joie','sourire'],
     i18n:{
-      nl:{ definition:'Iemand die grote vreugde voelt en tevreden is.', example:'Ik ben blij als ik een cadeau krijg.' },
-      en:{ definition:'Someone who feels great joy and is content.', example:'I am happy when I receive a gift.' },
-      es:{ definition:'Quien siente una gran alegria y esta contento.', example:'Estoy feliz cuando recibo un regalo.' },
+      nl:{ word:'gelukkig', definition:'Iemand die grote vreugde voelt en tevreden is.', example:'Ik ben blij als ik een cadeau krijg.' },
+      en:{ word:'happy', definition:'Someone who feels great joy and is content.', example:'I am happy when I receive a gift.' },
+      es:{ word:'feliz', definition:'Quien siente una gran alegria y esta contento.', example:'Estoy feliz cuando recibo un regalo.' },
     },
   },
   {
@@ -1197,9 +1197,9 @@ export const DICO_WORDS = [
     example:'Je suis triste quand mon ami est parti.',
     synonyms:['malheureux','melancolique'], antonym:'heureux', family:['larme','pleurer','consoler'],
     i18n:{
-      nl:{ definition:'Iemand die verdriet voelt en wil huilen.', example:'Ik ben verdrietig als mijn vriend weg is.' },
-      en:{ definition:'Someone who feels sadness and wants to cry.', example:'I am sad when my friend has gone.' },
-      es:{ definition:'Quien siente tristeza y tiene ganas de llorar.', example:'Estoy triste cuando mi amigo se ha ido.' },
+      nl:{ word:'verdrietig', definition:'Iemand die verdriet voelt en wil huilen.', example:'Ik ben verdrietig als mijn vriend weg is.' },
+      en:{ word:'sad', definition:'Someone who feels sadness and wants to cry.', example:'I am sad when my friend has gone.' },
+      es:{ word:'triste', definition:'Quien siente tristeza y tiene ganas de llorar.', example:'Estoy triste cuando mi amigo se ha ido.' },
     },
   },
   {
@@ -1208,9 +1208,9 @@ export const DICO_WORDS = [
     example:'J\'ai peur du tonnerre.',
     synonyms:['frayeur','terreur'], antonym:'courage', family:['trembler','crier','fuir'],
     i18n:{
-      nl:{ definition:'Onaangenaam gevoel wanneer je denkt dat er gevaar nadert.', example:'Ik ben bang voor donder.' },
-      en:{ definition:'An unpleasant feeling when you think danger is approaching.', example:'I am scared of thunder.' },
-      es:{ definition:'Sentimiento desagradable cuando se cree que se acerca un peligro.', example:'Tengo miedo a los truenos.' },
+      nl:{ word:'angst', definition:'Onaangenaam gevoel wanneer je denkt dat er gevaar nadert.', example:'Ik ben bang voor donder.' },
+      en:{ word:'fear', definition:'An unpleasant feeling when you think danger is approaching.', example:'I am scared of thunder.' },
+      es:{ word:'miedo', definition:'Sentimiento desagradable cuando se cree que se acerca un peligro.', example:'Tengo miedo a los truenos.' },
     },
   },
   {
@@ -1219,9 +1219,9 @@ export const DICO_WORDS = [
     example:'La naissance du bebe a apporte de la joie.',
     synonyms:['bonheur','plaisir'], antonym:'tristesse', family:['rire','sourire','celebration'],
     i18n:{
-      nl:{ definition:'Heel groot geluk, gevoel van levendig plezier.', example:'De geboorte van de baby bracht vreugde.' },
-      en:{ definition:'Great happiness, a feeling of lively pleasure.', example:'The birth of the baby brought joy.' },
-      es:{ definition:'Gran felicidad, sentimiento de vivo placer.', example:'El nacimiento del bebe trajo alegria.' },
+      nl:{ word:'vreugde', definition:'Heel groot geluk, gevoel van levendig plezier.', example:'De geboorte van de baby bracht vreugde.' },
+      en:{ word:'joy', definition:'Great happiness, a feeling of lively pleasure.', example:'The birth of the baby brought joy.' },
+      es:{ word:'alegría', definition:'Gran felicidad, sentimiento de vivo placer.', example:'El nacimiento del bebe trajo alegria.' },
     },
   },
   {
@@ -1230,9 +1230,9 @@ export const DICO_WORDS = [
     example:'Je me mets en colere quand c\'est injuste.',
     synonyms:['rage','fureur'], antonym:'calme', family:['crier','frustration','pardon'],
     i18n:{
-      nl:{ definition:'Sterk gevoel van frustratie of onrechtvaardigheid.', example:'Ik word boos als het oneerlijk is.' },
-      en:{ definition:'A strong feeling of frustration or injustice.', example:'I get angry when something is unfair.' },
-      es:{ definition:'Sentimiento fuerte de frustracion o injusticia.', example:'Me enojo cuando algo es injusto.' },
+      nl:{ word:'woede', definition:'Sterk gevoel van frustratie of onrechtvaardigheid.', example:'Ik word boos als het oneerlijk is.' },
+      en:{ word:'anger', definition:'A strong feeling of frustration or injustice.', example:'I get angry when something is unfair.' },
+      es:{ word:'enfado', definition:'Sentimiento fuerte de frustracion o injusticia.', example:'Me enojo cuando algo es injusto.' },
     },
   },
   {
@@ -1241,9 +1241,9 @@ export const DICO_WORDS = [
     example:'Il est calme quand il lit.',
     synonyms:['tranquille','serein'], antonym:'agite', family:['paix','repos','meditation'],
     i18n:{
-      nl:{ definition:'Iemand die rustig is en niet opgewonden.', example:'Hij is rustig als hij leest.' },
-      en:{ definition:'Someone who is quiet and not agitated.', example:'He is calm when he reads.' },
-      es:{ definition:'Quien esta tranquilo y sin agitacion.', example:'Esta tranquilo cuando lee.' },
+      nl:{ word:'rustig', definition:'Iemand die rustig is en niet opgewonden.', example:'Hij is rustig als hij leest.' },
+      en:{ word:'calm', definition:'Someone who is quiet and not agitated.', example:'He is calm when he reads.' },
+      es:{ word:'tranquilo', definition:'Quien esta tranquilo y sin agitacion.', example:'Esta tranquilo cuando lee.' },
     },
   },
   {
@@ -1252,9 +1252,9 @@ export const DICO_WORDS = [
     example:'Quelle surprise de te voir ici !',
     synonyms:['etonnement'], antonym:null, family:['cadeau','inattendu','reaction'],
     i18n:{
-      nl:{ definition:'Gevoel wanneer iets gebeurt dat je niet had verwacht.', example:'Wat een verrassing om jou hier te zien!' },
-      en:{ definition:'A feeling when something happens that you did not expect.', example:'What a surprise to see you here!' },
-      es:{ definition:'Sentimiento cuando ocurre algo que no esperabas.', example:'Que sorpresa verte aqui!' },
+      nl:{ word:'verrassing', definition:'Gevoel wanneer iets gebeurt dat je niet had verwacht.', example:'Wat een verrassing om jou hier te zien!' },
+      en:{ word:'surprise', definition:'A feeling when something happens that you did not expect.', example:'What a surprise to see you here!' },
+      es:{ word:'sorpresa', definition:'Sentimiento cuando ocurre algo que no esperabas.', example:'Que sorpresa verte aqui!' },
     },
   },
   {
@@ -1263,9 +1263,9 @@ export const DICO_WORDS = [
     example:'Je suis fier d\'avoir reussi mon examen.',
     synonyms:['satisfait'], antonym:'honteux', family:['fierte','reussite','accomplissement'],
     i18n:{
-      nl:{ definition:'Iemand die voldoening voelt voor wat hij heeft bereikt.', example:'Ik ben trots dat ik geslaagd ben voor mijn examen.' },
-      en:{ definition:'Someone who feels satisfaction for what they have achieved.', example:'I am proud to have passed my exam.' },
-      es:{ definition:'Quien siente satisfaccion por lo que ha logrado.', example:'Estoy orgulloso de haber aprobado mi examen.' },
+      nl:{ word:'trots', definition:'Iemand die voldoening voelt voor wat hij heeft bereikt.', example:'Ik ben trots dat ik geslaagd ben voor mijn examen.' },
+      en:{ word:'proud', definition:'Someone who feels satisfaction for what they have achieved.', example:'I am proud to have passed my exam.' },
+      es:{ word:'orgulloso', definition:'Quien siente satisfaccion por lo que ha logrado.', example:'Estoy orgulloso de haber aprobado mi examen.' },
     },
   },
   {
@@ -1274,9 +1274,9 @@ export const DICO_WORDS = [
     example:'Il est jaloux du jouet de son frere.',
     synonyms:['envieux'], antonym:null, family:['jalousie','envie','partager'],
     i18n:{
-      nl:{ definition:'Iemand die wil hebben wat iemand anders heeft.', example:'Hij is jaloers op het speelgoed van zijn broer.' },
-      en:{ definition:'Someone who wants what someone else has.', example:'He is jealous of his brother\'s toy.' },
-      es:{ definition:'Quien desea lo que tiene otra persona.', example:'Esta celoso del juguete de su hermano.' },
+      nl:{ word:'jaloers', definition:'Iemand die wil hebben wat iemand anders heeft.', example:'Hij is jaloers op het speelgoed van zijn broer.' },
+      en:{ word:'jealous', definition:'Someone who wants what someone else has.', example:'He is jealous of his brother\'s toy.' },
+      es:{ word:'celoso', definition:'Quien desea lo que tiene otra persona.', example:'Esta celoso del juguete de su hermano.' },
     },
   },
   {
@@ -1285,9 +1285,9 @@ export const DICO_WORDS = [
     example:'La nouvelle eleve est timide.',
     synonyms:['gene','honteux'], antonym:'courageux', family:['confiance','ami','sociabilite'],
     i18n:{
-      nl:{ definition:'Iemand die verlegen is en moeite heeft met praten tegen anderen.', example:'De nieuwe leerling is verlegen.' },
-      en:{ definition:'Someone who is shy and finds it hard to talk to others.', example:'The new pupil is shy.' },
-      es:{ definition:'Quien es timido y le cuesta hablar con los demas.', example:'El nuevo alumno es timido.' },
+      nl:{ word:'verlegen', definition:'Iemand die verlegen is en moeite heeft met praten tegen anderen.', example:'De nieuwe leerling is verlegen.' },
+      en:{ word:'shy', definition:'Someone who is shy and finds it hard to talk to others.', example:'The new pupil is shy.' },
+      es:{ word:'tímido', definition:'Quien es timido y le cuesta hablar con los demas.', example:'El nuevo alumno es timido.' },
     },
   },
   {
@@ -1296,9 +1296,9 @@ export const DICO_WORDS = [
     example:'Il est courageux pour parler devant la classe.',
     synonyms:['brave'], antonym:'peureux', family:['courage','defi','braver'],
     i18n:{
-      nl:{ definition:'Iemand die niet bang is om moeilijkheden het hoofd te bieden.', example:'Hij is dapper om voor de klas te spreken.' },
-      en:{ definition:'Someone who is not afraid to face difficulties.', example:'He is brave to speak in front of the class.' },
-      es:{ definition:'Quien no tiene miedo de afrontar las dificultades.', example:'Es valiente por hablar delante de la clase.' },
+      nl:{ word:'dapper', definition:'Iemand die niet bang is om moeilijkheden het hoofd te bieden.', example:'Hij is dapper om voor de klas te spreken.' },
+      en:{ word:'brave', definition:'Someone who is not afraid to face difficulties.', example:'He is brave to speak in front of the class.' },
+      es:{ word:'valiente', definition:'Quien no tiene miedo de afrontar las dificultades.', example:'Es valiente por hablar delante de la clase.' },
     },
   },
   {
@@ -1307,9 +1307,9 @@ export const DICO_WORDS = [
     example:'Je suis fatigue apres ma longue journee.',
     synonyms:['epuise'], antonym:'repose', family:['dormir','repos','energie'],
     i18n:{
-      nl:{ definition:'Iemand die uitputting voelt na inspanning of slaapgebrek.', example:'Ik ben moe na mijn lange dag.' },
-      en:{ definition:'Someone who feels exhaustion after effort or lack of sleep.', example:'I am tired after my long day.' },
-      es:{ definition:'Quien siente agotamiento despues de un esfuerzo o falta de sueno.', example:'Estoy cansado despues de mi largo dia.' },
+      nl:{ word:'moe', definition:'Iemand die uitputting voelt na inspanning of slaapgebrek.', example:'Ik ben moe na mijn lange dag.' },
+      en:{ word:'tired', definition:'Someone who feels exhaustion after effort or lack of sleep.', example:'I am tired after my long day.' },
+      es:{ word:'cansado', definition:'Quien siente agotamiento despues de un esfuerzo o falta de sueno.', example:'Estoy cansado despues de mi largo dia.' },
     },
   },
   {
@@ -1318,9 +1318,9 @@ export const DICO_WORDS = [
     example:'L\'amour de ma famille me rend heureux.',
     synonyms:['affection'], antonym:'haine', family:['coeur','famille','ami'],
     i18n:{
-      nl:{ definition:'Heel sterk gevoel van genegenheid voor iemand.', example:'De liefde van mijn familie maakt me gelukkig.' },
-      en:{ definition:'A very strong feeling of affection for someone.', example:'My family\'s love makes me happy.' },
-      es:{ definition:'Sentimiento muy fuerte de carino por alguien.', example:'El amor de mi familia me hace feliz.' },
+      nl:{ word:'liefde', definition:'Heel sterk gevoel van genegenheid voor iemand.', example:'De liefde van mijn familie maakt me gelukkig.' },
+      en:{ word:'love', definition:'A very strong feeling of affection for someone.', example:'My family\'s love makes me happy.' },
+      es:{ word:'amor', definition:'Sentimiento muy fuerte de carino por alguien.', example:'El amor de mi familia me hace feliz.' },
     },
   },
   {
@@ -1329,9 +1329,9 @@ export const DICO_WORDS = [
     example:'Maman est inquiete quand je rentre tard.',
     synonyms:['anxieux','soucieux'], antonym:'serein', family:['inquietude','souci','rassurer'],
     i18n:{
-      nl:{ definition:'Iemand die zich zorgen maakt, bang dat er iets slechts zal gebeuren.', example:'Mama maakt zich zorgen als ik laat thuiskom.' },
-      en:{ definition:'Someone who worries, afraid that something bad will happen.', example:'Mum worries when I come home late.' },
-      es:{ definition:'Quien se preocupa, tiene miedo de que pase algo malo.', example:'Mama se preocupa cuando llego tarde a casa.' },
+      nl:{ word:'ongerust', definition:'Iemand die zich zorgen maakt, bang dat er iets slechts zal gebeuren.', example:'Mama maakt zich zorgen als ik laat thuiskom.' },
+      en:{ word:'worried', definition:'Someone who worries, afraid that something bad will happen.', example:'Mum worries when I come home late.' },
+      es:{ word:'preocupado', definition:'Quien se preocupa, tiene miedo de que pase algo malo.', example:'Mama se preocupa cuando llego tarde a casa.' },
     },
   },
   {
@@ -1340,9 +1340,9 @@ export const DICO_WORDS = [
     example:'Il est genereux, il partage toujours ses bonbons.',
     synonyms:['charitable','altruiste'], antonym:'egoiste', family:['don','partage','gentillesse'],
     i18n:{
-      nl:{ definition:'Iemand die graag aan anderen geeft zonder er iets voor terug te verwachten.', example:'Hij is vrijgevig, hij deelt altijd zijn snoepjes.' },
-      en:{ definition:'Someone who likes to give to others without expecting anything in return.', example:'He is generous, he always shares his sweets.' },
-      es:{ definition:'Quien le gusta dar a los demas sin esperar nada a cambio.', example:'Es generoso, siempre comparte sus caramelos.' },
+      nl:{ word:'vrijgevig', definition:'Iemand die graag aan anderen geeft zonder er iets voor terug te verwachten.', example:'Hij is vrijgevig, hij deelt altijd zijn snoepjes.' },
+      en:{ word:'generous', definition:'Someone who likes to give to others without expecting anything in return.', example:'He is generous, he always shares his sweets.' },
+      es:{ word:'generoso', definition:'Quien le gusta dar a los demas sin esperar nada a cambio.', example:'Es generoso, siempre comparte sus caramelos.' },
     },
   },
 ];

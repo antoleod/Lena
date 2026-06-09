@@ -71,21 +71,21 @@
         {
           "id": "l13-f04",
           "type": "mcq",
-          "prompt": "Range du plus grand au plus petit : 3, 7, 1, 5",
-          "prompt_nl": "Sorteer van groot naar klein: 3, 7, 1, 5",
-          "prompt_en": "Order largest to smallest: 3, 7, 1, 5",
-          "prompt_es": "Ordena de mayor a menor: 3, 7, 1, 5",
+          "prompt": "Quel groupe d'animaux a 4 pattes : chien, poisson, oiseau, serpent ?",
+          "prompt_nl": "Welke groep dieren heeft 4 poten: hond, vis, vogel, slang?",
+          "prompt_en": "Which animal has 4 legs: dog, fish, bird, snake?",
+          "prompt_es": "¿Qué animal tiene 4 patas: perro, pez, pájaro, serpiente?",
           "options": [
-            "7,5,3,1",
-            "5,7,3,1",
-            "3,7,5,1",
-            "7,3,5,1"
+            "oiseau",
+            "poisson",
+            "chien",
+            "serpent"
           ],
-          "answer": "7,5,3,1",
-          "correction": "7 > 5 > 3 > 1.",
-          "correction_nl": "7 > 5 > 3 > 1.",
-          "correction_en": "7 > 5 > 3 > 1.",
-          "correction_es": "7 > 5 > 3 > 1."
+          "answer": "chien",
+          "correction": "Seul le chien a 4 pattes.",
+          "correction_nl": "Alleen de hond heeft 4 poten.",
+          "correction_en": "Only the dog has 4 legs.",
+          "correction_es": "Solo el perro tiene 4 patas."
         },
         {
           "id": "l13-f05",
@@ -147,21 +147,21 @@
         {
           "id": "l13-f08",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus petit : 100, 99, 101, 98 ?",
-          "prompt_nl": "Welk getal is het kleinst: 100, 99, 101, 98?",
-          "prompt_en": "Smallest: 100, 99, 101, 98?",
-          "prompt_es": "¿Cuál es el menor: 100, 99, 101, 98?",
+          "prompt": "Quelle liste est déjà triée dans le bon ordre croissant ?",
+          "prompt_nl": "Welke lijst staat al in oplopende volgorde?",
+          "prompt_en": "Which list is already sorted in ascending order?",
+          "prompt_es": "¿Qué lista ya está ordenada de forma ascendente?",
           "options": [
-            "100",
-            "99",
-            "101",
-            "98"
+            "[3, 1, 4, 2]",
+            "[2, 4, 6, 8]",
+            "[9, 7, 5, 3]",
+            "[1, 5, 3, 7]"
           ],
-          "answer": "98",
-          "correction": "98 < 99 < 100 < 101.",
-          "correction_nl": "98 < 99.",
-          "correction_en": "98 < 99.",
-          "correction_es": "98 < 99."
+          "answer": "[2, 4, 6, 8]",
+          "correction": "2 < 4 < 6 < 8 est bien croissant.",
+          "correction_nl": "2 < 4 < 6 < 8 is oplopend.",
+          "correction_en": "2 < 4 < 6 < 8 is ascending.",
+          "correction_es": "2 < 4 < 6 < 8 es ascendente."
         },
         {
           "id": "l13-f09",
@@ -404,124 +404,143 @@
         {
           "id": "l13-d01",
           "type": "mcq",
-          "prompt": "Quel algorithme de tri a une complexité O(n log n) dans le meilleur des cas ?",
-          "prompt_nl": "Welk sorteeralgoritme heeft O(n log n) in het beste geval?",
-          "prompt_en": "Which sort has O(n log n) best case?",
-          "prompt_es": "¿Qué algoritmo de ordenamiento tiene O(n log n) en el mejor caso?",
+          "prompt": "Principe des tiroirs (Pigeonhole) : combien de personnes minimum pour garantir que 2 sont nées le même mois (12 mois) ?",
+          "prompt_nl": "Duiventilprincipe: hoeveel personen minimum om zeker te zijn dat 2 in dezelfde maand zijn geboren (12 maanden)?",
+          "prompt_en": "Pigeonhole principle: minimum people to guarantee 2 share a birth month (12 months)?",
+          "prompt_es": "Principio del palomar: ¿mínimo de personas para garantizar que 2 nacen en el mismo mes (12 meses)?",
           "options": [
-            "Tri à bulles",
-            "Tri par insertion",
-            "Tri fusion",
-            "Tri sélection"
+            "12",
+            "13",
+            "24",
+            "25"
           ],
-          "answer": "Tri fusion",
-          "correction": "Merge sort : O(n log n) toujours.",
-          "correction_nl": "Mergesort: O(n log n) altijd.",
-          "correction_en": "Merge sort: O(n log n) always.",
-          "correction_es": "Merge sort: O(n log n) siempre."
+          "answer": "13",
+          "correction": "12 mois + 1 personne = au moins 2 dans le même mois.",
+          "correction_nl": "12 maanden + 1 persoon = minstens 2 in dezelfde maand.",
+          "correction_en": "12 months + 1 person = at least 2 in the same month.",
+          "correction_es": "12 meses + 1 persona = al menos 2 en el mismo mes."
         },
         {
           "id": "l13-d02",
           "type": "mcq",
-          "prompt": "Un dictionnaire de 1 million de mots. Recherche binaire : max comparaisons ?",
-          "prompt_nl": "Woordenboek van 1 miljoen woorden. Binaire zoekopdracht: max vergelijkingen?",
-          "prompt_en": "Dictionary of 1 million words. Binary search: max comparisons?",
-          "prompt_es": "Diccionario de 1 millón de palabras. Búsqueda binaria: ¿max comparaciones?",
+          "prompt": "Combien de façons peut-on ordonner 5 livres différents sur une étagère ?",
+          "prompt_nl": "Op hoeveel manieren kan je 5 verschillende boeken op een plank rangschikken?",
+          "prompt_en": "How many ways can 5 different books be ordered on a shelf?",
+          "prompt_es": "¿De cuántas formas se pueden ordenar 5 libros diferentes en una estantería?",
           "options": [
-            "10",
-            "20",
-            "30",
-            "40"
+            "25",
+            "60",
+            "120",
+            "240"
           ],
-          "answer": "20",
-          "correction": "log₂(1 000 000) ≈ 20.",
-          "correction_nl": "log₂(1 000 000) ≈ 20.",
-          "correction_en": "log₂(1 000 000) ≈ 20.",
-          "correction_es": "log₂(1 000 000) ≈ 20."
+          "answer": "120",
+          "correction": "5! = 5×4×3×2×1 = 120.",
+          "correction_nl": "5! = 120.",
+          "correction_en": "5! = 120.",
+          "correction_es": "5! = 120."
         },
         {
           "id": "l13-d03",
           "type": "mcq",
-          "prompt": "Tri topologique : si A→B, A→C, B→D, C→D. Quel est un ordre valide ?",
-          "prompt_nl": "Topologisch sorteren: A→B, A→C, B→D, C→D. Geldige volgorde?",
-          "prompt_en": "Topological sort: A→B, A→C, B→D, C→D. Valid order?",
-          "prompt_es": "Orden topológico: A→B, A→C, B→D, C→D. ¿Orden válido?",
+          "prompt": "Borne inférieure théorique pour trier n éléments par comparaisons (quel que soit l'algorithme) ?",
+          "prompt_nl": "Theoretische ondergrens voor het sorteren van n elementen via vergelijkingen?",
+          "prompt_en": "Theoretical lower bound for sorting n elements by comparisons?",
+          "prompt_es": "Cota inferior teórica para ordenar n elementos por comparaciones?",
           "options": [
-            "A,B,C,D",
-            "B,A,C,D",
-            "D,B,C,A",
-            "B,D,A,C"
+            "O(n)",
+            "O(n log n)",
+            "O(n²)",
+            "O(log n)"
           ],
-          "answer": "A,B,C,D",
-          "correction": "A précède B et C, B et C précèdent D.",
-          "correction_nl": "A voor B en C, B en C voor D.",
-          "correction_en": "A before B and C, B and C before D.",
-          "correction_es": "A antes que B y C, B y C antes que D."
+          "answer": "O(n log n)",
+          "correction": "Aucun algorithme de tri par comparaison ne peut faire mieux que Ω(n log n).",
+          "correction_nl": "Geen enkel vergelijkingssorteermethode kan beter dan Ω(n log n).",
+          "correction_en": "No comparison sort can beat Ω(n log n).",
+          "correction_es": "Ningún algoritmo de comparación puede superar Ω(n log n)."
         },
         {
           "id": "l13-d04",
           "type": "mcq",
-          "prompt": "Heap sort : structure utilisée ?",
-          "prompt_nl": "Heap sort: gebruikte structuur?",
-          "prompt_en": "Heap sort: data structure used?",
-          "prompt_es": "Heap sort: ¿estructura usada?",
+          "prompt": "Tournoi à élimination directe avec 64 équipes. Combien de matchs au total ?",
+          "prompt_nl": "Knock-outtoernooi met 64 teams. Hoeveel wedstrijden in totaal?",
+          "prompt_en": "Single-elimination tournament with 64 teams. Total matches?",
+          "prompt_es": "Torneo de eliminación directa con 64 equipos. ¿Total de partidos?",
           "options": [
-            "Pile",
-            "File",
-            "Tas (heap)",
-            "Arbre binaire de recherche"
+            "32",
+            "63",
+            "64",
+            "128"
           ],
-          "answer": "Tas (heap)",
-          "correction": "Le heap sort utilise un tas binaire.",
-          "correction_nl": "Heap sort gebruikt een binaire heap.",
-          "correction_en": "Heap sort uses a binary heap.",
-          "correction_es": "Heap sort usa un montículo binario."
+          "answer": "63",
+          "correction": "Chaque match élimine 1 équipe → 63 matchs pour 63 éliminés.",
+          "correction_nl": "Elke wedstrijd elimineert 1 team → 63 wedstrijden.",
+          "correction_en": "Each match eliminates 1 team → 63 matches.",
+          "correction_es": "Cada partido elimina 1 equipo → 63 partidos."
         },
         {
           "id": "l13-d05",
           "type": "mcq",
-          "prompt": "Nombre d'inversions dans [3,1,2] ?",
-          "prompt_nl": "Aantal inversies in [3,1,2]?",
-          "prompt_en": "Number of inversions in [3,1,2]?",
-          "prompt_es": "Número de inversiones en [3,1,2]?",
+          "prompt": "Nombre d'inversions dans la permutation [3, 4, 1, 2] ?",
+          "prompt_nl": "Aantal inversies in de permutatie [3, 4, 1, 2]?",
+          "prompt_en": "Number of inversions in permutation [3, 4, 1, 2]?",
+          "prompt_es": "Número de inversiones en la permutación [3, 4, 1, 2]?",
           "options": [
-            "1",
             "2",
             "3",
-            "4"
+            "4",
+            "5"
           ],
-          "answer": "2",
-          "correction": "(3,1) et (3,2) sont inversés : 2.",
-          "correction_nl": "(3,1) en (3,2) zijn geïnverteerd: 2.",
-          "correction_en": "(3,1) and (3,2) are inverted: 2.",
-          "correction_es": "(3,1) y (3,2) están invertidos: 2."
+          "answer": "4",
+          "correction": "Paires inversées : (3,1),(3,2),(4,1),(4,2) = 4.",
+          "correction_nl": "Geïnverteerde paren: (3,1),(3,2),(4,1),(4,2) = 4.",
+          "correction_en": "Inverted pairs: (3,1),(3,2),(4,1),(4,2) = 4.",
+          "correction_es": "Pares invertidos: (3,1),(3,2),(4,1),(4,2) = 4."
         },
         {
           "id": "l13-d06",
           "type": "mcq",
-          "prompt": "Quel algorithme de tri est stable ET in-place ?",
-          "prompt_nl": "Welk sorteeralgoritme is stabiel EN in-place?",
-          "prompt_en": "Which sort is stable AND in-place?",
-          "prompt_es": "¿Qué algoritmo es estable Y in-place?",
+          "prompt": "Pour trouver simultanément le maximum ET le minimum de 8 éléments, combien de comparaisons minimum ?",
+          "prompt_nl": "Om tegelijk het maximum en minimum van 8 elementen te vinden, hoeveel vergelijkingen minimum?",
+          "prompt_en": "To find both maximum AND minimum of 8 elements simultaneously, minimum comparisons?",
+          "prompt_es": "Para encontrar el máximo Y mínimo de 8 elementos simultáneamente, ¿comparaciones mínimas?",
           "options": [
-            "Quicksort",
-            "Tri à bulles",
-            "Merge sort",
-            "Tri par tas"
+            "7",
+            "9",
+            "11",
+            "14"
           ],
-          "answer": "Tri à bulles",
-          "correction": "Tri à bulles : stable et in-place.",
-          "correction_nl": "Bubblesort: stabiel en in-place.",
-          "correction_en": "Bubble sort: stable and in-place.",
-          "correction_es": "Burbuja: estable e in situ."
+          "answer": "11",
+          "correction": "Algorithme par paires : 3⌊n/2⌋ = 3×4 = 11 pour n=8 (vs 14 naïvement).",
+          "correction_nl": "Paarsgewijs algoritme: 3⌊n/2⌋ = 11 voor n=8.",
+          "correction_en": "Pair-wise algorithm: 3⌊n/2⌋ = 11 for n=8.",
+          "correction_es": "Algoritmo por pares: 3⌊n/2⌋ = 11 para n=8."
         },
         {
           "id": "l13-d07",
           "type": "mcq",
-          "prompt": "Trier [5,3,8,1,9,2] avec tri rapide — combien d'échanges minimum ?",
-          "prompt_nl": "[5,3,8,1,9,2] sorteren met quicksort — minimale wisselingen?",
-          "prompt_en": "Sort [5,3,8,1,9,2] with quicksort — minimum swaps?",
-          "prompt_es": "Ordenar [5,3,8,1,9,2] con quicksort — ¿mínimo de intercambios?",
+          "prompt": "Un tri est dit 'stable' si, pour deux éléments égaux, il garantit que :",
+          "prompt_nl": "Een sortering is 'stabiel' als, voor twee gelijke elementen, hij garandeert dat:",
+          "prompt_en": "A sort is 'stable' if, for two equal elements, it guarantees that:",
+          "prompt_es": "Un ordenamiento es 'estable' si, para dos elementos iguales, garantiza que:",
+          "options": [
+            "le plus grand vient toujours en premier",
+            "leur ordre relatif original est préservé",
+            "ils sont placés au centre",
+            "ils sont échangés exactement une fois"
+          ],
+          "answer": "leur ordre relatif original est préservé",
+          "correction": "La stabilité préserve l'ordre original des éléments de même clé.",
+          "correction_nl": "Stabiliteit behoudt de oorspronkelijke volgorde van gelijke sleutels.",
+          "correction_en": "Stability preserves the original relative order of equal-key elements.",
+          "correction_es": "La estabilidad preserva el orden relativo original de elementos con la misma clave."
+        },
+        {
+          "id": "l13-d08",
+          "type": "mcq",
+          "prompt": "On insère 6 dans la liste triée [1, 3, 5, 7, 9]. Quelle est sa position (rang, départ à 1) ?",
+          "prompt_nl": "Je voegt 6 in in de gesorteerde lijst [1, 3, 5, 7, 9]. Wat is zijn positie (rang, startend bij 1)?",
+          "prompt_en": "Insert 6 into sorted list [1, 3, 5, 7, 9]. What is its position (rank, starting at 1)?",
+          "prompt_es": "Insertar 6 en la lista ordenada [1, 3, 5, 7, 9]. ¿Cuál es su posición (rango, desde 1)?",
           "options": [
             "3",
             "4",
@@ -529,67 +548,48 @@
             "6"
           ],
           "answer": "4",
-          "correction": "Avec pivot optimal: 4 échanges.",
-          "correction_nl": "Met optimale spil: 4.",
-          "correction_en": "With optimal pivot: 4.",
-          "correction_es": "Con pivote óptimo: 4."
-        },
-        {
-          "id": "l13-d08",
-          "type": "mcq",
-          "prompt": "Counting sort est efficace quand ?",
-          "prompt_nl": "Counting sort is efficiënt wanneer?",
-          "prompt_en": "Counting sort is efficient when?",
-          "prompt_es": "Counting sort es eficiente cuando?",
-          "options": [
-            "n est grand",
-            "les valeurs sont dans une plage limitée",
-            "la liste est déjà triée",
-            "la liste est inversée"
-          ],
-          "answer": "les valeurs sont dans une plage limitée",
-          "correction": "O(n+k) où k est la plage des valeurs.",
-          "correction_nl": "O(n+k) waarbij k de waardenbereik is.",
-          "correction_en": "O(n+k) where k is the value range.",
-          "correction_es": "O(n+k) donde k es el rango de valores."
+          "correction": "Liste finale : [1,3,5,6,7,9] → 6 est en position 4.",
+          "correction_nl": "Finale lijst: [1,3,5,6,7,9] → 6 is op positie 4.",
+          "correction_en": "Final list: [1,3,5,6,7,9] → 6 is at position 4.",
+          "correction_es": "Lista final: [1,3,5,6,7,9] → 6 está en posición 4."
         },
         {
           "id": "l13-d09",
           "type": "mcq",
-          "prompt": "Radix sort trie par ?",
-          "prompt_nl": "Radix sort sorteert op?",
-          "prompt_en": "Radix sort sorts by?",
-          "prompt_es": "Radix sort ordena por?",
+          "prompt": "Parmi les 24 permutations de {1,2,3,4} en ordre lexicographique, quel est le rang de (2,1,3,4) ?",
+          "prompt_nl": "Van de 24 permutaties van {1,2,3,4} in lexicografische volgorde, wat is de rang van (2,1,3,4)?",
+          "prompt_en": "Among the 24 permutations of {1,2,3,4} in lexicographic order, what is the rank of (2,1,3,4)?",
+          "prompt_es": "Entre las 24 permutaciones de {1,2,3,4} en orden lexicográfico, ¿cuál es el rango de (2,1,3,4)?",
           "options": [
-            "Comparaisons directes",
-            "Chiffres/caractères individuels",
-            "Structure arborescente",
-            "Valeur totale"
+            "5",
+            "6",
+            "7",
+            "8"
           ],
-          "answer": "Chiffres/caractères individuels",
-          "correction": "Radix sort traite chiffre par chiffre.",
-          "correction_nl": "Radix sort verwerkt cijfer per cijfer.",
-          "correction_en": "Radix sort processes digit by digit.",
-          "correction_es": "Radix sort procesa dígito por dígito."
+          "answer": "7",
+          "correction": "Les 6 permutations commençant par 1 précèdent. (2,1,3,4) est la 1ère commençant par 2 → rang 7.",
+          "correction_nl": "De 6 permutaties die beginnen met 1 komen eerst. (2,1,3,4) is de 1e die begint met 2 → rang 7.",
+          "correction_en": "6 permutations starting with 1 come first. (2,1,3,4) is the 1st starting with 2 → rank 7.",
+          "correction_es": "6 permutaciones que empiezan con 1 van primero. (2,1,3,4) es la 1ª que empieza con 2 → rango 7."
         },
         {
           "id": "l13-d10",
           "type": "mcq",
-          "prompt": "Quel est l'ordre de complexité de la recherche dans une table de hachage (cas moyen) ?",
-          "prompt_nl": "Gemiddelde complexiteit van zoeken in een hashtabel?",
-          "prompt_en": "Average complexity of hash table search?",
-          "prompt_es": "Complejidad media de búsqueda en tabla hash?",
+          "prompt": "Lequel de ces ensembles a la même cardinalité (taille) que ℕ (entiers naturels) ?",
+          "prompt_nl": "Welke van deze verzamelingen heeft dezelfde kardinaliteit als ℕ (natuurlijke getallen)?",
+          "prompt_en": "Which of these sets has the same cardinality as ℕ (natural numbers)?",
+          "prompt_es": "¿Cuál de estos conjuntos tiene la misma cardinalidad que ℕ (naturales)?",
           "options": [
-            "O(1)",
-            "O(log n)",
-            "O(n)",
-            "O(n²)"
+            "ℝ (réels)",
+            "ℤ (entiers relatifs)",
+            "𝒫(ℕ) (parties de ℕ)",
+            "Intervalle ]0,1["
           ],
-          "answer": "O(1)",
-          "correction": "Hachage parfait : O(1) amorti.",
-          "correction_nl": "Perfecte hashing: O(1) afgeschreven.",
-          "correction_en": "Perfect hashing: O(1) amortized.",
-          "correction_es": "Hash perfecto: O(1) amortizado."
+          "answer": "ℤ (entiers relatifs)",
+          "correction": "ℤ est dénombrable comme ℕ (bijection : 0,1,-1,2,-2,…). ℝ et 𝒫(ℕ) sont strictement plus grands.",
+          "correction_nl": "ℤ is aftelbaar net als ℕ (bijectie: 0,1,-1,2,-2,…). ℝ en 𝒫(ℕ) zijn groter.",
+          "correction_en": "ℤ is countable like ℕ (bijection: 0,1,-1,2,-2,…). ℝ and 𝒫(ℕ) are strictly larger.",
+          "correction_es": "ℤ es numerable como ℕ (biyección: 0,1,-1,2,-2,…). ℝ y 𝒫(ℕ) son estrictamente mayores."
         }
       ]
     }

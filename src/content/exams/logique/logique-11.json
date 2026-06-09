@@ -480,21 +480,21 @@
         {
           "id": "l11-d05",
           "type": "mcq",
-          "prompt": "Dans un cube, combien de faces, arêtes et sommets ? (formule d'Euler : F+V-E=2)",
-          "prompt_nl": "In een kubus: vlakken, ribben, hoekpunten. (Euler: F+V-E=2)",
-          "prompt_en": "Cube: faces, edges, vertices. (Euler: F+V-E=2)",
-          "prompt_es": "Cubo: caras, aristas, vértices. (Euler: F+V-E=2)",
+          "prompt": "Un motif en spirale fait tourner une forme de 30° à chaque étape. Combien d'étapes pour revenir exactement à la position initiale ?",
+          "prompt_nl": "Een spiraalpatroon draait een vorm 30° per stap. Hoeveel stappen om terug op de beginpositie te komen?",
+          "prompt_en": "A spiral pattern rotates a shape 30° per step. How many steps to return exactly to the starting position?",
+          "prompt_es": "Un patrón en espiral gira una forma 30° por paso. ¿Cuántos pasos para volver exactamente a la posición inicial?",
           "options": [
-            "F=6,V=8,E=12",
-            "F=4,V=6,E=8",
-            "F=8,V=6,E=12",
-            "F=6,V=12,E=8"
+            "6",
+            "9",
+            "12",
+            "18"
           ],
-          "answer": "F=6,V=8,E=12",
-          "correction": "6+8-12=2. ✓",
-          "correction_nl": "6+8-12=2. ✓",
-          "correction_en": "6+8-12=2. ✓",
-          "correction_es": "6+8-12=2. ✓"
+          "answer": "12",
+          "correction": "360° ÷ 30° = 12 étapes pour compléter une rotation complète.",
+          "correction_nl": "360° ÷ 30° = 12 stappen.",
+          "correction_en": "360° ÷ 30° = 12 steps.",
+          "correction_es": "360° ÷ 30° = 12 pasos."
         },
         {
           "id": "l11-d06",
@@ -537,21 +537,21 @@
         {
           "id": "l11-d08",
           "type": "mcq",
-          "prompt": "Quel est le seul solide de Platon dont toutes les faces sont des triangles équilatéraux ET qui a 20 faces ?",
-          "prompt_nl": "Enige Platonisch lichaam met 20 gelijkzijdige driehoeken als vlakken?",
-          "prompt_en": "Only Platonic solid with 20 equilateral triangle faces?",
-          "prompt_es": "¿Único sólido platónico con 20 caras de triángulos equiláteros?",
+          "prompt": "Un pavage de Penrose utilise deux types de tuiles et ne se répète jamais périodiquement. Cette propriété s'appelle ?",
+          "prompt_nl": "Een Penrose-betegeling gebruikt twee soorten tegels en herhaalt zich nooit periodiek. Hoe noem je deze eigenschap?",
+          "prompt_en": "A Penrose tiling uses two tile types and never repeats periodically. This property is called?",
+          "prompt_es": "Un teselado de Penrose usa dos tipos de baldosas y nunca se repite periódicamente. Esta propiedad se llama?",
           "options": [
-            "Tétraèdre",
-            "Octaèdre",
-            "Dodécaèdre",
-            "Icosaèdre"
+            "Périodique",
+            "Apériodique",
+            "Symétrique",
+            "Fractale"
           ],
-          "answer": "Icosaèdre",
-          "correction": "L'icosaèdre a 20 faces triangulaires.",
-          "correction_nl": "Icosaëder heeft 20 driehoekige vlakken.",
-          "correction_en": "Icosahedron has 20 triangular faces.",
-          "correction_es": "El icosaedro tiene 20 caras triangulares."
+          "answer": "Apériodique",
+          "correction": "Le pavage de Penrose est apériodique : il couvre le plan sans jamais se répéter par translation.",
+          "correction_nl": "Penrose-betegeling is aperiodiek: het bedekt het vlak zonder te herhalen door translatie.",
+          "correction_en": "Penrose tiling is aperiodic: covers the plane without repeating by translation.",
+          "correction_es": "El teselado de Penrose es aperiódico: cubre el plano sin repetirse por traslación."
         },
         {
           "id": "l11-d09",
