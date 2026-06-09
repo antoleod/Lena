@@ -111,122 +111,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "jeune",
-            "gros",
+            "brave",
+            "peureux",
+            "fatigué"
+          ],
+          "answer": "brave",
+          "correction": "courageux = brave."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Le contraire de « lent » :",
+          "options": [
+            "rapide",
+            "fort",
             "grand"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q4",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q6",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q8",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
         },
         {
-          "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
-          ],
-          "correction": "monter ↔ descendre."
-        },
-        {
-          "id": "q12",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
           "options": [
-            "froid",
-            "tiède",
+            "pas",
+            "très",
+            "bien"
+          ],
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
             "doux"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
         },
         {
-          "id": "q14",
+          "id": "q19",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un synonyme de « se dépêcher » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "se presser",
+            "attendre",
+            "dormir"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
-          "options": [
-            "vide",
-            "lourd",
-            "grand"
-          ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Un légume :",
-          "options": [
-            "carotte",
-            "fraise",
-            "banane"
-          ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
-          "options": [
-            "observer",
-            "manger",
-            "courir"
-          ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },
@@ -236,122 +238,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Quel est le sens du préfixe « trans- » dans « transporter » ?",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "à travers, au-delà",
+            "avant",
+            "avec"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "à travers, au-delà",
+          "correction": "« Trans- » = à travers, de l'autre côté."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Dans « Noyer le poisson » signifie :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "embrouiller, éviter une question",
+            "trop arroser",
+            "ne pas répondre clairement"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "embrouiller, éviter une question",
+          "correction": "Noyer le poisson = embrouiller délibérément pour éviter de répondre."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
+          "prompt": "Un mot « concret » désigne :",
           "options": [
-            "jeune",
-            "gros",
-            "grand"
+            "quelque chose de tangible, que l'on peut toucher",
+            "une abstraction",
+            "une idée"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "quelque chose de tangible, que l'on peut toucher",
+          "correction": "Table, arbre, chien sont des mots concrets."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « stoïque » est :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "impassible",
+            "émotif",
+            "sensible"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "impassible",
+          "correction": "Stoïque = qui supporte les maux sans se plaindre."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Un fruit :",
-          "options": [
-            "banane",
-            "carotte",
-            "chaise"
+          "type": "fill_blank",
+          "prompt": "La famille du mot « voir » : visuel, vision, ___ .",
+          "answer": "visible",
+          "accept": [
+            "visible"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "correction": "Visible, de la même famille latine (videre = voir)."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Dans « Il a mis les pieds dans le plat », cette expression signifie :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "il a dit quelque chose de maladroit",
+            "il a sali la table",
+            "il a fait une erreur de cuisine"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "il a dit quelque chose de maladroit",
+          "correction": "Mettre les pieds dans le plat = commettre une maladresse verbale."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Le suffixe « -ment » dans « rapidement » indique :",
           "options": [
-            "discuter",
-            "courir",
-            "dormir"
+            "que le mot est un adverbe de manière",
+            "un nom",
+            "un verbe"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
+          "answer": "que le mot est un adverbe de manière",
+          "correction": "« -ment » forme des adverbes à partir d'adjectifs."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Quel est le contraire de « avarice » ?",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "générosité",
+            "richesse",
+            "parcimonie"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "générosité",
+          "correction": "Avarice = tendance à ne pas dépenser ; générosité = disposition à donner."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Une « métaphore » est :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "une comparaison sans outil comparatif",
+            "une exagération",
+            "une répétition"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "une comparaison sans outil comparatif",
+          "correction": "Ex. : « La vie est un long fleuve tranquille » (sans comme/tel que)."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Dans « Il vend la mèche », cette expression signifie :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "il révèle un secret",
+            "il vend des bougies",
+            "il trahit quelqu'un"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "il révèle un secret",
+          "correction": "Vendre la mèche = divulguer un secret."
         }
       ]
     }

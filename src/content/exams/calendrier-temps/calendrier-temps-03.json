@@ -103,119 +103,109 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Si aujourd’hui c’est mardi, quel jour sera-t-il dans 5 jours ?",
+          "options": [
+            "dimanche",
+            "samedi",
+            "vendredi"
+          ],
+          "answer": "dimanche",
+          "correction": "Mardi + 5 jours = dimanche."
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
+          "prompt": "Combien de minutes y a-t-il dans une demi-heure ?",
           "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
+            "30",
+            "60",
+            "15"
           ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
+          "answer": "30",
+          "correction": "La moitié de 60 minutes = 30 minutes."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "2 semaines = ___ jours.",
+          "answer": "14",
+          "correction": "2 × 7 = 14 jours."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "Du lundi au jeudi, combien y a-t-il de jours ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "4",
+            "3",
+            "5"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "4",
+          "correction": "Lundi, mardi, mercredi, jeudi = 4 jours."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "1 heure = 60 minutes.",
+          "answer": true,
+          "correction": "Une heure contient exactement 60 minutes."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Combien de jours entre le 3 et le 10 mars ?",
           "options": [
-            "12",
-            "10",
-            "7"
+            "7",
+            "8",
+            "6"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "7",
+          "correction": "Du 3 au 10 mars = 7 jours."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Laquelle de ces fêtes arrive en premier dans l’année ?",
+          "options": [
+            "Pâques (avril)",
+            "Noël (décembre)",
+            "Toussaint (novembre)"
+          ],
+          "answer": "Pâques (avril)",
+          "correction": "Avril (4e mois) vient avant novembre et décembre."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Combien y a-t-il de semaines dans 35 jours ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "5",
+            "4",
+            "7"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "5",
+          "correction": "35 ÷ 7 = 5 semaines."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Si une fête est le 15 juin et qu’on est le 8 juin, dans combien de jours est la fête ?",
+          "options": [
+            "7",
+            "8",
+            "6"
+          ],
+          "answer": "7",
+          "correction": "Du 8 au 15 juin = 7 jours."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
-          "options": [
-            "7",
-            "5",
-            "10"
-          ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Noël est au mois de :",
-          "options": [
-            "décembre",
-            "juillet",
-            "mars"
-          ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
-          "options": [
-            "été",
-            "hiver",
-            "automne"
-          ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
-          "options": [
-            "juillet",
-            "janvier",
-            "novembre"
-          ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
-          "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
-          ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
+          "type": "true_false",
+          "prompt": "3 semaines = 21 jours.",
+          "answer": true,
+          "correction": "3 × 7 = 21 jours."
         }
       ]
     },
@@ -223,119 +213,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "dq1",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Le concert est le 2 février. Aujourd'hui c'est le 26 janvier. Dans combien de jours est le concert ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
-          ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
-          "options": [
-            "décembre",
-            "janvier",
-            "juin"
-          ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
-        },
-        {
-          "id": "q6",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
-          "options": [
-            "7",
             "5",
-            "10"
+            "6",
+            "7",
+            "8"
           ],
           "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "correction": "Du 26 janvier au 2 février : 5 jours en janvier + 2 jours = 7 jours."
         },
         {
-          "id": "q10",
+          "id": "dq2",
           "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
+          "prompt": "La compétition est le 8 décembre. Aujourd'hui c'est le 23 novembre. Dans combien de jours est la compétition ?",
           "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
+            "13",
+            "14",
+            "15",
+            "16"
           ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
+          "answer": "15",
+          "correction": "Du 23 novembre au 8 décembre : 7 jours en novembre + 8 jours = 15 jours."
         },
         {
-          "id": "q12",
+          "id": "dq3",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "La kermesse est le 5 juin. Aujourd'hui c'est le 20 mai. Dans combien de jours est la kermesse ?",
           "options": [
-            "décembre",
-            "juillet",
-            "mars"
+            "14",
+            "15",
+            "16",
+            "17"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "16",
+          "correction": "Du 20 mai au 5 juin : 11 jours en mai + 5 jours = 16 jours."
         },
         {
-          "id": "q14",
+          "id": "dq4",
           "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
+          "prompt": "L'exposition ouvre le 14 septembre. Aujourd'hui c'est le 31 août. Dans combien de jours ouvre l'exposition ?",
           "options": [
-            "hiver",
-            "été",
-            "printemps"
+            "13",
+            "14",
+            "15",
+            "16"
           ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "answer": "14",
+          "correction": "Du 31 août au 14 septembre = 14 jours."
         },
         {
-          "id": "q16",
+          "id": "dq5",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Emma est née en 2016. En 2026, quel âge a-t-elle ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "8",
+            "9",
+            "10",
+            "11"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "10",
+          "correction": "2026 − 2016 = 10 ans."
         },
         {
-          "id": "q18",
+          "id": "dq6",
           "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
+          "prompt": "Lucas est né en 2014. En 2026, quel âge a-t-il ?",
           "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
+            "10",
+            "11",
+            "12",
+            "13"
           ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
+          "answer": "12",
+          "correction": "2026 − 2014 = 12 ans."
         },
         {
-          "id": "q20",
+          "id": "dq7",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "Mia est née en janvier 2018. En janvier 2026, quel âge a-t-elle ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "6",
+            "7",
+            "8",
+            "9"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "8",
+          "correction": "2026 − 2018 = 8 ans."
+        },
+        {
+          "id": "dq8",
+          "type": "mcq",
+          "prompt": "Un grand-père est né en 1955. En 2025, quel âge a-t-il ?",
+          "options": [
+            "68",
+            "69",
+            "70",
+            "71"
+          ],
+          "answer": "70",
+          "correction": "2025 − 1955 = 70 ans."
+        },
+        {
+          "id": "dq9",
+          "type": "mcq",
+          "prompt": "Zoé est née en mars 2015. En mars 2026, quel âge a-t-elle ?",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "answer": "11",
+          "correction": "2026 − 2015 = 11 ans."
+        },
+        {
+          "id": "dq10",
+          "type": "mcq",
+          "prompt": "Paul est né en 2010. En 2026, quel âge a-t-il ?",
+          "options": [
+            "14",
+            "15",
+            "16",
+            "17"
+          ],
+          "answer": "16",
+          "correction": "2026 − 2010 = 16 ans."
         }
       ]
     }

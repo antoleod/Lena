@@ -106,122 +106,312 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "La langue officielle du Brésil est :",
+          "options": [
+            "le portugais",
+            "l'espagnol",
+            "le français",
+            "l'anglais"
+          ],
+          "answer": "le portugais",
+          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
+          "prompt_nl": "De officiele taal van Brazilie is:",
+          "prompt_en": "The official language of Brazil is:",
+          "prompt_es": "El idioma oficial de Brasil es:",
+          "options_i18n": {
+            "nl": [
+              "Portugees",
+              "Spaans",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Portuguese",
+              "Spanish",
+              "French",
+              "English"
+            ],
+            "es": [
+              "portugues",
+              "espanol",
+              "frances",
+              "ingles"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Quel est le plus grand océan du monde ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "l'océan Pacifique",
+            "l'océan Atlantique",
+            "l'océan Indien",
+            "l'océan Arctique"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "l'océan Pacifique",
+          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
+          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
+          "prompt_en": "What is the largest ocean in the world?",
+          "prompt_es": "Cual es el oceano mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "de Stille Oceaan",
+              "de Atlantische Oceaan",
+              "de Indische Oceaan",
+              "de Arctische Oceaan"
+            ],
+            "en": [
+              "the Pacific Ocean",
+              "the Atlantic Ocean",
+              "the Indian Ocean",
+              "the Arctic Ocean"
+            ],
+            "es": [
+              "el oceano Pacifico",
+              "el oceano Atlantico",
+              "el oceano Indico",
+              "el oceano Artico"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "La Tour Eiffel se trouve dans quelle ville ?",
+          "options": [
+            "Paris",
+            "Lyon",
+            "Rome",
+            "Berlin"
+          ],
+          "answer": "Paris",
+          "correction": "La Tour Eiffel est le monument le plus célèbre de Paris.",
+          "prompt_nl": "In welke stad staat de Eiffeltoren?",
+          "prompt_en": "In which city is the Eiffel Tower?",
+          "prompt_es": "En que ciudad esta la Torre Eiffel?",
+          "options_i18n": {
+            "nl": [
+              "Parijs",
+              "Lyon",
+              "Rome",
+              "Berlijn"
+            ],
+            "en": [
+              "Paris",
+              "Lyon",
+              "Rome",
+              "Berlin"
+            ],
+            "es": [
+              "Paris",
+              "Lyon",
+              "Roma",
+              "Berlin"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Quel fleuve traverse Paris ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "la Seine",
+            "la Loire",
+            "le Rhône",
+            "la Garonne"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "la Seine",
+          "correction": "La Seine est le fleuve qui traverse Paris.",
+          "prompt_nl": "Welke rivier stroomt door Parijs?",
+          "prompt_en": "Which river flows through Paris?",
+          "prompt_es": "Que rio atraviesa Paris?",
+          "options_i18n": {
+            "nl": [
+              "de Seine",
+              "de Loire",
+              "de Rhone",
+              "de Garonne"
+            ],
+            "en": [
+              "the Seine",
+              "the Loire",
+              "the Rhône",
+              "the Garonne"
+            ],
+            "es": [
+              "el Sena",
+              "el Loira",
+              "el Rodano",
+              "el Garona"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Dans quelle ville se trouve le Colisée ?",
+          "options": [
+            "Rome",
+            "Athènes",
+            "Paris",
+            "Madrid"
+          ],
+          "answer": "Rome",
+          "correction": "Le Colisée est un amphithéâtre antique situé à Rome, en Italie.",
+          "prompt_nl": "In welke stad staat het Colosseum?",
+          "prompt_en": "In which city is the Colosseum?",
+          "prompt_es": "En que ciudad esta el Coliseo?",
+          "options_i18n": {
+            "nl": [
+              "Rome",
+              "Athene",
+              "Parijs",
+              "Madrid"
+            ],
+            "en": [
+              "Rome",
+              "Athens",
+              "Paris",
+              "Madrid"
+            ],
+            "es": [
+              "Roma",
+              "Atenas",
+              "Paris",
+              "Madrid"
+            ]
+          }
         },
         {
           "id": "q6",
+          "type": "true_false",
+          "prompt": "La Méditerranée est une mer.",
+          "answer": true,
+          "correction": "La mer Méditerranée est une mer intérieure entourée par l'Europe, l'Afrique et l'Asie.",
+          "prompt_nl": "De Middellandse Zee is een zee.",
+          "prompt_en": "The Mediterranean is a sea.",
+          "prompt_es": "El Mediterraneo es un mar."
+        },
+        {
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Quel pays est le plus grand du monde ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "la Russie",
+            "le Canada",
+            "la Chine",
+            "les États-Unis"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "la Russie",
+          "correction": "La Russie est le plus grand pays du monde par sa superficie.",
+          "prompt_nl": "Welk land is het grootste ter wereld?",
+          "prompt_en": "Which country is the largest in the world?",
+          "prompt_es": "Que pais es el mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "Rusland",
+              "Canada",
+              "China",
+              "de Verenigde Staten"
+            ],
+            "en": [
+              "Russia",
+              "Canada",
+              "China",
+              "the United States"
+            ],
+            "es": [
+              "Rusia",
+              "Canada",
+              "China",
+              "Estados Unidos"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Une île est une terre entourée de :",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "eau",
+            "montagnes",
+            "forêts",
+            "désert"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "eau",
+          "correction": "Une île est une étendue de terre entièrement entourée d'eau.",
+          "prompt_nl": "Een eiland is een stuk land omgeven door:",
+          "prompt_en": "An island is a piece of land surrounded by:",
+          "prompt_es": "Una isla es una tierra rodeada de:",
+          "options_i18n": {
+            "nl": [
+              "water",
+              "bergen",
+              "bossen",
+              "woestijn"
+            ],
+            "en": [
+              "water",
+              "mountains",
+              "forests",
+              "desert"
+            ],
+            "es": [
+              "agua",
+              "montanas",
+              "bosques",
+              "desierto"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "La langue officielle du Mexique est :",
+          "options": [
+            "l'espagnol",
+            "le portugais",
+            "le français",
+            "l'anglais"
+          ],
+          "answer": "l'espagnol",
+          "correction": "Le Mexique est un pays hispanophone d'Amérique centrale.",
+          "prompt_nl": "De officiele taal van Mexico is:",
+          "prompt_en": "The official language of Mexico is:",
+          "prompt_es": "El idioma oficial de Mexico es:",
+          "options_i18n": {
+            "nl": [
+              "Spaans",
+              "Portugees",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Spanish",
+              "Portuguese",
+              "French",
+              "English"
+            ],
+            "es": [
+              "espanol",
+              "portugues",
+              "frances",
+              "ingles"
+            ]
+          }
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
-          ],
-          "correction": "L’abeille fait le miel."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
-          "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
-          ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "On respire avec les :",
-          "options": [
-            "poumons",
-            "mains",
-            "pieds"
-          ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
-          "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
-          ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
-          "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
-          ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "En hiver, il fait :",
-          "options": [
-            "froid",
-            "très chaud",
-            "lourd"
-          ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "type": "true_false",
+          "prompt": "En Scandinavie, les hivers sont longs et très froids.",
+          "answer": true,
+          "correction": "Les pays scandinaves ont des hivers très froids et de longues nuits polaires.",
+          "prompt_nl": "In Scandinavie zijn de winters lang en erg koud.",
+          "prompt_en": "In Scandinavia, winters are long and very cold.",
+          "prompt_es": "En Escandinavia, los inviernos son largos y muy frios."
         }
       ]
     },
@@ -231,117 +421,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Qu'est-ce que le lobbying ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "l'influence exercée par des groupes d'intérêt sur les décisions politiques",
+            "une forme de publicité",
+            "une loi sur les associations"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "l'influence exercée par des groupes d'intérêt sur les décisions politiques",
+          "correction": "Les lobbys représentent les intérêts d'une industrie ou d'un groupe auprès des gouvernements."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Qu'est-ce que la corruption ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "l'abus d'une fonction pour un gain personnel",
+            "une forme de négociation",
+            "un type d'impôt"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "l'abus d'une fonction pour un gain personnel",
+          "correction": "La corruption nuit à la confiance dans les institutions et freine le développement."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Le Parlement européen est :",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "l'assemblée élue des citoyens de l'Union européenne",
+            "le gouvernement de l'UE",
+            "la Cour de justice de l'UE"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "l'assemblée élue des citoyens de l'Union européenne",
+          "correction": "Les eurodéputés sont élus tous les 5 ans par les citoyens des États membres."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Qu'est-ce que la migration économique ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "se déplacer pour chercher de meilleures conditions économiques",
+            "fuir un conflit armé",
+            "partir pour des études"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "se déplacer pour chercher de meilleures conditions économiques",
+          "correction": "Les migrants économiques cherchent du travail ou de meilleures conditions de vie."
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Qu'est-ce qu'un État providence ?",
+          "options": [
+            "un État qui assure la protection sociale de ses citoyens",
+            "un État très riche",
+            "un État dirigé par une religion"
+          ],
+          "answer": "un État qui assure la protection sociale de ses citoyens",
+          "correction": "L'État providence gère la sécurité sociale, l'assurance chômage, les retraites, etc."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "La Cour Pénale Internationale (CPI) juge :",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "les individus responsables de crimes de guerre, génocides et crimes contre l'humanité",
+            "les litiges commerciaux internationaux",
+            "les conflits entre États"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "les individus responsables de crimes de guerre, génocides et crimes contre l'humanité",
+          "correction": "La CPI a été créée par le Statut de Rome en 1998."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Qu'est-ce que le droit au logement ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "le droit fondamental à un abri décent et sécurisé",
+            "le droit d'acheter une propriété",
+            "le droit de construire où on veut"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "le droit fondamental à un abri décent et sécurisé",
+          "correction": "Ce droit est reconnu par la Déclaration universelle des droits de l'homme."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "La décolonisation désigne :",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "le processus par lequel les colonies ont accédé à l'indépendance",
+            "la création d'un empire colonial",
+            "la migration vers les colonies"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "le processus par lequel les colonies ont accédé à l'indépendance",
+          "correction": "La majorité des décolonisations ont eu lieu entre 1945 et 1970."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Qu'est-ce qu'un accord de paix ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "un traité mettant fin à un conflit armé",
+            "une alliance militaire",
+            "un accord commercial"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "un traité mettant fin à un conflit armé",
+          "correction": "Un accord de paix définit les conditions de cessation des hostilités."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Qu'est-ce que la laïcité ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "la séparation de l'État et des religions, garantissant la liberté de conscience",
+            "l'interdiction des religions",
+            "le pouvoir accordé à l'Église"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "la séparation de l'État et des religions, garantissant la liberté de conscience",
+          "correction": "La France a institué la laïcité par la loi de séparation de 1905."
         }
       ]
     }

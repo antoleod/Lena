@@ -111,124 +111,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
-          ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
-          "options": [
-            "lent",
-            "vite",
-            "fort"
-          ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Le contraire de « long » :",
-          "options": [
-            "court",
-            "large",
-            "fin"
-          ],
-          "answer": "court",
-          "correction": "long ↔ court."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
-          "options": [
-            "faible",
-            "dur",
-            "lourd"
-          ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
-          "options": [
-            "fermé",
-            "grand",
-            "vide"
-          ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
-          "options": [
-            "vide",
-            "lourd",
+            "rapide",
+            "fort",
             "grand"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q16",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q18",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q20",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "options": [
+            "pas",
+            "très",
+            "bien"
+          ],
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
+            "dormir"
+          ],
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },

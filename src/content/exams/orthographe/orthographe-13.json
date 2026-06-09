@@ -109,118 +109,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
+            "dentifrice",
+            "dentifrise",
+            "dentifricce"
           ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
+          "answer": "dentifrice",
+          "correction": "On écrit « dentifrice » avec « ice »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : para_hute",
+          "answer": "c",
+          "accept": [
+            "c"
+          ],
+          "correction": "On écrit « parachute » avec un « c »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "escargot",
+            "escargaux",
+            "escargau"
+          ],
+          "answer": "escargot",
+          "correction": "On écrit « escargot » avec « got »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "perle",
+            "pearle",
+            "pairle"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "perle",
+          "correction": "On écrit « perle » avec « er »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « bûcheron » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « bûcheron » s'écrit avec un accent circonflexe sur le « û »."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
+          "prompt": "Complète le mot : ver_ou",
+          "answer": "r",
           "accept": [
-            "e"
+            "r"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "correction": "On écrit « verrou » avec deux « r »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "coquelicot",
+            "coqulicot",
+            "coqueliccot"
+          ],
+          "answer": "coquelicot",
+          "correction": "On écrit « coquelicot » avec « eliicot »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "bouclier",
+            "bouclié",
+            "boukliée"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "bouclier",
+          "correction": "On écrit « bouclier » avec « ier »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « mélange » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « mélange » s'écrit avec un accent aigu sur le « é »."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fille",
-            "file",
-            "fiye"
-          ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
-          ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maison",
-            "mayson",
-            "mèson"
-          ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
-        },
-        {
-          "id": "q16",
           "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
+          "prompt": "Complète le mot : balei_e",
+          "answer": "n",
           "accept": [
-            "b"
+            "n"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "tableau",
-            "tablau",
-            "tableo"
-          ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "correction": "On écrit « baleine » avec un « n »."
         }
       ]
     },
@@ -230,116 +220,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient le son « ch » ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "parachute",
+            "verrou",
+            "maison"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "parachute",
+          "correction": "Parachute contient « ch » : p-a-r-a-c-h-u-t-e."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "bûcheron",
+            "bucheron",
+            "mélange"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "bucheron",
+          "correction": "Le mot correct est « bûcheron » avec un accent circonflexe sur le « u » : b-û-c-h-e-r-o-n."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : La porte est fermée avec un ___ .",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "verrou",
+            "verou",
+            "veroux"
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "verrou",
+          "correction": "Verrou s'écrit v-e-r-r-o-u avec deux « r »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient un accent circonflexe ?",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "bûcheron",
+            "parachute",
+            "baleine"
           ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "answer": "bûcheron",
+          "correction": "Bûcheron s'écrit b-û-c-h-e-r-o-n avec « û »."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Identifie la faute :",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "baleine",
+            "balene",
+            "parachute"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "balene",
+          "correction": "Le mot correct est « baleine » : b-a-l-e-i-n-e."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot a un accent aigu ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "mélange",
+            "bûcheron",
+            "parachute"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "mélange",
+          "correction": "Mélange s'écrit m-é-l-a-n-g-e avec un accent aigu."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « rr » (double r) ?",
+          "options": [
+            "verrou",
+            "baleine",
+            "parachute"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "verrou",
+          "correction": "Verrou s'écrit v-e-r-r-o-u."
         },
         {
           "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "options": [
+            "Le bûcheron coupe un mélange de bois.",
+            "Le bucheron coupe un melange de bois.",
+            "Le bûcheron coupe un mélange de bois."
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "Le bûcheron coupe un mélange de bois.",
+          "correction": "Bûcheron = û, mélange = é."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -ou » ?",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "verrou",
+            "baleine",
+            "mélange"
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "verrou",
+          "correction": "Verrou se termine par « -ou » : v-e-r-r-o-u."
         },
         {
           "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quel mot est mal orthographié ?",
+          "options": [
+            "parachute",
+            "parachute",
+            "melange"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "melange",
+          "correction": "Le mot correct est « mélange » avec un accent aigu : m-é-l-a-n-g-e."
         }
       ]
     }

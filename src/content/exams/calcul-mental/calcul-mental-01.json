@@ -308,18 +308,18 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "5 + 3 = ?",
+          "prompt": "12 + 8 = ?",
           "options": [
-            "10",
-            "9",
-            "11",
-            "8"
+            "18",
+            "19",
+            "21",
+            "20"
           ],
-          "answer": "8",
-          "correction": "5 + 3 = 8.",
-          "prompt_nl": "5 + 3 = ?",
-          "prompt_en": "5 + 3 = ?",
-          "prompt_es": "5 + 3 = ?"
+          "answer": "20",
+          "correction": "12 + 8 = 20.",
+          "prompt_nl": "12 + 8 = ?",
+          "prompt_en": "12 + 8 = ?",
+          "prompt_es": "12 + 8 = ?"
         },
         {
           "id": "q2",

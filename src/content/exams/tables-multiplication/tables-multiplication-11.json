@@ -179,162 +179,120 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "7 × 3 = ?",
+          "prompt": "5 × ___ = 15",
           "options": [
-            "28",
-            "23",
-            "21",
-            "17"
+            "4",
+            "2",
+            "3",
+            "5"
           ],
-          "answer": "21",
-          "correction": "7 × 3 = 21.",
-          "prompt_nl": "7 × 3 = ?",
-          "prompt_en": "7 × 3 = ?",
-          "prompt_es": "7 × 3 = ?"
+          "answer": "3",
+          "correction": "5 × 3 = 15, donc ___ = 3."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "5 × 6 = ?",
+          "prompt": "15 ÷ 5 = ?",
           "options": [
-            "34",
-            "25",
-            "30",
-            "31"
+            "3",
+            "2",
+            "5",
+            "4"
           ],
-          "answer": "30",
-          "correction": "5 × 6 = 30.",
-          "prompt_nl": "5 × 6 = ?",
-          "prompt_en": "5 × 6 = ?",
-          "prompt_es": "5 × 6 = ?"
+          "answer": "3",
+          "correction": "15 ÷ 5 = 3."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "4 × 6 = ?",
+          "prompt": "Tu as 5 groupes de 3 élèves. Combien au total ?",
           "options": [
-            "24",
-            "22",
-            "23",
-            "21"
+            "18",
+            "15",
+            "12",
+            "20"
           ],
-          "answer": "24",
-          "correction": "4 × 6 = 24.",
-          "prompt_nl": "4 × 6 = ?",
-          "prompt_en": "4 × 6 = ?",
-          "prompt_es": "4 × 6 = ?"
+          "answer": "15",
+          "correction": "5 × 3 = 15 élèves au total."
         },
         {
           "id": "q4",
-          "type": "mcq",
-          "prompt": "2 × 1 = ?",
-          "options": [
-            "4",
-            "0",
-            "1",
-            "2"
-          ],
-          "answer": "2",
-          "correction": "2 × 1 = 2.",
-          "prompt_nl": "2 × 1 = ?",
-          "prompt_en": "2 × 1 = ?",
-          "prompt_es": "2 × 1 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 5 = 15",
+          "answer": "3",
+          "correction": "3 × 5 = 15, donc ___ = 3."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "3 × 4 = ?",
+          "prompt": "4 × ___ = 16",
           "options": [
-            "12",
-            "14",
-            "10",
-            "9"
+            "4",
+            "5",
+            "6",
+            "3"
           ],
-          "answer": "12",
-          "correction": "3 × 4 = 12.",
-          "prompt_nl": "3 × 4 = ?",
-          "prompt_en": "3 × 4 = ?",
-          "prompt_es": "3 × 4 = ?"
+          "answer": "4",
+          "correction": "4 × 4 = 16, donc ___ = 4."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "2 × 4 = ?",
+          "prompt": "16 ÷ 4 = ?",
           "options": [
-            "10",
-            "7",
-            "9",
-            "8"
+            "6",
+            "3",
+            "4",
+            "5"
           ],
-          "answer": "8",
-          "correction": "2 × 4 = 8.",
-          "prompt_nl": "2 × 4 = ?",
-          "prompt_en": "2 × 4 = ?",
-          "prompt_es": "2 × 4 = ?"
+          "answer": "4",
+          "correction": "16 ÷ 4 = 4."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "6 × 6 = ?",
+          "prompt": "Tu as 4 groupes de 4 élèves. Combien au total ?",
           "options": [
-            "38",
-            "36",
-            "41",
-            "42"
+            "16",
+            "12",
+            "13",
+            "20"
           ],
-          "answer": "36",
-          "correction": "6 × 6 = 36.",
-          "prompt_nl": "6 × 6 = ?",
-          "prompt_en": "6 × 6 = ?",
-          "prompt_es": "6 × 6 = ?"
+          "answer": "16",
+          "correction": "4 × 4 = 16 élèves au total."
         },
         {
           "id": "q8",
-          "type": "mcq",
-          "prompt": "2 × 5 = ?",
-          "options": [
-            "12",
-            "11",
-            "9",
-            "10"
-          ],
-          "answer": "10",
-          "correction": "2 × 5 = 10.",
-          "prompt_nl": "2 × 5 = ?",
-          "prompt_en": "2 × 5 = ?",
-          "prompt_es": "2 × 5 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 4 = 16",
+          "answer": "4",
+          "correction": "4 × 4 = 16, donc ___ = 4."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "6 × 8 = ?",
+          "prompt": "4 × ___ = 12",
           "options": [
-            "44",
-            "48",
-            "53",
-            "54"
+            "4",
+            "3",
+            "5",
+            "2"
           ],
-          "answer": "48",
-          "correction": "6 × 8 = 48.",
-          "prompt_nl": "6 × 8 = ?",
-          "prompt_en": "6 × 8 = ?",
-          "prompt_es": "6 × 8 = ?"
+          "answer": "3",
+          "correction": "4 × 3 = 12, donc ___ = 3."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "6 × 1 = ?",
+          "prompt": "12 ÷ 4 = ?",
           "options": [
-            "10",
             "5",
-            "6",
-            "2"
+            "2",
+            "4",
+            "3"
           ],
-          "answer": "6",
-          "correction": "6 × 1 = 6.",
-          "prompt_nl": "6 × 1 = ?",
-          "prompt_en": "6 × 1 = ?",
-          "prompt_es": "6 × 1 = ?"
+          "answer": "3",
+          "correction": "12 ÷ 4 = 3."
         }
       ]
     },

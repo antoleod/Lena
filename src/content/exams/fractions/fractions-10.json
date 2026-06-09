@@ -145,176 +145,119 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "Le tiers de 12 est :",
-          "options": [
-            "4",
-            "3",
-            "6",
-            "2"
+          "type": "fill_blank",
+          "prompt": "1/2 converti en decimal donne ___ .",
+          "answer": "0.5",
+          "accept": [
+            "0.5",
+            "0,5"
           ],
-          "answer": "4",
-          "correction": "12 ÷ 3 = 4.",
-          "prompt_nl": "Een derde van 12 is:",
-          "prompt_en": "One third of 12 is:",
-          "prompt_es": "Un tercio de 12 es:",
-          "correction_nl": "12 ÷ 3 = 4.",
-          "correction_en": "12 ÷ 3 = 4.",
-          "correction_es": "12 ÷ 3 = 4."
+          "correction": "1/2 = 0,5.",
+          "id": "q1"
         },
         {
-          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "1/4 converti en decimal donne ___ .",
+          "answer": "0.25",
+          "accept": [
+            "0.25",
+            "0,25"
+          ],
+          "correction": "1/4 = 0,25.",
+          "id": "q2"
+        },
+        {
           "type": "mcq",
-          "prompt": "Quelle fraction est la plus grande ?",
+          "prompt": "Sur une droite numerique, ou se place 1/2 ?",
           "options": [
-            "3/4",
-            "1/4",
+            "Entre 0 et 1, au milieu",
+            "Entre 1 et 2",
+            "A 0",
+            "A 1"
+          ],
+          "answer": "Entre 0 et 1, au milieu",
+          "correction": "1/2 se place exactement entre 0 et 1.",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Sur une droite numerique, ou se place 3/4 ?",
+          "options": [
+            "Entre 1/2 et 1",
+            "Entre 0 et 1/2",
+            "A 1",
+            "Entre 1 et 2"
+          ],
+          "answer": "Entre 1/2 et 1",
+          "correction": "3/4 est entre 0,5 et 1.",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Sur une droite numerique, ou se place 1/4 ?",
+          "options": [
+            "Entre 0 et 1/2",
+            "Entre 1/2 et 1",
+            "A 0",
+            "A 1"
+          ],
+          "answer": "Entre 0 et 1/2",
+          "correction": "1/4 = 0,25, donc entre 0 et 1/2.",
+          "id": "q5"
+        },
+        {
+          "type": "true_false",
+          "prompt": "4/8 = 1/2.",
+          "answer": true,
+          "correction": "4/8 = 1/2 : on divise par 4.",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "2/3 + 1/3 = ?",
+          "options": [
+            "1",
+            "3/6",
+            "3/3",
+            "1/3"
+          ],
+          "answer": "1",
+          "correction": "2/3 + 1/3 = 3/3 = 1 entier.",
+          "id": "q7"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "3/4 - 1/4 = ___ .",
+          "answer": "2/4",
+          "accept": [
             "2/4",
             "1/2"
           ],
-          "answer": "3/4",
-          "correction": "3/4 est la plus grande.",
-          "prompt_nl": "Welk breuk is het grootst?",
-          "prompt_en": "Which fraction is the largest?",
-          "prompt_es": "¿Qué fracción es la mayor?",
-          "correction_nl": "3/4 is het grootst.",
-          "correction_en": "3/4 is the largest.",
-          "correction_es": "3/4 es la mayor."
+          "correction": "3/4 - 1/4 = 2/4.",
+          "id": "q8"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Quelle fraction représente un tiers ?",
-          "options": [
-            "1/3",
-            "1/2",
-            "2/3",
-            "1/4"
-          ],
-          "answer": "1/3",
-          "correction": "Un tiers = 1/3.",
-          "prompt_nl": "Welk breuk is een derde?",
-          "prompt_en": "Which fraction is one third?",
-          "prompt_es": "¿Qué fracción es un tercio?",
-          "correction_nl": "Een derde = 1/3.",
-          "correction_en": "One third = 1/3.",
-          "correction_es": "Un tercio = 1/3."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Le quart de 12 est ___ .",
-          "answer": "3",
-          "accept": [
-            "3"
-          ],
-          "correction": "12 ÷ 4 = 3.",
-          "prompt_nl": "Een kwart van 12 is ___ .",
-          "prompt_en": "One quarter of 12 is ___ .",
-          "prompt_es": "Un cuarto de 12 es ___ .",
-          "correction_nl": "12 ÷ 4 = 3.",
-          "correction_en": "12 ÷ 4 = 3.",
-          "correction_es": "12 ÷ 4 = 3."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Une pizza est coupée en 4 parts égales. Tu en manges 1. Quelle fraction reste ?",
+          "prompt": "Laquelle est la plus grande : 3/4 ou 3/5 ?",
           "options": [
             "3/4",
-            "1/4",
-            "2/4",
-            "1/2"
+            "3/5",
+            "Elles sont egales",
+            "Impossible a dire"
           ],
           "answer": "3/4",
-          "correction": "Il reste 3/4 de la pizza."
+          "correction": "3/4 > 3/5 : meme numerateur, denominateur plus petit = fraction plus grande.",
+          "id": "q9"
         },
         {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quelle fraction est la plus petite ?",
-          "options": [
-            "1/4",
-            "3/4",
-            "1/2",
-            "2/3"
-          ],
-          "answer": "1/4",
-          "correction": "1/4 est la plus petite.",
-          "prompt_nl": "Welk breuk is het kleinst?",
-          "prompt_en": "Which fraction is the smallest?",
-          "prompt_es": "¿Qué fracción es la menor?",
-          "correction_nl": "1/4 is het kleinst.",
-          "correction_en": "1/4 is the smallest.",
-          "correction_es": "1/4 es la menor."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Un gâteau est coupé en 2. Paul mange 1 moitié. Quelle fraction reste ?",
-          "options": [
-            "1/2",
-            "1/4",
-            "2/4",
-            "3/4"
-          ],
-          "answer": "1/2",
-          "correction": "Il reste 1/2 du gâteau."
-        },
-        {
-          "id": "q16",
           "type": "fill_blank",
-          "prompt": "La moitié de 16 est ___ .",
-          "answer": "8",
+          "prompt": "3/8 + 2/8 = ___ .",
+          "answer": "5/8",
           "accept": [
-            "8"
+            "5/8"
           ],
-          "correction": "16 ÷ 2 = 8.",
-          "prompt_nl": "De helft van 16 is ___ .",
-          "prompt_en": "Half of 16 is ___ .",
-          "prompt_es": "La mitad de 16 es ___ .",
-          "correction_nl": "16 ÷ 2 = 8.",
-          "correction_en": "16 ÷ 2 = 8.",
-          "correction_es": "16 ÷ 2 = 8."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "La moitié de 20 est :",
-          "options": [
-            "10",
-            "5",
-            "15",
-            "8"
-          ],
-          "answer": "10",
-          "correction": "20 ÷ 2 = 10.",
-          "prompt_nl": "De helft van 20 is:",
-          "prompt_en": "Half of 20 is:",
-          "prompt_es": "La mitad de 20 es:",
-          "correction_nl": "20 ÷ 2 = 10.",
-          "correction_en": "20 ÷ 2 = 10.",
-          "correction_es": "20 ÷ 2 = 10."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Le quart de 8 est :",
-          "options": [
-            "2",
-            "4",
-            "6",
-            "1"
-          ],
-          "answer": "2",
-          "correction": "8 ÷ 4 = 2.",
-          "prompt_nl": "Een kwart van 8 is:",
-          "prompt_en": "One quarter of 8 is:",
-          "prompt_es": "Un cuarto de 8 es:",
-          "correction_nl": "8 ÷ 4 = 2.",
-          "correction_en": "8 ÷ 4 = 2.",
-          "correction_es": "8 ÷ 4 = 2."
+          "correction": "3/8 + 2/8 = 5/8 : on additionne les numerateurs.",
+          "id": "q10"
         }
       ]
     },
@@ -323,169 +266,111 @@
       "questions": [
         {
           "id": "q2",
-          "type": "mcq",
-          "prompt": "3/4 signifie :",
-          "options": [
-            "3 parties sur 4",
-            "4 parties sur 3",
-            "1 partie sur 4",
-            "3 parties sur 3"
+          "type": "fill_blank",
+          "prompt": "5/12 + 3/8 = ___ (dénominateur commun 24)",
+          "answer": "19/24",
+          "accept": [
+            "19/24"
           ],
-          "answer": "3 parties sur 4",
-          "correction": "3/4 = 3 parties sur 4.",
-          "prompt_nl": "3/4 betekent:",
-          "prompt_en": "3/4 means:",
-          "prompt_es": "3/4 significa:",
-          "correction_nl": "3 delen van 4.",
-          "correction_en": "3 parts out of 4.",
-          "correction_es": "3 partes de 4."
+          "correction": "10/24 + 9/24 = 19/24."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "La moitié de 16 est ___ .",
-          "answer": "8",
-          "accept": [
-            "8"
+          "type": "mcq",
+          "prompt": "Laquelle est la plus petite : 7/12 ou 5/9 ?",
+          "options": [
+            "5/9",
+            "7/12",
+            "elles sont égales"
           ],
-          "correction": "16 ÷ 2 = 8.",
-          "prompt_nl": "De helft van 16 is ___ .",
-          "prompt_en": "Half of 16 is ___ .",
-          "prompt_es": "La mitad de 16 es ___ .",
-          "correction_nl": "16 ÷ 2 = 8.",
-          "correction_en": "16 ÷ 2 = 8.",
-          "correction_es": "16 ÷ 2 = 8."
+          "answer": "5/9",
+          "correction": "7/12 = 21/36, 5/9 = 20/36. Donc 20/36 < 21/36."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Le quart de 12 est ___ .",
-          "answer": "3",
+          "prompt": "Simplifie 30/45 :",
+          "answer": "2/3",
           "accept": [
-            "3"
+            "2/3"
           ],
-          "correction": "12 ÷ 4 = 3.",
-          "prompt_nl": "Een kwart van 12 is ___ .",
-          "prompt_en": "One quarter of 12 is ___ .",
-          "prompt_es": "Un cuarto de 12 es ___ .",
-          "correction_nl": "12 ÷ 4 = 3.",
-          "correction_en": "12 ÷ 4 = 3.",
-          "correction_es": "12 ÷ 4 = 3."
+          "correction": "PGCD(30,45) = 15 ; 30÷15=2, 45÷15=3."
         },
         {
           "id": "q8",
-          "type": "mcq",
-          "prompt": "Quelle fraction représente la moitié ?",
-          "options": [
-            "1/2",
-            "1/3",
-            "2/3",
-            "1/4"
+          "type": "fill_blank",
+          "prompt": "4/9 × 27 = ___",
+          "answer": "12",
+          "accept": [
+            "12"
           ],
-          "answer": "1/2",
-          "correction": "La moitié = 1/2.",
-          "prompt_nl": "Welk breuk is de helft?",
-          "prompt_en": "Which fraction is one half?",
-          "prompt_es": "¿Qué fracción es la mitad?",
-          "correction_nl": "De helft = 1/2.",
-          "correction_en": "One half = 1/2.",
-          "correction_es": "La mitad = 1/2."
+          "correction": "4/9 × 27 = 12."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "1/2 + 1/2 = ?",
+          "prompt": "Quel nombre mixte représente 23/8 ?",
           "options": [
-            "1",
-            "2",
-            "1/4",
-            "1/3"
+            "2 et 7/8",
+            "3 et 1/8",
+            "2 et 3/8"
           ],
-          "answer": "1",
-          "correction": "1/2 + 1/2 = 1 entier.",
-          "prompt_nl": "1/2 + 1/2 = ?",
-          "prompt_en": "1/2 + 1/2 = ?",
-          "prompt_es": "1/2 + 1/2 = ?",
-          "correction_nl": "1/2 + 1/2 = 1 geheel.",
-          "correction_en": "1/2 + 1/2 = 1 whole.",
-          "correction_es": "1/2 + 1/2 = 1 entero."
+          "answer": "2 et 7/8",
+          "correction": "23 ÷ 8 = 2 reste 7, donc 23/8 = 2 et 7/8."
         },
         {
           "id": "q12",
-          "type": "mcq",
-          "prompt": "Quelle fraction est la plus petite ?",
-          "options": [
-            "1/4",
-            "3/4",
-            "1/2",
-            "2/3"
+          "type": "fill_blank",
+          "prompt": "35 % de 60 = ___",
+          "answer": "21",
+          "accept": [
+            "21"
           ],
-          "answer": "1/4",
-          "correction": "1/4 est la plus petite.",
-          "prompt_nl": "Welk breuk is het kleinst?",
-          "prompt_en": "Which fraction is the smallest?",
-          "prompt_es": "¿Qué fracción es la menor?",
-          "correction_nl": "1/4 is het kleinst.",
-          "correction_en": "1/4 is the smallest.",
-          "correction_es": "1/4 es la menor."
+          "correction": "35/100 × 60 = 21."
         },
         {
           "id": "q14",
-          "type": "mcq",
-          "prompt": "Un gâteau est coupé en 2. Paul mange 1 moitié. Quelle fraction reste ?",
-          "options": [
-            "1/2",
-            "1/4",
-            "2/4",
-            "3/4"
+          "type": "fill_blank",
+          "prompt": "4/5 - 2/3 = ___ (dénominateur commun 15)",
+          "answer": "2/15",
+          "accept": [
+            "2/15"
           ],
-          "answer": "1/2",
-          "correction": "Il reste 1/2 du gâteau."
+          "correction": "12/15 - 10/15 = 2/15."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "La moitié de 20 est :",
+          "prompt": "Comment écrire 2 et 5/7 en fraction impropre ?",
           "options": [
-            "10",
-            "5",
-            "15",
-            "8"
+            "19/7",
+            "14/7",
+            "17/7"
           ],
-          "answer": "10",
-          "correction": "20 ÷ 2 = 10.",
-          "prompt_nl": "De helft van 20 is:",
-          "prompt_en": "Half of 20 is:",
-          "prompt_es": "La mitad de 20 es:",
-          "correction_nl": "20 ÷ 2 = 10.",
-          "correction_en": "20 ÷ 2 = 10.",
-          "correction_es": "20 ÷ 2 = 10."
+          "answer": "19/7",
+          "correction": "2 × 7 + 5 = 19, donc 19/7."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Une pizza est coupée en 4 parts égales. Tu en manges 1. Quelle fraction reste ?",
+          "prompt": "Un sac coûte 56 €, soldé 25 %. Quel est son nouveau prix ?",
           "options": [
-            "3/4",
-            "1/4",
-            "2/4",
-            "1/2"
+            "42 €",
+            "14 €",
+            "36 €"
           ],
-          "answer": "3/4",
-          "correction": "Il reste 3/4 de la pizza."
+          "answer": "42 €",
+          "correction": "25/100 × 56 = 14 de réduction ; 56 - 14 = 42 €."
         },
         {
           "id": "q20",
-          "type": "true_false",
-          "prompt": "1/3 est plus grand que 1/2.",
-          "answer": false,
-          "correction": "1/3 < 1/2 : un tiers est plus petit.",
-          "prompt_nl": "1/3 is groter dan 1/2.",
-          "prompt_en": "1/3 is bigger than 1/2.",
-          "prompt_es": "1/3 es mayor que 1/2.",
-          "correction_nl": "1/3 < 1/2.",
-          "correction_en": "1/3 < 1/2.",
-          "correction_es": "1/3 < 1/2."
+          "type": "fill_blank",
+          "prompt": "3/7 + 2/3 = ___ (dénominateur commun 21)",
+          "answer": "23/21",
+          "accept": [
+            "23/21"
+          ],
+          "correction": "9/21 + 14/21 = 23/21."
         }
       ]
     }

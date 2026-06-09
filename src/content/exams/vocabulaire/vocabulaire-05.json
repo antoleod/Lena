@@ -113,122 +113,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "discuter",
-            "courir",
+            "brave",
+            "peureux",
+            "fatigué"
+          ],
+          "answer": "brave",
+          "correction": "courageux = brave."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Le contraire de « lent » :",
+          "options": [
+            "rapide",
+            "fort",
+            "grand"
+          ],
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Un synonyme de « fatigué » :",
+          "options": [
+            "épuisé",
+            "reposé",
+            "content"
+          ],
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Le contraire de « triste » :",
+          "options": [
+            "joyeux",
+            "calme",
+            "peureux"
+          ],
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Un synonyme de « chercher » :",
+          "options": [
+            "rechercher",
+            "trouver",
+            "perdre"
+          ],
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "options": [
+            "pas",
+            "très",
+            "bien"
+          ],
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
             "dormir"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Un animal de la ferme :",
-          "options": [
-            "vache",
-            "lion",
-            "requin"
-          ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
-          "options": [
-            "se promener",
-            "courir",
-            "voler"
-          ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
-          "options": [
-            "fermé",
-            "grand",
-            "vide"
-          ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « long » :",
-          "options": [
-            "court",
-            "large",
-            "fin"
-          ],
-          "answer": "court",
-          "correction": "long ↔ court."
-        },
-        {
-          "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
-          ],
-          "correction": "monter ↔ descendre."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Un fruit :",
-          "options": [
-            "banane",
-            "carotte",
-            "chaise"
-          ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Un moyen de transport :",
-          "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Un légume :",
-          "options": [
-            "carotte",
-            "fraise",
-            "banane"
-          ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
-          "options": [
-            "heureux",
-            "triste",
-            "fâché"
-          ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },
@@ -238,120 +240,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
+          "prompt": "Quel est le sens du préfixe « hyper- » dans « hyperactif » ?",
           "options": [
-            "jeune",
-            "gros",
-            "grand"
+            "au-dessus, excessif",
+            "sous, insuffisant",
+            "entre"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "au-dessus, excessif",
+          "correction": "« Hyper- » signifie excessif, au-delà de la normale."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Dans « Casser sa pipe » signifie :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "mourir",
+            "se mettre en colère",
+            "partir en voyage"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "mourir",
+          "correction": "C'est une expression familière pour « mourir »."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
+          "type": "mcq",
+          "prompt": "Un mot « périmé » ou « archaïque » est un mot :",
+          "options": [
+            "qui n'est plus en usage",
+            "récent",
+            "technique"
           ],
-          "correction": "monter ↔ descendre."
+          "answer": "qui n'est plus en usage",
+          "correction": "Un archaïsme est un mot ou tour désuet, tombé en désuétude."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Quel est le synonyme du mot « itinérant » ?",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "nomade",
+            "sédentaire",
+            "local"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "nomade",
+          "correction": "Itinérant = qui se déplace de lieu en lieu."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Un animal de la ferme :",
-          "options": [
-            "vache",
-            "lion",
-            "requin"
+          "type": "fill_blank",
+          "prompt": "La famille du mot « eau » : aqueux, aquatique, ___ .",
+          "answer": "aqueduc",
+          "accept": [
+            "aqueduc"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "correction": "Aqueduc = conduit d'eau, de la même famille latine (aqua)."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Le registre de langue de « s'éclipser » (= partir discrètement) est :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "soutenu / littéraire",
+            "familier",
+            "argotique"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "soutenu / littéraire",
+          "correction": "S'éclipser est une métaphore élégante pour partir discrètement."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Dans « Il a le vent en poupe », cette expression signifie :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "il réussit, tout lui réussit",
+            "il fait face à des obstacles",
+            "il voyage souvent"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "il réussit, tout lui réussit",
+          "correction": "Avoir le vent en poupe = être favorisé par les circonstances."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Un synonyme de « perspicace » est :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "clairvoyant",
+            "distrait",
+            "naïf"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "clairvoyant",
+          "correction": "Perspicace = qui pénètre facilement les choses difficiles à comprendre."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le suffixe « -able » dans « mangeable » exprime :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "la possibilité",
+            "l'action",
+            "la personne"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "la possibilité",
+          "correction": "« -able » = qui peut être (fait) : mangeable = qui peut être mangé."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Quel est le contraire d'« introverti » ?",
           "options": [
-            "froid",
-            "tiède",
-            "doux"
+            "extraverti",
+            "timide",
+            "discret"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "extraverti",
+          "correction": "Introverti = tourné vers soi ; extraverti = tourné vers les autres."
         }
       ]
     }

@@ -305,338 +305,338 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel animal est un mammifère ?",
+          "prompt": "Un omnivore mange :",
           "options": [
-            "le chien",
-            "l'aigle",
-            "la grenouille",
-            "le serpent"
+            "de la viande et des végétaux",
+            "uniquement de la viande",
+            "uniquement des plantes",
+            "uniquement des insectes"
           ],
-          "answer": "le chien",
-          "correction": "Le chien est un mammifère.",
-          "prompt_nl": "Welk dier is een zoogdier?",
-          "prompt_en": "Which animal is a mammal?",
-          "prompt_es": "Que animal es un mamifero?",
+          "answer": "de la viande et des végétaux",
+          "correction": "Un omnivore mange à la fois de la viande et des végétaux.",
+          "prompt_nl": "Een omnivoor eet:",
+          "prompt_en": "An omnivore eats:",
+          "prompt_es": "Un omnivoro come:",
           "options_i18n": {
             "nl": [
-              "de hond",
-              "de arend",
-              "de kikker",
-              "de slang"
+              "vlees en groenten",
+              "alleen vlees",
+              "alleen planten",
+              "alleen insecten"
             ],
             "en": [
-              "the dog",
-              "the eagle",
-              "the frog",
-              "the snake"
+              "meat and plants",
+              "only meat",
+              "only plants",
+              "only insects"
             ],
             "es": [
-              "el perro",
-              "el aguila",
-              "la rana",
-              "la serpiente"
+              "carne y vegetales",
+              "solo carne",
+              "solo plantas",
+              "solo insectos"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "La chenille se transforme en :",
+          "options": [
+            "un papillon",
+            "une fourmi",
+            "une abeille",
+            "un ver"
+          ],
+          "answer": "un papillon",
+          "correction": "La chenille se transforme en papillon : c'est la métamorphose.",
+          "prompt_nl": "De rups verandert in:",
+          "prompt_en": "The caterpillar transforms into:",
+          "prompt_es": "La oruga se transforma en:",
+          "options_i18n": {
+            "nl": [
+              "een vlinder",
+              "een mier",
+              "een bij",
+              "een worm"
+            ],
+            "en": [
+              "a butterfly",
+              "an ant",
+              "a bee",
+              "a worm"
+            ],
+            "es": [
+              "una mariposa",
+              "una hormiga",
+              "una abeja",
+              "un gusano"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Le têtard se transforme en :",
+          "options": [
+            "une grenouille",
+            "un poisson",
+            "un lézard",
+            "un serpent"
+          ],
+          "answer": "une grenouille",
+          "correction": "Le têtard se transforme en grenouille par métamorphose.",
+          "prompt_nl": "Het kikkervisje verandert in:",
+          "prompt_en": "The tadpole transforms into:",
+          "prompt_es": "El renacuajo se transforma en:",
+          "options_i18n": {
+            "nl": [
+              "een kikker",
+              "een vis",
+              "een hagedis",
+              "een slang"
+            ],
+            "en": [
+              "a frog",
+              "a fish",
+              "a lizard",
+              "a snake"
+            ],
+            "es": [
+              "una rana",
+              "un pez",
+              "un lagarto",
+              "una serpiente"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Avec quoi respire-t-on ?",
+          "prompt": "Quel animal est un reptile ?",
           "options": [
-            "les poumons",
-            "l'estomac",
-            "le foie",
-            "les reins"
+            "le serpent",
+            "le dauphin",
+            "la grenouille",
+            "le hibou"
           ],
-          "answer": "les poumons",
-          "correction": "On respire avec les poumons.",
-          "prompt_nl": "Waarmee ademen we?",
-          "prompt_en": "What do we breathe with?",
-          "prompt_es": "Con que respiramos?",
+          "answer": "le serpent",
+          "correction": "Le serpent est un reptile : il a des écailles et est à sang froid.",
+          "prompt_nl": "Welk dier is een reptiel?",
+          "prompt_en": "Which animal is a reptile?",
+          "prompt_es": "Que animal es un reptil?",
           "options_i18n": {
             "nl": [
-              "de longen",
-              "de maag",
-              "de lever",
-              "de nieren"
+              "de slang",
+              "de dolfijn",
+              "de kikker",
+              "de uil"
             ],
             "en": [
-              "the lungs",
-              "the stomach",
-              "the liver",
-              "the kidneys"
+              "the snake",
+              "the dolphin",
+              "the frog",
+              "the owl"
             ],
             "es": [
-              "los pulmones",
-              "el estomago",
-              "el higado",
-              "los rinones"
+              "la serpiente",
+              "el delfin",
+              "la rana",
+              "el buho"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quel est le rôle des feuilles ?",
+          "options": [
+            "capter la lumière du Soleil",
+            "absorber l'eau du sol",
+            "produire des graines",
+            "ancrer la plante"
+          ],
+          "answer": "capter la lumière du Soleil",
+          "correction": "Les feuilles captent la lumière du Soleil pour réaliser la photosynthèse.",
+          "prompt_nl": "Wat is de rol van de bladeren?",
+          "prompt_en": "What is the role of leaves?",
+          "prompt_es": "Cual es la funcion de las hojas?",
+          "options_i18n": {
+            "nl": [
+              "zonlicht opvangen",
+              "water opnemen",
+              "zaden produceren",
+              "de plant verankeren"
+            ],
+            "en": [
+              "capture sunlight",
+              "absorb water",
+              "produce seeds",
+              "anchor the plant"
+            ],
+            "es": [
+              "captar la luz solar",
+              "absorber agua",
+              "producir semillas",
+              "anclar la planta"
             ]
           }
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "Les plantes produisent de l'oxygène.",
-          "answer": true,
-          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse.",
-          "prompt_nl": "Planten produceren zuurstof.",
-          "prompt_en": "Plants produce oxygen.",
-          "prompt_es": "Las plantas producen oxigeno."
+          "type": "mcq",
+          "prompt": "Quel organe digère les aliments ?",
+          "options": [
+            "l'estomac",
+            "le cœur",
+            "les poumons",
+            "le cerveau"
+          ],
+          "answer": "l'estomac",
+          "correction": "L'estomac digère les aliments.",
+          "prompt_nl": "Welk orgaan verteert het voedsel?",
+          "prompt_en": "Which organ digests food?",
+          "prompt_es": "Que organo digiere los alimentos?",
+          "options_i18n": {
+            "nl": [
+              "de maag",
+              "het hart",
+              "de longen",
+              "de hersenen"
+            ],
+            "en": [
+              "the stomach",
+              "the heart",
+              "the lungs",
+              "the brain"
+            ],
+            "es": [
+              "el estomago",
+              "el corazon",
+              "los pulmones",
+              "el cerebro"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Combien de planètes y a-t-il dans le système solaire ?",
+          "options": [
+            "8",
+            "9",
+            "7",
+            "10"
+          ],
+          "answer": "8",
+          "correction": "Il y a 8 planètes dans le système solaire.",
+          "prompt_nl": "Hoeveel planeten zijn er in het zonnestelsel?",
+          "prompt_en": "How many planets are in the solar system?",
+          "prompt_es": "Cuantas planetas hay en el sistema solar?",
+          "options_i18n": {
+            "nl": [
+              "8",
+              "9",
+              "7",
+              "10"
+            ],
+            "en": [
+              "8",
+              "9",
+              "7",
+              "10"
+            ],
+            "es": [
+              "8",
+              "9",
+              "7",
+              "10"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Un carnivore mange :",
+          "prompt": "La Lune tourne autour de :",
           "options": [
-            "de la viande",
-            "des plantes",
-            "des fruits",
-            "des graines"
+            "la Terre",
+            "le Soleil",
+            "Mars",
+            "Saturne"
           ],
-          "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande.",
-          "prompt_nl": "Een carnivoor eet:",
-          "prompt_en": "A carnivore eats:",
-          "prompt_es": "Un carnivoro come:",
+          "answer": "la Terre",
+          "correction": "La Lune est le satellite naturel de la Terre.",
+          "prompt_nl": "De Maan draait om:",
+          "prompt_en": "The Moon revolves around:",
+          "prompt_es": "La Luna gira alrededor de:",
           "options_i18n": {
             "nl": [
-              "vlees",
-              "planten",
-              "fruit",
-              "zaden"
+              "de Aarde",
+              "de Zon",
+              "Mars",
+              "Saturnus"
             ],
             "en": [
-              "meat",
-              "plants",
-              "fruit",
-              "seeds"
+              "the Earth",
+              "the Sun",
+              "Mars",
+              "Saturn"
             ],
             "es": [
-              "carne",
-              "plantas",
-              "fruta",
-              "semillas"
+              "la Tierra",
+              "el Sol",
+              "Marte",
+              "Saturno"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Quel animal est un amphibien ?",
+          "options": [
+            "la grenouille",
+            "le serpent",
+            "le dauphin",
+            "le pigeon"
+          ],
+          "answer": "la grenouille",
+          "correction": "La grenouille est un amphibien : elle vit sur terre et dans l'eau.",
+          "prompt_nl": "Welk dier is een amfibie?",
+          "prompt_en": "Which animal is an amphibian?",
+          "prompt_es": "Que animal es un anfibio?",
+          "options_i18n": {
+            "nl": [
+              "de kikker",
+              "de slang",
+              "de dolfijn",
+              "de duif"
+            ],
+            "en": [
+              "the frog",
+              "the snake",
+              "the dolphin",
+              "the pigeon"
+            ],
+            "es": [
+              "la rana",
+              "la serpiente",
+              "el delfin",
+              "el palomo"
             ]
           }
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Qu'est-ce qu'un vertébré ?",
-          "options": [
-            "un animal avec une colonne vertébrale",
-            "un animal avec 6 pattes",
-            "un animal qui vole",
-            "un animal aquatique"
-          ],
-          "answer": "un animal avec une colonne vertébrale",
-          "correction": "Un vertébré a une colonne vertébrale.",
-          "prompt_nl": "Wat is een gewerveld dier?",
-          "prompt_en": "What is a vertebrate?",
-          "prompt_es": "Que es un vertebrado?",
-          "options_i18n": {
-            "nl": [
-              "een dier met een wervelkolom",
-              "een dier met 6 poten",
-              "een dier dat vliegt",
-              "een waterlevend dier"
-            ],
-            "en": [
-              "an animal with a backbone",
-              "an animal with 6 legs",
-              "an animal that flies",
-              "an aquatic animal"
-            ],
-            "es": [
-              "un animal con columna vertebral",
-              "un animal con 6 patas",
-              "un animal que vuela",
-              "un animal acuatico"
-            ]
-          }
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel est le rôle des racines d'une plante ?",
-          "options": [
-            "absorber l'eau",
-            "faire la photosynthèse",
-            "produire des graines",
-            "attirer les insectes"
-          ],
-          "answer": "absorber l'eau",
-          "correction": "Les racines absorbent l'eau du sol.",
-          "prompt_nl": "Wat is de rol van de wortels van een plant?",
-          "prompt_en": "What is the role of a plant's roots?",
-          "prompt_es": "Cual es la funcion de las raices de una planta?",
-          "options_i18n": {
-            "nl": [
-              "water opnemen",
-              "fotosynthese doen",
-              "zaden produceren",
-              "insecten aantrekken"
-            ],
-            "en": [
-              "absorb water",
-              "do photosynthesis",
-              "produce seeds",
-              "attract insects"
-            ],
-            "es": [
-              "absorber agua",
-              "hacer fotosintesis",
-              "producir semillas",
-              "atraer insectos"
-            ]
-          }
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel organe pompe le sang dans le corps ?",
-          "options": [
-            "le cœur",
-            "le poumon",
-            "le cerveau",
-            "l'estomac"
-          ],
-          "answer": "le cœur",
-          "correction": "Le cœur pompe le sang.",
-          "prompt_nl": "Welk orgaan pompt het bloed door het lichaam?",
-          "prompt_en": "Which organ pumps blood through the body?",
-          "prompt_es": "Que organo bombea la sangre por el cuerpo?",
-          "options_i18n": {
-            "nl": [
-              "het hart",
-              "de long",
-              "de hersenen",
-              "de maag"
-            ],
-            "en": [
-              "the heart",
-              "the lung",
-              "the brain",
-              "the stomach"
-            ],
-            "es": [
-              "el corazon",
-              "el pulmon",
-              "el cerebro",
-              "el estomago"
-            ]
-          }
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
-          "options": [
-            "la Lune",
-            "le Soleil",
-            "Mars",
-            "Jupiter"
-          ],
-          "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
-          "options_i18n": {
-            "nl": [
-              "de Maan",
-              "de Zon",
-              "Mars",
-              "Jupiter"
-            ],
-            "en": [
-              "the Moon",
-              "the Sun",
-              "Mars",
-              "Jupiter"
-            ],
-            "es": [
-              "la Luna",
-              "el Sol",
-              "Marte",
-              "Jupiter"
-            ]
-          }
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Les plantes ont besoin de :",
-          "options": [
-            "lumière, eau et terre",
-            "chocolat et lait",
-            "froid et obscurité",
-            "sable et sel"
-          ],
-          "answer": "lumière, eau et terre",
-          "correction": "Les plantes ont besoin de lumière, eau et terre.",
-          "prompt_nl": "Planten hebben nodig:",
-          "prompt_en": "Plants need:",
-          "prompt_es": "Las plantas necesitan:",
-          "options_i18n": {
-            "nl": [
-              "licht, water en aarde",
-              "chocolade en melk",
-              "kou en duisternis",
-              "zand en zout"
-            ],
-            "en": [
-              "light, water and soil",
-              "chocolate and milk",
-              "cold and darkness",
-              "sand and salt"
-            ],
-            "es": [
-              "luz, agua y tierra",
-              "chocolate y leche",
-              "frio y oscuridad",
-              "arena y sal"
-            ]
-          }
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "La photosynthèse est réalisée par :",
-          "options": [
-            "les plantes",
-            "les animaux",
-            "les champignons",
-            "les pierres"
-          ],
-          "answer": "les plantes",
-          "correction": "Les plantes font la photosynthèse.",
-          "prompt_nl": "Fotosynthese wordt uitgevoerd door:",
-          "prompt_en": "Photosynthesis is carried out by:",
-          "prompt_es": "La fotosintesis la realizan:",
-          "options_i18n": {
-            "nl": [
-              "de planten",
-              "de dieren",
-              "de schimmels",
-              "de stenen"
-            ],
-            "en": [
-              "plants",
-              "animals",
-              "fungi",
-              "stones"
-            ],
-            "es": [
-              "las plantas",
-              "los animales",
-              "los hongos",
-              "las piedras"
-            ]
-          }
+          "type": "true_false",
+          "prompt": "Les baleines sont des mammifères.",
+          "answer": true,
+          "correction": "La baleine est un mammifère marin qui allaite ses petits.",
+          "prompt_nl": "Walvissen zijn zoogdieren.",
+          "prompt_en": "Whales are mammals.",
+          "prompt_es": "Las ballenas son mamiferos."
         }
       ]
     },

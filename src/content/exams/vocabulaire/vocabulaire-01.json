@@ -113,124 +113,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "triste",
-            "content",
-            "joyeux"
-          ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
-          "options": [
-            "petit",
-            "gros",
-            "haut"
-          ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
-          "options": [
-            "fermé",
-            "grand",
-            "vide"
-          ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
-          "options": [
-            "fin",
-            "milieu",
-            "suite"
-          ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
-          "options": [
-            "jeune",
-            "gros",
+            "rapide",
+            "fort",
             "grand"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q14",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q16",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q18",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
         },
         {
-          "id": "q20",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "pas",
+            "très",
+            "bien"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
+            "dormir"
+          ],
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },
@@ -240,122 +240,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Quel est le sens de « péjoratif » ?",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "qui déprécie, donne un sens négatif",
+            "qui amplifie le sens",
+            "qui est neutre"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "qui déprécie, donne un sens négatif",
+          "correction": "Un terme péjoratif exprime une connotation négative ou méprisante."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Un mot « polysémique » est un mot qui :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "a plusieurs sens",
+            "n'a aucun sens",
+            "est inventé"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "a plusieurs sens",
+          "correction": "La polysémie = plusieurs significations pour un même mot."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Quel est le registre de langue de « bouquin » ?",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "familier",
+            "soutenu",
+            "scientifique"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "familier",
+          "correction": "« Bouquin » est un synonyme familier de « livre »."
         },
         {
           "id": "q8",
-          "type": "mcq",
-          "prompt": "Une couleur :",
-          "options": [
-            "rouge",
-            "pomme",
-            "table"
+          "type": "fill_blank",
+          "prompt": "La famille de mots de « chanter » inclut : chanteur, chanson, ___ .",
+          "answer": "chant",
+          "accept": [
+            "chant"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "correction": "« Chant » est un nom dérivé du verbe chanter."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Dans « Il avale ses mots », l'expression est :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "au sens figuré",
+            "au sens propre",
+            "un néologisme"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "au sens figuré",
+          "correction": "Avaler ses mots = parler peu distinctement (sens figuré)."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Quel préfixe signifie « contre » ?",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "contre- / anti-",
+            "pro-",
+            "inter-"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "contre- / anti-",
+          "correction": "Ex. : contredire, anticonstitutionnel."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme du mot « intrépide » est :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "courageux",
+            "timide",
+            "paresseux"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "courageux",
+          "correction": "Intrépide = qui ne ressent pas la peur, courageux."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Quel est le contraire de « prolixe » ?",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "laconique",
+            "bavard",
+            "éloquent"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "laconique",
+          "correction": "Prolixe = trop long ; laconique = bref, concis."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Le suffixe « -logie » désigne :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "la science, l'étude de",
+            "l'action de",
+            "la personne qui"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "la science, l'étude de",
+          "correction": "Ex. : biologie = étude du vivant."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Dans « Il fait la pluie et le beau temps », cette expression signifie :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "il a beaucoup d'influence",
+            "il parle souvent de météo",
+            "il voyage beaucoup"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "il a beaucoup d'influence",
+          "correction": "Faire la pluie et le beau temps = décider de tout, avoir le pouvoir."
         }
       ]
     }

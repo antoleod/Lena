@@ -107,116 +107,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
+            "noisette",
+            "noizette",
+            "noisète"
           ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
+          "answer": "noisette",
+          "correction": "On écrit « noisette » avec « ois » et deux « t »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : bico_ne",
+          "answer": "r",
+          "accept": [
+            "r"
+          ],
+          "correction": "On écrit « bicorne » avec un « r »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "poussin",
+            "pousin",
+            "poussain"
+          ],
+          "answer": "poussin",
+          "correction": "On écrit « poussin » avec deux « s »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "grenouille",
+            "grenoille",
+            "grénouille"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "grenouille",
+          "correction": "On écrit « grenouille » sans accent."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « raquette » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « raquette » s'écrit avec deux « t »."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fille",
-            "file",
-            "fiye"
+          "type": "fill_blank",
+          "prompt": "Complète le mot : réve_l",
+          "answer": "i",
+          "accept": [
+            "i"
           ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "correction": "On écrit « réveil » avec « eil »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "mercredi",
+            "mercredy",
+            "mercrdi"
+          ],
+          "answer": "mercredi",
+          "correction": "On écrit « mercredi » avec « edi » à la fin."
         },
         {
           "id": "q8",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "grotte",
+            "grote",
+            "grôte"
+          ],
+          "answer": "grotte",
+          "correction": "On écrit « grotte » avec deux « t »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « brouette » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « brouette » s'écrit avec deux « t »."
+        },
+        {
+          "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
+          "prompt": "Complète le mot : ca_eau",
           "answer": "d",
           "accept": [
             "d"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "garcon",
-            "garçon",
-            "garson"
-          ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "bateau",
-            "batau",
-            "bato"
-          ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
-          "answer": "e",
-          "accept": [
-            "e"
-          ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "tableau",
-            "tablau",
-            "tableo"
-          ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
-          "accept": [
-            "a"
-          ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "correction": "On écrit « cadeau » avec un « d »."
         }
       ]
     },
@@ -226,114 +218,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient une double consonne « tt » ?",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "raquette",
+            "jardin",
+            "voiture"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "raquette",
+          "correction": "Raquette s'écrit avec deux « t » : r-a-q-u-e-t-t-e."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "brouette",
+            "brouete",
+            "jardin"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "brouete",
+          "correction": "Le mot correct est « brouette » avec deux « t » : b-r-o-u-e-t-t-e."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Le soleil se ___ .",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "réveil",
+            "réveille",
+            "réveile"
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "réveille",
+          "correction": "Réveille s'écrit r-é-v-e-i-l-l-e."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « eau » ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "cadeau",
+            "chat",
+            "jardin"
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "cadeau",
+          "correction": "Cadeau s'écrit c-a-d-e-a-u."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Identifie le mot correctement orthographié :",
+          "options": [
+            "bicorne",
+            "bicone",
+            "biscorne"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "bicorne",
+          "correction": "Bicorne (chapeau à deux cornes) s'écrit b-i-c-o-r-n-e."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot a un accent aigu ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "réveil",
+            "voiture",
+            "jardin"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "réveil",
+          "correction": "Réveil s'écrit r-é-v-e-i-l avec un accent aigu sur le « e »."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « qu » ?",
+          "options": [
+            "raquette",
+            "jardin",
+            "voiture"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "raquette",
+          "correction": "Raquette s'écrit r-a-q-u-e-t-t-e avec « qu »."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "La brouette est dans le jardin.",
+            "La brouete est dans le jardin.",
+            "La brouette est dans le gardin."
           ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "answer": "La brouette est dans le jardin.",
+          "correction": "Brouette = deux « t », jardin = j-a-r-d-i-n."
         },
         {
           "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quel mot contient le son [j] écrit « ill » ?",
+          "options": [
+            "réveille",
+            "raquette",
+            "brouette"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "réveille",
+          "correction": "Réveille contient « ill » qui fait le son [j] : r-é-v-e-i-l-l-e."
         },
         {
           "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Quel mot est mal orthographié ?",
+          "options": [
+            "jardin",
+            "raquete",
+            "brouette"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "raquete",
+          "correction": "Le mot correct est « raquette » avec deux « t »."
         }
       ]
     }

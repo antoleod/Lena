@@ -99,112 +99,108 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "framboise",
+            "framboize",
+            "framboise"
+          ],
+          "answer": "framboise",
+          "correction": "On écrit « framboise » avec un « s »."
+        },
+        {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
+          "prompt": "Complète le mot : cour_ette",
+          "answer": "g",
           "accept": [
-            "d"
+            "g"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "correction": "On écrit « courgette » avec un « g »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "camion",
+            "kamion",
+            "camyon"
+          ],
+          "answer": "camion",
+          "correction": "On écrit « camion » avec « cam »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "toboggan",
+            "tobogane",
+            "toboggane"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "toboggan",
+          "correction": "On écrit « toboggan » avec deux « g »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « cycliste » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « cycliste » s'écrit avec un « y »."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
-          ],
-          "correction": "On écrit « maison » (lettre « a »)."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
-          "accept": [
-            "a"
-          ],
-          "correction": "On écrit « chat » (lettre « a »)."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
-          ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
+          "prompt": "Complète le mot : man_teau",
           "answer": "e",
           "accept": [
             "e"
           ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
+          "correction": "On écrit « manteau » avec « eau »."
         },
         {
-          "id": "q16",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "clavier",
+            "clavié",
+            "clavierre"
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "clavier",
+          "correction": "On écrit « clavier » avec « ier »."
         },
         {
-          "id": "q18",
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "tempête",
+            "tempete",
+            "tenpête"
+          ],
+          "answer": "tempête",
+          "correction": "On écrit « tempête » avec un accent circonflexe sur le « ê »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « chapeau » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « chapeau » s'écrit bien ainsi."
+        },
+        {
+          "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
+          "prompt": "Complète le mot : esca_ier",
+          "answer": "l",
           "accept": [
-            "b"
+            "l"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
-          ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "correction": "On écrit « escalier » avec un « l »."
         }
       ]
     },
@@ -214,120 +210,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « tt » ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "courgette",
+            "chapeau",
+            "oiseau"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "courgette",
+          "correction": "Courgette s'écrit c-o-u-r-g-e-t-t-e avec deux « t »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "cycliste",
+            "cyclist",
+            "chapeau"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "cyclist",
+          "correction": "Le mot correct est « cycliste » : c-y-c-l-i-s-t-e."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Elle descend par l'___ .",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "escalier",
+            "escalie",
+            "escallier"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "escalier",
+          "correction": "Escalier s'écrit e-s-c-a-l-i-e-r."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « eau » ?",
           "options": [
-            "ballon",
-            "balon",
-            "baloon"
+            "manteau",
+            "cycliste",
+            "courgette"
           ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "answer": "manteau",
+          "correction": "Manteau s'écrit m-a-n-t-e-a-u."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Identifie la faute :",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "chapeau",
+            "chapo",
+            "courgette"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "chapo",
+          "correction": "Le mot correct est « chapeau » : c-h-a-p-e-a-u."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot a « y » dans sa composition ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "cycliste",
+            "manteau",
+            "oiseau"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "cycliste",
+          "correction": "Cycliste s'écrit c-y-c-l-i-s-t-e avec un « y »."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « ou » ?",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "courgette",
+            "chapeau",
+            "escalier"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "courgette",
+          "correction": "Courgette contient « ou » : c-ou-r-g-e-t-t-e."
         },
         {
           "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "options": [
+            "Le cycliste monte l'escalier.",
+            "Le cycliste monte l'escalie.",
+            "Le cyckliste monte l'escalier."
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "Le cycliste monte l'escalier.",
+          "correction": "Cycliste = y, escalier = e-s-c-a-l-i-e-r."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -ier » ?",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "escalier",
+            "manteau",
+            "chapeau"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "escalier",
+          "correction": "Escalier se termine par « -ier » : e-s-c-a-l-i-e-r."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "manteau",
+            "mantaux",
+            "chapeau"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "mantaux",
+          "correction": "Le pluriel de manteau est « manteaux », mais « mantaux » n'existe pas. Manteau = m-a-n-t-e-a-u."
         }
       ]
     }

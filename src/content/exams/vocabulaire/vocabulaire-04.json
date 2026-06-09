@@ -113,122 +113,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "rapide",
+            "fort",
+            "grand"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "discuter",
-            "courir",
+            "joyeux",
+            "calme",
+            "peureux"
+          ],
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Un synonyme de « chercher » :",
+          "options": [
+            "rechercher",
+            "trouver",
+            "perdre"
+          ],
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "options": [
+            "pas",
+            "très",
+            "bien"
+          ],
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
             "dormir"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
-          "options": [
-            "triste",
-            "content",
-            "joyeux"
-          ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
-          "options": [
-            "nuit",
-            "soir",
-            "matin"
-          ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
-          "options": [
-            "sale",
-            "mouillé",
-            "neuf"
-          ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le contraire de « long » :",
-          "options": [
-            "court",
-            "large",
-            "fin"
-          ],
-          "answer": "court",
-          "correction": "long ↔ court."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Un animal de la ferme :",
-          "options": [
-            "vache",
-            "lion",
-            "requin"
-          ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
-          ],
-          "correction": "monter ↔ descendre."
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },

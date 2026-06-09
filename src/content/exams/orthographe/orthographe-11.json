@@ -107,118 +107,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "corbeau",
+            "corbau",
+            "corbeaux"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "corbeau",
+          "correction": "On écrit « corbeau » (singulier) avec « eau »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : vac_nces",
+          "answer": "a",
+          "accept": [
+            "a"
+          ],
+          "correction": "On écrit « vacances » avec « ances »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "parapluie",
+            "parapluye",
+            "paraplui"
+          ],
+          "answer": "parapluie",
+          "correction": "On écrit « parapluie » avec « ie » à la fin."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "quartier",
+            "cartier",
+            "quarrtier"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "quartier",
+          "correction": "On écrit « quartier » avec « qu »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « hirondelle » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « hirondelle » s'écrit avec un « h » muet et deux « l »."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+          "type": "fill_blank",
+          "prompt": "Complète le mot : gen_arme",
+          "answer": "d",
+          "accept": [
+            "d"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "correction": "On écrit « gendarme » avec un « d »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "chameau",
+            "chamau",
+            "chameauz"
+          ],
+          "answer": "chameau",
+          "correction": "On écrit « chameau » avec « eau »."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "couverture",
+            "cuverture",
+            "couvèrture"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "couverture",
+          "correction": "On écrit « couverture » avec « ouv » et sans accent."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « pétale » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « pétale » s'écrit avec un accent aigu sur le « é »."
         },
         {
           "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
+          "prompt": "Complète le mot : mus_que",
+          "answer": "i",
           "accept": [
-            "u"
+            "i"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maison",
-            "mayson",
-            "mèson"
-          ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
-          "accept": [
-            "e"
-          ],
-          "correction": "On écrit « soleil » (lettre « e »)."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
-          ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "ballon",
-            "balon",
-            "baloon"
-          ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "correction": "On écrit « musique » avec un « i »."
         }
       ]
     },
@@ -227,113 +217,123 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Quel mot contient une double consonne « ll » ?",
+          "options": [
+            "hirondelle",
+            "vacances",
+            "voiture"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "hirondelle",
+          "correction": "Hirondelle s'écrit h-i-r-o-n-d-e-l-l-e avec deux « l »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
+          "options": [
+            "gendarme",
+            "gendarme",
+            "petale"
           ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
+          "answer": "petale",
+          "correction": "Le mot correct est « pétale » avec accent : p-é-t-a-l-e."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Elle joue de la ___ .",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "musique",
+            "musique",
+            "muzique"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "musique",
+          "correction": "Musique s'écrit m-u-s-i-q-u-e."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « an » ?",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "vacances",
+            "hirondelle",
+            "livre"
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
+          "answer": "vacances",
+          "correction": "Vacances s'écrit v-a-c-a-n-c-e-s."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Identifie la faute :",
+          "options": [
+            "hirondelle",
+            "hyrondelle",
+            "vacances"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "hyrondelle",
+          "correction": "Le mot correct est « hirondelle » : h-i-r-o-n-d-e-l-l-e."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quel mot a un accent aigu ?",
+          "options": [
+            "pétale",
+            "vacances",
+            "musique"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "pétale",
+          "correction": "Pétale s'écrit p-é-t-a-l-e avec un accent aigu."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « qu » ?",
+          "options": [
+            "musique",
+            "hirondelle",
+            "vacances"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "musique",
+          "correction": "Musique s'écrit avec « qu » : m-u-s-i-q-u-e."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "L'hirondelle chante une belle musique.",
+            "L'hirondele chante une belle musique.",
+            "L'hirondelle chante une belle muzique."
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "L'hirondelle chante une belle musique.",
+          "correction": "Hirondelle = deux l, musique = qu."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « on » ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "hirondelle",
+            "musique",
+            "pétale"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "hirondelle",
+          "correction": "Hirondelle contient « on » : h-i-r-on-d-e-l-l-e."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "gendarme",
+            "gendharme",
+            "musique"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "gendharme",
+          "correction": "Le mot correct est « gendarme » : g-e-n-d-a-r-m-e."
         }
       ]
     }

@@ -152,135 +152,120 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "9 × 7 = ?",
+          "prompt": "9 × ___ = 9",
           "options": [
-            "71",
-            "57",
-            "63",
-            "68"
+            "3",
+            "4",
+            "1",
+            "2"
           ],
-          "answer": "63",
-          "correction": "9 × 7 = 63.",
-          "prompt_nl": "9 × 7 = ?",
-          "prompt_en": "9 × 7 = ?",
-          "prompt_es": "9 × 7 = ?"
+          "answer": "1",
+          "correction": "9 × 1 = 9, donc ___ = 1."
         },
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "9 × 2 = ___",
-          "answer": "18",
-          "correction": "9 × 2 = 18."
+          "type": "mcq",
+          "prompt": "9 ÷ 9 = ?",
+          "options": [
+            "4",
+            "3",
+            "2",
+            "1"
+          ],
+          "answer": "1",
+          "correction": "9 ÷ 9 = 1."
         },
         {
           "id": "q3",
-          "type": "mcq",
-          "prompt": "9 × 5 = ?",
-          "options": [
-            "52",
-            "38",
-            "45",
-            "37"
-          ],
-          "answer": "45",
-          "correction": "9 × 5 = 45.",
-          "prompt_nl": "9 × 5 = ?",
-          "prompt_en": "9 × 5 = ?",
-          "prompt_es": "9 × 5 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 9 = 9",
+          "answer": "1",
+          "correction": "1 × 9 = 9, donc ___ = 1."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "9 × 6 = ?",
+          "prompt": "9 × ___ = 36",
           "options": [
-            "50",
-            "58",
-            "53",
-            "54"
+            "5",
+            "4",
+            "6",
+            "3"
           ],
-          "answer": "54",
-          "correction": "9 × 6 = 54.",
-          "prompt_nl": "9 × 6 = ?",
-          "prompt_en": "9 × 6 = ?",
-          "prompt_es": "9 × 6 = ?"
+          "answer": "4",
+          "correction": "9 × 4 = 36, donc ___ = 4."
         },
         {
           "id": "q5",
-          "type": "fill_blank",
-          "prompt": "9 × 8 = ___",
-          "answer": "72",
-          "correction": "9 × 8 = 72."
+          "type": "mcq",
+          "prompt": "36 ÷ 9 = ?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "3"
+          ],
+          "answer": "4",
+          "correction": "36 ÷ 9 = 4."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "9 × 8 = ?",
+          "prompt": "Tu as 9 groupes de 4 élèves. Combien au total ?",
           "options": [
-            "75",
-            "78",
-            "72",
-            "79"
+            "40",
+            "45",
+            "36",
+            "32"
           ],
-          "answer": "72",
-          "correction": "9 × 8 = 72.",
-          "prompt_nl": "9 × 8 = ?",
-          "prompt_en": "9 × 8 = ?",
-          "prompt_es": "9 × 8 = ?"
+          "answer": "36",
+          "correction": "9 × 4 = 36 élèves au total."
         },
         {
           "id": "q7",
-          "type": "mcq",
-          "prompt": "9 × 8 = ?",
-          "options": [
-            "72",
-            "80",
-            "69",
-            "70"
-          ],
-          "answer": "72",
-          "correction": "9 × 8 = 72.",
-          "prompt_nl": "9 × 8 = ?",
-          "prompt_en": "9 × 8 = ?",
-          "prompt_es": "9 × 8 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 9 = 36",
+          "answer": "4",
+          "correction": "4 × 9 = 36, donc ___ = 4."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "9 × 4 = ___",
-          "answer": "36",
-          "correction": "9 × 4 = 36."
+          "type": "mcq",
+          "prompt": "9 × ___ = 45",
+          "options": [
+            "4",
+            "7",
+            "5",
+            "6"
+          ],
+          "answer": "5",
+          "correction": "9 × 5 = 45, donc ___ = 5."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "9 × 1 = ?",
+          "prompt": "45 ÷ 9 = ?",
           "options": [
-            "2",
-            "16",
-            "9",
-            "17"
+            "5",
+            "4",
+            "6",
+            "7"
           ],
-          "answer": "9",
-          "correction": "9 × 1 = 9.",
-          "prompt_nl": "9 × 1 = ?",
-          "prompt_en": "9 × 1 = ?",
-          "prompt_es": "9 × 1 = ?"
+          "answer": "5",
+          "correction": "45 ÷ 9 = 5."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "9 × 6 = ?",
+          "prompt": "Tu as 9 groupes de 5 élèves. Combien au total ?",
           "options": [
-            "62",
             "54",
-            "56",
-            "58"
+            "45",
+            "40",
+            "50"
           ],
-          "answer": "54",
-          "correction": "9 × 6 = 54.",
-          "prompt_nl": "9 × 6 = ?",
-          "prompt_en": "9 × 6 = ?",
-          "prompt_es": "9 × 6 = ?"
+          "answer": "45",
+          "correction": "9 × 5 = 45 élèves au total."
         }
       ]
     },
@@ -288,137 +273,104 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
-          "type": "mcq",
-          "prompt": "9 × 3 = ?",
-          "options": [
-            "33",
-            "23",
-            "26",
-            "27"
-          ],
-          "answer": "27",
-          "correction": "9 × 3 = 27.",
-          "prompt_nl": "9 × 3 = ?",
-          "prompt_en": "9 × 3 = ?",
-          "prompt_es": "9 × 3 = ?"
-        },
-        {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "9 × 9 = ___",
-          "answer": "81",
-          "correction": "9 × 9 = 81."
-        },
-        {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "9 × 1 = ?",
-          "options": [
-            "18",
-            "12",
-            "4",
-            "9"
-          ],
-          "answer": "9",
-          "correction": "9 × 1 = 9.",
-          "prompt_nl": "9 × 1 = ?",
-          "prompt_en": "9 × 1 = ?",
-          "prompt_es": "9 × 1 = ?"
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "9 × 5 = ?",
-          "options": [
-            "49",
-            "39",
-            "36",
-            "45"
-          ],
-          "answer": "45",
-          "correction": "9 × 5 = 45.",
-          "prompt_nl": "9 × 5 = ?",
-          "prompt_en": "9 × 5 = ?",
-          "prompt_es": "9 × 5 = ?"
-        },
-        {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "9 × 6 = ___",
+          "prompt": "9 × 6 = ?",
           "answer": "54",
+          "accept": [
+            "54"
+          ],
           "correction": "9 × 6 = 54."
         },
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "9 × 1 = ?",
-          "options": [
-            "11",
-            "13",
-            "17",
-            "9"
+          "id": "q4",
+          "type": "fill_blank",
+          "prompt": "9 × 7 + 9 = ?",
+          "answer": "72",
+          "accept": [
+            "72"
           ],
-          "answer": "9",
-          "correction": "9 × 1 = 9.",
-          "prompt_nl": "9 × 1 = ?",
-          "prompt_en": "9 × 1 = ?",
-          "prompt_es": "9 × 1 = ?"
+          "correction": "9×7=63, 63+9=72."
         },
         {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "9 × 3 = ?",
-          "options": [
-            "25",
-            "27",
-            "22",
-            "36"
+          "id": "q6",
+          "type": "fill_blank",
+          "prompt": "Une pieuvre a 9 tentacules (erreur courante — en réalité 8, mais dans ce problème : 9). Combien pour 7 pieuvres fictives ?",
+          "answer": "63",
+          "accept": [
+            "63"
           ],
-          "answer": "27",
-          "correction": "9 × 3 = 27.",
-          "prompt_nl": "9 × 3 = ?",
-          "prompt_en": "9 × 3 = ?",
-          "prompt_es": "9 × 3 = ?"
+          "correction": "7 × 9 = 63 tentacules."
         },
         {
           "id": "q8",
           "type": "fill_blank",
-          "prompt": "9 × 7 = ___",
-          "answer": "63",
-          "correction": "9 × 7 = 63."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "9 × 9 = ?",
-          "options": [
-            "86",
-            "81",
-            "85",
-            "79"
+          "prompt": "9 × ___ = 63",
+          "answer": "7",
+          "accept": [
+            "7"
           ],
-          "answer": "81",
-          "correction": "9 × 9 = 81.",
-          "prompt_nl": "9 × 9 = ?",
-          "prompt_en": "9 × 9 = ?",
-          "prompt_es": "9 × 9 = ?"
+          "correction": "63 ÷ 9 = 7."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "9 × 2 = ?",
-          "options": [
-            "21",
-            "24",
-            "23",
-            "18"
+          "type": "fill_blank",
+          "prompt": "9 × 8 = ?",
+          "answer": "72",
+          "accept": [
+            "72"
           ],
-          "answer": "18",
-          "correction": "9 × 2 = 18.",
-          "prompt_nl": "9 × 2 = ?",
-          "prompt_en": "9 × 2 = ?",
-          "prompt_es": "9 × 2 = ?"
+          "correction": "9 × 8 = 72."
+        },
+        {
+          "id": "q12",
+          "type": "fill_blank",
+          "prompt": "9 × 3 + 9 × 3 = ?",
+          "answer": "54",
+          "accept": [
+            "54"
+          ],
+          "correction": "9×3=27, 27+27=54."
+        },
+        {
+          "id": "q14",
+          "type": "fill_blank",
+          "prompt": "Il y a 9 élèves dans 7 groupes. Combien d'élèves au total ?",
+          "answer": "63",
+          "accept": [
+            "63"
+          ],
+          "correction": "9 × 7 = 63 élèves."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "9 × ___ = 81",
+          "answer": "9",
+          "accept": [
+            "9"
+          ],
+          "correction": "9 × 9 = 81."
+        },
+        {
+          "id": "q18",
+          "type": "fill_blank",
+          "prompt": "Astuce : 9 × 6 = (10 × 6) − ___. Quel est le nombre manquant ?",
+          "answer": "6",
+          "accept": [
+            "6"
+          ],
+          "correction": "10×6=60, 60−6=54=9×6. On retire 6."
+        },
+        {
+          "id": "q20",
+          "type": "fill_blank",
+          "prompt": "(9 × 2) × 3 = ?",
+          "answer": "54",
+          "accept": [
+            "54"
+          ],
+          "correction": "9×2=18, 18×3=54."
         }
       ]
     }

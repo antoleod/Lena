@@ -152,135 +152,120 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "4 × 1 = ?",
+          "prompt": "4 × ___ = 8",
           "options": [
             "4",
-            "0",
+            "3",
             "1",
-            "5"
+            "2"
           ],
-          "answer": "4",
-          "correction": "4 × 1 = 4.",
-          "prompt_nl": "4 × 1 = ?",
-          "prompt_en": "4 × 1 = ?",
-          "prompt_es": "4 × 1 = ?"
+          "answer": "2",
+          "correction": "4 × 2 = 8, donc ___ = 2."
         },
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "4 × 7 = ___",
-          "answer": "28",
-          "correction": "4 × 7 = 28."
+          "type": "mcq",
+          "prompt": "8 ÷ 4 = ?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "2",
+          "correction": "8 ÷ 4 = 2."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "4 × 4 = ?",
+          "prompt": "Tu as 4 groupes de 2 élèves. Combien au total ?",
           "options": [
-            "16",
-            "15",
-            "18",
-            "12"
+            "6",
+            "8",
+            "12",
+            "10"
           ],
-          "answer": "16",
-          "correction": "4 × 4 = 16.",
-          "prompt_nl": "4 × 4 = ?",
-          "prompt_en": "4 × 4 = ?",
-          "prompt_es": "4 × 4 = ?"
+          "answer": "8",
+          "correction": "4 × 2 = 8 élèves au total."
         },
         {
           "id": "q4",
-          "type": "mcq",
-          "prompt": "4 × 3 = ?",
-          "options": [
-            "15",
-            "8",
-            "12",
-            "14"
-          ],
-          "answer": "12",
-          "correction": "4 × 3 = 12.",
-          "prompt_nl": "4 × 3 = ?",
-          "prompt_en": "4 × 3 = ?",
-          "prompt_es": "4 × 3 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 4 = 8",
+          "answer": "2",
+          "correction": "2 × 4 = 8, donc ___ = 2."
         },
         {
           "id": "q5",
-          "type": "fill_blank",
-          "prompt": "4 × 4 = ___",
-          "answer": "16",
-          "correction": "4 × 4 = 16."
+          "type": "mcq",
+          "prompt": "4 × ___ = 20",
+          "options": [
+            "7",
+            "5",
+            "6",
+            "4"
+          ],
+          "answer": "5",
+          "correction": "4 × 5 = 20, donc ___ = 5."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "4 × 5 = ?",
+          "prompt": "20 ÷ 4 = ?",
           "options": [
-            "16",
-            "20",
-            "22",
-            "24"
+            "6",
+            "5",
+            "7",
+            "4"
           ],
-          "answer": "20",
-          "correction": "4 × 5 = 20.",
-          "prompt_nl": "4 × 5 = ?",
-          "prompt_en": "4 × 5 = ?",
-          "prompt_es": "4 × 5 = ?"
+          "answer": "5",
+          "correction": "20 ÷ 4 = 5."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "4 × 5 = ?",
+          "prompt": "Tu as 4 groupes de 5 élèves. Combien au total ?",
           "options": [
+            "24",
+            "15",
             "20",
-            "19",
-            "22",
-            "24"
+            "25"
           ],
           "answer": "20",
-          "correction": "4 × 5 = 20.",
-          "prompt_nl": "4 × 5 = ?",
-          "prompt_en": "4 × 5 = ?",
-          "prompt_es": "4 × 5 = ?"
+          "correction": "4 × 5 = 20 élèves au total."
         },
         {
           "id": "q8",
           "type": "fill_blank",
-          "prompt": "4 × 4 = ___",
-          "answer": "16",
-          "correction": "4 × 4 = 16."
+          "prompt": "___ × 4 = 20",
+          "answer": "5",
+          "correction": "5 × 4 = 20, donc ___ = 5."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "4 × 4 = ?",
+          "prompt": "4 × ___ = 4",
           "options": [
-            "15",
-            "13",
-            "18",
-            "16"
+            "3",
+            "4",
+            "1",
+            "2"
           ],
-          "answer": "16",
-          "correction": "4 × 4 = 16.",
-          "prompt_nl": "4 × 4 = ?",
-          "prompt_en": "4 × 4 = ?",
-          "prompt_es": "4 × 4 = ?"
+          "answer": "1",
+          "correction": "4 × 1 = 4, donc ___ = 1."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "4 × 1 = ?",
+          "prompt": "4 ÷ 4 = ?",
           "options": [
-            "3",
             "4",
-            "0",
-            "7"
+            "1",
+            "2",
+            "3"
           ],
-          "answer": "4",
-          "correction": "4 × 1 = 4.",
-          "prompt_nl": "4 × 1 = ?",
-          "prompt_en": "4 × 1 = ?",
-          "prompt_es": "4 × 1 = ?"
+          "answer": "1",
+          "correction": "4 ÷ 4 = 1."
         }
       ]
     },

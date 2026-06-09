@@ -113,124 +113,312 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quel fleuve traverse Paris ?",
+          "options": [
+            "la Seine",
+            "la Loire",
+            "le Rhône",
+            "la Garonne"
+          ],
+          "answer": "la Seine",
+          "correction": "La Seine est le fleuve qui traverse Paris.",
+          "prompt_nl": "Welke rivier stroomt door Parijs?",
+          "prompt_en": "Which river flows through Paris?",
+          "prompt_es": "Que rio atraviesa Paris?",
+          "options_i18n": {
+            "nl": [
+              "de Seine",
+              "de Loire",
+              "de Rhone",
+              "de Garonne"
+            ],
+            "en": [
+              "the Seine",
+              "the Loire",
+              "the Rhône",
+              "the Garonne"
+            ],
+            "es": [
+              "el Sena",
+              "el Loira",
+              "el Rodano",
+              "el Garona"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Dans quelle ville se trouve le Colisée ?",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "Rome",
+            "Athènes",
+            "Paris",
+            "Madrid"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
+          "answer": "Rome",
+          "correction": "Le Colisée est un amphithéâtre antique situé à Rome, en Italie.",
+          "prompt_nl": "In welke stad staat het Colosseum?",
+          "prompt_en": "In which city is the Colosseum?",
+          "prompt_es": "En que ciudad esta el Coliseo?",
+          "options_i18n": {
+            "nl": [
+              "Rome",
+              "Athene",
+              "Parijs",
+              "Madrid"
+            ],
+            "en": [
+              "Rome",
+              "Athens",
+              "Paris",
+              "Madrid"
+            ],
+            "es": [
+              "Roma",
+              "Atenas",
+              "Paris",
+              "Madrid"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "true_false",
+          "prompt": "La Méditerranée est une mer.",
+          "answer": true,
+          "correction": "La mer Méditerranée est une mer intérieure entourée par l'Europe, l'Afrique et l'Asie.",
+          "prompt_nl": "De Middellandse Zee is een zee.",
+          "prompt_en": "The Mediterranean is a sea.",
+          "prompt_es": "El Mediterraneo es un mar."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Quel pays est le plus grand du monde ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "la Russie",
+            "le Canada",
+            "la Chine",
+            "les États-Unis"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "la Russie",
+          "correction": "La Russie est le plus grand pays du monde par sa superficie.",
+          "prompt_nl": "Welk land is het grootste ter wereld?",
+          "prompt_en": "Which country is the largest in the world?",
+          "prompt_es": "Que pais es el mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "Rusland",
+              "Canada",
+              "China",
+              "de Verenigde Staten"
+            ],
+            "en": [
+              "Russia",
+              "Canada",
+              "China",
+              "the United States"
+            ],
+            "es": [
+              "Rusia",
+              "Canada",
+              "China",
+              "Estados Unidos"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Une île est une terre entourée de :",
+          "options": [
+            "eau",
+            "montagnes",
+            "forêts",
+            "désert"
+          ],
+          "answer": "eau",
+          "correction": "Une île est une étendue de terre entièrement entourée d'eau.",
+          "prompt_nl": "Een eiland is een stuk land omgeven door:",
+          "prompt_en": "An island is a piece of land surrounded by:",
+          "prompt_es": "Una isla es una tierra rodeada de:",
+          "options_i18n": {
+            "nl": [
+              "water",
+              "bergen",
+              "bossen",
+              "woestijn"
+            ],
+            "en": [
+              "water",
+              "mountains",
+              "forests",
+              "desert"
+            ],
+            "es": [
+              "agua",
+              "montanas",
+              "bosques",
+              "desierto"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "La langue officielle du Mexique est :",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "l'espagnol",
+            "le portugais",
+            "le français",
+            "l'anglais"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "l'espagnol",
+          "correction": "Le Mexique est un pays hispanophone d'Amérique centrale.",
+          "prompt_nl": "De officiele taal van Mexico is:",
+          "prompt_en": "The official language of Mexico is:",
+          "prompt_es": "El idioma oficial de Mexico es:",
+          "options_i18n": {
+            "nl": [
+              "Spaans",
+              "Portugees",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Spanish",
+              "Portuguese",
+              "French",
+              "English"
+            ],
+            "es": [
+              "espanol",
+              "portugues",
+              "frances",
+              "ingles"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "true_false",
+          "prompt": "En Scandinavie, les hivers sont longs et très froids.",
+          "answer": true,
+          "correction": "Les pays scandinaves ont des hivers très froids et de longues nuits polaires.",
+          "prompt_nl": "In Scandinavie zijn de winters lang en erg koud.",
+          "prompt_en": "In Scandinavia, winters are long and very cold.",
+          "prompt_es": "En Escandinavia, los inviernos son largos y muy frios."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Quel continent est le plus peuplé ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe",
+            "l'Amérique"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "l'Asie",
+          "correction": "L'Asie est le continent le plus peuplé avec plus de 4 milliards d'habitants.",
+          "prompt_nl": "Welk continent is het meest bevolkt?",
+          "prompt_en": "Which continent is the most populated?",
+          "prompt_es": "Que continente es el mas poblado?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Afrika",
+              "Europa",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Africa",
+              "Europe",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Africa",
+              "Europa",
+              "America"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Les Alpes sont :",
+          "options": [
+            "une chaîne de montagnes",
+            "un fleuve",
+            "une mer",
+            "un désert"
+          ],
+          "answer": "une chaîne de montagnes",
+          "correction": "Les Alpes sont la plus grande chaîne de montagnes d'Europe.",
+          "prompt_nl": "De Alpen zijn:",
+          "prompt_en": "The Alps are:",
+          "prompt_es": "Los Alpes son:",
+          "options_i18n": {
+            "nl": [
+              "een bergketen",
+              "een rivier",
+              "een zee",
+              "een woestijn"
+            ],
+            "en": [
+              "a mountain range",
+              "a river",
+              "a sea",
+              "a desert"
+            ],
+            "es": [
+              "una cadena montanosa",
+              "un rio",
+              "un mar",
+              "un desierto"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Sur quel continent se trouve le Japon ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "Asie",
+            "Europe",
+            "Océanie",
+            "Amérique"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
-          "options": [
-            "parapluie",
-            "ballon",
-            "livre"
-          ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le docteur soigne les :",
-          "options": [
-            "malades",
-            "voitures",
-            "maisons"
-          ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
-          "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
-          ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "On trie les déchets pour :",
-          "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
-          ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "En automne, les feuilles :",
-          "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
-          ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "Asie",
+          "correction": "Le Japon est un archipel situé en Asie de l'Est.",
+          "prompt_nl": "Op welk continent ligt Japan?",
+          "prompt_en": "On which continent is Japan located?",
+          "prompt_es": "En que continente se encuentra Japon?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Europa",
+              "Oceanie",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Europe",
+              "Oceania",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Europa",
+              "Oceania",
+              "America"
+            ]
+          }
         }
       ]
     },

@@ -107,116 +107,108 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "épouvantail",
+            "epouvantail",
+            "épouventail"
+          ],
+          "answer": "épouvantail",
+          "correction": "On écrit « épouvantail » avec « ail » à la fin."
+        },
+        {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
+          "prompt": "Complète le mot : poul_che",
+          "answer": "i",
           "accept": [
-            "a"
+            "i"
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "correction": "On écrit « pouliche » avec un « i »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "écureuil",
+            "ecureuil",
+            "écureïl"
+          ],
+          "answer": "écureuil",
+          "correction": "On écrit « écureuil » avec un accent sur le « é »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "girouette",
+            "girouete",
+            "jirrouette"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "girouette",
+          "correction": "On écrit « girouette » avec deux « t »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « lionceau » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « lionceau » s'écrit bien avec « eau »."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
+          "prompt": "Complète le mot : tabli_r",
           "answer": "e",
           "accept": [
             "e"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
+          "correction": "On écrit « tablier » avec un « e »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "clairière",
+            "clairiere",
+            "clarrière"
+          ],
+          "answer": "clairière",
+          "correction": "On écrit « clairière » avec un accent grave sur le « è »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "mouchoir",
+            "mouchoirr",
+            "mouchouir"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "mouchoir",
+          "correction": "On écrit « mouchoir » avec « oir »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « poussiéreux » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « poussiéreux » s'écrit avec « eux » à la fin."
         },
         {
           "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
+          "prompt": "Complète le mot : carp_tte",
           "answer": "e",
           "accept": [
             "e"
           ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
-          ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
-          ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maman",
-            "mamen",
-            "momen"
-          ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
-          ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
-          ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "correction": "On écrit « carpette » avec deux « t »."
         }
       ]
     },
@@ -225,117 +217,123 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quel mot contient « ou » suivi de « ch » ?",
+          "options": [
+            "pouliche",
+            "tablier",
+            "lionceau"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "pouliche",
+          "correction": "Pouliche s'écrit p-o-u-l-i-c-h-e."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "lionceau",
+            "lyonceau",
+            "tablier"
           ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "answer": "lyonceau",
+          "correction": "Le mot correct est « lionceau » : l-i-o-n-c-e-a-u."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Elle porte un ___ de cuisine.",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "tablier",
+            "tablié",
+            "tabliez"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "tablier",
+          "correction": "Tablier s'écrit t-a-b-l-i-e-r."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « eau » ?",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "lionceau",
+            "pouliche",
+            "tablier"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "lionceau",
+          "correction": "Lionceau se termine par « eau » : l-i-o-n-c-e-a-u."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Identifie la faute :",
           "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
+            "carpette",
+            "carppette",
+            "poussiéreux"
           ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
+          "answer": "carppette",
+          "correction": "Le mot correct est « carpette » : c-a-r-p-e-t-t-e (un seul « p »)."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot a un accent aigu ?",
+          "options": [
+            "poussiéreux",
+            "tablier",
+            "lionceau"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
+          "answer": "poussiéreux",
+          "correction": "Poussiéreux s'écrit p-o-u-s-s-i-é-r-e-u-x."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « tt » ?",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "carpette",
+            "tablier",
+            "pouliche"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "carpette",
+          "correction": "Carpette s'écrit c-a-r-p-e-t-t-e avec deux « t »."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "La pouliche galope sur la carpette.",
+            "La pouliche gallope sur la carpette.",
+            "La pouliche galope sur la carpete."
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
+          "answer": "La pouliche galope sur la carpette.",
+          "correction": "Galoper = un seul « l », carpette = deux « t »."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -ier » ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "tablier",
+            "lionceau",
+            "pouliche"
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "tablier",
+          "correction": "Tablier se termine par « -ier » : t-a-b-l-i-e-r."
         },
         {
           "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot est mal orthographié ?",
+          "options": [
+            "poussiéreux",
+            "poussiereux",
+            "carpette"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "poussiereux",
+          "correction": "Le mot correct est « poussiéreux » avec un accent aigu : p-o-u-s-s-i-é-r-e-u-x."
         }
       ]
     }

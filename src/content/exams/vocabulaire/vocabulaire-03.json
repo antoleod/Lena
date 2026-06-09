@@ -113,124 +113,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
-          ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
-          "options": [
-            "heureux",
-            "triste",
-            "fâché"
-          ],
-          "answer": "heureux",
-          "correction": "content = heureux."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
-          "options": [
-            "sale",
-            "mouillé",
-            "neuf"
-          ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
-          "options": [
-            "triste",
-            "content",
-            "joyeux"
-          ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
-          "options": [
-            "fin",
-            "milieu",
-            "suite"
-          ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
-          "options": [
-            "jeune",
-            "gros",
+            "rapide",
+            "fort",
             "grand"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q16",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q18",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q20",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "options": [
+            "pas",
+            "très",
+            "bien"
+          ],
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
+            "dormir"
+          ],
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },
@@ -240,122 +240,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Quel est le sens du préfixe « bi- » dans « bilingue » ?",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "deux",
+            "bon",
+            "autour"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "deux",
+          "correction": "« Bi- » signifie deux : bilingue = qui parle deux langues."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un mot « invariable » est un mot qui :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "ne change jamais de forme",
+            "prend des marques de genre",
+            "se conjugue"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "ne change jamais de forme",
+          "correction": "Les adverbes, prépositions et conjonctions sont invariables."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Dans « Elle a le cœur sur la main », cette expression signifie :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "elle est très généreuse",
+            "elle est courageuse",
+            "elle est organisée"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "elle est très généreuse",
+          "correction": "Avoir le cœur sur la main = être très généreux."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Quel est le registre de langue de « s'en aller » par rapport à « partir » ?",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "registres équivalents, familier légèrement",
+            "soutenu",
+            "argotique"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "registres équivalents, familier légèrement",
+          "correction": "« S'en aller » est légèrement plus familier que « partir »."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
-          "options": [
-            "triste",
-            "content",
-            "joyeux"
+          "type": "fill_blank",
+          "prompt": "La famille du mot « lumière » : lumineux, illuminer, ___ .",
+          "answer": "luminaire",
+          "accept": [
+            "luminaire"
           ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
+          "correction": "Luminaire = appareil d'éclairage, de la même famille."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme du mot « fugace » est :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "éphémère",
+            "permanent",
+            "intense"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "éphémère",
+          "correction": "Fugace = qui disparaît vite ; éphémère = de courte durée."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Le suffixe « -ité » dans « générosité » forme :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "un nom abstrait",
+            "un adjectif",
+            "un verbe"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "un nom abstrait",
+          "correction": "« -ité » transforme un adjectif en nom abstrait."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Dans « Il brûle les étapes », cette expression signifie :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "il va trop vite, saute des étapes",
+            "il est maladroit",
+            "il est impatient en cuisine"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "il va trop vite, saute des étapes",
+          "correction": "Brûler les étapes = progresser trop rapidement sans respecter les phases."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Le contraire de « long » :",
+          "prompt": "Quel est le contraire de « austère » ?",
           "options": [
-            "court",
-            "large",
-            "fin"
+            "somptueux",
+            "sévère",
+            "sobre"
           ],
-          "answer": "court",
-          "correction": "long ↔ court."
+          "answer": "somptueux",
+          "correction": "Austère = strict, dépouillé ; somptueux = luxueux, fastueux."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Un « homonyme » est un mot qui :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "se prononce pareil mais a un sens différent",
+            "est de même sens",
+            "est de même famille"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "se prononce pareil mais a un sens différent",
+          "correction": "Ex. : « vert » et « verre » sont homophones."
         }
       ]
     }

@@ -111,120 +111,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Elles ___ (jouer, présent).",
+          "prompt": "Nous ___ (finir, présent).",
           "options": [
-            "jouent",
-            "joue",
-            "jouons"
+            "finissons",
+            "finissez",
+            "finit"
           ],
-          "answer": "jouent",
-          "correction": "Elles jouent."
+          "answer": "finissons",
+          "correction": "Nous finissons."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Tu ___ (vouloir, présent).",
+          "prompt": "Tu ___ (choisir, présent).",
           "options": [
-            "veux",
-            "veut",
-            "voulons"
+            "choisis",
+            "choisit",
+            "choisissons"
           ],
-          "answer": "veux",
-          "correction": "Tu veux."
+          "answer": "choisis",
+          "correction": "Tu choisis."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Je ___ (faire) mes devoirs.",
+          "prompt": "Il ___ (répondre, présent).",
           "options": [
-            "fais",
-            "fait",
-            "font"
+            "répond",
+            "réponds",
+            "répondent"
           ],
-          "answer": "fais",
-          "correction": "Je fais."
+          "answer": "répond",
+          "correction": "Il répond."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Je ___ (être) content.",
+          "prompt": "Elles ___ (dormir, présent).",
           "options": [
-            "suis",
-            "es",
-            "est"
+            "dorment",
+            "dormez",
+            "dormons"
           ],
-          "answer": "suis",
-          "correction": "Je suis."
+          "answer": "dorment",
+          "correction": "Elles dorment."
         },
         {
-          "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Nous ___ (aimer) la lecture. (présent)",
-          "answer": "aimons",
-          "accept": [
-            "aimons"
-          ],
-          "correction": "Nous aimons."
-        },
-        {
-          "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Je ___ (avoir) faim. (présent)",
-          "answer": "ai",
-          "accept": [
-            "ai"
-          ],
-          "correction": "J’ai faim."
-        },
-        {
-          "id": "q14",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Elles ___ (chanter) bien.",
+          "prompt": "Je vais ___ (manger). (futur proche)",
           "options": [
-            "chantent",
-            "chante",
-            "chantes"
+            "manger",
+            "mangé",
+            "mange"
           ],
-          "answer": "chantent",
-          "correction": "Elles chantent."
+          "answer": "manger",
+          "correction": "Je vais manger."
         },
         {
-          "id": "q16",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "Demain, nous ___ (partir). (futur)",
+          "prompt": "Il va ___ (partir). (futur proche)",
           "options": [
-            "partirons",
-            "partons",
-            "partis"
+            "partir",
+            "parti",
+            "part"
           ],
-          "answer": "partirons",
-          "correction": "Futur : nous partirons."
+          "answer": "partir",
+          "correction": "Il va partir."
         },
         {
-          "id": "q18",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Vous ___ (être) gentils.",
+          "prompt": "Hier, tu as ___ (jouer). (passé composé)",
           "options": [
-            "êtes",
-            "sommes",
-            "est"
+            "joué",
+            "jouer",
+            "jouant"
           ],
-          "answer": "êtes",
-          "correction": "Vous êtes."
+          "answer": "joué",
+          "correction": "Tu as joué."
         },
         {
-          "id": "q20",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "Nous ___ (être) à l’école.",
+          "prompt": "Vous ___ (lire, présent).",
           "options": [
-            "sommes",
-            "êtes",
-            "est"
+            "lisez",
+            "lit",
+            "lisons"
           ],
-          "answer": "sommes",
-          "correction": "Nous sommes."
+          "answer": "lisez",
+          "correction": "Vous lisez."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Tu ___ (attendre, présent).",
+          "options": [
+            "attends",
+            "attend",
+            "attendez"
+          ],
+          "answer": "attends",
+          "correction": "Tu attends."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Je ___ (obéir, présent).",
+          "options": [
+            "obéis",
+            "obéit",
+            "obéissons"
+          ],
+          "answer": "obéis",
+          "correction": "J'obéis."
         }
       ]
     },
@@ -233,121 +237,103 @@
       "questions": [
         {
           "id": "q2",
-          "type": "mcq",
-          "prompt": "Hier, j’ ___ mangé. (avoir, passé composé)",
-          "options": [
-            "ai",
-            "suis",
-            "as"
+          "type": "fill_blank",
+          "prompt": "Je souhaite qu'il ___ (réussir, subjonctif présent) son examen.",
+          "answer": "réussisse",
+          "accept": [
+            "réussisse"
           ],
-          "answer": "ai",
-          "correction": "Passé composé : j’ai mangé."
+          "correction": "Les verbes de souhait imposent le subjonctif."
         },
         {
           "id": "q4",
-          "type": "mcq",
-          "prompt": "Tu ___ (avoir) un chien.",
-          "options": [
-            "as",
-            "ai",
-            "a"
+          "type": "fill_blank",
+          "prompt": "S'ils avaient préparé, ils ___ (pouvoir, conditionnel passé) gagner.",
+          "answer": "auraient pu",
+          "accept": [
+            "auraient pu"
           ],
-          "answer": "as",
-          "correction": "Tu as."
+          "correction": "Conditionnel passé : auxiliaire conditionnel + participe."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Demain, nous ___ (partir). (futur)",
-          "options": [
-            "partirons",
-            "partons",
-            "partis"
+          "type": "fill_blank",
+          "prompt": "Je ___ (savoir, conditionnel présent) te répondre, mais je n'ai pas les données.",
+          "answer": "saurais",
+          "accept": [
+            "saurais"
           ],
-          "answer": "partirons",
-          "correction": "Futur : nous partirons."
+          "correction": "Conditionnel présent de savoir."
         },
         {
           "id": "q8",
-          "type": "mcq",
-          "prompt": "Demain, tu ___ (être) en vacances.",
-          "options": [
-            "seras",
-            "es",
-            "étais"
+          "type": "fill_blank",
+          "prompt": "Afin qu'il ___ (venir, subjonctif présent), envoie-lui une invitation.",
+          "answer": "vienne",
+          "accept": [
+            "vienne"
           ],
-          "answer": "seras",
-          "correction": "Futur : tu seras."
+          "correction": "« Afin que » impose le subjonctif."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Hier, il a ___ (jouer).",
-          "options": [
-            "joué",
-            "joue",
-            "jouer"
+          "type": "fill_blank",
+          "prompt": "Elle a promis qu'elle ___ (aider, conditionnel présent) demain.",
+          "answer": "aiderait",
+          "accept": [
+            "aiderait"
           ],
-          "answer": "joué",
-          "correction": "Passé : il a joué."
+          "correction": "Discours indirect au passé : futur → conditionnel."
         },
         {
           "id": "q12",
           "type": "fill_blank",
-          "prompt": "Je ___ (avoir) faim. (présent)",
-          "answer": "ai",
+          "prompt": "Nous ___ (déjà voir, plus-que-parfait) ce spectacle l'an passé.",
+          "answer": "avions déjà vu",
           "accept": [
-            "ai"
+            "avions déjà vu"
           ],
-          "correction": "J’ai faim."
+          "correction": "Plus-que-parfait : auxiliaire imparfait + participe."
         },
         {
           "id": "q14",
-          "type": "mcq",
-          "prompt": "Elles ___ (chanter) bien.",
-          "options": [
-            "chantent",
-            "chante",
-            "chantes"
+          "type": "fill_blank",
+          "prompt": "Il est possible qu'elle ___ (partir, subjonctif présent) ce soir.",
+          "answer": "parte",
+          "accept": [
+            "parte"
           ],
-          "answer": "chantent",
-          "correction": "Elles chantent."
+          "correction": "« Il est possible que » impose le subjonctif."
         },
         {
           "id": "q16",
-          "type": "mcq",
-          "prompt": "Vous ___ (être) gentils.",
-          "options": [
-            "êtes",
-            "sommes",
-            "est"
+          "type": "fill_blank",
+          "prompt": "Ils ___ (se rencontrer, plus-que-parfait) avant la réunion.",
+          "answer": "s'étaient rencontrés",
+          "accept": [
+            "s'étaient rencontrés"
           ],
-          "answer": "êtes",
-          "correction": "Vous êtes."
+          "correction": "Plus-que-parfait pronominal : imparfait d'être + participe accordé."
         },
         {
           "id": "q18",
-          "type": "mcq",
-          "prompt": "Vous ___ (aller, présent).",
-          "options": [
-            "allez",
-            "allons",
-            "vont"
+          "type": "fill_blank",
+          "prompt": "Tu ___ (falloir, conditionnel présent) — incorrect ; on dit : il ___ venir.",
+          "answer": "faudrait",
+          "accept": [
+            "faudrait"
           ],
-          "answer": "allez",
-          "correction": "Vous allez."
+          "correction": "Conditionnel présent de falloir : il faudrait."
         },
         {
           "id": "q20",
-          "type": "mcq",
-          "prompt": "Nous ___ (être) à l’école.",
-          "options": [
-            "sommes",
-            "êtes",
-            "est"
+          "type": "fill_blank",
+          "prompt": "Dommage qu'il ___ (être, subjonctif présent) absent aujourd'hui.",
+          "answer": "soit",
+          "accept": [
+            "soit"
           ],
-          "answer": "sommes",
-          "correction": "Nous sommes."
+          "correction": "Les expressions de regret imposent le subjonctif."
         }
       ]
     }

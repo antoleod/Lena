@@ -152,135 +152,120 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "7 × 4 = ?",
+          "prompt": "7 × ___ = 35",
           "options": [
-            "34",
-            "28",
-            "25",
-            "21"
+            "5",
+            "7",
+            "4",
+            "6"
           ],
-          "answer": "28",
-          "correction": "7 × 4 = 28.",
-          "prompt_nl": "7 × 4 = ?",
-          "prompt_en": "7 × 4 = ?",
-          "prompt_es": "7 × 4 = ?"
+          "answer": "5",
+          "correction": "7 × 5 = 35, donc ___ = 5."
         },
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "7 × 3 = ___",
-          "answer": "21",
-          "correction": "7 × 3 = 21."
+          "type": "mcq",
+          "prompt": "35 ÷ 7 = ?",
+          "options": [
+            "5",
+            "4",
+            "6",
+            "7"
+          ],
+          "answer": "5",
+          "correction": "35 ÷ 7 = 5."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "7 × 1 = ?",
+          "prompt": "Tu as 7 groupes de 5 élèves. Combien au total ?",
           "options": [
-            "5",
-            "10",
-            "12",
-            "7"
+            "40",
+            "30",
+            "42",
+            "35"
           ],
-          "answer": "7",
-          "correction": "7 × 1 = 7.",
-          "prompt_nl": "7 × 1 = ?",
-          "prompt_en": "7 × 1 = ?",
-          "prompt_es": "7 × 1 = ?"
+          "answer": "35",
+          "correction": "7 × 5 = 35 élèves au total."
         },
         {
           "id": "q4",
-          "type": "mcq",
-          "prompt": "7 × 3 = ?",
-          "options": [
-            "21",
-            "24",
-            "17",
-            "26"
-          ],
-          "answer": "21",
-          "correction": "7 × 3 = 21.",
-          "prompt_nl": "7 × 3 = ?",
-          "prompt_en": "7 × 3 = ?",
-          "prompt_es": "7 × 3 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 7 = 35",
+          "answer": "5",
+          "correction": "5 × 7 = 35, donc ___ = 5."
         },
         {
           "id": "q5",
-          "type": "fill_blank",
-          "prompt": "7 × 1 = ___",
-          "answer": "7",
-          "correction": "7 × 1 = 7."
+          "type": "mcq",
+          "prompt": "7 × ___ = 21",
+          "options": [
+            "3",
+            "5",
+            "2",
+            "4"
+          ],
+          "answer": "3",
+          "correction": "7 × 3 = 21, donc ___ = 3."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "7 × 4 = ?",
+          "prompt": "21 ÷ 7 = ?",
           "options": [
-            "33",
-            "34",
-            "32",
-            "28"
+            "4",
+            "5",
+            "2",
+            "3"
           ],
-          "answer": "28",
-          "correction": "7 × 4 = 28.",
-          "prompt_nl": "7 × 4 = ?",
-          "prompt_en": "7 × 4 = ?",
-          "prompt_es": "7 × 4 = ?"
+          "answer": "3",
+          "correction": "21 ÷ 7 = 3."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "7 × 3 = ?",
+          "prompt": "Tu as 7 groupes de 3 élèves. Combien au total ?",
           "options": [
+            "24",
+            "28",
             "21",
-            "15",
-            "19",
-            "26"
+            "18"
           ],
           "answer": "21",
-          "correction": "7 × 3 = 21.",
-          "prompt_nl": "7 × 3 = ?",
-          "prompt_en": "7 × 3 = ?",
-          "prompt_es": "7 × 3 = ?"
+          "correction": "7 × 3 = 21 élèves au total."
         },
         {
           "id": "q8",
           "type": "fill_blank",
-          "prompt": "7 × 4 = ___",
-          "answer": "28",
-          "correction": "7 × 4 = 28."
+          "prompt": "___ × 7 = 21",
+          "answer": "3",
+          "correction": "3 × 7 = 21, donc ___ = 3."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "7 × 7 = ?",
+          "prompt": "7 × ___ = 7",
           "options": [
-            "42",
-            "52",
-            "48",
-            "49"
+            "3",
+            "1",
+            "2",
+            "4"
           ],
-          "answer": "49",
-          "correction": "7 × 7 = 49.",
-          "prompt_nl": "7 × 7 = ?",
-          "prompt_en": "7 × 7 = ?",
-          "prompt_es": "7 × 7 = ?"
+          "answer": "1",
+          "correction": "7 × 1 = 7, donc ___ = 1."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "7 × 5 = ?",
+          "prompt": "7 ÷ 7 = ?",
           "options": [
-            "35",
-            "32",
-            "36",
-            "39"
+            "1",
+            "2",
+            "3",
+            "4"
           ],
-          "answer": "35",
-          "correction": "7 × 5 = 35.",
-          "prompt_nl": "7 × 5 = ?",
-          "prompt_en": "7 × 5 = ?",
-          "prompt_es": "7 × 5 = ?"
+          "answer": "1",
+          "correction": "7 ÷ 7 = 1."
         }
       ]
     },

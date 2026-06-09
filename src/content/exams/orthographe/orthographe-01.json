@@ -109,112 +109,110 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "hôpital",
+            "hopital",
+            "hôpitale"
+          ],
+          "answer": "hôpital",
+          "correction": "On écrit « hôpital » avec un accent circonflexe sur le « o »."
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "forêt",
+            "foret",
+            "forête"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "forêt",
+          "correction": "On écrit « forêt » avec un accent circonflexe sur le « ê »."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : beurr_",
+          "answer": "e",
+          "accept": [
+            "e"
+          ],
+          "correction": "On écrit « beurre » avec un « e » final muet."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "assiette",
+            "asiete",
+            "assiètte"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "assiette",
+          "correction": "On écrit « assiette » avec deux « s » et deux « t »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « chanson » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « chanson » s'écrit bien ainsi."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "biscuit",
+            "biscui",
+            "bisquit"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "biscuit",
+          "correction": "On écrit « biscuit » avec un « t » final muet."
+        },
+        {
+          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : gât_au",
+          "answer": "e",
+          "accept": [
+            "e"
+          ],
+          "correction": "On écrit « gâteau » (accent circonflexe sur le « â »)."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "lapin",
+            "lappin",
+            "lapen"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "lapin",
+          "correction": "On écrit « lapin » avec un seul « p »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « chaussure » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « chaussure » s'écrit bien avec « ss »."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "devenir",
+            "dévenir",
+            "devenire"
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
-          ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
-          "accept": [
-            "e"
-          ],
-          "correction": "On écrit « soleil » (lettre « e »)."
-        },
-        {
-          "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
-          ],
-          "correction": "On écrit « voiture » (lettre « u »)."
-        },
-        {
-          "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
-          ],
-          "correction": "On écrit « fleur » (lettre « e »)."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
-          ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "devenir",
+          "correction": "On écrit « devenir » sans accent."
         }
       ]
     },
@@ -224,112 +222,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient une double consonne ?",
           "options": [
             "ballon",
-            "balon",
-            "baloon"
+            "maison",
+            "canif"
           ],
           "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "correction": "Ballon s'écrit avec deux « l » : b-a-l-l-o-n."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec un accent circonflexe ?",
+          "options": [
+            "château",
+            "canard",
+            "maison"
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "answer": "château",
+          "correction": "Château s'écrit avec un accent circonflexe sur le « a » : châ-teau."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
+          "options": [
+            "ecole",
+            "école",
+            "maison"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "ecole",
+          "correction": "Le mot correct s'écrit « école » avec un accent sur le « e »."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe pour compléter la phrase : La ___ est belle.",
+          "options": [
+            "chanson",
+            "chansson",
+            "chancon"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "chanson",
+          "correction": "Chanson s'écrit c-h-a-n-s-o-n."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « eau » à la fin ?",
+          "options": [
+            "gâteau",
+            "poulet",
+            "maison"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "gâteau",
+          "correction": "Gâteau s'écrit g-â-t-e-a-u."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Identifie le mot avec une faute d'orthographe :",
+          "options": [
+            "chausure",
+            "chaussure",
+            "chausurre"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "chausure",
+          "correction": "Le mot correct est « chaussure » avec deux « s »."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par le son « on » écrit « -on » ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "maison",
+            "ballon",
+            "chanson"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "maison",
+          "correction": "Maison se termine par « -son » (son [z] + on)."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Recopie sans erreur : « La poule pond des œufs. » Quelle version est correcte ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "La poule pond des œufs.",
+            "La poule ponds des oeufs.",
+            "La poule pon des eufs."
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "La poule pond des œufs.",
+          "correction": "« œufs » s'écrit avec un e dans l'o (œ)."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec un « y » ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "crayon",
+            "maison",
+            "poulet"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "crayon",
+          "correction": "Crayon s'écrit c-r-a-y-o-n."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel est le mot correctement orthographié ?",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "fenaitre",
+            "fenêtre",
+            "fenesre"
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
+          "answer": "fenêtre",
+          "correction": "Fenêtre s'écrit avec un accent circonflexe sur le premier « e » : f-e-n-ê-t-r-e."
         }
       ]
     }

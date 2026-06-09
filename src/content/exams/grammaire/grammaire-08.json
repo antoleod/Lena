@@ -108,120 +108,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "« vite » est un :",
+          "prompt": "Dans « Lena mange une pomme », le COD est :",
           "options": [
-            "adverbe",
-            "adjectif",
-            "nom",
-            "verbe"
+            "une pomme",
+            "Lena",
+            "mange"
           ],
-          "answer": "adverbe",
-          "correction": "vite = adverbe (comment ?)."
+          "answer": "une pomme",
+          "correction": "COD : quoi ? → une pomme."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "Dans « Paul parle à sa mère », le COI est :",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "à sa mère",
+            "Paul",
+            "parle"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "à sa mère",
+          "correction": "COI : à qui ? → à sa mère."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "La forme féminine de « joli » est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "jolie",
+            "jolis",
+            "jolies"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "jolie",
+          "correction": "Féminin singulier : jolie."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "La forme féminine de « grand » est :",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "grande",
+            "grands",
+            "grand"
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "grande",
+          "correction": "Féminin : grande."
         },
         {
-          "id": "q10",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "« un livre » est :",
+          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
           "options": [
-            "masculin",
-            "féminin",
-            "pluriel"
+            "interrogative",
+            "exclamative",
+            "déclarative"
           ],
-          "answer": "masculin",
-          "correction": "« un » → masculin."
+          "answer": "interrogative",
+          "correction": "Elle pose une question : phrase interrogative."
         },
         {
-          "id": "q12",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "« courir » est un :",
+          "prompt": "« Quel beau tableau ! » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "exclamative",
+            "interrogative",
+            "impérative"
           ],
-          "answer": "verbe",
-          "correction": "« courir » est un verbe."
+          "answer": "exclamative",
+          "correction": "Elle exprime une émotion : phrase exclamative."
         },
         {
-          "id": "q14",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "COI",
+            "COD",
+            "sujet"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "COI",
+          "correction": "Lui = à lui/à elle → COI."
         },
         {
-          "id": "q16",
-          "type": "true_false",
-          "prompt": "« manger » est un adjectif.",
-          "answer": false,
-          "correction": "« manger » est un verbe."
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "options": [
+            "des chevaux joyeux",
+            "des chevals joyeux",
+            "des cheval joyeux"
+          ],
+          "answer": "des chevaux joyeux",
+          "correction": "Pluriel de cheval → chevaux."
         },
         {
-          "id": "q18",
+          "id": "q17",
           "type": "mcq",
-          "prompt": "Dans « la petite maison », le nom est :",
+          "prompt": "Dans « Il le voit », que remplace « le » ?",
           "options": [
-            "maison",
-            "petite",
-            "la"
+            "un complément d'objet direct",
+            "un COI",
+            "le sujet"
           ],
-          "answer": "maison",
-          "correction": "maison = nom."
+          "answer": "un complément d'objet direct",
+          "correction": "Le = COD."
         },
         {
-          "id": "q20",
+          "id": "q19",
           "type": "mcq",
-          "prompt": "Le pluriel de « un oiseau » :",
+          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
           "options": [
-            "des oiseaux",
-            "des oiseau",
-            "des oiseaux"
+            "Il dit qu'il mange.",
+            "Il dit que je mange.",
+            "Il dit qu'il a mangé."
           ],
-          "answer": "des oiseaux",
-          "correction": "Pluriel : des oiseaux (eau → eaux)."
+          "answer": "Il dit qu'il mange.",
+          "correction": "Discours indirect au présent."
         }
       ]
     },
@@ -231,122 +235,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "« un livre » est :",
+          "prompt": "Dans « Je l'y ai vu », que représente « y » ?",
           "options": [
-            "masculin",
-            "féminin",
-            "pluriel"
+            "un complément de lieu",
+            "un COD",
+            "un COI"
           ],
-          "answer": "masculin",
-          "correction": "« un » → masculin."
+          "answer": "un complément de lieu",
+          "correction": "« y » remplace un complément de lieu introduit par « à/dans/en »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Dans « la petite maison », le nom est :",
+          "prompt": "Quel est le temps dans « Si j'avais su, je ne serais pas venu » ?",
           "options": [
-            "maison",
-            "petite",
-            "la"
+            "plus-que-parfait / conditionnel passé",
+            "imparfait / conditionnel présent",
+            "passé composé / futur"
           ],
-          "answer": "maison",
-          "correction": "maison = nom."
+          "answer": "plus-que-parfait / conditionnel passé",
+          "correction": "Hypothèse irréelle dans le passé : si + plus-que-parfait, conditionnel passé."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
-          "options": [
-            "grand",
-            "chien",
-            "le"
+          "type": "fill_blank",
+          "prompt": "Complète : « Les fleurs qu'elle a ___ (planter) sont magnifiques. »",
+          "answer": "plantées",
+          "accept": [
+            "plantées"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "correction": "COD « fleurs » féminin pluriel avant avoir → accord."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "Dans « Mange tes légumes ! », quelle est la valeur de l'impératif ?",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "ordre",
+            "souhait",
+            "supposition"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "ordre",
+          "correction": "L'impératif exprime un ordre direct."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "Quelle phrase contient un attribut du sujet ?",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "Ce livre est passionnant.",
+            "Je lis ce livre.",
+            "Il a posé le livre."
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "Ce livre est passionnant.",
+          "correction": "L'attribut du sujet est relié au sujet par un verbe d'état."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "Dans « Il leur a offert des fleurs », « leur » est :",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "pronom COI",
+            "pronom COD",
+            "adjectif possessif"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "pronom COI",
+          "correction": "Offrir qqch à qqn → « leur » = COI."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "La phrase passive « La lettre a été écrite par Marie » devient en voix active :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "Marie a écrit la lettre.",
+            "La lettre écrit Marie.",
+            "Marie est écrite par la lettre."
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "Marie a écrit la lettre.",
+          "correction": "Le complément d'agent devient sujet actif."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "Dans « Quoiqu'elle soit jeune, elle est très sage », le mode est :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "subjonctif",
+            "indicatif",
+            "infinitif"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "subjonctif",
+          "correction": "« Quoique » impose le subjonctif."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "« rouge » est un :",
+          "prompt": "Quel pronom indéfini désigne une quantité nulle ?",
           "options": [
-            "adjectif",
-            "nom",
-            "verbe"
+            "aucun",
+            "quelques",
+            "certains"
           ],
-          "answer": "adjectif",
-          "correction": "« rouge » décrit : adjectif."
+          "answer": "aucun",
+          "correction": "« Aucun » indique l'absence totale."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "Le gérondif dans « En chantant, elle fait la vaisselle » exprime :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "la simultanéité",
+            "la cause",
+            "la conséquence"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "la simultanéité",
+          "correction": "Le gérondif exprime que deux actions se passent en même temps."
         }
       ]
     }

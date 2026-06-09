@@ -152,135 +152,114 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "10 × 4 = ?",
+          "prompt": "10 × ___ = 40",
           "options": [
-            "36",
-            "30",
-            "48",
-            "40"
+            "4",
+            "3",
+            "5",
+            "6"
           ],
-          "answer": "40",
-          "correction": "10 × 4 = 40.",
-          "prompt_nl": "10 × 4 = ?",
-          "prompt_en": "10 × 4 = ?",
-          "prompt_es": "10 × 4 = ?"
+          "answer": "4",
+          "correction": "10 × 4 = 40, donc ___ = 4."
         },
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "10 × 2 = ___",
-          "answer": "20",
-          "correction": "10 × 2 = 20."
+          "type": "mcq",
+          "prompt": "40 ÷ 10 = ?",
+          "options": [
+            "4",
+            "3",
+            "6",
+            "5"
+          ],
+          "answer": "4",
+          "correction": "40 ÷ 10 = 4."
         },
         {
           "id": "q3",
-          "type": "mcq",
-          "prompt": "10 × 4 = ?",
-          "options": [
-            "36",
-            "40",
-            "43",
-            "37"
-          ],
-          "answer": "40",
-          "correction": "10 × 4 = 40.",
-          "prompt_nl": "10 × 4 = ?",
-          "prompt_en": "10 × 4 = ?",
-          "prompt_es": "10 × 4 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 10 = 40",
+          "answer": "4",
+          "correction": "4 × 10 = 40, donc ___ = 4."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "10 × 6 = ?",
+          "prompt": "10 × ___ = 10",
           "options": [
-            "60",
-            "66",
-            "58",
-            "52"
+            "2",
+            "3",
+            "1",
+            "4"
           ],
-          "answer": "60",
-          "correction": "10 × 6 = 60.",
-          "prompt_nl": "10 × 6 = ?",
-          "prompt_en": "10 × 6 = ?",
-          "prompt_es": "10 × 6 = ?"
+          "answer": "1",
+          "correction": "10 × 1 = 10, donc ___ = 1."
         },
         {
           "id": "q5",
-          "type": "fill_blank",
-          "prompt": "10 × 7 = ___",
-          "answer": "70",
-          "correction": "10 × 7 = 70."
+          "type": "mcq",
+          "prompt": "10 ÷ 10 = ?",
+          "options": [
+            "3",
+            "2",
+            "1",
+            "4"
+          ],
+          "answer": "1",
+          "correction": "10 ÷ 10 = 1."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "10 × 4 = ?",
-          "options": [
-            "42",
-            "37",
-            "40",
-            "32"
-          ],
-          "answer": "40",
-          "correction": "10 × 4 = 40.",
-          "prompt_nl": "10 × 4 = ?",
-          "prompt_en": "10 × 4 = ?",
-          "prompt_es": "10 × 4 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 10 = 10",
+          "answer": "1",
+          "correction": "1 × 10 = 10, donc ___ = 1."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "10 × 3 = ?",
+          "prompt": "10 × ___ = 50",
           "options": [
-            "39",
-            "40",
-            "35",
-            "30"
+            "6",
+            "4",
+            "7",
+            "5"
           ],
-          "answer": "30",
-          "correction": "10 × 3 = 30.",
-          "prompt_nl": "10 × 3 = ?",
-          "prompt_en": "10 × 3 = ?",
-          "prompt_es": "10 × 3 = ?"
+          "answer": "5",
+          "correction": "10 × 5 = 50, donc ___ = 5."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "10 × 2 = ___",
-          "answer": "20",
-          "correction": "10 × 2 = 20."
+          "type": "mcq",
+          "prompt": "50 ÷ 10 = ?",
+          "options": [
+            "6",
+            "7",
+            "5",
+            "4"
+          ],
+          "answer": "5",
+          "correction": "50 ÷ 10 = 5."
         },
         {
           "id": "q9",
-          "type": "mcq",
-          "prompt": "10 × 5 = ?",
-          "options": [
-            "57",
-            "47",
-            "50",
-            "56"
-          ],
-          "answer": "50",
-          "correction": "10 × 5 = 50.",
-          "prompt_nl": "10 × 5 = ?",
-          "prompt_en": "10 × 5 = ?",
-          "prompt_es": "10 × 5 = ?"
+          "type": "fill_blank",
+          "prompt": "___ × 10 = 50",
+          "answer": "5",
+          "correction": "5 × 10 = 50, donc ___ = 5."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "10 × 3 = ?",
+          "prompt": "10 × ___ = 20",
           "options": [
-            "24",
-            "37",
-            "30",
-            "28"
+            "1",
+            "3",
+            "4",
+            "2"
           ],
-          "answer": "30",
-          "correction": "10 × 3 = 30.",
-          "prompt_nl": "10 × 3 = ?",
-          "prompt_en": "10 × 3 = ?",
-          "prompt_es": "10 × 3 = ?"
+          "answer": "2",
+          "correction": "10 × 2 = 20, donc ___ = 2."
         }
       ]
     },
@@ -288,137 +267,104 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
-          "type": "mcq",
-          "prompt": "10 × 1 = ?",
-          "options": [
-            "10",
-            "4",
-            "20",
-            "7"
-          ],
-          "answer": "10",
-          "correction": "10 × 1 = 10.",
-          "prompt_nl": "10 × 1 = ?",
-          "prompt_en": "10 × 1 = ?",
-          "prompt_es": "10 × 1 = ?"
-        },
-        {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "10 × 5 = ___",
-          "answer": "50",
-          "correction": "10 × 5 = 50."
-        },
-        {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "10 × 3 = ?",
-          "options": [
-            "40",
-            "37",
-            "30",
-            "32"
+          "prompt": "10 × 7 = ?",
+          "answer": "70",
+          "accept": [
+            "70"
           ],
-          "answer": "30",
-          "correction": "10 × 3 = 30.",
-          "prompt_nl": "10 × 3 = ?",
-          "prompt_en": "10 × 3 = ?",
-          "prompt_es": "10 × 3 = ?"
+          "correction": "10 × 7 = 70."
         },
         {
           "id": "q4",
-          "type": "mcq",
-          "prompt": "10 × 4 = ?",
-          "options": [
-            "40",
-            "46",
-            "47",
-            "43"
-          ],
-          "answer": "40",
-          "correction": "10 × 4 = 40.",
-          "prompt_nl": "10 × 4 = ?",
-          "prompt_en": "10 × 4 = ?",
-          "prompt_es": "10 × 4 = ?"
-        },
-        {
-          "id": "q5",
           "type": "fill_blank",
-          "prompt": "10 × 5 = ___",
-          "answer": "50",
-          "correction": "10 × 5 = 50."
+          "prompt": "10 × 6 + 10 = ?",
+          "answer": "70",
+          "accept": [
+            "70"
+          ],
+          "correction": "10×6=60, 60+10=70."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "10 × 5 = ?",
-          "options": [
-            "50",
-            "52",
-            "48",
-            "44"
+          "type": "fill_blank",
+          "prompt": "Un sac contient 10 billes. Combien de billes dans 8 sacs ?",
+          "answer": "80",
+          "accept": [
+            "80"
           ],
-          "answer": "50",
-          "correction": "10 × 5 = 50.",
-          "prompt_nl": "10 × 5 = ?",
-          "prompt_en": "10 × 5 = ?",
-          "prompt_es": "10 × 5 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "10 × 6 = ?",
-          "options": [
-            "56",
-            "51",
-            "60",
-            "57"
-          ],
-          "answer": "60",
-          "correction": "10 × 6 = 60.",
-          "prompt_nl": "10 × 6 = ?",
-          "prompt_en": "10 × 6 = ?",
-          "prompt_es": "10 × 6 = ?"
+          "correction": "10 × 8 = 80 billes."
         },
         {
           "id": "q8",
           "type": "fill_blank",
-          "prompt": "10 × 10 = ___",
-          "answer": "100",
-          "correction": "10 × 10 = 100."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "10 × 9 = ?",
-          "options": [
-            "98",
-            "84",
-            "87",
-            "90"
+          "prompt": "10 × ___ = 70",
+          "answer": "7",
+          "accept": [
+            "7"
           ],
-          "answer": "90",
-          "correction": "10 × 9 = 90.",
-          "prompt_nl": "10 × 9 = ?",
-          "prompt_en": "10 × 9 = ?",
-          "prompt_es": "10 × 9 = ?"
+          "correction": "70 ÷ 10 = 7."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "10 × 5 = ?",
-          "options": [
-            "50",
-            "41",
-            "40",
-            "42"
+          "type": "fill_blank",
+          "prompt": "10 × 9 = ?",
+          "answer": "90",
+          "accept": [
+            "90"
           ],
-          "answer": "50",
-          "correction": "10 × 5 = 50.",
-          "prompt_nl": "10 × 5 = ?",
-          "prompt_en": "10 × 5 = ?",
-          "prompt_es": "10 × 5 = ?"
+          "correction": "10 × 9 = 90."
+        },
+        {
+          "id": "q12",
+          "type": "fill_blank",
+          "prompt": "10 × 4 + 10 × 3 = ?",
+          "answer": "70",
+          "accept": [
+            "70"
+          ],
+          "correction": "10×4=40, 10×3=30, 40+30=70."
+        },
+        {
+          "id": "q14",
+          "type": "fill_blank",
+          "prompt": "Il y a 10 doigts sur 6 mains. Combien de doigts au total ?",
+          "answer": "60",
+          "accept": [
+            "60"
+          ],
+          "correction": "10 × 6 = 60 doigts."
+        },
+        {
+          "id": "q16",
+          "type": "fill_blank",
+          "prompt": "10 × ___ = 80",
+          "answer": "8",
+          "accept": [
+            "8"
+          ],
+          "correction": "80 ÷ 10 = 8."
+        },
+        {
+          "id": "q18",
+          "type": "fill_blank",
+          "prompt": "Un décimètre vaut 10 centimètres. Combien de centimètres font 7 décimètres ?",
+          "answer": "70",
+          "accept": [
+            "70"
+          ],
+          "correction": "7 × 10 = 70 cm."
+        },
+        {
+          "id": "q20",
+          "type": "fill_blank",
+          "prompt": "(10 × 3) + (10 × 7) = ?",
+          "answer": "100",
+          "accept": [
+            "100"
+          ],
+          "correction": "10×3=30, 10×7=70, 30+70=100."
         }
       ]
     }

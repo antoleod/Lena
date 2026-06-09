@@ -111,124 +111,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « long » :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "court",
-            "large",
-            "fin"
-          ],
-          "answer": "court",
-          "correction": "long ↔ court."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Un moyen de transport :",
-          "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Un légume :",
-          "options": [
-            "carotte",
-            "fraise",
-            "banane"
-          ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
-          "options": [
-            "nuit",
-            "soir",
-            "matin"
-          ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
-          "options": [
-            "jeune",
-            "gros",
+            "rapide",
+            "fort",
             "grand"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q14",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q16",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q18",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "discuter",
-            "courir",
+            "rechercher",
+            "trouver",
+            "perdre"
+          ],
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "options": [
+            "pas",
+            "très",
+            "bien"
+          ],
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
             "dormir"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Une couleur :",
-          "options": [
-            "rouge",
-            "pomme",
-            "table"
-          ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },

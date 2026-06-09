@@ -105,120 +105,108 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "plafond",
+            "phlafond",
+            "plaffond"
+          ],
+          "answer": "plafond",
+          "correction": "On écrit « plafond » avec un « f » et « ond » à la fin."
+        },
+        {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
+          "prompt": "Complète le mot : bou_ie",
+          "answer": "g",
           "accept": [
-            "v"
+            "g"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "correction": "On écrit « bougie » avec un « g »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "lézard",
+            "lezard",
+            "lézzard"
+          ],
+          "answer": "lézard",
+          "correction": "On écrit « lézard » avec un accent aigu sur le « é »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "guitare",
+            "guittare",
+            "guîtare"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
+          "answer": "guitare",
+          "correction": "On écrit « guitare » avec un seul « t »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « trottoir » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « trottoir » s'écrit avec deux « t »."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "ballon",
-            "balon",
-            "baloon"
+          "type": "fill_blank",
+          "prompt": "Complète le mot : pan_er",
+          "answer": "i",
+          "accept": [
+            "i"
           ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "correction": "On écrit « panier » avec un « i »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "peluche",
+            "péluche",
+            "peluche"
+          ],
+          "answer": "peluche",
+          "correction": "On écrit « peluche » sans accent."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
+            "mouette",
+            "mouète",
+            "moüette"
           ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
+          "answer": "mouette",
+          "correction": "On écrit « mouette » avec deux « t »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « épouvantail » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « épouvantail » s'écrit bien ainsi."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+          "type": "fill_blank",
+          "prompt": "Complète le mot : sai_on",
+          "answer": "s",
+          "accept": [
+            "s"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "tableau",
-            "tablau",
-            "tableo"
-          ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maison",
-            "mayson",
-            "mèson"
-          ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
-          ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
-          ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "correction": "On écrit « saison » avec un « s » entre « ai » et « on »."
         }
       ]
     },
@@ -228,118 +216,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « ou » + « i » = « oui » ?",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "bougie",
+            "table",
+            "livre"
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "bougie",
+          "correction": "Bougie s'écrit b-o-u-g-i-e."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "trottoir",
+            "trotoir",
+            "oiseau"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "trotoir",
+          "correction": "Le mot correct est « trottoir » avec deux « t » : t-r-o-t-t-o-i-r."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Elle met les fruits dans le ___ .",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "panier",
+            "panier",
+            "pané"
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
+          "answer": "panier",
+          "correction": "Panier s'écrit p-a-n-i-e-r."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « on » ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "saison",
+            "trottoir",
+            "livre"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "saison",
+          "correction": "Saison s'écrit s-a-i-s-o-n."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Identifie la faute :",
+          "options": [
+            "épouvantail",
+            "epouventail",
+            "oiseau"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "epouventail",
+          "correction": "Le mot correct est « épouvantail » : é-p-o-u-v-a-n-t-a-i-l."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot a un accent aigu au début ?",
           "options": [
-            "ballon",
-            "balon",
-            "baloon"
+            "épouvantail",
+            "oiseau",
+            "table"
           ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "answer": "épouvantail",
+          "correction": "Épouvantail commence par « é » avec accent aigu."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « oi » ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "oiseau",
+            "table",
+            "bougie"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "oiseau",
+          "correction": "Oiseau contient « oi » : o-i-s-e-a-u."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "L'oiseau chante sur la branche.",
+            "L'oisau chante sur la branche.",
+            "L'oiseau chante sur la branche."
           ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "answer": "L'oiseau chante sur la branche.",
+          "correction": "Oiseau s'écrit o-i-s-e-a-u."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « tt » ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "trottoir",
+            "oiseau",
+            "panier"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "trottoir",
+          "correction": "Trottoir s'écrit t-r-o-t-t-o-i-r avec deux « t »."
         },
         {
           "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Quel mot est mal orthographié ?",
+          "options": [
+            "saison",
+            "saisson",
+            "oiseau"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "saisson",
+          "correction": "Le mot correct est « saison » : s-a-i-s-o-n (un seul « s »)."
         }
       ]
     }

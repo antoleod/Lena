@@ -105,118 +105,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "bouquet",
+            "boquait",
+            "bouquait"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "bouquet",
+          "correction": "On écrit « bouquet » avec « quet »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : géog_aphie",
+          "answer": "r",
+          "accept": [
+            "r"
+          ],
+          "correction": "On écrit « géographie » avec un « r »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "robuste",
+            "robuuste",
+            "robüste"
+          ],
+          "answer": "robuste",
+          "correction": "On écrit « robuste » avec un seul « u »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "baguette",
+            "baguete",
+            "baguètte"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "baguette",
+          "correction": "On écrit « baguette » avec deux « t » et sans accent."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « vélocité » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « vélocité » s'écrit avec un accent aigu."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "tableau",
-            "tablau",
-            "tableo"
-          ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
-        },
-        {
-          "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
+          "prompt": "Complète le mot : bal_ine",
           "answer": "e",
           "accept": [
             "e"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "correction": "On écrit « baleine » avec un « e »."
         },
         {
-          "id": "q12",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "crevette",
+            "crevète",
+            "creveïtte"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "crevette",
+          "correction": "On écrit « crevette » avec deux « t » et sans accent."
         },
         {
-          "id": "q14",
+          "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "épingle",
+            "epingle",
+            "épinglel"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "épingle",
+          "correction": "On écrit « épingle » avec un accent aigu sur le « é »."
         },
         {
-          "id": "q16",
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « bélier » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « bélier » s'écrit avec un accent aigu sur le « é »."
+        },
+        {
+          "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
+          "prompt": "Complète le mot : cano_",
+          "answer": "t",
           "accept": [
-            "d"
+            "t"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
-          ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
-          ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "correction": "On écrit « canot » avec un « t » final."
         }
       ]
     },
@@ -226,116 +216,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « ph » ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "géographie",
+            "baleine",
+            "canon"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "géographie",
+          "correction": "Géographie s'écrit g-é-o-g-r-a-p-h-i-e."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
+          "options": [
+            "bélier",
+            "belier",
+            "géographie"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
+          "answer": "belier",
+          "correction": "Le mot correct est « bélier » avec un accent aigu : b-é-l-i-e-r."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe : Il tire avec un ___ .",
+          "options": [
+            "canon",
+            "cannone",
+            "kanon"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "canon",
+          "correction": "Canon s'écrit c-a-n-o-n."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Quel mot a un accent aigu ?",
+          "options": [
+            "géographie",
+            "canon",
+            "baleine"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "géographie",
+          "correction": "Géographie s'écrit g-é-o-g-r-a-p-h-i-e avec un accent aigu."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Identifie la faute :",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "baleine",
+            "baleyne",
+            "géographie"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "baleyne",
+          "correction": "Le mot correct est « baleine » : b-a-l-e-i-n-e."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « ei » ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "baleine",
+            "géographie",
+            "bélier"
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "baleine",
+          "correction": "Baleine contient « ei » : b-a-l-e-i-n-e."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « on » ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "canon",
+            "géographie",
+            "bélier"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "canon",
+          "correction": "Canon contient « on » : c-a-n-on."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "Le bélier broute dans la géographie.",
+            "Le belier broute dans la geographie.",
+            "Le bélier broute dans la géographie."
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "Le bélier broute dans la géographie.",
+          "correction": "Bélier = é, géographie = é + ph."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -ier » ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "bélier",
+            "canon",
+            "géographie"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "bélier",
+          "correction": "Bélier se termine par « -ier » : b-é-l-i-e-r."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "géographie",
+            "geographie",
+            "bélier"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "geographie",
+          "correction": "Le mot correct est « géographie » avec un accent aigu sur le premier « e »."
         }
       ]
     }

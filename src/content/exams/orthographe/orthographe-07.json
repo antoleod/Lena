@@ -107,114 +107,108 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "perroquet",
+            "peroquait",
+            "perroquait"
+          ],
+          "answer": "perroquet",
+          "correction": "On écrit « perroquet » avec deux « r » et « et » à la fin."
+        },
+        {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
+          "prompt": "Complète le mot : tapi_",
+          "answer": "s",
           "accept": [
-            "a"
+            "s"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "correction": "On écrit « tapis » avec un « s » final."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "requin",
+            "reqins",
+            "rquin"
+          ],
+          "answer": "requin",
+          "correction": "On écrit « requin » avec « quin »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "étoile",
+            "ettoile",
+            "etoille"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "étoile",
+          "correction": "On écrit « étoile » avec un accent aigu et un seul « l »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « casquette » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « casquette » s'écrit avec deux « t »."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
-          ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maman",
-            "mamen",
-            "momen"
-          ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
-        },
-        {
-          "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
-          ],
-          "correction": "On écrit « jardin » (lettre « d »)."
-        },
-        {
-          "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
+          "prompt": "Complète le mot : lun_ttes",
           "answer": "e",
           "accept": [
             "e"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
+          "correction": "On écrit « lunettes » avec deux « t »."
         },
         {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
-          ],
-          "correction": "On écrit « livre » (lettre « v »)."
-        },
-        {
-          "id": "q16",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "moustache",
+            "moustace",
+            "moustash"
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "moustache",
+          "correction": "On écrit « moustache » avec « ache »."
         },
         {
-          "id": "q18",
+          "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
+            "robe",
+            "rrobe",
+            "robbe"
           ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
+          "answer": "robe",
+          "correction": "On écrit « robe » avec un seul « r » et un seul « b »."
         },
         {
-          "id": "q20",
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « scarabée » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « scarabée » s'écrit avec un accent aigu sur le dernier « é »."
+        },
+        {
+          "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
+          "prompt": "Complète le mot : bala_ce",
+          "answer": "n",
           "accept": [
-            "o"
+            "n"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "correction": "On écrit « balance » avec un « n »."
         }
       ]
     },
@@ -224,114 +218,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient une double consonne « ss » ?",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "casquette",
+            "jardin",
+            "table"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "casquette",
+          "correction": "Casquette s'écrit c-a-s-q-u-e-t-t-e avec deux « t »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "scarabée",
+            "scarabee",
+            "lunettes"
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "scarabee",
+          "correction": "Le mot correct est « scarabée » avec un accent : s-c-a-r-a-b-é-e."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Elle porte des ___ .",
           "options": [
-            "ballon",
-            "balon",
-            "baloon"
+            "lunettes",
+            "lunetttes",
+            "luettes"
           ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "answer": "lunettes",
+          "correction": "Lunettes s'écrit l-u-n-e-t-t-e-s avec deux « t »."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « qu » ?",
+          "options": [
+            "casquette",
+            "scarabée",
+            "tapis"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "casquette",
+          "correction": "Casquette s'écrit avec « qu » : c-a-s-q-u-e-t-t-e."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Identifie la faute :",
+          "options": [
+            "balance",
+            "balance",
+            "balanse"
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "answer": "balanse",
+          "correction": "Le mot correct est « balance » : b-a-l-a-n-c-e."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot a un accent aigu final ?",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "scarabée",
+            "casquette",
+            "tapis"
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
+          "answer": "scarabée",
+          "correction": "Scarabée se termine par « ée » avec accent : s-c-a-r-a-b-é-e."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « tt » ?",
+          "options": [
+            "lunettes",
+            "scarabée",
+            "balance"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "lunettes",
+          "correction": "Lunettes s'écrit l-u-n-e-t-t-e-s."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "Le scarabée rampe sur le tapis.",
+            "Le scarabee rampe sur le tapiss.",
+            "Le scarabée rampe sur le tapis."
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "Le scarabée rampe sur le tapis.",
+          "correction": "Scarabée avec accent, tapis sans double s final."
         },
         {
           "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot contient « an » ?",
+          "options": [
+            "balance",
+            "casquette",
+            "lunettes"
           ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
+          "answer": "balance",
+          "correction": "Balance contient « an » : b-a-l-a-n-c-e."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "tapis",
+            "tappi",
+            "scarabée"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "tappi",
+          "correction": "Le mot correct est « tapis » : t-a-p-i-s (un seul « p »)."
         }
       ]
     }

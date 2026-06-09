@@ -111,112 +111,312 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "true_false",
+          "prompt": "La Méditerranée est une mer.",
+          "answer": true,
+          "correction": "La mer Méditerranée est une mer intérieure entourée par l'Europe, l'Afrique et l'Asie.",
+          "prompt_nl": "De Middellandse Zee is een zee.",
+          "prompt_en": "The Mediterranean is a sea.",
+          "prompt_es": "El Mediterraneo es un mar."
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Quel pays est le plus grand du monde ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "la Russie",
+            "le Canada",
+            "la Chine",
+            "les États-Unis"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "la Russie",
+          "correction": "La Russie est le plus grand pays du monde par sa superficie.",
+          "prompt_nl": "Welk land is het grootste ter wereld?",
+          "prompt_en": "Which country is the largest in the world?",
+          "prompt_es": "Que pais es el mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "Rusland",
+              "Canada",
+              "China",
+              "de Verenigde Staten"
+            ],
+            "en": [
+              "Russia",
+              "Canada",
+              "China",
+              "the United States"
+            ],
+            "es": [
+              "Rusia",
+              "Canada",
+              "China",
+              "Estados Unidos"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Une île est une terre entourée de :",
+          "options": [
+            "eau",
+            "montagnes",
+            "forêts",
+            "désert"
+          ],
+          "answer": "eau",
+          "correction": "Une île est une étendue de terre entièrement entourée d'eau.",
+          "prompt_nl": "Een eiland is een stuk land omgeven door:",
+          "prompt_en": "An island is a piece of land surrounded by:",
+          "prompt_es": "Una isla es una tierra rodeada de:",
+          "options_i18n": {
+            "nl": [
+              "water",
+              "bergen",
+              "bossen",
+              "woestijn"
+            ],
+            "en": [
+              "water",
+              "mountains",
+              "forests",
+              "desert"
+            ],
+            "es": [
+              "agua",
+              "montanas",
+              "bosques",
+              "desierto"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "La langue officielle du Mexique est :",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "l'espagnol",
+            "le portugais",
+            "le français",
+            "l'anglais"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "l'espagnol",
+          "correction": "Le Mexique est un pays hispanophone d'Amérique centrale.",
+          "prompt_nl": "De officiele taal van Mexico is:",
+          "prompt_en": "The official language of Mexico is:",
+          "prompt_es": "El idioma oficial de Mexico es:",
+          "options_i18n": {
+            "nl": [
+              "Spaans",
+              "Portugees",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Spanish",
+              "Portuguese",
+              "French",
+              "English"
+            ],
+            "es": [
+              "espanol",
+              "portugues",
+              "frances",
+              "ingles"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "En Scandinavie, les hivers sont longs et très froids.",
+          "answer": true,
+          "correction": "Les pays scandinaves ont des hivers très froids et de longues nuits polaires.",
+          "prompt_nl": "In Scandinavie zijn de winters lang en erg koud.",
+          "prompt_en": "In Scandinavia, winters are long and very cold.",
+          "prompt_es": "En Escandinavia, los inviernos son largos y muy frios."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Quel continent est le plus peuplé ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe",
+            "l'Amérique"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "l'Asie",
+          "correction": "L'Asie est le continent le plus peuplé avec plus de 4 milliards d'habitants.",
+          "prompt_nl": "Welk continent is het meest bevolkt?",
+          "prompt_en": "Which continent is the most populated?",
+          "prompt_es": "Que continente es el mas poblado?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Afrika",
+              "Europa",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Africa",
+              "Europe",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Africa",
+              "Europa",
+              "America"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Les Alpes sont :",
+          "options": [
+            "une chaîne de montagnes",
+            "un fleuve",
+            "une mer",
+            "un désert"
+          ],
+          "answer": "une chaîne de montagnes",
+          "correction": "Les Alpes sont la plus grande chaîne de montagnes d'Europe.",
+          "prompt_nl": "De Alpen zijn:",
+          "prompt_en": "The Alps are:",
+          "prompt_es": "Los Alpes son:",
+          "options_i18n": {
+            "nl": [
+              "een bergketen",
+              "een rivier",
+              "een zee",
+              "een woestijn"
+            ],
+            "en": [
+              "a mountain range",
+              "a river",
+              "a sea",
+              "a desert"
+            ],
+            "es": [
+              "una cadena montanosa",
+              "un rio",
+              "un mar",
+              "un desierto"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Sur quel continent se trouve le Japon ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "Asie",
+            "Europe",
+            "Océanie",
+            "Amérique"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "Asie",
+          "correction": "Le Japon est un archipel situé en Asie de l'Est.",
+          "prompt_nl": "Op welk continent ligt Japan?",
+          "prompt_en": "On which continent is Japan located?",
+          "prompt_es": "En que continente se encuentra Japon?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Europa",
+              "Oceanie",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Europe",
+              "Oceania",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Europa",
+              "Oceania",
+              "America"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Quelle est la capitale de l'Australie ?",
+          "options": [
+            "Canberra",
+            "Sydney",
+            "Melbourne",
+            "Brisbane"
+          ],
+          "answer": "Canberra",
+          "correction": "Canberra est la capitale de l'Australie.",
+          "prompt_nl": "Wat is de hoofdstad van Australie?",
+          "prompt_en": "What is the capital of Australia?",
+          "prompt_es": "Cual es la capital de Australia?",
+          "options_i18n": {
+            "nl": [
+              "Canberra",
+              "Sydney",
+              "Melbourne",
+              "Brisbane"
+            ],
+            "en": [
+              "Canberra",
+              "Sydney",
+              "Melbourne",
+              "Brisbane"
+            ],
+            "es": [
+              "Canberra",
+              "Sidney",
+              "Melbourne",
+              "Brisbane"
+            ]
+          }
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
-          ],
-          "correction": "L’abeille fait le miel."
-        },
-        {
-          "id": "q12",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
-        },
-        {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Le blé est principalement cultivé dans :",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "les champs",
+            "les forêts",
+            "les déserts",
+            "les océans"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
-        },
-        {
-          "id": "q16",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "La poule pond des :",
-          "options": [
-            "œufs",
-            "plumes",
-            "fruits"
-          ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "On voit avec les :",
-          "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
-          ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "les champs",
+          "correction": "Le blé est une céréale cultivée dans les grandes plaines agricoles.",
+          "prompt_nl": "Tarwe wordt voornamelijk verbouwd in:",
+          "prompt_en": "Wheat is mainly grown in:",
+          "prompt_es": "El trigo se cultiva principalmente en:",
+          "options_i18n": {
+            "nl": [
+              "de velden",
+              "de bossen",
+              "de woestijnen",
+              "de oceanen"
+            ],
+            "en": [
+              "fields",
+              "forests",
+              "deserts",
+              "oceans"
+            ],
+            "es": [
+              "los campos",
+              "los bosques",
+              "los desiertos",
+              "los oceanos"
+            ]
+          }
         }
       ]
     },

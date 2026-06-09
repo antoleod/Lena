@@ -279,284 +279,310 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Les fleurs servent principalement à :",
+          "options": [
+            "la reproduction de la plante",
+            "nourrir les insectes",
+            "produire de l'oxygène",
+            "ancrer la plante"
+          ],
+          "answer": "la reproduction de la plante",
+          "correction": "Les fleurs permettent la reproduction de la plante grâce à la pollinisation.",
+          "prompt_nl": "Bloemen dienen voornamelijk voor:",
+          "prompt_en": "Flowers are mainly for:",
+          "prompt_es": "Las flores sirven principalmente para:",
+          "options_i18n": {
+            "nl": [
+              "de voortplanting van de plant",
+              "insecten voeden",
+              "zuurstof produceren",
+              "de plant verankeren"
+            ],
+            "en": [
+              "plant reproduction",
+              "feeding insects",
+              "producing oxygen",
+              "anchoring the plant"
+            ],
+            "es": [
+              "la reproduccion de la planta",
+              "alimentar insectos",
+              "producir oxigeno",
+              "anclar la planta"
+            ]
+          }
+        },
+        {
           "id": "q2",
+          "type": "mcq",
+          "prompt": "Un invertébré est un animal sans :",
+          "options": [
+            "colonne vertébrale",
+            "pattes",
+            "yeux",
+            "sang"
+          ],
+          "answer": "colonne vertébrale",
+          "correction": "Un invertébré n'a pas de colonne vertébrale.",
+          "prompt_nl": "Een ongewerveld dier heeft geen:",
+          "prompt_en": "An invertebrate has no:",
+          "prompt_es": "Un invertebrado no tiene:",
+          "options_i18n": {
+            "nl": [
+              "wervelkolom",
+              "poten",
+              "ogen",
+              "bloed"
+            ],
+            "en": [
+              "backbone",
+              "legs",
+              "eyes",
+              "blood"
+            ],
+            "es": [
+              "columna vertebral",
+              "patas",
+              "ojos",
+              "sangre"
+            ]
+          }
+        },
+        {
+          "id": "q3",
           "type": "true_false",
-          "prompt": "Le Soleil tourne autour de la Terre.",
-          "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil.",
-          "prompt_nl": "De Zon draait om de Aarde.",
-          "prompt_en": "The Sun revolves around the Earth.",
-          "prompt_es": "El Sol gira alrededor de la Tierra."
+          "prompt": "L'aimant attire les objets en métal.",
+          "answer": true,
+          "correction": "Un aimant attire le fer et certains autres métaux.",
+          "prompt_nl": "Een magneet trekt metalen voorwerpen aan.",
+          "prompt_en": "A magnet attracts metal objects.",
+          "prompt_es": "El iman atrae objetos de metal."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "La Terre fait le tour du Soleil en :",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "un an",
+            "un mois",
+            "une semaine",
+            "un jour"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
+          "answer": "un an",
+          "correction": "La Terre met environ 365 jours (un an) pour tourner autour du Soleil.",
+          "prompt_nl": "De Aarde doet er ___ over om de Zon te omcirkelen:",
+          "prompt_en": "The Earth takes ___ to go around the Sun:",
+          "prompt_es": "La Tierra tarda ___ en dar la vuelta al Sol:",
           "options_i18n": {
             "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
+              "een jaar",
+              "een maand",
+              "een week",
+              "een dag"
             ],
             "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
+              "one year",
+              "one month",
+              "one week",
+              "one day"
             ],
             "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
+              "un ano",
+              "un mes",
+              "una semana",
+              "un dia"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quel animal produit du miel ?",
+          "options": [
+            "l'abeille",
+            "la fourmi",
+            "le ver",
+            "le papillon"
+          ],
+          "answer": "l'abeille",
+          "correction": "L'abeille produit du miel dans la ruche.",
+          "prompt_nl": "Welk dier produceert honing?",
+          "prompt_en": "Which animal produces honey?",
+          "prompt_es": "Que animal produce miel?",
+          "options_i18n": {
+            "nl": [
+              "de bij",
+              "de mier",
+              "de worm",
+              "de vlinder"
+            ],
+            "en": [
+              "the bee",
+              "the ant",
+              "the worm",
+              "the butterfly"
+            ],
+            "es": [
+              "la abeja",
+              "la hormiga",
+              "el gusano",
+              "la mariposa"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Avec quoi respire-t-on ?",
+          "prompt": "Quel sens utilise-t-on pour goûter ?",
           "options": [
-            "les poumons",
-            "l'estomac",
-            "le foie",
-            "les reins"
+            "le goût",
+            "l'odorat",
+            "la vue",
+            "le toucher"
           ],
-          "answer": "les poumons",
-          "correction": "On respire avec les poumons.",
-          "prompt_nl": "Waarmee ademen we?",
-          "prompt_en": "What do we breathe with?",
-          "prompt_es": "Con que respiramos?",
+          "answer": "le goût",
+          "correction": "On goûte avec la langue (le goût).",
+          "prompt_nl": "Welk zintuig gebruik je om te proeven?",
+          "prompt_en": "Which sense is used for tasting?",
+          "prompt_es": "Que sentido usas para saborear?",
           "options_i18n": {
             "nl": [
-              "de longen",
-              "de maag",
-              "de lever",
-              "de nieren"
+              "de smaak",
+              "de reuk",
+              "het zicht",
+              "het gevoel"
             ],
             "en": [
-              "the lungs",
-              "the stomach",
-              "the liver",
-              "the kidneys"
+              "taste",
+              "smell",
+              "sight",
+              "touch"
             ],
             "es": [
-              "los pulmones",
-              "el estomago",
-              "el higado",
-              "los rinones"
+              "el gusto",
+              "el olfato",
+              "la vista",
+              "el tacto"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Les os de notre corps forment :",
+          "options": [
+            "le squelette",
+            "les muscles",
+            "les nerfs",
+            "les vaisseaux"
+          ],
+          "answer": "le squelette",
+          "correction": "L'ensemble des os forme le squelette.",
+          "prompt_nl": "De botten van ons lichaam vormen:",
+          "prompt_en": "The bones of our body form:",
+          "prompt_es": "Los huesos de nuestro cuerpo forman:",
+          "options_i18n": {
+            "nl": [
+              "het skelet",
+              "de spieren",
+              "de zenuwen",
+              "de vaten"
+            ],
+            "en": [
+              "the skeleton",
+              "the muscles",
+              "the nerves",
+              "the vessels"
+            ],
+            "es": [
+              "el esqueleto",
+              "los musculos",
+              "los nervios",
+              "los vasos"
             ]
           }
         },
         {
           "id": "q8",
+          "type": "true_false",
+          "prompt": "Les requins sont des poissons.",
+          "answer": true,
+          "correction": "Les requins sont des poissons cartilagineux.",
+          "prompt_nl": "Haaien zijn vissen.",
+          "prompt_en": "Sharks are fish.",
+          "prompt_es": "Los tiburones son peces."
+        },
+        {
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Un herbivore mange :",
+          "prompt": "Le vent est un déplacement de :",
           "options": [
-            "des plantes",
-            "de la viande",
-            "des insectes",
-            "des poissons"
+            "l'air",
+            "l'eau",
+            "la terre",
+            "la vapeur"
           ],
-          "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes.",
-          "prompt_nl": "Een herbivoor eet:",
-          "prompt_en": "A herbivore eats:",
-          "prompt_es": "Un herbivoro come:",
+          "answer": "l'air",
+          "correction": "Le vent est causé par le déplacement des masses d'air.",
+          "prompt_nl": "Wind is een verplaatsing van:",
+          "prompt_en": "Wind is a movement of:",
+          "prompt_es": "El viento es un desplazamiento de:",
           "options_i18n": {
             "nl": [
-              "planten",
-              "vlees",
-              "insecten",
-              "vissen"
+              "lucht",
+              "water",
+              "aarde",
+              "stoom"
             ],
             "en": [
-              "plants",
-              "meat",
-              "insects",
-              "fish"
+              "air",
+              "water",
+              "earth",
+              "vapour"
             ],
             "es": [
-              "plantas",
-              "carne",
-              "insectos",
-              "peces"
+              "aire",
+              "agua",
+              "tierra",
+              "vapor"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel est le rôle des racines d'une plante ?",
+          "prompt": "Le printemps suit :",
           "options": [
-            "absorber l'eau",
-            "faire la photosynthèse",
-            "produire des graines",
-            "attirer les insectes"
+            "l'hiver",
+            "l'été",
+            "l'automne",
+            "la nuit"
           ],
-          "answer": "absorber l'eau",
-          "correction": "Les racines absorbent l'eau du sol.",
-          "prompt_nl": "Wat is de rol van de wortels van een plant?",
-          "prompt_en": "What is the role of a plant's roots?",
-          "prompt_es": "Cual es la funcion de las raices de una planta?",
+          "answer": "l'hiver",
+          "correction": "Les saisons : hiver → printemps → été → automne.",
+          "prompt_nl": "De lente volgt op:",
+          "prompt_en": "Spring comes after:",
+          "prompt_es": "La primavera sigue a:",
           "options_i18n": {
             "nl": [
-              "water opnemen",
-              "fotosynthese doen",
-              "zaden produceren",
-              "insecten aantrekken"
+              "de winter",
+              "de zomer",
+              "de herfst",
+              "de nacht"
             ],
             "en": [
-              "absorb water",
-              "do photosynthesis",
-              "produce seeds",
-              "attract insects"
+              "winter",
+              "summer",
+              "autumn",
+              "night"
             ],
             "es": [
-              "absorber agua",
-              "hacer fotosintesis",
-              "producir semillas",
-              "atraer insectos"
-            ]
-          }
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
-          "options": [
-            "la Lune",
-            "le Soleil",
-            "Mars",
-            "Jupiter"
-          ],
-          "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
-          "options_i18n": {
-            "nl": [
-              "de Maan",
-              "de Zon",
-              "Mars",
-              "Jupiter"
-            ],
-            "en": [
-              "the Moon",
-              "the Sun",
-              "Mars",
-              "Jupiter"
-            ],
-            "es": [
-              "la Luna",
-              "el Sol",
-              "Marte",
-              "Jupiter"
-            ]
-          }
-        },
-        {
-          "id": "q14",
-          "type": "true_false",
-          "prompt": "Les plantes produisent de l'oxygène.",
-          "answer": true,
-          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse.",
-          "prompt_nl": "Planten produceren zuurstof.",
-          "prompt_en": "Plants produce oxygen.",
-          "prompt_es": "Las plantas producen oxigeno."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Un carnivore mange :",
-          "options": [
-            "de la viande",
-            "des plantes",
-            "des fruits",
-            "des graines"
-          ],
-          "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande.",
-          "prompt_nl": "Een carnivoor eet:",
-          "prompt_en": "A carnivore eats:",
-          "prompt_es": "Un carnivoro come:",
-          "options_i18n": {
-            "nl": [
-              "vlees",
-              "planten",
-              "fruit",
-              "zaden"
-            ],
-            "en": [
-              "meat",
-              "plants",
-              "fruit",
-              "seeds"
-            ],
-            "es": [
-              "carne",
-              "plantas",
-              "fruta",
-              "semillas"
-            ]
-          }
-        },
-        {
-          "id": "q18",
-          "type": "true_false",
-          "prompt": "L'eau bout à 100°C.",
-          "answer": true,
-          "correction": "L'eau bout à 100 degrés Celsius.",
-          "prompt_nl": "Water kookt bij 100°C.",
-          "prompt_en": "Water boils at 100°C.",
-          "prompt_es": "El agua hierve a 100°C."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "La chaîne alimentaire commence par :",
-          "options": [
-            "les plantes",
-            "les herbivores",
-            "les carnivores",
-            "les décomposeurs"
-          ],
-          "answer": "les plantes",
-          "correction": "La chaîne alimentaire commence par les plantes.",
-          "prompt_nl": "De voedselketen begint bij:",
-          "prompt_en": "The food chain starts with:",
-          "prompt_es": "La cadena alimentaria empieza por:",
-          "options_i18n": {
-            "nl": [
-              "de planten",
-              "de herbivoren",
-              "de carnivoren",
-              "de afbrekers"
-            ],
-            "en": [
-              "plants",
-              "herbivores",
-              "carnivores",
-              "decomposers"
-            ],
-            "es": [
-              "las plantas",
-              "los herbivoros",
-              "los carnivoros",
-              "los descomponedores"
+              "el invierno",
+              "el verano",
+              "el otono",
+              "la noche"
             ]
           }
         }
@@ -568,336 +594,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La photosynthèse est réalisée par :",
+          "prompt": "Le noyau de l'atome contient :",
           "options": [
-            "les plantes",
-            "les animaux",
-            "les champignons",
-            "les pierres"
+            "des protons et des neutrons",
+            "uniquement des électrons",
+            "uniquement des protons"
           ],
-          "answer": "les plantes",
-          "correction": "Les plantes font la photosynthèse.",
-          "prompt_nl": "Fotosynthese wordt uitgevoerd door:",
-          "prompt_en": "Photosynthesis is carried out by:",
-          "prompt_es": "La fotosintesis la realizan:",
-          "options_i18n": {
-            "nl": [
-              "de planten",
-              "de dieren",
-              "de schimmels",
-              "de stenen"
-            ],
-            "en": [
-              "plants",
-              "animals",
-              "fungi",
-              "stones"
-            ],
-            "es": [
-              "las plantas",
-              "los animales",
-              "los hongos",
-              "las piedras"
-            ]
-          }
+          "answer": "des protons et des neutrons",
+          "correction": "Les électrons orbitent autour du noyau composé de protons et neutrons."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel organe pompe le sang dans le corps ?",
+          "prompt": "Qu'est-ce que la loi d'Archimède ?",
           "options": [
-            "le cœur",
-            "le poumon",
-            "le cerveau",
-            "l'estomac"
+            "tout corps immergé subit une poussée verticale vers le haut",
+            "les corps tombent à la même vitesse",
+            "l'eau gèle à 0 °C"
           ],
-          "answer": "le cœur",
-          "correction": "Le cœur pompe le sang.",
-          "prompt_nl": "Welk orgaan pompt het bloed door het lichaam?",
-          "prompt_en": "Which organ pumps blood through the body?",
-          "prompt_es": "Que organo bombea la sangre por el cuerpo?",
-          "options_i18n": {
-            "nl": [
-              "het hart",
-              "de long",
-              "de hersenen",
-              "de maag"
-            ],
-            "en": [
-              "the heart",
-              "the lung",
-              "the brain",
-              "the stomach"
-            ],
-            "es": [
-              "el corazon",
-              "el pulmon",
-              "el cerebro",
-              "el estomago"
-            ]
-          }
+          "answer": "tout corps immergé subit une poussée verticale vers le haut",
+          "correction": "La poussée d'Archimède est égale au poids du fluide déplacé."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "De quoi est composé l'air que l'on respire surtout ?",
+          "prompt": "La méiose produit :",
           "options": [
-            "azote et oxygène",
-            "dioxyde de carbone",
-            "vapeur d'eau",
-            "hélium"
+            "des cellules reproductrices (gamètes) avec la moitié des chromosomes",
+            "deux cellules identiques",
+            "des cellules avec le même nombre de chromosomes"
           ],
-          "answer": "azote et oxygène",
-          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%).",
-          "prompt_nl": "Waaruit bestaat de lucht die we inademen?",
-          "prompt_en": "What is the air we breathe mainly made of?",
-          "prompt_es": "De que esta compuesto principalmente el aire que respiramos?",
-          "options_i18n": {
-            "nl": [
-              "stikstof en zuurstof",
-              "koolstofdioxide",
-              "waterdamp",
-              "helium"
-            ],
-            "en": [
-              "nitrogen and oxygen",
-              "carbon dioxide",
-              "water vapour",
-              "helium"
-            ],
-            "es": [
-              "nitrogeno y oxigeno",
-              "dioxido de carbono",
-              "vapor de agua",
-              "helio"
-            ]
-          }
+          "answer": "des cellules reproductrices (gamètes) avec la moitié des chromosomes",
+          "correction": "La méiose réduit le nombre de chromosomes de moitié pour la reproduction."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le cycle de l'eau commence par :",
+          "prompt": "L'énergie potentielle gravitationnelle augmente quand :",
           "options": [
-            "l'évaporation",
-            "les précipitations",
-            "la condensation",
-            "le ruissellement"
+            "l'objet monte en altitude",
+            "l'objet accélère",
+            "l'objet tombe"
           ],
-          "answer": "l'évaporation",
-          "correction": "Le cycle de l'eau commence par l'évaporation.",
-          "prompt_nl": "De watercyclus begint met:",
-          "prompt_en": "The water cycle begins with:",
-          "prompt_es": "El ciclo del agua comienza por:",
-          "options_i18n": {
-            "nl": [
-              "verdamping",
-              "neerslag",
-              "condensatie",
-              "afvloeiing"
-            ],
-            "en": [
-              "evaporation",
-              "precipitation",
-              "condensation",
-              "runoff"
-            ],
-            "es": [
-              "evaporacion",
-              "precipitaciones",
-              "condensacion",
-              "escorrentia"
-            ]
-          }
+          "answer": "l'objet monte en altitude",
+          "correction": "Ep = mgh ; plus l'altitude est grande, plus l'énergie potentielle est grande."
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "Le Soleil tourne autour de la Terre.",
-          "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil.",
-          "prompt_nl": "De Zon draait om de Aarde.",
-          "prompt_en": "The Sun revolves around the Earth.",
-          "prompt_es": "El Sol gira alrededor de la Tierra."
+          "type": "mcq",
+          "prompt": "Les plaques tectoniques se rencontrent-elles toujours ?",
+          "options": [
+            "Non, elles peuvent aussi s'éloigner ou glisser l'une contre l'autre",
+            "Oui, toujours",
+            "Elles ne bougent pas"
+          ],
+          "answer": "Non, elles peuvent aussi s'éloigner ou glisser l'une contre l'autre",
+          "correction": "Trois types de frontières : convergentes, divergentes, transformantes."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "prompt": "Qu'est-ce que le pH mesure ?",
           "options": [
-            "Mercure",
-            "Vénus",
-            "Terre",
-            "Mars"
+            "l'acidité ou la basicité d'une solution",
+            "la température",
+            "la pression"
           ],
-          "answer": "Mercure",
-          "correction": "Mercure est la planète la plus proche du Soleil.",
-          "prompt_nl": "Welke planeet staat het dichtst bij de Zon?",
-          "prompt_en": "Which planet is closest to the Sun?",
-          "prompt_es": "Que planeta esta mas cerca del Sol?",
-          "options_i18n": {
-            "nl": [
-              "Mercurius",
-              "Venus",
-              "Aarde",
-              "Mars"
-            ],
-            "en": [
-              "Mercury",
-              "Venus",
-              "Earth",
-              "Mars"
-            ],
-            "es": [
-              "Mercurio",
-              "Venus",
-              "Tierra",
-              "Marte"
-            ]
-          }
+          "answer": "l'acidité ou la basicité d'une solution",
+          "correction": "pH < 7 : acide ; pH = 7 : neutre ; pH > 7 : basique."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Un insecte a combien de pattes ?",
+          "prompt": "La résistance électrique se mesure en :",
           "options": [
-            "6",
-            "4",
-            "8",
-            "2"
+            "ohms (Ω)",
+            "ampères (A)",
+            "volts (V)"
           ],
-          "answer": "6",
-          "correction": "Les insectes ont 6 pattes.",
-          "prompt_nl": "Hoeveel poten heeft een insect?",
-          "prompt_en": "How many legs does an insect have?",
-          "prompt_es": "Cuantas patas tiene un insecto?",
-          "options_i18n": {
-            "nl": [
-              "6",
-              "4",
-              "8",
-              "2"
-            ],
-            "en": [
-              "6",
-              "4",
-              "8",
-              "2"
-            ],
-            "es": [
-              "6",
-              "4",
-              "8",
-              "2"
-            ]
-          }
+          "answer": "ohms (Ω)",
+          "correction": "La loi d'Ohm : U = R × I (tension = résistance × intensité)."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour écouter de la musique ?",
+          "prompt": "Qu'est-ce que la biosphère ?",
           "options": [
-            "l'ouïe",
-            "la vue",
-            "l'odorat",
-            "le toucher"
+            "l'ensemble des zones de la Terre abritant des êtres vivants",
+            "l'atmosphère terrestre",
+            "les océans uniquement"
           ],
-          "answer": "l'ouïe",
-          "correction": "On écoute avec l'ouïe (les oreilles).",
-          "prompt_nl": "Welk zintuig gebruik je om naar muziek te luisteren?",
-          "prompt_en": "Which sense do you use to listen to music?",
-          "prompt_es": "Que sentido se usa para escuchar musica?",
-          "options_i18n": {
-            "nl": [
-              "het gehoor",
-              "het zicht",
-              "de reuk",
-              "het gevoel"
-            ],
-            "en": [
-              "hearing",
-              "sight",
-              "smell",
-              "touch"
-            ],
-            "es": [
-              "el oido",
-              "la vista",
-              "el olfato",
-              "el tacto"
-            ]
-          }
+          "answer": "l'ensemble des zones de la Terre abritant des êtres vivants",
+          "correction": "La biosphère s'étend des profondeurs océaniques aux hautes altitudes."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "Le système immunitaire protège l'organisme contre :",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "les agents pathogènes (bactéries, virus, parasites)",
+            "uniquement les bactéries",
+            "les cellules cancéreuses uniquement"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
-          "options_i18n": {
-            "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
-            ],
-            "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
-            ],
-            "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
-            ]
-          }
+          "answer": "les agents pathogènes (bactéries, virus, parasites)",
+          "correction": "Le système immunitaire reconnaît et élimine les agents étrangers."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Un herbivore mange :",
+          "prompt": "La fission nucléaire consiste à :",
           "options": [
-            "des plantes",
-            "de la viande",
-            "des insectes",
-            "des poissons"
+            "diviser un noyau lourd pour libérer de l'énergie",
+            "fusionner deux noyaux légers",
+            "transformer un atome en molécule"
           ],
-          "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes.",
-          "prompt_nl": "Een herbivoor eet:",
-          "prompt_en": "A herbivore eats:",
-          "prompt_es": "Un herbivoro come:",
-          "options_i18n": {
-            "nl": [
-              "planten",
-              "vlees",
-              "insecten",
-              "vissen"
-            ],
-            "en": [
-              "plants",
-              "meat",
-              "insects",
-              "fish"
-            ],
-            "es": [
-              "plantas",
-              "carne",
-              "insectos",
-              "peces"
-            ]
-          }
+          "answer": "diviser un noyau lourd pour libérer de l'énergie",
+          "correction": "La fission est utilisée dans les centrales nucléaires."
         }
       ]
     }

@@ -154,172 +154,172 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "fill_blank",
+          "prompt": "Quel est le périmètre d'un carré de 5 cm de côté ?",
+          "answer": "20 cm",
+          "accept": [
+            "20 cm",
+            "20"
+          ],
+          "correction": "Périmètre = 4 × côté = 4 × 5 = 20 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 5 cm?",
+          "prompt_en": "What is the perimeter of a square with a 5 cm side?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de 5 cm de lado?",
+          "correction_nl": "Omtrek = 4 × zijde = 4 × 5 = 20 cm.",
+          "correction_en": "Perimeter = 4 × side = 4 × 5 = 20 cm.",
+          "correction_es": "Perímetro = 4 × lado = 4 × 5 = 20 cm."
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Une fenêtre a souvent la forme d’un :",
+          "prompt": "Quel est le périmètre d'un rectangle de 6 cm de long et 3 cm de large ?",
           "options": [
-            "rectangle",
-            "cercle",
-            "triangle"
+            "18 cm",
+            "9 cm",
+            "24 cm"
           ],
-          "answer": "rectangle",
-          "correction": "Souvent un rectangle.",
-          "prompt_nl": "Een raam heeft vaak de vorm van een:",
-          "prompt_en": "A window often has the shape of a:",
-          "prompt_es": "Una ventana suele tener forma de:",
-          "correction_nl": "Vaak een rechthoek.",
-          "correction_en": "Usually a rectangle.",
-          "correction_es": "Normalmente un rectángulo."
+          "answer": "18 cm",
+          "correction": "Périmètre = 2 × (longueur + largeur) = 2 × (6 + 3) = 18 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 6 cm lang en 3 cm breed?",
+          "prompt_en": "What is the perimeter of a rectangle 6 cm long and 3 cm wide?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 6 cm de largo y 3 cm de ancho?",
+          "correction_nl": "Omtrek = 2 × (lengte + breedte) = 2 × (6 + 3) = 18 cm.",
+          "correction_en": "Perimeter = 2 × (length + width) = 2 × (6 + 3) = 18 cm.",
+          "correction_es": "Perímetro = 2 × (largo + ancho) = 2 × (6 + 3) = 18 cm."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Un rectangle a-t-il des angles droits ?",
+          "options": [
+            "oui, 4 angles droits",
+            "non, aucun angle droit",
+            "oui, 2 angles droits"
+          ],
+          "answer": "oui, 4 angles droits",
+          "correction": "Un rectangle a 4 angles droits (90°) aux quatre coins.",
+          "prompt_nl": "Heeft een rechthoek rechte hoeken?",
+          "prompt_en": "Does a rectangle have right angles?",
+          "prompt_es": "¿Tiene un rectángulo ángulos rectos?",
+          "correction_nl": "Een rechthoek heeft 4 rechte hoeken (90°) in de vier hoeken.",
+          "correction_en": "A rectangle has 4 right angles (90°) at its four corners.",
+          "correction_es": "Un rectángulo tiene 4 ángulos rectos (90°) en las cuatro esquinas."
         },
         {
           "id": "q4",
+          "type": "mcq",
+          "prompt": "Combien de paires de côtés parallèles a un rectangle ?",
+          "options": [
+            "2",
+            "0",
+            "4"
+          ],
+          "answer": "2",
+          "correction": "Un rectangle a 2 paires de côtés parallèles : les longueurs et les largeurs.",
+          "prompt_nl": "Hoeveel paren parallelle zijden heeft een rechthoek?",
+          "prompt_en": "How many pairs of parallel sides does a rectangle have?",
+          "prompt_es": "¿Cuántos pares de lados paralelos tiene un rectángulo?",
+          "correction_nl": "Een rechthoek heeft 2 paren parallelle zijden.",
+          "correction_en": "A rectangle has 2 pairs of parallel sides.",
+          "correction_es": "Un rectángulo tiene 2 pares de lados paralelos."
+        },
+        {
+          "id": "q5",
           "type": "true_false",
-          "prompt": "Un carré a tous ses côtés égaux.",
+          "prompt": "Un carré est un rectangle particulier.",
           "answer": true,
-          "correction": "Oui, 4 côtés égaux.",
-          "prompt_nl": "Een vierkant heeft alle zijden gelijk.",
-          "prompt_en": "A square has all equal sides.",
-          "prompt_es": "Un cuadrado tiene todos los lados iguales.",
-          "correction_nl": "Ja, 4 gelijke zijden.",
-          "correction_en": "Yes, 4 equal sides.",
-          "correction_es": "Sí, 4 lados iguales."
+          "correction": "Vrai : un carré est un rectangle dont tous les côtés sont égaux.",
+          "prompt_nl": "Een vierkant is een bijzondere rechthoek.",
+          "prompt_en": "A square is a special rectangle.",
+          "prompt_es": "Un cuadrado es un rectángulo especial.",
+          "correction_nl": "Waar: een vierkant is een rechthoek waarvan alle zijden gelijk zijn.",
+          "correction_en": "True: a square is a rectangle with all equal sides.",
+          "correction_es": "Verdadero: un cuadrado es un rectángulo con todos los lados iguales."
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "Un triangle a 4 côtés.",
-          "answer": false,
-          "correction": "Le triangle a 3 côtés.",
-          "prompt_nl": "Een driehoek heeft 4 zijden.",
-          "prompt_en": "A triangle has 4 sides.",
-          "prompt_es": "Un triángulo tiene 4 lados.",
-          "correction_nl": "Een driehoek heeft 3 zijden.",
-          "correction_en": "A triangle has 3 sides.",
-          "correction_es": "Un triángulo tiene 3 lados."
+          "type": "fill_blank",
+          "prompt": "Quel est le périmètre d'un triangle équilatéral de 4 cm de côté ?",
+          "answer": "12 cm",
+          "accept": [
+            "12 cm",
+            "12"
+          ],
+          "correction": "Périmètre = 3 × côté = 3 × 4 = 12 cm.",
+          "prompt_nl": "Wat is de omtrek van een gelijkzijdige driehoek met zijde 4 cm?",
+          "prompt_en": "What is the perimeter of an equilateral triangle with a 4 cm side?",
+          "prompt_es": "¿Cuál es el perímetro de un triángulo equilátero de 4 cm de lado?",
+          "correction_nl": "Omtrek = 3 × zijde = 3 × 4 = 12 cm.",
+          "correction_en": "Perimeter = 3 × side = 3 × 4 = 12 cm.",
+          "correction_es": "Perímetro = 3 × lado = 3 × 4 = 12 cm."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Combien d'axes de symétrie a un rectangle non carré ?",
+          "options": [
+            "2",
+            "4",
+            "0"
+          ],
+          "answer": "2",
+          "correction": "Un rectangle non carré a 2 axes de symétrie : les deux droites passant par le milieu des côtés.",
+          "prompt_nl": "Hoeveel symmetrie-assen heeft een rechthoek die geen vierkant is?",
+          "prompt_en": "How many axes of symmetry does a non-square rectangle have?",
+          "prompt_es": "¿Cuántos ejes de simetría tiene un rectángulo que no es cuadrado?",
+          "correction_nl": "Een niet-vierkante rechthoek heeft 2 symmetrie-assen.",
+          "correction_en": "A non-square rectangle has 2 axes of symmetry.",
+          "correction_es": "Un rectángulo no cuadrado tiene 2 ejes de simetría."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle forme a 3 coins ?",
+          "prompt": "Quelle forme a exactement 2 paires de côtés égaux ?",
           "options": [
+            "le rectangle",
             "le triangle",
-            "le carré",
             "le cercle"
           ],
-          "answer": "le triangle",
-          "correction": "Le triangle a 3 coins.",
-          "prompt_nl": "Welke vorm heeft 3 hoeken?",
-          "prompt_en": "Which shape has 3 corners?",
-          "prompt_es": "¿Qué forma tiene 3 vértices?",
-          "correction_nl": "De driehoek heeft 3 hoeken.",
-          "correction_en": "The triangle has 3 corners.",
-          "correction_es": "El triángulo tiene 3 vértices."
+          "answer": "le rectangle",
+          "correction": "Le rectangle a 2 paires de côtés égaux : longueurs égales entre elles, largeurs égales entre elles.",
+          "prompt_nl": "Welke vorm heeft precies 2 paren gelijke zijden?",
+          "prompt_en": "Which shape has exactly 2 pairs of equal sides?",
+          "prompt_es": "¿Qué forma tiene exactamente 2 pares de lados iguales?",
+          "correction_nl": "De rechthoek heeft 2 paren gelijke zijden.",
+          "correction_en": "The rectangle has 2 pairs of equal sides.",
+          "correction_es": "El rectángulo tiene 2 pares de lados iguales."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Un carré a 4 axes de symétrie.",
+          "answer": true,
+          "correction": "Vrai : un carré a 4 axes de symétrie (2 médianes et 2 diagonales).",
+          "prompt_nl": "Een vierkant heeft 4 symmetrie-assen.",
+          "prompt_en": "A square has 4 axes of symmetry.",
+          "prompt_es": "Un cuadrado tiene 4 ejes de simetría.",
+          "correction_nl": "Waar: een vierkant heeft 4 symmetrie-assen.",
+          "correction_en": "True: a square has 4 axes of symmetry.",
+          "correction_es": "Verdadero: un cuadrado tiene 4 ejes de simetría."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Un rectangle a combien de côtés ?",
+          "prompt": "Le périmètre d'un carré de 3 cm de côté est :",
           "options": [
-            "4",
-            "3",
-            "6"
+            "12 cm",
+            "9 cm",
+            "6 cm"
           ],
-          "answer": "4",
-          "correction": "Le rectangle a 4 côtés.",
-          "prompt_nl": "Hoeveel zijden heeft een rechthoek?",
-          "prompt_en": "How many sides does a rectangle have?",
-          "prompt_es": "¿Cuántos lados tiene un rectángulo?",
-          "correction_nl": "Een rechthoek heeft 4 zijden.",
-          "correction_en": "A rectangle has 4 sides.",
-          "correction_es": "Un rectángulo tiene 4 lados."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le rectangle a :",
-          "options": [
-            "des côtés longs et courts",
-            "tous les côtés égaux",
-            "aucun côté"
-          ],
-          "answer": "des côtés longs et courts",
-          "correction": "Rectangle : longs et courts.",
-          "prompt_nl": "Een rechthoek heeft:",
-          "prompt_en": "A rectangle has:",
-          "prompt_es": "Un rectángulo tiene:",
-          "correction_nl": "Lange en korte zijden.",
-          "correction_en": "Long and short sides.",
-          "correction_es": "Lados largos y cortos."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quelle forme n’a pas de coin ?",
-          "options": [
-            "le cercle",
-            "le carré",
-            "le triangle"
-          ],
-          "answer": "le cercle",
-          "correction": "Le cercle est rond, sans coin.",
-          "prompt_nl": "Welke vorm heeft geen hoek?",
-          "prompt_en": "Which shape has no corner?",
-          "prompt_es": "¿Qué forma no tiene esquina?",
-          "correction_nl": "De cirkel is rond, zonder hoeken.",
-          "correction_en": "A circle is round, with no corners.",
-          "correction_es": "El círculo es redondo, sin esquinas."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Combien de côtés a un triangle ?",
-          "options": [
-            "3",
-            "4",
-            "5"
-          ],
-          "answer": "3",
-          "correction": "Le triangle a 3 côtés.",
-          "prompt_nl": "Hoeveel zijden heeft een driehoek?",
-          "prompt_en": "How many sides does a triangle have?",
-          "prompt_es": "¿Cuántos lados tiene un triángulo?",
-          "correction_nl": "Een driehoek heeft 3 zijden.",
-          "correction_en": "A triangle has 3 sides.",
-          "correction_es": "Un triángulo tiene 3 lados."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Combien de coins a un carré ?",
-          "options": [
-            "4",
-            "3",
-            "0"
-          ],
-          "answer": "4",
-          "correction": "Le carré a 4 coins.",
-          "prompt_nl": "Hoeveel hoeken heeft een vierkant?",
-          "prompt_en": "How many corners does a square have?",
-          "prompt_es": "¿Cuántos vértices tiene un cuadrado?",
-          "correction_nl": "Een vierkant heeft 4 hoeken.",
-          "correction_en": "A square has 4 corners.",
-          "correction_es": "Un cuadrado tiene 4 vértices."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "La forme ronde s’appelle le ___ .",
-          "answer": "cercle",
-          "accept": [
-            "cercle"
-          ],
-          "correction": "C’est le cercle.",
-          "prompt_nl": "De ronde vorm heet de ___ .",
-          "prompt_en": "The round shape is called a ___ .",
-          "prompt_es": "La forma redonda se llama ___ .",
-          "correction_nl": "Het is de cirkel.",
-          "correction_en": "It is the circle.",
-          "correction_es": "Es el círculo."
+          "answer": "12 cm",
+          "correction": "Périmètre = 4 × 3 = 12 cm.",
+          "prompt_nl": "De omtrek van een vierkant met zijde 3 cm is:",
+          "prompt_en": "The perimeter of a square with a 3 cm side is:",
+          "prompt_es": "El perímetro de un cuadrado de 3 cm de lado es:",
+          "correction_nl": "Omtrek = 4 × 3 = 12 cm.",
+          "correction_en": "Perimeter = 4 × 3 = 12 cm.",
+          "correction_es": "Perímetro = 4 × 3 = 12 cm."
         }
       ]
     },
@@ -327,177 +327,173 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "Combien de côtés a un carré ?",
-          "options": [
-            "4",
-            "3",
-            "5"
-          ],
-          "answer": "4",
-          "correction": "Le carré a 4 côtés égaux.",
-          "prompt_nl": "Hoeveel zijden heeft een vierkant?",
-          "prompt_en": "How many sides does a square have?",
-          "prompt_es": "¿Cuántos lados tiene un cuadrado?",
-          "correction_nl": "Een vierkant heeft 4 gelijke zijden.",
-          "correction_en": "A square has 4 equal sides.",
-          "correction_es": "Un cuadrado tiene 4 lados iguales."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Combien de coins a un carré ?",
-          "options": [
-            "4",
-            "3",
-            "0"
-          ],
-          "answer": "4",
-          "correction": "Le carré a 4 coins.",
-          "prompt_nl": "Hoeveel hoeken heeft een vierkant?",
-          "prompt_en": "How many corners does a square have?",
-          "prompt_es": "¿Cuántos vértices tiene un cuadrado?",
-          "correction_nl": "Een vierkant heeft 4 hoeken.",
-          "correction_en": "A square has 4 corners.",
-          "correction_es": "Un cuadrado tiene 4 vértices."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Quelle forme n’a pas de coin ?",
-          "options": [
-            "le cercle",
-            "le carré",
-            "le triangle"
-          ],
-          "answer": "le cercle",
-          "correction": "Le cercle est rond, sans coin.",
-          "prompt_nl": "Welke vorm heeft geen hoek?",
-          "prompt_en": "Which shape has no corner?",
-          "prompt_es": "¿Qué forma no tiene esquina?",
-          "correction_nl": "De cirkel is rond, zonder hoeken.",
-          "correction_en": "A circle is round, with no corners.",
-          "correction_es": "El círculo es redondo, sin esquinas."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Une balle a la forme d’un :",
-          "options": [
-            "cercle",
-            "carré",
-            "triangle"
-          ],
-          "answer": "cercle",
-          "correction": "La balle est ronde.",
-          "prompt_nl": "Een bal heeft de vorm van een:",
-          "prompt_en": "A ball has the shape of a:",
-          "prompt_es": "Una pelota tiene forma de:",
-          "correction_nl": "Een bal is rond (cirkel).",
-          "correction_en": "A ball is round (circle).",
-          "correction_es": "Una pelota es redonda (círculo)."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le rectangle a :",
-          "options": [
-            "des côtés longs et courts",
-            "tous les côtés égaux",
-            "aucun côté"
-          ],
-          "answer": "des côtés longs et courts",
-          "correction": "Rectangle : longs et courts.",
-          "prompt_nl": "Een rechthoek heeft:",
-          "prompt_en": "A rectangle has:",
-          "prompt_es": "Un rectángulo tiene:",
-          "correction_nl": "Lange en korte zijden.",
-          "correction_en": "Long and short sides.",
-          "correction_es": "Lados largos y cortos."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quelle forme a 3 coins ?",
-          "options": [
-            "le triangle",
-            "le carré",
-            "le cercle"
-          ],
-          "answer": "le triangle",
-          "correction": "Le triangle a 3 coins.",
-          "prompt_nl": "Welke vorm heeft 3 hoeken?",
-          "prompt_en": "Which shape has 3 corners?",
-          "prompt_es": "¿Qué forma tiene 3 vértices?",
-          "correction_nl": "De driehoek heeft 3 hoeken.",
-          "correction_en": "The triangle has 3 corners.",
-          "correction_es": "El triángulo tiene 3 vértices."
-        },
-        {
-          "id": "q14",
+          "id": "d1",
           "type": "fill_blank",
-          "prompt": "La forme ronde s’appelle le ___ .",
-          "answer": "cercle",
+          "prompt": "Quelle est l’aire d’un rectangle de 5 cm de long et 3 cm de large ?",
+          "answer": "15 cm²",
           "accept": [
-            "cercle"
+            "15 cm²",
+            "15 cm2",
+            "15"
           ],
-          "correction": "C’est le cercle.",
-          "prompt_nl": "De ronde vorm heet de ___ .",
-          "prompt_en": "The round shape is called a ___ .",
-          "prompt_es": "La forma redonda se llama ___ .",
-          "correction_nl": "Het is de cirkel.",
-          "correction_en": "It is the circle.",
-          "correction_es": "Es el círculo."
+          "correction": "Aire = longueur × largeur = 5 × 3 = 15 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 5 cm lang en 3 cm breed?",
+          "prompt_en": "What is the area of a rectangle 5 cm long and 3 cm wide?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 5 cm de largo y 3 cm de ancho?",
+          "correction_nl": "Oppervlakte = lengte × breedte = 5 × 3 = 15 cm².",
+          "correction_en": "Area = length × width = 5 × 3 = 15 cm².",
+          "correction_es": "Área = largo × ancho = 5 × 3 = 15 cm²."
         },
         {
-          "id": "q16",
+          "id": "d2",
           "type": "mcq",
-          "prompt": "Une fenêtre a souvent la forme d’un :",
+          "prompt": "Quelle est l’aire d’un carré de 4 cm de côté ?",
           "options": [
-            "rectangle",
-            "cercle",
-            "triangle"
+            "16 cm²",
+            "8 cm²",
+            "12 cm²"
           ],
-          "answer": "rectangle",
-          "correction": "Souvent un rectangle.",
-          "prompt_nl": "Een raam heeft vaak de vorm van een:",
-          "prompt_en": "A window often has the shape of a:",
-          "prompt_es": "Una ventana suele tener forma de:",
-          "correction_nl": "Vaak een rechthoek.",
-          "correction_en": "Usually a rectangle.",
-          "correction_es": "Normalmente un rectángulo."
+          "answer": "16 cm²",
+          "correction": "Aire = côté × côté = 4 × 4 = 16 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 4 cm?",
+          "prompt_en": "What is the area of a square with a 4 cm side?",
+          "prompt_es": "¿Cuál es el área de un cuadrado de 4 cm de lado?",
+          "correction_nl": "Oppervlakte = zijde × zijde = 4 × 4 = 16 cm².",
+          "correction_en": "Area = side × side = 4 × 4 = 16 cm².",
+          "correction_es": "Área = lado × lado = 4 × 4 = 16 cm²."
         },
         {
-          "id": "q18",
+          "id": "d3",
           "type": "mcq",
-          "prompt": "Combien de côtés a un triangle ?",
+          "prompt": "Dans un triangle, la somme des trois angles est égale à :",
           "options": [
-            "3",
-            "4",
-            "5"
+            "180°",
+            "90°",
+            "360°"
           ],
-          "answer": "3",
-          "correction": "Le triangle a 3 côtés.",
-          "prompt_nl": "Hoeveel zijden heeft een driehoek?",
-          "prompt_en": "How many sides does a triangle have?",
-          "prompt_es": "¿Cuántos lados tiene un triángulo?",
-          "correction_nl": "Een driehoek heeft 3 zijden.",
-          "correction_en": "A triangle has 3 sides.",
-          "correction_es": "Un triángulo tiene 3 lados."
+          "answer": "180°",
+          "correction": "La somme des angles d’un triangle est toujours 180°.",
+          "prompt_nl": "In een driehoek is de som van de drie hoeken gelijk aan:",
+          "prompt_en": "In a triangle, the sum of the three angles equals:",
+          "prompt_es": "En un triángulo, la suma de los tres ángulos es igual a:",
+          "correction_nl": "De som van de hoeken van een driehoek is altijd 180°.",
+          "correction_en": "The sum of angles in a triangle is always 180°.",
+          "correction_es": "La suma de los ángulos de un triángulo es siempre 180°."
         },
         {
-          "id": "q20",
+          "id": "d4",
+          "type": "fill_blank",
+          "prompt": "Un triangle a deux angles de 60° et 80°. Quel est le troisième angle ?",
+          "answer": "40°",
+          "accept": [
+            "40°",
+            "40"
+          ],
+          "correction": "180° − 60° − 80° = 40°.",
+          "prompt_nl": "Een driehoek heeft twee hoeken van 60° en 80°. Wat is de derde hoek?",
+          "prompt_en": "A triangle has two angles of 60° and 80°. What is the third angle?",
+          "prompt_es": "Un triángulo tiene dos ángulos de 60° y 80°. ¿Cuál es el tercer ángulo?",
+          "correction_nl": "180° − 60° − 80° = 40°.",
+          "correction_en": "180° − 60° − 80° = 40°.",
+          "correction_es": "180° − 60° − 80° = 40°."
+        },
+        {
+          "id": "d5",
           "type": "true_false",
-          "prompt": "Un triangle a 4 côtés.",
-          "answer": false,
-          "correction": "Le triangle a 3 côtés.",
-          "prompt_nl": "Een driehoek heeft 4 zijden.",
-          "prompt_en": "A triangle has 4 sides.",
-          "prompt_es": "Un triángulo tiene 4 lados.",
-          "correction_nl": "Een driehoek heeft 3 zijden.",
-          "correction_en": "A triangle has 3 sides.",
-          "correction_es": "Un triángulo tiene 3 lados."
+          "prompt": "Un carré est à la fois un rectangle et un losange.",
+          "answer": true,
+          "correction": "Vrai : un carré a 4 angles droits (rectangle) et 4 côtés égaux (losange).",
+          "prompt_nl": "Een vierkant is tegelijk een rechthoek en een ruit.",
+          "prompt_en": "A square is both a rectangle and a rhombus.",
+          "prompt_es": "Un cuadrado es a la vez un rectángulo y un rombo.",
+          "correction_nl": "Waar: een vierkant heeft 4 rechte hoeken (rechthoek) en 4 gelijke zijden (ruit).",
+          "correction_en": "True: a square has 4 right angles (rectangle) and 4 equal sides (rhombus).",
+          "correction_es": "Verdadero: un cuadrado tiene 4 ángulos rectos (rectángulo) y 4 lados iguales (rombo)."
+        },
+        {
+          "id": "d6",
+          "type": "mcq",
+          "prompt": "Quel est le volume d’un cube de 3 cm d’arête ?",
+          "options": [
+            "27 cm³",
+            "9 cm³",
+            "12 cm³"
+          ],
+          "answer": "27 cm³",
+          "correction": "Volume = arête³ = 3 × 3 × 3 = 27 cm³.",
+          "prompt_nl": "Wat is het volume van een kubus met riblengte 3 cm?",
+          "prompt_en": "What is the volume of a cube with an edge of 3 cm?",
+          "prompt_es": "¿Cuál es el volumen de un cubo de arista 3 cm?",
+          "correction_nl": "Volume = rib³ = 3 × 3 × 3 = 27 cm³.",
+          "correction_en": "Volume = edge³ = 3 × 3 × 3 = 27 cm³.",
+          "correction_es": "Volumen = arista³ = 3 × 3 × 3 = 27 cm³."
+        },
+        {
+          "id": "d7",
+          "type": "fill_blank",
+          "prompt": "Quelle est l’aire d’un rectangle de 8 cm de long et 4 cm de large ?",
+          "answer": "32 cm²",
+          "accept": [
+            "32 cm²",
+            "32 cm2",
+            "32"
+          ],
+          "correction": "Aire = 8 × 4 = 32 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 8 cm lang en 4 cm breed?",
+          "prompt_en": "What is the area of a rectangle 8 cm long and 4 cm wide?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 8 cm de largo y 4 cm de ancho?",
+          "correction_nl": "Oppervlakte = 8 × 4 = 32 cm².",
+          "correction_en": "Area = 8 × 4 = 32 cm².",
+          "correction_es": "Área = 8 × 4 = 32 cm²."
+        },
+        {
+          "id": "d8",
+          "type": "mcq",
+          "prompt": "Un rectangle a une longueur de 7 cm et une largeur de 3 cm. Quel est son périmètre ?",
+          "options": [
+            "20 cm",
+            "21 cm",
+            "10 cm"
+          ],
+          "answer": "20 cm",
+          "correction": "Périmètre = 2 × (7 + 3) = 2 × 10 = 20 cm.",
+          "prompt_nl": "Een rechthoek heeft een lengte van 7 cm en een breedte van 3 cm. Wat is zijn omtrek?",
+          "prompt_en": "A rectangle has a length of 7 cm and a width of 3 cm. What is its perimeter?",
+          "prompt_es": "Un rectángulo tiene un largo de 7 cm y un ancho de 3 cm. ¿Cuál es su perímetro?",
+          "correction_nl": "Omtrek = 2 × (7 + 3) = 2 × 10 = 20 cm.",
+          "correction_en": "Perimeter = 2 × (7 + 3) = 2 × 10 = 20 cm.",
+          "correction_es": "Perímetro = 2 × (7 + 3) = 2 × 10 = 20 cm."
+        },
+        {
+          "id": "d9",
+          "type": "mcq",
+          "prompt": "Un triangle rectangle a des angles de 90° et 45°. Quel est le troisième angle ?",
+          "options": [
+            "45°",
+            "30°",
+            "60°"
+          ],
+          "answer": "45°",
+          "correction": "180° − 90° − 45° = 45°.",
+          "prompt_nl": "Een rechthoekige driehoek heeft hoeken van 90° en 45°. Wat is de derde hoek?",
+          "prompt_en": "A right-angled triangle has angles of 90° and 45°. What is the third angle?",
+          "prompt_es": "Un triángulo rectángulo tiene ángulos de 90° y 45°. ¿Cuál es el tercer ángulo?",
+          "correction_nl": "180° − 90° − 45° = 45°.",
+          "correction_en": "180° − 90° − 45° = 45°.",
+          "correction_es": "180° − 90° − 45° = 45°."
+        },
+        {
+          "id": "d10",
+          "type": "true_false",
+          "prompt": "L’aire d’un carré de 6 cm de côté est 36 cm².",
+          "answer": true,
+          "correction": "Vrai : 6 × 6 = 36 cm².",
+          "prompt_nl": "De oppervlakte van een vierkant met zijde 6 cm is 36 cm².",
+          "prompt_en": "The area of a square with a 6 cm side is 36 cm².",
+          "prompt_es": "El área de un cuadrado de 6 cm de lado es 36 cm².",
+          "correction_nl": "Waar: 6 × 6 = 36 cm².",
+          "correction_en": "True: 6 × 6 = 36 cm².",
+          "correction_es": "Verdadero: 6 × 6 = 36 cm²."
         }
       ]
     }

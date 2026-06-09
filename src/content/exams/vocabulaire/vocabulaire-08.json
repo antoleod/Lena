@@ -111,124 +111,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "rapide",
+            "fort",
+            "grand"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q10",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
         },
         {
-          "id": "q12",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "pas",
+            "très",
+            "bien"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
         },
         {
-          "id": "q14",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
         },
         {
-          "id": "q16",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "plaisant",
+            "mauvais",
+            "froid"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
         },
         {
-          "id": "q18",
+          "id": "q17",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Le contraire de « silencieux » :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "bruyant",
+            "calme",
+            "doux"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
         },
         {
-          "id": "q20",
+          "id": "q19",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « se dépêcher » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "se presser",
+            "attendre",
+            "dormir"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },

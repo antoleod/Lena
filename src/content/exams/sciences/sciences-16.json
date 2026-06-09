@@ -279,286 +279,338 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Un omnivore mange :",
+          "options": [
+            "de la viande et des végétaux",
+            "uniquement de la viande",
+            "uniquement des plantes",
+            "uniquement des insectes"
+          ],
+          "answer": "de la viande et des végétaux",
+          "correction": "Un omnivore mange à la fois de la viande et des végétaux.",
+          "prompt_nl": "Een omnivoor eet:",
+          "prompt_en": "An omnivore eats:",
+          "prompt_es": "Un omnivoro come:",
+          "options_i18n": {
+            "nl": [
+              "vlees en groenten",
+              "alleen vlees",
+              "alleen planten",
+              "alleen insecten"
+            ],
+            "en": [
+              "meat and plants",
+              "only meat",
+              "only plants",
+              "only insects"
+            ],
+            "es": [
+              "carne y vegetales",
+              "solo carne",
+              "solo plantas",
+              "solo insectos"
+            ]
+          }
+        },
+        {
           "id": "q2",
-          "type": "true_false",
-          "prompt": "L'eau bout à 100°C.",
-          "answer": true,
-          "correction": "L'eau bout à 100 degrés Celsius.",
-          "prompt_nl": "Water kookt bij 100°C.",
-          "prompt_en": "Water boils at 100°C.",
-          "prompt_es": "El agua hierve a 100°C."
+          "type": "mcq",
+          "prompt": "La chenille se transforme en :",
+          "options": [
+            "un papillon",
+            "une fourmi",
+            "une abeille",
+            "un ver"
+          ],
+          "answer": "un papillon",
+          "correction": "La chenille se transforme en papillon : c'est la métamorphose.",
+          "prompt_nl": "De rups verandert in:",
+          "prompt_en": "The caterpillar transforms into:",
+          "prompt_es": "La oruga se transforma en:",
+          "options_i18n": {
+            "nl": [
+              "een vlinder",
+              "een mier",
+              "een bij",
+              "een worm"
+            ],
+            "en": [
+              "a butterfly",
+              "an ant",
+              "a bee",
+              "a worm"
+            ],
+            "es": [
+              "una mariposa",
+              "una hormiga",
+              "una abeja",
+              "un gusano"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Le têtard se transforme en :",
+          "options": [
+            "une grenouille",
+            "un poisson",
+            "un lézard",
+            "un serpent"
+          ],
+          "answer": "une grenouille",
+          "correction": "Le têtard se transforme en grenouille par métamorphose.",
+          "prompt_nl": "Het kikkervisje verandert in:",
+          "prompt_en": "The tadpole transforms into:",
+          "prompt_es": "El renacuajo se transforma en:",
+          "options_i18n": {
+            "nl": [
+              "een kikker",
+              "een vis",
+              "een hagedis",
+              "een slang"
+            ],
+            "en": [
+              "a frog",
+              "a fish",
+              "a lizard",
+              "a snake"
+            ],
+            "es": [
+              "una rana",
+              "un pez",
+              "un lagarto",
+              "una serpiente"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel animal pond des oeufs ?",
+          "prompt": "Quel animal est un reptile ?",
           "options": [
-            "la poule",
-            "le chat",
-            "le chien",
-            "la vache"
+            "le serpent",
+            "le dauphin",
+            "la grenouille",
+            "le hibou"
           ],
-          "answer": "la poule",
-          "correction": "La poule pond des oeufs.",
-          "prompt_nl": "Welk dier legt eieren?",
-          "prompt_en": "Which animal lays eggs?",
-          "prompt_es": "Que animal pone huevos?",
+          "answer": "le serpent",
+          "correction": "Le serpent est un reptile : il a des écailles et est à sang froid.",
+          "prompt_nl": "Welk dier is een reptiel?",
+          "prompt_en": "Which animal is a reptile?",
+          "prompt_es": "Que animal es un reptil?",
           "options_i18n": {
             "nl": [
-              "de kip",
-              "de kat",
-              "de hond",
-              "de koe"
+              "de slang",
+              "de dolfijn",
+              "de kikker",
+              "de uil"
             ],
             "en": [
-              "the hen",
-              "the cat",
-              "the dog",
-              "the cow"
+              "the snake",
+              "the dolphin",
+              "the frog",
+              "the owl"
             ],
             "es": [
-              "la gallina",
-              "el gato",
-              "el perro",
-              "la vaca"
+              "la serpiente",
+              "el delfin",
+              "la rana",
+              "el buho"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quel est le rôle des feuilles ?",
+          "options": [
+            "capter la lumière du Soleil",
+            "absorber l'eau du sol",
+            "produire des graines",
+            "ancrer la plante"
+          ],
+          "answer": "capter la lumière du Soleil",
+          "correction": "Les feuilles captent la lumière du Soleil pour réaliser la photosynthèse.",
+          "prompt_nl": "Wat is de rol van de bladeren?",
+          "prompt_en": "What is the role of leaves?",
+          "prompt_es": "Cual es la funcion de las hojas?",
+          "options_i18n": {
+            "nl": [
+              "zonlicht opvangen",
+              "water opnemen",
+              "zaden produceren",
+              "de plant verankeren"
+            ],
+            "en": [
+              "capture sunlight",
+              "absorb water",
+              "produce seeds",
+              "anchor the plant"
+            ],
+            "es": [
+              "captar la luz solar",
+              "absorber agua",
+              "producir semillas",
+              "anclar la planta"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "L'eau en état gazeux est :",
+          "prompt": "Quel organe digère les aliments ?",
           "options": [
-            "la vapeur",
-            "la glace",
-            "la neige",
-            "la grêle"
+            "l'estomac",
+            "le cœur",
+            "les poumons",
+            "le cerveau"
           ],
-          "answer": "la vapeur",
-          "correction": "L'eau gazeuse = la vapeur.",
-          "prompt_nl": "Water in gasvormige toestand is:",
-          "prompt_en": "Water in gaseous state is:",
-          "prompt_es": "El agua en estado gaseoso es:",
+          "answer": "l'estomac",
+          "correction": "L'estomac digère les aliments.",
+          "prompt_nl": "Welk orgaan verteert het voedsel?",
+          "prompt_en": "Which organ digests food?",
+          "prompt_es": "Que organo digiere los alimentos?",
           "options_i18n": {
             "nl": [
-              "damp",
-              "ijs",
-              "sneeuw",
-              "hagel"
+              "de maag",
+              "het hart",
+              "de longen",
+              "de hersenen"
             ],
             "en": [
-              "vapour",
-              "ice",
-              "snow",
-              "hail"
+              "the stomach",
+              "the heart",
+              "the lungs",
+              "the brain"
             ],
             "es": [
-              "vapor",
-              "hielo",
-              "nieve",
-              "granizo"
+              "el estomago",
+              "el corazon",
+              "los pulmones",
+              "el cerebro"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Combien de planètes y a-t-il dans le système solaire ?",
+          "options": [
+            "8",
+            "9",
+            "7",
+            "10"
+          ],
+          "answer": "8",
+          "correction": "Il y a 8 planètes dans le système solaire.",
+          "prompt_nl": "Hoeveel planeten zijn er in het zonnestelsel?",
+          "prompt_en": "How many planets are in the solar system?",
+          "prompt_es": "Cuantas planetas hay en el sistema solar?",
+          "options_i18n": {
+            "nl": [
+              "8",
+              "9",
+              "7",
+              "10"
+            ],
+            "en": [
+              "8",
+              "9",
+              "7",
+              "10"
+            ],
+            "es": [
+              "8",
+              "9",
+              "7",
+              "10"
             ]
           }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "La Lune tourne autour de :",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "la Terre",
+            "le Soleil",
+            "Mars",
+            "Saturne"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
+          "answer": "la Terre",
+          "correction": "La Lune est le satellite naturel de la Terre.",
+          "prompt_nl": "De Maan draait om:",
+          "prompt_en": "The Moon revolves around:",
+          "prompt_es": "La Luna gira alrededor de:",
           "options_i18n": {
             "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
+              "de Aarde",
+              "de Zon",
+              "Mars",
+              "Saturnus"
             ],
             "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
+              "the Earth",
+              "the Sun",
+              "Mars",
+              "Saturn"
             ],
             "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
+              "la Tierra",
+              "el Sol",
+              "Marte",
+              "Saturno"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Quel animal est un amphibien ?",
+          "options": [
+            "la grenouille",
+            "le serpent",
+            "le dauphin",
+            "le pigeon"
+          ],
+          "answer": "la grenouille",
+          "correction": "La grenouille est un amphibien : elle vit sur terre et dans l'eau.",
+          "prompt_nl": "Welk dier is een amfibie?",
+          "prompt_en": "Which animal is an amphibian?",
+          "prompt_es": "Que animal es un anfibio?",
+          "options_i18n": {
+            "nl": [
+              "de kikker",
+              "de slang",
+              "de dolfijn",
+              "de duif"
+            ],
+            "en": [
+              "the frog",
+              "the snake",
+              "the dolphin",
+              "the pigeon"
+            ],
+            "es": [
+              "la rana",
+              "la serpiente",
+              "el delfin",
+              "el palomo"
             ]
           }
         },
         {
           "id": "q10",
           "type": "true_false",
-          "prompt": "Les plantes produisent de l'oxygène.",
+          "prompt": "Les baleines sont des mammifères.",
           "answer": true,
-          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse.",
-          "prompt_nl": "Planten produceren zuurstof.",
-          "prompt_en": "Plants produce oxygen.",
-          "prompt_es": "Las plantas producen oxigeno."
-        },
-        {
-          "id": "q12",
-          "type": "true_false",
-          "prompt": "Le Soleil tourne autour de la Terre.",
-          "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil.",
-          "prompt_nl": "De Zon draait om de Aarde.",
-          "prompt_en": "The Sun revolves around the Earth.",
-          "prompt_es": "El Sol gira alrededor de la Tierra."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
-          "options": [
-            "l'odorat",
-            "le goût",
-            "la vue",
-            "le toucher"
-          ],
-          "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez).",
-          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
-          "prompt_en": "Which sense do you use to smell a flower?",
-          "prompt_es": "Que sentido se usa para oler una flor?",
-          "options_i18n": {
-            "nl": [
-              "de reuk",
-              "de smaak",
-              "het zicht",
-              "het gevoel"
-            ],
-            "en": [
-              "smell",
-              "taste",
-              "sight",
-              "touch"
-            ],
-            "es": [
-              "el olfato",
-              "el gusto",
-              "la vista",
-              "el tacto"
-            ]
-          }
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel est le rôle des racines d'une plante ?",
-          "options": [
-            "absorber l'eau",
-            "faire la photosynthèse",
-            "produire des graines",
-            "attirer les insectes"
-          ],
-          "answer": "absorber l'eau",
-          "correction": "Les racines absorbent l'eau du sol.",
-          "prompt_nl": "Wat is de rol van de wortels van een plant?",
-          "prompt_en": "What is the role of a plant's roots?",
-          "prompt_es": "Cual es la funcion de las raices de una planta?",
-          "options_i18n": {
-            "nl": [
-              "water opnemen",
-              "fotosynthese doen",
-              "zaden produceren",
-              "insecten aantrekken"
-            ],
-            "en": [
-              "absorb water",
-              "do photosynthesis",
-              "produce seeds",
-              "attract insects"
-            ],
-            "es": [
-              "absorber agua",
-              "hacer fotosintesis",
-              "producir semillas",
-              "atraer insectos"
-            ]
-          }
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "L'eau en état solide est :",
-          "options": [
-            "la glace",
-            "la vapeur",
-            "la pluie",
-            "la rosée"
-          ],
-          "answer": "la glace",
-          "correction": "L'eau solide = la glace.",
-          "prompt_nl": "Water in vaste toestand is:",
-          "prompt_en": "Water in solid state is:",
-          "prompt_es": "El agua en estado solido es:",
-          "options_i18n": {
-            "nl": [
-              "ijs",
-              "damp",
-              "regen",
-              "dauw"
-            ],
-            "en": [
-              "ice",
-              "vapour",
-              "rain",
-              "dew"
-            ],
-            "es": [
-              "hielo",
-              "vapor",
-              "lluvia",
-              "rocio"
-            ]
-          }
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel animal est un mammifère ?",
-          "options": [
-            "le chien",
-            "l'aigle",
-            "la grenouille",
-            "le serpent"
-          ],
-          "answer": "le chien",
-          "correction": "Le chien est un mammifère.",
-          "prompt_nl": "Welk dier is een zoogdier?",
-          "prompt_en": "Which animal is a mammal?",
-          "prompt_es": "Que animal es un mamifero?",
-          "options_i18n": {
-            "nl": [
-              "de hond",
-              "de arend",
-              "de kikker",
-              "de slang"
-            ],
-            "en": [
-              "the dog",
-              "the eagle",
-              "the frog",
-              "the snake"
-            ],
-            "es": [
-              "el perro",
-              "el aguila",
-              "la rana",
-              "la serpiente"
-            ]
-          }
+          "correction": "La baleine est un mammifère marin qui allaite ses petits.",
+          "prompt_nl": "Walvissen zijn zoogdieren.",
+          "prompt_en": "Whales are mammals.",
+          "prompt_es": "Las ballenas son mamiferos."
         }
       ]
     },
@@ -568,336 +620,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Les plantes ont besoin de :",
+          "prompt": "Qu'est-ce qu'une réaction acide-base ?",
           "options": [
-            "lumière, eau et terre",
-            "chocolat et lait",
-            "froid et obscurité",
-            "sable et sel"
+            "une réaction entre un acide et une base pour former eau + sel",
+            "une réaction explosive",
+            "une réaction de combustion"
           ],
-          "answer": "lumière, eau et terre",
-          "correction": "Les plantes ont besoin de lumière, eau et terre.",
-          "prompt_nl": "Planten hebben nodig:",
-          "prompt_en": "Plants need:",
-          "prompt_es": "Las plantas necesitan:",
-          "options_i18n": {
-            "nl": [
-              "licht, water en aarde",
-              "chocolade en melk",
-              "kou en duisternis",
-              "zand en zout"
-            ],
-            "en": [
-              "light, water and soil",
-              "chocolate and milk",
-              "cold and darkness",
-              "sand and salt"
-            ],
-            "es": [
-              "luz, agua y tierra",
-              "chocolate y leche",
-              "frio y oscuridad",
-              "arena y sal"
-            ]
-          }
+          "answer": "une réaction entre un acide et une base pour former eau + sel",
+          "correction": "Acide + base → sel + eau (neutralisation)."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "L'eau en état gazeux est :",
+          "prompt": "La pression exercée par un liquide :",
           "options": [
-            "la vapeur",
-            "la glace",
-            "la neige",
-            "la grêle"
+            "augmente avec la profondeur",
+            "diminue avec la profondeur",
+            "reste constante"
           ],
-          "answer": "la vapeur",
-          "correction": "L'eau gazeuse = la vapeur.",
-          "prompt_nl": "Water in gasvormige toestand is:",
-          "prompt_en": "Water in gaseous state is:",
-          "prompt_es": "El agua en estado gaseoso es:",
-          "options_i18n": {
-            "nl": [
-              "damp",
-              "ijs",
-              "sneeuw",
-              "hagel"
-            ],
-            "en": [
-              "vapour",
-              "ice",
-              "snow",
-              "hail"
-            ],
-            "es": [
-              "vapor",
-              "hielo",
-              "nieve",
-              "granizo"
-            ]
-          }
+          "answer": "augmente avec la profondeur",
+          "correction": "Plus on descend dans un liquide, plus la pression est grande."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Un carnivore mange :",
+          "prompt": "Qu'est-ce que le métabolisme ?",
           "options": [
-            "de la viande",
-            "des plantes",
-            "des fruits",
-            "des graines"
+            "l'ensemble des réactions chimiques dans un organisme vivant",
+            "la digestion uniquement",
+            "la respiration uniquement"
           ],
-          "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande.",
-          "prompt_nl": "Een carnivoor eet:",
-          "prompt_en": "A carnivore eats:",
-          "prompt_es": "Un carnivoro come:",
-          "options_i18n": {
-            "nl": [
-              "vlees",
-              "planten",
-              "fruit",
-              "zaden"
-            ],
-            "en": [
-              "meat",
-              "plants",
-              "fruit",
-              "seeds"
-            ],
-            "es": [
-              "carne",
-              "plantas",
-              "fruta",
-              "semillas"
-            ]
-          }
+          "answer": "l'ensemble des réactions chimiques dans un organisme vivant",
+          "correction": "Le métabolisme inclut anabolisme (construction) et catabolisme (dégradation)."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel est le rôle des racines d'une plante ?",
+          "prompt": "La force de frottement :",
           "options": [
-            "absorber l'eau",
-            "faire la photosynthèse",
-            "produire des graines",
-            "attirer les insectes"
+            "s'oppose au mouvement",
+            "aide le mouvement",
+            "n'existe pas dans la nature"
           ],
-          "answer": "absorber l'eau",
-          "correction": "Les racines absorbent l'eau du sol.",
-          "prompt_nl": "Wat is de rol van de wortels van een plant?",
-          "prompt_en": "What is the role of a plant's roots?",
-          "prompt_es": "Cual es la funcion de las raices de una planta?",
-          "options_i18n": {
-            "nl": [
-              "water opnemen",
-              "fotosynthese doen",
-              "zaden produceren",
-              "insecten aantrekken"
-            ],
-            "en": [
-              "absorb water",
-              "do photosynthesis",
-              "produce seeds",
-              "attract insects"
-            ],
-            "es": [
-              "absorber agua",
-              "hacer fotosintesis",
-              "producir semillas",
-              "atraer insectos"
-            ]
-          }
+          "answer": "s'oppose au mouvement",
+          "correction": "Le frottement ralentit les objets en mouvement."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le cycle de l'eau commence par :",
+          "prompt": "Qu'est-ce qu'un réseau trophique ?",
           "options": [
-            "l'évaporation",
-            "les précipitations",
-            "la condensation",
-            "le ruissellement"
+            "l'ensemble des chaînes alimentaires d'un écosystème",
+            "une seule chaîne alimentaire",
+            "les déchets d'un écosystème"
           ],
-          "answer": "l'évaporation",
-          "correction": "Le cycle de l'eau commence par l'évaporation.",
-          "prompt_nl": "De watercyclus begint met:",
-          "prompt_en": "The water cycle begins with:",
-          "prompt_es": "El ciclo del agua comienza por:",
-          "options_i18n": {
-            "nl": [
-              "verdamping",
-              "neerslag",
-              "condensatie",
-              "afvloeiing"
-            ],
-            "en": [
-              "evaporation",
-              "precipitation",
-              "condensation",
-              "runoff"
-            ],
-            "es": [
-              "evaporacion",
-              "precipitaciones",
-              "condensacion",
-              "escorrentia"
-            ]
-          }
+          "answer": "l'ensemble des chaînes alimentaires d'un écosystème",
+          "correction": "Le réseau trophique montre toutes les relations alimentaires d'un milieu."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
+          "prompt": "L'énergie cinétique est l'énergie :",
           "options": [
-            "l'odorat",
-            "le goût",
-            "la vue",
-            "le toucher"
+            "due au mouvement d'un objet",
+            "stockée dans un ressort",
+            "produite par la chaleur"
           ],
-          "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez).",
-          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
-          "prompt_en": "Which sense do you use to smell a flower?",
-          "prompt_es": "Que sentido se usa para oler una flor?",
-          "options_i18n": {
-            "nl": [
-              "de reuk",
-              "de smaak",
-              "het zicht",
-              "het gevoel"
-            ],
-            "en": [
-              "smell",
-              "taste",
-              "sight",
-              "touch"
-            ],
-            "es": [
-              "el olfato",
-              "el gusto",
-              "la vista",
-              "el tacto"
-            ]
-          }
+          "answer": "due au mouvement d'un objet",
+          "correction": "Ec = ½mv² ; plus un objet va vite, plus son énergie cinétique est grande."
         },
         {
           "id": "q14",
-          "type": "true_false",
-          "prompt": "Les plantes produisent de l'oxygène.",
-          "answer": true,
-          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse.",
-          "prompt_nl": "Planten produceren zuurstof.",
-          "prompt_en": "Plants produce oxygen.",
-          "prompt_es": "Las plantas producen oxigeno."
+          "type": "mcq",
+          "prompt": "Les hormones sont produites par :",
+          "options": [
+            "les glandes endocrines",
+            "les muscles",
+            "les os"
+          ],
+          "answer": "les glandes endocrines",
+          "correction": "Ex. : l'insuline est produite par le pancréas (glande endocrine)."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
+          "prompt": "La masse se mesure en :",
           "options": [
-            "la Lune",
-            "le Soleil",
-            "Mars",
-            "Jupiter"
+            "kilogrammes (kg)",
+            "newtons (N)",
+            "joules (J)"
           ],
-          "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
-          "options_i18n": {
-            "nl": [
-              "de Maan",
-              "de Zon",
-              "Mars",
-              "Jupiter"
-            ],
-            "en": [
-              "the Moon",
-              "the Sun",
-              "Mars",
-              "Jupiter"
-            ],
-            "es": [
-              "la Luna",
-              "el Sol",
-              "Marte",
-              "Jupiter"
-            ]
-          }
+          "answer": "kilogrammes (kg)",
+          "correction": "La masse est une propriété de la matière, mesurée en kg."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "La chaîne alimentaire commence par :",
+          "prompt": "Un circuit électrique en série :",
           "options": [
-            "les plantes",
-            "les herbivores",
-            "les carnivores",
-            "les décomposeurs"
+            "les composants sont branchés les uns après les autres",
+            "les composants sont en parallèle",
+            "le courant se divise"
           ],
-          "answer": "les plantes",
-          "correction": "La chaîne alimentaire commence par les plantes.",
-          "prompt_nl": "De voedselketen begint bij:",
-          "prompt_en": "The food chain starts with:",
-          "prompt_es": "La cadena alimentaria empieza por:",
-          "options_i18n": {
-            "nl": [
-              "de planten",
-              "de herbivoren",
-              "de carnivoren",
-              "de afbrekers"
-            ],
-            "en": [
-              "plants",
-              "herbivores",
-              "carnivores",
-              "decomposers"
-            ],
-            "es": [
-              "las plantas",
-              "los herbivoros",
-              "los carnivoros",
-              "los descomponedores"
-            ]
-          }
+          "answer": "les composants sont branchés les uns après les autres",
+          "correction": "En série, si un composant tombe en panne, tout le circuit est coupé."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "De quoi est composé l'air que l'on respire surtout ?",
+          "prompt": "Les lichens sont des organismes :",
           "options": [
-            "azote et oxygène",
-            "dioxyde de carbone",
-            "vapeur d'eau",
-            "hélium"
+            "résultant de la symbiose algue + champignon",
+            "des plantes simples",
+            "des bactéries"
           ],
-          "answer": "azote et oxygène",
-          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%).",
-          "prompt_nl": "Waaruit bestaat de lucht die we inademen?",
-          "prompt_en": "What is the air we breathe mainly made of?",
-          "prompt_es": "De que esta compuesto principalmente el aire que respiramos?",
-          "options_i18n": {
-            "nl": [
-              "stikstof en zuurstof",
-              "koolstofdioxide",
-              "waterdamp",
-              "helium"
-            ],
-            "en": [
-              "nitrogen and oxygen",
-              "carbon dioxide",
-              "water vapour",
-              "helium"
-            ],
-            "es": [
-              "nitrogeno y oxigeno",
-              "dioxido de carbono",
-              "vapor de agua",
-              "helio"
-            ]
-          }
+          "answer": "résultant de la symbiose algue + champignon",
+          "correction": "L'algue photosynhtétise, le champignon protège et capte l'eau."
         }
       ]
     }

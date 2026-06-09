@@ -305,336 +305,310 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle partie de la plante capte la lumière ?",
+          "options": [
+            "les feuilles",
+            "les racines",
+            "les tiges",
+            "les fleurs"
+          ],
+          "answer": "les feuilles",
+          "correction": "Les feuilles captent la lumière solaire pour la photosynthèse.",
+          "prompt_nl": "Welk deel van de plant vangt licht op?",
+          "prompt_en": "Which part of the plant captures light?",
+          "prompt_es": "Que parte de la planta capta la luz?",
+          "options_i18n": {
+            "nl": [
+              "de bladeren",
+              "de wortels",
+              "de stengels",
+              "de bloemen"
+            ],
+            "en": [
+              "the leaves",
+              "the roots",
+              "the stems",
+              "the flowers"
+            ],
+            "es": [
+              "las hojas",
+              "las raices",
+              "los tallos",
+              "las flores"
+            ]
+          }
+        },
+        {
           "id": "q2",
-          "type": "true_false",
-          "prompt": "L'eau bout à 100°C.",
-          "answer": true,
-          "correction": "L'eau bout à 100 degrés Celsius.",
-          "prompt_nl": "Water kookt bij 100°C.",
-          "prompt_en": "Water boils at 100°C.",
-          "prompt_es": "El agua hierve a 100°C."
+          "type": "mcq",
+          "prompt": "Un être vivant qui mange des insectes est dit :",
+          "options": [
+            "insectivore",
+            "carnivore",
+            "herbivore",
+            "omnivore"
+          ],
+          "answer": "insectivore",
+          "correction": "Un insectivore se nourrit principalement d'insectes.",
+          "prompt_nl": "Een levend wezen dat insecten eet wordt een ___ genoemd:",
+          "prompt_en": "A living being that eats insects is called:",
+          "prompt_es": "Un ser vivo que come insectos se llama:",
+          "options_i18n": {
+            "nl": [
+              "insectivoor",
+              "carnivoor",
+              "herbivoor",
+              "omnivoor"
+            ],
+            "en": [
+              "insectivore",
+              "carnivore",
+              "herbivore",
+              "omnivore"
+            ],
+            "es": [
+              "insectivoro",
+              "carnivoro",
+              "herbivoro",
+              "omnivoro"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "La Terre a combien de satellites naturels ?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "0"
+          ],
+          "answer": "1",
+          "correction": "La Terre a un seul satellite naturel : la Lune.",
+          "prompt_nl": "Hoeveel natuurlijke satellieten heeft de Aarde?",
+          "prompt_en": "How many natural satellites does the Earth have?",
+          "prompt_es": "Cuantos satelites naturales tiene la Tierra?",
+          "options_i18n": {
+            "nl": [
+              "1",
+              "2",
+              "3",
+              "0"
+            ],
+            "en": [
+              "1",
+              "2",
+              "3",
+              "0"
+            ],
+            "es": [
+              "1",
+              "2",
+              "3",
+              "0"
+            ]
+          }
         },
         {
           "id": "q4",
+          "type": "true_false",
+          "prompt": "Les champignons sont des plantes.",
+          "answer": false,
+          "correction": "Les champignons ne sont ni des plantes ni des animaux.",
+          "prompt_nl": "Paddestoelen zijn planten.",
+          "prompt_en": "Mushrooms are plants.",
+          "prompt_es": "Los hongos son plantas."
+        },
+        {
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
+          "prompt": "L'état gazeux de l'eau s'appelle :",
           "options": [
-            "l'odorat",
-            "le goût",
-            "la vue",
-            "le toucher"
+            "la vapeur d'eau",
+            "la glace",
+            "la rosée",
+            "le brouillard"
           ],
-          "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez).",
-          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
-          "prompt_en": "Which sense do you use to smell a flower?",
-          "prompt_es": "Que sentido se usa para oler una flor?",
+          "answer": "la vapeur d'eau",
+          "correction": "L'eau à l'état gazeux est appelée vapeur d'eau.",
+          "prompt_nl": "De gasvorm van water heet:",
+          "prompt_en": "The gaseous state of water is called:",
+          "prompt_es": "El estado gaseoso del agua se llama:",
           "options_i18n": {
             "nl": [
-              "de reuk",
-              "de smaak",
-              "het zicht",
-              "het gevoel"
+              "waterdamp",
+              "ijs",
+              "dauw",
+              "mist"
             ],
             "en": [
-              "smell",
-              "taste",
-              "sight",
-              "touch"
+              "water vapour",
+              "ice",
+              "dew",
+              "fog"
             ],
             "es": [
-              "el olfato",
-              "el gusto",
-              "la vista",
-              "el tacto"
+              "vapor de agua",
+              "hielo",
+              "rocio",
+              "niebla"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Une araignée a combien de pattes ?",
+          "prompt": "Les muscles permettent de :",
           "options": [
-            "8",
-            "6",
-            "4",
-            "10"
+            "bouger le corps",
+            "digérer les aliments",
+            "voir les objets",
+            "entendre les sons"
           ],
-          "answer": "8",
-          "correction": "Les araignées ont 8 pattes.",
-          "prompt_nl": "Hoeveel poten heeft een spin?",
-          "prompt_en": "How many legs does a spider have?",
-          "prompt_es": "Cuantas patas tiene una arana?",
+          "answer": "bouger le corps",
+          "correction": "Les muscles permettent tous les mouvements du corps.",
+          "prompt_nl": "Spieren stellen ons in staat om:",
+          "prompt_en": "Muscles allow us to:",
+          "prompt_es": "Los musculos permiten:",
           "options_i18n": {
             "nl": [
-              "8",
-              "6",
-              "4",
-              "10"
+              "het lichaam te bewegen",
+              "voedsel te verteren",
+              "objecten te zien",
+              "geluiden te horen"
             ],
             "en": [
-              "8",
-              "6",
-              "4",
-              "10"
+              "move the body",
+              "digest food",
+              "see objects",
+              "hear sounds"
             ],
             "es": [
-              "8",
-              "6",
-              "4",
-              "10"
+              "mover el cuerpo",
+              "digerir alimentos",
+              "ver objetos",
+              "oir sonidos"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Un oiseau se distingue par :",
+          "options": [
+            "des plumes et un bec",
+            "des écailles",
+            "des poils",
+            "des nageoires"
+          ],
+          "answer": "des plumes et un bec",
+          "correction": "Les oiseaux ont des plumes, des ailes et un bec.",
+          "prompt_nl": "Een vogel onderscheidt zich door:",
+          "prompt_en": "A bird is distinguished by:",
+          "prompt_es": "Un ave se distingue por:",
+          "options_i18n": {
+            "nl": [
+              "veren en een snavel",
+              "schubben",
+              "haar",
+              "vinnen"
+            ],
+            "en": [
+              "feathers and a beak",
+              "scales",
+              "fur",
+              "fins"
+            ],
+            "es": [
+              "plumas y pico",
+              "escamas",
+              "pelo",
+              "aletas"
             ]
           }
         },
         {
           "id": "q8",
+          "type": "true_false",
+          "prompt": "Le cœur envoie le sang dans tout le corps.",
+          "answer": true,
+          "correction": "Le cœur pompe le sang qui circule dans tout le corps.",
+          "prompt_nl": "Het hart stuurt bloed door het hele lichaam.",
+          "prompt_en": "The heart sends blood throughout the body.",
+          "prompt_es": "El corazon envia sangre por todo el cuerpo."
+        },
+        {
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Un carnivore mange :",
+          "prompt": "Quel phénomène transforme l'eau liquide en vapeur ?",
           "options": [
-            "de la viande",
-            "des plantes",
-            "des fruits",
-            "des graines"
+            "l'évaporation",
+            "la condensation",
+            "la solidification",
+            "la précipitation"
           ],
-          "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande.",
-          "prompt_nl": "Een carnivoor eet:",
-          "prompt_en": "A carnivore eats:",
-          "prompt_es": "Un carnivoro come:",
+          "answer": "l'évaporation",
+          "correction": "L'évaporation transforme l'eau liquide en vapeur sous l'effet de la chaleur.",
+          "prompt_nl": "Welk verschijnsel verandert vloeibaar water in damp?",
+          "prompt_en": "Which phenomenon turns liquid water into vapour?",
+          "prompt_es": "Que fenomeno transforma el agua liquida en vapor?",
           "options_i18n": {
             "nl": [
-              "vlees",
-              "planten",
-              "fruit",
-              "zaden"
+              "verdamping",
+              "condensatie",
+              "stolling",
+              "neerslag"
             ],
             "en": [
-              "meat",
-              "plants",
-              "fruit",
-              "seeds"
+              "evaporation",
+              "condensation",
+              "solidification",
+              "precipitation"
             ],
             "es": [
-              "carne",
-              "plantas",
-              "fruta",
-              "semillas"
+              "evaporacion",
+              "condensacion",
+              "solidificacion",
+              "precipitacion"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel animal pond des oeufs ?",
+          "prompt": "Les étoiles sont des boules de :",
           "options": [
-            "la poule",
-            "le chat",
-            "le chien",
-            "la vache"
+            "gaz très chaud",
+            "roche froide",
+            "glace",
+            "métal liquide"
           ],
-          "answer": "la poule",
-          "correction": "La poule pond des oeufs.",
-          "prompt_nl": "Welk dier legt eieren?",
-          "prompt_en": "Which animal lays eggs?",
-          "prompt_es": "Que animal pone huevos?",
+          "answer": "gaz très chaud",
+          "correction": "Les étoiles sont d'immenses boules de gaz très chaud.",
+          "prompt_nl": "Sterren zijn ballen van:",
+          "prompt_en": "Stars are balls of:",
+          "prompt_es": "Las estrellas son bolas de:",
           "options_i18n": {
             "nl": [
-              "de kip",
-              "de kat",
-              "de hond",
-              "de koe"
+              "heel heet gas",
+              "koude steen",
+              "ijs",
+              "vloeibaar metaal"
             ],
             "en": [
-              "the hen",
-              "the cat",
-              "the dog",
-              "the cow"
+              "very hot gas",
+              "cold rock",
+              "ice",
+              "liquid metal"
             ],
             "es": [
-              "la gallina",
-              "el gato",
-              "el perro",
-              "la vaca"
-            ]
-          }
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Les plantes ont besoin de :",
-          "options": [
-            "lumière, eau et terre",
-            "chocolat et lait",
-            "froid et obscurité",
-            "sable et sel"
-          ],
-          "answer": "lumière, eau et terre",
-          "correction": "Les plantes ont besoin de lumière, eau et terre.",
-          "prompt_nl": "Planten hebben nodig:",
-          "prompt_en": "Plants need:",
-          "prompt_es": "Las plantas necesitan:",
-          "options_i18n": {
-            "nl": [
-              "licht, water en aarde",
-              "chocolade en melk",
-              "kou en duisternis",
-              "zand en zout"
-            ],
-            "en": [
-              "light, water and soil",
-              "chocolate and milk",
-              "cold and darkness",
-              "sand and salt"
-            ],
-            "es": [
-              "luz, agua y tierra",
-              "chocolate y leche",
-              "frio y oscuridad",
-              "arena y sal"
-            ]
-          }
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel est le rôle des racines d'une plante ?",
-          "options": [
-            "absorber l'eau",
-            "faire la photosynthèse",
-            "produire des graines",
-            "attirer les insectes"
-          ],
-          "answer": "absorber l'eau",
-          "correction": "Les racines absorbent l'eau du sol.",
-          "prompt_nl": "Wat is de rol van de wortels van een plant?",
-          "prompt_en": "What is the role of a plant's roots?",
-          "prompt_es": "Cual es la funcion de las raices de una planta?",
-          "options_i18n": {
-            "nl": [
-              "water opnemen",
-              "fotosynthese doen",
-              "zaden produceren",
-              "insecten aantrekken"
-            ],
-            "en": [
-              "absorb water",
-              "do photosynthesis",
-              "produce seeds",
-              "attract insects"
-            ],
-            "es": [
-              "absorber agua",
-              "hacer fotosintesis",
-              "producir semillas",
-              "atraer insectos"
-            ]
-          }
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Un herbivore mange :",
-          "options": [
-            "des plantes",
-            "de la viande",
-            "des insectes",
-            "des poissons"
-          ],
-          "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes.",
-          "prompt_nl": "Een herbivoor eet:",
-          "prompt_en": "A herbivore eats:",
-          "prompt_es": "Un herbivoro come:",
-          "options_i18n": {
-            "nl": [
-              "planten",
-              "vlees",
-              "insecten",
-              "vissen"
-            ],
-            "en": [
-              "plants",
-              "meat",
-              "insects",
-              "fish"
-            ],
-            "es": [
-              "plantas",
-              "carne",
-              "insectos",
-              "peces"
-            ]
-          }
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "De quoi est composé l'air que l'on respire surtout ?",
-          "options": [
-            "azote et oxygène",
-            "dioxyde de carbone",
-            "vapeur d'eau",
-            "hélium"
-          ],
-          "answer": "azote et oxygène",
-          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%).",
-          "prompt_nl": "Waaruit bestaat de lucht die we inademen?",
-          "prompt_en": "What is the air we breathe mainly made of?",
-          "prompt_es": "De que esta compuesto principalmente el aire que respiramos?",
-          "options_i18n": {
-            "nl": [
-              "stikstof en zuurstof",
-              "koolstofdioxide",
-              "waterdamp",
-              "helium"
-            ],
-            "en": [
-              "nitrogen and oxygen",
-              "carbon dioxide",
-              "water vapour",
-              "helium"
-            ],
-            "es": [
-              "nitrogeno y oxigeno",
-              "dioxido de carbono",
-              "vapor de agua",
-              "helio"
-            ]
-          }
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
-          "options": [
-            "la Lune",
-            "le Soleil",
-            "Mars",
-            "Jupiter"
-          ],
-          "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
-          "options_i18n": {
-            "nl": [
-              "de Maan",
-              "de Zon",
-              "Mars",
-              "Jupiter"
-            ],
-            "en": [
-              "the Moon",
-              "the Sun",
-              "Mars",
-              "Jupiter"
-            ],
-            "es": [
-              "la Luna",
-              "el Sol",
-              "Marte",
-              "Jupiter"
+              "gas muy caliente",
+              "roca fria",
+              "hielo",
+              "metal liquido"
             ]
           }
         }
@@ -646,310 +620,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "L'eau en état solide est :",
+          "prompt": "Qu'est-ce que la symbiose ?",
           "options": [
-            "la glace",
-            "la vapeur",
-            "la pluie",
-            "la rosée"
+            "une relation bénéfique pour les deux organismes",
+            "une relation où l'un mange l'autre",
+            "un type de reproduction"
           ],
-          "answer": "la glace",
-          "correction": "L'eau solide = la glace.",
-          "prompt_nl": "Water in vaste toestand is:",
-          "prompt_en": "Water in solid state is:",
-          "prompt_es": "El agua en estado solido es:",
-          "options_i18n": {
-            "nl": [
-              "ijs",
-              "damp",
-              "regen",
-              "dauw"
-            ],
-            "en": [
-              "ice",
-              "vapour",
-              "rain",
-              "dew"
-            ],
-            "es": [
-              "hielo",
-              "vapor",
-              "lluvia",
-              "rocio"
-            ]
-          }
+          "answer": "une relation bénéfique pour les deux organismes",
+          "correction": "Ex. : les lichens = algue + champignon en symbiose."
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "Le Soleil tourne autour de la Terre.",
-          "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil.",
-          "prompt_nl": "De Zon draait om de Aarde.",
-          "prompt_en": "The Sun revolves around the Earth.",
-          "prompt_es": "El Sol gira alrededor de la Tierra."
+          "type": "mcq",
+          "prompt": "Les globules rouges contiennent :",
+          "options": [
+            "l'hémoglobine qui transporte l'oxygène",
+            "des anticorps",
+            "des plaquettes"
+          ],
+          "answer": "l'hémoglobine qui transporte l'oxygène",
+          "correction": "L'hémoglobine se lie à l'O₂ dans les poumons et le transporte aux cellules."
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "L'eau bout à 100°C.",
-          "answer": true,
-          "correction": "L'eau bout à 100 degrés Celsius.",
-          "prompt_nl": "Water kookt bij 100°C.",
-          "prompt_en": "Water boils at 100°C.",
-          "prompt_es": "El agua hierve a 100°C."
+          "type": "mcq",
+          "prompt": "Qu'est-ce qu'un écosystème fragile ?",
+          "options": [
+            "un écosystème facilement perturbé par les changements",
+            "un écosystème tropical",
+            "un écosystème très productif"
+          ],
+          "answer": "un écosystème facilement perturbé par les changements",
+          "correction": "Ex. : les récifs coralliens sont très sensibles au changement de température."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "La pression atmosphérique est causée par :",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "le poids de l'air au-dessus de nous",
+            "la chaleur du soleil",
+            "la rotation de la Terre"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
-          "options_i18n": {
-            "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
-            ],
-            "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
-            ],
-            "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
-            ]
-          }
+          "answer": "le poids de l'air au-dessus de nous",
+          "correction": "L'atmosphère exerce une pression d'environ 101 325 Pa au niveau de la mer."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un vertébré ?",
+          "prompt": "Les neurones sont :",
           "options": [
-            "un animal avec une colonne vertébrale",
-            "un animal avec 6 pattes",
-            "un animal qui vole",
-            "un animal aquatique"
+            "les cellules du système nerveux",
+            "les cellules musculaires",
+            "les cellules osseuses"
           ],
-          "answer": "un animal avec une colonne vertébrale",
-          "correction": "Un vertébré a une colonne vertébrale.",
-          "prompt_nl": "Wat is een gewerveld dier?",
-          "prompt_en": "What is a vertebrate?",
-          "prompt_es": "Que es un vertebrado?",
-          "options_i18n": {
-            "nl": [
-              "een dier met een wervelkolom",
-              "een dier met 6 poten",
-              "een dier dat vliegt",
-              "een waterlevend dier"
-            ],
-            "en": [
-              "an animal with a backbone",
-              "an animal with 6 legs",
-              "an animal that flies",
-              "an aquatic animal"
-            ],
-            "es": [
-              "un animal con columna vertebral",
-              "un animal con 6 patas",
-              "un animal que vuela",
-              "un animal acuatico"
-            ]
-          }
+          "answer": "les cellules du système nerveux",
+          "correction": "Les neurones transmettent les informations sous forme d'influx nerveux."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Un carnivore mange :",
+          "prompt": "Qu'est-ce que la sélection naturelle ?",
           "options": [
-            "de la viande",
-            "des plantes",
-            "des fruits",
-            "des graines"
+            "les individus les mieux adaptés survivent et se reproduisent",
+            "le choix des espèces par l'homme",
+            "une méthode de culture agricole"
           ],
-          "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande.",
-          "prompt_nl": "Een carnivoor eet:",
-          "prompt_en": "A carnivore eats:",
-          "prompt_es": "Un carnivoro come:",
-          "options_i18n": {
-            "nl": [
-              "vlees",
-              "planten",
-              "fruit",
-              "zaden"
-            ],
-            "en": [
-              "meat",
-              "plants",
-              "fruit",
-              "seeds"
-            ],
-            "es": [
-              "carne",
-              "plantas",
-              "fruta",
-              "semillas"
-            ]
-          }
+          "answer": "les individus les mieux adaptés survivent et se reproduisent",
+          "correction": "C'est le mécanisme central de l'évolution, décrit par Darwin."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Un herbivore mange :",
+          "prompt": "L'ADN (acide désoxyribonucléique) est :",
           "options": [
-            "des plantes",
-            "de la viande",
-            "des insectes",
-            "des poissons"
+            "le support de l'information génétique",
+            "un type de protéine",
+            "un acide digestif"
           ],
-          "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes.",
-          "prompt_nl": "Een herbivoor eet:",
-          "prompt_en": "A herbivore eats:",
-          "prompt_es": "Un herbivoro come:",
-          "options_i18n": {
-            "nl": [
-              "planten",
-              "vlees",
-              "insecten",
-              "vissen"
-            ],
-            "en": [
-              "plants",
-              "meat",
-              "insects",
-              "fish"
-            ],
-            "es": [
-              "plantas",
-              "carne",
-              "insectos",
-              "peces"
-            ]
-          }
+          "answer": "le support de l'information génétique",
+          "correction": "L'ADN contient l'information héréditaire dans les cellules."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour écouter de la musique ?",
+          "prompt": "La thermodynamique étudie :",
           "options": [
-            "l'ouïe",
-            "la vue",
-            "l'odorat",
-            "le toucher"
+            "les échanges de chaleur et d'énergie",
+            "les courants électriques",
+            "les forces mécaniques"
           ],
-          "answer": "l'ouïe",
-          "correction": "On écoute avec l'ouïe (les oreilles).",
-          "prompt_nl": "Welk zintuig gebruik je om naar muziek te luisteren?",
-          "prompt_en": "Which sense do you use to listen to music?",
-          "prompt_es": "Que sentido se usa para escuchar musica?",
-          "options_i18n": {
-            "nl": [
-              "het gehoor",
-              "het zicht",
-              "de reuk",
-              "het gevoel"
-            ],
-            "en": [
-              "hearing",
-              "sight",
-              "smell",
-              "touch"
-            ],
-            "es": [
-              "el oido",
-              "la vista",
-              "el olfato",
-              "el tacto"
-            ]
-          }
+          "answer": "les échanges de chaleur et d'énergie",
+          "correction": "La thermodynamique est la branche de la physique traitant de la chaleur."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel animal pond des oeufs ?",
+          "prompt": "Quel gaz produit l'effervescence d'une pastille effervescente dans l'eau ?",
           "options": [
-            "la poule",
-            "le chat",
-            "le chien",
-            "la vache"
+            "le CO₂ (dioxyde de carbone)",
+            "l'oxygène",
+            "l'hydrogène"
           ],
-          "answer": "la poule",
-          "correction": "La poule pond des oeufs.",
-          "prompt_nl": "Welk dier legt eieren?",
-          "prompt_en": "Which animal lays eggs?",
-          "prompt_es": "Que animal pone huevos?",
-          "options_i18n": {
-            "nl": [
-              "de kip",
-              "de kat",
-              "de hond",
-              "de koe"
-            ],
-            "en": [
-              "the hen",
-              "the cat",
-              "the dog",
-              "the cow"
-            ],
-            "es": [
-              "la gallina",
-              "el gato",
-              "el perro",
-              "la vaca"
-            ]
-          }
+          "answer": "le CO₂ (dioxyde de carbone)",
+          "correction": "La réaction libère du CO₂ qui forme les bulles."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
+          "prompt": "Une réaction chimique qui produit de la chaleur est dite :",
           "options": [
-            "l'odorat",
-            "le goût",
-            "la vue",
-            "le toucher"
+            "exothermique",
+            "endothermique",
+            "catalytique"
           ],
-          "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez).",
-          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
-          "prompt_en": "Which sense do you use to smell a flower?",
-          "prompt_es": "Que sentido se usa para oler una flor?",
-          "options_i18n": {
-            "nl": [
-              "de reuk",
-              "de smaak",
-              "het zicht",
-              "het gevoel"
-            ],
-            "en": [
-              "smell",
-              "taste",
-              "sight",
-              "touch"
-            ],
-            "es": [
-              "el olfato",
-              "el gusto",
-              "la vista",
-              "el tacto"
-            ]
-          }
+          "answer": "exothermique",
+          "correction": "Exothermique = libère de l'énergie (chaleur) dans l'environnement."
         }
       ]
     }

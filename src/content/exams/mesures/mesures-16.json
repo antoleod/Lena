@@ -163,190 +163,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
+          "id": "qm1",
           "type": "mcq",
-          "prompt": "Convertis 9 cm en mm.",
+          "prompt": "Convertis 1 kg en g.",
           "options": [
-            "85",
-            "90",
-            "95",
-            "86"
+            "800",
+            "1314",
+            "1000",
+            "1137"
           ],
-          "answer": "90",
-          "correction": "1 cm = 10 mm → 90 mm.",
-          "prompt_nl": "Zet 9 cm om naar mm.",
-          "prompt_en": "Convert 9 cm to mm.",
-          "prompt_es": "Convierte 9 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 90 mm.",
-          "correction_en": "1 cm = 10 mm → 90 mm.",
-          "correction_es": "1 cm = 10 mm → 90 mm."
+          "answer": "1000",
+          "correction": "1 kg = 1000 g → 1000 g."
         },
         {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Convertis 9 € en centimes.",
-          "answer": "900",
-          "accept": [
-            "900",
-            "900 centimes",
-            "900 c"
-          ],
-          "correction": "1 € = 100 c → 900 centimes.",
-          "prompt_nl": "Zet 9 € om naar centen.",
-          "prompt_en": "Convert 9 € to cents.",
-          "prompt_es": "Convierte 9 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 900 cent.",
-          "correction_en": "1 € = 100 cents → 900 cents.",
-          "correction_es": "1 € = 100 céntimos → 900 céntimos."
-        },
-        {
-          "id": "q3",
+          "id": "qm2",
           "type": "mcq",
-          "prompt": "Convertis 6 m en cm.",
+          "prompt": "Convertis 2 kg en g.",
           "options": [
-            "600",
-            "548",
-            "552",
-            "492"
+            "1800",
+            "2314",
+            "2000",
+            "2137"
           ],
-          "answer": "600",
-          "correction": "1 m = 100 cm → 600 cm.",
-          "prompt_nl": "Zet 6 m om naar cm.",
-          "prompt_en": "Convert 6 m to cm.",
-          "prompt_es": "Convierte 6 m a cm.",
-          "correction_nl": "1 m = 100 cm → 600 cm.",
-          "correction_en": "1 m = 100 cm → 600 cm.",
-          "correction_es": "1 m = 100 cm → 600 cm."
+          "answer": "2000",
+          "correction": "1 kg = 1000 g → 2000 g."
         },
         {
-          "id": "q4",
+          "id": "qm3",
           "type": "mcq",
-          "prompt": "Convertis 2 cm en mm.",
+          "prompt": "Convertis 5 kg en g.",
           "options": [
-            "17",
-            "19",
-            "20",
-            "22"
+            "4800",
+            "5314",
+            "5000",
+            "5137"
           ],
-          "answer": "20",
-          "correction": "1 cm = 10 mm → 20 mm.",
-          "prompt_nl": "Zet 2 cm om naar mm.",
-          "prompt_en": "Convert 2 cm to mm.",
-          "prompt_es": "Convierte 2 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 20 mm.",
-          "correction_en": "1 cm = 10 mm → 20 mm.",
-          "correction_es": "1 cm = 10 mm → 20 mm."
+          "answer": "5000",
+          "correction": "1 kg = 1000 g → 5000 g."
         },
         {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "Convertis 9 m en cm.",
-          "answer": "900",
-          "accept": [
-            "900",
-            "900 cm"
-          ],
-          "correction": "1 m = 100 cm → 900 cm.",
-          "prompt_nl": "Zet 9 m om naar cm.",
-          "prompt_en": "Convert 9 m to cm.",
-          "prompt_es": "Convierte 9 m a cm.",
-          "correction_nl": "1 m = 100 cm → 900 cm.",
-          "correction_en": "1 m = 100 cm → 900 cm.",
-          "correction_es": "1 m = 100 cm → 900 cm."
-        },
-        {
-          "id": "q6",
+          "id": "qm4",
           "type": "mcq",
-          "prompt": "Convertis 4 € en centimes.",
+          "prompt": "Convertis 6 kg en g.",
           "options": [
-            "400",
-            "337",
-            "323",
-            "367"
+            "5800",
+            "6314",
+            "6000",
+            "6137"
           ],
-          "answer": "400",
-          "correction": "1 € = 100 c → 400 centimes.",
-          "prompt_nl": "Zet 4 € om naar centen.",
-          "prompt_en": "Convert 4 € to cents.",
-          "prompt_es": "Convierte 4 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 400 cent.",
-          "correction_en": "1 € = 100 cents → 400 cents.",
-          "correction_es": "1 € = 100 céntimos → 400 céntimos."
+          "answer": "6000",
+          "correction": "1 kg = 1000 g → 6000 g."
         },
         {
-          "id": "q7",
+          "id": "qm5",
           "type": "mcq",
-          "prompt": "Convertis 9 cm en mm.",
+          "prompt": "Convertis 7 kg en g.",
           "options": [
-            "86",
-            "94",
-            "105",
-            "90"
+            "6800",
+            "7314",
+            "7000",
+            "7137"
           ],
-          "answer": "90",
-          "correction": "1 cm = 10 mm → 90 mm.",
-          "prompt_nl": "Zet 9 cm om naar mm.",
-          "prompt_en": "Convert 9 cm to mm.",
-          "prompt_es": "Convierte 9 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 90 mm.",
-          "correction_en": "1 cm = 10 mm → 90 mm.",
-          "correction_es": "1 cm = 10 mm → 90 mm."
+          "answer": "7000",
+          "correction": "1 kg = 1000 g → 7000 g."
         },
         {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Convertis 5 € en centimes.",
-          "answer": "500",
-          "accept": [
-            "500",
-            "500 centimes",
-            "500 c"
-          ],
-          "correction": "1 € = 100 c → 500 centimes.",
-          "prompt_nl": "Zet 5 € om naar centen.",
-          "prompt_en": "Convert 5 € to cents.",
-          "prompt_es": "Convierte 5 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 500 cent.",
-          "correction_en": "1 € = 100 cents → 500 cents.",
-          "correction_es": "1 € = 100 céntimos → 500 céntimos."
-        },
-        {
-          "id": "q9",
+          "id": "qm6",
           "type": "mcq",
-          "prompt": "Convertis 5 € en centimes.",
+          "prompt": "Convertis 8 kg en g.",
           "options": [
-            "402",
-            "530",
-            "500",
-            "514"
+            "7800",
+            "8314",
+            "8000",
+            "8137"
           ],
-          "answer": "500",
-          "correction": "1 € = 100 c → 500 centimes.",
-          "prompt_nl": "Zet 5 € om naar centen.",
-          "prompt_en": "Convert 5 € to cents.",
-          "prompt_es": "Convierte 5 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 500 cent.",
-          "correction_en": "1 € = 100 cents → 500 cents.",
-          "correction_es": "1 € = 100 céntimos → 500 céntimos."
+          "answer": "8000",
+          "correction": "1 kg = 1000 g → 8000 g."
         },
         {
-          "id": "q10",
+          "id": "qm7",
           "type": "mcq",
-          "prompt": "Convertis 9 m en cm.",
+          "prompt": "Convertis 9 kg en g.",
           "options": [
-            "834",
-            "900",
-            "852",
-            "1054"
+            "8800",
+            "9314",
+            "9000",
+            "9137"
           ],
-          "answer": "900",
-          "correction": "1 m = 100 cm → 900 cm.",
-          "prompt_nl": "Zet 9 m om naar cm.",
-          "prompt_en": "Convert 9 m to cm.",
-          "prompt_es": "Convierte 9 m a cm.",
-          "correction_nl": "1 m = 100 cm → 900 cm.",
-          "correction_en": "1 m = 100 cm → 900 cm.",
-          "correction_es": "1 m = 100 cm → 900 cm."
+          "answer": "9000",
+          "correction": "1 kg = 1000 g → 9000 g."
+        },
+        {
+          "id": "qm8",
+          "type": "mcq",
+          "prompt": "Convertis 1 m en cm.",
+          "options": [
+            "69",
+            "124",
+            "100",
+            "117"
+          ],
+          "answer": "100",
+          "correction": "1 m = 100 cm → 100 cm."
+        },
+        {
+          "id": "qm9",
+          "type": "mcq",
+          "prompt": "Convertis 2 m en cm.",
+          "options": [
+            "169",
+            "224",
+            "200",
+            "217"
+          ],
+          "answer": "200",
+          "correction": "1 m = 100 cm → 200 cm."
+        },
+        {
+          "id": "qm10",
+          "type": "mcq",
+          "prompt": "Convertis 3 m en cm.",
+          "options": [
+            "269",
+            "324",
+            "300",
+            "317"
+          ],
+          "answer": "300",
+          "correction": "1 m = 100 cm → 300 cm."
         }
       ]
     },

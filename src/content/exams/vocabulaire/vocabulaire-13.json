@@ -111,124 +111,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "discuter",
-            "courir",
-            "dormir"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "froid",
-            "tiède",
-            "doux"
-          ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
-          "options": [
-            "nuit",
-            "soir",
-            "matin"
-          ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
-          "options": [
-            "sale",
-            "mouillé",
-            "neuf"
-          ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
-          "options": [
-            "se promener",
-            "courir",
-            "voler"
-          ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
-          "options": [
-            "triste",
-            "content",
-            "joyeux"
-          ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
-          "options": [
-            "vide",
-            "lourd",
+            "rapide",
+            "fort",
             "grand"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q16",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q18",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q20",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "options": [
+            "pas",
+            "très",
+            "bien"
+          ],
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
+            "dormir"
+          ],
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },

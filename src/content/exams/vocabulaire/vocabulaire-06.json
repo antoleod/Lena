@@ -113,124 +113,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "rapide",
+            "fort",
+            "grand"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "discuter",
-            "courir",
+            "joyeux",
+            "calme",
+            "peureux"
+          ],
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Un synonyme de « chercher » :",
+          "options": [
+            "rechercher",
+            "trouver",
+            "perdre"
+          ],
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
+        },
+        {
+          "id": "q11",
+          "type": "mcq",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "options": [
+            "pas",
+            "très",
+            "bien"
+          ],
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
+        },
+        {
+          "id": "q13",
+          "type": "mcq",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "options": [
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
+          ],
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
+        },
+        {
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "options": [
+            "plaisant",
+            "mauvais",
+            "froid"
+          ],
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Le contraire de « silencieux » :",
+          "options": [
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
             "dormir"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
-          "options": [
-            "jeune",
-            "gros",
-            "grand"
-          ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Un moyen de transport :",
-          "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
-          "options": [
-            "vide",
-            "lourd",
-            "grand"
-          ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Un outil de cuisine :",
-          "options": [
-            "casserole",
-            "marteau",
-            "crayon"
-          ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
-          "options": [
-            "triste",
-            "content",
-            "joyeux"
-          ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Un légume :",
-          "options": [
-            "carotte",
-            "fraise",
-            "banane"
-          ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },
@@ -239,121 +239,121 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
+          "type": "mcq",
+          "prompt": "Quel est le sens du préfixe « para- » dans « parachute » ?",
+          "options": [
+            "qui protège de",
+            "qui imite",
+            "qui est au-dessus de"
           ],
-          "correction": "monter ↔ descendre."
+          "answer": "qui protège de",
+          "correction": "« Para- » (du latin parare = protéger) : parachute = qui protège de la chute."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
+          "prompt": "Dans « Rompre la glace » signifie :",
           "options": [
-            "triste",
-            "content",
-            "joyeux"
+            "détendre l'atmosphère",
+            "casser quelque chose",
+            "faire froid"
           ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
+          "answer": "détendre l'atmosphère",
+          "correction": "Rompre la glace = faire disparaître la gêne dans une situation nouvelle."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Un mot « mélioratif » est un mot qui :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "exprime quelque chose de positif",
+            "exprime quelque chose de négatif",
+            "est neutre"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "exprime quelque chose de positif",
+          "correction": "Mélioratif = qui valorise positivement, s'oppose à péjoratif."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme soutenu de « vieux » est :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "vétuste",
+            "jeunot",
+            "usé"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "vétuste",
+          "correction": "Vétuste = qui est vieux et délabré (registre soutenu)."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Un animal de la ferme :",
-          "options": [
-            "vache",
-            "lion",
-            "requin"
+          "type": "fill_blank",
+          "prompt": "La famille du mot « main » : manuel, manuscrit, ___ .",
+          "answer": "manier",
+          "accept": [
+            "manier"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "correction": "Manier = manipuler avec les mains, de la même famille latine (manus)."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Dans « Il a du pain sur la planche », cette expression signifie :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "il a beaucoup de travail",
+            "il aime la boulangerie",
+            "il est riche"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "il a beaucoup de travail",
+          "correction": "Avoir du pain sur la planche = avoir beaucoup de travail à faire."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le contraire de « long » :",
+          "prompt": "Le suffixe « -eur » dans « lecteur » indique :",
           "options": [
-            "court",
-            "large",
-            "fin"
+            "la personne qui fait l'action",
+            "l'action elle-même",
+            "le résultat de l'action"
           ],
-          "answer": "court",
-          "correction": "long ↔ court."
+          "answer": "la personne qui fait l'action",
+          "correction": "Lecteur = celui qui lit. Chanteur = celui qui chante."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Quel est le contraire de « concis » ?",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "prolixe",
+            "bref",
+            "précis"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "prolixe",
+          "correction": "Concis = court et précis ; prolixe = trop long, verbeux."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Un « néologisme » est un mot :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "récemment créé ou emprunté",
+            "très ancien",
+            "disparu du vocabulaire"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "récemment créé ou emprunté",
+          "correction": "Les néologismes sont des mots ou expressions nouveaux dans la langue."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Dans « Il ne faut pas vendre la peau de l'ours avant de l'avoir tué », cette expression signifie :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "ne pas compter sur un résultat avant de l'avoir obtenu",
+            "la chasse est dangereuse",
+            "il faut être prudent en forêt"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "ne pas compter sur un résultat avant de l'avoir obtenu",
+          "correction": "Cette expression conseille de ne pas anticiper un succès incertain."
         }
       ]
     }

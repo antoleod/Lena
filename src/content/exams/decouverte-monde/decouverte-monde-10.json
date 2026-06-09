@@ -111,119 +111,364 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la capitale de l'Australie ?",
+          "options": [
+            "Canberra",
+            "Sydney",
+            "Melbourne",
+            "Brisbane"
+          ],
+          "answer": "Canberra",
+          "correction": "Canberra est la capitale de l'Australie.",
+          "prompt_nl": "Wat is de hoofdstad van Australie?",
+          "prompt_en": "What is the capital of Australia?",
+          "prompt_es": "Cual es la capital de Australia?",
+          "options_i18n": {
+            "nl": [
+              "Canberra",
+              "Sydney",
+              "Melbourne",
+              "Brisbane"
+            ],
+            "en": [
+              "Canberra",
+              "Sydney",
+              "Melbourne",
+              "Brisbane"
+            ],
+            "es": [
+              "Canberra",
+              "Sidney",
+              "Melbourne",
+              "Brisbane"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Le blé est principalement cultivé dans :",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "les champs",
+            "les forêts",
+            "les déserts",
+            "les océans"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "les champs",
+          "correction": "Le blé est une céréale cultivée dans les grandes plaines agricoles.",
+          "prompt_nl": "Tarwe wordt voornamelijk verbouwd in:",
+          "prompt_en": "Wheat is mainly grown in:",
+          "prompt_es": "El trigo se cultiva principalmente en:",
+          "options_i18n": {
+            "nl": [
+              "de velden",
+              "de bossen",
+              "de woestijnen",
+              "de oceanen"
+            ],
+            "en": [
+              "fields",
+              "forests",
+              "deserts",
+              "oceans"
+            ],
+            "es": [
+              "los campos",
+              "los bosques",
+              "los desiertos",
+              "los oceanos"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la capitale du Canada ?",
+          "options": [
+            "Ottawa",
+            "Toronto",
+            "Montréal",
+            "Vancouver"
+          ],
+          "answer": "Ottawa",
+          "correction": "Ottawa est la capitale fédérale du Canada.",
+          "prompt_nl": "Wat is de hoofdstad van Canada?",
+          "prompt_en": "What is the capital of Canada?",
+          "prompt_es": "Cual es la capital de Canada?",
+          "options_i18n": {
+            "nl": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ],
+            "en": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ],
+            "es": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "La capitale de la France est :",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "Paris",
+            "Lyon",
+            "Marseille",
+            "Bordeaux"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "Paris",
+          "correction": "Paris est la capitale de la France.",
+          "prompt_nl": "De hoofdstad van Frankrijk is:",
+          "prompt_en": "The capital of France is:",
+          "prompt_es": "La capital de Francia es:",
+          "options_i18n": {
+            "nl": [
+              "Parijs",
+              "Lyon",
+              "Marseille",
+              "Bordeaux"
+            ],
+            "en": [
+              "Paris",
+              "Lyon",
+              "Marseille",
+              "Bordeaux"
+            ],
+            "es": [
+              "Paris",
+              "Lyon",
+              "Marsella",
+              "Burdeos"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "La capitale de l'Espagne est :",
+          "options": [
+            "Madrid",
+            "Barcelone",
+            "Séville",
+            "Valence"
+          ],
+          "answer": "Madrid",
+          "correction": "Madrid est la capitale de l'Espagne.",
+          "prompt_nl": "De hoofdstad van Spanje is:",
+          "prompt_en": "The capital of Spain is:",
+          "prompt_es": "La capital de Espana es:",
+          "options_i18n": {
+            "nl": [
+              "Madrid",
+              "Barcelona",
+              "Sevilla",
+              "Valencia"
+            ],
+            "en": [
+              "Madrid",
+              "Barcelona",
+              "Seville",
+              "Valencia"
+            ],
+            "es": [
+              "Madrid",
+              "Barcelona",
+              "Sevilla",
+              "Valencia"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "La capitale de l'Italie est :",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "Rome",
+            "Milan",
+            "Naples",
+            "Florence"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "answer": "Rome",
+          "correction": "Rome est la capitale de l'Italie.",
+          "prompt_nl": "De hoofdstad van Italie is:",
+          "prompt_en": "The capital of Italy is:",
+          "prompt_es": "La capital de Italia es:",
+          "options_i18n": {
+            "nl": [
+              "Rome",
+              "Milaan",
+              "Napels",
+              "Florence"
+            ],
+            "en": [
+              "Rome",
+              "Milan",
+              "Naples",
+              "Florence"
+            ],
+            "es": [
+              "Roma",
+              "Milan",
+              "Napoles",
+              "Florencia"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "La capitale de l'Allemagne est :",
+          "options": [
+            "Berlin",
+            "Munich",
+            "Hambourg",
+            "Cologne"
+          ],
+          "answer": "Berlin",
+          "correction": "Berlin est la capitale de l'Allemagne.",
+          "prompt_nl": "De hoofdstad van Duitsland is:",
+          "prompt_en": "The capital of Germany is:",
+          "prompt_es": "La capital de Alemania es:",
+          "options_i18n": {
+            "nl": [
+              "Berlijn",
+              "München",
+              "Hamburg",
+              "Keulen"
+            ],
+            "en": [
+              "Berlin",
+              "Munich",
+              "Hamburg",
+              "Cologne"
+            ],
+            "es": [
+              "Berlin",
+              "Munich",
+              "Hamburgo",
+              "Colonia"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "La capitale de la Belgique est :",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "Bruxelles",
+            "Bruges",
+            "Gand",
+            "Liège"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique.",
+          "prompt_nl": "De hoofdstad van Belgie is:",
+          "prompt_en": "The capital of Belgium is:",
+          "prompt_es": "La capital de Belgica es:",
+          "options_i18n": {
+            "nl": [
+              "Brussel",
+              "Brugge",
+              "Gent",
+              "Luik"
+            ],
+            "en": [
+              "Brussels",
+              "Bruges",
+              "Ghent",
+              "Liège"
+            ],
+            "es": [
+              "Bruselas",
+              "Brujas",
+              "Gante",
+              "Lieja"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "La capitale des Pays-Bas est :",
+          "options": [
+            "Amsterdam",
+            "Rotterdam",
+            "Utrecht",
+            "La Haye"
+          ],
+          "answer": "Amsterdam",
+          "correction": "Amsterdam est la capitale des Pays-Bas.",
+          "prompt_nl": "De hoofdstad van Nederland is:",
+          "prompt_en": "The capital of the Netherlands is:",
+          "prompt_es": "La capital de los Paises Bajos es:",
+          "options_i18n": {
+            "nl": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "Den Haag"
+            ],
+            "en": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "The Hague"
+            ],
+            "es": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "La Haya"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "La capitale du Royaume-Uni est :",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "Londres",
+            "Manchester",
+            "Birmingham",
+            "Édimbourg"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "En automne, les feuilles :",
-          "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
-          ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
-          "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
-          ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
-          "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
-          ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le dentiste soigne :",
-          "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
-          ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
-        },
-        {
-          "id": "q20",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "answer": "Londres",
+          "correction": "Londres est la capitale du Royaume-Uni.",
+          "prompt_nl": "De hoofdstad van het Verenigd Koninkrijk is:",
+          "prompt_en": "The capital of the United Kingdom is:",
+          "prompt_es": "La capital del Reino Unido es:",
+          "options_i18n": {
+            "nl": [
+              "Londen",
+              "Manchester",
+              "Birmingham",
+              "Edinburgh"
+            ],
+            "en": [
+              "London",
+              "Manchester",
+              "Birmingham",
+              "Edinburgh"
+            ],
+            "es": [
+              "Londres",
+              "Manchester",
+              "Birmingham",
+              "Edimburgo"
+            ]
+          }
         }
       ]
     },

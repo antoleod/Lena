@@ -111,122 +111,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Il ___ (manger) une pomme.",
+          "prompt": "Nous ___ (finir, présent).",
           "options": [
-            "mange",
-            "manges",
-            "mangent"
+            "finissons",
+            "finissez",
+            "finit"
           ],
-          "answer": "mange",
-          "correction": "Il mange."
+          "answer": "finissons",
+          "correction": "Nous finissons."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Je ___ (être) content.",
+          "prompt": "Tu ___ (choisir, présent).",
           "options": [
-            "suis",
-            "es",
-            "est"
+            "choisis",
+            "choisit",
+            "choisissons"
           ],
-          "answer": "suis",
-          "correction": "Je suis."
+          "answer": "choisis",
+          "correction": "Tu choisis."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Je ___ (prendre, présent).",
+          "prompt": "Il ___ (répondre, présent).",
           "options": [
-            "prends",
-            "prend",
-            "prenons"
+            "répond",
+            "réponds",
+            "répondent"
           ],
-          "answer": "prends",
-          "correction": "Je prends."
+          "answer": "répond",
+          "correction": "Il répond."
         },
         {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Nous ___ (aimer) la lecture. (présent)",
-          "answer": "aimons",
-          "accept": [
-            "aimons"
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Elles ___ (dormir, présent).",
+          "options": [
+            "dorment",
+            "dormez",
+            "dormons"
           ],
-          "correction": "Nous aimons."
+          "answer": "dorment",
+          "correction": "Elles dorment."
         },
         {
-          "id": "q10",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Tu ___ (dire, présent).",
+          "prompt": "Je vais ___ (manger). (futur proche)",
           "options": [
-            "dis",
-            "dit",
-            "disons"
+            "manger",
+            "mangé",
+            "mange"
           ],
-          "answer": "dis",
-          "correction": "Tu dis."
+          "answer": "manger",
+          "correction": "Je vais manger."
         },
         {
-          "id": "q12",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "Nous ___ (être) à l’école.",
+          "prompt": "Il va ___ (partir). (futur proche)",
           "options": [
-            "sommes",
-            "êtes",
-            "est"
+            "partir",
+            "parti",
+            "part"
           ],
-          "answer": "sommes",
-          "correction": "Nous sommes."
+          "answer": "partir",
+          "correction": "Il va partir."
         },
         {
-          "id": "q14",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Demain, nous ___ (partir). (futur)",
+          "prompt": "Hier, tu as ___ (jouer). (passé composé)",
           "options": [
-            "partirons",
-            "partons",
-            "partis"
+            "joué",
+            "jouer",
+            "jouant"
           ],
-          "answer": "partirons",
-          "correction": "Futur : nous partirons."
+          "answer": "joué",
+          "correction": "Tu as joué."
         },
         {
-          "id": "q16",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "Demain, je ___ au parc. (aller, futur)",
+          "prompt": "Vous ___ (lire, présent).",
           "options": [
-            "irai",
-            "vais",
-            "allé"
+            "lisez",
+            "lit",
+            "lisons"
           ],
-          "answer": "irai",
-          "correction": "Futur : j’irai."
+          "answer": "lisez",
+          "correction": "Vous lisez."
         },
         {
-          "id": "q18",
+          "id": "q17",
           "type": "mcq",
-          "prompt": "Je ___ (faire) mes devoirs.",
+          "prompt": "Tu ___ (attendre, présent).",
           "options": [
-            "fais",
-            "fait",
-            "font"
+            "attends",
+            "attend",
+            "attendez"
           ],
-          "answer": "fais",
-          "correction": "Je fais."
+          "answer": "attends",
+          "correction": "Tu attends."
         },
         {
-          "id": "q20",
+          "id": "q19",
           "type": "mcq",
-          "prompt": "Plus tard, je ___ (manger). (futur)",
+          "prompt": "Je ___ (obéir, présent).",
           "options": [
-            "mangerai",
-            "mange",
-            "mangé"
+            "obéis",
+            "obéit",
+            "obéissons"
           ],
-          "answer": "mangerai",
-          "correction": "Futur : je mangerai."
+          "answer": "obéis",
+          "correction": "J'obéis."
         }
       ]
     },

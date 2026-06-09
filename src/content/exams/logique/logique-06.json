@@ -148,166 +148,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q11",
+          "id": "qm1",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 5, 6, 7, …",
+          "prompt": "Continue la suite : 1, 2, 4, 8, …",
           "options": [
-            "9",
-            "6",
-            "7",
-            "8"
+            "10",
+            "12",
+            "16",
+            "14"
           ],
-          "answer": "8",
-          "correction": "On ajoute 1 à chaque fois : 8.",
-          "prompt_nl": "Maak de rij af: 4, 5, 6, 7, …",
-          "prompt_en": "Continue the sequence: 4, 5, 6, 7, …",
-          "prompt_es": "Continúa la serie: 4, 5, 6, 7, …",
-          "correction_nl": "Elke keer +1: 8.",
-          "correction_en": "Add 1 each time: 8.",
-          "correction_es": "Se suma 1 cada vez: 8."
+          "answer": "16",
+          "correction": "On multiplie par 2 à chaque fois : 16."
         },
         {
-          "id": "q12",
+          "id": "qm2",
           "type": "mcq",
-          "prompt": "Continue la suite : 15, 17, 19, 21, …",
+          "prompt": "Continue la suite : 2, 4, 8, 16, …",
           "options": [
-            "26",
-            "19",
-            "23",
+            "18",
+            "24",
+            "32",
             "20"
           ],
-          "answer": "23",
-          "correction": "On ajoute 2 à chaque fois : 23.",
-          "prompt_nl": "Maak de rij af: 15, 17, 19, 21, …",
-          "prompt_en": "Continue the sequence: 15, 17, 19, 21, …",
-          "prompt_es": "Continúa la serie: 15, 17, 19, 21, …",
-          "correction_nl": "Elke keer +2: 23.",
-          "correction_en": "Add 2 each time: 23.",
-          "correction_es": "Se suma 2 cada vez: 23."
+          "answer": "32",
+          "correction": "On multiplie par 2 à chaque fois : 32."
         },
         {
-          "id": "q13",
+          "id": "qm3",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 6, 10, 14, …",
+          "prompt": "Continue la suite : 3, 6, 12, 24, …",
           "options": [
-            "22",
-            "16",
-            "20",
-            "18"
+            "36",
+            "48",
+            "30",
+            "42"
           ],
-          "answer": "18",
-          "correction": "On ajoute 4 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 2, 6, 10, 14, …",
-          "prompt_en": "Continue the sequence: 2, 6, 10, 14, …",
-          "prompt_es": "Continúa la serie: 2, 6, 10, 14, …",
-          "correction_nl": "Elke keer +4: 18.",
-          "correction_en": "Add 4 each time: 18.",
-          "correction_es": "Se suma 4 cada vez: 18."
+          "answer": "48",
+          "correction": "On multiplie par 2 à chaque fois : 48."
         },
         {
-          "id": "q14",
+          "id": "qm4",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 4, 5, 6, …",
+          "prompt": "Continue la suite : 100, 90, 80, 70, …",
           "options": [
-            "4",
-            "10",
-            "7",
-            "8"
+            "65",
+            "55",
+            "60",
+            "50"
           ],
-          "answer": "7",
-          "correction": "On ajoute 1 à chaque fois : 7.",
-          "prompt_nl": "Maak de rij af: 3, 4, 5, 6, …",
-          "prompt_en": "Continue the sequence: 3, 4, 5, 6, …",
-          "prompt_es": "Continúa la serie: 3, 4, 5, 6, …",
-          "correction_nl": "Elke keer +1: 7.",
-          "correction_en": "Add 1 each time: 7.",
-          "correction_es": "Se suma 1 cada vez: 7."
+          "answer": "60",
+          "correction": "On soustrait 10 à chaque fois : 60."
         },
         {
-          "id": "q15",
+          "id": "qm5",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 4, 5, 6, …",
+          "prompt": "Continue la suite : 1, 3, 9, 27, …",
           "options": [
-            "4",
-            "5",
-            "7",
-            "10"
+            "54",
+            "81",
+            "36",
+            "63"
           ],
-          "answer": "7",
-          "correction": "On ajoute 1 à chaque fois : 7.",
-          "prompt_nl": "Maak de rij af: 3, 4, 5, 6, …",
-          "prompt_en": "Continue the sequence: 3, 4, 5, 6, …",
-          "prompt_es": "Continúa la serie: 3, 4, 5, 6, …",
-          "correction_nl": "Elke keer +1: 7.",
-          "correction_en": "Add 1 each time: 7.",
-          "correction_es": "Se suma 1 cada vez: 7."
+          "answer": "81",
+          "correction": "On multiplie par 3 à chaque fois : 81."
         },
         {
-          "id": "q16",
+          "id": "qm6",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 14, 18, 22, …",
+          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
           "options": [
-            "29",
-            "28",
-            "26",
-            "22"
+            "un meuble",
+            "un animal",
+            "une plante",
+            "un outil"
           ],
-          "answer": "26",
-          "correction": "On ajoute 4 à chaque fois : 26.",
-          "prompt_nl": "Maak de rij af: 10, 14, 18, 22, …",
-          "prompt_en": "Continue the sequence: 10, 14, 18, 22, …",
-          "prompt_es": "Continúa la serie: 10, 14, 18, 22, …",
-          "correction_nl": "Elke keer +4: 26.",
-          "correction_en": "Add 4 each time: 26.",
-          "correction_es": "Se suma 4 cada vez: 26."
+          "answer": "un animal",
+          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
         },
         {
-          "id": "q17",
+          "id": "qm7",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
+          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
           "options": [
-            "3",
-            "6",
-            "8"
+            "Paul",
+            "Léa",
+            "Tom",
+            "Personne"
           ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
+          "answer": "Tom",
+          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
         },
         {
-          "id": "q18",
+          "id": "qm8",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "Léa",
+            "Marie",
+            "Julie",
+            "Elles sont pareilles"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "Julie",
+          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
         },
         {
-          "id": "q19",
+          "id": "qm9",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "Jeudi",
+            "Lundi",
+            "Mardi",
+            "Vendredi"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "Mardi",
+          "correction": "Le jour avant mercredi est mardi."
         },
         {
-          "id": "q20",
+          "id": "qm10",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "n'a pas d'ailes",
+            "est un poisson",
+            "a des ailes",
+            "est un insecte"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "a des ailes",
+          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
         }
       ]
     },

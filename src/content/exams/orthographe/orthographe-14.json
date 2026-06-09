@@ -109,112 +109,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "ballon",
-            "balon",
-            "baloon"
+            "ambulance",
+            "ambulanse",
+            "ambulannce"
           ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "answer": "ambulance",
+          "correction": "On écrit « ambulance » avec « ance »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : ber_eau",
+          "answer": "c",
+          "accept": [
+            "c"
+          ],
+          "correction": "On écrit « berceau » avec un « c »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "sifflet",
+            "siflet",
+            "sifflait"
+          ],
+          "answer": "sifflet",
+          "correction": "On écrit « sifflet » avec deux « f »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "boulanger",
+            "boulanjer",
+            "boulanngé"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "boulanger",
+          "correction": "On écrit « boulanger » avec « ger »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « pelouse » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « pelouse » s'écrit bien ainsi."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+          "type": "fill_blank",
+          "prompt": "Complète le mot : pom_ier",
+          "answer": "m",
+          "accept": [
+            "m"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "correction": "On écrit « pommier » avec deux « m »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "cerisier",
+            "cerisié",
+            "cerissier"
+          ],
+          "answer": "cerisier",
+          "correction": "On écrit « cerisier » avec un seul « s »."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "coiffeur",
+            "coifeur",
+            "coïffeur"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "coiffeur",
+          "correction": "On écrit « coiffeur » avec deux « f »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « nénuphar » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « nénuphar » s'écrit avec « ph »."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fille",
-            "file",
-            "fiye"
-          ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
-        },
-        {
-          "id": "q14",
           "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
+          "prompt": "Complète le mot : cach_tte",
           "answer": "e",
           "accept": [
             "e"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
-        },
-        {
-          "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
-          ],
-          "correction": "On écrit « jardin » (lettre « d »)."
-        },
-        {
-          "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
-          ],
-          "correction": "On écrit « fleur » (lettre « e »)."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
-          ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "correction": "On écrit « cachette » avec deux « t »."
         }
       ]
     },
@@ -223,109 +219,123 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Quel mot contient « eau » ?",
+          "options": [
+            "berceau",
+            "pelouse",
+            "fleur"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "berceau",
+          "correction": "Berceau s'écrit b-e-r-c-e-a-u."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
+          "options": [
+            "pelouse",
+            "peluse",
+            "nénuphar"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "peluse",
+          "correction": "Le mot correct est « pelouse » : p-e-l-o-u-s-e."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe : Il y a un ___ dans le jardin.",
+          "options": [
+            "pommier",
+            "pomier",
+            "pommié"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "pommier",
+          "correction": "Pommier s'écrit p-o-m-m-i-e-r avec deux « m »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « ph » ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "nénuphar",
+            "berceau",
+            "pelouse"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "nénuphar",
+          "correction": "Nénuphar s'écrit n-é-n-u-p-h-a-r avec « ph »."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Identifie la faute :",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "cachette",
+            "cachet",
+            "pommier"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "cachet",
+          "correction": "Attention : « cachet » existe (timbre) mais « cachette » (hiding place) s'écrit c-a-c-h-e-t-t-e."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot a un accent aigu ?",
+          "options": [
+            "nénuphar",
+            "berceau",
+            "pelouse"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "nénuphar",
+          "correction": "Nénuphar s'écrit n-é-n-u-p-h-a-r avec deux accents aigus."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot contient « mm » (double m) ?",
+          "options": [
+            "pommier",
+            "berceau",
+            "pelouse"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
+          "answer": "pommier",
+          "correction": "Pommier s'écrit p-o-m-m-i-e-r."
         },
         {
           "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "options": [
+            "Le berceau est sur la pelouse.",
+            "Le bercau est sur la pelouse.",
+            "Le berceau est sur la pélouse."
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "Le berceau est sur la pelouse.",
+          "correction": "Berceau = eau, pelouse = sans accent."
         },
         {
           "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Quel mot se termine par « -ier » ?",
+          "options": [
+            "pommier",
+            "berceau",
+            "nénuphar"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "pommier",
+          "correction": "Pommier se termine par « -ier » : p-o-m-m-i-e-r."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "nénuphar",
+            "nenuphar",
+            "berceau"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "nenuphar",
+          "correction": "Le mot correct est « nénuphar » avec deux accents aigus."
         }
       ]
     }

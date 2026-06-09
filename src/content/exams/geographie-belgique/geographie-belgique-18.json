@@ -279,338 +279,122 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "La Belgique fait partie de :",
+          "prompt": "Quelle est la deuxième plus grande ville de Belgique après Bruxelles ?",
           "options": [
-            "l'Union européenne",
-            "les États-Unis",
-            "l'ASEAN",
-            "la Ligue arabe"
+            "Anvers",
+            "Gand",
+            "Liège",
+            "Bruges"
           ],
-          "answer": "l'Union européenne",
-          "correction": "La Belgique est membre de l'UE.",
-          "prompt_nl": "Belgie maakt deel uit van:",
-          "prompt_en": "Belgium is part of:",
-          "prompt_es": "Belgica forma parte de:",
-          "options_i18n": {
-            "nl": [
-              "de Europese Unie",
-              "de Verenigde Staten",
-              "ASEAN",
-              "de Arabische Liga"
-            ],
-            "en": [
-              "the European Union",
-              "the United States",
-              "ASEAN",
-              "the Arab League"
-            ],
-            "es": [
-              "la Union Europea",
-              "los Estados Unidos",
-              "la ASEAN",
-              "la Liga Arabe"
-            ]
-          }
+          "answer": "Anvers",
+          "correction": "Anvers est la deuxième plus grande ville de Belgique.",
+          "id": "q1"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Quel est le continent de la Belgique ?",
+          "prompt": "Quelle région de Belgique est la plus grande en superficie ?",
           "options": [
-            "l'Europe",
-            "l'Asie",
-            "l'Afrique",
-            "l'Amérique"
+            "la Wallonie",
+            "la Flandre",
+            "Bruxelles",
+            "les Ardennes"
           ],
-          "answer": "l'Europe",
-          "correction": "La Belgique est en Europe.",
-          "prompt_nl": "Op welk continent ligt Belgie?",
-          "prompt_en": "On which continent is Belgium?",
-          "prompt_es": "En que continente esta Belgica?",
-          "options_i18n": {
-            "nl": [
-              "Europa",
-              "Azie",
-              "Afrika",
-              "Amerika"
-            ],
-            "en": [
-              "Europe",
-              "Asia",
-              "Africa",
-              "America"
-            ],
-            "es": [
-              "Europa",
-              "Asia",
-              "Africa",
-              "America"
-            ]
-          }
+          "answer": "la Wallonie",
+          "correction": "La Wallonie est la région la plus étendue de Belgique.",
+          "id": "q2"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Qu'est-ce que l'Atomium ?",
+          "prompt": "Quel fleuve traverse la ville de Gand ?",
           "options": [
-            "un monument à Bruxelles",
-            "un volcan",
-            "une forêt",
-            "un château"
-          ],
-          "answer": "un monument à Bruxelles",
-          "correction": "L'Atomium est un monument à Bruxelles (1958).",
-          "prompt_nl": "Wat is het Atomium?",
-          "prompt_en": "What is the Atomium?",
-          "prompt_es": "Que es el Atomium?",
-          "options_i18n": {
-            "nl": [
-              "een monument in Brussel",
-              "een vulkaan",
-              "een woud",
-              "een kasteel"
-            ],
-            "en": [
-              "a monument in Brussels",
-              "a volcano",
-              "a forest",
-              "a castle"
-            ],
-            "es": [
-              "un monumento en Bruselas",
-              "un volcan",
-              "un bosque",
-              "un castillo"
-            ]
-          }
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Quel fleuve traverse Liège ?",
-          "options": [
-            "la Meuse",
             "l'Escaut",
+            "la Meuse",
             "la Sambre",
             "la Semois"
           ],
-          "answer": "la Meuse",
-          "correction": "La Meuse traverse Liège.",
-          "prompt_nl": "Welke rivier stroomt door Luik?",
-          "prompt_en": "Which river flows through Liege?",
-          "prompt_es": "Que rio atraviesa Lieja?",
-          "options_i18n": {
-            "nl": [
-              "de Maas",
-              "de Schelde",
-              "de Samber",
-              "de Semois"
-            ],
-            "en": [
-              "the Meuse",
-              "the Scheldt",
-              "the Sambre",
-              "the Semois"
-            ],
-            "es": [
-              "el Mosa",
-              "el Escalda",
-              "el Sambre",
-              "el Semois"
-            ]
-          }
+          "answer": "l'Escaut",
+          "correction": "L'Escaut (Schelde) traverse Gand.",
+          "id": "q3"
         },
         {
-          "id": "q10",
-          "type": "true_false",
-          "prompt": "Bruxelles est en Flandre.",
-          "answer": false,
-          "correction": "Bruxelles est une région à part, bilingue.",
-          "prompt_nl": "Brussel ligt in Vlaanderen.",
-          "prompt_en": "Brussels is in Flanders.",
-          "prompt_es": "Bruselas esta en Flandes."
-        },
-        {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Quelle ville belge est surnommée « la Venise du Nord » ?",
+          "prompt": "Quel pays borde la Belgique à l'est ?",
           "options": [
-            "Bruges",
-            "Gand",
-            "Anvers",
-            "Liège"
-          ],
-          "answer": "Bruges",
-          "correction": "Bruges est surnommée la Venise du Nord.",
-          "prompt_nl": "Welke Belgische stad wordt het Venetie van het Noorden genoemd?",
-          "prompt_en": "Which Belgian city is nicknamed the Venice of the North?",
-          "prompt_es": "Que ciudad belga es conocida como la Venecia del Norte?",
-          "options_i18n": {
-            "nl": [
-              "Brugge",
-              "Gent",
-              "Antwerpen",
-              "Luik"
-            ],
-            "en": [
-              "Bruges",
-              "Ghent",
-              "Antwerp",
-              "Liege"
-            ],
-            "es": [
-              "Brujas",
-              "Gante",
-              "Amberes",
-              "Lieja"
-            ]
-          }
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel pays borde la Belgique au sud ?",
-          "options": [
+            "l'Allemagne",
             "la France",
             "les Pays-Bas",
-            "l'Allemagne",
-            "l'Angleterre"
+            "le Luxembourg"
           ],
-          "answer": "la France",
-          "correction": "La France borde la Belgique au sud.",
-          "prompt_nl": "Welk land grenst aan Belgie in het zuiden?",
-          "prompt_en": "Which country borders Belgium to the south?",
-          "prompt_es": "Que pais limita con Belgica por el sur?",
-          "options_i18n": {
-            "nl": [
-              "Frankrijk",
-              "Nederland",
-              "Duitsland",
-              "Engeland"
-            ],
-            "en": [
-              "France",
-              "Netherlands",
-              "Germany",
-              "England"
-            ],
-            "es": [
-              "Francia",
-              "Paises Bajos",
-              "Alemania",
-              "Inglaterra"
-            ]
-          }
+          "answer": "l'Allemagne",
+          "correction": "L'Allemagne borde la Belgique à l'est.",
+          "id": "q4"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Quelle est la langue parlée en Flandre ?",
+          "prompt": "Quelle langue est parlée dans la Communauté germanophone de Belgique ?",
           "options": [
-            "le néerlandais",
-            "le français",
             "l'allemand",
+            "le français",
+            "le néerlandais",
             "l'anglais"
           ],
-          "answer": "le néerlandais",
-          "correction": "En Flandre on parle néerlandais.",
-          "prompt_nl": "Welke taal wordt gesproken in Vlaanderen?",
-          "prompt_en": "What language is spoken in Flanders?",
-          "prompt_es": "Que idioma se habla en Flandes?",
-          "options_i18n": {
-            "nl": [
-              "Nederlands",
-              "Frans",
-              "Duits",
-              "Engels"
-            ],
-            "en": [
-              "Dutch",
-              "French",
-              "German",
-              "English"
-            ],
-            "es": [
-              "neerlandes",
-              "frances",
-              "aleman",
-              "ingles"
-            ]
-          }
+          "answer": "l'allemand",
+          "correction": "La Communauté germanophone parle allemand, dans l'est de la Wallonie.",
+          "id": "q5"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "Quelle forêt belge est très connue ?",
+          "prompt": "Parmi ces villes, laquelle se situe en Flandre ?",
           "options": [
-            "l'Ardenne",
-            "la Forêt-Noire",
-            "les Vosges",
-            "la Camargue"
+            "Bruges",
+            "Namur",
+            "Liège",
+            "Dinant"
           ],
-          "answer": "l'Ardenne",
-          "correction": "L'Ardenne est la grande forêt belge.",
-          "prompt_nl": "Welk Belgisch woud is heel bekend?",
-          "prompt_en": "Which Belgian forest is very well known?",
-          "prompt_es": "Que bosque belga es muy conocido?",
-          "options_i18n": {
-            "nl": [
-              "de Ardennen",
-              "het Zwarte Woud",
-              "de Vogezen",
-              "de Camargue"
-            ],
-            "en": [
-              "the Ardennes",
-              "the Black Forest",
-              "the Vosges",
-              "the Camargue"
-            ],
-            "es": [
-              "las Ardenas",
-              "la Selva Negra",
-              "los Vosgos",
-              "la Camarga"
-            ]
-          }
+          "answer": "Bruges",
+          "correction": "Bruges est en Flandre ; Namur, Liège et Dinant sont en Wallonie.",
+          "id": "q6"
         },
         {
-          "id": "q20",
+          "type": "true_false",
+          "prompt": "La Flandre est au nord de la Belgique.",
+          "answer": true,
+          "correction": "Oui, la Flandre occupe le nord de la Belgique.",
+          "id": "q7"
+        },
+        {
           "type": "mcq",
-          "prompt": "Quelle est la monnaie de la Belgique ?",
+          "prompt": "Quel pays borde la Belgique au sud-est ?",
           "options": [
-            "l'euro",
-            "le franc",
-            "la livre",
-            "le dollar"
+            "le Luxembourg",
+            "la France",
+            "l'Allemagne",
+            "les Pays-Bas"
           ],
-          "answer": "l'euro",
-          "correction": "La Belgique utilise l'euro depuis 2002.",
-          "prompt_nl": "Wat is de munteenheid van Belgie?",
-          "prompt_en": "What is the currency of Belgium?",
-          "prompt_es": "Cual es la moneda de Belgica?",
-          "options_i18n": {
-            "nl": [
-              "de euro",
-              "de frank",
-              "het pond",
-              "de dollar"
-            ],
-            "en": [
-              "the euro",
-              "the franc",
-              "the pound",
-              "the dollar"
-            ],
-            "es": [
-              "el euro",
-              "el franco",
-              "la libra",
-              "el dolar"
-            ]
-          }
+          "answer": "le Luxembourg",
+          "correction": "Le Luxembourg borde la Belgique au sud-est.",
+          "id": "q8"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Laquelle de ces villes est la capitale de la province du Hainaut ?",
+          "options": [
+            "Mons",
+            "Namur",
+            "Charleroi",
+            "Liège"
+          ],
+          "answer": "Mons",
+          "correction": "Mons est la capitale de la province du Hainaut.",
+          "id": "q9"
+        },
+        {
+          "type": "true_false",
+          "prompt": "La Wallonie est au nord de la Belgique.",
+          "answer": false,
+          "correction": "Non, la Wallonie est au sud de la Belgique.",
+          "id": "q10"
         }
       ]
     },

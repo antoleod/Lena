@@ -148,166 +148,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q11",
+          "id": "qm1",
           "type": "mcq",
-          "prompt": "Continue la suite : 9, 12, 15, 18, …",
-          "options": [
-            "17",
-            "21",
-            "25",
-            "16"
-          ],
-          "answer": "21",
-          "correction": "On ajoute 3 à chaque fois : 21.",
-          "prompt_nl": "Maak de rij af: 9, 12, 15, 18, …",
-          "prompt_en": "Continue the sequence: 9, 12, 15, 18, …",
-          "prompt_es": "Continúa la serie: 9, 12, 15, 18, …",
-          "correction_nl": "Elke keer +3: 21.",
-          "correction_en": "Add 3 each time: 21.",
-          "correction_es": "Se suma 3 cada vez: 21."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 15, 19, 23, 27, …",
-          "options": [
-            "34",
-            "31",
-            "30",
-            "26"
-          ],
-          "answer": "31",
-          "correction": "On ajoute 4 à chaque fois : 31.",
-          "prompt_nl": "Maak de rij af: 15, 19, 23, 27, …",
-          "prompt_en": "Continue the sequence: 15, 19, 23, 27, …",
-          "prompt_es": "Continúa la serie: 15, 19, 23, 27, …",
-          "correction_nl": "Elke keer +4: 31.",
-          "correction_en": "Add 4 each time: 31.",
-          "correction_es": "Se suma 4 cada vez: 31."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 12, 14, 16, 18, …",
-          "options": [
-            "16",
-            "24",
-            "20",
-            "22"
-          ],
-          "answer": "20",
-          "correction": "On ajoute 2 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 12, 14, 16, 18, …",
-          "prompt_en": "Continue the sequence: 12, 14, 16, 18, …",
-          "prompt_es": "Continúa la serie: 12, 14, 16, 18, …",
-          "correction_nl": "Elke keer +2: 20.",
-          "correction_en": "Add 2 each time: 20.",
-          "correction_es": "Se suma 2 cada vez: 20."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Continue la suite : 10, 14, 18, 22, …",
-          "options": [
-            "28",
-            "26",
-            "20",
-            "30"
-          ],
-          "answer": "26",
-          "correction": "On ajoute 4 à chaque fois : 26.",
-          "prompt_nl": "Maak de rij af: 10, 14, 18, 22, …",
-          "prompt_en": "Continue the sequence: 10, 14, 18, 22, …",
-          "prompt_es": "Continúa la serie: 10, 14, 18, 22, …",
-          "correction_nl": "Elke keer +4: 26.",
-          "correction_en": "Add 4 each time: 26.",
-          "correction_es": "Se suma 4 cada vez: 26."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 2, 5, 8, 11, …",
+          "prompt": "Continue la suite : 1, 2, 4, 8, …",
           "options": [
             "10",
-            "9",
-            "18",
+            "12",
+            "16",
             "14"
           ],
-          "answer": "14",
-          "correction": "On ajoute 3 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 2, 5, 8, 11, …",
-          "prompt_en": "Continue the sequence: 2, 5, 8, 11, …",
-          "prompt_es": "Continúa la serie: 2, 5, 8, 11, …",
-          "correction_nl": "Elke keer +3: 14.",
-          "correction_en": "Add 3 each time: 14.",
-          "correction_es": "Se suma 3 cada vez: 14."
+          "answer": "16",
+          "correction": "On multiplie par 2 à chaque fois : 16."
         },
         {
-          "id": "q16",
+          "id": "qm2",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 5, 9, 13, …",
+          "prompt": "Continue la suite : 2, 4, 8, 16, …",
           "options": [
-            "21",
-            "12",
-            "22",
-            "17"
+            "18",
+            "24",
+            "32",
+            "20"
           ],
-          "answer": "17",
-          "correction": "On ajoute 4 à chaque fois : 17.",
-          "prompt_nl": "Maak de rij af: 1, 5, 9, 13, …",
-          "prompt_en": "Continue the sequence: 1, 5, 9, 13, …",
-          "prompt_es": "Continúa la serie: 1, 5, 9, 13, …",
-          "correction_nl": "Elke keer +4: 17.",
-          "correction_en": "Add 4 each time: 17.",
-          "correction_es": "Se suma 4 cada vez: 17."
+          "answer": "32",
+          "correction": "On multiplie par 2 à chaque fois : 32."
         },
         {
-          "id": "q17",
+          "id": "qm3",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Continue la suite : 3, 6, 12, 24, …",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "36",
+            "48",
+            "30",
+            "42"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "48",
+          "correction": "On multiplie par 2 à chaque fois : 48."
         },
         {
-          "id": "q18",
+          "id": "qm4",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Continue la suite : 100, 90, 80, 70, …",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "65",
+            "55",
+            "60",
+            "50"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "60",
+          "correction": "On soustrait 10 à chaque fois : 60."
         },
         {
-          "id": "q19",
+          "id": "qm5",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Continue la suite : 1, 3, 9, 27, …",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "54",
+            "81",
+            "36",
+            "63"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "81",
+          "correction": "On multiplie par 3 à chaque fois : 81."
         },
         {
-          "id": "q20",
+          "id": "qm6",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "un meuble",
+            "un animal",
+            "une plante",
+            "un outil"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "un animal",
+          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+        },
+        {
+          "id": "qm7",
+          "type": "mcq",
+          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "options": [
+            "Paul",
+            "Léa",
+            "Tom",
+            "Personne"
+          ],
+          "answer": "Tom",
+          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+        },
+        {
+          "id": "qm8",
+          "type": "mcq",
+          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "options": [
+            "Léa",
+            "Marie",
+            "Julie",
+            "Elles sont pareilles"
+          ],
+          "answer": "Julie",
+          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+        },
+        {
+          "id": "qm9",
+          "type": "mcq",
+          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "options": [
+            "Jeudi",
+            "Lundi",
+            "Mardi",
+            "Vendredi"
+          ],
+          "answer": "Mardi",
+          "correction": "Le jour avant mercredi est mardi."
+        },
+        {
+          "id": "qm10",
+          "type": "mcq",
+          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "options": [
+            "n'a pas d'ailes",
+            "est un poisson",
+            "a des ailes",
+            "est un insecte"
+          ],
+          "answer": "a des ailes",
+          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
         }
       ]
     },

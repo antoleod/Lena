@@ -107,118 +107,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "aquarium",
+            "aquariume",
+            "akuarium"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "aquarium",
+          "correction": "On écrit « aquarium » avec « qu »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : conf_ture",
+          "answer": "i",
+          "accept": [
+            "i"
+          ],
+          "correction": "On écrit « confiture » avec un « i »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "pêcheur",
+            "pescheur",
+            "pècheur"
+          ],
+          "answer": "pêcheur",
+          "correction": "On écrit « pêcheur » avec un accent circonflexe sur le « ê »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "couronne",
+            "courronne",
+            "coronne"
           ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "answer": "couronne",
+          "correction": "On écrit « couronne » avec un seul « r » et deux « n »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « tonneau » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « tonneau » s'écrit avec deux « n » et « eau »."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maman",
-            "mamen",
-            "momen"
+          "type": "fill_blank",
+          "prompt": "Complète le mot : berge_ie",
+          "answer": "r",
+          "accept": [
+            "r"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "correction": "On écrit « bergerie » avec un « r »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "fossette",
+            "foçette",
+            "fossète"
+          ],
+          "answer": "fossette",
+          "correction": "On écrit « fossette » avec deux « s » et deux « t »."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "noisette",
+            "noizette",
+            "noisète"
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "answer": "noisette",
+          "correction": "On écrit « noisette » avec « ois » et deux « t »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « louveteau » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « louveteau » s'écrit avec « eau »."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "bateau",
-            "batau",
-            "bato"
-          ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
-        },
-        {
-          "id": "q12",
           "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
+          "prompt": "Complète le mot : prin_esse",
+          "answer": "c",
           "accept": [
-            "o"
+            "c"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
-          ],
-          "correction": "On écrit « livre » (lettre « v »)."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maison",
-            "mayson",
-            "mèson"
-          ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
-          ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "correction": "On écrit « princesse » avec un « c »."
         }
       ]
     },
@@ -227,113 +217,123 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quel mot contient « eau » ?",
+          "options": [
+            "tonneau",
+            "confiture",
+            "bergerie"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "tonneau",
+          "correction": "Tonneau s'écrit t-o-n-n-e-a-u."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "louveteau",
+            "louvetaux",
+            "confiture"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "louvetaux",
+          "correction": "Le mot correct est « louveteau » (singulier) : l-o-u-v-e-t-e-a-u."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : La fée est une ___ .",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "princesse",
+            "princese",
+            "princessse"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "princesse",
+          "correction": "Princesse s'écrit p-r-i-n-c-e-s-s-e avec deux « s »."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Quel mot contient « on » double « n » + eau ?",
+          "options": [
+            "tonneau",
+            "princesse",
+            "bergerie"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "tonneau",
+          "correction": "Tonneau s'écrit t-o-n-n-e-a-u (deux « n » + eau)."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Identifie la faute :",
+          "options": [
+            "confiture",
+            "confitture",
+            "louveteau"
           ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
+          "answer": "confitture",
+          "correction": "Le mot correct est « confiture » : c-o-n-f-i-t-u-r-e (un seul « t »)."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot a « ss » (double s) ?",
+          "options": [
+            "princesse",
+            "tonneau",
+            "bergerie"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "princesse",
+          "correction": "Princesse s'écrit p-r-i-n-c-e-s-s-e."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -erie » ?",
           "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
+            "bergerie",
+            "tonneau",
+            "louveteau"
           ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
+          "answer": "bergerie",
+          "correction": "Bergerie se termine par « -erie » : b-e-r-g-e-r-i-e."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "La princesse garde la bergerie.",
+            "La princese garde la bergerie.",
+            "La princesse garde la bergerie."
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "La princesse garde la bergerie.",
+          "correction": "Princesse = ss, bergerie = ger + ie."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -eau » ?",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "louveteau",
+            "confiture",
+            "princesse"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "louveteau",
+          "correction": "Louveteau se termine par « eau » : l-o-u-v-e-t-e-a-u."
         },
         {
           "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quel mot est mal orthographié ?",
+          "options": [
+            "tonneau",
+            "toneau",
+            "princesse"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "toneau",
+          "correction": "Le mot correct est « tonneau » avec deux « n » : t-o-n-n-e-a-u."
         }
       ]
     }

@@ -113,124 +113,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "jeune",
-            "gros",
+            "rapide",
+            "fort",
             "grand"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q10",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
         },
         {
-          "id": "q12",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "pas",
+            "très",
+            "bien"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
         },
         {
-          "id": "q14",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
         },
         {
-          "id": "q16",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "plaisant",
+            "mauvais",
+            "froid"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
         },
         {
-          "id": "q18",
+          "id": "q17",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Le contraire de « silencieux » :",
           "options": [
-            "discuter",
-            "courir",
-            "dormir"
-          ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
-          "options": [
-            "froid",
-            "tiède",
+            "bruyant",
+            "calme",
             "doux"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
+            "dormir"
+          ],
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },
@@ -240,120 +240,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Quel est le sens du préfixe « micro- » dans « microscopique » ?",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "très petit",
+            "très grand",
+            "à l'intérieur"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "très petit",
+          "correction": "« Micro- » = très petit (du grec mikros)."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
+          "type": "mcq",
+          "prompt": "Dans « Garder la tête hors de l'eau » signifie :",
+          "options": [
+            "survivre malgré les difficultés",
+            "aimer nager",
+            "éviter de se noyer"
           ],
-          "correction": "monter ↔ descendre."
+          "answer": "survivre malgré les difficultés",
+          "correction": "Garder la tête hors de l'eau = faire face aux difficultés sans couler."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Un mot « abstrait » désigne :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "une idée, un sentiment (non concret)",
+            "un objet que l'on peut toucher",
+            "une couleur"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "une idée, un sentiment (non concret)",
+          "correction": "Ex. : amour, liberté, injustice sont des mots abstraits."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « serein » est :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "paisible",
+            "agité",
+            "sombre"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "paisible",
+          "correction": "Serein = calme, tranquille, sans trouble."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
-          "options": [
-            "heureux",
-            "triste",
-            "fâché"
+          "type": "fill_blank",
+          "prompt": "La famille du mot « terre » : terrestre, enterrer, ___ .",
+          "answer": "territoire",
+          "accept": [
+            "territoire"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "correction": "Territoire vient du latin terra (terre)."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Dans « Tourner autour du pot » signifie :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "ne pas aller droit au but",
+            "cuisiner",
+            "être indécis en général"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "ne pas aller droit au but",
+          "correction": "Tourner autour du pot = éviter de dire les choses directement."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le suffixe « -tion » dans « construction » forme :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "un nom d'action",
+            "un adjectif",
+            "un verbe"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "un nom d'action",
+          "correction": "« -tion » transforme un verbe en nom d'action : construire → construction."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
+          "prompt": "Quel est le contraire de « frugal » ?",
           "options": [
-            "jeune",
-            "gros",
-            "grand"
+            "fastueux",
+            "sobre",
+            "modeste"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "fastueux",
+          "correction": "Frugal = qui mange ou dépense peu ; fastueux = somptueux, abondant."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Un « euphémisme » est une figure de style qui consiste à :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "atténuer une réalité déplaisante",
+            "exagérer",
+            "comparer deux choses"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "atténuer une réalité déplaisante",
+          "correction": "Ex. : « il nous a quittés » pour « il est mort »."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Dans « Il a les yeux plus grands que le ventre », cette expression signifie :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "il désire plus qu'il ne peut obtenir",
+            "il a faim",
+            "il est gourmand"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "il désire plus qu'il ne peut obtenir",
+          "correction": "Avoir les yeux plus grands que le ventre = vouloir plus qu'on ne peut."
         }
       ]
     }

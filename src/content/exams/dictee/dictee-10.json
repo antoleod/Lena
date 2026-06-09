@@ -111,118 +111,119 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "On entend « forêt ». On écrit :",
+          "options": [
+            "forêt",
+            "foret",
+            "forè"
+          ],
+          "answer": "forêt",
+          "correction": "Le mot « forêt » s’écrit avec un accent circonflexe sur le e."
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "Choisir le bon mot : Mon frère ___ gagné la course.",
           "options": [
-            "Maman cuisine.",
-            "Maman cuisin.",
-            "Mamen cuisine."
+            "a",
+            "à",
+            "as"
           ],
-          "answer": "Maman cuisine.",
-          "correction": "On écrit « Maman cuisine. »."
+          "answer": "a",
+          "correction": "« a » est le verbe avoir (il a gagné)."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "On entend « nuit ». On écrit :",
+          "options": [
+            "nuit",
+            "nui",
+            "nuie"
+          ],
+          "answer": "nuit",
+          "correction": "Le mot « nuit » se termine par un t muet."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Écris le mot : l’animal qui aboie est le ___ .",
-          "answer": "chien",
-          "accept": [
-            "chien"
+          "type": "mcq",
+          "prompt": "Quelle orthographe est correcte pour : « Elle chante très bien. » ?",
+          "options": [
+            "Elle chante très bien.",
+            "Elle chante trés bien.",
+            "Elle chante tres bien."
           ],
-          "correction": "C’est le chien."
+          "answer": "Elle chante très bien.",
+          "correction": "« très » s’écrit avec un accent grave sur le e."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Choisir le bon mot : La soupe ___ chaude.",
+          "options": [
+            "est",
+            "et",
+            "ai"
+          ],
+          "answer": "est",
+          "correction": "« est » est le verbe être (elle est)."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Écris le mot : on lit un ___ à la bibliothèque.",
-          "answer": "livre",
-          "accept": [
-            "livre"
+          "type": "mcq",
+          "prompt": "On entend « hôpital ». On écrit :",
+          "options": [
+            "hôpital",
+            "hopital",
+            "ôpital"
           ],
-          "correction": "C’est un livre."
+          "answer": "hôpital",
+          "correction": "Le mot « hôpital » s’écrit avec un h initial et un accent circonflexe."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle orthographe est correcte pour : « Nous allons au marché. » ?",
+          "options": [
+            "Nous allons au marché.",
+            "Nous allons à le marché.",
+            "Nous allons o marché."
+          ],
+          "answer": "Nous allons au marché.",
+          "correction": "« au » est la contraction correcte de « à le »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On entend « ecole ». On écrit :",
+          "prompt": "On entend « soldat ». On écrit :",
           "options": [
-            "école",
-            "ecol",
-            "écolle"
+            "soldat",
+            "solda",
+            "soldas"
           ],
-          "answer": "école",
-          "correction": "Le mot « école »."
+          "answer": "soldat",
+          "correction": "Le mot « soldat » se termine par un t muet."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "La phrase est correctement orthographiée : « Il mange à la maison. »",
+          "answer": "Vrai",
+          "correction": "La phrase est correcte. « à » avec accent grave est une préposition."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On entend « table ». On écrit :",
+          "prompt": "On entend « éléphant ». On écrit :",
           "options": [
-            "table",
-            "tabel",
-            "tabl"
+            "éléphant",
+            "elefant",
+            "élefant"
           ],
-          "answer": "table",
-          "correction": "Le mot « table »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Je mange une pomme.",
-            "Je manje une pom.",
-            "Je mange ène pome."
-          ],
-          "answer": "Je mange une pomme.",
-          "correction": "On écrit « Je mange une pomme. »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Le chat dort.",
-            "Le chat dor.",
-            "Le chate dort."
-          ],
-          "answer": "Le chat dort.",
-          "correction": "On écrit « Le chat dort. »."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "On entend « cheval ». On écrit :",
-          "options": [
-            "cheval",
-            "chval",
-            "chaval"
-          ],
-          "answer": "cheval",
-          "correction": "Le mot « cheval »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "On entend « voiture ». On écrit :",
-          "options": [
-            "voiture",
-            "voitur",
-            "voature"
-          ],
-          "answer": "voiture",
-          "correction": "Le mot « voiture »."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Écris le contraire de « grand ».",
-          "answer": "petit",
-          "accept": [
-            "petit"
-          ],
-          "correction": "Le mot « petit »."
+          "answer": "éléphant",
+          "correction": "Le mot « éléphant » s’écrit avec ph et deux accents aigus."
         }
       ]
     },

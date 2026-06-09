@@ -103,114 +103,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "Dans « Lena mange une pomme », le COD est :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "une pomme",
+            "Lena",
+            "mange"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "une pomme",
+          "correction": "COD : quoi ? → une pomme."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "Dans « Paul parle à sa mère », le COI est :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "à sa mère",
+            "Paul",
+            "parle"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "à sa mère",
+          "correction": "COI : à qui ? → à sa mère."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "« rouge » est un :",
+          "prompt": "La forme féminine de « joli » est :",
           "options": [
-            "adjectif",
-            "nom",
-            "verbe"
+            "jolie",
+            "jolis",
+            "jolies"
           ],
-          "answer": "adjectif",
-          "correction": "« rouge » décrit : adjectif."
+          "answer": "jolie",
+          "correction": "Féminin singulier : jolie."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "La forme féminine de « grand » est :",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "grande",
+            "grands",
+            "grand"
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "grande",
+          "correction": "Féminin : grande."
         },
         {
-          "id": "q10",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
-        },
-        {
-          "id": "q12",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Dans « la petite maison », le nom est :",
+          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
           "options": [
-            "maison",
-            "petite",
-            "la"
+            "interrogative",
+            "exclamative",
+            "déclarative"
           ],
-          "answer": "maison",
-          "correction": "maison = nom."
+          "answer": "interrogative",
+          "correction": "Elle pose une question : phrase interrogative."
         },
         {
-          "id": "q14",
-          "type": "true_false",
-          "prompt": "« manger » est un adjectif.",
-          "answer": false,
-          "correction": "« manger » est un verbe."
-        },
-        {
-          "id": "q16",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "« Quel beau tableau ! » est une phrase :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "exclamative",
+            "interrogative",
+            "impérative"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "exclamative",
+          "correction": "Elle exprime une émotion : phrase exclamative."
         },
         {
-          "id": "q18",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "COI",
+            "COD",
+            "sujet"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "COI",
+          "correction": "Lui = à lui/à elle → COI."
         },
         {
-          "id": "q20",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "La forme plurielle de « un cheval joyeux » est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "des chevaux joyeux",
+            "des chevals joyeux",
+            "des cheval joyeux"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "des chevaux joyeux",
+          "correction": "Pluriel de cheval → chevaux."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "options": [
+            "un complément d'objet direct",
+            "un COI",
+            "le sujet"
+          ],
+          "answer": "un complément d'objet direct",
+          "correction": "Le = COD."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "options": [
+            "Il dit qu'il mange.",
+            "Il dit que je mange.",
+            "Il dit qu'il a mangé."
+          ],
+          "answer": "Il dit qu'il mange.",
+          "correction": "Discours indirect au présent."
         }
       ]
     },

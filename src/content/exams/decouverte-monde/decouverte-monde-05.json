@@ -111,114 +111,338 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve l'Égypte ?",
+          "options": [
+            "Afrique",
+            "Asie",
+            "Europe",
+            "Amérique"
+          ],
+          "answer": "Afrique",
+          "correction": "L'Égypte est un pays situé en Afrique du Nord.",
+          "prompt_nl": "Op welk continent ligt Egypte?",
+          "prompt_en": "On which continent is Egypt located?",
+          "prompt_es": "En que continente se encuentra Egipto?",
+          "options_i18n": {
+            "nl": [
+              "Afrika",
+              "Azie",
+              "Europa",
+              "Amerika"
+            ],
+            "en": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "America"
+            ],
+            "es": [
+              "Africa",
+              "Asia",
+              "Europa",
+              "America"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Le Sahara est :",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "un désert",
+            "un océan",
+            "une forêt",
+            "une montagne"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "un désert",
+          "correction": "Le Sahara est le plus grand désert chaud du monde.",
+          "prompt_nl": "De Sahara is:",
+          "prompt_en": "The Sahara is:",
+          "prompt_es": "El Sahara es:",
+          "options_i18n": {
+            "nl": [
+              "een woestijn",
+              "een oceaan",
+              "een woud",
+              "een berg"
+            ],
+            "en": [
+              "a desert",
+              "an ocean",
+              "a forest",
+              "a mountain"
+            ],
+            "es": [
+              "un desierto",
+              "un oceano",
+              "un bosque",
+              "una montana"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Le Nil est :",
+          "options": [
+            "un fleuve d'Afrique",
+            "un fleuve d'Asie",
+            "une mer",
+            "un lac"
+          ],
+          "answer": "un fleuve d'Afrique",
+          "correction": "Le Nil est le plus long fleuve d'Afrique.",
+          "prompt_nl": "De Nijl is:",
+          "prompt_en": "The Nile is:",
+          "prompt_es": "El Nilo es:",
+          "options_i18n": {
+            "nl": [
+              "een rivier in Afrika",
+              "een rivier in Azie",
+              "een zee",
+              "een meer"
+            ],
+            "en": [
+              "a river in Africa",
+              "a river in Asia",
+              "a sea",
+              "a lake"
+            ],
+            "es": [
+              "un rio de Africa",
+              "un rio de Asia",
+              "un mar",
+              "un lago"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Quelle mer borde la France au sud ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "la mer Méditerranée",
+            "la mer du Nord",
+            "la mer Baltique",
+            "la mer Rouge"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "la mer Méditerranée",
+          "correction": "La mer Méditerranée borde la France au sud.",
+          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
+          "prompt_en": "Which sea borders France to the south?",
+          "prompt_es": "Que mar bordea Francia al sur?",
+          "options_i18n": {
+            "nl": [
+              "de Middellandse Zee",
+              "de Noordzee",
+              "de Oostzee",
+              "de Rode Zee"
+            ],
+            "en": [
+              "the Mediterranean Sea",
+              "the North Sea",
+              "the Baltic Sea",
+              "the Red Sea"
+            ],
+            "es": [
+              "el mar Mediterraneo",
+              "el mar del Norte",
+              "el mar Baltico",
+              "el mar Rojo"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
+          "options": [
+            "les Pyrénées",
+            "les Alpes",
+            "les Vosges",
+            "le Jura"
+          ],
+          "answer": "les Pyrénées",
+          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
+          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
+          "prompt_en": "Which mountain range separates France from Spain?",
+          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
+          "options_i18n": {
+            "nl": [
+              "de Pyreneen",
+              "de Alpen",
+              "de Vogezen",
+              "de Jura"
+            ],
+            "en": [
+              "the Pyrenees",
+              "the Alps",
+              "the Vosges",
+              "the Jura"
+            ],
+            "es": [
+              "los Pirineos",
+              "los Alpes",
+              "los Vosgos",
+              "el Jura"
+            ]
+          }
         },
         {
           "id": "q6",
+          "type": "true_false",
+          "prompt": "Au pôle Nord, les températures sont très froides.",
+          "answer": true,
+          "correction": "Le pôle Nord est une région arctique aux températures extrêmement basses.",
+          "prompt_nl": "Op de Noordpool zijn de temperaturen erg koud.",
+          "prompt_en": "At the North Pole, temperatures are very cold.",
+          "prompt_es": "En el Polo Norte, las temperaturas son muy frias."
+        },
+        {
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "La langue officielle du Brésil est :",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "le portugais",
+            "l'espagnol",
+            "le français",
+            "l'anglais"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "le portugais",
+          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
+          "prompt_nl": "De officiele taal van Brazilie is:",
+          "prompt_en": "The official language of Brazil is:",
+          "prompt_es": "El idioma oficial de Brasil es:",
+          "options_i18n": {
+            "nl": [
+              "Portugees",
+              "Spaans",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Portuguese",
+              "Spanish",
+              "French",
+              "English"
+            ],
+            "es": [
+              "portugues",
+              "espanol",
+              "frances",
+              "ingles"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Quel est le plus grand océan du monde ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "l'océan Pacifique",
+            "l'océan Atlantique",
+            "l'océan Indien",
+            "l'océan Arctique"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "l'océan Pacifique",
+          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
+          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
+          "prompt_en": "What is the largest ocean in the world?",
+          "prompt_es": "Cual es el oceano mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "de Stille Oceaan",
+              "de Atlantische Oceaan",
+              "de Indische Oceaan",
+              "de Arctische Oceaan"
+            ],
+            "en": [
+              "the Pacific Ocean",
+              "the Atlantic Ocean",
+              "the Indian Ocean",
+              "the Arctic Ocean"
+            ],
+            "es": [
+              "el oceano Pacifico",
+              "el oceano Atlantico",
+              "el oceano Indico",
+              "el oceano Artico"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "La Tour Eiffel se trouve dans quelle ville ?",
+          "options": [
+            "Paris",
+            "Lyon",
+            "Rome",
+            "Berlin"
+          ],
+          "answer": "Paris",
+          "correction": "La Tour Eiffel est le monument le plus célèbre de Paris.",
+          "prompt_nl": "In welke stad staat de Eiffeltoren?",
+          "prompt_en": "In which city is the Eiffel Tower?",
+          "prompt_es": "En que ciudad esta la Torre Eiffel?",
+          "options_i18n": {
+            "nl": [
+              "Parijs",
+              "Lyon",
+              "Rome",
+              "Berlijn"
+            ],
+            "en": [
+              "Paris",
+              "Lyon",
+              "Rome",
+              "Berlin"
+            ],
+            "es": [
+              "Paris",
+              "Lyon",
+              "Roma",
+              "Berlin"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Quel fleuve traverse Paris ?",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "la Seine",
+            "la Loire",
+            "le Rhône",
+            "la Garonne"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le docteur soigne les :",
-          "options": [
-            "malades",
-            "voitures",
-            "maisons"
-          ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "On entend avec les :",
-          "options": [
-            "oreilles",
-            "yeux",
-            "mains"
-          ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
-        },
-        {
-          "id": "q16",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le medecin soigne les :",
-          "options": [
-            "malades",
-            "voitures",
-            "plantes"
-          ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
-        },
-        {
-          "id": "q20",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "answer": "la Seine",
+          "correction": "La Seine est le fleuve qui traverse Paris.",
+          "prompt_nl": "Welke rivier stroomt door Parijs?",
+          "prompt_en": "Which river flows through Paris?",
+          "prompt_es": "Que rio atraviesa Paris?",
+          "options_i18n": {
+            "nl": [
+              "de Seine",
+              "de Loire",
+              "de Rhone",
+              "de Garonne"
+            ],
+            "en": [
+              "the Seine",
+              "the Loire",
+              "the Rhône",
+              "the Garonne"
+            ],
+            "es": [
+              "el Sena",
+              "el Loira",
+              "el Rodano",
+              "el Garona"
+            ]
+          }
         }
       ]
     },

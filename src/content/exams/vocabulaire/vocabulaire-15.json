@@ -111,124 +111,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "rapide",
+            "fort",
+            "grand"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q10",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
         },
         {
-          "id": "q12",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "pas",
+            "très",
+            "bien"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
         },
         {
-          "id": "q14",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
           "options": [
-            "triste",
-            "content",
-            "joyeux"
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
           ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
         },
         {
-          "id": "q16",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "plaisant",
+            "mauvais",
+            "froid"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
         },
         {
-          "id": "q18",
+          "id": "q17",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Le contraire de « silencieux » :",
           "options": [
-            "discuter",
-            "courir",
+            "bruyant",
+            "calme",
+            "doux"
+          ],
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
             "dormir"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
-          "options": [
-            "observer",
-            "manger",
-            "courir"
-          ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },

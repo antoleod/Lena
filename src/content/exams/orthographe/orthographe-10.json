@@ -111,118 +111,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "cheminée",
+            "cheminee",
+            "chemnée"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "cheminée",
+          "correction": "On écrit « cheminée » avec un accent aigu sur le dernier « é »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : feuil_age",
+          "answer": "l",
+          "accept": [
+            "l"
+          ],
+          "correction": "On écrit « feuillage » avec deux « l »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "plongeon",
+            "plongon",
+            "plongéon"
+          ],
+          "answer": "plongeon",
+          "correction": "On écrit « plongeon » sans accent."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "robinet",
+            "robinait",
+            "robinest"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "robinet",
+          "correction": "On écrit « robinet » avec « inet »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « crêpe » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « crêpe » s'écrit avec un accent circonflexe sur le « ê »."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
+          "prompt": "Complète le mot : bou_angers",
+          "answer": "l",
           "accept": [
-            "v"
+            "l"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "correction": "On écrit « boulangers » avec un « l »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "citrouille",
+            "citroille",
+            "citroüille"
+          ],
+          "answer": "citrouille",
+          "correction": "On écrit « citrouille » avec « ouille »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "sorcière",
+            "sorcierè",
+            "sorcierre"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "sorcière",
+          "correction": "On écrit « sorcière » avec un accent grave sur le « è »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « guêpe » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « guêpe » s'écrit avec un accent circonflexe sur le « ê »."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "ballon",
-            "balon",
-            "baloon"
-          ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
-        },
-        {
-          "id": "q12",
           "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
+          "prompt": "Complète le mot : ciga_e",
+          "answer": "l",
           "accept": [
-            "d"
+            "l"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maison",
-            "mayson",
-            "mèson"
-          ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "poulet",
-            "poulait",
-            "poule"
-          ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
-          ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
-        },
-        {
-          "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
-          "accept": [
-            "e"
-          ],
-          "correction": "On écrit « soleil » (lettre « e »)."
+          "correction": "On écrit « cigale » avec un « l »."
         }
       ]
     },
@@ -231,117 +221,123 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quel mot contient un accent circonflexe ?",
+          "options": [
+            "crêpe",
+            "oiseau",
+            "ballon"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "crêpe",
+          "correction": "Crêpe s'écrit c-r-ê-p-e avec un accent circonflexe sur le « e »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "guêpe",
+            "guepe",
+            "feuillage"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "guepe",
+          "correction": "Le mot correct est « guêpe » avec accent circonflexe : g-u-ê-p-e."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Le boulanger va chez le ___ .",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "boulanger",
+            "boulanger",
+            "bolanger"
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
+          "answer": "boulanger",
+          "correction": "Boulanger s'écrit b-o-u-l-a-n-g-e-r."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « ill » ?",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "feuillage",
+            "crêpe",
+            "guêpe"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "feuillage",
+          "correction": "Feuillage s'écrit f-e-u-i-l-l-a-g-e."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Identifie la faute :",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "cigare",
+            "cigarre",
+            "feuillage"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "cigarre",
+          "correction": "Le mot correct est « cigare » : c-i-g-a-r-e (un seul « r »)."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot a deux accents (accent sur deux lettres différentes) ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "crêpe",
+            "guêpe",
+            "feuillage"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "crêpe",
+          "correction": "Crêpe et guêpe ont chacun un seul accent. Parmi ceux-là, guêpe = g-u-ê-p-e."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « ou » ?",
+          "options": [
+            "boulanger",
+            "crêpe",
+            "guêpe"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "boulanger",
+          "correction": "Boulanger contient « ou » : b-ou-l-a-n-g-e-r."
         },
         {
           "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "options": [
+            "La guêpe pique la crêpe.",
+            "La guepe pique la crepe.",
+            "La guêpe pique la crêpe."
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "answer": "La guêpe pique la crêpe.",
+          "correction": "Guêpe = ê, crêpe = ê."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -age » ?",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "feuillage",
+            "crêpe",
+            "guêpe"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "feuillage",
+          "correction": "Feuillage se termine par « -age » : f-e-u-i-l-l-a-g-e."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "ballon",
-            "balon",
-            "baloon"
+            "crêpe",
+            "crepe",
+            "guêpe"
           ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "answer": "crepe",
+          "correction": "Le mot correct est « crêpe » avec un accent circonflexe."
         }
       ]
     }

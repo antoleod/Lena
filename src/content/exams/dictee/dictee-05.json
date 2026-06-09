@@ -109,124 +109,119 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Choisir le bon mot : Le soleil ___ levé tôt.",
+          "options": [
+            "est",
+            "et",
+            "es"
+          ],
+          "answer": "est",
+          "correction": "« est » est le verbe être. « tôt » s'écrit avec un accent circonflexe."
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On entend « fleur ». On écrit :",
+          "prompt": "On entend « forêt ». On écrit :",
           "options": [
-            "fleur",
-            "fleure",
-            "flèr"
+            "forêt",
+            "foret",
+            "forè"
           ],
-          "answer": "fleur",
-          "correction": "Le mot « fleur »."
+          "answer": "forêt",
+          "correction": "Le mot « forêt » s'écrit avec un accent circonflexe sur le e."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "On entend « nuit ». On écrit :",
+          "options": [
+            "nuit",
+            "nui",
+            "nuie"
+          ],
+          "answer": "nuit",
+          "correction": "Le mot « nuit » se termine par un t muet."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "On entend « fille ». On écrit :",
+          "prompt": "Quelle orthographe est correcte pour : « Nous allons au cinéma. » ?",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "Nous allons au cinéma.",
+            "Nous allons à le cinéma.",
+            "Nous allons o cinéma."
           ],
-          "answer": "fille",
-          "correction": "Le mot « fille »."
+          "answer": "Nous allons au cinéma.",
+          "correction": "« au » est la contraction correcte de « à le »."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Choisir le bon mot : Elle ___ une belle robe.",
+          "options": [
+            "a",
+            "à",
+            "as"
+          ],
+          "answer": "a",
+          "correction": "« a » est le verbe avoir (elle a). « à » est une préposition."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On entend « table ». On écrit :",
+          "prompt": "On entend « hôpital ». On écrit :",
           "options": [
-            "table",
-            "tabel",
-            "tabl"
+            "hôpital",
+            "hopital",
+            "ôpital"
           ],
-          "answer": "table",
-          "correction": "Le mot « table »."
+          "answer": "hôpital",
+          "correction": "Le mot « hôpital » s'écrit avec un h initial et un accent circonflexe."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "On entend « soldat ». On écrit :",
+          "options": [
+            "soldat",
+            "solda",
+            "soldas"
+          ],
+          "answer": "soldat",
+          "correction": "Le mot « soldat » se termine par un t muet."
         },
         {
           "id": "q8",
+          "type": "true_false",
+          "prompt": "La phrase est correctement orthographiée : « Le garçon joue dans la cour. »",
+          "answer": "Vrai",
+          "correction": "La phrase est correcte. « garçon » s'écrit avec une cédille."
+        },
+        {
+          "id": "q9",
           "type": "mcq",
-          "prompt": "On entend « maman ». On écrit :",
+          "prompt": "Quelle orthographe est correcte pour : « Elle chante très bien. » ?",
           "options": [
-            "maman",
-            "mamen",
-            "mama"
+            "Elle chante très bien.",
+            "Elle chante trés bien.",
+            "Elle chante tres bien."
           ],
-          "answer": "maman",
-          "correction": "Le mot « maman »."
+          "answer": "Elle chante très bien.",
+          "correction": "« très » s'écrit avec un accent grave sur le e."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "On entend « éléphant ». On écrit :",
           "options": [
-            "Je mange une pomme.",
-            "Je manje une pom.",
-            "Je mange ène pome."
+            "éléphant",
+            "elefant",
+            "élefant"
           ],
-          "answer": "Je mange une pomme.",
-          "correction": "On écrit « Je mange une pomme. »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Papa lit un livre.",
-            "Papa lis un livre.",
-            "Pappa lit un livre."
-          ],
-          "answer": "Papa lit un livre.",
-          "correction": "On écrit « Papa lit un livre. »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "La phrase correcte :",
-          "options": [
-            "Le chat dort.",
-            "Le chat dor.",
-            "Le chate dort."
-          ],
-          "answer": "Le chat dort.",
-          "correction": "On écrit « Le chat dort. »."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "On entend « oiseau ». On écrit :",
-          "options": [
-            "oiseau",
-            "oizeau",
-            "oiso"
-          ],
-          "answer": "oiseau",
-          "correction": "Le mot « oiseau »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "On entend « cheval ». On écrit :",
-          "options": [
-            "cheval",
-            "chval",
-            "chaval"
-          ],
-          "answer": "cheval",
-          "correction": "Le mot « cheval »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "On entend « voiture ». On écrit :",
-          "options": [
-            "voiture",
-            "voitur",
-            "voature"
-          ],
-          "answer": "voiture",
-          "correction": "Le mot « voiture »."
+          "answer": "éléphant",
+          "correction": "Le mot « éléphant » s'écrit avec ph et deux accents aigus."
         }
       ]
     },

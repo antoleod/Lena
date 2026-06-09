@@ -279,336 +279,310 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "La photosynthèse est réalisée par :",
+          "prompt": "Les fleurs servent principalement à :",
           "options": [
-            "les plantes",
-            "les animaux",
-            "les champignons",
-            "les pierres"
+            "la reproduction de la plante",
+            "nourrir les insectes",
+            "produire de l'oxygène",
+            "ancrer la plante"
           ],
-          "answer": "les plantes",
-          "correction": "Les plantes font la photosynthèse.",
-          "prompt_nl": "Fotosynthese wordt uitgevoerd door:",
-          "prompt_en": "Photosynthesis is carried out by:",
-          "prompt_es": "La fotosintesis la realizan:",
+          "answer": "la reproduction de la plante",
+          "correction": "Les fleurs permettent la reproduction de la plante grâce à la pollinisation.",
+          "prompt_nl": "Bloemen dienen voornamelijk voor:",
+          "prompt_en": "Flowers are mainly for:",
+          "prompt_es": "Las flores sirven principalmente para:",
           "options_i18n": {
             "nl": [
-              "de planten",
-              "de dieren",
-              "de schimmels",
-              "de stenen"
+              "de voortplanting van de plant",
+              "insecten voeden",
+              "zuurstof produceren",
+              "de plant verankeren"
             ],
             "en": [
-              "plants",
-              "animals",
-              "fungi",
-              "stones"
+              "plant reproduction",
+              "feeding insects",
+              "producing oxygen",
+              "anchoring the plant"
             ],
             "es": [
-              "las plantas",
-              "los animales",
-              "los hongos",
-              "las piedras"
+              "la reproduccion de la planta",
+              "alimentar insectos",
+              "producir oxigeno",
+              "anclar la planta"
             ]
           }
         },
         {
-          "id": "q4",
+          "id": "q2",
           "type": "mcq",
-          "prompt": "Un carnivore mange :",
+          "prompt": "Un invertébré est un animal sans :",
           "options": [
-            "de la viande",
-            "des plantes",
-            "des fruits",
-            "des graines"
+            "colonne vertébrale",
+            "pattes",
+            "yeux",
+            "sang"
           ],
-          "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande.",
-          "prompt_nl": "Een carnivoor eet:",
-          "prompt_en": "A carnivore eats:",
-          "prompt_es": "Un carnivoro come:",
+          "answer": "colonne vertébrale",
+          "correction": "Un invertébré n'a pas de colonne vertébrale.",
+          "prompt_nl": "Een ongewerveld dier heeft geen:",
+          "prompt_en": "An invertebrate has no:",
+          "prompt_es": "Un invertebrado no tiene:",
           "options_i18n": {
             "nl": [
-              "vlees",
-              "planten",
-              "fruit",
-              "zaden"
+              "wervelkolom",
+              "poten",
+              "ogen",
+              "bloed"
             ],
             "en": [
-              "meat",
-              "plants",
-              "fruit",
-              "seeds"
+              "backbone",
+              "legs",
+              "eyes",
+              "blood"
             ],
             "es": [
-              "carne",
-              "plantas",
-              "fruta",
-              "semillas"
+              "columna vertebral",
+              "patas",
+              "ojos",
+              "sangre"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "true_false",
+          "prompt": "L'aimant attire les objets en métal.",
+          "answer": true,
+          "correction": "Un aimant attire le fer et certains autres métaux.",
+          "prompt_nl": "Een magneet trekt metalen voorwerpen aan.",
+          "prompt_en": "A magnet attracts metal objects.",
+          "prompt_es": "El iman atrae objetos de metal."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "prompt": "La Terre fait le tour du Soleil en :",
+          "options": [
+            "un an",
+            "un mois",
+            "une semaine",
+            "un jour"
+          ],
+          "answer": "un an",
+          "correction": "La Terre met environ 365 jours (un an) pour tourner autour du Soleil.",
+          "prompt_nl": "De Aarde doet er ___ over om de Zon te omcirkelen:",
+          "prompt_en": "The Earth takes ___ to go around the Sun:",
+          "prompt_es": "La Tierra tarda ___ en dar la vuelta al Sol:",
+          "options_i18n": {
+            "nl": [
+              "een jaar",
+              "een maand",
+              "een week",
+              "een dag"
+            ],
+            "en": [
+              "one year",
+              "one month",
+              "one week",
+              "one day"
+            ],
+            "es": [
+              "un ano",
+              "un mes",
+              "una semana",
+              "un dia"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quel animal produit du miel ?",
+          "options": [
+            "l'abeille",
+            "la fourmi",
+            "le ver",
+            "le papillon"
+          ],
+          "answer": "l'abeille",
+          "correction": "L'abeille produit du miel dans la ruche.",
+          "prompt_nl": "Welk dier produceert honing?",
+          "prompt_en": "Which animal produces honey?",
+          "prompt_es": "Que animal produce miel?",
+          "options_i18n": {
+            "nl": [
+              "de bij",
+              "de mier",
+              "de worm",
+              "de vlinder"
+            ],
+            "en": [
+              "the bee",
+              "the ant",
+              "the worm",
+              "the butterfly"
+            ],
+            "es": [
+              "la abeja",
+              "la hormiga",
+              "el gusano",
+              "la mariposa"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel animal pond des oeufs ?",
+          "prompt": "Quel sens utilise-t-on pour goûter ?",
           "options": [
-            "la poule",
-            "le chat",
-            "le chien",
-            "la vache"
+            "le goût",
+            "l'odorat",
+            "la vue",
+            "le toucher"
           ],
-          "answer": "la poule",
-          "correction": "La poule pond des oeufs.",
-          "prompt_nl": "Welk dier legt eieren?",
-          "prompt_en": "Which animal lays eggs?",
-          "prompt_es": "Que animal pone huevos?",
+          "answer": "le goût",
+          "correction": "On goûte avec la langue (le goût).",
+          "prompt_nl": "Welk zintuig gebruik je om te proeven?",
+          "prompt_en": "Which sense is used for tasting?",
+          "prompt_es": "Que sentido usas para saborear?",
           "options_i18n": {
             "nl": [
-              "de kip",
-              "de kat",
-              "de hond",
-              "de koe"
+              "de smaak",
+              "de reuk",
+              "het zicht",
+              "het gevoel"
             ],
             "en": [
-              "the hen",
-              "the cat",
-              "the dog",
-              "the cow"
+              "taste",
+              "smell",
+              "sight",
+              "touch"
             ],
             "es": [
-              "la gallina",
-              "el gato",
-              "el perro",
-              "la vaca"
+              "el gusto",
+              "el olfato",
+              "la vista",
+              "el tacto"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Les os de notre corps forment :",
+          "options": [
+            "le squelette",
+            "les muscles",
+            "les nerfs",
+            "les vaisseaux"
+          ],
+          "answer": "le squelette",
+          "correction": "L'ensemble des os forme le squelette.",
+          "prompt_nl": "De botten van ons lichaam vormen:",
+          "prompt_en": "The bones of our body form:",
+          "prompt_es": "Los huesos de nuestro cuerpo forman:",
+          "options_i18n": {
+            "nl": [
+              "het skelet",
+              "de spieren",
+              "de zenuwen",
+              "de vaten"
+            ],
+            "en": [
+              "the skeleton",
+              "the muscles",
+              "the nerves",
+              "the vessels"
+            ],
+            "es": [
+              "el esqueleto",
+              "los musculos",
+              "los nervios",
+              "los vasos"
             ]
           }
         },
         {
           "id": "q8",
+          "type": "true_false",
+          "prompt": "Les requins sont des poissons.",
+          "answer": true,
+          "correction": "Les requins sont des poissons cartilagineux.",
+          "prompt_nl": "Haaien zijn vissen.",
+          "prompt_en": "Sharks are fish.",
+          "prompt_es": "Los tiburones son peces."
+        },
+        {
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Le cycle de l'eau commence par :",
+          "prompt": "Le vent est un déplacement de :",
           "options": [
-            "l'évaporation",
-            "les précipitations",
-            "la condensation",
-            "le ruissellement"
+            "l'air",
+            "l'eau",
+            "la terre",
+            "la vapeur"
           ],
-          "answer": "l'évaporation",
-          "correction": "Le cycle de l'eau commence par l'évaporation.",
-          "prompt_nl": "De watercyclus begint met:",
-          "prompt_en": "The water cycle begins with:",
-          "prompt_es": "El ciclo del agua comienza por:",
+          "answer": "l'air",
+          "correction": "Le vent est causé par le déplacement des masses d'air.",
+          "prompt_nl": "Wind is een verplaatsing van:",
+          "prompt_en": "Wind is a movement of:",
+          "prompt_es": "El viento es un desplazamiento de:",
           "options_i18n": {
             "nl": [
-              "verdamping",
-              "neerslag",
-              "condensatie",
-              "afvloeiing"
+              "lucht",
+              "water",
+              "aarde",
+              "stoom"
             ],
             "en": [
-              "evaporation",
-              "precipitation",
-              "condensation",
-              "runoff"
+              "air",
+              "water",
+              "earth",
+              "vapour"
             ],
             "es": [
-              "evaporacion",
-              "precipitaciones",
-              "condensacion",
-              "escorrentia"
+              "aire",
+              "agua",
+              "tierra",
+              "vapor"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel organe pompe le sang dans le corps ?",
+          "prompt": "Le printemps suit :",
           "options": [
-            "le cœur",
-            "le poumon",
-            "le cerveau",
-            "l'estomac"
+            "l'hiver",
+            "l'été",
+            "l'automne",
+            "la nuit"
           ],
-          "answer": "le cœur",
-          "correction": "Le cœur pompe le sang.",
-          "prompt_nl": "Welk orgaan pompt het bloed door het lichaam?",
-          "prompt_en": "Which organ pumps blood through the body?",
-          "prompt_es": "Que organo bombea la sangre por el cuerpo?",
+          "answer": "l'hiver",
+          "correction": "Les saisons : hiver → printemps → été → automne.",
+          "prompt_nl": "De lente volgt op:",
+          "prompt_en": "Spring comes after:",
+          "prompt_es": "La primavera sigue a:",
           "options_i18n": {
             "nl": [
-              "het hart",
-              "de long",
-              "de hersenen",
-              "de maag"
+              "de winter",
+              "de zomer",
+              "de herfst",
+              "de nacht"
             ],
             "en": [
-              "the heart",
-              "the lung",
-              "the brain",
-              "the stomach"
+              "winter",
+              "summer",
+              "autumn",
+              "night"
             ],
             "es": [
-              "el corazon",
-              "el pulmon",
-              "el cerebro",
-              "el estomago"
-            ]
-          }
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Les plantes ont besoin de :",
-          "options": [
-            "lumière, eau et terre",
-            "chocolat et lait",
-            "froid et obscurité",
-            "sable et sel"
-          ],
-          "answer": "lumière, eau et terre",
-          "correction": "Les plantes ont besoin de lumière, eau et terre.",
-          "prompt_nl": "Planten hebben nodig:",
-          "prompt_en": "Plants need:",
-          "prompt_es": "Las plantas necesitan:",
-          "options_i18n": {
-            "nl": [
-              "licht, water en aarde",
-              "chocolade en melk",
-              "kou en duisternis",
-              "zand en zout"
-            ],
-            "en": [
-              "light, water and soil",
-              "chocolate and milk",
-              "cold and darkness",
-              "sand and salt"
-            ],
-            "es": [
-              "luz, agua y tierra",
-              "chocolate y leche",
-              "frio y oscuridad",
-              "arena y sal"
-            ]
-          }
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel animal est un mammifère ?",
-          "options": [
-            "le chien",
-            "l'aigle",
-            "la grenouille",
-            "le serpent"
-          ],
-          "answer": "le chien",
-          "correction": "Le chien est un mammifère.",
-          "prompt_nl": "Welk dier is een zoogdier?",
-          "prompt_en": "Which animal is a mammal?",
-          "prompt_es": "Que animal es un mamifero?",
-          "options_i18n": {
-            "nl": [
-              "de hond",
-              "de arend",
-              "de kikker",
-              "de slang"
-            ],
-            "en": [
-              "the dog",
-              "the eagle",
-              "the frog",
-              "the snake"
-            ],
-            "es": [
-              "el perro",
-              "el aguila",
-              "la rana",
-              "la serpiente"
-            ]
-          }
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "La chaîne alimentaire commence par :",
-          "options": [
-            "les plantes",
-            "les herbivores",
-            "les carnivores",
-            "les décomposeurs"
-          ],
-          "answer": "les plantes",
-          "correction": "La chaîne alimentaire commence par les plantes.",
-          "prompt_nl": "De voedselketen begint bij:",
-          "prompt_en": "The food chain starts with:",
-          "prompt_es": "La cadena alimentaria empieza por:",
-          "options_i18n": {
-            "nl": [
-              "de planten",
-              "de herbivoren",
-              "de carnivoren",
-              "de afbrekers"
-            ],
-            "en": [
-              "plants",
-              "herbivores",
-              "carnivores",
-              "decomposers"
-            ],
-            "es": [
-              "las plantas",
-              "los herbivoros",
-              "los carnivoros",
-              "los descomponedores"
-            ]
-          }
-        },
-        {
-          "id": "q18",
-          "type": "true_false",
-          "prompt": "Le Soleil tourne autour de la Terre.",
-          "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil.",
-          "prompt_nl": "De Zon draait om de Aarde.",
-          "prompt_en": "The Sun revolves around the Earth.",
-          "prompt_es": "El Sol gira alrededor de la Tierra."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Un insecte a combien de pattes ?",
-          "options": [
-            "6",
-            "4",
-            "8",
-            "2"
-          ],
-          "answer": "6",
-          "correction": "Les insectes ont 6 pattes.",
-          "prompt_nl": "Hoeveel poten heeft een insect?",
-          "prompt_en": "How many legs does an insect have?",
-          "prompt_es": "Cuantas patas tiene un insecto?",
-          "options_i18n": {
-            "nl": [
-              "6",
-              "4",
-              "8",
-              "2"
-            ],
-            "en": [
-              "6",
-              "4",
-              "8",
-              "2"
-            ],
-            "es": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "el invierno",
+              "el verano",
+              "el otono",
+              "la noche"
             ]
           }
         }

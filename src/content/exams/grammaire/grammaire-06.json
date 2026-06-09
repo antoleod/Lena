@@ -109,110 +109,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "« rouge » est un :",
+          "prompt": "Dans « Lena mange une pomme », le COD est :",
           "options": [
-            "adjectif",
-            "nom",
-            "verbe"
+            "une pomme",
+            "Lena",
+            "mange"
           ],
-          "answer": "adjectif",
-          "correction": "« rouge » décrit : adjectif."
+          "answer": "une pomme",
+          "correction": "COD : quoi ? → une pomme."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le pluriel de « un oiseau » :",
+          "prompt": "Dans « Paul parle à sa mère », le COI est :",
           "options": [
-            "des oiseaux",
-            "des oiseau",
-            "des oiseaux"
+            "à sa mère",
+            "Paul",
+            "parle"
           ],
-          "answer": "des oiseaux",
-          "correction": "Pluriel : des oiseaux (eau → eaux)."
+          "answer": "à sa mère",
+          "correction": "COI : à qui ? → à sa mère."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "La forme féminine de « joli » est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "jolie",
+            "jolis",
+            "jolies"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "jolie",
+          "correction": "Féminin singulier : jolie."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "« vite » est un :",
+          "prompt": "La forme féminine de « grand » est :",
           "options": [
-            "adverbe",
-            "adjectif",
-            "nom",
-            "verbe"
+            "grande",
+            "grands",
+            "grand"
           ],
-          "answer": "adverbe",
-          "correction": "vite = adverbe (comment ?)."
+          "answer": "grande",
+          "correction": "Féminin : grande."
         },
         {
-          "id": "q10",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "« sauter » est un :",
+          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "interrogative",
+            "exclamative",
+            "déclarative"
           ],
-          "answer": "verbe",
-          "correction": "« sauter » est un verbe."
+          "answer": "interrogative",
+          "correction": "Elle pose une question : phrase interrogative."
         },
         {
-          "id": "q12",
-          "type": "true_false",
-          "prompt": "« manger » est un adjectif.",
-          "answer": false,
-          "correction": "« manger » est un verbe."
-        },
-        {
-          "id": "q14",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "« Quel beau tableau ! » est une phrase :",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "exclamative",
+            "interrogative",
+            "impérative"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "exclamative",
+          "correction": "Elle exprime une émotion : phrase exclamative."
         },
         {
-          "id": "q16",
-          "type": "true_false",
-          "prompt": "« maison » est un nom.",
-          "answer": true,
-          "correction": "« maison » est un nom."
-        },
-        {
-          "id": "q18",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "COI",
+            "COD",
+            "sujet"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "COI",
+          "correction": "Lui = à lui/à elle → COI."
         },
         {
-          "id": "q20",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "options": [
+            "des chevaux joyeux",
+            "des chevals joyeux",
+            "des cheval joyeux"
+          ],
+          "answer": "des chevaux joyeux",
+          "correction": "Pluriel de cheval → chevaux."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "options": [
+            "un complément d'objet direct",
+            "un COI",
+            "le sujet"
+          ],
+          "answer": "un complément d'objet direct",
+          "correction": "Le = COD."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "options": [
+            "Il dit qu'il mange.",
+            "Il dit que je mange.",
+            "Il dit qu'il a mangé."
+          ],
+          "answer": "Il dit qu'il mange.",
+          "correction": "Discours indirect au présent."
         }
       ]
     },
@@ -222,112 +236,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
+          "prompt": "Quelle proposition est une subordonnée circonstancielle de cause ?",
           "options": [
-            "grand",
-            "chien",
-            "le"
+            "Parce qu'il pleut, je reste chez moi.",
+            "Je reste chez moi.",
+            "Il pleut souvent en automne."
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "Parce qu'il pleut, je reste chez moi.",
+          "correction": "Introduite par « parce que », exprime la cause."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "Le participe passé d'un verbe conjugué avec être s'accorde :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "avec le sujet",
+            "avec le COD",
+            "jamais"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "avec le sujet",
+          "correction": "Avec être, le participe s'accorde toujours avec le sujet."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "« soleil » est de genre :",
-          "options": [
-            "masculin",
-            "féminin",
-            "neutre"
+          "type": "fill_blank",
+          "prompt": "Complète : « Les lettres que j'ai ___ (écrire) sont prêtes. »",
+          "answer": "écrites",
+          "accept": [
+            "écrites"
           ],
-          "answer": "masculin",
-          "correction": "le soleil → masculin."
+          "correction": "COD « lettres » féminin pluriel avant avoir → accord."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le pluriel de « un oiseau » :",
+          "prompt": "Dans « Bien qu'il soit intelligent, il échoue », le mode « soit » est :",
           "options": [
-            "des oiseaux",
-            "des oiseau",
-            "des oiseaux"
+            "subjonctif",
+            "indicatif",
+            "conditionnel"
           ],
-          "answer": "des oiseaux",
-          "correction": "Pluriel : des oiseaux (eau → eaux)."
+          "answer": "subjonctif",
+          "correction": "« Bien que » impose le subjonctif."
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "« maison » est un nom.",
-          "answer": true,
-          "correction": "« maison » est un nom."
+          "type": "mcq",
+          "prompt": "Quel pronom relatif s'utilise après une préposition (ex. « la ville dans ___ je vis ») ?",
+          "options": [
+            "laquelle",
+            "qui",
+            "que"
+          ],
+          "answer": "laquelle",
+          "correction": "Après préposition, on utilise lequel/laquelle/lesquels/lesquelles."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Dans « la petite maison », le nom est :",
+          "prompt": "La voix active de « Le gâteau a été mangé par Paul » est :",
           "options": [
-            "maison",
-            "petite",
-            "la"
+            "Paul a mangé le gâteau.",
+            "Le gâteau mange Paul.",
+            "Paul est mangé par le gâteau."
           ],
-          "answer": "maison",
-          "correction": "maison = nom."
+          "answer": "Paul a mangé le gâteau.",
+          "correction": "Sujet actif = ancien complément d'agent."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "« courir » est un :",
+          "prompt": "Au discours indirect passé, « Je mangerai » devient :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "il mangerait",
+            "il mange",
+            "il a mangé"
           ],
-          "answer": "verbe",
-          "correction": "« courir » est un verbe."
+          "answer": "il mangerait",
+          "correction": "Le futur simple → conditionnel présent au discours indirect passé."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "Dans « Elles se sont téléphoné », le participe est invariable car :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "« se » est COI (téléphoner à qqn)",
+            "le sujet est féminin",
+            "il y a deux sujets"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "« se » est COI (téléphoner à qqn)",
+          "correction": "Téléphoner à qqn → « se » est COI → pas d'accord."
         },
         {
           "id": "q18",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
+          "type": "mcq",
+          "prompt": "Quel est le rôle de la subordonnée dans « Je veux que tu viennes » ?",
+          "options": [
+            "COD du verbe vouloir",
+            "sujet du verbe vouloir",
+            "complément circonstanciel"
+          ],
+          "answer": "COD du verbe vouloir",
+          "correction": "La complétive remplace le COD du verbe principal."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "Identifie le complément d'agent : « La vérité a été révélée par le journaliste. »",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "par le journaliste",
+            "la vérité",
+            "a été révélée"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "par le journaliste",
+          "correction": "Le complément d'agent est introduit par « par » à la voix passive."
         }
       ]
     }

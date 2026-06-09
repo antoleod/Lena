@@ -108,114 +108,338 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Brésil ?",
+          "options": [
+            "Amérique du Sud",
+            "Afrique",
+            "Asie",
+            "Europe"
+          ],
+          "answer": "Amérique du Sud",
+          "correction": "Le Brésil est situé en Amérique du Sud.",
+          "prompt_nl": "Op welk continent ligt Brazilie?",
+          "prompt_en": "On which continent is Brazil located?",
+          "prompt_es": "En que continente se encuentra Brasil?",
+          "options_i18n": {
+            "nl": [
+              "Zuid-Amerika",
+              "Afrika",
+              "Azie",
+              "Europa"
+            ],
+            "en": [
+              "South America",
+              "Africa",
+              "Asia",
+              "Europe"
+            ],
+            "es": [
+              "America del Sur",
+              "Africa",
+              "Asia",
+              "Europa"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Sur quel continent se trouve la Chine ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "Asie",
+            "Europe",
+            "Afrique",
+            "Amérique"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "Asie",
+          "correction": "La Chine est située en Asie.",
+          "prompt_nl": "Op welk continent ligt China?",
+          "prompt_en": "On which continent is China located?",
+          "prompt_es": "En que continente se encuentra China?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Europa",
+              "Afrika",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Europe",
+              "Africa",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Europa",
+              "Africa",
+              "America"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve l'Égypte ?",
+          "options": [
+            "Afrique",
+            "Asie",
+            "Europe",
+            "Amérique"
+          ],
+          "answer": "Afrique",
+          "correction": "L'Égypte est un pays situé en Afrique du Nord.",
+          "prompt_nl": "Op welk continent ligt Egypte?",
+          "prompt_en": "On which continent is Egypt located?",
+          "prompt_es": "En que continente se encuentra Egipto?",
+          "options_i18n": {
+            "nl": [
+              "Afrika",
+              "Azie",
+              "Europa",
+              "Amerika"
+            ],
+            "en": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "America"
+            ],
+            "es": [
+              "Africa",
+              "Asia",
+              "Europa",
+              "America"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Le Sahara est :",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "un désert",
+            "un océan",
+            "une forêt",
+            "une montagne"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "un désert",
+          "correction": "Le Sahara est le plus grand désert chaud du monde.",
+          "prompt_nl": "De Sahara is:",
+          "prompt_en": "The Sahara is:",
+          "prompt_es": "El Sahara es:",
+          "options_i18n": {
+            "nl": [
+              "een woestijn",
+              "een oceaan",
+              "een woud",
+              "een berg"
+            ],
+            "en": [
+              "a desert",
+              "an ocean",
+              "a forest",
+              "a mountain"
+            ],
+            "es": [
+              "un desierto",
+              "un oceano",
+              "un bosque",
+              "una montana"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Le Nil est :",
+          "options": [
+            "un fleuve d'Afrique",
+            "un fleuve d'Asie",
+            "une mer",
+            "un lac"
+          ],
+          "answer": "un fleuve d'Afrique",
+          "correction": "Le Nil est le plus long fleuve d'Afrique.",
+          "prompt_nl": "De Nijl is:",
+          "prompt_en": "The Nile is:",
+          "prompt_es": "El Nilo es:",
+          "options_i18n": {
+            "nl": [
+              "een rivier in Afrika",
+              "een rivier in Azie",
+              "een zee",
+              "een meer"
+            ],
+            "en": [
+              "a river in Africa",
+              "a river in Asia",
+              "a sea",
+              "a lake"
+            ],
+            "es": [
+              "un rio de Africa",
+              "un rio de Asia",
+              "un mar",
+              "un lago"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Quelle mer borde la France au sud ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "la mer Méditerranée",
+            "la mer du Nord",
+            "la mer Baltique",
+            "la mer Rouge"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "la mer Méditerranée",
+          "correction": "La mer Méditerranée borde la France au sud.",
+          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
+          "prompt_en": "Which sea borders France to the south?",
+          "prompt_es": "Que mar bordea Francia al sur?",
+          "options_i18n": {
+            "nl": [
+              "de Middellandse Zee",
+              "de Noordzee",
+              "de Oostzee",
+              "de Rode Zee"
+            ],
+            "en": [
+              "the Mediterranean Sea",
+              "the North Sea",
+              "the Baltic Sea",
+              "the Red Sea"
+            ],
+            "es": [
+              "el mar Mediterraneo",
+              "el mar del Norte",
+              "el mar Baltico",
+              "el mar Rojo"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
+          "options": [
+            "les Pyrénées",
+            "les Alpes",
+            "les Vosges",
+            "le Jura"
+          ],
+          "answer": "les Pyrénées",
+          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
+          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
+          "prompt_en": "Which mountain range separates France from Spain?",
+          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
+          "options_i18n": {
+            "nl": [
+              "de Pyreneen",
+              "de Alpen",
+              "de Vogezen",
+              "de Jura"
+            ],
+            "en": [
+              "the Pyrenees",
+              "the Alps",
+              "the Vosges",
+              "the Jura"
+            ],
+            "es": [
+              "los Pirineos",
+              "los Alpes",
+              "los Vosgos",
+              "el Jura"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
+          "prompt": "Au pôle Nord, les températures sont très froides.",
           "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "correction": "Le pôle Nord est une région arctique aux températures extrêmement basses.",
+          "prompt_nl": "Op de Noordpool zijn de temperaturen erg koud.",
+          "prompt_en": "At the North Pole, temperatures are very cold.",
+          "prompt_es": "En el Polo Norte, las temperaturas son muy frias."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "La langue officielle du Brésil est :",
+          "options": [
+            "le portugais",
+            "l'espagnol",
+            "le français",
+            "l'anglais"
+          ],
+          "answer": "le portugais",
+          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
+          "prompt_nl": "De officiele taal van Brazilie is:",
+          "prompt_en": "The official language of Brazil is:",
+          "prompt_es": "El idioma oficial de Brasil es:",
+          "options_i18n": {
+            "nl": [
+              "Portugees",
+              "Spaans",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Portuguese",
+              "Spanish",
+              "French",
+              "English"
+            ],
+            "es": [
+              "portugues",
+              "espanol",
+              "frances",
+              "ingles"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Quel est le plus grand océan du monde ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "l'océan Pacifique",
+            "l'océan Atlantique",
+            "l'océan Indien",
+            "l'océan Arctique"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
-        },
-        {
-          "id": "q12",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le medecin soigne les :",
-          "options": [
-            "malades",
-            "voitures",
-            "plantes"
-          ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
-          "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
-          ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le docteur soigne les :",
-          "options": [
-            "malades",
-            "voitures",
-            "maisons"
-          ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "En hiver, il fait :",
-          "options": [
-            "froid",
-            "très chaud",
-            "lourd"
-          ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "l'océan Pacifique",
+          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
+          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
+          "prompt_en": "What is the largest ocean in the world?",
+          "prompt_es": "Cual es el oceano mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "de Stille Oceaan",
+              "de Atlantische Oceaan",
+              "de Indische Oceaan",
+              "de Arctische Oceaan"
+            ],
+            "en": [
+              "the Pacific Ocean",
+              "the Atlantic Ocean",
+              "the Indian Ocean",
+              "the Arctic Ocean"
+            ],
+            "es": [
+              "el oceano Pacifico",
+              "el oceano Atlantico",
+              "el oceano Indico",
+              "el oceano Artico"
+            ]
+          }
         }
       ]
     },

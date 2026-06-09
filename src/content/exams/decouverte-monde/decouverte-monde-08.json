@@ -113,117 +113,338 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve la Chine ?",
+          "options": [
+            "Asie",
+            "Europe",
+            "Afrique",
+            "Amérique"
+          ],
+          "answer": "Asie",
+          "correction": "La Chine est située en Asie.",
+          "prompt_nl": "Op welk continent ligt China?",
+          "prompt_en": "On which continent is China located?",
+          "prompt_es": "En que continente se encuentra China?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Europa",
+              "Afrika",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Europe",
+              "Africa",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Europa",
+              "Africa",
+              "America"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "Sur quel continent se trouve l'Égypte ?",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "Afrique",
+            "Asie",
+            "Europe",
+            "Amérique"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "Afrique",
+          "correction": "L'Égypte est un pays situé en Afrique du Nord.",
+          "prompt_nl": "Op welk continent ligt Egypte?",
+          "prompt_en": "On which continent is Egypt located?",
+          "prompt_es": "En que continente se encuentra Egipto?",
+          "options_i18n": {
+            "nl": [
+              "Afrika",
+              "Azie",
+              "Europa",
+              "Amerika"
+            ],
+            "en": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "America"
+            ],
+            "es": [
+              "Africa",
+              "Asia",
+              "Europa",
+              "America"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Le Sahara est :",
+          "options": [
+            "un désert",
+            "un océan",
+            "une forêt",
+            "une montagne"
+          ],
+          "answer": "un désert",
+          "correction": "Le Sahara est le plus grand désert chaud du monde.",
+          "prompt_nl": "De Sahara is:",
+          "prompt_en": "The Sahara is:",
+          "prompt_es": "El Sahara es:",
+          "options_i18n": {
+            "nl": [
+              "een woestijn",
+              "een oceaan",
+              "een woud",
+              "een berg"
+            ],
+            "en": [
+              "a desert",
+              "an ocean",
+              "a forest",
+              "a mountain"
+            ],
+            "es": [
+              "un desierto",
+              "un oceano",
+              "un bosque",
+              "una montana"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Le Nil est :",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "un fleuve d'Afrique",
+            "un fleuve d'Asie",
+            "une mer",
+            "un lac"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "un fleuve d'Afrique",
+          "correction": "Le Nil est le plus long fleuve d'Afrique.",
+          "prompt_nl": "De Nijl is:",
+          "prompt_en": "The Nile is:",
+          "prompt_es": "El Nilo es:",
+          "options_i18n": {
+            "nl": [
+              "een rivier in Afrika",
+              "een rivier in Azie",
+              "een zee",
+              "een meer"
+            ],
+            "en": [
+              "a river in Africa",
+              "a river in Asia",
+              "a sea",
+              "a lake"
+            ],
+            "es": [
+              "un rio de Africa",
+              "un rio de Asia",
+              "un mar",
+              "un lago"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quelle mer borde la France au sud ?",
+          "options": [
+            "la mer Méditerranée",
+            "la mer du Nord",
+            "la mer Baltique",
+            "la mer Rouge"
+          ],
+          "answer": "la mer Méditerranée",
+          "correction": "La mer Méditerranée borde la France au sud.",
+          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
+          "prompt_en": "Which sea borders France to the south?",
+          "prompt_es": "Que mar bordea Francia al sur?",
+          "options_i18n": {
+            "nl": [
+              "de Middellandse Zee",
+              "de Noordzee",
+              "de Oostzee",
+              "de Rode Zee"
+            ],
+            "en": [
+              "the Mediterranean Sea",
+              "the North Sea",
+              "the Baltic Sea",
+              "the Red Sea"
+            ],
+            "es": [
+              "el mar Mediterraneo",
+              "el mar del Norte",
+              "el mar Baltico",
+              "el mar Rojo"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "les Pyrénées",
+            "les Alpes",
+            "les Vosges",
+            "le Jura"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "les Pyrénées",
+          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
+          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
+          "prompt_en": "Which mountain range separates France from Spain?",
+          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
+          "options_i18n": {
+            "nl": [
+              "de Pyreneen",
+              "de Alpen",
+              "de Vogezen",
+              "de Jura"
+            ],
+            "en": [
+              "the Pyrenees",
+              "the Alps",
+              "the Vosges",
+              "the Jura"
+            ],
+            "es": [
+              "los Pirineos",
+              "los Alpes",
+              "los Vosgos",
+              "el Jura"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "true_false",
+          "prompt": "Au pôle Nord, les températures sont très froides.",
+          "answer": true,
+          "correction": "Le pôle Nord est une région arctique aux températures extrêmement basses.",
+          "prompt_nl": "Op de Noordpool zijn de temperaturen erg koud.",
+          "prompt_en": "At the North Pole, temperatures are very cold.",
+          "prompt_es": "En el Polo Norte, las temperaturas son muy frias."
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "La langue officielle du Brésil est :",
+          "options": [
+            "le portugais",
+            "l'espagnol",
+            "le français",
+            "l'anglais"
+          ],
+          "answer": "le portugais",
+          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
+          "prompt_nl": "De officiele taal van Brazilie is:",
+          "prompt_en": "The official language of Brazil is:",
+          "prompt_es": "El idioma oficial de Brasil es:",
+          "options_i18n": {
+            "nl": [
+              "Portugees",
+              "Spaans",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Portuguese",
+              "Spanish",
+              "French",
+              "English"
+            ],
+            "es": [
+              "portugues",
+              "espanol",
+              "frances",
+              "ingles"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Quel est le plus grand océan du monde ?",
+          "options": [
+            "l'océan Pacifique",
+            "l'océan Atlantique",
+            "l'océan Indien",
+            "l'océan Arctique"
+          ],
+          "answer": "l'océan Pacifique",
+          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
+          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
+          "prompt_en": "What is the largest ocean in the world?",
+          "prompt_es": "Cual es el oceano mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "de Stille Oceaan",
+              "de Atlantische Oceaan",
+              "de Indische Oceaan",
+              "de Arctische Oceaan"
+            ],
+            "en": [
+              "the Pacific Ocean",
+              "the Atlantic Ocean",
+              "the Indian Ocean",
+              "the Arctic Ocean"
+            ],
+            "es": [
+              "el oceano Pacifico",
+              "el oceano Atlantico",
+              "el oceano Indico",
+              "el oceano Artico"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "La Tour Eiffel se trouve dans quelle ville ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "Paris",
+            "Lyon",
+            "Rome",
+            "Berlin"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le pompier éteint :",
-          "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
-          ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "En hiver, il fait :",
-          "options": [
-            "froid",
-            "très chaud",
-            "lourd"
-          ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
-        },
-        {
-          "id": "q16",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
-          ],
-          "correction": "L’abeille fait le miel."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
-          "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
-          ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Le boulanger fait le :",
-          "options": [
-            "pain",
-            "lait",
-            "bois"
-          ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "Paris",
+          "correction": "La Tour Eiffel est le monument le plus célèbre de Paris.",
+          "prompt_nl": "In welke stad staat de Eiffeltoren?",
+          "prompt_en": "In which city is the Eiffel Tower?",
+          "prompt_es": "En que ciudad esta la Torre Eiffel?",
+          "options_i18n": {
+            "nl": [
+              "Parijs",
+              "Lyon",
+              "Rome",
+              "Berlijn"
+            ],
+            "en": [
+              "Paris",
+              "Lyon",
+              "Rome",
+              "Berlin"
+            ],
+            "es": [
+              "Paris",
+              "Lyon",
+              "Roma",
+              "Berlin"
+            ]
+          }
         }
       ]
     },
@@ -233,122 +454,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Qu'est-ce que la solidarité internationale ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "l'aide apportée par des pays riches aux pays en développement",
+            "le commerce entre pays",
+            "les échanges culturels"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "l'aide apportée par des pays riches aux pays en développement",
+          "correction": "La solidarité internationale inclut l'aide humanitaire, financière, etc."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le dentiste soigne :",
+          "prompt": "La transition énergétique consiste à :",
           "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
+            "passer des énergies fossiles aux énergies renouvelables",
+            "utiliser plus de charbon",
+            "développer le nucléaire uniquement"
           ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
+          "answer": "passer des énergies fossiles aux énergies renouvelables",
+          "correction": "La transition vise à réduire les émissions de CO₂ et lutter contre le réchauffement."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Qu'est-ce que l'IDH (Indice de Développement Humain) ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "un indicateur combinant santé, éducation et niveau de vie",
+            "uniquement le PIB",
+            "le taux de chômage"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "un indicateur combinant santé, éducation et niveau de vie",
+          "correction": "L'IDH de l'ONU classe les pays selon leur développement humain."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Qu'est-ce qu'une zone économique exclusive (ZEE) ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "une zone maritime où un État a des droits exclusifs sur les ressources",
+            "une zone de libre-échange",
+            "une région industrielle"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "une zone maritime où un État a des droits exclusifs sur les ressources",
+          "correction": "La ZEE s'étend jusqu'à 200 miles nautiques des côtes d'un État."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Qu'est-ce que la coopération Nord-Sud ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "la collaboration entre pays développés et pays en voie de développement",
+            "les échanges entre pays nordiques",
+            "l'aide militaire"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "la collaboration entre pays développés et pays en voie de développement",
+          "correction": "Elle vise à réduire les inégalités mondiales par des transferts de connaissances et ressources."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Le génocide désigne :",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "l'extermination intentionnelle d'un groupe ethnique, national ou religieux",
+            "une guerre civile",
+            "une épidémie"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "l'extermination intentionnelle d'un groupe ethnique, national ou religieux",
+          "correction": "Le terme a été créé après la Shoah pour décrire ces crimes contre l'humanité."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "Qu'est-ce que l'accès à l'eau potable ?",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "disposer d'eau sans danger pour la santé à moins d'1 km du domicile",
+            "avoir accès à la mer",
+            "avoir accès aux lacs et rivières"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "answer": "disposer d'eau sans danger pour la santé à moins d'1 km du domicile",
+          "correction": "Des millions de personnes n'ont pas encore accès à l'eau potable dans le monde."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Qu'est-ce que la fracture numérique ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "l'inégalité d'accès aux technologies numériques entre personnes ou pays",
+            "la panne d'Internet",
+            "les problèmes de cybersécurité"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "l'inégalité d'accès aux technologies numériques entre personnes ou pays",
+          "correction": "La fracture numérique creuse les inégalités dans l'éducation et l'économie."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Qu'est-ce que la souveraineté alimentaire ?",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "le droit des peuples à définir leur propre politique alimentaire et agricole",
+            "l'autosuffisance alimentaire d'un pays",
+            "l'exportation de produits agricoles"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
+          "answer": "le droit des peuples à définir leur propre politique alimentaire et agricole",
+          "correction": "Ce concept a été développé par Via Campesina en 1996."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "La géopolitique étudie :",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "les relations entre géographie, pouvoir et politique internationale",
+            "uniquement les guerres",
+            "les frontières physiques"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "les relations entre géographie, pouvoir et politique internationale",
+          "correction": "La géopolitique analyse comment la géographie influence les décisions politiques."
         }
       ]
     }

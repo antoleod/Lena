@@ -108,117 +108,338 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Le Sahara est :",
+          "options": [
+            "un désert",
+            "un océan",
+            "une forêt",
+            "une montagne"
+          ],
+          "answer": "un désert",
+          "correction": "Le Sahara est le plus grand désert chaud du monde.",
+          "prompt_nl": "De Sahara is:",
+          "prompt_en": "The Sahara is:",
+          "prompt_es": "El Sahara es:",
+          "options_i18n": {
+            "nl": [
+              "een woestijn",
+              "een oceaan",
+              "een woud",
+              "een berg"
+            ],
+            "en": [
+              "a desert",
+              "an ocean",
+              "a forest",
+              "a mountain"
+            ],
+            "es": [
+              "un desierto",
+              "un oceano",
+              "un bosque",
+              "una montana"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Le Nil est :",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "un fleuve d'Afrique",
+            "un fleuve d'Asie",
+            "une mer",
+            "un lac"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "un fleuve d'Afrique",
+          "correction": "Le Nil est le plus long fleuve d'Afrique.",
+          "prompt_nl": "De Nijl is:",
+          "prompt_en": "The Nile is:",
+          "prompt_es": "El Nilo es:",
+          "options_i18n": {
+            "nl": [
+              "een rivier in Afrika",
+              "een rivier in Azie",
+              "een zee",
+              "een meer"
+            ],
+            "en": [
+              "a river in Africa",
+              "a river in Asia",
+              "a sea",
+              "a lake"
+            ],
+            "es": [
+              "un rio de Africa",
+              "un rio de Asia",
+              "un mar",
+              "un lago"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle mer borde la France au sud ?",
+          "options": [
+            "la mer Méditerranée",
+            "la mer du Nord",
+            "la mer Baltique",
+            "la mer Rouge"
+          ],
+          "answer": "la mer Méditerranée",
+          "correction": "La mer Méditerranée borde la France au sud.",
+          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
+          "prompt_en": "Which sea borders France to the south?",
+          "prompt_es": "Que mar bordea Francia al sur?",
+          "options_i18n": {
+            "nl": [
+              "de Middellandse Zee",
+              "de Noordzee",
+              "de Oostzee",
+              "de Rode Zee"
+            ],
+            "en": [
+              "the Mediterranean Sea",
+              "the North Sea",
+              "the Baltic Sea",
+              "the Red Sea"
+            ],
+            "es": [
+              "el mar Mediterraneo",
+              "el mar del Norte",
+              "el mar Baltico",
+              "el mar Rojo"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "les Pyrénées",
+            "les Alpes",
+            "les Vosges",
+            "le Jura"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "les Pyrénées",
+          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
+          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
+          "prompt_en": "Which mountain range separates France from Spain?",
+          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
+          "options_i18n": {
+            "nl": [
+              "de Pyreneen",
+              "de Alpen",
+              "de Vogezen",
+              "de Jura"
+            ],
+            "en": [
+              "the Pyrenees",
+              "the Alps",
+              "the Vosges",
+              "the Jura"
+            ],
+            "es": [
+              "los Pirineos",
+              "los Alpes",
+              "los Vosgos",
+              "el Jura"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Au pôle Nord, les températures sont très froides.",
+          "answer": true,
+          "correction": "Le pôle Nord est une région arctique aux températures extrêmement basses.",
+          "prompt_nl": "Op de Noordpool zijn de temperaturen erg koud.",
+          "prompt_en": "At the North Pole, temperatures are very cold.",
+          "prompt_es": "En el Polo Norte, las temperaturas son muy frias."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "La langue officielle du Brésil est :",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "le portugais",
+            "l'espagnol",
+            "le français",
+            "l'anglais"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "le portugais",
+          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
+          "prompt_nl": "De officiele taal van Brazilie is:",
+          "prompt_en": "The official language of Brazil is:",
+          "prompt_es": "El idioma oficial de Brasil es:",
+          "options_i18n": {
+            "nl": [
+              "Portugees",
+              "Spaans",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Portuguese",
+              "Spanish",
+              "French",
+              "English"
+            ],
+            "es": [
+              "portugues",
+              "espanol",
+              "frances",
+              "ingles"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quel est le plus grand océan du monde ?",
+          "options": [
+            "l'océan Pacifique",
+            "l'océan Atlantique",
+            "l'océan Indien",
+            "l'océan Arctique"
+          ],
+          "answer": "l'océan Pacifique",
+          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
+          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
+          "prompt_en": "What is the largest ocean in the world?",
+          "prompt_es": "Cual es el oceano mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "de Stille Oceaan",
+              "de Atlantische Oceaan",
+              "de Indische Oceaan",
+              "de Arctische Oceaan"
+            ],
+            "en": [
+              "the Pacific Ocean",
+              "the Atlantic Ocean",
+              "the Indian Ocean",
+              "the Arctic Ocean"
+            ],
+            "es": [
+              "el oceano Pacifico",
+              "el oceano Atlantico",
+              "el oceano Indico",
+              "el oceano Artico"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "La Tour Eiffel se trouve dans quelle ville ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "Paris",
+            "Lyon",
+            "Rome",
+            "Berlin"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "Paris",
+          "correction": "La Tour Eiffel est le monument le plus célèbre de Paris.",
+          "prompt_nl": "In welke stad staat de Eiffeltoren?",
+          "prompt_en": "In which city is the Eiffel Tower?",
+          "prompt_es": "En que ciudad esta la Torre Eiffel?",
+          "options_i18n": {
+            "nl": [
+              "Parijs",
+              "Lyon",
+              "Rome",
+              "Berlijn"
+            ],
+            "en": [
+              "Paris",
+              "Lyon",
+              "Rome",
+              "Berlin"
+            ],
+            "es": [
+              "Paris",
+              "Lyon",
+              "Roma",
+              "Berlin"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Quel fleuve traverse Paris ?",
+          "options": [
+            "la Seine",
+            "la Loire",
+            "le Rhône",
+            "la Garonne"
+          ],
+          "answer": "la Seine",
+          "correction": "La Seine est le fleuve qui traverse Paris.",
+          "prompt_nl": "Welke rivier stroomt door Parijs?",
+          "prompt_en": "Which river flows through Paris?",
+          "prompt_es": "Que rio atraviesa Paris?",
+          "options_i18n": {
+            "nl": [
+              "de Seine",
+              "de Loire",
+              "de Rhone",
+              "de Garonne"
+            ],
+            "en": [
+              "the Seine",
+              "the Loire",
+              "the Rhône",
+              "the Garonne"
+            ],
+            "es": [
+              "el Sena",
+              "el Loira",
+              "el Rodano",
+              "el Garona"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Dans quelle ville se trouve le Colisée ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "Rome",
+            "Athènes",
+            "Paris",
+            "Madrid"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
-          "options": [
-            "parapluie",
-            "ballon",
-            "livre"
-          ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
-        },
-        {
-          "id": "q14",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "On trie les déchets pour :",
-          "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
-          ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
-        },
-        {
-          "id": "q18",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
-          ],
-          "correction": "L’abeille fait le miel."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
-          "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
-          ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "Rome",
+          "correction": "Le Colisée est un amphithéâtre antique situé à Rome, en Italie.",
+          "prompt_nl": "In welke stad staat het Colosseum?",
+          "prompt_en": "In which city is the Colosseum?",
+          "prompt_es": "En que ciudad esta el Coliseo?",
+          "options_i18n": {
+            "nl": [
+              "Rome",
+              "Athene",
+              "Parijs",
+              "Madrid"
+            ],
+            "en": [
+              "Rome",
+              "Athens",
+              "Paris",
+              "Madrid"
+            ],
+            "es": [
+              "Roma",
+              "Atenas",
+              "Paris",
+              "Madrid"
+            ]
+          }
         }
       ]
     },
@@ -227,111 +448,123 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Qu'est-ce qu'un méridien ?",
+          "options": [
+            "un demi-cercle reliant les pôles, servant à mesurer la longitude",
+            "un cercle parallèle à l'équateur",
+            "la ligne de changement de date"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "un demi-cercle reliant les pôles, servant à mesurer la longitude",
+          "correction": "Les méridiens vont de pôle en pôle et indiquent la longitude."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le dentiste soigne :",
+          "prompt": "La forêt tropicale humide est surtout présente :",
           "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
+            "près de l'équateur",
+            "près des pôles",
+            "en zone tempérée"
           ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
+          "answer": "près de l'équateur",
+          "correction": "L'Amazonie, le Congo et l'Asie du Sud-Est abritent les grandes forêts tropicales."
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Quel est le pays le plus grand du monde en superficie ?",
+          "options": [
+            "la Russie",
+            "le Canada",
+            "les États-Unis"
+          ],
+          "answer": "la Russie",
+          "correction": "La Russie couvre plus de 17 millions km², soit environ 11 % des terres émergées."
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Les pluies acides sont causées par :",
+          "options": [
+            "les émissions de SO₂ et NOx dans l'atmosphère",
+            "le réchauffement climatique",
+            "les éruptions volcaniques uniquement"
+          ],
+          "answer": "les émissions de SO₂ et NOx dans l'atmosphère",
+          "correction": "Ces gaz forment des acides en se combinant à l'eau de pluie."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Qu'est-ce qu'une ressource renouvelable ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "une ressource qui se renouvelle naturellement (soleil, vent, eau)",
+            "le pétrole",
+            "le charbon"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "une ressource qui se renouvelle naturellement (soleil, vent, eau)",
+          "correction": "Les énergies renouvelables ne s'épuisent pas à l'échelle humaine."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "La déforestation désigne :",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "la destruction des forêts",
+            "la replantation d'arbres",
+            "l'incendie accidentel"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "la destruction des forêts",
+          "correction": "La déforestation réduit la biodiversité et aggrave le réchauffement climatique."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Qu'est-ce qu'une population autochtone ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "les habitants originels d'une région, avant la colonisation",
+            "les immigrants récents",
+            "les citadins"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "les habitants originels d'une région, avant la colonisation",
+          "correction": "Ex. : les Amérindiens, les Maoris, les Aborigènes d'Australie."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Le permafrost est :",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "un sol gelé en permanence dans les régions polaires",
+            "un type de roche volcanique",
+            "un désert de glace"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "un sol gelé en permanence dans les régions polaires",
+          "correction": "Le dégel du permafrost libère du méthane, un puissant gaz à effet de serre."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Qu'est-ce que l'urbanisation ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "le processus par lequel les populations se concentrent dans les villes",
+            "la construction de routes",
+            "l'agriculture intensive"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "le processus par lequel les populations se concentrent dans les villes",
+          "correction": "L'urbanisation est un phénomène mondial ; plus de 50 % de la population vit en ville."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Le développement durable vise à :",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "répondre aux besoins du présent sans compromettre ceux des générations futures",
+            "développer l'économie uniquement",
+            "protéger l'environnement au détriment de l'économie"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "répondre aux besoins du présent sans compromettre ceux des générations futures",
+          "correction": "Définition du rapport Brundtland (1987)."
         }
       ]
     }

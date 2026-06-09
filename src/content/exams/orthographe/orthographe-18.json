@@ -105,114 +105,108 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "hélicoptère",
+            "helicopter",
+            "hélikoptère"
+          ],
+          "answer": "hélicoptère",
+          "correction": "On écrit « hélicoptère » avec « pt » et un accent grave sur le « è »."
+        },
+        {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
+          "prompt": "Complète le mot : sauc_sse",
+          "answer": "i",
           "accept": [
-            "e"
+            "i"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "correction": "On écrit « saucisse » avec un « i »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "épinard",
+            "épinart",
+            "epinard"
+          ],
+          "answer": "épinard",
+          "correction": "On écrit « épinard » avec un accent aigu et « ard »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "tomate",
+            "tomathe",
+            "tomatte"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "tomate",
+          "correction": "On écrit « tomate » avec un seul « t » et sans « h »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « banane » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « banane » s'écrit bien avec un seul « n »."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
+          "prompt": "Complète le mot : bette_ave",
+          "answer": "r",
           "accept": [
-            "a"
+            "r"
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "correction": "On écrit « betterave » avec un « r »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "courgette",
+            "courgete",
+            "courjette"
+          ],
+          "answer": "courgette",
+          "correction": "On écrit « courgette » avec deux « t »."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "persil",
+            "perssil",
+            "persille"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "persil",
+          "correction": "On écrit « persil » avec « il » à la fin."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « artichaut » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « artichaut » s'écrit avec « chaut »."
         },
         {
           "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
+          "prompt": "Complète le mot : lég_me",
+          "answer": "u",
           "accept": [
-            "e"
+            "u"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
-          ],
-          "correction": "On écrit « école » (lettre « o »)."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "poulet",
-            "poulait",
-            "poule"
-          ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
-          ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maman",
-            "mamen",
-            "momen"
-          ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "correction": "On écrit « légume » avec un « u »."
         }
       ]
     },
@@ -222,114 +216,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient une double consonne « ss » ?",
           "options": [
-            "ballon",
-            "balon",
-            "baloon"
+            "saucisse",
+            "banane",
+            "artichaut"
           ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "answer": "saucisse",
+          "correction": "Saucisse s'écrit s-a-u-c-i-s-s-e."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "artichaut",
+            "artichau",
+            "banane"
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
+          "answer": "artichau",
+          "correction": "Le mot correct est « artichaut » : a-r-t-i-c-h-a-u-t."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Il mange un ___ .",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "légume",
+            "legume",
+            "légûme"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "légume",
+          "correction": "Légume s'écrit l-é-g-u-m-e."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « ch » ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "artichaut",
+            "saucisse",
+            "légume"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "artichaut",
+          "correction": "Artichaut s'écrit a-r-t-i-c-h-a-u-t."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Identifie la faute :",
+          "options": [
+            "betterave",
+            "betrave",
+            "saucisse"
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "answer": "betrave",
+          "correction": "Le mot correct est « betterave » : b-e-t-t-e-r-a-v-e."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quel mot a un accent aigu ?",
+          "options": [
+            "légume",
+            "artichaut",
+            "saucisse"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "légume",
+          "correction": "Légume s'écrit l-é-g-u-m-e."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Quel mot contient « tt » ?",
+          "options": [
+            "betterave",
+            "saucisse",
+            "artichaut"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "betterave",
+          "correction": "Betterave s'écrit b-e-t-t-e-r-a-v-e avec deux « t »."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "La saucisse est un légume.",
+            "La sauccisse est un légume.",
+            "La saucisse est un légume."
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "La saucisse est un légume.",
+          "correction": "Saucisse = deux s, légume = é."
         },
         {
           "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Quel mot se termine par « -ave » ?",
+          "options": [
+            "betterave",
+            "légume",
+            "artichaut"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "betterave",
+          "correction": "Betterave se termine par « -ave » : b-e-t-t-e-r-a-v-e."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
+            "artichaut",
+            "artichot",
+            "betterave"
           ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
+          "answer": "artichot",
+          "correction": "Le mot correct est « artichaut » : a-r-t-i-c-h-a-u-t."
         }
       ]
     }

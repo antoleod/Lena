@@ -107,118 +107,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "carotte",
+            "caroте",
+            "carrote"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "carotte",
+          "correction": "On écrit « carotte » avec deux « t »."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "cerise",
+            "sérise",
+            "cerise"
+          ],
+          "answer": "cerise",
+          "correction": "On écrit « cerise » avec un « c » et un « s »."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : choco_at",
+          "answer": "l",
+          "accept": [
+            "l"
+          ],
+          "correction": "On écrit « chocolat » avec un « l »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "grenouille",
+            "grenoille",
+            "grenouile"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "grenouille",
+          "correction": "On écrit « grenouille » avec « ouille »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « trompette » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « trompette » s'écrit avec deux « t »."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "maison",
-            "mayson",
-            "mèson"
+          "type": "fill_blank",
+          "prompt": "Complète le mot : pom_e",
+          "answer": "m",
+          "accept": [
+            "m"
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "correction": "On écrit « pomme » avec deux « m »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "couleur",
+            "culeaur",
+            "couleure"
+          ],
+          "answer": "couleur",
+          "correction": "On écrit « couleur »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "éléphant",
+            "eléfant",
+            "eléphant"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "éléphant",
+          "correction": "On écrit « éléphant » avec deux accents aigus et « ph »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « guitare » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « guitare » s'écrit bien ainsi."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
-          ],
-          "answer": "école",
-          "correction": "On écrit « école »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "ballon",
-            "balon",
-            "baloon"
-          ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "poulet",
-            "poulait",
-            "poule"
-          ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
-        },
-        {
-          "id": "q16",
           "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
+          "prompt": "Complète le mot : pati_age",
+          "answer": "n",
           "accept": [
-            "d"
+            "n"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
-        },
-        {
-          "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
-          "accept": [
-            "a"
-          ],
-          "correction": "On écrit « chat » (lettre « a »)."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fille",
-            "file",
-            "fiye"
-          ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "correction": "On écrit « patinage » avec un seul « n »."
         }
       ]
     },
@@ -228,114 +218,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « tt » (double t) ?",
           "options": [
-            "ballon",
-            "balon",
-            "baloon"
+            "trompette",
+            "guitare",
+            "ballon"
           ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "answer": "trompette",
+          "correction": "Trompette s'écrit avec deux « t » : t-r-o-m-p-e-t-t-e."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
+          "options": [
+            "chocolat",
+            "choclat",
+            "soleil"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "choclat",
+          "correction": "Le mot correct est « chocolat » : c-h-o-c-o-l-a-t."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Il joue de la ___ .",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "guitare",
+            "guittare",
+            "guittarre"
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "guitare",
+          "correction": "Guitare s'écrit g-u-i-t-a-r-e."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -age » ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "patinage",
+            "trompette",
+            "guitare"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "patinage",
+          "correction": "Patinage s'écrit p-a-t-i-n-a-g-e."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Identifie la faute dans cette liste :",
+          "options": [
+            "pomme",
+            "pome",
+            "pommes"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "pome",
+          "correction": "Le mot correct est « pomme » avec deux « m »."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « ch » au début ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "chat",
+            "tarte",
+            "livre"
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "chat",
+          "correction": "Chat s'écrit c-h-a-t."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Quel mot a un accent aigu ?",
+          "options": [
+            "école",
+            "maison",
+            "ballon"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "école",
+          "correction": "École s'écrit é-c-o-l-e avec un accent aigu sur le premier « e »."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "poulet",
-            "poulait",
-            "poule"
+            "Je mange une pome.",
+            "Je mange une pomme.",
+            "Je manje une pomme."
           ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
+          "answer": "Je mange une pomme.",
+          "correction": "Pomme a deux « m » et mange s'écrit m-a-n-g-e."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient le son « ill » écrit « -ille » ?",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "fille",
+            "ballon",
+            "chat"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "fille",
+          "correction": "Fille s'écrit f-i-l-l-e avec le son [ij]."
         },
         {
           "id": "q20",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Quel mot est mal orthographié ?",
+          "options": [
+            "soleil",
+            "soleill",
+            "lune"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "soleill",
+          "correction": "Soleil s'écrit s-o-l-e-i-l avec un seul « l » final."
         }
       ]
     }

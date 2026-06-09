@@ -113,113 +113,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "« vite » est un :",
+          "prompt": "Dans « Lena mange une pomme », le COD est :",
           "options": [
-            "adverbe",
-            "adjectif",
-            "nom",
-            "verbe"
+            "une pomme",
+            "Lena",
+            "mange"
           ],
-          "answer": "adverbe",
-          "correction": "vite = adverbe (comment ?)."
+          "answer": "une pomme",
+          "correction": "COD : quoi ? → une pomme."
         },
         {
-          "id": "q4",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
-        },
-        {
-          "id": "q6",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "Dans « Paul parle à sa mère », le COI est :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "à sa mère",
+            "Paul",
+            "parle"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "à sa mère",
+          "correction": "COI : à qui ? → à sa mère."
         },
         {
-          "id": "q8",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "La forme féminine de « joli » est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "jolie",
+            "jolis",
+            "jolies"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "jolie",
+          "correction": "Féminin singulier : jolie."
         },
         {
-          "id": "q10",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Dans « la petite maison », le nom est :",
+          "prompt": "La forme féminine de « grand » est :",
           "options": [
-            "maison",
-            "petite",
-            "la"
+            "grande",
+            "grands",
+            "grand"
           ],
-          "answer": "maison",
-          "correction": "maison = nom."
+          "answer": "grande",
+          "correction": "Féminin : grande."
         },
         {
-          "id": "q12",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Le pluriel de « un gateau » :",
+          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
           "options": [
-            "des gâteaux",
-            "des gâteaus",
-            "des gateau"
+            "interrogative",
+            "exclamative",
+            "déclarative"
           ],
-          "answer": "des gâteaux",
-          "correction": "Pluriel : des gâteaux."
+          "answer": "interrogative",
+          "correction": "Elle pose une question : phrase interrogative."
         },
         {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Le pluriel de « un chien » est « des ___ ».",
-          "answer": "chiens",
-          "accept": [
-            "chiens"
-          ],
-          "correction": "On ajoute un « s »."
-        },
-        {
-          "id": "q16",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "« Quel beau tableau ! » est une phrase :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "exclamative",
+            "interrogative",
+            "impérative"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "exclamative",
+          "correction": "Elle exprime une émotion : phrase exclamative."
         },
         {
-          "id": "q18",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
+          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
           "options": [
-            "grand",
-            "chien",
-            "le"
+            "COI",
+            "COD",
+            "sujet"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "COI",
+          "correction": "Lui = à lui/à elle → COI."
         },
         {
-          "id": "q20",
-          "type": "true_false",
-          "prompt": "« maison » est un nom.",
-          "answer": true,
-          "correction": "« maison » est un nom."
+          "id": "q15",
+          "type": "mcq",
+          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "options": [
+            "des chevaux joyeux",
+            "des chevals joyeux",
+            "des cheval joyeux"
+          ],
+          "answer": "des chevaux joyeux",
+          "correction": "Pluriel de cheval → chevaux."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "options": [
+            "un complément d'objet direct",
+            "un COI",
+            "le sujet"
+          ],
+          "answer": "un complément d'objet direct",
+          "correction": "Le = COD."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "options": [
+            "Il dit qu'il mange.",
+            "Il dit que je mange.",
+            "Il dit qu'il a mangé."
+          ],
+          "answer": "Il dit qu'il mange.",
+          "correction": "Discours indirect au présent."
         }
       ]
     },
@@ -229,122 +240,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "Quel type de proposition est « qui courait vite » dans « L'enfant qui courait vite est tombé » ?",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "subordonnée relative",
+            "subordonnée complétive",
+            "proposition principale"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "subordonnée relative",
+          "correction": "Introduite par « qui », elle complète un nom."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "Dans « Je voudrais que tu viennes », le verbe « viennes » est au :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "subjonctif présent",
+            "conditionnel présent",
+            "futur simple"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "subjonctif présent",
+          "correction": "Après « vouloir que », on emploie le subjonctif."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le pluriel de « un gateau » :",
+          "prompt": "Quelle phrase est correctement construite à la voix passive ?",
           "options": [
-            "des gâteaux",
-            "des gâteaus",
-            "des gateau"
+            "La chanson a été chantée par le chœur.",
+            "Le chœur a été chanté par la chanson.",
+            "La chanson chante par le chœur."
           ],
-          "answer": "des gâteaux",
-          "correction": "Pluriel : des gâteaux."
+          "answer": "La chanson a été chantée par le chœur.",
+          "correction": "Sujet + être conjugué + participe accordé + par + C.A."
         },
         {
           "id": "q8",
-          "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
-          "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+          "type": "fill_blank",
+          "prompt": "Complète : « Les photos qu'il a ___ (prendre) sont floues. »",
+          "answer": "prises",
+          "accept": [
+            "prises"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "correction": "COD « photos » féminin pluriel avant avoir → accord."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le pluriel de « un oiseau » :",
+          "prompt": "Dans « Il se leva dès qu'il eut entendu la sonnerie », « eut entendu » est au :",
           "options": [
-            "des oiseaux",
-            "des oiseau",
-            "des oiseaux"
+            "passé antérieur",
+            "plus-que-parfait",
+            "passé composé"
           ],
-          "answer": "des oiseaux",
-          "correction": "Pluriel : des oiseaux (eau → eaux)."
+          "answer": "passé antérieur",
+          "correction": "Passé antérieur après « dès que » avec passé simple dans la principale."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
+          "prompt": "Le pronom « y » peut remplacer :",
           "options": [
-            "grand",
-            "chien",
-            "le"
+            "\"à Paris\" ou \"à cela\"",
+            "une personne en COI",
+            "un COD masculin"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "\"à Paris\" ou \"à cela\"",
+          "correction": "« y » remplace un lieu ou un complément indirect de chose."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "« soleil » est de genre :",
+          "prompt": "Dans « Bien que tu aies travaillé, tu as échoué », le mode d'« aies travaillé » est :",
           "options": [
-            "masculin",
-            "féminin",
-            "neutre"
+            "subjonctif passé",
+            "indicatif passé composé",
+            "conditionnel passé"
           ],
-          "answer": "masculin",
-          "correction": "le soleil → masculin."
+          "answer": "subjonctif passé",
+          "correction": "Subjonctif passé = subjonctif présent d'avoir/être + participe."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Dans « la petite maison », le nom est :",
+          "prompt": "Quelle est la valeur du conditionnel dans « Il serait malade » (presse) ?",
           "options": [
-            "maison",
-            "petite",
-            "la"
+            "information non confirmée",
+            "souhait",
+            "ordre"
           ],
-          "answer": "maison",
-          "correction": "maison = nom."
+          "answer": "information non confirmée",
+          "correction": "Le conditionnel peut exprimer une information non vérifiée."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "Dans « Sans qu'il le sache, on a préparé sa fête », le mode est :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "subjonctif",
+            "indicatif",
+            "infinitif"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "subjonctif",
+          "correction": "« Sans que » impose le subjonctif."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "« un livre » est :",
+          "prompt": "Quel est le rôle de « ne … que » dans « Je ne mange que des légumes » ?",
           "options": [
-            "masculin",
-            "féminin",
-            "pluriel"
+            "restriction",
+            "négation totale",
+            "interrogation"
           ],
-          "answer": "masculin",
-          "correction": "« un » → masculin."
+          "answer": "restriction",
+          "correction": "« Ne … que » exprime une restriction (= seulement)."
         }
       ]
     }

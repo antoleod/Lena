@@ -111,118 +111,119 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Écris le mot : on lit un ___ à la bibliothèque.",
-          "answer": "livre",
-          "accept": [
-            "livre"
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "On entend « forêt ». On écrit :",
+          "options": [
+            "forêt",
+            "foret",
+            "forè"
           ],
-          "correction": "C’est un livre."
+          "answer": "forêt",
+          "correction": "Le mot « forêt » s’écrit avec un accent circonflexe sur le e."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Choisir le bon mot : Mon père ___ préparé le dîner.",
+          "options": [
+            "a",
+            "à",
+            "as"
+          ],
+          "answer": "a",
+          "correction": "« a » est le verbe avoir (il a préparé)."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "On entend « nuit ». On écrit :",
+          "options": [
+            "nuit",
+            "nui",
+            "nuie"
+          ],
+          "answer": "nuit",
+          "correction": "Le mot « nuit » se termine par un t muet."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Écris le mot qui désigne l’astre du jour (le ___).",
-          "answer": "soleil",
-          "accept": [
-            "soleil"
+          "type": "mcq",
+          "prompt": "Choisir le bon mot : Le repas ___ prêt.",
+          "options": [
+            "est",
+            "et",
+            "ai"
           ],
-          "correction": "C’est le soleil."
+          "answer": "est",
+          "correction": "« est » est le verbe être (il est)."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Quelle orthographe est correcte pour : « Elle chante très bien. » ?",
+          "options": [
+            "Elle chante très bien.",
+            "Elle chante trés bien.",
+            "Elle chante tres bien."
+          ],
+          "answer": "Elle chante très bien.",
+          "correction": "« très » s’écrit avec un accent grave sur le e."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "On entend « hôpital ». On écrit :",
           "options": [
-            "Maman cuisine.",
-            "Maman cuisin.",
-            "Mamen cuisine."
+            "hôpital",
+            "hopital",
+            "ôpital"
           ],
-          "answer": "Maman cuisine.",
-          "correction": "On écrit « Maman cuisine. »."
+          "answer": "hôpital",
+          "correction": "Le mot « hôpital » s’écrit avec un h initial et un accent circonflexe."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle orthographe est correcte pour : « Nous allons au cirque ce week-end. » ?",
+          "options": [
+            "Nous allons au cirque ce week-end.",
+            "Nous allons à le cirque ce week-end.",
+            "Nous allons o cirque ce week-end."
+          ],
+          "answer": "Nous allons au cirque ce week-end.",
+          "correction": "« au » est la contraction correcte de « à le »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On entend « ecole ». On écrit :",
+          "prompt": "On entend « soldat ». On écrit :",
           "options": [
-            "école",
-            "ecol",
-            "écolle"
+            "soldat",
+            "solda",
+            "soldas"
           ],
-          "answer": "école",
-          "correction": "Le mot « école »."
+          "answer": "soldat",
+          "correction": "Le mot « soldat » se termine par un t muet."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "La phrase est correctement orthographiée : « Le hibou a de grandes ailes. »",
+          "answer": "Vrai",
+          "correction": "La phrase est correcte. « hibou » commence par un h muet. « a » est le verbe avoir."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Écris le contraire de « grand ».",
-          "answer": "petit",
-          "accept": [
-            "petit"
-          ],
-          "correction": "Le mot « petit »."
-        },
-        {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "On entend « éléphant ». On écrit :",
           "options": [
-            "Je mange une pomme.",
-            "Je manje une pom.",
-            "Je mange ène pome."
+            "éléphant",
+            "elefant",
+            "élefant"
           ],
-          "answer": "Je mange une pomme.",
-          "correction": "On écrit « Je mange une pomme. »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "On entend « fille ». On écrit :",
-          "options": [
-            "fille",
-            "file",
-            "fiye"
-          ],
-          "answer": "fille",
-          "correction": "Le mot « fille »."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "On entend « table ». On écrit :",
-          "options": [
-            "table",
-            "tabel",
-            "tabl"
-          ],
-          "answer": "table",
-          "correction": "Le mot « table »."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "On entend « rouge ». On écrit :",
-          "options": [
-            "rouge",
-            "roug",
-            "rouje"
-          ],
-          "answer": "rouge",
-          "correction": "Le mot « rouge »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "On entend « chat ». On écrit :",
-          "options": [
-            "chat",
-            "cha",
-            "chate"
-          ],
-          "answer": "chat",
-          "correction": "Le mot « chat »."
+          "answer": "éléphant",
+          "correction": "Le mot « éléphant » s’écrit avec ph et deux accents aigus."
         }
       ]
     },
@@ -232,120 +233,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "Quelle orthographe est correcte ?",
           "options": [
-            "Maman cuisine.",
-            "Maman cuisin.",
-            "Mamen cuisine."
+            "Les obstacles qu'ils ont surmontés étaient nombreux.",
+            "Les obstacles qu'ils ont surmonté étaient nombreux.",
+            "Les obstacles qu'ils ont surmontées étaient nombreux."
           ],
-          "answer": "Maman cuisine.",
-          "correction": "On écrit « Maman cuisine. »."
+          "answer": "Les obstacles qu'ils ont surmontés étaient nombreux.",
+          "correction": "COD masculin pluriel avant avoir → accord."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "On entend « voiture ». On écrit :",
+          "prompt": "Choisir : « ___ à votre question, voici ma réponse. »",
           "options": [
-            "voiture",
-            "voitur",
-            "voature"
+            "Quant",
+            "Quand",
+            "Qu'en"
           ],
-          "answer": "voiture",
-          "correction": "Le mot « voiture »."
+          "answer": "Quant",
+          "correction": "« Quant à » = en ce qui concerne."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Écris le mot qui désigne l’astre du jour (le ___).",
-          "answer": "soleil",
-          "accept": [
-            "soleil"
+          "type": "mcq",
+          "prompt": "Quelle phrase utilise le subjonctif correctement ?",
+          "options": [
+            "Il est possible qu'il vienne demain.",
+            "Il est possible qu'il vient demain.",
+            "Il est possible qu'il viendra demain."
           ],
-          "correction": "C’est le soleil."
+          "answer": "Il est possible qu'il vienne demain.",
+          "correction": "« Il est possible que » impose le subjonctif."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "Quelle orthographe est correcte ?",
           "options": [
-            "Je mange une pomme.",
-            "Je manje une pom.",
-            "Je mange ène pome."
+            "Les patineuses se sont élancées sur la glace.",
+            "Les patineuses se sont élancé sur la glace.",
+            "Les patineuses se sont élancés sur la glace."
           ],
-          "answer": "Je mange une pomme.",
-          "correction": "On écrit « Je mange une pomme. »."
+          "answer": "Les patineuses se sont élancées sur la glace.",
+          "correction": "S'élancer avec être → accord féminin pluriel."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "Les enfants jouent.",
-            "Les enfants joue.",
-            "Les enfants jouet."
+            "La conclusion qu'ils ont tirée est logique.",
+            "La conclusion qu'ils ont tiré est logique.",
+            "La conclusion qu'ils ont tirées est logique."
           ],
-          "answer": "Les enfants jouent.",
-          "correction": "On écrit « Les enfants jouent. »."
+          "answer": "La conclusion qu'ils ont tirée est logique.",
+          "correction": "COD féminin singulier avant avoir → accord."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "On entend « fille ». On écrit :",
+          "prompt": "Choisir : « ___ la mission sera terminée, ils rentreront. »",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "Quand",
+            "Quant",
+            "Qu'en"
           ],
-          "answer": "fille",
-          "correction": "Le mot « fille »."
+          "answer": "Quand",
+          "correction": "« Quand » = conjonction de temps."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "On entend « rouge ». On écrit :",
+          "prompt": "Quelle phrase est correcte ?",
           "options": [
-            "rouge",
-            "roug",
-            "rouje"
+            "Pour qu'elle comprenne, expliquez lentement.",
+            "Pour qu'elle comprend, expliquez lentement.",
+            "Pour qu'elle comprendrait, expliquez lentement."
           ],
-          "answer": "rouge",
-          "correction": "Le mot « rouge »."
+          "answer": "Pour qu'elle comprenne, expliquez lentement.",
+          "correction": "« Pour que » impose le subjonctif."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "On entend « table ». On écrit :",
+          "prompt": "Quelle orthographe est correcte ?",
           "options": [
-            "table",
-            "tabel",
-            "tabl"
+            "Les chercheurs se sont réunis pour discuter.",
+            "Les chercheurs se sont réuni pour discuter.",
+            "Les chercheurs se sont réunies pour discuter."
           ],
-          "answer": "table",
-          "correction": "Le mot « table »."
+          "answer": "Les chercheurs se sont réunis pour discuter.",
+          "correction": "Se réunir : « se » est COD → accord masculin pluriel."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "On entend « chat ». On écrit :",
+          "prompt": "Choisir : « ___ dit-il de cette expérience ? »",
           "options": [
-            "chat",
-            "cha",
-            "chate"
+            "Qu'en",
+            "Quand",
+            "Quant"
           ],
-          "answer": "chat",
-          "correction": "Le mot « chat »."
+          "answer": "Qu'en",
+          "correction": "« Qu'en dit-il ? » = que pense-t-il de cela ?"
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "Quelle orthographe est correcte ?",
           "options": [
-            "Papa lit un livre.",
-            "Papa lis un livre.",
-            "Pappa lit un livre."
+            "Les preuves qu'elles ont réunies sont solides.",
+            "Les preuves qu'elles ont réuni sont solides.",
+            "Les preuves qu'elles ont réunis sont solides."
           ],
-          "answer": "Papa lit un livre.",
-          "correction": "On écrit « Papa lit un livre. »."
+          "answer": "Les preuves qu'elles ont réunies sont solides.",
+          "correction": "COD féminin pluriel avant avoir → accord."
         }
       ]
     }

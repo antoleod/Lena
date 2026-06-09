@@ -108,119 +108,109 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
+          "prompt": "Si aujourd’hui c’est dimanche, quel jour sera-t-il dans 2 jours ?",
           "options": [
-            "hiver",
-            "été",
-            "printemps"
+            "mardi",
+            "lundi",
+            "mercredi"
           ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "answer": "mardi",
+          "correction": "Dimanche + 2 jours = mardi."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "5 semaines = ___ jours.",
+          "answer": "35",
+          "correction": "5 × 7 = 35 jours."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Combien de minutes y a-t-il dans 3 heures ?",
+          "options": [
+            "180",
+            "120",
+            "300"
+          ],
+          "answer": "180",
+          "correction": "3 × 60 minutes = 180 minutes."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
+          "prompt": "Combien y a-t-il de semaines dans 28 jours ?",
           "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
+            "4",
+            "3",
+            "5"
           ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
+          "answer": "4",
+          "correction": "28 ÷ 7 = 4 semaines."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "2 heures = 120 minutes.",
+          "answer": true,
+          "correction": "2 × 60 = 120 minutes."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Combien de jours entre le 10 et le 20 d’un mois ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "10",
+            "11",
+            "9"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "10",
+          "correction": "Du 10 au 20 = 10 jours."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quel mois vient juste après septembre ?",
+          "options": [
+            "octobre",
+            "novembre",
+            "août"
+          ],
+          "answer": "octobre",
+          "correction": "Après septembre (9e mois) vient octobre (10e mois)."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "Si un film commence à 20h et dure 2 heures, il finit à :",
           "options": [
-            "décembre",
+            "22h",
+            "21h",
+            "23h"
+          ],
+          "answer": "22h",
+          "correction": "20h + 2 heures = 22h."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Lequel vient en dernier dans l’année ?",
+          "options": [
+            "novembre",
             "juillet",
             "mars"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "novembre",
+          "correction": "Novembre est le 11e mois, après juillet (7e) et mars (3e)."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
-          "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
-          ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
-          "options": [
-            "février",
-            "mars",
-            "décembre"
-          ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
-        },
-        {
-          "id": "q14",
           "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
+          "prompt": "14 jours = 2 semaines.",
           "answer": true,
-          "correction": "Décembre est un mois d’hiver."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
-          "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
-          ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
-          "options": [
-            "décembre",
-            "janvier",
-            "juin"
-          ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
-          "options": [
-            "12",
-            "10",
-            "7"
-          ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "correction": "14 ÷ 7 = 2 semaines."
         }
       ]
     },
@@ -228,114 +218,128 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "dq1",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Paul est né en 2010. En 2026, quel âge a-t-il ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "14",
+            "15",
+            "16",
+            "17"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "16",
+          "correction": "2026 − 2010 = 16 ans."
         },
         {
-          "id": "q4",
+          "id": "dq2",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Une maîtresse est née en 1985. En 2025, quel âge a-t-elle ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "38",
+            "39",
+            "40",
+            "41"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "40",
+          "correction": "2025 − 1985 = 40 ans."
         },
         {
-          "id": "q6",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
-        },
-        {
-          "id": "q8",
+          "id": "dq3",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
-          "options": [
-            "décembre",
-            "juillet",
-            "mars"
-          ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
-          "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
-          ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
-          "options": [
-            "4",
-            "2",
-            "6"
-          ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
-          "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
-          ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Tom est né en septembre 2017. En septembre 2026, quel âge aura-t-il ?",
           "options": [
             "7",
-            "5",
+            "8",
+            "9",
             "10"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "9",
+          "correction": "2026 − 2017 = 9 ans."
         },
         {
-          "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
-        },
-        {
-          "id": "q20",
+          "id": "dq4",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Combien de jours y a-t-il dans le mois de février d'une année bissextile ?",
+          "options": [
+            "27",
+            "28",
+            "29",
+            "30"
+          ],
+          "answer": "29",
+          "correction": "En année bissextile, février a 29 jours."
+        },
+        {
+          "id": "dq5",
+          "type": "mcq",
+          "prompt": "Une année bissextile a combien de jours au total ?",
+          "options": [
+            "364",
+            "365",
+            "366",
+            "367"
+          ],
+          "answer": "366",
+          "correction": "Une année bissextile a 366 jours."
+        },
+        {
+          "id": "dq6",
+          "type": "true_false",
+          "prompt": "2024 est-elle une année bissextile ?",
+          "answer": true,
+          "correction": "2024 est divisible par 4, donc c'est une année bissextile."
+        },
+        {
+          "id": "dq7",
+          "type": "mcq",
+          "prompt": "Après 2024, en quelle année aura-t-on de nouveau un 29 février ?",
+          "options": [
+            "2025",
+            "2026",
+            "2027",
+            "2028"
+          ],
+          "answer": "2028",
+          "correction": "La prochaine année bissextile après 2024 est 2028."
+        },
+        {
+          "id": "dq8",
+          "type": "mcq",
+          "prompt": "Une année ordinaire a 365 jours. Une année bissextile a combien de jours de plus ?",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "7"
+          ],
+          "answer": "1",
+          "correction": "366 − 365 = 1 jour de plus."
+        },
+        {
+          "id": "dq9",
+          "type": "mcq",
+          "prompt": "Les cours débutent le 1er septembre et s'arrêtent le 30 juin. Combien de mois durent les cours ?",
+          "options": [
+            "8",
+            "9",
+            "10",
+            "11"
+          ],
+          "answer": "10",
+          "correction": "De septembre à juin = 10 mois."
+        },
+        {
+          "id": "dq10",
+          "type": "mcq",
+          "prompt": "Une mission dure 3 mois et commence en novembre. En quel mois se termine-t-elle ?",
           "options": [
             "décembre",
             "janvier",
-            "juin"
+            "février",
+            "mars"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "janvier",
+          "correction": "Novembre → décembre → janvier : fin en janvier."
         }
       ]
     }

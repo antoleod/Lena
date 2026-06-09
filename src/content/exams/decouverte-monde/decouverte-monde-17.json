@@ -111,119 +111,338 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "La capitale des Pays-Bas est :",
+          "options": [
+            "Amsterdam",
+            "Rotterdam",
+            "Utrecht",
+            "La Haye"
+          ],
+          "answer": "Amsterdam",
+          "correction": "Amsterdam est la capitale des Pays-Bas.",
+          "prompt_nl": "De hoofdstad van Nederland is:",
+          "prompt_en": "The capital of the Netherlands is:",
+          "prompt_es": "La capital de los Paises Bajos es:",
+          "options_i18n": {
+            "nl": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "Den Haag"
+            ],
+            "en": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "The Hague"
+            ],
+            "es": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "La Haya"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "La capitale du Royaume-Uni est :",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "Londres",
+            "Manchester",
+            "Birmingham",
+            "Édimbourg"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "Londres",
+          "correction": "Londres est la capitale du Royaume-Uni.",
+          "prompt_nl": "De hoofdstad van het Verenigd Koninkrijk is:",
+          "prompt_en": "The capital of the United Kingdom is:",
+          "prompt_es": "La capital del Reino Unido es:",
+          "options_i18n": {
+            "nl": [
+              "Londen",
+              "Manchester",
+              "Birmingham",
+              "Edinburgh"
+            ],
+            "en": [
+              "London",
+              "Manchester",
+              "Birmingham",
+              "Edinburgh"
+            ],
+            "es": [
+              "Londres",
+              "Manchester",
+              "Birmingham",
+              "Edimburgo"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Brésil ?",
+          "options": [
+            "Amérique du Sud",
+            "Afrique",
+            "Asie",
+            "Europe"
+          ],
+          "answer": "Amérique du Sud",
+          "correction": "Le Brésil est situé en Amérique du Sud.",
+          "prompt_nl": "Op welk continent ligt Brazilie?",
+          "prompt_en": "On which continent is Brazil located?",
+          "prompt_es": "En que continente se encuentra Brasil?",
+          "options_i18n": {
+            "nl": [
+              "Zuid-Amerika",
+              "Afrika",
+              "Azie",
+              "Europa"
+            ],
+            "en": [
+              "South America",
+              "Africa",
+              "Asia",
+              "Europe"
+            ],
+            "es": [
+              "America del Sur",
+              "Africa",
+              "Asia",
+              "Europa"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Sur quel continent se trouve la Chine ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "Asie",
+            "Europe",
+            "Afrique",
+            "Amérique"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "Asie",
+          "correction": "La Chine est située en Asie.",
+          "prompt_nl": "Op welk continent ligt China?",
+          "prompt_en": "On which continent is China located?",
+          "prompt_es": "En que continente se encuentra China?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Europa",
+              "Afrika",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Europe",
+              "Africa",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Europa",
+              "Africa",
+              "America"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve l'Égypte ?",
+          "options": [
+            "Afrique",
+            "Asie",
+            "Europe",
+            "Amérique"
+          ],
+          "answer": "Afrique",
+          "correction": "L'Égypte est un pays situé en Afrique du Nord.",
+          "prompt_nl": "Op welk continent ligt Egypte?",
+          "prompt_en": "On which continent is Egypt located?",
+          "prompt_es": "En que continente se encuentra Egipto?",
+          "options_i18n": {
+            "nl": [
+              "Afrika",
+              "Azie",
+              "Europa",
+              "Amerika"
+            ],
+            "en": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "America"
+            ],
+            "es": [
+              "Africa",
+              "Asia",
+              "Europa",
+              "America"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "Le Sahara est :",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "un désert",
+            "un océan",
+            "une forêt",
+            "une montagne"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "un désert",
+          "correction": "Le Sahara est le plus grand désert chaud du monde.",
+          "prompt_nl": "De Sahara is:",
+          "prompt_en": "The Sahara is:",
+          "prompt_es": "El Sahara es:",
+          "options_i18n": {
+            "nl": [
+              "een woestijn",
+              "een oceaan",
+              "een woud",
+              "een berg"
+            ],
+            "en": [
+              "a desert",
+              "an ocean",
+              "a forest",
+              "a mountain"
+            ],
+            "es": [
+              "un desierto",
+              "un oceano",
+              "un bosque",
+              "una montana"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Le Nil est :",
+          "options": [
+            "un fleuve d'Afrique",
+            "un fleuve d'Asie",
+            "une mer",
+            "un lac"
+          ],
+          "answer": "un fleuve d'Afrique",
+          "correction": "Le Nil est le plus long fleuve d'Afrique.",
+          "prompt_nl": "De Nijl is:",
+          "prompt_en": "The Nile is:",
+          "prompt_es": "El Nilo es:",
+          "options_i18n": {
+            "nl": [
+              "een rivier in Afrika",
+              "een rivier in Azie",
+              "een zee",
+              "een meer"
+            ],
+            "en": [
+              "a river in Africa",
+              "a river in Asia",
+              "a sea",
+              "a lake"
+            ],
+            "es": [
+              "un rio de Africa",
+              "un rio de Asia",
+              "un mar",
+              "un lago"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Quelle mer borde la France au sud ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "la mer Méditerranée",
+            "la mer du Nord",
+            "la mer Baltique",
+            "la mer Rouge"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "la mer Méditerranée",
+          "correction": "La mer Méditerranée borde la France au sud.",
+          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
+          "prompt_en": "Which sea borders France to the south?",
+          "prompt_es": "Que mar bordea Francia al sur?",
+          "options_i18n": {
+            "nl": [
+              "de Middellandse Zee",
+              "de Noordzee",
+              "de Oostzee",
+              "de Rode Zee"
+            ],
+            "en": [
+              "the Mediterranean Sea",
+              "the North Sea",
+              "the Baltic Sea",
+              "the Red Sea"
+            ],
+            "es": [
+              "el mar Mediterraneo",
+              "el mar del Norte",
+              "el mar Baltico",
+              "el mar Rojo"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
+          "options": [
+            "les Pyrénées",
+            "les Alpes",
+            "les Vosges",
+            "le Jura"
+          ],
+          "answer": "les Pyrénées",
+          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
+          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
+          "prompt_en": "Which mountain range separates France from Spain?",
+          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
+          "options_i18n": {
+            "nl": [
+              "de Pyreneen",
+              "de Alpen",
+              "de Vogezen",
+              "de Jura"
+            ],
+            "en": [
+              "the Pyrenees",
+              "the Alps",
+              "the Vosges",
+              "the Jura"
+            ],
+            "es": [
+              "los Pirineos",
+              "los Alpes",
+              "los Vosgos",
+              "el Jura"
+            ]
+          }
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "La poule pond des :",
-          "options": [
-            "œufs",
-            "plumes",
-            "fruits"
-          ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "On respire avec les :",
-          "options": [
-            "poumons",
-            "mains",
-            "pieds"
-          ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
-          "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
-          ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "On trie les déchets pour :",
-          "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
-          ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
-        },
-        {
-          "id": "q18",
           "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
+          "prompt": "Au pôle Nord, les températures sont très froides.",
           "answer": true,
-          "correction": "Oui, le matin."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Le medecin soigne les :",
-          "options": [
-            "malades",
-            "voitures",
-            "plantes"
-          ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "correction": "Le pôle Nord est une région arctique aux températures extrêmement basses.",
+          "prompt_nl": "Op de Noordpool zijn de temperaturen erg koud.",
+          "prompt_en": "At the North Pole, temperatures are very cold.",
+          "prompt_es": "En el Polo Norte, las temperaturas son muy frias."
         }
       ]
     },
@@ -233,117 +452,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Qu'est-ce que la désertification ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "la transformation de terres en désert due à l'activité humaine ou climatique",
+            "la destruction d'une forêt",
+            "l'augmentation des déserts naturels"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "la transformation de terres en désert due à l'activité humaine ou climatique",
+          "correction": "La désertification touche principalement le Sahel en Afrique."
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Le taux de natalité mesure :",
+          "options": [
+            "le nombre de naissances pour 1 000 habitants par an",
+            "le nombre total de bébés nés",
+            "la mortalité infantile"
+          ],
+          "answer": "le nombre de naissances pour 1 000 habitants par an",
+          "correction": "Un taux de natalité élevé est caractéristique des pays en développement."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "Qu'est-ce que la politique étrangère ?",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "l'ensemble des décisions d'un État dans ses relations avec d'autres États",
+            "la politique intérieure d'un pays",
+            "les lois sur l'immigration"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "answer": "l'ensemble des décisions d'un État dans ses relations avec d'autres États",
+          "correction": "La politique étrangère inclut la diplomatie, le commerce, les alliances militaires."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Qu'est-ce que la neutralité dans les conflits ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "ne pas prendre parti, rester hors des conflits entre États",
+            "soutenir l'une des parties",
+            "imposer un cessez-le-feu"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "ne pas prendre parti, rester hors des conflits entre États",
+          "correction": "La Suisse est l'exemple le plus connu de pays neutre."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Le Fonds Monétaire International (FMI) est :",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "une institution financière internationale qui aide les pays en difficulté",
+            "une banque privée mondiale",
+            "une agence de l'ONU pour l'aide humanitaire"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "une institution financière internationale qui aide les pays en difficulté",
+          "correction": "Le FMI accorde des prêts conditionnés aux pays ayant des problèmes de balance des paiements."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Qu'est-ce que la société civile ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "l'ensemble des organisations et associations citoyennes hors gouvernement",
+            "les militaires",
+            "les fonctionnaires"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "l'ensemble des organisations et associations citoyennes hors gouvernement",
+          "correction": "La société civile inclut les syndicats, ONG, associations, groupes de pression."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Le droit international humanitaire régit :",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "les règles de conduite dans les conflits armés pour protéger les civils",
+            "les échanges commerciaux",
+            "les droits de l'homme en temps de paix"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "les règles de conduite dans les conflits armés pour protéger les civils",
+          "correction": "Les Conventions de Genève forment la base du droit international humanitaire."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "Qu'est-ce que la démocratie directe ?",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "les citoyens votent directement sur les lois (référendums)",
+            "les représentants votent à la place des citoyens",
+            "le pouvoir d'un seul parti"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "les citoyens votent directement sur les lois (référendums)",
+          "correction": "La Suisse pratique fréquemment la démocratie directe via des référendums."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "Qu'est-ce que la géostratégie ?",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "l'utilisation de la géographie pour planifier des stratégies militaires ou politiques",
+            "la cartographie moderne",
+            "l'étude des ressources naturelles"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "l'utilisation de la géographie pour planifier des stratégies militaires ou politiques",
+          "correction": "La géostratégie combine géographie et stratégie pour analyser les rapports de force."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Qu'est-ce que le droit de vote universel ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "le droit pour tous les citoyens adultes de voter, sans discrimination",
+            "le vote obligatoire",
+            "le vote en ligne"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "le droit pour tous les citoyens adultes de voter, sans discrimination",
+          "correction": "Le suffrage universel s'est progressivement étendu au cours du XXe siècle."
         }
       ]
     }

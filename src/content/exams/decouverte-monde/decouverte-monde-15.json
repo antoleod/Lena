@@ -108,114 +108,312 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quel est le plus grand océan du monde ?",
+          "options": [
+            "l'océan Pacifique",
+            "l'océan Atlantique",
+            "l'océan Indien",
+            "l'océan Arctique"
+          ],
+          "answer": "l'océan Pacifique",
+          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
+          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
+          "prompt_en": "What is the largest ocean in the world?",
+          "prompt_es": "Cual es el oceano mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "de Stille Oceaan",
+              "de Atlantische Oceaan",
+              "de Indische Oceaan",
+              "de Arctische Oceaan"
+            ],
+            "en": [
+              "the Pacific Ocean",
+              "the Atlantic Ocean",
+              "the Indian Ocean",
+              "the Arctic Ocean"
+            ],
+            "es": [
+              "el oceano Pacifico",
+              "el oceano Atlantico",
+              "el oceano Indico",
+              "el oceano Artico"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "La Tour Eiffel se trouve dans quelle ville ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "Paris",
+            "Lyon",
+            "Rome",
+            "Berlin"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "Paris",
+          "correction": "La Tour Eiffel est le monument le plus célèbre de Paris.",
+          "prompt_nl": "In welke stad staat de Eiffeltoren?",
+          "prompt_en": "In which city is the Eiffel Tower?",
+          "prompt_es": "En que ciudad esta la Torre Eiffel?",
+          "options_i18n": {
+            "nl": [
+              "Parijs",
+              "Lyon",
+              "Rome",
+              "Berlijn"
+            ],
+            "en": [
+              "Paris",
+              "Lyon",
+              "Rome",
+              "Berlin"
+            ],
+            "es": [
+              "Paris",
+              "Lyon",
+              "Roma",
+              "Berlin"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quel fleuve traverse Paris ?",
+          "options": [
+            "la Seine",
+            "la Loire",
+            "le Rhône",
+            "la Garonne"
+          ],
+          "answer": "la Seine",
+          "correction": "La Seine est le fleuve qui traverse Paris.",
+          "prompt_nl": "Welke rivier stroomt door Parijs?",
+          "prompt_en": "Which river flows through Paris?",
+          "prompt_es": "Que rio atraviesa Paris?",
+          "options_i18n": {
+            "nl": [
+              "de Seine",
+              "de Loire",
+              "de Rhone",
+              "de Garonne"
+            ],
+            "en": [
+              "the Seine",
+              "the Loire",
+              "the Rhône",
+              "the Garonne"
+            ],
+            "es": [
+              "el Sena",
+              "el Loira",
+              "el Rodano",
+              "el Garona"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Dans quelle ville se trouve le Colisée ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "Rome",
+            "Athènes",
+            "Paris",
+            "Madrid"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "Rome",
+          "correction": "Le Colisée est un amphithéâtre antique situé à Rome, en Italie.",
+          "prompt_nl": "In welke stad staat het Colosseum?",
+          "prompt_en": "In which city is the Colosseum?",
+          "prompt_es": "En que ciudad esta el Coliseo?",
+          "options_i18n": {
+            "nl": [
+              "Rome",
+              "Athene",
+              "Parijs",
+              "Madrid"
+            ],
+            "en": [
+              "Rome",
+              "Athens",
+              "Paris",
+              "Madrid"
+            ],
+            "es": [
+              "Roma",
+              "Atenas",
+              "Paris",
+              "Madrid"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "La Méditerranée est une mer.",
+          "answer": true,
+          "correction": "La mer Méditerranée est une mer intérieure entourée par l'Europe, l'Afrique et l'Asie.",
+          "prompt_nl": "De Middellandse Zee is een zee.",
+          "prompt_en": "The Mediterranean is a sea.",
+          "prompt_es": "El Mediterraneo es un mar."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Quel pays est le plus grand du monde ?",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "la Russie",
+            "le Canada",
+            "la Chine",
+            "les États-Unis"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "la Russie",
+          "correction": "La Russie est le plus grand pays du monde par sa superficie.",
+          "prompt_nl": "Welk land is het grootste ter wereld?",
+          "prompt_en": "Which country is the largest in the world?",
+          "prompt_es": "Que pais es el mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "Rusland",
+              "Canada",
+              "China",
+              "de Verenigde Staten"
+            ],
+            "en": [
+              "Russia",
+              "Canada",
+              "China",
+              "the United States"
+            ],
+            "es": [
+              "Rusia",
+              "Canada",
+              "China",
+              "Estados Unidos"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Une île est une terre entourée de :",
+          "options": [
+            "eau",
+            "montagnes",
+            "forêts",
+            "désert"
+          ],
+          "answer": "eau",
+          "correction": "Une île est une étendue de terre entièrement entourée d'eau.",
+          "prompt_nl": "Een eiland is een stuk land omgeven door:",
+          "prompt_en": "An island is a piece of land surrounded by:",
+          "prompt_es": "Una isla es una tierra rodeada de:",
+          "options_i18n": {
+            "nl": [
+              "water",
+              "bergen",
+              "bossen",
+              "woestijn"
+            ],
+            "en": [
+              "water",
+              "mountains",
+              "forests",
+              "desert"
+            ],
+            "es": [
+              "agua",
+              "montanas",
+              "bosques",
+              "desierto"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "La langue officielle du Mexique est :",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "l'espagnol",
+            "le portugais",
+            "le français",
+            "l'anglais"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "l'espagnol",
+          "correction": "Le Mexique est un pays hispanophone d'Amérique centrale.",
+          "prompt_nl": "De officiele taal van Mexico is:",
+          "prompt_en": "The official language of Mexico is:",
+          "prompt_es": "El idioma oficial de Mexico es:",
+          "options_i18n": {
+            "nl": [
+              "Spaans",
+              "Portugees",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Spanish",
+              "Portuguese",
+              "French",
+              "English"
+            ],
+            "es": [
+              "espanol",
+              "portugues",
+              "frances",
+              "ingles"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "En Scandinavie, les hivers sont longs et très froids.",
+          "answer": true,
+          "correction": "Les pays scandinaves ont des hivers très froids et de longues nuits polaires.",
+          "prompt_nl": "In Scandinavie zijn de winters lang en erg koud.",
+          "prompt_en": "In Scandinavia, winters are long and very cold.",
+          "prompt_es": "En Escandinavia, los inviernos son largos y muy frios."
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
-        },
-        {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Quel continent est le plus peuplé ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe",
+            "l'Amérique"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
-        },
-        {
-          "id": "q14",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
-          "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
-          ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le docteur soigne les :",
-          "options": [
-            "malades",
-            "voitures",
-            "maisons"
-          ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
-          "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
-          ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "l'Asie",
+          "correction": "L'Asie est le continent le plus peuplé avec plus de 4 milliards d'habitants.",
+          "prompt_nl": "Welk continent is het meest bevolkt?",
+          "prompt_en": "Which continent is the most populated?",
+          "prompt_es": "Que continente es el mas poblado?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Afrika",
+              "Europa",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Africa",
+              "Europe",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Africa",
+              "Europa",
+              "America"
+            ]
+          }
         }
       ]
     },

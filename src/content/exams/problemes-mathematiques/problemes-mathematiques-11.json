@@ -177,15 +177,15 @@
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Théo a 11 cartes. Théo en perd 5. Combien en reste-t-il ?",
+          "prompt": "Théo a 3 boîtes de 5 cartes. Combien de cartes en tout ?",
           "options": [
-            "1",
-            "6",
-            "16",
-            "15"
+            "8",
+            "15",
+            "12",
+            "18"
           ],
-          "answer": "6",
-          "correction": "11 ��\u0019 5 = 6 cartes."
+          "answer": "15",
+          "correction": "3 × 5 = 15 cartes."
         },
         {
           "id": "q6",

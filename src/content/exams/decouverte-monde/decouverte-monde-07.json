@@ -108,124 +108,364 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Le blé est principalement cultivé dans :",
+          "options": [
+            "les champs",
+            "les forêts",
+            "les déserts",
+            "les océans"
+          ],
+          "answer": "les champs",
+          "correction": "Le blé est une céréale cultivée dans les grandes plaines agricoles.",
+          "prompt_nl": "Tarwe wordt voornamelijk verbouwd in:",
+          "prompt_en": "Wheat is mainly grown in:",
+          "prompt_es": "El trigo se cultiva principalmente en:",
+          "options_i18n": {
+            "nl": [
+              "de velden",
+              "de bossen",
+              "de woestijnen",
+              "de oceanen"
+            ],
+            "en": [
+              "fields",
+              "forests",
+              "deserts",
+              "oceans"
+            ],
+            "es": [
+              "los campos",
+              "los bosques",
+              "los desiertos",
+              "los oceanos"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Quelle est la capitale du Canada ?",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "Ottawa",
+            "Toronto",
+            "Montréal",
+            "Vancouver"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "Ottawa",
+          "correction": "Ottawa est la capitale fédérale du Canada.",
+          "prompt_nl": "Wat is de hoofdstad van Canada?",
+          "prompt_en": "What is the capital of Canada?",
+          "prompt_es": "Cual es la capital de Canada?",
+          "options_i18n": {
+            "nl": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ],
+            "en": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ],
+            "es": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "La capitale de la France est :",
+          "options": [
+            "Paris",
+            "Lyon",
+            "Marseille",
+            "Bordeaux"
+          ],
+          "answer": "Paris",
+          "correction": "Paris est la capitale de la France.",
+          "prompt_nl": "De hoofdstad van Frankrijk is:",
+          "prompt_en": "The capital of France is:",
+          "prompt_es": "La capital de Francia es:",
+          "options_i18n": {
+            "nl": [
+              "Parijs",
+              "Lyon",
+              "Marseille",
+              "Bordeaux"
+            ],
+            "en": [
+              "Paris",
+              "Lyon",
+              "Marseille",
+              "Bordeaux"
+            ],
+            "es": [
+              "Paris",
+              "Lyon",
+              "Marsella",
+              "Burdeos"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "La capitale de l'Espagne est :",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "Madrid",
+            "Barcelone",
+            "Séville",
+            "Valence"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "Madrid",
+          "correction": "Madrid est la capitale de l'Espagne.",
+          "prompt_nl": "De hoofdstad van Spanje is:",
+          "prompt_en": "The capital of Spain is:",
+          "prompt_es": "La capital de Espana es:",
+          "options_i18n": {
+            "nl": [
+              "Madrid",
+              "Barcelona",
+              "Sevilla",
+              "Valencia"
+            ],
+            "en": [
+              "Madrid",
+              "Barcelona",
+              "Seville",
+              "Valencia"
+            ],
+            "es": [
+              "Madrid",
+              "Barcelona",
+              "Sevilla",
+              "Valencia"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "La capitale de l'Italie est :",
+          "options": [
+            "Rome",
+            "Milan",
+            "Naples",
+            "Florence"
+          ],
+          "answer": "Rome",
+          "correction": "Rome est la capitale de l'Italie.",
+          "prompt_nl": "De hoofdstad van Italie is:",
+          "prompt_en": "The capital of Italy is:",
+          "prompt_es": "La capital de Italia es:",
+          "options_i18n": {
+            "nl": [
+              "Rome",
+              "Milaan",
+              "Napels",
+              "Florence"
+            ],
+            "en": [
+              "Rome",
+              "Milan",
+              "Naples",
+              "Florence"
+            ],
+            "es": [
+              "Roma",
+              "Milan",
+              "Napoles",
+              "Florencia"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "La capitale de l'Allemagne est :",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "Berlin",
+            "Munich",
+            "Hambourg",
+            "Cologne"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "Berlin",
+          "correction": "Berlin est la capitale de l'Allemagne.",
+          "prompt_nl": "De hoofdstad van Duitsland is:",
+          "prompt_en": "The capital of Germany is:",
+          "prompt_es": "La capital de Alemania es:",
+          "options_i18n": {
+            "nl": [
+              "Berlijn",
+              "München",
+              "Hamburg",
+              "Keulen"
+            ],
+            "en": [
+              "Berlin",
+              "Munich",
+              "Hamburg",
+              "Cologne"
+            ],
+            "es": [
+              "Berlin",
+              "Munich",
+              "Hamburgo",
+              "Colonia"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "La capitale de la Belgique est :",
+          "options": [
+            "Bruxelles",
+            "Bruges",
+            "Gand",
+            "Liège"
+          ],
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique.",
+          "prompt_nl": "De hoofdstad van Belgie is:",
+          "prompt_en": "The capital of Belgium is:",
+          "prompt_es": "La capital de Belgica es:",
+          "options_i18n": {
+            "nl": [
+              "Brussel",
+              "Brugge",
+              "Gent",
+              "Luik"
+            ],
+            "en": [
+              "Brussels",
+              "Bruges",
+              "Ghent",
+              "Liège"
+            ],
+            "es": [
+              "Bruselas",
+              "Brujas",
+              "Gante",
+              "Lieja"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "La capitale des Pays-Bas est :",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "Amsterdam",
+            "Rotterdam",
+            "Utrecht",
+            "La Haye"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "Amsterdam",
+          "correction": "Amsterdam est la capitale des Pays-Bas.",
+          "prompt_nl": "De hoofdstad van Nederland is:",
+          "prompt_en": "The capital of the Netherlands is:",
+          "prompt_es": "La capital de los Paises Bajos es:",
+          "options_i18n": {
+            "nl": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "Den Haag"
+            ],
+            "en": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "The Hague"
+            ],
+            "es": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "La Haya"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "La capitale du Royaume-Uni est :",
+          "options": [
+            "Londres",
+            "Manchester",
+            "Birmingham",
+            "Édimbourg"
+          ],
+          "answer": "Londres",
+          "correction": "Londres est la capitale du Royaume-Uni.",
+          "prompt_nl": "De hoofdstad van het Verenigd Koninkrijk is:",
+          "prompt_en": "The capital of the United Kingdom is:",
+          "prompt_es": "La capital del Reino Unido es:",
+          "options_i18n": {
+            "nl": [
+              "Londen",
+              "Manchester",
+              "Birmingham",
+              "Edinburgh"
+            ],
+            "en": [
+              "London",
+              "Manchester",
+              "Birmingham",
+              "Edinburgh"
+            ],
+            "es": [
+              "Londres",
+              "Manchester",
+              "Birmingham",
+              "Edimburgo"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "Sur quel continent se trouve le Brésil ?",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "Amérique du Sud",
+            "Afrique",
+            "Asie",
+            "Europe"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
-          "options": [
-            "parapluie",
-            "ballon",
-            "livre"
-          ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le dentiste soigne :",
-          "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
-          ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Un volcan crache :",
-          "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
-          ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "La poule pond des :",
-          "options": [
-            "œufs",
-            "plumes",
-            "fruits"
-          ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "On trie les déchets pour :",
-          "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
-          ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "Amérique du Sud",
+          "correction": "Le Brésil est situé en Amérique du Sud.",
+          "prompt_nl": "Op welk continent ligt Brazilie?",
+          "prompt_en": "On which continent is Brazil located?",
+          "prompt_es": "En que continente se encuentra Brasil?",
+          "options_i18n": {
+            "nl": [
+              "Zuid-Amerika",
+              "Afrika",
+              "Azie",
+              "Europa"
+            ],
+            "en": [
+              "South America",
+              "Africa",
+              "Asia",
+              "Europe"
+            ],
+            "es": [
+              "America del Sur",
+              "Africa",
+              "Asia",
+              "Europa"
+            ]
+          }
         }
       ]
     },
@@ -235,117 +475,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Qu'est-ce que l'espérance de vie ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "la durée de vie moyenne d'une population",
+            "l'âge légal de la retraite",
+            "le taux de natalité"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "la durée de vie moyenne d'une population",
+          "correction": "L'espérance de vie varie selon les pays en fonction de la santé, alimentation, etc."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Les droits de l'enfant sont définis par :",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "la Convention des Nations Unies (UNICEF, 1989)",
+            "la Charte des droits de l'homme (1948)",
+            "la Constitution française"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
+          "answer": "la Convention des Nations Unies (UNICEF, 1989)",
+          "correction": "La CIDE (Convention internationale des droits de l'enfant) a été adoptée en 1989."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Qu'est-ce que le PIB par habitant ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "le PIB divisé par le nombre d'habitants",
+            "le revenu minimum",
+            "le salaire moyen"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "le PIB divisé par le nombre d'habitants",
+          "correction": "Le PIB par habitant indique le niveau de vie moyen dans un pays."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Quel est le rôle de l'ONU ?",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "maintenir la paix et la sécurité internationale",
+            "commercer entre pays",
+            "gérer les frontières"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "maintenir la paix et la sécurité internationale",
+          "correction": "L'ONU (Organisation des Nations Unies) a été fondée en 1945."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "La migration est :",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "le déplacement de personnes d'une région à une autre",
+            "uniquement le déplacement des animaux",
+            "le tourisme international"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "le déplacement de personnes d'une région à une autre",
+          "correction": "Les migrations peuvent être internes (dans un pays) ou internationales."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Qu'est-ce qu'un État fédéral ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "un État composé d'entités régionales ayant une certaine autonomie",
+            "un État dirigé par un roi",
+            "un État sans constitution"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "un État composé d'entités régionales ayant une certaine autonomie",
+          "correction": "Ex. : les États-Unis, l'Allemagne, la Belgique sont des États fédéraux."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Qu'est-ce que l'empreinte carbone ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "la quantité totale de CO₂ émise par une personne ou un pays",
+            "la surface boisée d'un pays",
+            "le taux de pollution de l'eau"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "la quantité totale de CO₂ émise par une personne ou un pays",
+          "correction": "Réduire son empreinte carbone est un objectif environnemental clé."
         },
         {
           "id": "q16",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "La démographie étudie :",
+          "options": [
+            "les populations humaines (natalité, mortalité, migration)",
+            "les espèces animales",
+            "les phénomènes météorologiques"
+          ],
+          "answer": "les populations humaines (natalité, mortalité, migration)",
+          "correction": "La démographie analyse la structure et l'évolution des populations."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "Qu'est-ce qu'un État de droit ?",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "un État où toutes les personnes, y compris les gouvernants, sont soumises aux lois",
+            "un État monarchique",
+            "un État démocratique uniquement"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "answer": "un État où toutes les personnes, y compris les gouvernants, sont soumises aux lois",
+          "correction": "L'État de droit garantit l'égalité devant la loi."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Qu'est-ce que la séparation des pouvoirs ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "la division du pouvoir en législatif, exécutif et judiciaire",
+            "la séparation de l'Église et de l'État",
+            "la frontière entre les pays"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "la division du pouvoir en législatif, exécutif et judiciaire",
+          "correction": "Ce principe, théorisé par Montesquieu, prévient les abus de pouvoir."
         }
       ]
     }

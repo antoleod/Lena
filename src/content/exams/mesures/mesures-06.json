@@ -163,190 +163,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
+          "id": "qm1",
           "type": "mcq",
-          "prompt": "Convertis 3 € en centimes.",
+          "prompt": "Convertis 1 kg en g.",
           "options": [
-            "337",
-            "312",
-            "300",
-            "256"
-          ],
-          "answer": "300",
-          "correction": "1 € = 100 c → 300 centimes.",
-          "prompt_nl": "Zet 3 € om naar centen.",
-          "prompt_en": "Convert 3 € to cents.",
-          "prompt_es": "Convierte 3 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 300 cent.",
-          "correction_en": "1 € = 100 cents → 300 cents.",
-          "correction_es": "1 € = 100 céntimos → 300 céntimos."
-        },
-        {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Convertis 8 € en centimes.",
-          "answer": "800",
-          "accept": [
             "800",
-            "800 centimes",
-            "800 c"
+            "1314",
+            "1000",
+            "1137"
           ],
-          "correction": "1 € = 100 c → 800 centimes.",
-          "prompt_nl": "Zet 8 € om naar centen.",
-          "prompt_en": "Convert 8 € to cents.",
-          "prompt_es": "Convierte 8 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 800 cent.",
-          "correction_en": "1 € = 100 cents → 800 cents.",
-          "correction_es": "1 € = 100 céntimos → 800 céntimos."
+          "answer": "1000",
+          "correction": "1 kg = 1000 g → 1000 g."
         },
         {
-          "id": "q3",
+          "id": "qm2",
           "type": "mcq",
-          "prompt": "Convertis 3 € en centimes.",
+          "prompt": "Convertis 3 kg en g.",
           "options": [
-            "301",
-            "338",
-            "300",
-            "349"
+            "2800",
+            "3314",
+            "3000",
+            "3137"
           ],
-          "answer": "300",
-          "correction": "1 € = 100 c → 300 centimes.",
-          "prompt_nl": "Zet 3 € om naar centen.",
-          "prompt_en": "Convert 3 € to cents.",
-          "prompt_es": "Convierte 3 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 300 cent.",
-          "correction_en": "1 € = 100 cents → 300 cents.",
-          "correction_es": "1 € = 100 céntimos → 300 céntimos."
+          "answer": "3000",
+          "correction": "1 kg = 1000 g → 3000 g."
         },
         {
-          "id": "q4",
+          "id": "qm3",
+          "type": "mcq",
+          "prompt": "Convertis 4 kg en g.",
+          "options": [
+            "3800",
+            "4314",
+            "4000",
+            "4137"
+          ],
+          "answer": "4000",
+          "correction": "1 kg = 1000 g → 4000 g."
+        },
+        {
+          "id": "qm4",
+          "type": "mcq",
+          "prompt": "Convertis 5 kg en g.",
+          "options": [
+            "4800",
+            "5314",
+            "5000",
+            "5137"
+          ],
+          "answer": "5000",
+          "correction": "1 kg = 1000 g → 5000 g."
+        },
+        {
+          "id": "qm5",
+          "type": "mcq",
+          "prompt": "Convertis 6 kg en g.",
+          "options": [
+            "5800",
+            "6314",
+            "6000",
+            "6137"
+          ],
+          "answer": "6000",
+          "correction": "1 kg = 1000 g → 6000 g."
+        },
+        {
+          "id": "qm6",
+          "type": "mcq",
+          "prompt": "Convertis 7 kg en g.",
+          "options": [
+            "6800",
+            "7314",
+            "7000",
+            "7137"
+          ],
+          "answer": "7000",
+          "correction": "1 kg = 1000 g → 7000 g."
+        },
+        {
+          "id": "qm7",
+          "type": "mcq",
+          "prompt": "Convertis 8 kg en g.",
+          "options": [
+            "7800",
+            "8314",
+            "8000",
+            "8137"
+          ],
+          "answer": "8000",
+          "correction": "1 kg = 1000 g → 8000 g."
+        },
+        {
+          "id": "qm8",
+          "type": "mcq",
+          "prompt": "Convertis 9 kg en g.",
+          "options": [
+            "8800",
+            "9314",
+            "9000",
+            "9137"
+          ],
+          "answer": "9000",
+          "correction": "1 kg = 1000 g → 9000 g."
+        },
+        {
+          "id": "qm9",
           "type": "mcq",
           "prompt": "Convertis 1 m en cm.",
           "options": [
-            "90",
-            "101",
-            "120",
-            "100"
-          ],
-          "answer": "100",
-          "correction": "1 m = 100 cm → 100 cm.",
-          "prompt_nl": "Zet 1 m om naar cm.",
-          "prompt_en": "Convert 1 m to cm.",
-          "prompt_es": "Convierte 1 m a cm.",
-          "correction_nl": "1 m = 100 cm → 100 cm.",
-          "correction_en": "1 m = 100 cm → 100 cm.",
-          "correction_es": "1 m = 100 cm → 100 cm."
-        },
-        {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "Convertis 7 € en centimes.",
-          "answer": "700",
-          "accept": [
-            "700",
-            "700 centimes",
-            "700 c"
-          ],
-          "correction": "1 € = 100 c → 700 centimes.",
-          "prompt_nl": "Zet 7 € om naar centen.",
-          "prompt_en": "Convert 7 € to cents.",
-          "prompt_es": "Convierte 7 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 700 cent.",
-          "correction_en": "1 € = 100 cents → 700 cents.",
-          "correction_es": "1 € = 100 céntimos → 700 céntimos."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Convertis 4 € en centimes.",
-          "options": [
-            "400",
-            "407",
-            "475",
-            "377"
-          ],
-          "answer": "400",
-          "correction": "1 € = 100 c → 400 centimes.",
-          "prompt_nl": "Zet 4 € om naar centen.",
-          "prompt_en": "Convert 4 € to cents.",
-          "prompt_es": "Convierte 4 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 400 cent.",
-          "correction_en": "1 € = 100 cents → 400 cents.",
-          "correction_es": "1 € = 100 céntimos → 400 céntimos."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "Convertis 4 € en centimes.",
-          "options": [
-            "400",
-            "444",
-            "385",
-            "456"
-          ],
-          "answer": "400",
-          "correction": "1 € = 100 c → 400 centimes.",
-          "prompt_nl": "Zet 4 € om naar centen.",
-          "prompt_en": "Convert 4 € to cents.",
-          "prompt_es": "Convierte 4 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 400 cent.",
-          "correction_en": "1 € = 100 cents → 400 cents.",
-          "correction_es": "1 € = 100 céntimos → 400 céntimos."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Convertis 4 m en cm.",
-          "answer": "400",
-          "accept": [
-            "400",
-            "400 cm"
-          ],
-          "correction": "1 m = 100 cm → 400 cm.",
-          "prompt_nl": "Zet 4 m om naar cm.",
-          "prompt_en": "Convert 4 m to cm.",
-          "prompt_es": "Convierte 4 m a cm.",
-          "correction_nl": "1 m = 100 cm → 400 cm.",
-          "correction_en": "1 m = 100 cm → 400 cm.",
-          "correction_es": "1 m = 100 cm → 400 cm."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "Convertis 1 € en centimes.",
-          "options": [
-            "107",
-            "105",
+            "69",
+            "124",
             "100",
-            "118"
+            "117"
           ],
           "answer": "100",
-          "correction": "1 € = 100 c → 100 centimes.",
-          "prompt_nl": "Zet 1 € om naar centen.",
-          "prompt_en": "Convert 1 € to cents.",
-          "prompt_es": "Convierte 1 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 100 cent.",
-          "correction_en": "1 € = 100 cents → 100 cents.",
-          "correction_es": "1 € = 100 céntimos → 100 céntimos."
+          "correction": "1 m = 100 cm → 100 cm."
         },
         {
-          "id": "q10",
+          "id": "qm10",
           "type": "mcq",
-          "prompt": "Convertis 9 € en centimes.",
+          "prompt": "Convertis 2 m en cm.",
           "options": [
-            "822",
-            "782",
-            "900",
-            "1071"
+            "169",
+            "224",
+            "200",
+            "217"
           ],
-          "answer": "900",
-          "correction": "1 € = 100 c → 900 centimes.",
-          "prompt_nl": "Zet 9 € om naar centen.",
-          "prompt_en": "Convert 9 € to cents.",
-          "prompt_es": "Convierte 9 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 900 cent.",
-          "correction_en": "1 € = 100 cents → 900 cents.",
-          "correction_es": "1 € = 100 céntimos → 900 céntimos."
+          "answer": "200",
+          "correction": "1 m = 100 cm → 200 cm."
         }
       ]
     },

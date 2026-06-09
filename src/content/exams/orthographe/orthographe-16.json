@@ -107,114 +107,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "fromage",
+            "fromaje",
+            "frommage"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "fromage",
+          "correction": "On écrit « fromage » avec un seul « m »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : bête_",
+          "answer": "s",
+          "accept": [
+            "s"
+          ],
+          "correction": "On écrit « bêtes » (pluriel) avec un « s »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "balançoire",
+            "balancoire",
+            "balançouire"
+          ],
+          "answer": "balançoire",
+          "correction": "On écrit « balançoire » avec une cédille sous le « ç »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "tornade",
+            "tornàde",
+            "tornnade"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "tornade",
+          "correction": "On écrit « tornade » avec un seul « n » et sans accent."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « ficelle » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « ficelle » s'écrit avec deux « l »."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
+          "prompt": "Complète le mot : bon_et",
+          "answer": "n",
           "accept": [
-            "d"
+            "n"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "correction": "On écrit « bonnet » avec deux « n »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "fourmi",
+            "fourmy",
+            "formi"
+          ],
+          "answer": "fourmi",
+          "correction": "On écrit « fourmi » avec « our » et « mi »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "chevreau",
+            "chevraux",
+            "chèvreau"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "chevreau",
+          "correction": "On écrit « chevreau » avec « eau »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « chèque » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « chèque » s'écrit avec un accent grave sur le « è »."
         },
         {
           "id": "q10",
           "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
+          "prompt": "Complète le mot : val_se",
+          "answer": "i",
           "accept": [
-            "a"
+            "i"
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "bateau",
-            "batau",
-            "bato"
-          ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
-        },
-        {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
-          ],
-          "correction": "On écrit « maison » (lettre « a »)."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fille",
-            "file",
-            "fiye"
-          ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
-        },
-        {
-          "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
-          ],
-          "correction": "On écrit « voiture » (lettre « u »)."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "chambre",
-            "chanbre",
-            "chambr"
-          ],
-          "answer": "chambre",
-          "correction": "On écrit « chambre »."
+          "correction": "On écrit « valise » avec un « i »."
         }
       ]
     },
@@ -224,110 +218,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « ê » (accent circonflexe sur e) ?",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "bête",
+            "ficelle",
+            "bonnet"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "bête",
+          "correction": "Bête s'écrit b-ê-t-e avec un accent circonflexe."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
+          "options": [
+            "ficelle",
+            "ficel",
+            "bonnet"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "ficel",
+          "correction": "Le mot correct est « ficelle » : f-i-c-e-l-l-e."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe : Il porte un ___ sur la tête.",
+          "options": [
+            "bonnet",
+            "bonet",
+            "bonnette"
           ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
+          "answer": "bonnet",
+          "correction": "Bonnet s'écrit b-o-n-n-e-t avec deux « n »."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot contient « è » (accent grave) ?",
+          "options": [
+            "chèque",
+            "ficelle",
+            "bête"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "chèque",
+          "correction": "Chèque s'écrit c-h-è-q-u-e avec un accent grave."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Identifie la faute :",
+          "options": [
+            "valse",
+            "vallse",
+            "ficelle"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "vallse",
+          "correction": "Le mot correct est « valse » : v-a-l-s-e (un seul « l »)."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot a un double « n » ?",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "bonnet",
+            "ficelle",
+            "valse"
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "bonnet",
+          "correction": "Bonnet s'écrit b-o-n-n-e-t avec deux « n »."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ta_le",
-          "answer": "b",
-          "accept": [
-            "b"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « qu » ?",
+          "options": [
+            "chèque",
+            "bête",
+            "bonnet"
           ],
-          "correction": "On écrit « table » (lettre « b »)."
+          "answer": "chèque",
+          "correction": "Chèque s'écrit c-h-è-q-u-e."
         },
         {
           "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "options": [
+            "La bête porte un bonnet.",
+            "La bete porte un bonet.",
+            "La bête porte un bonnet."
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "La bête porte un bonnet.",
+          "correction": "Bête = ê, bonnet = deux n."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient « ll » (double l) ?",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "ficelle",
+            "bête",
+            "valse"
           ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "answer": "ficelle",
+          "correction": "Ficelle s'écrit f-i-c-e-l-l-e."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "chèque",
+            "chéque",
+            "ficelle"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "chéque",
+          "correction": "Le mot correct est « chèque » avec un accent grave : c-h-è-q-u-e."
         }
       ]
     }

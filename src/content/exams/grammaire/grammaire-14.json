@@ -108,117 +108,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le pluriel de « un gateau » :",
+          "prompt": "Dans « Lena mange une pomme », le COD est :",
           "options": [
-            "des gâteaux",
-            "des gâteaus",
-            "des gateau"
+            "une pomme",
+            "Lena",
+            "mange"
           ],
-          "answer": "des gâteaux",
-          "correction": "Pluriel : des gâteaux."
+          "answer": "une pomme",
+          "correction": "COD : quoi ? → une pomme."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "Dans « Paul parle à sa mère », le COI est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "à sa mère",
+            "Paul",
+            "parle"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "à sa mère",
+          "correction": "COI : à qui ? → à sa mère."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "« courir » est un :",
+          "prompt": "La forme féminine de « joli » est :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "jolie",
+            "jolis",
+            "jolies"
           ],
-          "answer": "verbe",
-          "correction": "« courir » est un verbe."
+          "answer": "jolie",
+          "correction": "Féminin singulier : jolie."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "La forme féminine de « grand » est :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "grande",
+            "grands",
+            "grand"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "grande",
+          "correction": "Féminin : grande."
         },
         {
-          "id": "q10",
-          "type": "true_false",
-          "prompt": "« maison » est un nom.",
-          "answer": true,
-          "correction": "« maison » est un nom."
-        },
-        {
-          "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Le pluriel de « un chien » est « des ___ ».",
-          "answer": "chiens",
-          "accept": [
-            "chiens"
-          ],
-          "correction": "On ajoute un « s »."
-        },
-        {
-          "id": "q14",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "interrogative",
+            "exclamative",
+            "déclarative"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "interrogative",
+          "correction": "Elle pose une question : phrase interrogative."
         },
         {
-          "id": "q16",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "« sauter » est un :",
+          "prompt": "« Quel beau tableau ! » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "exclamative",
+            "interrogative",
+            "impérative"
           ],
-          "answer": "verbe",
-          "correction": "« sauter » est un verbe."
+          "answer": "exclamative",
+          "correction": "Elle exprime une émotion : phrase exclamative."
         },
         {
-          "id": "q18",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
+          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
           "options": [
-            "grand",
-            "chien",
-            "le"
+            "COI",
+            "COD",
+            "sujet"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "COI",
+          "correction": "Lui = à lui/à elle → COI."
         },
         {
-          "id": "q20",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "La forme plurielle de « un cheval joyeux » est :",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "des chevaux joyeux",
+            "des chevals joyeux",
+            "des cheval joyeux"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "des chevaux joyeux",
+          "correction": "Pluriel de cheval → chevaux."
+        },
+        {
+          "id": "q17",
+          "type": "mcq",
+          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "options": [
+            "un complément d'objet direct",
+            "un COI",
+            "le sujet"
+          ],
+          "answer": "un complément d'objet direct",
+          "correction": "Le = COD."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "options": [
+            "Il dit qu'il mange.",
+            "Il dit que je mange.",
+            "Il dit qu'il a mangé."
+          ],
+          "answer": "Il dit qu'il mange.",
+          "correction": "Discours indirect au présent."
         }
       ]
     },

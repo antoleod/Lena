@@ -113,117 +113,312 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Dans quelle ville se trouve le Colisée ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "Rome",
+            "Athènes",
+            "Paris",
+            "Madrid"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "Rome",
+          "correction": "Le Colisée est un amphithéâtre antique situé à Rome, en Italie.",
+          "prompt_nl": "In welke stad staat het Colosseum?",
+          "prompt_en": "In which city is the Colosseum?",
+          "prompt_es": "En que ciudad esta el Coliseo?",
+          "options_i18n": {
+            "nl": [
+              "Rome",
+              "Athene",
+              "Parijs",
+              "Madrid"
+            ],
+            "en": [
+              "Rome",
+              "Athens",
+              "Paris",
+              "Madrid"
+            ],
+            "es": [
+              "Roma",
+              "Atenas",
+              "Paris",
+              "Madrid"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "true_false",
+          "prompt": "La Méditerranée est une mer.",
+          "answer": true,
+          "correction": "La mer Méditerranée est une mer intérieure entourée par l'Europe, l'Afrique et l'Asie.",
+          "prompt_nl": "De Middellandse Zee is een zee.",
+          "prompt_en": "The Mediterranean is a sea.",
+          "prompt_es": "El Mediterraneo es un mar."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quel pays est le plus grand du monde ?",
+          "options": [
+            "la Russie",
+            "le Canada",
+            "la Chine",
+            "les États-Unis"
+          ],
+          "answer": "la Russie",
+          "correction": "La Russie est le plus grand pays du monde par sa superficie.",
+          "prompt_nl": "Welk land is het grootste ter wereld?",
+          "prompt_en": "Which country is the largest in the world?",
+          "prompt_es": "Que pais es el mas grande del mundo?",
+          "options_i18n": {
+            "nl": [
+              "Rusland",
+              "Canada",
+              "China",
+              "de Verenigde Staten"
+            ],
+            "en": [
+              "Russia",
+              "Canada",
+              "China",
+              "the United States"
+            ],
+            "es": [
+              "Rusia",
+              "Canada",
+              "China",
+              "Estados Unidos"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Une île est une terre entourée de :",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "eau",
+            "montagnes",
+            "forêts",
+            "désert"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "eau",
+          "correction": "Une île est une étendue de terre entièrement entourée d'eau.",
+          "prompt_nl": "Een eiland is een stuk land omgeven door:",
+          "prompt_en": "An island is a piece of land surrounded by:",
+          "prompt_es": "Una isla es una tierra rodeada de:",
+          "options_i18n": {
+            "nl": [
+              "water",
+              "bergen",
+              "bossen",
+              "woestijn"
+            ],
+            "en": [
+              "water",
+              "mountains",
+              "forests",
+              "desert"
+            ],
+            "es": [
+              "agua",
+              "montanas",
+              "bosques",
+              "desierto"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "La langue officielle du Mexique est :",
+          "options": [
+            "l'espagnol",
+            "le portugais",
+            "le français",
+            "l'anglais"
+          ],
+          "answer": "l'espagnol",
+          "correction": "Le Mexique est un pays hispanophone d'Amérique centrale.",
+          "prompt_nl": "De officiele taal van Mexico is:",
+          "prompt_en": "The official language of Mexico is:",
+          "prompt_es": "El idioma oficial de Mexico es:",
+          "options_i18n": {
+            "nl": [
+              "Spaans",
+              "Portugees",
+              "Frans",
+              "Engels"
+            ],
+            "en": [
+              "Spanish",
+              "Portuguese",
+              "French",
+              "English"
+            ],
+            "es": [
+              "espanol",
+              "portugues",
+              "frances",
+              "ingles"
+            ]
+          }
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "true_false",
+          "prompt": "En Scandinavie, les hivers sont longs et très froids.",
+          "answer": true,
+          "correction": "Les pays scandinaves ont des hivers très froids et de longues nuits polaires.",
+          "prompt_nl": "In Scandinavie zijn de winters lang en erg koud.",
+          "prompt_en": "In Scandinavia, winters are long and very cold.",
+          "prompt_es": "En Escandinavia, los inviernos son largos y muy frios."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quel continent est le plus peuplé ?",
+          "options": [
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe",
+            "l'Amérique"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "l'Asie",
+          "correction": "L'Asie est le continent le plus peuplé avec plus de 4 milliards d'habitants.",
+          "prompt_nl": "Welk continent is het meest bevolkt?",
+          "prompt_en": "Which continent is the most populated?",
+          "prompt_es": "Que continente es el mas poblado?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Afrika",
+              "Europa",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Africa",
+              "Europe",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Africa",
+              "Europa",
+              "America"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Les Alpes sont :",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "une chaîne de montagnes",
+            "un fleuve",
+            "une mer",
+            "un désert"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "une chaîne de montagnes",
+          "correction": "Les Alpes sont la plus grande chaîne de montagnes d'Europe.",
+          "prompt_nl": "De Alpen zijn:",
+          "prompt_en": "The Alps are:",
+          "prompt_es": "Los Alpes son:",
+          "options_i18n": {
+            "nl": [
+              "een bergketen",
+              "een rivier",
+              "een zee",
+              "een woestijn"
+            ],
+            "en": [
+              "a mountain range",
+              "a river",
+              "a sea",
+              "a desert"
+            ],
+            "es": [
+              "una cadena montanosa",
+              "un rio",
+              "un mar",
+              "un desierto"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Japon ?",
+          "options": [
+            "Asie",
+            "Europe",
+            "Océanie",
+            "Amérique"
+          ],
+          "answer": "Asie",
+          "correction": "Le Japon est un archipel situé en Asie de l'Est.",
+          "prompt_nl": "Op welk continent ligt Japan?",
+          "prompt_en": "On which continent is Japan located?",
+          "prompt_es": "En que continente se encuentra Japon?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Europa",
+              "Oceanie",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Europe",
+              "Oceania",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Europa",
+              "Oceania",
+              "America"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Quelle est la capitale de l'Australie ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "Canberra",
+            "Sydney",
+            "Melbourne",
+            "Brisbane"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le boulanger fait le :",
-          "options": [
-            "pain",
-            "lait",
-            "bois"
-          ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "On trie les déchets pour :",
-          "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
-          ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
-          "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
-          ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
-          "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
-          ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
-        },
-        {
-          "id": "q20",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "answer": "Canberra",
+          "correction": "Canberra est la capitale de l'Australie.",
+          "prompt_nl": "Wat is de hoofdstad van Australie?",
+          "prompt_en": "What is the capital of Australia?",
+          "prompt_es": "Cual es la capital de Australia?",
+          "options_i18n": {
+            "nl": [
+              "Canberra",
+              "Sydney",
+              "Melbourne",
+              "Brisbane"
+            ],
+            "en": [
+              "Canberra",
+              "Sydney",
+              "Melbourne",
+              "Brisbane"
+            ],
+            "es": [
+              "Canberra",
+              "Sidney",
+              "Melbourne",
+              "Brisbane"
+            ]
+          }
         }
       ]
     },

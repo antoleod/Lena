@@ -103,117 +103,364 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la capitale du Canada ?",
+          "options": [
+            "Ottawa",
+            "Toronto",
+            "Montréal",
+            "Vancouver"
+          ],
+          "answer": "Ottawa",
+          "correction": "Ottawa est la capitale fédérale du Canada.",
+          "prompt_nl": "Wat is de hoofdstad van Canada?",
+          "prompt_en": "What is the capital of Canada?",
+          "prompt_es": "Cual es la capital de Canada?",
+          "options_i18n": {
+            "nl": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ],
+            "en": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ],
+            "es": [
+              "Ottawa",
+              "Toronto",
+              "Montreal",
+              "Vancouver"
+            ]
+          }
+        },
+        {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le dentiste soigne :",
+          "prompt": "La capitale de la France est :",
           "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
+            "Paris",
+            "Lyon",
+            "Marseille",
+            "Bordeaux"
           ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
+          "answer": "Paris",
+          "correction": "Paris est la capitale de la France.",
+          "prompt_nl": "De hoofdstad van Frankrijk is:",
+          "prompt_en": "The capital of France is:",
+          "prompt_es": "La capital de Francia es:",
+          "options_i18n": {
+            "nl": [
+              "Parijs",
+              "Lyon",
+              "Marseille",
+              "Bordeaux"
+            ],
+            "en": [
+              "Paris",
+              "Lyon",
+              "Marseille",
+              "Bordeaux"
+            ],
+            "es": [
+              "Paris",
+              "Lyon",
+              "Marsella",
+              "Burdeos"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "La capitale de l'Espagne est :",
+          "options": [
+            "Madrid",
+            "Barcelone",
+            "Séville",
+            "Valence"
+          ],
+          "answer": "Madrid",
+          "correction": "Madrid est la capitale de l'Espagne.",
+          "prompt_nl": "De hoofdstad van Spanje is:",
+          "prompt_en": "The capital of Spain is:",
+          "prompt_es": "La capital de Espana es:",
+          "options_i18n": {
+            "nl": [
+              "Madrid",
+              "Barcelona",
+              "Sevilla",
+              "Valencia"
+            ],
+            "en": [
+              "Madrid",
+              "Barcelona",
+              "Seville",
+              "Valencia"
+            ],
+            "es": [
+              "Madrid",
+              "Barcelona",
+              "Sevilla",
+              "Valencia"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "La capitale de l'Italie est :",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "Rome",
+            "Milan",
+            "Naples",
+            "Florence"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "Rome",
+          "correction": "Rome est la capitale de l'Italie.",
+          "prompt_nl": "De hoofdstad van Italie is:",
+          "prompt_en": "The capital of Italy is:",
+          "prompt_es": "La capital de Italia es:",
+          "options_i18n": {
+            "nl": [
+              "Rome",
+              "Milaan",
+              "Napels",
+              "Florence"
+            ],
+            "en": [
+              "Rome",
+              "Milan",
+              "Naples",
+              "Florence"
+            ],
+            "es": [
+              "Roma",
+              "Milan",
+              "Napoles",
+              "Florencia"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "prompt": "La capitale de l'Allemagne est :",
+          "options": [
+            "Berlin",
+            "Munich",
+            "Hambourg",
+            "Cologne"
+          ],
+          "answer": "Berlin",
+          "correction": "Berlin est la capitale de l'Allemagne.",
+          "prompt_nl": "De hoofdstad van Duitsland is:",
+          "prompt_en": "The capital of Germany is:",
+          "prompt_es": "La capital de Alemania es:",
+          "options_i18n": {
+            "nl": [
+              "Berlijn",
+              "München",
+              "Hamburg",
+              "Keulen"
+            ],
+            "en": [
+              "Berlin",
+              "Munich",
+              "Hamburg",
+              "Cologne"
+            ],
+            "es": [
+              "Berlin",
+              "Munich",
+              "Hamburgo",
+              "Colonia"
+            ]
+          }
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "La capitale de la Belgique est :",
+          "options": [
+            "Bruxelles",
+            "Bruges",
+            "Gand",
+            "Liège"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique.",
+          "prompt_nl": "De hoofdstad van Belgie is:",
+          "prompt_en": "The capital of Belgium is:",
+          "prompt_es": "La capital de Belgica es:",
+          "options_i18n": {
+            "nl": [
+              "Brussel",
+              "Brugge",
+              "Gent",
+              "Luik"
+            ],
+            "en": [
+              "Brussels",
+              "Bruges",
+              "Ghent",
+              "Liège"
+            ],
+            "es": [
+              "Bruselas",
+              "Brujas",
+              "Gante",
+              "Lieja"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "La capitale des Pays-Bas est :",
+          "options": [
+            "Amsterdam",
+            "Rotterdam",
+            "Utrecht",
+            "La Haye"
+          ],
+          "answer": "Amsterdam",
+          "correction": "Amsterdam est la capitale des Pays-Bas.",
+          "prompt_nl": "De hoofdstad van Nederland is:",
+          "prompt_en": "The capital of the Netherlands is:",
+          "prompt_es": "La capital de los Paises Bajos es:",
+          "options_i18n": {
+            "nl": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "Den Haag"
+            ],
+            "en": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "The Hague"
+            ],
+            "es": [
+              "Amsterdam",
+              "Rotterdam",
+              "Utrecht",
+              "La Haya"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "La capitale du Royaume-Uni est :",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "Londres",
+            "Manchester",
+            "Birmingham",
+            "Édimbourg"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "Londres",
+          "correction": "Londres est la capitale du Royaume-Uni.",
+          "prompt_nl": "De hoofdstad van het Verenigd Koninkrijk is:",
+          "prompt_en": "The capital of the United Kingdom is:",
+          "prompt_es": "La capital del Reino Unido es:",
+          "options_i18n": {
+            "nl": [
+              "Londen",
+              "Manchester",
+              "Birmingham",
+              "Edinburgh"
+            ],
+            "en": [
+              "London",
+              "Manchester",
+              "Birmingham",
+              "Edinburgh"
+            ],
+            "es": [
+              "Londres",
+              "Manchester",
+              "Birmingham",
+              "Edimburgo"
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Brésil ?",
+          "options": [
+            "Amérique du Sud",
+            "Afrique",
+            "Asie",
+            "Europe"
+          ],
+          "answer": "Amérique du Sud",
+          "correction": "Le Brésil est situé en Amérique du Sud.",
+          "prompt_nl": "Op welk continent ligt Brazilie?",
+          "prompt_en": "On which continent is Brazil located?",
+          "prompt_es": "En que continente se encuentra Brasil?",
+          "options_i18n": {
+            "nl": [
+              "Zuid-Amerika",
+              "Afrika",
+              "Azie",
+              "Europa"
+            ],
+            "en": [
+              "South America",
+              "Africa",
+              "Asia",
+              "Europe"
+            ],
+            "es": [
+              "America del Sur",
+              "Africa",
+              "Asia",
+              "Europa"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Sur quel continent se trouve la Chine ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "Asie",
+            "Europe",
+            "Afrique",
+            "Amérique"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
-          "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
-          ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
-        },
-        {
-          "id": "q14",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
-          "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
-          ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "En hiver, il fait :",
-          "options": [
-            "froid",
-            "très chaud",
-            "lourd"
-          ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
-          "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
-          ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "Asie",
+          "correction": "La Chine est située en Asie.",
+          "prompt_nl": "Op welk continent ligt China?",
+          "prompt_en": "On which continent is China located?",
+          "prompt_es": "En que continente se encuentra China?",
+          "options_i18n": {
+            "nl": [
+              "Azie",
+              "Europa",
+              "Afrika",
+              "Amerika"
+            ],
+            "en": [
+              "Asia",
+              "Europe",
+              "Africa",
+              "America"
+            ],
+            "es": [
+              "Asia",
+              "Europa",
+              "Africa",
+              "America"
+            ]
+          }
         }
       ]
     },
@@ -223,112 +470,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Qu'est-ce que la mondialisation ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "l'interdépendance croissante des économies et cultures à l'échelle mondiale",
+            "l'exportation de produits locaux",
+            "la politique d'un seul pays"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "l'interdépendance croissante des économies et cultures à l'échelle mondiale",
+          "correction": "La mondialisation touche le commerce, la communication et la culture."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Quel est le plus haut sommet du monde ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "l'Everest (8 849 m)",
+            "le K2 (8 611 m)",
+            "le Mont-Blanc (4 808 m)"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "l'Everest (8 849 m)",
+          "correction": "L'Everest est situé dans l'Himalaya, entre le Népal et la Chine."
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Qu'est-ce qu'un biome ?",
+          "options": [
+            "un grand ensemble d'écosystèmes partageant un même type de végétation",
+            "un seul écosystème",
+            "une espèce animale"
+          ],
+          "answer": "un grand ensemble d'écosystèmes partageant un même type de végétation",
+          "correction": "Ex. : la toundra, la taïga, la savane sont des biomes."
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Le commerce équitable vise à :",
+          "options": [
+            "garantir une juste rémunération aux producteurs du Sud",
+            "vendre des produits moins chers",
+            "protéger uniquement les producteurs européens"
+          ],
+          "answer": "garantir une juste rémunération aux producteurs du Sud",
+          "correction": "Le commerce équitable améliore les conditions des producteurs défavorisés."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Qu'est-ce qu'une ONG ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "une Organisation Non Gouvernementale",
+            "un organisme gouvernemental",
+            "une société commerciale"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "une Organisation Non Gouvernementale",
+          "correction": "Les ONG agissent dans les domaines humanitaire, environnemental, etc."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "Le PIL (Produit Intérieur Brut) mesure :",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "la valeur de tous les biens et services produits dans un pays",
+            "le bonheur des habitants",
+            "le niveau d'éducation"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "la valeur de tous les biens et services produits dans un pays",
+          "correction": "Le PIB est l'indicateur principal de la richesse économique d'un pays."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Qu'est-ce qu'un réfugié climatique ?",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "une personne déplacée par des catastrophes liées au climat",
+            "un touriste écologique",
+            "un scientifique du climat"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
+          "answer": "une personne déplacée par des catastrophes liées au climat",
+          "correction": "Les réfugiés climatiques fuient la montée des eaux, les sécheresses, etc."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "La Convention sur la biodiversité (CBD) a été signée en :",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "1992 à Rio de Janeiro",
+            "2015 à Paris",
+            "1987 à Montréal"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "1992 à Rio de Janeiro",
+          "correction": "La CBD est un traité international sur la conservation de la biodiversité."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Qu'est-ce qu'une mégapole ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "une ville de plus de 10 millions d'habitants",
+            "une ville avec un grand port",
+            "une capitale nationale"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "une ville de plus de 10 millions d'habitants",
+          "correction": "Ex. : Tokyo, Mumbai, São Paulo, Mexico sont des mégapoles."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "L'acidification des océans est causée par :",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "l'absorption du CO₂ par les mers",
+            "la pollution plastique",
+            "les déversements pétroliers"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "l'absorption du CO₂ par les mers",
+          "correction": "Les océans absorbent environ 30 % du CO₂ émis, se acidifiant progressivement."
         }
       ]
     }

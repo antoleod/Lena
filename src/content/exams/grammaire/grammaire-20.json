@@ -108,119 +108,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "Dans « Lena mange une pomme », le COD est :",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "une pomme",
+            "Lena",
+            "mange"
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "une pomme",
+          "correction": "COD : quoi ? → une pomme."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "« courir » est un :",
+          "prompt": "Dans « Paul parle à sa mère », le COI est :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "à sa mère",
+            "Paul",
+            "parle"
           ],
-          "answer": "verbe",
-          "correction": "« courir » est un verbe."
+          "answer": "à sa mère",
+          "correction": "COI : à qui ? → à sa mère."
         },
         {
-          "id": "q6",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "« rouge » est un :",
+          "prompt": "La forme féminine de « joli » est :",
           "options": [
-            "adjectif",
-            "nom",
-            "verbe"
+            "jolie",
+            "jolis",
+            "jolies"
           ],
-          "answer": "adjectif",
-          "correction": "« rouge » décrit : adjectif."
+          "answer": "jolie",
+          "correction": "Féminin singulier : jolie."
         },
         {
-          "id": "q8",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Le pluriel de « un oiseau » :",
+          "prompt": "La forme féminine de « grand » est :",
           "options": [
-            "des oiseaux",
-            "des oiseau",
-            "des oiseaux"
+            "grande",
+            "grands",
+            "grand"
           ],
-          "answer": "des oiseaux",
-          "correction": "Pluriel : des oiseaux (eau → eaux)."
+          "answer": "grande",
+          "correction": "Féminin : grande."
         },
         {
-          "id": "q10",
-          "type": "true_false",
-          "prompt": "« maison » est un nom.",
-          "answer": true,
-          "correction": "« maison » est un nom."
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
+          "options": [
+            "interrogative",
+            "exclamative",
+            "déclarative"
+          ],
+          "answer": "interrogative",
+          "correction": "Elle pose une question : phrase interrogative."
         },
         {
-          "id": "q12",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "« Quel beau tableau ! » est une phrase :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "exclamative",
+            "interrogative",
+            "impérative"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "exclamative",
+          "correction": "Elle exprime une émotion : phrase exclamative."
         },
         {
-          "id": "q14",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "COI",
+            "COD",
+            "sujet"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "COI",
+          "correction": "Lui = à lui/à elle → COI."
         },
         {
-          "id": "q16",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "La forme plurielle de « un cheval joyeux » est :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "des chevaux joyeux",
+            "des chevals joyeux",
+            "des cheval joyeux"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "des chevaux joyeux",
+          "correction": "Pluriel de cheval → chevaux."
         },
         {
-          "id": "q18",
+          "id": "q17",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "Dans « Il le voit », que remplace « le » ?",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "un complément d'objet direct",
+            "un COI",
+            "le sujet"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "un complément d'objet direct",
+          "correction": "Le = COD."
         },
         {
-          "id": "q20",
+          "id": "q19",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "Il dit qu'il mange.",
+            "Il dit que je mange.",
+            "Il dit qu'il a mangé."
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "Il dit qu'il mange.",
+          "correction": "Discours indirect au présent."
         }
       ]
     },
@@ -230,117 +235,120 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "« un livre » est :",
+          "prompt": "Quel pronom remplace « à ce problème » dans « Je pense à ce problème » ?",
           "options": [
-            "masculin",
-            "féminin",
-            "pluriel"
+            "y",
+            "en",
+            "le"
           ],
-          "answer": "masculin",
-          "correction": "« un » → masculin."
+          "answer": "y",
+          "correction": "« y » remplace « à + chose »."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le pluriel de « un oiseau » :",
+          "prompt": "Dans « Les résultats que j'attendais sont décevants », quel est le mode du verbe de la relative ?",
           "options": [
-            "des oiseaux",
-            "des oiseau",
-            "des oiseaux"
+            "indicatif",
+            "subjonctif",
+            "conditionnel"
           ],
-          "answer": "des oiseaux",
-          "correction": "Pluriel : des oiseaux (eau → eaux)."
+          "answer": "indicatif",
+          "correction": "Après un antécédent réel, on emploie l'indicatif dans la relative."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
-          "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+          "type": "fill_blank",
+          "prompt": "Complète : « Elle s'est ___ de notre rendez-vous. » (se souvenir)",
+          "answer": "souvenue",
+          "accept": [
+            "souvenue"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "correction": "Se souvenir = verbe pronominal avec être → accord avec le sujet féminin."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "Dans « Je voudrais un café », le conditionnel exprime :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "une demande polie",
+            "un regret",
+            "une hypothèse impossible"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "une demande polie",
+          "correction": "Le conditionnel présent peut exprimer la politesse."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "Quel type de subordonnée est « pour qu'il guérisse » dans « Il prend des médicaments pour qu'il guérisse » ?",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "circonstancielle de but",
+            "circonstancielle de cause",
+            "complétive"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "circonstancielle de but",
+          "correction": "« Pour que » + subjonctif = but."
         },
         {
           "id": "q12",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
+          "type": "mcq",
+          "prompt": "Dans « On lui a remis un prix », quelle est la fonction de « lui » ?",
+          "options": [
+            "COI",
+            "COD",
+            "sujet"
+          ],
+          "answer": "COI",
+          "correction": "Remettre qqch à qqn → « lui » = COI."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "« Le président a signé le traité » à la voix passive devient :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "Le traité a été signé par le président.",
+            "Le traité signe le président.",
+            "Le président est signé par le traité."
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "Le traité a été signé par le président.",
+          "correction": "COD → sujet ; sujet → complément d'agent avec « par »."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le pluriel de « un gateau » :",
+          "prompt": "Dans « Dès qu'elle eut compris, elle agit », quel est le temps de la subordonnée ?",
           "options": [
-            "des gâteaux",
-            "des gâteaus",
-            "des gateau"
+            "passé antérieur",
+            "passé composé",
+            "plus-que-parfait"
           ],
-          "answer": "des gâteaux",
-          "correction": "Pluriel : des gâteaux."
+          "answer": "passé antérieur",
+          "correction": "Passé antérieur = auxiliaire au passé simple + participe passé."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "Dans « À supposer qu'il vienne, que ferons-nous ? », le mode est :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "subjonctif",
+            "indicatif",
+            "conditionnel"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "subjonctif",
+          "correction": "« À supposer que » impose le subjonctif."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "Quel adverbe ne peut pas être mis en degré de comparaison ?",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "là",
+            "vite",
+            "fort"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "là",
+          "correction": "Les adverbes de lieu comme « là » ne se comparent pas."
         }
       ]
     }

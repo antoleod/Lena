@@ -103,114 +103,109 @@
       "passPercent": 60,
       "questions": [
         {
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Si aujourd’hui c’est jeudi, quel jour sera-t-il dans 11 jours ?",
+          "options": [
+            "lundi",
+            "dimanche",
+            "mardi"
+          ],
+          "answer": "lundi",
+          "correction": "Jeudi + 11 jours = jeudi + 1 semaine + 4 jours = lundi."
+        },
+        {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
+          "prompt": "3 heures = ___ minutes.",
+          "answer": "180",
+          "correction": "3 × 60 = 180 minutes."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Combien de jours y a-t-il en 10 semaines ?",
+          "options": [
+            "70",
+            "63",
+            "77"
+          ],
+          "answer": "70",
+          "correction": "10 × 7 = 70 jours."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Combien y a-t-il de semaines dans 84 jours ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "12",
+            "11",
+            "13"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "12",
+          "correction": "84 ÷ 7 = 12 semaines."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "10 semaines = 70 jours.",
+          "answer": true,
+          "correction": "10 × 7 = 70 jours."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Combien de jours entre le 8 et le 29 d’un mois ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "21",
+            "22",
+            "20"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "21",
+          "correction": "Du 8 au 29 = 21 jours."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quel mois vient juste après novembre ?",
+          "options": [
+            "décembre",
+            "octobre",
+            "janvier"
+          ],
+          "answer": "décembre",
+          "correction": "Après novembre (11e mois) vient décembre (12e mois)."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Si une balade commence à 14h30 et dure 2 heures, elle finit à :",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "16h30",
+            "16h",
+            "17h"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "16h30",
+          "correction": "14h30 + 2 heures = 16h30."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Lequel vient en dernier dans l’année ?",
+          "options": [
+            "septembre",
+            "mars",
+            "juin"
+          ],
+          "answer": "septembre",
+          "correction": "Septembre est le 9e mois, après mars (3e) et juin (6e)."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
-          "options": [
-            "été",
-            "hiver",
-            "automne"
-          ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
-          "options": [
-            "4",
-            "2",
-            "6"
-          ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
-          "options": [
-            "hiver",
-            "été",
-            "printemps"
-          ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Noël est au mois de :",
-          "options": [
-            "décembre",
-            "juillet",
-            "mars"
-          ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
-          "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
-          ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
-        },
-        {
-          "id": "q20",
           "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
+          "prompt": "12 semaines = 84 jours.",
           "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "correction": "12 × 7 = 84 jours."
         }
       ]
     },
@@ -218,114 +213,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
-        },
-        {
-          "id": "q4",
+          "id": "dq1",
           "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
+          "prompt": "Une activité commence à 13h30 et dure 2h15. À quelle heure se termine-t-elle ?",
           "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
+            "15h30",
+            "15h45",
+            "16h00",
+            "16h15"
           ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
+          "answer": "15h45",
+          "correction": "13h30 + 2h15 = 15h45."
         },
         {
-          "id": "q6",
+          "id": "dq2",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Un séjour de 3 semaines commence le 1er juillet. À quelle date se termine-t-il ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "19 juillet",
+            "21 juillet",
+            "22 juillet",
+            "23 juillet"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "21 juillet",
+          "correction": "3 semaines = 21 jours. 1er juillet + 21 jours = 22 juillet... le dernier jour est le 21 juillet."
         },
         {
-          "id": "q8",
+          "id": "dq3",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Si le 1er janvier est un mercredi, quel jour de la semaine sera le 8 janvier ?",
           "options": [
-            "7",
-            "5",
-            "10"
-          ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
-          "options": [
-            "hiver",
-            "été",
-            "printemps"
-          ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Noël est au mois de :",
-          "options": [
-            "décembre",
-            "juillet",
-            "mars"
-          ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
-          "options": [
-            "4",
-            "2",
-            "6"
-          ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
-          "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
-          ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
-        },
-        {
-          "id": "q18",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
-          "options": [
+            "lundi",
             "mardi",
-            "dimanche",
+            "mercredi",
             "jeudi"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "mercredi",
+          "correction": "7 jours plus tard, c'est le même jour de la semaine : mercredi."
+        },
+        {
+          "id": "dq4",
+          "type": "mcq",
+          "prompt": "Un voyage en train part à 6h45 et arrive 4h30 plus tard. À quelle heure arrive-t-on ?",
+          "options": [
+            "10h45",
+            "11h00",
+            "11h15",
+            "11h30"
+          ],
+          "answer": "11h15",
+          "correction": "6h45 + 4h30 = 11h15."
+        },
+        {
+          "id": "dq5",
+          "type": "mcq",
+          "prompt": "Léa fête son anniversaire le 20 mars. Aujourd'hui c'est le 5 mars. Dans combien de jours est son anniversaire ?",
+          "options": [
+            "12",
+            "14",
+            "15",
+            "16"
+          ],
+          "answer": "15",
+          "correction": "Du 5 au 20 mars = 15 jours."
+        },
+        {
+          "id": "dq6",
+          "type": "mcq",
+          "prompt": "Le spectacle est le 10 avril. Aujourd'hui c'est le 28 mars. Dans combien de jours est le spectacle ?",
+          "options": [
+            "10",
+            "12",
+            "13",
+            "14"
+          ],
+          "answer": "13",
+          "correction": "Du 28 mars au 10 avril : 3 jours en mars + 10 jours en avril = 13 jours."
+        },
+        {
+          "id": "dq7",
+          "type": "mcq",
+          "prompt": "Les vacances commencent le 1er juillet. Aujourd'hui c'est le 18 juin. Dans combien de jours sont les vacances ?",
+          "options": [
+            "11",
+            "12",
+            "13",
+            "14"
+          ],
+          "answer": "13",
+          "correction": "Du 18 juin au 1er juillet : 12 jours en juin + 1 jour = 13 jours."
+        },
+        {
+          "id": "dq8",
+          "type": "mcq",
+          "prompt": "La fête de l'école est le 15 mai. Aujourd'hui c'est le 29 avril. Dans combien de jours est la fête ?",
+          "options": [
+            "14",
+            "15",
+            "16",
+            "17"
+          ],
+          "answer": "16",
+          "correction": "Du 29 avril au 15 mai : 1 jour en avril + 15 jours en mai = 16 jours."
+        },
+        {
+          "id": "dq9",
+          "type": "mcq",
+          "prompt": "Le match est le 3 octobre. Aujourd'hui c'est le 25 septembre. Dans combien de jours est le match ?",
+          "options": [
+            "7",
+            "8",
+            "9",
+            "10"
+          ],
+          "answer": "8",
+          "correction": "Du 25 septembre au 3 octobre : 5 jours en septembre + 3 jours = 8 jours."
+        },
+        {
+          "id": "dq10",
+          "type": "mcq",
+          "prompt": "La sortie scolaire est le 22 novembre. Aujourd'hui c'est le 8 novembre. Dans combien de jours est la sortie ?",
+          "options": [
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "answer": "14",
+          "correction": "Du 8 novembre au 22 novembre = 14 jours."
         }
       ]
     }

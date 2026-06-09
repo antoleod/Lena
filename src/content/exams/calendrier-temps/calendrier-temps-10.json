@@ -113,124 +113,109 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Si aujourd’hui c’est mardi, quel jour était-il avant-hier ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "dimanche",
+            "lundi",
+            "samedi"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "dimanche",
+          "correction": "Avant-hier (2 jours avant mardi) = dimanche."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "6 semaines = ___ jours.",
+          "answer": "42",
+          "correction": "6 × 7 = 42 jours."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Combien de minutes y a-t-il dans 4 heures ?",
+          "options": [
+            "240",
+            "180",
+            "300"
+          ],
+          "answer": "240",
+          "correction": "4 × 60 = 240 minutes."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Combien y a-t-il de semaines dans 42 jours ?",
           "options": [
-            "12",
-            "10",
+            "6",
+            "5",
             "7"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "6",
+          "correction": "42 ÷ 7 = 6 semaines."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "6 semaines = 42 jours.",
+          "answer": true,
+          "correction": "6 × 7 = 42 jours."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Du lundi au vendredi, combien y a-t-il de jours d’école ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "5",
+            "4",
+            "7"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "5",
+          "correction": "Lundi, mardi, mercredi, jeudi, vendredi = 5 jours."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quel mois vient juste avant juillet ?",
+          "options": [
+            "juin",
+            "mai",
+            "août"
+          ],
+          "answer": "juin",
+          "correction": "Avant juillet (7e mois) vient juin (6e mois)."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Si un match commence à 17h et dure 1 heure 30 minutes, il finit à :",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "18h30",
+            "18h",
+            "19h"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "18h30",
+          "correction": "17h + 1h30 = 18h30."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "prompt": "Lequel vient en premier dans l’année ?",
+          "options": [
+            "mai",
+            "août",
+            "novembre"
+          ],
+          "answer": "mai",
+          "correction": "Mai est le 5e mois, avant août (8e) et novembre (11e)."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
-          "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
-          ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Noël est au mois de :",
-          "options": [
-            "décembre",
-            "juillet",
-            "mars"
-          ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
-          "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
-          ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
-          "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
-          ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
-          "options": [
-            "4",
-            "2",
-            "6"
-          ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
-          "options": [
-            "hiver",
-            "été",
-            "printemps"
-          ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "type": "true_false",
+          "prompt": "4 heures = 240 minutes.",
+          "answer": true,
+          "correction": "4 × 60 = 240 minutes."
         }
       ]
     },
@@ -238,119 +223,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "dq1",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Une saison sportive dure de septembre à avril. Combien de mois cela fait-il ?",
           "options": [
-            "12",
-            "10",
-            "7"
-          ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
-          "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
-          ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
-          "options": [
-            "juillet",
-            "janvier",
-            "novembre"
-          ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
-          "options": [
-            "4",
-            "2",
-            "6"
-          ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
-          "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
-          ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
-          "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
-          ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
-          "options": [
+            "6",
             "7",
-            "5",
-            "10"
+            "8",
+            "9"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "8",
+          "correction": "Septembre, octobre, novembre, décembre, janvier, février, mars, avril = 8 mois."
         },
         {
-          "id": "q16",
+          "id": "dq2",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Un train part à 8h15 et arrive à 10h45. Combien de temps dure le trajet ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "1h30",
+            "2h00",
+            "2h15",
+            "2h30"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "2h30",
+          "correction": "De 8h15 à 10h45 = 2 heures 30 minutes."
         },
         {
-          "id": "q18",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
-        },
-        {
-          "id": "q20",
+          "id": "dq3",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "Un vol décolle à 9h30 et dure 3h15. À quelle heure atterrit-il ?",
           "options": [
-            "décembre",
-            "juillet",
-            "mars"
+            "12h30",
+            "12h45",
+            "13h00",
+            "13h15"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "12h45",
+          "correction": "9h30 + 3h15 = 12h45."
+        },
+        {
+          "id": "dq4",
+          "type": "mcq",
+          "prompt": "L'école commence à 8h30 et finit à 15h30. Combien d'heures dure la journée scolaire ?",
+          "options": [
+            "6h",
+            "6h30",
+            "7h",
+            "7h30"
+          ],
+          "answer": "7h",
+          "correction": "De 8h30 à 15h30 = 7 heures."
+        },
+        {
+          "id": "dq5",
+          "type": "mcq",
+          "prompt": "Un bus part à 14h20 et met 1h40 pour arriver. À quelle heure arrive-t-il ?",
+          "options": [
+            "15h40",
+            "16h00",
+            "16h10",
+            "16h20"
+          ],
+          "answer": "16h00",
+          "correction": "14h20 + 1h40 = 16h00."
+        },
+        {
+          "id": "dq6",
+          "type": "mcq",
+          "prompt": "Un film commence à 20h10 et dure 1h50. À quelle heure se termine-t-il ?",
+          "options": [
+            "21h50",
+            "22h00",
+            "22h10",
+            "22h20"
+          ],
+          "answer": "22h00",
+          "correction": "20h10 + 1h50 = 22h00."
+        },
+        {
+          "id": "dq7",
+          "type": "mcq",
+          "prompt": "Une réunion commence à 9h45 et finit à 11h15. Combien de temps dure-t-elle ?",
+          "options": [
+            "1h15",
+            "1h20",
+            "1h30",
+            "1h45"
+          ],
+          "answer": "1h30",
+          "correction": "De 9h45 à 11h15 = 1 heure 30 minutes."
+        },
+        {
+          "id": "dq8",
+          "type": "mcq",
+          "prompt": "Un billet de train indique : départ 7h55, arrivée 10h25. Combien dure le trajet ?",
+          "options": [
+            "2h10",
+            "2h20",
+            "2h25",
+            "2h30"
+          ],
+          "answer": "2h30",
+          "correction": "De 7h55 à 10h25 = 2 heures 30 minutes."
+        },
+        {
+          "id": "dq9",
+          "type": "mcq",
+          "prompt": "La récréation commence à 10h25 et se termine à 10h55. Combien de minutes dure-t-elle ?",
+          "options": [
+            "25",
+            "30",
+            "35",
+            "40"
+          ],
+          "answer": "30",
+          "correction": "De 10h25 à 10h55 = 30 minutes."
+        },
+        {
+          "id": "dq10",
+          "type": "mcq",
+          "prompt": "À Paris il est 14h. À New York il est 6 heures de moins. Quelle heure est-il à New York ?",
+          "options": [
+            "6h",
+            "7h",
+            "8h",
+            "9h"
+          ],
+          "answer": "8h",
+          "correction": "14h − 6h = 8h à New York."
         }
       ]
     }

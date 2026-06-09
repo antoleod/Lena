@@ -103,116 +103,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "id": "q1",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "peinture",
+            "peinture",
+            "peintture"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "peinture",
+          "correction": "On écrit « peinture » avec un seul « t »."
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "montagne",
+            "montagnne",
+            "monntagne"
+          ],
+          "answer": "montagne",
+          "correction": "On écrit « montagne » avec « gn »."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : cig_gne",
+          "answer": "o",
+          "accept": [
+            "o"
+          ],
+          "correction": "On écrit « cigogne » avec un « o » au milieu."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "pluie",
+            "ploie",
+            "pluy"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "pluie",
+          "correction": "On écrit « pluie » avec « ui »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « abeille » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « abeille » s'écrit bien ainsi."
         },
         {
           "id": "q6",
           "type": "fill_blank",
-          "prompt": "Complète le mot : ch_t",
-          "answer": "a",
+          "prompt": "Complète le mot : cra_on",
+          "answer": "y",
           "accept": [
-            "a"
+            "y"
           ],
-          "correction": "On écrit « chat » (lettre « a »)."
+          "correction": "On écrit « crayon » avec un « y »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "printemps",
+            "printans",
+            "printamps"
+          ],
+          "answer": "printemps",
+          "correction": "On écrit « printemps » avec « emps »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "cerisier",
+            "serisier",
+            "cerissier"
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "cerisier",
+          "correction": "On écrit « cerisier » avec un seul « s »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « bouteille » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « bouteille » s'écrit bien avec « eille »."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
-          ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "poulet",
-            "poulait",
-            "poule"
-          ],
-          "answer": "poulet",
-          "correction": "On écrit « poulet »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
-          ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
-          ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
-        },
-        {
-          "id": "q18",
           "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
-          "answer": "e",
+          "prompt": "Complète le mot : mou_on",
+          "answer": "t",
           "accept": [
-            "e"
+            "t"
           ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "ballon",
-            "balon",
-            "baloon"
-          ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
+          "correction": "On écrit « mouton » avec un « t »."
         }
       ]
     },
@@ -221,113 +213,123 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : voit_re",
-          "answer": "u",
-          "accept": [
-            "u"
+          "type": "mcq",
+          "prompt": "Quel mot s'écrit avec « gn » ?",
+          "options": [
+            "cigogne",
+            "voiture",
+            "ballon"
           ],
-          "correction": "On écrit « voiture » (lettre « u »)."
+          "answer": "cigogne",
+          "correction": "Cigogne s'écrit c-i-g-o-g-n-e."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
+          "options": [
+            "abeille",
+            "abeile",
+            "mouton"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "abeile",
+          "correction": "Le mot correct est « abeille » : a-b-e-i-l-l-e."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
-          "accept": [
-            "d"
+          "type": "mcq",
+          "prompt": "Choisis la bonne orthographe : Le ___ broute dans le champ.",
+          "options": [
+            "mouton",
+            "mouton",
+            "muton"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
+          "answer": "mouton",
+          "correction": "Mouton s'écrit m-o-u-t-o-n."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : ois_au",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot contient le son « eil » ?",
+          "options": [
+            "soleil",
+            "crayon",
+            "voiture"
           ],
-          "correction": "On écrit « oiseau » (lettre « e »)."
+          "answer": "soleil",
+          "correction": "Soleil contient le son « eil » : s-o-l-e-i-l."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Identifie la faute dans cette liste :",
           "options": [
-            "papillon",
-            "pappillon",
-            "papiyon"
+            "bouteille",
+            "bouteil",
+            "crayon"
           ],
-          "answer": "papillon",
-          "correction": "On écrit « papillon »."
+          "answer": "bouteil",
+          "correction": "Le mot correct est « bouteille » avec « ille » : b-o-u-t-e-i-l-l-e."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « ou » ?",
           "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
+            "mouton",
+            "soleil",
+            "livre"
           ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "answer": "mouton",
+          "correction": "Mouton contient « ou » : m-ou-t-o-n."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot a le son « oi » ?",
+          "options": [
+            "voiture",
+            "maison",
+            "livre"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "voiture",
+          "correction": "Voiture contient « oi » : v-oi-t-u-r-e."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "Le chat monte dans l'arbre.",
+            "Le cha monte dans larbre.",
+            "Le chat monte dans l'arbe."
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "Le chat monte dans l'arbre.",
+          "correction": "Arbre s'écrit a-r-b-r-e."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot contient une double consonne « ll » ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "abeille",
+            "crayon",
+            "chat"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "abeille",
+          "correction": "Abeille s'écrit avec « ill » : a-b-e-i-l-l-e."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est correctement orthographié parmi ces trois ?",
           "options": [
-            "fille",
-            "file",
-            "fiye"
+            "crayon",
+            "creon",
+            "crayan"
           ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
+          "answer": "crayon",
+          "correction": "Crayon s'écrit c-r-a-y-o-n."
         }
       ]
     }

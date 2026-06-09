@@ -113,124 +113,124 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Un synonyme de « courageux » :",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "brave",
+            "peureux",
+            "fatigué"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "brave",
+          "correction": "courageux = brave."
         },
         {
-          "id": "q4",
+          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
+          "prompt": "Le contraire de « lent » :",
           "options": [
-            "triste",
-            "content",
-            "joyeux"
-          ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
-          "options": [
-            "vide",
-            "lourd",
+            "rapide",
+            "fort",
             "grand"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "rapide",
+          "correction": "lent ↔ rapide."
         },
         {
-          "id": "q8",
+          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « fatigué » :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "épuisé",
+            "reposé",
+            "content"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "épuisé",
+          "correction": "fatigué = épuisé."
         },
         {
-          "id": "q10",
+          "id": "q7",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Le contraire de « triste » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "joyeux",
+            "calme",
+            "peureux"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "joyeux",
+          "correction": "triste ↔ joyeux."
         },
         {
-          "id": "q12",
+          "id": "q9",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Un synonyme de « chercher » :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "rechercher",
+            "trouver",
+            "perdre"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "rechercher",
+          "correction": "chercher = rechercher."
         },
         {
-          "id": "q14",
+          "id": "q11",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "pas",
+            "très",
+            "bien"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "pas",
+          "correction": "im- = non, pas → impossible = pas possible."
         },
         {
-          "id": "q16",
+          "id": "q13",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "une personne qui fait l'action",
+            "un lieu",
+            "une qualité"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "une personne qui fait l'action",
+          "correction": "chanteur = celui qui chante."
         },
         {
-          "id": "q18",
+          "id": "q15",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "plaisant",
+            "mauvais",
+            "froid"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "plaisant",
+          "correction": "agréable = plaisant, sympa."
         },
         {
-          "id": "q20",
+          "id": "q17",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Le contraire de « silencieux » :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "bruyant",
+            "calme",
+            "doux"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "bruyant",
+          "correction": "silencieux ↔ bruyant."
+        },
+        {
+          "id": "q19",
+          "type": "mcq",
+          "prompt": "Un synonyme de « se dépêcher » :",
+          "options": [
+            "se presser",
+            "attendre",
+            "dormir"
+          ],
+          "answer": "se presser",
+          "correction": "se dépêcher = se presser."
         }
       ]
     },

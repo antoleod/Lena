@@ -109,120 +109,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
+          "id": "q1",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "garcon",
-            "garçon",
-            "garson"
+            "épouvante",
+            "epouvante",
+            "eppouvante"
           ],
-          "answer": "garçon",
-          "correction": "On écrit « garçon » (cédille)."
+          "answer": "épouvante",
+          "correction": "On écrit « épouvante » avec un accent aigu sur le premier « é »."
+        },
+        {
+          "id": "q2",
+          "type": "fill_blank",
+          "prompt": "Complète le mot : rud_ment",
+          "answer": "i",
+          "accept": [
+            "i"
+          ],
+          "correction": "On écrit « rudiment » avec un « i »."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "foulard",
+            "foulare",
+            "foullard"
+          ],
+          "answer": "foulard",
+          "correction": "On écrit « foulard » avec un seul « l » et « ard »."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : sol_il",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "sauterelle",
+            "sautrelle",
+            "sauterrelle"
           ],
-          "correction": "On écrit « soleil » (lettre « e »)."
+          "answer": "sauterelle",
+          "correction": "On écrit « sauterelle » avec un seul « r » et deux « l »."
+        },
+        {
+          "id": "q5",
+          "type": "true_false",
+          "prompt": "Le mot « toupie » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « toupie » s'écrit bien ainsi."
         },
         {
           "id": "q6",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "école",
-            "ékole",
-            "écolle"
+          "type": "fill_blank",
+          "prompt": "Complète le mot : cour_onne",
+          "answer": "o",
+          "accept": [
+            "o"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "correction": "On écrit « couronne » avec deux « n »."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne orthographe ?",
+          "options": [
+            "pinceau",
+            "pinseau",
+            "pinceaux"
+          ],
+          "answer": "pinceau",
+          "correction": "On écrit « pinceau » (singulier) avec « eau »."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle est la bonne orthographe ?",
           "options": [
-            "oiseau",
-            "oizeau",
-            "oisau"
+            "torchon",
+            "torcon",
+            "torshon"
           ],
-          "answer": "oiseau",
-          "correction": "On écrit « oiseau »."
+          "answer": "torchon",
+          "correction": "On écrit « torchon » avec « ch »."
+        },
+        {
+          "id": "q9",
+          "type": "true_false",
+          "prompt": "Le mot « fossé » s'écrit correctement.",
+          "answer": "true",
+          "correction": "Oui, « fossé » s'écrit avec deux « s » et un accent aigu."
         },
         {
           "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "ballon",
-            "balon",
-            "baloon"
-          ],
-          "answer": "ballon",
-          "correction": "On écrit « ballon »."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "bateau",
-            "batau",
-            "bato"
-          ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fille",
-            "file",
-            "fiye"
-          ],
-          "answer": "fille",
-          "correction": "On écrit « fille »."
-        },
-        {
-          "id": "q16",
           "type": "fill_blank",
-          "prompt": "Complète le mot : jar_in",
-          "answer": "d",
+          "prompt": "Complète le mot : pèl_rin",
+          "answer": "e",
           "accept": [
-            "d"
+            "e"
           ],
-          "correction": "On écrit « jardin » (lettre « d »)."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "tableau",
-            "tablau",
-            "tableo"
-          ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
-          "options": [
-            "fenetre",
-            "fenêtre",
-            "fenettre"
-          ],
-          "answer": "fenêtre",
-          "correction": "On écrit « fenêtre » (accent)."
+          "correction": "On écrit « pèlerin » avec un accent grave sur le « è »."
         }
       ]
     },
@@ -231,115 +219,123 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : éc_le",
-          "answer": "o",
-          "accept": [
-            "o"
+          "type": "mcq",
+          "prompt": "Quel mot contient « ou » ?",
+          "options": [
+            "couronne",
+            "toupie",
+            "table"
           ],
-          "correction": "On écrit « école » (lettre « o »)."
+          "answer": "couronne",
+          "correction": "Couronne contient « ou » : c-ou-r-o-n-n-e."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Trouve l'intrus (le mot mal écrit) :",
           "options": [
-            "nuage",
-            "nuaje",
-            "nuaje"
+            "toupie",
+            "touppi",
+            "couronne"
           ],
-          "answer": "nuage",
-          "correction": "On écrit « nuage »."
+          "answer": "touppi",
+          "correction": "Le mot correct est « toupie » : t-o-u-p-i-e (un seul « p »)."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Choisis la bonne orthographe : Il a traversé le ___ .",
           "options": [
-            "bateau",
-            "batau",
-            "bato"
+            "fossé",
+            "fosse",
+            "fosé"
           ],
-          "answer": "bateau",
-          "correction": "On écrit « bateau »."
+          "answer": "fossé",
+          "correction": "Fossé s'écrit f-o-s-s-é avec deux « s » et un accent aigu."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot s'écrit avec « è » ?",
           "options": [
-            "maison",
-            "mayson",
-            "mèson"
+            "pèlerin",
+            "couronne",
+            "toupie"
           ],
-          "answer": "maison",
-          "correction": "On écrit « maison »."
+          "answer": "pèlerin",
+          "correction": "Pèlerin s'écrit p-è-l-e-r-i-n avec un accent grave."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : m_ison",
-          "answer": "a",
-          "accept": [
-            "a"
+          "type": "mcq",
+          "prompt": "Identifie la faute :",
+          "options": [
+            "rudiment",
+            "rudyment",
+            "couronne"
           ],
-          "correction": "On écrit « maison » (lettre « a »)."
+          "answer": "rudyment",
+          "correction": "Le mot correct est « rudiment » : r-u-d-i-m-e-n-t."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : fl_ur",
-          "answer": "e",
-          "accept": [
-            "e"
+          "type": "mcq",
+          "prompt": "Quel mot a un accent aigu ?",
+          "options": [
+            "fossé",
+            "couronne",
+            "toupie"
           ],
-          "correction": "On écrit « fleur » (lettre « e »)."
+          "answer": "fossé",
+          "correction": "Fossé se termine par « é » avec accent aigu."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Complète le mot : li_re",
-          "answer": "v",
-          "accept": [
-            "v"
+          "type": "mcq",
+          "prompt": "Quel mot contient « on » répété (double occurrence) ?",
+          "options": [
+            "couronne",
+            "fossé",
+            "pèlerin"
           ],
-          "correction": "On écrit « livre » (lettre « v »)."
+          "answer": "couronne",
+          "correction": "Couronne contient « ou » + « on » + « ne » : c-o-u-r-o-n-n-e."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quelle phrase est correctement orthographiée ?",
           "options": [
-            "maman",
-            "mamen",
-            "momen"
+            "Le pèlerin traverse le fossé.",
+            "Le pelerin traverse le fosse.",
+            "Le pèlerin traverse le fossé."
           ],
-          "answer": "maman",
-          "correction": "On écrit « maman »."
+          "answer": "Le pèlerin traverse le fossé.",
+          "correction": "Pèlerin = è, fossé = ss + é."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot se termine par « -in » ?",
           "options": [
-            "tableau",
-            "tablau",
-            "tableo"
+            "pèlerin",
+            "couronne",
+            "fossé"
           ],
-          "answer": "tableau",
-          "correction": "On écrit « tableau »."
+          "answer": "pèlerin",
+          "correction": "Pèlerin se termine par « -in » : p-è-l-e-r-i-n."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quel mot est bien écrit ?",
+          "prompt": "Quel mot est mal orthographié ?",
           "options": [
-            "école",
-            "ékole",
-            "écolle"
+            "couronne",
+            "couronne",
+            "rudiement"
           ],
-          "answer": "école",
-          "correction": "On écrit « école »."
+          "answer": "rudiement",
+          "correction": "Le mot correct est « rudiment » : r-u-d-i-m-e-n-t (pas de « e » après « i »)."
         }
       ]
     }
