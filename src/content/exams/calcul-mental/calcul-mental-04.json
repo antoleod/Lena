@@ -4,454 +4,55 @@
   "categoryLabel": "Calcul mental",
   "categoryEmoji": "🔢",
   "categoryOrder": 2,
-  "title": "Soustractions jusqu’à 20",
-  "emoji": "🔽",
+  "title": "Soustractions rapides",
+  "emoji": "➖",
   "order": 4,
+  "useStaticQuestions": true,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
-        {
-          "id": "q1",
-          "type": "mcq",
-          "prompt": "12 − 5 = ?",
-          "options": [
-            "5",
-            "9",
-            "10",
-            "7"
-          ],
-          "answer": "7",
-          "correction": "12 − 5 = 7.",
-          "prompt_nl": "12 − 5 = ?",
-          "prompt_en": "12 − 5 = ?",
-          "prompt_es": "12 − 5 = ?"
-        },
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "20 − 17 = ?",
-          "options": [
-            "7",
-            "5",
-            "3",
-            "4"
-          ],
-          "answer": "3",
-          "correction": "20 − 17 = 3.",
-          "prompt_nl": "20 − 17 = ?",
-          "prompt_en": "20 − 17 = ?",
-          "prompt_es": "20 − 17 = ?"
-        },
-        {
-          "id": "q3",
-          "type": "fill_blank",
-          "prompt": "19 − 0 = ?",
-          "answer": 19,
-          "correction": "19 − 0 = 19.",
-          "prompt_nl": "19 − 0 = ?",
-          "prompt_en": "19 − 0 = ?",
-          "prompt_es": "19 − 0 = ?"
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "5 − 4 = ?",
-          "options": [
-            "6",
-            "1",
-            "2",
-            "0"
-          ],
-          "answer": "1",
-          "correction": "5 − 4 = 1.",
-          "prompt_nl": "5 − 4 = ?",
-          "prompt_en": "5 − 4 = ?",
-          "prompt_es": "5 − 4 = ?"
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "12 − 9 = ?",
-          "options": [
-            "0",
-            "3",
-            "1",
-            "2"
-          ],
-          "answer": "3",
-          "correction": "12 − 9 = 3.",
-          "prompt_nl": "12 − 9 = ?",
-          "prompt_en": "12 − 9 = ?",
-          "prompt_es": "12 − 9 = ?"
-        },
-        {
-          "id": "q6",
-          "type": "fill_blank",
-          "prompt": "13 − 6 = ?",
-          "answer": 7,
-          "correction": "13 − 6 = 7.",
-          "prompt_nl": "13 − 6 = ?",
-          "prompt_en": "13 − 6 = ?",
-          "prompt_es": "13 − 6 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "12 − 6 = ?",
-          "options": [
-            "5",
-            "6",
-            "11",
-            "1"
-          ],
-          "answer": "6",
-          "correction": "12 − 6 = 6.",
-          "prompt_nl": "12 − 6 = ?",
-          "prompt_en": "12 − 6 = ?",
-          "prompt_es": "12 − 6 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "9 − 0 = ?",
-          "options": [
-            "9",
-            "11",
-            "4",
-            "7"
-          ],
-          "answer": "9",
-          "correction": "9 − 0 = 9.",
-          "prompt_nl": "9 − 0 = ?",
-          "prompt_en": "9 − 0 = ?",
-          "prompt_es": "9 − 0 = ?"
-        },
-        {
-          "id": "q9",
-          "type": "fill_blank",
-          "prompt": "3 − 1 = ?",
-          "answer": 2,
-          "correction": "3 − 1 = 2.",
-          "prompt_nl": "3 − 1 = ?",
-          "prompt_en": "3 − 1 = ?",
-          "prompt_es": "3 − 1 = ?"
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "10 − 6 = ?",
-          "options": [
-            "7",
-            "8",
-            "3",
-            "4"
-          ],
-          "answer": "4",
-          "correction": "10 − 6 = 4.",
-          "prompt_nl": "10 − 6 = ?",
-          "prompt_en": "10 − 6 = ?",
-          "prompt_es": "10 − 6 = ?"
-        }
+        { "id": "q1", "type": "fill_blank", "prompt": "7 − 3 = ___", "answer": "4", "correction": "7 − 3 = 4" },
+        { "id": "q2", "type": "fill_blank", "prompt": "9 − 2 = ___", "answer": "7", "correction": "9 − 2 = 7" },
+        { "id": "q3", "type": "fill_blank", "prompt": "8 − 5 = ___", "answer": "3", "correction": "8 − 5 = 3" },
+        { "id": "q4", "type": "fill_blank", "prompt": "6 − 4 = ___", "answer": "2", "correction": "6 − 4 = 2" },
+        { "id": "q5", "type": "fill_blank", "prompt": "10 − 3 = ___", "answer": "7", "correction": "10 − 3 = 7" },
+        { "id": "q6", "type": "fill_blank", "prompt": "5 − 2 = ___", "answer": "3", "correction": "5 − 2 = 3" },
+        { "id": "q7", "type": "fill_blank", "prompt": "8 − 3 = ___", "answer": "5", "correction": "8 − 3 = 5" },
+        { "id": "q8", "type": "fill_blank", "prompt": "9 − 4 = ___", "answer": "5", "correction": "9 − 4 = 5" },
+        { "id": "q9", "type": "fill_blank", "prompt": "10 − 6 = ___", "answer": "4", "correction": "10 − 6 = 4" },
+        { "id": "q10", "type": "fill_blank", "prompt": "7 − 5 = ___", "answer": "2", "correction": "7 − 5 = 2" }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
-        {
-          "id": "q1",
-          "type": "mcq",
-          "prompt": "15 − 6 = ?",
-          "options": [
-            "5",
-            "13",
-            "11",
-            "9"
-          ],
-          "answer": "9",
-          "correction": "15 − 6 = 9.",
-          "prompt_nl": "15 − 6 = ?",
-          "prompt_en": "15 − 6 = ?",
-          "prompt_es": "15 − 6 = ?"
-        },
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "32 − 8 = ?",
-          "options": [
-            "23",
-            "22",
-            "31",
-            "24"
-          ],
-          "answer": "24",
-          "correction": "32 − 8 = 24.",
-          "prompt_nl": "32 − 8 = ?",
-          "prompt_en": "32 − 8 = ?",
-          "prompt_es": "32 − 8 = ?"
-        },
-        {
-          "id": "q3",
-          "type": "fill_blank",
-          "prompt": "4 − 1 = ?",
-          "answer": 3,
-          "correction": "4 − 1 = 3.",
-          "prompt_nl": "4 − 1 = ?",
-          "prompt_en": "4 − 1 = ?",
-          "prompt_es": "4 − 1 = ?"
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "1 − 0 = ?",
-          "options": [
-            "6",
-            "0",
-            "8",
-            "1"
-          ],
-          "answer": "1",
-          "correction": "1 − 0 = 1.",
-          "prompt_nl": "1 − 0 = ?",
-          "prompt_en": "1 − 0 = ?",
-          "prompt_es": "1 − 0 = ?"
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "1 − 0 = ?",
-          "options": [
-            "8",
-            "9",
-            "3",
-            "1"
-          ],
-          "answer": "1",
-          "correction": "1 − 0 = 1.",
-          "prompt_nl": "1 − 0 = ?",
-          "prompt_en": "1 − 0 = ?",
-          "prompt_es": "1 − 0 = ?"
-        },
-        {
-          "id": "q6",
-          "type": "fill_blank",
-          "prompt": "23 − 23 = ?",
-          "answer": 0,
-          "correction": "23 − 23 = 0.",
-          "prompt_nl": "23 − 23 = ?",
-          "prompt_en": "23 − 23 = ?",
-          "prompt_es": "23 − 23 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "18 − 0 = ?",
-          "options": [
-            "10",
-            "16",
-            "18",
-            "12"
-          ],
-          "answer": "18",
-          "correction": "18 − 0 = 18.",
-          "prompt_nl": "18 − 0 = ?",
-          "prompt_en": "18 − 0 = ?",
-          "prompt_es": "18 − 0 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "2 − 1 = ?",
-          "options": [
-            "6",
-            "4",
-            "1",
-            "3"
-          ],
-          "answer": "1",
-          "correction": "2 − 1 = 1.",
-          "prompt_nl": "2 − 1 = ?",
-          "prompt_en": "2 − 1 = ?",
-          "prompt_es": "2 − 1 = ?"
-        },
-        {
-          "id": "q9",
-          "type": "fill_blank",
-          "prompt": "8 − 6 = ?",
-          "answer": 2,
-          "correction": "8 − 6 = 2.",
-          "prompt_nl": "8 − 6 = ?",
-          "prompt_en": "8 − 6 = ?",
-          "prompt_es": "8 − 6 = ?"
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "25 − 9 = ?",
-          "options": [
-            "14",
-            "17",
-            "16",
-            "15"
-          ],
-          "answer": "16",
-          "correction": "25 − 9 = 16.",
-          "prompt_nl": "25 − 9 = ?",
-          "prompt_en": "25 − 9 = ?",
-          "prompt_es": "25 − 9 = ?"
-        }
+        { "id": "q1", "type": "fill_blank", "prompt": "15 − 7 = ___", "answer": "8", "correction": "15 − 7 = 8" },
+        { "id": "q2", "type": "fill_blank", "prompt": "13 − 6 = ___", "answer": "7", "correction": "13 − 6 = 7" },
+        { "id": "q3", "type": "fill_blank", "prompt": "18 − 9 = ___", "answer": "9", "correction": "18 − 9 = 9" },
+        { "id": "q4", "type": "fill_blank", "prompt": "14 − 8 = ___", "answer": "6", "correction": "14 − 8 = 6" },
+        { "id": "q5", "type": "fill_blank", "prompt": "16 − 7 = ___", "answer": "9", "correction": "16 − 7 = 9" },
+        { "id": "q6", "type": "fill_blank", "prompt": "20 − 8 = ___", "answer": "12", "correction": "20 − 8 = 12" },
+        { "id": "q7", "type": "fill_blank", "prompt": "17 − 9 = ___", "answer": "8", "correction": "17 − 9 = 8" },
+        { "id": "q8", "type": "fill_blank", "prompt": "12 − 7 = ___", "answer": "5", "correction": "12 − 7 = 5" },
+        { "id": "q9", "type": "fill_blank", "prompt": "19 − 6 = ___", "answer": "13", "correction": "19 − 6 = 13" },
+        { "id": "q10", "type": "fill_blank", "prompt": "11 − 8 = ___", "answer": "3", "correction": "11 − 8 = 3" }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
-        {
-          "id": "q1",
-          "type": "mcq",
-          "prompt": "27 − 22 = ?",
-          "options": [
-            "7",
-            "13",
-            "3",
-            "5"
-          ],
-          "answer": "5",
-          "correction": "27 − 22 = 5.",
-          "prompt_nl": "27 − 22 = ?",
-          "prompt_en": "27 − 22 = ?",
-          "prompt_es": "27 − 22 = ?"
-        },
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "43 − 20 = ?",
-          "options": [
-            "23",
-            "18",
-            "13",
-            "11"
-          ],
-          "answer": "23",
-          "correction": "43 − 20 = 23.",
-          "prompt_nl": "43 − 20 = ?",
-          "prompt_en": "43 − 20 = ?",
-          "prompt_es": "43 − 20 = ?"
-        },
-        {
-          "id": "q3",
-          "type": "fill_blank",
-          "prompt": "29 − 24 = ?",
-          "answer": 5,
-          "correction": "29 − 24 = 5.",
-          "prompt_nl": "29 − 24 = ?",
-          "prompt_en": "29 − 24 = ?",
-          "prompt_es": "29 − 24 = ?"
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "14 − 13 = ?",
-          "options": [
-            "11",
-            "6",
-            "1",
-            "2"
-          ],
-          "answer": "1",
-          "correction": "14 − 13 = 1.",
-          "prompt_nl": "14 − 13 = ?",
-          "prompt_en": "14 − 13 = ?",
-          "prompt_es": "14 − 13 = ?"
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "48 − 36 = ?",
-          "options": [
-            "12",
-            "23",
-            "18",
-            "19"
-          ],
-          "answer": "12",
-          "correction": "48 − 36 = 12.",
-          "prompt_nl": "48 − 36 = ?",
-          "prompt_en": "48 − 36 = ?",
-          "prompt_es": "48 − 36 = ?"
-        },
-        {
-          "id": "q6",
-          "type": "fill_blank",
-          "prompt": "21 − 1 = ?",
-          "answer": 20,
-          "correction": "21 − 1 = 20.",
-          "prompt_nl": "21 − 1 = ?",
-          "prompt_en": "21 − 1 = ?",
-          "prompt_es": "21 − 1 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "9 − 6 = ?",
-          "options": [
-            "14",
-            "3",
-            "2",
-            "4"
-          ],
-          "answer": "3",
-          "correction": "9 − 6 = 3.",
-          "prompt_nl": "9 − 6 = ?",
-          "prompt_en": "9 − 6 = ?",
-          "prompt_es": "9 − 6 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "33 − 26 = ?",
-          "options": [
-            "7",
-            "0",
-            "4",
-            "10"
-          ],
-          "answer": "7",
-          "correction": "33 − 26 = 7.",
-          "prompt_nl": "33 − 26 = ?",
-          "prompt_en": "33 − 26 = ?",
-          "prompt_es": "33 − 26 = ?"
-        },
-        {
-          "id": "q9",
-          "type": "fill_blank",
-          "prompt": "40 − 11 = ?",
-          "answer": 29,
-          "correction": "40 − 11 = 29.",
-          "prompt_nl": "40 − 11 = ?",
-          "prompt_en": "40 − 11 = ?",
-          "prompt_es": "40 − 11 = ?"
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "41 − 33 = ?",
-          "options": [
-            "8",
-            "6",
-            "19",
-            "18"
-          ],
-          "answer": "8",
-          "correction": "41 − 33 = 8.",
-          "prompt_nl": "41 − 33 = ?",
-          "prompt_en": "41 − 33 = ?",
-          "prompt_es": "41 − 33 = ?"
-        }
+        { "id": "q1", "type": "fill_blank", "prompt": "34 − 17 = ___", "answer": "17", "correction": "34 − 17 = 17" },
+        { "id": "q2", "type": "fill_blank", "prompt": "52 − 28 = ___", "answer": "24", "correction": "52 − 28 = 24" },
+        { "id": "q3", "type": "fill_blank", "prompt": "63 − 27 = ___", "answer": "36", "correction": "63 − 27 = 36" },
+        { "id": "q4", "type": "fill_blank", "prompt": "41 − 16 = ___", "answer": "25", "correction": "41 − 16 = 25" },
+        { "id": "q5", "type": "fill_blank", "prompt": "75 − 38 = ___", "answer": "37", "correction": "75 − 38 = 37" },
+        { "id": "q6", "type": "fill_blank", "prompt": "50 − 23 = ___", "answer": "27", "correction": "50 − 23 = 27" },
+        { "id": "q7", "type": "fill_blank", "prompt": "82 − 47 = ___", "answer": "35", "correction": "82 − 47 = 35" },
+        { "id": "q8", "type": "fill_blank", "prompt": "60 − 34 = ___", "answer": "26", "correction": "60 − 34 = 26" },
+        { "id": "q9", "type": "fill_blank", "prompt": "43 − 19 = ___", "answer": "24", "correction": "43 − 19 = 24" },
+        { "id": "q10", "type": "fill_blank", "prompt": "71 − 35 = ___", "answer": "36", "correction": "71 − 35 = 36" }
       ]
     }
-  },
-  "lockedRange": {
-    "min": 0,
-    "max": 20
   }
 }
