@@ -442,13 +442,8 @@ export default function ExamRunnerPage() {
     const qCountOptions = [null, 5, 10, 15];
     const timerOptions = [null, 5, 10, 15, 20];
     const categoryId = exam.category;
-    const isMathCategory = categoryId === 'calcul-mental' || categoryId === 'problemes-mathematiques';
-    // Difficulty badge shown on config screen for math exams
-    const mathDifficultyBadge = isMathCategory ? {
-      facile:    { label: { fr: '🟢 1 → 10', nl: '🟢 1 → 10', en: '🟢 1 → 10', es: '🟢 1 → 10' }, hint: { fr: '2 nombres', nl: '2 getallen', en: '2 numbers', es: '2 números' } },
-      moyen:     { label: { fr: '🟠 10 → 99', nl: '🟠 10 → 99', en: '🟠 10 → 99', es: '🟠 10 → 99' }, hint: { fr: '2 nombres, 2 chiffres', nl: '2 getallen, 2 cijfers', en: '2 numbers, 2 digits', es: '2 números, 2 cifras' } },
-      difficile: { label: { fr: '🔴 8+8+8+9', nl: '🔴 8+8+8+9', en: '🔴 8+8+8+9', es: '🔴 8+8+8+9' }, hint: { fr: '3–4 nombres enchaînés', nl: '3–4 aaneengesloten getallen', en: '3–4 chained numbers', es: '3–4 números encadenados' } },
-    }[levelKey] : null;
+    const useStatic = !!exam.useStaticQuestions;
+    const isMathDynamic = (categoryId === 'calcul-mental' || categoryId === 'problemes-mathematiques') && !useStatic;
     return (
       <div className="reader-page" style={{ justifyContent: 'center', padding: '32px 16px' }}>
         <div className="reader-card" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -489,19 +484,12 @@ export default function ExamRunnerPage() {
             </div>
           </div>
 
-          {isMathCategory && mathDifficultyBadge && (
-            <div style={{ background: 'var(--primary-tint, #f0f4ff)', borderRadius: 12, padding: '12px 16px', display: 'flex', gap: 12, alignItems: 'center' }}>
-              <span style={{ fontSize: '1.4rem' }}>{mathDifficultyBadge.label[locale] || mathDifficultyBadge.label.fr}</span>
-              <span style={{ color: 'var(--muted, #666)', fontSize: '0.9rem' }}>{mathDifficultyBadge.hint[locale] || mathDifficultyBadge.hint.fr}</span>
-            </div>
-          )}
-
           <button
             type="button"
             className="reader-btn reader-btn--start"
             onClick={() => {
               let qs;
-              if (isMathCategory) {
+              if (isMathDynamic) {
                 const genType = categoryId === 'calcul-mental' ? 'additions' : 'problemes';
                 const count = configQuestionCount || 10;
                 const genLevel = levelKey === 'difficile' ? 'hard' : levelKey === 'moyen' ? 'medium' : 'easy';
