@@ -134,13 +134,14 @@ export default function AppShell() {
   const location = useLocation();
   const [customizerOpen, setCustomizerOpen] = useState(false);
   const [limitBlocked, setLimitBlocked] = useState(false);
+  const [logoutConfirm, setLogoutConfirm] = useState(false);
 
-  const handleLogout = () => {
-    if (window.confirm('Quitter la session ?')) {
-      playTapSound();
-      logoutProfile();
-      navigate('/onboarding', { replace: true, state: { from: location.pathname } });
-    }
+  const handleLogout = () => setLogoutConfirm(true);
+  const confirmLogout = () => {
+    setLogoutConfirm(false);
+    playTapSound();
+    logoutProfile();
+    navigate('/onboarding', { replace: true, state: { from: location.pathname } });
   };
 
 
@@ -432,6 +433,24 @@ export default function AppShell() {
 
       {limitBlocked && (
         <ParentalLimitOverlay locale={locale} onUnlock={() => setLimitBlocked(false)} />
+      )}
+
+      {logoutConfirm && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.55)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setLogoutConfirm(false)}>
+          <div style={{ background: '#fff', borderRadius: 20, padding: '2rem 2.5rem', maxWidth: 320, width: '90%', textAlign: 'center', boxShadow: '0 8px 40px rgba(0,0,0,.25)' }} onClick={e => e.stopPropagation()}>
+            <p style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 1.5rem' }}>
+              {locale === 'nl' ? 'Wil je uitloggen?' : locale === 'en' ? 'Log out?' : locale === 'es' ? '¿Salir de la sesión?' : 'Quitter la session ?'}
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              <button type="button" onClick={() => setLogoutConfirm(false)} style={{ padding: '.6rem 1.4rem', borderRadius: 12, border: '2px solid #ddd', background: '#f5f5f5', fontWeight: 600, cursor: 'pointer', fontSize: '1rem' }}>
+                {locale === 'nl' ? 'Annuleren' : locale === 'en' ? 'Cancel' : locale === 'es' ? 'Cancelar' : 'Annuler'}
+              </button>
+              <button type="button" onClick={confirmLogout} style={{ padding: '.6rem 1.4rem', borderRadius: 12, border: 'none', background: 'linear-gradient(135deg,#ff6b6b,#e03c3c)', color: '#fff', fontWeight: 700, cursor: 'pointer', fontSize: '1rem' }}>
+                {locale === 'nl' ? 'Uitloggen' : locale === 'en' ? 'Log out' : locale === 'es' ? 'Salir' : 'Quitter'}
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

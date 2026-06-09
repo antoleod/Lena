@@ -982,7 +982,7 @@ export default function ExamRunnerPage() {
     <div className="reader-page">
       <div className="reader-header">
         <button type="button" className="exam-back-btn" style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.1rem', color: '#fff' }} onClick={() => navigate(`/exam/library/${exam.category}`)}>←</button>
-        <span style={{ color: '#fff', fontWeight: 700 }}>{exam.title} · {levelMeta?.emoji}</span>
+        <span style={{ color: '#fff', fontWeight: 700 }}>{exam.title} · {levelMeta?.label ?? (isGuided ? (locale === 'nl' ? 'Begeleid' : locale === 'en' ? 'Guided' : locale === 'es' ? 'Guiado' : 'Guidé') : levelKey)}</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button
             type="button"

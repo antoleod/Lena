@@ -9492,13 +9492,8 @@ button {
   font-weight: 900;
   display: grid;
   place-items: center;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.drawer-theme-btn.is-locked:hover .drawer-item-lock,
-.drawer-rect-btn.is-locked:hover .drawer-item-lock {
   opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
 /* Customizer Button pulsate style */
