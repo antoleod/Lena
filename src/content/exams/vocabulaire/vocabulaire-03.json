@@ -36,16 +36,17 @@
           "correction": "content = heureux."
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Le contraire de « aimer » :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "détester",
+            "adorer",
+            "apprécier",
+            "préférer"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "détester",
+          "correction": "Le contraire de « aimer » : → détester.",
+          "id": "q6"
         },
         {
           "id": "q8",
@@ -72,16 +73,17 @@
           "correction": "rapide ↔ lent."
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Un synonyme de « lancer » :",
           "options": [
-            "froid",
-            "tiède",
-            "doux"
+            "jeter",
+            "attraper",
+            "tenir",
+            "ramasser"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "jeter",
+          "correction": "Un synonyme de « lancer » : → jeter.",
+          "id": "q12"
         },
         {
           "id": "q14",
@@ -113,124 +115,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « obscur » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "sombre",
+            "lumineux",
+            "clair",
+            "brillant"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "sombre",
+          "correction": "Un synonyme de « obscur » : → sombre.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « brûlant » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "glacé",
+            "tiède",
+            "chaud",
+            "frais"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "glacé",
+          "correction": "Le contraire de « brûlant » : → glacé.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « neuf » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "vieux",
+            "récent",
+            "nouveau",
+            "moderne"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "vieux",
+          "correction": "Le contraire de « neuf » : → vieux.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « blesser » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "meurtrir",
+            "guérir",
+            "soigner",
+            "protéger"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "meurtrir",
+          "correction": "Un synonyme de « blesser » : → meurtrir.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « fabriquer » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "créer",
+            "détruire",
+            "démolir",
+            "abîmer"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "créer",
+          "correction": "Un synonyme de « fabriquer » : → créer.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « préparer » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "organiser",
+            "improviser",
+            "négliger",
+            "ignorer"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "organiser",
+          "correction": "Un synonyme de « préparer » : → organiser.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Un synonyme de « vendre » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "céder",
+            "acheter",
+            "acquérir",
+            "garder"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "céder",
+          "correction": "Un synonyme de « vendre » : → céder.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « différent » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "identique",
+            "distinct",
+            "varié",
+            "divers"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "identique",
+          "correction": "Le contraire de « différent » : → identique.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « libre » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "prisonnier",
+            "indépendant",
+            "autonome",
+            "affranchi"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "prisonnier",
+          "correction": "Le contraire de « libre » : → prisonnier.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Le contraire de « strict » :",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "indulgent",
+            "sévère",
+            "rigide",
+            "exigeant"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "indulgent",
+          "correction": "Le contraire de « strict » : → indulgent.",
+          "id": "q19"
         }
       ]
     },

@@ -13,92 +13,99 @@
       "questions": [
         {
           "id": "q2",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve la Côte d'Ivoire ?",
+          "options": [
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
+          ],
+          "answer": "l'Afrique",
+          "correction": "La Côte d'Ivoire est en Afrique de l'Ouest."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Sur quel continent se trouve le Honduras ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "l'Amérique centrale",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "l'Amérique centrale",
+          "correction": "Le Honduras est en Amérique centrale."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "Sur quel continent se trouve la Slovaquie ?",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "l'Europe",
+          "correction": "La Slovaquie est en Europe centrale."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Sur quel continent se trouve l'Ouzbékistan ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "l'Asie",
+            "l'Europe",
+            "l'Afrique"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "l'Asie",
+          "correction": "L'Ouzbékistan est en Asie centrale."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Panama ?",
+          "options": [
+            "l'Amérique centrale",
+            "l'Asie",
+            "l'Europe"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "l'Amérique centrale",
+          "correction": "Le Panama est en Amérique centrale."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Sur quel continent se trouve la Croatie ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "l'Europe",
+          "correction": "La Croatie est en Europe."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Sur quel continent se trouve l'Azerbaïdjan ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "l'Asie / Europe",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "l'Asie / Europe",
+          "correction": "L'Azerbaïdjan est entre l'Europe et l'Asie."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Sur quel continent se trouve le Mali ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "l'Afrique",
+          "correction": "Le Mali est en Afrique de l'Ouest."
         }
       ]
     },
@@ -108,310 +115,122 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "La langue officielle du Brésil est :",
+          "prompt": "Sur quel continent se trouve le Nicaragua ?",
           "options": [
-            "le portugais",
-            "l'espagnol",
-            "le français",
-            "l'anglais"
+            "l'Amérique centrale",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "le portugais",
-          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
-          "prompt_nl": "De officiele taal van Brazilie is:",
-          "prompt_en": "The official language of Brazil is:",
-          "prompt_es": "El idioma oficial de Brasil es:",
-          "options_i18n": {
-            "nl": [
-              "Portugees",
-              "Spaans",
-              "Frans",
-              "Engels"
-            ],
-            "en": [
-              "Portuguese",
-              "Spanish",
-              "French",
-              "English"
-            ],
-            "es": [
-              "portugues",
-              "espanol",
-              "frances",
-              "ingles"
-            ]
-          }
+          "answer": "l'Amérique centrale",
+          "correction": "Le Nicaragua est en Amérique centrale."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel est le plus grand océan du monde ?",
+          "prompt": "Sur quel continent se trouve la Norvège ?",
           "options": [
-            "l'océan Pacifique",
-            "l'océan Atlantique",
-            "l'océan Indien",
-            "l'océan Arctique"
+            "l'Europe",
+            "l'Asie",
+            "l'Amérique du Nord"
           ],
-          "answer": "l'océan Pacifique",
-          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
-          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
-          "prompt_en": "What is the largest ocean in the world?",
-          "prompt_es": "Cual es el oceano mas grande del mundo?",
-          "options_i18n": {
-            "nl": [
-              "de Stille Oceaan",
-              "de Atlantische Oceaan",
-              "de Indische Oceaan",
-              "de Arctische Oceaan"
-            ],
-            "en": [
-              "the Pacific Ocean",
-              "the Atlantic Ocean",
-              "the Indian Ocean",
-              "the Arctic Ocean"
-            ],
-            "es": [
-              "el oceano Pacifico",
-              "el oceano Atlantico",
-              "el oceano Indico",
-              "el oceano Artico"
-            ]
-          }
+          "answer": "l'Europe",
+          "correction": "La Norvège est en Europe du Nord."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "La Tour Eiffel se trouve dans quelle ville ?",
+          "prompt": "Sur quel continent se trouve le Laos ?",
           "options": [
-            "Paris",
-            "Lyon",
-            "Rome",
-            "Berlin"
+            "l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "Paris",
-          "correction": "La Tour Eiffel est le monument le plus célèbre de Paris.",
-          "prompt_nl": "In welke stad staat de Eiffeltoren?",
-          "prompt_en": "In which city is the Eiffel Tower?",
-          "prompt_es": "En que ciudad esta la Torre Eiffel?",
-          "options_i18n": {
-            "nl": [
-              "Parijs",
-              "Lyon",
-              "Rome",
-              "Berlijn"
-            ],
-            "en": [
-              "Paris",
-              "Lyon",
-              "Rome",
-              "Berlin"
-            ],
-            "es": [
-              "Paris",
-              "Lyon",
-              "Roma",
-              "Berlin"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "Le Laos est en Asie du Sud-Est."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel fleuve traverse Paris ?",
+          "prompt": "Sur quel continent se trouve la Somalie ?",
           "options": [
-            "la Seine",
-            "la Loire",
-            "le Rhône",
-            "la Garonne"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "la Seine",
-          "correction": "La Seine est le fleuve qui traverse Paris.",
-          "prompt_nl": "Welke rivier stroomt door Parijs?",
-          "prompt_en": "Which river flows through Paris?",
-          "prompt_es": "Que rio atraviesa Paris?",
-          "options_i18n": {
-            "nl": [
-              "de Seine",
-              "de Loire",
-              "de Rhone",
-              "de Garonne"
-            ],
-            "en": [
-              "the Seine",
-              "the Loire",
-              "the Rhône",
-              "the Garonne"
-            ],
-            "es": [
-              "el Sena",
-              "el Loira",
-              "el Rodano",
-              "el Garona"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "La Somalie est en Afrique de l'Est."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Dans quelle ville se trouve le Colisée ?",
+          "prompt": "Quel pays est le plus grand du monde en superficie ?",
           "options": [
-            "Rome",
-            "Athènes",
-            "Paris",
-            "Madrid"
+            "la Russie",
+            "le Canada",
+            "les États-Unis"
           ],
-          "answer": "Rome",
-          "correction": "Le Colisée est un amphithéâtre antique situé à Rome, en Italie.",
-          "prompt_nl": "In welke stad staat het Colosseum?",
-          "prompt_en": "In which city is the Colosseum?",
-          "prompt_es": "En que ciudad esta el Coliseo?",
-          "options_i18n": {
-            "nl": [
-              "Rome",
-              "Athene",
-              "Parijs",
-              "Madrid"
-            ],
-            "en": [
-              "Rome",
-              "Athens",
-              "Paris",
-              "Madrid"
-            ],
-            "es": [
-              "Roma",
-              "Atenas",
-              "Paris",
-              "Madrid"
-            ]
-          }
+          "answer": "la Russie",
+          "correction": "La Russie est le plus grand pays du monde."
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "La Méditerranée est une mer.",
-          "answer": true,
-          "correction": "La mer Méditerranée est une mer intérieure entourée par l'Europe, l'Afrique et l'Asie.",
-          "prompt_nl": "De Middellandse Zee is een zee.",
-          "prompt_en": "The Mediterranean is a sea.",
-          "prompt_es": "El Mediterraneo es un mar."
+          "type": "mcq",
+          "prompt": "Quel pays est le plus grand d'Afrique en superficie ?",
+          "options": [
+            "l'Algérie",
+            "le Soudan",
+            "le Congo"
+          ],
+          "answer": "l'Algérie",
+          "correction": "L'Algérie est le plus grand pays d'Afrique."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Quel pays est le plus grand du monde ?",
+          "prompt": "Quel est le plus petit pays d'Europe ?",
           "options": [
-            "la Russie",
-            "le Canada",
-            "la Chine",
-            "les États-Unis"
+            "le Vatican",
+            "Monaco",
+            "le Liechtenstein"
           ],
-          "answer": "la Russie",
-          "correction": "La Russie est le plus grand pays du monde par sa superficie.",
-          "prompt_nl": "Welk land is het grootste ter wereld?",
-          "prompt_en": "Which country is the largest in the world?",
-          "prompt_es": "Que pais es el mas grande del mundo?",
-          "options_i18n": {
-            "nl": [
-              "Rusland",
-              "Canada",
-              "China",
-              "de Verenigde Staten"
-            ],
-            "en": [
-              "Russia",
-              "Canada",
-              "China",
-              "the United States"
-            ],
-            "es": [
-              "Rusia",
-              "Canada",
-              "China",
-              "Estados Unidos"
-            ]
-          }
+          "answer": "le Vatican",
+          "correction": "Le Vatican est le plus petit pays."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Une île est une terre entourée de :",
+          "prompt": "Quel est l'océan le plus petit ?",
           "options": [
-            "eau",
-            "montagnes",
-            "forêts",
-            "désert"
+            "l'océan Arctique",
+            "l'océan Indien",
+            "l'océan Atlantique"
           ],
-          "answer": "eau",
-          "correction": "Une île est une étendue de terre entièrement entourée d'eau.",
-          "prompt_nl": "Een eiland is een stuk land omgeven door:",
-          "prompt_en": "An island is a piece of land surrounded by:",
-          "prompt_es": "Una isla es una tierra rodeada de:",
-          "options_i18n": {
-            "nl": [
-              "water",
-              "bergen",
-              "bossen",
-              "woestijn"
-            ],
-            "en": [
-              "water",
-              "mountains",
-              "forests",
-              "desert"
-            ],
-            "es": [
-              "agua",
-              "montanas",
-              "bosques",
-              "desierto"
-            ]
-          }
+          "answer": "l'océan Arctique",
+          "correction": "L'océan Arctique est le plus petit."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "La langue officielle du Mexique est :",
+          "prompt": "Quelle mer sépare l'Europe de l'Afrique du Nord ?",
           "options": [
-            "l'espagnol",
-            "le portugais",
-            "le français",
-            "l'anglais"
+            "la mer Méditerranée",
+            "la mer Noire",
+            "la mer du Nord"
           ],
-          "answer": "l'espagnol",
-          "correction": "Le Mexique est un pays hispanophone d'Amérique centrale.",
-          "prompt_nl": "De officiele taal van Mexico is:",
-          "prompt_en": "The official language of Mexico is:",
-          "prompt_es": "El idioma oficial de Mexico es:",
-          "options_i18n": {
-            "nl": [
-              "Spaans",
-              "Portugees",
-              "Frans",
-              "Engels"
-            ],
-            "en": [
-              "Spanish",
-              "Portuguese",
-              "French",
-              "English"
-            ],
-            "es": [
-              "espanol",
-              "portugues",
-              "frances",
-              "ingles"
-            ]
-          }
+          "answer": "la mer Méditerranée",
+          "correction": "La Méditerranée sépare Europe et Afrique du Nord."
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "En Scandinavie, les hivers sont longs et très froids.",
-          "answer": true,
-          "correction": "Les pays scandinaves ont des hivers très froids et de longues nuits polaires.",
-          "prompt_nl": "In Scandinavie zijn de winters lang en erg koud.",
-          "prompt_en": "In Scandinavia, winters are long and very cold.",
-          "prompt_es": "En Escandinavia, los inviernos son largos y muy frios."
+          "type": "mcq",
+          "prompt": "Quel est le plus haut sommet du monde ?",
+          "options": [
+            "l'Everest",
+            "le K2",
+            "le Mont Blanc"
+          ],
+          "answer": "l'Everest",
+          "correction": "L'Everest culmine à 8 849 m."
         }
       ]
     },

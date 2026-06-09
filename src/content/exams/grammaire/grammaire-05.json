@@ -12,40 +12,43 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "Le féminin de « vieux » est :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "vieille",
+            "vieuxe",
+            "vieux",
+            "vieillie"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "vieille",
+          "correction": "Le féminin de « vieux » est : → vieille.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "« Attends-moi ! » est une phrase :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "impérative",
+          "correction": "« Attends-moi ! » est une phrase : → impérative.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "« sauter » est un :",
+          "prompt": "« Quelle chance incroyable ! » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "verbe",
-          "correction": "« sauter » est un verbe."
+          "answer": "exclamative",
+          "correction": "« Quelle chance incroyable ! » est une phrase : → exclamative.",
+          "id": "q6"
         },
         {
           "id": "q8",
@@ -60,45 +63,56 @@
           "correction": "le soleil → masculin."
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "Dans « un vieil homme », l'adjectif est :",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "vieil",
+            "homme",
+            "un",
+            "vieux"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "vieil",
+          "correction": "Dans « un vieil homme », l'adjectif est : → vieil.",
+          "id": "q10"
         },
         {
-          "id": "q12",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
-        },
-        {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "Dans « Le petit chat miaule. », le sujet est :",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "Le petit chat",
+            "miaule",
+            "Le",
+            "petit"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "Le petit chat",
+          "correction": "Dans « Le petit chat miaule. », le sujet est : → Le petit chat.",
+          "id": "q12"
         },
         {
-          "id": "q16",
-          "type": "fill_blank",
-          "prompt": "Le pluriel de « un chien » est « des ___ ».",
-          "answer": "chiens",
-          "accept": [
-            "chiens"
+          "type": "mcq",
+          "prompt": "La conjugaison correcte de « voir (ils, passé composé) » est :",
+          "options": [
+            "ils ont vu",
+            "ils voyaient",
+            "ils ont vu",
+            "ils auront vu"
           ],
-          "correction": "On ajoute un « s »."
+          "answer": "ils ont vu",
+          "correction": "La conjugaison correcte de « voir (ils, passé composé) » est : → ils ont vu.",
+          "id": "q14"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Finis tes devoirs ! » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "impérative",
+          "correction": "« Finis tes devoirs ! » est une phrase : → impérative.",
+          "id": "q16"
         }
       ]
     },
@@ -106,124 +120,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Dans « Lena mange une pomme », le COD est :",
+          "prompt": "« Que c'est beau ! » est une phrase :",
           "options": [
-            "une pomme",
-            "Lena",
-            "mange"
-          ],
-          "answer": "une pomme",
-          "correction": "COD : quoi ? → une pomme."
-        },
-        {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Dans « Paul parle à sa mère », le COI est :",
-          "options": [
-            "à sa mère",
-            "Paul",
-            "parle"
-          ],
-          "answer": "à sa mère",
-          "correction": "COI : à qui ? → à sa mère."
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "La forme féminine de « joli » est :",
-          "options": [
-            "jolie",
-            "jolis",
-            "jolies"
-          ],
-          "answer": "jolie",
-          "correction": "Féminin singulier : jolie."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "La forme féminine de « grand » est :",
-          "options": [
-            "grande",
-            "grands",
-            "grand"
-          ],
-          "answer": "grande",
-          "correction": "Féminin : grande."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
-          "options": [
+            "déclarative",
             "interrogative",
-            "exclamative",
-            "déclarative"
-          ],
-          "answer": "interrogative",
-          "correction": "Elle pose une question : phrase interrogative."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "« Quel beau tableau ! » est une phrase :",
-          "options": [
-            "exclamative",
-            "interrogative",
-            "impérative"
+            "impérative",
+            "exclamative"
           ],
           "answer": "exclamative",
-          "correction": "Elle exprime une émotion : phrase exclamative."
+          "correction": "« Que c'est beau ! » est une phrase : → exclamative.",
+          "id": "q1"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
+          "prompt": "Le pluriel de « un pneu » est :",
           "options": [
-            "COI",
-            "COD",
-            "sujet"
+            "des pneus",
+            "des pneux",
+            "des pneuxs",
+            "des pneu"
           ],
-          "answer": "COI",
-          "correction": "Lui = à lui/à elle → COI."
+          "answer": "des pneus",
+          "correction": "Le pluriel de « un pneu » est : → des pneus.",
+          "id": "q3"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "prompt": "Le féminin de « loup » est :",
           "options": [
-            "des chevaux joyeux",
-            "des chevals joyeux",
-            "des cheval joyeux"
+            "louve",
+            "loufe",
+            "louvette",
+            "loups"
           ],
-          "answer": "des chevaux joyeux",
-          "correction": "Pluriel de cheval → chevaux."
+          "answer": "louve",
+          "correction": "Le féminin de « loup » est : → louve.",
+          "id": "q5"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "prompt": "La forme correcte de « être (vous, présent) » est :",
           "options": [
-            "un complément d'objet direct",
-            "un COI",
-            "le sujet"
+            "vous êtes",
+            "vous êtes",
+            "vous avez",
+            "vous serez"
           ],
-          "answer": "un complément d'objet direct",
-          "correction": "Le = COD."
+          "answer": "vous êtes",
+          "correction": "La forme correcte de « être (vous, présent) » est : → vous êtes.",
+          "id": "q7"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "prompt": "Dans « Une histoire passionnante », l'adjectif correctement accordé est :",
           "options": [
-            "Il dit qu'il mange.",
-            "Il dit que je mange.",
-            "Il dit qu'il a mangé."
+            "passionnante",
+            "passionnant",
+            "passionnants",
+            "passionnée"
           ],
-          "answer": "Il dit qu'il mange.",
-          "correction": "Discours indirect au présent."
+          "answer": "passionnante",
+          "correction": "Dans « Une histoire passionnante », l'adjectif correctement accordé est : → passionnante.",
+          "id": "q9"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Que c'est magnifique ! » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "exclamative",
+          "correction": "« Que c'est magnifique ! » est une phrase : → exclamative.",
+          "id": "q11"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Que fais-tu ce soir ? » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "interrogative",
+          "correction": "« Que fais-tu ce soir ? » est une phrase : → interrogative.",
+          "id": "q13"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La conjugaison correcte de « venir (je, passé composé) » est :",
+          "options": [
+            "je suis venu(e)",
+            "j'ai venu",
+            "je suis venu(e)",
+            "je venais"
+          ],
+          "answer": "je suis venu(e)",
+          "correction": "La conjugaison correcte de « venir (je, passé composé) » est : → je suis venu(e).",
+          "id": "q15"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le pluriel de « un bureau » est :",
+          "options": [
+            "des bureaux",
+            "des bureaus",
+            "des bureau",
+            "des bureaues"
+          ],
+          "answer": "des bureaux",
+          "correction": "Le pluriel de « un bureau » est : → des bureaux.",
+          "id": "q17"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le pluriel de « un aïeul » est :",
+          "options": [
+            "des aïeux",
+            "des aïeuls",
+            "des aïeules",
+            "des aïeuaux"
+          ],
+          "answer": "des aïeux",
+          "correction": "Le pluriel de « un aïeul » est : → des aïeux.",
+          "id": "q19"
         }
       ]
     },
@@ -231,40 +255,43 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "La conjugaison correcte de « croire (nous, présent) » est :",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "nous croyons",
+            "nous croyions",
+            "nous croyons",
+            "nous croirons"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "nous croyons",
+          "correction": "La conjugaison correcte de « croire (nous, présent) » est : → nous croyons.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "Quel est le nom dans « une belle image » ?",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "image",
+            "belle",
+            "une",
+            "belle image"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "image",
+          "correction": "Quel est le nom dans « une belle image » ? → image.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "« Comme il fait chaud ! » est une phrase :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "exclamative",
+          "correction": "« Comme il fait chaud ! » est une phrase : → exclamative.",
+          "id": "q6"
         },
         {
           "id": "q8",
@@ -274,16 +301,17 @@
           "correction": "« manger » est un verbe."
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "« rouge » est un :",
+          "prompt": "« Où vas-tu ? » est une phrase :",
           "options": [
-            "adjectif",
-            "nom",
-            "verbe"
+            "interrogative",
+            "déclarative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "adjectif",
-          "correction": "« rouge » décrit : adjectif."
+          "answer": "interrogative",
+          "correction": "« Où vas-tu ? » est une phrase : → interrogative.",
+          "id": "q10"
         },
         {
           "id": "q12",
@@ -310,41 +338,43 @@
           "correction": "« courir » est un verbe."
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "« Ne touche pas à ça ! » est une phrase :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "impérative",
+          "correction": "« Ne touche pas à ça ! » est une phrase : → impérative.",
+          "id": "q16"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "Dans « la petite maison », le nom est :",
+          "prompt": "« Avez-vous terminé ? » est une phrase :",
           "options": [
-            "maison",
-            "petite",
-            "la"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "maison",
-          "correction": "maison = nom."
+          "answer": "interrogative",
+          "correction": "« Avez-vous terminé ? » est une phrase : → interrogative.",
+          "id": "q18"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "« vite » est un :",
+          "prompt": "« Ma sœur aime les animaux. » est une phrase :",
           "options": [
-            "adverbe",
-            "adjectif",
-            "nom",
-            "verbe"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "adverbe",
-          "correction": "vite = adverbe (comment ?)."
+          "answer": "déclarative",
+          "correction": "« Ma sœur aime les animaux. » est une phrase : → déclarative.",
+          "id": "q20"
         }
       ]
     }

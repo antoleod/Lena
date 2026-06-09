@@ -14,91 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "Comment s'appelle le mouvement de l'eau dans la nature ?",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "le cycle hydrologique",
+            "le cycle biologique",
+            "le cycle alimentaire"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "answer": "le cycle hydrologique",
+          "correction": "Le cycle hydrologique décrit le mouvement de l'eau."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "Quelle est la cause principale du vent ?",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "les différences de pression atmosphérique",
+            "la rotation de la Lune",
+            "la chaleur du sol"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "les différences de pression atmosphérique",
+          "correction": "Le vent est dû aux différences de pression."
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Quelle planète est en moyenne la plus proche de la Terre ?",
+          "options": [
+            "Vénus",
+            "Mars",
+            "Mercure"
+          ],
+          "answer": "Vénus",
+          "correction": "Vénus est en moyenne la plus proche de la Terre."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Quel est le rôle principal des forces de l'ordre (police) ?",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "maintenir l'ordre public et la sécurité",
+            "soigner les malades",
+            "construire les routes"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "maintenir l'ordre public et la sécurité",
+          "correction": "La police maintient l'ordre."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Quelle ville est la capitale du royaume de Belgique ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "Bruxelles",
+            "Liège",
+            "Gand"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "Combien d'océans reconnaît-on sur Terre ?",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "5",
+            "4",
+            "6"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "5",
+          "correction": "Il y a 5 océans."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Pendant quelle saison les fleurs s'épanouissent-elles ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "le printemps",
+            "l'été",
+            "l'hiver"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "le printemps",
+          "correction": "Les fleurs s'épanouissent au printemps."
         },
         {
           "id": "q16",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Quel animal est souvent symbole de sagesse en Europe ?",
+          "options": [
+            "le hibou",
+            "le lion",
+            "l'aigle"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "le hibou",
+          "correction": "Le hibou symbolise la sagesse."
         }
       ]
     },
@@ -108,310 +115,122 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "La Tour Eiffel se trouve dans quelle ville ?",
+          "prompt": "Sur quel continent est situé le Japon ?",
           "options": [
-            "Paris",
-            "Lyon",
-            "Rome",
-            "Berlin"
+            "l'Asie",
+            "l'Europe",
+            "l'Océanie"
           ],
-          "answer": "Paris",
-          "correction": "La Tour Eiffel est le monument le plus célèbre de Paris.",
-          "prompt_nl": "In welke stad staat de Eiffeltoren?",
-          "prompt_en": "In which city is the Eiffel Tower?",
-          "prompt_es": "En que ciudad esta la Torre Eiffel?",
-          "options_i18n": {
-            "nl": [
-              "Parijs",
-              "Lyon",
-              "Rome",
-              "Berlijn"
-            ],
-            "en": [
-              "Paris",
-              "Lyon",
-              "Rome",
-              "Berlin"
-            ],
-            "es": [
-              "Paris",
-              "Lyon",
-              "Roma",
-              "Berlin"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "Le Japon est en Asie."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel fleuve traverse Paris ?",
+          "prompt": "Comment s'appelle le professionnel qui coupe les cheveux ?",
           "options": [
-            "la Seine",
-            "la Loire",
-            "le Rhône",
-            "la Garonne"
+            "le coiffeur",
+            "le tailleur",
+            "le cordonnier"
           ],
-          "answer": "la Seine",
-          "correction": "La Seine est le fleuve qui traverse Paris.",
-          "prompt_nl": "Welke rivier stroomt door Parijs?",
-          "prompt_en": "Which river flows through Paris?",
-          "prompt_es": "Que rio atraviesa Paris?",
-          "options_i18n": {
-            "nl": [
-              "de Seine",
-              "de Loire",
-              "de Rhone",
-              "de Garonne"
-            ],
-            "en": [
-              "the Seine",
-              "the Loire",
-              "the Rhône",
-              "the Garonne"
-            ],
-            "es": [
-              "el Sena",
-              "el Loira",
-              "el Rodano",
-              "el Garona"
-            ]
-          }
+          "answer": "le coiffeur",
+          "correction": "Le coiffeur coupe les cheveux."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Dans quelle ville se trouve le Colisée ?",
+          "prompt": "Comment s'appelle le professionnel qui conduit un train ?",
           "options": [
-            "Rome",
-            "Athènes",
-            "Paris",
-            "Madrid"
+            "le conducteur de train",
+            "le chauffeur de taxi",
+            "le pilote"
           ],
-          "answer": "Rome",
-          "correction": "Le Colisée est un amphithéâtre antique situé à Rome, en Italie.",
-          "prompt_nl": "In welke stad staat het Colosseum?",
-          "prompt_en": "In which city is the Colosseum?",
-          "prompt_es": "En que ciudad esta el Coliseo?",
-          "options_i18n": {
-            "nl": [
-              "Rome",
-              "Athene",
-              "Parijs",
-              "Madrid"
-            ],
-            "en": [
-              "Rome",
-              "Athens",
-              "Paris",
-              "Madrid"
-            ],
-            "es": [
-              "Roma",
-              "Atenas",
-              "Paris",
-              "Madrid"
-            ]
-          }
+          "answer": "le conducteur de train",
+          "correction": "Le conducteur conduit le train."
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "La Méditerranée est une mer.",
-          "answer": true,
-          "correction": "La mer Méditerranée est une mer intérieure entourée par l'Europe, l'Afrique et l'Asie.",
-          "prompt_nl": "De Middellandse Zee is een zee.",
-          "prompt_en": "The Mediterranean is a sea.",
-          "prompt_es": "El Mediterraneo es un mar."
+          "type": "mcq",
+          "prompt": "Quel sens utilisons-nous pour admirer un tableau ?",
+          "options": [
+            "la vue",
+            "l'ouïe",
+            "le toucher"
+          ],
+          "answer": "la vue",
+          "correction": "On admire un tableau avec la vue."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Quel pays est le plus grand du monde ?",
+          "prompt": "Quel instrument indique la direction du nord magnétique ?",
           "options": [
-            "la Russie",
-            "le Canada",
-            "la Chine",
-            "les États-Unis"
+            "la boussole",
+            "le thermomètre",
+            "la règle"
           ],
-          "answer": "la Russie",
-          "correction": "La Russie est le plus grand pays du monde par sa superficie.",
-          "prompt_nl": "Welk land is het grootste ter wereld?",
-          "prompt_en": "Which country is the largest in the world?",
-          "prompt_es": "Que pais es el mas grande del mundo?",
-          "options_i18n": {
-            "nl": [
-              "Rusland",
-              "Canada",
-              "China",
-              "de Verenigde Staten"
-            ],
-            "en": [
-              "Russia",
-              "Canada",
-              "China",
-              "the United States"
-            ],
-            "es": [
-              "Rusia",
-              "Canada",
-              "China",
-              "Estados Unidos"
-            ]
-          }
+          "answer": "la boussole",
+          "correction": "La boussole indique le nord magnétique."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Une île est une terre entourée de :",
+          "prompt": "Sur quel continent se trouve le Mexique ?",
           "options": [
-            "eau",
-            "montagnes",
-            "forêts",
-            "désert"
+            "l'Amérique du Nord",
+            "l'Amérique du Sud",
+            "l'Europe"
           ],
-          "answer": "eau",
-          "correction": "Une île est une étendue de terre entièrement entourée d'eau.",
-          "prompt_nl": "Een eiland is een stuk land omgeven door:",
-          "prompt_en": "An island is a piece of land surrounded by:",
-          "prompt_es": "Una isla es una tierra rodeada de:",
-          "options_i18n": {
-            "nl": [
-              "water",
-              "bergen",
-              "bossen",
-              "woestijn"
-            ],
-            "en": [
-              "water",
-              "mountains",
-              "forests",
-              "desert"
-            ],
-            "es": [
-              "agua",
-              "montanas",
-              "bosques",
-              "desierto"
-            ]
-          }
+          "answer": "l'Amérique du Nord",
+          "correction": "Le Mexique est en Amérique du Nord."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "La langue officielle du Mexique est :",
+          "prompt": "Sur quel continent se trouve l'Argentine ?",
           "options": [
-            "l'espagnol",
-            "le portugais",
-            "le français",
-            "l'anglais"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "l'espagnol",
-          "correction": "Le Mexique est un pays hispanophone d'Amérique centrale.",
-          "prompt_nl": "De officiele taal van Mexico is:",
-          "prompt_en": "The official language of Mexico is:",
-          "prompt_es": "El idioma oficial de Mexico es:",
-          "options_i18n": {
-            "nl": [
-              "Spaans",
-              "Portugees",
-              "Frans",
-              "Engels"
-            ],
-            "en": [
-              "Spanish",
-              "Portuguese",
-              "French",
-              "English"
-            ],
-            "es": [
-              "espanol",
-              "portugues",
-              "frances",
-              "ingles"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "L'Argentine est en Amérique du Sud."
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "En Scandinavie, les hivers sont longs et très froids.",
-          "answer": true,
-          "correction": "Les pays scandinaves ont des hivers très froids et de longues nuits polaires.",
-          "prompt_nl": "In Scandinavie zijn de winters lang en erg koud.",
-          "prompt_en": "In Scandinavia, winters are long and very cold.",
-          "prompt_es": "En Escandinavia, los inviernos son largos y muy frios."
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve la Russie principalement ?",
+          "options": [
+            "l'Europe et l'Asie",
+            "l'Afrique",
+            "l'Océanie"
+          ],
+          "answer": "l'Europe et l'Asie",
+          "correction": "La Russie s'étend sur l'Europe et l'Asie."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Quel continent est le plus peuplé ?",
+          "prompt": "Quel professionnel répare les installations électriques ?",
           "options": [
-            "l'Asie",
-            "l'Afrique",
-            "l'Europe",
-            "l'Amérique"
+            "l'électricien",
+            "le plombier",
+            "le menuisier"
           ],
-          "answer": "l'Asie",
-          "correction": "L'Asie est le continent le plus peuplé avec plus de 4 milliards d'habitants.",
-          "prompt_nl": "Welk continent is het meest bevolkt?",
-          "prompt_en": "Which continent is the most populated?",
-          "prompt_es": "Que continente es el mas poblado?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Afrika",
-              "Europa",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Africa",
-              "Europe",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Africa",
-              "Europa",
-              "America"
-            ]
-          }
+          "answer": "l'électricien",
+          "correction": "L'électricien répare les installations électriques."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Les Alpes sont :",
+          "prompt": "Quelle couleur symbolise souvent l'environnement et l'écologie ?",
           "options": [
-            "une chaîne de montagnes",
-            "un fleuve",
-            "une mer",
-            "un désert"
+            "le vert",
+            "le rouge",
+            "le bleu"
           ],
-          "answer": "une chaîne de montagnes",
-          "correction": "Les Alpes sont la plus grande chaîne de montagnes d'Europe.",
-          "prompt_nl": "De Alpen zijn:",
-          "prompt_en": "The Alps are:",
-          "prompt_es": "Los Alpes son:",
-          "options_i18n": {
-            "nl": [
-              "een bergketen",
-              "een rivier",
-              "een zee",
-              "een woestijn"
-            ],
-            "en": [
-              "a mountain range",
-              "a river",
-              "a sea",
-              "a desert"
-            ],
-            "es": [
-              "una cadena montanosa",
-              "un rio",
-              "un mar",
-              "un desierto"
-            ]
-          }
+          "answer": "le vert",
+          "correction": "Le vert est la couleur de l'environnement."
         }
       ]
     },
@@ -421,122 +240,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Quel continent est entièrement recouvert de glace et inhabité ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "l'Antarctique",
+            "le Groenland",
+            "l'Arctique"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "l'Antarctique",
+          "correction": "L'Antarctique est couvert de glace."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Quel sens est mis en jeu quand on hume le parfum d'une rose ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "l'odorat",
+            "la vue",
+            "le goût"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "l'odorat",
+          "correction": "On hume une rose grâce à l'odorat."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "Quel sens permet de détecter qu'un aliment est brûlant ?",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "le toucher (et l'odorat)",
+            "la vue",
+            "l'ouïe"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "answer": "le toucher (et l'odorat)",
+          "correction": "Le toucher permet de détecter la chaleur d'un aliment."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
-          "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
-          ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "La vache nous donne :",
-          "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
-          ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Quel sens est utilisé par les malvoyants pour lire le braille ?",
           "options": [
             "le toucher",
             "la vue",
             "l'ouïe"
           ],
           "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "correction": "Le braille se lit avec le toucher."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel animal symbolise souvent la liberté et vole très haut ?",
+          "options": [
+            "l'aigle",
+            "le lapin",
+            "le poisson"
+          ],
+          "answer": "l'aigle",
+          "correction": "L'aigle symbolise la liberté."
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Maroc ?",
+          "options": [
+            "l'Afrique",
+            "l'Europe",
+            "l'Asie"
+          ],
+          "answer": "l'Afrique",
+          "correction": "Le Maroc est en Afrique du Nord."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Sur quel continent se trouve la Turquie ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "l'Europe et l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "l'Europe et l'Asie",
+          "correction": "La Turquie s'étend sur l'Europe et l'Asie."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Quel phénomène cause l'arc-en-ciel ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "la réfraction de la lumière dans les gouttes d'eau",
+            "l'ozone",
+            "le vent"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "la réfraction de la lumière dans les gouttes d'eau",
+          "correction": "L'arc-en-ciel est dû à la réfraction."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Quel sens nous permet d'entendre une sonnette ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "l'ouïe",
+            "la vue",
+            "le toucher"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "l'ouïe",
+          "correction": "On entend la sonnette grâce à l'ouïe."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Quel professionnel travaille dans une bibliothèque ?",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "le bibliothécaire",
+            "le libraire",
+            "le journaliste"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "le bibliothécaire",
+          "correction": "Le bibliothécaire gère la bibliothèque."
         }
       ]
     }

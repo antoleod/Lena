@@ -12,98 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Un synonyme de « mystérieux » :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "énigmatique",
+            "clair",
+            "évident",
+            "simple"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "énigmatique",
+          "correction": "Un synonyme de « mystérieux » : → énigmatique.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Un synonyme de « bâtir » :",
           "options": [
-            "discuter",
-            "courir",
-            "dormir"
+            "construire",
+            "détruire",
+            "démolir",
+            "abattre"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
+          "answer": "construire",
+          "correction": "Un synonyme de « bâtir » : → construire.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le contraire de « audacieux » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "timide",
+            "courageux",
+            "téméraire",
+            "brave"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "timide",
+          "correction": "Le contraire de « audacieux » : → timide.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Un synonyme de « tester » :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "essayer",
+            "ignorer",
+            "refuser",
+            "éviter"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "essayer",
+          "correction": "Un synonyme de « tester » : → essayer.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « jolie » :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "belle",
+            "laide",
+            "froide",
+            "grande"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "belle",
+          "correction": "Un synonyme de « jolie » : → belle.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
+          "prompt": "Le contraire de « bref » :",
           "options": [
-            "triste",
-            "content",
-            "joyeux"
+            "long",
+            "court",
+            "rapide",
+            "concis"
           ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
+          "answer": "long",
+          "correction": "Le contraire de « bref » : → long.",
+          "id": "q12"
         },
         {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
+          "type": "mcq",
+          "prompt": "Un synonyme de « encourager » :",
+          "options": [
+            "motiver",
+            "décourager",
+            "démoraliser",
+            "démotiver"
           ],
-          "correction": "monter ↔ descendre."
+          "answer": "motiver",
+          "correction": "Un synonyme de « encourager » : → motiver.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un synonyme de « hurler » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "crier",
+            "chuchoter",
+            "murmurer",
+            "se taire"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "crier",
+          "correction": "Un synonyme de « hurler » : → crier.",
+          "id": "q16"
         }
       ]
     },
@@ -111,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Le contraire de « beau » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "laid",
+            "joli",
+            "magnifique",
+            "splendide"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "laid",
+          "correction": "Le contraire de « beau » : → laid.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « maigre » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "gros",
+            "mince",
+            "svelte",
+            "élancé"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "gros",
+          "correction": "Le contraire de « maigre » : → gros.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Un synonyme de « attraper » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "saisir",
+            "lancer",
+            "perdre",
+            "libérer"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "saisir",
+          "correction": "Un synonyme de « attraper » : → saisir.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « étonner » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "surprendre",
+            "ennuyer",
+            "décevoir",
+            "lasser"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "surprendre",
+          "correction": "Un synonyme de « étonner » : → surprendre.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « passer » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "traverser",
+            "rester",
+            "s'arrêter",
+            "bloquer"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "traverser",
+          "correction": "Un synonyme de « passer » : → traverser.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « unir » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "assembler",
+            "séparer",
+            "diviser",
+            "disperser"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "assembler",
+          "correction": "Un synonyme de « unir » : → assembler.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Le contraire de « dangereux » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "sûr",
+            "risqué",
+            "périlleux",
+            "menaçant"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "sûr",
+          "correction": "Le contraire de « dangereux » : → sûr.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « juste » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "injuste",
+            "équitable",
+            "correct",
+            "légitime"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "injuste",
+          "correction": "Le contraire de « juste » : → injuste.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « sincère » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "hypocrite",
+            "honnête",
+            "franc",
+            "loyal"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "hypocrite",
+          "correction": "Le contraire de « sincère » : → hypocrite.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Le préfixe « re- » dans « recommencer » signifie :",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "commencer à nouveau",
+            "ne plus commencer",
+            "commencer vite",
+            "mal commencer"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "commencer à nouveau",
+          "correction": "Le préfixe « re- » dans « recommencer » signifie : → commencer à nouveau.",
+          "id": "q19"
         }
       ]
     },

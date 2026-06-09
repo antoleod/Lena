@@ -14,84 +14,110 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "L'eau en état solide est :",
+          "prompt": "Quel type d'animal est la tortue ?",
           "options": [
-            "la glace",
-            "la vapeur",
-            "la pluie",
-            "la rosée"
+            "un reptile",
+            "un amphibien",
+            "un mammifère",
+            "un oiseau"
           ],
-          "answer": "la glace",
-          "correction": "L'eau solide = la glace.",
-          "prompt_nl": "Water in vaste toestand is:",
-          "prompt_en": "Water in solid state is:",
-          "prompt_es": "El agua en estado solido es:",
+          "answer": "un reptile",
+          "correction": "La tortue est un reptile.",
+          "prompt_nl": "Welk type dier is een schildpad?",
+          "prompt_en": "What type of animal is a turtle?",
+          "prompt_es": "¿Qué tipo de animal es la tortuga?",
           "options_i18n": {
             "nl": [
-              "ijs",
-              "damp",
-              "regen",
-              "dauw"
+              "een reptiel",
+              "een amfibie",
+              "een zoogdier",
+              "een vogel"
             ],
             "en": [
-              "ice",
-              "vapour",
-              "rain",
-              "dew"
+              "a reptile",
+              "an amphibian",
+              "a mammal",
+              "a bird"
             ],
             "es": [
-              "hielo",
-              "vapor",
-              "lluvia",
-              "rocio"
+              "un reptil",
+              "un anfibio",
+              "un mamífero",
+              "un ave"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel organe pompe le sang dans le corps ?",
+          "prompt": "Quel animal est un primate ?",
           "options": [
-            "le cœur",
-            "le poumon",
-            "le cerveau",
-            "l'estomac"
+            "le chimpanzé",
+            "le chien",
+            "le chat",
+            "le cheval"
           ],
-          "answer": "le cœur",
-          "correction": "Le cœur pompe le sang.",
-          "prompt_nl": "Welk orgaan pompt het bloed door het lichaam?",
-          "prompt_en": "Which organ pumps blood through the body?",
-          "prompt_es": "Que organo bombea la sangre por el cuerpo?",
+          "answer": "le chimpanzé",
+          "correction": "Le chimpanzé est un primate.",
+          "prompt_nl": "Welk dier is een primaat?",
+          "prompt_en": "Which animal is a primate?",
+          "prompt_es": "¿Qué animal es un primate?",
           "options_i18n": {
             "nl": [
-              "het hart",
-              "de long",
-              "de hersenen",
-              "de maag"
+              "de chimpansee",
+              "de hond",
+              "de kat",
+              "het paard"
             ],
             "en": [
-              "the heart",
-              "the lung",
-              "the brain",
-              "the stomach"
+              "the chimpanzee",
+              "the dog",
+              "the cat",
+              "the horse"
             ],
             "es": [
-              "el corazon",
-              "el pulmon",
-              "el cerebro",
-              "el estomago"
+              "el chimpancé",
+              "el perro",
+              "el gato",
+              "el caballo"
             ]
           }
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "Les plantes produisent de l'oxygène.",
-          "answer": true,
-          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse.",
-          "prompt_nl": "Planten produceren zuurstof.",
-          "prompt_en": "Plants produce oxygen.",
-          "prompt_es": "Las plantas producen oxigeno."
+          "type": "mcq",
+          "prompt": "Quel est le plus grand mammifère terrestre ?",
+          "options": [
+            "l'éléphant d'Afrique",
+            "le rhinocéros",
+            "la girafe",
+            "l'hippopotame"
+          ],
+          "answer": "l'éléphant d'Afrique",
+          "correction": "L'éléphant d'Afrique est le plus grand.",
+          "prompt_nl": "Wat is het grootste landzoogdier?",
+          "prompt_en": "What is the largest land mammal?",
+          "prompt_es": "¿Cuál es el mamífero terrestre más grande?",
+          "options_i18n": {
+            "nl": [
+              "de Afrikaanse olifant",
+              "de neushoorn",
+              "de giraf",
+              "het nijlpaard"
+            ],
+            "en": [
+              "the African elephant",
+              "the rhinoceros",
+              "the giraffe",
+              "the hippopotamus"
+            ],
+            "es": [
+              "el elefante africano",
+              "el rinoceronte",
+              "la jirafa",
+              "el hipopótamo"
+            ]
+          }
         },
         {
           "id": "q8",
@@ -132,36 +158,36 @@
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "prompt": "Quel animal est connu pour changer de couleur ?",
           "options": [
-            "Mercure",
-            "Vénus",
-            "Terre",
-            "Mars"
+            "le caméléon",
+            "le lézard",
+            "le serpent",
+            "la tortue"
           ],
-          "answer": "Mercure",
-          "correction": "Mercure est la planète la plus proche du Soleil.",
-          "prompt_nl": "Welke planeet staat het dichtst bij de Zon?",
-          "prompt_en": "Which planet is closest to the Sun?",
-          "prompt_es": "Que planeta esta mas cerca del Sol?",
+          "answer": "le caméléon",
+          "correction": "Le caméléon change de couleur.",
+          "prompt_nl": "Welk dier staat bekend om van kleur te veranderen?",
+          "prompt_en": "Which animal changes color?",
+          "prompt_es": "¿Qué animal cambia de color?",
           "options_i18n": {
             "nl": [
-              "Mercurius",
-              "Venus",
-              "Aarde",
-              "Mars"
+              "het kameleon",
+              "de hagedis",
+              "de slang",
+              "de schildpad"
             ],
             "en": [
-              "Mercury",
-              "Venus",
-              "Earth",
-              "Mars"
+              "the chameleon",
+              "the lizard",
+              "the snake",
+              "the turtle"
             ],
             "es": [
-              "Mercurio",
-              "Venus",
-              "Tierra",
-              "Marte"
+              "el camaleón",
+              "el lagarto",
+              "la serpiente",
+              "la tortuga"
             ]
           }
         },
@@ -204,72 +230,72 @@
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
+          "prompt": "Quel est le rôle des racines d'une plante ?",
           "options": [
-            "l'odorat",
-            "le goût",
-            "la vue",
-            "le toucher"
+            "absorber l'eau et les sels minéraux",
+            "faire la photosynthèse",
+            "produire des graines",
+            "stocker du sucre"
           ],
-          "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez).",
-          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
-          "prompt_en": "Which sense do you use to smell a flower?",
-          "prompt_es": "Que sentido se usa para oler una flor?",
+          "answer": "absorber l'eau et les sels minéraux",
+          "correction": "Les racines absorbent l'eau et les sels minéraux.",
+          "prompt_nl": "Wat is de functie van de wortels?",
+          "prompt_en": "What is the role of roots?",
+          "prompt_es": "¿Cuál es el papel de las raíces?",
           "options_i18n": {
             "nl": [
-              "de reuk",
-              "de smaak",
-              "het zicht",
-              "het gevoel"
+              "water en mineralen opnemen",
+              "fotosynthese doen",
+              "zaden produceren",
+              "suiker opslaan"
             ],
             "en": [
-              "smell",
-              "taste",
-              "sight",
-              "touch"
+              "absorb water and minerals",
+              "do photosynthesis",
+              "produce seeds",
+              "store sugar"
             ],
             "es": [
-              "el olfato",
-              "el gusto",
-              "la vista",
-              "el tacto"
+              "absorber agua y minerales",
+              "hacer fotosíntesis",
+              "producir semillas",
+              "almacenar azúcar"
             ]
           }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le cycle de l'eau commence par :",
+          "prompt": "Quel gaz est le plus abondant dans l'atmosphère terrestre ?",
           "options": [
-            "l'évaporation",
-            "les précipitations",
-            "la condensation",
-            "le ruissellement"
+            "l'azote",
+            "l'oxygène",
+            "le CO₂",
+            "l'argon"
           ],
-          "answer": "l'évaporation",
-          "correction": "Le cycle de l'eau commence par l'évaporation.",
-          "prompt_nl": "De watercyclus begint met:",
-          "prompt_en": "The water cycle begins with:",
-          "prompt_es": "El ciclo del agua comienza por:",
+          "answer": "l'azote",
+          "correction": "L'azote = ~78% de l'atmosphère.",
+          "prompt_nl": "Welk gas is het meest aanwezig in de aardatmosfeer?",
+          "prompt_en": "Which gas is most abundant in Earth's atmosphere?",
+          "prompt_es": "¿Qué gas es más abundante en la atmósfera?",
           "options_i18n": {
             "nl": [
-              "verdamping",
-              "neerslag",
-              "condensatie",
-              "afvloeiing"
+              "stikstof",
+              "zuurstof",
+              "CO₂",
+              "argon"
             ],
             "en": [
-              "evaporation",
-              "precipitation",
-              "condensation",
-              "runoff"
+              "nitrogen",
+              "oxygen",
+              "CO₂",
+              "argon"
             ],
             "es": [
-              "evaporacion",
-              "precipitaciones",
-              "condensacion",
-              "escorrentia"
+              "nitrógeno",
+              "oxígeno",
+              "CO₂",
+              "argón"
             ]
           }
         }
@@ -594,36 +620,36 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
+          "prompt": "Comment appelle-t-on le mouvement de la Terre autour du Soleil ?",
           "options": [
-            "la Lune",
-            "le Soleil",
-            "Mars",
-            "Jupiter"
+            "la révolution",
+            "la rotation",
+            "la translation",
+            "l'orbite"
           ],
-          "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
+          "answer": "la révolution",
+          "correction": "La Terre tourne autour du Soleil : révolution.",
+          "prompt_nl": "Hoe heet de beweging van de Aarde om de Zon?",
+          "prompt_en": "What is Earth's orbit around the Sun called?",
+          "prompt_es": "¿Cómo se llama el movimiento de la Tierra alrededor del Sol?",
           "options_i18n": {
             "nl": [
-              "de Maan",
-              "de Zon",
-              "Mars",
-              "Jupiter"
+              "de revolutie",
+              "de rotatie",
+              "de translatie",
+              "de baan"
             ],
             "en": [
-              "the Moon",
-              "the Sun",
-              "Mars",
-              "Jupiter"
+              "revolution",
+              "rotation",
+              "translation",
+              "orbit"
             ],
             "es": [
-              "la Luna",
-              "el Sol",
-              "Marte",
-              "Jupiter"
+              "la revolución",
+              "la rotación",
+              "la traslación",
+              "la órbita"
             ]
           }
         },
@@ -666,262 +692,288 @@
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Les plantes ont besoin de :",
+          "prompt": "Comment appelle-t-on le mouvement de la Terre sur elle-même ?",
           "options": [
-            "lumière, eau et terre",
-            "chocolat et lait",
-            "froid et obscurité",
-            "sable et sel"
+            "la rotation",
+            "la révolution",
+            "l'orbite",
+            "la translation"
           ],
-          "answer": "lumière, eau et terre",
-          "correction": "Les plantes ont besoin de lumière, eau et terre.",
-          "prompt_nl": "Planten hebben nodig:",
-          "prompt_en": "Plants need:",
-          "prompt_es": "Las plantas necesitan:",
+          "answer": "la rotation",
+          "correction": "La Terre tourne sur elle-même : rotation.",
+          "prompt_nl": "Hoe heet de beweging van de Aarde om haar eigen as?",
+          "prompt_en": "What is Earth's spin on its axis called?",
+          "prompt_es": "¿Cómo se llama la rotación de la Tierra?",
           "options_i18n": {
             "nl": [
-              "licht, water en aarde",
-              "chocolade en melk",
-              "kou en duisternis",
-              "zand en zout"
+              "de rotatie",
+              "de revolutie",
+              "de baan",
+              "de translatie"
             ],
             "en": [
-              "light, water and soil",
-              "chocolate and milk",
-              "cold and darkness",
-              "sand and salt"
+              "rotation",
+              "revolution",
+              "orbit",
+              "translation"
             ],
             "es": [
-              "luz, agua y tierra",
-              "chocolate y leche",
-              "frio y oscuridad",
-              "arena y sal"
+              "la rotación",
+              "la revolución",
+              "la órbita",
+              "la traslación"
             ]
           }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La chaîne alimentaire commence par :",
+          "prompt": "Quel est l'organe principal de la digestion ?",
           "options": [
-            "les plantes",
-            "les herbivores",
-            "les carnivores",
-            "les décomposeurs"
+            "l'estomac",
+            "le cœur",
+            "les poumons",
+            "les reins"
           ],
-          "answer": "les plantes",
-          "correction": "La chaîne alimentaire commence par les plantes.",
-          "prompt_nl": "De voedselketen begint bij:",
-          "prompt_en": "The food chain starts with:",
-          "prompt_es": "La cadena alimentaria empieza por:",
+          "answer": "l'estomac",
+          "correction": "L'estomac est central dans la digestion.",
+          "prompt_nl": "Wat is het belangrijkste spijsverteringsorgaan?",
+          "prompt_en": "What is the main digestive organ?",
+          "prompt_es": "¿Cuál es el órgano principal de la digestión?",
           "options_i18n": {
             "nl": [
-              "de planten",
-              "de herbivoren",
-              "de carnivoren",
-              "de afbrekers"
+              "de maag",
+              "het hart",
+              "de longen",
+              "de nieren"
             ],
             "en": [
-              "plants",
-              "herbivores",
-              "carnivores",
-              "decomposers"
+              "the stomach",
+              "the heart",
+              "the lungs",
+              "the kidneys"
             ],
             "es": [
-              "las plantas",
-              "los herbivoros",
-              "los carnivoros",
-              "los descomponedores"
+              "el estómago",
+              "el corazón",
+              "los pulmones",
+              "los riñones"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "Quel animal construit une toile pour attraper des insectes ?",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "l'araignée",
+            "la guêpe",
+            "l'abeille",
+            "la fourmi"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
+          "answer": "l'araignée",
+          "correction": "L'araignée tisse une toile.",
+          "prompt_nl": "Welk dier maakt een web?",
+          "prompt_en": "Which animal builds a web?",
+          "prompt_es": "¿Qué animal teje una tela?",
           "options_i18n": {
             "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
+              "de spin",
+              "de wesp",
+              "de bij",
+              "de mier"
             ],
             "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
+              "the spider",
+              "the wasp",
+              "the bee",
+              "the ant"
             ],
             "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
+              "la araña",
+              "la avispa",
+              "la abeja",
+              "la hormiga"
             ]
           }
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Un insecte a combien de pattes ?",
+          "prompt": "Quel type d'énergie produit un panneau solaire ?",
           "options": [
-            "6",
-            "4",
-            "8",
-            "2"
+            "de l'électricité",
+            "de la chaleur",
+            "du son",
+            "de la lumière"
           ],
-          "answer": "6",
-          "correction": "Les insectes ont 6 pattes.",
-          "prompt_nl": "Hoeveel poten heeft een insect?",
-          "prompt_en": "How many legs does an insect have?",
-          "prompt_es": "Cuantas patas tiene un insecto?",
+          "answer": "de l'électricité",
+          "correction": "Un panneau solaire produit de l'électricité.",
+          "prompt_nl": "Welk type energie produceert een zonnepaneel?",
+          "prompt_en": "What energy does a solar panel produce?",
+          "prompt_es": "¿Qué energía produce un panel solar?",
           "options_i18n": {
             "nl": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "elektriciteit",
+              "warmte",
+              "geluid",
+              "licht"
             ],
             "en": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "electricity",
+              "heat",
+              "sound",
+              "light"
             ],
             "es": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "electricidad",
+              "calor",
+              "sonido",
+              "luz"
             ]
           }
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel animal est un mammifère ?",
+          "prompt": "Quel animal pond des œufs et nourrit ses petits avec du lait ?",
           "options": [
-            "le chien",
-            "l'aigle",
-            "la grenouille",
-            "le serpent"
+            "l'ornithorynque",
+            "le dauphin",
+            "le crocodile",
+            "l'aigle"
           ],
-          "answer": "le chien",
-          "correction": "Le chien est un mammifère.",
-          "prompt_nl": "Welk dier is een zoogdier?",
-          "prompt_en": "Which animal is a mammal?",
-          "prompt_es": "Que animal es un mamifero?",
+          "answer": "l'ornithorynque",
+          "correction": "L'ornithorynque est un mammifère ovipare.",
+          "prompt_nl": "Welk dier legt eieren én voedt zijn jongen met melk?",
+          "prompt_en": "Which animal lays eggs and nurses young?",
+          "prompt_es": "¿Qué animal pone huevos y amamanta a sus crías?",
           "options_i18n": {
             "nl": [
-              "de hond",
-              "de arend",
-              "de kikker",
-              "de slang"
+              "het vogelbekdier",
+              "de dolfijn",
+              "de krokodil",
+              "de adelaar"
             ],
             "en": [
-              "the dog",
-              "the eagle",
-              "the frog",
-              "the snake"
+              "the platypus",
+              "the dolphin",
+              "the crocodile",
+              "the eagle"
             ],
             "es": [
-              "el perro",
-              "el aguila",
-              "la rana",
-              "la serpiente"
+              "el ornitorrinco",
+              "el delfín",
+              "el cocodrilo",
+              "el águila"
             ]
           }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
+          "prompt": "Quelle substance rend les feuilles vertes ?",
           "options": [
-            "l'odorat",
-            "le goût",
-            "la vue",
-            "le toucher"
+            "la chlorophylle",
+            "la carotène",
+            "l'anthocyane",
+            "la xanthophylle"
           ],
-          "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez).",
-          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
-          "prompt_en": "Which sense do you use to smell a flower?",
-          "prompt_es": "Que sentido se usa para oler una flor?",
+          "answer": "la chlorophylle",
+          "correction": "La chlorophylle est le pigment vert.",
+          "prompt_nl": "Welke stof maakt bladeren groen?",
+          "prompt_en": "What makes leaves green?",
+          "prompt_es": "¿Qué sustancia hace verdes a las hojas?",
           "options_i18n": {
             "nl": [
-              "de reuk",
-              "de smaak",
-              "het zicht",
-              "het gevoel"
+              "chlorofyl",
+              "caroteen",
+              "anthocyaan",
+              "xanthofyl"
             ],
             "en": [
-              "smell",
-              "taste",
-              "sight",
-              "touch"
+              "chlorophyll",
+              "carotene",
+              "anthocyanin",
+              "xanthophyll"
             ],
             "es": [
-              "el olfato",
-              "el gusto",
-              "la vista",
-              "el tacto"
+              "la clorofila",
+              "el caroteno",
+              "la antocianina",
+              "la xantofila"
             ]
           }
         },
         {
           "id": "q18",
-          "type": "true_false",
-          "prompt": "Le Soleil tourne autour de la Terre.",
-          "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil.",
-          "prompt_nl": "De Zon draait om de Aarde.",
-          "prompt_en": "The Sun revolves around the Earth.",
-          "prompt_es": "El Sol gira alrededor de la Tierra."
+          "type": "mcq",
+          "prompt": "Quel est le composé chimique de l'eau ?",
+          "options": [
+            "H₂O",
+            "CO₂",
+            "O₂",
+            "NaCl"
+          ],
+          "answer": "H₂O",
+          "correction": "L'eau est H₂O.",
+          "prompt_nl": "Wat is de chemische formule van water?",
+          "prompt_en": "What is the chemical formula of water?",
+          "prompt_es": "¿Cuál es la fórmula química del agua?",
+          "options_i18n": {
+            "nl": [
+              "H₂O",
+              "CO₂",
+              "O₂",
+              "NaCl"
+            ],
+            "en": [
+              "H₂O",
+              "CO₂",
+              "O₂",
+              "NaCl"
+            ],
+            "es": [
+              "H₂O",
+              "CO₂",
+              "O₂",
+              "NaCl"
+            ]
+          }
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Un herbivore mange :",
+          "prompt": "Quel phénomène cause les saisons sur Terre ?",
           "options": [
-            "des plantes",
-            "de la viande",
-            "des insectes",
-            "des poissons"
+            "l'inclinaison de l'axe terrestre",
+            "la distance au Soleil",
+            "la rotation de la Terre",
+            "la Lune"
           ],
-          "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes.",
-          "prompt_nl": "Een herbivoor eet:",
-          "prompt_en": "A herbivore eats:",
-          "prompt_es": "Un herbivoro come:",
+          "answer": "l'inclinaison de l'axe terrestre",
+          "correction": "Les saisons sont dues à l'inclinaison de l'axe.",
+          "prompt_nl": "Welk fenomeen veroorzaakt de seizoenen?",
+          "prompt_en": "What causes seasons on Earth?",
+          "prompt_es": "¿Qué provoca las estaciones?",
           "options_i18n": {
             "nl": [
-              "planten",
-              "vlees",
-              "insecten",
-              "vissen"
+              "de kanteling van de aardsas",
+              "de afstand tot de Zon",
+              "de rotatie",
+              "de Maan"
             ],
             "en": [
-              "plants",
-              "meat",
-              "insects",
-              "fish"
+              "the tilt of Earth's axis",
+              "distance to Sun",
+              "Earth's rotation",
+              "the Moon"
             ],
             "es": [
-              "plantas",
-              "carne",
-              "insectos",
-              "peces"
+              "la inclinación del eje",
+              "la distancia al Sol",
+              "la rotación",
+              "la Luna"
             ]
           }
         }

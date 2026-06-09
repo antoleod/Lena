@@ -593,47 +593,73 @@
       "questions": [
         {
           "id": "q2",
-          "type": "true_false",
-          "prompt": "L'eau bout à 100°C.",
-          "answer": true,
-          "correction": "L'eau bout à 100 degrés Celsius.",
-          "prompt_nl": "Water kookt bij 100°C.",
-          "prompt_en": "Water boils at 100°C.",
-          "prompt_es": "El agua hierve a 100°C."
+          "type": "mcq",
+          "prompt": "Quel gaz est indispensable à la vie des animaux ?",
+          "options": [
+            "l'oxygène",
+            "l'azote",
+            "le CO₂",
+            "l'hydrogène"
+          ],
+          "answer": "l'oxygène",
+          "correction": "Les animaux ont besoin d'oxygène.",
+          "prompt_nl": "Welk gas is onmisbaar voor dieren?",
+          "prompt_en": "Which gas is essential for animals?",
+          "prompt_es": "¿Qué gas es esencial para los animales?",
+          "options_i18n": {
+            "nl": [
+              "zuurstof",
+              "stikstof",
+              "CO₂",
+              "waterstof"
+            ],
+            "en": [
+              "oxygen",
+              "nitrogen",
+              "CO₂",
+              "hydrogen"
+            ],
+            "es": [
+              "oxígeno",
+              "nitrógeno",
+              "CO₂",
+              "hidrógeno"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "Quel gaz les voitures rejettent-elles dans l'air ?",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "le dioxyde de carbone",
+            "l'oxygène",
+            "l'azote",
+            "la vapeur d'eau"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
+          "answer": "le dioxyde de carbone",
+          "correction": "Les voitures rejettent du CO₂.",
+          "prompt_nl": "Welk gas stoten auto's uit?",
+          "prompt_en": "Which gas do cars emit?",
+          "prompt_es": "¿Qué gas emiten los coches?",
           "options_i18n": {
             "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
+              "koolstofdioxide",
+              "zuurstof",
+              "stikstof",
+              "waterdamp"
             ],
             "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
+              "carbon dioxide",
+              "oxygen",
+              "nitrogen",
+              "water vapor"
             ],
             "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
+              "dióxido de carbono",
+              "oxígeno",
+              "nitrógeno",
+              "vapor de agua"
             ]
           }
         },
@@ -820,36 +846,36 @@
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
+          "prompt": "Quelle est la planète la plus proche du Soleil ?",
           "options": [
-            "la Lune",
-            "le Soleil",
-            "Mars",
-            "Jupiter"
+            "Mercure",
+            "Vénus",
+            "Terre",
+            "Mars"
           ],
-          "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
+          "answer": "Mercure",
+          "correction": "Mercure est la 1re planète.",
+          "prompt_nl": "Welke planeet staat het dichtst bij de Zon?",
+          "prompt_en": "Which planet is closest to the Sun?",
+          "prompt_es": "¿Qué planeta está más cerca del Sol?",
           "options_i18n": {
             "nl": [
-              "de Maan",
-              "de Zon",
-              "Mars",
-              "Jupiter"
+              "Mercurius",
+              "Venus",
+              "Aarde",
+              "Mars"
             ],
             "en": [
-              "the Moon",
-              "the Sun",
-              "Mars",
-              "Jupiter"
+              "Mercury",
+              "Venus",
+              "Earth",
+              "Mars"
             ],
             "es": [
-              "la Luna",
-              "el Sol",
-              "Marte",
-              "Jupiter"
+              "Mercurio",
+              "Venus",
+              "Tierra",
+              "Marte"
             ]
           }
         },
@@ -892,36 +918,36 @@
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "prompt": "Quel organe humain produit l'insuline ?",
           "options": [
-            "Mercure",
-            "Vénus",
-            "Terre",
-            "Mars"
+            "le pancréas",
+            "le foie",
+            "les reins",
+            "le cœur"
           ],
-          "answer": "Mercure",
-          "correction": "Mercure est la planète la plus proche du Soleil.",
-          "prompt_nl": "Welke planeet staat het dichtst bij de Zon?",
-          "prompt_en": "Which planet is closest to the Sun?",
-          "prompt_es": "Que planeta esta mas cerca del Sol?",
+          "answer": "le pancréas",
+          "correction": "Le pancréas produit l'insuline.",
+          "prompt_nl": "Welk orgaan maakt insuline?",
+          "prompt_en": "Which organ produces insulin?",
+          "prompt_es": "¿Qué órgano produce insulina?",
           "options_i18n": {
             "nl": [
-              "Mercurius",
-              "Venus",
-              "Aarde",
-              "Mars"
+              "de alvleesklier",
+              "de lever",
+              "de nieren",
+              "het hart"
             ],
             "en": [
-              "Mercury",
-              "Venus",
-              "Earth",
-              "Mars"
+              "the pancreas",
+              "the liver",
+              "the kidneys",
+              "the heart"
             ],
             "es": [
-              "Mercurio",
-              "Venus",
-              "Tierra",
-              "Marte"
+              "el páncreas",
+              "el hígado",
+              "los riñones",
+              "el corazón"
             ]
           }
         }

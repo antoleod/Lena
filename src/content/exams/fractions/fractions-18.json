@@ -12,144 +12,156 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "La moitié de 20 est :",
+          "prompt": "5/7 est plus grand que 2/7.",
+          "answer": "Vrai",
+          "correction": "5>2, donc 5/7>2/7.",
+          "prompt_nl": "5/7 est plus grand que 2/7.",
+          "prompt_en": "5/7 est plus grand que 2/7.",
+          "prompt_es": "5/7 est plus grand que 2/7.",
+          "correction_nl": "5>2, donc 5/7>2/7.",
+          "correction_en": "5>2, donc 5/7>2/7.",
+          "correction_es": "5>2, donc 5/7>2/7.",
           "options": [
-            "10",
-            "5",
-            "15",
-            "8"
+            "Vrai",
+            "Faux",
+            "Égaux",
+            "Impossible"
           ],
-          "answer": "10",
-          "correction": "20 ÷ 2 = 10.",
-          "prompt_nl": "De helft van 20 is:",
-          "prompt_en": "Half of 20 is:",
-          "prompt_es": "La mitad de 20 es:",
-          "correction_nl": "20 ÷ 2 = 10.",
-          "correction_en": "20 ÷ 2 = 10.",
-          "correction_es": "20 ÷ 2 = 10."
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le tiers de 12 est :",
+          "prompt": "6/9 est plus grand que 2/9.",
+          "answer": "Vrai",
+          "correction": "6>2, donc 6/9>2/9.",
+          "prompt_nl": "6/9 est plus grand que 2/9.",
+          "prompt_en": "6/9 est plus grand que 2/9.",
+          "prompt_es": "6/9 est plus grand que 2/9.",
+          "correction_nl": "6>2, donc 6/9>2/9.",
+          "correction_en": "6>2, donc 6/9>2/9.",
+          "correction_es": "6>2, donc 6/9>2/9.",
           "options": [
-            "4",
+            "Vrai",
+            "Faux",
+            "Égaux",
+            "Impossible"
+          ],
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "1/5 de 5 = ?",
+          "answer": "1",
+          "correction": "1/5 × 5 = 1.",
+          "prompt_nl": "1/5 de 5 = ?",
+          "prompt_en": "1/5 de 5 = ?",
+          "prompt_es": "1/5 de 5 = ?",
+          "correction_nl": "1/5 × 5 = 1.",
+          "correction_en": "1/5 × 5 = 1.",
+          "correction_es": "1/5 × 5 = 1.",
+          "options": [
+            "1",
+            "2",
             "3",
-            "6",
-            "2"
+            "9"
           ],
-          "answer": "4",
-          "correction": "12 ÷ 3 = 4.",
-          "prompt_nl": "Een derde van 12 is:",
-          "prompt_en": "One third of 12 is:",
-          "prompt_es": "Un tercio de 12 es:",
-          "correction_nl": "12 ÷ 3 = 4.",
-          "correction_en": "12 ÷ 3 = 4.",
-          "correction_es": "12 ÷ 3 = 4."
+          "id": "q6"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Quelle fraction est la plus grande ?",
-          "options": [
-            "3/4",
-            "1/4",
-            "2/4",
-            "1/2"
-          ],
-          "answer": "3/4",
-          "correction": "3/4 est la plus grande.",
-          "prompt_nl": "Welk breuk is het grootst?",
-          "prompt_en": "Which fraction is the largest?",
-          "prompt_es": "¿Qué fracción es la mayor?",
-          "correction_nl": "3/4 is het grootst.",
-          "correction_en": "3/4 is the largest.",
-          "correction_es": "3/4 es la mayor."
-        },
-        {
-          "id": "q8",
-          "type": "true_false",
-          "prompt": "1/3 est plus grand que 1/2.",
-          "answer": false,
-          "correction": "1/3 < 1/2 : un tiers est plus petit.",
-          "prompt_nl": "1/3 is groter dan 1/2.",
-          "prompt_en": "1/3 is bigger than 1/2.",
-          "prompt_es": "1/3 es mayor que 1/2.",
-          "correction_nl": "1/3 < 1/2.",
-          "correction_en": "1/3 < 1/2.",
-          "correction_es": "1/3 < 1/2."
-        },
-        {
-          "id": "q10",
-          "type": "true_false",
-          "prompt": "2/4 = 1/2.",
-          "answer": true,
-          "correction": "2/4 se simplifie en 1/2.",
-          "prompt_nl": "2/4 = 1/2.",
-          "prompt_en": "2/4 = 1/2.",
-          "prompt_es": "2/4 = 1/2.",
-          "correction_nl": "2/4 vereenvoudigt tot 1/2.",
-          "correction_en": "2/4 simplifies to 1/2.",
-          "correction_es": "2/4 se simplifica a 1/2."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le quart de 8 est :",
+          "prompt": "1/6 de 12 = ?",
+          "answer": "2",
+          "correction": "1/6 × 12 = 2.",
+          "prompt_nl": "1/6 de 12 = ?",
+          "prompt_en": "1/6 de 12 = ?",
+          "prompt_es": "1/6 de 12 = ?",
+          "correction_nl": "1/6 × 12 = 2.",
+          "correction_en": "1/6 × 12 = 2.",
+          "correction_es": "1/6 × 12 = 2.",
           "options": [
             "2",
-            "4",
-            "6",
-            "1"
+            "3",
+            "1",
+            "10"
           ],
-          "answer": "2",
-          "correction": "8 ÷ 4 = 2.",
-          "prompt_nl": "Een kwart van 8 is:",
-          "prompt_en": "One quarter of 8 is:",
-          "prompt_es": "Un cuarto de 8 es:",
-          "correction_nl": "8 ÷ 4 = 2.",
-          "correction_en": "8 ÷ 4 = 2.",
-          "correction_es": "8 ÷ 4 = 2."
+          "id": "q8"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "3/4 signifie :",
+          "prompt": "2/10 + 5/10 = ?",
+          "answer": "7/10",
+          "correction": "2/10 + 5/10 = 7/10.",
+          "prompt_nl": "2/10 + 5/10 = ?",
+          "prompt_en": "2/10 + 5/10 = ?",
+          "prompt_es": "2/10 + 5/10 = ?",
+          "correction_nl": "2/10 + 5/10 = 7/10.",
+          "correction_en": "2/10 + 5/10 = 7/10.",
+          "correction_es": "2/10 + 5/10 = 7/10.",
           "options": [
-            "3 parties sur 4",
-            "4 parties sur 3",
-            "1 partie sur 4",
-            "3 parties sur 3"
+            "7/10",
+            "7/20",
+            "3/10",
+            "8/10"
           ],
-          "answer": "3 parties sur 4",
-          "correction": "3/4 = 3 parties sur 4.",
-          "prompt_nl": "3/4 betekent:",
-          "prompt_en": "3/4 means:",
-          "prompt_es": "3/4 significa:",
-          "correction_nl": "3 delen van 4.",
-          "correction_en": "3 parts out of 4.",
-          "correction_es": "3 partes de 4."
+          "id": "q10"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Quelle fraction représente un tiers ?",
+          "prompt": "2/5 de 50 = ?",
+          "answer": "20",
+          "correction": "2/5 × 50 = 20.",
+          "prompt_nl": "2/5 de 50 = ?",
+          "prompt_en": "2/5 de 50 = ?",
+          "prompt_es": "2/5 de 50 = ?",
+          "correction_nl": "2/5 × 50 = 20.",
+          "correction_en": "2/5 × 50 = 20.",
+          "correction_es": "2/5 × 50 = 20.",
           "options": [
-            "1/3",
-            "1/2",
-            "2/3",
-            "1/4"
+            "20",
+            "21",
+            "19",
+            "10"
           ],
-          "answer": "1/3",
-          "correction": "Un tiers = 1/3.",
-          "prompt_nl": "Welk breuk is een derde?",
-          "prompt_en": "Which fraction is one third?",
-          "prompt_es": "¿Qué fracción es un tercio?",
-          "correction_nl": "Een derde = 1/3.",
-          "correction_en": "One third = 1/3.",
-          "correction_es": "Un tercio = 1/3."
+          "id": "q12"
+        },
+        {
+          "type": "mcq",
+          "prompt": "9/10 de 20 = ?",
+          "answer": "18",
+          "correction": "9/10 × 20 = 18.",
+          "prompt_nl": "9/10 de 20 = ?",
+          "prompt_en": "9/10 de 20 = ?",
+          "prompt_es": "9/10 de 20 = ?",
+          "correction_nl": "9/10 × 20 = 18.",
+          "correction_en": "9/10 × 20 = 18.",
+          "correction_es": "9/10 × 20 = 18.",
+          "options": [
+            "18",
+            "19",
+            "17",
+            "2"
+          ],
+          "id": "q14"
+        },
+        {
+          "type": "mcq",
+          "prompt": "3/10 de 100 = ?",
+          "answer": "30",
+          "correction": "3/10 × 100 = 30.",
+          "prompt_nl": "3/10 de 100 = ?",
+          "prompt_en": "3/10 de 100 = ?",
+          "prompt_es": "3/10 de 100 = ?",
+          "correction_nl": "3/10 × 100 = 30.",
+          "correction_en": "3/10 × 100 = 30.",
+          "correction_es": "3/10 × 100 = 30.",
+          "options": [
+            "30",
+            "31",
+            "29",
+            "10"
+          ],
+          "id": "q16"
         }
       ]
     },
@@ -158,69 +170,116 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Simplifie 8/12 : quelle fraction obtiens-tu ?",
+          "prompt": "7/11 est plus grand que 2/11.",
+          "answer": "Vrai",
+          "correction": "7>2, donc 7/11>2/11.",
+          "prompt_nl": "7/11 est plus grand que 2/11.",
+          "prompt_en": "7/11 est plus grand que 2/11.",
+          "prompt_es": "7/11 est plus grand que 2/11.",
+          "correction_nl": "7>2, donc 7/11>2/11.",
+          "correction_en": "7>2, donc 7/11>2/11.",
+          "correction_es": "7>2, donc 7/11>2/11.",
           "options": [
-            "2/3",
-            "1/3",
-            "3/4",
-            "1/2"
+            "Vrai",
+            "Faux",
+            "Égaux",
+            "Impossible"
           ],
-          "answer": "2/3",
-          "correction": "8/12 = 2/3 : on divise par 4.",
           "id": "q1"
         },
         {
-          "type": "fill_blank",
-          "prompt": "4/9 + 5/9 = ___ .",
-          "answer": "1",
-          "accept": [
-            "1",
-            "9/9"
+          "type": "mcq",
+          "prompt": "10/11 est plus grand que 2/11.",
+          "answer": "Vrai",
+          "correction": "10>2, donc 10/11>2/11.",
+          "prompt_nl": "10/11 est plus grand que 2/11.",
+          "prompt_en": "10/11 est plus grand que 2/11.",
+          "prompt_es": "10/11 est plus grand que 2/11.",
+          "correction_nl": "10>2, donc 10/11>2/11.",
+          "correction_en": "10>2, donc 10/11>2/11.",
+          "correction_es": "10>2, donc 10/11>2/11.",
+          "options": [
+            "Vrai",
+            "Faux",
+            "Égaux",
+            "Impossible"
           ],
-          "correction": "4/9 + 5/9 = 9/9 = 1 entier.",
           "id": "q2"
         },
         {
           "type": "mcq",
-          "prompt": "Laquelle est la plus petite : 1/6 ou 1/4 ?",
+          "prompt": "6/11 est plus grand que 3/11.",
+          "answer": "Vrai",
+          "correction": "6>3, donc 6/11>3/11.",
+          "prompt_nl": "6/11 est plus grand que 3/11.",
+          "prompt_en": "6/11 est plus grand que 3/11.",
+          "prompt_es": "6/11 est plus grand que 3/11.",
+          "correction_nl": "6>3, donc 6/11>3/11.",
+          "correction_en": "6>3, donc 6/11>3/11.",
+          "correction_es": "6>3, donc 6/11>3/11.",
           "options": [
-            "1/6",
-            "1/4",
-            "Elles sont egales",
-            "Impossible a dire"
+            "Vrai",
+            "Faux",
+            "Égaux",
+            "Impossible"
           ],
-          "answer": "1/6",
-          "correction": "1/6 < 1/4 : denominateur plus grand = fraction plus petite.",
           "id": "q3"
         },
         {
-          "type": "fill_blank",
-          "prompt": "6/7 - 3/7 = ___ .",
-          "answer": "3/7",
-          "accept": [
-            "3/7"
+          "type": "mcq",
+          "prompt": "9/11 est plus grand que 3/11.",
+          "answer": "Vrai",
+          "correction": "9>3, donc 9/11>3/11.",
+          "prompt_nl": "9/11 est plus grand que 3/11.",
+          "prompt_en": "9/11 est plus grand que 3/11.",
+          "prompt_es": "9/11 est plus grand que 3/11.",
+          "correction_nl": "9>3, donc 9/11>3/11.",
+          "correction_en": "9>3, donc 9/11>3/11.",
+          "correction_es": "9>3, donc 9/11>3/11.",
+          "options": [
+            "Vrai",
+            "Faux",
+            "Égaux",
+            "Impossible"
           ],
-          "correction": "6/7 - 3/7 = 3/7 : on soustrait les numerateurs.",
           "id": "q4"
         },
         {
-          "type": "true_false",
-          "prompt": "5/10 = 1/2.",
-          "answer": true,
-          "correction": "5/10 = 1/2 : on divise par 5.",
+          "type": "mcq",
+          "prompt": "6/11 est plus grand que 4/11.",
+          "answer": "Vrai",
+          "correction": "6>4, donc 6/11>4/11.",
+          "prompt_nl": "6/11 est plus grand que 4/11.",
+          "prompt_en": "6/11 est plus grand que 4/11.",
+          "prompt_es": "6/11 est plus grand que 4/11.",
+          "correction_nl": "6>4, donc 6/11>4/11.",
+          "correction_en": "6>4, donc 6/11>4/11.",
+          "correction_es": "6>4, donc 6/11>4/11.",
+          "options": [
+            "Vrai",
+            "Faux",
+            "Égaux",
+            "Impossible"
+          ],
           "id": "q5"
         },
         {
           "type": "mcq",
-          "prompt": "Quelle valeur decimale correspond a 1/5 ?",
+          "prompt": "9/11 est plus grand que 4/11.",
+          "answer": "Vrai",
+          "correction": "9>4, donc 9/11>4/11.",
+          "prompt_nl": "9/11 est plus grand que 4/11.",
+          "prompt_en": "9/11 est plus grand que 4/11.",
+          "prompt_es": "9/11 est plus grand que 4/11.",
+          "correction_nl": "9>4, donc 9/11>4/11.",
+          "correction_en": "9>4, donc 9/11>4/11.",
+          "correction_es": "9>4, donc 9/11>4/11.",
           "options": [
-            "0,2",
-            "0,5",
-            "0,25",
-            "0,1"
+            "Vrai",
+            "Faux",
+            "Égaux",
+            "Impossible"
           ],
-          "answer": "0,2",
-          "correction": "1/5 = 0,2.",
           "id": "q6"
         },
         {
@@ -249,15 +308,21 @@
         },
         {
           "type": "mcq",
-          "prompt": "Simplifie 4/8 : quelle fraction obtiens-tu ?",
+          "prompt": "7/12 - 3/12 = ?",
+          "answer": "4/12",
+          "correction": "7/12 - 3/12 = 4/12.",
+          "prompt_nl": "7/12 - 3/12 = ?",
+          "prompt_en": "7/12 - 3/12 = ?",
+          "prompt_es": "7/12 - 3/12 = ?",
+          "correction_nl": "7/12 - 3/12 = 4/12.",
+          "correction_en": "7/12 - 3/12 = 4/12.",
+          "correction_es": "7/12 - 3/12 = 4/12.",
           "options": [
-            "1/2",
-            "1/4",
-            "2/3",
-            "3/4"
+            "4/12",
+            "10/12",
+            "4/24",
+            "5/12"
           ],
-          "answer": "1/2",
-          "correction": "4/8 = 1/2 : on divise par 4.",
           "id": "q9"
         },
         {

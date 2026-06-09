@@ -14,93 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
+          "prompt": "Combien de minutes dure un quart d'heure ?",
           "options": [
-            "hiver",
-            "été",
-            "printemps"
+            "15",
+            "30",
+            "20"
           ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "answer": "15",
+          "correction": "Un quart d'heure = 15 minutes."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Quel mois suit directement juin ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "juillet",
+            "mai",
+            "août"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "juillet",
+          "correction": "Après juin vient juillet."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
+          "prompt": "Quels jours composent le week-end ?",
           "options": [
-            "4",
-            "2",
-            "6"
+            "samedi et dimanche",
+            "vendredi et samedi",
+            "dimanche et lundi"
           ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
+          "answer": "samedi et dimanche",
+          "correction": "Le week-end, c'est samedi et dimanche."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Combien de jours compte le mois de mai ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "31",
+          "correction": "Mai a 31 jours."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Parmi les 12 mois, combien en ont 30 ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "4",
+            "5",
+            "3"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "4",
+          "correction": "4 mois ont 30 jours."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "Quelle est la saison aux températures les plus basses ?",
           "options": [
-            "décembre",
-            "juillet",
-            "mars"
+            "l'hiver",
+            "l'automne",
+            "le printemps"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "l'hiver",
+          "correction": "L'hiver est la saison la plus froide."
         },
         {
           "id": "q14",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "type": "mcq",
+          "prompt": "Un millénaire regroupe combien d'années ?",
+          "options": [
+            "1000",
+            "100",
+            "500"
+          ],
+          "answer": "1000",
+          "correction": "Un millénaire = 1000 ans."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
+          "prompt": "En année bissextile, février compte combien de jours ?",
           "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
+            "29",
+            "28",
+            "30"
           ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
+          "answer": "29",
+          "correction": "En année bissextile, février a 29 jours."
         }
       ]
     },
@@ -207,10 +212,15 @@
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "2 heures = 120 minutes.",
-          "answer": true,
-          "correction": "2 × 60 = 120 minutes."
+          "type": "mcq",
+          "prompt": "Une année bissextile revient tous les combien d'années ?",
+          "options": [
+            "4 ans",
+            "2 ans",
+            "10 ans"
+          ],
+          "answer": "4 ans",
+          "correction": "L'année bissextile revient tous les 4 ans."
         }
       ]
     },
@@ -220,54 +230,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "À Paris il est 18h. À Sydney il est 9 heures de plus. Quelle heure est-il à Sydney ?",
+          "prompt": "Quelle saison suit l'automne ?",
           "options": [
-            "1h",
-            "2h",
-            "3h",
-            "4h"
+            "l'hiver",
+            "l'été",
+            "le printemps"
           ],
-          "answer": "3h",
-          "correction": "18h + 9h = 27h, soit 3h du matin le lendemain à Sydney."
+          "answer": "l'hiver",
+          "correction": "Après l'automne vient l'hiver."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Du 3 janvier au 3 mars, combien de jours s'écoulent (année non bissextile) ?",
+          "prompt": "Quel mois suit directement avril ?",
           "options": [
-            "57",
-            "58",
-            "59",
-            "60"
+            "mai",
+            "mars",
+            "juin"
           ],
-          "answer": "59",
-          "correction": "28 jours restants en janvier + 28 jours en février + 3 jours = 59 jours."
+          "answer": "mai",
+          "correction": "Après avril vient mai."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Si on est le 28 février d'une année non bissextile, quel jour sera-t-il demain ?",
+          "prompt": "Quel instrument mesure les variations de température ?",
           "options": [
-            "29 février",
-            "1er mars",
-            "2 mars",
-            "1er février"
+            "un thermomètre",
+            "une horloge",
+            "une règle"
           ],
-          "answer": "1er mars",
-          "correction": "Hors année bissextile, après le 28 février vient le 1er mars."
+          "answer": "un thermomètre",
+          "correction": "Le thermomètre mesure la température."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Du 15 novembre au 15 janvier, combien de mois s'écoulent ?",
+          "prompt": "Combien de jours compte une année ordinaire (non-bissextile) ?",
           "options": [
-            "1",
-            "2",
-            "3",
-            "4"
+            "365",
+            "364",
+            "366"
           ],
-          "answer": "2",
-          "correction": "De novembre à janvier = 2 mois."
+          "answer": "365",
+          "correction": "Une année ordinaire a 365 jours."
         },
         {
           "id": "dq5",

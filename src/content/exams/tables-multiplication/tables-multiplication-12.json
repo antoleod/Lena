@@ -12,52 +12,43 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "2 × 2 = ?",
+          "prompt": "9 × 9 = ?",
+          "answer": "81",
+          "correction": "9 × 9 = 81.",
           "options": [
-            "5",
-            "4",
-            "3",
-            "6"
-          ],
-          "answer": "4",
-          "correction": "2 × 2 = 4.",
-          "prompt_nl": "2 × 2 = ?",
-          "prompt_en": "2 × 2 = ?",
-          "prompt_es": "2 × 2 = ?"
-        },
-        {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "3 × 5 = ?",
-          "options": [
-            "13",
-            "14",
-            "15",
+            "81",
+            "82",
+            "80",
             "18"
           ],
-          "answer": "15",
-          "correction": "3 × 5 = 15.",
-          "prompt_nl": "3 × 5 = ?",
-          "prompt_en": "3 × 5 = ?",
-          "prompt_es": "3 × 5 = ?"
+          "prompt_nl": "9 × 9 = ?",
+          "prompt_en": "9 × 9 = ?",
+          "prompt_es": "9 × 9 = ?",
+          "correction_nl": "9 × 9 = 81.",
+          "correction_en": "9 × 9 = 81.",
+          "correction_es": "9 × 9 = 81.",
+          "id": "q1"
         },
         {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "4 × 2 = ?",
-          "options": [
-            "9",
-            "4",
-            "8",
-            "11"
+          "type": "fill_blank",
+          "prompt": "7 × 1 = ?",
+          "answer": "7",
+          "correction": "7 × 1 = 7.",
+          "accept": [
+            "7"
           ],
-          "answer": "8",
-          "correction": "4 × 2 = 8.",
-          "prompt_nl": "4 × 2 = ?",
-          "prompt_en": "4 × 2 = ?",
-          "prompt_es": "4 × 2 = ?"
+          "id": "q2"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "___ × 1 = 3",
+          "answer": "3",
+          "correction": "3 × 1 = 3.",
+          "accept": [
+            "3"
+          ],
+          "id": "q3"
         },
         {
           "id": "q4",
@@ -76,68 +67,44 @@
           "prompt_es": "3 × 3 = ?"
         },
         {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "5 × 1 = ?",
-          "options": [
-            "9",
-            "3",
-            "5",
-            "2"
+          "type": "fill_blank",
+          "prompt": "7 × ___ = 70",
+          "answer": "10",
+          "correction": "7 × 10 = 70.",
+          "accept": [
+            "10"
           ],
-          "answer": "5",
-          "correction": "5 × 1 = 5.",
-          "prompt_nl": "5 × 1 = ?",
-          "prompt_en": "5 × 1 = ?",
-          "prompt_es": "5 × 1 = ?"
+          "id": "q5"
         },
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "4 × 5 = ?",
-          "options": [
-            "19",
-            "21",
-            "22",
-            "20"
+          "type": "fill_blank",
+          "prompt": "4 × ___ = 28",
+          "answer": "7",
+          "correction": "4 × 7 = 28.",
+          "accept": [
+            "7"
           ],
-          "answer": "20",
-          "correction": "4 × 5 = 20.",
-          "prompt_nl": "4 × 5 = ?",
-          "prompt_en": "4 × 5 = ?",
-          "prompt_es": "4 × 5 = ?"
+          "id": "q6"
         },
         {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "4 × 1 = ?",
-          "options": [
-            "3",
-            "4",
-            "1",
-            "8"
+          "type": "fill_blank",
+          "prompt": "___ × 10 = 30",
+          "answer": "3",
+          "correction": "3 × 10 = 30.",
+          "accept": [
+            "3"
           ],
+          "id": "q7"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "___ × 1 = 4",
           "answer": "4",
           "correction": "4 × 1 = 4.",
-          "prompt_nl": "4 × 1 = ?",
-          "prompt_en": "4 × 1 = ?",
-          "prompt_es": "4 × 1 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "4 × 1 = ?",
-          "options": [
-            "4",
-            "7",
-            "2",
-            "6"
+          "accept": [
+            "4"
           ],
-          "answer": "4",
-          "correction": "4 × 1 = 4.",
-          "prompt_nl": "4 × 1 = ?",
-          "prompt_en": "4 × 1 = ?",
-          "prompt_es": "4 × 1 = ?"
+          "id": "q8"
         },
         {
           "id": "q9",
@@ -300,20 +267,14 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
-          "type": "mcq",
-          "prompt": "3 × 3 = ?",
-          "options": [
-            "8",
-            "9",
-            "11",
-            "6"
+          "type": "fill_blank",
+          "prompt": "9 × 5 = ?",
+          "answer": "45",
+          "correction": "9 × 5 = 45.",
+          "accept": [
+            "45"
           ],
-          "answer": "9",
-          "correction": "3 × 3 = 9.",
-          "prompt_nl": "3 × 3 = ?",
-          "prompt_en": "3 × 3 = ?",
-          "prompt_es": "3 × 3 = ?"
+          "id": "q1"
         },
         {
           "id": "q2",
@@ -364,52 +325,37 @@
           "prompt_es": "9 × 10 = ?"
         },
         {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "4 × 1 = ?",
-          "options": [
-            "0",
-            "4",
-            "8",
-            "6"
-          ],
+          "type": "fill_blank",
+          "prompt": "___ × 2 = 8",
           "answer": "4",
-          "correction": "4 × 1 = 4.",
-          "prompt_nl": "4 × 1 = ?",
-          "prompt_en": "4 × 1 = ?",
-          "prompt_es": "4 × 1 = ?"
+          "correction": "4 × 2 = 8.",
+          "accept": [
+            "4"
+          ],
+          "id": "q5"
         },
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "7 × 3 = ?",
-          "options": [
-            "19",
-            "24",
-            "21",
-            "20"
+          "type": "fill_blank",
+          "prompt": "___ × 8 = 80",
+          "answer": "10",
+          "correction": "10 × 8 = 80.",
+          "accept": [
+            "10"
           ],
-          "answer": "21",
-          "correction": "7 × 3 = 21.",
-          "prompt_nl": "7 × 3 = ?",
-          "prompt_en": "7 × 3 = ?",
-          "prompt_es": "7 × 3 = ?"
+          "id": "q6"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "10 × 3 = ?",
+          "prompt": "Tu as 7 sacs de 5 billes. Combien au total ?",
+          "answer": "35",
+          "correction": "7 × 5 = 35.",
           "options": [
-            "31",
-            "21",
-            "30",
-            "29"
+            "35",
+            "12",
+            "25",
+            "40"
           ],
-          "answer": "30",
-          "correction": "10 × 3 = 30.",
-          "prompt_nl": "10 × 3 = ?",
-          "prompt_en": "10 × 3 = ?",
-          "prompt_es": "10 × 3 = ?"
+          "id": "q7"
         },
         {
           "id": "q8",

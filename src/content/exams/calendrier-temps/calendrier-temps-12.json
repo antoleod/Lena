@@ -14,98 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
+          "prompt": "Combien de jours compte le mois de novembre ?",
           "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
+            "30",
+            "31",
+            "28"
           ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
+          "answer": "30",
+          "correction": "Novembre a 30 jours."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
+          "prompt": "Quel est le 8e mois de l'année civile ?",
           "options": [
-            "hiver",
-            "été",
-            "printemps"
+            "août",
+            "juillet",
+            "septembre"
           ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "answer": "août",
+          "correction": "Août est le 8e mois."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
+          "prompt": "Une décennie regroupe combien d'années ?",
           "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
+            "10",
+            "100",
+            "20"
           ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
+          "answer": "10",
+          "correction": "Une décennie = 10 ans."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Un siècle regroupe combien d'années ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "100",
+            "10",
+            "1000"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "100",
+          "correction": "Un siècle = 100 ans."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Quel mois suit directement septembre ?",
           "options": [
-            "juillet",
-            "janvier",
+            "octobre",
+            "août",
             "novembre"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "octobre",
+          "correction": "Après septembre vient octobre."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Combien de jours compte le mois d'octobre ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "31",
+          "correction": "Octobre a 31 jours."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
+          "prompt": "Quel est le dernier jour de la semaine scolaire habituelle ?",
           "options": [
-            "4",
-            "2",
-            "6"
+            "vendredi",
+            "samedi",
+            "jeudi"
           ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
+          "answer": "vendredi",
+          "correction": "Le vendredi est le dernier jour d'école."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "Combien de jours compte le mois d'août ?",
           "options": [
-            "décembre",
-            "juillet",
-            "mars"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "31",
+          "correction": "Août a 31 jours."
         }
       ]
     },
@@ -134,14 +134,14 @@
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Combien de minutes y a-t-il dans une heure ?",
+          "prompt": "Pendant quelle saison les arbres perdent-ils leurs feuilles ?",
           "options": [
-            "60",
-            "30",
-            "100"
+            "l'automne",
+            "l'hiver",
+            "le printemps"
           ],
-          "answer": "60",
-          "correction": "1 heure = 60 minutes."
+          "answer": "l'automne",
+          "correction": "Les arbres perdent leurs feuilles en automne."
         },
         {
           "id": "q4",
@@ -201,14 +201,14 @@
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Lequel vient en premier dans l’année ?",
+          "prompt": "Quel mois suit directement décembre ?",
           "options": [
             "janvier",
-            "juin",
-            "décembre"
+            "novembre",
+            "février"
           ],
           "answer": "janvier",
-          "correction": "Janvier est le 1er mois de l’année."
+          "correction": "Après décembre vient janvier."
         },
         {
           "id": "q10",
@@ -225,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Une réunion commence à 9h45 et finit à 11h15. Combien de temps dure-t-elle ?",
+          "prompt": "Combien de minutes dure une demi-heure ?",
           "options": [
-            "1h15",
-            "1h20",
-            "1h30",
-            "1h45"
+            "30",
+            "60",
+            "15"
           ],
-          "answer": "1h30",
-          "correction": "De 9h45 à 11h15 = 1 heure 30 minutes."
+          "answer": "30",
+          "correction": "Une demi-heure = 30 minutes."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Un billet de train indique : départ 7h55, arrivée 10h25. Combien dure le trajet ?",
+          "prompt": "Quel instrument sert à lire l'heure ?",
           "options": [
-            "2h10",
-            "2h20",
-            "2h25",
-            "2h30"
+            "une horloge",
+            "un thermomètre",
+            "une règle"
           ],
-          "answer": "2h30",
-          "correction": "De 7h55 à 10h25 = 2 heures 30 minutes."
+          "answer": "une horloge",
+          "correction": "On utilise une horloge."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "La récréation commence à 10h25 et se termine à 10h55. Combien de minutes dure-t-elle ?",
+          "prompt": "Combien de jours compte le mois de décembre ?",
           "options": [
-            "25",
+            "31",
             "30",
-            "35",
-            "40"
+            "28"
           ],
-          "answer": "30",
-          "correction": "De 10h25 à 10h55 = 30 minutes."
+          "answer": "31",
+          "correction": "Décembre a 31 jours."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "À Paris il est 14h. À New York il est 6 heures de moins. Quelle heure est-il à New York ?",
+          "prompt": "Quel est le 12e et dernier mois de l'année ?",
           "options": [
-            "6h",
-            "7h",
-            "8h",
-            "9h"
+            "décembre",
+            "novembre",
+            "janvier"
           ],
-          "answer": "8h",
-          "correction": "14h − 6h = 8h à New York."
+          "answer": "décembre",
+          "correction": "Décembre est le 12e mois."
         },
         {
           "id": "dq5",

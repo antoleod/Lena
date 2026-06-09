@@ -30,7 +30,7 @@
         {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "10 × 1 = ___",
+          "prompt": "10 × 1 = ?",
           "answer": "10",
           "correction": "10 × 1 = 10."
         },
@@ -67,13 +67,6 @@
           "prompt_es": "10 × 2 = ?"
         },
         {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "10 × 5 = ___",
-          "answer": "50",
-          "correction": "10 × 5 = 50."
-        },
-        {
           "id": "q6",
           "type": "mcq",
           "prompt": "10 × 3 = ?",
@@ -90,59 +83,17 @@
           "prompt_es": "10 × 3 = ?"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "10 × 5 = ?",
+          "prompt": "Tu as 3 groupes de 6 élèves. Combien au total ?",
+          "answer": "18",
+          "correction": "3 × 6 = 18.",
           "options": [
-            "53",
-            "50",
-            "51",
-            "40"
+            "18",
+            "9",
+            "15",
+            "21"
           ],
-          "answer": "50",
-          "correction": "10 × 5 = 50.",
-          "prompt_nl": "10 × 5 = ?",
-          "prompt_en": "10 × 5 = ?",
-          "prompt_es": "10 × 5 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "10 × 2 = ___",
-          "answer": "20",
-          "correction": "10 × 2 = 20."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "10 × 3 = ?",
-          "options": [
-            "35",
-            "30",
-            "20",
-            "37"
-          ],
-          "answer": "30",
-          "correction": "10 × 3 = 30.",
-          "prompt_nl": "10 × 3 = ?",
-          "prompt_en": "10 × 3 = ?",
-          "prompt_es": "10 × 3 = ?"
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "10 × 3 = ?",
-          "options": [
-            "30",
-            "29",
-            "25",
-            "26"
-          ],
-          "answer": "30",
-          "correction": "10 × 3 = 30.",
-          "prompt_nl": "10 × 3 = ?",
-          "prompt_en": "10 × 3 = ?",
-          "prompt_es": "10 × 3 = ?"
+          "id": "q10"
         }
       ]
     },

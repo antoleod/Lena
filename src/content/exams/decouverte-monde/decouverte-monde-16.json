@@ -14,93 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Sur quel continent se trouve le Ghana ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "l'Afrique",
+          "correction": "Le Ghana est en Afrique."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Sur quel continent se trouve l'Équateur ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "l'Amérique du Sud",
+          "correction": "L'Équateur est en Amérique du Sud."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "Sur quel continent se trouve la Suisse ?",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "l'Europe",
+          "correction": "La Suisse est en Europe."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Sur quel continent se trouve le Myanmar ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "l'Asie",
+          "correction": "Le Myanmar est en Asie."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Sur quel continent se trouve le Sénégal ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "l'Afrique",
+          "correction": "Le Sénégal est en Afrique de l'Ouest."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Sur quel continent se trouve Cuba ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "l'Amérique (Caraïbes)",
+            "l'Europe",
+            "l'Asie"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "l'Amérique (Caraïbes)",
+          "correction": "Cuba est dans les Caraïbes, en Amérique."
         },
         {
           "id": "q14",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve la Hongrie ?",
+          "options": [
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
+          ],
+          "answer": "l'Europe",
+          "correction": "La Hongrie est en Europe."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Sur quel continent se trouve le Bangladesh ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "l'Asie",
+          "correction": "Le Bangladesh est en Asie."
         }
       ]
     },
@@ -110,362 +115,122 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Les Alpes sont :",
+          "prompt": "Sur quel continent se trouve l'Angola ?",
           "options": [
-            "une chaîne de montagnes",
-            "un fleuve",
-            "une mer",
-            "un désert"
+            "l'Afrique",
+            "l'Asie",
+            "l'Amérique du Sud"
           ],
-          "answer": "une chaîne de montagnes",
-          "correction": "Les Alpes sont la plus grande chaîne de montagnes d'Europe.",
-          "prompt_nl": "De Alpen zijn:",
-          "prompt_en": "The Alps are:",
-          "prompt_es": "Los Alpes son:",
-          "options_i18n": {
-            "nl": [
-              "een bergketen",
-              "een rivier",
-              "een zee",
-              "een woestijn"
-            ],
-            "en": [
-              "a mountain range",
-              "a river",
-              "a sea",
-              "a desert"
-            ],
-            "es": [
-              "una cadena montanosa",
-              "un rio",
-              "un mar",
-              "un desierto"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "L'Angola est en Afrique."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve le Japon ?",
+          "prompt": "Sur quel continent se trouve le Paraguay ?",
           "options": [
-            "Asie",
-            "Europe",
-            "Océanie",
-            "Amérique"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "Asie",
-          "correction": "Le Japon est un archipel situé en Asie de l'Est.",
-          "prompt_nl": "Op welk continent ligt Japan?",
-          "prompt_en": "On which continent is Japan located?",
-          "prompt_es": "En que continente se encuentra Japon?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Europa",
-              "Oceanie",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Europe",
-              "Oceania",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Europa",
-              "Oceania",
-              "America"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "Le Paraguay est en Amérique du Sud."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Quelle est la capitale de l'Australie ?",
+          "prompt": "Sur quel continent se trouve la Roumanie ?",
           "options": [
-            "Canberra",
-            "Sydney",
-            "Melbourne",
-            "Brisbane"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "Canberra",
-          "correction": "Canberra est la capitale de l'Australie.",
-          "prompt_nl": "Wat is de hoofdstad van Australie?",
-          "prompt_en": "What is the capital of Australia?",
-          "prompt_es": "Cual es la capital de Australia?",
-          "options_i18n": {
-            "nl": [
-              "Canberra",
-              "Sydney",
-              "Melbourne",
-              "Brisbane"
-            ],
-            "en": [
-              "Canberra",
-              "Sydney",
-              "Melbourne",
-              "Brisbane"
-            ],
-            "es": [
-              "Canberra",
-              "Sidney",
-              "Melbourne",
-              "Brisbane"
-            ]
-          }
+          "answer": "l'Europe",
+          "correction": "La Roumanie est en Europe."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le blé est principalement cultivé dans :",
+          "prompt": "Sur quel continent se trouve le Sri Lanka ?",
           "options": [
-            "les champs",
-            "les forêts",
-            "les déserts",
-            "les océans"
+            "l'Asie",
+            "l'Océanie",
+            "l'Afrique"
           ],
-          "answer": "les champs",
-          "correction": "Le blé est une céréale cultivée dans les grandes plaines agricoles.",
-          "prompt_nl": "Tarwe wordt voornamelijk verbouwd in:",
-          "prompt_en": "Wheat is mainly grown in:",
-          "prompt_es": "El trigo se cultiva principalmente en:",
-          "options_i18n": {
-            "nl": [
-              "de velden",
-              "de bossen",
-              "de woestijnen",
-              "de oceanen"
-            ],
-            "en": [
-              "fields",
-              "forests",
-              "deserts",
-              "oceans"
-            ],
-            "es": [
-              "los campos",
-              "los bosques",
-              "los desiertos",
-              "los oceanos"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "Le Sri Lanka est en Asie du Sud."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Quelle est la capitale du Canada ?",
+          "prompt": "Sur quel continent se trouve le Mozambique ?",
           "options": [
-            "Ottawa",
-            "Toronto",
-            "Montréal",
-            "Vancouver"
+            "l'Afrique",
+            "l'Asie",
+            "l'Océanie"
           ],
-          "answer": "Ottawa",
-          "correction": "Ottawa est la capitale fédérale du Canada.",
-          "prompt_nl": "Wat is de hoofdstad van Canada?",
-          "prompt_en": "What is the capital of Canada?",
-          "prompt_es": "Cual es la capital de Canada?",
-          "options_i18n": {
-            "nl": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ],
-            "en": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ],
-            "es": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "Le Mozambique est en Afrique."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La capitale de la France est :",
+          "prompt": "Sur quel continent se trouve l'Uruguay ?",
           "options": [
-            "Paris",
-            "Lyon",
-            "Marseille",
-            "Bordeaux"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "Paris",
-          "correction": "Paris est la capitale de la France.",
-          "prompt_nl": "De hoofdstad van Frankrijk is:",
-          "prompt_en": "The capital of France is:",
-          "prompt_es": "La capital de Francia es:",
-          "options_i18n": {
-            "nl": [
-              "Parijs",
-              "Lyon",
-              "Marseille",
-              "Bordeaux"
-            ],
-            "en": [
-              "Paris",
-              "Lyon",
-              "Marseille",
-              "Bordeaux"
-            ],
-            "es": [
-              "Paris",
-              "Lyon",
-              "Marsella",
-              "Burdeos"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "L'Uruguay est en Amérique du Sud."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "La capitale de l'Espagne est :",
+          "prompt": "Sur quel continent se trouve la Bulgarie ?",
           "options": [
-            "Madrid",
-            "Barcelone",
-            "Séville",
-            "Valence"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "Madrid",
-          "correction": "Madrid est la capitale de l'Espagne.",
-          "prompt_nl": "De hoofdstad van Spanje is:",
-          "prompt_en": "The capital of Spain is:",
-          "prompt_es": "La capital de Espana es:",
-          "options_i18n": {
-            "nl": [
-              "Madrid",
-              "Barcelona",
-              "Sevilla",
-              "Valencia"
-            ],
-            "en": [
-              "Madrid",
-              "Barcelona",
-              "Seville",
-              "Valencia"
-            ],
-            "es": [
-              "Madrid",
-              "Barcelona",
-              "Sevilla",
-              "Valencia"
-            ]
-          }
+          "answer": "l'Europe",
+          "correction": "La Bulgarie est en Europe."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La capitale de l'Italie est :",
+          "prompt": "Sur quel continent se trouve le Cambodge ?",
           "options": [
-            "Rome",
-            "Milan",
-            "Naples",
-            "Florence"
+            "l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "Rome",
-          "correction": "Rome est la capitale de l'Italie.",
-          "prompt_nl": "De hoofdstad van Italie is:",
-          "prompt_en": "The capital of Italy is:",
-          "prompt_es": "La capital de Italia es:",
-          "options_i18n": {
-            "nl": [
-              "Rome",
-              "Milaan",
-              "Napels",
-              "Florence"
-            ],
-            "en": [
-              "Rome",
-              "Milan",
-              "Naples",
-              "Florence"
-            ],
-            "es": [
-              "Roma",
-              "Milan",
-              "Napoles",
-              "Florencia"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "Le Cambodge est en Asie du Sud-Est."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "La capitale de l'Allemagne est :",
+          "prompt": "Sur quel continent se trouve le Zimbabwe ?",
           "options": [
-            "Berlin",
-            "Munich",
-            "Hambourg",
-            "Cologne"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "Berlin",
-          "correction": "Berlin est la capitale de l'Allemagne.",
-          "prompt_nl": "De hoofdstad van Duitsland is:",
-          "prompt_en": "The capital of Germany is:",
-          "prompt_es": "La capital de Alemania es:",
-          "options_i18n": {
-            "nl": [
-              "Berlijn",
-              "München",
-              "Hamburg",
-              "Keulen"
-            ],
-            "en": [
-              "Berlin",
-              "Munich",
-              "Hamburg",
-              "Cologne"
-            ],
-            "es": [
-              "Berlin",
-              "Munich",
-              "Hamburgo",
-              "Colonia"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "Le Zimbabwe est en Afrique."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La capitale de la Belgique est :",
+          "prompt": "Sur quel continent se trouve le Guatemala ?",
           "options": [
-            "Bruxelles",
-            "Bruges",
-            "Gand",
-            "Liège"
+            "l'Amérique centrale",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "Bruxelles",
-          "correction": "Bruxelles est la capitale de la Belgique.",
-          "prompt_nl": "De hoofdstad van Belgie is:",
-          "prompt_en": "The capital of Belgium is:",
-          "prompt_es": "La capital de Belgica es:",
-          "options_i18n": {
-            "nl": [
-              "Brussel",
-              "Brugge",
-              "Gent",
-              "Luik"
-            ],
-            "en": [
-              "Brussels",
-              "Bruges",
-              "Ghent",
-              "Liège"
-            ],
-            "es": [
-              "Bruselas",
-              "Brujas",
-              "Gante",
-              "Lieja"
-            ]
-          }
+          "answer": "l'Amérique centrale",
+          "correction": "Le Guatemala est en Amérique centrale."
         }
       ]
     },
@@ -475,110 +240,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Sur quel continent se trouve la Serbie ?",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
+          "answer": "l'Europe",
+          "correction": "La Serbie est en Europe."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Sur quel continent se trouve le Népal ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "l'Asie",
+          "correction": "Le Népal est en Asie."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Sur quel continent se trouve la Zambie ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "l'Afrique",
+          "correction": "La Zambie est en Afrique."
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Costa Rica ?",
+          "options": [
+            "l'Amérique centrale",
+            "l'Asie",
+            "l'Europe"
+          ],
+          "answer": "l'Amérique centrale",
+          "correction": "Le Costa Rica est en Amérique centrale."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "Sur quel continent se trouve le Danemark ?",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "l'Europe",
+            "l'Asie",
+            "l'Amérique du Nord"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "l'Europe",
+          "correction": "Le Danemark est en Europe."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Kazakhstan ?",
+          "options": [
+            "l'Asie",
+            "l'Europe",
+            "l'Afrique"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "l'Asie",
+          "correction": "Le Kazakhstan est en Asie centrale."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Sur quel continent se trouve la Côte d'Ivoire ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "l'Afrique",
+          "correction": "La Côte d'Ivoire est en Afrique de l'Ouest."
         },
         {
           "id": "q16",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Honduras ?",
+          "options": [
+            "l'Amérique centrale",
+            "l'Asie",
+            "l'Europe"
+          ],
+          "answer": "l'Amérique centrale",
+          "correction": "Le Honduras est en Amérique centrale."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Sur quel continent se trouve la Slovaquie ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "l'Europe",
+          "correction": "La Slovaquie est en Europe centrale."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Sur quel continent se trouve l'Ouzbékistan ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "l'Asie",
+            "l'Europe",
+            "l'Afrique"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "l'Asie",
+          "correction": "L'Ouzbékistan est en Asie centrale."
         }
       ]
     }

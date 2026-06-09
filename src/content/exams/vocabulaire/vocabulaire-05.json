@@ -12,16 +12,17 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Un synonyme de « se souvenir » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "se rappeler",
+            "oublier",
+            "ignorer",
+            "perdre"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "se rappeler",
+          "correction": "Un synonyme de « se souvenir » : → se rappeler.",
+          "id": "q2"
         },
         {
           "id": "q4",
@@ -36,40 +37,43 @@
           "correction": "vieux ↔ jeune."
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Le contraire de « possible » :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "impossible",
+            "difficile",
+            "rare",
+            "certain"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "impossible",
+          "correction": "Le contraire de « possible » : → impossible.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « interroger » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "questionner",
+            "répondre",
+            "taire",
+            "ignorer"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "questionner",
+          "correction": "Un synonyme de « interroger » : → questionner.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Le préfixe « anti- » dans « antibiotique » signifie :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "contre les bactéries",
+            "pour les bactéries",
+            "sans bactéries",
+            "avec bactéries"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "contre les bactéries",
+          "correction": "Le préfixe « anti- » dans « antibiotique » signifie : → contre les bactéries.",
+          "id": "q10"
         },
         {
           "id": "q12",
@@ -84,28 +88,30 @@
           "correction": "ouvert ↔ fermé."
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « engager » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "recruter",
+            "renvoyer",
+            "licencier",
+            "congédier"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "recruter",
+          "correction": "Un synonyme de « engager » : → recruter.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « bloquer » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "arrêter",
+            "libérer",
+            "débloquer",
+            "ouvrir"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "arrêter",
+          "correction": "Un synonyme de « bloquer » : → arrêter.",
+          "id": "q16"
         }
       ]
     },
@@ -113,124 +119,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « peureux » :",
           "options": [
+            "craintif",
+            "courageux",
             "brave",
-            "peureux",
-            "fatigué"
+            "audacieux"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "craintif",
+          "correction": "Un synonyme de « peureux » : → craintif.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « clair » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "obscur",
+            "lumineux",
+            "brillant",
+            "vif"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "obscur",
+          "correction": "Le contraire de « clair » : → obscur.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « noir » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "blanc",
+            "gris",
+            "sombre",
+            "foncé"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "blanc",
+          "correction": "Le contraire de « noir » : → blanc.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « cacher » :",
           "options": [
-            "joyeux",
+            "dissimuler",
+            "montrer",
+            "révéler",
+            "afficher"
+          ],
+          "answer": "dissimuler",
+          "correction": "Un synonyme de « cacher » : → dissimuler.",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « finir » :",
+          "options": [
+            "achever",
+            "commencer",
+            "débuter",
+            "démarrer"
+          ],
+          "answer": "achever",
+          "correction": "Un synonyme de « finir » : → achever.",
+          "id": "q9"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « proposer » :",
+          "options": [
+            "suggérer",
+            "refuser",
+            "rejeter",
+            "ignorer"
+          ],
+          "answer": "suggérer",
+          "correction": "Un synonyme de « proposer » : → suggérer.",
+          "id": "q11"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « voir » :",
+          "options": [
+            "apercevoir",
+            "manquer",
+            "ignorer",
+            "rater"
+          ],
+          "answer": "apercevoir",
+          "correction": "Un synonyme de « voir » : → apercevoir.",
+          "id": "q13"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « énergique » :",
+          "options": [
+            "mou",
+            "actif",
+            "dynamique",
+            "vigoureux"
+          ],
+          "answer": "mou",
+          "correction": "Le contraire de « énergique » : → mou.",
+          "id": "q15"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « mou » :",
+          "options": [
+            "dur",
+            "souple",
+            "élastique",
+            "flasque"
+          ],
+          "answer": "dur",
+          "correction": "Le contraire de « mou » : → dur.",
+          "id": "q17"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « turbulent » :",
+          "options": [
             "calme",
-            "peureux"
+            "agité",
+            "remuant",
+            "dissipé"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
-          "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
-          ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
-          "options": [
-            "pas",
-            "très",
-            "bien"
-          ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
-          "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
-          ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
-          "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
-          ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
-          "options": [
-            "bruyant",
-            "calme",
-            "doux"
-          ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
-          "options": [
-            "se presser",
-            "attendre",
-            "dormir"
-          ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "calme",
+          "correction": "Le contraire de « turbulent » : → calme.",
+          "id": "q19"
         }
       ]
     },

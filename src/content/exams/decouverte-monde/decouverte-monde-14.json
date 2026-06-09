@@ -14,96 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Quel professionnel construit et répare les routes ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "le cantonnier",
+            "le plombier",
+            "le menuisier"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "le cantonnier",
+          "correction": "Le cantonnier entretient les routes."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Sur quel continent se trouve le Nigeria ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "l'Afrique",
+          "correction": "Le Nigeria est en Afrique."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve la Suède ?",
+          "options": [
+            "l'Europe",
+            "l'Asie",
+            "l'Amérique du Nord"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "l'Europe",
+          "correction": "La Suède est en Europe."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Sur quel continent se trouve le Pakistan ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "l'Asie",
+          "correction": "Le Pakistan est en Asie."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Sur quel continent se trouve la Colombie ?",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
+          "answer": "l'Amérique du Sud",
+          "correction": "La Colombie est en Amérique du Sud."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Sur quel continent se trouve le Kenya ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "l'Afrique",
+          "correction": "Le Kenya est en Afrique."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Sur quel continent se trouve la Nouvelle-Zélande ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "l'Océanie",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "l'Océanie",
+          "correction": "La Nouvelle-Zélande est en Océanie."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le dentiste soigne :",
+          "prompt": "Sur quel continent se trouve la Grèce ?",
           "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
+          "answer": "l'Europe",
+          "correction": "La Grèce est en Europe."
         }
       ]
     },
@@ -113,336 +115,122 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "La capitale du Royaume-Uni est :",
+          "prompt": "Sur quel continent se trouve l'Indonésie ?",
           "options": [
-            "Londres",
-            "Manchester",
-            "Birmingham",
-            "Édimbourg"
+            "l'Asie",
+            "l'Océanie",
+            "l'Afrique"
           ],
-          "answer": "Londres",
-          "correction": "Londres est la capitale du Royaume-Uni.",
-          "prompt_nl": "De hoofdstad van het Verenigd Koninkrijk is:",
-          "prompt_en": "The capital of the United Kingdom is:",
-          "prompt_es": "La capital del Reino Unido es:",
-          "options_i18n": {
-            "nl": [
-              "Londen",
-              "Manchester",
-              "Birmingham",
-              "Edinburgh"
-            ],
-            "en": [
-              "London",
-              "Manchester",
-              "Birmingham",
-              "Edinburgh"
-            ],
-            "es": [
-              "Londres",
-              "Manchester",
-              "Birmingham",
-              "Edimburgo"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "L'Indonésie est en Asie."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve le Brésil ?",
+          "prompt": "Sur quel continent se trouve le Pérou ?",
           "options": [
-            "Amérique du Sud",
-            "Afrique",
-            "Asie",
-            "Europe"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "Amérique du Sud",
-          "correction": "Le Brésil est situé en Amérique du Sud.",
-          "prompt_nl": "Op welk continent ligt Brazilie?",
-          "prompt_en": "On which continent is Brazil located?",
-          "prompt_es": "En que continente se encuentra Brasil?",
-          "options_i18n": {
-            "nl": [
-              "Zuid-Amerika",
-              "Afrika",
-              "Azie",
-              "Europa"
-            ],
-            "en": [
-              "South America",
-              "Africa",
-              "Asia",
-              "Europe"
-            ],
-            "es": [
-              "America del Sur",
-              "Africa",
-              "Asia",
-              "Europa"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "Le Pérou est en Amérique du Sud."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve la Chine ?",
+          "prompt": "Sur quel continent se trouve la Tanzanie ?",
           "options": [
-            "Asie",
-            "Europe",
-            "Afrique",
-            "Amérique"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "Asie",
-          "correction": "La Chine est située en Asie.",
-          "prompt_nl": "Op welk continent ligt China?",
-          "prompt_en": "On which continent is China located?",
-          "prompt_es": "En que continente se encuentra China?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Europa",
-              "Afrika",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Europe",
-              "Africa",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Europa",
-              "Africa",
-              "America"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "La Tanzanie est en Afrique."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve l'Égypte ?",
+          "prompt": "Sur quel continent se trouve la Finlande ?",
           "options": [
-            "Afrique",
-            "Asie",
-            "Europe",
-            "Amérique"
+            "l'Europe",
+            "l'Asie",
+            "l'Amérique du Nord"
           ],
-          "answer": "Afrique",
-          "correction": "L'Égypte est un pays situé en Afrique du Nord.",
-          "prompt_nl": "Op welk continent ligt Egypte?",
-          "prompt_en": "On which continent is Egypt located?",
-          "prompt_es": "En que continente se encuentra Egipto?",
-          "options_i18n": {
-            "nl": [
-              "Afrika",
-              "Azie",
-              "Europa",
-              "Amerika"
-            ],
-            "en": [
-              "Africa",
-              "Asia",
-              "Europe",
-              "America"
-            ],
-            "es": [
-              "Africa",
-              "Asia",
-              "Europa",
-              "America"
-            ]
-          }
+          "answer": "l'Europe",
+          "correction": "La Finlande est en Europe."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Le Sahara est :",
+          "prompt": "Sur quel continent se trouve la Mongolie ?",
           "options": [
-            "un désert",
-            "un océan",
-            "une forêt",
-            "une montagne"
+            "l'Asie",
+            "l'Europe",
+            "l'Afrique"
           ],
-          "answer": "un désert",
-          "correction": "Le Sahara est le plus grand désert chaud du monde.",
-          "prompt_nl": "De Sahara is:",
-          "prompt_en": "The Sahara is:",
-          "prompt_es": "El Sahara es:",
-          "options_i18n": {
-            "nl": [
-              "een woestijn",
-              "een oceaan",
-              "een woud",
-              "een berg"
-            ],
-            "en": [
-              "a desert",
-              "an ocean",
-              "a forest",
-              "a mountain"
-            ],
-            "es": [
-              "un desierto",
-              "un oceano",
-              "un bosque",
-              "una montana"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "La Mongolie est en Asie."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le Nil est :",
+          "prompt": "Sur quel continent se trouve la Bolivie ?",
           "options": [
-            "un fleuve d'Afrique",
-            "un fleuve d'Asie",
-            "une mer",
-            "un lac"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "un fleuve d'Afrique",
-          "correction": "Le Nil est le plus long fleuve d'Afrique.",
-          "prompt_nl": "De Nijl is:",
-          "prompt_en": "The Nile is:",
-          "prompt_es": "El Nilo es:",
-          "options_i18n": {
-            "nl": [
-              "een rivier in Afrika",
-              "een rivier in Azie",
-              "een zee",
-              "een meer"
-            ],
-            "en": [
-              "a river in Africa",
-              "a river in Asia",
-              "a sea",
-              "a lake"
-            ],
-            "es": [
-              "un rio de Africa",
-              "un rio de Asia",
-              "un mar",
-              "un lago"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "La Bolivie est en Amérique du Sud."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Quelle mer borde la France au sud ?",
+          "prompt": "Sur quel continent se trouve l'Éthiopie ?",
           "options": [
-            "la mer Méditerranée",
-            "la mer du Nord",
-            "la mer Baltique",
-            "la mer Rouge"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "la mer Méditerranée",
-          "correction": "La mer Méditerranée borde la France au sud.",
-          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
-          "prompt_en": "Which sea borders France to the south?",
-          "prompt_es": "Que mar bordea Francia al sur?",
-          "options_i18n": {
-            "nl": [
-              "de Middellandse Zee",
-              "de Noordzee",
-              "de Oostzee",
-              "de Rode Zee"
-            ],
-            "en": [
-              "the Mediterranean Sea",
-              "the North Sea",
-              "the Baltic Sea",
-              "the Red Sea"
-            ],
-            "es": [
-              "el mar Mediterraneo",
-              "el mar del Norte",
-              "el mar Baltico",
-              "el mar Rojo"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "L'Éthiopie est en Afrique."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
+          "prompt": "Sur quel continent se trouve l'Espagne ?",
           "options": [
-            "les Pyrénées",
-            "les Alpes",
-            "les Vosges",
-            "le Jura"
+            "l'Europe",
+            "l'Afrique",
+            "l'Asie"
           ],
-          "answer": "les Pyrénées",
-          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
-          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
-          "prompt_en": "Which mountain range separates France from Spain?",
-          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
-          "options_i18n": {
-            "nl": [
-              "de Pyreneen",
-              "de Alpen",
-              "de Vogezen",
-              "de Jura"
-            ],
-            "en": [
-              "the Pyrenees",
-              "the Alps",
-              "the Vosges",
-              "the Jura"
-            ],
-            "es": [
-              "los Pirineos",
-              "los Alpes",
-              "los Vosgos",
-              "el Jura"
-            ]
-          }
+          "answer": "l'Europe",
+          "correction": "L'Espagne est en Europe."
         },
         {
           "id": "q9",
-          "type": "true_false",
-          "prompt": "Au pôle Nord, les températures sont très froides.",
-          "answer": true,
-          "correction": "Le pôle Nord est une région arctique aux températures extrêmement basses.",
-          "prompt_nl": "Op de Noordpool zijn de temperaturen erg koud.",
-          "prompt_en": "At the North Pole, temperatures are very cold.",
-          "prompt_es": "En el Polo Norte, las temperaturas son muy frias."
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve l'Iran ?",
+          "options": [
+            "l'Asie",
+            "l'Europe",
+            "l'Afrique"
+          ],
+          "answer": "l'Asie",
+          "correction": "L'Iran est en Asie."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La langue officielle du Brésil est :",
+          "prompt": "Sur quel continent se trouve le Chili ?",
           "options": [
-            "le portugais",
-            "l'espagnol",
-            "le français",
-            "l'anglais"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "le portugais",
-          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
-          "prompt_nl": "De officiele taal van Brazilie is:",
-          "prompt_en": "The official language of Brazil is:",
-          "prompt_es": "El idioma oficial de Brasil es:",
-          "options_i18n": {
-            "nl": [
-              "Portugees",
-              "Spaans",
-              "Frans",
-              "Engels"
-            ],
-            "en": [
-              "Portuguese",
-              "Spanish",
-              "French",
-              "English"
-            ],
-            "es": [
-              "portugues",
-              "espanol",
-              "frances",
-              "ingles"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "Le Chili est en Amérique du Sud."
         }
       ]
     },
@@ -452,120 +240,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Sur quel continent se trouve l'Algérie ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "l'Afrique",
+            "l'Europe",
+            "l'Asie"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "l'Afrique",
+          "correction": "L'Algérie est en Afrique du Nord."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Sur quel continent se trouve le Portugal ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "l'Europe",
+            "l'Afrique",
+            "l'Asie"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "l'Europe",
+          "correction": "Le Portugal est en Europe."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Sur quel continent se trouve la Pologne ?",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "l'Europe",
+            "l'Asie",
+            "l'Amérique du Nord"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "l'Europe",
+          "correction": "La Pologne est en Europe."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Sur quel continent se trouve le Vietnam ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "l'Asie",
+          "correction": "Le Vietnam est en Asie."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Sur quel continent se trouve l'Ukraine ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "l'Europe",
+          "correction": "L'Ukraine est en Europe."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Sur quel continent se trouve la Thaïlande ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "l'Asie",
+            "l'Océanie",
+            "l'Afrique"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "l'Asie",
+          "correction": "La Thaïlande est en Asie."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Sur quel continent se trouve la Tunisie ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "l'Afrique",
+            "l'Europe",
+            "l'Asie"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "l'Afrique",
+          "correction": "La Tunisie est en Afrique."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Sur quel continent se trouve le Venezuela ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "l'Amérique du Sud",
+          "correction": "Le Venezuela est en Amérique du Sud."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Sur quel continent se trouve l'Autriche ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "l'Europe",
+          "correction": "L'Autriche est en Europe."
         },
         {
           "id": "q20",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve la Corée du Sud ?",
+          "options": [
+            "l'Asie",
+            "l'Océanie",
+            "l'Europe"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "l'Asie",
+          "correction": "La Corée du Sud est en Asie."
         }
       ]
     }

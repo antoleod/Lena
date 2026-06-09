@@ -48,25 +48,6 @@
           "correction_es": "1 cm = 10 mm → 50 mm."
         },
         {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Convertis 5 cm en mm.",
-          "options": [
-            "52",
-            "59",
-            "55",
-            "50"
-          ],
-          "answer": "50",
-          "correction": "1 cm = 10 mm → 50 mm.",
-          "prompt_nl": "Zet 5 cm om naar mm.",
-          "prompt_en": "Convert 5 cm to mm.",
-          "prompt_es": "Convierte 5 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 50 mm.",
-          "correction_en": "1 cm = 10 mm → 50 mm.",
-          "correction_es": "1 cm = 10 mm → 50 mm."
-        },
-        {
           "id": "q4",
           "type": "mcq",
           "prompt": "Convertis 3 cm en mm.",
@@ -139,23 +120,6 @@
           "correction_nl": "1 cm = 10 mm → 70 mm.",
           "correction_en": "1 cm = 10 mm → 70 mm.",
           "correction_es": "1 cm = 10 mm → 70 mm."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Convertis 5 cm en mm.",
-          "answer": "50",
-          "accept": [
-            "50",
-            "50 mm"
-          ],
-          "correction": "1 cm = 10 mm → 50 mm.",
-          "prompt_nl": "Zet 5 cm om naar mm.",
-          "prompt_en": "Convert 5 cm to mm.",
-          "prompt_es": "Convierte 5 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 50 mm.",
-          "correction_en": "1 cm = 10 mm → 50 mm.",
-          "correction_es": "1 cm = 10 mm → 50 mm."
         }
       ]
     },
@@ -326,25 +290,6 @@
             "800 centimes",
             "800 c"
           ],
-          "correction": "1 € = 100 c → 800 centimes.",
-          "prompt_nl": "Zet 8 € om naar centen.",
-          "prompt_en": "Convert 8 € to cents.",
-          "prompt_es": "Convierte 8 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 800 cent.",
-          "correction_en": "1 € = 100 cents → 800 cents.",
-          "correction_es": "1 € = 100 céntimos → 800 céntimos."
-        },
-        {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Convertis 8 € en centimes.",
-          "options": [
-            "895",
-            "853",
-            "800",
-            "864"
-          ],
-          "answer": "800",
           "correction": "1 € = 100 c → 800 centimes.",
           "prompt_nl": "Zet 8 € om naar centen.",
           "prompt_en": "Convert 8 € to cents.",

@@ -14,262 +14,288 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Un herbivore mange :",
+          "prompt": "Qu'est-ce qu'un ion ?",
           "options": [
-            "des plantes",
-            "de la viande",
-            "des insectes",
-            "des poissons"
+            "un atome qui a gagné ou perdu des électrons",
+            "un atome sans proton",
+            "une molécule neutre",
+            "un noyau"
           ],
-          "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes.",
-          "prompt_nl": "Een herbivoor eet:",
-          "prompt_en": "A herbivore eats:",
-          "prompt_es": "Un herbivoro come:",
+          "answer": "un atome qui a gagné ou perdu des électrons",
+          "correction": "Un ion est un atome chargé électriquement.",
+          "prompt_nl": "Wat is een ion?",
+          "prompt_en": "What is an ion?",
+          "prompt_es": "¿Qué es un ion?",
           "options_i18n": {
             "nl": [
-              "planten",
-              "vlees",
-              "insecten",
-              "vissen"
+              "een atoom dat elektronen heeft gewonnen of verloren",
+              "een atoom zonder proton",
+              "een neutraal molecuul",
+              "een kern"
             ],
             "en": [
-              "plants",
-              "meat",
-              "insects",
-              "fish"
+              "an atom that gained or lost electrons",
+              "an atom without a proton",
+              "a neutral molecule",
+              "a nucleus"
             ],
             "es": [
-              "plantas",
-              "carne",
-              "insectos",
-              "peces"
+              "un átomo que ganó o perdió electrones",
+              "un átomo sin protón",
+              "una molécula neutra",
+              "un núcleo"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La photosynthèse est réalisée par :",
+          "prompt": "Quel type de cellule n'a pas de noyau défini ?",
           "options": [
-            "les plantes",
-            "les animaux",
-            "les champignons",
-            "les pierres"
+            "la cellule procaryote",
+            "la cellule eucaryote",
+            "le neurone",
+            "le globule rouge"
           ],
-          "answer": "les plantes",
-          "correction": "Les plantes font la photosynthèse.",
-          "prompt_nl": "Fotosynthese wordt uitgevoerd door:",
-          "prompt_en": "Photosynthesis is carried out by:",
-          "prompt_es": "La fotosintesis la realizan:",
+          "answer": "la cellule procaryote",
+          "correction": "Les procaryotes (bactéries) n'ont pas de noyau.",
+          "prompt_nl": "Welk type cel heeft geen duidelijke kern?",
+          "prompt_en": "Which cell type has no defined nucleus?",
+          "prompt_es": "¿Qué tipo de célula no tiene núcleo definido?",
           "options_i18n": {
             "nl": [
-              "de planten",
-              "de dieren",
-              "de schimmels",
-              "de stenen"
+              "prokaryote cel",
+              "eukaryote cel",
+              "neuron",
+              "rode bloedcel"
             ],
             "en": [
-              "plants",
-              "animals",
-              "fungi",
-              "stones"
+              "prokaryotic cell",
+              "eukaryotic cell",
+              "neuron",
+              "red blood cell"
             ],
             "es": [
-              "las plantas",
-              "los animales",
-              "los hongos",
-              "las piedras"
+              "la célula procariota",
+              "la célula eucariota",
+              "la neurona",
+              "el glóbulo rojo"
             ]
           }
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "Le Soleil tourne autour de la Terre.",
-          "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil.",
-          "prompt_nl": "De Zon draait om de Aarde.",
-          "prompt_en": "The Sun revolves around the Earth.",
-          "prompt_es": "El Sol gira alrededor de la Tierra."
+          "type": "mcq",
+          "prompt": "Combien de neurones le cerveau humain contient-il approximativement ?",
+          "options": [
+            "86 milliards",
+            "1 milliard",
+            "10 milliards",
+            "1 billion"
+          ],
+          "answer": "86 milliards",
+          "correction": "Le cerveau contient environ 86 milliards de neurones.",
+          "prompt_nl": "Hoeveel neuronen bevat het menselijk brein ongeveer?",
+          "prompt_en": "How many neurons does the human brain contain approximately?",
+          "prompt_es": "¿Cuántas neuronas tiene aproximadamente el cerebro humano?",
+          "options_i18n": {
+            "nl": [
+              "86 miljard",
+              "1 miljard",
+              "10 miljard",
+              "1 biljoen"
+            ],
+            "en": [
+              "86 billion",
+              "1 billion",
+              "10 billion",
+              "1 trillion"
+            ],
+            "es": [
+              "86 mil millones",
+              "1 mil millones",
+              "10 mil millones",
+              "1 billón"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "Quel animal produit de la soie pour son cocon ?",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "le ver à soie (larve du bombyx)",
+            "l'araignée",
+            "la chenille du chêne",
+            "l'abeille"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
+          "answer": "le ver à soie (larve du bombyx)",
+          "correction": "Le ver à soie file la soie autour de lui.",
+          "prompt_nl": "Welk dier maakt zijde voor zijn cocon?",
+          "prompt_en": "Which animal makes silk for its cocoon?",
+          "prompt_es": "¿Qué animal produce seda para su capullo?",
           "options_i18n": {
             "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
+              "de zijderups (larve van de zijdespin)",
+              "de spin",
+              "de eikenrups",
+              "de bij"
             ],
             "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
+              "the silkworm (bombyx larva)",
+              "the spider",
+              "the oak caterpillar",
+              "the bee"
             ],
             "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
+              "el gusano de seda (larva de bombyx)",
+              "la araña",
+              "la oruga del roble",
+              "la abeja"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
+          "prompt": "Quel est le nom de la discipline scientifique qui étudie les étoiles ?",
           "options": [
-            "l'odorat",
-            "le goût",
-            "la vue",
-            "le toucher"
+            "l'astronomie",
+            "la géologie",
+            "la chimie",
+            "la biologie"
           ],
-          "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez).",
-          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
-          "prompt_en": "Which sense do you use to smell a flower?",
-          "prompt_es": "Que sentido se usa para oler una flor?",
+          "answer": "l'astronomie",
+          "correction": "L'astronomie étudie les étoiles et corps célestes.",
+          "prompt_nl": "Hoe heet de wetenschap die sterren bestudeert?",
+          "prompt_en": "What is the science studying stars called?",
+          "prompt_es": "¿Cómo se llama la ciencia que estudia las estrellas?",
           "options_i18n": {
             "nl": [
-              "de reuk",
-              "de smaak",
-              "het zicht",
-              "het gevoel"
+              "de sterrenkunde",
+              "de geologie",
+              "de scheikunde",
+              "de biologie"
             ],
             "en": [
-              "smell",
-              "taste",
-              "sight",
-              "touch"
+              "astronomy",
+              "geology",
+              "chemistry",
+              "biology"
             ],
             "es": [
-              "el olfato",
-              "el gusto",
-              "la vista",
-              "el tacto"
+              "la astronomía",
+              "la geología",
+              "la química",
+              "la biología"
             ]
           }
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "prompt": "Comment s'appelle le scientifique qui étudie les tremblements de terre ?",
           "options": [
-            "Mercure",
-            "Vénus",
-            "Terre",
-            "Mars"
+            "le sismologue",
+            "le géologue",
+            "le volcanologue",
+            "l'hydrologue"
           ],
-          "answer": "Mercure",
-          "correction": "Mercure est la planète la plus proche du Soleil.",
-          "prompt_nl": "Welke planeet staat het dichtst bij de Zon?",
-          "prompt_en": "Which planet is closest to the Sun?",
-          "prompt_es": "Que planeta esta mas cerca del Sol?",
+          "answer": "le sismologue",
+          "correction": "Le sismologue étudie les séismes.",
+          "prompt_nl": "Hoe heet de wetenschapper die aardbevingen bestudeert?",
+          "prompt_en": "What is the scientist studying earthquakes called?",
+          "prompt_es": "¿Cómo se llama el científico que estudia los terremotos?",
           "options_i18n": {
             "nl": [
-              "Mercurius",
-              "Venus",
-              "Aarde",
-              "Mars"
+              "de seismoloog",
+              "de geoloog",
+              "de vulkanoloog",
+              "de hydroloog"
             ],
             "en": [
-              "Mercury",
-              "Venus",
-              "Earth",
-              "Mars"
+              "the seismologist",
+              "the geologist",
+              "the volcanologist",
+              "the hydrologist"
             ],
             "es": [
-              "Mercurio",
-              "Venus",
-              "Tierra",
-              "Marte"
+              "el sismólogo",
+              "el geólogo",
+              "el vulcanólogo",
+              "el hidrólogo"
             ]
           }
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "La chaîne alimentaire commence par :",
+          "prompt": "Quelle forme d'énergie est issue de la fission de l'uranium ?",
           "options": [
-            "les plantes",
-            "les herbivores",
-            "les carnivores",
-            "les décomposeurs"
+            "l'énergie nucléaire",
+            "l'énergie solaire",
+            "l'énergie chimique",
+            "l'énergie éolienne"
           ],
-          "answer": "les plantes",
-          "correction": "La chaîne alimentaire commence par les plantes.",
-          "prompt_nl": "De voedselketen begint bij:",
-          "prompt_en": "The food chain starts with:",
-          "prompt_es": "La cadena alimentaria empieza por:",
+          "answer": "l'énergie nucléaire",
+          "correction": "La fission de l'uranium produit de l'énergie nucléaire.",
+          "prompt_nl": "Welk type energie komt vrij bij splitsing van uranium?",
+          "prompt_en": "Which energy is released by uranium fission?",
+          "prompt_es": "¿Qué energía se libera por la fisión del uranio?",
           "options_i18n": {
             "nl": [
-              "de planten",
-              "de herbivoren",
-              "de carnivoren",
-              "de afbrekers"
+              "kernenergie",
+              "zonne-energie",
+              "chemische energie",
+              "windenergie"
             ],
             "en": [
-              "plants",
-              "herbivores",
-              "carnivores",
-              "decomposers"
+              "nuclear energy",
+              "solar energy",
+              "chemical energy",
+              "wind energy"
             ],
             "es": [
-              "las plantas",
-              "los herbivoros",
-              "los carnivoros",
-              "los descomponedores"
+              "energía nuclear",
+              "energía solar",
+              "energía química",
+              "energía eólica"
             ]
           }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un vertébré ?",
+          "prompt": "Quel est le symbole chimique du carbone ?",
           "options": [
-            "un animal avec une colonne vertébrale",
-            "un animal avec 6 pattes",
-            "un animal qui vole",
-            "un animal aquatique"
+            "C",
+            "Ca",
+            "Co",
+            "Cn"
           ],
-          "answer": "un animal avec une colonne vertébrale",
-          "correction": "Un vertébré a une colonne vertébrale.",
-          "prompt_nl": "Wat is een gewerveld dier?",
-          "prompt_en": "What is a vertebrate?",
-          "prompt_es": "Que es un vertebrado?",
+          "answer": "C",
+          "correction": "Le carbone a le symbole C.",
+          "prompt_nl": "Wat is het scheikundig symbool van koolstof?",
+          "prompt_en": "What is the chemical symbol for carbon?",
+          "prompt_es": "¿Cuál es el símbolo químico del carbono?",
           "options_i18n": {
             "nl": [
-              "een dier met een wervelkolom",
-              "een dier met 6 poten",
-              "een dier dat vliegt",
-              "een waterlevend dier"
+              "C",
+              "Ca",
+              "Co",
+              "Cn"
             ],
             "en": [
-              "an animal with a backbone",
-              "an animal with 6 legs",
-              "an animal that flies",
-              "an aquatic animal"
+              "C",
+              "Ca",
+              "Co",
+              "Cn"
             ],
             "es": [
-              "un animal con columna vertebral",
-              "un animal con 6 patas",
-              "un animal que vuela",
-              "un animal acuatico"
+              "C",
+              "Ca",
+              "Co",
+              "Cn"
             ]
           }
         }
@@ -281,336 +307,362 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Un omnivore mange :",
+          "prompt": "Comment s'appelle la transformation du raisin en vin ?",
           "options": [
-            "de la viande et des végétaux",
-            "uniquement de la viande",
-            "uniquement des plantes",
-            "uniquement des insectes"
+            "la fermentation",
+            "la distillation",
+            "la pasteurisation",
+            "la photosynthèse"
           ],
-          "answer": "de la viande et des végétaux",
-          "correction": "Un omnivore mange à la fois de la viande et des végétaux.",
-          "prompt_nl": "Een omnivoor eet:",
-          "prompt_en": "An omnivore eats:",
-          "prompt_es": "Un omnivoro come:",
+          "answer": "la fermentation",
+          "correction": "Le raisin se transforme en vin par fermentation.",
+          "prompt_nl": "Hoe heet het omzettingsproces van druiven tot wijn?",
+          "prompt_en": "What is the process of grapes turning into wine?",
+          "prompt_es": "¿Cómo se llama la transformación de la uva en vino?",
           "options_i18n": {
             "nl": [
-              "vlees en groenten",
-              "alleen vlees",
-              "alleen planten",
-              "alleen insecten"
+              "de gisting",
+              "de destillatie",
+              "de pasteurisatie",
+              "de fotosynthese"
             ],
             "en": [
-              "meat and plants",
-              "only meat",
-              "only plants",
-              "only insects"
+              "fermentation",
+              "distillation",
+              "pasteurization",
+              "photosynthesis"
             ],
             "es": [
-              "carne y vegetales",
-              "solo carne",
-              "solo plantas",
-              "solo insectos"
+              "la fermentación",
+              "la destilación",
+              "la pasteurización",
+              "la fotosíntesis"
             ]
           }
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La chenille se transforme en :",
+          "prompt": "Quel est le rôle principal des reins ?",
           "options": [
-            "un papillon",
-            "une fourmi",
-            "une abeille",
-            "un ver"
+            "filtrer le sang et produire l'urine",
+            "digérer les aliments",
+            "pomper le sang",
+            "produire de l'insuline"
           ],
-          "answer": "un papillon",
-          "correction": "La chenille se transforme en papillon : c'est la métamorphose.",
-          "prompt_nl": "De rups verandert in:",
-          "prompt_en": "The caterpillar transforms into:",
-          "prompt_es": "La oruga se transforma en:",
+          "answer": "filtrer le sang et produire l'urine",
+          "correction": "Les reins filtrent le sang et produisent l'urine.",
+          "prompt_nl": "Wat is de hoofdrol van de nieren?",
+          "prompt_en": "What is the main role of the kidneys?",
+          "prompt_es": "¿Cuál es el papel principal de los riñones?",
           "options_i18n": {
             "nl": [
-              "een vlinder",
-              "een mier",
-              "een bij",
-              "een worm"
+              "het bloed filteren en urine maken",
+              "voedsel verteren",
+              "bloed pompen",
+              "insuline produceren"
             ],
             "en": [
-              "a butterfly",
-              "an ant",
-              "a bee",
-              "a worm"
+              "filter blood and produce urine",
+              "digest food",
+              "pump blood",
+              "produce insulin"
             ],
             "es": [
-              "una mariposa",
-              "una hormiga",
-              "una abeja",
-              "un gusano"
+              "filtrar la sangre y producir orina",
+              "digerir alimentos",
+              "bombear sangre",
+              "producir insulina"
             ]
           }
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Le têtard se transforme en :",
+          "prompt": "Combien de planètes dans le système solaire sont plus grandes que la Terre ?",
           "options": [
-            "une grenouille",
-            "un poisson",
-            "un lézard",
-            "un serpent"
+            "4",
+            "2",
+            "6",
+            "1"
           ],
-          "answer": "une grenouille",
-          "correction": "Le têtard se transforme en grenouille par métamorphose.",
-          "prompt_nl": "Het kikkervisje verandert in:",
-          "prompt_en": "The tadpole transforms into:",
-          "prompt_es": "El renacuajo se transforma en:",
+          "answer": "4",
+          "correction": "Jupiter, Saturne, Uranus, Neptune sont plus grandes.",
+          "prompt_nl": "Hoeveel planeten in ons zonnestelsel zijn groter dan de Aarde?",
+          "prompt_en": "How many planets in the solar system are larger than Earth?",
+          "prompt_es": "¿Cuántos planetas del sistema solar son más grandes que la Tierra?",
           "options_i18n": {
             "nl": [
-              "een kikker",
-              "een vis",
-              "een hagedis",
-              "een slang"
+              "4",
+              "2",
+              "6",
+              "1"
             ],
             "en": [
-              "a frog",
-              "a fish",
-              "a lizard",
-              "a snake"
+              "4",
+              "2",
+              "6",
+              "1"
             ],
             "es": [
-              "una rana",
-              "un pez",
-              "un lagarto",
-              "una serpiente"
+              "4",
+              "2",
+              "6",
+              "1"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel animal est un reptile ?",
+          "prompt": "Quel type de lumière permet la photographie infrarouge ?",
           "options": [
-            "le serpent",
-            "le dauphin",
-            "la grenouille",
-            "le hibou"
+            "la lumière infrarouge",
+            "la lumière UV",
+            "les rayons X",
+            "la lumière visible"
           ],
-          "answer": "le serpent",
-          "correction": "Le serpent est un reptile : il a des écailles et est à sang froid.",
-          "prompt_nl": "Welk dier is een reptiel?",
-          "prompt_en": "Which animal is a reptile?",
-          "prompt_es": "Que animal es un reptil?",
+          "answer": "la lumière infrarouge",
+          "correction": "La photographie infrarouge utilise la lumière IR.",
+          "prompt_nl": "Welk type licht maakt infraroodfotografie mogelijk?",
+          "prompt_en": "Which light allows infrared photography?",
+          "prompt_es": "¿Qué tipo de luz permite la fotografía infrarroja?",
           "options_i18n": {
             "nl": [
-              "de slang",
-              "de dolfijn",
-              "de kikker",
-              "de uil"
+              "infrarood licht",
+              "UV-licht",
+              "röntgenstralen",
+              "zichtbaar licht"
             ],
             "en": [
-              "the snake",
-              "the dolphin",
-              "the frog",
-              "the owl"
+              "infrared light",
+              "UV light",
+              "X-rays",
+              "visible light"
             ],
             "es": [
-              "la serpiente",
-              "el delfin",
-              "la rana",
-              "el buho"
+              "la luz infrarroja",
+              "la luz UV",
+              "los rayos X",
+              "la luz visible"
             ]
           }
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Quel est le rôle des feuilles ?",
+          "prompt": "Quel type de liaison unit les ions de charges opposées ?",
           "options": [
-            "capter la lumière du Soleil",
-            "absorber l'eau du sol",
-            "produire des graines",
-            "ancrer la plante"
+            "la liaison ionique",
+            "la liaison covalente",
+            "la liaison hydrogène",
+            "la liaison de Van der Waals"
           ],
-          "answer": "capter la lumière du Soleil",
-          "correction": "Les feuilles captent la lumière du Soleil pour réaliser la photosynthèse.",
-          "prompt_nl": "Wat is de rol van de bladeren?",
-          "prompt_en": "What is the role of leaves?",
-          "prompt_es": "Cual es la funcion de las hojas?",
+          "answer": "la liaison ionique",
+          "correction": "Les ions de charges opposées forment des liaisons ioniques.",
+          "prompt_nl": "Welk type binding verbindt tegengesteld geladen ionen?",
+          "prompt_en": "Which bond joins ions of opposite charges?",
+          "prompt_es": "¿Qué tipo de enlace une iones de cargas opuestas?",
           "options_i18n": {
             "nl": [
-              "zonlicht opvangen",
-              "water opnemen",
-              "zaden produceren",
-              "de plant verankeren"
+              "ionische binding",
+              "covalente binding",
+              "waterstofbinding",
+              "Van der Waals-binding"
             ],
             "en": [
-              "capture sunlight",
-              "absorb water",
-              "produce seeds",
-              "anchor the plant"
+              "ionic bond",
+              "covalent bond",
+              "hydrogen bond",
+              "Van der Waals bond"
             ],
             "es": [
-              "captar la luz solar",
-              "absorber agua",
-              "producir semillas",
-              "anclar la planta"
+              "el enlace iónico",
+              "el enlace covalente",
+              "el enlace de hidrógeno",
+              "el enlace de Van der Waals"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel organe digère les aliments ?",
+          "prompt": "Quel est le symbole chimique de l'azote ?",
           "options": [
-            "l'estomac",
-            "le cœur",
-            "les poumons",
-            "le cerveau"
+            "N",
+            "Az",
+            "Ni",
+            "Na"
           ],
-          "answer": "l'estomac",
-          "correction": "L'estomac digère les aliments.",
-          "prompt_nl": "Welk orgaan verteert het voedsel?",
-          "prompt_en": "Which organ digests food?",
-          "prompt_es": "Que organo digiere los alimentos?",
+          "answer": "N",
+          "correction": "L'azote a le symbole N (Nitrogenium).",
+          "prompt_nl": "Wat is het scheikundig symbool van stikstof?",
+          "prompt_en": "What is the chemical symbol for nitrogen?",
+          "prompt_es": "¿Cuál es el símbolo químico del nitrógeno?",
           "options_i18n": {
             "nl": [
-              "de maag",
-              "het hart",
-              "de longen",
-              "de hersenen"
+              "N",
+              "Az",
+              "Ni",
+              "Na"
             ],
             "en": [
-              "the stomach",
-              "the heart",
-              "the lungs",
-              "the brain"
+              "N",
+              "Az",
+              "Ni",
+              "Na"
             ],
             "es": [
-              "el estomago",
-              "el corazon",
-              "los pulmones",
-              "el cerebro"
+              "N",
+              "Az",
+              "Ni",
+              "Na"
             ]
           }
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Combien de planètes y a-t-il dans le système solaire ?",
+          "prompt": "Quel est le symbole chimique de l'oxygène ?",
           "options": [
-            "8",
-            "9",
-            "7",
-            "10"
+            "O",
+            "Ox",
+            "Og",
+            "On"
           ],
-          "answer": "8",
-          "correction": "Il y a 8 planètes dans le système solaire.",
-          "prompt_nl": "Hoeveel planeten zijn er in het zonnestelsel?",
-          "prompt_en": "How many planets are in the solar system?",
-          "prompt_es": "Cuantas planetas hay en el sistema solar?",
+          "answer": "O",
+          "correction": "L'oxygène a le symbole O.",
+          "prompt_nl": "Wat is het scheikundig symbool van zuurstof?",
+          "prompt_en": "What is the chemical symbol for oxygen?",
+          "prompt_es": "¿Cuál es el símbolo químico del oxígeno?",
           "options_i18n": {
             "nl": [
-              "8",
-              "9",
-              "7",
-              "10"
+              "O",
+              "Ox",
+              "Og",
+              "On"
             ],
             "en": [
-              "8",
-              "9",
-              "7",
-              "10"
+              "O",
+              "Ox",
+              "Og",
+              "On"
             ],
             "es": [
-              "8",
-              "9",
-              "7",
-              "10"
+              "O",
+              "Ox",
+              "Og",
+              "On"
             ]
           }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La Lune tourne autour de :",
+          "prompt": "Quel est le symbole chimique du sodium ?",
           "options": [
-            "la Terre",
-            "le Soleil",
-            "Mars",
-            "Saturne"
+            "Na",
+            "So",
+            "Sd",
+            "Sm"
           ],
-          "answer": "la Terre",
-          "correction": "La Lune est le satellite naturel de la Terre.",
-          "prompt_nl": "De Maan draait om:",
-          "prompt_en": "The Moon revolves around:",
-          "prompt_es": "La Luna gira alrededor de:",
+          "answer": "Na",
+          "correction": "Le sodium = Na (Natrium).",
+          "prompt_nl": "Wat is het scheikundig symbool van natrium?",
+          "prompt_en": "What is the chemical symbol for sodium?",
+          "prompt_es": "¿Cuál es el símbolo químico del sodio?",
           "options_i18n": {
             "nl": [
-              "de Aarde",
-              "de Zon",
-              "Mars",
-              "Saturnus"
+              "Na",
+              "So",
+              "Sd",
+              "Sm"
             ],
             "en": [
-              "the Earth",
-              "the Sun",
-              "Mars",
-              "Saturn"
+              "Na",
+              "So",
+              "Sd",
+              "Sm"
             ],
             "es": [
-              "la Tierra",
-              "el Sol",
-              "Marte",
-              "Saturno"
+              "Na",
+              "So",
+              "Sd",
+              "Sm"
             ]
           }
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Quel animal est un amphibien ?",
+          "prompt": "Quel est le symbole chimique du calcium ?",
           "options": [
-            "la grenouille",
-            "le serpent",
-            "le dauphin",
-            "le pigeon"
+            "Ca",
+            "Cl",
+            "Cm",
+            "Cb"
           ],
-          "answer": "la grenouille",
-          "correction": "La grenouille est un amphibien : elle vit sur terre et dans l'eau.",
-          "prompt_nl": "Welk dier is een amfibie?",
-          "prompt_en": "Which animal is an amphibian?",
-          "prompt_es": "Que animal es un anfibio?",
+          "answer": "Ca",
+          "correction": "Le calcium = Ca.",
+          "prompt_nl": "Wat is het scheikundig symbool van calcium?",
+          "prompt_en": "What is the chemical symbol for calcium?",
+          "prompt_es": "¿Cuál es el símbolo químico del calcio?",
           "options_i18n": {
             "nl": [
-              "de kikker",
-              "de slang",
-              "de dolfijn",
-              "de duif"
+              "Ca",
+              "Cl",
+              "Cm",
+              "Cb"
             ],
             "en": [
-              "the frog",
-              "the snake",
-              "the dolphin",
-              "the pigeon"
+              "Ca",
+              "Cl",
+              "Cm",
+              "Cb"
             ],
             "es": [
-              "la rana",
-              "la serpiente",
-              "el delfin",
-              "el palomo"
+              "Ca",
+              "Cl",
+              "Cm",
+              "Cb"
             ]
           }
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "Les baleines sont des mammifères.",
-          "answer": true,
-          "correction": "La baleine est un mammifère marin qui allaite ses petits.",
-          "prompt_nl": "Walvissen zijn zoogdieren.",
-          "prompt_en": "Whales are mammals.",
-          "prompt_es": "Las ballenas son mamiferos."
+          "type": "mcq",
+          "prompt": "Quel est le symbole chimique du chlore ?",
+          "options": [
+            "Cl",
+            "Ch",
+            "Ce",
+            "Cr"
+          ],
+          "answer": "Cl",
+          "correction": "Le chlore = Cl.",
+          "prompt_nl": "Wat is het scheikundig symbool van chloor?",
+          "prompt_en": "What is the chemical symbol for chlorine?",
+          "prompt_es": "¿Cuál es el símbolo químico del cloro?",
+          "options_i18n": {
+            "nl": [
+              "Cl",
+              "Ch",
+              "Ce",
+              "Cr"
+            ],
+            "en": [
+              "Cl",
+              "Ch",
+              "Ce",
+              "Cr"
+            ],
+            "es": [
+              "Cl",
+              "Ch",
+              "Ce",
+              "Cr"
+            ]
+          }
         }
       ]
     },

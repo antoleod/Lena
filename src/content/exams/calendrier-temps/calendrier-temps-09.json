@@ -14,93 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
+          "prompt": "Quel est le 4e mois de l'année civile ?",
           "options": [
-            "hiver",
-            "été",
-            "printemps"
+            "avril",
+            "mars",
+            "mai"
           ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "answer": "avril",
+          "correction": "Avril est le 4e mois."
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "type": "mcq",
+          "prompt": "Quel jour suit jeudi dans la semaine ?",
+          "options": [
+            "vendredi",
+            "mercredi",
+            "samedi"
+          ],
+          "answer": "vendredi",
+          "correction": "Après jeudi vient vendredi."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Parmi les 12 mois, combien en ont 31 ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "7",
+            "6",
+            "5"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "7",
+          "correction": "7 mois ont 31 jours."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Pendant quelle saison cueille-t-on les fruits estivaux ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "l'été",
+            "l'automne",
+            "le printemps"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "l'été",
+          "correction": "On cueille les fruits d'été en été."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Quel est le 2e mois de l'année civile ?",
           "options": [
-            "décembre",
+            "février",
             "janvier",
-            "juin"
+            "mars"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "février",
+          "correction": "Février est le 2e mois."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Combien de jours compte le mois de juin ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "30",
+            "31",
+            "29"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "30",
+          "correction": "Juin a 30 jours."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Quel mois suit directement novembre ?",
           "options": [
-            "12",
-            "10",
-            "7"
+            "décembre",
+            "octobre",
+            "janvier"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "décembre",
+          "correction": "Après novembre vient décembre."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Quel est le 7e mois de l'année civile ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "juillet",
+            "juin",
+            "août"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "juillet",
+          "correction": "Juillet est le 7e mois."
         }
       ]
     },
@@ -220,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Une mission dure 3 mois et commence en novembre. En quel mois se termine-t-elle ?",
+          "prompt": "Combien de jours compte le mois de mars ?",
           "options": [
-            "décembre",
-            "janvier",
-            "février",
-            "mars"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "janvier",
-          "correction": "Novembre → décembre → janvier : fin en janvier."
+          "answer": "31",
+          "correction": "Mars a 31 jours."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Un projet commence le 15 février et dure 6 semaines. Dans quel mois se termine-t-il ?",
+          "prompt": "Quel est le 10e mois de l'année civile ?",
           "options": [
-            "mars",
-            "avril",
-            "mai",
-            "juin"
+            "octobre",
+            "septembre",
+            "novembre"
           ],
-          "answer": "mars",
-          "correction": "6 semaines = 42 jours. 15 février + 42 jours = fin en mars."
+          "answer": "octobre",
+          "correction": "Octobre est le 10e mois."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Si une construction dure 8 mois et commence en avril, en quel mois se termine-t-elle ?",
+          "prompt": "Combien d'heures dure une demi-journée ?",
           "options": [
-            "octobre",
-            "novembre",
-            "décembre",
-            "janvier"
+            "12",
+            "6",
+            "24"
           ],
-          "answer": "novembre",
-          "correction": "Avril + 7 mois = novembre."
+          "answer": "12",
+          "correction": "Une demi-journée = 12 heures."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Une saison sportive dure de septembre à avril. Combien de mois cela fait-il ?",
+          "prompt": "Quel mois suit directement février ?",
           "options": [
-            "6",
-            "7",
-            "8",
-            "9"
+            "mars",
+            "janvier",
+            "avril"
           ],
-          "answer": "8",
-          "correction": "Septembre, octobre, novembre, décembre, janvier, février, mars, avril = 8 mois."
+          "answer": "mars",
+          "correction": "Après février vient mars."
         },
         {
           "id": "dq5",

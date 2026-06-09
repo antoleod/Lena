@@ -38,14 +38,14 @@
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Quels sont les quatre points cardinaux ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "Nord, Sud, Est, Ouest",
+            "Haut, Bas, Gauche, Droite",
+            "Avant, Arrière, Gauche, Droite"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "Nord, Sud, Est, Ouest",
+          "correction": "Les 4 points cardinaux sont N, S, E, O."
         },
         {
           "id": "q8",
@@ -72,38 +72,38 @@
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "De quel côté se couche le Soleil ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "à l'ouest",
+            "à l'est",
+            "au nord"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "à l'ouest",
+          "correction": "Le Soleil se couche à l'ouest."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "Quel sens utilise-t-on lorsqu'on écoute de la musique ?",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "l'ouïe",
+            "la vue",
+            "l'odorat"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "l'ouïe",
+          "correction": "On écoute avec l'ouïe."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "Quel organe nous permet de sentir les odeurs ?",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "le nez",
+            "les yeux",
+            "les oreilles"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "le nez",
+          "correction": "Le nez est l'organe de l'odorat."
         }
       ]
     },
@@ -452,48 +452,50 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Quel organe nous permet de goûter les aliments ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "la langue",
+            "le nez",
+            "les oreilles"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "la langue",
+          "correction": "La langue est l'organe du goût."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Grâce à quoi entendons-nous les sons ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "nos oreilles",
+            "nos yeux",
+            "notre nez"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "nos oreilles",
+          "correction": "On entend grâce aux oreilles."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Grâce à quoi percevons-nous le goût d'un aliment ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "la langue",
+            "le nez",
+            "les yeux"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "la langue",
+          "correction": "On goûte grâce à la langue."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Comment s'appelle le professionnel qui soigne les malades ?",
+          "options": [
+            "le médecin",
+            "le pompier",
+            "le boulanger"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "le médecin",
+          "correction": "Le médecin soigne les malades."
         },
         {
           "id": "q10",
@@ -521,10 +523,15 @@
         },
         {
           "id": "q14",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Quel professionnel lutte contre les incendies ?",
+          "options": [
+            "le pompier",
+            "le policier",
+            "le médecin"
+          ],
+          "answer": "le pompier",
+          "correction": "Le pompier lutte contre les incendies."
         },
         {
           "id": "q16",

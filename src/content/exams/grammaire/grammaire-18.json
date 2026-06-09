@@ -12,89 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le pluriel de « un gateau » :",
+          "prompt": "« Quelle belle journée ! » est une phrase :",
           "options": [
-            "des gâteaux",
-            "des gâteaus",
-            "des gateau"
+            "exclamative",
+            "déclarative",
+            "interrogative",
+            "impérative"
           ],
-          "answer": "des gâteaux",
-          "correction": "Pluriel : des gâteaux."
+          "answer": "exclamative",
+          "correction": "« Quelle belle journée ! » est une phrase : → exclamative.",
+          "id": "q2"
         },
         {
-          "id": "q4",
-          "type": "true_false",
-          "prompt": "« manger » est un adjectif.",
-          "answer": false,
-          "correction": "« manger » est un verbe."
-        },
-        {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "« vite » est un :",
+          "prompt": "Dans « Nous regardons un film », le COD est :",
           "options": [
-            "adverbe",
-            "adjectif",
-            "nom",
-            "verbe"
+            "un film",
+            "nous",
+            "regardons",
+            "un"
           ],
-          "answer": "adverbe",
-          "correction": "vite = adverbe (comment ?)."
+          "answer": "un film",
+          "correction": "Dans « Nous regardons un film », le COD est : → un film.",
+          "id": "q4"
         },
         {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Le pluriel de « un chien » est « des ___ ».",
-          "answer": "chiens",
-          "accept": [
-            "chiens"
-          ],
-          "correction": "On ajoute un « s »."
-        },
-        {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "« Comme il est mignon ! » est une phrase :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "exclamative",
+          "correction": "« Comme il est mignon ! » est une phrase : → exclamative.",
+          "id": "q6"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
+          "prompt": "« Venez-vous avec nous ? » est une phrase :",
           "options": [
-            "grand",
-            "chien",
-            "le"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "interrogative",
+          "correction": "« Venez-vous avec nous ? » est une phrase : → interrogative.",
+          "id": "q8"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "L'article défini masculin singulier est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "le",
+            "la",
+            "les",
+            "l'"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "le",
+          "correction": "L'article défini masculin singulier est : → le.",
+          "id": "q10"
         },
         {
-          "id": "q16",
-          "type": "true_false",
-          "prompt": "« maison » est un nom.",
-          "answer": true,
-          "correction": "« maison » est un nom."
+          "type": "mcq",
+          "prompt": "Le point d'interrogation termine une phrase :",
+          "options": [
+            "interrogative",
+            "déclarative",
+            "exclamative",
+            "impérative"
+          ],
+          "answer": "interrogative",
+          "correction": "Le point d'interrogation termine une phrase : → interrogative.",
+          "id": "q12"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La conjugaison correcte de « vivre (il, imparfait) » est :",
+          "options": [
+            "il vivait",
+            "il vit",
+            "il vivait",
+            "il vivra"
+          ],
+          "answer": "il vivait",
+          "correction": "La conjugaison correcte de « vivre (il, imparfait) » est : → il vivait.",
+          "id": "q14"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Seras-tu là demain ? » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "interrogative",
+          "correction": "« Seras-tu là demain ? » est une phrase : → interrogative.",
+          "id": "q16"
         }
       ]
     },
@@ -102,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Dans « Lena mange une pomme », le COD est :",
+          "prompt": "Le pluriel de « un animal » est :",
           "options": [
-            "une pomme",
-            "Lena",
-            "mange"
+            "des animaux",
+            "des animals",
+            "des animale",
+            "des animaulx"
           ],
-          "answer": "une pomme",
-          "correction": "COD : quoi ? → une pomme."
+          "answer": "des animaux",
+          "correction": "Le pluriel de « un animal » est : → des animaux.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Dans « Paul parle à sa mère », le COI est :",
+          "prompt": "Le féminin de « vendeur » est :",
           "options": [
-            "à sa mère",
-            "Paul",
-            "parle"
+            "vendeuse",
+            "vendeure",
+            "vendeusse",
+            "vendrice"
           ],
-          "answer": "à sa mère",
-          "correction": "COI : à qui ? → à sa mère."
+          "answer": "vendeuse",
+          "correction": "Le féminin de « vendeur » est : → vendeuse.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "La forme féminine de « joli » est :",
+          "prompt": "Dans « Elles regardent un film », le COD est :",
           "options": [
-            "jolie",
-            "jolis",
-            "jolies"
+            "un film",
+            "un film",
+            "elles",
+            "regardent"
           ],
-          "answer": "jolie",
-          "correction": "Féminin singulier : jolie."
+          "answer": "un film",
+          "correction": "Dans « Elles regardent un film », le COD est : → un film.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "La forme féminine de « grand » est :",
+          "prompt": "Dans « Les chats noirs », l'adjectif correctement accordé est :",
           "options": [
-            "grande",
-            "grands",
-            "grand"
+            "noirs",
+            "noir",
+            "noire",
+            "noires"
           ],
-          "answer": "grande",
-          "correction": "Féminin : grande."
+          "answer": "noirs",
+          "correction": "Dans « Les chats noirs », l'adjectif correctement accordé est : → noirs.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
+          "prompt": "« Arrêtez de crier. » est une phrase :",
           "options": [
+            "déclarative",
             "interrogative",
-            "exclamative",
-            "déclarative"
+            "impérative",
+            "exclamative"
           ],
-          "answer": "interrogative",
-          "correction": "Elle pose une question : phrase interrogative."
+          "answer": "impérative",
+          "correction": "« Arrêtez de crier. » est une phrase : → impérative.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "« Quel beau tableau ! » est une phrase :",
+          "prompt": "« Ma mère cuisine bien. » est une phrase :",
           "options": [
-            "exclamative",
+            "déclarative",
             "interrogative",
-            "impérative"
+            "impérative",
+            "exclamative"
           ],
-          "answer": "exclamative",
-          "correction": "Elle exprime une émotion : phrase exclamative."
+          "answer": "déclarative",
+          "correction": "« Ma mère cuisine bien. » est une phrase : → déclarative.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
+          "prompt": "« Dis bonjour ! » est une phrase :",
           "options": [
-            "COI",
-            "COD",
-            "sujet"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "COI",
-          "correction": "Lui = à lui/à elle → COI."
+          "answer": "impérative",
+          "correction": "« Dis bonjour ! » est une phrase : → impérative.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "prompt": "La conjugaison correcte de « peindre (nous, présent) » est :",
           "options": [
-            "des chevaux joyeux",
-            "des chevals joyeux",
-            "des cheval joyeux"
+            "nous peignons",
+            "nous peindons",
+            "nous peignons",
+            "nous peintons"
           ],
-          "answer": "des chevaux joyeux",
-          "correction": "Pluriel de cheval → chevaux."
+          "answer": "nous peignons",
+          "correction": "La conjugaison correcte de « peindre (nous, présent) » est : → nous peignons.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "prompt": "Le pluriel de « un piano » est :",
           "options": [
-            "un complément d'objet direct",
-            "un COI",
-            "le sujet"
+            "des pianos",
+            "des pianox",
+            "des piano",
+            "des pianoes"
           ],
-          "answer": "un complément d'objet direct",
-          "correction": "Le = COD."
+          "answer": "des pianos",
+          "correction": "Le pluriel de « un piano » est : → des pianos.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "prompt": "« magnifique » est un :",
           "options": [
-            "Il dit qu'il mange.",
-            "Il dit que je mange.",
-            "Il dit qu'il a mangé."
+            "adjectif",
+            "nom",
+            "verbe",
+            "adverbe"
           ],
-          "answer": "Il dit qu'il mange.",
-          "correction": "Discours indirect au présent."
+          "answer": "adjectif",
+          "correction": "« magnifique » est un : → adjectif.",
+          "id": "q19"
         }
       ]
     },
@@ -227,119 +256,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "« Qu'il est grand ! » est une phrase :",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "exclamative",
+          "correction": "« Qu'il est grand ! » est une phrase : → exclamative.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "La conjugaison correcte de « dormir (nous, passé composé) » est :",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "nous avons dormi",
+            "nous dormions",
+            "nous avons dormi",
+            "nous dormirons"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "nous avons dormi",
+          "correction": "La conjugaison correcte de « dormir (nous, passé composé) » est : → nous avons dormi.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "« Connaissez-vous cet endroit ? » est une phrase :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "interrogative",
+          "correction": "« Connaissez-vous cet endroit ? » est une phrase : → interrogative.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "Le discours indirect de « Elle dit : 'Je suis fatiguée.' » est :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "Elle dit qu'elle est fatiguée.",
+            "Elle dit : je suis fatiguée.",
+            "Elle dit 'fatiguée'.",
+            "Elle se dit fatiguée."
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "Elle dit qu'elle est fatiguée.",
+          "correction": "Le discours indirect de « Elle dit : 'Je suis fatiguée.' » est : → Elle dit qu'elle est fatiguée..",
+          "id": "q8"
         },
         {
-          "id": "q10",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
+          "type": "mcq",
+          "prompt": "« Fermez vos cahiers ! » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "impérative",
+          "correction": "« Fermez vos cahiers ! » est une phrase : → impérative.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "La conjugaison correcte de « partir (je, futur) » est :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "je partirai",
+            "je partais",
+            "je partirai",
+            "je parte"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "je partirai",
+          "correction": "La conjugaison correcte de « partir (je, futur) » est : → je partirai.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "« Le printemps arrive. » est une phrase :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "déclarative",
+          "correction": "« Le printemps arrive. » est une phrase : → déclarative.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "Dans « Elle se lave les mains », « se » est un pronom :",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "réfléchi",
+            "COD",
+            "COI",
+            "sujet"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "réfléchi",
+          "correction": "Dans « Elle se lave les mains », « se » est un pronom : → réfléchi.",
+          "id": "q16"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "« sauter » est un :",
+          "prompt": "« Quelle tristesse profonde ! » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "verbe",
-          "correction": "« sauter » est un verbe."
+          "answer": "exclamative",
+          "correction": "« Quelle tristesse profonde ! » est une phrase : → exclamative.",
+          "id": "q18"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "L'article indéfini féminin singulier est :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "une",
+            "un",
+            "des",
+            "la"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "une",
+          "correction": "L'article indéfini féminin singulier est : → une.",
+          "id": "q20"
         }
       ]
     }

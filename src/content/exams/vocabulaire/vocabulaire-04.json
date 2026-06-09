@@ -12,28 +12,30 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un synonyme de « forcer » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "obliger",
+            "libérer",
+            "permettre",
+            "autoriser"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "obliger",
+          "correction": "Un synonyme de « forcer » : → obliger.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « endommager » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "abîmer",
+            "réparer",
+            "améliorer",
+            "protéger"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "abîmer",
+          "correction": "Un synonyme de « endommager » : → abîmer.",
+          "id": "q4"
         },
         {
           "id": "q6",
@@ -48,40 +50,43 @@
           "correction": "marcher = se promener."
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « blâmer » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "critiquer",
+            "féliciter",
+            "louer",
+            "approuver"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "critiquer",
+          "correction": "Un synonyme de « blâmer » : → critiquer.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Le suffixe « -esse » dans « gentillesse » indique :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "qualité d'être gentil",
+            "la personne gentille",
+            "l'action gentille",
+            "le geste gentil"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "qualité d'être gentil",
+          "correction": "Le suffixe « -esse » dans « gentillesse » indique : → qualité d'être gentil.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Un synonyme de « nommer » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "appeler",
+            "oublier",
+            "cacher",
+            "fuir"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "appeler",
+          "correction": "Un synonyme de « nommer » : → appeler.",
+          "id": "q12"
         },
         {
           "id": "q14",
@@ -113,124 +118,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « paresseux » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "flemmard",
+            "travailleur",
+            "actif",
+            "dynamique"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "flemmard",
+          "correction": "Un synonyme de « paresseux » : → flemmard.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « calme » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "agité",
+            "tranquille",
+            "serein",
+            "paisible"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "agité",
+          "correction": "Le contraire de « calme » : → agité.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « nord » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "sud",
+            "est",
+            "ouest",
+            "centre"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "sud",
+          "correction": "Le contraire de « nord » : → sud.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « briser » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "fracasser",
+            "réparer",
+            "coller",
+            "fixer"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "fracasser",
+          "correction": "Un synonyme de « briser » : → fracasser.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « fermer » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "clore",
+            "ouvrir",
+            "débloquer",
+            "déverrouiller"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "clore",
+          "correction": "Un synonyme de « fermer » : → clore.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « promettre » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "jurer",
+            "oublier",
+            "trahir",
+            "renier"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "jurer",
+          "correction": "Un synonyme de « promettre » : → jurer.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Un synonyme de « visiter » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "explorer",
+            "ignorer",
+            "éviter",
+            "fuir"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "explorer",
+          "correction": "Un synonyme de « visiter » : → explorer.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « efficace » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "inefficace",
+            "utile",
+            "pratique",
+            "performant"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "inefficace",
+          "correction": "Le contraire de « efficace » : → inefficace.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « loin » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "près",
+            "distant",
+            "éloigné",
+            "reculé"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "près",
+          "correction": "Le contraire de « loin » : → près.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Le contraire de « timide » :",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "audacieux",
+            "réservé",
+            "craintif",
+            "effacé"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "audacieux",
+          "correction": "Le contraire de « timide » : → audacieux.",
+          "id": "q19"
         }
       ]
     },
@@ -250,16 +265,17 @@
           "correction": "propre ↔ sale."
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « admirer » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "apprécier",
+            "critiquer",
+            "rejeter",
+            "mépriser"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "apprécier",
+          "correction": "Un synonyme de « admirer » : → apprécier.",
+          "id": "q4"
         },
         {
           "id": "q6",
@@ -274,16 +290,17 @@
           "correction": "vieux ↔ jeune."
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Le contraire de « dur » :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "mou",
+            "solide",
+            "fort",
+            "lourd"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "mou",
+          "correction": "Le contraire de « dur » : → mou.",
+          "id": "q8"
         },
         {
           "id": "q10",
@@ -298,16 +315,17 @@
           "correction": "La vache vit à la ferme."
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "La famille de mots de « mer » contient :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "marin",
+            "montagnard",
+            "forestier",
+            "désertique"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "marin",
+          "correction": "La famille de mots de « mer » contient : → marin.",
+          "id": "q12"
         },
         {
           "id": "q14",
@@ -322,16 +340,17 @@
           "correction": "grand ↔ petit."
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un synonyme de « franchir » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "traverser",
+            "reculer",
+            "s'arrêter",
+            "bloquer"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "traverser",
+          "correction": "Un synonyme de « franchir » : → traverser.",
+          "id": "q16"
         },
         {
           "id": "q18",

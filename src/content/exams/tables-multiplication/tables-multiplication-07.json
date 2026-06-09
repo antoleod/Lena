@@ -30,7 +30,7 @@
         {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "8 × 3 = ___",
+          "prompt": "8 × 3 = ?",
           "answer": "24",
           "correction": "8 × 3 = 24."
         },
@@ -51,82 +51,21 @@
           "prompt_es": "8 × 4 = ?"
         },
         {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "8 × 4 = ?",
-          "options": [
-            "40",
-            "39",
-            "38",
-            "32"
-          ],
-          "answer": "32",
-          "correction": "8 × 4 = 32.",
-          "prompt_nl": "8 × 4 = ?",
-          "prompt_en": "8 × 4 = ?",
-          "prompt_es": "8 × 4 = ?"
-        },
-        {
           "id": "q5",
           "type": "fill_blank",
-          "prompt": "8 × 5 = ___",
+          "prompt": "8 × 5 = ?",
           "answer": "40",
           "correction": "8 × 5 = 40."
         },
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "8 × 4 = ?",
-          "options": [
-            "32",
-            "39",
-            "40",
-            "35"
-          ],
-          "answer": "32",
-          "correction": "8 × 4 = 32.",
-          "prompt_nl": "8 × 4 = ?",
-          "prompt_en": "8 × 4 = ?",
-          "prompt_es": "8 × 4 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "8 × 3 = ?",
-          "options": [
-            "32",
-            "18",
-            "25",
-            "24"
-          ],
-          "answer": "24",
-          "correction": "8 × 3 = 24.",
-          "prompt_nl": "8 × 3 = ?",
-          "prompt_en": "8 × 3 = ?",
-          "prompt_es": "8 × 3 = ?"
-        },
-        {
-          "id": "q8",
           "type": "fill_blank",
-          "prompt": "8 × 3 = ___",
-          "answer": "24",
-          "correction": "8 × 3 = 24."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "8 × 3 = ?",
-          "options": [
-            "24",
-            "23",
-            "30",
-            "31"
+          "prompt": "___ × 10 = 100",
+          "answer": "10",
+          "correction": "10 × 10 = 100.",
+          "accept": [
+            "10"
           ],
-          "answer": "24",
-          "correction": "8 × 3 = 24.",
-          "prompt_nl": "8 × 3 = ?",
-          "prompt_en": "8 × 3 = ?",
-          "prompt_es": "8 × 3 = ?"
+          "id": "q6"
         },
         {
           "id": "q10",
@@ -273,25 +212,22 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "8 × 4 = ?",
+          "prompt": "Tu as 4 boîtes de 6 crayons. Combien au total ?",
+          "answer": "24",
+          "correction": "4 × 6 = 24.",
           "options": [
-            "26",
-            "40",
             "24",
-            "32"
+            "18",
+            "20",
+            "28"
           ],
-          "answer": "32",
-          "correction": "8 × 4 = 32.",
-          "prompt_nl": "8 × 4 = ?",
-          "prompt_en": "8 × 4 = ?",
-          "prompt_es": "8 × 4 = ?"
+          "id": "q1"
         },
         {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "8 × 1 = ___",
+          "prompt": "8 × 1 = ?",
           "answer": "8",
           "correction": "8 × 1 = 8."
         },
@@ -330,64 +266,42 @@
         {
           "id": "q5",
           "type": "fill_blank",
-          "prompt": "8 × 4 = ___",
+          "prompt": "8 × 4 = ?",
           "answer": "32",
           "correction": "8 × 4 = 32."
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "8 × 3 = ?",
-          "options": [
-            "24",
-            "19",
-            "21",
-            "31"
-          ],
-          "answer": "24",
-          "correction": "8 × 3 = 24.",
-          "prompt_nl": "8 × 3 = ?",
-          "prompt_en": "8 × 3 = ?",
-          "prompt_es": "8 × 3 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "8 × 5 = ?",
-          "options": [
-            "40",
-            "45",
-            "37",
-            "38"
-          ],
+          "prompt": "Il y a 8 rangées de 5 élèves. Combien au total ?",
           "answer": "40",
           "correction": "8 × 5 = 40.",
-          "prompt_nl": "8 × 5 = ?",
-          "prompt_en": "8 × 5 = ?",
-          "prompt_es": "8 × 5 = ?"
+          "options": [
+            "40",
+            "35",
+            "45",
+            "30"
+          ],
+          "id": "q6"
         },
         {
           "id": "q8",
           "type": "fill_blank",
-          "prompt": "8 × 10 = ___",
+          "prompt": "8 × 10 = ?",
           "answer": "80",
           "correction": "8 × 10 = 80."
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "8 × 4 = ?",
+          "prompt": "Tu as 7 sacs de 3 bonbons. Combien au total ?",
+          "answer": "21",
+          "correction": "7 × 3 = 21.",
           "options": [
-            "38",
-            "28",
-            "24",
-            "32"
+            "21",
+            "10",
+            "14",
+            "18"
           ],
-          "answer": "32",
-          "correction": "8 × 4 = 32.",
-          "prompt_nl": "8 × 4 = ?",
-          "prompt_en": "8 × 4 = ?",
-          "prompt_es": "8 × 4 = ?"
+          "id": "q9"
         },
         {
           "id": "q10",

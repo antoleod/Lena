@@ -450,14 +450,14 @@
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Combien y a-t-il de continents sur notre planète ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "7",
+            "5",
+            "6"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "7",
+          "correction": "La Terre a 7 continents."
         },
         {
           "id": "q8",
@@ -481,14 +481,14 @@
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Quel continent occupe la plus grande superficie ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "l'Asie",
+          "correction": "L'Asie est le plus grand continent."
         },
         {
           "id": "q14",
@@ -524,14 +524,14 @@
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Quel continent est le moins étendu (hors pôles) ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "l'Océanie",
+            "l'Europe",
+            "l'Amérique du Nord"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "l'Océanie",
+          "correction": "L'Océanie est le plus petit continent."
         }
       ]
     }

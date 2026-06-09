@@ -14,288 +14,288 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Un carnivore mange :",
+          "prompt": "Comment s'appelle le botaniste (étude des plantes) ?",
           "options": [
-            "de la viande",
-            "des plantes",
-            "des fruits",
-            "des graines"
+            "le botaniste",
+            "le zoologiste",
+            "le géologue",
+            "l'astronome"
           ],
-          "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande.",
-          "prompt_nl": "Een carnivoor eet:",
-          "prompt_en": "A carnivore eats:",
-          "prompt_es": "Un carnivoro come:",
+          "answer": "le botaniste",
+          "correction": "Le botaniste étudie les plantes.",
+          "prompt_nl": "Hoe heet iemand die planten bestudeert?",
+          "prompt_en": "What is a plant scientist called?",
+          "prompt_es": "¿Cómo se llama el científico que estudia las plantas?",
           "options_i18n": {
             "nl": [
-              "vlees",
-              "planten",
-              "fruit",
-              "zaden"
+              "de botanicus",
+              "de zoöloog",
+              "de geoloog",
+              "de astronoom"
             ],
             "en": [
-              "meat",
-              "plants",
-              "fruit",
-              "seeds"
+              "the botanist",
+              "the zoologist",
+              "the geologist",
+              "the astronomer"
             ],
             "es": [
-              "carne",
-              "plantas",
-              "fruta",
-              "semillas"
+              "el botánico",
+              "el zoólogo",
+              "el geólogo",
+              "el astrónomo"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel organe pompe le sang dans le corps ?",
+          "prompt": "Quelle énergie vient du vent ?",
           "options": [
-            "le cœur",
-            "le poumon",
-            "le cerveau",
-            "l'estomac"
+            "l'énergie éolienne",
+            "l'énergie solaire",
+            "l'énergie hydraulique",
+            "l'énergie nucléaire"
           ],
-          "answer": "le cœur",
-          "correction": "Le cœur pompe le sang.",
-          "prompt_nl": "Welk orgaan pompt het bloed door het lichaam?",
-          "prompt_en": "Which organ pumps blood through the body?",
-          "prompt_es": "Que organo bombea la sangre por el cuerpo?",
+          "answer": "l'énergie éolienne",
+          "correction": "L'énergie éolienne provient du vent.",
+          "prompt_nl": "Welke energie komt van de wind?",
+          "prompt_en": "Which energy comes from wind?",
+          "prompt_es": "¿Qué energía viene del viento?",
           "options_i18n": {
             "nl": [
-              "het hart",
-              "de long",
-              "de hersenen",
-              "de maag"
+              "windenergie",
+              "zonne-energie",
+              "waterenergie",
+              "kernenergie"
             ],
             "en": [
-              "the heart",
-              "the lung",
-              "the brain",
-              "the stomach"
+              "wind energy",
+              "solar energy",
+              "hydropower",
+              "nuclear energy"
             ],
             "es": [
-              "el corazon",
-              "el pulmon",
-              "el cerebro",
-              "el estomago"
+              "energía eólica",
+              "energía solar",
+              "energía hidráulica",
+              "energía nuclear"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La chaîne alimentaire commence par :",
+          "prompt": "Comment s'appelle le processus par lequel les plantes perdent de l'eau par leurs feuilles ?",
           "options": [
-            "les plantes",
-            "les herbivores",
-            "les carnivores",
-            "les décomposeurs"
+            "la transpiration",
+            "la photosynthèse",
+            "l'évaporation",
+            "la respiration"
           ],
-          "answer": "les plantes",
-          "correction": "La chaîne alimentaire commence par les plantes.",
-          "prompt_nl": "De voedselketen begint bij:",
-          "prompt_en": "The food chain starts with:",
-          "prompt_es": "La cadena alimentaria empieza por:",
+          "answer": "la transpiration",
+          "correction": "La transpiration = perte d'eau par les feuilles.",
+          "prompt_nl": "Hoe heet het proces waarbij planten water verliezen via bladeren?",
+          "prompt_en": "What is the process by which plants lose water through leaves?",
+          "prompt_es": "¿Cómo se llama el proceso por el que las plantas pierden agua?",
           "options_i18n": {
             "nl": [
-              "de planten",
-              "de herbivoren",
-              "de carnivoren",
-              "de afbrekers"
+              "de transpiratie",
+              "de fotosynthese",
+              "de verdamping",
+              "de ademhaling"
             ],
             "en": [
-              "plants",
-              "herbivores",
-              "carnivores",
-              "decomposers"
+              "transpiration",
+              "photosynthesis",
+              "evaporation",
+              "respiration"
             ],
             "es": [
-              "las plantas",
-              "los herbivoros",
-              "los carnivoros",
-              "los descomponedores"
+              "la transpiración",
+              "la fotosíntesis",
+              "la evaporación",
+              "la respiración"
             ]
           }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un vertébré ?",
+          "prompt": "Quel animal est le plus rapide sur terre ?",
           "options": [
-            "un animal avec une colonne vertébrale",
-            "un animal avec 6 pattes",
-            "un animal qui vole",
-            "un animal aquatique"
+            "le guépard",
+            "le lion",
+            "l'autruche",
+            "le cheval"
           ],
-          "answer": "un animal avec une colonne vertébrale",
-          "correction": "Un vertébré a une colonne vertébrale.",
-          "prompt_nl": "Wat is een gewerveld dier?",
-          "prompt_en": "What is a vertebrate?",
-          "prompt_es": "Que es un vertebrado?",
+          "answer": "le guépard",
+          "correction": "Le guépard peut atteindre 110 km/h.",
+          "prompt_nl": "Welk landdier is het snelst?",
+          "prompt_en": "Which land animal is fastest?",
+          "prompt_es": "¿Cuál es el animal terrestre más rápido?",
           "options_i18n": {
             "nl": [
-              "een dier met een wervelkolom",
-              "een dier met 6 poten",
-              "een dier dat vliegt",
-              "een waterlevend dier"
+              "de cheeta",
+              "de leeuw",
+              "de struisvogel",
+              "het paard"
             ],
             "en": [
-              "an animal with a backbone",
-              "an animal with 6 legs",
-              "an animal that flies",
-              "an aquatic animal"
+              "the cheetah",
+              "the lion",
+              "the ostrich",
+              "the horse"
             ],
             "es": [
-              "un animal con columna vertebral",
-              "un animal con 6 patas",
-              "un animal que vuela",
-              "un animal acuatico"
+              "el guepardo",
+              "el león",
+              "el avestruz",
+              "el caballo"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Un herbivore mange :",
+          "prompt": "Quel est le plus grand animal du monde ?",
           "options": [
-            "des plantes",
-            "de la viande",
-            "des insectes",
-            "des poissons"
+            "la baleine bleue",
+            "l'éléphant",
+            "la girafe",
+            "le requin baleine"
           ],
-          "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes.",
-          "prompt_nl": "Een herbivoor eet:",
-          "prompt_en": "A herbivore eats:",
-          "prompt_es": "Un herbivoro come:",
+          "answer": "la baleine bleue",
+          "correction": "La baleine bleue est le plus grand animal.",
+          "prompt_nl": "Welk dier is het grootste ter wereld?",
+          "prompt_en": "Which is the world's largest animal?",
+          "prompt_es": "¿Cuál es el animal más grande del mundo?",
           "options_i18n": {
             "nl": [
-              "planten",
-              "vlees",
-              "insecten",
-              "vissen"
+              "de blauwe vinvis",
+              "de olifant",
+              "de giraf",
+              "de walvishaai"
             ],
             "en": [
-              "plants",
-              "meat",
-              "insects",
-              "fish"
+              "the blue whale",
+              "the elephant",
+              "the giraffe",
+              "the whale shark"
             ],
             "es": [
-              "plantas",
-              "carne",
-              "insectos",
-              "peces"
+              "la ballena azul",
+              "el elefante",
+              "la jirafa",
+              "el tiburón ballena"
             ]
           }
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "prompt": "Quel type de lumière le Soleil émet-il principalement ?",
           "options": [
-            "Mercure",
-            "Vénus",
-            "Terre",
-            "Mars"
+            "la lumière visible",
+            "les rayons X",
+            "les ondes radio",
+            "les rayons gamma"
           ],
-          "answer": "Mercure",
-          "correction": "Mercure est la planète la plus proche du Soleil.",
-          "prompt_nl": "Welke planeet staat het dichtst bij de Zon?",
-          "prompt_en": "Which planet is closest to the Sun?",
-          "prompt_es": "Que planeta esta mas cerca del Sol?",
+          "answer": "la lumière visible",
+          "correction": "Le Soleil émet surtout de la lumière visible.",
+          "prompt_nl": "Welk type licht zendt de zon voornamelijk uit?",
+          "prompt_en": "What type of light does the Sun mainly emit?",
+          "prompt_es": "¿Qué tipo de luz emite principalmente el Sol?",
           "options_i18n": {
             "nl": [
-              "Mercurius",
-              "Venus",
-              "Aarde",
-              "Mars"
+              "zichtbaar licht",
+              "röntgenstralen",
+              "radiogolven",
+              "gammastralen"
             ],
             "en": [
-              "Mercury",
-              "Venus",
-              "Earth",
-              "Mars"
+              "visible light",
+              "X-rays",
+              "radio waves",
+              "gamma rays"
             ],
             "es": [
-              "Mercurio",
-              "Venus",
-              "Tierra",
-              "Marte"
+              "luz visible",
+              "rayos X",
+              "ondas de radio",
+              "rayos gamma"
             ]
           }
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Un insecte a combien de pattes ?",
+          "prompt": "Quel type de reproduction ne nécessite qu'un seul parent ?",
           "options": [
-            "6",
-            "4",
-            "8",
-            "2"
+            "la reproduction asexuée",
+            "la reproduction sexuée",
+            "la parthénogenèse",
+            "la sporulation"
           ],
-          "answer": "6",
-          "correction": "Les insectes ont 6 pattes.",
-          "prompt_nl": "Hoeveel poten heeft een insect?",
-          "prompt_en": "How many legs does an insect have?",
-          "prompt_es": "Cuantas patas tiene un insecto?",
+          "answer": "la reproduction asexuée",
+          "correction": "La reproduction asexuée = un seul parent.",
+          "prompt_nl": "Welk type voortplanting heeft slechts één ouder nodig?",
+          "prompt_en": "Which reproduction needs only one parent?",
+          "prompt_es": "¿Qué reproducción requiere solo un progenitor?",
           "options_i18n": {
             "nl": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "ongeslachtelijke voortplanting",
+              "geslachtelijke voortplanting",
+              "parthenogenese",
+              "sporenvorming"
             ],
             "en": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "asexual reproduction",
+              "sexual reproduction",
+              "parthenogenesis",
+              "sporulation"
             ],
             "es": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "la reproducción asexual",
+              "la reproducción sexual",
+              "la partenogénesis",
+              "la esporulación"
             ]
           }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le cycle de l'eau commence par :",
+          "prompt": "Combien de pattes a un crabe ?",
           "options": [
-            "l'évaporation",
-            "les précipitations",
-            "la condensation",
-            "le ruissellement"
+            "10",
+            "8",
+            "6",
+            "12"
           ],
-          "answer": "l'évaporation",
-          "correction": "Le cycle de l'eau commence par l'évaporation.",
-          "prompt_nl": "De watercyclus begint met:",
-          "prompt_en": "The water cycle begins with:",
-          "prompt_es": "El ciclo del agua comienza por:",
+          "answer": "10",
+          "correction": "Un crabe a 10 pattes.",
+          "prompt_nl": "Hoeveel poten heeft een krab?",
+          "prompt_en": "How many legs does a crab have?",
+          "prompt_es": "¿Cuántas patas tiene un cangrejo?",
           "options_i18n": {
             "nl": [
-              "verdamping",
-              "neerslag",
-              "condensatie",
-              "afvloeiing"
+              "10",
+              "8",
+              "6",
+              "12"
             ],
             "en": [
-              "evaporation",
-              "precipitation",
-              "condensation",
-              "runoff"
+              "10",
+              "8",
+              "6",
+              "12"
             ],
             "es": [
-              "evaporacion",
-              "precipitaciones",
-              "condensacion",
-              "escorrentia"
+              "10",
+              "8",
+              "6",
+              "12"
             ]
           }
         }
@@ -307,336 +307,362 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Un omnivore mange :",
+          "prompt": "Quel est le muscle le plus utilisé du corps humain ?",
           "options": [
-            "de la viande et des végétaux",
-            "uniquement de la viande",
-            "uniquement des plantes",
-            "uniquement des insectes"
+            "le cœur",
+            "le biceps",
+            "le quadriceps",
+            "le diaphragme"
           ],
-          "answer": "de la viande et des végétaux",
-          "correction": "Un omnivore mange à la fois de la viande et des végétaux.",
-          "prompt_nl": "Een omnivoor eet:",
-          "prompt_en": "An omnivore eats:",
-          "prompt_es": "Un omnivoro come:",
+          "answer": "le cœur",
+          "correction": "Le cœur bat sans arrêt.",
+          "prompt_nl": "Welke spier wordt het meest gebruikt?",
+          "prompt_en": "Which muscle is most used in the body?",
+          "prompt_es": "¿Qué músculo se usa más en el cuerpo?",
           "options_i18n": {
             "nl": [
-              "vlees en groenten",
-              "alleen vlees",
-              "alleen planten",
-              "alleen insecten"
+              "het hart",
+              "de biceps",
+              "de quadriceps",
+              "het middenrif"
             ],
             "en": [
-              "meat and plants",
-              "only meat",
-              "only plants",
-              "only insects"
+              "the heart",
+              "the biceps",
+              "the quadriceps",
+              "the diaphragm"
             ],
             "es": [
-              "carne y vegetales",
-              "solo carne",
-              "solo plantas",
-              "solo insectos"
+              "el corazón",
+              "el bíceps",
+              "el cuádriceps",
+              "el diafragma"
             ]
           }
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La chenille se transforme en :",
+          "prompt": "Comment appelle-t-on un animal qui se nourrit exclusivement de plantes ?",
           "options": [
-            "un papillon",
-            "une fourmi",
-            "une abeille",
-            "un ver"
+            "un herbivore",
+            "un carnivore",
+            "un omnivore",
+            "un insectivore"
           ],
-          "answer": "un papillon",
-          "correction": "La chenille se transforme en papillon : c'est la métamorphose.",
-          "prompt_nl": "De rups verandert in:",
-          "prompt_en": "The caterpillar transforms into:",
-          "prompt_es": "La oruga se transforma en:",
+          "answer": "un herbivore",
+          "correction": "Un herbivore mange uniquement des plantes.",
+          "prompt_nl": "Hoe noem je een dier dat alleen planten eet?",
+          "prompt_en": "What do you call an animal eating only plants?",
+          "prompt_es": "¿Cómo se llama un animal que come solo plantas?",
           "options_i18n": {
             "nl": [
-              "een vlinder",
-              "een mier",
-              "een bij",
-              "een worm"
+              "een herbivoor",
+              "een carnivoor",
+              "een omnivoor",
+              "een insectivoor"
             ],
             "en": [
-              "a butterfly",
-              "an ant",
-              "a bee",
-              "a worm"
+              "a herbivore",
+              "a carnivore",
+              "an omnivore",
+              "an insectivore"
             ],
             "es": [
-              "una mariposa",
-              "una hormiga",
-              "una abeja",
-              "un gusano"
+              "un herbívoro",
+              "un carnívoro",
+              "un omnívoro",
+              "un insectívoro"
             ]
           }
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Le têtard se transforme en :",
+          "prompt": "Quelle planète est entre la Terre et Jupiter ?",
           "options": [
-            "une grenouille",
-            "un poisson",
-            "un lézard",
-            "un serpent"
+            "Mars",
+            "Vénus",
+            "Saturne",
+            "Uranus"
           ],
-          "answer": "une grenouille",
-          "correction": "Le têtard se transforme en grenouille par métamorphose.",
-          "prompt_nl": "Het kikkervisje verandert in:",
-          "prompt_en": "The tadpole transforms into:",
-          "prompt_es": "El renacuajo se transforma en:",
+          "answer": "Mars",
+          "correction": "Mars est entre la Terre et Jupiter.",
+          "prompt_nl": "Welke planeet ligt tussen Aarde en Jupiter?",
+          "prompt_en": "Which planet is between Earth and Jupiter?",
+          "prompt_es": "¿Qué planeta está entre la Tierra y Júpiter?",
           "options_i18n": {
             "nl": [
-              "een kikker",
-              "een vis",
-              "een hagedis",
-              "een slang"
+              "Mars",
+              "Venus",
+              "Saturnus",
+              "Uranus"
             ],
             "en": [
-              "a frog",
-              "a fish",
-              "a lizard",
-              "a snake"
+              "Mars",
+              "Venus",
+              "Saturn",
+              "Uranus"
             ],
             "es": [
-              "una rana",
-              "un pez",
-              "un lagarto",
-              "una serpiente"
+              "Marte",
+              "Venus",
+              "Saturno",
+              "Urano"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel animal est un reptile ?",
+          "prompt": "Les végétaux ont besoin de lumière pour :",
           "options": [
-            "le serpent",
-            "le dauphin",
-            "la grenouille",
-            "le hibou"
+            "la photosynthèse",
+            "la respiration",
+            "la transpiration",
+            "la germination"
           ],
-          "answer": "le serpent",
-          "correction": "Le serpent est un reptile : il a des écailles et est à sang froid.",
-          "prompt_nl": "Welk dier is een reptiel?",
-          "prompt_en": "Which animal is a reptile?",
-          "prompt_es": "Que animal es un reptil?",
+          "answer": "la photosynthèse",
+          "correction": "La lumière est nécessaire à la photosynthèse.",
+          "prompt_nl": "Planten hebben licht nodig voor:",
+          "prompt_en": "Plants need light for:",
+          "prompt_es": "Las plantas necesitan luz para:",
           "options_i18n": {
             "nl": [
-              "de slang",
-              "de dolfijn",
-              "de kikker",
-              "de uil"
+              "fotosynthese",
+              "ademhaling",
+              "transpiratie",
+              "kieming"
             ],
             "en": [
-              "the snake",
-              "the dolphin",
-              "the frog",
-              "the owl"
+              "photosynthesis",
+              "respiration",
+              "transpiration",
+              "germination"
             ],
             "es": [
-              "la serpiente",
-              "el delfin",
-              "la rana",
-              "el buho"
+              "la fotosíntesis",
+              "la respiración",
+              "la transpiración",
+              "la germinación"
             ]
           }
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Quel est le rôle des feuilles ?",
+          "prompt": "Quelle planète a la plus longue journée du système solaire ?",
           "options": [
-            "capter la lumière du Soleil",
-            "absorber l'eau du sol",
-            "produire des graines",
-            "ancrer la plante"
+            "Vénus",
+            "Mercure",
+            "Jupiter",
+            "Saturne"
           ],
-          "answer": "capter la lumière du Soleil",
-          "correction": "Les feuilles captent la lumière du Soleil pour réaliser la photosynthèse.",
-          "prompt_nl": "Wat is de rol van de bladeren?",
-          "prompt_en": "What is the role of leaves?",
-          "prompt_es": "Cual es la funcion de las hojas?",
+          "answer": "Vénus",
+          "correction": "Vénus tourne très lentement.",
+          "prompt_nl": "Welke planeet heeft de langste dag?",
+          "prompt_en": "Which planet has the longest day?",
+          "prompt_es": "¿Qué planeta tiene el día más largo?",
           "options_i18n": {
             "nl": [
-              "zonlicht opvangen",
-              "water opnemen",
-              "zaden produceren",
-              "de plant verankeren"
+              "Venus",
+              "Mercurius",
+              "Jupiter",
+              "Saturnus"
             ],
             "en": [
-              "capture sunlight",
-              "absorb water",
-              "produce seeds",
-              "anchor the plant"
+              "Venus",
+              "Mercury",
+              "Jupiter",
+              "Saturn"
             ],
             "es": [
-              "captar la luz solar",
-              "absorber agua",
-              "producir semillas",
-              "anclar la planta"
+              "Venus",
+              "Mercurio",
+              "Júpiter",
+              "Saturno"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel organe digère les aliments ?",
+          "prompt": "Qu'est-ce que la biodiversité ?",
           "options": [
-            "l'estomac",
-            "le cœur",
-            "les poumons",
-            "le cerveau"
+            "la variété des êtres vivants",
+            "la pollution",
+            "le recyclage",
+            "la météo"
           ],
-          "answer": "l'estomac",
-          "correction": "L'estomac digère les aliments.",
-          "prompt_nl": "Welk orgaan verteert het voedsel?",
-          "prompt_en": "Which organ digests food?",
-          "prompt_es": "Que organo digiere los alimentos?",
+          "answer": "la variété des êtres vivants",
+          "correction": "La biodiversité = variété des êtres vivants.",
+          "prompt_nl": "Wat is biodiversiteit?",
+          "prompt_en": "What is biodiversity?",
+          "prompt_es": "¿Qué es la biodiversidad?",
           "options_i18n": {
             "nl": [
-              "de maag",
-              "het hart",
-              "de longen",
-              "de hersenen"
+              "de verscheidenheid aan levende wezens",
+              "de vervuiling",
+              "het recyclen",
+              "het weer"
             ],
             "en": [
-              "the stomach",
-              "the heart",
-              "the lungs",
-              "the brain"
+              "the variety of living things",
+              "pollution",
+              "recycling",
+              "weather"
             ],
             "es": [
-              "el estomago",
-              "el corazon",
-              "los pulmones",
-              "el cerebro"
+              "la variedad de seres vivos",
+              "la contaminación",
+              "el reciclaje",
+              "el clima"
             ]
           }
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Combien de planètes y a-t-il dans le système solaire ?",
+          "prompt": "Comment s'appelle le bébé de la vache ?",
           "options": [
-            "8",
-            "9",
-            "7",
-            "10"
+            "le veau",
+            "le poulain",
+            "le chiot",
+            "le chevreau"
           ],
-          "answer": "8",
-          "correction": "Il y a 8 planètes dans le système solaire.",
-          "prompt_nl": "Hoeveel planeten zijn er in het zonnestelsel?",
-          "prompt_en": "How many planets are in the solar system?",
-          "prompt_es": "Cuantas planetas hay en el sistema solar?",
+          "answer": "le veau",
+          "correction": "Le bébé de la vache est le veau.",
+          "prompt_nl": "Hoe heet het jong van een koe?",
+          "prompt_en": "What is a baby cow called?",
+          "prompt_es": "¿Cómo se llama la cría de la vaca?",
           "options_i18n": {
             "nl": [
-              "8",
-              "9",
-              "7",
-              "10"
+              "het kalf",
+              "het veulen",
+              "de puppy",
+              "het geitje"
             ],
             "en": [
-              "8",
-              "9",
-              "7",
-              "10"
+              "the calf",
+              "the foal",
+              "the puppy",
+              "the kid"
             ],
             "es": [
-              "8",
-              "9",
-              "7",
-              "10"
+              "el ternero",
+              "el potro",
+              "el cachorro",
+              "el cabrito"
             ]
           }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La Lune tourne autour de :",
+          "prompt": "Comment s'appelle le bébé du cheval ?",
           "options": [
-            "la Terre",
-            "le Soleil",
-            "Mars",
-            "Saturne"
+            "le poulain",
+            "le veau",
+            "le chiot",
+            "le chevreau"
           ],
-          "answer": "la Terre",
-          "correction": "La Lune est le satellite naturel de la Terre.",
-          "prompt_nl": "De Maan draait om:",
-          "prompt_en": "The Moon revolves around:",
-          "prompt_es": "La Luna gira alrededor de:",
+          "answer": "le poulain",
+          "correction": "Le bébé du cheval est le poulain.",
+          "prompt_nl": "Hoe heet het jong van een paard?",
+          "prompt_en": "What is a baby horse called?",
+          "prompt_es": "¿Cómo se llama la cría del caballo?",
           "options_i18n": {
             "nl": [
-              "de Aarde",
-              "de Zon",
-              "Mars",
-              "Saturnus"
+              "het veulen",
+              "het kalf",
+              "de puppy",
+              "het geitje"
             ],
             "en": [
-              "the Earth",
-              "the Sun",
-              "Mars",
-              "Saturn"
+              "the foal",
+              "the calf",
+              "the puppy",
+              "the kid"
             ],
             "es": [
-              "la Tierra",
-              "el Sol",
-              "Marte",
-              "Saturno"
+              "el potro",
+              "el ternero",
+              "el cachorro",
+              "el cabrito"
             ]
           }
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Quel animal est un amphibien ?",
+          "prompt": "Quel animal est connu pour se nourrir de sang ?",
           "options": [
-            "la grenouille",
-            "le serpent",
-            "le dauphin",
-            "le pigeon"
+            "la chauve-souris vampire",
+            "le loup",
+            "le requin",
+            "l'araignée"
           ],
-          "answer": "la grenouille",
-          "correction": "La grenouille est un amphibien : elle vit sur terre et dans l'eau.",
-          "prompt_nl": "Welk dier is een amfibie?",
-          "prompt_en": "Which animal is an amphibian?",
-          "prompt_es": "Que animal es un anfibio?",
+          "answer": "la chauve-souris vampire",
+          "correction": "La chauve-souris vampire se nourrit de sang.",
+          "prompt_nl": "Welk dier drinkt bloed?",
+          "prompt_en": "Which animal feeds on blood?",
+          "prompt_es": "¿Qué animal se alimenta de sangre?",
           "options_i18n": {
             "nl": [
-              "de kikker",
-              "de slang",
-              "de dolfijn",
-              "de duif"
+              "de vampiervleermuis",
+              "de wolf",
+              "de haai",
+              "de spin"
             ],
             "en": [
-              "the frog",
-              "the snake",
-              "the dolphin",
-              "the pigeon"
+              "the vampire bat",
+              "the wolf",
+              "the shark",
+              "the spider"
             ],
             "es": [
-              "la rana",
-              "la serpiente",
-              "el delfin",
-              "el palomo"
+              "el vampiro murciélago",
+              "el lobo",
+              "el tiburón",
+              "la araña"
             ]
           }
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "Les baleines sont des mammifères.",
-          "answer": true,
-          "correction": "La baleine est un mammifère marin qui allaite ses petits.",
-          "prompt_nl": "Walvissen zijn zoogdieren.",
-          "prompt_en": "Whales are mammals.",
-          "prompt_es": "Las ballenas son mamiferos."
+          "type": "mcq",
+          "prompt": "Quelle couleur obtient-on en mélangeant bleu et jaune (peinture) ?",
+          "options": [
+            "vert",
+            "orange",
+            "violet",
+            "marron"
+          ],
+          "answer": "vert",
+          "correction": "Bleu + jaune = vert.",
+          "prompt_nl": "Welke kleur geeft blauw + geel (verf)?",
+          "prompt_en": "What color is blue + yellow paint?",
+          "prompt_es": "¿Qué color da azul + amarillo (pintura)?",
+          "options_i18n": {
+            "nl": [
+              "groen",
+              "oranje",
+              "paars",
+              "bruin"
+            ],
+            "en": [
+              "green",
+              "orange",
+              "purple",
+              "brown"
+            ],
+            "es": [
+              "verde",
+              "naranja",
+              "violeta",
+              "marrón"
+            ]
+          }
         }
       ]
     },

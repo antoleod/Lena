@@ -14,14 +14,14 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Combien y a-t-il de continents sur notre planète ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "7",
+            "5",
+            "6"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "7",
+          "correction": "La Terre a 7 continents."
         },
         {
           "id": "q4",
@@ -33,50 +33,50 @@
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Quel continent occupe la plus grande superficie ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "l'Asie",
+          "correction": "L'Asie est le plus grand continent."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "Quel continent est le moins étendu (hors pôles) ?",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "l'Océanie",
+            "l'Europe",
+            "l'Amérique du Nord"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "l'Océanie",
+          "correction": "L'Océanie est le plus petit continent."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Quels sont les quatre points cardinaux ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "Nord, Sud, Est, Ouest",
+            "Haut, Bas, Gauche, Droite",
+            "Avant, Arrière, Gauche, Droite"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "Nord, Sud, Est, Ouest",
+          "correction": "Les 4 points cardinaux sont N, S, E, O."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "De quel côté se couche le Soleil ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "à l'ouest",
+            "à l'est",
+            "au nord"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "à l'ouest",
+          "correction": "Le Soleil se couche à l'ouest."
         },
         {
           "id": "q14",
@@ -92,10 +92,15 @@
         },
         {
           "id": "q16",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Quel sens utilise-t-on lorsqu'on écoute de la musique ?",
+          "options": [
+            "l'ouïe",
+            "la vue",
+            "l'odorat"
+          ],
+          "answer": "l'ouïe",
+          "correction": "On écoute avec l'ouïe."
         }
       ]
     },

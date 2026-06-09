@@ -14,88 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
+          "prompt": "Combien de jours y a-t-il au total en janvier et février (année ordinaire) ?",
           "options": [
-            "hiver",
-            "été",
-            "printemps"
+            "59",
+            "60",
+            "58"
           ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "answer": "59",
+          "correction": "31 + 28 = 59 jours."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Quel outil mesure le temps qui s'écoule (courses, sport) ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "le chronomètre",
+            "le thermomètre",
+            "la règle"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "le chronomètre",
+          "correction": "Le chronomètre mesure le temps écoulé."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Combien de jours y a-t-il en 6 semaines ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "42",
+            "35",
+            "48"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "42",
+          "correction": "6 × 7 = 42 jours."
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "type": "mcq",
+          "prompt": "Combien y a-t-il de minutes dans 4 heures ?",
+          "options": [
+            "240",
+            "60",
+            "120"
+          ],
+          "answer": "240",
+          "correction": "4 × 60 = 240 minutes."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
+          "type": "mcq",
+          "prompt": "Quel est le nombre de jours du mois le plus court de l'année ?",
+          "options": [
+            "28 ou 29",
+            "30",
+            "31"
+          ],
+          "answer": "28 ou 29",
+          "correction": "Février a 28 jours (29 en bissextile)."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "Combien de mois composent un trimestre ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "3",
+            "4",
+            "2"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "3",
+          "correction": "Un trimestre = 3 mois."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Quel mois suit directement octobre ?",
           "options": [
-            "12",
-            "10",
-            "7"
+            "novembre",
+            "septembre",
+            "décembre"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "novembre",
+          "correction": "Après octobre vient novembre."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Combien y a-t-il de jours entre le 1er janvier et le 1er février ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "31",
+            "28",
+            "30"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "31",
+          "correction": "Janvier a 31 jours donc 31 jours entre ces deux dates."
         }
       ]
     },
@@ -191,14 +201,14 @@
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Lequel vient en premier dans l’année ?",
+          "prompt": "Comment appelle-t-on 10 ans ?",
           "options": [
-            "février",
-            "mai",
-            "août"
+            "une décennie",
+            "un siècle",
+            "un millénaire"
           ],
-          "answer": "février",
-          "correction": "Février est le 2e mois, avant mai (5e) et août (8e)."
+          "answer": "une décennie",
+          "correction": "10 ans = une décennie."
         },
         {
           "id": "q10",
@@ -215,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Une année bissextile a lieu tous les combien d'années ?",
+          "prompt": "Comment appelle-t-on 100 ans ?",
           "options": [
-            "2",
-            "3",
-            "4",
-            "5"
+            "un siècle",
+            "une décennie",
+            "un millénaire"
           ],
-          "answer": "4",
-          "correction": "Les années bissextiles reviennent tous les 4 ans."
+          "answer": "un siècle",
+          "correction": "100 ans = un siècle."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Si aujourd'hui c'est le 30 janvier, quel jour est demain ?",
+          "prompt": "Comment appelle-t-on 1000 ans ?",
           "options": [
-            "1er février",
-            "1er mars",
-            "31 janvier",
-            "29 janvier"
+            "un millénaire",
+            "un siècle",
+            "une décennie"
           ],
-          "answer": "31 janvier",
-          "correction": "Après le 30 janvier vient le 31 janvier."
+          "answer": "un millénaire",
+          "correction": "1000 ans = un millénaire."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "De juillet à octobre inclus, il y a combien de mois ?",
+          "prompt": "Quel est le numéro du mois de mars dans l'année ?",
           "options": [
             "3",
             "4",
-            "5",
-            "6"
+            "2"
           ],
-          "answer": "4",
-          "correction": "Juillet, août, septembre, octobre = 4 mois."
+          "answer": "3",
+          "correction": "Mars est le 3e mois."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Une activité commence à 13h30 et dure 2h15. À quelle heure se termine-t-elle ?",
+          "prompt": "Quel est le numéro du mois d'octobre dans l'année ?",
           "options": [
-            "15h30",
-            "15h45",
-            "16h00",
-            "16h15"
+            "10",
+            "9",
+            "11"
           ],
-          "answer": "15h45",
-          "correction": "13h30 + 2h15 = 15h45."
+          "answer": "10",
+          "correction": "Octobre est le 10e mois."
         },
         {
           "id": "dq5",

@@ -48,25 +48,6 @@
           "correction_es": "1 cm = 10 mm → 20 mm."
         },
         {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Convertis 6 cm en mm.",
-          "options": [
-            "60",
-            "48",
-            "50",
-            "67"
-          ],
-          "answer": "60",
-          "correction": "1 cm = 10 mm → 60 mm.",
-          "prompt_nl": "Zet 6 cm om naar mm.",
-          "prompt_en": "Convert 6 cm to mm.",
-          "prompt_es": "Convierte 6 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 60 mm.",
-          "correction_en": "1 cm = 10 mm → 60 mm.",
-          "correction_es": "1 cm = 10 mm → 60 mm."
-        },
-        {
           "id": "q4",
           "type": "mcq",
           "prompt": "Convertis 4 cm en mm.",
@@ -120,42 +101,6 @@
           "correction_nl": "1 cm = 10 mm → 30 mm.",
           "correction_en": "1 cm = 10 mm → 30 mm.",
           "correction_es": "1 cm = 10 mm → 30 mm."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "Convertis 2 cm en mm.",
-          "options": [
-            "23",
-            "17",
-            "20",
-            "18"
-          ],
-          "answer": "20",
-          "correction": "1 cm = 10 mm → 20 mm.",
-          "prompt_nl": "Zet 2 cm om naar mm.",
-          "prompt_en": "Convert 2 cm to mm.",
-          "prompt_es": "Convierte 2 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 20 mm.",
-          "correction_en": "1 cm = 10 mm → 20 mm.",
-          "correction_es": "1 cm = 10 mm → 20 mm."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Convertis 2 cm en mm.",
-          "answer": "20",
-          "accept": [
-            "20",
-            "20 mm"
-          ],
-          "correction": "1 cm = 10 mm → 20 mm.",
-          "prompt_nl": "Zet 2 cm om naar mm.",
-          "prompt_en": "Convert 2 cm to mm.",
-          "prompt_es": "Convierte 2 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 20 mm.",
-          "correction_en": "1 cm = 10 mm → 20 mm.",
-          "correction_es": "1 cm = 10 mm → 20 mm."
         }
       ]
     },

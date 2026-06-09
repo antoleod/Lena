@@ -14,14 +14,14 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Combien y a-t-il de mois dans une année complète ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "12",
+            "10",
+            "8"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "12",
+          "correction": "Il y a 12 mois dans une année."
         },
         {
           "id": "q4",
@@ -81,14 +81,14 @@
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "Quel mois suit directement mars ?",
           "options": [
-            "décembre",
-            "juillet",
-            "mars"
+            "avril",
+            "mai",
+            "février"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "avril",
+          "correction": "Après mars vient avril."
         },
         {
           "id": "q16",
@@ -220,54 +220,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "L'exposition ouvre le 14 septembre. Aujourd'hui c'est le 31 août. Dans combien de jours ouvre l'exposition ?",
+          "prompt": "Quelle saison commence après l'hiver ?",
           "options": [
-            "13",
-            "14",
-            "15",
-            "16"
+            "le printemps",
+            "l'été",
+            "l'automne"
           ],
-          "answer": "14",
-          "correction": "Du 31 août au 14 septembre = 14 jours."
+          "answer": "le printemps",
+          "correction": "Après l'hiver vient le printemps."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Emma est née en 2016. En 2026, quel âge a-t-elle ?",
+          "prompt": "En février (année ordinaire), il y a combien de jours ?",
           "options": [
-            "8",
-            "9",
-            "10",
-            "11"
+            "28",
+            "29",
+            "30"
           ],
-          "answer": "10",
-          "correction": "2026 − 2016 = 10 ans."
+          "answer": "28",
+          "correction": "Février a 28 jours."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Lucas est né en 2014. En 2026, quel âge a-t-il ?",
+          "prompt": "Pendant quelle saison les feuilles des arbres tombent-elles ?",
           "options": [
-            "10",
-            "11",
-            "12",
-            "13"
+            "l'automne",
+            "l'hiver",
+            "le printemps"
           ],
-          "answer": "12",
-          "correction": "2026 − 2014 = 12 ans."
+          "answer": "l'automne",
+          "correction": "Les feuilles tombent en automne."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Mia est née en janvier 2018. En janvier 2026, quel âge a-t-elle ?",
+          "prompt": "Quel jour suit mercredi dans la semaine ?",
           "options": [
-            "6",
-            "7",
-            "8",
-            "9"
+            "jeudi",
+            "mardi",
+            "vendredi"
           ],
-          "answer": "8",
-          "correction": "2026 − 2018 = 8 ans."
+          "answer": "jeudi",
+          "correction": "Après mercredi vient jeudi."
         },
         {
           "id": "dq5",

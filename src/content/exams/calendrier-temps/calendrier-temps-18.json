@@ -14,93 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Combien de minutes y a-t-il dans 5 heures ?",
           "options": [
-            "12",
-            "10",
-            "7"
+            "300",
+            "250",
+            "360"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "300",
+          "correction": "5 × 60 = 300 minutes."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
+          "prompt": "Quel est le premier jour du week-end ?",
           "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
+            "samedi",
+            "vendredi",
+            "dimanche"
           ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
+          "answer": "samedi",
+          "correction": "Le week-end commence le samedi."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "Combien y a-t-il de jours en 3 semaines ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "21",
+            "14",
+            "28"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "21",
+          "correction": "3 × 7 = 21 jours."
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "type": "mcq",
+          "prompt": "Quel mois précède directement octobre ?",
+          "options": [
+            "septembre",
+            "novembre",
+            "août"
+          ],
+          "answer": "septembre",
+          "correction": "Avant octobre vient septembre."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
+          "prompt": "Combien y a-t-il d'heures dans 2 jours ?",
           "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
+            "48",
+            "24",
+            "36"
           ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
+          "answer": "48",
+          "correction": "2 × 24 = 48 heures."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "La Saint-Nicolas est célébrée le 6 de quel mois ?",
           "options": [
             "décembre",
-            "janvier",
-            "juin"
+            "novembre",
+            "janvier"
           ],
           "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "correction": "La Saint-Nicolas est le 6 décembre."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
+          "prompt": "Combien y a-t-il d'heures dans 3 jours ?",
           "options": [
-            "4",
-            "2",
-            "6"
+            "72",
+            "48",
+            "36"
           ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
+          "answer": "72",
+          "correction": "3 × 24 = 72 heures."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Combien y a-t-il de jours en 4 semaines ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "28",
+            "21",
+            "35"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "28",
+          "correction": "4 × 7 = 28 jours."
         }
       ]
     },
@@ -196,14 +201,14 @@
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Lequel vient en dernier dans l’année ?",
+          "prompt": "En combien de jours la Terre fait-elle le tour complet du Soleil ?",
           "options": [
-            "octobre",
-            "mai",
-            "février"
+            "365 jours environ",
+            "7 jours",
+            "24 heures"
           ],
-          "answer": "octobre",
-          "correction": "Octobre est le 10e mois, après mai (5e) et février (2e)."
+          "answer": "365 jours environ",
+          "correction": "La Terre orbite en environ 365 jours."
         },
         {
           "id": "q10",
@@ -220,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Un élève arrive à l'école à 8h20 et repart à 16h20. Il est à l'école pendant combien d'heures ?",
+          "prompt": "Combien de mois se terminent en '-embre' ?",
           "options": [
-            "6",
-            "7",
-            "8",
-            "9"
+            "4",
+            "3",
+            "5"
           ],
-          "answer": "8",
-          "correction": "De 8h20 à 16h20 = 8 heures."
+          "answer": "4",
+          "correction": "Septembre, octobre, novembre, décembre."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Un enfant né en 2015 a quel âge en 2026 ?",
+          "prompt": "Combien de jours y a-t-il au total en janvier et février (année ordinaire) ?",
           "options": [
-            "9",
-            "10",
-            "11",
-            "12"
+            "59",
+            "60",
+            "58"
           ],
-          "answer": "11",
-          "correction": "2026 − 2015 = 11 ans."
+          "answer": "59",
+          "correction": "31 + 28 = 59 jours."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Du 28 mars au 3 avril, il y a combien de jours ?",
+          "prompt": "Quel outil mesure le temps qui s'écoule (courses, sport) ?",
           "options": [
-            "5",
-            "6",
-            "7",
-            "8"
+            "le chronomètre",
+            "le thermomètre",
+            "la règle"
           ],
-          "answer": "6",
-          "correction": "3 jours en mars (29, 30, 31) + 3 jours en avril = 6 jours."
+          "answer": "le chronomètre",
+          "correction": "Le chronomètre mesure le temps écoulé."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Une année bissextile a lieu tous les combien d'années ?",
+          "prompt": "Combien de jours y a-t-il en 5 semaines ?",
           "options": [
-            "2",
-            "3",
-            "4",
-            "5"
+            "35",
+            "28",
+            "42"
           ],
-          "answer": "4",
-          "correction": "Les années bissextiles reviennent tous les 4 ans."
+          "answer": "35",
+          "correction": "5 × 7 = 35 jours."
         },
         {
           "id": "dq5",

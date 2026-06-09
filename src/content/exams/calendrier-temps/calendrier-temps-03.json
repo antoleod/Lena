@@ -14,33 +14,38 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Combien y a-t-il de mois dans une année complète ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "12",
+            "10",
+            "8"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "12",
+          "correction": "Il y a 12 mois dans une année."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
+          "prompt": "Quel mois suit directement mars ?",
           "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
+            "avril",
+            "mai",
+            "février"
           ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
+          "answer": "avril",
+          "correction": "Après mars vient avril."
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
+          "type": "mcq",
+          "prompt": "Quelle saison commence après l'hiver ?",
+          "options": [
+            "le printemps",
+            "l'été",
+            "l'automne"
+          ],
+          "answer": "le printemps",
+          "correction": "Après l'hiver vient le printemps."
         },
         {
           "id": "q8",
@@ -215,54 +220,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Le concert est le 2 février. Aujourd'hui c'est le 26 janvier. Dans combien de jours est le concert ?",
+          "prompt": "En février (année ordinaire), il y a combien de jours ?",
           "options": [
-            "5",
-            "6",
-            "7",
-            "8"
+            "28",
+            "29",
+            "30"
           ],
-          "answer": "7",
-          "correction": "Du 26 janvier au 2 février : 5 jours en janvier + 2 jours = 7 jours."
+          "answer": "28",
+          "correction": "Février a 28 jours."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "La compétition est le 8 décembre. Aujourd'hui c'est le 23 novembre. Dans combien de jours est la compétition ?",
+          "prompt": "Pendant quelle saison les feuilles des arbres tombent-elles ?",
           "options": [
-            "13",
-            "14",
-            "15",
-            "16"
+            "l'automne",
+            "l'hiver",
+            "le printemps"
           ],
-          "answer": "15",
-          "correction": "Du 23 novembre au 8 décembre : 7 jours en novembre + 8 jours = 15 jours."
+          "answer": "l'automne",
+          "correction": "Les feuilles tombent en automne."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "La kermesse est le 5 juin. Aujourd'hui c'est le 20 mai. Dans combien de jours est la kermesse ?",
+          "prompt": "Quel jour suit mercredi dans la semaine ?",
           "options": [
-            "14",
-            "15",
-            "16",
-            "17"
+            "jeudi",
+            "mardi",
+            "vendredi"
           ],
-          "answer": "16",
-          "correction": "Du 20 mai au 5 juin : 11 jours en mai + 5 jours = 16 jours."
+          "answer": "jeudi",
+          "correction": "Après mercredi vient jeudi."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "L'exposition ouvre le 14 septembre. Aujourd'hui c'est le 31 août. Dans combien de jours ouvre l'exposition ?",
+          "prompt": "Quel est le 6e mois de l'année civile ?",
           "options": [
-            "13",
-            "14",
-            "15",
-            "16"
+            "juin",
+            "mai",
+            "juillet"
           ],
-          "answer": "14",
-          "correction": "Du 31 août au 14 septembre = 14 jours."
+          "answer": "juin",
+          "correction": "Juin est le 6e mois."
         },
         {
           "id": "dq5",

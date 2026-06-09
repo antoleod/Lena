@@ -12,95 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "« Ralentis ! » est une phrase :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "impérative",
+          "correction": "« Ralentis ! » est une phrase : → impérative.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "« Téléphone-lui ! » est une phrase :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "impérative",
+          "correction": "« Téléphone-lui ! » est une phrase : → impérative.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "« soleil » est de genre :",
+          "prompt": "Dans « Ces fleurs sentent bon. », le sujet est :",
           "options": [
-            "masculin",
-            "féminin",
-            "neutre"
+            "Ces fleurs",
+            "sentent",
+            "bon",
+            "Ces"
           ],
-          "answer": "masculin",
-          "correction": "le soleil → masculin."
+          "answer": "Ces fleurs",
+          "correction": "Dans « Ces fleurs sentent bon. », le sujet est : → Ces fleurs.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "« Ouvre les yeux ! » est une phrase :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "impérative",
+          "correction": "« Ouvre les yeux ! » est une phrase : → impérative.",
+          "id": "q8"
         },
         {
-          "id": "q10",
-          "type": "true_false",
-          "prompt": "« manger » est un adjectif.",
-          "answer": false,
-          "correction": "« manger » est un verbe."
+          "type": "mcq",
+          "prompt": "Dans « Tu prends le bus », le COD est :",
+          "options": [
+            "le bus",
+            "tu",
+            "prends",
+            "le"
+          ],
+          "answer": "le bus",
+          "correction": "Dans « Tu prends le bus », le COD est : → le bus.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Dans « la petite maison », le nom est :",
+          "prompt": "« Ne cours pas ! » est une phrase :",
           "options": [
-            "maison",
-            "petite",
-            "la"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "maison",
-          "correction": "maison = nom."
+          "answer": "impérative",
+          "correction": "« Ne cours pas ! » est une phrase : → impérative.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "« Elle chante très bien. » est une phrase :",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "déclarative",
+          "correction": "« Elle chante très bien. » est une phrase : → déclarative.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le pluriel de « un oiseau » :",
+          "prompt": "La conjugaison correcte de « pouvoir (je, conditionnel) » est :",
           "options": [
-            "des oiseaux",
-            "des oiseau",
-            "des oiseaux"
+            "je pourrais",
+            "je pouvais",
+            "je pourrais",
+            "je peux"
           ],
-          "answer": "des oiseaux",
-          "correction": "Pluriel : des oiseaux (eau → eaux)."
+          "answer": "je pourrais",
+          "correction": "La conjugaison correcte de « pouvoir (je, conditionnel) » est : → je pourrais.",
+          "id": "q16"
         }
       ]
     },
@@ -108,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Dans « Lena mange une pomme », le COD est :",
+          "prompt": "« Quel est ton prénom ? » est une phrase :",
           "options": [
-            "une pomme",
-            "Lena",
-            "mange"
-          ],
-          "answer": "une pomme",
-          "correction": "COD : quoi ? → une pomme."
-        },
-        {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Dans « Paul parle à sa mère », le COI est :",
-          "options": [
-            "à sa mère",
-            "Paul",
-            "parle"
-          ],
-          "answer": "à sa mère",
-          "correction": "COI : à qui ? → à sa mère."
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "La forme féminine de « joli » est :",
-          "options": [
-            "jolie",
-            "jolis",
-            "jolies"
-          ],
-          "answer": "jolie",
-          "correction": "Féminin singulier : jolie."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "La forme féminine de « grand » est :",
-          "options": [
-            "grande",
-            "grands",
-            "grand"
-          ],
-          "answer": "grande",
-          "correction": "Féminin : grande."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
-          "options": [
+            "déclarative",
             "interrogative",
-            "exclamative",
-            "déclarative"
+            "impérative",
+            "exclamative"
           ],
           "answer": "interrogative",
-          "correction": "Elle pose une question : phrase interrogative."
+          "correction": "« Quel est ton prénom ? » est une phrase : → interrogative.",
+          "id": "q1"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "« Quel beau tableau ! » est une phrase :",
+          "prompt": "Le féminin de « danseur » est :",
           "options": [
-            "exclamative",
+            "danseuse",
+            "danseure",
+            "danseusse",
+            "dansrice"
+          ],
+          "answer": "danseuse",
+          "correction": "Le féminin de « danseur » est : → danseuse.",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Dans « Il téléphone à sa mère », le COI est :",
+          "options": [
+            "à sa mère",
+            "à sa mère",
+            "il",
+            "téléphone"
+          ],
+          "answer": "à sa mère",
+          "correction": "Dans « Il téléphone à sa mère », le COI est : → à sa mère.",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La forme correcte de « finir (nous, imparfait) » est :",
+          "options": [
+            "nous finissions",
+            "nous finions",
+            "nous finissions",
+            "nous finirons"
+          ],
+          "answer": "nous finissions",
+          "correction": "La forme correcte de « finir (nous, imparfait) » est : → nous finissions.",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Comme il fait froid ! » est une phrase :",
+          "options": [
+            "déclarative",
             "interrogative",
-            "impérative"
+            "impérative",
+            "exclamative"
           ],
           "answer": "exclamative",
-          "correction": "Elle exprime une émotion : phrase exclamative."
+          "correction": "« Comme il fait froid ! » est une phrase : → exclamative.",
+          "id": "q9"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
+          "prompt": "« Où as-tu mis mes clés ? » est une phrase :",
           "options": [
-            "COI",
-            "COD",
-            "sujet"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "COI",
-          "correction": "Lui = à lui/à elle → COI."
+          "answer": "interrogative",
+          "correction": "« Où as-tu mis mes clés ? » est une phrase : → interrogative.",
+          "id": "q11"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "prompt": "« Quelle mauvaise nouvelle ! » est une phrase :",
           "options": [
-            "des chevaux joyeux",
-            "des chevals joyeux",
-            "des cheval joyeux"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des chevaux joyeux",
-          "correction": "Pluriel de cheval → chevaux."
+          "answer": "exclamative",
+          "correction": "« Quelle mauvaise nouvelle ! » est une phrase : → exclamative.",
+          "id": "q13"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "prompt": "La conjugaison correcte de « devoir (tu, présent) » est :",
           "options": [
-            "un complément d'objet direct",
-            "un COI",
-            "le sujet"
+            "tu dois",
+            "tu doit",
+            "tu dois",
+            "tu doives"
           ],
-          "answer": "un complément d'objet direct",
-          "correction": "Le = COD."
+          "answer": "tu dois",
+          "correction": "La conjugaison correcte de « devoir (tu, présent) » est : → tu dois.",
+          "id": "q15"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "prompt": "Le pluriel de « un morceau » est :",
           "options": [
-            "Il dit qu'il mange.",
-            "Il dit que je mange.",
-            "Il dit qu'il a mangé."
+            "des morceaux",
+            "des morceaus",
+            "des morceau",
+            "des morceaues"
           ],
-          "answer": "Il dit qu'il mange.",
-          "correction": "Discours indirect au présent."
+          "answer": "des morceaux",
+          "correction": "Le pluriel de « un morceau » est : → des morceaux.",
+          "id": "q17"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« grandir » est un :",
+          "options": [
+            "verbe",
+            "nom",
+            "adjectif",
+            "adverbe"
+          ],
+          "answer": "verbe",
+          "correction": "« grandir » est un : → verbe.",
+          "id": "q19"
         }
       ]
     },

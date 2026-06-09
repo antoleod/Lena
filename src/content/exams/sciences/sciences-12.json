@@ -14,259 +14,43 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "Quel astre éclaire la Terre pendant le jour ?",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "le Soleil",
+            "la Lune",
+            "Mars",
+            "Jupiter"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
+          "answer": "le Soleil",
+          "correction": "Le Soleil éclaire la Terre le jour.",
+          "prompt_nl": "Welk hemellichaam verlicht de Aarde overdag?",
+          "prompt_en": "Which celestial body lights Earth during the day?",
+          "prompt_es": "¿Qué astro ilumina la Tierra durante el día?",
           "options_i18n": {
             "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
+              "de Zon",
+              "de Maan",
+              "Mars",
+              "Jupiter"
             ],
             "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
+              "the Sun",
+              "the Moon",
+              "Mars",
+              "Jupiter"
             ],
             "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
+              "el Sol",
+              "la Luna",
+              "Marte",
+              "Júpiter"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La photosynthèse est réalisée par :",
-          "options": [
-            "les plantes",
-            "les animaux",
-            "les champignons",
-            "les pierres"
-          ],
-          "answer": "les plantes",
-          "correction": "Les plantes font la photosynthèse.",
-          "prompt_nl": "Fotosynthese wordt uitgevoerd door:",
-          "prompt_en": "Photosynthesis is carried out by:",
-          "prompt_es": "La fotosintesis la realizan:",
-          "options_i18n": {
-            "nl": [
-              "de planten",
-              "de dieren",
-              "de schimmels",
-              "de stenen"
-            ],
-            "en": [
-              "plants",
-              "animals",
-              "fungi",
-              "stones"
-            ],
-            "es": [
-              "las plantas",
-              "los animales",
-              "los hongos",
-              "las piedras"
-            ]
-          }
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Un insecte a combien de pattes ?",
-          "options": [
-            "6",
-            "4",
-            "8",
-            "2"
-          ],
-          "answer": "6",
-          "correction": "Les insectes ont 6 pattes.",
-          "prompt_nl": "Hoeveel poten heeft een insect?",
-          "prompt_en": "How many legs does an insect have?",
-          "prompt_es": "Cuantas patas tiene un insecto?",
-          "options_i18n": {
-            "nl": [
-              "6",
-              "4",
-              "8",
-              "2"
-            ],
-            "en": [
-              "6",
-              "4",
-              "8",
-              "2"
-            ],
-            "es": [
-              "6",
-              "4",
-              "8",
-              "2"
-            ]
-          }
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Un carnivore mange :",
-          "options": [
-            "de la viande",
-            "des plantes",
-            "des fruits",
-            "des graines"
-          ],
-          "answer": "de la viande",
-          "correction": "Un carnivore mange de la viande.",
-          "prompt_nl": "Een carnivoor eet:",
-          "prompt_en": "A carnivore eats:",
-          "prompt_es": "Un carnivoro come:",
-          "options_i18n": {
-            "nl": [
-              "vlees",
-              "planten",
-              "fruit",
-              "zaden"
-            ],
-            "en": [
-              "meat",
-              "plants",
-              "fruit",
-              "seeds"
-            ],
-            "es": [
-              "carne",
-              "plantas",
-              "fruta",
-              "semillas"
-            ]
-          }
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Quel animal est un mammifère ?",
-          "options": [
-            "le chien",
-            "l'aigle",
-            "la grenouille",
-            "le serpent"
-          ],
-          "answer": "le chien",
-          "correction": "Le chien est un mammifère.",
-          "prompt_nl": "Welk dier is een zoogdier?",
-          "prompt_en": "Which animal is a mammal?",
-          "prompt_es": "Que animal es un mamifero?",
-          "options_i18n": {
-            "nl": [
-              "de hond",
-              "de arend",
-              "de kikker",
-              "de slang"
-            ],
-            "en": [
-              "the dog",
-              "the eagle",
-              "the frog",
-              "the snake"
-            ],
-            "es": [
-              "el perro",
-              "el aguila",
-              "la rana",
-              "la serpiente"
-            ]
-          }
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "L'eau en état solide est :",
-          "options": [
-            "la glace",
-            "la vapeur",
-            "la pluie",
-            "la rosée"
-          ],
-          "answer": "la glace",
-          "correction": "L'eau solide = la glace.",
-          "prompt_nl": "Water in vaste toestand is:",
-          "prompt_en": "Water in solid state is:",
-          "prompt_es": "El agua en estado solido es:",
-          "options_i18n": {
-            "nl": [
-              "ijs",
-              "damp",
-              "regen",
-              "dauw"
-            ],
-            "en": [
-              "ice",
-              "vapour",
-              "rain",
-              "dew"
-            ],
-            "es": [
-              "hielo",
-              "vapor",
-              "lluvia",
-              "rocio"
-            ]
-          }
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Un herbivore mange :",
-          "options": [
-            "des plantes",
-            "de la viande",
-            "des insectes",
-            "des poissons"
-          ],
-          "answer": "des plantes",
-          "correction": "Un herbivore mange uniquement des plantes.",
-          "prompt_nl": "Een herbivoor eet:",
-          "prompt_en": "A herbivore eats:",
-          "prompt_es": "Un herbivoro come:",
-          "options_i18n": {
-            "nl": [
-              "planten",
-              "vlees",
-              "insecten",
-              "vissen"
-            ],
-            "en": [
-              "plants",
-              "meat",
-              "insects",
-              "fish"
-            ],
-            "es": [
-              "plantas",
-              "carne",
-              "insectos",
-              "peces"
-            ]
-          }
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
+          "prompt": "Quel astre illumine le ciel nocturne ?",
           "options": [
             "la Lune",
             "le Soleil",
@@ -274,10 +58,10 @@
             "Jupiter"
           ],
           "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
+          "correction": "La Lune illumine la nuit.",
+          "prompt_nl": "Welk hemellichaam verlicht de nachtelijke hemel?",
+          "prompt_en": "Which celestial body lights the night sky?",
+          "prompt_es": "¿Qué astro ilumina el cielo nocturno?",
           "options_i18n": {
             "nl": [
               "de Maan",
@@ -295,7 +79,223 @@
               "la Luna",
               "el Sol",
               "Marte",
-              "Jupiter"
+              "Júpiter"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "prompt": "L'eau à l'état solide s'appelle :",
+          "options": [
+            "la glace",
+            "la vapeur",
+            "le brouillard",
+            "la rosée"
+          ],
+          "answer": "la glace",
+          "correction": "L'eau solide est de la glace.",
+          "prompt_nl": "Water in vaste toestand heet:",
+          "prompt_en": "Solid water is called:",
+          "prompt_es": "El agua en estado sólido se llama:",
+          "options_i18n": {
+            "nl": [
+              "ijs",
+              "damp",
+              "mist",
+              "dauw"
+            ],
+            "en": [
+              "ice",
+              "steam",
+              "fog",
+              "dew"
+            ],
+            "es": [
+              "hielo",
+              "vapor",
+              "niebla",
+              "rocío"
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "prompt": "Quel sens utilise-t-on pour sentir une fleur avec le nez ?",
+          "options": [
+            "l'odorat",
+            "la vue",
+            "le toucher",
+            "le goût"
+          ],
+          "answer": "l'odorat",
+          "correction": "On sent une fleur avec l'odorat.",
+          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
+          "prompt_en": "Which sense do you use to smell a flower?",
+          "prompt_es": "¿Qué sentido usas para oler una flor?",
+          "options_i18n": {
+            "nl": [
+              "de reuk",
+              "het zicht",
+              "het gevoel",
+              "de smaak"
+            ],
+            "en": [
+              "smell",
+              "sight",
+              "touch",
+              "taste"
+            ],
+            "es": [
+              "el olfato",
+              "la vista",
+              "el tacto",
+              "el gusto"
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "prompt": "Quel est le cycle de l'eau dans l'ordre ?",
+          "options": [
+            "évaporation → condensation → précipitation",
+            "précipitation → évaporation → condensation",
+            "condensation → précipitation → évaporation",
+            "évaporation → précipitation → condensation"
+          ],
+          "answer": "évaporation → condensation → précipitation",
+          "correction": "Cycle de l'eau : évaporation, condensation, précipitation.",
+          "prompt_nl": "Wat is de watercyclus in volgorde?",
+          "prompt_en": "What is the water cycle in order?",
+          "prompt_es": "¿Cuál es el ciclo del agua en orden?",
+          "options_i18n": {
+            "nl": [
+              "verdamping → condensatie → neerslag",
+              "neerslag → verdamping → condensatie",
+              "condensatie → neerslag → verdamping",
+              "verdamping → neerslag → condensatie"
+            ],
+            "en": [
+              "evaporation → condensation → precipitation",
+              "precipitation → evaporation → condensation",
+              "condensation → precipitation → evaporation",
+              "evaporation → precipitation → condensation"
+            ],
+            "es": [
+              "evaporación → condensación → precipitación",
+              "precipitación → evaporación → condensación",
+              "condensación → precipitación → evaporación",
+              "evaporación → precipitación → condensación"
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "type": "mcq",
+          "prompt": "Quelle force attire les objets vers le bas ?",
+          "options": [
+            "la gravité",
+            "le magnétisme",
+            "la friction",
+            "l'électricité"
+          ],
+          "answer": "la gravité",
+          "correction": "La gravité attire vers le sol.",
+          "prompt_nl": "Welke kracht trekt objecten naar beneden?",
+          "prompt_en": "Which force pulls objects downward?",
+          "prompt_es": "¿Qué fuerza atrae los objetos hacia abajo?",
+          "options_i18n": {
+            "nl": [
+              "de zwaartekracht",
+              "het magnetisme",
+              "de wrijving",
+              "de elektriciteit"
+            ],
+            "en": [
+              "gravity",
+              "magnetism",
+              "friction",
+              "electricity"
+            ],
+            "es": [
+              "la gravedad",
+              "el magnetismo",
+              "la fricción",
+              "la electricidad"
+            ]
+          }
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "L'énergie électrique se mesure en :",
+          "options": [
+            "watts / kilowattheures",
+            "degrés",
+            "mètres",
+            "litres"
+          ],
+          "answer": "watts / kilowattheures",
+          "correction": "L'énergie se mesure en watts ou kilowattheures.",
+          "prompt_nl": "Elektrische energie wordt gemeten in:",
+          "prompt_en": "Electrical energy is measured in:",
+          "prompt_es": "La energía eléctrica se mide en:",
+          "options_i18n": {
+            "nl": [
+              "watt / kilowattuur",
+              "graden",
+              "meter",
+              "liter"
+            ],
+            "en": [
+              "watts / kilowatt-hours",
+              "degrees",
+              "meters",
+              "liters"
+            ],
+            "es": [
+              "vatios / kilovatios-hora",
+              "grados",
+              "metros",
+              "litros"
+            ]
+          }
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Quel animal est classé comme mammifère aquatique ?",
+          "options": [
+            "le dauphin",
+            "le requin",
+            "la raie",
+            "le crabe"
+          ],
+          "answer": "le dauphin",
+          "correction": "Le dauphin est un mammifère aquatique.",
+          "prompt_nl": "Welk dier is een aquatisch zoogdier?",
+          "prompt_en": "Which animal is an aquatic mammal?",
+          "prompt_es": "¿Qué animal es un mamífero acuático?",
+          "options_i18n": {
+            "nl": [
+              "de dolfijn",
+              "de haai",
+              "de rog",
+              "de krab"
+            ],
+            "en": [
+              "the dolphin",
+              "the shark",
+              "the ray",
+              "the crab"
+            ],
+            "es": [
+              "el delfín",
+              "el tiburón",
+              "la raya",
+              "el cangrejo"
             ]
           }
         }
@@ -307,308 +307,360 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Quelle partie de la plante capte la lumière ?",
+          "prompt": "Quel est le rôle principal des feuilles d'une plante ?",
           "options": [
-            "les feuilles",
-            "les racines",
-            "les tiges",
-            "les fleurs"
+            "réaliser la photosynthèse",
+            "absorber l'eau",
+            "transporter la sève",
+            "stocker les graines"
           ],
-          "answer": "les feuilles",
-          "correction": "Les feuilles captent la lumière solaire pour la photosynthèse.",
-          "prompt_nl": "Welk deel van de plant vangt licht op?",
-          "prompt_en": "Which part of the plant captures light?",
-          "prompt_es": "Que parte de la planta capta la luz?",
+          "answer": "réaliser la photosynthèse",
+          "correction": "Les feuilles font la photosynthèse.",
+          "prompt_nl": "Wat is de hoofdrol van de bladeren?",
+          "prompt_en": "What is the main role of leaves?",
+          "prompt_es": "¿Cuál es el papel principal de las hojas?",
           "options_i18n": {
             "nl": [
-              "de bladeren",
-              "de wortels",
-              "de stengels",
-              "de bloemen"
+              "fotosynthese uitvoeren",
+              "water opnemen",
+              "sap transporteren",
+              "zaden opslaan"
             ],
             "en": [
-              "the leaves",
-              "the roots",
-              "the stems",
-              "the flowers"
+              "carry out photosynthesis",
+              "absorb water",
+              "transport sap",
+              "store seeds"
             ],
             "es": [
-              "las hojas",
-              "las raices",
-              "los tallos",
-              "las flores"
+              "realizar la fotosíntesis",
+              "absorber agua",
+              "transportar savia",
+              "almacenar semillas"
             ]
           }
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Un être vivant qui mange des insectes est dit :",
+          "prompt": "Combien de planètes sont dans le système solaire ?",
           "options": [
-            "insectivore",
-            "carnivore",
-            "herbivore",
-            "omnivore"
+            "8",
+            "9",
+            "7",
+            "6"
           ],
-          "answer": "insectivore",
-          "correction": "Un insectivore se nourrit principalement d'insectes.",
-          "prompt_nl": "Een levend wezen dat insecten eet wordt een ___ genoemd:",
-          "prompt_en": "A living being that eats insects is called:",
-          "prompt_es": "Un ser vivo que come insectos se llama:",
+          "answer": "8",
+          "correction": "Il y a 8 planètes dans le système solaire.",
+          "prompt_nl": "Hoeveel planeten zijn er in ons zonnestelsel?",
+          "prompt_en": "How many planets are in the solar system?",
+          "prompt_es": "¿Cuántos planetas tiene el sistema solar?",
           "options_i18n": {
             "nl": [
-              "insectivoor",
-              "carnivoor",
-              "herbivoor",
-              "omnivoor"
+              "8",
+              "9",
+              "7",
+              "6"
             ],
             "en": [
-              "insectivore",
-              "carnivore",
-              "herbivore",
-              "omnivore"
+              "8",
+              "9",
+              "7",
+              "6"
             ],
             "es": [
-              "insectivoro",
-              "carnivoro",
-              "herbivoro",
-              "omnivoro"
+              "8",
+              "9",
+              "7",
+              "6"
             ]
           }
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "La Terre a combien de satellites naturels ?",
+          "prompt": "Quel animal est un poisson cartilagineux ?",
           "options": [
-            "1",
-            "2",
-            "3",
-            "0"
+            "le requin",
+            "la truite",
+            "le saumon",
+            "la carpe"
           ],
-          "answer": "1",
-          "correction": "La Terre a un seul satellite naturel : la Lune.",
-          "prompt_nl": "Hoeveel natuurlijke satellieten heeft de Aarde?",
-          "prompt_en": "How many natural satellites does the Earth have?",
-          "prompt_es": "Cuantos satelites naturales tiene la Tierra?",
+          "answer": "le requin",
+          "correction": "Le requin est un poisson cartilagineux.",
+          "prompt_nl": "Welk dier is een kraakbeenvis?",
+          "prompt_en": "Which animal is a cartilaginous fish?",
+          "prompt_es": "¿Qué animal es un pez cartilaginoso?",
           "options_i18n": {
             "nl": [
-              "1",
-              "2",
-              "3",
-              "0"
+              "de haai",
+              "de forel",
+              "de zalm",
+              "de karper"
             ],
             "en": [
-              "1",
-              "2",
-              "3",
-              "0"
+              "the shark",
+              "the trout",
+              "the salmon",
+              "the carp"
             ],
             "es": [
-              "1",
-              "2",
-              "3",
-              "0"
+              "el tiburón",
+              "la trucha",
+              "el salmón",
+              "la carpa"
             ]
           }
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "Les champignons sont des plantes.",
-          "answer": false,
-          "correction": "Les champignons ne sont ni des plantes ni des animaux.",
-          "prompt_nl": "Paddestoelen zijn planten.",
-          "prompt_en": "Mushrooms are plants.",
-          "prompt_es": "Los hongos son plantas."
+          "type": "mcq",
+          "prompt": "Quel métal est liquide à température ambiante ?",
+          "options": [
+            "le mercure",
+            "le plomb",
+            "l'aluminium",
+            "le fer"
+          ],
+          "answer": "le mercure",
+          "correction": "Le mercure est liquide à 20°C.",
+          "prompt_nl": "Welk metaal is vloeibaar bij kamertemperatuur?",
+          "prompt_en": "Which metal is liquid at room temperature?",
+          "prompt_es": "¿Qué metal es líquido a temperatura ambiente?",
+          "options_i18n": {
+            "nl": [
+              "kwik",
+              "lood",
+              "aluminium",
+              "ijzer"
+            ],
+            "en": [
+              "mercury",
+              "lead",
+              "aluminum",
+              "iron"
+            ],
+            "es": [
+              "el mercurio",
+              "el plomo",
+              "el aluminio",
+              "el hierro"
+            ]
+          }
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "L'état gazeux de l'eau s'appelle :",
+          "prompt": "Combien de dents de lait a un enfant ?",
           "options": [
-            "la vapeur d'eau",
-            "la glace",
-            "la rosée",
-            "le brouillard"
+            "20",
+            "28",
+            "32",
+            "16"
           ],
-          "answer": "la vapeur d'eau",
-          "correction": "L'eau à l'état gazeux est appelée vapeur d'eau.",
-          "prompt_nl": "De gasvorm van water heet:",
-          "prompt_en": "The gaseous state of water is called:",
-          "prompt_es": "El estado gaseoso del agua se llama:",
+          "answer": "20",
+          "correction": "Un enfant a 20 dents de lait.",
+          "prompt_nl": "Hoeveel melktanden heeft een kind?",
+          "prompt_en": "How many baby teeth does a child have?",
+          "prompt_es": "¿Cuántos dientes de leche tiene un niño?",
           "options_i18n": {
             "nl": [
-              "waterdamp",
-              "ijs",
-              "dauw",
-              "mist"
+              "20",
+              "28",
+              "32",
+              "16"
             ],
             "en": [
-              "water vapour",
-              "ice",
-              "dew",
-              "fog"
+              "20",
+              "28",
+              "32",
+              "16"
             ],
             "es": [
-              "vapor de agua",
-              "hielo",
-              "rocio",
-              "niebla"
+              "20",
+              "28",
+              "32",
+              "16"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Les muscles permettent de :",
+          "prompt": "Quel organe produit la bile ?",
           "options": [
-            "bouger le corps",
-            "digérer les aliments",
-            "voir les objets",
-            "entendre les sons"
+            "le foie",
+            "le pancréas",
+            "les reins",
+            "l'estomac"
           ],
-          "answer": "bouger le corps",
-          "correction": "Les muscles permettent tous les mouvements du corps.",
-          "prompt_nl": "Spieren stellen ons in staat om:",
-          "prompt_en": "Muscles allow us to:",
-          "prompt_es": "Los musculos permiten:",
+          "answer": "le foie",
+          "correction": "Le foie produit la bile.",
+          "prompt_nl": "Welk orgaan produceert gal?",
+          "prompt_en": "Which organ produces bile?",
+          "prompt_es": "¿Qué órgano produce bilis?",
           "options_i18n": {
             "nl": [
-              "het lichaam te bewegen",
-              "voedsel te verteren",
-              "objecten te zien",
-              "geluiden te horen"
+              "de lever",
+              "de alvleesklier",
+              "de nieren",
+              "de maag"
             ],
             "en": [
-              "move the body",
-              "digest food",
-              "see objects",
-              "hear sounds"
+              "the liver",
+              "the pancreas",
+              "the kidneys",
+              "the stomach"
             ],
             "es": [
-              "mover el cuerpo",
-              "digerir alimentos",
-              "ver objetos",
-              "oir sonidos"
+              "el hígado",
+              "el páncreas",
+              "los riñones",
+              "el estómago"
             ]
           }
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Un oiseau se distingue par :",
+          "prompt": "Comment s'appelle le processus par lequel les grenouilles changent de forme ?",
           "options": [
-            "des plumes et un bec",
-            "des écailles",
-            "des poils",
-            "des nageoires"
+            "la métamorphose",
+            "la mue",
+            "l'évolution",
+            "la mutation"
           ],
-          "answer": "des plumes et un bec",
-          "correction": "Les oiseaux ont des plumes, des ailes et un bec.",
-          "prompt_nl": "Een vogel onderscheidt zich door:",
-          "prompt_en": "A bird is distinguished by:",
-          "prompt_es": "Un ave se distingue por:",
+          "answer": "la métamorphose",
+          "correction": "La grenouille subit une métamorphose.",
+          "prompt_nl": "Hoe heet het proces waarbij kikkers van vorm veranderen?",
+          "prompt_en": "What is the process where frogs change shape?",
+          "prompt_es": "¿Cómo se llama el proceso por el que las ranas cambian de forma?",
           "options_i18n": {
             "nl": [
-              "veren en een snavel",
-              "schubben",
-              "haar",
-              "vinnen"
+              "de metamorfose",
+              "de verharing",
+              "de evolutie",
+              "de mutatie"
             ],
             "en": [
-              "feathers and a beak",
-              "scales",
-              "fur",
-              "fins"
+              "metamorphosis",
+              "molting",
+              "evolution",
+              "mutation"
             ],
             "es": [
-              "plumas y pico",
-              "escamas",
-              "pelo",
-              "aletas"
+              "la metamorfosis",
+              "la muda",
+              "la evolución",
+              "la mutación"
             ]
           }
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Le cœur envoie le sang dans tout le corps.",
-          "answer": true,
-          "correction": "Le cœur pompe le sang qui circule dans tout le corps.",
-          "prompt_nl": "Het hart stuurt bloed door het hele lichaam.",
-          "prompt_en": "The heart sends blood throughout the body.",
-          "prompt_es": "El corazon envia sangre por todo el cuerpo."
+          "type": "mcq",
+          "prompt": "Quel gaz est utilisé dans les ballons qui montent ?",
+          "options": [
+            "l'hélium",
+            "l'azote",
+            "l'oxygène",
+            "le CO₂"
+          ],
+          "answer": "l'hélium",
+          "correction": "Les ballons gonflés à l'hélium montent.",
+          "prompt_nl": "Welk gas wordt gebruikt in ballonnen die stijgen?",
+          "prompt_en": "Which gas is used in balloons that rise?",
+          "prompt_es": "¿Qué gas se usa en los globos que suben?",
+          "options_i18n": {
+            "nl": [
+              "helium",
+              "stikstof",
+              "zuurstof",
+              "CO₂"
+            ],
+            "en": [
+              "helium",
+              "nitrogen",
+              "oxygen",
+              "CO₂"
+            ],
+            "es": [
+              "helio",
+              "nitrógeno",
+              "oxígeno",
+              "CO₂"
+            ]
+          }
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Quel phénomène transforme l'eau liquide en vapeur ?",
+          "prompt": "Combien de vertèbres a la colonne vertébrale humaine ?",
           "options": [
-            "l'évaporation",
-            "la condensation",
-            "la solidification",
-            "la précipitation"
+            "33",
+            "24",
+            "20",
+            "40"
           ],
-          "answer": "l'évaporation",
-          "correction": "L'évaporation transforme l'eau liquide en vapeur sous l'effet de la chaleur.",
-          "prompt_nl": "Welk verschijnsel verandert vloeibaar water in damp?",
-          "prompt_en": "Which phenomenon turns liquid water into vapour?",
-          "prompt_es": "Que fenomeno transforma el agua liquida en vapor?",
+          "answer": "33",
+          "correction": "La colonne vertébrale comprend 33 vertèbres.",
+          "prompt_nl": "Hoeveel wervels heeft de menselijke ruggengraat?",
+          "prompt_en": "How many vertebrae does the human spine have?",
+          "prompt_es": "¿Cuántas vértebras tiene la columna vertebral humana?",
           "options_i18n": {
             "nl": [
-              "verdamping",
-              "condensatie",
-              "stolling",
-              "neerslag"
+              "33",
+              "24",
+              "20",
+              "40"
             ],
             "en": [
-              "evaporation",
-              "condensation",
-              "solidification",
-              "precipitation"
+              "33",
+              "24",
+              "20",
+              "40"
             ],
             "es": [
-              "evaporacion",
-              "condensacion",
-              "solidificacion",
-              "precipitacion"
+              "33",
+              "24",
+              "20",
+              "40"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Les étoiles sont des boules de :",
+          "prompt": "Qu'est-ce qu'un volcan ?",
           "options": [
-            "gaz très chaud",
-            "roche froide",
-            "glace",
-            "métal liquide"
+            "une ouverture dans la croûte terrestre par laquelle sort la lave",
+            "une montagne glacée",
+            "un geyser d'eau froide",
+            "un trou dans le sol"
           ],
-          "answer": "gaz très chaud",
-          "correction": "Les étoiles sont d'immenses boules de gaz très chaud.",
-          "prompt_nl": "Sterren zijn ballen van:",
-          "prompt_en": "Stars are balls of:",
-          "prompt_es": "Las estrellas son bolas de:",
+          "answer": "une ouverture dans la croûte terrestre par laquelle sort la lave",
+          "correction": "Un volcan libère la lave du manteau terrestre.",
+          "prompt_nl": "Wat is een vulkaan?",
+          "prompt_en": "What is a volcano?",
+          "prompt_es": "¿Qué es un volcán?",
           "options_i18n": {
             "nl": [
-              "heel heet gas",
-              "koude steen",
-              "ijs",
-              "vloeibaar metaal"
+              "een opening in de aardkorst waardoor lava uitkomt",
+              "een bevroren berg",
+              "een koude geiser",
+              "een gat in de grond"
             ],
             "en": [
-              "very hot gas",
-              "cold rock",
-              "ice",
-              "liquid metal"
+              "an opening in Earth's crust through which lava flows",
+              "a frozen mountain",
+              "a cold geyser",
+              "a hole in the ground"
             ],
             "es": [
-              "gas muy caliente",
-              "roca fria",
-              "hielo",
-              "metal liquido"
+              "una apertura en la corteza terrestre por la que sale la lava",
+              "una montaña helada",
+              "un géiser de agua fría",
+              "un agujero en el suelo"
             ]
           }
         }

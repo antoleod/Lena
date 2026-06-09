@@ -12,100 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « éviter » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "esquiver",
+            "affronter",
+            "aborder",
+            "rechercher"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "esquiver",
+          "correction": "Un synonyme de « éviter » : → esquiver.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Le contraire de « connu » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "inconnu",
+            "célèbre",
+            "populaire",
+            "fameux"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "inconnu",
+          "correction": "Le contraire de « connu » : → inconnu.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « déclarer » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "affirmer",
+            "nier",
+            "taire",
+            "cacher"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "affirmer",
+          "correction": "Un synonyme de « déclarer » : → affirmer.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "La famille de mots de « feu » contient :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "flamme",
+            "eau",
+            "air",
+            "terre"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "flamme",
+          "correction": "La famille de mots de « feu » contient : → flamme.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Le préfixe « in- » dans « invisible » signifie :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "pas",
+            "très",
+            "encore",
+            "vite"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "pas",
+          "correction": "Le préfixe « in- » dans « invisible » signifie : → pas.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un synonyme de « garantir » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "assurer",
+            "douter",
+            "nier",
+            "refuser"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "assurer",
+          "correction": "Un synonyme de « garantir » : → assurer.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Un synonyme de « inaugurer » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "ouvrir",
+            "fermer",
+            "clore",
+            "terminer"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "ouvrir",
+          "correction": "Un synonyme de « inaugurer » : → ouvrir.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « nuire » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "blesser",
+            "aider",
+            "protéger",
+            "soigner"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "blesser",
+          "correction": "Un synonyme de « nuire » : → blesser.",
+          "id": "q16"
         }
       ]
     },
@@ -113,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « stupide » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "idiot",
+            "intelligent",
+            "malin",
+            "brillant"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "idiot",
+          "correction": "Un synonyme de « stupide » : → idiot.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « épais » :",
           "options": [
-            "rapide",
-            "fort",
+            "mince",
+            "gros",
+            "large",
             "grand"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "mince",
+          "correction": "Le contraire de « épais » : → mince.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « souple » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "rigide",
+            "flexible",
+            "mou",
+            "élastique"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "rigide",
+          "correction": "Le contraire de « souple » : → rigide.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « décrire » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "expliquer",
+            "cacher",
+            "taire",
+            "ignorer"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "expliquer",
+          "correction": "Un synonyme de « décrire » : → expliquer.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « interdire » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "prohiber",
+            "autoriser",
+            "permettre",
+            "tolérer"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "prohiber",
+          "correction": "Un synonyme de « interdire » : → prohiber.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « répondre » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "répliquer",
+            "demander",
+            "interroger",
+            "questionner"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "répliquer",
+          "correction": "Un synonyme de « répondre » : → répliquer.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Le contraire de « augmenter » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "diminuer",
+            "accroître",
+            "gonfler",
+            "grossir"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "diminuer",
+          "correction": "Le contraire de « augmenter » : → diminuer.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « frugal » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "généreux",
+            "économe",
+            "sobre",
+            "mesuré"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "généreux",
+          "correction": "Le contraire de « frugal » : → généreux.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « profond » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "superficiel",
+            "intense",
+            "grave",
+            "creux"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "superficiel",
+          "correction": "Le contraire de « profond » : → superficiel.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Quel mot appartient au champ lexical de médecine ?",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "médecin",
+            "tracteur",
+            "stylo",
+            "nuage"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "médecin",
+          "correction": "Quel mot appartient au champ lexical de médecine ? → médecin.",
+          "id": "q19"
         }
       ]
     },
@@ -238,52 +256,56 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Un synonyme de « demander » :",
           "options": [
-            "froid",
-            "tiède",
-            "doux"
+            "interroger",
+            "répondre",
+            "ignorer",
+            "fuir"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "interroger",
+          "correction": "Un synonyme de « demander » : → interroger.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Un synonyme de « simplifier » :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "faciliter",
+            "compliquer",
+            "difficiliser",
+            "alourdir"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "faciliter",
+          "correction": "Un synonyme de « simplifier » : → faciliter.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Un synonyme de « inclure » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "contenir",
+            "exclure",
+            "rejeter",
+            "omettre"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "contenir",
+          "correction": "Un synonyme de « inclure » : → contenir.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Le contraire de « lumière » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "obscurité",
+            "soleil",
+            "clarté",
+            "éclat"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "obscurité",
+          "correction": "Le contraire de « lumière » : → obscurité.",
+          "id": "q8"
         },
         {
           "id": "q10",
@@ -298,64 +320,69 @@
           "correction": "jour ↔ nuit."
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Un synonyme de « vérifier » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "contrôler",
+            "ignorer",
+            "négliger",
+            "oublier"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "contrôler",
+          "correction": "Un synonyme de « vérifier » : → contrôler.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « découvrir » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "trouver",
+            "perdre",
+            "ignorer",
+            "chercher"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "trouver",
+          "correction": "Un synonyme de « découvrir » : → trouver.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Le registre soutenu de « maison » est :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "demeure",
+            "baraque",
+            "truc",
+            "coin"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "demeure",
+          "correction": "Le registre soutenu de « maison » est : → demeure.",
+          "id": "q16"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « tomber » :",
           "options": [
-            "observer",
-            "manger",
+            "chuter",
+            "monter",
+            "voler",
             "courir"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "chuter",
+          "correction": "Un synonyme de « tomber » : → chuter.",
+          "id": "q18"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « combattre » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "lutter",
+            "fuir",
+            "abandonner",
+            "capituler"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "lutter",
+          "correction": "Un synonyme de « combattre » : → lutter.",
+          "id": "q20"
         }
       ]
     }

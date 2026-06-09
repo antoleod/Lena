@@ -26,7 +26,7 @@
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Le chat dort… ») :",
           "options": [
             "Le chat dort.",
             "Le chat dor.",
@@ -74,7 +74,7 @@
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Papa lit un livre… ») :",
           "options": [
             "Papa lit un livre.",
             "Papa lis un livre.",
@@ -86,7 +86,7 @@
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Maman cuisine… ») :",
           "options": [
             "Maman cuisine.",
             "Maman cuisin.",
@@ -235,7 +235,7 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « La leçon qu'il a apprise est difficile… »)?",
           "options": [
             "La leçon qu'il a apprise est difficile.",
             "La leçon qu'il a appris est difficile.",
@@ -271,7 +271,7 @@
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « Mes sœurs se sont promenées dans le parc… »)?",
           "options": [
             "Mes sœurs se sont promenées dans le parc.",
             "Mes sœurs se sont promenés dans le parc.",
@@ -295,7 +295,7 @@
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "prompt": "Quelle phrase est correcte : « Les livres que tu as lus sont intér… » ?",
           "options": [
             "Les livres que tu as lus sont intéressants.",
             "Les livres que tu as lu sont intéressants.",
@@ -319,7 +319,7 @@
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « La tarte qu'elle a faite est délicieuse… »)?",
           "options": [
             "La tarte qu'elle a faite est délicieuse.",
             "La tarte qu'elle a fait est délicieuse.",
@@ -343,7 +343,7 @@
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "prompt": "Quelle phrase est correcte : « Les enfants se sont disputés toute… » ?",
           "options": [
             "Les enfants se sont disputés toute la journée.",
             "Les enfants se sont disputé toute la journée.",

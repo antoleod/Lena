@@ -14,7 +14,7 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Je mange une pomme… ») :",
           "options": [
             "Je mange une pomme.",
             "Je manje une pom.",
@@ -50,7 +50,7 @@
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Le chat dort… ») :",
           "options": [
             "Le chat dort.",
             "Le chat dor.",
@@ -82,7 +82,7 @@
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Les enfants jouent… ») :",
           "options": [
             "Les enfants jouent.",
             "Les enfants joue.",
@@ -94,7 +94,7 @@
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Maman cuisine… ») :",
           "options": [
             "Maman cuisine.",
             "Maman cuisin.",
@@ -231,7 +231,7 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « Les documents qu'il a signés sont prêts… »)?",
           "options": [
             "Les documents qu'il a signés sont prêts.",
             "Les documents qu'il a signé sont prêts.",
@@ -267,7 +267,7 @@
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « Les actrices se sont maquillées avant le… »)?",
           "options": [
             "Les actrices se sont maquillées avant le spectacle.",
             "Les actrices se sont maquillé avant le spectacle.",
@@ -279,7 +279,7 @@
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "prompt": "Quelle phrase est correcte : « La victoire qu'ils ont remportée le… » ?",
           "options": [
             "La victoire qu'ils ont remportée les a ravis.",
             "La victoire qu'ils ont remporté les a ravis.",
@@ -315,7 +315,7 @@
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « Les délégués se sont réunis hier soir… »)?",
           "options": [
             "Les délégués se sont réunis hier soir.",
             "Les délégués se sont réuni hier soir.",
@@ -339,7 +339,7 @@
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « Les phrases qu'elle a construites sont c… »)?",
           "options": [
             "Les phrases qu'elle a construites sont claires.",
             "Les phrases qu'elle a construit sont claires.",

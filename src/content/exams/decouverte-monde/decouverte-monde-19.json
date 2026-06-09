@@ -13,92 +13,99 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Panama ?",
+          "options": [
+            "l'Amérique centrale",
+            "l'Asie",
+            "l'Europe"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "l'Amérique centrale",
+          "correction": "Le Panama est en Amérique centrale."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Sur quel continent se trouve la Croatie ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "l'Europe",
+          "correction": "La Croatie est en Europe."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Sur quel continent se trouve l'Azerbaïdjan ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "l'Asie / Europe",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "l'Asie / Europe",
+          "correction": "L'Azerbaïdjan est entre l'Europe et l'Asie."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Sur quel continent se trouve le Mali ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "l'Afrique",
+          "correction": "Le Mali est en Afrique de l'Ouest."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Sur quel continent se trouve le Nicaragua ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "l'Amérique centrale",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "l'Amérique centrale",
+          "correction": "Le Nicaragua est en Amérique centrale."
         },
         {
           "id": "q12",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve la Norvège ?",
+          "options": [
+            "l'Europe",
+            "l'Asie",
+            "l'Amérique du Nord"
+          ],
+          "answer": "l'Europe",
+          "correction": "La Norvège est en Europe du Nord."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Sur quel continent se trouve le Laos ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "l'Asie",
+          "correction": "Le Laos est en Asie du Sud-Est."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Sur quel continent se trouve la Somalie ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "l'Afrique",
+          "correction": "La Somalie est en Afrique de l'Est."
         }
       ]
     },
@@ -108,362 +115,123 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Quel continent est le plus peuplé ?",
+          "prompt": "Quel pays est le plus grand du monde en superficie ?",
           "options": [
-            "l'Asie",
-            "l'Afrique",
-            "l'Europe",
-            "l'Amérique"
+            "la Russie",
+            "le Canada",
+            "les États-Unis"
           ],
-          "answer": "l'Asie",
-          "correction": "L'Asie est le continent le plus peuplé avec plus de 4 milliards d'habitants.",
-          "prompt_nl": "Welk continent is het meest bevolkt?",
-          "prompt_en": "Which continent is the most populated?",
-          "prompt_es": "Que continente es el mas poblado?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Afrika",
-              "Europa",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Africa",
-              "Europe",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Africa",
-              "Europa",
-              "America"
-            ]
-          }
+          "answer": "la Russie",
+          "correction": "La Russie est le plus grand pays du monde."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Les Alpes sont :",
+          "prompt": "Quel pays est le plus grand d'Afrique en superficie ?",
           "options": [
-            "une chaîne de montagnes",
-            "un fleuve",
-            "une mer",
-            "un désert"
+            "l'Algérie",
+            "le Soudan",
+            "le Congo"
           ],
-          "answer": "une chaîne de montagnes",
-          "correction": "Les Alpes sont la plus grande chaîne de montagnes d'Europe.",
-          "prompt_nl": "De Alpen zijn:",
-          "prompt_en": "The Alps are:",
-          "prompt_es": "Los Alpes son:",
-          "options_i18n": {
-            "nl": [
-              "een bergketen",
-              "een rivier",
-              "een zee",
-              "een woestijn"
-            ],
-            "en": [
-              "a mountain range",
-              "a river",
-              "a sea",
-              "a desert"
-            ],
-            "es": [
-              "una cadena montanosa",
-              "un rio",
-              "un mar",
-              "un desierto"
-            ]
-          }
+          "answer": "l'Algérie",
+          "correction": "L'Algérie est le plus grand pays d'Afrique."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve le Japon ?",
+          "prompt": "Quel est le plus petit pays d'Europe ?",
           "options": [
-            "Asie",
-            "Europe",
-            "Océanie",
-            "Amérique"
+            "le Vatican",
+            "Monaco",
+            "le Liechtenstein"
           ],
-          "answer": "Asie",
-          "correction": "Le Japon est un archipel situé en Asie de l'Est.",
-          "prompt_nl": "Op welk continent ligt Japan?",
-          "prompt_en": "On which continent is Japan located?",
-          "prompt_es": "En que continente se encuentra Japon?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Europa",
-              "Oceanie",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Europe",
-              "Oceania",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Europa",
-              "Oceania",
-              "America"
-            ]
-          }
+          "answer": "le Vatican",
+          "correction": "Le Vatican est le plus petit pays."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quelle est la capitale de l'Australie ?",
+          "prompt": "Quel est l'océan le plus petit ?",
           "options": [
-            "Canberra",
-            "Sydney",
-            "Melbourne",
-            "Brisbane"
+            "l'océan Arctique",
+            "l'océan Indien",
+            "l'océan Atlantique"
           ],
-          "answer": "Canberra",
-          "correction": "Canberra est la capitale de l'Australie.",
-          "prompt_nl": "Wat is de hoofdstad van Australie?",
-          "prompt_en": "What is the capital of Australia?",
-          "prompt_es": "Cual es la capital de Australia?",
-          "options_i18n": {
-            "nl": [
-              "Canberra",
-              "Sydney",
-              "Melbourne",
-              "Brisbane"
-            ],
-            "en": [
-              "Canberra",
-              "Sydney",
-              "Melbourne",
-              "Brisbane"
-            ],
-            "es": [
-              "Canberra",
-              "Sidney",
-              "Melbourne",
-              "Brisbane"
-            ]
-          }
+          "answer": "l'océan Arctique",
+          "correction": "L'océan Arctique est le plus petit."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Le blé est principalement cultivé dans :",
+          "prompt": "Quelle mer sépare l'Europe de l'Afrique du Nord ?",
           "options": [
-            "les champs",
-            "les forêts",
-            "les déserts",
-            "les océans"
+            "la mer Méditerranée",
+            "la mer Noire",
+            "la mer du Nord"
           ],
-          "answer": "les champs",
-          "correction": "Le blé est une céréale cultivée dans les grandes plaines agricoles.",
-          "prompt_nl": "Tarwe wordt voornamelijk verbouwd in:",
-          "prompt_en": "Wheat is mainly grown in:",
-          "prompt_es": "El trigo se cultiva principalmente en:",
-          "options_i18n": {
-            "nl": [
-              "de velden",
-              "de bossen",
-              "de woestijnen",
-              "de oceanen"
-            ],
-            "en": [
-              "fields",
-              "forests",
-              "deserts",
-              "oceans"
-            ],
-            "es": [
-              "los campos",
-              "los bosques",
-              "los desiertos",
-              "los oceanos"
-            ]
-          }
+          "answer": "la mer Méditerranée",
+          "correction": "La Méditerranée sépare Europe et Afrique du Nord."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quelle est la capitale du Canada ?",
+          "prompt": "Dans quelle chaîne de montagnes se trouve l'Everest ?",
           "options": [
-            "Ottawa",
-            "Toronto",
-            "Montréal",
-            "Vancouver"
+            "l'Himalaya",
+            "les Andes",
+            "les Alpes",
+            "les Pyrénées"
           ],
-          "answer": "Ottawa",
-          "correction": "Ottawa est la capitale fédérale du Canada.",
-          "prompt_nl": "Wat is de hoofdstad van Canada?",
-          "prompt_en": "What is the capital of Canada?",
-          "prompt_es": "Cual es la capital de Canada?",
-          "options_i18n": {
-            "nl": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ],
-            "en": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ],
-            "es": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ]
-          }
+          "answer": "l'Himalaya",
+          "correction": "L'Everest se trouve dans l'Himalaya, en Asie."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "La capitale de la France est :",
+          "prompt": "Quel est le plus haut sommet d'Europe ?",
           "options": [
-            "Paris",
-            "Lyon",
-            "Marseille",
-            "Bordeaux"
+            "le Mont Blanc",
+            "le Mont Rosa",
+            "le Cervin"
           ],
-          "answer": "Paris",
-          "correction": "Paris est la capitale de la France.",
-          "prompt_nl": "De hoofdstad van Frankrijk is:",
-          "prompt_en": "The capital of France is:",
-          "prompt_es": "La capital de Francia es:",
-          "options_i18n": {
-            "nl": [
-              "Parijs",
-              "Lyon",
-              "Marseille",
-              "Bordeaux"
-            ],
-            "en": [
-              "Paris",
-              "Lyon",
-              "Marseille",
-              "Bordeaux"
-            ],
-            "es": [
-              "Paris",
-              "Lyon",
-              "Marsella",
-              "Burdeos"
-            ]
-          }
+          "answer": "le Mont Blanc",
+          "correction": "Le Mont Blanc (4808 m) est le plus haut en Europe occidentale."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La capitale de l'Espagne est :",
+          "prompt": "Sur quel continent se trouvent les Andes ?",
           "options": [
-            "Madrid",
-            "Barcelone",
-            "Séville",
-            "Valence"
+            "l'Amérique du Sud",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "Madrid",
-          "correction": "Madrid est la capitale de l'Espagne.",
-          "prompt_nl": "De hoofdstad van Spanje is:",
-          "prompt_en": "The capital of Spain is:",
-          "prompt_es": "La capital de Espana es:",
-          "options_i18n": {
-            "nl": [
-              "Madrid",
-              "Barcelona",
-              "Sevilla",
-              "Valencia"
-            ],
-            "en": [
-              "Madrid",
-              "Barcelona",
-              "Seville",
-              "Valencia"
-            ],
-            "es": [
-              "Madrid",
-              "Barcelona",
-              "Sevilla",
-              "Valencia"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "Les Andes sont en Amérique du Sud."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "La capitale de l'Italie est :",
+          "prompt": "Sur quel continent se trouvent l'Himalaya ?",
           "options": [
-            "Rome",
-            "Milan",
-            "Naples",
-            "Florence"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "Rome",
-          "correction": "Rome est la capitale de l'Italie.",
-          "prompt_nl": "De hoofdstad van Italie is:",
-          "prompt_en": "The capital of Italy is:",
-          "prompt_es": "La capital de Italia es:",
-          "options_i18n": {
-            "nl": [
-              "Rome",
-              "Milaan",
-              "Napels",
-              "Florence"
-            ],
-            "en": [
-              "Rome",
-              "Milan",
-              "Naples",
-              "Florence"
-            ],
-            "es": [
-              "Roma",
-              "Milan",
-              "Napoles",
-              "Florencia"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "L'Himalaya est en Asie."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La capitale de l'Allemagne est :",
+          "prompt": "Quel est le plus grand lac du monde ?",
           "options": [
-            "Berlin",
-            "Munich",
-            "Hambourg",
-            "Cologne"
+            "la mer Caspienne",
+            "le lac Supérieur",
+            "le lac Victoria"
           ],
-          "answer": "Berlin",
-          "correction": "Berlin est la capitale de l'Allemagne.",
-          "prompt_nl": "De hoofdstad van Duitsland is:",
-          "prompt_en": "The capital of Germany is:",
-          "prompt_es": "La capital de Alemania es:",
-          "options_i18n": {
-            "nl": [
-              "Berlijn",
-              "München",
-              "Hamburg",
-              "Keulen"
-            ],
-            "en": [
-              "Berlin",
-              "Munich",
-              "Hamburg",
-              "Cologne"
-            ],
-            "es": [
-              "Berlin",
-              "Munich",
-              "Hamburgo",
-              "Colonia"
-            ]
-          }
+          "answer": "la mer Caspienne",
+          "correction": "La mer Caspienne est techniquement le plus grand lac."
         }
       ]
     },
@@ -473,122 +241,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le boulanger fait le :",
+          "prompt": "Sur quel continent se trouve le Cameroun ?",
           "options": [
-            "pain",
-            "lait",
-            "bois"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "pain",
-          "correction": "Le boulanger fait le pain."
+          "answer": "l'Afrique",
+          "correction": "Le Cameroun est en Afrique centrale."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "Sur quel continent se trouve l'Irak ?",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "l'Asie",
+          "correction": "L'Irak est en Asie de l'Ouest."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Sur quel continent se trouve la Slovénie ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "l'Europe",
+          "correction": "La Slovénie est en Europe centrale."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Sur quel continent se trouve Madagascar ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "l'Afrique (île)",
+            "l'Asie",
+            "l'Océanie"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "l'Afrique (île)",
+          "correction": "Madagascar est une île au large de l'Afrique."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Sur quel continent se trouve le Liban ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "l'Asie",
+          "correction": "Le Liban est en Asie de l'Ouest."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Sur quel continent se trouve l'Écosse ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "l'Europe (Grande-Bretagne)",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "l'Europe (Grande-Bretagne)",
+          "correction": "L'Écosse fait partie de la Grande-Bretagne, en Europe."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Sur quel continent se trouve le Rwanda ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "l'Afrique",
+          "correction": "Le Rwanda est en Afrique centrale."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "Sur quel continent se trouve la Géorgie (pays) ?",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "l'Europe / Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "l'Europe / Asie",
+          "correction": "La Géorgie est entre l'Europe et l'Asie."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Sur quel continent se trouve le Burkina Faso ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "l'Afrique",
+          "correction": "Le Burkina Faso est en Afrique de l'Ouest."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Sur quel continent se trouve l'Arabie Saoudite ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "l'Asie",
+          "correction": "L'Arabie Saoudite est en Asie de l'Ouest (Moyen-Orient)."
         }
       ]
     }

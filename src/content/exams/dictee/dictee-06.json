@@ -48,7 +48,7 @@
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Papa lit un livre… ») :",
           "options": [
             "Papa lit un livre.",
             "Papa lis un livre.",
@@ -60,7 +60,7 @@
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Maman cuisine… ») :",
           "options": [
             "Maman cuisine.",
             "Maman cuisin.",
@@ -94,7 +94,7 @@
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "La phrase correcte :",
+          "prompt": "La phrase correcte (« Les enfants jouent… ») :",
           "options": [
             "Les enfants jouent.",
             "Les enfants joue.",
@@ -231,7 +231,7 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « Les dessins qu'elle a coloriés sont magn… »)?",
           "options": [
             "Les dessins qu'elle a coloriés sont magnifiques.",
             "Les dessins qu'elle a colorié sont magnifiques.",
@@ -267,7 +267,7 @@
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « Elles se sont regardées dans le miroir… »)?",
           "options": [
             "Elles se sont regardées dans le miroir.",
             "Elles se sont regardé dans le miroir.",
@@ -279,7 +279,7 @@
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quelle phrase est correctement orthographiée ?",
+          "prompt": "Quelle phrase est correcte : « Les tâches qu'il a accomplies sont… » ?",
           "options": [
             "Les tâches qu'il a accomplies sont nombreuses.",
             "Les tâches qu'il a accompli sont nombreuses.",
@@ -315,7 +315,7 @@
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « La directrice s'est exprimée clairement… »)?",
           "options": [
             "La directrice s'est exprimée clairement.",
             "La directrice s'est exprimé clairement.",
@@ -339,7 +339,7 @@
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Quelle orthographe est correcte ?",
+          "prompt": "Quelle orthographe est correcte (ex. « Les problèmes qu'il a résolus sont compl… »)?",
           "options": [
             "Les problèmes qu'il a résolus sont complexes.",
             "Les problèmes qu'il a résolu sont complexes.",

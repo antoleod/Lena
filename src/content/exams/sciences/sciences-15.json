@@ -14,262 +14,288 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "De quoi est composé l'air que l'on respire surtout ?",
+          "prompt": "Quelle planète est surnommée la géante de glace ?",
           "options": [
-            "azote et oxygène",
-            "dioxyde de carbone",
-            "vapeur d'eau",
-            "hélium"
+            "Uranus",
+            "Saturne",
+            "Neptune",
+            "Jupiter"
           ],
-          "answer": "azote et oxygène",
-          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%).",
-          "prompt_nl": "Waaruit bestaat de lucht die we inademen?",
-          "prompt_en": "What is the air we breathe mainly made of?",
-          "prompt_es": "De que esta compuesto principalmente el aire que respiramos?",
+          "answer": "Uranus",
+          "correction": "Uranus et Neptune sont les géantes de glace.",
+          "prompt_nl": "Welke planeet wordt de ijsreus genoemd?",
+          "prompt_en": "Which planet is called an ice giant?",
+          "prompt_es": "¿Qué planeta se llama el gigante de hielo?",
           "options_i18n": {
             "nl": [
-              "stikstof en zuurstof",
-              "koolstofdioxide",
-              "waterdamp",
-              "helium"
+              "Uranus",
+              "Saturnus",
+              "Neptunus",
+              "Jupiter"
             ],
             "en": [
-              "nitrogen and oxygen",
-              "carbon dioxide",
-              "water vapour",
-              "helium"
+              "Uranus",
+              "Saturn",
+              "Neptune",
+              "Jupiter"
             ],
             "es": [
-              "nitrogeno y oxigeno",
-              "dioxido de carbono",
-              "vapor de agua",
-              "helio"
+              "Urano",
+              "Saturno",
+              "Neptuno",
+              "Júpiter"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel animal est un mammifère ?",
+          "prompt": "Quel type de liaison unit les molécules d'eau ?",
           "options": [
-            "le chien",
-            "l'aigle",
-            "la grenouille",
-            "le serpent"
+            "la liaison hydrogène",
+            "la liaison covalente",
+            "la liaison ionique",
+            "la liaison métallique"
           ],
-          "answer": "le chien",
-          "correction": "Le chien est un mammifère.",
-          "prompt_nl": "Welk dier is een zoogdier?",
-          "prompt_en": "Which animal is a mammal?",
-          "prompt_es": "Que animal es un mamifero?",
+          "answer": "la liaison hydrogène",
+          "correction": "Les molécules d'eau sont liées par des liaisons hydrogène.",
+          "prompt_nl": "Welk type binding verbindt watermoleculen?",
+          "prompt_en": "Which type of bond links water molecules?",
+          "prompt_es": "¿Qué tipo de enlace une las moléculas de agua?",
           "options_i18n": {
             "nl": [
-              "de hond",
-              "de arend",
-              "de kikker",
-              "de slang"
+              "waterstofbinding",
+              "covalente binding",
+              "ionische binding",
+              "metallische binding"
             ],
             "en": [
-              "the dog",
-              "the eagle",
-              "the frog",
-              "the snake"
+              "hydrogen bond",
+              "covalent bond",
+              "ionic bond",
+              "metallic bond"
             ],
             "es": [
-              "el perro",
-              "el aguila",
-              "la rana",
-              "la serpiente"
+              "el enlace de hidrógeno",
+              "el enlace covalente",
+              "el enlace iónico",
+              "el enlace metálico"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour écouter de la musique ?",
+          "prompt": "Quel phénomène explique pourquoi les objets tombent vers le sol ?",
           "options": [
-            "l'ouïe",
-            "la vue",
-            "l'odorat",
-            "le toucher"
+            "la gravité",
+            "le magnétisme",
+            "la friction",
+            "l'inertie"
           ],
-          "answer": "l'ouïe",
-          "correction": "On écoute avec l'ouïe (les oreilles).",
-          "prompt_nl": "Welk zintuig gebruik je om naar muziek te luisteren?",
-          "prompt_en": "Which sense do you use to listen to music?",
-          "prompt_es": "Que sentido se usa para escuchar musica?",
+          "answer": "la gravité",
+          "correction": "La gravité (pesanteur) attire les objets vers la Terre.",
+          "prompt_nl": "Welk fenomeen verklaart waarom objecten naar de grond vallen?",
+          "prompt_en": "Which phenomenon explains why objects fall to the ground?",
+          "prompt_es": "¿Qué fenómeno explica por qué los objetos caen al suelo?",
           "options_i18n": {
             "nl": [
-              "het gehoor",
-              "het zicht",
-              "de reuk",
-              "het gevoel"
+              "de zwaartekracht",
+              "het magnetisme",
+              "de wrijving",
+              "de traagheid"
             ],
             "en": [
-              "hearing",
-              "sight",
-              "smell",
-              "touch"
+              "gravity",
+              "magnetism",
+              "friction",
+              "inertia"
             ],
             "es": [
-              "el oido",
-              "la vista",
-              "el olfato",
-              "el tacto"
+              "la gravedad",
+              "el magnetismo",
+              "la fricción",
+              "la inercia"
             ]
           }
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Les plantes produisent de l'oxygène.",
-          "answer": true,
-          "correction": "Les plantes produisent de l'oxygène grâce à la photosynthèse.",
-          "prompt_nl": "Planten produceren zuurstof.",
-          "prompt_en": "Plants produce oxygen.",
-          "prompt_es": "Las plantas producen oxigeno."
+          "type": "mcq",
+          "prompt": "Quel est l'unité de mesure de la force en physique ?",
+          "options": [
+            "le newton (N)",
+            "le joule",
+            "le watt",
+            "le pascal"
+          ],
+          "answer": "le newton (N)",
+          "correction": "La force se mesure en newtons.",
+          "prompt_nl": "Wat is de meeteenheid van kracht in de natuurkunde?",
+          "prompt_en": "What is the unit of force in physics?",
+          "prompt_es": "¿Cuál es la unidad de fuerza en física?",
+          "options_i18n": {
+            "nl": [
+              "de newton (N)",
+              "de joule",
+              "de watt",
+              "de pascal"
+            ],
+            "en": [
+              "the newton (N)",
+              "the joule",
+              "the watt",
+              "the pascal"
+            ],
+            "es": [
+              "el newton (N)",
+              "el julio",
+              "el vatio",
+              "el pascal"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Un insecte a combien de pattes ?",
+          "prompt": "Quel est le premier élément du tableau périodique ?",
           "options": [
-            "6",
-            "4",
-            "8",
-            "2"
+            "l'hydrogène (H)",
+            "l'hélium (He)",
+            "le lithium (Li)",
+            "le carbone (C)"
           ],
-          "answer": "6",
-          "correction": "Les insectes ont 6 pattes.",
-          "prompt_nl": "Hoeveel poten heeft een insect?",
-          "prompt_en": "How many legs does an insect have?",
-          "prompt_es": "Cuantas patas tiene un insecto?",
+          "answer": "l'hydrogène (H)",
+          "correction": "L'hydrogène est le 1er élément (Z=1).",
+          "prompt_nl": "Wat is het eerste element van het periodiek systeem?",
+          "prompt_en": "What is the first element in the periodic table?",
+          "prompt_es": "¿Cuál es el primer elemento de la tabla periódica?",
           "options_i18n": {
             "nl": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "waterstof (H)",
+              "helium (He)",
+              "lithium (Li)",
+              "koolstof (C)"
             ],
             "en": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "hydrogen (H)",
+              "helium (He)",
+              "lithium (Li)",
+              "carbon (C)"
             ],
             "es": [
-              "6",
-              "4",
-              "8",
-              "2"
+              "el hidrógeno (H)",
+              "el helio (He)",
+              "el litio (Li)",
+              "el carbono (C)"
             ]
           }
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Une araignée a combien de pattes ?",
+          "prompt": "Quel type d'onde sonore voyage dans l'air ?",
           "options": [
-            "8",
-            "6",
-            "4",
-            "10"
+            "une onde longitudinale",
+            "une onde transversale",
+            "une onde lumineuse",
+            "une onde magnétique"
           ],
-          "answer": "8",
-          "correction": "Les araignées ont 8 pattes.",
-          "prompt_nl": "Hoeveel poten heeft een spin?",
-          "prompt_en": "How many legs does a spider have?",
-          "prompt_es": "Cuantas patas tiene una arana?",
+          "answer": "une onde longitudinale",
+          "correction": "Le son est une onde longitudinale.",
+          "prompt_nl": "Welk type geluidsgolf reist door de lucht?",
+          "prompt_en": "Which type of sound wave travels through air?",
+          "prompt_es": "¿Qué tipo de onda sonora viaja por el aire?",
           "options_i18n": {
             "nl": [
-              "8",
-              "6",
-              "4",
-              "10"
+              "een longitudinale golf",
+              "een transversale golf",
+              "een lichtgolf",
+              "een magnetische golf"
             ],
             "en": [
-              "8",
-              "6",
-              "4",
-              "10"
+              "a longitudinal wave",
+              "a transverse wave",
+              "a light wave",
+              "a magnetic wave"
             ],
             "es": [
-              "8",
-              "6",
-              "4",
-              "10"
+              "una onda longitudinal",
+              "una onda transversal",
+              "una onda lumínica",
+              "una onda magnética"
             ]
           }
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
+          "prompt": "Quel est le nom du gaz qui donne sa couleur jaune-verte au chlore ?",
           "options": [
-            "la Lune",
-            "le Soleil",
-            "Mars",
-            "Jupiter"
+            "le chlore lui-même",
+            "le soufre",
+            "le fluor",
+            "l'azote"
           ],
-          "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
+          "answer": "le chlore lui-même",
+          "correction": "Le chlore est naturellement jaune-vert.",
+          "prompt_nl": "Welk gas geeft chloor zijn geelgroene kleur?",
+          "prompt_en": "Which gas gives chlorine its yellow-green color?",
+          "prompt_es": "¿Qué gas le da al cloro su color amarillo-verde?",
           "options_i18n": {
             "nl": [
-              "de Maan",
-              "de Zon",
-              "Mars",
-              "Jupiter"
+              "het chloor zelf",
+              "zwavel",
+              "fluor",
+              "stikstof"
             ],
             "en": [
-              "the Moon",
-              "the Sun",
-              "Mars",
-              "Jupiter"
+              "chlorine itself",
+              "sulfur",
+              "fluorine",
+              "nitrogen"
             ],
             "es": [
-              "la Luna",
-              "el Sol",
-              "Marte",
-              "Jupiter"
+              "el cloro mismo",
+              "el azufre",
+              "el flúor",
+              "el nitrógeno"
             ]
           }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "L'eau en état solide est :",
+          "prompt": "Quel est le symbole chimique de l'or ?",
           "options": [
-            "la glace",
-            "la vapeur",
-            "la pluie",
-            "la rosée"
+            "Au",
+            "Go",
+            "Or",
+            "Ag"
           ],
-          "answer": "la glace",
-          "correction": "L'eau solide = la glace.",
-          "prompt_nl": "Water in vaste toestand is:",
-          "prompt_en": "Water in solid state is:",
-          "prompt_es": "El agua en estado solido es:",
+          "answer": "Au",
+          "correction": "L'or = Au (Aurum en latin).",
+          "prompt_nl": "Wat is het scheikundig symbool van goud?",
+          "prompt_en": "What is the chemical symbol for gold?",
+          "prompt_es": "¿Cuál es el símbolo químico del oro?",
           "options_i18n": {
             "nl": [
-              "ijs",
-              "damp",
-              "regen",
-              "dauw"
+              "Au",
+              "Go",
+              "Or",
+              "Ag"
             ],
             "en": [
-              "ice",
-              "vapour",
-              "rain",
-              "dew"
+              "Au",
+              "Go",
+              "Or",
+              "Ag"
             ],
             "es": [
-              "hielo",
-              "vapor",
-              "lluvia",
-              "rocio"
+              "Au",
+              "Go",
+              "Or",
+              "Ag"
             ]
           }
         }
@@ -281,308 +307,360 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Quelle partie de la plante capte la lumière ?",
+          "prompt": "Quel est le symbole chimique de l'argent ?",
           "options": [
-            "les feuilles",
-            "les racines",
-            "les tiges",
-            "les fleurs"
+            "Ag",
+            "Si",
+            "Ar",
+            "Sl"
           ],
-          "answer": "les feuilles",
-          "correction": "Les feuilles captent la lumière solaire pour la photosynthèse.",
-          "prompt_nl": "Welk deel van de plant vangt licht op?",
-          "prompt_en": "Which part of the plant captures light?",
-          "prompt_es": "Que parte de la planta capta la luz?",
+          "answer": "Ag",
+          "correction": "L'argent = Ag (Argentum en latin).",
+          "prompt_nl": "Wat is het scheikundig symbool van zilver?",
+          "prompt_en": "What is the chemical symbol for silver?",
+          "prompt_es": "¿Cuál es el símbolo químico de la plata?",
           "options_i18n": {
             "nl": [
-              "de bladeren",
-              "de wortels",
-              "de stengels",
-              "de bloemen"
+              "Ag",
+              "Si",
+              "Ar",
+              "Sl"
             ],
             "en": [
-              "the leaves",
-              "the roots",
-              "the stems",
-              "the flowers"
+              "Ag",
+              "Si",
+              "Ar",
+              "Sl"
             ],
             "es": [
-              "las hojas",
-              "las raices",
-              "los tallos",
-              "las flores"
+              "Ag",
+              "Si",
+              "Ar",
+              "Sl"
             ]
           }
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Un être vivant qui mange des insectes est dit :",
+          "prompt": "Quel est le symbole chimique du fer ?",
           "options": [
-            "insectivore",
-            "carnivore",
-            "herbivore",
-            "omnivore"
+            "Fe",
+            "Fr",
+            "Ir",
+            "Fi"
           ],
-          "answer": "insectivore",
-          "correction": "Un insectivore se nourrit principalement d'insectes.",
-          "prompt_nl": "Een levend wezen dat insecten eet wordt een ___ genoemd:",
-          "prompt_en": "A living being that eats insects is called:",
-          "prompt_es": "Un ser vivo que come insectos se llama:",
+          "answer": "Fe",
+          "correction": "Le fer = Fe (Ferrum en latin).",
+          "prompt_nl": "Wat is het scheikundig symbool van ijzer?",
+          "prompt_en": "What is the chemical symbol for iron?",
+          "prompt_es": "¿Cuál es el símbolo químico del hierro?",
           "options_i18n": {
             "nl": [
-              "insectivoor",
-              "carnivoor",
-              "herbivoor",
-              "omnivoor"
+              "Fe",
+              "Fr",
+              "Ir",
+              "Fi"
             ],
             "en": [
-              "insectivore",
-              "carnivore",
-              "herbivore",
-              "omnivore"
+              "Fe",
+              "Fr",
+              "Ir",
+              "Fi"
             ],
             "es": [
-              "insectivoro",
-              "carnivoro",
-              "herbivoro",
-              "omnivoro"
+              "Fe",
+              "Fr",
+              "Ir",
+              "Fi"
             ]
           }
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "La Terre a combien de satellites naturels ?",
+          "prompt": "Quel est le symbole chimique du cuivre ?",
           "options": [
-            "1",
-            "2",
-            "3",
-            "0"
+            "Cu",
+            "Co",
+            "Cp",
+            "Ce"
           ],
-          "answer": "1",
-          "correction": "La Terre a un seul satellite naturel : la Lune.",
-          "prompt_nl": "Hoeveel natuurlijke satellieten heeft de Aarde?",
-          "prompt_en": "How many natural satellites does the Earth have?",
-          "prompt_es": "Cuantos satelites naturales tiene la Tierra?",
+          "answer": "Cu",
+          "correction": "Le cuivre = Cu (Cuprum).",
+          "prompt_nl": "Wat is het scheikundig symbool van koper?",
+          "prompt_en": "What is the chemical symbol for copper?",
+          "prompt_es": "¿Cuál es el símbolo químico del cobre?",
           "options_i18n": {
             "nl": [
-              "1",
-              "2",
-              "3",
-              "0"
+              "Cu",
+              "Co",
+              "Cp",
+              "Ce"
             ],
             "en": [
-              "1",
-              "2",
-              "3",
-              "0"
+              "Cu",
+              "Co",
+              "Cp",
+              "Ce"
             ],
             "es": [
-              "1",
-              "2",
-              "3",
-              "0"
+              "Cu",
+              "Co",
+              "Cp",
+              "Ce"
             ]
           }
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "Les champignons sont des plantes.",
-          "answer": false,
-          "correction": "Les champignons ne sont ni des plantes ni des animaux.",
-          "prompt_nl": "Paddestoelen zijn planten.",
-          "prompt_en": "Mushrooms are plants.",
-          "prompt_es": "Los hongos son plantas."
+          "type": "mcq",
+          "prompt": "Quel organite est le 'centre' de la cellule eucaryote ?",
+          "options": [
+            "le noyau",
+            "la mitochondrie",
+            "le ribosome",
+            "le réticulum"
+          ],
+          "answer": "le noyau",
+          "correction": "Le noyau contient l'ADN.",
+          "prompt_nl": "Welk organel is het 'centrum' van de eukaryote cel?",
+          "prompt_en": "Which organelle is the 'center' of a eukaryotic cell?",
+          "prompt_es": "¿Qué orgánulo es el 'centro' de la célula eucariota?",
+          "options_i18n": {
+            "nl": [
+              "de kern",
+              "de mitochondrie",
+              "het ribosoom",
+              "het endoplasmatisch reticulum"
+            ],
+            "en": [
+              "the nucleus",
+              "the mitochondrion",
+              "the ribosome",
+              "the reticulum"
+            ],
+            "es": [
+              "el núcleo",
+              "la mitocondria",
+              "el ribosoma",
+              "el retículo"
+            ]
+          }
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "L'état gazeux de l'eau s'appelle :",
+          "prompt": "Comment s'appelle la molécule qui porte l'information génétique ?",
           "options": [
-            "la vapeur d'eau",
-            "la glace",
-            "la rosée",
-            "le brouillard"
+            "l'ADN",
+            "l'ARN",
+            "une protéine",
+            "un glucide"
           ],
-          "answer": "la vapeur d'eau",
-          "correction": "L'eau à l'état gazeux est appelée vapeur d'eau.",
-          "prompt_nl": "De gasvorm van water heet:",
-          "prompt_en": "The gaseous state of water is called:",
-          "prompt_es": "El estado gaseoso del agua se llama:",
+          "answer": "l'ADN",
+          "correction": "L'ADN (acide désoxyribonucléique) porte les gènes.",
+          "prompt_nl": "Hoe heet de molecule die genetische informatie draagt?",
+          "prompt_en": "What is the molecule that carries genetic information?",
+          "prompt_es": "¿Cómo se llama la molécula que lleva la información genética?",
           "options_i18n": {
             "nl": [
-              "waterdamp",
-              "ijs",
-              "dauw",
-              "mist"
+              "het DNA",
+              "het RNA",
+              "een eiwit",
+              "een koolhydraat"
             ],
             "en": [
-              "water vapour",
-              "ice",
-              "dew",
-              "fog"
+              "DNA",
+              "RNA",
+              "a protein",
+              "a carbohydrate"
             ],
             "es": [
-              "vapor de agua",
-              "hielo",
-              "rocio",
-              "niebla"
+              "el ADN",
+              "el ARN",
+              "una proteína",
+              "un glúcido"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Les muscles permettent de :",
+          "prompt": "Quel phénomène naturel est à l'origine des tremblements de terre ?",
           "options": [
-            "bouger le corps",
-            "digérer les aliments",
-            "voir les objets",
-            "entendre les sons"
+            "le mouvement des plaques tectoniques",
+            "l'érosion",
+            "la photosynthèse",
+            "la gravité"
           ],
-          "answer": "bouger le corps",
-          "correction": "Les muscles permettent tous les mouvements du corps.",
-          "prompt_nl": "Spieren stellen ons in staat om:",
-          "prompt_en": "Muscles allow us to:",
-          "prompt_es": "Los musculos permiten:",
+          "answer": "le mouvement des plaques tectoniques",
+          "correction": "Les plaques tectoniques se déplacent et provoquent des séismes.",
+          "prompt_nl": "Welk natuurverschijnsel veroorzaakt aardbevingen?",
+          "prompt_en": "Which natural phenomenon causes earthquakes?",
+          "prompt_es": "¿Qué fenómeno natural origina los terremotos?",
           "options_i18n": {
             "nl": [
-              "het lichaam te bewegen",
-              "voedsel te verteren",
-              "objecten te zien",
-              "geluiden te horen"
+              "de beweging van tektonische platen",
+              "erosie",
+              "fotosynthese",
+              "zwaartekracht"
             ],
             "en": [
-              "move the body",
-              "digest food",
-              "see objects",
-              "hear sounds"
+              "the movement of tectonic plates",
+              "erosion",
+              "photosynthesis",
+              "gravity"
             ],
             "es": [
-              "mover el cuerpo",
-              "digerir alimentos",
-              "ver objetos",
-              "oir sonidos"
+              "el movimiento de las placas tectónicas",
+              "la erosión",
+              "la fotosíntesis",
+              "la gravedad"
             ]
           }
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Un oiseau se distingue par :",
+          "prompt": "Quel gaz est principalement responsable de l'effet de serre additionnel ?",
           "options": [
-            "des plumes et un bec",
-            "des écailles",
-            "des poils",
-            "des nageoires"
+            "le dioxyde de carbone (CO₂)",
+            "l'azote",
+            "l'oxygène",
+            "l'ozone"
           ],
-          "answer": "des plumes et un bec",
-          "correction": "Les oiseaux ont des plumes, des ailes et un bec.",
-          "prompt_nl": "Een vogel onderscheidt zich door:",
-          "prompt_en": "A bird is distinguished by:",
-          "prompt_es": "Un ave se distingue por:",
+          "answer": "le dioxyde de carbone (CO₂)",
+          "correction": "Le CO₂ est le principal gaz à effet de serre.",
+          "prompt_nl": "Welk gas is voornamelijk verantwoordelijk voor het extra broeikaseffect?",
+          "prompt_en": "Which gas is mainly responsible for the additional greenhouse effect?",
+          "prompt_es": "¿Qué gas es principalmente responsable del efecto invernadero adicional?",
           "options_i18n": {
             "nl": [
-              "veren en een snavel",
-              "schubben",
-              "haar",
-              "vinnen"
+              "koolstofdioxide (CO₂)",
+              "stikstof",
+              "zuurstof",
+              "ozon"
             ],
             "en": [
-              "feathers and a beak",
-              "scales",
-              "fur",
-              "fins"
+              "carbon dioxide (CO₂)",
+              "nitrogen",
+              "oxygen",
+              "ozone"
             ],
             "es": [
-              "plumas y pico",
-              "escamas",
-              "pelo",
-              "aletas"
+              "el dióxido de carbono (CO₂)",
+              "el nitrógeno",
+              "el oxígeno",
+              "el ozono"
             ]
           }
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Le cœur envoie le sang dans tout le corps.",
-          "answer": true,
-          "correction": "Le cœur pompe le sang qui circule dans tout le corps.",
-          "prompt_nl": "Het hart stuurt bloed door het hele lichaam.",
-          "prompt_en": "The heart sends blood throughout the body.",
-          "prompt_es": "El corazon envia sangre por todo el cuerpo."
+          "type": "mcq",
+          "prompt": "Quel est le plus grand organe du corps humain ?",
+          "options": [
+            "la peau",
+            "le foie",
+            "le cerveau",
+            "le poumon"
+          ],
+          "answer": "la peau",
+          "correction": "La peau est le plus grand organe.",
+          "prompt_nl": "Wat is het grootste orgaan van het menselijk lichaam?",
+          "prompt_en": "What is the largest organ of the human body?",
+          "prompt_es": "¿Cuál es el órgano más grande del cuerpo humano?",
+          "options_i18n": {
+            "nl": [
+              "de huid",
+              "de lever",
+              "de hersenen",
+              "de long"
+            ],
+            "en": [
+              "the skin",
+              "the liver",
+              "the brain",
+              "the lung"
+            ],
+            "es": [
+              "la piel",
+              "el hígado",
+              "el cerebro",
+              "el pulmón"
+            ]
+          }
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Quel phénomène transforme l'eau liquide en vapeur ?",
+          "prompt": "Quel type d'énergie est stockée dans un ressort comprimé ?",
           "options": [
-            "l'évaporation",
-            "la condensation",
-            "la solidification",
-            "la précipitation"
+            "l'énergie potentielle élastique",
+            "l'énergie cinétique",
+            "l'énergie thermique",
+            "l'énergie chimique"
           ],
-          "answer": "l'évaporation",
-          "correction": "L'évaporation transforme l'eau liquide en vapeur sous l'effet de la chaleur.",
-          "prompt_nl": "Welk verschijnsel verandert vloeibaar water in damp?",
-          "prompt_en": "Which phenomenon turns liquid water into vapour?",
-          "prompt_es": "Que fenomeno transforma el agua liquida en vapor?",
+          "answer": "l'énergie potentielle élastique",
+          "correction": "Un ressort comprimé = énergie potentielle élastique.",
+          "prompt_nl": "Welk type energie wordt opgeslagen in een samengedrukte veer?",
+          "prompt_en": "What type of energy is stored in a compressed spring?",
+          "prompt_es": "¿Qué tipo de energía almacena un muelle comprimido?",
           "options_i18n": {
             "nl": [
-              "verdamping",
-              "condensatie",
-              "stolling",
-              "neerslag"
+              "elastische potentiële energie",
+              "kinetische energie",
+              "thermische energie",
+              "chemische energie"
             ],
             "en": [
-              "evaporation",
-              "condensation",
-              "solidification",
-              "precipitation"
+              "elastic potential energy",
+              "kinetic energy",
+              "thermal energy",
+              "chemical energy"
             ],
             "es": [
-              "evaporacion",
-              "condensacion",
-              "solidificacion",
-              "precipitacion"
+              "energía potencial elástica",
+              "energía cinética",
+              "energía térmica",
+              "energía química"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Les étoiles sont des boules de :",
+          "prompt": "Qu'est-ce que la photosynthèse produit comme gaz utile pour nous ?",
           "options": [
-            "gaz très chaud",
-            "roche froide",
-            "glace",
-            "métal liquide"
+            "l'oxygène (O₂)",
+            "le CO₂",
+            "l'azote",
+            "l'hélium"
           ],
-          "answer": "gaz très chaud",
-          "correction": "Les étoiles sont d'immenses boules de gaz très chaud.",
-          "prompt_nl": "Sterren zijn ballen van:",
-          "prompt_en": "Stars are balls of:",
-          "prompt_es": "Las estrellas son bolas de:",
+          "answer": "l'oxygène (O₂)",
+          "correction": "La photosynthèse produit de l'oxygène.",
+          "prompt_nl": "Welk nuttig gas produceert fotosynthese voor ons?",
+          "prompt_en": "Which useful gas does photosynthesis produce for us?",
+          "prompt_es": "¿Qué gas útil produce la fotosíntesis para nosotros?",
           "options_i18n": {
             "nl": [
-              "heel heet gas",
-              "koude steen",
-              "ijs",
-              "vloeibaar metaal"
+              "zuurstof (O₂)",
+              "CO₂",
+              "stikstof",
+              "helium"
             ],
             "en": [
-              "very hot gas",
-              "cold rock",
-              "ice",
-              "liquid metal"
+              "oxygen (O₂)",
+              "CO₂",
+              "nitrogen",
+              "helium"
             ],
             "es": [
-              "gas muy caliente",
-              "roca fria",
-              "hielo",
-              "metal liquido"
+              "oxígeno (O₂)",
+              "CO₂",
+              "nitrógeno",
+              "helio"
             ]
           }
         }

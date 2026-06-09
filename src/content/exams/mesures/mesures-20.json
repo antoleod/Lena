@@ -103,25 +103,6 @@
           "correction_es": "1 cm = 10 mm → 70 mm."
         },
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Convertis 9 cm en mm.",
-          "options": [
-            "76",
-            "97",
-            "102",
-            "90"
-          ],
-          "answer": "90",
-          "correction": "1 cm = 10 mm → 90 mm.",
-          "prompt_nl": "Zet 9 cm om naar mm.",
-          "prompt_en": "Convert 9 cm to mm.",
-          "prompt_es": "Convierte 9 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 90 mm.",
-          "correction_en": "1 cm = 10 mm → 90 mm.",
-          "correction_es": "1 cm = 10 mm → 90 mm."
-        },
-        {
           "id": "q7",
           "type": "mcq",
           "prompt": "Convertis 5 cm en mm.",
@@ -444,25 +425,6 @@
           "correction_nl": "1 kg = 1000 g → 9000 g.",
           "correction_en": "1 kg = 1000 g → 9000 g.",
           "correction_es": "1 kg = 1000 g → 9000 g."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "Convertis 8 heure(s) en minutes.",
-          "options": [
-            "459",
-            "444",
-            "480",
-            "499"
-          ],
-          "answer": "480",
-          "correction": "1 h = 60 min → 480 min.",
-          "prompt_nl": "Zet 8 uur om naar minuten.",
-          "prompt_en": "Convert 8 hour(s) to minutes.",
-          "prompt_es": "Convierte 8 hora(s) a minutos.",
-          "correction_nl": "1 u = 60 min → 480 min.",
-          "correction_en": "1 h = 60 min → 480 min.",
-          "correction_es": "1 h = 60 min → 480 min."
         },
         {
           "id": "q10",

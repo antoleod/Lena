@@ -296,16 +296,17 @@
           "correction": "Le rouge est une couleur."
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Le contraire de « allumer » :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "éteindre",
+            "briller",
+            "chauffer",
+            "brûler"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "éteindre",
+          "correction": "Le contraire de « allumer » : → éteindre.",
+          "id": "q12"
         },
         {
           "id": "q14",
@@ -344,16 +345,17 @@
           "correction": "La carotte est un légume."
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Un synonyme de « rire » :",
           "options": [
-            "froid",
-            "tiède",
-            "doux"
+            "s'esclaffer",
+            "pleurer",
+            "crier",
+            "danser"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "s'esclaffer",
+          "correction": "Un synonyme de « rire » : → s'esclaffer.",
+          "id": "q20"
         }
       ]
     }

@@ -31,23 +31,6 @@
           "correction_es": "1 cm = 10 mm → 90 mm."
         },
         {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Convertis 9 cm en mm.",
-          "answer": "90",
-          "accept": [
-            "90",
-            "90 mm"
-          ],
-          "correction": "1 cm = 10 mm → 90 mm.",
-          "prompt_nl": "Zet 9 cm om naar mm.",
-          "prompt_en": "Convert 9 cm to mm.",
-          "prompt_es": "Convierte 9 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 90 mm.",
-          "correction_en": "1 cm = 10 mm → 90 mm.",
-          "correction_es": "1 cm = 10 mm → 90 mm."
-        },
-        {
           "id": "q3",
           "type": "mcq",
           "prompt": "Convertis 7 cm en mm.",
@@ -84,42 +67,6 @@
           "correction_nl": "1 cm = 10 mm → 10 mm.",
           "correction_en": "1 cm = 10 mm → 10 mm.",
           "correction_es": "1 cm = 10 mm → 10 mm."
-        },
-        {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "Convertis 1 cm en mm.",
-          "answer": "10",
-          "accept": [
-            "10",
-            "10 mm"
-          ],
-          "correction": "1 cm = 10 mm → 10 mm.",
-          "prompt_nl": "Zet 1 cm om naar mm.",
-          "prompt_en": "Convert 1 cm to mm.",
-          "prompt_es": "Convierte 1 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 10 mm.",
-          "correction_en": "1 cm = 10 mm → 10 mm.",
-          "correction_es": "1 cm = 10 mm → 10 mm."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Convertis 9 cm en mm.",
-          "options": [
-            "88",
-            "77",
-            "90",
-            "96"
-          ],
-          "answer": "90",
-          "correction": "1 cm = 10 mm → 90 mm.",
-          "prompt_nl": "Zet 9 cm om naar mm.",
-          "prompt_en": "Convert 9 cm to mm.",
-          "prompt_es": "Convierte 9 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 90 mm.",
-          "correction_en": "1 cm = 10 mm → 90 mm.",
-          "correction_es": "1 cm = 10 mm → 90 mm."
         },
         {
           "id": "q7",

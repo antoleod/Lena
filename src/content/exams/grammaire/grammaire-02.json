@@ -86,16 +86,17 @@
           "correction": "« sauter » est un verbe."
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
+          "prompt": "« finir » est du ___ groupe :",
           "options": [
-            "grand",
-            "chien",
-            "le"
+            "2e",
+            "1er",
+            "3e",
+            "4e"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "2e",
+          "correction": "« finir » est du ___ groupe : → 2e.",
+          "id": "q16"
         }
       ]
     },
@@ -240,23 +241,30 @@
           "correction": "une maison → féminin."
         },
         {
-          "id": "q4",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
+          "type": "mcq",
+          "prompt": "Dans « La vieille dame marche. », le sujet est :",
+          "options": [
+            "La vieille dame",
+            "marche",
+            "La",
+            "vieille"
+          ],
+          "answer": "La vieille dame",
+          "correction": "Dans « La vieille dame marche. », le sujet est : → La vieille dame.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "Devant « arbre », l'article « le » devient :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "l'",
+            "le",
+            "la",
+            "les"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "l'",
+          "correction": "Devant « arbre », l'article « le » devient : → l'.",
+          "id": "q6"
         },
         {
           "id": "q8",
@@ -293,16 +301,17 @@
           "correction": "Pluriel : des oiseaux (eau → eaux)."
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
+          "prompt": "« être » est du ___ groupe :",
           "options": [
-            "grand",
-            "chien",
-            "le"
+            "3e",
+            "2e",
+            "1er",
+            "4e"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "3e",
+          "correction": "« être » est du ___ groupe : → 3e.",
+          "id": "q14"
         },
         {
           "id": "q16",

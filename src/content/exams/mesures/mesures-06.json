@@ -31,23 +31,6 @@
           "correction_es": "1 cm = 10 mm → 90 mm."
         },
         {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Convertis 9 cm en mm.",
-          "answer": "90",
-          "accept": [
-            "90",
-            "90 mm"
-          ],
-          "correction": "1 cm = 10 mm → 90 mm.",
-          "prompt_nl": "Zet 9 cm om naar mm.",
-          "prompt_en": "Convert 9 cm to mm.",
-          "prompt_es": "Convierte 9 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 90 mm.",
-          "correction_en": "1 cm = 10 mm → 90 mm.",
-          "correction_es": "1 cm = 10 mm → 90 mm."
-        },
-        {
           "id": "q3",
           "type": "mcq",
           "prompt": "Convertis 7 cm en mm.",
@@ -65,25 +48,6 @@
           "correction_nl": "1 cm = 10 mm → 70 mm.",
           "correction_en": "1 cm = 10 mm → 70 mm.",
           "correction_es": "1 cm = 10 mm → 70 mm."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Convertis 9 cm en mm.",
-          "options": [
-            "92",
-            "98",
-            "108",
-            "90"
-          ],
-          "answer": "90",
-          "correction": "1 cm = 10 mm → 90 mm.",
-          "prompt_nl": "Zet 9 cm om naar mm.",
-          "prompt_en": "Convert 9 cm to mm.",
-          "prompt_es": "Convierte 9 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 90 mm.",
-          "correction_en": "1 cm = 10 mm → 90 mm.",
-          "correction_es": "1 cm = 10 mm → 90 mm."
         },
         {
           "id": "q5",
@@ -120,25 +84,6 @@
           "correction_nl": "1 cm = 10 mm → 10 mm.",
           "correction_en": "1 cm = 10 mm → 10 mm.",
           "correction_es": "1 cm = 10 mm → 10 mm."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "Convertis 7 cm en mm.",
-          "options": [
-            "84",
-            "77",
-            "79",
-            "70"
-          ],
-          "answer": "70",
-          "correction": "1 cm = 10 mm → 70 mm.",
-          "prompt_nl": "Zet 7 cm om naar mm.",
-          "prompt_en": "Convert 7 cm to mm.",
-          "prompt_es": "Convierte 7 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 70 mm.",
-          "correction_en": "1 cm = 10 mm → 70 mm.",
-          "correction_es": "1 cm = 10 mm → 70 mm."
         },
         {
           "id": "q8",
@@ -335,25 +280,6 @@
           "correction_es": "1 € = 100 céntimos → 300 céntimos."
         },
         {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Convertis 3 € en centimes.",
-          "options": [
-            "338",
-            "356",
-            "336",
-            "300"
-          ],
-          "answer": "300",
-          "correction": "1 € = 100 c → 300 centimes.",
-          "prompt_nl": "Zet 3 € om naar centen.",
-          "prompt_en": "Convert 3 € to cents.",
-          "prompt_es": "Convierte 3 € a céntimos.",
-          "correction_nl": "1 € = 100 cent → 300 cent.",
-          "correction_en": "1 € = 100 cents → 300 cents.",
-          "correction_es": "1 € = 100 céntimos → 300 céntimos."
-        },
-        {
           "id": "q4",
           "type": "mcq",
           "prompt": "Convertis 1 cm en mm.",
@@ -463,25 +389,6 @@
           "correction_nl": "1 u = 60 min → 60 min.",
           "correction_en": "1 h = 60 min → 60 min.",
           "correction_es": "1 h = 60 min → 60 min."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Convertis 9 m en cm.",
-          "options": [
-            "922",
-            "900",
-            "991",
-            "1020"
-          ],
-          "answer": "900",
-          "correction": "1 m = 100 cm → 900 cm.",
-          "prompt_nl": "Zet 9 m om naar cm.",
-          "prompt_en": "Convert 9 m to cm.",
-          "prompt_es": "Convierte 9 m a cm.",
-          "correction_nl": "1 m = 100 cm → 900 cm.",
-          "correction_en": "1 m = 100 cm → 900 cm.",
-          "correction_es": "1 m = 100 cm → 900 cm."
         }
       ]
     }

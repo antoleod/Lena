@@ -14,88 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "Combien de minutes dure une demi-heure ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "30",
+            "60",
+            "15"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "30",
+          "correction": "Une demi-heure = 30 minutes."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
+          "prompt": "Quel instrument sert à lire l'heure ?",
           "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
+            "une horloge",
+            "un thermomètre",
+            "une règle"
           ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
+          "answer": "une horloge",
+          "correction": "On utilise une horloge."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Combien de jours compte le mois de décembre ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "31",
+          "correction": "Décembre a 31 jours."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
+          "prompt": "Quel est le 12e et dernier mois de l'année ?",
           "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
+            "décembre",
+            "novembre",
+            "janvier"
           ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
+          "answer": "décembre",
+          "correction": "Décembre est le 12e mois."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Combien de minutes dure un quart d'heure ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "15",
+            "30",
+            "20"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "15",
+          "correction": "Un quart d'heure = 15 minutes."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
+          "type": "mcq",
+          "prompt": "Quel mois suit directement juin ?",
+          "options": [
+            "juillet",
+            "mai",
+            "août"
+          ],
+          "answer": "juillet",
+          "correction": "Après juin vient juillet."
         },
         {
           "id": "q14",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "type": "mcq",
+          "prompt": "Quels jours composent le week-end ?",
+          "options": [
+            "samedi et dimanche",
+            "vendredi et samedi",
+            "dimanche et lundi"
+          ],
+          "answer": "samedi et dimanche",
+          "correction": "Le week-end, c'est samedi et dimanche."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Combien de jours compte le mois de mai ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "31",
+          "correction": "Mai a 31 jours."
         }
       ]
     },
@@ -191,14 +201,14 @@
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Lequel vient en premier dans l’année ?",
+          "prompt": "Parmi les 12 mois, combien en ont 30 ?",
           "options": [
-            "mars",
-            "juillet",
-            "octobre"
+            "4",
+            "5",
+            "3"
           ],
-          "answer": "mars",
-          "correction": "Mars est le 3e mois, avant juillet (7e) et octobre (10e)."
+          "answer": "4",
+          "correction": "4 mois ont 30 jours."
         },
         {
           "id": "q10",
@@ -215,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "À Paris il est 14h. À New York il est 6 heures de moins. Quelle heure est-il à New York ?",
+          "prompt": "Quelle est la saison aux températures les plus basses ?",
           "options": [
-            "6h",
-            "7h",
-            "8h",
-            "9h"
+            "l'hiver",
+            "l'automne",
+            "le printemps"
           ],
-          "answer": "8h",
-          "correction": "14h − 6h = 8h à New York."
+          "answer": "l'hiver",
+          "correction": "L'hiver est la saison la plus froide."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "À Tokyo il est 22h. À Paris il y a 8 heures de moins. Quelle heure est-il à Paris ?",
+          "prompt": "Un millénaire regroupe combien d'années ?",
           "options": [
-            "12h",
-            "13h",
-            "14h",
-            "15h"
+            "1000",
+            "100",
+            "500"
           ],
-          "answer": "14h",
-          "correction": "22h − 8h = 14h à Paris."
+          "answer": "1000",
+          "correction": "Un millénaire = 1000 ans."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "À Londres il est 10h. À Paris il est 1 heure de plus. Quelle heure est-il à Paris ?",
+          "prompt": "En année bissextile, février compte combien de jours ?",
           "options": [
-            "9h",
-            "10h",
-            "11h",
-            "12h"
+            "29",
+            "28",
+            "30"
           ],
-          "answer": "11h",
-          "correction": "10h + 1h = 11h à Paris."
+          "answer": "29",
+          "correction": "En année bissextile, février a 29 jours."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "À Paris il est 18h. À Sydney il est 9 heures de plus. Quelle heure est-il à Sydney ?",
+          "prompt": "Une année bissextile revient tous les combien d'années ?",
           "options": [
-            "1h",
-            "2h",
-            "3h",
-            "4h"
+            "4 ans",
+            "2 ans",
+            "10 ans"
           ],
-          "answer": "3h",
-          "correction": "18h + 9h = 27h, soit 3h du matin le lendemain à Sydney."
+          "answer": "4 ans",
+          "correction": "L'année bissextile revient tous les 4 ans."
         },
         {
           "id": "dq5",

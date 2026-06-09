@@ -13,13 +13,39 @@
       "questions": [
         {
           "id": "q2",
-          "type": "true_false",
-          "prompt": "Le Soleil tourne autour de la Terre.",
-          "answer": false,
-          "correction": "C'est la Terre qui tourne autour du Soleil.",
-          "prompt_nl": "De Zon draait om de Aarde.",
-          "prompt_en": "The Sun revolves around the Earth.",
-          "prompt_es": "El Sol gira alrededor de la Tierra."
+          "type": "mcq",
+          "prompt": "Quel gaz est indispensable à la vie des animaux ?",
+          "options": [
+            "l'oxygène",
+            "l'azote",
+            "le CO₂",
+            "l'hydrogène"
+          ],
+          "answer": "l'oxygène",
+          "correction": "Les animaux ont besoin d'oxygène.",
+          "prompt_nl": "Welk gas is onmisbaar voor dieren?",
+          "prompt_en": "Which gas is essential for animals?",
+          "prompt_es": "¿Qué gas es esencial para los animales?",
+          "options_i18n": {
+            "nl": [
+              "zuurstof",
+              "stikstof",
+              "CO₂",
+              "waterstof"
+            ],
+            "en": [
+              "oxygen",
+              "nitrogen",
+              "CO₂",
+              "hydrogen"
+            ],
+            "es": [
+              "oxígeno",
+              "nitrógeno",
+              "CO₂",
+              "hidrógeno"
+            ]
+          }
         },
         {
           "id": "q4",
@@ -96,36 +122,36 @@
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "De quoi est composé l'air que l'on respire surtout ?",
+          "prompt": "Quel gaz les voitures rejettent-elles dans l'air ?",
           "options": [
-            "azote et oxygène",
-            "dioxyde de carbone",
-            "vapeur d'eau",
-            "hélium"
+            "le dioxyde de carbone",
+            "l'oxygène",
+            "l'azote",
+            "la vapeur d'eau"
           ],
-          "answer": "azote et oxygène",
-          "correction": "L'air est composé d'azote (~78%) et d'oxygène (~21%).",
-          "prompt_nl": "Waaruit bestaat de lucht die we inademen?",
-          "prompt_en": "What is the air we breathe mainly made of?",
-          "prompt_es": "De que esta compuesto principalmente el aire que respiramos?",
+          "answer": "le dioxyde de carbone",
+          "correction": "Les voitures rejettent du CO₂.",
+          "prompt_nl": "Welk gas stoten auto's uit?",
+          "prompt_en": "Which gas do cars emit?",
+          "prompt_es": "¿Qué gas emiten los coches?",
           "options_i18n": {
             "nl": [
-              "stikstof en zuurstof",
               "koolstofdioxide",
-              "waterdamp",
-              "helium"
+              "zuurstof",
+              "stikstof",
+              "waterdamp"
             ],
             "en": [
-              "nitrogen and oxygen",
               "carbon dioxide",
-              "water vapour",
-              "helium"
+              "oxygen",
+              "nitrogen",
+              "water vapor"
             ],
             "es": [
-              "nitrogeno y oxigeno",
-              "dioxido de carbono",
-              "vapor de agua",
-              "helio"
+              "dióxido de carbono",
+              "oxígeno",
+              "nitrógeno",
+              "vapor de agua"
             ]
           }
         },

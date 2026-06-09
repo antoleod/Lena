@@ -12,98 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
-          ],
-          "correction": "monter ↔ descendre."
-        },
-        {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Un synonyme de « douter » :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "hésiter",
+            "certifier",
+            "affirmer",
+            "assurer"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "hésiter",
+          "correction": "Un synonyme de « douter » : → hésiter.",
+          "id": "q2"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Le suffixe « -ette » dans « maison → maisonnette » indique :",
           "options": [
-            "froid",
-            "tiède",
-            "doux"
+            "petite maison",
+            "grande maison",
+            "vieille maison",
+            "belle maison"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "petite maison",
+          "correction": "Le suffixe « -ette » dans « maison → maisonnette » indique : → petite maison.",
+          "id": "q4"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Le contraire de « léger » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "lourd",
+            "fin",
+            "mou",
+            "petit"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "lourd",
+          "correction": "Le contraire de « léger » : → lourd.",
+          "id": "q6"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « grandir » :",
+          "options": [
+            "croître",
+            "rétrécir",
+            "diminuer",
+            "rapetisser"
+          ],
+          "answer": "croître",
+          "correction": "Un synonyme de « grandir » : → croître.",
+          "id": "q8"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « gentil » :",
+          "options": [
+            "aimable",
+            "méchant",
+            "brusque",
+            "froid"
+          ],
+          "answer": "aimable",
+          "correction": "Un synonyme de « gentil » : → aimable.",
+          "id": "q10"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « confirmer » :",
+          "options": [
+            "valider",
+            "nier",
+            "infirmer",
+            "contredire"
+          ],
+          "answer": "valider",
+          "correction": "Un synonyme de « confirmer » : → valider.",
+          "id": "q12"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « remarquer » :",
           "options": [
             "observer",
-            "manger",
-            "courir"
+            "ignorer",
+            "négliger",
+            "éviter"
           ],
           "answer": "observer",
-          "correction": "regarder = observer."
+          "correction": "Un synonyme de « remarquer » : → observer.",
+          "id": "q14"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « abandonner » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "laisser",
+            "reprendre",
+            "garder",
+            "emporter"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
-          "options": [
-            "jeune",
-            "gros",
-            "grand"
-          ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
-          "options": [
-            "faible",
-            "dur",
-            "lourd"
-          ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "laisser",
+          "correction": "Un synonyme de « abandonner » : → laisser.",
+          "id": "q16"
         }
       ]
     },
@@ -111,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Le contraire de « ancien » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "moderne",
+            "vieux",
+            "usé",
+            "traditionnel"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "moderne",
+          "correction": "Le contraire de « ancien » : → moderne.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « haut » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "bas",
+            "grand",
+            "élevé",
+            "profond"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "bas",
+          "correction": "Le contraire de « haut » : → bas.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Un synonyme de « abîmer » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "endommager",
+            "réparer",
+            "protéger",
+            "améliorer"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "endommager",
+          "correction": "Un synonyme de « abîmer » : → endommager.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « dispenser » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "distribuer",
+            "garder",
+            "conserver",
+            "retenir"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "distribuer",
+          "correction": "Un synonyme de « dispenser » : → distribuer.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « montrer » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "présenter",
+            "cacher",
+            "dissimuler",
+            "taire"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "présenter",
+          "correction": "Un synonyme de « montrer » : → présenter.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « soigner » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "traiter",
+            "blesser",
+            "négliger",
+            "ignorer"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "traiter",
+          "correction": "Un synonyme de « soigner » : → traiter.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Le contraire de « complexe » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "simple",
+            "compliqué",
+            "difficile",
+            "élaboré"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "simple",
+          "correction": "Le contraire de « complexe » : → simple.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « honnête » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "malhonnête",
+            "sincère",
+            "loyal",
+            "droit"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "malhonnête",
+          "correction": "Le contraire de « honnête » : → malhonnête.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « sain » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "malsain",
+            "en bonne santé",
+            "robuste",
+            "vigoureux"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "malsain",
+          "correction": "Le contraire de « sain » : → malsain.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Quel mot appartient au champ lexical de montagne ?",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "sommet",
+            "tracteur",
+            "stylo",
+            "riz"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "sommet",
+          "correction": "Quel mot appartient au champ lexical de montagne ? → sommet.",
+          "id": "q19"
         }
       ]
     },
@@ -236,124 +256,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le contraire de « aimable » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "désagréable",
+            "gentil",
+            "doux",
+            "affectueux"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "désagréable",
+          "correction": "Le contraire de « aimable » : → désagréable.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Un synonyme de « magnifique » :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
-          ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
-          "options": [
-            "observer",
-            "manger",
-            "courir"
-          ],
-          "answer": "observer",
-          "correction": "regarder = observer."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
-          "options": [
-            "triste",
-            "content",
-            "joyeux"
-          ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
-          "options": [
-            "discuter",
-            "courir",
-            "dormir"
-          ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
-          "options": [
-            "beau",
+            "splendide",
             "laid",
-            "vieux"
+            "moche",
+            "affreux"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "splendide",
+          "correction": "Un synonyme de « magnifique » : → splendide.",
+          "id": "q4"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « apercevoir » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "remarquer",
+            "oublier",
+            "cacher",
+            "perdre"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "remarquer",
+          "correction": "Un synonyme de « apercevoir » : → remarquer.",
+          "id": "q6"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Le contraire de « bénin » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "grave",
+            "léger",
+            "sans danger",
+            "anodin"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "grave",
+          "correction": "Le contraire de « bénin » : → grave.",
+          "id": "q8"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Un synonyme de « atteindre » :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "parvenir",
+            "rater",
+            "manquer",
+            "échouer"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "parvenir",
+          "correction": "Un synonyme de « atteindre » : → parvenir.",
+          "id": "q10"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Un synonyme de « agrandir » :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "élargir",
+            "rétrécir",
+            "réduire",
+            "diminuer"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "élargir",
+          "correction": "Un synonyme de « agrandir » : → élargir.",
+          "id": "q12"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « conquérir » :",
+          "options": [
+            "gagner",
+            "perdre",
+            "céder",
+            "abandonner"
+          ],
+          "answer": "gagner",
+          "correction": "Un synonyme de « conquérir » : → gagner.",
+          "id": "q14"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « créer » :",
+          "options": [
+            "détruire",
+            "construire",
+            "imaginer",
+            "concevoir"
+          ],
+          "answer": "détruire",
+          "correction": "Le contraire de « créer » : → détruire.",
+          "id": "q16"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le suffixe « -able » dans « adorable » signifie :",
+          "options": [
+            "qui peut être",
+            "qui ne peut pas être",
+            "qui fait",
+            "qui est grand"
+          ],
+          "answer": "qui peut être",
+          "correction": "Le suffixe « -able » dans « adorable » signifie : → qui peut être.",
+          "id": "q18"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « concentré » :",
+          "options": [
+            "dispersé",
+            "attentif",
+            "focalisé",
+            "absorbé"
+          ],
+          "answer": "dispersé",
+          "correction": "Le contraire de « concentré » : → dispersé.",
+          "id": "q20"
         }
       ]
     }

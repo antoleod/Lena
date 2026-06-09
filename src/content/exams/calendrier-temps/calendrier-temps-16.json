@@ -14,93 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
+          "prompt": "Quel mois de l'année est le plus court ?",
           "options": [
-            "4",
-            "2",
-            "6"
+            "février",
+            "janvier",
+            "novembre"
           ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
+          "answer": "février",
+          "correction": "Février est le mois le plus court."
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "type": "mcq",
+          "prompt": "Combien de trimestres y a-t-il dans une année civile ?",
+          "options": [
+            "4",
+            "3",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "Il y a 4 trimestres."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "L'aiguille des heures d'une montre fait combien de tours complets en 24 h ?",
           "options": [
-            "12",
-            "10",
-            "7"
+            "2",
+            "1",
+            "24"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "2",
+          "correction": "L'aiguille des heures fait 2 tours en 24 h."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
+          "prompt": "Les années 2000–2099 appartiennent à quel siècle ?",
           "options": [
-            "hiver",
-            "été",
-            "printemps"
+            "le XXIe siècle",
+            "le XXe siècle",
+            "le XIXe siècle"
           ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "answer": "le XXIe siècle",
+          "correction": "Les années 2000–2099 sont au XXIe siècle."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Combien d'heures y a-t-il dans une semaine entière ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "168",
+            "24",
+            "48"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "168",
+          "correction": "7 × 24 = 168 heures."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Combien de minutes y a-t-il dans 6 heures ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "360",
+            "300",
+            "420"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "360",
+          "correction": "6 × 60 = 360 minutes."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Comment appelle-t-on la petite aiguille qui tourne vite sur une horloge ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "la trotteuse",
+            "la grande aiguille",
+            "la petite aiguille"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "la trotteuse",
+          "correction": "La trotteuse indique les secondes."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "En quelle année s'est ouvert le XXIe siècle ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "2001",
+            "2000",
+            "1999"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "2001",
+          "correction": "Le XXIe siècle commence en 2001."
         }
       ]
     },
@@ -152,10 +157,15 @@
         },
         {
           "id": "q5",
-          "type": "true_false",
-          "prompt": "2 heures = 120 minutes.",
-          "answer": true,
-          "correction": "2 × 60 = 120 minutes."
+          "type": "mcq",
+          "prompt": "Combien de jours compte une année bissextile ?",
+          "options": [
+            "366",
+            "365",
+            "364"
+          ],
+          "answer": "366",
+          "correction": "Une année bissextile a 366 jours."
         },
         {
           "id": "q6",
@@ -220,54 +230,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Une semaine de camp commence un lundi 5 août. Quel jour du mois est le dimanche suivant ?",
+          "prompt": "Combien de semestres y a-t-il dans une année civile ?",
           "options": [
-            "10",
-            "11",
-            "12",
-            "13"
+            "2",
+            "3",
+            "4"
           ],
-          "answer": "11",
-          "correction": "Du lundi 5 au dimanche = 6 jours plus tard = le 11 août."
+          "answer": "2",
+          "correction": "Il y a 2 semestres."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Un projet dure du 20 octobre au 5 novembre. Combien de jours cela fait-il ?",
+          "prompt": "À quel moment de la journée le Soleil est-il au point le plus haut du ciel ?",
           "options": [
-            "14",
-            "15",
-            "16",
-            "17"
+            "à midi",
+            "le matin",
+            "le soir"
           ],
-          "answer": "16",
-          "correction": "11 jours en octobre (du 21 au 31) + 5 jours en novembre = 16 jours."
+          "answer": "à midi",
+          "correction": "Le Soleil est au zénith à midi."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Un enfant part le 27 décembre et revient le 4 janvier. Combien de nuits est-il absent ?",
+          "prompt": "Quelle grande aiguille d'une horloge indique les minutes ?",
           "options": [
-            "7",
-            "8",
-            "9",
-            "10"
+            "la grande aiguille",
+            "la petite aiguille",
+            "la trotteuse"
           ],
-          "answer": "8",
-          "correction": "4 nuits restantes en décembre + 4 nuits en janvier = 8 nuits."
+          "answer": "la grande aiguille",
+          "correction": "La grande aiguille indique les minutes."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Du 1er mars au 31 mars, combien y a-t-il de lundis si le 1er mars est un lundi ?",
+          "prompt": "Quelle petite aiguille d'une horloge indique les heures ?",
           "options": [
-            "3",
-            "4",
-            "5",
-            "6"
+            "la petite aiguille",
+            "la grande aiguille",
+            "la trotteuse"
           ],
-          "answer": "5",
-          "correction": "Lundis : 1, 8, 15, 22, 29 mars = 5 lundis."
+          "answer": "la petite aiguille",
+          "correction": "La petite aiguille indique les heures."
         },
         {
           "id": "dq5",

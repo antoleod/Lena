@@ -12,28 +12,30 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Un synonyme de « bizarre » :",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "étrange",
+            "normal",
+            "banal",
+            "courant"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "étrange",
+          "correction": "Un synonyme de « bizarre » : → étrange.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Un synonyme de « transformer » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "changer",
+            "garder",
+            "conserver",
+            "maintenir"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "changer",
+          "correction": "Un synonyme de « transformer » : → changer.",
+          "id": "q4"
         },
         {
           "id": "q6",
@@ -48,62 +50,69 @@
           "correction": "heureux ↔ triste."
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Un synonyme de « vrai » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "exact",
+            "faux",
+            "inventé",
+            "imaginaire"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "exact",
+          "correction": "Un synonyme de « vrai » : → exact.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Le mot « voler » peut signifier :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "se déplacer dans les airs ou dérober",
+            "nager",
+            "grimper",
+            "sauter"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "se déplacer dans les airs ou dérober",
+          "correction": "Le mot « voler » peut signifier : → se déplacer dans les airs ou dérober.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Le préfixe « re- » dans « relire » signifie :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "encore",
+            "jamais",
+            "vite",
+            "mal"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "encore",
+          "correction": "Le préfixe « re- » dans « relire » signifie : → encore.",
+          "id": "q12"
         },
         {
-          "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
+          "type": "mcq",
+          "prompt": "Un synonyme de « différencier » :",
+          "options": [
+            "distinguer",
+            "confondre",
+            "mélanger",
+            "ignorer"
           ],
-          "correction": "monter ↔ descendre."
+          "answer": "distinguer",
+          "correction": "Un synonyme de « différencier » : → distinguer.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « long » :",
+          "prompt": "Quel est le synonyme de « célèbre » ?",
           "options": [
-            "court",
-            "large",
-            "fin"
+            "connu",
+            "inconnu",
+            "secret",
+            "caché"
           ],
-          "answer": "court",
-          "correction": "long ↔ court."
+          "answer": "connu",
+          "correction": "Quel est le synonyme de « célèbre » ? → connu.",
+          "id": "q16"
         }
       ]
     },
@@ -111,124 +120,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « riche » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "fortuné",
+            "pauvre",
+            "démuni",
+            "nécessiteux"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "fortuné",
+          "correction": "Un synonyme de « riche » : → fortuné.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « dedans » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "dehors",
+            "intérieur",
+            "profond",
+            "enfermé"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "dehors",
+          "correction": "Le contraire de « dedans » : → dehors.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « rugueux » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "lisse",
+            "doux",
+            "souple",
+            "satiné"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "lisse",
+          "correction": "Le contraire de « rugueux » : → lisse.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « couper » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "trancher",
+            "coller",
+            "réparer",
+            "fixer"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "trancher",
+          "correction": "Un synonyme de « couper » : → trancher.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « habiller » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "vêtir",
+            "déshabiller",
+            "dénuder",
+            "ôter"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "vêtir",
+          "correction": "Un synonyme de « habiller » : → vêtir.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « refuser » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "rejeter",
+            "accepter",
+            "recevoir",
+            "prendre"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "rejeter",
+          "correction": "Un synonyme de « refuser » : → rejeter.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Le contraire de « agréable » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
-          ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
-          "options": [
+            "désagréable",
             "plaisant",
-            "mauvais",
-            "froid"
+            "joli",
+            "beau"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "désagréable",
+          "correction": "Le contraire de « agréable » : → désagréable.",
+          "id": "q13"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « étroit » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "large",
+            "fin",
+            "mince",
+            "resserré"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "large",
+          "correction": "Le contraire de « étroit » : → large.",
+          "id": "q15"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Le contraire de « obscur » :",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "lumineux",
+            "sombre",
+            "ténébreux",
+            "opaque"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "lumineux",
+          "correction": "Le contraire de « obscur » : → lumineux.",
+          "id": "q17"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « violent » :",
+          "options": [
+            "pacifique",
+            "brutal",
+            "agressif",
+            "féroce"
+          ],
+          "answer": "pacifique",
+          "correction": "Le contraire de « violent » : → pacifique.",
+          "id": "q19"
         }
       ]
     },
@@ -236,124 +255,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « construire » :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "bâtir",
+            "détruire",
+            "peindre",
+            "vendre"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "bâtir",
+          "correction": "Un synonyme de « construire » : → bâtir.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Le mot « verre » peut désigner :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "un récipient ou une matière",
+            "seulement un récipient",
+            "seulement une matière",
+            "un animal"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "un récipient ou une matière",
+          "correction": "Le mot « verre » peut désigner : → un récipient ou une matière.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Un synonyme de « commencer » :",
           "options": [
-            "froid",
-            "tiède",
-            "doux"
+            "débuter",
+            "terminer",
+            "continuer",
+            "arrêter"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "débuter",
+          "correction": "Un synonyme de « commencer » : → débuter.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « long » :",
+          "prompt": "Quel est le synonyme de « minuscule » ?",
           "options": [
-            "court",
-            "large",
-            "fin"
+            "infime",
+            "immense",
+            "grand",
+            "large"
           ],
-          "answer": "court",
-          "correction": "long ↔ court."
+          "answer": "infime",
+          "correction": "Quel est le synonyme de « minuscule » ? → infime.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
+          "prompt": "Un synonyme de « plonger » :",
           "options": [
-            "jeune",
-            "gros",
-            "grand"
+            "immerger",
+            "sortir",
+            "émerger",
+            "remonter"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "immerger",
+          "correction": "Un synonyme de « plonger » : → immerger.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Un synonyme de « approuver » :",
           "options": [
-            "discuter",
-            "courir",
-            "dormir"
+            "accepter",
+            "refuser",
+            "rejeter",
+            "critiquer"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
+          "answer": "accepter",
+          "correction": "Un synonyme de « approuver » : → accepter.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « craindre » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "redouter",
+            "oser",
+            "affronter",
+            "ignorer"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "redouter",
+          "correction": "Un synonyme de « craindre » : → redouter.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « affecter » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "toucher",
+            "ignorer",
+            "indifférer",
+            "oublier"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "toucher",
+          "correction": "Un synonyme de « affecter » : → toucher.",
+          "id": "q16"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "La famille de mots de « fleur » contient :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "fleuriste",
+            "oiseau",
+            "pierre",
+            "ville"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "fleuriste",
+          "correction": "La famille de mots de « fleur » contient : → fleuriste.",
+          "id": "q18"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Un synonyme de « sauvegarder » :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "protéger",
+            "détruire",
+            "abîmer",
+            "négliger"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "protéger",
+          "correction": "Un synonyme de « sauvegarder » : → protéger.",
+          "id": "q20"
         }
       ]
     }

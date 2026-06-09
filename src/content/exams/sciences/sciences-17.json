@@ -14,262 +14,288 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour écouter de la musique ?",
+          "prompt": "Quel type d'onde est utilisé par les fours micro-ondes ?",
           "options": [
-            "l'ouïe",
-            "la vue",
-            "l'odorat",
-            "le toucher"
+            "les micro-ondes",
+            "les infrarouges",
+            "les ultraviolets",
+            "les rayons X"
           ],
-          "answer": "l'ouïe",
-          "correction": "On écoute avec l'ouïe (les oreilles).",
-          "prompt_nl": "Welk zintuig gebruik je om naar muziek te luisteren?",
-          "prompt_en": "Which sense do you use to listen to music?",
-          "prompt_es": "Que sentido se usa para escuchar musica?",
+          "answer": "les micro-ondes",
+          "correction": "Les fours à micro-ondes utilisent les micro-ondes.",
+          "prompt_nl": "Welk type golf gebruiken magnetrons?",
+          "prompt_en": "Which wave type do microwave ovens use?",
+          "prompt_es": "¿Qué tipo de onda utilizan los microondas?",
           "options_i18n": {
             "nl": [
-              "het gehoor",
-              "het zicht",
-              "de reuk",
-              "het gevoel"
+              "microgolven",
+              "infrarood",
+              "ultraviolet",
+              "röntgenstralen"
             ],
             "en": [
-              "hearing",
-              "sight",
-              "smell",
-              "touch"
+              "microwaves",
+              "infrared",
+              "ultraviolet",
+              "X-rays"
             ],
             "es": [
-              "el oido",
-              "la vista",
-              "el olfato",
-              "el tacto"
+              "las microondas",
+              "los infrarrojos",
+              "los ultravioleta",
+              "los rayos X"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quel astre éclaire la nuit ?",
+          "prompt": "Qu'est-ce que la gravité universelle ?",
           "options": [
-            "la Lune",
-            "le Soleil",
-            "Mars",
-            "Jupiter"
+            "la force d'attraction entre tous les corps ayant une masse",
+            "la force qui repousse les objets",
+            "une propriété de la lumière",
+            "la force du vent"
           ],
-          "answer": "la Lune",
-          "correction": "La Lune éclaire la nuit (lumière réfléchie).",
-          "prompt_nl": "Welk hemellichaam verlicht de nacht?",
-          "prompt_en": "Which celestial body lights up the night?",
-          "prompt_es": "Que astro ilumina la noche?",
+          "answer": "la force d'attraction entre tous les corps ayant une masse",
+          "correction": "La gravitation = attraction entre masses.",
+          "prompt_nl": "Wat is de universele zwaartekracht?",
+          "prompt_en": "What is universal gravitation?",
+          "prompt_es": "¿Qué es la gravitación universal?",
           "options_i18n": {
             "nl": [
-              "de Maan",
-              "de Zon",
-              "Mars",
-              "Jupiter"
+              "de aantrekkingskracht tussen alle massa's",
+              "de kracht die objecten afstoot",
+              "een eigenschap van licht",
+              "de kracht van de wind"
             ],
             "en": [
-              "the Moon",
-              "the Sun",
-              "Mars",
-              "Jupiter"
+              "the force of attraction between all masses",
+              "the force that repels objects",
+              "a property of light",
+              "the force of wind"
             ],
             "es": [
-              "la Luna",
-              "el Sol",
-              "Marte",
-              "Jupiter"
+              "la fuerza de atracción entre todas las masas",
+              "la fuerza que repele objetos",
+              "una propiedad de la luz",
+              "la fuerza del viento"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour sentir une fleur ?",
+          "prompt": "Quel arbre produit des glands ?",
           "options": [
-            "l'odorat",
-            "le goût",
-            "la vue",
-            "le toucher"
+            "le chêne",
+            "le pin",
+            "l'érable",
+            "le bouleau"
           ],
-          "answer": "l'odorat",
-          "correction": "On sent avec l'odorat (le nez).",
-          "prompt_nl": "Welk zintuig gebruik je om een bloem te ruiken?",
-          "prompt_en": "Which sense do you use to smell a flower?",
-          "prompt_es": "Que sentido se usa para oler una flor?",
+          "answer": "le chêne",
+          "correction": "Le chêne produit des glands.",
+          "prompt_nl": "Welke boom produceert eikels?",
+          "prompt_en": "Which tree produces acorns?",
+          "prompt_es": "¿Qué árbol produce bellotas?",
           "options_i18n": {
             "nl": [
-              "de reuk",
-              "de smaak",
-              "het zicht",
-              "het gevoel"
+              "de eik",
+              "de den",
+              "de esdoorn",
+              "de berk"
             ],
             "en": [
-              "smell",
-              "taste",
-              "sight",
-              "touch"
+              "the oak",
+              "the pine",
+              "the maple",
+              "the birch"
             ],
             "es": [
-              "el olfato",
-              "el gusto",
-              "la vista",
-              "el tacto"
+              "el roble",
+              "el pino",
+              "el arce",
+              "el abedul"
             ]
           }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un vertébré ?",
+          "prompt": "Quel arbre perd ses feuilles en hiver ?",
           "options": [
-            "un animal avec une colonne vertébrale",
-            "un animal avec 6 pattes",
-            "un animal qui vole",
-            "un animal aquatique"
+            "un arbre à feuilles caduques (ex. le chêne)",
+            "un conifère",
+            "un palmier",
+            "un bambou"
           ],
-          "answer": "un animal avec une colonne vertébrale",
-          "correction": "Un vertébré a une colonne vertébrale.",
-          "prompt_nl": "Wat is een gewerveld dier?",
-          "prompt_en": "What is a vertebrate?",
-          "prompt_es": "Que es un vertebrado?",
+          "answer": "un arbre à feuilles caduques (ex. le chêne)",
+          "correction": "Les arbres caducs perdent leurs feuilles en automne.",
+          "prompt_nl": "Welke boom verliest zijn bladeren in de winter?",
+          "prompt_en": "Which tree sheds its leaves in winter?",
+          "prompt_es": "¿Qué árbol pierde sus hojas en invierno?",
           "options_i18n": {
             "nl": [
-              "een dier met een wervelkolom",
-              "een dier met 6 poten",
-              "een dier dat vliegt",
-              "een waterlevend dier"
+              "een loofboom (bv. de eik)",
+              "een naaldboom",
+              "een palmboom",
+              "bamboe"
             ],
             "en": [
-              "an animal with a backbone",
-              "an animal with 6 legs",
-              "an animal that flies",
-              "an aquatic animal"
+              "a deciduous tree (e.g. oak)",
+              "a conifer",
+              "a palm tree",
+              "a bamboo"
             ],
             "es": [
-              "un animal con columna vertebral",
-              "un animal con 6 patas",
-              "un animal que vuela",
-              "un animal acuatico"
+              "un árbol caducifolio (ej. el roble)",
+              "una conífera",
+              "una palmera",
+              "un bambú"
             ]
           }
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "L'eau bout à 100°C.",
-          "answer": true,
-          "correction": "L'eau bout à 100 degrés Celsius.",
-          "prompt_nl": "Water kookt bij 100°C.",
-          "prompt_en": "Water boils at 100°C.",
-          "prompt_es": "El agua hierve a 100°C."
+          "type": "mcq",
+          "prompt": "Quel type d'animal est le crocodile ?",
+          "options": [
+            "un reptile",
+            "un amphibien",
+            "un mammifère",
+            "un poisson"
+          ],
+          "answer": "un reptile",
+          "correction": "Le crocodile est un reptile.",
+          "prompt_nl": "Welk type dier is een krokodil?",
+          "prompt_en": "What type of animal is a crocodile?",
+          "prompt_es": "¿Qué tipo de animal es el cocodrilo?",
+          "options_i18n": {
+            "nl": [
+              "een reptiel",
+              "een amfibie",
+              "een zoogdier",
+              "een vis"
+            ],
+            "en": [
+              "a reptile",
+              "an amphibian",
+              "a mammal",
+              "a fish"
+            ],
+            "es": [
+              "un reptil",
+              "un anfibio",
+              "un mamífero",
+              "un pez"
+            ]
+          }
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "La photosynthèse est réalisée par :",
+          "prompt": "Quel type d'animal est la grenouille ?",
           "options": [
-            "les plantes",
-            "les animaux",
-            "les champignons",
-            "les pierres"
+            "un amphibien",
+            "un reptile",
+            "un poisson",
+            "un insecte"
           ],
-          "answer": "les plantes",
-          "correction": "Les plantes font la photosynthèse.",
-          "prompt_nl": "Fotosynthese wordt uitgevoerd door:",
-          "prompt_en": "Photosynthesis is carried out by:",
-          "prompt_es": "La fotosintesis la realizan:",
+          "answer": "un amphibien",
+          "correction": "La grenouille est un amphibien.",
+          "prompt_nl": "Welk type dier is een kikker?",
+          "prompt_en": "What type of animal is a frog?",
+          "prompt_es": "¿Qué tipo de animal es la rana?",
           "options_i18n": {
             "nl": [
-              "de planten",
-              "de dieren",
-              "de schimmels",
-              "de stenen"
+              "een amfibie",
+              "een reptiel",
+              "een vis",
+              "een insect"
             ],
             "en": [
-              "plants",
-              "animals",
-              "fungi",
-              "stones"
+              "an amphibian",
+              "a reptile",
+              "a fish",
+              "an insect"
             ],
             "es": [
-              "las plantas",
-              "los animales",
-              "los hongos",
-              "las piedras"
+              "un anfibio",
+              "un reptil",
+              "un pez",
+              "un insecto"
             ]
           }
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "prompt": "Quel type d'animal est l'aigle ?",
           "options": [
-            "Mercure",
-            "Vénus",
-            "Terre",
-            "Mars"
+            "un oiseau",
+            "un reptile",
+            "un mammifère",
+            "un insecte"
           ],
-          "answer": "Mercure",
-          "correction": "Mercure est la planète la plus proche du Soleil.",
-          "prompt_nl": "Welke planeet staat het dichtst bij de Zon?",
-          "prompt_en": "Which planet is closest to the Sun?",
-          "prompt_es": "Que planeta esta mas cerca del Sol?",
+          "answer": "un oiseau",
+          "correction": "L'aigle est un oiseau (rapace).",
+          "prompt_nl": "Welk type dier is een adelaar?",
+          "prompt_en": "What type of animal is an eagle?",
+          "prompt_es": "¿Qué tipo de animal es el águila?",
           "options_i18n": {
             "nl": [
-              "Mercurius",
-              "Venus",
-              "Aarde",
-              "Mars"
+              "een vogel",
+              "een reptiel",
+              "een zoogdier",
+              "een insect"
             ],
             "en": [
-              "Mercury",
-              "Venus",
-              "Earth",
-              "Mars"
+              "a bird",
+              "a reptile",
+              "a mammal",
+              "an insect"
             ],
             "es": [
-              "Mercurio",
-              "Venus",
-              "Tierra",
-              "Marte"
+              "un ave",
+              "un reptil",
+              "un mamífero",
+              "un insecto"
             ]
           }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "Combien de pattes a une fourmi ?",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "6",
+            "8",
+            "10",
+            "4"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
+          "answer": "6",
+          "correction": "Une fourmi a 6 pattes (comme tous les insectes).",
+          "prompt_nl": "Hoeveel poten heeft een mier?",
+          "prompt_en": "How many legs does an ant have?",
+          "prompt_es": "¿Cuántas patas tiene una hormiga?",
           "options_i18n": {
             "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
+              "6",
+              "8",
+              "10",
+              "4"
             ],
             "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
+              "6",
+              "8",
+              "10",
+              "4"
             ],
             "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
+              "6",
+              "8",
+              "10",
+              "4"
             ]
           }
         }
@@ -281,308 +307,360 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Les fleurs servent principalement à :",
+          "prompt": "Quel est le nom de la force qui s'oppose au mouvement par frottement ?",
           "options": [
-            "la reproduction de la plante",
-            "nourrir les insectes",
-            "produire de l'oxygène",
-            "ancrer la plante"
+            "la friction",
+            "la gravité",
+            "l'inertie",
+            "la tension"
           ],
-          "answer": "la reproduction de la plante",
-          "correction": "Les fleurs permettent la reproduction de la plante grâce à la pollinisation.",
-          "prompt_nl": "Bloemen dienen voornamelijk voor:",
-          "prompt_en": "Flowers are mainly for:",
-          "prompt_es": "Las flores sirven principalmente para:",
+          "answer": "la friction",
+          "correction": "La friction (frottement) s'oppose au mouvement.",
+          "prompt_nl": "Hoe heet de kracht die beweging door wrijving tegengaat?",
+          "prompt_en": "What is the force opposing motion by friction?",
+          "prompt_es": "¿Cómo se llama la fuerza que se opone al movimiento por rozamiento?",
           "options_i18n": {
             "nl": [
-              "de voortplanting van de plant",
-              "insecten voeden",
-              "zuurstof produceren",
-              "de plant verankeren"
+              "de wrijving",
+              "de zwaartekracht",
+              "de traagheid",
+              "de spanning"
             ],
             "en": [
-              "plant reproduction",
-              "feeding insects",
-              "producing oxygen",
-              "anchoring the plant"
+              "friction",
+              "gravity",
+              "inertia",
+              "tension"
             ],
             "es": [
-              "la reproduccion de la planta",
-              "alimentar insectos",
-              "producir oxigeno",
-              "anclar la planta"
+              "la fricción",
+              "la gravedad",
+              "la inercia",
+              "la tensión"
             ]
           }
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Un invertébré est un animal sans :",
+          "prompt": "Quel type d'énergie est libérée lors d'une explosion chimique ?",
           "options": [
-            "colonne vertébrale",
-            "pattes",
-            "yeux",
-            "sang"
+            "l'énergie chimique convertie en chaleur et lumière",
+            "l'énergie nucléaire",
+            "l'énergie cinétique pure",
+            "l'énergie solaire"
           ],
-          "answer": "colonne vertébrale",
-          "correction": "Un invertébré n'a pas de colonne vertébrale.",
-          "prompt_nl": "Een ongewerveld dier heeft geen:",
-          "prompt_en": "An invertebrate has no:",
-          "prompt_es": "Un invertebrado no tiene:",
+          "answer": "l'énergie chimique convertie en chaleur et lumière",
+          "correction": "Une explosion libère de l'énergie chimique sous forme de chaleur et lumière.",
+          "prompt_nl": "Welk type energie komt vrij bij een chemische explosie?",
+          "prompt_en": "Which energy is released in a chemical explosion?",
+          "prompt_es": "¿Qué energía se libera en una explosión química?",
           "options_i18n": {
             "nl": [
-              "wervelkolom",
-              "poten",
-              "ogen",
-              "bloed"
+              "chemische energie omgezet in warmte en licht",
+              "kernenergie",
+              "pure kinetische energie",
+              "zonne-energie"
             ],
             "en": [
-              "backbone",
-              "legs",
-              "eyes",
-              "blood"
+              "chemical energy converted to heat and light",
+              "nuclear energy",
+              "pure kinetic energy",
+              "solar energy"
             ],
             "es": [
-              "columna vertebral",
-              "patas",
-              "ojos",
-              "sangre"
+              "energía química convertida en calor y luz",
+              "energía nuclear",
+              "energía cinética pura",
+              "energía solar"
             ]
           }
         },
         {
           "id": "q3",
-          "type": "true_false",
-          "prompt": "L'aimant attire les objets en métal.",
-          "answer": true,
-          "correction": "Un aimant attire le fer et certains autres métaux.",
-          "prompt_nl": "Een magneet trekt metalen voorwerpen aan.",
-          "prompt_en": "A magnet attracts metal objects.",
-          "prompt_es": "El iman atrae objetos de metal."
+          "type": "mcq",
+          "prompt": "Quel est le rôle des poumons dans le corps humain ?",
+          "options": [
+            "permettre les échanges gazeux (O₂ / CO₂)",
+            "pomper le sang",
+            "filtrer le sang",
+            "digérer les aliments"
+          ],
+          "answer": "permettre les échanges gazeux (O₂ / CO₂)",
+          "correction": "Les poumons permettent les échanges gazeux.",
+          "prompt_nl": "Wat is de rol van de longen?",
+          "prompt_en": "What is the role of the lungs?",
+          "prompt_es": "¿Cuál es el papel de los pulmones?",
+          "options_i18n": {
+            "nl": [
+              "gaswisseling mogelijk maken (O₂/CO₂)",
+              "bloed pompen",
+              "bloed filteren",
+              "voedsel verteren"
+            ],
+            "en": [
+              "allow gas exchange (O₂/CO₂)",
+              "pump blood",
+              "filter blood",
+              "digest food"
+            ],
+            "es": [
+              "permitir el intercambio gaseoso (O₂/CO₂)",
+              "bombear sangre",
+              "filtrar sangre",
+              "digerir alimentos"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La Terre fait le tour du Soleil en :",
+          "prompt": "Quel type de liaison permet aux atomes de partager des électrons ?",
           "options": [
-            "un an",
-            "un mois",
-            "une semaine",
-            "un jour"
+            "la liaison covalente",
+            "la liaison ionique",
+            "la liaison hydrogène",
+            "la liaison métallique"
           ],
-          "answer": "un an",
-          "correction": "La Terre met environ 365 jours (un an) pour tourner autour du Soleil.",
-          "prompt_nl": "De Aarde doet er ___ over om de Zon te omcirkelen:",
-          "prompt_en": "The Earth takes ___ to go around the Sun:",
-          "prompt_es": "La Tierra tarda ___ en dar la vuelta al Sol:",
+          "answer": "la liaison covalente",
+          "correction": "La liaison covalente = partage d'électrons.",
+          "prompt_nl": "Welk type binding laat atomen elektronen delen?",
+          "prompt_en": "Which bond allows atoms to share electrons?",
+          "prompt_es": "¿Qué tipo de enlace permite a los átomos compartir electrones?",
           "options_i18n": {
             "nl": [
-              "een jaar",
-              "een maand",
-              "een week",
-              "een dag"
+              "covalente binding",
+              "ionische binding",
+              "waterstofbinding",
+              "metallische binding"
             ],
             "en": [
-              "one year",
-              "one month",
-              "one week",
-              "one day"
+              "covalent bond",
+              "ionic bond",
+              "hydrogen bond",
+              "metallic bond"
             ],
             "es": [
-              "un ano",
-              "un mes",
-              "una semana",
-              "un dia"
+              "el enlace covalente",
+              "el enlace iónico",
+              "el enlace de hidrógeno",
+              "el enlace metálico"
             ]
           }
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Quel animal produit du miel ?",
+          "prompt": "Quelle unité mesure la pression atmosphérique ?",
           "options": [
-            "l'abeille",
-            "la fourmi",
-            "le ver",
-            "le papillon"
+            "le pascal (Pa) ou hectopascal (hPa)",
+            "le newton",
+            "le joule",
+            "le watt"
           ],
-          "answer": "l'abeille",
-          "correction": "L'abeille produit du miel dans la ruche.",
-          "prompt_nl": "Welk dier produceert honing?",
-          "prompt_en": "Which animal produces honey?",
-          "prompt_es": "Que animal produce miel?",
+          "answer": "le pascal (Pa) ou hectopascal (hPa)",
+          "correction": "La pression se mesure en pascals.",
+          "prompt_nl": "Welke eenheid meet de luchtdruk?",
+          "prompt_en": "Which unit measures atmospheric pressure?",
+          "prompt_es": "¿Qué unidad mide la presión atmosférica?",
           "options_i18n": {
             "nl": [
-              "de bij",
-              "de mier",
-              "de worm",
-              "de vlinder"
+              "de pascal (Pa) of hectopascal (hPa)",
+              "de newton",
+              "de joule",
+              "de watt"
             ],
             "en": [
-              "the bee",
-              "the ant",
-              "the worm",
-              "the butterfly"
+              "pascal (Pa) or hectopascal (hPa)",
+              "newton",
+              "joule",
+              "watt"
             ],
             "es": [
-              "la abeja",
-              "la hormiga",
-              "el gusano",
-              "la mariposa"
+              "el pascal (Pa) o hectopascal (hPa)",
+              "el newton",
+              "el julio",
+              "el vatio"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour goûter ?",
+          "prompt": "Qu'est-ce qu'un isotope ?",
           "options": [
-            "le goût",
-            "l'odorat",
-            "la vue",
-            "le toucher"
+            "un atome du même élément avec un nombre différent de neutrons",
+            "un atome avec un nombre différent de protons",
+            "une molécule",
+            "un ion négatif"
           ],
-          "answer": "le goût",
-          "correction": "On goûte avec la langue (le goût).",
-          "prompt_nl": "Welk zintuig gebruik je om te proeven?",
-          "prompt_en": "Which sense is used for tasting?",
-          "prompt_es": "Que sentido usas para saborear?",
+          "answer": "un atome du même élément avec un nombre différent de neutrons",
+          "correction": "Les isotopes ont le même nombre de protons mais des neutrons différents.",
+          "prompt_nl": "Wat is een isotoop?",
+          "prompt_en": "What is an isotope?",
+          "prompt_es": "¿Qué es un isótopo?",
           "options_i18n": {
             "nl": [
-              "de smaak",
-              "de reuk",
-              "het zicht",
-              "het gevoel"
+              "een atoom van hetzelfde element met een ander aantal neutronen",
+              "een atoom met een ander aantal protonen",
+              "een molecuul",
+              "een negatief ion"
             ],
             "en": [
-              "taste",
-              "smell",
-              "sight",
-              "touch"
+              "an atom of the same element with a different number of neutrons",
+              "an atom with a different number of protons",
+              "a molecule",
+              "a negative ion"
             ],
             "es": [
-              "el gusto",
-              "el olfato",
-              "la vista",
-              "el tacto"
+              "un átomo del mismo elemento con diferente número de neutrones",
+              "un átomo con diferente número de protones",
+              "una molécula",
+              "un ion negativo"
             ]
           }
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Les os de notre corps forment :",
+          "prompt": "Quel type de microscope permet de voir des atomes ?",
           "options": [
-            "le squelette",
-            "les muscles",
-            "les nerfs",
-            "les vaisseaux"
+            "le microscope électronique",
+            "le microscope optique",
+            "le télescope",
+            "le microscope à lumière"
           ],
-          "answer": "le squelette",
-          "correction": "L'ensemble des os forme le squelette.",
-          "prompt_nl": "De botten van ons lichaam vormen:",
-          "prompt_en": "The bones of our body form:",
-          "prompt_es": "Los huesos de nuestro cuerpo forman:",
+          "answer": "le microscope électronique",
+          "correction": "Le microscope électronique peut voir des atomes.",
+          "prompt_nl": "Welk type microscoop laat het zien van atomen toe?",
+          "prompt_en": "Which type of microscope allows seeing atoms?",
+          "prompt_es": "¿Qué tipo de microscopio permite ver átomos?",
           "options_i18n": {
             "nl": [
-              "het skelet",
-              "de spieren",
-              "de zenuwen",
-              "de vaten"
+              "de elektronenmicroscoop",
+              "de lichtmicroscoop",
+              "de telescoop",
+              "de optische microscoop"
             ],
             "en": [
-              "the skeleton",
-              "the muscles",
-              "the nerves",
-              "the vessels"
+              "the electron microscope",
+              "the optical microscope",
+              "the telescope",
+              "the light microscope"
             ],
             "es": [
-              "el esqueleto",
-              "los musculos",
-              "los nervios",
-              "los vasos"
+              "el microscopio electrónico",
+              "el microscopio óptico",
+              "el telescopio",
+              "el microscopio de luz"
             ]
           }
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Les requins sont des poissons.",
-          "answer": true,
-          "correction": "Les requins sont des poissons cartilagineux.",
-          "prompt_nl": "Haaien zijn vissen.",
-          "prompt_en": "Sharks are fish.",
-          "prompt_es": "Los tiburones son peces."
+          "type": "mcq",
+          "prompt": "Quelle structure dans les cellules contient l'ADN ?",
+          "options": [
+            "le noyau",
+            "la mitochondrie",
+            "le ribosome",
+            "la membrane cellulaire"
+          ],
+          "answer": "le noyau",
+          "correction": "Le noyau contient l'ADN.",
+          "prompt_nl": "Welke structuur in cellen bevat DNA?",
+          "prompt_en": "Which cell structure contains DNA?",
+          "prompt_es": "¿Qué estructura celular contiene el ADN?",
+          "options_i18n": {
+            "nl": [
+              "de kern",
+              "de mitochondrie",
+              "het ribosoom",
+              "het celmembraan"
+            ],
+            "en": [
+              "the nucleus",
+              "the mitochondrion",
+              "the ribosome",
+              "the cell membrane"
+            ],
+            "es": [
+              "el núcleo",
+              "la mitocondria",
+              "el ribosoma",
+              "la membrana celular"
+            ]
+          }
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Le vent est un déplacement de :",
+          "prompt": "Quel est le nom des bactéries qui fixent l'azote atmosphérique ?",
           "options": [
-            "l'air",
-            "l'eau",
-            "la terre",
-            "la vapeur"
+            "les bactéries fixatrices d'azote (ex. Rhizobium)",
+            "les bactéries lactiques",
+            "les bactéries pathogènes",
+            "les cyanobactéries"
           ],
-          "answer": "l'air",
-          "correction": "Le vent est causé par le déplacement des masses d'air.",
-          "prompt_nl": "Wind is een verplaatsing van:",
-          "prompt_en": "Wind is a movement of:",
-          "prompt_es": "El viento es un desplazamiento de:",
+          "answer": "les bactéries fixatrices d'azote (ex. Rhizobium)",
+          "correction": "Rhizobium fixe l'azote atmosphérique.",
+          "prompt_nl": "Hoe heten de bacteriën die stikstof fixeren?",
+          "prompt_en": "What are the bacteria that fix atmospheric nitrogen called?",
+          "prompt_es": "¿Cómo se llaman las bacterias que fijan el nitrógeno atmosférico?",
           "options_i18n": {
             "nl": [
-              "lucht",
-              "water",
-              "aarde",
-              "stoom"
+              "stikstoffixerende bacteriën (bv. Rhizobium)",
+              "melkzuurbacteriën",
+              "ziekteverwekkende bacteriën",
+              "cyanobacteriën"
             ],
             "en": [
-              "air",
-              "water",
-              "earth",
-              "vapour"
+              "nitrogen-fixing bacteria (e.g. Rhizobium)",
+              "lactic acid bacteria",
+              "pathogenic bacteria",
+              "cyanobacteria"
             ],
             "es": [
-              "aire",
-              "agua",
-              "tierra",
-              "vapor"
+              "bacterias fijadoras de nitrógeno (ej. Rhizobium)",
+              "bacterias lácticas",
+              "bacterias patógenas",
+              "cianobacterias"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le printemps suit :",
+          "prompt": "Qu'est-ce que la photosynthèse utilise comme source d'énergie ?",
           "options": [
-            "l'hiver",
-            "l'été",
-            "l'automne",
-            "la nuit"
+            "la lumière du soleil",
+            "l'eau",
+            "le CO₂",
+            "les minéraux"
           ],
-          "answer": "l'hiver",
-          "correction": "Les saisons : hiver → printemps → été → automne.",
-          "prompt_nl": "De lente volgt op:",
-          "prompt_en": "Spring comes after:",
-          "prompt_es": "La primavera sigue a:",
+          "answer": "la lumière du soleil",
+          "correction": "La photosynthèse utilise la lumière du soleil.",
+          "prompt_nl": "Welke energiebron gebruikt fotosynthese?",
+          "prompt_en": "What energy source does photosynthesis use?",
+          "prompt_es": "¿Qué fuente de energía usa la fotosíntesis?",
           "options_i18n": {
             "nl": [
-              "de winter",
-              "de zomer",
-              "de herfst",
-              "de nacht"
+              "zonlicht",
+              "water",
+              "CO₂",
+              "mineralen"
             ],
             "en": [
-              "winter",
-              "summer",
-              "autumn",
-              "night"
+              "sunlight",
+              "water",
+              "CO₂",
+              "minerals"
             ],
             "es": [
-              "el invierno",
-              "el verano",
-              "el otono",
-              "la noche"
+              "la luz solar",
+              "el agua",
+              "el CO₂",
+              "los minerales"
             ]
           }
         }

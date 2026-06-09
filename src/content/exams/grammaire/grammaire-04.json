@@ -36,51 +36,56 @@
           "correction": "Pluriel régulier : des bals."
         },
         {
-          "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Le pluriel de « un chien » est « des ___ ».",
-          "answer": "chiens",
-          "accept": [
-            "chiens"
+          "type": "mcq",
+          "prompt": "« Y a-t-il un problème ? » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "correction": "On ajoute un « s »."
+          "answer": "interrogative",
+          "correction": "« Y a-t-il un problème ? » est une phrase : → interrogative.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "« vite » est un :",
+          "prompt": "« Quel délice ! » est une phrase :",
           "options": [
-            "adverbe",
-            "adjectif",
-            "nom",
-            "verbe"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "adverbe",
-          "correction": "vite = adverbe (comment ?)."
+          "answer": "exclamative",
+          "correction": "« Quel délice ! » est une phrase : → exclamative.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "« Êtes-vous d'accord ? » est une phrase :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "interrogative",
+          "correction": "« Êtes-vous d'accord ? » est une phrase : → interrogative.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "L'imparfait de « être » (il) est :",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "il était",
+            "il est",
+            "il sera",
+            "il a été"
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "il était",
+          "correction": "L'imparfait de « être » (il) est : → il était.",
+          "id": "q12"
         },
         {
           "id": "q14",
@@ -112,124 +117,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Dans « Lena mange une pomme », le COD est :",
+          "prompt": "« Assieds-toi ! » est une phrase :",
           "options": [
-            "une pomme",
-            "Lena",
-            "mange"
-          ],
-          "answer": "une pomme",
-          "correction": "COD : quoi ? → une pomme."
-        },
-        {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Dans « Paul parle à sa mère », le COI est :",
-          "options": [
-            "à sa mère",
-            "Paul",
-            "parle"
-          ],
-          "answer": "à sa mère",
-          "correction": "COI : à qui ? → à sa mère."
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "La forme féminine de « joli » est :",
-          "options": [
-            "jolie",
-            "jolis",
-            "jolies"
-          ],
-          "answer": "jolie",
-          "correction": "Féminin singulier : jolie."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "La forme féminine de « grand » est :",
-          "options": [
-            "grande",
-            "grands",
-            "grand"
-          ],
-          "answer": "grande",
-          "correction": "Féminin : grande."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
-          "options": [
+            "déclarative",
             "interrogative",
-            "exclamative",
-            "déclarative"
+            "impérative",
+            "exclamative"
           ],
-          "answer": "interrogative",
-          "correction": "Elle pose une question : phrase interrogative."
+          "answer": "impérative",
+          "correction": "« Assieds-toi ! » est une phrase : → impérative.",
+          "id": "q1"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "« Quel beau tableau ! » est une phrase :",
+          "prompt": "Le pluriel de « un vitrail » est :",
           "options": [
-            "exclamative",
+            "des vitraux",
+            "des vitrails",
+            "des vitrale",
+            "des vitrailx"
+          ],
+          "answer": "des vitraux",
+          "correction": "Le pluriel de « un vitrail » est : → des vitraux.",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le féminin de « prince » est :",
+          "options": [
+            "princesse",
+            "princette",
+            "princine",
+            "princère"
+          ],
+          "answer": "princesse",
+          "correction": "Le féminin de « prince » est : → princesse.",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La forme correcte de « avoir (nous, présent) » est :",
+          "options": [
+            "nous avons",
+            "nous avez",
+            "nous avons",
+            "nous avions"
+          ],
+          "answer": "nous avons",
+          "correction": "La forme correcte de « avoir (nous, présent) » est : → nous avons.",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Dans « Des livres intéressants », l'adjectif correctement accordé est :",
+          "options": [
+            "intéressants",
+            "intéressant",
+            "intéressante",
+            "intéressantes"
+          ],
+          "answer": "intéressants",
+          "correction": "Dans « Des livres intéressants », l'adjectif correctement accordé est : → intéressants.",
+          "id": "q9"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Répète ta leçon. » est une phrase :",
+          "options": [
+            "déclarative",
             "interrogative",
-            "impérative"
+            "impérative",
+            "exclamative"
           ],
-          "answer": "exclamative",
-          "correction": "Elle exprime une émotion : phrase exclamative."
+          "answer": "impérative",
+          "correction": "« Répète ta leçon. » est une phrase : → impérative.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
+          "prompt": "« Le ciel est nuageux. » est une phrase :",
           "options": [
-            "COI",
-            "COD",
-            "sujet"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "COI",
-          "correction": "Lui = à lui/à elle → COI."
+          "answer": "déclarative",
+          "correction": "« Le ciel est nuageux. » est une phrase : → déclarative.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "prompt": "La conjugaison correcte de « aller (nous, futur) » est :",
           "options": [
-            "des chevaux joyeux",
-            "des chevals joyeux",
-            "des cheval joyeux"
+            "nous irons",
+            "nous allerons",
+            "nous irons",
+            "nous allons"
           ],
-          "answer": "des chevaux joyeux",
-          "correction": "Pluriel de cheval → chevaux."
+          "answer": "nous irons",
+          "correction": "La conjugaison correcte de « aller (nous, futur) » est : → nous irons.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "prompt": "La conjugaison correcte de « tenir (nous, présent) » est :",
           "options": [
-            "un complément d'objet direct",
-            "un COI",
-            "le sujet"
+            "nous tenons",
+            "nous tenez",
+            "nous tenons",
+            "nous teniez"
           ],
-          "answer": "un complément d'objet direct",
-          "correction": "Le = COD."
+          "answer": "nous tenons",
+          "correction": "La conjugaison correcte de « tenir (nous, présent) » est : → nous tenons.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "prompt": "Le pluriel de « un dos » est :",
           "options": [
-            "Il dit qu'il mange.",
-            "Il dit que je mange.",
-            "Il dit qu'il a mangé."
+            "des dos",
+            "des dose",
+            "des doss",
+            "des daux"
           ],
-          "answer": "Il dit qu'il mange.",
-          "correction": "Discours indirect au présent."
+          "answer": "des dos",
+          "correction": "Le pluriel de « un dos » est : → des dos.",
+          "id": "q19"
         }
       ]
     },

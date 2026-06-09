@@ -14,33 +14,38 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
+          "prompt": "Combien de secondes dure une minute ?",
           "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
+            "60",
+            "100",
+            "30"
           ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
+          "answer": "60",
+          "correction": "1 minute = 60 secondes."
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "type": "mcq",
+          "prompt": "Quel mois arrive après octobre ?",
+          "options": [
+            "novembre",
+            "décembre",
+            "septembre"
+          ],
+          "answer": "novembre",
+          "correction": "Après octobre vient novembre."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "Pendant quelle saison la chaleur est-elle la plus forte ?",
           "options": [
-            "décembre",
-            "juillet",
-            "mars"
+            "l'été",
+            "le printemps",
+            "l'hiver"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "l'été",
+          "correction": "C'est en été qu'il fait le plus chaud."
         },
         {
           "id": "q8",
@@ -57,50 +62,50 @@
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Quel jour suit vendredi dans la semaine ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "samedi",
+            "dimanche",
+            "jeudi"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "samedi",
+          "correction": "Après vendredi vient samedi."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Quel est le 3e mois de l'année civile ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "mars",
+            "avril",
+            "février"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "mars",
+          "correction": "Mars est le 3e mois."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "Combien d'heures compte un jour complet ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "24",
+            "12",
+            "48"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "24",
+          "correction": "Un jour = 24 heures."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Quel mois suit directement juillet ?",
           "options": [
-            "12",
-            "10",
-            "7"
+            "août",
+            "juin",
+            "septembre"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "août",
+          "correction": "Après juillet vient août."
         }
       ]
     },
@@ -220,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Paul est né en 2010. En 2026, quel âge a-t-il ?",
+          "prompt": "En quelle période débute le printemps dans l'hémisphère nord ?",
           "options": [
-            "14",
-            "15",
-            "16",
-            "17"
+            "mars",
+            "janvier",
+            "juin"
           ],
-          "answer": "16",
-          "correction": "2026 − 2010 = 16 ans."
+          "answer": "mars",
+          "correction": "Le printemps commence en mars."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Une maîtresse est née en 1985. En 2025, quel âge a-t-elle ?",
+          "prompt": "Quelle saison se situe entre l'été et l'hiver ?",
           "options": [
-            "38",
-            "39",
-            "40",
-            "41"
+            "l'automne",
+            "le printemps",
+            "il n'y en a pas"
           ],
-          "answer": "40",
-          "correction": "2025 − 1985 = 40 ans."
+          "answer": "l'automne",
+          "correction": "L'automne est entre l'été et l'hiver."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Tom est né en septembre 2017. En septembre 2026, quel âge aura-t-il ?",
+          "prompt": "Quel jour suit dimanche dans la semaine ?",
           "options": [
-            "7",
-            "8",
-            "9",
-            "10"
+            "lundi",
+            "samedi",
+            "mardi"
           ],
-          "answer": "9",
-          "correction": "2026 − 2017 = 9 ans."
+          "answer": "lundi",
+          "correction": "Après dimanche recommence lundi."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Combien de jours y a-t-il dans le mois de février d'une année bissextile ?",
+          "prompt": "Quel est le 9e mois de l'année civile ?",
           "options": [
-            "27",
-            "28",
-            "29",
-            "30"
+            "septembre",
+            "août",
+            "octobre"
           ],
-          "answer": "29",
-          "correction": "En année bissextile, février a 29 jours."
+          "answer": "septembre",
+          "correction": "Septembre est le 9e mois."
         },
         {
           "id": "dq5",

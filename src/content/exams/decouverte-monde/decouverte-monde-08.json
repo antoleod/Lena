@@ -14,38 +14,38 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "Quel phénomène météorologique s'accompagne d'éclairs et de tonnerre ?",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "l'orage",
+            "la neige",
+            "le brouillard"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "answer": "l'orage",
+          "correction": "L'orage s'accompagne d'éclairs."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Quel mouvement de la Terre explique l'alternance jour/nuit ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "sa rotation sur elle-même",
+            "sa révolution autour du Soleil",
+            "la position de la Lune"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "sa rotation sur elle-même",
+          "correction": "La rotation de la Terre explique jour et nuit."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Dans quel milieu vivent les poissons ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "dans l'eau",
+            "dans les arbres",
+            "sous la terre"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "dans l'eau",
+          "correction": "Les poissons vivent dans l'eau."
         },
         {
           "id": "q8",
@@ -62,38 +62,38 @@
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Quel animal est typique des régions arctiques (pôle Nord) ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "l'ours polaire",
+            "le manchot",
+            "le lion"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "l'ours polaire",
+          "correction": "L'ours polaire vit dans l'Arctique."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Quel animal peuple les régions antarctiques (pôle Sud) ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "le manchot",
+            "l'ours polaire",
+            "le crocodile"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "le manchot",
+          "correction": "Le manchot vit en Antarctique."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "En automne, les feuilles :",
+          "prompt": "Sur quel continent se trouve la grande savane africaine ?",
           "options": [
-            "tombent",
-            "poussent",
-            "gèlent"
+            "l'Afrique",
+            "l'Asie",
+            "l'Amérique du Sud"
           ],
-          "answer": "tombent",
-          "correction": "En automne, les feuilles tombent."
+          "answer": "l'Afrique",
+          "correction": "La savane africaine est en Afrique."
         },
         {
           "id": "q16",
@@ -115,336 +115,122 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve la Chine ?",
+          "prompt": "Sur quel continent coule l'Amazone ?",
           "options": [
-            "Asie",
-            "Europe",
-            "Afrique",
-            "Amérique"
+            "l'Amérique du Sud",
+            "l'Afrique",
+            "l'Asie"
           ],
-          "answer": "Asie",
-          "correction": "La Chine est située en Asie.",
-          "prompt_nl": "Op welk continent ligt China?",
-          "prompt_en": "On which continent is China located?",
-          "prompt_es": "En que continente se encuentra China?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Europa",
-              "Afrika",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Europe",
-              "Africa",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Europa",
-              "Africa",
-              "America"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "L'Amazone est en Amérique du Sud."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve l'Égypte ?",
+          "prompt": "Quel est le plus vaste océan de la planète ?",
           "options": [
-            "Afrique",
-            "Asie",
-            "Europe",
-            "Amérique"
+            "l'océan Pacifique",
+            "l'océan Atlantique",
+            "l'océan Indien"
           ],
-          "answer": "Afrique",
-          "correction": "L'Égypte est un pays situé en Afrique du Nord.",
-          "prompt_nl": "Op welk continent ligt Egypte?",
-          "prompt_en": "On which continent is Egypt located?",
-          "prompt_es": "En que continente se encuentra Egipto?",
-          "options_i18n": {
-            "nl": [
-              "Afrika",
-              "Azie",
-              "Europa",
-              "Amerika"
-            ],
-            "en": [
-              "Africa",
-              "Asia",
-              "Europe",
-              "America"
-            ],
-            "es": [
-              "Africa",
-              "Asia",
-              "Europa",
-              "America"
-            ]
-          }
+          "answer": "l'océan Pacifique",
+          "correction": "L'océan Pacifique est le plus grand."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Le Sahara est :",
+          "prompt": "Dans quoi met-on les déchets alimentaires pour les composter ?",
           "options": [
-            "un désert",
-            "un océan",
-            "une forêt",
-            "une montagne"
+            "le composteur",
+            "la poubelle noire",
+            "la poubelle jaune"
           ],
-          "answer": "un désert",
-          "correction": "Le Sahara est le plus grand désert chaud du monde.",
-          "prompt_nl": "De Sahara is:",
-          "prompt_en": "The Sahara is:",
-          "prompt_es": "El Sahara es:",
-          "options_i18n": {
-            "nl": [
-              "een woestijn",
-              "een oceaan",
-              "een woud",
-              "een berg"
-            ],
-            "en": [
-              "a desert",
-              "an ocean",
-              "a forest",
-              "a mountain"
-            ],
-            "es": [
-              "un desierto",
-              "un oceano",
-              "un bosque",
-              "una montana"
-            ]
-          }
+          "answer": "le composteur",
+          "correction": "Les déchets organiques vont dans le composteur."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le Nil est :",
+          "prompt": "Qu'est-ce que recycler un objet ?",
           "options": [
-            "un fleuve d'Afrique",
-            "un fleuve d'Asie",
-            "une mer",
-            "un lac"
+            "le transformer en un nouveau produit",
+            "le brûler",
+            "l'enterrer"
           ],
-          "answer": "un fleuve d'Afrique",
-          "correction": "Le Nil est le plus long fleuve d'Afrique.",
-          "prompt_nl": "De Nijl is:",
-          "prompt_en": "The Nile is:",
-          "prompt_es": "El Nilo es:",
-          "options_i18n": {
-            "nl": [
-              "een rivier in Afrika",
-              "een rivier in Azie",
-              "een zee",
-              "een meer"
-            ],
-            "en": [
-              "a river in Africa",
-              "a river in Asia",
-              "a sea",
-              "a lake"
-            ],
-            "es": [
-              "un rio de Africa",
-              "un rio de Asia",
-              "un mar",
-              "un lago"
-            ]
-          }
+          "answer": "le transformer en un nouveau produit",
+          "correction": "Recycler = transformer en nouveaux produits."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Quelle mer borde la France au sud ?",
+          "prompt": "La plupart des voitures roulent avec quel carburant ?",
           "options": [
-            "la mer Méditerranée",
-            "la mer du Nord",
-            "la mer Baltique",
-            "la mer Rouge"
+            "de l'essence ou du diesel",
+            "de l'eau",
+            "du vent"
           ],
-          "answer": "la mer Méditerranée",
-          "correction": "La mer Méditerranée borde la France au sud.",
-          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
-          "prompt_en": "Which sea borders France to the south?",
-          "prompt_es": "Que mar bordea Francia al sur?",
-          "options_i18n": {
-            "nl": [
-              "de Middellandse Zee",
-              "de Noordzee",
-              "de Oostzee",
-              "de Rode Zee"
-            ],
-            "en": [
-              "the Mediterranean Sea",
-              "the North Sea",
-              "the Baltic Sea",
-              "the Red Sea"
-            ],
-            "es": [
-              "el mar Mediterraneo",
-              "el mar del Norte",
-              "el mar Baltico",
-              "el mar Rojo"
-            ]
-          }
+          "answer": "de l'essence ou du diesel",
+          "correction": "Les voitures roulent à l'essence ou au diesel."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
+          "prompt": "Quel professionnel délivre les médicaments sur ordonnance ?",
           "options": [
-            "les Pyrénées",
-            "les Alpes",
-            "les Vosges",
-            "le Jura"
+            "le pharmacien",
+            "le médecin",
+            "le dentiste"
           ],
-          "answer": "les Pyrénées",
-          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
-          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
-          "prompt_en": "Which mountain range separates France from Spain?",
-          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
-          "options_i18n": {
-            "nl": [
-              "de Pyreneen",
-              "de Alpen",
-              "de Vogezen",
-              "de Jura"
-            ],
-            "en": [
-              "the Pyrenees",
-              "the Alps",
-              "the Vosges",
-              "the Jura"
-            ],
-            "es": [
-              "los Pirineos",
-              "los Alpes",
-              "los Vosgos",
-              "el Jura"
-            ]
-          }
+          "answer": "le pharmacien",
+          "correction": "Le pharmacien délivre les médicaments."
         },
         {
           "id": "q7",
-          "type": "true_false",
-          "prompt": "Au pôle Nord, les températures sont très froides.",
-          "answer": true,
-          "correction": "Le pôle Nord est une région arctique aux températures extrêmement basses.",
-          "prompt_nl": "Op de Noordpool zijn de temperaturen erg koud.",
-          "prompt_en": "At the North Pole, temperatures are very cold.",
-          "prompt_es": "En el Polo Norte, las temperaturas son muy frias."
+          "type": "mcq",
+          "prompt": "Sur quel continent est située l'Égypte ?",
+          "options": [
+            "l'Afrique",
+            "l'Europe",
+            "l'Asie"
+          ],
+          "answer": "l'Afrique",
+          "correction": "L'Égypte est en Afrique."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La langue officielle du Brésil est :",
+          "prompt": "Quelle substance recouvre le continent Antarctique ?",
           "options": [
-            "le portugais",
-            "l'espagnol",
-            "le français",
-            "l'anglais"
+            "la glace",
+            "des forêts",
+            "des déserts"
           ],
-          "answer": "le portugais",
-          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
-          "prompt_nl": "De officiele taal van Brazilie is:",
-          "prompt_en": "The official language of Brazil is:",
-          "prompt_es": "El idioma oficial de Brasil es:",
-          "options_i18n": {
-            "nl": [
-              "Portugees",
-              "Spaans",
-              "Frans",
-              "Engels"
-            ],
-            "en": [
-              "Portuguese",
-              "Spanish",
-              "French",
-              "English"
-            ],
-            "es": [
-              "portugues",
-              "espanol",
-              "frances",
-              "ingles"
-            ]
-          }
+          "answer": "la glace",
+          "correction": "L'Antarctique est recouvert de glace."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Quel est le plus grand océan du monde ?",
+          "prompt": "Quel sens nous permet d'identifier les couleurs ?",
           "options": [
-            "l'océan Pacifique",
-            "l'océan Atlantique",
-            "l'océan Indien",
-            "l'océan Arctique"
+            "la vue",
+            "l'ouïe",
+            "le toucher"
           ],
-          "answer": "l'océan Pacifique",
-          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
-          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
-          "prompt_en": "What is the largest ocean in the world?",
-          "prompt_es": "Cual es el oceano mas grande del mundo?",
-          "options_i18n": {
-            "nl": [
-              "de Stille Oceaan",
-              "de Atlantische Oceaan",
-              "de Indische Oceaan",
-              "de Arctische Oceaan"
-            ],
-            "en": [
-              "the Pacific Ocean",
-              "the Atlantic Ocean",
-              "the Indian Ocean",
-              "the Arctic Ocean"
-            ],
-            "es": [
-              "el oceano Pacifico",
-              "el oceano Atlantico",
-              "el oceano Indico",
-              "el oceano Artico"
-            ]
-          }
+          "answer": "la vue",
+          "correction": "On identifie les couleurs grâce à la vue."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La Tour Eiffel se trouve dans quelle ville ?",
+          "prompt": "Quel sens nous permet de percevoir la chaleur d'un objet ?",
           "options": [
-            "Paris",
-            "Lyon",
-            "Rome",
-            "Berlin"
+            "le toucher",
+            "la vue",
+            "l'ouïe"
           ],
-          "answer": "Paris",
-          "correction": "La Tour Eiffel est le monument le plus célèbre de Paris.",
-          "prompt_nl": "In welke stad staat de Eiffeltoren?",
-          "prompt_en": "In which city is the Eiffel Tower?",
-          "prompt_es": "En que ciudad esta la Torre Eiffel?",
-          "options_i18n": {
-            "nl": [
-              "Parijs",
-              "Lyon",
-              "Rome",
-              "Berlijn"
-            ],
-            "en": [
-              "Paris",
-              "Lyon",
-              "Rome",
-              "Berlin"
-            ],
-            "es": [
-              "Paris",
-              "Lyon",
-              "Roma",
-              "Berlin"
-            ]
-          }
+          "answer": "le toucher",
+          "correction": "Le toucher permet de percevoir la chaleur."
         }
       ]
     },

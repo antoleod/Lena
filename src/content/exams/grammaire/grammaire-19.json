@@ -12,96 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
-          "type": "true_false",
-          "prompt": "« manger » est un adjectif.",
-          "answer": false,
-          "correction": "« manger » est un verbe."
-        },
-        {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "« vite » est un :",
+          "prompt": "Dans « Elle prépare le dîner », le COD est :",
           "options": [
-            "adverbe",
-            "adjectif",
-            "nom",
-            "verbe"
-          ],
-          "answer": "adverbe",
-          "correction": "vite = adverbe (comment ?)."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "« chat » est un :",
-          "options": [
-            "nom",
-            "verbe",
-            "adjectif"
-          ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "« une école » est :",
-          "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
-          ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
-          "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
-          ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "« soleil » est de genre :",
-          "options": [
-            "masculin",
-            "féminin",
-            "neutre"
-          ],
-          "answer": "masculin",
-          "correction": "le soleil → masculin."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
-          "options": [
-            "grand",
-            "chien",
+            "le dîner",
+            "elle",
+            "prépare",
             "le"
           ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
+          "answer": "le dîner",
+          "correction": "Dans « Elle prépare le dîner », le COD est : → le dîner.",
+          "id": "q2"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "« Les nuages cachent le soleil. » est une phrase :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "déclarative",
+          "correction": "« Les nuages cachent le soleil. » est une phrase : → déclarative.",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "L'article partitif est :",
+          "options": [
+            "du / de la",
+            "le / la",
+            "un / une",
+            "des / les"
+          ],
+          "answer": "du / de la",
+          "correction": "L'article partitif est : → du / de la.",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La conjugaison correcte de « servir (tu, présent) » est :",
+          "options": [
+            "tu sers",
+            "tu sert",
+            "tu sers",
+            "tu serves"
+          ],
+          "answer": "tu sers",
+          "correction": "La conjugaison correcte de « servir (tu, présent) » est : → tu sers.",
+          "id": "q8"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Soyez ponctuels ! » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "impérative",
+          "correction": "« Soyez ponctuels ! » est une phrase : → impérative.",
+          "id": "q10"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Dans « Ton professeur explique. », le sujet est :",
+          "options": [
+            "Ton professeur",
+            "explique",
+            "Ton",
+            "professeur"
+          ],
+          "answer": "Ton professeur",
+          "correction": "Dans « Ton professeur explique. », le sujet est : → Ton professeur.",
+          "id": "q12"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La virgule sert à :",
+          "options": [
+            "séparer des éléments d'une liste",
+            "terminer une phrase",
+            "marquer une question",
+            "exprimer une exclamation"
+          ],
+          "answer": "séparer des éléments d'une liste",
+          "correction": "La virgule sert à : → séparer des éléments d'une liste.",
+          "id": "q14"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le temps utilisé dans « demain, il partira » est :",
+          "options": [
+            "futur simple",
+            "présent",
+            "passé composé",
+            "imparfait"
+          ],
+          "answer": "futur simple",
+          "correction": "Le temps utilisé dans « demain, il partira » est : → futur simple.",
+          "id": "q16"
         }
       ]
     },
@@ -109,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Dans « Lena mange une pomme », le COD est :",
+          "prompt": "Le pluriel de « un métal » est :",
           "options": [
-            "une pomme",
-            "Lena",
-            "mange"
+            "des métaux",
+            "des métals",
+            "des métale",
+            "des métalx"
           ],
-          "answer": "une pomme",
-          "correction": "COD : quoi ? → une pomme."
+          "answer": "des métaux",
+          "correction": "Le pluriel de « un métal » est : → des métaux.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Dans « Paul parle à sa mère », le COI est :",
+          "prompt": "Le féminin de « coiffeur » est :",
           "options": [
-            "à sa mère",
-            "Paul",
-            "parle"
+            "coiffeuse",
+            "coiffeure",
+            "coiffeusse",
+            "coiffrice"
           ],
-          "answer": "à sa mère",
-          "correction": "COI : à qui ? → à sa mère."
+          "answer": "coiffeuse",
+          "correction": "Le féminin de « coiffeur » est : → coiffeuse.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "La forme féminine de « joli » est :",
+          "prompt": "Dans « Tu réponds à la question », le COI est :",
           "options": [
-            "jolie",
-            "jolis",
-            "jolies"
+            "à la question",
+            "à la question",
+            "tu",
+            "réponds"
           ],
-          "answer": "jolie",
-          "correction": "Féminin singulier : jolie."
+          "answer": "à la question",
+          "correction": "Dans « Tu réponds à la question », le COI est : → à la question.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "La forme féminine de « grand » est :",
+          "prompt": "Dans « Une belle maison », l'adjectif correctement accordé est :",
           "options": [
-            "grande",
-            "grands",
-            "grand"
+            "belle",
+            "beau",
+            "bel",
+            "beaux"
           ],
-          "answer": "grande",
-          "correction": "Féminin : grande."
+          "answer": "belle",
+          "correction": "Dans « Une belle maison », l'adjectif correctement accordé est : → belle.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
+          "prompt": "« Quelle belle vue ! » est une phrase :",
           "options": [
+            "déclarative",
             "interrogative",
-            "exclamative",
-            "déclarative"
-          ],
-          "answer": "interrogative",
-          "correction": "Elle pose une question : phrase interrogative."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "« Quel beau tableau ! » est une phrase :",
-          "options": [
-            "exclamative",
-            "interrogative",
-            "impérative"
+            "impérative",
+            "exclamative"
           ],
           "answer": "exclamative",
-          "correction": "Elle exprime une émotion : phrase exclamative."
+          "correction": "« Quelle belle vue ! » est une phrase : → exclamative.",
+          "id": "q9"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
+          "prompt": "« Avez-vous des questions ? » est une phrase :",
           "options": [
-            "COI",
-            "COD",
-            "sujet"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "COI",
-          "correction": "Lui = à lui/à elle → COI."
+          "answer": "interrogative",
+          "correction": "« Avez-vous des questions ? » est une phrase : → interrogative.",
+          "id": "q11"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "prompt": "« Nous habitons en France. » est une phrase :",
           "options": [
-            "des chevaux joyeux",
-            "des chevals joyeux",
-            "des cheval joyeux"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des chevaux joyeux",
-          "correction": "Pluriel de cheval → chevaux."
+          "answer": "déclarative",
+          "correction": "« Nous habitons en France. » est une phrase : → déclarative.",
+          "id": "q13"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "prompt": "La conjugaison correcte de « plaindre (je, présent) » est :",
           "options": [
-            "un complément d'objet direct",
-            "un COI",
-            "le sujet"
+            "je plains",
+            "je plaint",
+            "je plains",
+            "je plaigne"
           ],
-          "answer": "un complément d'objet direct",
-          "correction": "Le = COD."
+          "answer": "je plains",
+          "correction": "La conjugaison correcte de « plaindre (je, présent) » est : → je plains.",
+          "id": "q15"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "prompt": "Le pluriel de « un héros » est :",
           "options": [
-            "Il dit qu'il mange.",
-            "Il dit que je mange.",
-            "Il dit qu'il a mangé."
+            "des héros",
+            "des héroix",
+            "des héroe",
+            "des héros"
           ],
-          "answer": "Il dit qu'il mange.",
-          "correction": "Discours indirect au présent."
+          "answer": "des héros",
+          "correction": "Le pluriel de « un héros » est : → des héros.",
+          "id": "q17"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« traverser » est un :",
+          "options": [
+            "verbe",
+            "nom",
+            "adjectif",
+            "adverbe"
+          ],
+          "answer": "verbe",
+          "correction": "« traverser » est un : → verbe.",
+          "id": "q19"
         }
       ]
     },
@@ -234,119 +256,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
+          "prompt": "Le temps utilisé dans « hier, il a mangé » est :",
           "options": [
-            "des chats",
-            "des chat",
-            "un chats"
+            "passé composé",
+            "présent",
+            "futur",
+            "imparfait"
           ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
+          "answer": "passé composé",
+          "correction": "Le temps utilisé dans « hier, il a mangé » est : → passé composé.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "La conjugaison correcte de « tenir (je, futur) » est :",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "je tiendrai",
+            "je tenais",
+            "je tiendrai",
+            "je tiendrais"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "je tiendrai",
+          "correction": "La conjugaison correcte de « tenir (je, futur) » est : → je tiendrai.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le pluriel de « un gateau » :",
+          "prompt": "« Lis ce livre. » est une phrase :",
           "options": [
-            "des gâteaux",
-            "des gâteaus",
-            "des gateau"
+            "impérative",
+            "déclarative",
+            "interrogative",
+            "exclamative"
           ],
-          "answer": "des gâteaux",
-          "correction": "Pluriel : des gâteaux."
+          "answer": "impérative",
+          "correction": "« Lis ce livre. » est une phrase : → impérative.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le pluriel de « une maison » :",
+          "prompt": "« Peux-tu m'aider ? » est une phrase :",
           "options": [
-            "des maisons",
-            "des maison",
-            "une maisons"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des maisons",
-          "correction": "Pluriel : des maisons."
+          "answer": "interrogative",
+          "correction": "« Peux-tu m'aider ? » est une phrase : → interrogative.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Le pluriel de « un oiseau » :",
+          "prompt": "La conjugaison correcte de « devoir (tu, imparfait) » est :",
           "options": [
-            "des oiseaux",
-            "des oiseau",
-            "des oiseaux"
+            "tu devais",
+            "tu dois",
+            "tu devais",
+            "tu devrais"
           ],
-          "answer": "des oiseaux",
-          "correction": "Pluriel : des oiseaux (eau → eaux)."
+          "answer": "tu devais",
+          "correction": "La conjugaison correcte de « devoir (tu, imparfait) » est : → tu devais.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "« Quelle merveille ! » est une phrase :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "exclamative",
+          "correction": "« Quelle merveille ! » est une phrase : → exclamative.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "« rouge » est un :",
+          "prompt": "Dans « Elle le regarde », « le » est un pronom :",
           "options": [
-            "adjectif",
-            "nom",
-            "verbe"
+            "COD",
+            "COI",
+            "sujet",
+            "attribut"
           ],
-          "answer": "adjectif",
-          "correction": "« rouge » décrit : adjectif."
+          "answer": "COD",
+          "correction": "Dans « Elle le regarde », « le » est un pronom : → COD.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "Le passé composé de « manger » (je) est :",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "j'ai mangé",
+            "je mangeais",
+            "je mangerai",
+            "je mange"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "j'ai mangé",
+          "correction": "Le passé composé de « manger » (je) est : → j'ai mangé.",
+          "id": "q16"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "« Nous partons demain. » est une phrase :",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "déclarative",
+          "correction": "« Nous partons demain. » est une phrase : → déclarative.",
+          "id": "q18"
         },
         {
-          "id": "q20",
-          "type": "true_false",
-          "prompt": "« manger » est un adjectif.",
-          "answer": false,
-          "correction": "« manger » est un verbe."
+          "type": "mcq",
+          "prompt": "Dans « Vous choisissez une pizza », le COD est :",
+          "options": [
+            "une pizza",
+            "vous",
+            "choisissez",
+            "une"
+          ],
+          "answer": "une pizza",
+          "correction": "Dans « Vous choisissez une pizza », le COD est : → une pizza.",
+          "id": "q20"
         }
       ]
     }

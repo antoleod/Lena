@@ -24,35 +24,43 @@
           "correction": "« un » → masculin."
         },
         {
-          "id": "q4",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
+          "type": "mcq",
+          "prompt": "Dans « Un grand oiseau vole. », le sujet est :",
+          "options": [
+            "Un grand oiseau",
+            "vole",
+            "Un",
+            "grand"
+          ],
+          "answer": "Un grand oiseau",
+          "correction": "Dans « Un grand oiseau vole. », le sujet est : → Un grand oiseau.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "« courir » est un :",
+          "prompt": "« Souris ! » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "verbe",
-          "correction": "« courir » est un verbe."
+          "answer": "impérative",
+          "correction": "« Souris ! » est une phrase : → impérative.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "« sauter » est un :",
+          "prompt": "« Les étoiles brillent la nuit. » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "verbe",
-          "correction": "« sauter » est un verbe."
+          "answer": "déclarative",
+          "correction": "« Les étoiles brillent la nuit. » est une phrase : → déclarative.",
+          "id": "q8"
         },
         {
           "id": "q10",
@@ -67,16 +75,17 @@
           "correction": "« une » → féminin."
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "« chanter » appartient au ___ groupe.",
+          "prompt": "« Rends-moi mon crayon ! » est une phrase :",
           "options": [
-            "1er",
-            "2e",
-            "3e"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "1er",
-          "correction": "chanter termine en -er : 1er groupe."
+          "answer": "impérative",
+          "correction": "« Rends-moi mon crayon ! » est une phrase : → impérative.",
+          "id": "q12"
         },
         {
           "id": "q14",
@@ -86,11 +95,17 @@
           "correction": "« manger » est un verbe."
         },
         {
-          "id": "q16",
-          "type": "true_false",
-          "prompt": "« maison » est un nom.",
-          "answer": true,
-          "correction": "« maison » est un nom."
+          "type": "mcq",
+          "prompt": "« Restez calmes ! » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "impérative",
+          "correction": "« Restez calmes ! » est une phrase : → impérative.",
+          "id": "q16"
         }
       ]
     },
@@ -98,124 +113,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Dans « Lena mange une pomme », le COD est :",
+          "prompt": "« Comment t'appelles-tu ? » est une phrase :",
           "options": [
-            "une pomme",
-            "Lena",
-            "mange"
-          ],
-          "answer": "une pomme",
-          "correction": "COD : quoi ? → une pomme."
-        },
-        {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Dans « Paul parle à sa mère », le COI est :",
-          "options": [
-            "à sa mère",
-            "Paul",
-            "parle"
-          ],
-          "answer": "à sa mère",
-          "correction": "COI : à qui ? → à sa mère."
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "La forme féminine de « joli » est :",
-          "options": [
-            "jolie",
-            "jolis",
-            "jolies"
-          ],
-          "answer": "jolie",
-          "correction": "Féminin singulier : jolie."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "La forme féminine de « grand » est :",
-          "options": [
-            "grande",
-            "grands",
-            "grand"
-          ],
-          "answer": "grande",
-          "correction": "Féminin : grande."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
-          "options": [
+            "déclarative",
             "interrogative",
-            "exclamative",
-            "déclarative"
+            "impérative",
+            "exclamative"
           ],
           "answer": "interrogative",
-          "correction": "Elle pose une question : phrase interrogative."
+          "correction": "« Comment t'appelles-tu ? » est une phrase : → interrogative.",
+          "id": "q1"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "« Quel beau tableau ! » est une phrase :",
+          "prompt": "Le pluriel de « un chapeau » est :",
           "options": [
-            "exclamative",
+            "des chapeaux",
+            "des chapeaus",
+            "des chapeau",
+            "des chapiaux"
+          ],
+          "answer": "des chapeaux",
+          "correction": "Le pluriel de « un chapeau » est : → des chapeaux.",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le féminin de « lion » est :",
+          "options": [
+            "lionne",
+            "lione",
+            "lionesse",
+            "lionne"
+          ],
+          "answer": "lionne",
+          "correction": "Le féminin de « lion » est : → lionne.",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La forme correcte de « faire (tu, présent) » est :",
+          "options": [
+            "tu fais",
+            "tu fait",
+            "tu faites",
+            "tu fais"
+          ],
+          "answer": "tu fais",
+          "correction": "La forme correcte de « faire (tu, présent) » est : → tu fais.",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Quel idiot ! » est une phrase :",
+          "options": [
+            "déclarative",
             "interrogative",
-            "impérative"
+            "impérative",
+            "exclamative"
           ],
           "answer": "exclamative",
-          "correction": "Elle exprime une émotion : phrase exclamative."
+          "correction": "« Quel idiot ! » est une phrase : → exclamative.",
+          "id": "q9"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
+          "prompt": "« Ont-ils faim ? » est une phrase :",
           "options": [
-            "COI",
-            "COD",
-            "sujet"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "COI",
-          "correction": "Lui = à lui/à elle → COI."
+          "answer": "interrogative",
+          "correction": "« Ont-ils faim ? » est une phrase : → interrogative.",
+          "id": "q11"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "prompt": "« Quel froid aujourd'hui ! » est une phrase :",
           "options": [
-            "des chevaux joyeux",
-            "des chevals joyeux",
-            "des cheval joyeux"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "des chevaux joyeux",
-          "correction": "Pluriel de cheval → chevaux."
+          "answer": "exclamative",
+          "correction": "« Quel froid aujourd'hui ! » est une phrase : → exclamative.",
+          "id": "q13"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "prompt": "La conjugaison correcte de « lire (elle, passé composé) » est :",
           "options": [
-            "un complément d'objet direct",
-            "un COI",
-            "le sujet"
+            "elle a lu",
+            "elle lisait",
+            "elle a lu",
+            "elle lut"
           ],
-          "answer": "un complément d'objet direct",
-          "correction": "Le = COD."
+          "answer": "elle a lu",
+          "correction": "La conjugaison correcte de « lire (elle, passé composé) » est : → elle a lu.",
+          "id": "q15"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
+          "prompt": "Le pluriel de « un noyau » est :",
           "options": [
-            "Il dit qu'il mange.",
-            "Il dit que je mange.",
-            "Il dit qu'il a mangé."
+            "des noyaux",
+            "des noyaus",
+            "des noyau",
+            "des noyaues"
           ],
-          "answer": "Il dit qu'il mange.",
-          "correction": "Discours indirect au présent."
+          "answer": "des noyaux",
+          "correction": "Le pluriel de « un noyau » est : → des noyaux.",
+          "id": "q17"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« lentement » est un :",
+          "options": [
+            "adverbe",
+            "nom",
+            "verbe",
+            "adjectif"
+          ],
+          "answer": "adverbe",
+          "correction": "« lentement » est un : → adverbe.",
+          "id": "q19"
         }
       ]
     },
@@ -223,21 +248,8 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Dans « le grand chien », l’adjectif est :",
-          "options": [
-            "grand",
-            "chien",
-            "le"
-          ],
-          "answer": "grand",
-          "correction": "« grand » est l’adjectif."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "« vite » est un :",
+          "prompt": "Le mot « vite » est un :",
           "options": [
             "adverbe",
             "adjectif",
@@ -245,103 +257,125 @@
             "verbe"
           ],
           "answer": "adverbe",
-          "correction": "vite = adverbe (comment ?)."
+          "correction": "Le mot « vite » est un : → adverbe.",
+          "id": "q2"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "« une école » est :",
+          "prompt": "« Dépêche-toi ! » est une phrase :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
+          "answer": "impérative",
+          "correction": "« Dépêche-toi ! » est une phrase : → impérative.",
+          "id": "q4"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le pluriel de « un bal » :",
+          "prompt": "La conjugaison correcte de « mettre (nous, imparfait) » est :",
           "options": [
-            "des bals",
-            "des baux",
-            "des balles"
+            "nous mettions",
+            "nous mettions",
+            "nous avons mis",
+            "nous mettrons"
           ],
-          "answer": "des bals",
-          "correction": "Pluriel régulier : des bals."
+          "answer": "nous mettions",
+          "correction": "La conjugaison correcte de « mettre (nous, imparfait) » est : → nous mettions.",
+          "id": "q6"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "« soleil » est de genre :",
+          "prompt": "La conjugaison correcte de « rire (je, présent) » est :",
           "options": [
-            "masculin",
-            "féminin",
-            "neutre"
+            "je ris",
+            "je rits",
+            "je ris",
+            "je rirai"
           ],
-          "answer": "masculin",
-          "correction": "le soleil → masculin."
+          "answer": "je ris",
+          "correction": "La conjugaison correcte de « rire (je, présent) » est : → je ris.",
+          "id": "q8"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "« une fleur » est :",
+          "prompt": "« ancien » est un :",
           "options": [
-            "féminin",
-            "masculin",
-            "pluriel"
-          ],
-          "answer": "féminin",
-          "correction": "« une » → féminin."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le pluriel de « un chat » :",
-          "options": [
-            "des chats",
-            "des chat",
-            "un chats"
-          ],
-          "answer": "des chats",
-          "correction": "Pluriel : des chats."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "« un livre » est :",
-          "options": [
-            "masculin",
-            "féminin",
-            "pluriel"
-          ],
-          "answer": "masculin",
-          "correction": "« un » → masculin."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "« chat » est un :",
-          "options": [
+            "adjectif",
             "nom",
             "verbe",
-            "adjectif"
+            "adverbe"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "adjectif",
+          "correction": "« ancien » est un : → adjectif.",
+          "id": "q10"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "« courir » est un :",
+          "prompt": "« Pose tes affaires ici ! » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "verbe",
-          "correction": "« courir » est un verbe."
+          "answer": "impérative",
+          "correction": "« Pose tes affaires ici ! » est une phrase : → impérative.",
+          "id": "q12"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Lequel est un pronom réfléchi ?",
+          "options": [
+            "se",
+            "le",
+            "lui",
+            "y"
+          ],
+          "answer": "se",
+          "correction": "Lequel est un pronom réfléchi ? → se.",
+          "id": "q14"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Savez-vous la réponse ? » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "interrogative",
+          "correction": "« Savez-vous la réponse ? » est une phrase : → interrogative.",
+          "id": "q16"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le féminin de « acteur » est :",
+          "options": [
+            "actrice",
+            "acteure",
+            "acteuse",
+            "acteuresse"
+          ],
+          "answer": "actrice",
+          "correction": "Le féminin de « acteur » est : → actrice.",
+          "id": "q18"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Comme le temps passe vite ! » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "exclamative",
+          "correction": "« Comme le temps passe vite ! » est une phrase : → exclamative.",
+          "id": "q20"
         }
       ]
     }

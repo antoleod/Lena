@@ -86,61 +86,6 @@
           "correction_es": "1 cm = 10 mm → 60 mm."
         },
         {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "Convertis 3 cm en mm.",
-          "answer": "30",
-          "accept": [
-            "30",
-            "30 mm"
-          ],
-          "correction": "1 cm = 10 mm → 30 mm.",
-          "prompt_nl": "Zet 3 cm om naar mm.",
-          "prompt_en": "Convert 3 cm to mm.",
-          "prompt_es": "Convierte 3 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 30 mm.",
-          "correction_en": "1 cm = 10 mm → 30 mm.",
-          "correction_es": "1 cm = 10 mm → 30 mm."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Convertis 5 cm en mm.",
-          "options": [
-            "58",
-            "47",
-            "50",
-            "54"
-          ],
-          "answer": "50",
-          "correction": "1 cm = 10 mm → 50 mm.",
-          "prompt_nl": "Zet 5 cm om naar mm.",
-          "prompt_en": "Convert 5 cm to mm.",
-          "prompt_es": "Convierte 5 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 50 mm.",
-          "correction_en": "1 cm = 10 mm → 50 mm.",
-          "correction_es": "1 cm = 10 mm → 50 mm."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "Convertis 3 cm en mm.",
-          "options": [
-            "29",
-            "34",
-            "30",
-            "31"
-          ],
-          "answer": "30",
-          "correction": "1 cm = 10 mm → 30 mm.",
-          "prompt_nl": "Zet 3 cm om naar mm.",
-          "prompt_en": "Convert 3 cm to mm.",
-          "prompt_es": "Convierte 3 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 30 mm.",
-          "correction_en": "1 cm = 10 mm → 30 mm.",
-          "correction_es": "1 cm = 10 mm → 30 mm."
-        },
-        {
           "id": "q8",
           "type": "fill_blank",
           "prompt": "Convertis 9 cm en mm.",
@@ -353,25 +298,6 @@
           "correction_es": "1 kg = 1000 g → 8000 g."
         },
         {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Convertis 8 kg en g.",
-          "options": [
-            "9374",
-            "7897",
-            "7558",
-            "8000"
-          ],
-          "answer": "8000",
-          "correction": "1 kg = 1000 g → 8000 g.",
-          "prompt_nl": "Zet 8 kg om naar g.",
-          "prompt_en": "Convert 8 kg to g.",
-          "prompt_es": "Convierte 8 kg a g.",
-          "correction_nl": "1 kg = 1000 g → 8000 g.",
-          "correction_en": "1 kg = 1000 g → 8000 g.",
-          "correction_es": "1 kg = 1000 g → 8000 g."
-        },
-        {
           "id": "q5",
           "type": "fill_blank",
           "prompt": "Convertis 7 m en cm.",
@@ -406,42 +332,6 @@
           "correction_nl": "1 kg = 1000 g → 6000 g.",
           "correction_en": "1 kg = 1000 g → 6000 g.",
           "correction_es": "1 kg = 1000 g → 6000 g."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "Convertis 8 kg en g.",
-          "options": [
-            "6660",
-            "8000",
-            "9427",
-            "8616"
-          ],
-          "answer": "8000",
-          "correction": "1 kg = 1000 g → 8000 g.",
-          "prompt_nl": "Zet 8 kg om naar g.",
-          "prompt_en": "Convert 8 kg to g.",
-          "prompt_es": "Convierte 8 kg a g.",
-          "correction_nl": "1 kg = 1000 g → 8000 g.",
-          "correction_en": "1 kg = 1000 g → 8000 g.",
-          "correction_es": "1 kg = 1000 g → 8000 g."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Convertis 8 heure(s) en minutes.",
-          "answer": "480",
-          "accept": [
-            "480",
-            "480 min"
-          ],
-          "correction": "1 h = 60 min → 480 min.",
-          "prompt_nl": "Zet 8 uur om naar minuten.",
-          "prompt_en": "Convert 8 hour(s) to minutes.",
-          "prompt_es": "Convierte 8 hora(s) a minutos.",
-          "correction_nl": "1 u = 60 min → 480 min.",
-          "correction_en": "1 h = 60 min → 480 min.",
-          "correction_es": "1 h = 60 min → 480 min."
         },
         {
           "id": "q9",

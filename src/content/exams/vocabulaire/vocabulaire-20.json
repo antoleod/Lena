@@ -12,100 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
+          "prompt": "Le contraire de « bruyant » :",
           "options": [
+            "calme",
+            "turbulent",
+            "fort",
+            "tonitruant"
+          ],
+          "answer": "calme",
+          "correction": "Le contraire de « bruyant » : → calme.",
+          "id": "q2"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « devoir » :",
+          "options": [
+            "être obligé",
+            "pouvoir",
+            "vouloir",
+            "refuser"
+          ],
+          "answer": "être obligé",
+          "correction": "Un synonyme de « devoir » : → être obligé.",
+          "id": "q4"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « monter » :",
+          "options": [
+            "descendre",
+            "sauter",
+            "marcher",
+            "courir"
+          ],
+          "answer": "descendre",
+          "correction": "Le contraire de « monter » : → descendre.",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « partager » :",
+          "options": [
+            "diviser",
+            "garder",
+            "conserver",
+            "retenir"
+          ],
+          "answer": "diviser",
+          "correction": "Un synonyme de « partager » : → diviser.",
+          "id": "q8"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « accueillir » :",
+          "options": [
+            "recevoir",
+            "refuser",
+            "rejeter",
+            "ignorer"
+          ],
+          "answer": "recevoir",
+          "correction": "Un synonyme de « accueillir » : → recevoir.",
+          "id": "q10"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « applaudir » :",
+          "options": [
+            "ovationner",
+            "huer",
+            "siffler",
+            "rejeter"
+          ],
+          "answer": "ovationner",
+          "correction": "Un synonyme de « applaudir » : → ovationner.",
+          "id": "q12"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « résister » :",
+          "options": [
+            "s'opposer",
+            "céder",
+            "capituler",
+            "abandonner"
+          ],
+          "answer": "s'opposer",
+          "correction": "Un synonyme de « résister » : → s'opposer.",
+          "id": "q14"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « heureux » :",
+          "options": [
+            "joyeux",
             "triste",
-            "content",
-            "joyeux"
+            "malheureux",
+            "morose"
           ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Un animal de la ferme :",
-          "options": [
-            "vache",
-            "lion",
-            "requin"
-          ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
-          "options": [
-            "froid",
-            "tiède",
-            "doux"
-          ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
-          "options": [
-            "sale",
-            "mouillé",
-            "neuf"
-          ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
-          "options": [
-            "faible",
-            "dur",
-            "lourd"
-          ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
-          "options": [
-            "beau",
-            "laid",
-            "vieux"
-          ],
-          "answer": "beau",
-          "correction": "joli = beau."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
-          "options": [
-            "jeune",
-            "gros",
-            "grand"
-          ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
-          "options": [
-            "petit",
-            "gros",
-            "haut"
-          ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "joyeux",
+          "correction": "Un synonyme de « heureux » : → joyeux.",
+          "id": "q16"
         }
       ]
     },
@@ -113,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Le contraire de « blanc » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "noir",
+            "gris",
+            "rouge",
+            "beige"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "noir",
+          "correction": "Le contraire de « blanc » : → noir.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « mouillé » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "sec",
+            "humide",
+            "trempé",
+            "gorgé"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "sec",
+          "correction": "Le contraire de « mouillé » : → sec.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Un synonyme de « augmenter » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "accroître",
+            "diminuer",
+            "réduire",
+            "baisser"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "accroître",
+          "correction": "Un synonyme de « augmenter » : → accroître.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « expliquer » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "clarifier",
+            "compliquer",
+            "embrouiller",
+            "confondre"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "clarifier",
+          "correction": "Un synonyme de « expliquer » : → clarifier.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « permettre » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "autoriser",
+            "interdire",
+            "empêcher",
+            "refuser"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "autoriser",
+          "correction": "Un synonyme de « permettre » : → autoriser.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « utiliser » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "employer",
+            "ignorer",
+            "négliger",
+            "gaspiller"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "employer",
+          "correction": "Un synonyme de « utiliser » : → employer.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Le contraire de « délicat » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "solide",
+            "fragile",
+            "subtil",
+            "tendre"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "solide",
+          "correction": "Le contraire de « délicat » : → solide.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « laid » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "beau",
+            "moche",
+            "horrible",
+            "affreux"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "beau",
+          "correction": "Le contraire de « laid » : → beau.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « solide » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "fragile",
+            "résistant",
+            "robuste",
+            "dur"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "fragile",
+          "correction": "Le contraire de « solide » : → fragile.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Le préfixe « pré- » dans « préparer » signifie :",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "préparer à l'avance",
+            "préparer après",
+            "préparer sans",
+            "mal préparer"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "préparer à l'avance",
+          "correction": "Le préfixe « pré- » dans « préparer » signifie : → préparer à l'avance.",
+          "id": "q19"
         }
       ]
     },
@@ -238,124 +256,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « fixer » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "attacher",
+            "détacher",
+            "libérer",
+            "lâcher"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "attacher",
+          "correction": "Un synonyme de « fixer » : → attacher.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Le contraire de « confus » :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "clair",
+            "embrouillé",
+            "flou",
+            "vague"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "clair",
+          "correction": "Le contraire de « confus » : → clair.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « approcher » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "avancer",
+            "reculer",
+            "éloigner",
+            "fuir"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "avancer",
+          "correction": "Un synonyme de « approcher » : → avancer.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Un synonyme de « nécessaire » :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "indispensable",
+            "inutile",
+            "superflu",
+            "facultatif"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "indispensable",
+          "correction": "Un synonyme de « nécessaire » : → indispensable.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "La famille de mots de « pain » contient :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "boulanger",
+            "laitier",
+            "jardinier",
+            "pêcheur"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "boulanger",
+          "correction": "La famille de mots de « pain » contient : → boulanger.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Le suffixe « -able » dans « lavable » indique :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "qui peut être lavé",
+            "qui ne peut pas être lavé",
+            "qui lave",
+            "le lavage"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "qui peut être lavé",
+          "correction": "Le suffixe « -able » dans « lavable » indique : → qui peut être lavé.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le contraire de « autoritaire » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "docile",
+            "sévère",
+            "strict",
+            "exigeant"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "docile",
+          "correction": "Le contraire de « autoritaire » : → docile.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « long » :",
+          "prompt": "Un synonyme de « obtenir » :",
           "options": [
-            "court",
-            "large",
-            "fin"
+            "acquérir",
+            "perdre",
+            "vendre",
+            "oublier"
           ],
-          "answer": "court",
-          "correction": "long ↔ court."
+          "answer": "acquérir",
+          "correction": "Un synonyme de « obtenir » : → acquérir.",
+          "id": "q16"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Un synonyme de « agréable » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "plaisant",
+            "pénible",
+            "froid",
+            "ennuyeux"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "plaisant",
+          "correction": "Un synonyme de « agréable » : → plaisant.",
+          "id": "q18"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « perdre » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "égarer",
+            "trouver",
+            "récupérer",
+            "garder"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "égarer",
+          "correction": "Un synonyme de « perdre » : → égarer.",
+          "id": "q20"
         }
       ]
     }

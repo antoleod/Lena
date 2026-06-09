@@ -343,19 +343,6 @@
           "prompt": "Emma a 20 cailloux. On lui en donne 13. Combien en a-t-Emma maintenant ?",
           "answer": "33",
           "correction": "20 + 13 = 33 cailloux."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Emma a 4 boîtes de 5 cailloux. Combien de cailloux en tout ?",
-          "options": [
-            "21",
-            "20",
-            "31",
-            "10"
-          ],
-          "answer": "20",
-          "correction": "4 �\u0014 5 = 20 cailloux."
         }
       ]
     }

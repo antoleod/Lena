@@ -14,50 +14,50 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "Quel organe nous permet de sentir les odeurs ?",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "le nez",
+            "les yeux",
+            "les oreilles"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "le nez",
+          "correction": "Le nez est l'organe de l'odorat."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Quel organe nous permet de goûter les aliments ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "la langue",
+            "le nez",
+            "les oreilles"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "la langue",
+          "correction": "La langue est l'organe du goût."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Grâce à quoi entendons-nous les sons ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "nos oreilles",
+            "nos yeux",
+            "notre nez"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "nos oreilles",
+          "correction": "On entend grâce aux oreilles."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Grâce à quoi percevons-nous le goût d'un aliment ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "la langue",
+            "le nez",
+            "les yeux"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "la langue",
+          "correction": "On goûte grâce à la langue."
         },
         {
           "id": "q10",
@@ -86,14 +86,14 @@
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "Comment s'appelle le professionnel qui soigne les malades ?",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "le médecin",
+            "le pompier",
+            "le boulanger"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "le médecin",
+          "correction": "Le médecin soigne les malades."
         },
         {
           "id": "q16",
@@ -428,117 +428,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Quel professionnel lutte contre les incendies ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "le pompier",
+            "le policier",
+            "le médecin"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "le pompier",
+          "correction": "Le pompier lutte contre les incendies."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "Qui pilote un avion commercial ?",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "le pilote",
+            "le chauffeur",
+            "le conducteur"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "le pilote",
+          "correction": "Le pilote conduit un avion."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Quel artisan bâtit les murs des maisons ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "le maçon",
+            "le plombier",
+            "le menuisier"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "le maçon",
+          "correction": "Le maçon construit les murs."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Quel moyen de transport se déplace dans les airs ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "l'avion",
+            "le bateau",
+            "le train"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "l'avion",
+          "correction": "L'avion vole dans les airs."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Quel moyen de transport navigue sur l'eau ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "le bateau",
+            "le bus",
+            "le vélo"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "le bateau",
+          "correction": "Le bateau navigue sur l'eau."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Quel moyen de transport roule sur des voies ferrées ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "le train",
+            "le bus",
+            "la moto"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "le train",
+          "correction": "Le train roule sur des rails."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Dans quelle poubelle dépose-t-on le verre usagé ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "la poubelle à verre",
+            "la poubelle jaune",
+            "la poubelle noire"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "la poubelle à verre",
+          "correction": "Le verre se recycle dans une poubelle spéciale."
         },
         {
           "id": "q16",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Quelle action simple permet d'économiser l'eau au robinet ?",
+          "options": [
+            "fermer le robinet quand on ne l'utilise pas",
+            "laisser couler l'eau",
+            "prendre de longs bains"
+          ],
+          "answer": "fermer le robinet quand on ne l'utilise pas",
+          "correction": "Fermer le robinet économise l'eau."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "À quel groupe alimentaire appartiennent les légumes et les fruits ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "fruits et légumes",
+            "produits laitiers",
+            "céréales"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "fruits et légumes",
+          "correction": "Les fruits et légumes forment leur propre groupe."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "À quel groupe alimentaire appartiennent le lait, le yaourt et le fromage ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "produits laitiers",
+            "viandes",
+            "céréales"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "produits laitiers",
+          "correction": "Lait, yaourt, fromage = produits laitiers."
         }
       ]
     }

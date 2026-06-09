@@ -14,262 +14,288 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Les plantes ont besoin de :",
+          "prompt": "Quel animal construit une toile pour attraper des insectes ?",
           "options": [
-            "lumière, eau et terre",
-            "chocolat et lait",
-            "froid et obscurité",
-            "sable et sel"
+            "l'araignée",
+            "la guêpe",
+            "l'abeille",
+            "la fourmi"
           ],
-          "answer": "lumière, eau et terre",
-          "correction": "Les plantes ont besoin de lumière, eau et terre.",
-          "prompt_nl": "Planten hebben nodig:",
-          "prompt_en": "Plants need:",
-          "prompt_es": "Las plantas necesitan:",
+          "answer": "l'araignée",
+          "correction": "L'araignée tisse une toile.",
+          "prompt_nl": "Welk dier maakt een web?",
+          "prompt_en": "Which animal builds a web?",
+          "prompt_es": "¿Qué animal teje una tela?",
           "options_i18n": {
             "nl": [
-              "licht, water en aarde",
-              "chocolade en melk",
-              "kou en duisternis",
-              "zand en zout"
+              "de spin",
+              "de wesp",
+              "de bij",
+              "de mier"
             ],
             "en": [
-              "light, water and soil",
-              "chocolate and milk",
-              "cold and darkness",
-              "sand and salt"
+              "the spider",
+              "the wasp",
+              "the bee",
+              "the ant"
             ],
             "es": [
-              "luz, agua y tierra",
-              "chocolate y leche",
-              "frio y oscuridad",
-              "arena y sal"
+              "la araña",
+              "la avispa",
+              "la abeja",
+              "la hormiga"
             ]
           }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un vertébré ?",
+          "prompt": "Quel type d'énergie produit un panneau solaire ?",
           "options": [
-            "un animal avec une colonne vertébrale",
-            "un animal avec 6 pattes",
-            "un animal qui vole",
-            "un animal aquatique"
+            "de l'électricité",
+            "de la chaleur",
+            "du son",
+            "de la lumière"
           ],
-          "answer": "un animal avec une colonne vertébrale",
-          "correction": "Un vertébré a une colonne vertébrale.",
-          "prompt_nl": "Wat is een gewerveld dier?",
-          "prompt_en": "What is a vertebrate?",
-          "prompt_es": "Que es un vertebrado?",
+          "answer": "de l'électricité",
+          "correction": "Un panneau solaire produit de l'électricité.",
+          "prompt_nl": "Welk type energie produceert een zonnepaneel?",
+          "prompt_en": "What energy does a solar panel produce?",
+          "prompt_es": "¿Qué energía produce un panel solar?",
           "options_i18n": {
             "nl": [
-              "een dier met een wervelkolom",
-              "een dier met 6 poten",
-              "een dier dat vliegt",
-              "een waterlevend dier"
+              "elektriciteit",
+              "warmte",
+              "geluid",
+              "licht"
             ],
             "en": [
-              "an animal with a backbone",
-              "an animal with 6 legs",
-              "an animal that flies",
-              "an aquatic animal"
+              "electricity",
+              "heat",
+              "sound",
+              "light"
             ],
             "es": [
-              "un animal con columna vertebral",
-              "un animal con 6 patas",
-              "un animal que vuela",
-              "un animal acuatico"
+              "electricidad",
+              "calor",
+              "sonido",
+              "luz"
             ]
           }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "L'eau en état gazeux est :",
+          "prompt": "Quel animal pond des œufs et nourrit ses petits avec du lait ?",
           "options": [
-            "la vapeur",
-            "la glace",
-            "la neige",
-            "la grêle"
+            "l'ornithorynque",
+            "le dauphin",
+            "le crocodile",
+            "l'aigle"
           ],
-          "answer": "la vapeur",
-          "correction": "L'eau gazeuse = la vapeur.",
-          "prompt_nl": "Water in gasvormige toestand is:",
-          "prompt_en": "Water in gaseous state is:",
-          "prompt_es": "El agua en estado gaseoso es:",
+          "answer": "l'ornithorynque",
+          "correction": "L'ornithorynque est un mammifère ovipare.",
+          "prompt_nl": "Welk dier legt eieren én voedt zijn jongen met melk?",
+          "prompt_en": "Which animal lays eggs and nurses young?",
+          "prompt_es": "¿Qué animal pone huevos y amamanta a sus crías?",
           "options_i18n": {
             "nl": [
-              "damp",
-              "ijs",
-              "sneeuw",
-              "hagel"
+              "het vogelbekdier",
+              "de dolfijn",
+              "de krokodil",
+              "de adelaar"
             ],
             "en": [
-              "vapour",
-              "ice",
-              "snow",
-              "hail"
+              "the platypus",
+              "the dolphin",
+              "the crocodile",
+              "the eagle"
             ],
             "es": [
-              "vapor",
-              "hielo",
-              "nieve",
-              "granizo"
+              "el ornitorrinco",
+              "el delfín",
+              "el cocodrilo",
+              "el águila"
             ]
           }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Avec quoi respire-t-on ?",
+          "prompt": "Quelle substance rend les feuilles vertes ?",
           "options": [
-            "les poumons",
-            "l'estomac",
-            "le foie",
-            "les reins"
+            "la chlorophylle",
+            "la carotène",
+            "l'anthocyane",
+            "la xanthophylle"
           ],
-          "answer": "les poumons",
-          "correction": "On respire avec les poumons.",
-          "prompt_nl": "Waarmee ademen we?",
-          "prompt_en": "What do we breathe with?",
-          "prompt_es": "Con que respiramos?",
+          "answer": "la chlorophylle",
+          "correction": "La chlorophylle est le pigment vert.",
+          "prompt_nl": "Welke stof maakt bladeren groen?",
+          "prompt_en": "What makes leaves green?",
+          "prompt_es": "¿Qué sustancia hace verdes a las hojas?",
           "options_i18n": {
             "nl": [
-              "de longen",
-              "de maag",
-              "de lever",
-              "de nieren"
+              "chlorofyl",
+              "caroteen",
+              "anthocyaan",
+              "xanthofyl"
             ],
             "en": [
-              "the lungs",
-              "the stomach",
-              "the liver",
-              "the kidneys"
+              "chlorophyll",
+              "carotene",
+              "anthocyanin",
+              "xanthophyll"
             ],
             "es": [
-              "los pulmones",
-              "el estomago",
-              "el higado",
-              "los rinones"
+              "la clorofila",
+              "el caroteno",
+              "la antocianina",
+              "la xantofila"
             ]
           }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quelle énergie vient du Soleil ?",
+          "prompt": "Quel animal construit des ruches ?",
           "options": [
-            "l'énergie solaire",
-            "l'énergie éolienne",
-            "l'énergie hydraulique",
-            "l'énergie nucléaire"
+            "l'abeille",
+            "la guêpe",
+            "le bourdon",
+            "la fourmi"
           ],
-          "answer": "l'énergie solaire",
-          "correction": "Le Soleil donne l'énergie solaire.",
-          "prompt_nl": "Welke energie komt van de Zon?",
-          "prompt_en": "Which energy comes from the Sun?",
-          "prompt_es": "Que energia proviene del Sol?",
+          "answer": "l'abeille",
+          "correction": "Les abeilles vivent dans des ruches.",
+          "prompt_nl": "Welk dier bouwt bijenkorven?",
+          "prompt_en": "Which animal builds hives?",
+          "prompt_es": "¿Qué animal construye colmenas?",
           "options_i18n": {
             "nl": [
-              "zonne-energie",
-              "windenergie",
-              "waterkrachtenergie",
-              "kernenergie"
+              "de bij",
+              "de wesp",
+              "de hommel",
+              "de mier"
             ],
             "en": [
-              "solar energy",
-              "wind energy",
-              "hydraulic energy",
-              "nuclear energy"
+              "the bee",
+              "the wasp",
+              "the bumblebee",
+              "the ant"
             ],
             "es": [
-              "energia solar",
-              "energia eolica",
-              "energia hidraulica",
-              "energia nuclear"
+              "la abeja",
+              "la avispa",
+              "el abejorro",
+              "la hormiga"
             ]
           }
         },
         {
           "id": "q12",
-          "type": "true_false",
-          "prompt": "L'eau bout à 100°C.",
-          "answer": true,
-          "correction": "L'eau bout à 100 degrés Celsius.",
-          "prompt_nl": "Water kookt bij 100°C.",
-          "prompt_en": "Water boils at 100°C.",
-          "prompt_es": "El agua hierve a 100°C."
+          "type": "mcq",
+          "prompt": "Quel est le composé chimique de l'eau ?",
+          "options": [
+            "H₂O",
+            "CO₂",
+            "O₂",
+            "NaCl"
+          ],
+          "answer": "H₂O",
+          "correction": "L'eau est H₂O.",
+          "prompt_nl": "Wat is de chemische formule van water?",
+          "prompt_en": "What is the chemical formula of water?",
+          "prompt_es": "¿Cuál es la fórmula química del agua?",
+          "options_i18n": {
+            "nl": [
+              "H₂O",
+              "CO₂",
+              "O₂",
+              "NaCl"
+            ],
+            "en": [
+              "H₂O",
+              "CO₂",
+              "O₂",
+              "NaCl"
+            ],
+            "es": [
+              "H₂O",
+              "CO₂",
+              "O₂",
+              "NaCl"
+            ]
+          }
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quelle planète est la plus proche du Soleil ?",
+          "prompt": "Quel phénomène cause les saisons sur Terre ?",
           "options": [
-            "Mercure",
-            "Vénus",
-            "Terre",
-            "Mars"
+            "l'inclinaison de l'axe terrestre",
+            "la distance au Soleil",
+            "la rotation de la Terre",
+            "la Lune"
           ],
-          "answer": "Mercure",
-          "correction": "Mercure est la planète la plus proche du Soleil.",
-          "prompt_nl": "Welke planeet staat het dichtst bij de Zon?",
-          "prompt_en": "Which planet is closest to the Sun?",
-          "prompt_es": "Que planeta esta mas cerca del Sol?",
+          "answer": "l'inclinaison de l'axe terrestre",
+          "correction": "Les saisons sont dues à l'inclinaison de l'axe.",
+          "prompt_nl": "Welk fenomeen veroorzaakt de seizoenen?",
+          "prompt_en": "What causes seasons on Earth?",
+          "prompt_es": "¿Qué provoca las estaciones?",
           "options_i18n": {
             "nl": [
-              "Mercurius",
-              "Venus",
-              "Aarde",
-              "Mars"
+              "de kanteling van de aardsas",
+              "de afstand tot de Zon",
+              "de rotatie",
+              "de Maan"
             ],
             "en": [
-              "Mercury",
-              "Venus",
-              "Earth",
-              "Mars"
+              "the tilt of Earth's axis",
+              "distance to Sun",
+              "Earth's rotation",
+              "the Moon"
             ],
             "es": [
-              "Mercurio",
-              "Venus",
-              "Tierra",
-              "Marte"
+              "la inclinación del eje",
+              "la distancia al Sol",
+              "la rotación",
+              "la Luna"
             ]
           }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel animal pond des oeufs ?",
+          "prompt": "Quel oiseau ne peut pas voler ?",
           "options": [
-            "la poule",
-            "le chat",
-            "le chien",
-            "la vache"
+            "le manchot",
+            "le perroquet",
+            "l'hirondelle",
+            "le faucon"
           ],
-          "answer": "la poule",
-          "correction": "La poule pond des oeufs.",
-          "prompt_nl": "Welk dier legt eieren?",
-          "prompt_en": "Which animal lays eggs?",
-          "prompt_es": "Que animal pone huevos?",
+          "answer": "le manchot",
+          "correction": "Le manchot ne peut pas voler.",
+          "prompt_nl": "Welke vogel kan niet vliegen?",
+          "prompt_en": "Which bird cannot fly?",
+          "prompt_es": "¿Qué ave no puede volar?",
           "options_i18n": {
             "nl": [
-              "de kip",
-              "de kat",
-              "de hond",
-              "de koe"
+              "de pinguïn",
+              "de papegaai",
+              "de zwaluw",
+              "de valk"
             ],
             "en": [
-              "the hen",
-              "the cat",
-              "the dog",
-              "the cow"
+              "the penguin",
+              "the parrot",
+              "the swallow",
+              "the falcon"
             ],
             "es": [
-              "la gallina",
-              "el gato",
-              "el perro",
-              "la vaca"
+              "el pingüino",
+              "el loro",
+              "la golondrina",
+              "el halcón"
             ]
           }
         }

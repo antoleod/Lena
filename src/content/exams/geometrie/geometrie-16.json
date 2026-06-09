@@ -14,139 +14,258 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le rectangle a :",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 4 cm ?",
           "options": [
-            "des côtés longs et courts",
-            "tous les côtés égaux",
-            "aucun côté"
+            "38 cm",
+            "60 cm",
+            "40 cm"
           ],
-          "answer": "des côtés longs et courts",
-          "correction": "Rectangle : longs et courts.",
-          "prompt_nl": "Een rechthoek heeft:",
-          "prompt_en": "A rectangle has:",
-          "prompt_es": "Un rectángulo tiene:",
-          "correction_nl": "Lange en korte zijden.",
-          "correction_en": "Long and short sides.",
-          "correction_es": "Lados largos y cortos."
+          "answer": "38 cm",
+          "correction": "Périmètre = 2 × (15 + 4) = 38 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 4 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 4 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 4 cm?",
+          "options_i18n": {
+            "nl": [
+              "38 cm",
+              "60 cm",
+              "40 cm"
+            ],
+            "en": [
+              "38 cm",
+              "60 cm",
+              "40 cm"
+            ],
+            "es": [
+              "38 cm",
+              "60 cm",
+              "40 cm"
+            ]
+          }
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "La forme ronde s’appelle le ___ .",
-          "answer": "cercle",
-          "accept": [
-            "cercle"
+          "type": "mcq",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 5 cm ?",
+          "options": [
+            "40 cm",
+            "75 cm",
+            "42 cm"
           ],
-          "correction": "C’est le cercle.",
-          "prompt_nl": "De ronde vorm heet de ___ .",
-          "prompt_en": "The round shape is called a ___ .",
-          "prompt_es": "La forma redonda se llama ___ .",
-          "correction_nl": "Het is de cirkel.",
-          "correction_en": "It is the circle.",
-          "correction_es": "Es el círculo."
+          "answer": "40 cm",
+          "correction": "Périmètre = 2 × (15 + 5) = 40 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 5 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 5 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 5 cm?",
+          "options_i18n": {
+            "nl": [
+              "40 cm",
+              "75 cm",
+              "42 cm"
+            ],
+            "en": [
+              "40 cm",
+              "75 cm",
+              "42 cm"
+            ],
+            "es": [
+              "40 cm",
+              "75 cm",
+              "42 cm"
+            ]
+          }
         },
         {
           "id": "q6",
-          "type": "true_false",
-          "prompt": "Un carré a tous ses côtés égaux.",
-          "answer": true,
-          "correction": "Oui, 4 côtés égaux.",
-          "prompt_nl": "Een vierkant heeft alle zijden gelijk.",
-          "prompt_en": "A square has all equal sides.",
-          "prompt_es": "Un cuadrado tiene todos los lados iguales.",
-          "correction_nl": "Ja, 4 gelijke zijden.",
-          "correction_en": "Yes, 4 equal sides.",
-          "correction_es": "Sí, 4 lados iguales."
+          "type": "mcq",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 6 cm ?",
+          "options": [
+            "42 cm",
+            "90 cm",
+            "44 cm"
+          ],
+          "answer": "42 cm",
+          "correction": "Périmètre = 2 × (15 + 6) = 42 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 6 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 6 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 6 cm?",
+          "options_i18n": {
+            "nl": [
+              "42 cm",
+              "90 cm",
+              "44 cm"
+            ],
+            "en": [
+              "42 cm",
+              "90 cm",
+              "44 cm"
+            ],
+            "es": [
+              "42 cm",
+              "90 cm",
+              "44 cm"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Une balle a la forme d’un :",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 7 cm ?",
           "options": [
-            "cercle",
-            "carré",
-            "triangle"
+            "44 cm",
+            "105 cm",
+            "46 cm"
           ],
-          "answer": "cercle",
-          "correction": "La balle est ronde.",
-          "prompt_nl": "Een bal heeft de vorm van een:",
-          "prompt_en": "A ball has the shape of a:",
-          "prompt_es": "Una pelota tiene forma de:",
-          "correction_nl": "Een bal is rond (cirkel).",
-          "correction_en": "A ball is round (circle).",
-          "correction_es": "Una pelota es redonda (círculo)."
+          "answer": "44 cm",
+          "correction": "Périmètre = 2 × (15 + 7) = 44 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 7 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 7 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 7 cm?",
+          "options_i18n": {
+            "nl": [
+              "44 cm",
+              "105 cm",
+              "46 cm"
+            ],
+            "en": [
+              "44 cm",
+              "105 cm",
+              "46 cm"
+            ],
+            "es": [
+              "44 cm",
+              "105 cm",
+              "46 cm"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Combien de côtés a un triangle ?",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 8 cm ?",
           "options": [
-            "3",
-            "4",
-            "5"
+            "46 cm",
+            "120 cm",
+            "48 cm"
           ],
-          "answer": "3",
-          "correction": "Le triangle a 3 côtés.",
-          "prompt_nl": "Hoeveel zijden heeft een driehoek?",
-          "prompt_en": "How many sides does a triangle have?",
-          "prompt_es": "¿Cuántos lados tiene un triángulo?",
-          "correction_nl": "Een driehoek heeft 3 zijden.",
-          "correction_en": "A triangle has 3 sides.",
-          "correction_es": "Un triángulo tiene 3 lados."
+          "answer": "46 cm",
+          "correction": "Périmètre = 2 × (15 + 8) = 46 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 8 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 8 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 8 cm?",
+          "options_i18n": {
+            "nl": [
+              "46 cm",
+              "120 cm",
+              "48 cm"
+            ],
+            "en": [
+              "46 cm",
+              "120 cm",
+              "48 cm"
+            ],
+            "es": [
+              "46 cm",
+              "120 cm",
+              "48 cm"
+            ]
+          }
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Combien de côtés a un carré ?",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 9 cm ?",
           "options": [
-            "4",
-            "3",
-            "5"
+            "48 cm",
+            "135 cm",
+            "50 cm"
           ],
-          "answer": "4",
-          "correction": "Le carré a 4 côtés égaux.",
-          "prompt_nl": "Hoeveel zijden heeft een vierkant?",
-          "prompt_en": "How many sides does a square have?",
-          "prompt_es": "¿Cuántos lados tiene un cuadrado?",
-          "correction_nl": "Een vierkant heeft 4 gelijke zijden.",
-          "correction_en": "A square has 4 equal sides.",
-          "correction_es": "Un cuadrado tiene 4 lados iguales."
+          "answer": "48 cm",
+          "correction": "Périmètre = 2 × (15 + 9) = 48 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 9 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 9 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 9 cm?",
+          "options_i18n": {
+            "nl": [
+              "48 cm",
+              "135 cm",
+              "50 cm"
+            ],
+            "en": [
+              "48 cm",
+              "135 cm",
+              "50 cm"
+            ],
+            "es": [
+              "48 cm",
+              "135 cm",
+              "50 cm"
+            ]
+          }
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quelle forme n’a pas de coin ?",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 10 cm ?",
           "options": [
-            "le cercle",
-            "le carré",
-            "le triangle"
+            "50 cm",
+            "150 cm",
+            "52 cm"
           ],
-          "answer": "le cercle",
-          "correction": "Le cercle est rond, sans coin.",
-          "prompt_nl": "Welke vorm heeft geen hoek?",
-          "prompt_en": "Which shape has no corner?",
-          "prompt_es": "¿Qué forma no tiene esquina?",
-          "correction_nl": "De cirkel is rond, zonder hoeken.",
-          "correction_en": "A circle is round, with no corners.",
-          "correction_es": "El círculo es redondo, sin esquinas."
+          "answer": "50 cm",
+          "correction": "Périmètre = 2 × (15 + 10) = 50 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 10 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 10 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 10 cm?",
+          "options_i18n": {
+            "nl": [
+              "50 cm",
+              "150 cm",
+              "52 cm"
+            ],
+            "en": [
+              "50 cm",
+              "150 cm",
+              "52 cm"
+            ],
+            "es": [
+              "50 cm",
+              "150 cm",
+              "52 cm"
+            ]
+          }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Un rectangle a combien de côtés ?",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 11 cm ?",
           "options": [
-            "4",
-            "3",
-            "6"
+            "52 cm",
+            "165 cm",
+            "54 cm"
           ],
-          "answer": "4",
-          "correction": "Le rectangle a 4 côtés.",
-          "prompt_nl": "Hoeveel zijden heeft een rechthoek?",
-          "prompt_en": "How many sides does a rectangle have?",
-          "prompt_es": "¿Cuántos lados tiene un rectángulo?",
-          "correction_nl": "Een rechthoek heeft 4 zijden.",
-          "correction_en": "A rectangle has 4 sides.",
-          "correction_es": "Un rectángulo tiene 4 lados."
+          "answer": "52 cm",
+          "correction": "Périmètre = 2 × (15 + 11) = 52 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 11 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 11 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 11 cm?",
+          "options_i18n": {
+            "nl": [
+              "52 cm",
+              "165 cm",
+              "54 cm"
+            ],
+            "en": [
+              "52 cm",
+              "165 cm",
+              "54 cm"
+            ],
+            "es": [
+              "52 cm",
+              "165 cm",
+              "54 cm"
+            ]
+          }
         }
       ]
     },
@@ -155,171 +274,323 @@
       "questions": [
         {
           "id": "q1",
-          "type": "fill_blank",
-          "prompt": "Quel est le périmètre d'un carré de 5 cm de côté ?",
-          "answer": "20 cm",
-          "accept": [
-            "20 cm",
-            "20"
+          "type": "mcq",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 12 cm ?",
+          "options": [
+            "54 cm",
+            "180 cm",
+            "56 cm"
           ],
-          "correction": "Périmètre = 4 × côté = 4 × 5 = 20 cm.",
-          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 5 cm?",
-          "prompt_en": "What is the perimeter of a square with a 5 cm side?",
-          "prompt_es": "¿Cuál es el perímetro de un cuadrado de 5 cm de lado?",
-          "correction_nl": "Omtrek = 4 × zijde = 4 × 5 = 20 cm.",
-          "correction_en": "Perimeter = 4 × side = 4 × 5 = 20 cm.",
-          "correction_es": "Perímetro = 4 × lado = 4 × 5 = 20 cm."
+          "answer": "54 cm",
+          "correction": "Périmètre = 2 × (15 + 12) = 54 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 12 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 12 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 12 cm?",
+          "options_i18n": {
+            "nl": [
+              "54 cm",
+              "180 cm",
+              "56 cm"
+            ],
+            "en": [
+              "54 cm",
+              "180 cm",
+              "56 cm"
+            ],
+            "es": [
+              "54 cm",
+              "180 cm",
+              "56 cm"
+            ]
+          }
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel est le périmètre d'un rectangle de 6 cm de long et 3 cm de large ?",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 13 cm ?",
           "options": [
-            "18 cm",
-            "9 cm",
-            "24 cm"
+            "56 cm",
+            "195 cm",
+            "58 cm"
           ],
-          "answer": "18 cm",
-          "correction": "Périmètre = 2 × (longueur + largeur) = 2 × (6 + 3) = 18 cm.",
-          "prompt_nl": "Wat is de omtrek van een rechthoek van 6 cm lang en 3 cm breed?",
-          "prompt_en": "What is the perimeter of a rectangle 6 cm long and 3 cm wide?",
-          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 6 cm de largo y 3 cm de ancho?",
-          "correction_nl": "Omtrek = 2 × (lengte + breedte) = 2 × (6 + 3) = 18 cm.",
-          "correction_en": "Perimeter = 2 × (length + width) = 2 × (6 + 3) = 18 cm.",
-          "correction_es": "Perímetro = 2 × (largo + ancho) = 2 × (6 + 3) = 18 cm."
+          "answer": "56 cm",
+          "correction": "Périmètre = 2 × (15 + 13) = 56 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 13 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 13 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 13 cm?",
+          "options_i18n": {
+            "nl": [
+              "56 cm",
+              "195 cm",
+              "58 cm"
+            ],
+            "en": [
+              "56 cm",
+              "195 cm",
+              "58 cm"
+            ],
+            "es": [
+              "56 cm",
+              "195 cm",
+              "58 cm"
+            ]
+          }
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Un rectangle a-t-il des angles droits ?",
+          "prompt": "Quel est le périmètre d'un rectangle de 15 cm sur 14 cm ?",
           "options": [
-            "oui, 4 angles droits",
-            "non, aucun angle droit",
-            "oui, 2 angles droits"
+            "58 cm",
+            "210 cm",
+            "60 cm"
           ],
-          "answer": "oui, 4 angles droits",
-          "correction": "Un rectangle a 4 angles droits (90°) aux quatre coins.",
-          "prompt_nl": "Heeft een rechthoek rechte hoeken?",
-          "prompt_en": "Does a rectangle have right angles?",
-          "prompt_es": "¿Tiene un rectángulo ángulos rectos?",
-          "correction_nl": "Een rechthoek heeft 4 rechte hoeken (90°) in de vier hoeken.",
-          "correction_en": "A rectangle has 4 right angles (90°) at its four corners.",
-          "correction_es": "Un rectángulo tiene 4 ángulos rectos (90°) en las cuatro esquinas."
+          "answer": "58 cm",
+          "correction": "Périmètre = 2 × (15 + 14) = 58 cm.",
+          "prompt_nl": "Wat is de omtrek van een rechthoek van 15 cm bij 14 cm?",
+          "prompt_en": "What is the perimeter of a rectangle 15 cm by 14 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 15 cm por 14 cm?",
+          "options_i18n": {
+            "nl": [
+              "58 cm",
+              "210 cm",
+              "60 cm"
+            ],
+            "en": [
+              "58 cm",
+              "210 cm",
+              "60 cm"
+            ],
+            "es": [
+              "58 cm",
+              "210 cm",
+              "60 cm"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Combien de paires de côtés parallèles a un rectangle ?",
+          "prompt": "Quelle est l'aire d'un rectangle de 2 cm sur 1 cm ?",
           "options": [
-            "2",
-            "0",
-            "4"
+            "2 cm²",
+            "6 cm²",
+            "4 cm²"
           ],
-          "answer": "2",
-          "correction": "Un rectangle a 2 paires de côtés parallèles : les longueurs et les largeurs.",
-          "prompt_nl": "Hoeveel paren parallelle zijden heeft een rechthoek?",
-          "prompt_en": "How many pairs of parallel sides does a rectangle have?",
-          "prompt_es": "¿Cuántos pares de lados paralelos tiene un rectángulo?",
-          "correction_nl": "Een rechthoek heeft 2 paren parallelle zijden.",
-          "correction_en": "A rectangle has 2 pairs of parallel sides.",
-          "correction_es": "Un rectángulo tiene 2 pares de lados paralelos."
+          "answer": "2 cm²",
+          "correction": "Aire = 2 × 1 = 2 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 2 cm bij 1 cm?",
+          "prompt_en": "What is the area of a rectangle 2 cm by 1 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 2 cm por 1 cm?",
+          "options_i18n": {
+            "nl": [
+              "2 cm²",
+              "6 cm²",
+              "4 cm²"
+            ],
+            "en": [
+              "2 cm²",
+              "6 cm²",
+              "4 cm²"
+            ],
+            "es": [
+              "2 cm²",
+              "6 cm²",
+              "4 cm²"
+            ]
+          }
         },
         {
           "id": "q5",
-          "type": "true_false",
-          "prompt": "Un carré est un rectangle particulier.",
-          "answer": true,
-          "correction": "Vrai : un carré est un rectangle dont tous les côtés sont égaux.",
-          "prompt_nl": "Een vierkant is een bijzondere rechthoek.",
-          "prompt_en": "A square is a special rectangle.",
-          "prompt_es": "Un cuadrado es un rectángulo especial.",
-          "correction_nl": "Waar: een vierkant is een rechthoek waarvan alle zijden gelijk zijn.",
-          "correction_en": "True: a square is a rectangle with all equal sides.",
-          "correction_es": "Verdadero: un cuadrado es un rectángulo con todos los lados iguales."
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un rectangle de 3 cm sur 1 cm ?",
+          "options": [
+            "3 cm²",
+            "8 cm²",
+            "6 cm²"
+          ],
+          "answer": "3 cm²",
+          "correction": "Aire = 3 × 1 = 3 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 3 cm bij 1 cm?",
+          "prompt_en": "What is the area of a rectangle 3 cm by 1 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 3 cm por 1 cm?",
+          "options_i18n": {
+            "nl": [
+              "3 cm²",
+              "8 cm²",
+              "6 cm²"
+            ],
+            "en": [
+              "3 cm²",
+              "8 cm²",
+              "6 cm²"
+            ],
+            "es": [
+              "3 cm²",
+              "8 cm²",
+              "6 cm²"
+            ]
+          }
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Quel est le périmètre d'un triangle équilatéral de 4 cm de côté ?",
-          "answer": "12 cm",
-          "accept": [
-            "12 cm",
-            "12"
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un rectangle de 3 cm sur 2 cm ?",
+          "options": [
+            "6 cm²",
+            "10 cm²",
+            "9 cm²"
           ],
-          "correction": "Périmètre = 3 × côté = 3 × 4 = 12 cm.",
-          "prompt_nl": "Wat is de omtrek van een gelijkzijdige driehoek met zijde 4 cm?",
-          "prompt_en": "What is the perimeter of an equilateral triangle with a 4 cm side?",
-          "prompt_es": "¿Cuál es el perímetro de un triángulo equilátero de 4 cm de lado?",
-          "correction_nl": "Omtrek = 3 × zijde = 3 × 4 = 12 cm.",
-          "correction_en": "Perimeter = 3 × side = 3 × 4 = 12 cm.",
-          "correction_es": "Perímetro = 3 × lado = 3 × 4 = 12 cm."
+          "answer": "6 cm²",
+          "correction": "Aire = 3 × 2 = 6 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 3 cm bij 2 cm?",
+          "prompt_en": "What is the area of a rectangle 3 cm by 2 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 3 cm por 2 cm?",
+          "options_i18n": {
+            "nl": [
+              "6 cm²",
+              "10 cm²",
+              "9 cm²"
+            ],
+            "en": [
+              "6 cm²",
+              "10 cm²",
+              "9 cm²"
+            ],
+            "es": [
+              "6 cm²",
+              "10 cm²",
+              "9 cm²"
+            ]
+          }
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Combien d'axes de symétrie a un rectangle non carré ?",
+          "prompt": "Quelle est l'aire d'un rectangle de 4 cm sur 1 cm ?",
           "options": [
-            "2",
-            "4",
-            "0"
+            "4 cm²",
+            "10 cm²",
+            "8 cm²"
           ],
-          "answer": "2",
-          "correction": "Un rectangle non carré a 2 axes de symétrie : les deux droites passant par le milieu des côtés.",
-          "prompt_nl": "Hoeveel symmetrie-assen heeft een rechthoek die geen vierkant is?",
-          "prompt_en": "How many axes of symmetry does a non-square rectangle have?",
-          "prompt_es": "¿Cuántos ejes de simetría tiene un rectángulo que no es cuadrado?",
-          "correction_nl": "Een niet-vierkante rechthoek heeft 2 symmetrie-assen.",
-          "correction_en": "A non-square rectangle has 2 axes of symmetry.",
-          "correction_es": "Un rectángulo no cuadrado tiene 2 ejes de simetría."
+          "answer": "4 cm²",
+          "correction": "Aire = 4 × 1 = 4 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 4 cm bij 1 cm?",
+          "prompt_en": "What is the area of a rectangle 4 cm by 1 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 4 cm por 1 cm?",
+          "options_i18n": {
+            "nl": [
+              "4 cm²",
+              "10 cm²",
+              "8 cm²"
+            ],
+            "en": [
+              "4 cm²",
+              "10 cm²",
+              "8 cm²"
+            ],
+            "es": [
+              "4 cm²",
+              "10 cm²",
+              "8 cm²"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle forme a exactement 2 paires de côtés égaux ?",
+          "prompt": "Quelle est l'aire d'un rectangle de 4 cm sur 2 cm ?",
           "options": [
-            "le rectangle",
-            "le triangle",
-            "le cercle"
+            "8 cm²",
+            "12 cm²",
+            "13 cm²"
           ],
-          "answer": "le rectangle",
-          "correction": "Le rectangle a 2 paires de côtés égaux : longueurs égales entre elles, largeurs égales entre elles.",
-          "prompt_nl": "Welke vorm heeft precies 2 paren gelijke zijden?",
-          "prompt_en": "Which shape has exactly 2 pairs of equal sides?",
-          "prompt_es": "¿Qué forma tiene exactamente 2 pares de lados iguales?",
-          "correction_nl": "De rechthoek heeft 2 paren gelijke zijden.",
-          "correction_en": "The rectangle has 2 pairs of equal sides.",
-          "correction_es": "El rectángulo tiene 2 pares de lados iguales."
+          "answer": "8 cm²",
+          "correction": "Aire = 4 × 2 = 8 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 4 cm bij 2 cm?",
+          "prompt_en": "What is the area of a rectangle 4 cm by 2 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 4 cm por 2 cm?",
+          "options_i18n": {
+            "nl": [
+              "8 cm²",
+              "12 cm²",
+              "13 cm²"
+            ],
+            "en": [
+              "8 cm²",
+              "12 cm²",
+              "13 cm²"
+            ],
+            "es": [
+              "8 cm²",
+              "12 cm²",
+              "13 cm²"
+            ]
+          }
         },
         {
           "id": "q9",
-          "type": "true_false",
-          "prompt": "Un carré a 4 axes de symétrie.",
-          "answer": true,
-          "correction": "Vrai : un carré a 4 axes de symétrie (2 médianes et 2 diagonales).",
-          "prompt_nl": "Een vierkant heeft 4 symmetrie-assen.",
-          "prompt_en": "A square has 4 axes of symmetry.",
-          "prompt_es": "Un cuadrado tiene 4 ejes de simetría.",
-          "correction_nl": "Waar: een vierkant heeft 4 symmetrie-assen.",
-          "correction_en": "True: a square has 4 axes of symmetry.",
-          "correction_es": "Verdadero: un cuadrado tiene 4 ejes de simetría."
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un rectangle de 4 cm sur 3 cm ?",
+          "options": [
+            "12 cm²",
+            "14 cm²",
+            "16 cm²"
+          ],
+          "answer": "12 cm²",
+          "correction": "Aire = 4 × 3 = 12 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 4 cm bij 3 cm?",
+          "prompt_en": "What is the area of a rectangle 4 cm by 3 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 4 cm por 3 cm?",
+          "options_i18n": {
+            "nl": [
+              "12 cm²",
+              "14 cm²",
+              "16 cm²"
+            ],
+            "en": [
+              "12 cm²",
+              "14 cm²",
+              "16 cm²"
+            ],
+            "es": [
+              "12 cm²",
+              "14 cm²",
+              "16 cm²"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le périmètre d'un carré de 3 cm de côté est :",
+          "prompt": "Quelle est l'aire d'un rectangle de 5 cm sur 1 cm ?",
           "options": [
-            "12 cm",
-            "9 cm",
-            "6 cm"
+            "5 cm²",
+            "12 cm²",
+            "10 cm²"
           ],
-          "answer": "12 cm",
-          "correction": "Périmètre = 4 × 3 = 12 cm.",
-          "prompt_nl": "De omtrek van een vierkant met zijde 3 cm is:",
-          "prompt_en": "The perimeter of a square with a 3 cm side is:",
-          "prompt_es": "El perímetro de un cuadrado de 3 cm de lado es:",
-          "correction_nl": "Omtrek = 4 × 3 = 12 cm.",
-          "correction_en": "Perimeter = 4 × 3 = 12 cm.",
-          "correction_es": "Perímetro = 4 × 3 = 12 cm."
+          "answer": "5 cm²",
+          "correction": "Aire = 5 × 1 = 5 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 5 cm bij 1 cm?",
+          "prompt_en": "What is the area of a rectangle 5 cm by 1 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 5 cm por 1 cm?",
+          "options_i18n": {
+            "nl": [
+              "5 cm²",
+              "12 cm²",
+              "10 cm²"
+            ],
+            "en": [
+              "5 cm²",
+              "12 cm²",
+              "10 cm²"
+            ],
+            "es": [
+              "5 cm²",
+              "12 cm²",
+              "10 cm²"
+            ]
+          }
         }
       ]
     },
@@ -328,172 +599,323 @@
       "questions": [
         {
           "id": "d1",
-          "type": "fill_blank",
-          "prompt": "Quelle est l’aire d’un rectangle de 5 cm de long et 3 cm de large ?",
-          "answer": "15 cm²",
-          "accept": [
-            "15 cm²",
-            "15 cm2",
-            "15"
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un rectangle de 5 cm sur 2 cm ?",
+          "options": [
+            "10 cm²",
+            "14 cm²",
+            "15 cm²"
           ],
-          "correction": "Aire = longueur × largeur = 5 × 3 = 15 cm².",
-          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 5 cm lang en 3 cm breed?",
-          "prompt_en": "What is the area of a rectangle 5 cm long and 3 cm wide?",
-          "prompt_es": "¿Cuál es el área de un rectángulo de 5 cm de largo y 3 cm de ancho?",
-          "correction_nl": "Oppervlakte = lengte × breedte = 5 × 3 = 15 cm².",
-          "correction_en": "Area = length × width = 5 × 3 = 15 cm².",
-          "correction_es": "Área = largo × ancho = 5 × 3 = 15 cm²."
+          "answer": "10 cm²",
+          "correction": "Aire = 5 × 2 = 10 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 5 cm bij 2 cm?",
+          "prompt_en": "What is the area of a rectangle 5 cm by 2 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 5 cm por 2 cm?",
+          "options_i18n": {
+            "nl": [
+              "10 cm²",
+              "14 cm²",
+              "15 cm²"
+            ],
+            "en": [
+              "10 cm²",
+              "14 cm²",
+              "15 cm²"
+            ],
+            "es": [
+              "10 cm²",
+              "14 cm²",
+              "15 cm²"
+            ]
+          }
         },
         {
           "id": "d2",
           "type": "mcq",
-          "prompt": "Quelle est l’aire d’un carré de 4 cm de côté ?",
+          "prompt": "Quelle est l'aire d'un rectangle de 5 cm sur 3 cm ?",
           "options": [
+            "15 cm²",
             "16 cm²",
-            "8 cm²",
-            "12 cm²"
+            "20 cm²"
           ],
-          "answer": "16 cm²",
-          "correction": "Aire = côté × côté = 4 × 4 = 16 cm².",
-          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 4 cm?",
-          "prompt_en": "What is the area of a square with a 4 cm side?",
-          "prompt_es": "¿Cuál es el área de un cuadrado de 4 cm de lado?",
-          "correction_nl": "Oppervlakte = zijde × zijde = 4 × 4 = 16 cm².",
-          "correction_en": "Area = side × side = 4 × 4 = 16 cm².",
-          "correction_es": "Área = lado × lado = 4 × 4 = 16 cm²."
+          "answer": "15 cm²",
+          "correction": "Aire = 5 × 3 = 15 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 5 cm bij 3 cm?",
+          "prompt_en": "What is the area of a rectangle 5 cm by 3 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 5 cm por 3 cm?",
+          "options_i18n": {
+            "nl": [
+              "15 cm²",
+              "16 cm²",
+              "20 cm²"
+            ],
+            "en": [
+              "15 cm²",
+              "16 cm²",
+              "20 cm²"
+            ],
+            "es": [
+              "15 cm²",
+              "16 cm²",
+              "20 cm²"
+            ]
+          }
         },
         {
           "id": "d3",
           "type": "mcq",
-          "prompt": "Dans un triangle, la somme des trois angles est égale à :",
+          "prompt": "Quelle est l'aire d'un rectangle de 5 cm sur 4 cm ?",
           "options": [
-            "180°",
-            "90°",
-            "360°"
+            "20 cm²",
+            "18 cm²",
+            "25 cm²"
           ],
-          "answer": "180°",
-          "correction": "La somme des angles d’un triangle est toujours 180°.",
-          "prompt_nl": "In een driehoek is de som van de drie hoeken gelijk aan:",
-          "prompt_en": "In a triangle, the sum of the three angles equals:",
-          "prompt_es": "En un triángulo, la suma de los tres ángulos es igual a:",
-          "correction_nl": "De som van de hoeken van een driehoek is altijd 180°.",
-          "correction_en": "The sum of angles in a triangle is always 180°.",
-          "correction_es": "La suma de los ángulos de un triángulo es siempre 180°."
+          "answer": "20 cm²",
+          "correction": "Aire = 5 × 4 = 20 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 5 cm bij 4 cm?",
+          "prompt_en": "What is the area of a rectangle 5 cm by 4 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 5 cm por 4 cm?",
+          "options_i18n": {
+            "nl": [
+              "20 cm²",
+              "18 cm²",
+              "25 cm²"
+            ],
+            "en": [
+              "20 cm²",
+              "18 cm²",
+              "25 cm²"
+            ],
+            "es": [
+              "20 cm²",
+              "18 cm²",
+              "25 cm²"
+            ]
+          }
         },
         {
           "id": "d4",
-          "type": "fill_blank",
-          "prompt": "Un triangle a deux angles de 60° et 80°. Quel est le troisième angle ?",
-          "answer": "40°",
-          "accept": [
-            "40°",
-            "40"
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un rectangle de 6 cm sur 1 cm ?",
+          "options": [
+            "6 cm²",
+            "14 cm²",
+            "12 cm²"
           ],
-          "correction": "180° − 60° − 80° = 40°.",
-          "prompt_nl": "Een driehoek heeft twee hoeken van 60° en 80°. Wat is de derde hoek?",
-          "prompt_en": "A triangle has two angles of 60° and 80°. What is the third angle?",
-          "prompt_es": "Un triángulo tiene dos ángulos de 60° y 80°. ¿Cuál es el tercer ángulo?",
-          "correction_nl": "180° − 60° − 80° = 40°.",
-          "correction_en": "180° − 60° − 80° = 40°.",
-          "correction_es": "180° − 60° − 80° = 40°."
+          "answer": "6 cm²",
+          "correction": "Aire = 6 × 1 = 6 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 6 cm bij 1 cm?",
+          "prompt_en": "What is the area of a rectangle 6 cm by 1 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 6 cm por 1 cm?",
+          "options_i18n": {
+            "nl": [
+              "6 cm²",
+              "14 cm²",
+              "12 cm²"
+            ],
+            "en": [
+              "6 cm²",
+              "14 cm²",
+              "12 cm²"
+            ],
+            "es": [
+              "6 cm²",
+              "14 cm²",
+              "12 cm²"
+            ]
+          }
         },
         {
           "id": "d5",
-          "type": "true_false",
-          "prompt": "Un carré est à la fois un rectangle et un losange.",
-          "answer": true,
-          "correction": "Vrai : un carré a 4 angles droits (rectangle) et 4 côtés égaux (losange).",
-          "prompt_nl": "Een vierkant is tegelijk een rechthoek en een ruit.",
-          "prompt_en": "A square is both a rectangle and a rhombus.",
-          "prompt_es": "Un cuadrado es a la vez un rectángulo y un rombo.",
-          "correction_nl": "Waar: een vierkant heeft 4 rechte hoeken (rechthoek) en 4 gelijke zijden (ruit).",
-          "correction_en": "True: a square has 4 right angles (rectangle) and 4 equal sides (rhombus).",
-          "correction_es": "Verdadero: un cuadrado tiene 4 ángulos rectos (rectángulo) y 4 lados iguales (rombo)."
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un rectangle de 6 cm sur 2 cm ?",
+          "options": [
+            "12 cm²",
+            "16 cm²",
+            "18 cm²"
+          ],
+          "answer": "12 cm²",
+          "correction": "Aire = 6 × 2 = 12 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 6 cm bij 2 cm?",
+          "prompt_en": "What is the area of a rectangle 6 cm by 2 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 6 cm por 2 cm?",
+          "options_i18n": {
+            "nl": [
+              "12 cm²",
+              "16 cm²",
+              "18 cm²"
+            ],
+            "en": [
+              "12 cm²",
+              "16 cm²",
+              "18 cm²"
+            ],
+            "es": [
+              "12 cm²",
+              "16 cm²",
+              "18 cm²"
+            ]
+          }
         },
         {
           "id": "d6",
           "type": "mcq",
-          "prompt": "Quel est le volume d’un cube de 3 cm d’arête ?",
+          "prompt": "Quelle est l'aire d'un rectangle de 6 cm sur 3 cm ?",
           "options": [
-            "27 cm³",
-            "9 cm³",
-            "12 cm³"
+            "18 cm²",
+            "19 cm²",
+            "24 cm²"
           ],
-          "answer": "27 cm³",
-          "correction": "Volume = arête³ = 3 × 3 × 3 = 27 cm³.",
-          "prompt_nl": "Wat is het volume van een kubus met riblengte 3 cm?",
-          "prompt_en": "What is the volume of a cube with an edge of 3 cm?",
-          "prompt_es": "¿Cuál es el volumen de un cubo de arista 3 cm?",
-          "correction_nl": "Volume = rib³ = 3 × 3 × 3 = 27 cm³.",
-          "correction_en": "Volume = edge³ = 3 × 3 × 3 = 27 cm³.",
-          "correction_es": "Volumen = arista³ = 3 × 3 × 3 = 27 cm³."
+          "answer": "18 cm²",
+          "correction": "Aire = 6 × 3 = 18 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 6 cm bij 3 cm?",
+          "prompt_en": "What is the area of a rectangle 6 cm by 3 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 6 cm por 3 cm?",
+          "options_i18n": {
+            "nl": [
+              "18 cm²",
+              "19 cm²",
+              "24 cm²"
+            ],
+            "en": [
+              "18 cm²",
+              "19 cm²",
+              "24 cm²"
+            ],
+            "es": [
+              "18 cm²",
+              "19 cm²",
+              "24 cm²"
+            ]
+          }
         },
         {
           "id": "d7",
-          "type": "fill_blank",
-          "prompt": "Quelle est l’aire d’un rectangle de 8 cm de long et 4 cm de large ?",
-          "answer": "32 cm²",
-          "accept": [
-            "32 cm²",
-            "32 cm2",
-            "32"
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un rectangle de 6 cm sur 4 cm ?",
+          "options": [
+            "24 cm²",
+            "20 cm²",
+            "30 cm²"
           ],
-          "correction": "Aire = 8 × 4 = 32 cm².",
-          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 8 cm lang en 4 cm breed?",
-          "prompt_en": "What is the area of a rectangle 8 cm long and 4 cm wide?",
-          "prompt_es": "¿Cuál es el área de un rectángulo de 8 cm de largo y 4 cm de ancho?",
-          "correction_nl": "Oppervlakte = 8 × 4 = 32 cm².",
-          "correction_en": "Area = 8 × 4 = 32 cm².",
-          "correction_es": "Área = 8 × 4 = 32 cm²."
+          "answer": "24 cm²",
+          "correction": "Aire = 6 × 4 = 24 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 6 cm bij 4 cm?",
+          "prompt_en": "What is the area of a rectangle 6 cm by 4 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 6 cm por 4 cm?",
+          "options_i18n": {
+            "nl": [
+              "24 cm²",
+              "20 cm²",
+              "30 cm²"
+            ],
+            "en": [
+              "24 cm²",
+              "20 cm²",
+              "30 cm²"
+            ],
+            "es": [
+              "24 cm²",
+              "20 cm²",
+              "30 cm²"
+            ]
+          }
         },
         {
           "id": "d8",
           "type": "mcq",
-          "prompt": "Un rectangle a une longueur de 7 cm et une largeur de 3 cm. Quel est son périmètre ?",
+          "prompt": "Quelle est l'aire d'un rectangle de 6 cm sur 5 cm ?",
           "options": [
-            "20 cm",
-            "21 cm",
-            "10 cm"
+            "30 cm²",
+            "22 cm²",
+            "36 cm²"
           ],
-          "answer": "20 cm",
-          "correction": "Périmètre = 2 × (7 + 3) = 2 × 10 = 20 cm.",
-          "prompt_nl": "Een rechthoek heeft een lengte van 7 cm en een breedte van 3 cm. Wat is zijn omtrek?",
-          "prompt_en": "A rectangle has a length of 7 cm and a width of 3 cm. What is its perimeter?",
-          "prompt_es": "Un rectángulo tiene un largo de 7 cm y un ancho de 3 cm. ¿Cuál es su perímetro?",
-          "correction_nl": "Omtrek = 2 × (7 + 3) = 2 × 10 = 20 cm.",
-          "correction_en": "Perimeter = 2 × (7 + 3) = 2 × 10 = 20 cm.",
-          "correction_es": "Perímetro = 2 × (7 + 3) = 2 × 10 = 20 cm."
+          "answer": "30 cm²",
+          "correction": "Aire = 6 × 5 = 30 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 6 cm bij 5 cm?",
+          "prompt_en": "What is the area of a rectangle 6 cm by 5 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 6 cm por 5 cm?",
+          "options_i18n": {
+            "nl": [
+              "30 cm²",
+              "22 cm²",
+              "36 cm²"
+            ],
+            "en": [
+              "30 cm²",
+              "22 cm²",
+              "36 cm²"
+            ],
+            "es": [
+              "30 cm²",
+              "22 cm²",
+              "36 cm²"
+            ]
+          }
         },
         {
           "id": "d9",
           "type": "mcq",
-          "prompt": "Un triangle rectangle a des angles de 90° et 45°. Quel est le troisième angle ?",
+          "prompt": "Quelle est l'aire d'un rectangle de 7 cm sur 1 cm ?",
           "options": [
-            "45°",
-            "30°",
-            "60°"
+            "7 cm²",
+            "16 cm²",
+            "14 cm²"
           ],
-          "answer": "45°",
-          "correction": "180° − 90° − 45° = 45°.",
-          "prompt_nl": "Een rechthoekige driehoek heeft hoeken van 90° en 45°. Wat is de derde hoek?",
-          "prompt_en": "A right-angled triangle has angles of 90° and 45°. What is the third angle?",
-          "prompt_es": "Un triángulo rectángulo tiene ángulos de 90° y 45°. ¿Cuál es el tercer ángulo?",
-          "correction_nl": "180° − 90° − 45° = 45°.",
-          "correction_en": "180° − 90° − 45° = 45°.",
-          "correction_es": "180° − 90° − 45° = 45°."
+          "answer": "7 cm²",
+          "correction": "Aire = 7 × 1 = 7 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 7 cm bij 1 cm?",
+          "prompt_en": "What is the area of a rectangle 7 cm by 1 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 7 cm por 1 cm?",
+          "options_i18n": {
+            "nl": [
+              "7 cm²",
+              "16 cm²",
+              "14 cm²"
+            ],
+            "en": [
+              "7 cm²",
+              "16 cm²",
+              "14 cm²"
+            ],
+            "es": [
+              "7 cm²",
+              "16 cm²",
+              "14 cm²"
+            ]
+          }
         },
         {
           "id": "d10",
-          "type": "true_false",
-          "prompt": "L’aire d’un carré de 6 cm de côté est 36 cm².",
-          "answer": true,
-          "correction": "Vrai : 6 × 6 = 36 cm².",
-          "prompt_nl": "De oppervlakte van een vierkant met zijde 6 cm is 36 cm².",
-          "prompt_en": "The area of a square with a 6 cm side is 36 cm².",
-          "prompt_es": "El área de un cuadrado de 6 cm de lado es 36 cm².",
-          "correction_nl": "Waar: 6 × 6 = 36 cm².",
-          "correction_en": "True: 6 × 6 = 36 cm².",
-          "correction_es": "Verdadero: 6 × 6 = 36 cm²."
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un rectangle de 7 cm sur 2 cm ?",
+          "options": [
+            "14 cm²",
+            "18 cm²",
+            "21 cm²"
+          ],
+          "answer": "14 cm²",
+          "correction": "Aire = 7 × 2 = 14 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een rechthoek van 7 cm bij 2 cm?",
+          "prompt_en": "What is the area of a rectangle 7 cm by 2 cm?",
+          "prompt_es": "¿Cuál es el área de un rectángulo de 7 cm por 2 cm?",
+          "options_i18n": {
+            "nl": [
+              "14 cm²",
+              "18 cm²",
+              "21 cm²"
+            ],
+            "en": [
+              "14 cm²",
+              "18 cm²",
+              "21 cm²"
+            ],
+            "es": [
+              "14 cm²",
+              "18 cm²",
+              "21 cm²"
+            ]
+          }
         }
       ]
     }

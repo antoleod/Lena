@@ -12,100 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Le suffixe « -eur » dans « vendeur » indique :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "qui vend",
+            "ce qui est vendu",
+            "le magasin",
+            "le prix"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "qui vend",
+          "correction": "Le suffixe « -eur » dans « vendeur » indique : → qui vend.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « contester » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "discuter",
+            "accepter",
+            "approuver",
+            "valider"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "discuter",
+          "correction": "Un synonyme de « contester » : → discuter.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Un synonyme de « symboliser » :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "représenter",
+            "ignorer",
+            "cacher",
+            "omettre"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "représenter",
+          "correction": "Un synonyme de « symboliser » : → représenter.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Le contraire de « naître » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "mourir",
+            "grandir",
+            "vivre",
+            "changer"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "mourir",
+          "correction": "Le contraire de « naître » : → mourir.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Un synonyme de « insulter » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "offenser",
+            "féliciter",
+            "complimenter",
+            "honorer"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "offenser",
+          "correction": "Un synonyme de « insulter » : → offenser.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « féliciter » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "complimenter",
+            "critiquer",
+            "blâmer",
+            "reprocher"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "complimenter",
+          "correction": "Un synonyme de « féliciter » : → complimenter.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Le sens propre de « une dent » est :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "organe de la bouche",
+            "dent d'une scie",
+            "pointe d'une fourchette",
+            "bord tranchant"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "organe de la bouche",
+          "correction": "Le sens propre de « une dent » est : → organe de la bouche.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « analyser » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "étudier",
+            "ignorer",
+            "négliger",
+            "sauter"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "étudier",
+          "correction": "Un synonyme de « analyser » : → étudier.",
+          "id": "q16"
         }
       ]
     },
@@ -113,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Le contraire de « avare » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "généreux",
+            "riche",
+            "fortuné",
+            "aisé"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "généreux",
+          "correction": "Le contraire de « avare » : → généreux.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « joyeux » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "triste",
+            "heureux",
+            "gai",
+            "riant"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "triste",
+          "correction": "Le contraire de « joyeux » : → triste.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Un synonyme de « apprendre » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "étudier",
+            "ignorer",
+            "oublier",
+            "fuir"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "étudier",
+          "correction": "Un synonyme de « apprendre » : → étudier.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « emmener » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "conduire",
+            "laisser",
+            "abandonner",
+            "fuir"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "conduire",
+          "correction": "Un synonyme de « emmener » : → conduire.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « partir » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "quitter",
+            "rester",
+            "demeurer",
+            "rentrer"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "quitter",
+          "correction": "Un synonyme de « partir » : → quitter.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « tuer » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "abattre",
+            "sauver",
+            "protéger",
+            "guérir"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "abattre",
+          "correction": "Un synonyme de « tuer » : → abattre.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Le contraire de « cruel » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "bienveillant",
+            "méchant",
+            "dur",
+            "brutal"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "bienveillant",
+          "correction": "Le contraire de « cruel » : → bienveillant.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « inutile » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "utile",
+            "superflu",
+            "vain",
+            "inefficace"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "utile",
+          "correction": "Le contraire de « inutile » : → utile.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « simple » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "complexe",
+            "facile",
+            "élémentaire",
+            "basique"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "complexe",
+          "correction": "Le contraire de « simple » : → complexe.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Le préfixe « dé- » dans « décoller » signifie :",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "enlever ce qui colle",
+            "recoller",
+            "coller encore",
+            "mieux coller"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "enlever ce qui colle",
+          "correction": "Le préfixe « dé- » dans « décoller » signifie : → enlever ce qui colle.",
+          "id": "q19"
         }
       ]
     },
@@ -238,124 +256,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "Un synonyme de « accélérer » :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "aller plus vite",
+            "freiner",
+            "ralentir",
+            "s'arrêter"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "aller plus vite",
+          "correction": "Un synonyme de « accélérer » : → aller plus vite.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Le contraire de « remplir » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "vider",
+            "noircir",
+            "peser",
+            "fermer"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "vider",
+          "correction": "Le contraire de « remplir » : → vider.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « manger » :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
-          ],
-          "answer": "observer",
-          "correction": "regarder = observer."
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "Un moyen de transport :",
-          "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
-          "options": [
-            "heureux",
-            "triste",
-            "fâché"
-          ],
-          "answer": "heureux",
-          "correction": "content = heureux."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
-          "options": [
-            "fermé",
-            "grand",
-            "vide"
-          ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Un animal de la ferme :",
-          "options": [
-            "vache",
-            "lion",
-            "requin"
-          ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
-          "options": [
-            "vide",
-            "lourd",
-            "grand"
-          ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
-          "options": [
-            "lent",
-            "vite",
-            "fort"
-          ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
-          "options": [
-            "discuter",
-            "courir",
+            "dévorer",
+            "boire",
+            "lire",
             "dormir"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
+          "answer": "dévorer",
+          "correction": "Un synonyme de « manger » : → dévorer.",
+          "id": "q6"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Quel est le synonyme de « difficile » ?",
+          "options": [
+            "ardu",
+            "facile",
+            "simple",
+            "léger"
+          ],
+          "answer": "ardu",
+          "correction": "Quel est le synonyme de « difficile » ? → ardu.",
+          "id": "q8"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le suffixe « -tion » dans « décoration » indique :",
+          "options": [
+            "action de décorer",
+            "ce qui est décoré",
+            "le décorateur",
+            "les couleurs"
+          ],
+          "answer": "action de décorer",
+          "correction": "Le suffixe « -tion » dans « décoration » indique : → action de décorer.",
+          "id": "q10"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « attentif » :",
+          "options": [
+            "distrait",
+            "concentré",
+            "vigilant",
+            "observateur"
+          ],
+          "answer": "distrait",
+          "correction": "Le contraire de « attentif » : → distrait.",
+          "id": "q12"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « détester » :",
+          "options": [
+            "haïr",
+            "aimer",
+            "adorer",
+            "apprécier"
+          ],
+          "answer": "haïr",
+          "correction": "Un synonyme de « détester » : → haïr.",
+          "id": "q14"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La famille de mots de « jardin » contient :",
+          "options": [
+            "jardinage",
+            "maison",
+            "cuisine",
+            "route"
+          ],
+          "answer": "jardinage",
+          "correction": "La famille de mots de « jardin » contient : → jardinage.",
+          "id": "q16"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « guider » :",
+          "options": [
+            "orienter",
+            "égarer",
+            "perdre",
+            "confondre"
+          ],
+          "answer": "orienter",
+          "correction": "Un synonyme de « guider » : → orienter.",
+          "id": "q18"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « aviser » :",
+          "options": [
+            "prévenir",
+            "ignorer",
+            "taire",
+            "cacher"
+          ],
+          "answer": "prévenir",
+          "correction": "Un synonyme de « aviser » : → prévenir.",
+          "id": "q20"
         }
       ]
     }

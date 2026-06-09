@@ -12,164 +12,116 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
-          "type": "mcq",
-          "prompt": "4 × 4 = ?",
-          "options": [
-            "20",
-            "15",
-            "13",
-            "16"
+          "type": "fill_blank",
+          "prompt": "___ × 8 = 40",
+          "answer": "5",
+          "correction": "5 × 8 = 40.",
+          "accept": [
+            "5"
           ],
-          "answer": "16",
-          "correction": "4 × 4 = 16.",
-          "prompt_nl": "4 × 4 = ?",
-          "prompt_en": "4 × 4 = ?",
-          "prompt_es": "4 × 4 = ?"
+          "id": "q1"
         },
         {
-          "id": "q2",
-          "type": "mcq",
-          "prompt": "3 × 5 = ?",
-          "options": [
-            "16",
-            "14",
-            "15",
-            "12"
+          "type": "fill_blank",
+          "prompt": "8 × 7 = ?",
+          "answer": "56",
+          "correction": "8 × 7 = 56.",
+          "accept": [
+            "56"
           ],
-          "answer": "15",
-          "correction": "3 × 5 = 15.",
-          "prompt_nl": "3 × 5 = ?",
-          "prompt_en": "3 × 5 = ?",
-          "prompt_es": "3 × 5 = ?"
+          "id": "q2"
         },
         {
-          "id": "q3",
+          "type": "fill_blank",
+          "prompt": "4 × 6 = ?",
+          "answer": "24",
+          "correction": "4 × 6 = 24.",
+          "accept": [
+            "24"
+          ],
+          "id": "q3"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "9 × 10 = ?",
+          "answer": "90",
+          "correction": "9 × 10 = 90.",
+          "accept": [
+            "90"
+          ],
+          "id": "q4"
+        },
+        {
           "type": "mcq",
-          "prompt": "2 × 4 = ?",
+          "prompt": "Il y a 5 rangées de 7 chaises. Combien au total ?",
+          "answer": "35",
+          "correction": "5 × 7 = 35.",
           "options": [
-            "6",
-            "8",
-            "7",
+            "35",
+            "12",
+            "28",
+            "42"
+          ],
+          "id": "q5"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "6 × ___ = 36",
+          "answer": "6",
+          "correction": "6 × 6 = 36.",
+          "accept": [
+            "6"
+          ],
+          "id": "q6"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "___ × 1 = 7",
+          "answer": "7",
+          "correction": "7 × 1 = 7.",
+          "accept": [
+            "7"
+          ],
+          "id": "q7"
+        },
+        {
+          "type": "fill_blank",
+          "prompt": "4 × ___ = 36",
+          "answer": "9",
+          "correction": "4 × 9 = 36.",
+          "accept": [
             "9"
           ],
-          "answer": "8",
-          "correction": "2 × 4 = 8.",
-          "prompt_nl": "2 × 4 = ?",
-          "prompt_en": "2 × 4 = ?",
-          "prompt_es": "2 × 4 = ?"
+          "id": "q8"
         },
         {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "3 × 3 = ?",
-          "options": [
-            "9",
-            "7",
-            "6",
-            "10"
+          "type": "fill_blank",
+          "prompt": "7 × ___ = 14",
+          "answer": "2",
+          "correction": "7 × 2 = 14.",
+          "accept": [
+            "2"
           ],
-          "answer": "9",
-          "correction": "3 × 3 = 9.",
-          "prompt_nl": "3 × 3 = ?",
-          "prompt_en": "3 × 3 = ?",
-          "prompt_es": "3 × 3 = ?"
+          "id": "q9"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "2 × 5 = ?",
+          "prompt": "7 × 2 = ?",
+          "answer": "14",
+          "correction": "7 × 2 = 14.",
           "options": [
-            "9",
-            "8",
-            "10",
-            "11"
-          ],
-          "answer": "10",
-          "correction": "2 × 5 = 10.",
-          "prompt_nl": "2 × 5 = ?",
-          "prompt_en": "2 × 5 = ?",
-          "prompt_es": "2 × 5 = ?"
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "4 × 3 = ?",
-          "options": [
-            "10",
-            "15",
             "14",
-            "12"
-          ],
-          "answer": "12",
-          "correction": "4 × 3 = 12.",
-          "prompt_nl": "4 × 3 = ?",
-          "prompt_en": "4 × 3 = ?",
-          "prompt_es": "4 × 3 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "5 × 3 = ?",
-          "options": [
+            "15",
             "13",
-            "19",
-            "15",
-            "12"
+            "9"
           ],
-          "answer": "15",
-          "correction": "5 × 3 = 15.",
-          "prompt_nl": "5 × 3 = ?",
-          "prompt_en": "5 × 3 = ?",
-          "prompt_es": "5 × 3 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "mcq",
-          "prompt": "4 × 5 = ?",
-          "options": [
-            "20",
-            "19",
-            "23",
-            "22"
-          ],
-          "answer": "20",
-          "correction": "4 × 5 = 20.",
-          "prompt_nl": "4 × 5 = ?",
-          "prompt_en": "4 × 5 = ?",
-          "prompt_es": "4 × 5 = ?"
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "5 × 3 = ?",
-          "options": [
-            "19",
-            "12",
-            "15",
-            "17"
-          ],
-          "answer": "15",
-          "correction": "5 × 3 = 15.",
-          "prompt_nl": "5 × 3 = ?",
-          "prompt_en": "5 × 3 = ?",
-          "prompt_es": "5 × 3 = ?"
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "2 × 3 = ?",
-          "options": [
-            "6",
-            "5",
-            "7",
-            "8"
-          ],
-          "answer": "6",
-          "correction": "2 × 3 = 6.",
-          "prompt_nl": "2 × 3 = ?",
-          "prompt_en": "2 × 3 = ?",
-          "prompt_es": "2 × 3 = ?"
+          "prompt_nl": "7 × 2 = ?",
+          "prompt_en": "7 × 2 = ?",
+          "prompt_es": "7 × 2 = ?",
+          "correction_nl": "7 × 2 = 14.",
+          "correction_en": "7 × 2 = 14.",
+          "correction_es": "7 × 2 = 14.",
+          "id": "q10"
         }
       ]
     },
@@ -177,96 +129,99 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "4 × ___ = 16",
+          "prompt": "Tu as 10 rangées de 6 pots. Combien au total ?",
+          "answer": "60",
+          "correction": "10 × 6 = 60.",
           "options": [
-            "5",
-            "6",
-            "3",
-            "4"
+            "60",
+            "16",
+            "50",
+            "70"
           ],
-          "answer": "4",
-          "correction": "4 × 4 = 16, donc ___ = 4."
+          "id": "q1"
         },
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "16 ÷ 4 = ?",
+          "prompt": "Il y a 3 sacs de 8 oranges. Combien au total ?",
+          "answer": "24",
+          "correction": "3 × 8 = 24.",
           "options": [
-            "4",
-            "5",
-            "3",
-            "6"
+            "24",
+            "11",
+            "16",
+            "32"
           ],
-          "answer": "4",
-          "correction": "16 ÷ 4 = 4."
+          "id": "q2"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Tu as 4 groupes de 4 élèves. Combien au total ?",
+          "prompt": "Tu as 5 paquets de 9 bonbons. Combien au total ?",
+          "answer": "45",
+          "correction": "5 × 9 = 45.",
           "options": [
+            "45",
+            "14",
+            "35",
+            "54"
+          ],
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Il y a 7 rangées de 6 arbres. Combien au total ?",
+          "answer": "42",
+          "correction": "7 × 6 = 42.",
+          "options": [
+            "42",
             "13",
-            "12",
-            "20",
-            "16"
+            "35",
+            "49"
           ],
-          "answer": "16",
-          "correction": "4 × 4 = 16 élèves au total."
+          "id": "q4"
         },
         {
-          "id": "q4",
           "type": "fill_blank",
-          "prompt": "___ × 4 = 16",
-          "answer": "4",
-          "correction": "4 × 4 = 16, donc ___ = 4."
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "3 × ___ = 15",
-          "options": [
-            "6",
-            "5",
-            "7",
-            "4"
+          "prompt": "10 × 9 = ?",
+          "answer": "90",
+          "correction": "10 × 9 = 90.",
+          "accept": [
+            "90"
           ],
-          "answer": "5",
-          "correction": "3 × 5 = 15, donc ___ = 5."
+          "id": "q5"
         },
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "15 ÷ 3 = ?",
-          "options": [
-            "4",
-            "5",
-            "7",
-            "6"
+          "type": "fill_blank",
+          "prompt": "___ × 6 = 12",
+          "answer": "2",
+          "correction": "2 × 6 = 12.",
+          "accept": [
+            "2"
           ],
-          "answer": "5",
-          "correction": "15 ÷ 3 = 5."
+          "id": "q6"
         },
         {
-          "id": "q7",
+          "type": "fill_blank",
+          "prompt": "2 × ___ = 20",
+          "answer": "10",
+          "correction": "2 × 10 = 20.",
+          "accept": [
+            "10"
+          ],
+          "id": "q7"
+        },
+        {
           "type": "mcq",
-          "prompt": "Tu as 3 groupes de 5 élèves. Combien au total ?",
+          "prompt": "Tu as 3 paquets de 7 carottes. Combien au total ?",
+          "answer": "21",
+          "correction": "3 × 7 = 21.",
           "options": [
+            "21",
             "10",
-            "15",
-            "20",
-            "18"
+            "14",
+            "28"
           ],
-          "answer": "15",
-          "correction": "3 × 5 = 15 élèves au total."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "___ × 3 = 15",
-          "answer": "5",
-          "correction": "5 × 3 = 15, donc ___ = 5."
+          "id": "q8"
         },
         {
           "id": "q9",
@@ -300,20 +255,17 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "8 × 5 = ?",
+          "prompt": "Il y a 6 rangées de 7 chaises. Combien au total ?",
+          "answer": "42",
+          "correction": "6 × 7 = 42.",
           "options": [
-            "38",
-            "34",
             "42",
-            "40"
+            "13",
+            "36",
+            "48"
           ],
-          "answer": "40",
-          "correction": "8 × 5 = 40.",
-          "prompt_nl": "8 × 5 = ?",
-          "prompt_en": "8 × 5 = ?",
-          "prompt_es": "8 × 5 = ?"
+          "id": "q1"
         },
         {
           "id": "q2",
@@ -332,36 +284,24 @@
           "prompt_es": "8 × 9 = ?"
         },
         {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "5 × 3 = ?",
-          "options": [
-            "15",
-            "11",
-            "13",
-            "18"
+          "type": "fill_blank",
+          "prompt": "___ × 2 = 14",
+          "answer": "7",
+          "correction": "7 × 2 = 14.",
+          "accept": [
+            "7"
           ],
-          "answer": "15",
-          "correction": "5 × 3 = 15.",
-          "prompt_nl": "5 × 3 = ?",
-          "prompt_en": "5 × 3 = ?",
-          "prompt_es": "5 × 3 = ?"
+          "id": "q3"
         },
         {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "4 × 1 = ?",
-          "options": [
-            "2",
-            "6",
-            "0",
-            "4"
+          "type": "fill_blank",
+          "prompt": "4 × ___ = 24",
+          "answer": "6",
+          "correction": "4 × 6 = 24.",
+          "accept": [
+            "6"
           ],
-          "answer": "4",
-          "correction": "4 × 1 = 4.",
-          "prompt_nl": "4 × 1 = ?",
-          "prompt_en": "4 × 1 = ?",
-          "prompt_es": "4 × 1 = ?"
+          "id": "q4"
         },
         {
           "id": "q5",
@@ -412,20 +352,23 @@
           "prompt_es": "6 × 7 = ?"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "2 × 3 = ?",
+          "prompt": "7 × 10 = ?",
+          "answer": "70",
+          "correction": "7 × 10 = 70.",
           "options": [
-            "7",
-            "5",
-            "4",
-            "6"
+            "70",
+            "71",
+            "69",
+            "17"
           ],
-          "answer": "6",
-          "correction": "2 × 3 = 6.",
-          "prompt_nl": "2 × 3 = ?",
-          "prompt_en": "2 × 3 = ?",
-          "prompt_es": "2 × 3 = ?"
+          "prompt_nl": "7 × 10 = ?",
+          "prompt_en": "7 × 10 = ?",
+          "prompt_es": "7 × 10 = ?",
+          "correction_nl": "7 × 10 = 70.",
+          "correction_en": "7 × 10 = 70.",
+          "correction_es": "7 × 10 = 70.",
+          "id": "q8"
         },
         {
           "id": "q9",
@@ -444,20 +387,17 @@
           "prompt_es": "8 × 6 = ?"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "9 × 3 = ?",
-          "options": [
-            "22",
-            "36",
-            "26",
-            "27"
-          ],
+          "prompt": "Il y a 9 rangées de 3 plantes. Combien au total ?",
           "answer": "27",
           "correction": "9 × 3 = 27.",
-          "prompt_nl": "9 × 3 = ?",
-          "prompt_en": "9 × 3 = ?",
-          "prompt_es": "9 × 3 = ?"
+          "options": [
+            "27",
+            "12",
+            "18",
+            "30"
+          ],
+          "id": "q10"
         }
       ]
     }

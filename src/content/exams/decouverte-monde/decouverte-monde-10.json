@@ -14,96 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Quel professionnel transmet le savoir dans une école ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "l'enseignant",
+            "le médecin",
+            "le pompier"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "l'enseignant",
+          "correction": "L'enseignant enseigne à l'école."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Quel phénomène se produit quand des gouttes d'eau tombent du ciel ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "il pleut",
+            "il neige",
+            "il grêle"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "il pleut",
+          "correction": "Quand l'eau tombe liquide, il pleut."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Quel phénomène produit des flocons blancs qui tombent du ciel ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "la neige",
+            "la pluie",
+            "la grêle"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "la neige",
+          "correction": "La neige tombe sous forme de flocons."
         },
         {
           "id": "q8",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Sur quel continent est située la Belgique ?",
+          "options": [
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "l'Europe",
+          "correction": "La Belgique est en Europe."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Comment désigne-t-on les deux continents américains ensemble ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "les Amériques",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "les Amériques",
+          "correction": "Les Amériques = Amérique du Nord + Sud."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Quelle poubelle collecte les plastiques et métaux en Belgique ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "la poubelle jaune (PMC)",
+            "la poubelle noire",
+            "la poubelle bleue"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "la poubelle jaune (PMC)",
+          "correction": "La poubelle jaune (PMC) = plastiques, métaux."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "Quel sens utilisons-nous pour lire un texte ?",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "la vue",
+            "l'ouïe",
+            "le toucher"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "la vue",
+          "correction": "On lit grâce à la vue."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Quel mode de transport est écologique car il n'utilise pas de carburant ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "le vélo",
+            "la voiture",
+            "l'avion"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "le vélo",
+          "correction": "Le vélo est écologique."
         }
       ]
     },
@@ -113,362 +115,122 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Quelle est la capitale de l'Australie ?",
+          "prompt": "Quel professionnel répare les canalisations et robinets ?",
           "options": [
-            "Canberra",
-            "Sydney",
-            "Melbourne",
-            "Brisbane"
+            "le plombier",
+            "l'électricien",
+            "le charpentier"
           ],
-          "answer": "Canberra",
-          "correction": "Canberra est la capitale de l'Australie.",
-          "prompt_nl": "Wat is de hoofdstad van Australie?",
-          "prompt_en": "What is the capital of Australia?",
-          "prompt_es": "Cual es la capital de Australia?",
-          "options_i18n": {
-            "nl": [
-              "Canberra",
-              "Sydney",
-              "Melbourne",
-              "Brisbane"
-            ],
-            "en": [
-              "Canberra",
-              "Sydney",
-              "Melbourne",
-              "Brisbane"
-            ],
-            "es": [
-              "Canberra",
-              "Sidney",
-              "Melbourne",
-              "Brisbane"
-            ]
-          }
+          "answer": "le plombier",
+          "correction": "Le plombier répare les canalisations."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le blé est principalement cultivé dans :",
+          "prompt": "Quel professionnel soigne les animaux malades ?",
           "options": [
-            "les champs",
-            "les forêts",
-            "les déserts",
-            "les océans"
+            "le vétérinaire",
+            "le médecin",
+            "le pharmacien"
           ],
-          "answer": "les champs",
-          "correction": "Le blé est une céréale cultivée dans les grandes plaines agricoles.",
-          "prompt_nl": "Tarwe wordt voornamelijk verbouwd in:",
-          "prompt_en": "Wheat is mainly grown in:",
-          "prompt_es": "El trigo se cultiva principalmente en:",
-          "options_i18n": {
-            "nl": [
-              "de velden",
-              "de bossen",
-              "de woestijnen",
-              "de oceanen"
-            ],
-            "en": [
-              "fields",
-              "forests",
-              "deserts",
-              "oceans"
-            ],
-            "es": [
-              "los campos",
-              "los bosques",
-              "los desiertos",
-              "los oceanos"
-            ]
-          }
+          "answer": "le vétérinaire",
+          "correction": "Le vétérinaire soigne les animaux."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Quelle est la capitale du Canada ?",
+          "prompt": "Sur quel continent est située la Chine ?",
           "options": [
-            "Ottawa",
-            "Toronto",
-            "Montréal",
-            "Vancouver"
+            "l'Asie",
+            "l'Europe",
+            "l'Afrique"
           ],
-          "answer": "Ottawa",
-          "correction": "Ottawa est la capitale fédérale du Canada.",
-          "prompt_nl": "Wat is de hoofdstad van Canada?",
-          "prompt_en": "What is the capital of Canada?",
-          "prompt_es": "Cual es la capital de Canada?",
-          "options_i18n": {
-            "nl": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ],
-            "en": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ],
-            "es": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "La Chine est en Asie."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La capitale de la France est :",
+          "prompt": "Sur quel continent est situé le Brésil ?",
           "options": [
-            "Paris",
-            "Lyon",
-            "Marseille",
-            "Bordeaux"
+            "l'Amérique du Sud",
+            "l'Afrique",
+            "l'Asie"
           ],
-          "answer": "Paris",
-          "correction": "Paris est la capitale de la France.",
-          "prompt_nl": "De hoofdstad van Frankrijk is:",
-          "prompt_en": "The capital of France is:",
-          "prompt_es": "La capital de Francia es:",
-          "options_i18n": {
-            "nl": [
-              "Parijs",
-              "Lyon",
-              "Marseille",
-              "Bordeaux"
-            ],
-            "en": [
-              "Paris",
-              "Lyon",
-              "Marseille",
-              "Bordeaux"
-            ],
-            "es": [
-              "Paris",
-              "Lyon",
-              "Marsella",
-              "Burdeos"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "Le Brésil est en Amérique du Sud."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "La capitale de l'Espagne est :",
+          "prompt": "Sur quel continent est situé le Canada ?",
           "options": [
-            "Madrid",
-            "Barcelone",
-            "Séville",
-            "Valence"
+            "l'Amérique du Nord",
+            "l'Europe",
+            "l'Asie"
           ],
-          "answer": "Madrid",
-          "correction": "Madrid est la capitale de l'Espagne.",
-          "prompt_nl": "De hoofdstad van Spanje is:",
-          "prompt_en": "The capital of Spain is:",
-          "prompt_es": "La capital de Espana es:",
-          "options_i18n": {
-            "nl": [
-              "Madrid",
-              "Barcelona",
-              "Sevilla",
-              "Valencia"
-            ],
-            "en": [
-              "Madrid",
-              "Barcelona",
-              "Seville",
-              "Valencia"
-            ],
-            "es": [
-              "Madrid",
-              "Barcelona",
-              "Sevilla",
-              "Valencia"
-            ]
-          }
+          "answer": "l'Amérique du Nord",
+          "correction": "Le Canada est en Amérique du Nord."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La capitale de l'Italie est :",
+          "prompt": "Combien de sens possède l'être humain ?",
           "options": [
-            "Rome",
-            "Milan",
-            "Naples",
-            "Florence"
+            "5",
+            "3",
+            "6"
           ],
-          "answer": "Rome",
-          "correction": "Rome est la capitale de l'Italie.",
-          "prompt_nl": "De hoofdstad van Italie is:",
-          "prompt_en": "The capital of Italy is:",
-          "prompt_es": "La capital de Italia es:",
-          "options_i18n": {
-            "nl": [
-              "Rome",
-              "Milaan",
-              "Napels",
-              "Florence"
-            ],
-            "en": [
-              "Rome",
-              "Milan",
-              "Naples",
-              "Florence"
-            ],
-            "es": [
-              "Roma",
-              "Milan",
-              "Napoles",
-              "Florencia"
-            ]
-          }
+          "answer": "5",
+          "correction": "L'être humain a 5 sens."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "La capitale de l'Allemagne est :",
+          "prompt": "Comment appelle-t-on l'environnement naturel dans lequel vit un animal ?",
           "options": [
-            "Berlin",
-            "Munich",
-            "Hambourg",
-            "Cologne"
+            "son habitat naturel",
+            "sa maison",
+            "un zoo"
           ],
-          "answer": "Berlin",
-          "correction": "Berlin est la capitale de l'Allemagne.",
-          "prompt_nl": "De hoofdstad van Duitsland is:",
-          "prompt_en": "The capital of Germany is:",
-          "prompt_es": "La capital de Alemania es:",
-          "options_i18n": {
-            "nl": [
-              "Berlijn",
-              "München",
-              "Hamburg",
-              "Keulen"
-            ],
-            "en": [
-              "Berlin",
-              "Munich",
-              "Hamburg",
-              "Cologne"
-            ],
-            "es": [
-              "Berlin",
-              "Munich",
-              "Hamburgo",
-              "Colonia"
-            ]
-          }
+          "answer": "son habitat naturel",
+          "correction": "L'habitat naturel = milieu de vie d'un animal."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La capitale de la Belgique est :",
+          "prompt": "Quel animal peuple principalement la forêt tropicale ?",
           "options": [
-            "Bruxelles",
-            "Bruges",
-            "Gand",
-            "Liège"
+            "le singe",
+            "le manchot",
+            "le chameau"
           ],
-          "answer": "Bruxelles",
-          "correction": "Bruxelles est la capitale de la Belgique.",
-          "prompt_nl": "De hoofdstad van Belgie is:",
-          "prompt_en": "The capital of Belgium is:",
-          "prompt_es": "La capital de Belgica es:",
-          "options_i18n": {
-            "nl": [
-              "Brussel",
-              "Brugge",
-              "Gent",
-              "Luik"
-            ],
-            "en": [
-              "Brussels",
-              "Bruges",
-              "Ghent",
-              "Liège"
-            ],
-            "es": [
-              "Bruselas",
-              "Brujas",
-              "Gante",
-              "Lieja"
-            ]
-          }
+          "answer": "le singe",
+          "correction": "Le singe vit dans la forêt tropicale."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "La capitale des Pays-Bas est :",
+          "prompt": "Quel animal est parfaitement adapté à la vie dans le désert ?",
           "options": [
-            "Amsterdam",
-            "Rotterdam",
-            "Utrecht",
-            "La Haye"
+            "le chameau",
+            "le manchot",
+            "le dauphin"
           ],
-          "answer": "Amsterdam",
-          "correction": "Amsterdam est la capitale des Pays-Bas.",
-          "prompt_nl": "De hoofdstad van Nederland is:",
-          "prompt_en": "The capital of the Netherlands is:",
-          "prompt_es": "La capital de los Paises Bajos es:",
-          "options_i18n": {
-            "nl": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "Den Haag"
-            ],
-            "en": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "The Hague"
-            ],
-            "es": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "La Haya"
-            ]
-          }
+          "answer": "le chameau",
+          "correction": "Le chameau est adapté au désert."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La capitale du Royaume-Uni est :",
+          "prompt": "Quelle est la définition de l'eau potable ?",
           "options": [
-            "Londres",
-            "Manchester",
-            "Birmingham",
-            "Édimbourg"
+            "de l'eau sans danger pour la boisson",
+            "de l'eau salée",
+            "de l'eau polluée"
           ],
-          "answer": "Londres",
-          "correction": "Londres est la capitale du Royaume-Uni.",
-          "prompt_nl": "De hoofdstad van het Verenigd Koninkrijk is:",
-          "prompt_en": "The capital of the United Kingdom is:",
-          "prompt_es": "La capital del Reino Unido es:",
-          "options_i18n": {
-            "nl": [
-              "Londen",
-              "Manchester",
-              "Birmingham",
-              "Edinburgh"
-            ],
-            "en": [
-              "London",
-              "Manchester",
-              "Birmingham",
-              "Edinburgh"
-            ],
-            "es": [
-              "Londres",
-              "Manchester",
-              "Birmingham",
-              "Edimburgo"
-            ]
-          }
+          "answer": "de l'eau sans danger pour la boisson",
+          "correction": "L'eau potable est propre à boire."
         }
       ]
     },
@@ -478,122 +240,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le dentiste soigne :",
+          "prompt": "Qu'appelle-t-on la pollution atmosphérique ?",
           "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
+            "la présence de substances nocives dans l'air",
+            "la pluie",
+            "le brouillard"
           ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
+          "answer": "la présence de substances nocives dans l'air",
+          "correction": "Pollution atmosphérique = substances nocives dans l'air."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "À quel groupe alimentaire appartiennent le pain, les pâtes et le riz ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "les céréales et féculents",
+            "les produits laitiers",
+            "les fruits"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "les céréales et féculents",
+          "correction": "Le pain, les pâtes et le riz sont des céréales."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "À quel groupe alimentaire appartiennent la viande, les œufs et le poisson ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "les protéines animales",
+            "les céréales",
+            "les produits laitiers"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "les protéines animales",
+          "correction": "Viande, œufs, poisson = protéines animales."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Vers quelle direction pointe le Nord sur une boussole ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "le pôle Nord magnétique",
+            "vers le Soleil",
+            "vers l'est"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "le pôle Nord magnétique",
+          "correction": "La boussole pointe vers le pôle Nord magnétique."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On entend avec les :",
+          "prompt": "Quel sens nous permet de distinguer le sucré du salé ?",
           "options": [
-            "oreilles",
-            "yeux",
-            "mains"
+            "le goût",
+            "la vue",
+            "l'odorat"
           ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
+          "answer": "le goût",
+          "correction": "Le goût distingue le sucré du salé."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Sur quel continent est située l'Australie ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "l'Océanie",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "l'Océanie",
+          "correction": "L'Australie est en Océanie."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le medecin soigne les :",
+          "prompt": "Sur quel continent est située la France ?",
           "options": [
-            "malades",
-            "voitures",
-            "plantes"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "malades",
-          "correction": "Le médecin soigne les malades."
+          "answer": "l'Europe",
+          "correction": "La France est en Europe."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Quel est le plus grand désert chaud de la planète ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "le Sahara",
+            "le désert de Gobi",
+            "le désert d'Atacama"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "le Sahara",
+          "correction": "Le Sahara est le plus grand désert chaud."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Le docteur soigne les :",
+          "prompt": "Sur quel continent est située l'Inde ?",
           "options": [
-            "malades",
-            "voitures",
-            "maisons"
+            "l'Asie",
+            "l'Europe",
+            "l'Afrique"
           ],
-          "answer": "malades",
-          "correction": "Le docteur soigne les malades."
+          "answer": "l'Asie",
+          "correction": "L'Inde est en Asie."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "Quel est le fleuve le plus long du monde ?",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "le Nil",
+            "l'Amazone",
+            "le Mississippi"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "le Nil",
+          "correction": "Le Nil est souvent cité comme le plus long."
         }
       ]
     }

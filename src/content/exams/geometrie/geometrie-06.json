@@ -14,139 +14,258 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Une balle a la forme d’un :",
+          "prompt": "Quel est le périmètre d'un carré de côté 18 cm ?",
           "options": [
-            "cercle",
-            "carré",
-            "triangle"
+            "72 cm",
+            "76 cm",
+            "68 cm"
           ],
-          "answer": "cercle",
-          "correction": "La balle est ronde.",
-          "prompt_nl": "Een bal heeft de vorm van een:",
-          "prompt_en": "A ball has the shape of a:",
-          "prompt_es": "Una pelota tiene forma de:",
-          "correction_nl": "Een bal is rond (cirkel).",
-          "correction_en": "A ball is round (circle).",
-          "correction_es": "Una pelota es redonda (círculo)."
+          "answer": "72 cm",
+          "correction": "Périmètre = 4 × 18 = 72 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 18 cm?",
+          "prompt_en": "What is the perimeter of a square with side 18 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 18 cm?",
+          "options_i18n": {
+            "nl": [
+              "72 cm",
+              "76 cm",
+              "68 cm"
+            ],
+            "en": [
+              "72 cm",
+              "76 cm",
+              "68 cm"
+            ],
+            "es": [
+              "72 cm",
+              "76 cm",
+              "68 cm"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quelle forme n’a pas de coin ?",
+          "prompt": "Quel est le périmètre d'un carré de côté 19 cm ?",
           "options": [
-            "le cercle",
-            "le carré",
-            "le triangle"
+            "76 cm",
+            "80 cm",
+            "72 cm"
           ],
-          "answer": "le cercle",
-          "correction": "Le cercle est rond, sans coin.",
-          "prompt_nl": "Welke vorm heeft geen hoek?",
-          "prompt_en": "Which shape has no corner?",
-          "prompt_es": "¿Qué forma no tiene esquina?",
-          "correction_nl": "De cirkel is rond, zonder hoeken.",
-          "correction_en": "A circle is round, with no corners.",
-          "correction_es": "El círculo es redondo, sin esquinas."
+          "answer": "76 cm",
+          "correction": "Périmètre = 4 × 19 = 76 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 19 cm?",
+          "prompt_en": "What is the perimeter of a square with side 19 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 19 cm?",
+          "options_i18n": {
+            "nl": [
+              "76 cm",
+              "80 cm",
+              "72 cm"
+            ],
+            "en": [
+              "76 cm",
+              "80 cm",
+              "72 cm"
+            ],
+            "es": [
+              "76 cm",
+              "80 cm",
+              "72 cm"
+            ]
+          }
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le rectangle a :",
+          "prompt": "Quel est le périmètre d'un carré de côté 20 cm ?",
           "options": [
-            "des côtés longs et courts",
-            "tous les côtés égaux",
-            "aucun côté"
+            "80 cm",
+            "84 cm",
+            "76 cm"
           ],
-          "answer": "des côtés longs et courts",
-          "correction": "Rectangle : longs et courts.",
-          "prompt_nl": "Een rechthoek heeft:",
-          "prompt_en": "A rectangle has:",
-          "prompt_es": "Un rectángulo tiene:",
-          "correction_nl": "Lange en korte zijden.",
-          "correction_en": "Long and short sides.",
-          "correction_es": "Lados largos y cortos."
+          "answer": "80 cm",
+          "correction": "Périmètre = 4 × 20 = 80 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 20 cm?",
+          "prompt_en": "What is the perimeter of a square with side 20 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 20 cm?",
+          "options_i18n": {
+            "nl": [
+              "80 cm",
+              "84 cm",
+              "76 cm"
+            ],
+            "en": [
+              "80 cm",
+              "84 cm",
+              "76 cm"
+            ],
+            "es": [
+              "80 cm",
+              "84 cm",
+              "76 cm"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Un rectangle a combien de côtés ?",
+          "prompt": "Quel est le périmètre d'un carré de côté 21 cm ?",
           "options": [
-            "4",
-            "3",
-            "6"
+            "84 cm",
+            "88 cm",
+            "80 cm"
           ],
-          "answer": "4",
-          "correction": "Le rectangle a 4 côtés.",
-          "prompt_nl": "Hoeveel zijden heeft een rechthoek?",
-          "prompt_en": "How many sides does a rectangle have?",
-          "prompt_es": "¿Cuántos lados tiene un rectángulo?",
-          "correction_nl": "Een rechthoek heeft 4 zijden.",
-          "correction_en": "A rectangle has 4 sides.",
-          "correction_es": "Un rectángulo tiene 4 lados."
+          "answer": "84 cm",
+          "correction": "Périmètre = 4 × 21 = 84 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 21 cm?",
+          "prompt_en": "What is the perimeter of a square with side 21 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 21 cm?",
+          "options_i18n": {
+            "nl": [
+              "84 cm",
+              "88 cm",
+              "80 cm"
+            ],
+            "en": [
+              "84 cm",
+              "88 cm",
+              "80 cm"
+            ],
+            "es": [
+              "84 cm",
+              "88 cm",
+              "80 cm"
+            ]
+          }
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "Un carré a tous ses côtés égaux.",
-          "answer": true,
-          "correction": "Oui, 4 côtés égaux.",
-          "prompt_nl": "Een vierkant heeft alle zijden gelijk.",
-          "prompt_en": "A square has all equal sides.",
-          "prompt_es": "Un cuadrado tiene todos los lados iguales.",
-          "correction_nl": "Ja, 4 gelijke zijden.",
-          "correction_en": "Yes, 4 equal sides.",
-          "correction_es": "Sí, 4 lados iguales."
+          "type": "mcq",
+          "prompt": "Quel est le périmètre d'un carré de côté 22 cm ?",
+          "options": [
+            "88 cm",
+            "92 cm",
+            "84 cm"
+          ],
+          "answer": "88 cm",
+          "correction": "Périmètre = 4 × 22 = 88 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 22 cm?",
+          "prompt_en": "What is the perimeter of a square with side 22 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 22 cm?",
+          "options_i18n": {
+            "nl": [
+              "88 cm",
+              "92 cm",
+              "84 cm"
+            ],
+            "en": [
+              "88 cm",
+              "92 cm",
+              "84 cm"
+            ],
+            "es": [
+              "88 cm",
+              "92 cm",
+              "84 cm"
+            ]
+          }
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Une fenêtre a souvent la forme d’un :",
+          "prompt": "Quel est le périmètre d'un carré de côté 23 cm ?",
           "options": [
-            "rectangle",
-            "cercle",
-            "triangle"
+            "92 cm",
+            "96 cm",
+            "88 cm"
           ],
-          "answer": "rectangle",
-          "correction": "Souvent un rectangle.",
-          "prompt_nl": "Een raam heeft vaak de vorm van een:",
-          "prompt_en": "A window often has the shape of a:",
-          "prompt_es": "Una ventana suele tener forma de:",
-          "correction_nl": "Vaak een rechthoek.",
-          "correction_en": "Usually a rectangle.",
-          "correction_es": "Normalmente un rectángulo."
+          "answer": "92 cm",
+          "correction": "Périmètre = 4 × 23 = 92 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 23 cm?",
+          "prompt_en": "What is the perimeter of a square with side 23 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 23 cm?",
+          "options_i18n": {
+            "nl": [
+              "92 cm",
+              "96 cm",
+              "88 cm"
+            ],
+            "en": [
+              "92 cm",
+              "96 cm",
+              "88 cm"
+            ],
+            "es": [
+              "92 cm",
+              "96 cm",
+              "88 cm"
+            ]
+          }
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "La forme ronde s’appelle le ___ .",
-          "answer": "cercle",
-          "accept": [
-            "cercle"
+          "type": "mcq",
+          "prompt": "Quel est le périmètre d'un carré de côté 24 cm ?",
+          "options": [
+            "96 cm",
+            "100 cm",
+            "92 cm"
           ],
-          "correction": "C’est le cercle.",
-          "prompt_nl": "De ronde vorm heet de ___ .",
-          "prompt_en": "The round shape is called a ___ .",
-          "prompt_es": "La forma redonda se llama ___ .",
-          "correction_nl": "Het is de cirkel.",
-          "correction_en": "It is the circle.",
-          "correction_es": "Es el círculo."
+          "answer": "96 cm",
+          "correction": "Périmètre = 4 × 24 = 96 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 24 cm?",
+          "prompt_en": "What is the perimeter of a square with side 24 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 24 cm?",
+          "options_i18n": {
+            "nl": [
+              "96 cm",
+              "100 cm",
+              "92 cm"
+            ],
+            "en": [
+              "96 cm",
+              "100 cm",
+              "92 cm"
+            ],
+            "es": [
+              "96 cm",
+              "100 cm",
+              "92 cm"
+            ]
+          }
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Combien de coins a un carré ?",
+          "prompt": "Quel est le périmètre d'un carré de côté 25 cm ?",
           "options": [
-            "4",
-            "3",
-            "0"
+            "100 cm",
+            "104 cm",
+            "96 cm"
           ],
-          "answer": "4",
-          "correction": "Le carré a 4 coins.",
-          "prompt_nl": "Hoeveel hoeken heeft een vierkant?",
-          "prompt_en": "How many corners does a square have?",
-          "prompt_es": "¿Cuántos vértices tiene un cuadrado?",
-          "correction_nl": "Een vierkant heeft 4 hoeken.",
-          "correction_en": "A square has 4 corners.",
-          "correction_es": "Un cuadrado tiene 4 vértices."
+          "answer": "100 cm",
+          "correction": "Périmètre = 4 × 25 = 100 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 25 cm?",
+          "prompt_en": "What is the perimeter of a square with side 25 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 25 cm?",
+          "options_i18n": {
+            "nl": [
+              "100 cm",
+              "104 cm",
+              "96 cm"
+            ],
+            "en": [
+              "100 cm",
+              "104 cm",
+              "96 cm"
+            ],
+            "es": [
+              "100 cm",
+              "104 cm",
+              "96 cm"
+            ]
+          }
         }
       ]
     },
@@ -155,171 +274,323 @@
       "questions": [
         {
           "id": "q1",
-          "type": "fill_blank",
-          "prompt": "Quel est le périmètre d'un carré de 5 cm de côté ?",
-          "answer": "20 cm",
-          "accept": [
-            "20 cm",
-            "20"
+          "type": "mcq",
+          "prompt": "Quel est le périmètre d'un carré de côté 26 cm ?",
+          "options": [
+            "104 cm",
+            "108 cm",
+            "100 cm"
           ],
-          "correction": "Périmètre = 4 × côté = 4 × 5 = 20 cm.",
-          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 5 cm?",
-          "prompt_en": "What is the perimeter of a square with a 5 cm side?",
-          "prompt_es": "¿Cuál es el perímetro de un cuadrado de 5 cm de lado?",
-          "correction_nl": "Omtrek = 4 × zijde = 4 × 5 = 20 cm.",
-          "correction_en": "Perimeter = 4 × side = 4 × 5 = 20 cm.",
-          "correction_es": "Perímetro = 4 × lado = 4 × 5 = 20 cm."
+          "answer": "104 cm",
+          "correction": "Périmètre = 4 × 26 = 104 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 26 cm?",
+          "prompt_en": "What is the perimeter of a square with side 26 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 26 cm?",
+          "options_i18n": {
+            "nl": [
+              "104 cm",
+              "108 cm",
+              "100 cm"
+            ],
+            "en": [
+              "104 cm",
+              "108 cm",
+              "100 cm"
+            ],
+            "es": [
+              "104 cm",
+              "108 cm",
+              "100 cm"
+            ]
+          }
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel est le périmètre d'un rectangle de 6 cm de long et 3 cm de large ?",
+          "prompt": "Quel est le périmètre d'un carré de côté 27 cm ?",
           "options": [
-            "18 cm",
-            "9 cm",
-            "24 cm"
+            "108 cm",
+            "112 cm",
+            "104 cm"
           ],
-          "answer": "18 cm",
-          "correction": "Périmètre = 2 × (longueur + largeur) = 2 × (6 + 3) = 18 cm.",
-          "prompt_nl": "Wat is de omtrek van een rechthoek van 6 cm lang en 3 cm breed?",
-          "prompt_en": "What is the perimeter of a rectangle 6 cm long and 3 cm wide?",
-          "prompt_es": "¿Cuál es el perímetro de un rectángulo de 6 cm de largo y 3 cm de ancho?",
-          "correction_nl": "Omtrek = 2 × (lengte + breedte) = 2 × (6 + 3) = 18 cm.",
-          "correction_en": "Perimeter = 2 × (length + width) = 2 × (6 + 3) = 18 cm.",
-          "correction_es": "Perímetro = 2 × (largo + ancho) = 2 × (6 + 3) = 18 cm."
+          "answer": "108 cm",
+          "correction": "Périmètre = 4 × 27 = 108 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 27 cm?",
+          "prompt_en": "What is the perimeter of a square with side 27 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 27 cm?",
+          "options_i18n": {
+            "nl": [
+              "108 cm",
+              "112 cm",
+              "104 cm"
+            ],
+            "en": [
+              "108 cm",
+              "112 cm",
+              "104 cm"
+            ],
+            "es": [
+              "108 cm",
+              "112 cm",
+              "104 cm"
+            ]
+          }
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Un rectangle a-t-il des angles droits ?",
+          "prompt": "Quel est le périmètre d'un carré de côté 28 cm ?",
           "options": [
-            "oui, 4 angles droits",
-            "non, aucun angle droit",
-            "oui, 2 angles droits"
+            "112 cm",
+            "116 cm",
+            "108 cm"
           ],
-          "answer": "oui, 4 angles droits",
-          "correction": "Un rectangle a 4 angles droits (90°) aux quatre coins.",
-          "prompt_nl": "Heeft een rechthoek rechte hoeken?",
-          "prompt_en": "Does a rectangle have right angles?",
-          "prompt_es": "¿Tiene un rectángulo ángulos rectos?",
-          "correction_nl": "Een rechthoek heeft 4 rechte hoeken (90°) in de vier hoeken.",
-          "correction_en": "A rectangle has 4 right angles (90°) at its four corners.",
-          "correction_es": "Un rectángulo tiene 4 ángulos rectos (90°) en las cuatro esquinas."
+          "answer": "112 cm",
+          "correction": "Périmètre = 4 × 28 = 112 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 28 cm?",
+          "prompt_en": "What is the perimeter of a square with side 28 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 28 cm?",
+          "options_i18n": {
+            "nl": [
+              "112 cm",
+              "116 cm",
+              "108 cm"
+            ],
+            "en": [
+              "112 cm",
+              "116 cm",
+              "108 cm"
+            ],
+            "es": [
+              "112 cm",
+              "116 cm",
+              "108 cm"
+            ]
+          }
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Combien de paires de côtés parallèles a un rectangle ?",
+          "prompt": "Quel est le périmètre d'un carré de côté 29 cm ?",
           "options": [
-            "2",
-            "0",
-            "4"
+            "116 cm",
+            "120 cm",
+            "112 cm"
           ],
-          "answer": "2",
-          "correction": "Un rectangle a 2 paires de côtés parallèles : les longueurs et les largeurs.",
-          "prompt_nl": "Hoeveel paren parallelle zijden heeft een rechthoek?",
-          "prompt_en": "How many pairs of parallel sides does a rectangle have?",
-          "prompt_es": "¿Cuántos pares de lados paralelos tiene un rectángulo?",
-          "correction_nl": "Een rechthoek heeft 2 paren parallelle zijden.",
-          "correction_en": "A rectangle has 2 pairs of parallel sides.",
-          "correction_es": "Un rectángulo tiene 2 pares de lados paralelos."
+          "answer": "116 cm",
+          "correction": "Périmètre = 4 × 29 = 116 cm.",
+          "prompt_nl": "Wat is de omtrek van een vierkant met zijde 29 cm?",
+          "prompt_en": "What is the perimeter of a square with side 29 cm?",
+          "prompt_es": "¿Cuál es el perímetro de un cuadrado de lado 29 cm?",
+          "options_i18n": {
+            "nl": [
+              "116 cm",
+              "120 cm",
+              "112 cm"
+            ],
+            "en": [
+              "116 cm",
+              "120 cm",
+              "112 cm"
+            ],
+            "es": [
+              "116 cm",
+              "120 cm",
+              "112 cm"
+            ]
+          }
         },
         {
           "id": "q5",
-          "type": "true_false",
-          "prompt": "Un carré est un rectangle particulier.",
-          "answer": true,
-          "correction": "Vrai : un carré est un rectangle dont tous les côtés sont égaux.",
-          "prompt_nl": "Een vierkant is een bijzondere rechthoek.",
-          "prompt_en": "A square is a special rectangle.",
-          "prompt_es": "Un cuadrado es un rectángulo especial.",
-          "correction_nl": "Waar: een vierkant is een rechthoek waarvan alle zijden gelijk zijn.",
-          "correction_en": "True: a square is a rectangle with all equal sides.",
-          "correction_es": "Verdadero: un cuadrado es un rectángulo con todos los lados iguales."
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un carré de côté 1 cm ?",
+          "options": [
+            "1 cm²",
+            "4 cm²",
+            "2 cm²"
+          ],
+          "answer": "1 cm²",
+          "correction": "Aire = 1 × 1 = 1 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 1 cm?",
+          "prompt_en": "What is the area of a square with side 1 cm?",
+          "prompt_es": "¿Cuál es el área de un cuadrado de lado 1 cm?",
+          "options_i18n": {
+            "nl": [
+              "1 cm²",
+              "4 cm²",
+              "2 cm²"
+            ],
+            "en": [
+              "1 cm²",
+              "4 cm²",
+              "2 cm²"
+            ],
+            "es": [
+              "1 cm²",
+              "4 cm²",
+              "2 cm²"
+            ]
+          }
         },
         {
           "id": "q6",
-          "type": "fill_blank",
-          "prompt": "Quel est le périmètre d'un triangle équilatéral de 4 cm de côté ?",
-          "answer": "12 cm",
-          "accept": [
-            "12 cm",
-            "12"
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un carré de côté 2 cm ?",
+          "options": [
+            "4 cm²",
+            "8 cm²",
+            "6 cm²"
           ],
-          "correction": "Périmètre = 3 × côté = 3 × 4 = 12 cm.",
-          "prompt_nl": "Wat is de omtrek van een gelijkzijdige driehoek met zijde 4 cm?",
-          "prompt_en": "What is the perimeter of an equilateral triangle with a 4 cm side?",
-          "prompt_es": "¿Cuál es el perímetro de un triángulo equilátero de 4 cm de lado?",
-          "correction_nl": "Omtrek = 3 × zijde = 3 × 4 = 12 cm.",
-          "correction_en": "Perimeter = 3 × side = 3 × 4 = 12 cm.",
-          "correction_es": "Perímetro = 3 × lado = 3 × 4 = 12 cm."
+          "answer": "4 cm²",
+          "correction": "Aire = 2 × 2 = 4 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 2 cm?",
+          "prompt_en": "What is the area of a square with side 2 cm?",
+          "prompt_es": "¿Cuál es el área de un cuadrado de lado 2 cm?",
+          "options_i18n": {
+            "nl": [
+              "4 cm²",
+              "8 cm²",
+              "6 cm²"
+            ],
+            "en": [
+              "4 cm²",
+              "8 cm²",
+              "6 cm²"
+            ],
+            "es": [
+              "4 cm²",
+              "8 cm²",
+              "6 cm²"
+            ]
+          }
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Combien d'axes de symétrie a un rectangle non carré ?",
+          "prompt": "Quelle est l'aire d'un carré de côté 3 cm ?",
           "options": [
-            "2",
-            "4",
-            "0"
+            "9 cm²",
+            "12 cm²",
+            "13 cm²"
           ],
-          "answer": "2",
-          "correction": "Un rectangle non carré a 2 axes de symétrie : les deux droites passant par le milieu des côtés.",
-          "prompt_nl": "Hoeveel symmetrie-assen heeft een rechthoek die geen vierkant is?",
-          "prompt_en": "How many axes of symmetry does a non-square rectangle have?",
-          "prompt_es": "¿Cuántos ejes de simetría tiene un rectángulo que no es cuadrado?",
-          "correction_nl": "Een niet-vierkante rechthoek heeft 2 symmetrie-assen.",
-          "correction_en": "A non-square rectangle has 2 axes of symmetry.",
-          "correction_es": "Un rectángulo no cuadrado tiene 2 ejes de simetría."
+          "answer": "9 cm²",
+          "correction": "Aire = 3 × 3 = 9 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 3 cm?",
+          "prompt_en": "What is the area of a square with side 3 cm?",
+          "prompt_es": "¿Cuál es el área de un cuadrado de lado 3 cm?",
+          "options_i18n": {
+            "nl": [
+              "9 cm²",
+              "12 cm²",
+              "13 cm²"
+            ],
+            "en": [
+              "9 cm²",
+              "12 cm²",
+              "13 cm²"
+            ],
+            "es": [
+              "9 cm²",
+              "12 cm²",
+              "13 cm²"
+            ]
+          }
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle forme a exactement 2 paires de côtés égaux ?",
+          "prompt": "Quelle est l'aire d'un carré de côté 4 cm ?",
           "options": [
-            "le rectangle",
-            "le triangle",
-            "le cercle"
+            "16 cm²",
+            "17 cm²",
+            "20 cm²"
           ],
-          "answer": "le rectangle",
-          "correction": "Le rectangle a 2 paires de côtés égaux : longueurs égales entre elles, largeurs égales entre elles.",
-          "prompt_nl": "Welke vorm heeft precies 2 paren gelijke zijden?",
-          "prompt_en": "Which shape has exactly 2 pairs of equal sides?",
-          "prompt_es": "¿Qué forma tiene exactamente 2 pares de lados iguales?",
-          "correction_nl": "De rechthoek heeft 2 paren gelijke zijden.",
-          "correction_en": "The rectangle has 2 pairs of equal sides.",
-          "correction_es": "El rectángulo tiene 2 pares de lados iguales."
+          "answer": "16 cm²",
+          "correction": "Aire = 4 × 4 = 16 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 4 cm?",
+          "prompt_en": "What is the area of a square with side 4 cm?",
+          "prompt_es": "¿Cuál es el área de un cuadrado de lado 4 cm?",
+          "options_i18n": {
+            "nl": [
+              "16 cm²",
+              "17 cm²",
+              "20 cm²"
+            ],
+            "en": [
+              "16 cm²",
+              "17 cm²",
+              "20 cm²"
+            ],
+            "es": [
+              "16 cm²",
+              "17 cm²",
+              "20 cm²"
+            ]
+          }
         },
         {
           "id": "q9",
-          "type": "true_false",
-          "prompt": "Un carré a 4 axes de symétrie.",
-          "answer": true,
-          "correction": "Vrai : un carré a 4 axes de symétrie (2 médianes et 2 diagonales).",
-          "prompt_nl": "Een vierkant heeft 4 symmetrie-assen.",
-          "prompt_en": "A square has 4 axes of symmetry.",
-          "prompt_es": "Un cuadrado tiene 4 ejes de simetría.",
-          "correction_nl": "Waar: een vierkant heeft 4 symmetrie-assen.",
-          "correction_en": "True: a square has 4 axes of symmetry.",
-          "correction_es": "Verdadero: un cuadrado tiene 4 ejes de simetría."
+          "type": "mcq",
+          "prompt": "Quelle est l'aire d'un carré de côté 5 cm ?",
+          "options": [
+            "25 cm²",
+            "20 cm²",
+            "30 cm²"
+          ],
+          "answer": "25 cm²",
+          "correction": "Aire = 5 × 5 = 25 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 5 cm?",
+          "prompt_en": "What is the area of a square with side 5 cm?",
+          "prompt_es": "¿Cuál es el área de un cuadrado de lado 5 cm?",
+          "options_i18n": {
+            "nl": [
+              "25 cm²",
+              "20 cm²",
+              "30 cm²"
+            ],
+            "en": [
+              "25 cm²",
+              "20 cm²",
+              "30 cm²"
+            ],
+            "es": [
+              "25 cm²",
+              "20 cm²",
+              "30 cm²"
+            ]
+          }
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le périmètre d'un carré de 3 cm de côté est :",
+          "prompt": "Quelle est l'aire d'un carré de côté 6 cm ?",
           "options": [
-            "12 cm",
-            "9 cm",
-            "6 cm"
+            "36 cm²",
+            "24 cm²",
+            "42 cm²"
           ],
-          "answer": "12 cm",
-          "correction": "Périmètre = 4 × 3 = 12 cm.",
-          "prompt_nl": "De omtrek van een vierkant met zijde 3 cm is:",
-          "prompt_en": "The perimeter of a square with a 3 cm side is:",
-          "prompt_es": "El perímetro de un cuadrado de 3 cm de lado es:",
-          "correction_nl": "Omtrek = 4 × 3 = 12 cm.",
-          "correction_en": "Perimeter = 4 × 3 = 12 cm.",
-          "correction_es": "Perímetro = 4 × 3 = 12 cm."
+          "answer": "36 cm²",
+          "correction": "Aire = 6 × 6 = 36 cm².",
+          "prompt_nl": "Wat is de oppervlakte van een vierkant met zijde 6 cm?",
+          "prompt_en": "What is the area of a square with side 6 cm?",
+          "prompt_es": "¿Cuál es el área de un cuadrado de lado 6 cm?",
+          "options_i18n": {
+            "nl": [
+              "36 cm²",
+              "24 cm²",
+              "42 cm²"
+            ],
+            "en": [
+              "36 cm²",
+              "24 cm²",
+              "42 cm²"
+            ],
+            "es": [
+              "36 cm²",
+              "24 cm²",
+              "42 cm²"
+            ]
+          }
         }
       ]
     },

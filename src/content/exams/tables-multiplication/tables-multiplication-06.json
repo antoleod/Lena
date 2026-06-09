@@ -30,7 +30,7 @@
         {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "7 × 3 = ___",
+          "prompt": "7 × 3 = ?",
           "answer": "21",
           "correction": "7 × 3 = 21."
         },
@@ -51,98 +51,31 @@
           "prompt_es": "7 × 1 = ?"
         },
         {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "7 × 5 = ?",
-          "options": [
-            "35",
-            "36",
-            "39",
-            "30"
-          ],
-          "answer": "35",
-          "correction": "7 × 5 = 35.",
-          "prompt_nl": "7 × 5 = ?",
-          "prompt_en": "7 × 5 = ?",
-          "prompt_es": "7 × 5 = ?"
-        },
-        {
           "id": "q5",
           "type": "fill_blank",
-          "prompt": "7 × 4 = ___",
+          "prompt": "7 × 4 = ?",
           "answer": "28",
           "correction": "7 × 4 = 28."
         },
         {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "7 × 5 = ?",
-          "options": [
-            "39",
-            "28",
-            "35",
-            "36"
-          ],
-          "answer": "35",
-          "correction": "7 × 5 = 35.",
-          "prompt_nl": "7 × 5 = ?",
-          "prompt_en": "7 × 5 = ?",
-          "prompt_es": "7 × 5 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "7 × 3 = ?",
-          "options": [
-            "17",
-            "15",
-            "21",
-            "20"
-          ],
-          "answer": "21",
-          "correction": "7 × 3 = 21.",
-          "prompt_nl": "7 × 3 = ?",
-          "prompt_en": "7 × 3 = ?",
-          "prompt_es": "7 × 3 = ?"
-        },
-        {
-          "id": "q8",
           "type": "fill_blank",
-          "prompt": "7 × 4 = ___",
-          "answer": "28",
-          "correction": "7 × 4 = 28."
+          "prompt": "10 × ___ = 30",
+          "answer": "3",
+          "correction": "10 × 3 = 30.",
+          "accept": [
+            "3"
+          ],
+          "id": "q6"
         },
         {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "7 × 1 = ?",
-          "options": [
-            "7",
-            "12",
-            "8",
-            "2"
+          "type": "fill_blank",
+          "prompt": "10 × ___ = 60",
+          "answer": "6",
+          "correction": "10 × 6 = 60.",
+          "accept": [
+            "6"
           ],
-          "answer": "7",
-          "correction": "7 × 1 = 7.",
-          "prompt_nl": "7 × 1 = ?",
-          "prompt_en": "7 × 1 = ?",
-          "prompt_es": "7 × 1 = ?"
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "7 × 1 = ?",
-          "options": [
-            "14",
-            "10",
-            "8",
-            "7"
-          ],
-          "answer": "7",
-          "correction": "7 × 1 = 7.",
-          "prompt_nl": "7 × 1 = ?",
-          "prompt_en": "7 × 1 = ?",
-          "prompt_es": "7 × 1 = ?"
+          "id": "q10"
         }
       ]
     },
@@ -291,7 +224,7 @@
         {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "7 × 2 = ___",
+          "prompt": "7 × 2 = ?",
           "answer": "14",
           "correction": "7 × 2 = 14."
         },
@@ -328,13 +261,6 @@
           "prompt_es": "7 × 9 = ?"
         },
         {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "7 × 9 = ___",
-          "answer": "63",
-          "correction": "7 × 9 = 63."
-        },
-        {
           "id": "q6",
           "type": "mcq",
           "prompt": "7 × 7 = ?",
@@ -349,29 +275,6 @@
           "prompt_nl": "7 × 7 = ?",
           "prompt_en": "7 × 7 = ?",
           "prompt_es": "7 × 7 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "7 × 6 = ?",
-          "options": [
-            "49",
-            "44",
-            "42",
-            "48"
-          ],
-          "answer": "42",
-          "correction": "7 × 6 = 42.",
-          "prompt_nl": "7 × 6 = ?",
-          "prompt_en": "7 × 6 = ?",
-          "prompt_es": "7 × 6 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "7 × 9 = ___",
-          "answer": "63",
-          "correction": "7 × 9 = 63."
         },
         {
           "id": "q9",
@@ -390,20 +293,14 @@
           "prompt_es": "7 × 3 = ?"
         },
         {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "7 × 5 = ?",
-          "options": [
-            "31",
-            "35",
-            "38",
-            "36"
+          "type": "fill_blank",
+          "prompt": "___ × 3 = 30",
+          "answer": "10",
+          "correction": "10 × 3 = 30.",
+          "accept": [
+            "10"
           ],
-          "answer": "35",
-          "correction": "7 × 5 = 35.",
-          "prompt_nl": "7 × 5 = ?",
-          "prompt_en": "7 × 5 = ?",
-          "prompt_es": "7 × 5 = ?"
+          "id": "q10"
         }
       ]
     }

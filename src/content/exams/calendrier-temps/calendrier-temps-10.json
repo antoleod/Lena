@@ -14,98 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
+          "prompt": "Parmi les 12 mois, combien en ont 31 ?",
           "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
+            "7",
+            "6",
+            "5"
           ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
+          "answer": "7",
+          "correction": "7 mois ont 31 jours."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
+          "prompt": "Pendant quelle saison cueille-t-on les fruits estivaux ?",
           "options": [
-            "4",
-            "2",
-            "6"
+            "l'été",
+            "l'automne",
+            "le printemps"
           ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
+          "answer": "l'été",
+          "correction": "On cueille les fruits d'été en été."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "Quel est le 2e mois de l'année civile ?",
           "options": [
-            "décembre",
-            "juillet",
+            "février",
+            "janvier",
             "mars"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "février",
+          "correction": "Février est le 2e mois."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Combien de jours compte le mois de juin ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "30",
+            "31",
+            "29"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "30",
+          "correction": "Juin a 30 jours."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Quel mois suit directement novembre ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "décembre",
+            "octobre",
+            "janvier"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "décembre",
+          "correction": "Après novembre vient décembre."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Quel est le 7e mois de l'année civile ?",
           "options": [
             "juillet",
-            "janvier",
-            "novembre"
+            "juin",
+            "août"
           ],
           "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "correction": "Juillet est le 7e mois."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
+          "prompt": "Combien de jours compte le mois de mars ?",
           "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
+          "answer": "31",
+          "correction": "Mars a 31 jours."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Quel est le 10e mois de l'année civile ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "octobre",
+            "septembre",
+            "novembre"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "octobre",
+          "correction": "Octobre est le 10e mois."
         }
       ]
     },
@@ -201,14 +201,14 @@
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Lequel vient en premier dans l’année ?",
+          "prompt": "Combien d'heures dure une demi-journée ?",
           "options": [
-            "mai",
-            "août",
-            "novembre"
+            "12",
+            "6",
+            "24"
           ],
-          "answer": "mai",
-          "correction": "Mai est le 5e mois, avant août (8e) et novembre (11e)."
+          "answer": "12",
+          "correction": "Une demi-journée = 12 heures."
         },
         {
           "id": "q10",
@@ -225,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Une saison sportive dure de septembre à avril. Combien de mois cela fait-il ?",
+          "prompt": "Quel mois suit directement février ?",
           "options": [
-            "6",
-            "7",
-            "8",
-            "9"
+            "mars",
+            "janvier",
+            "avril"
           ],
-          "answer": "8",
-          "correction": "Septembre, octobre, novembre, décembre, janvier, février, mars, avril = 8 mois."
+          "answer": "mars",
+          "correction": "Après février vient mars."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Un train part à 8h15 et arrive à 10h45. Combien de temps dure le trajet ?",
+          "prompt": "Combien de jours compte le mois de septembre ?",
           "options": [
-            "1h30",
-            "2h00",
-            "2h15",
-            "2h30"
+            "30",
+            "31",
+            "28"
           ],
-          "answer": "2h30",
-          "correction": "De 8h15 à 10h45 = 2 heures 30 minutes."
+          "answer": "30",
+          "correction": "Septembre a 30 jours."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Un vol décolle à 9h30 et dure 3h15. À quelle heure atterrit-il ?",
+          "prompt": "Quel est le 5e mois de l'année civile ?",
           "options": [
-            "12h30",
-            "12h45",
-            "13h00",
-            "13h15"
+            "mai",
+            "avril",
+            "juin"
           ],
-          "answer": "12h45",
-          "correction": "9h30 + 3h15 = 12h45."
+          "answer": "mai",
+          "correction": "Mai est le 5e mois."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "L'école commence à 8h30 et finit à 15h30. Combien d'heures dure la journée scolaire ?",
+          "prompt": "En France, quel est le premier jour ouvrable de la semaine ?",
           "options": [
-            "6h",
-            "6h30",
-            "7h",
-            "7h30"
+            "lundi",
+            "dimanche",
+            "samedi"
           ],
-          "answer": "7h",
-          "correction": "De 8h30 à 15h30 = 7 heures."
+          "answer": "lundi",
+          "correction": "La semaine commence le lundi."
         },
         {
           "id": "dq5",

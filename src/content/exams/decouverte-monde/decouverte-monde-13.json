@@ -14,93 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le dentiste soigne :",
+          "prompt": "Quel professionnel répare les installations électriques ?",
           "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
+            "l'électricien",
+            "le plombier",
+            "le menuisier"
           ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
+          "answer": "l'électricien",
+          "correction": "L'électricien répare les installations électriques."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Quelle couleur symbolise souvent l'environnement et l'écologie ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "le vert",
+            "le rouge",
+            "le bleu"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "le vert",
+          "correction": "Le vert est la couleur de l'environnement."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Quel continent est entièrement recouvert de glace et inhabité ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "l'Antarctique",
+            "le Groenland",
+            "l'Arctique"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "l'Antarctique",
+          "correction": "L'Antarctique est couvert de glace."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Quel sens est mis en jeu quand on hume le parfum d'une rose ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "l'odorat",
+            "la vue",
+            "le goût"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "l'odorat",
+          "correction": "On hume une rose grâce à l'odorat."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Un volcan crache :",
+          "prompt": "Quel sens permet de détecter qu'un aliment est brûlant ?",
           "options": [
-            "de la lave",
-            "de l'eau",
-            "du sable"
+            "le toucher (et l'odorat)",
+            "la vue",
+            "l'ouïe"
           ],
-          "answer": "de la lave",
-          "correction": "Un volcan crache de la lave."
+          "answer": "le toucher (et l'odorat)",
+          "correction": "Le toucher permet de détecter la chaleur d'un aliment."
         },
         {
           "id": "q12",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
-        },
-        {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "On entend avec les :",
-          "options": [
-            "oreilles",
-            "yeux",
-            "mains"
-          ],
-          "answer": "oreilles",
-          "correction": "On entend avec les oreilles."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Quel sens est utilisé par les malvoyants pour lire le braille ?",
           "options": [
             "le toucher",
             "la vue",
             "l'ouïe"
           ],
           "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "correction": "Le braille se lit avec le toucher."
+        },
+        {
+          "id": "q14",
+          "type": "mcq",
+          "prompt": "Quel animal symbolise souvent la liberté et vole très haut ?",
+          "options": [
+            "l'aigle",
+            "le lapin",
+            "le poisson"
+          ],
+          "answer": "l'aigle",
+          "correction": "L'aigle symbolise la liberté."
+        },
+        {
+          "id": "q16",
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve le Maroc ?",
+          "options": [
+            "l'Afrique",
+            "l'Europe",
+            "l'Asie"
+          ],
+          "answer": "l'Afrique",
+          "correction": "Le Maroc est en Afrique du Nord."
         }
       ]
     },
@@ -110,362 +115,122 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve le Japon ?",
+          "prompt": "Sur quel continent se trouve la Turquie ?",
           "options": [
-            "Asie",
-            "Europe",
-            "Océanie",
-            "Amérique"
+            "l'Europe et l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "Asie",
-          "correction": "Le Japon est un archipel situé en Asie de l'Est.",
-          "prompt_nl": "Op welk continent ligt Japan?",
-          "prompt_en": "On which continent is Japan located?",
-          "prompt_es": "En que continente se encuentra Japon?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Europa",
-              "Oceanie",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Europe",
-              "Oceania",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Europa",
-              "Oceania",
-              "America"
-            ]
-          }
+          "answer": "l'Europe et l'Asie",
+          "correction": "La Turquie s'étend sur l'Europe et l'Asie."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quelle est la capitale de l'Australie ?",
+          "prompt": "Quel phénomène cause l'arc-en-ciel ?",
           "options": [
-            "Canberra",
-            "Sydney",
-            "Melbourne",
-            "Brisbane"
+            "la réfraction de la lumière dans les gouttes d'eau",
+            "l'ozone",
+            "le vent"
           ],
-          "answer": "Canberra",
-          "correction": "Canberra est la capitale de l'Australie.",
-          "prompt_nl": "Wat is de hoofdstad van Australie?",
-          "prompt_en": "What is the capital of Australia?",
-          "prompt_es": "Cual es la capital de Australia?",
-          "options_i18n": {
-            "nl": [
-              "Canberra",
-              "Sydney",
-              "Melbourne",
-              "Brisbane"
-            ],
-            "en": [
-              "Canberra",
-              "Sydney",
-              "Melbourne",
-              "Brisbane"
-            ],
-            "es": [
-              "Canberra",
-              "Sidney",
-              "Melbourne",
-              "Brisbane"
-            ]
-          }
+          "answer": "la réfraction de la lumière dans les gouttes d'eau",
+          "correction": "L'arc-en-ciel est dû à la réfraction."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Le blé est principalement cultivé dans :",
+          "prompt": "Quel sens nous permet d'entendre une sonnette ?",
           "options": [
-            "les champs",
-            "les forêts",
-            "les déserts",
-            "les océans"
+            "l'ouïe",
+            "la vue",
+            "le toucher"
           ],
-          "answer": "les champs",
-          "correction": "Le blé est une céréale cultivée dans les grandes plaines agricoles.",
-          "prompt_nl": "Tarwe wordt voornamelijk verbouwd in:",
-          "prompt_en": "Wheat is mainly grown in:",
-          "prompt_es": "El trigo se cultiva principalmente en:",
-          "options_i18n": {
-            "nl": [
-              "de velden",
-              "de bossen",
-              "de woestijnen",
-              "de oceanen"
-            ],
-            "en": [
-              "fields",
-              "forests",
-              "deserts",
-              "oceans"
-            ],
-            "es": [
-              "los campos",
-              "los bosques",
-              "los desiertos",
-              "los oceanos"
-            ]
-          }
+          "answer": "l'ouïe",
+          "correction": "On entend la sonnette grâce à l'ouïe."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quelle est la capitale du Canada ?",
+          "prompt": "Quel professionnel travaille dans une bibliothèque ?",
           "options": [
-            "Ottawa",
-            "Toronto",
-            "Montréal",
-            "Vancouver"
+            "le bibliothécaire",
+            "le libraire",
+            "le journaliste"
           ],
-          "answer": "Ottawa",
-          "correction": "Ottawa est la capitale fédérale du Canada.",
-          "prompt_nl": "Wat is de hoofdstad van Canada?",
-          "prompt_en": "What is the capital of Canada?",
-          "prompt_es": "Cual es la capital de Canada?",
-          "options_i18n": {
-            "nl": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ],
-            "en": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ],
-            "es": [
-              "Ottawa",
-              "Toronto",
-              "Montreal",
-              "Vancouver"
-            ]
-          }
+          "answer": "le bibliothécaire",
+          "correction": "Le bibliothécaire gère la bibliothèque."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "La capitale de la France est :",
+          "prompt": "Quel professionnel construit et répare les routes ?",
           "options": [
-            "Paris",
-            "Lyon",
-            "Marseille",
-            "Bordeaux"
+            "le cantonnier",
+            "le plombier",
+            "le menuisier"
           ],
-          "answer": "Paris",
-          "correction": "Paris est la capitale de la France.",
-          "prompt_nl": "De hoofdstad van Frankrijk is:",
-          "prompt_en": "The capital of France is:",
-          "prompt_es": "La capital de Francia es:",
-          "options_i18n": {
-            "nl": [
-              "Parijs",
-              "Lyon",
-              "Marseille",
-              "Bordeaux"
-            ],
-            "en": [
-              "Paris",
-              "Lyon",
-              "Marseille",
-              "Bordeaux"
-            ],
-            "es": [
-              "Paris",
-              "Lyon",
-              "Marsella",
-              "Burdeos"
-            ]
-          }
+          "answer": "le cantonnier",
+          "correction": "Le cantonnier entretient les routes."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "La capitale de l'Espagne est :",
+          "prompt": "Sur quel continent se trouve le Nigeria ?",
           "options": [
-            "Madrid",
-            "Barcelone",
-            "Séville",
-            "Valence"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "Madrid",
-          "correction": "Madrid est la capitale de l'Espagne.",
-          "prompt_nl": "De hoofdstad van Spanje is:",
-          "prompt_en": "The capital of Spain is:",
-          "prompt_es": "La capital de Espana es:",
-          "options_i18n": {
-            "nl": [
-              "Madrid",
-              "Barcelona",
-              "Sevilla",
-              "Valencia"
-            ],
-            "en": [
-              "Madrid",
-              "Barcelona",
-              "Seville",
-              "Valencia"
-            ],
-            "es": [
-              "Madrid",
-              "Barcelona",
-              "Sevilla",
-              "Valencia"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "Le Nigeria est en Afrique."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "La capitale de l'Italie est :",
+          "prompt": "Sur quel continent se trouve la Suède ?",
           "options": [
-            "Rome",
-            "Milan",
-            "Naples",
-            "Florence"
+            "l'Europe",
+            "l'Asie",
+            "l'Amérique du Nord"
           ],
-          "answer": "Rome",
-          "correction": "Rome est la capitale de l'Italie.",
-          "prompt_nl": "De hoofdstad van Italie is:",
-          "prompt_en": "The capital of Italy is:",
-          "prompt_es": "La capital de Italia es:",
-          "options_i18n": {
-            "nl": [
-              "Rome",
-              "Milaan",
-              "Napels",
-              "Florence"
-            ],
-            "en": [
-              "Rome",
-              "Milan",
-              "Naples",
-              "Florence"
-            ],
-            "es": [
-              "Roma",
-              "Milan",
-              "Napoles",
-              "Florencia"
-            ]
-          }
+          "answer": "l'Europe",
+          "correction": "La Suède est en Europe."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La capitale de l'Allemagne est :",
+          "prompt": "Sur quel continent se trouve le Pakistan ?",
           "options": [
-            "Berlin",
-            "Munich",
-            "Hambourg",
-            "Cologne"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "Berlin",
-          "correction": "Berlin est la capitale de l'Allemagne.",
-          "prompt_nl": "De hoofdstad van Duitsland is:",
-          "prompt_en": "The capital of Germany is:",
-          "prompt_es": "La capital de Alemania es:",
-          "options_i18n": {
-            "nl": [
-              "Berlijn",
-              "München",
-              "Hamburg",
-              "Keulen"
-            ],
-            "en": [
-              "Berlin",
-              "Munich",
-              "Hamburg",
-              "Cologne"
-            ],
-            "es": [
-              "Berlin",
-              "Munich",
-              "Hamburgo",
-              "Colonia"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "Le Pakistan est en Asie."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "La capitale de la Belgique est :",
+          "prompt": "Sur quel continent se trouve la Colombie ?",
           "options": [
-            "Bruxelles",
-            "Bruges",
-            "Gand",
-            "Liège"
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
           ],
-          "answer": "Bruxelles",
-          "correction": "Bruxelles est la capitale de la Belgique.",
-          "prompt_nl": "De hoofdstad van Belgie is:",
-          "prompt_en": "The capital of Belgium is:",
-          "prompt_es": "La capital de Belgica es:",
-          "options_i18n": {
-            "nl": [
-              "Brussel",
-              "Brugge",
-              "Gent",
-              "Luik"
-            ],
-            "en": [
-              "Brussels",
-              "Bruges",
-              "Ghent",
-              "Liège"
-            ],
-            "es": [
-              "Bruselas",
-              "Brujas",
-              "Gante",
-              "Lieja"
-            ]
-          }
+          "answer": "l'Amérique du Sud",
+          "correction": "La Colombie est en Amérique du Sud."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "La capitale des Pays-Bas est :",
+          "prompt": "Sur quel continent se trouve le Kenya ?",
           "options": [
-            "Amsterdam",
-            "Rotterdam",
-            "Utrecht",
-            "La Haye"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "Amsterdam",
-          "correction": "Amsterdam est la capitale des Pays-Bas.",
-          "prompt_nl": "De hoofdstad van Nederland is:",
-          "prompt_en": "The capital of the Netherlands is:",
-          "prompt_es": "La capital de los Paises Bajos es:",
-          "options_i18n": {
-            "nl": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "Den Haag"
-            ],
-            "en": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "The Hague"
-            ],
-            "es": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "La Haya"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "Le Kenya est en Afrique."
         }
       ]
     },

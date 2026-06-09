@@ -30,7 +30,7 @@
         {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "9 × 4 = ___",
+          "prompt": "9 × 4 = ?",
           "answer": "36",
           "correction": "9 × 4 = 36."
         },
@@ -67,13 +67,6 @@
           "prompt_es": "9 × 2 = ?"
         },
         {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "9 × 2 = ___",
-          "answer": "18",
-          "correction": "9 × 2 = 18."
-        },
-        {
           "id": "q6",
           "type": "mcq",
           "prompt": "9 × 3 = ?",
@@ -88,61 +81,6 @@
           "prompt_nl": "9 × 3 = ?",
           "prompt_en": "9 × 3 = ?",
           "prompt_es": "9 × 3 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "9 × 2 = ?",
-          "options": [
-            "15",
-            "12",
-            "17",
-            "18"
-          ],
-          "answer": "18",
-          "correction": "9 × 2 = 18.",
-          "prompt_nl": "9 × 2 = ?",
-          "prompt_en": "9 × 2 = ?",
-          "prompt_es": "9 × 2 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "9 × 1 = ___",
-          "answer": "9",
-          "correction": "9 × 1 = 9."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "9 × 3 = ?",
-          "options": [
-            "24",
-            "27",
-            "29",
-            "22"
-          ],
-          "answer": "27",
-          "correction": "9 × 3 = 27.",
-          "prompt_nl": "9 × 3 = ?",
-          "prompt_en": "9 × 3 = ?",
-          "prompt_es": "9 × 3 = ?"
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "9 × 5 = ?",
-          "options": [
-            "45",
-            "52",
-            "51",
-            "36"
-          ],
-          "answer": "45",
-          "correction": "9 × 5 = 45.",
-          "prompt_nl": "9 × 5 = ?",
-          "prompt_en": "9 × 5 = ?",
-          "prompt_es": "9 × 5 = ?"
         }
       ]
     },

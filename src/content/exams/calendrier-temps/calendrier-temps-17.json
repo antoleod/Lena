@@ -14,93 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "À quel moment de la journée le Soleil est-il au point le plus haut du ciel ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "à midi",
+            "le matin",
+            "le soir"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "à midi",
+          "correction": "Le Soleil est au zénith à midi."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "En quelle saison neige-t-il souvent ?",
+          "prompt": "Quelle grande aiguille d'une horloge indique les minutes ?",
           "options": [
-            "hiver",
-            "été",
-            "printemps"
+            "la grande aiguille",
+            "la petite aiguille",
+            "la trotteuse"
           ],
-          "answer": "hiver",
-          "correction": "Il neige en hiver."
+          "answer": "la grande aiguille",
+          "correction": "La grande aiguille indique les minutes."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Quelle petite aiguille d'une horloge indique les heures ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "la petite aiguille",
+            "la grande aiguille",
+            "la trotteuse"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "la petite aiguille",
+          "correction": "La petite aiguille indique les heures."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Combien de minutes dure 1 heure et demie ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "90",
+            "60",
+            "120"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "90",
+          "correction": "1h30 = 90 minutes."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "Quel est le premier jour du week-end ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "samedi",
+            "vendredi",
+            "dimanche"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "samedi",
+          "correction": "Le week-end commence le samedi."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Noël est au mois de :",
+          "prompt": "Combien y a-t-il de jours en 3 semaines ?",
           "options": [
-            "décembre",
-            "juillet",
-            "mars"
+            "21",
+            "14",
+            "28"
           ],
-          "answer": "décembre",
-          "correction": "Noël est le 25 décembre."
+          "answer": "21",
+          "correction": "3 × 7 = 21 jours."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
+          "type": "mcq",
+          "prompt": "Quel mois précède directement octobre ?",
+          "options": [
+            "septembre",
+            "novembre",
+            "août"
+          ],
+          "answer": "septembre",
+          "correction": "Avant octobre vient septembre."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Combien y a-t-il d'heures dans 2 jours ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "48",
+            "24",
+            "36"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "48",
+          "correction": "2 × 24 = 48 heures."
         }
       ]
     },
@@ -196,14 +201,14 @@
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Lequel vient en premier dans l’année ?",
+          "prompt": "La Saint-Nicolas est célébrée le 6 de quel mois ?",
           "options": [
-            "juin",
-            "septembre",
-            "novembre"
+            "décembre",
+            "novembre",
+            "janvier"
           ],
-          "answer": "juin",
-          "correction": "Juin est le 6e mois, avant septembre (9e) et novembre (11e)."
+          "answer": "décembre",
+          "correction": "La Saint-Nicolas est le 6 décembre."
         },
         {
           "id": "q10",
@@ -220,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Du 1er mars au 31 mars, combien y a-t-il de lundis si le 1er mars est un lundi ?",
+          "prompt": "Combien y a-t-il d'heures dans 3 jours ?",
           "options": [
-            "3",
-            "4",
-            "5",
-            "6"
+            "72",
+            "48",
+            "36"
           ],
-          "answer": "5",
-          "correction": "Lundis : 1, 8, 15, 22, 29 mars = 5 lundis."
+          "answer": "72",
+          "correction": "3 × 24 = 72 heures."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Si ton anniversaire est le 31 juillet et qu'on est le 1er juillet, dans combien de jours est-il ?",
+          "prompt": "Combien y a-t-il de jours en 4 semaines ?",
           "options": [
             "28",
-            "29",
-            "30",
-            "31"
+            "21",
+            "35"
           ],
-          "answer": "30",
-          "correction": "Du 1er au 31 juillet = 30 jours restants."
+          "answer": "28",
+          "correction": "4 × 7 = 28 jours."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "De mars à août inclus, il y a combien de mois ?",
+          "prompt": "En combien de jours la Terre fait-elle le tour complet du Soleil ?",
           "options": [
-            "4",
-            "5",
-            "6",
-            "7"
+            "365 jours environ",
+            "7 jours",
+            "24 heures"
           ],
-          "answer": "6",
-          "correction": "Mars, avril, mai, juin, juillet, août = 6 mois."
+          "answer": "365 jours environ",
+          "correction": "La Terre orbite en environ 365 jours."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Un élève arrive à l'école à 8h20 et repart à 16h20. Il est à l'école pendant combien d'heures ?",
+          "prompt": "Combien de mois se terminent en '-embre' ?",
           "options": [
-            "6",
-            "7",
-            "8",
-            "9"
+            "4",
+            "3",
+            "5"
           ],
-          "answer": "8",
-          "correction": "De 8h20 à 16h20 = 8 heures."
+          "answer": "4",
+          "correction": "Septembre, octobre, novembre, décembre."
         },
         {
           "id": "dq5",

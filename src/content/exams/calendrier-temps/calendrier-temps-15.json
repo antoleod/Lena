@@ -13,94 +13,99 @@
       "questions": [
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
+          "type": "mcq",
+          "prompt": "Quelle saison suit l'automne ?",
+          "options": [
+            "l'hiver",
+            "l'été",
+            "le printemps"
+          ],
+          "answer": "l'hiver",
+          "correction": "Après l'automne vient l'hiver."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Quel mois suit directement avril ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "mai",
+            "mars",
+            "juin"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "mai",
+          "correction": "Après avril vient mai."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
+          "prompt": "Quel instrument mesure les variations de température ?",
           "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
+            "un thermomètre",
+            "une horloge",
+            "une règle"
           ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
+          "answer": "un thermomètre",
+          "correction": "Le thermomètre mesure la température."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Combien de jours compte une année ordinaire (non-bissextile) ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "365",
+            "364",
+            "366"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "365",
+          "correction": "Une année ordinaire a 365 jours."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Quel mois de l'année est le plus court ?",
           "options": [
-            "12",
-            "10",
-            "7"
+            "février",
+            "janvier",
+            "novembre"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "février",
+          "correction": "Février est le mois le plus court."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
+          "prompt": "Combien de trimestres y a-t-il dans une année civile ?",
           "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
+            "4",
+            "3",
+            "6"
           ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
+          "answer": "4",
+          "correction": "Il y a 4 trimestres."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "L'aiguille des heures d'une montre fait combien de tours complets en 24 h ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "2",
+            "1",
+            "24"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "2",
+          "correction": "L'aiguille des heures fait 2 tours en 24 h."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Les années 2000–2099 appartiennent à quel siècle ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "le XXIe siècle",
+            "le XXe siècle",
+            "le XIXe siècle"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "le XXIe siècle",
+          "correction": "Les années 2000–2099 sont au XXIe siècle."
         }
       ]
     },
@@ -121,10 +126,15 @@
         },
         {
           "id": "q2",
-          "type": "fill_blank",
-          "prompt": "1 heure = ___ minutes.",
-          "answer": "60",
-          "correction": "Une heure = 60 minutes."
+          "type": "mcq",
+          "prompt": "Combien d'heures y a-t-il dans une semaine entière ?",
+          "options": [
+            "168",
+            "24",
+            "48"
+          ],
+          "answer": "168",
+          "correction": "7 × 24 = 168 heures."
         },
         {
           "id": "q3",
@@ -207,10 +217,15 @@
         },
         {
           "id": "q10",
-          "type": "true_false",
-          "prompt": "30 minutes = une demi-heure.",
-          "answer": true,
-          "correction": "30 minutes est la moitié de 60 minutes."
+          "type": "mcq",
+          "prompt": "Combien de minutes y a-t-il dans 3 heures ?",
+          "options": [
+            "180",
+            "60",
+            "120"
+          ],
+          "answer": "180",
+          "correction": "3 × 60 = 180 minutes."
         }
       ]
     },
@@ -220,54 +235,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Du 15 novembre au 15 janvier, combien de mois s'écoulent ?",
+          "prompt": "Comment appelle-t-on la petite aiguille qui tourne vite sur une horloge ?",
           "options": [
-            "1",
+            "la trotteuse",
+            "la grande aiguille",
+            "la petite aiguille"
+          ],
+          "answer": "la trotteuse",
+          "correction": "La trotteuse indique les secondes."
+        },
+        {
+          "id": "dq2",
+          "type": "mcq",
+          "prompt": "En quelle année s'est ouvert le XXIe siècle ?",
+          "options": [
+            "2001",
+            "2000",
+            "1999"
+          ],
+          "answer": "2001",
+          "correction": "Le XXIe siècle commence en 2001."
+        },
+        {
+          "id": "dq3",
+          "type": "mcq",
+          "prompt": "Combien de jours compte une année bissextile ?",
+          "options": [
+            "366",
+            "365",
+            "364"
+          ],
+          "answer": "366",
+          "correction": "Une année bissextile a 366 jours."
+        },
+        {
+          "id": "dq4",
+          "type": "mcq",
+          "prompt": "Combien de semestres y a-t-il dans une année civile ?",
+          "options": [
             "2",
             "3",
             "4"
           ],
           "answer": "2",
-          "correction": "De novembre à janvier = 2 mois."
-        },
-        {
-          "id": "dq2",
-          "type": "mcq",
-          "prompt": "Combien y a-t-il de jours en tout en janvier et février d'une année non bissextile ?",
-          "options": [
-            "57",
-            "58",
-            "59",
-            "60"
-          ],
-          "answer": "59",
-          "correction": "Janvier (31) + Février (28) = 59 jours."
-        },
-        {
-          "id": "dq3",
-          "type": "mcq",
-          "prompt": "Si un enfant a 8 ans et est né en 2017, en quelle année sommes-nous ?",
-          "options": [
-            "2024",
-            "2025",
-            "2026",
-            "2027"
-          ],
-          "answer": "2025",
-          "correction": "2017 + 8 = 2025."
-        },
-        {
-          "id": "dq4",
-          "type": "mcq",
-          "prompt": "Une semaine de camp commence un lundi 5 août. Quel jour du mois est le dimanche suivant ?",
-          "options": [
-            "10",
-            "11",
-            "12",
-            "13"
-          ],
-          "answer": "11",
-          "correction": "Du lundi 5 au dimanche = 6 jours plus tard = le 11 août."
+          "correction": "Il y a 2 semestres."
         },
         {
           "id": "dq5",

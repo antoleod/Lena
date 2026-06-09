@@ -30,7 +30,7 @@
         {
           "id": "q2",
           "type": "fill_blank",
-          "prompt": "2 × 5 = ___",
+          "prompt": "2 × 5 = ?",
           "answer": "10",
           "correction": "2 × 5 = 10."
         },
@@ -59,68 +59,6 @@
             "1",
             "4",
             "2"
-          ],
-          "answer": "2",
-          "correction": "2 × 1 = 2.",
-          "prompt_nl": "2 × 1 = ?",
-          "prompt_en": "2 × 1 = ?",
-          "prompt_es": "2 × 1 = ?"
-        },
-        {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "2 × 3 = ___",
-          "answer": "6",
-          "correction": "2 × 3 = 6."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "2 × 3 = ?",
-          "options": [
-            "5",
-            "6",
-            "7",
-            "4"
-          ],
-          "answer": "6",
-          "correction": "2 × 3 = 6.",
-          "prompt_nl": "2 × 3 = ?",
-          "prompt_en": "2 × 3 = ?",
-          "prompt_es": "2 × 3 = ?"
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "2 × 2 = ?",
-          "options": [
-            "3",
-            "5",
-            "6",
-            "4"
-          ],
-          "answer": "4",
-          "correction": "2 × 2 = 4.",
-          "prompt_nl": "2 × 2 = ?",
-          "prompt_en": "2 × 2 = ?",
-          "prompt_es": "2 × 2 = ?"
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "2 × 2 = ___",
-          "answer": "4",
-          "correction": "2 × 2 = 4."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "2 × 1 = ?",
-          "options": [
-            "0",
-            "3",
-            "2",
-            "4"
           ],
           "answer": "2",
           "correction": "2 × 1 = 2.",

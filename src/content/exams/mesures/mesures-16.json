@@ -65,97 +65,6 @@
           "correction_nl": "1 cm = 10 mm → 60 mm.",
           "correction_en": "1 cm = 10 mm → 60 mm.",
           "correction_es": "1 cm = 10 mm → 60 mm."
-        },
-        {
-          "id": "q4",
-          "type": "mcq",
-          "prompt": "Convertis 7 cm en mm.",
-          "options": [
-            "70",
-            "84",
-            "76",
-            "74"
-          ],
-          "answer": "70",
-          "correction": "1 cm = 10 mm → 70 mm.",
-          "prompt_nl": "Zet 7 cm om naar mm.",
-          "prompt_en": "Convert 7 cm to mm.",
-          "prompt_es": "Convierte 7 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 70 mm.",
-          "correction_en": "1 cm = 10 mm → 70 mm.",
-          "correction_es": "1 cm = 10 mm → 70 mm."
-        },
-        {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "Convertis 6 cm en mm.",
-          "answer": "60",
-          "accept": [
-            "60",
-            "60 mm"
-          ],
-          "correction": "1 cm = 10 mm → 60 mm.",
-          "prompt_nl": "Zet 6 cm om naar mm.",
-          "prompt_en": "Convert 6 cm to mm.",
-          "prompt_es": "Convierte 6 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 60 mm.",
-          "correction_en": "1 cm = 10 mm → 60 mm.",
-          "correction_es": "1 cm = 10 mm → 60 mm."
-        },
-        {
-          "id": "q6",
-          "type": "mcq",
-          "prompt": "Convertis 7 cm en mm.",
-          "options": [
-            "73",
-            "70",
-            "84",
-            "65"
-          ],
-          "answer": "70",
-          "correction": "1 cm = 10 mm → 70 mm.",
-          "prompt_nl": "Zet 7 cm om naar mm.",
-          "prompt_en": "Convert 7 cm to mm.",
-          "prompt_es": "Convierte 7 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 70 mm.",
-          "correction_en": "1 cm = 10 mm → 70 mm.",
-          "correction_es": "1 cm = 10 mm → 70 mm."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "Convertis 6 cm en mm.",
-          "options": [
-            "60",
-            "64",
-            "59",
-            "69"
-          ],
-          "answer": "60",
-          "correction": "1 cm = 10 mm → 60 mm.",
-          "prompt_nl": "Zet 6 cm om naar mm.",
-          "prompt_en": "Convert 6 cm to mm.",
-          "prompt_es": "Convierte 6 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 60 mm.",
-          "correction_en": "1 cm = 10 mm → 60 mm.",
-          "correction_es": "1 cm = 10 mm → 60 mm."
-        },
-        {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Convertis 7 cm en mm.",
-          "answer": "70",
-          "accept": [
-            "70",
-            "70 mm"
-          ],
-          "correction": "1 cm = 10 mm → 70 mm.",
-          "prompt_nl": "Zet 7 cm om naar mm.",
-          "prompt_en": "Convert 7 cm to mm.",
-          "prompt_es": "Convierte 7 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 70 mm.",
-          "correction_en": "1 cm = 10 mm → 70 mm.",
-          "correction_es": "1 cm = 10 mm → 70 mm."
         }
       ]
     },
@@ -363,23 +272,6 @@
             "23"
           ],
           "answer": "20",
-          "correction": "1 cm = 10 mm → 20 mm.",
-          "prompt_nl": "Zet 2 cm om naar mm.",
-          "prompt_en": "Convert 2 cm to mm.",
-          "prompt_es": "Convierte 2 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 20 mm.",
-          "correction_en": "1 cm = 10 mm → 20 mm.",
-          "correction_es": "1 cm = 10 mm → 20 mm."
-        },
-        {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "Convertis 2 cm en mm.",
-          "answer": "20",
-          "accept": [
-            "20",
-            "20 mm"
-          ],
           "correction": "1 cm = 10 mm → 20 mm.",
           "prompt_nl": "Zet 2 cm om naar mm.",
           "prompt_en": "Convert 2 cm to mm.",

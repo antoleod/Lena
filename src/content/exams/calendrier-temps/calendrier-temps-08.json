@@ -14,93 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Le dernier mois de l’année est :",
+          "prompt": "Combien de jours compte le mois d'avril ?",
           "options": [
-            "décembre",
-            "janvier",
-            "juin"
+            "30",
+            "31",
+            "28"
           ],
-          "answer": "décembre",
-          "correction": "Décembre est le 12e mois."
+          "answer": "30",
+          "correction": "Avril a 30 jours."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Quel mois suit directement mai ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "juin",
+            "avril",
+            "juillet"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "juin",
+          "correction": "Après mai vient juin."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le week-end, ce sont les jours :",
+          "prompt": "Pendant quelle saison la neige tombe-t-elle le plus souvent ?",
           "options": [
-            "samedi et dimanche",
-            "lundi et mardi",
-            "jeudi et vendredi"
+            "l'hiver",
+            "l'automne",
+            "le printemps"
           ],
-          "answer": "samedi et dimanche",
-          "correction": "Le week-end : samedi et dimanche."
+          "answer": "l'hiver",
+          "correction": "Il neige le plus en hiver."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Les vacances d’été sont en :",
+          "prompt": "Quel jour suit mardi dans la semaine ?",
           "options": [
-            "juillet",
-            "janvier",
-            "novembre"
+            "mercredi",
+            "lundi",
+            "jeudi"
           ],
-          "answer": "juillet",
-          "correction": "L’été : juillet-août."
+          "answer": "mercredi",
+          "correction": "Après mardi vient mercredi."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Au printemps, les fleurs :",
+          "prompt": "Combien de jours compte le mois de juillet ?",
           "options": [
-            "poussent",
-            "tombent",
-            "gèlent"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "poussent",
-          "correction": "Au printemps les fleurs poussent."
+          "answer": "31",
+          "correction": "Juillet a 31 jours."
         },
         {
           "id": "q12",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
+          "type": "mcq",
+          "prompt": "Quel est le 11e mois de l'année civile ?",
+          "options": [
+            "novembre",
+            "octobre",
+            "décembre"
+          ],
+          "answer": "novembre",
+          "correction": "Novembre est le 11e mois."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Combien de semaines y a-t-il environ dans une année ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "52",
+            "48",
+            "54"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "52",
+          "correction": "Il y a 52 semaines dans une année."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Combien de jours dans une semaine ?",
+          "prompt": "Quel mois suit directement août ?",
           "options": [
-            "7",
-            "5",
-            "10"
+            "septembre",
+            "juillet",
+            "octobre"
           ],
-          "answer": "7",
-          "correction": "Une semaine = 7 jours."
+          "answer": "septembre",
+          "correction": "Après août vient septembre."
         }
       ]
     },
@@ -220,54 +225,50 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Après 2024, en quelle année aura-t-on de nouveau un 29 février ?",
+          "prompt": "Quelle saison suit le printemps ?",
           "options": [
-            "2025",
-            "2026",
-            "2027",
-            "2028"
+            "l'été",
+            "l'automne",
+            "l'hiver"
           ],
-          "answer": "2028",
-          "correction": "La prochaine année bissextile après 2024 est 2028."
+          "answer": "l'été",
+          "correction": "Après le printemps vient l'été."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Une année ordinaire a 365 jours. Une année bissextile a combien de jours de plus ?",
+          "prompt": "Combien de jours compte le mois de janvier ?",
           "options": [
-            "0",
-            "1",
-            "2",
-            "7"
+            "31",
+            "30",
+            "28"
           ],
-          "answer": "1",
-          "correction": "366 − 365 = 1 jour de plus."
+          "answer": "31",
+          "correction": "Janvier a 31 jours."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Les cours débutent le 1er septembre et s'arrêtent le 30 juin. Combien de mois durent les cours ?",
+          "prompt": "Quel est le 4e mois de l'année civile ?",
           "options": [
-            "8",
-            "9",
-            "10",
-            "11"
+            "avril",
+            "mars",
+            "mai"
           ],
-          "answer": "10",
-          "correction": "De septembre à juin = 10 mois."
+          "answer": "avril",
+          "correction": "Avril est le 4e mois."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Une mission dure 3 mois et commence en novembre. En quel mois se termine-t-elle ?",
+          "prompt": "Quel jour suit jeudi dans la semaine ?",
           "options": [
-            "décembre",
-            "janvier",
-            "février",
-            "mars"
+            "vendredi",
+            "mercredi",
+            "samedi"
           ],
-          "answer": "janvier",
-          "correction": "Novembre → décembre → janvier : fin en janvier."
+          "answer": "vendredi",
+          "correction": "Après jeudi vient vendredi."
         },
         {
           "id": "dq5",

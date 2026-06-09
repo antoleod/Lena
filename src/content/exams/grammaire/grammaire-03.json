@@ -22,47 +22,56 @@
           "correction": "On ajoute un « s »."
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "« maison » est de genre :",
+          "prompt": "Dans « La maison est grande », l'adjectif est :",
           "options": [
-            "féminin",
-            "masculin",
-            "neutre"
+            "grande",
+            "maison",
+            "la",
+            "est"
           ],
-          "answer": "féminin",
-          "correction": "une maison → féminin."
+          "answer": "grande",
+          "correction": "Dans « La maison est grande », l'adjectif est : → grande.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "« sauter » est un :",
+          "prompt": "« Réponds à la question ! » est une phrase :",
           "options": [
-            "verbe",
-            "nom",
-            "adjectif"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "verbe",
-          "correction": "« sauter » est un verbe."
+          "answer": "impérative",
+          "correction": "« Réponds à la question ! » est une phrase : → impérative.",
+          "id": "q6"
         },
         {
-          "id": "q8",
-          "type": "true_false",
-          "prompt": "« table » est un nom commun.",
-          "answer": true,
-          "correction": "table = nom commun."
+          "type": "mcq",
+          "prompt": "Dans « Mes parents travaillent. », le sujet est :",
+          "options": [
+            "Mes parents",
+            "travaillent",
+            "Mes",
+            "parents"
+          ],
+          "answer": "Mes parents",
+          "correction": "Dans « Mes parents travaillent. », le sujet est : → Mes parents.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "« chat » est un :",
+          "prompt": "Le féminin de « beau » est :",
           "options": [
-            "nom",
-            "verbe",
-            "adjectif"
+            "belle",
+            "beaue",
+            "beau",
+            "bels"
           ],
-          "answer": "nom",
-          "correction": "« chat » est un nom."
+          "answer": "belle",
+          "correction": "Le féminin de « beau » est : → belle.",
+          "id": "q10"
         },
         {
           "id": "q12",
@@ -77,16 +86,17 @@
           "correction": "Pluriel régulier : des bals."
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Le pluriel de « le jardin » :",
+          "prompt": "« Où habites-tu ? » est une phrase :",
           "options": [
-            "les jardins",
-            "le jardins",
-            "les jardin"
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
-          "answer": "les jardins",
-          "correction": "Pluriel : les jardins."
+          "answer": "interrogative",
+          "correction": "« Où habites-tu ? » est une phrase : → interrogative.",
+          "id": "q14"
         },
         {
           "id": "q16",
@@ -106,124 +116,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Dans « Lena mange une pomme », le COD est :",
+          "prompt": "« Êtes-vous prêts ? » est une phrase :",
           "options": [
-            "une pomme",
-            "Lena",
-            "mange"
-          ],
-          "answer": "une pomme",
-          "correction": "COD : quoi ? → une pomme."
-        },
-        {
-          "id": "q3",
-          "type": "mcq",
-          "prompt": "Dans « Paul parle à sa mère », le COI est :",
-          "options": [
-            "à sa mère",
-            "Paul",
-            "parle"
-          ],
-          "answer": "à sa mère",
-          "correction": "COI : à qui ? → à sa mère."
-        },
-        {
-          "id": "q5",
-          "type": "mcq",
-          "prompt": "La forme féminine de « joli » est :",
-          "options": [
-            "jolie",
-            "jolis",
-            "jolies"
-          ],
-          "answer": "jolie",
-          "correction": "Féminin singulier : jolie."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "La forme féminine de « grand » est :",
-          "options": [
-            "grande",
-            "grands",
-            "grand"
-          ],
-          "answer": "grande",
-          "correction": "Féminin : grande."
-        },
-        {
-          "id": "q9",
-          "type": "mcq",
-          "prompt": "« Est-ce que tu aimes le chocolat ? » est une phrase :",
-          "options": [
+            "déclarative",
             "interrogative",
-            "exclamative",
-            "déclarative"
+            "impérative",
+            "exclamative"
           ],
           "answer": "interrogative",
-          "correction": "Elle pose une question : phrase interrogative."
+          "correction": "« Êtes-vous prêts ? » est une phrase : → interrogative.",
+          "id": "q1"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "« Quel beau tableau ! » est une phrase :",
+          "prompt": "Le pluriel de « un corail » est :",
           "options": [
-            "exclamative",
+            "des coraux",
+            "des corails",
+            "des coraile",
+            "des corailx"
+          ],
+          "answer": "des coraux",
+          "correction": "Le pluriel de « un corail » est : → des coraux.",
+          "id": "q3"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le féminin de « docteur » est :",
+          "options": [
+            "doctoresse",
+            "docteure",
+            "docteuse",
+            "docteuresse"
+          ],
+          "answer": "doctoresse",
+          "correction": "Le féminin de « docteur » est : → doctoresse.",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "La forme correcte de « finir (il, présent) » est :",
+          "options": [
+            "il finit",
+            "il fini",
+            "il finish",
+            "il finit"
+          ],
+          "answer": "il finit",
+          "correction": "La forme correcte de « finir (il, présent) » est : → il finit.",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Dans « Une petite fille », l'adjectif correctement accordé est :",
+          "options": [
+            "petite",
+            "petit",
+            "petits",
+            "grandes"
+          ],
+          "answer": "petite",
+          "correction": "Dans « Une petite fille », l'adjectif correctement accordé est : → petite.",
+          "id": "q9"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Es-tu malade ? » est une phrase :",
+          "options": [
+            "déclarative",
             "interrogative",
-            "impérative"
+            "impérative",
+            "exclamative"
+          ],
+          "answer": "interrogative",
+          "correction": "« Es-tu malade ? » est une phrase : → interrogative.",
+          "id": "q11"
+        },
+        {
+          "type": "mcq",
+          "prompt": "« Quelle bonne idée ! » est une phrase :",
+          "options": [
+            "déclarative",
+            "interrogative",
+            "impérative",
+            "exclamative"
           ],
           "answer": "exclamative",
-          "correction": "Elle exprime une émotion : phrase exclamative."
+          "correction": "« Quelle bonne idée ! » est une phrase : → exclamative.",
+          "id": "q13"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Dans « Elle lui donne un cadeau », le pronom « lui » est :",
+          "prompt": "La conjugaison correcte de « manger (tu, imparfait) » est :",
           "options": [
-            "COI",
-            "COD",
-            "sujet"
+            "tu mangeais",
+            "tu mangeas",
+            "tu mangais",
+            "tu mangeait"
           ],
-          "answer": "COI",
-          "correction": "Lui = à lui/à elle → COI."
+          "answer": "tu mangeais",
+          "correction": "La conjugaison correcte de « manger (tu, imparfait) » est : → tu mangeais.",
+          "id": "q15"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "La forme plurielle de « un cheval joyeux » est :",
+          "prompt": "La conjugaison correcte de « suivre (il, présent) » est :",
           "options": [
-            "des chevaux joyeux",
-            "des chevals joyeux",
-            "des cheval joyeux"
+            "il suit",
+            "il suive",
+            "il suit",
+            "il suivit"
           ],
-          "answer": "des chevaux joyeux",
-          "correction": "Pluriel de cheval → chevaux."
+          "answer": "il suit",
+          "correction": "La conjugaison correcte de « suivre (il, présent) » est : → il suit.",
+          "id": "q17"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Dans « Il le voit », que remplace « le » ?",
+          "prompt": "Le pluriel de « un bras » est :",
           "options": [
-            "un complément d'objet direct",
-            "un COI",
-            "le sujet"
+            "des bras",
+            "des brasse",
+            "des brase",
+            "des brais"
           ],
-          "answer": "un complément d'objet direct",
-          "correction": "Le = COD."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Le discours indirect de « Il dit : 'Je mange.' » est :",
-          "options": [
-            "Il dit qu'il mange.",
-            "Il dit que je mange.",
-            "Il dit qu'il a mangé."
-          ],
-          "answer": "Il dit qu'il mange.",
-          "correction": "Discours indirect au présent."
+          "answer": "des bras",
+          "correction": "Le pluriel de « un bras » est : → des bras.",
+          "id": "q19"
         }
       ]
     },

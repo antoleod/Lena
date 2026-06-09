@@ -12,16 +12,17 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Un synonyme de « étrange » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "bizarre",
+            "normal",
+            "habituel",
+            "courant"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "bizarre",
+          "correction": "Un synonyme de « étrange » : → bizarre.",
+          "id": "q2"
         },
         {
           "id": "q4",
@@ -36,16 +37,17 @@
           "correction": "regarder = observer."
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
+          "prompt": "Un synonyme de « perfectionner » :",
           "options": [
-            "jeune",
-            "gros",
-            "grand"
+            "améliorer",
+            "dégrader",
+            "détériorer",
+            "abîmer"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "améliorer",
+          "correction": "Un synonyme de « perfectionner » : → améliorer.",
+          "id": "q6"
         },
         {
           "id": "q8",
@@ -60,52 +62,56 @@
           "correction": "La banane est un fruit."
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Le contraire de « riche » :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "pauvre",
+            "aisé",
+            "fortuné",
+            "avare"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "pauvre",
+          "correction": "Le contraire de « riche » : → pauvre.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « continuer » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "poursuivre",
+            "arrêter",
+            "cesser",
+            "stopper"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "poursuivre",
+          "correction": "Un synonyme de « continuer » : → poursuivre.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « énumérer » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "lister",
+            "ignorer",
+            "omettre",
+            "sauter"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "lister",
+          "correction": "Un synonyme de « énumérer » : → lister.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un synonyme de « fuir » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "s'échapper",
+            "rester",
+            "affronter",
+            "attendre"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "s'échapper",
+          "correction": "Un synonyme de « fuir » : → s'échapper.",
+          "id": "q16"
         }
       ]
     },
@@ -113,124 +119,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « précis » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "exact",
+            "vague",
+            "flou",
+            "approximatif"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "exact",
+          "correction": "Un synonyme de « précis » : → exact.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « content » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "mécontent",
+            "heureux",
+            "ravi",
+            "satisfait"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "mécontent",
+          "correction": "Le contraire de « content » : → mécontent.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « réel » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "imaginaire",
+            "vrai",
+            "concret",
+            "tangible"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "imaginaire",
+          "correction": "Le contraire de « réel » : → imaginaire.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « changer » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "modifier",
+            "garder",
+            "conserver",
+            "maintenir"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "modifier",
+          "correction": "Un synonyme de « changer » : → modifier.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « garder » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "conserver",
+            "perdre",
+            "donner",
+            "jeter"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "conserver",
+          "correction": "Un synonyme de « garder » : → conserver.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « protéger » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "préserver",
+            "attaquer",
+            "blesser",
+            "abîmer"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "préserver",
+          "correction": "Un synonyme de « protéger » : → préserver.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Un synonyme de « voyager » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "se déplacer",
+            "rester",
+            "séjourner",
+            "s'immobiliser"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "se déplacer",
+          "correction": "Un synonyme de « voyager » : → se déplacer.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « entier » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "partiel",
+            "complet",
+            "total",
+            "plein"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "partiel",
+          "correction": "Le contraire de « entier » : → partiel.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « nombreux » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "rare",
+            "abondant",
+            "multiple",
+            "fréquent"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "rare",
+          "correction": "Le contraire de « nombreux » : → rare.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Le contraire de « utile » :",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "inutile",
+            "pratique",
+            "efficace",
+            "indispensable"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "inutile",
+          "correction": "Le contraire de « utile » : → inutile.",
+          "id": "q19"
         }
       ]
     },

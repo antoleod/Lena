@@ -86,23 +86,6 @@
           "correction_es": "1 cm = 10 mm → 40 mm."
         },
         {
-          "id": "q5",
-          "type": "fill_blank",
-          "prompt": "Convertis 5 cm en mm.",
-          "answer": "50",
-          "accept": [
-            "50",
-            "50 mm"
-          ],
-          "correction": "1 cm = 10 mm → 50 mm.",
-          "prompt_nl": "Zet 5 cm om naar mm.",
-          "prompt_en": "Convert 5 cm to mm.",
-          "prompt_es": "Convierte 5 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 50 mm.",
-          "correction_en": "1 cm = 10 mm → 50 mm.",
-          "correction_es": "1 cm = 10 mm → 50 mm."
-        },
-        {
           "id": "q6",
           "type": "mcq",
           "prompt": "Convertis 1 cm en mm.",
@@ -120,25 +103,6 @@
           "correction_nl": "1 cm = 10 mm → 10 mm.",
           "correction_en": "1 cm = 10 mm → 10 mm.",
           "correction_es": "1 cm = 10 mm → 10 mm."
-        },
-        {
-          "id": "q7",
-          "type": "mcq",
-          "prompt": "Convertis 4 cm en mm.",
-          "options": [
-            "41",
-            "47",
-            "38",
-            "40"
-          ],
-          "answer": "40",
-          "correction": "1 cm = 10 mm → 40 mm.",
-          "prompt_nl": "Zet 4 cm om naar mm.",
-          "prompt_en": "Convert 4 cm to mm.",
-          "prompt_es": "Convierte 4 cm a mm.",
-          "correction_nl": "1 cm = 10 mm → 40 mm.",
-          "correction_en": "1 cm = 10 mm → 40 mm.",
-          "correction_es": "1 cm = 10 mm → 40 mm."
         },
         {
           "id": "q8",

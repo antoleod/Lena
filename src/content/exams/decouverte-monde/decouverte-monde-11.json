@@ -13,94 +13,99 @@
       "questions": [
         {
           "id": "q2",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Quel animal est parfaitement adapté à la vie dans le désert ?",
+          "options": [
+            "le chameau",
+            "le manchot",
+            "le dauphin"
+          ],
+          "answer": "le chameau",
+          "correction": "Le chameau est adapté au désert."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Quelle est la définition de l'eau potable ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "de l'eau sans danger pour la boisson",
+            "de l'eau salée",
+            "de l'eau polluée"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "de l'eau sans danger pour la boisson",
+          "correction": "L'eau potable est propre à boire."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Qu'appelle-t-on la pollution atmosphérique ?",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "la présence de substances nocives dans l'air",
+            "la pluie",
+            "le brouillard"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
+          "answer": "la présence de substances nocives dans l'air",
+          "correction": "Pollution atmosphérique = substances nocives dans l'air."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "À quel groupe alimentaire appartiennent le pain, les pâtes et le riz ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "les céréales et féculents",
+            "les produits laitiers",
+            "les fruits"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "les céréales et féculents",
+          "correction": "Le pain, les pâtes et le riz sont des céréales."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Le dentiste soigne :",
+          "prompt": "À quel groupe alimentaire appartiennent la viande, les œufs et le poisson ?",
           "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
+            "les protéines animales",
+            "les céréales",
+            "les produits laitiers"
           ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
+          "answer": "les protéines animales",
+          "correction": "Viande, œufs, poisson = protéines animales."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Vers quelle direction pointe le Nord sur une boussole ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "le pôle Nord magnétique",
+            "vers le Soleil",
+            "vers l'est"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "le pôle Nord magnétique",
+          "correction": "La boussole pointe vers le pôle Nord magnétique."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Ce que produisent les plantes pour nous :",
+          "prompt": "Quel sens nous permet de distinguer le sucré du salé ?",
           "options": [
-            "l'oxygène",
-            "le dioxyde de carbone",
-            "l'azote"
+            "le goût",
+            "la vue",
+            "l'odorat"
           ],
-          "answer": "l'oxygène",
-          "correction": "Les plantes produisent de l'oxygène."
+          "answer": "le goût",
+          "correction": "Le goût distingue le sucré du salé."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "Sur quel continent est située l'Australie ?",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "l'Océanie",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "l'Océanie",
+          "correction": "L'Australie est en Océanie."
         }
       ]
     },
@@ -110,336 +115,123 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve le Brésil ?",
+          "prompt": "Sur quel continent est située la France ?",
           "options": [
-            "Amérique du Sud",
-            "Afrique",
-            "Asie",
-            "Europe"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "Amérique du Sud",
-          "correction": "Le Brésil est situé en Amérique du Sud.",
-          "prompt_nl": "Op welk continent ligt Brazilie?",
-          "prompt_en": "On which continent is Brazil located?",
-          "prompt_es": "En que continente se encuentra Brasil?",
-          "options_i18n": {
-            "nl": [
-              "Zuid-Amerika",
-              "Afrika",
-              "Azie",
-              "Europa"
-            ],
-            "en": [
-              "South America",
-              "Africa",
-              "Asia",
-              "Europe"
-            ],
-            "es": [
-              "America del Sur",
-              "Africa",
-              "Asia",
-              "Europa"
-            ]
-          }
+          "answer": "l'Europe",
+          "correction": "La France est en Europe."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve la Chine ?",
+          "prompt": "Quel est le plus grand désert chaud de la planète ?",
           "options": [
-            "Asie",
-            "Europe",
-            "Afrique",
-            "Amérique"
+            "le Sahara",
+            "le désert de Gobi",
+            "le désert d'Atacama"
           ],
-          "answer": "Asie",
-          "correction": "La Chine est située en Asie.",
-          "prompt_nl": "Op welk continent ligt China?",
-          "prompt_en": "On which continent is China located?",
-          "prompt_es": "En que continente se encuentra China?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Europa",
-              "Afrika",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Europe",
-              "Africa",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Europa",
-              "Africa",
-              "America"
-            ]
-          }
+          "answer": "le Sahara",
+          "correction": "Le Sahara est le plus grand désert chaud."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve l'Égypte ?",
+          "prompt": "Sur quel continent est située l'Inde ?",
           "options": [
-            "Afrique",
-            "Asie",
-            "Europe",
-            "Amérique"
+            "l'Asie",
+            "l'Europe",
+            "l'Afrique"
           ],
-          "answer": "Afrique",
-          "correction": "L'Égypte est un pays situé en Afrique du Nord.",
-          "prompt_nl": "Op welk continent ligt Egypte?",
-          "prompt_en": "On which continent is Egypt located?",
-          "prompt_es": "En que continente se encuentra Egipto?",
-          "options_i18n": {
-            "nl": [
-              "Afrika",
-              "Azie",
-              "Europa",
-              "Amerika"
-            ],
-            "en": [
-              "Africa",
-              "Asia",
-              "Europe",
-              "America"
-            ],
-            "es": [
-              "Africa",
-              "Asia",
-              "Europa",
-              "America"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "L'Inde est en Asie."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Le Sahara est :",
+          "prompt": "Quel est le deuxième fleuve le plus long du monde ?",
           "options": [
-            "un désert",
-            "un océan",
-            "une forêt",
-            "une montagne"
+            "l'Amazone",
+            "le Nil",
+            "le Mississippi",
+            "le Yang-Tsé"
           ],
-          "answer": "un désert",
-          "correction": "Le Sahara est le plus grand désert chaud du monde.",
-          "prompt_nl": "De Sahara is:",
-          "prompt_en": "The Sahara is:",
-          "prompt_es": "El Sahara es:",
-          "options_i18n": {
-            "nl": [
-              "een woestijn",
-              "een oceaan",
-              "een woud",
-              "een berg"
-            ],
-            "en": [
-              "a desert",
-              "an ocean",
-              "a forest",
-              "a mountain"
-            ],
-            "es": [
-              "un desierto",
-              "un oceano",
-              "un bosque",
-              "una montana"
-            ]
-          }
+          "answer": "l'Amazone",
+          "correction": "L'Amazone est souvent cité comme 2e ou 1er selon la mesure."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Le Nil est :",
+          "prompt": "Comment s'appelle le mouvement de l'eau dans la nature ?",
           "options": [
-            "un fleuve d'Afrique",
-            "un fleuve d'Asie",
-            "une mer",
-            "un lac"
+            "le cycle hydrologique",
+            "le cycle biologique",
+            "le cycle alimentaire"
           ],
-          "answer": "un fleuve d'Afrique",
-          "correction": "Le Nil est le plus long fleuve d'Afrique.",
-          "prompt_nl": "De Nijl is:",
-          "prompt_en": "The Nile is:",
-          "prompt_es": "El Nilo es:",
-          "options_i18n": {
-            "nl": [
-              "een rivier in Afrika",
-              "een rivier in Azie",
-              "een zee",
-              "een meer"
-            ],
-            "en": [
-              "a river in Africa",
-              "a river in Asia",
-              "a sea",
-              "a lake"
-            ],
-            "es": [
-              "un rio de Africa",
-              "un rio de Asia",
-              "un mar",
-              "un lago"
-            ]
-          }
+          "answer": "le cycle hydrologique",
+          "correction": "Le cycle hydrologique décrit le mouvement de l'eau."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Quelle mer borde la France au sud ?",
+          "prompt": "Quelle est la cause principale du vent ?",
           "options": [
-            "la mer Méditerranée",
-            "la mer du Nord",
-            "la mer Baltique",
-            "la mer Rouge"
+            "les différences de pression atmosphérique",
+            "la rotation de la Lune",
+            "la chaleur du sol"
           ],
-          "answer": "la mer Méditerranée",
-          "correction": "La mer Méditerranée borde la France au sud.",
-          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
-          "prompt_en": "Which sea borders France to the south?",
-          "prompt_es": "Que mar bordea Francia al sur?",
-          "options_i18n": {
-            "nl": [
-              "de Middellandse Zee",
-              "de Noordzee",
-              "de Oostzee",
-              "de Rode Zee"
-            ],
-            "en": [
-              "the Mediterranean Sea",
-              "the North Sea",
-              "the Baltic Sea",
-              "the Red Sea"
-            ],
-            "es": [
-              "el mar Mediterraneo",
-              "el mar del Norte",
-              "el mar Baltico",
-              "el mar Rojo"
-            ]
-          }
+          "answer": "les différences de pression atmosphérique",
+          "correction": "Le vent est dû aux différences de pression."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
+          "prompt": "Quelle planète est en moyenne la plus proche de la Terre ?",
           "options": [
-            "les Pyrénées",
-            "les Alpes",
-            "les Vosges",
-            "le Jura"
+            "Vénus",
+            "Mars",
+            "Mercure"
           ],
-          "answer": "les Pyrénées",
-          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
-          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
-          "prompt_en": "Which mountain range separates France from Spain?",
-          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
-          "options_i18n": {
-            "nl": [
-              "de Pyreneen",
-              "de Alpen",
-              "de Vogezen",
-              "de Jura"
-            ],
-            "en": [
-              "the Pyrenees",
-              "the Alps",
-              "the Vosges",
-              "the Jura"
-            ],
-            "es": [
-              "los Pirineos",
-              "los Alpes",
-              "los Vosgos",
-              "el Jura"
-            ]
-          }
+          "answer": "Vénus",
+          "correction": "Vénus est en moyenne la plus proche de la Terre."
         },
         {
           "id": "q8",
-          "type": "true_false",
-          "prompt": "Au pôle Nord, les températures sont très froides.",
-          "answer": true,
-          "correction": "Le pôle Nord est une région arctique aux températures extrêmement basses.",
-          "prompt_nl": "Op de Noordpool zijn de temperaturen erg koud.",
-          "prompt_en": "At the North Pole, temperatures are very cold.",
-          "prompt_es": "En el Polo Norte, las temperaturas son muy frias."
+          "type": "mcq",
+          "prompt": "Quel est le rôle principal des forces de l'ordre (police) ?",
+          "options": [
+            "maintenir l'ordre public et la sécurité",
+            "soigner les malades",
+            "construire les routes"
+          ],
+          "answer": "maintenir l'ordre public et la sécurité",
+          "correction": "La police maintient l'ordre."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "La langue officielle du Brésil est :",
+          "prompt": "Quelle ville est la capitale du royaume de Belgique ?",
           "options": [
-            "le portugais",
-            "l'espagnol",
-            "le français",
-            "l'anglais"
+            "Bruxelles",
+            "Liège",
+            "Gand"
           ],
-          "answer": "le portugais",
-          "correction": "Le Brésil est le seul pays d'Amérique du Sud où on parle portugais.",
-          "prompt_nl": "De officiele taal van Brazilie is:",
-          "prompt_en": "The official language of Brazil is:",
-          "prompt_es": "El idioma oficial de Brasil es:",
-          "options_i18n": {
-            "nl": [
-              "Portugees",
-              "Spaans",
-              "Frans",
-              "Engels"
-            ],
-            "en": [
-              "Portuguese",
-              "Spanish",
-              "French",
-              "English"
-            ],
-            "es": [
-              "portugues",
-              "espanol",
-              "frances",
-              "ingles"
-            ]
-          }
+          "answer": "Bruxelles",
+          "correction": "Bruxelles est la capitale de la Belgique."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel est le plus grand océan du monde ?",
+          "prompt": "Combien d'océans reconnaît-on sur Terre ?",
           "options": [
-            "l'océan Pacifique",
-            "l'océan Atlantique",
-            "l'océan Indien",
-            "l'océan Arctique"
+            "5",
+            "4",
+            "6"
           ],
-          "answer": "l'océan Pacifique",
-          "correction": "L'océan Pacifique est le plus grand et le plus profond.",
-          "prompt_nl": "Wat is de grootste oceaan ter wereld?",
-          "prompt_en": "What is the largest ocean in the world?",
-          "prompt_es": "Cual es el oceano mas grande del mundo?",
-          "options_i18n": {
-            "nl": [
-              "de Stille Oceaan",
-              "de Atlantische Oceaan",
-              "de Indische Oceaan",
-              "de Arctische Oceaan"
-            ],
-            "en": [
-              "the Pacific Ocean",
-              "the Atlantic Ocean",
-              "the Indian Ocean",
-              "the Arctic Ocean"
-            ],
-            "es": [
-              "el oceano Pacifico",
-              "el oceano Atlantico",
-              "el oceano Indico",
-              "el oceano Artico"
-            ]
-          }
+          "answer": "5",
+          "correction": "Il y a 5 océans."
         }
       ]
     },
@@ -449,115 +241,122 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On voit avec les :",
+          "prompt": "Pendant quelle saison les fleurs s'épanouissent-elles ?",
           "options": [
-            "yeux",
-            "oreilles",
-            "genoux"
+            "le printemps",
+            "l'été",
+            "l'hiver"
           ],
-          "answer": "yeux",
-          "correction": "On voit avec les yeux."
+          "answer": "le printemps",
+          "correction": "Les fleurs s'épanouissent au printemps."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Quel animal est souvent symbole de sagesse en Europe ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "le hibou",
+            "le lion",
+            "l'aigle"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "le hibou",
+          "correction": "Le hibou symbolise la sagesse."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le pompier éteint :",
+          "prompt": "Sur quel continent est situé le Japon ?",
           "options": [
-            "le feu",
-            "la pluie",
-            "le vent"
+            "l'Asie",
+            "l'Europe",
+            "l'Océanie"
           ],
-          "answer": "le feu",
-          "correction": "Le pompier éteint le feu."
+          "answer": "l'Asie",
+          "correction": "Le Japon est en Asie."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Comment s'appelle le professionnel qui coupe les cheveux ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "le coiffeur",
+            "le tailleur",
+            "le cordonnier"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "le coiffeur",
+          "correction": "Le coiffeur coupe les cheveux."
         },
         {
           "id": "q10",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Comment s'appelle le professionnel qui conduit un train ?",
+          "options": [
+            "le conducteur de train",
+            "le chauffeur de taxi",
+            "le pilote"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "le conducteur de train",
+          "correction": "Le conducteur conduit le train."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Quel sens utilisons-nous pour admirer un tableau ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "la vue",
+            "l'ouïe",
+            "le toucher"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "la vue",
+          "correction": "On admire un tableau avec la vue."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Quel instrument indique la direction du nord magnétique ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "la boussole",
+            "le thermomètre",
+            "la règle"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "la boussole",
+          "correction": "La boussole indique le nord magnétique."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Sur quel continent se trouve le Mexique ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "l'Amérique du Nord",
+            "l'Amérique du Sud",
+            "l'Europe"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "l'Amérique du Nord",
+          "correction": "Le Mexique est en Amérique du Nord."
         },
         {
           "id": "q18",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Sur quel continent se trouve l'Argentine ?",
+          "options": [
+            "l'Amérique du Sud",
+            "l'Amérique du Nord",
+            "l'Europe"
+          ],
+          "answer": "l'Amérique du Sud",
+          "correction": "L'Argentine est en Amérique du Sud."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Sur quel continent se trouve la Russie principalement ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "l'Europe et l'Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "l'Europe et l'Asie",
+          "correction": "La Russie s'étend sur l'Europe et l'Asie."
         }
       ]
     }

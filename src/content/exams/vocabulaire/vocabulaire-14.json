@@ -12,100 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « conduire » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "mener",
+            "suivre",
+            "obéir",
+            "subir"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "mener",
+          "correction": "Un synonyme de « conduire » : → mener.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
+          "prompt": "Le contraire de « bavard » :",
           "options": [
-            "triste",
-            "content",
-            "joyeux"
+            "silencieux",
+            "loquace",
+            "volubile",
+            "communicatif"
           ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
+          "answer": "silencieux",
+          "correction": "Le contraire de « bavard » : → silencieux.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "Le proverbe « Mieux vaut tard que jamais » signifie :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "il vaut mieux agir en retard que pas du tout",
+            "il faut toujours être en avance",
+            "ne jamais être en retard",
+            "le temps ne compte pas"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "il vaut mieux agir en retard que pas du tout",
+          "correction": "Le proverbe « Mieux vaut tard que jamais » signifie : → il vaut mieux agir en retard que pas du tout.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Le contraire de « civilisé » :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "barbare",
+            "cultivé",
+            "raffiné",
+            "éduqué"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "barbare",
+          "correction": "Le contraire de « civilisé » : → barbare.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Un synonyme de « assister » :",
           "options": [
-            "discuter",
-            "courir",
-            "dormir"
+            "aider",
+            "négliger",
+            "abandonner",
+            "ignorer"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
+          "answer": "aider",
+          "correction": "Un synonyme de « assister » : → aider.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "La famille de mots de « livre » contient :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "librairie",
+            "sport",
+            "cuisine",
+            "voyage"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "librairie",
+          "correction": "La famille de mots de « livre » contient : → librairie.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Le contraire de « vieux » :",
+          "prompt": "Un synonyme de « récompenser » :",
           "options": [
-            "jeune",
-            "gros",
-            "grand"
+            "féliciter",
+            "punir",
+            "blâmer",
+            "critiquer"
           ],
-          "answer": "jeune",
-          "correction": "vieux ↔ jeune."
+          "answer": "féliciter",
+          "correction": "Un synonyme de « récompenser » : → féliciter.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « agacer » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "énerver",
+            "calmer",
+            "apaiser",
+            "satisfaire"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "énerver",
+          "correction": "Un synonyme de « agacer » : → énerver.",
+          "id": "q16"
         }
       ]
     },
@@ -113,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « utile » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "pratique",
+            "inutile",
+            "encombrant",
+            "superflu"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "pratique",
+          "correction": "Un synonyme de « utile » : → pratique.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « gagner » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "perdre",
+            "obtenir",
+            "réussir",
+            "conquérir"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "perdre",
+          "correction": "Le contraire de « gagner » : → perdre.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « vide » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "plein",
+            "creux",
+            "vague",
+            "neutre"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "plein",
+          "correction": "Le contraire de « vide » : → plein.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « dire » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "affirmer",
+            "taire",
+            "cacher",
+            "nier"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "affirmer",
+          "correction": "Un synonyme de « dire » : → affirmer.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « lier » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "attacher",
+            "délier",
+            "détacher",
+            "libérer"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "attacher",
+          "correction": "Un synonyme de « lier » : → attacher.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « revenir » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "retourner",
+            "partir",
+            "quitter",
+            "fuir"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "retourner",
+          "correction": "Un synonyme de « revenir » : → retourner.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Le contraire de « capturé » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "libéré",
+            "pris",
+            "arrêté",
+            "retenu"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "libéré",
+          "correction": "Le contraire de « capturé » : → libéré.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « habituel » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "inhabituel",
+            "courant",
+            "fréquent",
+            "régulier"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "inhabituel",
+          "correction": "Le contraire de « habituel » : → inhabituel.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « rude » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "doux",
+            "rugueux",
+            "âpre",
+            "sévère"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "doux",
+          "correction": "Le contraire de « rude » : → doux.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Quel mot appartient au champ lexical de voyage ?",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "valise",
+            "casserole",
+            "stylo",
+            "nuage"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "valise",
+          "correction": "Quel mot appartient au champ lexical de voyage ? → valise.",
+          "id": "q19"
         }
       ]
     },
@@ -238,124 +256,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « dépendre » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "relever de",
+            "être indépendant",
+            "autonome",
+            "libre"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "relever de",
+          "correction": "Un synonyme de « dépendre » : → relever de.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « rapide » :",
+          "prompt": "Un synonyme de « glorifier » :",
           "options": [
-            "lent",
-            "vite",
-            "fort"
+            "célébrer",
+            "critiquer",
+            "blâmer",
+            "ignorer"
           ],
-          "answer": "lent",
-          "correction": "rapide ↔ lent."
+          "answer": "célébrer",
+          "correction": "Un synonyme de « glorifier » : → célébrer.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « chaud » :",
+          "prompt": "Le contraire de « présent » :",
           "options": [
-            "froid",
-            "tiède",
-            "doux"
+            "absent",
+            "ici",
+            "proche",
+            "visible"
           ],
-          "answer": "froid",
-          "correction": "chaud ↔ froid."
+          "answer": "absent",
+          "correction": "Le contraire de « présent » : → absent.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Le contraire de « long » :",
+          "prompt": "Quel est l'antonyme de « clair » ?",
           "options": [
-            "court",
-            "large",
-            "fin"
+            "sombre",
+            "brillant",
+            "vif",
+            "lumineux"
           ],
-          "answer": "court",
-          "correction": "long ↔ court."
+          "answer": "sombre",
+          "correction": "Quel est l'antonyme de « clair » ? → sombre.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « orienter » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "guider",
+            "égarer",
+            "perdre",
+            "confondre"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "guider",
+          "correction": "Un synonyme de « orienter » : → guider.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « jour » :",
+          "prompt": "Le contraire de « complet » :",
           "options": [
-            "nuit",
-            "soir",
-            "matin"
+            "incomplet",
+            "entier",
+            "total",
+            "intégral"
           ],
-          "answer": "nuit",
-          "correction": "jour ↔ nuit."
+          "answer": "incomplet",
+          "correction": "Le contraire de « complet » : → incomplet.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Un synonyme de « joli » :",
+          "prompt": "Un synonyme de « agir » :",
           "options": [
-            "beau",
-            "laid",
-            "vieux"
+            "faire",
+            "rester",
+            "attendre",
+            "négliger"
           ],
-          "answer": "beau",
-          "correction": "joli = beau."
+          "answer": "faire",
+          "correction": "Un synonyme de « agir » : → faire.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le contraire de « adulte » :",
           "options": [
-            "fermé",
+            "enfant",
+            "mûr",
             "grand",
-            "vide"
+            "majeur"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "enfant",
+          "correction": "Le contraire de « adulte » : → enfant.",
+          "id": "q16"
         },
         {
-          "id": "q18",
           "type": "mcq",
-          "prompt": "Une couleur :",
+          "prompt": "Un synonyme de « examiner » :",
           "options": [
-            "rouge",
-            "pomme",
-            "table"
+            "analyser",
+            "ignorer",
+            "négliger",
+            "sauter"
           ],
-          "answer": "rouge",
-          "correction": "Le rouge est une couleur."
+          "answer": "analyser",
+          "correction": "Un synonyme de « examiner » : → analyser.",
+          "id": "q18"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Un synonyme de « innover » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "créer",
+            "copier",
+            "imiter",
+            "reproduire"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "créer",
+          "correction": "Un synonyme de « innover » : → créer.",
+          "id": "q20"
         }
       ]
     }

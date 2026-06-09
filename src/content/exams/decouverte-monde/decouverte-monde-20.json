@@ -14,98 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La poule pond des :",
+          "prompt": "Quel est le plus haut sommet d'Europe ?",
           "options": [
-            "œufs",
-            "plumes",
-            "fruits"
+            "le Mont Blanc",
+            "le Mont Rosa",
+            "le Cervin"
           ],
-          "answer": "œufs",
-          "correction": "La poule pond des œufs."
+          "answer": "le Mont Blanc",
+          "correction": "Le Mont Blanc (4808 m) est le plus haut en Europe occidentale."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "En hiver, il fait :",
+          "prompt": "Sur quel continent se trouvent les Andes ?",
           "options": [
-            "froid",
-            "très chaud",
-            "lourd"
+            "l'Amérique du Sud",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "froid",
-          "correction": "En hiver il fait froid."
+          "answer": "l'Amérique du Sud",
+          "correction": "Les Andes sont en Amérique du Sud."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Sur quel continent se trouvent l'Himalaya ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "l'Asie",
+          "correction": "L'Himalaya est en Asie."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Qu'est-ce qu'un séisme ?",
+          "prompt": "Quel est le plus grand lac du monde ?",
           "options": [
-            "un tremblement de terre",
-            "une tempête",
-            "une inondation"
+            "la mer Caspienne",
+            "le lac Supérieur",
+            "le lac Victoria"
           ],
-          "answer": "un tremblement de terre",
-          "correction": "Un séisme = tremblement de terre."
+          "answer": "la mer Caspienne",
+          "correction": "La mer Caspienne est techniquement le plus grand lac."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "On respire avec les :",
+          "prompt": "Sur quel continent se trouve le Cameroun ?",
           "options": [
-            "poumons",
-            "mains",
-            "pieds"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "poumons",
-          "correction": "On respire avec les poumons."
+          "answer": "l'Afrique",
+          "correction": "Le Cameroun est en Afrique centrale."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Quand il pleut, on prend un :",
+          "prompt": "Sur quel continent se trouve l'Irak ?",
           "options": [
-            "parapluie",
-            "ballon",
-            "livre"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "parapluie",
-          "correction": "Contre la pluie : le parapluie."
+          "answer": "l'Asie",
+          "correction": "L'Irak est en Asie de l'Ouest."
         },
         {
           "id": "q14",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Sur quel continent se trouve la Slovénie ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "l'Europe",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "l'Europe",
+          "correction": "La Slovénie est en Europe centrale."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Le dentiste soigne :",
+          "prompt": "Sur quel continent se trouve Madagascar ?",
           "options": [
-            "les dents",
-            "les yeux",
-            "les pieds"
+            "l'Afrique (île)",
+            "l'Asie",
+            "l'Océanie"
           ],
-          "answer": "les dents",
-          "correction": "Le dentiste soigne les dents."
+          "answer": "l'Afrique (île)",
+          "correction": "Madagascar est une île au large de l'Afrique."
         }
       ]
     },
@@ -115,362 +115,125 @@
         {
           "id": "q1",
           "type": "mcq",
-          "prompt": "La capitale de la Belgique est :",
+          "prompt": "Sur quel continent se trouve le Liban ?",
           "options": [
-            "Bruxelles",
-            "Bruges",
-            "Gand",
-            "Liège"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "Bruxelles",
-          "correction": "Bruxelles est la capitale de la Belgique.",
-          "prompt_nl": "De hoofdstad van Belgie is:",
-          "prompt_en": "The capital of Belgium is:",
-          "prompt_es": "La capital de Belgica es:",
-          "options_i18n": {
-            "nl": [
-              "Brussel",
-              "Brugge",
-              "Gent",
-              "Luik"
-            ],
-            "en": [
-              "Brussels",
-              "Bruges",
-              "Ghent",
-              "Liège"
-            ],
-            "es": [
-              "Bruselas",
-              "Brujas",
-              "Gante",
-              "Lieja"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "Le Liban est en Asie de l'Ouest."
         },
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "La capitale des Pays-Bas est :",
+          "prompt": "Sur quel continent se trouve l'Écosse ?",
           "options": [
-            "Amsterdam",
-            "Rotterdam",
-            "Utrecht",
-            "La Haye"
+            "l'Europe (Grande-Bretagne)",
+            "l'Asie",
+            "l'Afrique"
           ],
-          "answer": "Amsterdam",
-          "correction": "Amsterdam est la capitale des Pays-Bas.",
-          "prompt_nl": "De hoofdstad van Nederland is:",
-          "prompt_en": "The capital of the Netherlands is:",
-          "prompt_es": "La capital de los Paises Bajos es:",
-          "options_i18n": {
-            "nl": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "Den Haag"
-            ],
-            "en": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "The Hague"
-            ],
-            "es": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "La Haya"
-            ]
-          }
+          "answer": "l'Europe (Grande-Bretagne)",
+          "correction": "L'Écosse fait partie de la Grande-Bretagne, en Europe."
         },
         {
           "id": "q3",
           "type": "mcq",
-          "prompt": "La capitale du Royaume-Uni est :",
+          "prompt": "Sur quel continent se trouve le Rwanda ?",
           "options": [
-            "Londres",
-            "Manchester",
-            "Birmingham",
-            "Édimbourg"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "Londres",
-          "correction": "Londres est la capitale du Royaume-Uni.",
-          "prompt_nl": "De hoofdstad van het Verenigd Koninkrijk is:",
-          "prompt_en": "The capital of the United Kingdom is:",
-          "prompt_es": "La capital del Reino Unido es:",
-          "options_i18n": {
-            "nl": [
-              "Londen",
-              "Manchester",
-              "Birmingham",
-              "Edinburgh"
-            ],
-            "en": [
-              "London",
-              "Manchester",
-              "Birmingham",
-              "Edinburgh"
-            ],
-            "es": [
-              "Londres",
-              "Manchester",
-              "Birmingham",
-              "Edimburgo"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "Le Rwanda est en Afrique centrale."
         },
         {
           "id": "q4",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve le Brésil ?",
+          "prompt": "Sur quel continent se trouve la Géorgie (pays) ?",
           "options": [
-            "Amérique du Sud",
-            "Afrique",
-            "Asie",
-            "Europe"
+            "l'Europe / Asie",
+            "l'Afrique",
+            "l'Océanie"
           ],
-          "answer": "Amérique du Sud",
-          "correction": "Le Brésil est situé en Amérique du Sud.",
-          "prompt_nl": "Op welk continent ligt Brazilie?",
-          "prompt_en": "On which continent is Brazil located?",
-          "prompt_es": "En que continente se encuentra Brasil?",
-          "options_i18n": {
-            "nl": [
-              "Zuid-Amerika",
-              "Afrika",
-              "Azie",
-              "Europa"
-            ],
-            "en": [
-              "South America",
-              "Africa",
-              "Asia",
-              "Europe"
-            ],
-            "es": [
-              "America del Sur",
-              "Africa",
-              "Asia",
-              "Europa"
-            ]
-          }
+          "answer": "l'Europe / Asie",
+          "correction": "La Géorgie est entre l'Europe et l'Asie."
         },
         {
           "id": "q5",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve la Chine ?",
+          "prompt": "Sur quel continent se trouve le Burkina Faso ?",
           "options": [
-            "Asie",
-            "Europe",
-            "Afrique",
-            "Amérique"
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
           ],
-          "answer": "Asie",
-          "correction": "La Chine est située en Asie.",
-          "prompt_nl": "Op welk continent ligt China?",
-          "prompt_en": "On which continent is China located?",
-          "prompt_es": "En que continente se encuentra China?",
-          "options_i18n": {
-            "nl": [
-              "Azie",
-              "Europa",
-              "Afrika",
-              "Amerika"
-            ],
-            "en": [
-              "Asia",
-              "Europe",
-              "Africa",
-              "America"
-            ],
-            "es": [
-              "Asia",
-              "Europa",
-              "Africa",
-              "America"
-            ]
-          }
+          "answer": "l'Afrique",
+          "correction": "Le Burkina Faso est en Afrique de l'Ouest."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Sur quel continent se trouve l'Égypte ?",
+          "prompt": "Sur quel continent se trouve l'Arabie Saoudite ?",
           "options": [
-            "Afrique",
-            "Asie",
-            "Europe",
-            "Amérique"
+            "l'Asie",
+            "l'Afrique",
+            "l'Europe"
           ],
-          "answer": "Afrique",
-          "correction": "L'Égypte est un pays situé en Afrique du Nord.",
-          "prompt_nl": "Op welk continent ligt Egypte?",
-          "prompt_en": "On which continent is Egypt located?",
-          "prompt_es": "En que continente se encuentra Egipto?",
-          "options_i18n": {
-            "nl": [
-              "Afrika",
-              "Azie",
-              "Europa",
-              "Amerika"
-            ],
-            "en": [
-              "Africa",
-              "Asia",
-              "Europe",
-              "America"
-            ],
-            "es": [
-              "Africa",
-              "Asia",
-              "Europa",
-              "America"
-            ]
-          }
+          "answer": "l'Asie",
+          "correction": "L'Arabie Saoudite est en Asie de l'Ouest (Moyen-Orient)."
         },
         {
           "id": "q7",
           "type": "mcq",
-          "prompt": "Le Sahara est :",
+          "prompt": "Quel pays est traversé par l'équateur ?",
           "options": [
-            "un désert",
-            "un océan",
-            "une forêt",
-            "une montagne"
+            "le Kenya",
+            "la France",
+            "le Canada"
           ],
-          "answer": "un désert",
-          "correction": "Le Sahara est le plus grand désert chaud du monde.",
-          "prompt_nl": "De Sahara is:",
-          "prompt_en": "The Sahara is:",
-          "prompt_es": "El Sahara es:",
-          "options_i18n": {
-            "nl": [
-              "een woestijn",
-              "een oceaan",
-              "een woud",
-              "een berg"
-            ],
-            "en": [
-              "a desert",
-              "an ocean",
-              "a forest",
-              "a mountain"
-            ],
-            "es": [
-              "un desierto",
-              "un oceano",
-              "un bosque",
-              "una montana"
-            ]
-          }
+          "answer": "le Kenya",
+          "correction": "L'équateur traverse le Kenya en Afrique."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Le Nil est :",
+          "prompt": "Quel type de phénomène crée des tornades ?",
           "options": [
-            "un fleuve d'Afrique",
-            "un fleuve d'Asie",
-            "une mer",
-            "un lac"
+            "des différences de pression et de températures",
+            "des tsunamis",
+            "des tremblements de terre",
+            "des éruptions"
           ],
-          "answer": "un fleuve d'Afrique",
-          "correction": "Le Nil est le plus long fleuve d'Afrique.",
-          "prompt_nl": "De Nijl is:",
-          "prompt_en": "The Nile is:",
-          "prompt_es": "El Nilo es:",
-          "options_i18n": {
-            "nl": [
-              "een rivier in Afrika",
-              "een rivier in Azie",
-              "een zee",
-              "een meer"
-            ],
-            "en": [
-              "a river in Africa",
-              "a river in Asia",
-              "a sea",
-              "a lake"
-            ],
-            "es": [
-              "un rio de Africa",
-              "un rio de Asia",
-              "un mar",
-              "un lago"
-            ]
-          }
+          "answer": "des différences de pression et de températures",
+          "correction": "Les tornades se forment par différences de pression et chaleur."
         },
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Quelle mer borde la France au sud ?",
+          "prompt": "Comment appelle-t-on une personne qui habite dans une ville ?",
           "options": [
-            "la mer Méditerranée",
-            "la mer du Nord",
-            "la mer Baltique",
-            "la mer Rouge"
+            "un citadin",
+            "un rural",
+            "un nomade",
+            "un pionnier"
           ],
-          "answer": "la mer Méditerranée",
-          "correction": "La mer Méditerranée borde la France au sud.",
-          "prompt_nl": "Welke zee grenst aan Frankrijk in het zuiden?",
-          "prompt_en": "Which sea borders France to the south?",
-          "prompt_es": "Que mar bordea Francia al sur?",
-          "options_i18n": {
-            "nl": [
-              "de Middellandse Zee",
-              "de Noordzee",
-              "de Oostzee",
-              "de Rode Zee"
-            ],
-            "en": [
-              "the Mediterranean Sea",
-              "the North Sea",
-              "the Baltic Sea",
-              "the Red Sea"
-            ],
-            "es": [
-              "el mar Mediterraneo",
-              "el mar del Norte",
-              "el mar Baltico",
-              "el mar Rojo"
-            ]
-          }
+          "answer": "un citadin",
+          "correction": "Un citadin vit en ville."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
+          "prompt": "Comment appelle-t-on une personne qui habite à la campagne ?",
           "options": [
-            "les Pyrénées",
-            "les Alpes",
-            "les Vosges",
-            "le Jura"
+            "un rural",
+            "un citadin",
+            "un nomade",
+            "un sédentaire"
           ],
-          "answer": "les Pyrénées",
-          "correction": "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
-          "prompt_nl": "Welke bergketen scheidt Frankrijk van Spanje?",
-          "prompt_en": "Which mountain range separates France from Spain?",
-          "prompt_es": "Que cadena montanosa separa Francia de Espana?",
-          "options_i18n": {
-            "nl": [
-              "de Pyreneen",
-              "de Alpen",
-              "de Vogezen",
-              "de Jura"
-            ],
-            "en": [
-              "the Pyrenees",
-              "the Alps",
-              "the Vosges",
-              "the Jura"
-            ],
-            "es": [
-              "los Pirineos",
-              "los Alpes",
-              "los Vosgos",
-              "el Jura"
-            ]
-          }
+          "answer": "un rural",
+          "correction": "Un rural vit à la campagne."
         }
       ]
     },
@@ -480,110 +243,132 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "On trie les déchets pour :",
+          "prompt": "Qu'est-ce qu'une péninsule ?",
           "options": [
-            "protéger l'environnement",
-            "faire de la place",
-            "punir"
+            "une portion de terre entourée d'eau de 3 côtés",
+            "une île",
+            "un archipel",
+            "un détroit"
           ],
-          "answer": "protéger l'environnement",
-          "correction": "Le tri protège l'environnement."
+          "answer": "une portion de terre entourée d'eau de 3 côtés",
+          "correction": "Une péninsule est entourée d'eau sur 3 côtés."
         },
         {
           "id": "q4",
-          "type": "true_false",
-          "prompt": "Le recyclage aide à réduire les déchets.",
-          "answer": true,
-          "correction": "Oui, le recyclage réduit les déchets."
+          "type": "mcq",
+          "prompt": "Qu'est-ce qu'un détroit ?",
+          "options": [
+            "un bras de mer étroit entre deux terres",
+            "un large fleuve",
+            "une baie profonde",
+            "un lac"
+          ],
+          "answer": "un bras de mer étroit entre deux terres",
+          "correction": "Un détroit est un passage maritime étroit."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "On met le papier dans la poubelle :",
+          "prompt": "Comment s'appelle la bande de terre qui relie deux continents ?",
           "options": [
-            "de recyclage",
-            "normale",
-            "à compost"
+            "un isthme",
+            "une péninsule",
+            "un détroit",
+            "une île"
           ],
-          "answer": "de recyclage",
-          "correction": "Le papier se recycle."
+          "answer": "un isthme",
+          "correction": "Un isthme relie deux continents."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "La vache nous donne :",
+          "prompt": "Comment appelle-t-on les grandes étendues de terre de la planète ?",
           "options": [
-            "du lait",
-            "des œufs",
-            "de la laine"
+            "des continents",
+            "des océans",
+            "des îles",
+            "des archipels"
           ],
-          "answer": "du lait",
-          "correction": "La vache donne du lait."
+          "answer": "des continents",
+          "correction": "Les grandes étendues de terre sont appelées continents."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quel sens utilise-t-on pour toucher ?",
+          "prompt": "Quel est le deuxième plus grand continent du monde ?",
           "options": [
-            "le toucher",
-            "la vue",
-            "l'ouïe"
+            "l'Afrique",
+            "l'Asie",
+            "l'Amérique du Nord",
+            "l'Amérique du Sud"
           ],
-          "answer": "le toucher",
-          "correction": "On touche avec la peau."
+          "answer": "l'Afrique",
+          "correction": "L'Afrique est le deuxième plus grand continent."
         },
         {
           "id": "q12",
-          "type": "true_false",
-          "prompt": "Le soleil se lève le matin.",
-          "answer": true,
-          "correction": "Oui, le matin."
+          "type": "mcq",
+          "prompt": "Quel continent est constitué principalement d'îles et d'archipels ?",
+          "options": [
+            "l'Océanie",
+            "l'Afrique",
+            "l'Asie",
+            "l'Europe"
+          ],
+          "answer": "l'Océanie",
+          "correction": "L'Océanie comprend l'Australie et de nombreuses îles."
         },
         {
           "id": "q14",
-          "type": "fill_blank",
-          "prompt": "L’abeille fabrique le ___ .",
-          "answer": "miel",
-          "accept": [
-            "miel"
+          "type": "mcq",
+          "prompt": "Quel est le point cardinal opposé au Nord ?",
+          "options": [
+            "le Sud",
+            "l'Est",
+            "l'Ouest",
+            "le Nord-Est"
           ],
-          "correction": "L’abeille fait le miel."
+          "answer": "le Sud",
+          "correction": "Le Sud est opposé au Nord."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "L'eau potable est :",
+          "prompt": "De quel côté se lève le Soleil ?",
           "options": [
-            "l'eau que l'on peut boire",
-            "l'eau de la mer",
-            "l'eau chaude"
+            "à l'est",
+            "à l'ouest",
+            "au nord",
+            "au sud"
           ],
-          "answer": "l'eau que l'on peut boire",
-          "correction": "L'eau potable est sûre à boire."
+          "answer": "à l'est",
+          "correction": "Le Soleil se lève à l'est."
         },
         {
           "id": "q18",
           "type": "mcq",
-          "prompt": "Pour grandir, les plantes ont besoin de :",
+          "prompt": "Quel sens utilise-t-on pour lire un livre ?",
           "options": [
-            "soleil et eau",
-            "chocolat",
-            "jouets"
+            "la vue",
+            "l'ouïe",
+            "le toucher",
+            "l'odorat"
           ],
-          "answer": "soleil et eau",
-          "correction": "Soleil + eau."
+          "answer": "la vue",
+          "correction": "On lit avec la vue."
         },
         {
           "id": "q20",
           "type": "mcq",
-          "prompt": "La source d'énergie des plantes est :",
+          "prompt": "Quel organe nous permet de percevoir les sons ?",
           "options": [
-            "le soleil",
-            "la lune",
-            "le vent"
+            "les oreilles",
+            "le nez",
+            "les yeux",
+            "la langue"
           ],
-          "answer": "le soleil",
-          "correction": "Les plantes utilisent l'énergie solaire."
+          "answer": "les oreilles",
+          "correction": "On entend grâce aux oreilles."
         }
       ]
     }

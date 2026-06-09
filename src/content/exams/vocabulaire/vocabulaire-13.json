@@ -12,98 +12,108 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Le contraire de « fort » :",
+          "prompt": "La famille de mots de « eau » contient :",
           "options": [
-            "faible",
-            "dur",
-            "lourd"
+            "plonger",
+            "sable",
+            "vent",
+            "feu"
           ],
-          "answer": "faible",
-          "correction": "fort ↔ faible."
+          "answer": "plonger",
+          "correction": "La famille de mots de « eau » contient : → plonger.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « organiser » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "planifier",
+            "improviser",
+            "négliger",
+            "ignorer"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "planifier",
+          "correction": "Un synonyme de « organiser » : → planifier.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « heureux » :",
+          "prompt": "Le contraire de « barbare » :",
           "options": [
-            "triste",
-            "content",
-            "joyeux"
+            "civilisé",
+            "brutal",
+            "sauvage",
+            "cruel"
           ],
-          "answer": "triste",
-          "correction": "heureux ↔ triste."
+          "answer": "civilisé",
+          "correction": "Le contraire de « barbare » : → civilisé.",
+          "id": "q6"
         },
         {
-          "id": "q8",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
+          "type": "mcq",
+          "prompt": "Un synonyme de « distinguer » :",
+          "options": [
+            "reconnaître",
+            "confondre",
+            "mélanger",
+            "ignorer"
           ],
-          "correction": "monter ↔ descendre."
+          "answer": "reconnaître",
+          "correction": "Un synonyme de « distinguer » : → reconnaître.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un synonyme de « parler » :",
+          "prompt": "Un synonyme de « assembler » :",
           "options": [
-            "discuter",
-            "courir",
-            "dormir"
+            "réunir",
+            "disperser",
+            "séparer",
+            "diviser"
           ],
-          "answer": "discuter",
-          "correction": "parler = discuter."
+          "answer": "réunir",
+          "correction": "Un synonyme de « assembler » : → réunir.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Un synonyme de « chaleureux » :",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "accueillant",
+            "froid",
+            "distant",
+            "hostile"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "accueillant",
+          "correction": "Un synonyme de « chaleureux » : → accueillant.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Le contraire de « debut » :",
+          "prompt": "Le contraire de « acheter » :",
           "options": [
-            "fin",
-            "milieu",
-            "suite"
+            "vendre",
+            "payer",
+            "garder",
+            "donner"
           ],
-          "answer": "fin",
-          "correction": "debut ↔ fin."
+          "answer": "vendre",
+          "correction": "Le contraire de « acheter » : → vendre.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Un synonyme de « content » :",
+          "prompt": "Le suffixe « -iste » dans « pianiste » indique :",
           "options": [
-            "heureux",
-            "triste",
-            "fâché"
+            "qui joue du piano",
+            "le piano",
+            "le son",
+            "la musique"
           ],
-          "answer": "heureux",
-          "correction": "content = heureux."
+          "answer": "qui joue du piano",
+          "correction": "Le suffixe « -iste » dans « pianiste » indique : → qui joue du piano.",
+          "id": "q16"
         }
       ]
     },
@@ -111,124 +121,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « timide » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "réservé",
+            "audacieux",
+            "extraverti",
+            "bavard"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "réservé",
+          "correction": "Un synonyme de « timide » : → réservé.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « fuir » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "rester",
+            "partir",
+            "quitter",
+            "abandonner"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "rester",
+          "correction": "Le contraire de « fuir » : → rester.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « superficiel » :",
           "options": [
-            "épuisé",
-            "reposé",
-            "content"
+            "profond",
+            "léger",
+            "vague",
+            "flou"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "profond",
+          "correction": "Le contraire de « superficiel » : → profond.",
+          "id": "q5"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Un synonyme de « descendre » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "dévaler",
+            "monter",
+            "grimper",
+            "s'élever"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "dévaler",
+          "correction": "Un synonyme de « descendre » : → dévaler.",
+          "id": "q7"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Un synonyme de « laisser » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "abandonner",
+            "prendre",
+            "garder",
+            "emporter"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
+          "answer": "abandonner",
+          "correction": "Un synonyme de « laisser » : → abandonner.",
+          "id": "q9"
         },
         {
-          "id": "q11",
           "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
+          "prompt": "Un synonyme de « réussir » :",
           "options": [
-            "pas",
-            "très",
-            "bien"
+            "parvenir",
+            "échouer",
+            "rater",
+            "manquer"
           ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
+          "answer": "parvenir",
+          "correction": "Un synonyme de « réussir » : → parvenir.",
+          "id": "q11"
         },
         {
-          "id": "q13",
           "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
+          "prompt": "Le contraire de « brillant » :",
           "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
+            "terne",
+            "lumineux",
+            "éclatant",
+            "resplendissant"
           ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
+          "answer": "terne",
+          "correction": "Le contraire de « brillant » : → terne.",
+          "id": "q13"
         },
         {
-          "id": "q15",
           "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
+          "prompt": "Le contraire de « gentil » :",
           "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
+            "cruel",
+            "aimable",
+            "doux",
+            "affectueux"
           ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
+          "answer": "cruel",
+          "correction": "Le contraire de « gentil » : → cruel.",
+          "id": "q15"
         },
         {
-          "id": "q17",
           "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
+          "prompt": "Le contraire de « rigide » :",
           "options": [
-            "bruyant",
-            "calme",
-            "doux"
+            "souple",
+            "dur",
+            "fixe",
+            "inflexible"
           ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
+          "answer": "souple",
+          "correction": "Le contraire de « rigide » : → souple.",
+          "id": "q17"
         },
         {
-          "id": "q19",
           "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
+          "prompt": "Quel mot appartient au champ lexical de forêt ?",
           "options": [
-            "se presser",
-            "attendre",
-            "dormir"
+            "chêne",
+            "tracteur",
+            "stylo",
+            "piano"
           ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "chêne",
+          "correction": "Quel mot appartient au champ lexical de forêt ? → chêne.",
+          "id": "q19"
         }
       ]
     },
@@ -236,122 +256,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "« Il pleut des cordes » est :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "une expression figurée",
+            "une phrase vraie",
+            "une question",
+            "un ordre"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "une expression figurée",
+          "correction": "« Il pleut des cordes » est : → une expression figurée.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « choisir » :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "sélectionner",
+            "refuser",
+            "oublier",
+            "perdre"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "sélectionner",
+          "correction": "Un synonyme de « choisir » : → sélectionner.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Le contraire de « plein » :",
+          "prompt": "Le suffixe « -tion » dans « construction » indique :",
           "options": [
-            "vide",
-            "lourd",
-            "grand"
+            "une action",
+            "une personne",
+            "un lieu",
+            "une qualité"
           ],
-          "answer": "vide",
-          "correction": "plein ↔ vide."
+          "answer": "une action",
+          "correction": "Le suffixe « -tion » dans « construction » indique : → une action.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Un synonyme de « marcher » :",
+          "prompt": "Un synonyme de « intelligent » :",
           "options": [
-            "se promener",
-            "courir",
-            "voler"
+            "astucieux",
+            "bête",
+            "stupide",
+            "naïf"
           ],
-          "answer": "se promener",
-          "correction": "marcher = se promener."
+          "answer": "astucieux",
+          "correction": "Un synonyme de « intelligent » : → astucieux.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « concentrer » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "focaliser",
+            "disperser",
+            "distraire",
+            "éparpiller"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "focaliser",
+          "correction": "Un synonyme de « concentrer » : → focaliser.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « long » :",
+          "prompt": "Quel est l'antonyme de « souvent » ?",
           "options": [
-            "court",
-            "large",
-            "fin"
+            "rarement",
+            "toujours",
+            "encore",
+            "partout"
           ],
-          "answer": "court",
-          "correction": "long ↔ court."
+          "answer": "rarement",
+          "correction": "Quel est l'antonyme de « souvent » ? → rarement.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « dépasser » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "surpasser",
+            "rester",
+            "stagner",
+            "reculer"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "surpasser",
+          "correction": "Un synonyme de « dépasser » : → surpasser.",
+          "id": "q14"
         },
         {
-          "id": "q16",
           "type": "mcq",
-          "prompt": "Le contraire de « ouvert » :",
+          "prompt": "Le contraire de « actif » :",
           "options": [
-            "fermé",
-            "grand",
-            "vide"
+            "passif",
+            "dynamique",
+            "énergique",
+            "vif"
           ],
-          "answer": "fermé",
-          "correction": "ouvert ↔ fermé."
+          "answer": "passif",
+          "correction": "Le contraire de « actif » : → passif.",
+          "id": "q16"
         },
         {
-          "id": "q18",
-          "type": "fill_blank",
-          "prompt": "Le contraire de « monter » est de ___ .",
-          "answer": "descendre",
-          "accept": [
-            "descendre"
+          "type": "mcq",
+          "prompt": "Un synonyme de « dominer » :",
+          "options": [
+            "maîtriser",
+            "subir",
+            "obéir",
+            "céder"
           ],
-          "correction": "monter ↔ descendre."
+          "answer": "maîtriser",
+          "correction": "Un synonyme de « dominer » : → maîtriser.",
+          "id": "q18"
         },
         {
-          "id": "q20",
           "type": "mcq",
-          "prompt": "Le contraire de « grand » :",
+          "prompt": "Un synonyme de « délicat » :",
           "options": [
-            "petit",
-            "gros",
-            "haut"
+            "fragile",
+            "solide",
+            "robuste",
+            "dur"
           ],
-          "answer": "petit",
-          "correction": "grand ↔ petit."
+          "answer": "fragile",
+          "correction": "Un synonyme de « délicat » : → fragile.",
+          "id": "q20"
         }
       ]
     }

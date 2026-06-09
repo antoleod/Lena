@@ -12,88 +12,95 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q2",
           "type": "mcq",
-          "prompt": "Un fruit :",
+          "prompt": "Un synonyme de « retenir » :",
           "options": [
-            "banane",
-            "carotte",
-            "chaise"
+            "mémoriser",
+            "oublier",
+            "négliger",
+            "ignorer"
           ],
-          "answer": "banane",
-          "correction": "La banane est un fruit."
+          "answer": "mémoriser",
+          "correction": "Un synonyme de « retenir » : → mémoriser.",
+          "id": "q2"
         },
         {
-          "id": "q4",
           "type": "mcq",
-          "prompt": "Un animal de la ferme :",
+          "prompt": "Un synonyme de « corriger » :",
           "options": [
-            "vache",
-            "lion",
-            "requin"
+            "rectifier",
+            "aggraver",
+            "détériorer",
+            "abîmer"
           ],
-          "answer": "vache",
-          "correction": "La vache vit à la ferme."
+          "answer": "rectifier",
+          "correction": "Un synonyme de « corriger » : → rectifier.",
+          "id": "q4"
         },
         {
-          "id": "q6",
           "type": "mcq",
-          "prompt": "Un outil de cuisine :",
+          "prompt": "Un synonyme de « bouleverser » :",
           "options": [
-            "casserole",
-            "marteau",
-            "crayon"
+            "perturber",
+            "calmer",
+            "apaiser",
+            "stabiliser"
           ],
-          "answer": "casserole",
-          "correction": "La casserole est un outil de cuisine."
+          "answer": "perturber",
+          "correction": "Un synonyme de « bouleverser » : → perturber.",
+          "id": "q6"
         },
         {
-          "id": "q8",
           "type": "mcq",
-          "prompt": "Un moyen de transport :",
+          "prompt": "La famille de mots de « soleil » contient :",
           "options": [
-            "voiture",
-            "chaise",
-            "fenetre"
+            "ensoleillé",
+            "lunaire",
+            "nuageux",
+            "pluvieux"
           ],
-          "answer": "voiture",
-          "correction": "La voiture est un moyen de transport."
+          "answer": "ensoleillé",
+          "correction": "La famille de mots de « soleil » contient : → ensoleillé.",
+          "id": "q8"
         },
         {
-          "id": "q10",
           "type": "mcq",
-          "prompt": "Un légume :",
+          "prompt": "Un synonyme de « ignorer » :",
           "options": [
-            "carotte",
-            "fraise",
-            "banane"
+            "négliger",
+            "savoir",
+            "reconnaître",
+            "apprécier"
           ],
-          "answer": "carotte",
-          "correction": "La carotte est un légume."
+          "answer": "négliger",
+          "correction": "Un synonyme de « ignorer » : → négliger.",
+          "id": "q10"
         },
         {
-          "id": "q12",
           "type": "mcq",
-          "prompt": "Le contraire de « propre » :",
+          "prompt": "Un synonyme de « inventer » :",
           "options": [
-            "sale",
-            "mouillé",
-            "neuf"
+            "créer",
+            "copier",
+            "imiter",
+            "reproduire"
           ],
-          "answer": "sale",
-          "correction": "propre ↔ sale."
+          "answer": "créer",
+          "correction": "Un synonyme de « inventer » : → créer.",
+          "id": "q12"
         },
         {
-          "id": "q14",
           "type": "mcq",
-          "prompt": "Un synonyme de « regarder » :",
+          "prompt": "Un synonyme de « rapide » :",
           "options": [
-            "observer",
-            "manger",
-            "courir"
+            "vite",
+            "lent",
+            "lourd",
+            "calme"
           ],
-          "answer": "observer",
-          "correction": "regarder = observer."
+          "answer": "vite",
+          "correction": "Un synonyme de « rapide » : → vite.",
+          "id": "q14"
         },
         {
           "id": "q16",
@@ -113,124 +120,134 @@
       "passPercent": 60,
       "questions": [
         {
-          "id": "q1",
           "type": "mcq",
-          "prompt": "Un synonyme de « courageux » :",
+          "prompt": "Un synonyme de « pressé » :",
           "options": [
-            "brave",
-            "peureux",
-            "fatigué"
+            "urgent",
+            "lent",
+            "calme",
+            "tranquille"
           ],
-          "answer": "brave",
-          "correction": "courageux = brave."
+          "answer": "urgent",
+          "correction": "Un synonyme de « pressé » : → urgent.",
+          "id": "q1"
         },
         {
-          "id": "q3",
           "type": "mcq",
-          "prompt": "Le contraire de « lent » :",
+          "prompt": "Le contraire de « debout » :",
           "options": [
-            "rapide",
-            "fort",
-            "grand"
+            "assis",
+            "couché",
+            "penché",
+            "appuyé"
           ],
-          "answer": "rapide",
-          "correction": "lent ↔ rapide."
+          "answer": "assis",
+          "correction": "Le contraire de « debout » : → assis.",
+          "id": "q3"
         },
         {
-          "id": "q5",
           "type": "mcq",
-          "prompt": "Un synonyme de « fatigué » :",
+          "prompt": "Le contraire de « réussir » :",
           "options": [
-            "épuisé",
+            "échouer",
+            "gagner",
+            "triompher",
+            "atteindre"
+          ],
+          "answer": "échouer",
+          "correction": "Le contraire de « réussir » : → échouer.",
+          "id": "q5"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « compter » :",
+          "options": [
+            "calculer",
+            "ignorer",
+            "oublier",
+            "omettre"
+          ],
+          "answer": "calculer",
+          "correction": "Un synonyme de « compter » : → calculer.",
+          "id": "q7"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « grossir » :",
+          "options": [
+            "s'épaissir",
+            "maigrir",
+            "mincir",
+            "rétrécir"
+          ],
+          "answer": "s'épaissir",
+          "correction": "Un synonyme de « grossir » : → s'épaissir.",
+          "id": "q9"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Un synonyme de « raconter » :",
+          "options": [
+            "narrer",
+            "cacher",
+            "taire",
+            "ignorer"
+          ],
+          "answer": "narrer",
+          "correction": "Un synonyme de « raconter » : → narrer.",
+          "id": "q11"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « abondant » :",
+          "options": [
+            "rare",
+            "nombreux",
+            "plein",
+            "riche"
+          ],
+          "answer": "rare",
+          "correction": "Le contraire de « abondant » : → rare.",
+          "id": "q13"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Le contraire de « épuisé » :",
+          "options": [
             "reposé",
-            "content"
+            "fatigué",
+            "vidé",
+            "fourbu"
           ],
-          "answer": "épuisé",
-          "correction": "fatigué = épuisé."
+          "answer": "reposé",
+          "correction": "Le contraire de « épuisé » : → reposé.",
+          "id": "q15"
         },
         {
-          "id": "q7",
           "type": "mcq",
-          "prompt": "Le contraire de « triste » :",
+          "prompt": "Le contraire de « normal » :",
           "options": [
-            "joyeux",
-            "calme",
-            "peureux"
+            "anormal",
+            "habituel",
+            "courant",
+            "ordinaire"
           ],
-          "answer": "joyeux",
-          "correction": "triste ↔ joyeux."
+          "answer": "anormal",
+          "correction": "Le contraire de « normal » : → anormal.",
+          "id": "q17"
         },
         {
-          "id": "q9",
           "type": "mcq",
-          "prompt": "Un synonyme de « chercher » :",
+          "prompt": "Le contraire de « vif » :",
           "options": [
-            "rechercher",
-            "trouver",
-            "perdre"
+            "lent",
+            "rapide",
+            "alerte",
+            "énergique"
           ],
-          "answer": "rechercher",
-          "correction": "chercher = rechercher."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Le préfixe « im- » dans « impossible » signifie :",
-          "options": [
-            "pas",
-            "très",
-            "bien"
-          ],
-          "answer": "pas",
-          "correction": "im- = non, pas → impossible = pas possible."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Le suffixe « -eur » dans « chanteur » indique :",
-          "options": [
-            "une personne qui fait l'action",
-            "un lieu",
-            "une qualité"
-          ],
-          "answer": "une personne qui fait l'action",
-          "correction": "chanteur = celui qui chante."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Dans « Il fait un temps agréable », « agréable » signifie :",
-          "options": [
-            "plaisant",
-            "mauvais",
-            "froid"
-          ],
-          "answer": "plaisant",
-          "correction": "agréable = plaisant, sympa."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Le contraire de « silencieux » :",
-          "options": [
-            "bruyant",
-            "calme",
-            "doux"
-          ],
-          "answer": "bruyant",
-          "correction": "silencieux ↔ bruyant."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Un synonyme de « se dépêcher » :",
-          "options": [
-            "se presser",
-            "attendre",
-            "dormir"
-          ],
-          "answer": "se presser",
-          "correction": "se dépêcher = se presser."
+          "answer": "lent",
+          "correction": "Le contraire de « vif » : → lent.",
+          "id": "q19"
         }
       ]
     },

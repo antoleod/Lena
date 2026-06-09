@@ -14,88 +14,98 @@
         {
           "id": "q2",
           "type": "mcq",
-          "prompt": "Quel jour vient après lundi ?",
+          "prompt": "Combien y a-t-il de minutes dans 4 heures ?",
           "options": [
-            "mardi",
-            "dimanche",
-            "jeudi"
+            "240",
+            "60",
+            "120"
           ],
-          "answer": "mardi",
-          "correction": "Après lundi vient mardi."
+          "answer": "240",
+          "correction": "4 × 60 = 240 minutes."
         },
         {
           "id": "q4",
-          "type": "fill_blank",
-          "prompt": "Le premier mois de l’année est ___ .",
-          "answer": "janvier",
-          "correction": "L’année commence en janvier."
+          "type": "mcq",
+          "prompt": "Quel est le nombre de jours du mois le plus court de l'année ?",
+          "options": [
+            "28 ou 29",
+            "30",
+            "31"
+          ],
+          "answer": "28 ou 29",
+          "correction": "Février a 28 jours (29 en bissextile)."
         },
         {
           "id": "q6",
           "type": "mcq",
-          "prompt": "Le jour avant samedi est :",
+          "prompt": "Combien de mois composent un trimestre ?",
           "options": [
-            "vendredi",
-            "dimanche",
-            "lundi"
+            "3",
+            "4",
+            "2"
           ],
-          "answer": "vendredi",
-          "correction": "Avant samedi : vendredi."
+          "answer": "3",
+          "correction": "Un trimestre = 3 mois."
         },
         {
           "id": "q8",
           "type": "mcq",
-          "prompt": "Combien de mois dans une année ?",
+          "prompt": "Quel mois suit directement octobre ?",
           "options": [
-            "12",
-            "10",
-            "7"
+            "novembre",
+            "septembre",
+            "décembre"
           ],
-          "answer": "12",
-          "correction": "Une année = 12 mois."
+          "answer": "novembre",
+          "correction": "Après octobre vient novembre."
         },
         {
           "id": "q10",
           "type": "mcq",
-          "prompt": "Quelle saison vient après le printemps ?",
+          "prompt": "Combien y a-t-il de jours entre le 1er janvier et le 1er février ?",
           "options": [
-            "été",
-            "hiver",
-            "automne"
+            "31",
+            "28",
+            "30"
           ],
-          "answer": "été",
-          "correction": "Après le printemps vient l’été."
+          "answer": "31",
+          "correction": "Janvier a 31 jours donc 31 jours entre ces deux dates."
         },
         {
           "id": "q12",
           "type": "mcq",
-          "prompt": "Combien de saisons y a-t-il ?",
+          "prompt": "Comment appelle-t-on 10 ans ?",
           "options": [
-            "4",
-            "2",
-            "6"
+            "une décennie",
+            "un siècle",
+            "un millénaire"
           ],
-          "answer": "4",
-          "correction": "Il y a 4 saisons."
+          "answer": "une décennie",
+          "correction": "10 ans = une décennie."
         },
         {
           "id": "q14",
-          "type": "true_false",
-          "prompt": "Le mois de décembre est en hiver.",
-          "answer": true,
-          "correction": "Décembre est un mois d’hiver."
+          "type": "mcq",
+          "prompt": "Comment appelle-t-on 100 ans ?",
+          "options": [
+            "un siècle",
+            "une décennie",
+            "un millénaire"
+          ],
+          "answer": "un siècle",
+          "correction": "100 ans = un siècle."
         },
         {
           "id": "q16",
           "type": "mcq",
-          "prompt": "Quel mois vient après janvier ?",
+          "prompt": "Comment appelle-t-on 1000 ans ?",
           "options": [
-            "février",
-            "mars",
-            "décembre"
+            "un millénaire",
+            "un siècle",
+            "une décennie"
           ],
-          "answer": "février",
-          "correction": "Après janvier vient février."
+          "answer": "un millénaire",
+          "correction": "1000 ans = un millénaire."
         }
       ]
     },
@@ -191,14 +201,14 @@
         {
           "id": "q9",
           "type": "mcq",
-          "prompt": "Lequel vient en dernier dans l’année ?",
+          "prompt": "Quel est le numéro du mois de mars dans l'année ?",
           "options": [
-            "septembre",
-            "mars",
-            "juin"
+            "3",
+            "4",
+            "2"
           ],
-          "answer": "septembre",
-          "correction": "Septembre est le 9e mois, après mars (3e) et juin (6e)."
+          "answer": "3",
+          "correction": "Mars est le 3e mois."
         },
         {
           "id": "q10",
@@ -215,132 +225,122 @@
         {
           "id": "dq1",
           "type": "mcq",
-          "prompt": "Une activité commence à 13h30 et dure 2h15. À quelle heure se termine-t-elle ?",
+          "prompt": "Quel est le numéro du mois d'octobre dans l'année ?",
           "options": [
-            "15h30",
-            "15h45",
-            "16h00",
-            "16h15"
+            "10",
+            "9",
+            "11"
           ],
-          "answer": "15h45",
-          "correction": "13h30 + 2h15 = 15h45."
+          "answer": "10",
+          "correction": "Octobre est le 10e mois."
         },
         {
           "id": "dq2",
           "type": "mcq",
-          "prompt": "Un séjour de 3 semaines commence le 1er juillet. À quelle date se termine-t-il ?",
+          "prompt": "Quel est le numéro du mois de mai dans l'année ?",
           "options": [
-            "19 juillet",
-            "21 juillet",
-            "22 juillet",
-            "23 juillet"
+            "5",
+            "4",
+            "6"
           ],
-          "answer": "21 juillet",
-          "correction": "3 semaines = 21 jours. 1er juillet + 21 jours = 22 juillet... le dernier jour est le 21 juillet."
+          "answer": "5",
+          "correction": "Mai est le 5e mois."
         },
         {
           "id": "dq3",
           "type": "mcq",
-          "prompt": "Si le 1er janvier est un mercredi, quel jour de la semaine sera le 8 janvier ?",
+          "prompt": "Quel est le numéro du mois de juillet dans l'année ?",
           "options": [
-            "lundi",
-            "mardi",
-            "mercredi",
-            "jeudi"
+            "7",
+            "6",
+            "8"
           ],
-          "answer": "mercredi",
-          "correction": "7 jours plus tard, c'est le même jour de la semaine : mercredi."
+          "answer": "7",
+          "correction": "Juillet est le 7e mois."
         },
         {
           "id": "dq4",
           "type": "mcq",
-          "prompt": "Un voyage en train part à 6h45 et arrive 4h30 plus tard. À quelle heure arrive-t-on ?",
+          "prompt": "Quel est le numéro du mois de novembre dans l'année ?",
           "options": [
-            "10h45",
-            "11h00",
-            "11h15",
-            "11h30"
+            "11",
+            "10",
+            "12"
           ],
-          "answer": "11h15",
-          "correction": "6h45 + 4h30 = 11h15."
+          "answer": "11",
+          "correction": "Novembre est le 11e mois."
         },
         {
           "id": "dq5",
           "type": "mcq",
-          "prompt": "Léa fête son anniversaire le 20 mars. Aujourd'hui c'est le 5 mars. Dans combien de jours est son anniversaire ?",
+          "prompt": "Quel est le numéro du mois d'août dans l'année ?",
           "options": [
-            "12",
-            "14",
-            "15",
-            "16"
+            "8",
+            "7",
+            "9"
           ],
-          "answer": "15",
-          "correction": "Du 5 au 20 mars = 15 jours."
+          "answer": "8",
+          "correction": "Août est le 8e mois."
         },
         {
           "id": "dq6",
           "type": "mcq",
-          "prompt": "Le spectacle est le 10 avril. Aujourd'hui c'est le 28 mars. Dans combien de jours est le spectacle ?",
+          "prompt": "Quel est le numéro du mois de septembre dans l'année ?",
           "options": [
-            "10",
-            "12",
-            "13",
-            "14"
+            "9",
+            "8",
+            "10"
           ],
-          "answer": "13",
-          "correction": "Du 28 mars au 10 avril : 3 jours en mars + 10 jours en avril = 13 jours."
+          "answer": "9",
+          "correction": "Septembre est le 9e mois."
         },
         {
           "id": "dq7",
           "type": "mcq",
-          "prompt": "Les vacances commencent le 1er juillet. Aujourd'hui c'est le 18 juin. Dans combien de jours sont les vacances ?",
+          "prompt": "Quel est le numéro du mois d'avril dans l'année ?",
           "options": [
-            "11",
-            "12",
-            "13",
-            "14"
+            "4",
+            "3",
+            "5"
           ],
-          "answer": "13",
-          "correction": "Du 18 juin au 1er juillet : 12 jours en juin + 1 jour = 13 jours."
+          "answer": "4",
+          "correction": "Avril est le 4e mois."
         },
         {
           "id": "dq8",
           "type": "mcq",
-          "prompt": "La fête de l'école est le 15 mai. Aujourd'hui c'est le 29 avril. Dans combien de jours est la fête ?",
+          "prompt": "Quel est le numéro du mois de juin dans l'année ?",
           "options": [
-            "14",
-            "15",
-            "16",
-            "17"
+            "6",
+            "5",
+            "7"
           ],
-          "answer": "16",
-          "correction": "Du 29 avril au 15 mai : 1 jour en avril + 15 jours en mai = 16 jours."
+          "answer": "6",
+          "correction": "Juin est le 6e mois."
         },
         {
           "id": "dq9",
           "type": "mcq",
-          "prompt": "Le match est le 3 octobre. Aujourd'hui c'est le 25 septembre. Dans combien de jours est le match ?",
+          "prompt": "Quel est le numéro du mois de février dans l'année ?",
           "options": [
-            "7",
-            "8",
-            "9",
-            "10"
+            "2",
+            "1",
+            "3"
           ],
-          "answer": "8",
-          "correction": "Du 25 septembre au 3 octobre : 5 jours en septembre + 3 jours = 8 jours."
+          "answer": "2",
+          "correction": "Février est le 2e mois."
         },
         {
           "id": "dq10",
           "type": "mcq",
-          "prompt": "La sortie scolaire est le 22 novembre. Aujourd'hui c'est le 8 novembre. Dans combien de jours est la sortie ?",
+          "prompt": "Quel est le numéro du mois de janvier dans l'année ?",
           "options": [
-            "12",
-            "13",
-            "14",
-            "15"
+            "1",
+            "2",
+            "12"
           ],
-          "answer": "14",
-          "correction": "Du 8 novembre au 22 novembre = 14 jours."
+          "answer": "1",
+          "correction": "Janvier est le 1er mois."
         }
       ]
     }
