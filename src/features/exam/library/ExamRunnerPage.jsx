@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
+import NumPad from '../../../shared/ui/NumPad.jsx';
 import { getExamLevel } from '../../../content/exams/registry.js';
 import { getDifficultyLevels, getLocalizedField, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
@@ -334,7 +335,6 @@ export default function ExamRunnerPage() {
   const [configTimerMinutes, setConfigTimerMinutes] = useState(null);   // null = unlimited
   const [activeQuestions, setActiveQuestions] = useState(null); // sliced/shuffled questions
   const [timerSecondsLeft, setTimerSecondsLeft] = useState(null);
-  const [numberRange, setNumberRange] = useState({ min: 0, max: 100 });
 
   const startRef = useRef(Date.now());
 
@@ -443,16 +443,12 @@ export default function ExamRunnerPage() {
     const timerOptions = [null, 5, 10, 15, 20];
     const categoryId = exam.category;
     const isMathCategory = categoryId === 'calcul-mental' || categoryId === 'problemes-mathematiques';
-    const lockedRange = exam.lockedRange || null; // pre-set range from exam metadata
-    const rangeOptions = [
-      { label: '0 - 10',   min: 0,   max: 10  },
-      { label: '0 - 20',   min: 0,   max: 20  },
-      { label: '0 - 50',   min: 0,   max: 50  },
-      { label: '0 - 100',  min: 0,   max: 100 },
-      { label: '0 - 200',  min: 0,   max: 200 },
-      { label: '100 - 200', min: 100, max: 200 },
-      { label: '50 - 500', min: 50,  max: 500 },
-    ];
+    // Difficulty badge shown on config screen for math exams
+    const mathDifficultyBadge = isMathCategory ? {
+      facile:    { label: { fr: '🟢 1 → 10', nl: '🟢 1 → 10', en: '🟢 1 → 10', es: '🟢 1 → 10' }, hint: { fr: '2 nombres', nl: '2 getallen', en: '2 numbers', es: '2 números' } },
+      moyen:     { label: { fr: '🟠 10 → 99', nl: '🟠 10 → 99', en: '🟠 10 → 99', es: '🟠 10 → 99' }, hint: { fr: '2 nombres, 2 chiffres', nl: '2 getallen, 2 cijfers', en: '2 numbers, 2 digits', es: '2 números, 2 cifras' } },
+      difficile: { label: { fr: '🔴 8+8+8+9', nl: '🔴 8+8+8+9', en: '🔴 8+8+8+9', es: '🔴 8+8+8+9' }, hint: { fr: '3–4 nombres enchaînés', nl: '3–4 aaneengesloten getallen', en: '3–4 chained numbers', es: '3–4 números encadenados' } },
+    }[levelKey] : null;
     return (
       <div className="reader-page" style={{ justifyContent: 'center', padding: '32px 16px' }}>
         <div className="reader-card" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -493,25 +489,10 @@ export default function ExamRunnerPage() {
             </div>
           </div>
 
-          {isMathCategory && !lockedRange && (
-            <div>
-              <p style={{ fontWeight: 700, marginBottom: 8 }}>{ui.plageNombres}</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {rangeOptions.map((r) => {
-                  const active = numberRange.min === r.min && numberRange.max === r.max;
-                  return (
-                    <button
-                      key={r.label}
-                      type="button"
-                      className="exam-choice"
-                      style={active ? { background: 'var(--primary)', color: '#fff', border: '2px solid var(--primary)' } : {}}
-                      onClick={() => setNumberRange({ min: r.min, max: r.max })}
-                    >
-                      {r.label}
-                    </button>
-                  );
-                })}
-              </div>
+          {isMathCategory && mathDifficultyBadge && (
+            <div style={{ background: 'var(--primary-tint, #f0f4ff)', borderRadius: 12, padding: '12px 16px', display: 'flex', gap: 12, alignItems: 'center' }}>
+              <span style={{ fontSize: '1.4rem' }}>{mathDifficultyBadge.label[locale] || mathDifficultyBadge.label.fr}</span>
+              <span style={{ color: 'var(--muted, #666)', fontSize: '0.9rem' }}>{mathDifficultyBadge.hint[locale] || mathDifficultyBadge.hint.fr}</span>
             </div>
           )}
 
@@ -523,13 +504,12 @@ export default function ExamRunnerPage() {
               if (isMathCategory) {
                 const genType = categoryId === 'calcul-mental' ? 'additions' : 'problemes';
                 const count = configQuestionCount || 10;
-                const activeRange = lockedRange || numberRange;
+                const genLevel = levelKey === 'difficile' ? 'hard' : levelKey === 'moyen' ? 'medium' : 'easy';
                 const generated = generateExercises({
                   subject: 'math',
                   type: genType,
+                  level: genLevel,
                   count,
-                  minVal: activeRange.min,
-                  maxVal: activeRange.max,
                   locale,
                 });
                 qs = generated.map((ex) => ({
@@ -716,7 +696,6 @@ export default function ExamRunnerPage() {
     setActiveQuestions(null);
     setTimerSecondsLeft(null);
     setWrongQuestions([]);
-    setNumberRange({ min: 0, max: 100 });
     setHelpWeights([]);
     setTotalHelpsUsed(0);
     setHelpCount(0);
@@ -821,21 +800,33 @@ export default function ExamRunnerPage() {
           )}
 
           {revQ.type === 'fill_blank' && (
-            <form onSubmit={(e) => { e.preventDefault(); if (revSelected === null && revInput.trim() !== '') revAnswer(revInput.trim()); }} style={{ display: 'flex', gap: 8 }}>
-              <input
-                className="exam-choice"
-                style={{ flex: 1, textAlign: 'center' }}
-                inputMode={/^-?\d+([.,]\d+)?$/.test(String(revQ.answer ?? '').trim()) ? 'numeric' : 'text'}
-                value={revSelected !== null ? String(revSelected) : revInput}
-                onChange={(e) => setRevInput(e.target.value)}
-                disabled={revSelected !== null}
-                placeholder={ui.placeholder}
-                autoFocus
-              />
-              {revSelected === null && (
-                <button type="submit" className="reader-btn reader-btn--next" disabled={revInput.trim() === ''}>OK</button>
-              )}
-            </form>
+            /^-?\d+([.,]\d+)?$/.test(String(revQ.answer ?? '').trim())
+              ? (
+                <NumPad
+                  value={revSelected !== null ? String(revSelected) : revInput}
+                  onChange={setRevInput}
+                  onSubmit={(v) => revAnswer(v)}
+                  placeholder={ui.placeholder}
+                  disabled={revSelected !== null}
+                  allowNegative={/^-/.test(String(revQ.answer ?? '').trim())}
+                />
+              )
+              : (
+                <form onSubmit={(e) => { e.preventDefault(); if (revSelected === null && revInput.trim() !== '') revAnswer(revInput.trim()); }} style={{ display: 'flex', gap: 8 }}>
+                  <input
+                    className="exam-choice"
+                    style={{ flex: 1, textAlign: 'center' }}
+                    value={revSelected !== null ? String(revSelected) : revInput}
+                    onChange={(e) => setRevInput(e.target.value)}
+                    disabled={revSelected !== null}
+                    placeholder={ui.placeholder}
+                    autoFocus
+                  />
+                  {revSelected === null && (
+                    <button type="submit" className="reader-btn reader-btn--next" disabled={revInput.trim() === ''}>OK</button>
+                  )}
+                </form>
+              )
           )}
         </div>
 
@@ -1118,21 +1109,33 @@ export default function ExamRunnerPage() {
         )}
 
         {currentQ.type === 'fill_blank' && (
-          <form onSubmit={(e) => { e.preventDefault(); if (selected === null && input.trim() !== '') answer(input.trim()); }} style={{ display: 'flex', gap: 8 }}>
-            <input
-              className="exam-choice"
-              style={{ flex: 1, textAlign: 'center' }}
-              inputMode={/^-?\d+([.,]\d+)?$/.test(String(currentQ.answer ?? '').trim()) ? 'numeric' : 'text'}
-              value={selected !== null ? String(selected) : input}
-              onChange={(e) => setInput(e.target.value)}
-              disabled={selected !== null}
-              placeholder={ui.placeholder}
-              autoFocus
-            />
-            {selected === null && (
-              <button type="submit" className="reader-btn reader-btn--next" disabled={input.trim() === ''}>OK</button>
-            )}
-          </form>
+          /^-?\d+([.,]\d+)?$/.test(String(currentQ.answer ?? '').trim())
+            ? (
+              <NumPad
+                value={selected !== null ? String(selected) : input}
+                onChange={setInput}
+                onSubmit={(v) => answer(v)}
+                placeholder={ui.placeholder}
+                disabled={selected !== null}
+                allowNegative={/^-/.test(String(currentQ.answer ?? '').trim())}
+              />
+            )
+            : (
+              <form onSubmit={(e) => { e.preventDefault(); if (selected === null && input.trim() !== '') answer(input.trim()); }} style={{ display: 'flex', gap: 8 }}>
+                <input
+                  className="exam-choice"
+                  style={{ flex: 1, textAlign: 'center' }}
+                  value={selected !== null ? String(selected) : input}
+                  onChange={(e) => setInput(e.target.value)}
+                  disabled={selected !== null}
+                  placeholder={ui.placeholder}
+                  autoFocus
+                />
+                {selected === null && (
+                  <button type="submit" className="reader-btn reader-btn--next" disabled={input.trim() === ''}>OK</button>
+                )}
+              </form>
+            )
         )}
       </div>
 

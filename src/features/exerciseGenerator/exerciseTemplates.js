@@ -81,13 +81,18 @@ function digitRange(digits) {
 }
 // "Taille des nombres" and "Nombre d\'opérations" are INDEPENDENT now.
 // Auto (no value) → progression adapted to the level.
-function autoTerms(level) { return level === 'easy' ? 2 : level === 'medium' ? 3 : 4; }
+function autoTerms(level) {
+  if (level === 'easy')   return 2;
+  if (level === 'medium') return 2;
+  // hard: 3 or 4 operands — chain arithmetic (8+8+8+9)
+  return Math.random() < 0.5 ? 3 : 4;
+}
 function operandRange(level, digits) {
   const dr = digitRange(digits);
   if (dr) return dr;
-  if (level === 'easy')   return [1, 10];
-  if (level === 'medium') return [10, 200];
-  return [100, 999]; // hard: 3-digit numbers
+  if (level === 'easy')   return [1, 10];   // 🟢 single-digit: 3 + 7
+  if (level === 'medium') return [10, 99];  // 🟠 two-digit: 23 + 34
+  return [1, 20]; // 🔴 hard: small range but 3-4 operands: 8 + 8 + 8 + 9
 }
 
 // ── Primary-level explanation: decompose into dizaines (tens) + unités (units) ─
