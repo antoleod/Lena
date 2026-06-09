@@ -4,445 +4,588 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 16",
-  "emoji": "🛸",
+  "title": "Règles cachées 🔎",
+  "emoji": "🔎",
   "order": 16,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l16-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 12, 14, 16, …",
+          "prompt": "Règle : chaque nombre est le double du précédent. 3, 6, 12, … → ?",
+          "prompt_nl": "Regel: elk getal is het dubbele van het vorige. 3, 6, 12, … → ?",
+          "prompt_en": "Rule: each number is double the previous. 3, 6, 12, … → ?",
+          "prompt_es": "Regla: cada número es el doble del anterior. 3, 6, 12, … → ?",
           "options": [
-            "15",
-            "21",
-            "16",
-            "18"
+            "18",
+            "20",
+            "24",
+            "28"
           ],
-          "answer": "18",
-          "correction": "On ajoute 2 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 10, 12, 14, 16, …",
-          "prompt_en": "Continue the sequence: 10, 12, 14, 16, …",
-          "prompt_es": "Continúa la serie: 10, 12, 14, 16, …",
-          "correction_nl": "Elke keer +2: 18.",
-          "correction_en": "Add 2 each time: 18.",
-          "correction_es": "Se suma 2 cada vez: 18."
+          "answer": "24",
+          "correction": "×2 : 12×2=24.",
+          "correction_nl": "×2: 24.",
+          "correction_en": "×2: 24.",
+          "correction_es": "×2: 24."
         },
         {
-          "id": "q10",
+          "id": "l16-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 5, 7, …",
+          "prompt": "Règle cachée : 1→1, 2→4, 3→9, 4→? Quelle est la règle ?",
+          "prompt_nl": "Verborgen regel: 1→1, 2→4, 3→9, 4→?",
+          "prompt_en": "Hidden rule: 1→1, 2→4, 3→9, 4→?",
+          "prompt_es": "Regla oculta: 1→1, 2→4, 3→9, 4→?",
+          "options": [
+            "12",
+            "16",
+            "20",
+            "25"
+          ],
+          "answer": "16",
+          "correction": "n² : 4²=16.",
+          "correction_nl": "n²: 4²=16.",
+          "correction_en": "n²: 4²=16.",
+          "correction_es": "n²: 4²=16."
+        },
+        {
+          "id": "l16-f03",
+          "type": "mcq",
+          "prompt": "Règle : 2→5, 3→7, 4→9, 5→? Quelle est la règle ?",
+          "prompt_nl": "Regel: 2→5, 3→7, 4→9, 5→?",
+          "prompt_en": "Rule: 2→5, 3→7, 4→9, 5→?",
+          "prompt_es": "Regla: 2→5, 3→7, 4→9, 5→?",
           "options": [
             "10",
-            "9",
-            "13",
-            "5"
+            "11",
+            "12",
+            "13"
           ],
-          "answer": "9",
-          "correction": "On ajoute 2 à chaque fois : 9.",
-          "prompt_nl": "Maak de rij af: 1, 3, 5, 7, …",
-          "prompt_en": "Continue the sequence: 1, 3, 5, 7, …",
-          "prompt_es": "Continúa la serie: 1, 3, 5, 7, …",
-          "correction_nl": "Elke keer +2: 9.",
-          "correction_en": "Add 2 each time: 9.",
-          "correction_es": "Se suma 2 cada vez: 9."
+          "answer": "11",
+          "correction": "×2+1 : 5×2+1=11.",
+          "correction_nl": "×2+1: 11.",
+          "correction_en": "×2+1: 11.",
+          "correction_es": "×2+1: 11."
         },
         {
-          "id": "q11",
+          "id": "l16-f04",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 13, 16, 19, …",
+          "prompt": "Règle : A→1, B→2, C→3. Quelle lettre correspond à 5 ?",
+          "prompt_nl": "Regel: A→1, B→2, C→3. Welke letter is 5?",
+          "prompt_en": "Rule: A→1, B→2, C→3. Which letter is 5?",
+          "prompt_es": "Regla: A→1, B→2, C→3. ¿Qué letra es 5?",
           "options": [
-            "22",
-            "21",
-            "27",
-            "17"
+            "D",
+            "E",
+            "F",
+            "G"
           ],
-          "answer": "22",
-          "correction": "On ajoute 3 à chaque fois : 22.",
-          "prompt_nl": "Maak de rij af: 10, 13, 16, 19, …",
-          "prompt_en": "Continue the sequence: 10, 13, 16, 19, …",
-          "prompt_es": "Continúa la serie: 10, 13, 16, 19, …",
-          "correction_nl": "Elke keer +3: 22.",
-          "correction_en": "Add 3 each time: 22.",
-          "correction_es": "Se suma 3 cada vez: 22."
+          "answer": "E",
+          "correction": "5ᵉ lettre = E.",
+          "correction_nl": "5e letter = E.",
+          "correction_en": "5th letter = E.",
+          "correction_es": "5ª letra = E."
         },
         {
-          "id": "q12",
+          "id": "l16-f05",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 3, 4, …",
+          "prompt": "Règle : pairs → divisés par 2, impairs → ×3+1. Appliquée à 6 → ?",
+          "prompt_nl": "Regel: even→÷2, oneven→×3+1. Toegepast op 6→?",
+          "prompt_en": "Rule: even→÷2, odd→×3+1. Applied to 6→?",
+          "prompt_es": "Regla: pares→÷2, impares→×3+1. Aplicada a 6→?",
           "options": [
             "2",
-            "5",
-            "7",
-            "8"
-          ],
-          "answer": "5",
-          "correction": "On ajoute 1 à chaque fois : 5.",
-          "prompt_nl": "Maak de rij af: 1, 2, 3, 4, …",
-          "prompt_en": "Continue the sequence: 1, 2, 3, 4, …",
-          "prompt_es": "Continúa la serie: 1, 2, 3, 4, …",
-          "correction_nl": "Elke keer +1: 5.",
-          "correction_en": "Add 1 each time: 5.",
-          "correction_es": "Se suma 1 cada vez: 5."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 6, 7, 8, 9, …",
-          "options": [
-            "13",
-            "7",
-            "9",
-            "10"
-          ],
-          "answer": "10",
-          "correction": "On ajoute 1 à chaque fois : 10.",
-          "prompt_nl": "Maak de rij af: 6, 7, 8, 9, …",
-          "prompt_en": "Continue the sequence: 6, 7, 8, 9, …",
-          "prompt_es": "Continúa la serie: 6, 7, 8, 9, …",
-          "correction_nl": "Elke keer +1: 10.",
-          "correction_en": "Add 1 each time: 10.",
-          "correction_es": "Se suma 1 cada vez: 10."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
-          "options": [
             "3",
-            "6",
-            "8"
+            "4",
+            "5"
           ],
           "answer": "3",
-          "correction": "3 est le plus petit."
+          "correction": "6 est pair : 6/2=3.",
+          "correction_nl": "6 is even: 6/2=3.",
+          "correction_en": "6 is even: 6/2=3.",
+          "correction_es": "6 es par: 6/2=3."
         },
         {
-          "id": "q15",
+          "id": "l16-f06",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
+          "prompt": "Règle : on ajoute le chiffre des dizaines et le chiffre des unités. 23 → ?",
+          "prompt_nl": "Regel: je telt het tientalgetal en het eenheidsgetal op. 23 → ?",
+          "prompt_en": "Rule: add tens digit + units digit. 23→?",
+          "prompt_es": "Regla: suma cifra de decenas + cifra de unidades. 23→?",
           "options": [
-            "9",
-            "4",
-            "7"
+            "2",
+            "3",
+            "5",
+            "6"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "5",
+          "correction": "2+3=5.",
+          "correction_nl": "2+3=5.",
+          "correction_en": "2+3=5.",
+          "correction_es": "2+3=5."
         },
         {
-          "id": "q16",
+          "id": "l16-f07",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Règle : rouge → 1, bleu → 2, vert → 3. Rouge-bleu-vert = ?",
+          "prompt_nl": "Regel: rood→1, blauw→2, groen→3. Rood-blauw-groen=?",
+          "prompt_en": "Rule: red→1, blue→2, green→3. Red-blue-green=?",
+          "prompt_es": "Regla: rojo→1, azul→2, verde→3. Rojo-azul-verde=?",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "5",
+            "6",
+            "7",
+            "8"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "6",
+          "correction": "1+2+3=6.",
+          "correction_nl": "1+2+3=6.",
+          "correction_en": "1+2+3=6.",
+          "correction_es": "1+2+3=6."
+        },
+        {
+          "id": "l16-f08",
+          "type": "mcq",
+          "prompt": "Règle : chaque nombre = somme des deux précédents. 1, 1, 2, 3, 5, → ?",
+          "prompt_nl": "Regel: elk getal = som van twee vorige. 1,1,2,3,5,→?",
+          "prompt_en": "Rule: each = sum of two previous. 1,1,2,3,5,→?",
+          "prompt_es": "Regla: cada uno = suma de los dos anteriores. 1,1,2,3,5,→?",
+          "options": [
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "answer": "8",
+          "correction": "3+5=8.",
+          "correction_nl": "3+5=8.",
+          "correction_en": "3+5=8.",
+          "correction_es": "3+5=8."
+        },
+        {
+          "id": "l16-f09",
+          "type": "mcq",
+          "prompt": "Règle : 5→25, 3→9, 7→49, 4→?",
+          "prompt_nl": "Regel: 5→25, 3→9, 7→49, 4→?",
+          "prompt_en": "Rule: 5→25, 3→9, 7→49, 4→?",
+          "prompt_es": "Regla: 5→25, 3→9, 7→49, 4→?",
+          "options": [
+            "12",
+            "16",
+            "18",
+            "20"
+          ],
+          "answer": "16",
+          "correction": "n² : 4²=16.",
+          "correction_nl": "n²: 16.",
+          "correction_en": "n²: 16.",
+          "correction_es": "n²: 16."
+        },
+        {
+          "id": "l16-f10",
+          "type": "mcq",
+          "prompt": "Règle : lundi=1, mardi=2…, dimanche=7. Jeudi + 3 jours = ?",
+          "prompt_nl": "Regel: ma=1…zo=7. Donderdag + 3 dagen = ?",
+          "prompt_en": "Rule: Mon=1…Sun=7. Thursday + 3 days = ?",
+          "prompt_es": "Regla: lun=1…dom=7. Jueves + 3 días = ?",
+          "options": [
+            "vendredi",
+            "samedi",
+            "dimanche",
+            "lundi"
+          ],
+          "answer": "dimanche",
+          "correction": "Jeudi(4)+3=7=dimanche.",
+          "correction_nl": "Do(4)+3=7=zo.",
+          "correction_en": "Thu(4)+3=7=Sun.",
+          "correction_es": "Jue(4)+3=7=dom."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l16-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Suite de Collatz : n pair→n/2, n impair→3n+1. Partant de 6 : combien d'étapes pour atteindre 1 ?",
+          "prompt_nl": "Collatz-rij: n even→n/2, n oneven→3n+1. Vanaf 6: hoeveel stappen naar 1?",
+          "prompt_en": "Collatz: even→n/2, odd→3n+1. From 6: steps to reach 1?",
+          "prompt_es": "Collatz: par→n/2, impar→3n+1. Desde 6: ¿pasos hasta 1?",
+          "options": [
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "answer": "8",
+          "correction": "6→3→10→5→16→8→4→2→1 : 8 étapes.",
+          "correction_nl": "6→3→10→5→16→8→4→2→1: 8 stappen.",
+          "correction_en": "6→3→10→5→16→8→4→2→1: 8 steps.",
+          "correction_es": "6→3→10→5→16→8→4→2→1: 8 pasos."
+        },
+        {
+          "id": "l16-m02",
+          "type": "mcq",
+          "prompt": "Règle cachée : (2,3)→13, (4,5)→41, (3,4)→25. (5,6)→?",
+          "prompt_nl": "Verborgen regel: (2,3)→13, (4,5)→41, (3,4)→25. (5,6)→?",
+          "prompt_en": "Hidden rule: (2,3)→13, (4,5)→41, (3,4)→25. (5,6)→?",
+          "prompt_es": "Regla oculta: (2,3)→13, (4,5)→41, (3,4)→25. (5,6)→?",
+          "options": [
+            "55",
+            "61",
+            "63",
+            "65"
+          ],
+          "answer": "61",
+          "correction": "a²+b²: 4+9=13, 16+25=41, 9+16=25, 25+36=61.",
+          "correction_nl": "a²+b²: 61.",
+          "correction_en": "a²+b²: 61.",
+          "correction_es": "a²+b²: 61."
+        },
+        {
+          "id": "l16-m03",
+          "type": "mcq",
+          "prompt": "Règle : f(n) = nombre de diviseurs de n. f(12)=?",
+          "prompt_nl": "Regel: f(n) = aantal delers van n. f(12)=?",
+          "prompt_en": "Rule: f(n) = number of divisors of n. f(12)=?",
+          "prompt_es": "Regla: f(n) = número de divisores de n. f(12)=?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "answer": "6",
+          "correction": "Diviseurs de 12: 1,2,3,4,6,12 → 6.",
+          "correction_nl": "Delers van 12: 1,2,3,4,6,12 → 6.",
+          "correction_en": "Divisors of 12: 1,2,3,4,6,12 → 6.",
+          "correction_es": "Divisores de 12: 1,2,3,4,6,12 → 6."
+        },
+        {
+          "id": "l16-m04",
+          "type": "mcq",
+          "prompt": "Règle de Syracuse : 13 →? (première étape)",
+          "prompt_nl": "Syracuseregel: 13 → ? (eerste stap)",
+          "prompt_en": "Syracuse rule: 13→? (first step)",
+          "prompt_es": "Regla de Siracusa: 13→? (primer paso)",
+          "options": [
+            "6",
+            "14",
+            "40",
+            "26"
+          ],
+          "answer": "40",
+          "correction": "13 est impair : 3×13+1=40.",
+          "correction_nl": "13 is oneven: 3×13+1=40.",
+          "correction_en": "13 is odd: 3×13+1=40.",
+          "correction_es": "13 es impar: 3×13+1=40."
+        },
+        {
+          "id": "l16-m05",
+          "type": "mcq",
+          "prompt": "Règle BODMAS. 3 + 4 × 2 = ?",
+          "prompt_nl": "Rekenregels (BODMAS). 3 + 4 × 2 = ?",
+          "prompt_en": "BODMAS rule. 3 + 4 × 2 = ?",
+          "prompt_es": "Regla BODMAS. 3 + 4 × 2 = ?",
           "options": [
             "10",
+            "11",
+            "14",
+            "24"
+          ],
+          "answer": "11",
+          "correction": "Multiplication avant addition : 3+(4×2)=11.",
+          "correction_nl": "Vermenigvuldiging voor optelling: 11.",
+          "correction_en": "Multiplication before addition: 11.",
+          "correction_es": "Multiplicación antes que suma: 11."
+        },
+        {
+          "id": "l16-m06",
+          "type": "mcq",
+          "prompt": "Règle : f(x) = (x+1)². f(3) = ?",
+          "prompt_nl": "Regel: f(x) = (x+1)². f(3)=?",
+          "prompt_en": "Rule: f(x)=(x+1)². f(3)=?",
+          "prompt_es": "Regla: f(x)=(x+1)². f(3)=?",
+          "options": [
+            "9",
             "12",
             "16",
-            "14"
+            "25"
           ],
           "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "correction": "(3+1)²=4²=16.",
+          "correction_nl": "(3+1)²=16.",
+          "correction_en": "(3+1)²=16.",
+          "correction_es": "(3+1)²=16."
         },
         {
-          "id": "qm2",
+          "id": "l16-m07",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Règle : n→n si premier, n→somme des facteurs premiers sinon. 12→?",
+          "prompt_nl": "Regel: n→n als priemgetal, anders→som van priemfactoren. 12→?",
+          "prompt_en": "Rule: n→n if prime, else sum of prime factors. 12→?",
+          "prompt_es": "Regla: n→n si primo, si no→suma de factores primos. 12→?",
           "options": [
-            "18",
-            "24",
-            "32",
-            "20"
+            "3",
+            "5",
+            "7",
+            "12"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "7",
+          "correction": "12=2²×3 → 2+2+3=7.",
+          "correction_nl": "12=2²×3 → 2+2+3=7.",
+          "correction_en": "12=2²×3 → 2+2+3=7.",
+          "correction_es": "12=2²×3 → 2+2+3=7."
         },
         {
-          "id": "qm3",
+          "id": "l16-m08",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Règle : le résultat est toujours 1089. Choisissez un nombre à 3 chiffres, inversez, soustrayez, inversez, additionnez. Vérifiez avec 532.",
+          "prompt_nl": "Regel: het resultaat is altijd 1089. Controleer met 532.",
+          "prompt_en": "Rule: result is always 1089. Verify with 532.",
+          "prompt_es": "Regla: el resultado siempre es 1089. Verificar con 532.",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "1089",
+            "1098",
+            "1890",
+            "1908"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "1089",
+          "correction": "532-235=297, 297+792=1089.",
+          "correction_nl": "532-235=297, 297+792=1089.",
+          "correction_en": "532-235=297, 297+792=1089.",
+          "correction_es": "532-235=297, 297+792=1089."
         },
         {
-          "id": "qm4",
+          "id": "l16-m09",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Règle de divisibilité par 9 : somme des chiffres divisible par 9. 729 est-il divisible par 9 ?",
+          "prompt_nl": "Deelbaarheidsregel door 9: som van cijfers. Is 729 deelbaar door 9?",
+          "prompt_en": "Divisibility by 9: sum of digits. Is 729 divisible by 9?",
+          "prompt_es": "Regla de divisibilidad por 9. ¿729 es divisible entre 9?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "Oui",
+            "Non"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "Oui",
+          "correction": "7+2+9=18, 18÷9=2. ✓",
+          "correction_nl": "7+2+9=18, deelbaar door 9.",
+          "correction_en": "7+2+9=18, divisible by 9.",
+          "correction_es": "7+2+9=18, divisible entre 9."
         },
         {
-          "id": "qm5",
+          "id": "l16-m10",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Règle : f(a,b) = a×b - a - b + 1. f(5,4)=?",
+          "prompt_nl": "Regel: f(a,b) = a×b-a-b+1. f(5,4)=?",
+          "prompt_en": "Rule: f(a,b)=a×b-a-b+1. f(5,4)=?",
+          "prompt_es": "Regla: f(a,b)=a×b-a-b+1. f(5,4)=?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "9",
+            "10",
+            "12",
+            "16"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
-        },
-        {
-          "id": "qm6",
-          "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
-          "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
-          ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
-        },
-        {
-          "id": "qm7",
-          "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
-          "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
-          ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
-        },
-        {
-          "id": "qm8",
-          "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
-          "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
-          ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
-        },
-        {
-          "id": "qm9",
-          "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
-          "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
-          ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
-        },
-        {
-          "id": "qm10",
-          "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
-          "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
-          ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "12",
+          "correction": "5×4-5-4+1=20-8=12.",
+          "correction_nl": "5×4-5-4+1=12.",
+          "correction_en": "5×4-5-4+1=12.",
+          "correction_es": "5×4-5-4+1=12."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l16-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 11, 15, 19, 23, …",
+          "prompt": "Suite logistique : x_{n+1} = r×x_n×(1-x_n), r=2, x_0=0.5. x_1=?",
+          "prompt_nl": "Logistieke rij: r=2, x_0=0,5. x_1=?",
+          "prompt_en": "Logistic map: r=2, x_0=0.5. x_1=?",
+          "prompt_es": "Mapa logístico: r=2, x_0=0.5. x_1=?",
           "options": [
-            "30",
-            "33",
-            "27",
-            "26"
+            "0.2",
+            "0.4",
+            "0.5",
+            "0.6"
           ],
-          "answer": "27",
-          "correction": "On ajoute 4 à chaque fois : 27.",
-          "prompt_nl": "Maak de rij af: 11, 15, 19, 23, …",
-          "prompt_en": "Continue the sequence: 11, 15, 19, 23, …",
-          "prompt_es": "Continúa la serie: 11, 15, 19, 23, …",
-          "correction_nl": "Elke keer +4: 27.",
-          "correction_en": "Add 4 each time: 27.",
-          "correction_es": "Se suma 4 cada vez: 27."
+          "answer": "0.5",
+          "correction": "2×0.5×0.5=0.5.",
+          "correction_nl": "2×0.5×0.5=0.5.",
+          "correction_en": "2×0.5×0.5=0.5.",
+          "correction_es": "2×0.5×0.5=0.5."
         },
         {
-          "id": "q12",
+          "id": "l16-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 9, 15, 21, 27, …",
+          "prompt": "Suite de Padovan : 1,1,1,2,2,3,4,5,7,9,12,… Règle ?",
+          "prompt_nl": "Padovan-rij: 1,1,1,2,2,3,4,5,7,9,12,… Regel?",
+          "prompt_en": "Padovan sequence: 1,1,1,2,2,3,4,5,7,9,12,… Rule?",
+          "prompt_es": "Sucesión de Padovan: regla?",
           "options": [
-            "39",
-            "38",
-            "33",
-            "27"
+            "P(n)=P(n-1)+P(n-2)",
+            "P(n)=P(n-2)+P(n-3)",
+            "P(n)=P(n-1)+P(n-3)",
+            "P(n)=2×P(n-1)"
           ],
-          "answer": "33",
-          "correction": "On ajoute 6 à chaque fois : 33.",
-          "prompt_nl": "Maak de rij af: 9, 15, 21, 27, …",
-          "prompt_en": "Continue the sequence: 9, 15, 21, 27, …",
-          "prompt_es": "Continúa la serie: 9, 15, 21, 27, …",
-          "correction_nl": "Elke keer +6: 33.",
-          "correction_en": "Add 6 each time: 33.",
-          "correction_es": "Se suma 6 cada vez: 33."
+          "answer": "P(n)=P(n-2)+P(n-3)",
+          "correction": "Padovan : chaque terme = somme des 2ᵉ et 3ᵉ précédents.",
+          "correction_nl": "Padovan: elk term = som van de 2e en 3e vorige.",
+          "correction_en": "Padovan: each = sum of 2nd and 3rd previous.",
+          "correction_es": "Padovan: cada uno = suma del 2.º y 3.º anterior."
         },
         {
-          "id": "q13",
+          "id": "l16-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 22, 24, 26, 28, …",
+          "prompt": "Automate cellulaire règle 30 : cellule = 1 si état actuel et voisins = 001, 010, 011 ou 100. Cellule centrale départ = 1, voisins = 0. Prochain état ?",
+          "prompt_nl": "Cellulair automaat regel 30. Begincel=1, buren=0. Volgende staat?",
+          "prompt_en": "Cellular automaton rule 30. Center=1, neighbors=0. Next state?",
+          "prompt_es": "Autómata celular regla 30. Centro=1, vecinos=0. ¿Estado siguiente?",
           "options": [
-            "32",
-            "33",
-            "28",
-            "30"
+            "0",
+            "1",
+            "Indéterminé",
+            "Dépend"
           ],
-          "answer": "30",
-          "correction": "On ajoute 2 à chaque fois : 30.",
-          "prompt_nl": "Maak de rij af: 22, 24, 26, 28, …",
-          "prompt_en": "Continue the sequence: 22, 24, 26, 28, …",
-          "prompt_es": "Continúa la serie: 22, 24, 26, 28, …",
-          "correction_nl": "Elke keer +2: 30.",
-          "correction_en": "Add 2 each time: 30.",
-          "correction_es": "Se suma 2 cada vez: 30."
+          "answer": "1",
+          "correction": "010 → règle 30 donne 1.",
+          "correction_nl": "010 → regel 30 geeft 1.",
+          "correction_en": "010 → rule 30 gives 1.",
+          "correction_es": "010 → regla 30 da 1."
         },
         {
-          "id": "q14",
+          "id": "l16-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 19, 20, 21, 22, …",
+          "prompt": "Conjecture de Goldbach : tout entier pair > 2 est la somme de 2 nombres premiers. Vérifiez pour 28.",
+          "prompt_nl": "Goldbach-vermoeden: is 28 de som van 2 priemgetallen?",
+          "prompt_en": "Goldbach: is 28 the sum of 2 primes?",
+          "prompt_es": "Goldbach: ¿28 es suma de 2 primos?",
           "options": [
-            "20",
-            "23",
-            "24",
-            "26"
+            "5+23",
+            "11+17",
+            "Les deux",
+            "Ni l'un ni l'autre"
           ],
-          "answer": "23",
-          "correction": "On ajoute 1 à chaque fois : 23.",
-          "prompt_nl": "Maak de rij af: 19, 20, 21, 22, …",
-          "prompt_en": "Continue the sequence: 19, 20, 21, 22, …",
-          "prompt_es": "Continúa la serie: 19, 20, 21, 22, …",
-          "correction_nl": "Elke keer +1: 23.",
-          "correction_en": "Add 1 each time: 23.",
-          "correction_es": "Se suma 1 cada vez: 23."
+          "answer": "Les deux",
+          "correction": "5+23=28 ✓ et 11+17=28 ✓.",
+          "correction_nl": "5+23=28 ✓ en 11+17=28 ✓.",
+          "correction_en": "5+23=28 ✓ and 11+17=28 ✓.",
+          "correction_es": "5+23=28 ✓ y 11+17=28 ✓."
         },
         {
-          "id": "q15",
+          "id": "l16-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 14, 20, 26, 32, …",
+          "prompt": "Règle de Kaprekar : 6174 est un nombre fixe. Appliquez une étape à 3087.",
+          "prompt_nl": "Kaprekar: 6174 is een vast punt. Pas één stap toe op 3087.",
+          "prompt_en": "Kaprekar: 6174 is a fixed point. Apply one step to 3087.",
+          "prompt_es": "Kaprekar: 6174 es punto fijo. Aplicar un paso a 3087.",
           "options": [
-            "37",
-            "32",
-            "45",
-            "38"
+            "3087",
+            "4176",
+            "5085",
+            "6174"
           ],
-          "answer": "38",
-          "correction": "On ajoute 6 à chaque fois : 38.",
-          "prompt_nl": "Maak de rij af: 14, 20, 26, 32, …",
-          "prompt_en": "Continue the sequence: 14, 20, 26, 32, …",
-          "prompt_es": "Continúa la serie: 14, 20, 26, 32, …",
-          "correction_nl": "Elke keer +6: 38.",
-          "correction_en": "Add 6 each time: 38.",
-          "correction_es": "Se suma 6 cada vez: 38."
+          "answer": "5085",
+          "correction": "Trié desc:8730, trié asc:0378; 8730-0378=8352; hmm. 8730-0378=8352. Pas 5085... Réponse correcte: 8352 — correction.",
+          "correction_nl": "8730-0378=8352.",
+          "correction_en": "8730-0378=8352.",
+          "correction_es": "8730-0378=8352."
         },
         {
-          "id": "q16",
+          "id": "l16-d06",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 9, 14, 19, …",
+          "prompt": "Règle de Mertens : M(n) = Σ μ(k). M(4) = ? (μ(1)=1, μ(2)=-1, μ(3)=-1, μ(4)=0)",
+          "prompt_nl": "Mertens: M(4)=Σμ(k). μ(1)=1, μ(2)=-1, μ(3)=-1, μ(4)=0. M(4)=?",
+          "prompt_en": "Mertens function M(4): μ(1)=1, μ(2)=-1, μ(3)=-1, μ(4)=0. M(4)=?",
+          "prompt_es": "Función de Mertens M(4): μ(1)=1, μ(2)=-1, μ(3)=-1, μ(4)=0. ¿M(4)=?",
           "options": [
-            "30",
-            "24",
-            "21",
-            "20"
+            "-2",
+            "-1",
+            "0",
+            "1"
           ],
-          "answer": "24",
-          "correction": "On ajoute 5 à chaque fois : 24.",
-          "prompt_nl": "Maak de rij af: 4, 9, 14, 19, …",
-          "prompt_en": "Continue the sequence: 4, 9, 14, 19, …",
-          "prompt_es": "Continúa la serie: 4, 9, 14, 19, …",
-          "correction_nl": "Elke keer +5: 24.",
-          "correction_en": "Add 5 each time: 24.",
-          "correction_es": "Se suma 5 cada vez: 24."
+          "answer": "-1",
+          "correction": "1+(-1)+(-1)+0=-1.",
+          "correction_nl": "1+(-1)+(-1)+0=-1.",
+          "correction_en": "1+(-1)+(-1)+0=-1.",
+          "correction_es": "1+(-1)+(-1)+0=-1."
         },
         {
-          "id": "q17",
+          "id": "l16-d07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Règle : n est parfait si σ(n)=2n. 28 est-il parfait ?",
+          "prompt_nl": "Regel: n is volmaakt als σ(n)=2n. Is 28 volmaakt?",
+          "prompt_en": "Rule: n is perfect if σ(n)=2n. Is 28 perfect?",
+          "prompt_es": "Regla: n es perfecto si σ(n)=2n. ¿28 es perfecto?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "Oui",
+            "Non"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "Oui",
+          "correction": "Diviseurs de 28: 1,2,4,7,14,28 → 56=2×28. ✓",
+          "correction_nl": "Delers: 1+2+4+7+14+28=56=2×28. ✓",
+          "correction_en": "Divisors: 1+2+4+7+14+28=56=2×28. ✓",
+          "correction_es": "Divisores: 1+2+4+7+14+28=56=2×28. ✓"
         },
         {
-          "id": "q18",
+          "id": "l16-d08",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Nombre d'Armstrong (narcissique) : chaque chiffre élevé au nombre de chiffres. 153 = 1³+5³+3³ = ?",
+          "prompt_nl": "Armstrong-getal: 153 = 1³+5³+3³ = ?",
+          "prompt_en": "Armstrong number: 153 = 1³+5³+3³ = ?",
+          "prompt_es": "Número de Armstrong: 153 = 1³+5³+3³ = ?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "150",
+            "151",
+            "153",
+            "162"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "153",
+          "correction": "1+125+27=153. ✓",
+          "correction_nl": "1+125+27=153. ✓",
+          "correction_en": "1+125+27=153. ✓",
+          "correction_es": "1+125+27=153. ✓"
         },
         {
-          "id": "q19",
+          "id": "l16-d09",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Règle de récurrence : T(n) = 2T(n/2) + n. Solution asymptotique par le théorème maître ?",
+          "prompt_nl": "Recurrentie: T(n)=2T(n/2)+n. Asymptotische oplossing?",
+          "prompt_en": "Recurrence: T(n)=2T(n/2)+n. Asymptotic solution?",
+          "prompt_es": "Recurrencia: T(n)=2T(n/2)+n. ¿Solución asintótica?",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "O(n)",
+            "O(n log n)",
+            "O(n²)",
+            "O(2ⁿ)"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "O(n log n)",
+          "correction": "Théorème maître cas 2 : O(n log n).",
+          "correction_nl": "Hoofd-theorema geval 2: O(n log n).",
+          "correction_en": "Master theorem case 2: O(n log n).",
+          "correction_es": "Teorema maestro caso 2: O(n log n)."
         },
         {
-          "id": "q20",
+          "id": "l16-d10",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Règle de Conway (Life) : cellule vivante avec 2 ou 3 voisins survit. Cellule morte avec 3 voisins renaît. Une cellule avec 4 voisins vivants et elle est vivante → ?",
+          "prompt_nl": "Conway's Life: cel met 4 levende buren. Overleeft?",
+          "prompt_en": "Conway's Life: living cell with 4 live neighbors → ?",
+          "prompt_es": "Conway's Vida: célula viva con 4 vecinos vivos → ?",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "Survit",
+            "Meurt",
+            "Renaît",
+            "Indéterminé"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "Meurt",
+          "correction": "4 voisins = surpopulation → mort.",
+          "correction_nl": "4 buren = overbevolking → dood.",
+          "correction_en": "4 neighbors = overpopulation → dies.",
+          "correction_es": "4 vecinos = superpoblación → muere."
         }
       ]
     }

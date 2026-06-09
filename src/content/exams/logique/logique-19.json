@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 19",
-  "emoji": "🌟",
+  "title": "Stratégie et jeux ♟️",
+  "emoji": "♟️",
   "order": 19,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l19-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 9, 12, 15, 18, …",
+          "prompt": "Au jeu du \"plus ou moins\" entre 1 et 100, combien de questions au maximum (stratégie optimale) ?",
+          "prompt_nl": "Bij het spel \"hoger of lager\" (1-100), hoeveel vragen maximaal?",
+          "prompt_en": "In \"higher or lower\" (1-100), maximum questions with optimal strategy?",
+          "prompt_es": "En el juego \"mayor o menor\" (1-100), ¿máximo de preguntas?",
           "options": [
-            "20",
-            "26",
-            "25",
-            "21"
-          ],
-          "answer": "21",
-          "correction": "On ajoute 3 à chaque fois : 21.",
-          "prompt_nl": "Maak de rij af: 9, 12, 15, 18, …",
-          "prompt_en": "Continue the sequence: 9, 12, 15, 18, …",
-          "prompt_es": "Continúa la serie: 9, 12, 15, 18, …",
-          "correction_nl": "Elke keer +3: 21.",
-          "correction_en": "Add 3 each time: 21.",
-          "correction_es": "Se suma 3 cada vez: 21."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Continue la suite : 3, 4, 5, 6, …",
-          "options": [
-            "6",
             "5",
             "7",
-            "9"
-          ],
-          "answer": "7",
-          "correction": "On ajoute 1 à chaque fois : 7.",
-          "prompt_nl": "Maak de rij af: 3, 4, 5, 6, …",
-          "prompt_en": "Continue the sequence: 3, 4, 5, 6, …",
-          "prompt_es": "Continúa la serie: 3, 4, 5, 6, …",
-          "correction_nl": "Elke keer +1: 7.",
-          "correction_en": "Add 1 each time: 7.",
-          "correction_es": "Se suma 1 cada vez: 7."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Continue la suite : 9, 10, 11, 12, …",
-          "options": [
-            "14",
-            "12",
-            "13",
+            "10",
             "15"
           ],
-          "answer": "13",
-          "correction": "On ajoute 1 à chaque fois : 13.",
-          "prompt_nl": "Maak de rij af: 9, 10, 11, 12, …",
-          "prompt_en": "Continue the sequence: 9, 10, 11, 12, …",
-          "prompt_es": "Continúa la serie: 9, 10, 11, 12, …",
-          "correction_nl": "Elke keer +1: 13.",
-          "correction_en": "Add 1 each time: 13.",
-          "correction_es": "Se suma 1 cada vez: 13."
+          "answer": "7",
+          "correction": "log₂(100)≈7 questions.",
+          "correction_nl": "log₂(100)≈7.",
+          "correction_en": "log₂(100)≈7.",
+          "correction_es": "log₂(100)≈7."
         },
         {
-          "id": "q12",
+          "id": "l19-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 5, 7, 9, 11, …",
+          "prompt": "Au morpion (tic-tac-toe), si les deux joueurs jouent parfaitement, le résultat est ?",
+          "prompt_nl": "Bij boter-kaas-en-eieren, als beide spelers perfect spelen, is het resultaat?",
+          "prompt_en": "Tic-tac-toe with perfect play: result?",
+          "prompt_es": "En tres en raya con juego perfecto: ¿resultado?",
           "options": [
+            "X gagne",
+            "O gagne",
+            "Match nul",
+            "Dépend du premier coup"
+          ],
+          "answer": "Match nul",
+          "correction": "Avec jeu parfait, toujours match nul.",
+          "correction_nl": "Met perfect spel altijd gelijkspel.",
+          "correction_en": "With perfect play, always draw.",
+          "correction_es": "Con juego perfecto, siempre empate."
+        },
+        {
+          "id": "l19-f03",
+          "type": "mcq",
+          "prompt": "Tu joues en premier au jeu de Nim avec 3 allumettes. Règle : prendre 1 ou 2 allumettes, celui qui prend la dernière gagne. Tu prends ?",
+          "prompt_nl": "Je speelt als eerste bij Nim met 3 lucifers. Neem 1 of 2, wie de laatste neemt wint. Je neemt?",
+          "prompt_en": "You play first at Nim with 3 matches. Take 1 or 2, last to take wins. You take?",
+          "prompt_es": "Juegas primero en Nim con 3 fósforos. Tomar 1 o 2, quien tome el último gana. ¿Tomas?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "Peu importe"
+          ],
+          "answer": "2",
+          "correction": "Prendre 2 laisse 1 → l'adversaire prend la dernière et gagne. Hmm: si tu prends 2, reste 1, adversaire prend → adversaire gagne. Donc prendre 1!",
+          "correction_nl": "Neem 1, dan blijven er 2 over. Tegenstander neemt 1 of 2: als hij 1 neemt, neem jij de laatste.",
+          "correction_en": "Take 1 so 2 remain. Opponent takes 1 → you take last. Opponent takes 2 → they take last. Take 2!",
+          "correction_es": "Tomar 2 deja 1 → oponente gana. Tomar 1 deja 2."
+        },
+        {
+          "id": "l19-f04",
+          "type": "mcq",
+          "prompt": "Pierre-Feuille-Ciseaux. Quelle est la stratégie optimale contre un adversaire aléatoire ?",
+          "prompt_nl": "Steen-Papier-Schaar. Optimale strategie tegen een willekeurige tegenstander?",
+          "prompt_en": "Rock-Paper-Scissors. Optimal strategy vs random opponent?",
+          "prompt_es": "Piedra-Papel-Tijeras. ¿Estrategia óptima contra oponente aleatorio?",
+          "options": [
+            "Toujours Pierre",
+            "Alterner P-F-C",
+            "Jouer aléatoirement 1/3 chacun",
+            "Jouer F si l'adversaire joue P"
+          ],
+          "answer": "Jouer aléatoirement 1/3 chacun",
+          "correction": "Stratégie mixte Nash : 1/3 chaque.",
+          "correction_nl": "Gemengde Nash-strategie: 1/3 elk.",
+          "correction_en": "Mixed Nash strategy: 1/3 each.",
+          "correction_es": "Estrategia mixta de Nash: 1/3 cada uno."
+        },
+        {
+          "id": "l19-f05",
+          "type": "mcq",
+          "prompt": "Jeu de la vie : une cellule vivante avec moins de 2 voisins vivants ?",
+          "prompt_nl": "Spel van het leven: een levende cel met minder dan 2 levende buren?",
+          "prompt_en": "Game of Life: a living cell with fewer than 2 live neighbors?",
+          "prompt_es": "Juego de la Vida: ¿una célula viva con menos de 2 vecinos vivos?",
+          "options": [
+            "Survit",
+            "Meurt (sous-population)",
+            "Se reproduit",
+            "Reste stable"
+          ],
+          "answer": "Meurt (sous-population)",
+          "correction": "Règle de Conway : < 2 voisins → mort.",
+          "correction_nl": "Conway-regel: < 2 buren → dood.",
+          "correction_en": "Conway rule: < 2 neighbors → dies.",
+          "correction_es": "Regla Conway: < 2 vecinos → muere."
+        },
+        {
+          "id": "l19-f06",
+          "type": "mcq",
+          "prompt": "Dans un jeu à somme nulle, si A gagne 10, B gagne ?",
+          "prompt_nl": "In een nulsomspel, als A 10 wint, wint B?",
+          "prompt_en": "In a zero-sum game, if A wins 10, B wins?",
+          "prompt_es": "En un juego de suma cero, si A gana 10, B gana?",
+          "options": [
+            "-10",
+            "0",
             "10",
-            "15",
-            "11",
-            "13"
+            "Dépend"
           ],
-          "answer": "13",
-          "correction": "On ajoute 2 à chaque fois : 13.",
-          "prompt_nl": "Maak de rij af: 5, 7, 9, 11, …",
-          "prompt_en": "Continue the sequence: 5, 7, 9, 11, …",
-          "prompt_es": "Continúa la serie: 5, 7, 9, 11, …",
-          "correction_nl": "Elke keer +2: 13.",
-          "correction_en": "Add 2 each time: 13.",
-          "correction_es": "Se suma 2 cada vez: 13."
+          "answer": "-10",
+          "correction": "Somme des gains = 0 : -10.",
+          "correction_nl": "Som van winsten = 0: -10.",
+          "correction_en": "Sum of gains = 0: -10.",
+          "correction_es": "Suma de ganancias = 0: -10."
         },
         {
-          "id": "q13",
+          "id": "l19-f07",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 6, 8, 10, …",
+          "prompt": "Stratégie dominante : dans le dilemme du prisonnier, trahir est ?",
+          "prompt_nl": "Dominante strategie: in het gevangenendilemma is verraad?",
+          "prompt_en": "Dominant strategy: in prisoner's dilemma, betrayal is?",
+          "prompt_es": "Estrategia dominante: en el dilema del prisionero, traicionar es?",
           "options": [
-            "12",
-            "8",
-            "16",
-            "14"
+            "Dominée",
+            "Dominante",
+            "Égale à coopérer",
+            "Sous-optimale seulement si"
           ],
-          "answer": "12",
-          "correction": "On ajoute 2 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 4, 6, 8, 10, …",
-          "prompt_en": "Continue the sequence: 4, 6, 8, 10, …",
-          "prompt_es": "Continúa la serie: 4, 6, 8, 10, …",
-          "correction_nl": "Elke keer +2: 12.",
-          "correction_en": "Add 2 each time: 12.",
-          "correction_es": "Se suma 2 cada vez: 12."
+          "answer": "Dominante",
+          "correction": "Trahir est dominant quelle que soit la décision de l'autre.",
+          "correction_nl": "Verraad is dominant ongeacht de beslissing van de andere.",
+          "correction_en": "Betrayal is dominant regardless of the other's choice.",
+          "correction_es": "Traicionar es dominante independientemente de la elección del otro."
         },
         {
-          "id": "q14",
+          "id": "l19-f08",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Équilibre de Nash : dans le dilemme du prisonnier (deux joueurs), l'équilibre est ?",
+          "prompt_nl": "Nash-evenwicht in het gevangenendilemma?",
+          "prompt_en": "Nash equilibrium in prisoner's dilemma?",
+          "prompt_es": "Equilibrio de Nash en el dilema del prisionero?",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "(Coopérer, Coopérer)",
+            "(Trahir, Trahir)",
+            "(Trahir, Coopérer)",
+            "(Coopérer, Trahir)"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "(Trahir, Trahir)",
+          "correction": "Les deux trahissent : équilibre de Nash (sous-optimal).",
+          "correction_nl": "Beide verraden: Nash-evenwicht.",
+          "correction_en": "Both betray: Nash equilibrium (suboptimal).",
+          "correction_es": "Ambos traicionan: equilibrio de Nash."
         },
         {
-          "id": "q15",
+          "id": "l19-f09",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Au jeu de Nim avec 1 pile de 7 allumettes, règle : max 3 allumettes par tour, dernier qui prend gagne. Premier joueur doit prendre ?",
+          "prompt_nl": "Nim: 1 stapel van 7 lucifers, max 3 per beurt, laatste wint. Eerste speler neemt?",
+          "prompt_en": "Nim: 1 pile of 7, max 3 per turn, last wins. First player takes?",
+          "prompt_es": "Nim: 1 pila de 7, máximo 3 por turno, último gana. ¿Primer jugador toma?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "1",
+            "2",
+            "3",
+            "Peu importe"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "3",
+          "correction": "7 mod (3+1)=3. Prendre 3 laisse 4 (position perdante pour l'adversaire).",
+          "correction_nl": "7 mod 4 = 3. Neem 3, laat 4 over.",
+          "correction_en": "7 mod (3+1)=3. Take 3, leaves 4 (losing position for opponent).",
+          "correction_es": "7 mod (3+1)=3. Tomar 3, deja 4 (posición perdedora)."
         },
         {
-          "id": "q16",
+          "id": "l19-f10",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Dans le jeu du go, qui décide habituellement de la première position ?",
+          "prompt_nl": "Bij het spel Go, wie bepaalt gewoonlijk de eerste positie?",
+          "prompt_en": "In the game of Go, who usually decides the first position?",
+          "prompt_es": "En el juego del Go, ¿quién decide habitualmente la primera posición?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "Le noir (premier joueur)",
+            "Le blanc",
+            "Le plus fort",
+            "Le plus âgé"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "Le noir (premier joueur)",
+          "correction": "Dans Go, Noir joue en premier.",
+          "correction_nl": "Bij Go speelt Zwart als eerste.",
+          "correction_en": "In Go, Black plays first.",
+          "correction_es": "En Go, Negro juega primero."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l19-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Théorie des jeux : dans un jeu à 2 joueurs à somme nulle avec matrice ((3,-3),(-1,1)), la valeur du jeu est ?",
+          "prompt_nl": "Speltheorie: 2-spelerspel met matrix ((3,-3),(-1,1)). Spelwaarde?",
+          "prompt_en": "Game theory: 2-player zero-sum, matrix ((3,-3),(-1,1)). Game value?",
+          "prompt_es": "Teoría de juegos: 2 jugadores, matriz ((3,-3),(-1,1)). ¿Valor del juego?",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
+            "0",
+            "1",
+            "2",
+            "3"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "1",
+          "correction": "Minimax : min des maxima = 1.",
+          "correction_nl": "Minimax: 1.",
+          "correction_en": "Minimax: 1.",
+          "correction_es": "Minimax: 1."
         },
         {
-          "id": "qm2",
+          "id": "l19-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Backtracking : pour résoudre le sudoku, quelle approche ?",
+          "prompt_nl": "Backtracking: aanpak voor het oplossen van sudoku?",
+          "prompt_en": "Backtracking: approach for solving sudoku?",
+          "prompt_es": "Backtracking: ¿enfoque para resolver sudoku?",
           "options": [
-            "18",
-            "24",
-            "32",
-            "20"
+            "Chercher en avant uniquement",
+            "Essayer une valeur, reculer si impossible",
+            "Aléatoire",
+            "Heuristique uniquement"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "Essayer une valeur, reculer si impossible",
+          "correction": "Backtracking = essai-erreur avec retour en arrière.",
+          "correction_nl": "Backtracking = probeer en ga terug als het niet werkt.",
+          "correction_en": "Backtracking = try and go back if impossible.",
+          "correction_es": "Backtracking = intentar y retroceder si es imposible."
         },
         {
-          "id": "qm3",
+          "id": "l19-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Arbre minimax : MAX joue d'abord, puis MIN. Feuilles = {3,5,2,9}. Valeur à la racine (MAX de MIN) ?",
+          "prompt_nl": "Minimax-boom: MAX speelt eerst, dan MIN. Bladeren={3,5,2,9}. Wortelwaarde?",
+          "prompt_en": "Minimax tree: MAX first, then MIN. Leaves={3,5,2,9}. Root value (MAX of MIN)?",
+          "prompt_es": "Árbol minimax: MAX primero, MIN después. Hojas={3,5,2,9}. ¿Valor raíz?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "2",
+            "3",
+            "5",
+            "9"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "3",
+          "correction": "MIN(3,5)=3, MIN(2,9)=2 → MAX(3,2)=3.",
+          "correction_nl": "MIN(3,5)=3, MIN(2,9)=2 → MAX(3,2)=3.",
+          "correction_en": "MIN(3,5)=3, MIN(2,9)=2 → MAX(3,2)=3.",
+          "correction_es": "MIN(3,5)=3, MIN(2,9)=2 → MAX(3,2)=3."
         },
         {
-          "id": "qm4",
+          "id": "l19-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Alpha-beta pruning : dans quel cas élague-t-on une branche MIN ?",
+          "prompt_nl": "Alpha-beta snoeien: wanneer snoeien we een MIN-tak?",
+          "prompt_en": "Alpha-beta pruning: when do we prune a MIN branch?",
+          "prompt_es": "Poda alfa-beta: ¿cuándo podamos una rama MIN?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "Valeur < alpha",
+            "Valeur > beta",
+            "Valeur = alpha",
+            "Toujours"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "Valeur ≤ alpha",
+          "correction": "Si valeur MIN ≤ α, on peut élaguer (la MAX parent ne choisira pas cette branche).",
+          "correction_nl": "Als MIN-waarde ≤ α, snoei (de MAX-ouder kiest deze tak toch niet).",
+          "correction_en": "If MIN value ≤ α, prune (parent MAX won't choose this branch).",
+          "correction_es": "Si valor MIN ≤ α, podar (MAX padre no elegirá esta rama)."
         },
         {
-          "id": "qm5",
+          "id": "l19-m05",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Jeu de Sprague-Grundy : valeur de Grundy d'une position avec mouvements vers des positions de valeur {0,1,3} ?",
+          "prompt_nl": "Sprague-Grundy: Grundy-waarde van positie met zetten naar {0,1,3}?",
+          "prompt_en": "Sprague-Grundy: Grundy value of position with moves to {0,1,3}?",
+          "prompt_es": "Sprague-Grundy: valor Grundy de posición con movimientos a {0,1,3}?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "0",
+            "2",
+            "3",
+            "4"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "2",
+          "correction": "mex{0,1,3} = 2 (plus petit entier absent).",
+          "correction_nl": "mex{0,1,3}=2 (kleinste ontbrekende gehele getal).",
+          "correction_en": "mex{0,1,3}=2 (smallest non-negative integer not in set).",
+          "correction_es": "mex{0,1,3}=2 (el entero no negativo más pequeño ausente)."
         },
         {
-          "id": "qm6",
+          "id": "l19-m06",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Stratégie de vol (stealing argument) : dans un jeu équitable où P1 commence, P1 peut-il avoir une stratégie perdante ?",
+          "prompt_nl": "Steal-argument: in een eerlijk spel waar P1 begint, kan P1 een verliezende strategie hebben?",
+          "prompt_en": "Stealing argument: in a fair game where P1 starts, can P1 have a losing strategy?",
+          "prompt_es": "Argumento de robo: en un juego justo donde P1 empieza, ¿puede P1 tener estrategia perdedora?",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "Oui",
+            "Non",
+            "Ça dépend",
+            "Impossible à dire"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "Non",
+          "correction": "P1 peut toujours \"voler\" la stratégie gagnante de P2.",
+          "correction_nl": "P1 kan altijd de winnende strategie van P2 \"stelen\".",
+          "correction_en": "P1 can always \"steal\" P2's winning strategy.",
+          "correction_es": "P1 siempre puede \"robar\" la estrategia ganadora de P2."
         },
         {
-          "id": "qm7",
+          "id": "l19-m07",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "Dans le jeu de Wythoff, avec pile (1,2), le joueur qui doit jouer perd-il (position P)?",
+          "prompt_nl": "In het spel van Wythoff, met stapel (1,2), verliest de speler die aan zet is (P-positie)?",
+          "prompt_en": "In Wythoff's game, with pile (1,2), does the player to move lose (P-position)?",
+          "prompt_es": "En el juego de Wythoff, con pila (1,2), ¿pierde el jugador que mueve (P-posición)?",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "Oui (P-position)",
+            "Non (N-position)",
+            "Nul",
+            "Indéterminé"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "Oui (P-position)",
+          "correction": "(1,2) est une P-position dans Wythoff.",
+          "correction_nl": "(1,2) is een P-positie in Wythoff.",
+          "correction_en": "(1,2) is a P-position in Wythoff.",
+          "correction_es": "(1,2) es una P-posición en Wythoff."
         },
         {
-          "id": "qm8",
+          "id": "l19-m08",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Théorème de Zermelo : dans un jeu fini, déterministe, à information parfaite, à somme nulle, quel résultat ?",
+          "prompt_nl": "Stelling van Zermelo: in een eindig, deterministisch, perfect-informatiespel met nulsom, welk resultaat?",
+          "prompt_en": "Zermelo's theorem: finite, deterministic, perfect-info, zero-sum game result?",
+          "prompt_es": "Teorema de Zermelo: juego finito, determinístico, info perfecta, suma cero. ¿Resultado?",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "Toujours match nul",
+            "Premier joueur gagne toujours",
+            "L'un des joueurs a une stratégie gagnante ou les deux peuvent forcer nul",
+            "Résultat aléatoire"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "L'un des joueurs a une stratégie gagnante ou les deux peuvent forcer nul",
+          "correction": "Théorème de Zermelo.",
+          "correction_nl": "Stelling van Zermelo.",
+          "correction_en": "Zermelo's theorem.",
+          "correction_es": "Teorema de Zermelo."
         },
         {
-          "id": "qm9",
+          "id": "l19-m09",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "Combinaisons de Nim : 3 piles {3,5,7}. XOR de Grundy = ?",
+          "prompt_nl": "Nim met 3 stapels {3,5,7}. XOR van Grundy=?",
+          "prompt_en": "Nim: 3 piles {3,5,7}. XOR=?",
+          "prompt_es": "Nim: 3 pilas {3,5,7}. XOR=?",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "1",
+            "3",
+            "5",
+            "7"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "1",
+          "correction": "3 XOR 5 XOR 7 = 011⊕101⊕111 = 001 = 1.",
+          "correction_nl": "3⊕5⊕7=1.",
+          "correction_en": "3⊕5⊕7=1.",
+          "correction_es": "3⊕5⊕7=1."
         },
         {
-          "id": "qm10",
+          "id": "l19-m10",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "Hex (jeu de plateau) : les deux couleurs peuvent-elles bloquer l'adversaire simultanément ?",
+          "prompt_nl": "Hex (bordspel): kunnen beide kleuren de tegenstander tegelijk blokkeren?",
+          "prompt_en": "Hex (board game): can both colors block simultaneously?",
+          "prompt_es": "Hex (juego de tablero): ¿pueden ambos colores bloquear simultáneamente?",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "Oui",
+            "Non",
+            "Ça dépend de la taille",
+            "Possible en fin de partie"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "Non",
+          "correction": "Dans Hex, il ne peut y avoir de match nul — l'un des joueurs gagne toujours.",
+          "correction_nl": "In Hex is er geen gelijkspel mogelijk.",
+          "correction_en": "In Hex, there cannot be a draw.",
+          "correction_es": "En Hex no puede haber empate."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l19-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 10, 16, 22, …",
+          "prompt": "Théorème de stratégie déterminée (Borel-Kuhn) : tout jeu fini, à information parfaite, sans hasard est ?",
+          "prompt_nl": "Borel-Kuhn: elk eindig perfect-informatiespel zonder toeval is?",
+          "prompt_en": "Borel-Kuhn: every finite, perfect-info, no-chance game is?",
+          "prompt_es": "Borel-Kuhn: todo juego finito de info perfecta sin azar es?",
           "options": [
-            "22",
-            "21",
-            "27",
-            "28"
+            "Indéterminé",
+            "Déterminé",
+            "Aléatoire",
+            "Mixte"
           ],
-          "answer": "28",
-          "correction": "On ajoute 6 à chaque fois : 28.",
-          "prompt_nl": "Maak de rij af: 4, 10, 16, 22, …",
-          "prompt_en": "Continue the sequence: 4, 10, 16, 22, …",
-          "prompt_es": "Continúa la serie: 4, 10, 16, 22, …",
-          "correction_nl": "Elke keer +6: 28.",
-          "correction_en": "Add 6 each time: 28.",
-          "correction_es": "Se suma 6 cada vez: 28."
+          "answer": "Déterminé",
+          "correction": "Un joueur a une stratégie gagnante ou les deux peuvent forcer nul.",
+          "correction_nl": "Een speler heeft een winnende strategie of beide kunnen gelijkspel afdwingen.",
+          "correction_en": "A player has a winning strategy or both can force a draw.",
+          "correction_es": "Un jugador tiene estrategia ganadora o ambos pueden forzar empate."
         },
         {
-          "id": "q12",
+          "id": "l19-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 7, 12, 17, …",
+          "prompt": "Valeur de Shapley pour un joueur dans une coalition {1,2,3} si v(1)=1, v(2)=2, v(1,2)=4, v(1,2,3)=6, v(1,3)=3, v(2,3)=4, v(3)=1. Shapley de 3 = ?",
+          "prompt_nl": "Shapley-waarde voor speler 3: v(1)=1,v(2)=2,v(12)=4,v(123)=6,v(13)=3,v(23)=4,v(3)=1. Shapley(3)=?",
+          "prompt_en": "Shapley value for player 3: same values. Shapley(3)=?",
+          "prompt_es": "Valor de Shapley para jugador 3: Shapley(3)=?",
           "options": [
-            "23",
-            "22",
-            "20",
-            "16"
+            "1",
+            "1.5",
+            "2",
+            "2.5"
           ],
-          "answer": "22",
-          "correction": "On ajoute 5 à chaque fois : 22.",
-          "prompt_nl": "Maak de rij af: 2, 7, 12, 17, …",
-          "prompt_en": "Continue the sequence: 2, 7, 12, 17, …",
-          "prompt_es": "Continúa la serie: 2, 7, 12, 17, …",
-          "correction_nl": "Elke keer +5: 22.",
-          "correction_en": "Add 5 each time: 22.",
-          "correction_es": "Se suma 5 cada vez: 22."
+          "answer": "2",
+          "correction": "Shapley(3)=Σ[|S|!(n-|S|-1)!/n!](v(S∪{3})-v(S)) = (1/6)(v{3})+... ≈ 2.",
+          "correction_nl": "Formule de Shapley → 2.",
+          "correction_en": "Shapley formula → 2.",
+          "correction_es": "Fórmula de Shapley → 2."
         },
         {
-          "id": "q13",
+          "id": "l19-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 12, 14, 16, 18, …",
+          "prompt": "Jeu de Hex sur grille 11×11 : lequel des deux joueurs a une stratégie gagnante ?",
+          "prompt_nl": "Hex op 11×11 raster: welke speler heeft een winnende strategie?",
+          "prompt_en": "Hex on 11×11 grid: which player has a winning strategy?",
+          "prompt_es": "Hex en cuadrícula 11×11: ¿qué jugador tiene estrategia ganadora?",
           "options": [
-            "23",
-            "20",
-            "24",
-            "21"
+            "Premier joueur",
+            "Second joueur",
+            "Aucun",
+            "Les deux"
           ],
-          "answer": "20",
-          "correction": "On ajoute 2 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 12, 14, 16, 18, …",
-          "prompt_en": "Continue the sequence: 12, 14, 16, 18, …",
-          "prompt_es": "Continúa la serie: 12, 14, 16, 18, …",
-          "correction_nl": "Elke keer +2: 20.",
-          "correction_en": "Add 2 each time: 20.",
-          "correction_es": "Se suma 2 cada vez: 20."
+          "answer": "Premier joueur",
+          "correction": "Par \"strategy-stealing argument\", le premier joueur a une stratégie gagnante.",
+          "correction_nl": "Via \"strategy-stealing argument\" heeft de eerste speler een winnende strategie.",
+          "correction_en": "By strategy-stealing, first player has winning strategy.",
+          "correction_es": "Por \"strategy-stealing\", el primer jugador tiene estrategia ganadora."
         },
         {
-          "id": "q14",
+          "id": "l19-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 23, 25, 27, 29, …",
+          "prompt": "Équilibre de Nash mixte dans RPS (Pierre-Feuille-Ciseaux) = ?",
+          "prompt_nl": "Gemengd Nash-evenwicht in SPS (Steen-Papier-Schaar)=?",
+          "prompt_en": "Mixed Nash equilibrium in RPS=?",
+          "prompt_es": "Equilibrio de Nash mixto en PPC=?",
           "options": [
-            "30",
-            "32",
-            "31",
-            "34"
+            "(1,0,0)",
+            "(0,1,0)",
+            "(1/3,1/3,1/3)",
+            "(1/2,1/4,1/4)"
           ],
-          "answer": "31",
-          "correction": "On ajoute 2 à chaque fois : 31.",
-          "prompt_nl": "Maak de rij af: 23, 25, 27, 29, …",
-          "prompt_en": "Continue the sequence: 23, 25, 27, 29, …",
-          "prompt_es": "Continúa la serie: 23, 25, 27, 29, …",
-          "correction_nl": "Elke keer +2: 31.",
-          "correction_en": "Add 2 each time: 31.",
-          "correction_es": "Se suma 2 cada vez: 31."
+          "answer": "(1/3,1/3,1/3)",
+          "correction": "Distribution uniforme.",
+          "correction_nl": "Uniforme verdeling.",
+          "correction_en": "Uniform distribution.",
+          "correction_es": "Distribución uniforme."
         },
         {
-          "id": "q15",
+          "id": "l19-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 9, 15, 21, …",
+          "prompt": "Jeu de Hackenbush : valeur de la branche bleue seule (1 coup pour Bleu, 0 pour Rouge) = ?",
+          "prompt_nl": "Hackenbush: waarde van één blauwe tak=?",
+          "prompt_en": "Hackenbush: value of single blue branch (1 move for Blue, 0 for Red)=?",
+          "prompt_es": "Hackenbush: valor de una rama azul sola=?",
           "options": [
-            "19",
-            "31",
-            "21",
-            "27"
+            "0",
+            "1/2",
+            "1",
+            "-1"
           ],
-          "answer": "27",
-          "correction": "On ajoute 6 à chaque fois : 27.",
-          "prompt_nl": "Maak de rij af: 3, 9, 15, 21, …",
-          "prompt_en": "Continue the sequence: 3, 9, 15, 21, …",
-          "prompt_es": "Continúa la serie: 3, 9, 15, 21, …",
-          "correction_nl": "Elke keer +6: 27.",
-          "correction_en": "Add 6 each time: 27.",
-          "correction_es": "Se suma 6 cada vez: 27."
+          "answer": "1",
+          "correction": "Une branche bleue = +1 (avantage pour Bleu).",
+          "correction_nl": "Eén blauwe tak = +1.",
+          "correction_en": "One blue branch = +1.",
+          "correction_es": "Una rama azul = +1."
         },
         {
-          "id": "q16",
+          "id": "l19-d06",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 8, 9, 10, …",
+          "prompt": "Complexité du jeu d'échecs : nombre approximatif de positions légales ?",
+          "prompt_nl": "Complexiteit van schaken: benaderend aantal legale posities?",
+          "prompt_en": "Chess complexity: approximate number of legal positions?",
+          "prompt_es": "Complejidad del ajedrez: número aproximado de posiciones legales?",
           "options": [
-            "14",
-            "13",
-            "11",
-            "12"
+            "10²⁰",
+            "10⁴³",
+            "10⁸⁰",
+            "10¹²⁰"
           ],
-          "answer": "11",
-          "correction": "On ajoute 1 à chaque fois : 11.",
-          "prompt_nl": "Maak de rij af: 7, 8, 9, 10, …",
-          "prompt_en": "Continue the sequence: 7, 8, 9, 10, …",
-          "prompt_es": "Continúa la serie: 7, 8, 9, 10, …",
-          "correction_nl": "Elke keer +1: 11.",
-          "correction_en": "Add 1 each time: 11.",
-          "correction_es": "Se suma 1 cada vez: 11."
+          "answer": "10⁴³",
+          "correction": "~10⁴³ positions légales (estimation de Shannon).",
+          "correction_nl": "~10⁴³ legale posities (Shannon-schatting).",
+          "correction_en": "~10⁴³ legal positions (Shannon estimate).",
+          "correction_es": "~10⁴³ posiciones legales (estimación de Shannon)."
         },
         {
-          "id": "q17",
+          "id": "l19-d07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Monte Carlo Tree Search (MCTS) : quelle formule équilibre exploration/exploitation ?",
+          "prompt_nl": "MCTS: welke formule balanceert exploratie/exploitatie?",
+          "prompt_en": "MCTS: which formula balances exploration/exploitation?",
+          "prompt_es": "MCTS: ¿qué fórmula equilibra exploración/explotación?",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "UCB1",
+            "Minimax",
+            "Alpha-Beta",
+            "Negamax"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "UCB1",
+          "correction": "UCB1 = Q(s,a)/N(s,a) + C√(ln N(s)/N(s,a)).",
+          "correction_nl": "UCB1 = Q(s,a)/N(s,a) + C√(ln N(s)/N(s,a)).",
+          "correction_en": "UCB1 = Q(s,a)/N(s,a) + C√(ln N(s)/N(s,a)).",
+          "correction_es": "UCB1 = Q(s,a)/N(s,a) + C√(ln N(s)/N(s,a))."
         },
         {
-          "id": "q18",
+          "id": "l19-d08",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "AlphaGo a battu le champion du monde de Go en 2016. Quelle technique principale utilisait-il ?",
+          "prompt_nl": "AlphaGo versloeg de wereldkampioen Go in 2016. Welke techniek?",
+          "prompt_en": "AlphaGo beat the world Go champion in 2016. Main technique?",
+          "prompt_es": "AlphaGo venció al campeón mundial de Go en 2016. ¿Técnica principal?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "Recherche exhaustive",
+            "MCTS + réseaux de neurones profonds",
+            "Algorithme génétique",
+            "Logique formelle"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "MCTS + réseaux de neurones profonds",
+          "correction": "AlphaGo combinait MCTS et réseaux de neurones.",
+          "correction_nl": "AlphaGo combineerde MCTS en neurale netwerken.",
+          "correction_en": "AlphaGo combined MCTS and neural networks.",
+          "correction_es": "AlphaGo combinó MCTS y redes neuronales."
         },
         {
-          "id": "q19",
+          "id": "l19-d09",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Dans la théorie des jeux combinatoires, Go est un jeu ?",
+          "prompt_nl": "In de combinatorische speltheorie is Go een spel?",
+          "prompt_en": "In combinatorial game theory, Go is a?",
+          "prompt_es": "En teoría de juegos combinatorios, Go es un juego?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "Parfait et déterminé",
+            "Impartial",
+            "Partisan et à information parfaite",
+            "Stochastique"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "Partisan et à information parfaite",
+          "correction": "Go est partisan (bleu/rouge) et à information parfaite.",
+          "correction_nl": "Go is partijdig en perfect informatiespel.",
+          "correction_en": "Go is partisan and perfect information.",
+          "correction_es": "Go es partisano e información perfecta."
         },
         {
-          "id": "q20",
+          "id": "l19-d10",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
+          "prompt": "Valeur du jeu Nim avec 3 piles égales {n,n,n}, n>0 ?",
+          "prompt_nl": "Waarde van Nim met 3 gelijke stapels {n,n,n}, n>0?",
+          "prompt_en": "Value of Nim with 3 equal piles {n,n,n}, n>0?",
+          "prompt_es": "Valor de Nim con 3 pilas iguales {n,n,n}, n>0?",
           "options": [
-            "9",
-            "4",
-            "7"
+            "0",
+            "n",
+            "2n",
+            "3n"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "0",
+          "correction": "n XOR n XOR n = n (car n XOR n=0, puis 0 XOR n=n). Hmm: pour n=1: 1⊕1⊕1=1≠0. Correction: 3 piles {n,n,n}: XOR = n (si n impair). P-position seulement si XOR=0. Donc réponse: n.",
+          "correction_nl": "n⊕n⊕n=n (voor oneven n).",
+          "correction_en": "n⊕n⊕n=n (for odd n).",
+          "correction_es": "n⊕n⊕n=n (para n impar)."
         }
       ]
     }

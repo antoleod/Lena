@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 12",
-  "emoji": "🔩",
+  "title": "Le nombre manquant ❓",
+  "emoji": "❓",
   "order": 12,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l12-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 9, 11, 13, …",
+          "prompt": "? + 3 = 7",
+          "prompt_nl": "? + 3 = 7",
+          "prompt_en": "? + 3 = 7",
+          "prompt_es": "? + 3 = 7",
           "options": [
-            "15",
-            "13",
-            "18",
-            "14"
+            "3",
+            "4",
+            "5",
+            "6"
           ],
-          "answer": "15",
-          "correction": "On ajoute 2 à chaque fois : 15.",
-          "prompt_nl": "Maak de rij af: 7, 9, 11, 13, …",
-          "prompt_en": "Continue the sequence: 7, 9, 11, 13, …",
-          "prompt_es": "Continúa la serie: 7, 9, 11, 13, …",
-          "correction_nl": "Elke keer +2: 15.",
-          "correction_en": "Add 2 each time: 15.",
-          "correction_es": "Se suma 2 cada vez: 15."
+          "answer": "4",
+          "correction": "7-3=4.",
+          "correction_nl": "7-3=4.",
+          "correction_en": "7-3=4.",
+          "correction_es": "7-3=4."
         },
         {
-          "id": "q10",
+          "id": "l12-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 9, 12, …",
+          "prompt": "5 + ? = 9",
+          "prompt_nl": "5 + ? = 9",
+          "prompt_en": "5 + ? = 9",
+          "prompt_es": "5 + ? = 9",
           "options": [
-            "18",
-            "11",
-            "13",
-            "15"
+            "3",
+            "4",
+            "5",
+            "6"
           ],
-          "answer": "15",
-          "correction": "On ajoute 3 à chaque fois : 15.",
-          "prompt_nl": "Maak de rij af: 3, 6, 9, 12, …",
-          "prompt_en": "Continue the sequence: 3, 6, 9, 12, …",
-          "prompt_es": "Continúa la serie: 3, 6, 9, 12, …",
-          "correction_nl": "Elke keer +3: 15.",
-          "correction_en": "Add 3 each time: 15.",
-          "correction_es": "Se suma 3 cada vez: 15."
+          "answer": "4",
+          "correction": "9-5=4.",
+          "correction_nl": "9-5=4.",
+          "correction_en": "9-5=4.",
+          "correction_es": "9-5=4."
         },
         {
-          "id": "q11",
+          "id": "l12-f03",
           "type": "mcq",
-          "prompt": "Continue la suite : 8, 9, 10, 11, …",
+          "prompt": "? - 2 = 6",
+          "prompt_nl": "? - 2 = 6",
+          "prompt_en": "? - 2 = 6",
+          "prompt_es": "? - 2 = 6",
           "options": [
-            "12",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "answer": "8",
+          "correction": "6+2=8.",
+          "correction_nl": "6+2=8.",
+          "correction_en": "6+2=8.",
+          "correction_es": "6+2=8."
+        },
+        {
+          "id": "l12-f04",
+          "type": "mcq",
+          "prompt": "3 × ? = 12",
+          "prompt_nl": "3 × ? = 12",
+          "prompt_en": "3 × ? = 12",
+          "prompt_es": "3 × ? = 12",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "12÷3=4.",
+          "correction_nl": "12÷3=4.",
+          "correction_en": "12÷3=4.",
+          "correction_es": "12÷3=4."
+        },
+        {
+          "id": "l12-f05",
+          "type": "mcq",
+          "prompt": "? × 5 = 20",
+          "prompt_nl": "? × 5 = 20",
+          "prompt_en": "? × 5 = 20",
+          "prompt_es": "? × 5 = 20",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "20÷5=4.",
+          "correction_nl": "20÷5=4.",
+          "correction_en": "20÷5=4.",
+          "correction_es": "20÷5=4."
+        },
+        {
+          "id": "l12-f06",
+          "type": "mcq",
+          "prompt": "10 - ? = 4",
+          "prompt_nl": "10 - ? = 4",
+          "prompt_en": "10 - ? = 4",
+          "prompt_es": "10 - ? = 4",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "answer": "6",
+          "correction": "10-4=6.",
+          "correction_nl": "10-4=6.",
+          "correction_en": "10-4=6.",
+          "correction_es": "10-4=6."
+        },
+        {
+          "id": "l12-f07",
+          "type": "mcq",
+          "prompt": "? ÷ 3 = 4",
+          "prompt_nl": "? ÷ 3 = 4",
+          "prompt_en": "? ÷ 3 = 4",
+          "prompt_es": "? ÷ 3 = 4",
+          "options": [
             "9",
             "10",
-            "11"
+            "11",
+            "12"
           ],
           "answer": "12",
-          "correction": "On ajoute 1 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 8, 9, 10, 11, …",
-          "prompt_en": "Continue the sequence: 8, 9, 10, 11, …",
-          "prompt_es": "Continúa la serie: 8, 9, 10, 11, …",
-          "correction_nl": "Elke keer +1: 12.",
-          "correction_en": "Add 1 each time: 12.",
-          "correction_es": "Se suma 1 cada vez: 12."
+          "correction": "4×3=12.",
+          "correction_nl": "4×3=12.",
+          "correction_en": "4×3=12.",
+          "correction_es": "4×3=12."
         },
         {
-          "id": "q12",
+          "id": "l12-f08",
           "type": "mcq",
-          "prompt": "Continue la suite : 6, 8, 10, 12, …",
+          "prompt": "2 + ? + 3 = 10",
+          "prompt_nl": "2 + ? + 3 = 10",
+          "prompt_en": "2 + ? + 3 = 10",
+          "prompt_es": "2 + ? + 3 = 10",
           "options": [
-            "14",
-            "12",
-            "13",
-            "18"
-          ],
-          "answer": "14",
-          "correction": "On ajoute 2 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
-          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
-          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
-          "correction_nl": "Elke keer +2: 14.",
-          "correction_en": "Add 2 each time: 14.",
-          "correction_es": "Se suma 2 cada vez: 14."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 4, 7, 10, 13, …",
-          "options": [
-            "12",
-            "21",
-            "16",
-            "19"
-          ],
-          "answer": "16",
-          "correction": "On ajoute 3 à chaque fois : 16.",
-          "prompt_nl": "Maak de rij af: 4, 7, 10, 13, …",
-          "prompt_en": "Continue the sequence: 4, 7, 10, 13, …",
-          "prompt_es": "Continúa la serie: 4, 7, 10, 13, …",
-          "correction_nl": "Elke keer +3: 16.",
-          "correction_en": "Add 3 each time: 16.",
-          "correction_es": "Se suma 3 cada vez: 16."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
-          "options": [
-            "chien",
-            "rouge",
-            "vert"
-          ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
-          "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
-          ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
             "4",
+            "5",
+            "6",
             "7"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "5",
+          "correction": "10-2-3=5.",
+          "correction_nl": "10-2-3=5.",
+          "correction_en": "10-2-3=5.",
+          "correction_es": "10-2-3=5."
+        },
+        {
+          "id": "l12-f09",
+          "type": "mcq",
+          "prompt": "? / 4 = 3",
+          "prompt_nl": "? / 4 = 3",
+          "prompt_en": "? / 4 = 3",
+          "prompt_es": "? / 4 = 3",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "answer": "12",
+          "correction": "3×4=12.",
+          "correction_nl": "3×4=12.",
+          "correction_en": "3×4=12.",
+          "correction_es": "3×4=12."
+        },
+        {
+          "id": "l12-f10",
+          "type": "mcq",
+          "prompt": "6 + ? = 6",
+          "prompt_nl": "6 + ? = 6",
+          "prompt_en": "6 + ? = 6",
+          "prompt_es": "6 + ? = 6",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "6"
+          ],
+          "answer": "0",
+          "correction": "6+0=6.",
+          "correction_nl": "6+0=6.",
+          "correction_en": "6+0=6.",
+          "correction_es": "6+0=6."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l12-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "? + 24 = 50",
+          "prompt_nl": "? + 24 = 50",
+          "prompt_en": "? + 24 = 50",
+          "prompt_es": "? + 24 = 50",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
-          ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
-        },
-        {
-          "id": "qm2",
-          "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
-          "options": [
-            "18",
             "24",
-            "32",
-            "20"
+            "26",
+            "28",
+            "30"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "26",
+          "correction": "50-24=26.",
+          "correction_nl": "50-24=26.",
+          "correction_en": "50-24=26.",
+          "correction_es": "50-24=26."
         },
         {
-          "id": "qm3",
+          "id": "l12-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "3 × ? - 4 = 11",
+          "prompt_nl": "3 × ? - 4 = 11",
+          "prompt_en": "3 × ? - 4 = 11",
+          "prompt_es": "3 × ? - 4 = 11",
           "options": [
-            "36",
-            "48",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "answer": "5",
+          "correction": "3×5-4=11.",
+          "correction_nl": "3×5-4=11.",
+          "correction_en": "3×5-4=11.",
+          "correction_es": "3×5-4=11."
+        },
+        {
+          "id": "l12-m03",
+          "type": "mcq",
+          "prompt": "? ÷ 6 + 3 = 8",
+          "prompt_nl": "? ÷ 6 + 3 = 8",
+          "prompt_en": "? ÷ 6 + 3 = 8",
+          "prompt_es": "? ÷ 6 + 3 = 8",
+          "options": [
+            "24",
+            "28",
             "30",
-            "42"
+            "36"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "30",
+          "correction": "5×6=30.",
+          "correction_nl": "5×6=30.",
+          "correction_en": "5×6=30.",
+          "correction_es": "5×6=30."
         },
         {
-          "id": "qm4",
+          "id": "l12-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "(? + 7) × 2 = 20",
+          "prompt_nl": "(? + 7) × 2 = 20",
+          "prompt_en": "(? + 7) × 2 = 20",
+          "prompt_es": "(? + 7) × 2 = 20",
           "options": [
-            "65",
-            "55",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "3",
+          "correction": "20÷2=10, 10-7=3.",
+          "correction_nl": "20÷2=10, 10-7=3.",
+          "correction_en": "20÷2=10, 10-7=3.",
+          "correction_es": "20÷2=10, 10-7=3."
+        },
+        {
+          "id": "l12-m05",
+          "type": "mcq",
+          "prompt": "48 ÷ ? = 8",
+          "prompt_nl": "48 ÷ ? = 8",
+          "prompt_en": "48 ÷ ? = 8",
+          "prompt_es": "48 ÷ ? = 8",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "answer": "6",
+          "correction": "48÷6=8.",
+          "correction_nl": "48÷6=8.",
+          "correction_en": "48÷6=8.",
+          "correction_es": "48÷6=8."
+        },
+        {
+          "id": "l12-m06",
+          "type": "mcq",
+          "prompt": "? % de 80 = 40",
+          "prompt_nl": "? % van 80 = 40",
+          "prompt_en": "? % of 80 = 40",
+          "prompt_es": "? % de 80 = 40",
+          "options": [
+            "40",
+            "50",
             "60",
-            "50"
+            "70"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "50",
+          "correction": "40÷80×100=50%.",
+          "correction_nl": "40÷80×100=50%.",
+          "correction_en": "40÷80×100=50%.",
+          "correction_es": "40÷80×100=50%."
         },
         {
-          "id": "qm5",
+          "id": "l12-m07",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "? × ? = 49",
+          "prompt_nl": "? × ? = 49",
+          "prompt_en": "? × ? = 49",
+          "prompt_es": "? × ? = 49",
           "options": [
-            "54",
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "answer": "7",
+          "correction": "7²=49.",
+          "correction_nl": "7²=49.",
+          "correction_en": "7²=49.",
+          "correction_es": "7²=49."
+        },
+        {
+          "id": "l12-m08",
+          "type": "mcq",
+          "prompt": "√? = 9",
+          "prompt_nl": "√? = 9",
+          "prompt_en": "√? = 9",
+          "prompt_es": "√? = 9",
+          "options": [
+            "63",
+            "72",
             "81",
-            "36",
-            "63"
+            "90"
           ],
           "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "correction": "9²=81.",
+          "correction_nl": "9²=81.",
+          "correction_en": "9²=81.",
+          "correction_es": "9²=81."
         },
         {
-          "id": "qm6",
+          "id": "l12-m09",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "5 × ? = 7 × 10",
+          "prompt_nl": "5 × ? = 7 × 10",
+          "prompt_en": "5 × ? = 7 × 10",
+          "prompt_es": "5 × ? = 7 × 10",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "12",
+            "14",
+            "16",
+            "18"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "14",
+          "correction": "5×?=70, ?=14.",
+          "correction_nl": "5×?=70, ?=14.",
+          "correction_en": "5×?=70, ?=14.",
+          "correction_es": "5×?=70, ?=14."
         },
         {
-          "id": "qm7",
+          "id": "l12-m10",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "? + ? = 30, ? - ? = 6",
+          "prompt_nl": "? + ? = 30, ? - ? = 6",
+          "prompt_en": "? + ? = 30, ? - ? = 6",
+          "prompt_es": "? + ? = 30, ? - ? = 6",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "(15,15)",
+            "(18,12)",
+            "(20,10)",
+            "(24,6)"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
-        },
-        {
-          "id": "qm8",
-          "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
-          "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
-          ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
-        },
-        {
-          "id": "qm9",
-          "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
-          "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
-          ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
-        },
-        {
-          "id": "qm10",
-          "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
-          "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
-          ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "(18,12)",
+          "correction": "(30+6)/2=18, (30-6)/2=12.",
+          "correction_nl": "(30+6)/2=18.",
+          "correction_en": "(30+6)/2=18.",
+          "correction_es": "(30+6)/2=18."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l12-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 12, 14, 16, …",
+          "prompt": "x² + 5x + 6 = 0, une solution est x = -2. Quelle est l'autre ?",
+          "prompt_nl": "x² + 5x + 6 = 0, één oplossing is x=-2. Andere?",
+          "prompt_en": "x²+5x+6=0, one solution x=-2. Other?",
+          "prompt_es": "x²+5x+6=0, una solución es x=-2. ¿Otra?",
           "options": [
-            "22",
-            "15",
-            "18",
-            "14"
+            "-1",
+            "-3",
+            "2",
+            "3"
           ],
-          "answer": "18",
-          "correction": "On ajoute 2 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 10, 12, 14, 16, …",
-          "prompt_en": "Continue the sequence: 10, 12, 14, 16, …",
-          "prompt_es": "Continúa la serie: 10, 12, 14, 16, …",
-          "correction_nl": "Elke keer +2: 18.",
-          "correction_en": "Add 2 each time: 18.",
-          "correction_es": "Se suma 2 cada vez: 18."
+          "answer": "-3",
+          "correction": "(x+2)(x+3)=0 → x=-3.",
+          "correction_nl": "(x+2)(x+3)=0 → x=-3.",
+          "correction_en": "(x+2)(x+3)=0 → x=-3.",
+          "correction_es": "(x+2)(x+3)=0 → x=-3."
         },
         {
-          "id": "q12",
+          "id": "l12-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 8, 11, 14, 17, …",
+          "prompt": "2^? = 64",
+          "prompt_nl": "2^? = 64",
+          "prompt_en": "2^? = 64",
+          "prompt_es": "2^? = 64",
           "options": [
-            "22",
-            "19",
-            "18",
-            "20"
+            "5",
+            "6",
+            "7",
+            "8"
           ],
-          "answer": "20",
-          "correction": "On ajoute 3 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 8, 11, 14, 17, …",
-          "prompt_en": "Continue the sequence: 8, 11, 14, 17, …",
-          "prompt_es": "Continúa la serie: 8, 11, 14, 17, …",
-          "correction_nl": "Elke keer +3: 20.",
-          "correction_en": "Add 3 each time: 20.",
-          "correction_es": "Se suma 3 cada vez: 20."
+          "answer": "6",
+          "correction": "2⁶=64.",
+          "correction_nl": "2⁶=64.",
+          "correction_en": "2⁶=64.",
+          "correction_es": "2⁶=64."
         },
         {
-          "id": "q13",
+          "id": "l12-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 9, 14, 19, …",
+          "prompt": "log₂(?) = 5",
+          "prompt_nl": "log₂(?) = 5",
+          "prompt_en": "log₂(?) = 5",
+          "prompt_es": "log₂(?) = 5",
           "options": [
-            "20",
-            "26",
-            "24",
-            "27"
+            "16",
+            "25",
+            "32",
+            "64"
           ],
-          "answer": "24",
-          "correction": "On ajoute 5 à chaque fois : 24.",
-          "prompt_nl": "Maak de rij af: 4, 9, 14, 19, …",
-          "prompt_en": "Continue the sequence: 4, 9, 14, 19, …",
-          "prompt_es": "Continúa la serie: 4, 9, 14, 19, …",
-          "correction_nl": "Elke keer +5: 24.",
-          "correction_en": "Add 5 each time: 24.",
-          "correction_es": "Se suma 5 cada vez: 24."
+          "answer": "32",
+          "correction": "2⁵=32.",
+          "correction_nl": "2⁵=32.",
+          "correction_en": "2⁵=32.",
+          "correction_es": "2⁵=32."
         },
         {
-          "id": "q14",
+          "id": "l12-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 9, 11, 13, 15, …",
+          "prompt": "? ! = 120",
+          "prompt_nl": "? ! = 120",
+          "prompt_en": "? ! = 120",
+          "prompt_es": "? ! = 120",
           "options": [
-            "17",
-            "21",
-            "13",
-            "16"
-          ],
-          "answer": "17",
-          "correction": "On ajoute 2 à chaque fois : 17.",
-          "prompt_nl": "Maak de rij af: 9, 11, 13, 15, …",
-          "prompt_en": "Continue the sequence: 9, 11, 13, 15, …",
-          "prompt_es": "Continúa la serie: 9, 11, 13, 15, …",
-          "correction_nl": "Elke keer +2: 17.",
-          "correction_en": "Add 2 each time: 17.",
-          "correction_es": "Se suma 2 cada vez: 17."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 19, 22, 25, 28, …",
-          "options": [
-            "30",
-            "31",
-            "29",
-            "28"
-          ],
-          "answer": "31",
-          "correction": "On ajoute 3 à chaque fois : 31.",
-          "prompt_nl": "Maak de rij af: 19, 22, 25, 28, …",
-          "prompt_en": "Continue the sequence: 19, 22, 25, 28, …",
-          "prompt_es": "Continúa la serie: 19, 22, 25, 28, …",
-          "correction_nl": "Elke keer +3: 31.",
-          "correction_en": "Add 3 each time: 31.",
-          "correction_es": "Se suma 3 cada vez: 31."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Continue la suite : 7, 12, 17, 22, …",
-          "options": [
-            "30",
-            "27",
-            "31",
-            "24"
-          ],
-          "answer": "27",
-          "correction": "On ajoute 5 à chaque fois : 27.",
-          "prompt_nl": "Maak de rij af: 7, 12, 17, 22, …",
-          "prompt_en": "Continue the sequence: 7, 12, 17, 22, …",
-          "prompt_es": "Continúa la serie: 7, 12, 17, 22, …",
-          "correction_nl": "Elke keer +5: 27.",
-          "correction_en": "Add 5 each time: 27.",
-          "correction_es": "Se suma 5 cada vez: 27."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
-          "options": [
-            "table",
-            "chat",
-            "lapin"
-          ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
-          "options": [
-            "voiture",
-            "pomme",
-            "fraise"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
             "4",
+            "5",
+            "6",
             "7"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "5",
+          "correction": "5!=120.",
+          "correction_nl": "5!=120.",
+          "correction_en": "5!=120.",
+          "correction_es": "5!=120."
         },
         {
-          "id": "q20",
+          "id": "l12-d05",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Série : 1 + 2 + 3 + … + ? = 55",
+          "prompt_nl": "Reeks: 1+2+3+…+? = 55",
+          "prompt_en": "Series: 1+2+3+…+?=55",
+          "prompt_es": "Serie: 1+2+3+…+?=55",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "8",
+            "9",
+            "10",
+            "11"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "10",
+          "correction": "n(n+1)/2=55 → n=10.",
+          "correction_nl": "n(n+1)/2=55 → n=10.",
+          "correction_en": "n(n+1)/2=55 → n=10.",
+          "correction_es": "n(n+1)/2=55 → n=10."
+        },
+        {
+          "id": "l12-d06",
+          "type": "mcq",
+          "prompt": "3^? = 729",
+          "prompt_nl": "3^? = 729",
+          "prompt_en": "3^? = 729",
+          "prompt_es": "3^? = 729",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "answer": "6",
+          "correction": "3⁶=729.",
+          "correction_nl": "3⁶=729.",
+          "correction_en": "3⁶=729.",
+          "correction_es": "3⁶=729."
+        },
+        {
+          "id": "l12-d07",
+          "type": "mcq",
+          "prompt": "C(n,2) = 10. Quelle est n ?",
+          "prompt_nl": "C(n,2) = 10. Wat is n?",
+          "prompt_en": "C(n,2)=10. What is n?",
+          "prompt_es": "C(n,2)=10. ¿Qué es n?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "answer": "5",
+          "correction": "n(n-1)/2=10 → n=5.",
+          "correction_nl": "n(n-1)/2=10 → n=5.",
+          "correction_en": "n(n-1)/2=10 → n=5.",
+          "correction_es": "n(n-1)/2=10 → n=5."
+        },
+        {
+          "id": "l12-d08",
+          "type": "mcq",
+          "prompt": "La somme de ? termes de la suite géométrique 1, 2, 4… vaut 31",
+          "prompt_nl": "De som van ? termen van de meetkundige rij 1,2,4… = 31",
+          "prompt_en": "Sum of ? terms of geometric sequence 1,2,4…=31",
+          "prompt_es": "Suma de ? términos de la sucesión geométrica 1,2,4…=31",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "5",
+          "correction": "S=2^n-1=31 → 2^n=32 → n=5.",
+          "correction_nl": "2^n-1=31, n=5.",
+          "correction_en": "2^n-1=31, n=5.",
+          "correction_es": "2^n-1=31, n=5."
+        },
+        {
+          "id": "l12-d09",
+          "type": "mcq",
+          "prompt": "Dans l'équation Aˣ = B, si A=e et B=e³, x = ?",
+          "prompt_nl": "In Aˣ=B, als A=e en B=e³, x=?",
+          "prompt_en": "In Aˣ=B, if A=e and B=e³, x=?",
+          "prompt_es": "En Aˣ=B, si A=e y B=e³, x=?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "3",
+          "correction": "eˣ=e³ → x=3.",
+          "correction_nl": "eˣ=e³ → x=3.",
+          "correction_en": "eˣ=e³ → x=3.",
+          "correction_es": "eˣ=e³ → x=3."
+        },
+        {
+          "id": "l12-d10",
+          "type": "mcq",
+          "prompt": "? est le nombre dont le carré et le double sont égaux. ? = ?",
+          "prompt_nl": "? is het getal waarvan het kwadraat en het dubbele gelijk zijn.",
+          "prompt_en": "? is the number where its square equals its double.",
+          "prompt_es": "? es el número cuyo cuadrado y el doble son iguales.",
+          "options": [
+            "0 et 2",
+            "1 et 2",
+            "0 et 1",
+            "2 et 4"
+          ],
+          "answer": "0 et 2",
+          "correction": "x²=2x → x(x-2)=0 → x=0 ou 2.",
+          "correction_nl": "x²=2x → x=0 of 2.",
+          "correction_en": "x²=2x → x=0 or 2.",
+          "correction_es": "x²=2x → x=0 o 2."
         }
       ]
     }

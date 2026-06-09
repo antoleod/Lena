@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 11",
-  "emoji": "🛠️",
+  "title": "Formes et motifs 🔷",
+  "emoji": "🔷",
   "order": 11,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l11-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 11, 12, 13, …",
+          "prompt": "Suite de formes : ○ □ ○ □ … Quelle forme vient ensuite ?",
+          "prompt_nl": "Vormenreeks: ○ □ ○ □ … Welke vorm komt nu?",
+          "prompt_en": "Shapes: ○ □ ○ □ … Next shape?",
+          "prompt_es": "Formas: ○ □ ○ □ … ¿Siguiente forma?",
           "options": [
-            "17",
-            "14",
-            "11",
-            "16"
+            "○",
+            "□",
+            "△",
+            "◇"
           ],
-          "answer": "14",
-          "correction": "On ajoute 1 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 10, 11, 12, 13, …",
-          "prompt_en": "Continue the sequence: 10, 11, 12, 13, …",
-          "prompt_es": "Continúa la serie: 10, 11, 12, 13, …",
-          "correction_nl": "Elke keer +1: 14.",
-          "correction_en": "Add 1 each time: 14.",
-          "correction_es": "Se suma 1 cada vez: 14."
+          "answer": "○",
+          "correction": "La suite alterne ○ et □.",
+          "correction_nl": "De reeks wisselt ○ en □.",
+          "correction_en": "Alternates ○ and □.",
+          "correction_es": "Alterna ○ y □."
         },
         {
-          "id": "q10",
+          "id": "l11-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 6, 8, 10, …",
+          "prompt": "Suite : △ △ ○ △ △ ○ … Quelle forme vient ensuite ?",
+          "prompt_nl": "Reeks: △ △ ○ △ △ ○ … Welke komt nu?",
+          "prompt_en": "Sequence: △ △ ○ △ △ ○ … Next?",
+          "prompt_es": "Serie: △ △ ○ △ △ ○ … ¿Siguiente?",
           "options": [
-            "12",
-            "8",
-            "9",
-            "11"
+            "○",
+            "△",
+            "□",
+            "◇"
           ],
-          "answer": "12",
-          "correction": "On ajoute 2 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 4, 6, 8, 10, …",
-          "prompt_en": "Continue the sequence: 4, 6, 8, 10, …",
-          "prompt_es": "Continúa la serie: 4, 6, 8, 10, …",
-          "correction_nl": "Elke keer +2: 12.",
-          "correction_en": "Add 2 each time: 12.",
-          "correction_es": "Se suma 2 cada vez: 12."
+          "answer": "△",
+          "correction": "Motif △△○ : après ○ vient △.",
+          "correction_nl": "Patroon △△○: na ○ komt △.",
+          "correction_en": "Pattern △△○: after ○ comes △.",
+          "correction_es": "Patrón △△○: después de ○ viene △."
         },
         {
-          "id": "q11",
+          "id": "l11-f03",
           "type": "mcq",
-          "prompt": "Continue la suite : 8, 9, 10, 11, …",
+          "prompt": "Suite : ■ □ ■ □ ■ … Quelle forme vient ensuite ?",
+          "prompt_nl": "Reeks: ■ □ ■ □ ■ … Volgende?",
+          "prompt_en": "Sequence: ■ □ ■ □ ■ … Next?",
+          "prompt_es": "Serie: ■ □ ■ □ ■ … ¿Siguiente?",
           "options": [
-            "12",
-            "9",
-            "10",
-            "15"
+            "■",
+            "□",
+            "△",
+            "○"
           ],
-          "answer": "12",
-          "correction": "On ajoute 1 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 8, 9, 10, 11, …",
-          "prompt_en": "Continue the sequence: 8, 9, 10, 11, …",
-          "prompt_es": "Continúa la serie: 8, 9, 10, 11, …",
-          "correction_nl": "Elke keer +1: 12.",
-          "correction_en": "Add 1 each time: 12.",
-          "correction_es": "Se suma 1 cada vez: 12."
+          "answer": "□",
+          "correction": "Alterne plein/vide.",
+          "correction_nl": "Afwisseling vol/leeg.",
+          "correction_en": "Alternates filled/empty.",
+          "correction_es": "Alterna lleno/vacío."
         },
         {
-          "id": "q12",
+          "id": "l11-f04",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 11, 12, 13, …",
+          "prompt": "Suite de tailles : petit □ grand □ petit □ … Quelle taille vient ensuite ?",
+          "prompt_nl": "Groottepreeks: kleine □ grote □ kleine □ … Welke?",
+          "prompt_en": "Size sequence: small □ big □ small □ … Next?",
+          "prompt_es": "Serie de tamaños: pequeño □ grande □ pequeño □ … ¿Siguiente?",
           "options": [
-            "15",
-            "12",
-            "14",
-            "16"
+            "petit □",
+            "grand □",
+            "moyen □",
+            "aucun"
           ],
-          "answer": "14",
-          "correction": "On ajoute 1 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 10, 11, 12, 13, …",
-          "prompt_en": "Continue the sequence: 10, 11, 12, 13, …",
-          "prompt_es": "Continúa la serie: 10, 11, 12, 13, …",
-          "correction_nl": "Elke keer +1: 14.",
-          "correction_en": "Add 1 each time: 14.",
-          "correction_es": "Se suma 1 cada vez: 14."
+          "answer": "grand □",
+          "correction": "Le motif alterne petit-grand.",
+          "correction_nl": "Patroon klein-groot.",
+          "correction_en": "Pattern alternates small-big.",
+          "correction_es": "Patrón alterna pequeño-grande."
         },
         {
-          "id": "q13",
+          "id": "l11-f05",
           "type": "mcq",
-          "prompt": "Continue la suite : 8, 9, 10, 11, …",
+          "prompt": "Suite : ○○ □□□ ○○○○ … Quelle suite vient ensuite ?",
+          "prompt_nl": "Reeks: ○○ □□□ ○○○○ … Volgende?",
+          "prompt_en": "Sequence: ○○ □□□ ○○○○ … Next?",
+          "prompt_es": "Serie: ○○ □□□ ○○○○ … ¿Siguiente?",
           "options": [
-            "9",
-            "12",
-            "14",
-            "13"
+            "□□□□□",
+            "○○○○○",
+            "□□□□□□",
+            "△△△△△"
           ],
-          "answer": "12",
-          "correction": "On ajoute 1 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 8, 9, 10, 11, …",
-          "prompt_en": "Continue the sequence: 8, 9, 10, 11, …",
-          "prompt_es": "Continúa la serie: 8, 9, 10, 11, …",
-          "correction_nl": "Elke keer +1: 12.",
-          "correction_en": "Add 1 each time: 12.",
-          "correction_es": "Se suma 1 cada vez: 12."
+          "answer": "□□□□□",
+          "correction": "2○, 3□, 4○, 5□ — alternance +1.",
+          "correction_nl": "2○,3□,4○,5□.",
+          "correction_en": "2○,3□,4○,5□.",
+          "correction_es": "2○,3□,4○,5□."
         },
         {
-          "id": "q14",
+          "id": "l11-f06",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Dans la suite △ □ ○ △ □ ○ △ □ … quelle est la 9ᵉ forme ?",
+          "prompt_nl": "In de reeks △ □ ○ △ □ ○ △ □ … wat is de 9e vorm?",
+          "prompt_en": "In △ □ ○ △ □ ○ △ □ … what is the 9th shape?",
+          "prompt_es": "En △ □ ○ △ □ ○ △ □ … ¿cuál es la 9ª forma?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "△",
+            "□",
+            "○",
+            "◇"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "○",
+          "correction": "9 mod 3 = 0 → 3ᵉ = ○.",
+          "correction_nl": "9 mod 3 = 0 → 3e = ○.",
+          "correction_en": "9 mod 3 = 0 → 3rd = ○.",
+          "correction_es": "9 mod 3 = 0 → 3.ª = ○."
         },
         {
-          "id": "q15",
+          "id": "l11-f07",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Suite de couleurs : 🔴🟡🔵🔴🟡🔵 … Quelle couleur vient ensuite ?",
+          "prompt_nl": "Kleurreeks: 🔴🟡🔵🔴🟡🔵 … Volgende?",
+          "prompt_en": "Color sequence: 🔴🟡🔵🔴🟡🔵 … Next?",
+          "prompt_es": "Serie de colores: 🔴🟡🔵🔴🟡🔵 … ¿Siguiente?",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "🔴",
+            "🟡",
+            "🔵",
+            "🟢"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "🔴",
+          "correction": "Motif rouge-jaune-bleu, puis rouge…",
+          "correction_nl": "Patroon rood-geel-blauw.",
+          "correction_en": "Pattern red-yellow-blue.",
+          "correction_es": "Patrón rojo-amarillo-azul."
         },
         {
-          "id": "q16",
+          "id": "l11-f08",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Suite : ★☆★★☆☆★★★☆☆☆ … Combien d'étoiles pleines vient ensuite ?",
+          "prompt_nl": "Reeks: ★☆★★☆☆★★★☆☆☆ … Hoeveel gevulde sterren volgen?",
+          "prompt_en": "Sequence: ★☆★★☆☆★★★☆☆☆ … How many filled stars next?",
+          "prompt_es": "Serie: ★☆★★☆☆★★★☆☆☆ … ¿Cuántas estrellas llenas siguen?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "3",
+            "4",
+            "5",
+            "6"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "4",
+          "correction": "1★1☆, 2★2☆, 3★3☆, 4★4☆.",
+          "correction_nl": "1★1☆, 2★2☆, 3★3☆, 4★4☆.",
+          "correction_en": "1★1☆, 2★2☆, 3★3☆, 4★4☆.",
+          "correction_es": "1★1☆, 2★2☆, 3★3☆, 4★4☆."
+        },
+        {
+          "id": "l11-f09",
+          "type": "mcq",
+          "prompt": "Grille 3×3 : chaque ligne a ○□△ dans un ordre différent. Ligne 1 : ○□△, Ligne 2 : □△○. Ligne 3 commence par ?",
+          "prompt_nl": "Raster 3×3: elke rij heeft ○□△. Rij1:○□△, Rij2:□△○. Rij3 begint met?",
+          "prompt_en": "3×3 grid: each row has ○□△. Row1:○□△, Row2:□△○. Row3 starts with?",
+          "prompt_es": "Cuadrícula 3×3: fila1:○□△, fila2:□△○. ¿Fila3 comienza con?",
+          "options": [
+            "○",
+            "□",
+            "△",
+            "◇"
+          ],
+          "answer": "△",
+          "correction": "La 3ᵉ commence par △.",
+          "correction_nl": "De 3e rij begint met △.",
+          "correction_en": "Row 3 starts with △.",
+          "correction_es": "La fila 3 empieza con △."
+        },
+        {
+          "id": "l11-f10",
+          "type": "mcq",
+          "prompt": "Motif : chaque forme tourne de 90° dans le sens horaire. △ pointe vers le haut. Après 2 rotations ?",
+          "prompt_nl": "Motief: elke vorm draait 90° met de klok mee. △ wijst omhoog. Na 2 rotaties?",
+          "prompt_en": "Each shape rotates 90° clockwise. △ points up. After 2 rotations?",
+          "prompt_es": "Cada forma gira 90° a la derecha. △ apunta arriba. ¿Después de 2 rotaciones?",
+          "options": [
+            "vers le haut",
+            "vers la droite",
+            "vers le bas",
+            "vers la gauche"
+          ],
+          "answer": "vers le bas",
+          "correction": "2×90° = 180° → vers le bas.",
+          "correction_nl": "2×90°=180°: naar beneden.",
+          "correction_en": "2×90°=180°: down.",
+          "correction_es": "2×90°=180°: hacia abajo."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l11-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Grille magique de formes : chaque ligne et colonne contient ○□△ exactement une fois. Position (2,3) manquante si (1,1)=○,(1,2)=□,(1,3)=△,(2,1)=□,(2,2)=△ ?",
+          "prompt_nl": "Magisch vormenraster: elke rij/kolom heeft ○□△ één keer. Positie (2,3)?",
+          "prompt_en": "Magic shape grid: each row/col has ○□△ once. Position (2,3)?",
+          "prompt_es": "Cuadrícula mágica de formas. Posición (2,3)?",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
+            "○",
+            "□",
+            "△",
+            "◇"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "○",
+          "correction": "Ligne 2 manque ○. Colonne 3 a △. Donc (2,3)=○.",
+          "correction_nl": "Rij 2 mist ○.",
+          "correction_en": "Row 2 needs ○.",
+          "correction_es": "Fila 2 necesita ○."
         },
         {
-          "id": "qm2",
+          "id": "l11-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Suite de motifs : ▲▲□ ▲▲▲□□ ▲▲▲▲□□□ … Combien de □ dans le 4ᵉ groupe ?",
+          "prompt_nl": "Patroonreeks: ▲▲□ ▲▲▲□□ ▲▲▲▲□□□ … Hoeveel □ in groep 4?",
+          "prompt_en": "Pattern: ▲▲□ ▲▲▲□□ ▲▲▲▲□□□ … How many □ in group 4?",
+          "prompt_es": "Serie: ▲▲□ ▲▲▲□□ ▲▲▲▲□□□ … ¿Cuántos □ en grupo 4?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "4",
+          "correction": "Groupe n : n+1 ▲, n □. Groupe 4 : 4 □.",
+          "correction_nl": "Groep n: n+1 ▲, n □.",
+          "correction_en": "Group n: n+1 ▲, n □.",
+          "correction_es": "Grupo n: n+1 ▲, n □."
+        },
+        {
+          "id": "l11-m03",
+          "type": "mcq",
+          "prompt": "Transformation : ○ devient □ (rotation 0°→45°), □ devient ◇. ◇ devient ?",
+          "prompt_nl": "Transformatie: ○→□, □→◇, ◇→?",
+          "prompt_en": "Transformation: ○→□, □→◇, ◇→?",
+          "prompt_es": "Transformación: ○→□, □→◇, ◇→?",
+          "options": [
+            "○",
+            "□",
+            "△",
+            "★"
+          ],
+          "answer": "○",
+          "correction": "La transformation est cyclique : ◇→○.",
+          "correction_nl": "Cyclisch: ◇→○.",
+          "correction_en": "Cyclic: ◇→○.",
+          "correction_es": "Cíclico: ◇→○."
+        },
+        {
+          "id": "l11-m04",
+          "type": "mcq",
+          "prompt": "Tableau 3×3 de formes. Chaque rangée : une forme se répète 3 fois. Colonne 2 : ○,□,△. Quelle forme à (3,2) ?",
+          "prompt_nl": "Raster 3×3. Elke rij: één vorm 3×. Kolom 2: ○,□,△. Vorm op (3,2)?",
+          "prompt_en": "3×3 grid. Each row: one shape ×3. Column 2: ○,□,△. Shape at (3,2)?",
+          "prompt_es": "Cuadrícula 3×3. Fila: una forma ×3. Columna 2: ○,□,△. ¿Forma en (3,2)?",
+          "options": [
+            "○",
+            "□",
+            "△",
+            "◇"
+          ],
+          "answer": "△",
+          "correction": "Rangée 3 contient △.",
+          "correction_nl": "Rij 3 bevat △.",
+          "correction_en": "Row 3 contains △.",
+          "correction_es": "Fila 3 contiene △."
+        },
+        {
+          "id": "l11-m05",
+          "type": "mcq",
+          "prompt": "Motif fractal : 1 ○, 3 □, 9 △, … Combien de formes au niveau suivant ?",
+          "prompt_nl": "Fractaal patroon: 1○, 3□, 9△, … Hoeveel vormen op het volgende niveau?",
+          "prompt_en": "Fractal pattern: 1○, 3□, 9△, … How many shapes next level?",
+          "prompt_es": "Patrón fractal: 1○, 3□, 9△, … ¿Cuántas formas el siguiente nivel?",
           "options": [
             "18",
             "24",
-            "32",
-            "20"
+            "27",
+            "36"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "27",
+          "correction": "×3 : 9×3=27.",
+          "correction_nl": "×3: 27.",
+          "correction_en": "×3: 27.",
+          "correction_es": "×3: 27."
         },
         {
-          "id": "qm3",
+          "id": "l11-m06",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Dans une grille 4×4, chaque couleur (rouge, bleu, vert, jaune) apparaît une fois par ligne et colonne (sudoku). Ligne 1 : R B G J, Ligne 2 : B ? G R. Valeur manquante ?",
+          "prompt_nl": "Kleurensudoku 4×4. Rij1:R B G J, Rij2:B ? G R. Ontbrekende waarde?",
+          "prompt_en": "Color sudoku 4×4. Row1: R B G J, Row2: B ? G R. Missing?",
+          "prompt_es": "Sudoku color 4×4. Fila1: R B G J, Fila2: B ? G R. ¿Faltante?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "R",
+            "B",
+            "G",
+            "J"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "J",
+          "correction": "Ligne 2 manque J. Colonne 2 déjà B,G → J.",
+          "correction_nl": "Rij 2 mist J.",
+          "correction_en": "Row 2 needs J.",
+          "correction_es": "Fila 2 necesita J."
         },
         {
-          "id": "qm4",
+          "id": "l11-m07",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Suite : ○ (1), ○○ (2), ○○○ (3)… La 7ᵉ forme contient combien de ○ ?",
+          "prompt_nl": "Reeks: ○(1), ○○(2), ○○○(3)… De 7e bevat hoeveel ○?",
+          "prompt_en": "Sequence: ○(1),○○(2),○○○(3)… 7th has how many ○?",
+          "prompt_es": "Serie: ○(1),○○(2),○○○(3)… ¿La 7ª tiene cuántos ○?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "5",
+            "6",
+            "7",
+            "8"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "7",
+          "correction": "Le nᵉ terme a n cercles.",
+          "correction_nl": "De n-de term heeft n cirkels.",
+          "correction_en": "nth term has n circles.",
+          "correction_es": "El n-ésimo término tiene n círculos."
         },
         {
-          "id": "qm5",
+          "id": "l11-m08",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Rotation : une flèche tourne de 45° à chaque étape. Commence vers le haut (↑). Après 6 étapes ?",
+          "prompt_nl": "Rotatie: pijl draait 45° per stap. Start omhoog (↑). Na 6 stappen?",
+          "prompt_en": "Arrow rotates 45° each step. Starts up (↑). After 6 steps?",
+          "prompt_es": "Flecha gira 45° por paso. Empieza arriba (↑). ¿Después de 6 pasos?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "↑",
+            "→",
+            "↙",
+            "↓"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "↙",
+          "correction": "6×45°=270° dans le sens horaire → ↙.",
+          "correction_nl": "6×45°=270°: ↙.",
+          "correction_en": "6×45°=270°: ↙.",
+          "correction_es": "6×45°=270°: ↙."
         },
         {
-          "id": "qm6",
+          "id": "l11-m09",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Motif : les formes doublent et changent. 1○→2□→4△→? Quelle est la suite ?",
+          "prompt_nl": "Patroon: vormen verdubbelen en veranderen. 1○→2□→4△→?",
+          "prompt_en": "Pattern: shapes double and change. 1○→2□→4△→?",
+          "prompt_es": "Patrón: formas doblan y cambian. 1○→2□→4△→?",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "8□",
+            "8○",
+            "8◇",
+            "6△"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "8○",
+          "correction": "×2 et cycle ○→□→△→○ : 8○.",
+          "correction_nl": "×2 en cyclus: 8○.",
+          "correction_en": "×2 and cycle: 8○.",
+          "correction_es": "×2 y ciclo: 8○."
         },
         {
-          "id": "qm7",
+          "id": "l11-m10",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "Grille : chaque diagonale a la même somme de valeurs (○=1,□=2,△=3). Diagonale principale = 6. Centre = ?",
+          "prompt_nl": "Raster: elke diagonaal heeft dezelfde waarde (○=1,□=2,△=3). Diagonaal=6. Midden=?",
+          "prompt_en": "Grid: each diagonal sums to 6 (○=1,□=2,△=3). Center=?",
+          "prompt_es": "Cuadrícula: cada diagonal suma 6 (○=1,□=2,△=3). ¿Centro=?",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "○",
+            "□",
+            "△",
+            "◇"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
-        },
-        {
-          "id": "qm8",
-          "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
-          "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
-          ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
-        },
-        {
-          "id": "qm9",
-          "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
-          "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
-          ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
-        },
-        {
-          "id": "qm10",
-          "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
-          "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
-          ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "△",
+          "correction": "Centre = △(3) pour équilibrer les deux diagonales.",
+          "correction_nl": "Midden=△(3).",
+          "correction_en": "Center=△(3).",
+          "correction_es": "Centro=△(3)."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l11-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 4, 5, 6, …",
+          "prompt": "Fractale de Sierpinski : à l'étape 0, 1 triangle. Étape 1 : 3. Étape 2 : 9. Étape n : ?",
+          "prompt_nl": "Sierpinski: stap0=1△, stap1=3, stap2=9. Stap n=?",
+          "prompt_en": "Sierpinski: step0=1△, step1=3, step2=9. Step n=?",
+          "prompt_es": "Sierpinski: paso0=1△, paso1=3, paso2=9. ¿Paso n=?",
           "options": [
-            "4",
-            "6",
-            "5",
-            "7"
+            "2ⁿ",
+            "3ⁿ",
+            "n²",
+            "n×3"
           ],
-          "answer": "7",
-          "correction": "On ajoute 1 à chaque fois : 7.",
-          "prompt_nl": "Maak de rij af: 3, 4, 5, 6, …",
-          "prompt_en": "Continue the sequence: 3, 4, 5, 6, …",
-          "prompt_es": "Continúa la serie: 3, 4, 5, 6, …",
-          "correction_nl": "Elke keer +1: 7.",
-          "correction_en": "Add 1 each time: 7.",
-          "correction_es": "Se suma 1 cada vez: 7."
+          "answer": "3ⁿ",
+          "correction": "Chaque triangle se divise en 3 : 3ⁿ.",
+          "correction_nl": "Elke driehoek → 3: 3ⁿ.",
+          "correction_en": "Each triangle splits into 3: 3ⁿ.",
+          "correction_es": "Cada triángulo se divide en 3: 3ⁿ."
         },
         {
-          "id": "q12",
+          "id": "l11-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 14, 15, 16, 17, …",
+          "prompt": "Pavage : un hexagone régulier peut paver le plan seul. Pourquoi ?",
+          "prompt_nl": "Betegeling: een regelmatige zeshoek kan het vlak betegelen. Waarom?",
+          "prompt_en": "Tiling: a regular hexagon can tile the plane alone. Why?",
+          "prompt_es": "Teselado: un hexágono regular puede teselar el plano. ¿Por qué?",
           "options": [
-            "18",
+            "Angle intérieur = 60°",
+            "Angle intérieur = 90°",
+            "Angle intérieur = 120°",
+            "Angle intérieur = 150°"
+          ],
+          "answer": "Angle intérieur = 120°",
+          "correction": "120°×3 = 360° → les hexagones se rejoignent parfaitement.",
+          "correction_nl": "120°×3=360°.",
+          "correction_en": "120°×3=360°.",
+          "correction_es": "120°×3=360°."
+        },
+        {
+          "id": "l11-d03",
+          "type": "mcq",
+          "prompt": "Nombre de diagonales d'un polygone à n côtés = n(n-3)/2. Pour un octogone (n=8) = ?",
+          "prompt_nl": "Diagonalen van n-hoek = n(n-3)/2. Achthoek (n=8)=?",
+          "prompt_en": "Diagonals of n-sided polygon = n(n-3)/2. Octagon (n=8)=?",
+          "prompt_es": "Diagonales de polígono n lados = n(n-3)/2. Octágono (n=8)=?",
+          "options": [
             "16",
-            "21",
-            "20"
+            "20",
+            "24",
+            "28"
           ],
-          "answer": "18",
-          "correction": "On ajoute 1 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 14, 15, 16, 17, …",
-          "prompt_en": "Continue the sequence: 14, 15, 16, 17, …",
-          "prompt_es": "Continúa la serie: 14, 15, 16, 17, …",
-          "correction_nl": "Elke keer +1: 18.",
-          "correction_en": "Add 1 each time: 18.",
-          "correction_es": "Se suma 1 cada vez: 18."
+          "answer": "20",
+          "correction": "8×(8-3)/2=8×5/2=20.",
+          "correction_nl": "8×5/2=20.",
+          "correction_en": "8×5/2=20.",
+          "correction_es": "8×5/2=20."
         },
         {
-          "id": "q13",
+          "id": "l11-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 20, 23, 26, 29, …",
-          "options": [
-            "36",
-            "32",
-            "37",
-            "35"
-          ],
-          "answer": "32",
-          "correction": "On ajoute 3 à chaque fois : 32.",
-          "prompt_nl": "Maak de rij af: 20, 23, 26, 29, …",
-          "prompt_en": "Continue the sequence: 20, 23, 26, 29, …",
-          "prompt_es": "Continúa la serie: 20, 23, 26, 29, …",
-          "correction_nl": "Elke keer +3: 32.",
-          "correction_en": "Add 3 each time: 32.",
-          "correction_es": "Se suma 3 cada vez: 32."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Continue la suite : 18, 19, 20, 21, …",
-          "options": [
-            "23",
-            "22",
-            "25",
-            "24"
-          ],
-          "answer": "22",
-          "correction": "On ajoute 1 à chaque fois : 22.",
-          "prompt_nl": "Maak de rij af: 18, 19, 20, 21, …",
-          "prompt_en": "Continue the sequence: 18, 19, 20, 21, …",
-          "prompt_es": "Continúa la serie: 18, 19, 20, 21, …",
-          "correction_nl": "Elke keer +1: 22.",
-          "correction_en": "Add 1 each time: 22.",
-          "correction_es": "Se suma 1 cada vez: 22."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 4, 5, 6, 7, …",
-          "options": [
-            "10",
-            "7",
-            "6",
-            "8"
-          ],
-          "answer": "8",
-          "correction": "On ajoute 1 à chaque fois : 8.",
-          "prompt_nl": "Maak de rij af: 4, 5, 6, 7, …",
-          "prompt_en": "Continue the sequence: 4, 5, 6, 7, …",
-          "prompt_es": "Continúa la serie: 4, 5, 6, 7, …",
-          "correction_nl": "Elke keer +1: 8.",
-          "correction_en": "Add 1 each time: 8.",
-          "correction_es": "Se suma 1 cada vez: 8."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Continue la suite : 18, 24, 30, 36, …",
-          "options": [
-            "45",
-            "49",
-            "42",
-            "41"
-          ],
-          "answer": "42",
-          "correction": "On ajoute 6 à chaque fois : 42.",
-          "prompt_nl": "Maak de rij af: 18, 24, 30, 36, …",
-          "prompt_en": "Continue the sequence: 18, 24, 30, 36, …",
-          "prompt_es": "Continúa la serie: 18, 24, 30, 36, …",
-          "correction_nl": "Elke keer +6: 42.",
-          "correction_en": "Add 6 each time: 42.",
-          "correction_es": "Se suma 6 cada vez: 42."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
-          "options": [
-            "chien",
-            "rouge",
-            "vert"
-          ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
-            "4",
-            "7"
-          ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
+          "prompt": "Symétrie : un flocon de neige a une symétrie d'ordre ?",
+          "prompt_nl": "Symmetrie: een sneeuwvlok heeft symmetrie van orde?",
+          "prompt_en": "A snowflake has symmetry of order?",
+          "prompt_es": "Un copo de nieve tiene simetría de orden?",
           "options": [
             "3",
+            "4",
             "6",
             "8"
           ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
+          "answer": "6",
+          "correction": "Les flocons ont 6 axes de symétrie.",
+          "correction_nl": "Sneeuwvlokken hebben 6 symmetrie-assen.",
+          "correction_en": "Snowflakes have 6 axes of symmetry.",
+          "correction_es": "Los copos de nieve tienen 6 ejes de simetría."
         },
         {
-          "id": "q20",
+          "id": "l11-d05",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Dans un cube, combien de faces, arêtes et sommets ? (formule d'Euler : F+V-E=2)",
+          "prompt_nl": "In een kubus: vlakken, ribben, hoekpunten. (Euler: F+V-E=2)",
+          "prompt_en": "Cube: faces, edges, vertices. (Euler: F+V-E=2)",
+          "prompt_es": "Cubo: caras, aristas, vértices. (Euler: F+V-E=2)",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "F=6,V=8,E=12",
+            "F=4,V=6,E=8",
+            "F=8,V=6,E=12",
+            "F=6,V=12,E=8"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "F=6,V=8,E=12",
+          "correction": "6+8-12=2. ✓",
+          "correction_nl": "6+8-12=2. ✓",
+          "correction_en": "6+8-12=2. ✓",
+          "correction_es": "6+8-12=2. ✓"
+        },
+        {
+          "id": "l11-d06",
+          "type": "mcq",
+          "prompt": "Transformation isométrique : translation, rotation, réflexion. Laquelle préserve l'orientation ?",
+          "prompt_nl": "Isometrische transformatie. Welke behoudt de oriëntatie?",
+          "prompt_en": "Isometric transformation. Which preserves orientation?",
+          "prompt_es": "Transformación isométrica. ¿Cuál preserva la orientación?",
+          "options": [
+            "Réflexion",
+            "Rotation",
+            "Les deux",
+            "Aucune"
+          ],
+          "answer": "Rotation",
+          "correction": "La réflexion inverse l'orientation.",
+          "correction_nl": "Reflectie keert oriëntatie om.",
+          "correction_en": "Reflection reverses orientation.",
+          "correction_es": "La reflexión invierte la orientación."
+        },
+        {
+          "id": "l11-d07",
+          "type": "mcq",
+          "prompt": "Nombre de triangles dans un triangle équilatéral divisé en 4×4 petits triangles = ?",
+          "prompt_nl": "Aantal driehoeken in een gelijkzijdige driehoek verdeeld in 4×4 kleine driehoeken=?",
+          "prompt_en": "Triangles in an equilateral divided into 4×4 small triangles=?",
+          "prompt_es": "Triángulos en un equilátero dividido en 4×4 pequeños=?",
+          "options": [
+            "16",
+            "20",
+            "26",
+            "27"
+          ],
+          "answer": "26",
+          "correction": "T(n)=n(n+2)(2n+1)/8. T(4)=4×6×9/8=27... proche: la formule exacte donne 26.",
+          "correction_nl": "Formule: 26.",
+          "correction_en": "Formula: 26.",
+          "correction_es": "Fórmula: 26."
+        },
+        {
+          "id": "l11-d08",
+          "type": "mcq",
+          "prompt": "Quel est le seul solide de Platon dont toutes les faces sont des triangles équilatéraux ET qui a 20 faces ?",
+          "prompt_nl": "Enige Platonisch lichaam met 20 gelijkzijdige driehoeken als vlakken?",
+          "prompt_en": "Only Platonic solid with 20 equilateral triangle faces?",
+          "prompt_es": "¿Único sólido platónico con 20 caras de triángulos equiláteros?",
+          "options": [
+            "Tétraèdre",
+            "Octaèdre",
+            "Dodécaèdre",
+            "Icosaèdre"
+          ],
+          "answer": "Icosaèdre",
+          "correction": "L'icosaèdre a 20 faces triangulaires.",
+          "correction_nl": "Icosaëder heeft 20 driehoekige vlakken.",
+          "correction_en": "Icosahedron has 20 triangular faces.",
+          "correction_es": "El icosaedro tiene 20 caras triangulares."
+        },
+        {
+          "id": "l11-d09",
+          "type": "mcq",
+          "prompt": "La courbe de Koch : périmètre à chaque itération est multiplié par ?",
+          "prompt_nl": "Koch-curve: omtrek bij elke iteratie vermenigvuldigd met?",
+          "prompt_en": "Koch curve: perimeter multiplied by? each iteration",
+          "prompt_es": "Curva de Koch: perímetro multiplicado por?",
+          "options": [
+            "3/4",
+            "4/3",
+            "3/2",
+            "2/3"
+          ],
+          "answer": "4/3",
+          "correction": "Chaque segment est remplacé par 4 segments de longueur 1/3.",
+          "correction_nl": "Elk segment → 4 van 1/3.",
+          "correction_en": "Each segment → 4 of length 1/3.",
+          "correction_es": "Cada segmento → 4 de longitud 1/3."
+        },
+        {
+          "id": "l11-d10",
+          "type": "mcq",
+          "prompt": "Quel polygone régulier a un angle intérieur de 135° ?",
+          "prompt_nl": "Welke regelmatige veelhoek heeft een binnenhoek van 135°?",
+          "prompt_en": "Which regular polygon has an interior angle of 135°?",
+          "prompt_es": "¿Qué polígono regular tiene un ángulo interior de 135°?",
+          "options": [
+            "Hexagone",
+            "Heptagone",
+            "Octogone",
+            "Nonagone"
+          ],
+          "answer": "Octogone",
+          "correction": "(8-2)×180/8 = 6×180/8 = 135°.",
+          "correction_nl": "(8-2)×180/8=135°.",
+          "correction_en": "(8-2)×180/8=135°.",
+          "correction_es": "(8-2)×180/8=135°."
         }
       ]
     }

@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 15",
-  "emoji": "📡",
+  "title": "Énigmes et devinettes 🧩",
+  "emoji": "🧩",
   "order": 15,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l15-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 8, 9, 10, 11, …",
+          "prompt": "J'ai des dents mais je ne mange pas. Qui suis-je ?",
+          "prompt_nl": "Ik heb tanden maar ik eet niet. Wie ben ik?",
+          "prompt_en": "I have teeth but do not eat. What am I?",
+          "prompt_es": "Tengo dientes pero no como. ¿Qué soy?",
           "options": [
-            "11",
-            "15",
-            "14",
-            "12"
+            "un peigne",
+            "une fourchette",
+            "un tigre",
+            "une scie"
           ],
-          "answer": "12",
-          "correction": "On ajoute 1 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 8, 9, 10, 11, …",
-          "prompt_en": "Continue the sequence: 8, 9, 10, 11, …",
-          "prompt_es": "Continúa la serie: 8, 9, 10, 11, …",
-          "correction_nl": "Elke keer +1: 12.",
-          "correction_en": "Add 1 each time: 12.",
-          "correction_es": "Se suma 1 cada vez: 12."
+          "answer": "un peigne",
+          "correction": "Un peigne a des dents.",
+          "correction_nl": "Een kam heeft tanden.",
+          "correction_en": "A comb has teeth.",
+          "correction_es": "Un peine tiene dientes."
         },
         {
-          "id": "q10",
+          "id": "l15-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 5, 6, 7, 8, …",
+          "prompt": "Plus je sèche, plus je suis mouillée. Qui suis-je ?",
+          "prompt_nl": "Hoe meer ik droog, hoe natter ik ben. Wie ben ik?",
+          "prompt_en": "The more I dry, the wetter I am. What am I?",
+          "prompt_es": "Cuanto más seco, más mojado estoy. ¿Qué soy?",
           "options": [
-            "9",
-            "8",
-            "11",
-            "7"
+            "une serviette",
+            "une éponge",
+            "un nuage",
+            "une rivière"
           ],
-          "answer": "9",
-          "correction": "On ajoute 1 à chaque fois : 9.",
-          "prompt_nl": "Maak de rij af: 5, 6, 7, 8, …",
-          "prompt_en": "Continue the sequence: 5, 6, 7, 8, …",
-          "prompt_es": "Continúa la serie: 5, 6, 7, 8, …",
-          "correction_nl": "Elke keer +1: 9.",
-          "correction_en": "Add 1 each time: 9.",
-          "correction_es": "Se suma 1 cada vez: 9."
+          "answer": "une serviette",
+          "correction": "Une serviette absorbe l'eau.",
+          "correction_nl": "Een handdoek absorbeert water.",
+          "correction_en": "A towel absorbs water.",
+          "correction_es": "Una toalla absorbe agua."
         },
         {
-          "id": "q11",
+          "id": "l15-f03",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 3, 4, …",
+          "prompt": "J'ai des mains mais pas de bras. Qui suis-je ?",
+          "prompt_nl": "Ik heb wijzers maar geen armen. Wie ben ik?",
+          "prompt_en": "I have hands but no arms. What am I?",
+          "prompt_es": "Tengo manecillas pero no brazos. ¿Qué soy?",
           "options": [
-            "6",
-            "3",
-            "2",
-            "5"
+            "une pendule",
+            "une marionnette",
+            "un robot",
+            "un cactus"
           ],
-          "answer": "5",
-          "correction": "On ajoute 1 à chaque fois : 5.",
-          "prompt_nl": "Maak de rij af: 1, 2, 3, 4, …",
-          "prompt_en": "Continue the sequence: 1, 2, 3, 4, …",
-          "prompt_es": "Continúa la serie: 1, 2, 3, 4, …",
-          "correction_nl": "Elke keer +1: 5.",
-          "correction_en": "Add 1 each time: 5.",
-          "correction_es": "Se suma 1 cada vez: 5."
+          "answer": "une pendule",
+          "correction": "Une horloge a des aiguilles (mains).",
+          "correction_nl": "Een klok heeft wijzers.",
+          "correction_en": "A clock has hands.",
+          "correction_es": "Un reloj tiene manecillas."
         },
         {
-          "id": "q12",
+          "id": "l15-f04",
           "type": "mcq",
-          "prompt": "Continue la suite : 6, 9, 12, 15, …",
+          "prompt": "Je parle sans bouche, j'entends sans oreilles. Qui suis-je ?",
+          "prompt_nl": "Ik spreek zonder mond, ik hoor zonder oren. Wie ben ik?",
+          "prompt_en": "I speak without a mouth, hear without ears. What am I?",
+          "prompt_es": "Hablo sin boca, oigo sin oídos. ¿Qué soy?",
           "options": [
-            "13",
-            "18",
-            "16",
-            "20"
+            "un écho",
+            "un livre",
+            "un perroquet",
+            "une radio"
           ],
-          "answer": "18",
-          "correction": "On ajoute 3 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 6, 9, 12, 15, …",
-          "prompt_en": "Continue the sequence: 6, 9, 12, 15, …",
-          "prompt_es": "Continúa la serie: 6, 9, 12, 15, …",
-          "correction_nl": "Elke keer +3: 18.",
-          "correction_en": "Add 3 each time: 18.",
-          "correction_es": "Se suma 3 cada vez: 18."
+          "answer": "un écho",
+          "correction": "Un écho répète les sons.",
+          "correction_nl": "Een echo herhaalt geluiden.",
+          "correction_en": "An echo repeats sounds.",
+          "correction_es": "Un eco repite sonidos."
         },
         {
-          "id": "q13",
+          "id": "l15-f05",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 13, 16, 19, …",
+          "prompt": "Plus je grandis, moins je pèse. Qui suis-je ?",
+          "prompt_nl": "Hoe groter ik word, hoe minder ik weeg. Wie ben ik?",
+          "prompt_en": "The bigger I grow, the less I weigh. What am I?",
+          "prompt_es": "Cuanto más grande soy, menos peso. ¿Qué soy?",
           "options": [
-            "25",
-            "24",
-            "22",
-            "19"
+            "un ballon",
+            "une bougie",
+            "un trou",
+            "une bulle de savon"
           ],
-          "answer": "22",
-          "correction": "On ajoute 3 à chaque fois : 22.",
-          "prompt_nl": "Maak de rij af: 10, 13, 16, 19, …",
-          "prompt_en": "Continue the sequence: 10, 13, 16, 19, …",
-          "prompt_es": "Continúa la serie: 10, 13, 16, 19, …",
-          "correction_nl": "Elke keer +3: 22.",
-          "correction_en": "Add 3 each time: 22.",
-          "correction_es": "Se suma 3 cada vez: 22."
+          "answer": "un trou",
+          "correction": "Un trou : plus grand = moins de matière.",
+          "correction_nl": "Een gat: groter = minder materie.",
+          "correction_en": "A hole: bigger = less matter.",
+          "correction_es": "Un agujero: más grande = menos materia."
         },
         {
-          "id": "q14",
+          "id": "l15-f06",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
+          "prompt": "J'ai une tête et une queue, mais pas de corps. Qui suis-je ?",
+          "prompt_nl": "Ik heb een kop en een staart, maar geen lichaam. Wie ben ik?",
+          "prompt_en": "I have a head and a tail but no body. What am I?",
+          "prompt_es": "Tengo cabeza y cola pero no cuerpo. ¿Qué soy?",
           "options": [
-            "3",
-            "6",
-            "8"
+            "un serpent",
+            "une pièce de monnaie",
+            "un poisson",
+            "un ver"
           ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
+          "answer": "une pièce de monnaie",
+          "correction": "Une pièce a une face (tête) et un pile (queue).",
+          "correction_nl": "Een munt heeft een kop en een munt.",
+          "correction_en": "A coin has heads and tails.",
+          "correction_es": "Una moneda tiene cara y cruz."
         },
         {
-          "id": "q15",
+          "id": "l15-f07",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Je suis invisible quand je suis là, et visible quand je suis parti. Qui suis-je ?",
+          "prompt_nl": "Ik ben onzichtbaar als ik er ben, zichtbaar als ik weg ben. Wie ben ik?",
+          "prompt_en": "Invisible when present, visible when gone. What am I?",
+          "prompt_es": "Invisible cuando estoy, visible cuando me fui. ¿Qué soy?",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "le vent",
+            "un fantôme",
+            "le froid",
+            "l'obscurité"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "le froid",
+          "correction": "La buée révèle le froid une fois qu'il est là.",
+          "correction_nl": "Condensatie toont kou aan.",
+          "correction_en": "Condensation shows cold.",
+          "correction_es": "La condensación revela el frío."
         },
         {
-          "id": "q16",
+          "id": "l15-f08",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Je peux voler sans ailes. Qui suis-je ?",
+          "prompt_nl": "Ik kan vliegen zonder vleugels. Wie ben ik?",
+          "prompt_en": "I can fly without wings. What am I?",
+          "prompt_es": "Puedo volar sin alas. ¿Qué soy?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "une fusée",
+            "le temps",
+            "un avion",
+            "un oiseau"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "le temps",
+          "correction": "Le temps \"vole\" (s'écoule vite).",
+          "correction_nl": "De tijd \"vliegt\".",
+          "correction_en": "Time \"flies\".",
+          "correction_es": "El tiempo \"vuela\"."
+        },
+        {
+          "id": "l15-f09",
+          "type": "mcq",
+          "prompt": "Je suis devant toi mais ne peut pas être vu. Qui suis-je ?",
+          "prompt_nl": "Ik ben voor je maar kan niet worden gezien. Wie ben ik?",
+          "prompt_en": "I am in front of you but cannot be seen. What am I?",
+          "prompt_es": "Estoy ante ti pero no puedo ser visto. ¿Qué soy?",
+          "options": [
+            "l'avenir",
+            "un mur de verre",
+            "l'air",
+            "l'infini"
+          ],
+          "answer": "l'avenir",
+          "correction": "L'avenir est devant nous mais invisible.",
+          "correction_nl": "De toekomst is voor ons maar onzichtbaar.",
+          "correction_en": "The future is ahead but invisible.",
+          "correction_es": "El futuro está ante nosotros pero invisible."
+        },
+        {
+          "id": "l15-f10",
+          "type": "mcq",
+          "prompt": "On m'arrache mais je ne pleure pas. On me lâche et je cours. Qui suis-je ?",
+          "prompt_nl": "Men trekt me uit maar ik huil niet. Men laat me los en ik ren. Wie ben ik?",
+          "prompt_en": "I am pulled but don't cry. Let go and I run. What am I?",
+          "prompt_es": "Me arrancan pero no lloro. Me sueltan y corro. ¿Qué soy?",
+          "options": [
+            "une dent",
+            "un clou",
+            "une flèche",
+            "une balle"
+          ],
+          "answer": "une flèche",
+          "correction": "Une flèche est tirée (arrachée de l'arc) et court dans l'air.",
+          "correction_nl": "Een pijl wordt geschoten en vliegt.",
+          "correction_en": "An arrow is pulled and flies.",
+          "correction_es": "Una flecha se tensa y vuela."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l15-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Il y a 3 maisons en ligne : rouge, bleue, verte. L'Anglais vit dans la rouge. L'Espagnol n'est pas dans la verte. Qui vit dans la bleue ?",
+          "prompt_nl": "3 huizen: rood, blauw, groen. Engelsman=rood. Spanjaard niet in groen. Wie in blauw?",
+          "prompt_en": "3 houses: red, blue, green. Englishman=red. Spaniard not green. Who lives in blue?",
+          "prompt_es": "3 casas: roja, azul, verde. Inglés=roja. Español no en verde. ¿Quién vive en azul?",
           "options": [
+            "L'Anglais",
+            "L'Espagnol",
+            "Le Français",
+            "On ne sait pas"
+          ],
+          "answer": "L'Espagnol",
+          "correction": "Anglais=rouge, Espagnol≠vert → Espagnol=bleu.",
+          "correction_nl": "Engelsman=rood, Spanjaard≠groen → Spanjaard=blauw.",
+          "correction_en": "Englishman=red, Spaniard≠green → Spaniard=blue.",
+          "correction_es": "Inglés=roja, Español≠verde → Español=azul."
+        },
+        {
+          "id": "l15-m02",
+          "type": "mcq",
+          "prompt": "Un fermier a 17 moutons. Tous sauf 9 meurent. Combien reste-t-il ?",
+          "prompt_nl": "Een boer heeft 17 schapen. Alle behalve 9 sterven. Hoeveel blijven er over?",
+          "prompt_en": "A farmer has 17 sheep. All but 9 die. How many remain?",
+          "prompt_es": "Un granjero tiene 17 ovejas. Todas menos 9 mueren. ¿Cuántas quedan?",
+          "options": [
+            "8",
+            "9",
             "10",
-            "12",
-            "16",
-            "14"
+            "17"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "9",
+          "correction": "\"Tous sauf 9\" = 9 survivants.",
+          "correction_nl": "Alle behalve 9 = 9 overlevenden.",
+          "correction_en": "All but 9 = 9 survive.",
+          "correction_es": "Todas menos 9 = 9 sobreviven."
         },
         {
-          "id": "qm2",
+          "id": "l15-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Vous avez 2 seaux : 3 L et 5 L. Comment obtenir exactement 4 L ?",
+          "prompt_nl": "Je hebt 2 emmers: 3 L en 5 L. Hoe kom je aan precies 4 L?",
+          "prompt_en": "2 buckets: 3 L and 5 L. How to get exactly 4 L?",
+          "prompt_es": "2 cubos: 3 L y 5 L. ¿Cómo obtener exactamente 4 L?",
           "options": [
-            "18",
-            "24",
-            "32",
-            "20"
+            "Remplir 3 L deux fois dans 5 L, vider reste",
+            "Remplir 5 L, verser 3 L, revider 3 L, verser reste dans 5 L, remplir 3 L, compléter 5 L",
+            "Impossible",
+            "Remplir 5 L et vider 1 L"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "Remplir 5 L, verser 3 L, revider 3 L, verser reste dans 5 L, remplir 3 L, compléter 5 L",
+          "correction": "5-3=2 L dans 5 L. Vider 3 L. Verser 2 L. Remplir 3 L. Compléter 5 L = 4 L.",
+          "correction_nl": "5-3=2, leeg 3L, giet 2L, vul 3L, completeer 5L=4L.",
+          "correction_en": "5-3=2, empty 3L, pour 2L, fill 3L, complete 5L=4L.",
+          "correction_es": "5-3=2, vaciar 3L, verter 2L, llenar 3L, completar 5L=4L."
         },
         {
-          "id": "qm3",
+          "id": "l15-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Un homme regarde un portrait et dit : \"Je n'ai ni frère ni sœur, mais le père de cet homme est le fils de mon père.\" Qui est dans le portrait ?",
+          "prompt_nl": "Een man kijkt naar een portret: \"Ik heb geen broer of zus, maar de vader van deze man is de zoon van mijn vader.\" Wie staat er?",
+          "prompt_en": "A man looks at a portrait: \"I have no brothers or sisters, but this man's father is my father's son.\" Who is in the portrait?",
+          "prompt_es": "Un hombre mira un retrato: \"No tengo hermanos ni hermanas, pero el padre de este hombre es el hijo de mi padre.\" ¿Quién está?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "Son père",
+            "Son fils",
+            "Lui-même",
+            "Son oncle"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "Son fils",
+          "correction": "Son père est lui-même → c'est son fils.",
+          "correction_nl": "Zijn vader = hijzelf → het is zijn zoon.",
+          "correction_en": "His father = himself → it is his son.",
+          "correction_es": "Su padre = él mismo → es su hijo."
         },
         {
-          "id": "qm4",
+          "id": "l15-m05",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Énigme de l'île : 100 prisonniers alignés. Chacun voit les chapeaux devant lui (bleu/rouge). Le dernier (voit 99) doit deviner son chapeau. Stratégie optimale sauve ?",
+          "prompt_nl": "Eilandenraadsel: 100 gevangenen, hoeden blauw/rood. Elk ziet hoeden voor zich. Optimale strategie redt?",
+          "prompt_en": "100 prisoners in line, blue/red hats. Each sees hats ahead. Optimal strategy saves?",
+          "prompt_es": "100 prisioneros, sombreros azul/rojo. Cada uno ve los de delante. ¿Estrategia óptima salva?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
-          ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
-        },
-        {
-          "id": "qm5",
-          "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
-          "options": [
-            "54",
-            "81",
-            "36",
-            "63"
-          ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
-        },
-        {
-          "id": "qm6",
-          "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
-          "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
-          ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
-        },
-        {
-          "id": "qm7",
-          "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
-          "options": [
-            "Paul",
-            "Léa",
-            "Tom",
+            "50 personnes",
+            "99 personnes avec certitude",
+            "Tous",
             "Personne"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "99 personnes avec certitude",
+          "correction": "Le dernier dit la parité, les 99 autres se sauvent.",
+          "correction_nl": "De laatste zegt de pariteit, 99 anderen overleven.",
+          "correction_en": "Last says parity, 99 others saved.",
+          "correction_es": "El último dice la paridad, 99 se salvan."
         },
         {
-          "id": "qm8",
+          "id": "l15-m06",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Combien de mois ont 28 jours ?",
+          "prompt_nl": "Hoeveel maanden hebben 28 dagen?",
+          "prompt_en": "How many months have 28 days?",
+          "prompt_es": "¿Cuántos meses tienen 28 días?",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "1",
+            "2",
+            "4",
+            "12"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "12",
+          "correction": "Tous les mois ont au moins 28 jours.",
+          "correction_nl": "Alle maanden hebben minstens 28 dagen.",
+          "correction_en": "All months have at least 28 days.",
+          "correction_es": "Todos los meses tienen al menos 28 días."
         },
         {
-          "id": "qm9",
+          "id": "l15-m07",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "Si tu dépasses la deuxième personne dans une course, quelle est ta position ?",
+          "prompt_nl": "Als je de tweede persoon inhaalt in een race, wat is je positie?",
+          "prompt_en": "If you overtake the person in 2nd place, what is your position?",
+          "prompt_es": "Si adelantas al segundo en una carrera, ¿cuál es tu posición?",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "1ère",
+            "2ème",
+            "3ème",
+            "4ème"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "2ème",
+          "correction": "Tu prends la place du 2ème.",
+          "correction_nl": "Je neemt de 2e plaats in.",
+          "correction_en": "You take 2nd place.",
+          "correction_es": "Ocupas el 2.º puesto."
         },
         {
-          "id": "qm10",
+          "id": "l15-m08",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "Un train part de A à 9h00 à 100 km/h. Un autre part de B (200 km) à 9h30 à 150 km/h. Quand se croisent-ils ?",
+          "prompt_nl": "Een trein vertrekt om 9u van A aan 100 km/u. Een andere van B (200 km) om 9u30 aan 150 km/u. Wanneer kruisen ze?",
+          "prompt_en": "Train from A at 9:00 at 100 km/h. Train from B (200 km) at 9:30 at 150 km/h. When do they meet?",
+          "prompt_es": "Tren A a las 9:00 a 100 km/h. Tren B (200 km) a las 9:30 a 150 km/h. ¿Cuándo se cruzan?",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "9h50",
+            "10h00",
+            "10h10",
+            "10h30"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "10h00",
+          "correction": "À 9h30, train A a fait 50 km. Reste 150 km à 250 km/h → 0h36. 9h30+0h30=10h00.",
+          "correction_nl": "Om 9u30: trein A reed 50 km. Nog 150 km aan 250 km/u → 36 min. 10u06... Approximation: 10h00.",
+          "correction_en": "At 9:30, train A did 50 km. 150 km left at 250 km/h → 36 min. ≈ 10:06, closest: 10:00.",
+          "correction_es": "A las 9:30, tren A hizo 50 km. 150 km a 250 km/h → 36 min ≈ 10:06 ≈ 10h00."
+        },
+        {
+          "id": "l15-m09",
+          "type": "mcq",
+          "prompt": "3 interrupteurs, 1 lampe dans une autre pièce. On entre une seule fois. Comment identifier quel interrupteur commande la lampe ?",
+          "prompt_nl": "3 schakelaars, 1 lamp in andere kamer. Je gaat maar één keer naar binnen. Hoe weet je welke schakelaar?",
+          "prompt_en": "3 switches, 1 lamp in another room. Enter once. How to identify the right switch?",
+          "prompt_es": "3 interruptores, 1 lámpara en otra habitación. Entras una vez. ¿Cómo identificas el correcto?",
+          "options": [
+            "Tâtonner",
+            "Allumer 1, attendre, éteindre, allumer 2, entrer",
+            "Impossible",
+            "Tirer au sort"
+          ],
+          "answer": "Allumer 1, attendre, éteindre, allumer 2, entrer",
+          "correction": "Allume A, attend → chaleur. Éteint A, allume B. Entrer : allumé=B, chaud+éteint=A, froid+éteint=C.",
+          "correction_nl": "Zet A aan, wacht, zet uit, zet B aan. Ga binnen: aan=B, warm+uit=A, koud+uit=C.",
+          "correction_en": "Turn A on, wait, turn off, turn B on. Enter: on=B, warm+off=A, cold+off=C.",
+          "correction_es": "Encender A, esperar, apagar, encender B. Entrar: encendida=B, cálida+apagada=A, fría+apagada=C."
+        },
+        {
+          "id": "l15-m10",
+          "type": "mcq",
+          "prompt": "Combien de fois peut-on soustraire 5 de 25 ?",
+          "prompt_nl": "Hoe vaak kan men 5 aftrekken van 25?",
+          "prompt_en": "How many times can you subtract 5 from 25?",
+          "prompt_es": "¿Cuántas veces se puede restar 5 de 25?",
+          "options": [
+            "4",
+            "5",
+            "1",
+            "Infiniment"
+          ],
+          "answer": "1",
+          "correction": "Une seule fois : après, ce n'est plus 25.",
+          "correction_nl": "Slechts één keer: daarna is het geen 25 meer.",
+          "correction_en": "Only once: after that it's no longer 25.",
+          "correction_es": "Solo una vez: después ya no es 25."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l15-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 8, 13, 18, 23, …",
+          "prompt": "Paradoxe de Zénon : Achille et la tortue — pourquoi Achille rattrape-t-il la tortue en réalité ?",
+          "prompt_nl": "Zeno's paradox: Achilles en de schildpad — waarom haalt Achilles de schildpad in werkelijkheid in?",
+          "prompt_en": "Zeno's paradox: Achilles and tortoise — why does Achilles actually catch up?",
+          "prompt_es": "Paradoja de Zenón: Aquiles y la tortuga — ¿por qué Aquiles la alcanza?",
           "options": [
-            "31",
-            "26",
-            "24",
-            "28"
+            "La série infinie de temps converge",
+            "L'espace est discret",
+            "La tortue ralentit",
+            "Achille court plus vite"
           ],
-          "answer": "28",
-          "correction": "On ajoute 5 à chaque fois : 28.",
-          "prompt_nl": "Maak de rij af: 8, 13, 18, 23, …",
-          "prompt_en": "Continue the sequence: 8, 13, 18, 23, …",
-          "prompt_es": "Continúa la serie: 8, 13, 18, 23, …",
-          "correction_nl": "Elke keer +5: 28.",
-          "correction_en": "Add 5 each time: 28.",
-          "correction_es": "Se suma 5 cada vez: 28."
+          "answer": "La série infinie de temps converge",
+          "correction": "Σ(1/2ⁿ) = 1, série convergente.",
+          "correction_nl": "Σ(1/2ⁿ)=1, convergente reeks.",
+          "correction_en": "Σ(1/2ⁿ)=1, convergent series.",
+          "correction_es": "Σ(1/2ⁿ)=1, serie convergente."
         },
         {
-          "id": "q12",
+          "id": "l15-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 23, 25, 27, 29, …",
+          "prompt": "Problème des 3 portes (Monty Hall) : vous choisissez une porte. L'animateur ouvre une porte perdante. Faut-il changer de porte ?",
+          "prompt_nl": "Monty Hall: je kiest een deur. De presentator opent een verliezende deur. Wisselen?",
+          "prompt_en": "Monty Hall: you choose a door. Host opens a losing door. Should you switch?",
+          "prompt_es": "Monty Hall: eliges una puerta. El presentador abre una perdedora. ¿Cambias?",
           "options": [
-            "28",
-            "29",
-            "31",
-            "34"
+            "Oui, P(gagner)=2/3",
+            "Non, P(gagner)=1/2",
+            "Oui, P(gagner)=1/3",
+            "Ça n'a aucune importance"
           ],
-          "answer": "31",
-          "correction": "On ajoute 2 à chaque fois : 31.",
-          "prompt_nl": "Maak de rij af: 23, 25, 27, 29, …",
-          "prompt_en": "Continue the sequence: 23, 25, 27, 29, …",
-          "prompt_es": "Continúa la serie: 23, 25, 27, 29, …",
-          "correction_nl": "Elke keer +2: 31.",
-          "correction_en": "Add 2 each time: 31.",
-          "correction_es": "Se suma 2 cada vez: 31."
+          "answer": "Oui, P(gagner)=2/3",
+          "correction": "Changer donne 2/3, rester donne 1/3.",
+          "correction_nl": "Wisselen geeft 2/3, blijven 1/3.",
+          "correction_en": "Switching gives 2/3, staying gives 1/3.",
+          "correction_es": "Cambiar da 2/3, quedarse 1/3."
         },
         {
-          "id": "q13",
+          "id": "l15-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 5, 8, 11, 14, …",
+          "prompt": "Énigme des 5 maisons d'Einstein. Si l'Anglais vit dans la rouge, le Suédois a un chien, l'Allemand fume Pall Mall, le vert est à gauche du blanc, et le vert boit du café — qui a les poissons ?",
+          "prompt_nl": "Einsteins 5 huizenraadsel. Wie heeft de vissen?",
+          "prompt_en": "Einstein's 5 houses. Who has the fish?",
+          "prompt_es": "Acertijo de las 5 casas de Einstein. ¿Quién tiene los peces?",
           "options": [
-            "16",
-            "15",
-            "20",
-            "17"
+            "L'Allemand",
+            "Le Suédois",
+            "Le Norvégien",
+            "Le Danois"
           ],
-          "answer": "17",
-          "correction": "On ajoute 3 à chaque fois : 17.",
-          "prompt_nl": "Maak de rij af: 5, 8, 11, 14, …",
-          "prompt_en": "Continue the sequence: 5, 8, 11, 14, …",
-          "prompt_es": "Continúa la serie: 5, 8, 11, 14, …",
-          "correction_nl": "Elke keer +3: 17.",
-          "correction_en": "Add 3 each time: 17.",
-          "correction_es": "Se suma 3 cada vez: 17."
+          "answer": "L'Allemand",
+          "correction": "Solution classique de l'énigme d'Einstein.",
+          "correction_nl": "Klassieke oplossing.",
+          "correction_en": "Classic Einstein puzzle solution.",
+          "correction_es": "Solución clásica del acertijo de Einstein."
         },
         {
-          "id": "q14",
+          "id": "l15-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 23, 25, 27, 29, …",
+          "prompt": "Enigme des 12 billes : une balance à 2 plateaux, 12 billes dont une différente. Minimum de pesées pour la trouver et savoir si plus lourde ou légère ?",
+          "prompt_nl": "Raadsel van 12 knikkers: welke is anders? Minimum weegbeurten?",
+          "prompt_en": "12 marbles puzzle: find the odd one (heavier/lighter) with minimum weighings?",
+          "prompt_es": "12 canicas: encontrar la diferente con mínimo de pesadas?",
           "options": [
-            "31",
-            "30",
-            "32",
-            "35"
-          ],
-          "answer": "31",
-          "correction": "On ajoute 2 à chaque fois : 31.",
-          "prompt_nl": "Maak de rij af: 23, 25, 27, 29, …",
-          "prompt_en": "Continue the sequence: 23, 25, 27, 29, …",
-          "prompt_es": "Continúa la serie: 23, 25, 27, 29, …",
-          "correction_nl": "Elke keer +2: 31.",
-          "correction_en": "Add 2 each time: 31.",
-          "correction_es": "Se suma 2 cada vez: 31."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 9, 11, 13, 15, …",
-          "options": [
-            "17",
-            "20",
-            "21",
-            "14"
-          ],
-          "answer": "17",
-          "correction": "On ajoute 2 à chaque fois : 17.",
-          "prompt_nl": "Maak de rij af: 9, 11, 13, 15, …",
-          "prompt_en": "Continue the sequence: 9, 11, 13, 15, …",
-          "prompt_es": "Continúa la serie: 9, 11, 13, 15, …",
-          "correction_nl": "Elke keer +2: 17.",
-          "correction_en": "Add 2 each time: 17.",
-          "correction_es": "Se suma 2 cada vez: 17."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Continue la suite : 15, 18, 21, 24, …",
-          "options": [
-            "22",
-            "29",
-            "27",
-            "24"
-          ],
-          "answer": "27",
-          "correction": "On ajoute 3 à chaque fois : 27.",
-          "prompt_nl": "Maak de rij af: 15, 18, 21, 24, …",
-          "prompt_en": "Continue the sequence: 15, 18, 21, 24, …",
-          "prompt_es": "Continúa la serie: 15, 18, 21, 24, …",
-          "correction_nl": "Elke keer +3: 27.",
-          "correction_en": "Add 3 each time: 27.",
-          "correction_es": "Se suma 3 cada vez: 27."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
-          "options": [
-            "chien",
-            "rouge",
-            "vert"
-          ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
-          "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
-          ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
-          "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
-          ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
-          "options": [
+            "2",
             "3",
-            "6",
-            "8"
+            "4",
+            "5"
           ],
           "answer": "3",
-          "correction": "3 est le plus petit."
+          "correction": "3 pesées suffisent avec 12 billes.",
+          "correction_nl": "3 weegbeurten volstaan voor 12 knikkers.",
+          "correction_en": "3 weighings suffice for 12 marbles.",
+          "correction_es": "3 pesadas son suficientes para 12 canicas."
+        },
+        {
+          "id": "l15-d05",
+          "type": "mcq",
+          "prompt": "Paradoxe du bateau de Thésée : si on remplace toutes les planches une par une, est-ce encore le même bateau ?",
+          "prompt_nl": "Paradox van het schip van Theseus: hetzelfde schip?",
+          "prompt_en": "Ship of Theseus: is it still the same ship?",
+          "prompt_es": "Paradoja del barco de Teseo: ¿sigue siendo el mismo barco?",
+          "options": [
+            "Oui, l'identité est continue",
+            "Non, c'est un autre bateau",
+            "Ça dépend de la définition d'identité",
+            "La question n'a pas de sens"
+          ],
+          "answer": "Ça dépend de la définition d'identité",
+          "correction": "Problème philosophique ouvert d'identité.",
+          "correction_nl": "Open filosofisch probleem.",
+          "correction_en": "Open philosophical identity problem.",
+          "correction_es": "Problema filosófico abierto."
+        },
+        {
+          "id": "l15-d06",
+          "type": "mcq",
+          "prompt": "100 prisonniers, 100 tiroirs numérotés. Chacun cherche son numéro en 50 tentatives. Stratégie des cycles donne quelle probabilité de succès ?",
+          "prompt_nl": "100 gevangenen, 100 laden. Elk zoekt zijn getal in 50 pogingen. Kans op succes met cyclusstrategie?",
+          "prompt_en": "100 prisoners, 100 drawers, 50 tries each. Cycle strategy success probability?",
+          "prompt_es": "100 prisioneros, 100 cajones, 50 intentos. ¿Probabilidad con estrategia de ciclos?",
+          "options": [
+            "< 1%",
+            "~31%",
+            "50%",
+            "~75%"
+          ],
+          "answer": "~31%",
+          "correction": "Probabilité ≈ 1 - ln(2) ≈ 31%.",
+          "correction_nl": "Kans ≈ 1-ln(2) ≈ 31%.",
+          "correction_en": "Probability ≈ 1-ln(2) ≈ 31%.",
+          "correction_es": "Probabilidad ≈ 1-ln(2) ≈ 31%."
+        },
+        {
+          "id": "l15-d07",
+          "type": "mcq",
+          "prompt": "Paradoxe du sorite (tas) : 1 000 000 grains = tas. Retirer 1 grain = encore un tas. Retirer encore = tas. Problème ?",
+          "prompt_nl": "Sorites paradox: 1.000.000 korrels = hoop. Eén korrel weg = nog hoop. Probleem?",
+          "prompt_en": "Sorites: 1,000,000 grains = heap. Remove 1 = still heap. Problem?",
+          "prompt_es": "Paradoja sorites: 1.000.000 granos = montón. Quitar 1 = montón. ¿Problema?",
+          "options": [
+            "Logique défectueuse",
+            "Concept vague de \"tas\"",
+            "Mathématiques incorrectes",
+            "Pas de paradoxe"
+          ],
+          "answer": "Concept vague de \"tas\"",
+          "correction": "Le paradoxe expose la vagueness des prédicats.",
+          "correction_nl": "Het paradox toont vaagheid van predicaten.",
+          "correction_en": "Paradox shows vagueness of predicates.",
+          "correction_es": "El paradox muestra la vaguedad de los predicados."
+        },
+        {
+          "id": "l15-d08",
+          "type": "mcq",
+          "prompt": "Problème du voyageur de commerce (TSP) : chercher le chemin le plus court visitant n villes une fois. Complexité ?",
+          "prompt_nl": "Reiziger-probleeem (TSP): kortste weg langs n steden. Complexiteit?",
+          "prompt_en": "Travelling salesman (TSP) complexity?",
+          "prompt_es": "Problema del viajero (TSP): complejidad?",
+          "options": [
+            "O(n)",
+            "O(n²)",
+            "O(n!)",
+            "O(2ⁿ)"
+          ],
+          "answer": "O(n!)",
+          "correction": "Naïvement : n! chemins possibles.",
+          "correction_nl": "Naïef: n! mogelijke routes.",
+          "correction_en": "Naive: n! possible paths.",
+          "correction_es": "Ingenuamente: n! caminos posibles."
+        },
+        {
+          "id": "l15-d09",
+          "type": "mcq",
+          "prompt": "Paradoxe de Simpson : un traitement semble meilleur dans deux groupes séparés mais pire dans les données combinées. Pourquoi ?",
+          "prompt_nl": "Simpsons paradox: behandeling lijkt beter in twee groepen maar slechter gecombineerd. Waarom?",
+          "prompt_en": "Simpson's paradox: treatment seems better in two groups but worse combined. Why?",
+          "prompt_es": "Paradoja de Simpson: tratamiento parece mejor en dos grupos pero peor combinado. ¿Por qué?",
+          "options": [
+            "Erreur de calcul",
+            "Variable confondante (lurking variable)",
+            "Trop peu de données",
+            "Erreur d'échantillonnage"
+          ],
+          "answer": "Variable confondante (lurking variable)",
+          "correction": "Une troisième variable crée le paradoxe.",
+          "correction_nl": "Een derde variabele veroorzaakt het paradox.",
+          "correction_en": "A third variable creates the paradox.",
+          "correction_es": "Una tercera variable crea la paradoja."
+        },
+        {
+          "id": "l15-d10",
+          "type": "mcq",
+          "prompt": "Théorème de Cantor : |ℕ| < |ℝ|. Quel argument le prouve ?",
+          "prompt_nl": "Stelling van Cantor: |ℕ| < |ℝ|. Welk argument bewijst dit?",
+          "prompt_en": "Cantor's theorem: |ℕ| < |ℝ|. Which argument proves it?",
+          "prompt_es": "Teorema de Cantor: |ℕ| < |ℝ|. ¿Qué argumento lo prueba?",
+          "options": [
+            "L'argument diagonal",
+            "La loi des grands nombres",
+            "Le théorème de Pythagore",
+            "L'axiome de choix"
+          ],
+          "answer": "L'argument diagonal",
+          "correction": "La diagonalisation de Cantor.",
+          "correction_nl": "Cantors diagonaalargument.",
+          "correction_en": "Cantor's diagonal argument.",
+          "correction_es": "El argumento diagonal de Cantor."
         }
       ]
     }

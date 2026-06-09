@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 14",
-  "emoji": "🔭",
+  "title": "Si… alors… 💡",
+  "emoji": "💡",
   "order": 14,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l14-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 4, 7, 10, …",
+          "prompt": "Si tu as faim, tu manges. Tu as faim. Que fais-tu ?",
+          "prompt_nl": "Als je honger hebt, eet je. Je hebt honger. Wat doe je?",
+          "prompt_en": "If you are hungry, you eat. You are hungry. What do you do?",
+          "prompt_es": "Si tienes hambre, comes. Tienes hambre. ¿Qué haces?",
           "options": [
-            "17",
-            "12",
-            "13",
-            "8"
+            "tu dors",
+            "tu manges",
+            "tu joues",
+            "tu lis"
           ],
-          "answer": "13",
-          "correction": "On ajoute 3 à chaque fois : 13.",
-          "prompt_nl": "Maak de rij af: 1, 4, 7, 10, …",
-          "prompt_en": "Continue the sequence: 1, 4, 7, 10, …",
-          "prompt_es": "Continúa la serie: 1, 4, 7, 10, …",
-          "correction_nl": "Elke keer +3: 13.",
-          "correction_en": "Add 3 each time: 13.",
-          "correction_es": "Se suma 3 cada vez: 13."
+          "answer": "tu manges",
+          "correction": "Modus ponens : p→q, p → q.",
+          "correction_nl": "Modus ponens: je eet.",
+          "correction_en": "Modus ponens: you eat.",
+          "correction_es": "Modus ponens: comes."
         },
         {
-          "id": "q10",
+          "id": "l14-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 10, 13, 16, …",
+          "prompt": "Si 2 + 2 = 4, alors la réponse est correcte. 2 + 2 = 4. La réponse est-elle correcte ?",
+          "prompt_nl": "Als 2+2=4, is het antwoord correct. 2+2=4. Is het correct?",
+          "prompt_en": "If 2+2=4, the answer is correct. 2+2=4. Is it correct?",
+          "prompt_es": "Si 2+2=4, la respuesta es correcta. 2+2=4. ¿Es correcta?",
           "options": [
-            "18",
-            "15",
-            "17",
-            "19"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "On ne sait pas"
           ],
-          "answer": "19",
-          "correction": "On ajoute 3 à chaque fois : 19.",
-          "prompt_nl": "Maak de rij af: 7, 10, 13, 16, …",
-          "prompt_en": "Continue the sequence: 7, 10, 13, 16, …",
-          "prompt_es": "Continúa la serie: 7, 10, 13, 16, …",
-          "correction_nl": "Elke keer +3: 19.",
-          "correction_en": "Add 3 each time: 19.",
-          "correction_es": "Se suma 3 cada vez: 19."
+          "answer": "Oui",
+          "correction": "p→q, p → q.",
+          "correction_nl": "p→q, p → q.",
+          "correction_en": "p→q, p → q.",
+          "correction_es": "p→q, p → q."
         },
         {
-          "id": "q11",
+          "id": "l14-f03",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 11, 12, 13, …",
+          "prompt": "Si tu sors sans parapluie et qu'il pleut, tu seras mouillé. Il ne pleut pas. Es-tu mouillé ?",
+          "prompt_nl": "Als je zonder paraplu buiten gaat en het regent, word je nat. Het regent niet. Ben je nat?",
+          "prompt_en": "If you go out without umbrella and it rains, you get wet. It does not rain. Are you wet?",
+          "prompt_es": "Si sales sin paraguas y llueve, te mojas. No llueve. ¿Estás mojado?",
           "options": [
-            "14",
-            "11",
-            "13",
-            "17"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Sûrement"
           ],
-          "answer": "14",
-          "correction": "On ajoute 1 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 10, 11, 12, 13, …",
-          "prompt_en": "Continue the sequence: 10, 11, 12, 13, …",
-          "prompt_es": "Continúa la serie: 10, 11, 12, 13, …",
-          "correction_nl": "Elke keer +1: 14.",
-          "correction_en": "Add 1 each time: 14.",
-          "correction_es": "Se suma 1 cada vez: 14."
+          "answer": "Non",
+          "correction": "La condition (pluie) n'est pas remplie.",
+          "correction_nl": "De voorwaarde (regen) is niet vervuld.",
+          "correction_en": "The condition (rain) is not met.",
+          "correction_es": "La condición (lluvia) no se cumple."
         },
         {
-          "id": "q12",
+          "id": "l14-f04",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 3, 4, 5, …",
+          "prompt": "Tous les chats ont 4 pattes. Rex a 4 pattes. Rex est-il forcément un chat ?",
+          "prompt_nl": "Alle katten hebben 4 poten. Rex heeft 4 poten. Is Rex een kat?",
+          "prompt_en": "All cats have 4 legs. Rex has 4 legs. Is Rex necessarily a cat?",
+          "prompt_es": "Todos los gatos tienen 4 patas. Rex tiene 4 patas. ¿Rex es necesariamente un gato?",
           "options": [
-            "6",
-            "3",
-            "5",
-            "8"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Sûrement"
           ],
-          "answer": "6",
-          "correction": "On ajoute 1 à chaque fois : 6.",
-          "prompt_nl": "Maak de rij af: 2, 3, 4, 5, …",
-          "prompt_en": "Continue the sequence: 2, 3, 4, 5, …",
-          "prompt_es": "Continúa la serie: 2, 3, 4, 5, …",
-          "correction_nl": "Elke keer +1: 6.",
-          "correction_en": "Add 1 each time: 6.",
-          "correction_es": "Se suma 1 cada vez: 6."
+          "answer": "Non",
+          "correction": "Rex pourrait être un chien, etc.",
+          "correction_nl": "Rex kan een hond zijn.",
+          "correction_en": "Rex could be a dog.",
+          "correction_es": "Rex podría ser un perro."
         },
         {
-          "id": "q13",
+          "id": "l14-f05",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 5, 7, 9, …",
+          "prompt": "Si un nombre est pair, il est divisible par 2. 8 est pair. 8 est-il divisible par 2 ?",
+          "prompt_nl": "Als een getal even is, is het deelbaar door 2. 8 is even. Is 8 deelbaar door 2?",
+          "prompt_en": "If a number is even, it is divisible by 2. 8 is even. Is 8 divisible by 2?",
+          "prompt_es": "Si un número es par, es divisible entre 2. 8 es par. ¿8 es divisible entre 2?",
           "options": [
-            "11",
-            "13",
-            "10",
-            "15"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Jamais"
           ],
-          "answer": "11",
-          "correction": "On ajoute 2 à chaque fois : 11.",
-          "prompt_nl": "Maak de rij af: 3, 5, 7, 9, …",
-          "prompt_en": "Continue the sequence: 3, 5, 7, 9, …",
-          "prompt_es": "Continúa la serie: 3, 5, 7, 9, …",
-          "correction_nl": "Elke keer +2: 11.",
-          "correction_en": "Add 2 each time: 11.",
-          "correction_es": "Se suma 2 cada vez: 11."
+          "answer": "Oui",
+          "correction": "p→q, p → q.",
+          "correction_nl": "p→q, p → q.",
+          "correction_en": "p→q, p → q.",
+          "correction_es": "p→q, p → q."
         },
         {
-          "id": "q14",
+          "id": "l14-f06",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Si Léa mange une pomme, elle est contente. Léa n'est pas contente. A-t-elle mangé une pomme ?",
+          "prompt_nl": "Als Léa een appel eet, is ze blij. Léa is niet blij. Heeft ze een appel gegeten?",
+          "prompt_en": "If Léa eats an apple, she is happy. Léa is not happy. Did she eat an apple?",
+          "prompt_es": "Si Léa come una manzana, está contenta. Léa no está contenta. ¿Comió una manzana?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Sûrement"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "Non",
+          "correction": "Modus tollens : ¬q → ¬p.",
+          "correction_nl": "Modus tollens: ¬q → ¬p.",
+          "correction_en": "Modus tollens: ¬q → ¬p.",
+          "correction_es": "Modus tollens: ¬q → ¬p."
         },
         {
-          "id": "q15",
+          "id": "l14-f07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Si tu travailles, tu réussiras. Tu n'as pas travaillé. As-tu réussi ?",
+          "prompt_nl": "Als je werkt, slaag je. Je hebt niet gewerkt. Ben je geslaagd?",
+          "prompt_en": "If you work, you succeed. You did not work. Did you succeed?",
+          "prompt_es": "Si trabajas, tendrás éxito. No trabajaste. ¿Tuviste éxito?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Jamais"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "Peut-être",
+          "correction": "On ne peut pas conclure : peut-être que d'autres facteurs aident.",
+          "correction_nl": "We kunnen niet concluderen.",
+          "correction_en": "Cannot conclude.",
+          "correction_es": "No se puede concluir."
         },
         {
-          "id": "q16",
+          "id": "l14-f08",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
+          "prompt": "Si 5 > 3 et 3 > 1, alors 5 > 1. Est-ce vrai ?",
+          "prompt_nl": "Als 5>3 en 3>1, dan 5>1. Is dat waar?",
+          "prompt_en": "If 5>3 and 3>1, then 5>1. True?",
+          "prompt_es": "Si 5>3 y 3>1, entonces 5>1. ¿Verdad?",
           "options": [
-            "9",
-            "4",
-            "7"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Jamais"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "Oui",
+          "correction": "Transitivité de >.",
+          "correction_nl": "Transitiviteit van >.",
+          "correction_en": "Transitivity of >.",
+          "correction_es": "Transitividad de >."
+        },
+        {
+          "id": "l14-f09",
+          "type": "mcq",
+          "prompt": "Si aujourd'hui est mardi, demain est mercredi. Demain est mercredi. Est-on mardi ?",
+          "prompt_nl": "Als het vandaag dinsdag is, is morgen woensdag. Morgen is woensdag. Is het dinsdag?",
+          "prompt_en": "If today is Tuesday, tomorrow is Wednesday. Tomorrow is Wednesday. Is today Tuesday?",
+          "prompt_es": "Si hoy es martes, mañana es miércoles. Mañana es miércoles. ¿Es hoy martes?",
+          "options": [
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Certainement"
+          ],
+          "answer": "Peut-être",
+          "correction": "Fallace de l'affirmation du conséquent.",
+          "correction_nl": "Drogredening van de consequent.",
+          "correction_en": "Fallacy of affirming the consequent.",
+          "correction_es": "Falacia de afirmar el consecuente."
+        },
+        {
+          "id": "l14-f10",
+          "type": "mcq",
+          "prompt": "Si tous les A sont B, et aucun C n'est B, alors ?",
+          "prompt_nl": "Als alle A B zijn, en geen C B is, dan?",
+          "prompt_en": "If all A are B, and no C is B, then?",
+          "prompt_es": "Si todos los A son B, y ningún C es B, entonces?",
+          "options": [
+            "Tous les C sont A",
+            "Aucun C n'est A",
+            "Certains C sont A",
+            "On ne peut pas conclure"
+          ],
+          "answer": "Aucun C n'est A",
+          "correction": "Si C≠B et A⊆B, alors C∩A=∅.",
+          "correction_nl": "Als C≠B en A⊆B, dan C∩A=∅.",
+          "correction_en": "If C≠B and A⊆B, then C∩A=∅.",
+          "correction_es": "Si C≠B y A⊆B, entonces C∩A=∅."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l14-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "P: \"Il fait beau\". Q: \"Je sors\". Si P alors Q. ¬Q est vrai. Que peut-on conclure ?",
+          "prompt_nl": "P: mooi weer. Q: ik ga buiten. Als P dan Q. ¬Q is waar. Conclusie?",
+          "prompt_en": "P: sunny. Q: go out. If P then Q. ¬Q is true. Conclude?",
+          "prompt_es": "P: buen tiempo. Q: salgo. Si P entonces Q. ¬Q es verdad. ¿Conclusión?",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
+            "P est vrai",
+            "¬P est vrai",
+            "Q est vrai",
+            "On ne peut pas conclure"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "¬P est vrai",
+          "correction": "Modus tollens.",
+          "correction_nl": "Modus tollens.",
+          "correction_en": "Modus tollens.",
+          "correction_es": "Modus tollens."
         },
         {
-          "id": "qm2",
+          "id": "l14-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Contraposée de \"Si P alors Q\" = ?",
+          "prompt_nl": "Contrapool van \"Als P dan Q\"=?",
+          "prompt_en": "Contrapositive of \"If P then Q\"=?",
+          "prompt_es": "Contrapositiva de \"Si P entonces Q\"=?",
           "options": [
-            "18",
-            "24",
-            "32",
-            "20"
+            "Si Q alors P",
+            "Si ¬P alors ¬Q",
+            "Si ¬Q alors ¬P",
+            "Si Q alors ¬P"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "Si ¬Q alors ¬P",
+          "correction": "La contraposée est logiquement équivalente.",
+          "correction_nl": "De contrapool is logisch equivalent.",
+          "correction_en": "Contrapositive is logically equivalent.",
+          "correction_es": "La contrapositiva es lógicamente equivalente."
         },
         {
-          "id": "qm3",
+          "id": "l14-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Syllogisme : P1: Tous les humains sont mortels. P2: Socrate est humain. Conclusion ?",
+          "prompt_nl": "Syllogisme: P1: Alle mensen zijn sterfelijk. P2: Socrates is een mens. Conclusie?",
+          "prompt_en": "Syllogism: P1: All humans are mortal. P2: Socrates is human. Conclusion?",
+          "prompt_es": "Silogismo: P1: Todos los humanos son mortales. P2: Sócrates es humano. ¿Conclusión?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "Socrate est immortel",
+            "Socrate est mortel",
+            "Tous les mortels sont humains",
+            "Socrate n'est pas humain"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "Socrate est mortel",
+          "correction": "Modus Barbara classique.",
+          "correction_nl": "Klassiek syllogisme.",
+          "correction_en": "Classic syllogism.",
+          "correction_es": "Silogismo clásico."
         },
         {
-          "id": "qm4",
+          "id": "l14-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "P→Q est faux seulement quand ?",
+          "prompt_nl": "P→Q is onwaar alleen wanneer?",
+          "prompt_en": "P→Q is false only when?",
+          "prompt_es": "P→Q es falsa solo cuando?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "P est faux et Q est vrai",
+            "P est vrai et Q est vrai",
+            "P est vrai et Q est faux",
+            "P est faux et Q est faux"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "P est vrai et Q est faux",
+          "correction": "Un vrai entraîne un faux : implication fausse.",
+          "correction_nl": "Waar leidt tot onwaar: implicatie onwaar.",
+          "correction_en": "True implies false: implication is false.",
+          "correction_es": "Verdadero implica falso: implicación falsa."
         },
         {
-          "id": "qm5",
+          "id": "l14-m05",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Négation de \"Si P alors Q\" = ?",
+          "prompt_nl": "Negatie van \"Als P dan Q\"=?",
+          "prompt_en": "Negation of \"If P then Q\"=?",
+          "prompt_es": "Negación de \"Si P entonces Q\"=?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "Si ¬P alors ¬Q",
+            "P et ¬Q",
+            "¬P ou ¬Q",
+            "¬P et ¬Q"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "P et ¬Q",
+          "correction": "¬(P→Q) ≡ P ∧ ¬Q.",
+          "correction_nl": "¬(P→Q) ≡ P ∧ ¬Q.",
+          "correction_en": "¬(P→Q) ≡ P ∧ ¬Q.",
+          "correction_es": "¬(P→Q) ≡ P ∧ ¬Q."
         },
         {
-          "id": "qm6",
+          "id": "l14-m06",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Table de vérité : P=V, Q=F. P ∧ Q = ?",
+          "prompt_nl": "Waarheidstabel: P=W, Q=F. P ∧ Q=?",
+          "prompt_en": "Truth table: P=T, Q=F. P ∧ Q=?",
+          "prompt_es": "Tabla de verdad: P=V, Q=F. P ∧ Q=?",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "V",
+            "F",
+            "Indéterminé",
+            "Dépend"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "F",
+          "correction": "V ∧ F = F.",
+          "correction_nl": "W ∧ F = F.",
+          "correction_en": "T ∧ F = F.",
+          "correction_es": "V ∧ F = F."
         },
         {
-          "id": "qm7",
+          "id": "l14-m07",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "Table de vérité : P=F, Q=F. P ∨ Q = ?",
+          "prompt_nl": "Waarheidstabel: P=F, Q=F. P ∨ Q=?",
+          "prompt_en": "Truth table: P=F, Q=F. P ∨ Q=?",
+          "prompt_es": "Tabla de verdad: P=F, Q=F. P ∨ Q=?",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "V",
+            "F",
+            "Indéterminé",
+            "Dépend"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "F",
+          "correction": "F ∨ F = F.",
+          "correction_nl": "F ∨ F = F.",
+          "correction_en": "F ∨ F = F.",
+          "correction_es": "F ∨ F = F."
         },
         {
-          "id": "qm8",
+          "id": "l14-m08",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Loi de De Morgan : ¬(P ∧ Q) = ?",
+          "prompt_nl": "Wet van De Morgan: ¬(P ∧ Q)=?",
+          "prompt_en": "De Morgan: ¬(P ∧ Q)=?",
+          "prompt_es": "De Morgan: ¬(P ∧ Q)=?",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "¬P ∧ ¬Q",
+            "¬P ∨ ¬Q",
+            "P ∨ Q",
+            "P ∧ Q"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "¬P ∨ ¬Q",
+          "correction": "Loi de De Morgan.",
+          "correction_nl": "Wet van De Morgan.",
+          "correction_en": "De Morgan's law.",
+          "correction_es": "Ley de De Morgan."
         },
         {
-          "id": "qm9",
+          "id": "l14-m09",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "Loi de De Morgan : ¬(P ∨ Q) = ?",
+          "prompt_nl": "Wet van De Morgan: ¬(P ∨ Q)=?",
+          "prompt_en": "De Morgan: ¬(P ∨ Q)=?",
+          "prompt_es": "De Morgan: ¬(P ∨ Q)=?",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "¬P ∨ ¬Q",
+            "¬P ∧ ¬Q",
+            "P ∧ Q",
+            "P ∨ Q"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "¬P ∧ ¬Q",
+          "correction": "Loi de De Morgan.",
+          "correction_nl": "Wet van De Morgan.",
+          "correction_en": "De Morgan's law.",
+          "correction_es": "Ley de De Morgan."
         },
         {
-          "id": "qm10",
+          "id": "l14-m10",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "Si P→Q et Q→P, alors P et Q sont ?",
+          "prompt_nl": "Als P→Q en Q→P, zijn P en Q?",
+          "prompt_en": "If P→Q and Q→P, then P and Q are?",
+          "prompt_es": "Si P→Q y Q→P, entonces P y Q son?",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "Identiques",
+            "Équivalents",
+            "Indépendants",
+            "Contradictoires"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "Équivalents",
+          "correction": "P↔Q : équivalence logique.",
+          "correction_nl": "P↔Q: logische equivalentie.",
+          "correction_en": "P↔Q: logical equivalence.",
+          "correction_es": "P↔Q: equivalencia lógica."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l14-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 25, 29, 33, 37, …",
+          "prompt": "(P ∧ Q) → R. P est vrai, Q est vrai. R est-il forcément vrai ?",
+          "prompt_nl": "(P ∧ Q) → R. P is waar, Q is waar. Is R zeker waar?",
+          "prompt_en": "(P ∧ Q) → R. P true, Q true. Is R necessarily true?",
+          "prompt_es": "(P ∧ Q) → R. P verdadero, Q verdadero. ¿R necesariamente verdadero?",
           "options": [
-            "47",
-            "41",
-            "37",
-            "40"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Jamais"
           ],
-          "answer": "41",
-          "correction": "On ajoute 4 à chaque fois : 41.",
-          "prompt_nl": "Maak de rij af: 25, 29, 33, 37, …",
-          "prompt_en": "Continue the sequence: 25, 29, 33, 37, …",
-          "prompt_es": "Continúa la serie: 25, 29, 33, 37, …",
-          "correction_nl": "Elke keer +4: 41.",
-          "correction_en": "Add 4 each time: 41.",
-          "correction_es": "Se suma 4 cada vez: 41."
+          "answer": "Oui",
+          "correction": "P ∧ Q → R avec P=V et Q=V → R=V.",
+          "correction_nl": "P ∧ Q → R met P=W en Q=W → R=W.",
+          "correction_en": "P ∧ Q → R with P=T and Q=T → R=T.",
+          "correction_es": "P ∧ Q → R con P=V y Q=V → R=V."
         },
         {
-          "id": "q12",
+          "id": "l14-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 15, 17, 19, 21, …",
+          "prompt": "Paradoxe du menteur : \"Cette phrase est fausse.\" Cette phrase est-elle vraie ou fausse ?",
+          "prompt_nl": "Leugenparadox: \"Deze zin is onwaar.\" Is de zin waar of onwaar?",
+          "prompt_en": "Liar paradox: \"This sentence is false.\" Is it true or false?",
+          "prompt_es": "Paradoja del mentiroso: \"Esta frase es falsa.\" ¿Es verdadera o falsa?",
           "options": [
-            "20",
-            "26",
-            "23",
-            "27"
+            "Vraie",
+            "Fausse",
+            "Ni l'un ni l'autre",
+            "Les deux"
           ],
-          "answer": "23",
-          "correction": "On ajoute 2 à chaque fois : 23.",
-          "prompt_nl": "Maak de rij af: 15, 17, 19, 21, …",
-          "prompt_en": "Continue the sequence: 15, 17, 19, 21, …",
-          "prompt_es": "Continúa la serie: 15, 17, 19, 21, …",
-          "correction_nl": "Elke keer +2: 23.",
-          "correction_en": "Add 2 each time: 23.",
-          "correction_es": "Se suma 2 cada vez: 23."
+          "answer": "Ni l'un ni l'autre",
+          "correction": "Paradoxe auto-référentiel — indécidable.",
+          "correction_nl": "Zelfreferentieel paradox.",
+          "correction_en": "Self-referential paradox — undecidable.",
+          "correction_es": "Paradoja autorreferencial."
         },
         {
-          "id": "q13",
+          "id": "l14-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 7, 13, 19, …",
+          "prompt": "Axiome de choix : pour toute collection de non-vides…",
+          "prompt_nl": "Keuzeaxioma: voor elke collectie niet-lege…",
+          "prompt_en": "Axiom of choice: for any collection of non-empty…",
+          "prompt_es": "Axioma de elección: para toda colección no vacía…",
           "options": [
-            "26",
-            "25",
-            "32",
-            "19"
+            "…il existe une fonction de sélection",
+            "…l'union est infinie",
+            "…le produit est zéro",
+            "…la somme converge"
           ],
-          "answer": "25",
-          "correction": "On ajoute 6 à chaque fois : 25.",
-          "prompt_nl": "Maak de rij af: 1, 7, 13, 19, …",
-          "prompt_en": "Continue the sequence: 1, 7, 13, 19, …",
-          "prompt_es": "Continúa la serie: 1, 7, 13, 19, …",
-          "correction_nl": "Elke keer +6: 25.",
-          "correction_en": "Add 6 each time: 25.",
-          "correction_es": "Se suma 6 cada vez: 25."
+          "answer": "…il existe une fonction de sélection",
+          "correction": "Définition de l'axiome de choix.",
+          "correction_nl": "Definitie van het keuzeaxioma.",
+          "correction_en": "Definition of the axiom of choice.",
+          "correction_es": "Definición del axioma de elección."
         },
         {
-          "id": "q14",
+          "id": "l14-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 5, 6, 7, 8, …",
+          "prompt": "Théorème d'incomplétude de Gödel : dans tout système formel cohérent et suffisamment expressif…",
+          "prompt_nl": "Godels onvolledigheidstheorema: in elk consistent formeel systeem…",
+          "prompt_en": "Gödel's incompleteness: in any consistent formal system…",
+          "prompt_es": "Incompletitud de Gödel: en todo sistema formal consistente…",
           "options": [
-            "11",
-            "7",
-            "6",
-            "9"
+            "…toute vérité est prouvable",
+            "…il existe des vérités non prouvables",
+            "…il n'y a pas de vérités",
+            "…les mathématiques sont complètes"
           ],
-          "answer": "9",
-          "correction": "On ajoute 1 à chaque fois : 9.",
-          "prompt_nl": "Maak de rij af: 5, 6, 7, 8, …",
-          "prompt_en": "Continue the sequence: 5, 6, 7, 8, …",
-          "prompt_es": "Continúa la serie: 5, 6, 7, 8, …",
-          "correction_nl": "Elke keer +1: 9.",
-          "correction_en": "Add 1 each time: 9.",
-          "correction_es": "Se suma 1 cada vez: 9."
+          "answer": "…il existe des vérités non prouvables",
+          "correction": "Premier théorème d'incomplétude de Gödel.",
+          "correction_nl": "Eerste onvolledigheidstheorema van Gödel.",
+          "correction_en": "Gödel's first incompleteness theorem.",
+          "correction_es": "Primer teorema de incompletitud de Gödel."
         },
         {
-          "id": "q15",
+          "id": "l14-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 6, 11, 16, 21, …",
+          "prompt": "P XOR Q est vrai quand ?",
+          "prompt_nl": "P XOR Q is waar wanneer?",
+          "prompt_en": "P XOR Q is true when?",
+          "prompt_es": "P XOR Q es verdad cuando?",
           "options": [
-            "25",
-            "26",
-            "28",
-            "27"
+            "P et Q sont tous les deux vrais",
+            "P et Q sont tous les deux faux",
+            "Exactement un est vrai",
+            "Aucun n'est vrai"
           ],
-          "answer": "26",
-          "correction": "On ajoute 5 à chaque fois : 26.",
-          "prompt_nl": "Maak de rij af: 6, 11, 16, 21, …",
-          "prompt_en": "Continue the sequence: 6, 11, 16, 21, …",
-          "prompt_es": "Continúa la serie: 6, 11, 16, 21, …",
-          "correction_nl": "Elke keer +5: 26.",
-          "correction_en": "Add 5 each time: 26.",
-          "correction_es": "Se suma 5 cada vez: 26."
+          "answer": "Exactement un est vrai",
+          "correction": "XOR = OU exclusif.",
+          "correction_nl": "XOR = exclusieve OF.",
+          "correction_en": "XOR = exclusive OR.",
+          "correction_es": "XOR = O exclusivo."
         },
         {
-          "id": "q16",
+          "id": "l14-d06",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 13, 19, 25, …",
+          "prompt": "Table de vérité NAND (P ↑ Q) : P=V, Q=V → ?",
+          "prompt_nl": "Waarheidstabel NAND: P=W, Q=W → ?",
+          "prompt_en": "Truth table NAND: P=T, Q=T → ?",
+          "prompt_es": "Tabla NAND: P=V, Q=V → ?",
           "options": [
-            "33",
-            "37",
-            "31",
-            "30"
+            "V",
+            "F",
+            "Indéterminé",
+            "V et F"
           ],
-          "answer": "31",
-          "correction": "On ajoute 6 à chaque fois : 31.",
-          "prompt_nl": "Maak de rij af: 7, 13, 19, 25, …",
-          "prompt_en": "Continue the sequence: 7, 13, 19, 25, …",
-          "prompt_es": "Continúa la serie: 7, 13, 19, 25, …",
-          "correction_nl": "Elke keer +6: 31.",
-          "correction_en": "Add 6 each time: 31.",
-          "correction_es": "Se suma 6 cada vez: 31."
+          "answer": "F",
+          "correction": "NAND = ¬(P ∧ Q). V∧V=V, ¬V=F.",
+          "correction_nl": "NAND = ¬(P ∧ Q). W∧W=W, ¬W=F.",
+          "correction_en": "NAND = ¬(P ∧ Q). T∧T=T, ¬T=F.",
+          "correction_es": "NAND = ¬(P ∧ Q). V∧V=V, ¬V=F."
         },
         {
-          "id": "q17",
+          "id": "l14-d07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Logique trivalente (Łukasiewicz) : 3 valeurs de vérité. La 3ᵉ valeur est ?",
+          "prompt_nl": "Driewaardige logica: 3 waarden. De 3e is?",
+          "prompt_en": "Trivalent logic: 3 truth values. The 3rd is?",
+          "prompt_es": "Lógica trivalente: 3 valores. ¿El 3.º es?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "Possible",
+            "Indéterminé",
+            "Super-vrai",
+            "Méta-vrai"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "Indéterminé",
+          "correction": "Vrai, Faux, Indéterminé.",
+          "correction_nl": "Waar, Onwaar, Onbepaald.",
+          "correction_en": "True, False, Indeterminate.",
+          "correction_es": "Verdadero, Falso, Indeterminado."
         },
         {
-          "id": "q18",
+          "id": "l14-d08",
           "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
+          "prompt": "Logique modale : □P signifie ?",
+          "prompt_nl": "Modale logica: □P betekent?",
+          "prompt_en": "Modal logic: □P means?",
+          "prompt_es": "Lógica modal: □P significa?",
           "options": [
-            "9",
-            "4",
-            "7"
+            "P est possible",
+            "P est nécessaire",
+            "P est impossible",
+            "P est contingent"
           ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "P est nécessaire",
+          "correction": "□ = opérateur de nécessité.",
+          "correction_nl": "□ = noodzakelijkheidsoperator.",
+          "correction_en": "□ = necessity operator.",
+          "correction_es": "□ = operador de necesidad."
         },
         {
-          "id": "q19",
+          "id": "l14-d09",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Résolution logique : {P, ¬P∨Q} ⊢ ?",
+          "prompt_nl": "Logische resolutie: {P, ¬P∨Q} ⊢ ?",
+          "prompt_en": "Logical resolution: {P, ¬P∨Q} ⊢ ?",
+          "prompt_es": "Resolución lógica: {P, ¬P∨Q} ⊢ ?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "P",
+            "Q",
+            "¬Q",
+            "¬P"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "Q",
+          "correction": "Résolution : P + (¬P∨Q) → Q.",
+          "correction_nl": "Resolutie: P + (¬P∨Q) → Q.",
+          "correction_en": "Resolution: P + (¬P∨Q) → Q.",
+          "correction_es": "Resolución: P + (¬P∨Q) → Q."
         },
         {
-          "id": "q20",
+          "id": "l14-d10",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Forme normale conjonctive (FNC) de P ∨ (Q ∧ R) ?",
+          "prompt_nl": "Conjunctieve normaalvorm (CNF) van P ∨ (Q ∧ R)?",
+          "prompt_en": "CNF of P ∨ (Q ∧ R)?",
+          "prompt_es": "FNC de P ∨ (Q ∧ R)?",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "(P∨Q)∧(P∨R)",
+            "P∧Q∧R",
+            "(P∧Q)∨R",
+            "P∨Q∨R"
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
+          "answer": "(P∨Q)∧(P∨R)",
+          "correction": "Distributivité : P∨(Q∧R)=(P∨Q)∧(P∨R).",
+          "correction_nl": "Distributiviteit.",
+          "correction_en": "Distribution.",
+          "correction_es": "Distributividad."
         }
       ]
     }

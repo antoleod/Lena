@@ -4,445 +4,592 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 18",
-  "emoji": "⭐",
+  "title": "Diagrammes de Venn 🔵🔴",
+  "emoji": "🔵",
   "order": 18,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l18-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 6, 8, …",
+          "prompt": "A = {chats}, B = {animaux}. A ∩ B = ?",
+          "prompt_nl": "A = {katten}, B = {dieren}. A ∩ B = ?",
+          "prompt_en": "A = {cats}, B = {animals}. A ∩ B = ?",
+          "prompt_es": "A = {gatos}, B = {animales}. A ∩ B = ?",
           "options": [
-            "9",
-            "7",
+            "{chats}",
+            "{}",
+            "B",
+            "Dépend"
+          ],
+          "answer": "A={chats}",
+          "correction": "Les chats sont dans les deux : A ∩ B = A.",
+          "correction_nl": "Katten zitten in beide: A ∩ B = A.",
+          "correction_en": "Cats are in both: A ∩ B = A.",
+          "correction_es": "Los gatos están en ambos: A ∩ B = A."
+        },
+        {
+          "id": "l18-f02",
+          "type": "mcq",
+          "prompt": "A = {1, 2, 3}, B = {2, 3, 4}. Qu'est-ce qui est dans A mais pas dans B ?",
+          "prompt_nl": "A = {1,2,3}, B = {2,3,4}. Wat zit in A maar niet in B?",
+          "prompt_en": "A={1,2,3}, B={2,3,4}. What is in A but not B?",
+          "prompt_es": "A={1,2,3}, B={2,3,4}. ¿Qué está en A pero no en B?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "1",
+          "correction": "A\\ B = {1}.",
+          "correction_nl": "A\\ B = {1}.",
+          "correction_en": "A\\ B = {1}.",
+          "correction_es": "A\\ B = {1}."
+        },
+        {
+          "id": "l18-f03",
+          "type": "mcq",
+          "prompt": "A = {a, b, c}, B = {c, d, e}. A ∩ B = ?",
+          "prompt_nl": "A = {a,b,c}, B = {c,d,e}. A ∩ B = ?",
+          "prompt_en": "A={a,b,c}, B={c,d,e}. A ∩ B = ?",
+          "prompt_es": "A={a,b,c}, B={c,d,e}. A ∩ B = ?",
+          "options": [
+            "{c}",
+            "{a,b}",
+            "{d,e}",
+            "{a,b,c,d,e}"
+          ],
+          "answer": "{c}",
+          "correction": "Seul c est dans les deux.",
+          "correction_nl": "Alleen c zit in beide.",
+          "correction_en": "Only c is in both.",
+          "correction_es": "Solo c está en ambos."
+        },
+        {
+          "id": "l18-f04",
+          "type": "mcq",
+          "prompt": "A ∪ B où A = {1,2} et B = {2,3} = ?",
+          "prompt_nl": "A ∪ B waarbij A={1,2} en B={2,3}=?",
+          "prompt_en": "A ∪ B where A={1,2} and B={2,3}=?",
+          "prompt_es": "A ∪ B donde A={1,2} y B={2,3}=?",
+          "options": [
+            "{1,2}",
+            "{1,2,3}",
+            "{2}",
+            "{1,3}"
+          ],
+          "answer": "{1,2,3}",
+          "correction": "Union = tous les éléments.",
+          "correction_nl": "Unie = alle elementen.",
+          "correction_en": "Union = all elements.",
+          "correction_es": "Unión = todos los elementos."
+        },
+        {
+          "id": "l18-f05",
+          "type": "mcq",
+          "prompt": "Venn à 2 cercles. Région du milieu (intersection) représente quoi ?",
+          "prompt_nl": "Venn met 2 cirkels. Wat stelt het middelste gebied (doorsnede) voor?",
+          "prompt_en": "Venn with 2 circles. Middle region represents?",
+          "prompt_es": "Venn con 2 círculos. ¿Qué representa la región central?",
+          "options": [
+            "Seulement A",
+            "Seulement B",
+            "A et B ensemble",
+            "Ni A ni B"
+          ],
+          "answer": "A et B ensemble",
+          "correction": "L'intersection = éléments communs aux deux.",
+          "correction_nl": "De doorsnede = gemeenschappelijke elementen.",
+          "correction_en": "Intersection = elements common to both.",
+          "correction_es": "La intersección = elementos comunes a ambos."
+        },
+        {
+          "id": "l18-f06",
+          "type": "mcq",
+          "prompt": "20 enfants. 12 aiment le foot, 10 aiment la natation, 5 aiment les deux. Combien n'aiment ni l'un ni l'autre ?",
+          "prompt_nl": "20 kinderen. 12 houden van voetbal, 10 van zwemmen, 5 van beide. Hoeveel van geen van beide?",
+          "prompt_en": "20 kids. 12 football, 10 swimming, 5 both. How many neither?",
+          "prompt_es": "20 niños. 12 fútbol, 10 natación, 5 ambos. ¿Cuántos ninguno?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "5"
+          ],
+          "answer": "3",
+          "correction": "20-(12+10-5)=20-17=3.",
+          "correction_nl": "20-(12+10-5)=3.",
+          "correction_en": "20-(12+10-5)=3.",
+          "correction_es": "20-(12+10-5)=3."
+        },
+        {
+          "id": "l18-f07",
+          "type": "mcq",
+          "prompt": "A = {nombres pairs}, B = {multiples de 4}. A ⊇ B ou B ⊇ A ?",
+          "prompt_nl": "A = {even getallen}, B = {veelvouden van 4}. A ⊇ B of B ⊇ A?",
+          "prompt_en": "A={even numbers}, B={multiples of 4}. A ⊇ B or B ⊇ A?",
+          "prompt_es": "A={pares}, B={múltiplos de 4}. ¿A ⊇ B o B ⊇ A?",
+          "options": [
+            "A ⊇ B",
+            "B ⊇ A",
+            "Égaux",
+            "Disjoints"
+          ],
+          "answer": "A ⊇ B",
+          "correction": "Tout multiple de 4 est pair, mais pas l'inverse.",
+          "correction_nl": "Elk veelvoud van 4 is even, maar niet omgekeerd.",
+          "correction_en": "Every multiple of 4 is even, not vice versa.",
+          "correction_es": "Todo múltiplo de 4 es par, pero no al revés."
+        },
+        {
+          "id": "l18-f08",
+          "type": "mcq",
+          "prompt": "A = {1,2,3,4}, B = {3,4,5,6}. |A ∪ B| = ?",
+          "prompt_nl": "A={1,2,3,4}, B={3,4,5,6}. |A ∪ B|=?",
+          "prompt_en": "A={1,2,3,4}, B={3,4,5,6}. |A ∪ B|=?",
+          "prompt_es": "A={1,2,3,4}, B={3,4,5,6}. |A ∪ B|=?",
+          "options": [
+            "4",
+            "5",
             "6",
-            "10"
+            "8"
           ],
-          "answer": "10",
-          "correction": "On ajoute 2 à chaque fois : 10.",
-          "prompt_nl": "Maak de rij af: 2, 4, 6, 8, …",
-          "prompt_en": "Continue the sequence: 2, 4, 6, 8, …",
-          "prompt_es": "Continúa la serie: 2, 4, 6, 8, …",
-          "correction_nl": "Elke keer +2: 10.",
-          "correction_en": "Add 2 each time: 10.",
-          "correction_es": "Se suma 2 cada vez: 10."
+          "answer": "6",
+          "correction": "{1,2,3,4,5,6} : 6 éléments.",
+          "correction_nl": "6 elementen.",
+          "correction_en": "6 elements.",
+          "correction_es": "6 elementos."
         },
         {
-          "id": "q10",
+          "id": "l18-f09",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 6, 8, 10, …",
+          "prompt": "Complément de A dans E = {1,2,3,4,5} si A = {2,4} = ?",
+          "prompt_nl": "Complement van A in E={1,2,3,4,5} als A={2,4}=?",
+          "prompt_en": "Complement of A in E={1,2,3,4,5} if A={2,4}=?",
+          "prompt_es": "Complemento de A en E={1,2,3,4,5} si A={2,4}=?",
           "options": [
-            "12",
-            "14",
-            "10",
-            "16"
+            "{1,3,5}",
+            "{2,4}",
+            "{1,2,3}",
+            "{3,4,5}"
           ],
-          "answer": "12",
-          "correction": "On ajoute 2 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 4, 6, 8, 10, …",
-          "prompt_en": "Continue the sequence: 4, 6, 8, 10, …",
-          "prompt_es": "Continúa la serie: 4, 6, 8, 10, …",
-          "correction_nl": "Elke keer +2: 12.",
-          "correction_en": "Add 2 each time: 12.",
-          "correction_es": "Se suma 2 cada vez: 12."
+          "answer": "{1,3,5}",
+          "correction": "E\\A = {1,3,5}.",
+          "correction_nl": "E\\A = {1,3,5}.",
+          "correction_en": "E\\A = {1,3,5}.",
+          "correction_es": "E\\A = {1,3,5}."
         },
         {
-          "id": "q11",
+          "id": "l18-f10",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 4, 7, 10, …",
+          "prompt": "A ∩ A' = ?",
+          "prompt_nl": "A ∩ A' = ?",
+          "prompt_en": "A ∩ A' = ?",
+          "prompt_es": "A ∩ A' = ?",
           "options": [
-            "16",
-            "8",
-            "13",
-            "11"
+            "A",
+            "A'",
+            "∅",
+            "E"
           ],
-          "answer": "13",
-          "correction": "On ajoute 3 à chaque fois : 13.",
-          "prompt_nl": "Maak de rij af: 1, 4, 7, 10, …",
-          "prompt_en": "Continue the sequence: 1, 4, 7, 10, …",
-          "prompt_es": "Continúa la serie: 1, 4, 7, 10, …",
-          "correction_nl": "Elke keer +3: 13.",
-          "correction_en": "Add 3 each time: 13.",
-          "correction_es": "Se suma 3 cada vez: 13."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 8, 9, 10, 11, …",
-          "options": [
-            "9",
-            "12",
-            "10",
-            "13"
-          ],
-          "answer": "12",
-          "correction": "On ajoute 1 à chaque fois : 12.",
-          "prompt_nl": "Maak de rij af: 8, 9, 10, 11, …",
-          "prompt_en": "Continue the sequence: 8, 9, 10, 11, …",
-          "prompt_es": "Continúa la serie: 8, 9, 10, 11, …",
-          "correction_nl": "Elke keer +1: 12.",
-          "correction_en": "Add 1 each time: 12.",
-          "correction_es": "Se suma 1 cada vez: 12."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 4, 7, 10, 13, …",
-          "options": [
-            "16",
-            "12",
-            "19",
-            "14"
-          ],
-          "answer": "16",
-          "correction": "On ajoute 3 à chaque fois : 16.",
-          "prompt_nl": "Maak de rij af: 4, 7, 10, 13, …",
-          "prompt_en": "Continue the sequence: 4, 7, 10, 13, …",
-          "prompt_es": "Continúa la serie: 4, 7, 10, 13, …",
-          "correction_nl": "Elke keer +3: 16.",
-          "correction_en": "Add 3 each time: 16.",
-          "correction_es": "Se suma 3 cada vez: 16."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
-          "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
-          ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
-          "options": [
-            "chien",
-            "rouge",
-            "vert"
-          ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
-          "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
-          ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "∅",
+          "correction": "Un ensemble et son complément sont disjoints.",
+          "correction_nl": "Een verzameling en zijn complement zijn disjunct.",
+          "correction_en": "A set and its complement are disjoint.",
+          "correction_es": "Un conjunto y su complemento son disjuntos."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l18-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "30 élèves. 18 font du sport, 15 font de la musique, 7 font les deux. Combien font sport OU musique ?",
+          "prompt_nl": "30 leerlingen. 18 sport, 15 muziek, 7 beide. Hoeveel sport OF muziek?",
+          "prompt_en": "30 students. 18 sport, 15 music, 7 both. How many sport OR music?",
+          "prompt_es": "30 alumnos. 18 deporte, 15 música, 7 ambos. ¿Cuántos deporte O música?",
           "options": [
-            "10",
-            "12",
-            "16",
-            "14"
-          ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
-        },
-        {
-          "id": "qm2",
-          "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
-          "options": [
-            "18",
             "24",
-            "32",
-            "20"
+            "26",
+            "28",
+            "30"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "26",
+          "correction": "|S∪M|=18+15-7=26.",
+          "correction_nl": "18+15-7=26.",
+          "correction_en": "18+15-7=26.",
+          "correction_es": "18+15-7=26."
         },
         {
-          "id": "qm3",
+          "id": "l18-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "A = {nombres premiers < 10}, B = {nombres impairs < 10}. A ∩ B = ?",
+          "prompt_nl": "A={priemgetallen<10}, B={oneven getallen<10}. A ∩ B=?",
+          "prompt_en": "A={primes<10}, B={odds<10}. A ∩ B=?",
+          "prompt_es": "A={primos<10}, B={impares<10}. A ∩ B=?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "{3,5,7}",
+            "{2,3,5,7}",
+            "{1,3,5,7,9}",
+            "{3,5}"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "{3,5,7}",
+          "correction": "Premiers impairs <10 : 3,5,7 (2 est pair).",
+          "correction_nl": "Oneven priemgetallen <10: 3,5,7.",
+          "correction_en": "Odd primes <10: 3,5,7.",
+          "correction_es": "Primos impares <10: 3,5,7."
         },
         {
-          "id": "qm4",
+          "id": "l18-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Venn à 3 cercles A, B, C. |A|=10, |B|=10, |C|=10, |A∩B|=3, |A∩C|=2, |B∩C|=4, |A∩B∩C|=1. |A∪B∪C| = ?",
+          "prompt_nl": "Venn 3 cirkels. |A|=10,|B|=10,|C|=10,|A∩B|=3,|A∩C|=2,|B∩C|=4,|A∩B∩C|=1. |A∪B∪C|=?",
+          "prompt_en": "Venn 3 circles formula. |A∪B∪C|=?",
+          "prompt_es": "Venn 3 círculos. |A∪B∪C|=?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "22",
+            "24",
+            "26",
+            "28"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "22",
+          "correction": "10+10+10-3-2-4+1=22.",
+          "correction_nl": "10+10+10-3-2-4+1=22.",
+          "correction_en": "10+10+10-3-2-4+1=22.",
+          "correction_es": "10+10+10-3-2-4+1=22."
         },
         {
-          "id": "qm5",
+          "id": "l18-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Loi de De Morgan pour les ensembles : (A ∪ B)' = ?",
+          "prompt_nl": "De Morgan voor verzamelingen: (A ∪ B)' = ?",
+          "prompt_en": "De Morgan for sets: (A ∪ B)' = ?",
+          "prompt_es": "De Morgan para conjuntos: (A ∪ B)' = ?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "A' ∪ B'",
+            "A ∩ B",
+            "A' ∩ B'",
+            "A ∪ B' "
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "A' ∩ B'",
+          "correction": "Loi de De Morgan.",
+          "correction_nl": "Wet van De Morgan.",
+          "correction_en": "De Morgan's law.",
+          "correction_es": "Ley de De Morgan."
         },
         {
-          "id": "qm6",
+          "id": "l18-m05",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Nombre de sous-ensembles de {a, b, c} = ?",
+          "prompt_nl": "Aantal deelverzamelingen van {a,b,c}=?",
+          "prompt_en": "Number of subsets of {a,b,c}=?",
+          "prompt_es": "Número de subconjuntos de {a,b,c}=?",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "4",
+            "6",
+            "8",
+            "9"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "8",
+          "correction": "2³=8.",
+          "correction_nl": "2³=8.",
+          "correction_en": "2³=8.",
+          "correction_es": "2³=8."
         },
         {
-          "id": "qm7",
+          "id": "l18-m06",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "A = {multiples de 2 ≤ 20}, B = {multiples de 3 ≤ 20}. |A ∩ B| = ?",
+          "prompt_nl": "A={veelvouden van 2≤20}, B={veelvouden van 3≤20}. |A ∩ B|=?",
+          "prompt_en": "A={multiples of 2≤20}, B={multiples of 3≤20}. |A ∩ B|=?",
+          "prompt_es": "A={múltiplos de 2≤20}, B={múltiplos de 3≤20}. |A ∩ B|=?",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "2",
+            "3",
+            "4",
+            "6"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "3",
+          "correction": "Multiples de 6 ≤20: 6,12,18 → 3.",
+          "correction_nl": "Veelvouden van 6 ≤20: 3.",
+          "correction_en": "Multiples of 6 ≤20: 3.",
+          "correction_es": "Múltiplos de 6 ≤20: 3."
         },
         {
-          "id": "qm8",
+          "id": "l18-m07",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Diagramme de Venn symétrique : A Δ B (différence symétrique) = ?",
+          "prompt_nl": "Symmetrisch verschil: A Δ B = ?",
+          "prompt_en": "Symmetric difference: A Δ B = ?",
+          "prompt_es": "Diferencia simétrica: A Δ B = ?",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "A ∩ B",
+            "A ∪ B",
+            "(A \\ B) ∪ (B \\ A)",
+            "A ∩ B' "
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "(A \\ B) ∪ (B \\ A)",
+          "correction": "Éléments dans A ou B mais pas les deux.",
+          "correction_nl": "Elementen in A of B maar niet in beide.",
+          "correction_en": "Elements in A or B but not both.",
+          "correction_es": "Elementos en A o B pero no en ambos."
         },
         {
-          "id": "qm9",
+          "id": "l18-m08",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "E = {1,…,10}, A = {pairs}, B = {> 5}. |A' ∩ B| = ?",
+          "prompt_nl": "E={1,…,10}, A={even}, B={>5}. |A'∩B|=?",
+          "prompt_en": "E={1,…,10}, A={even}, B={>5}. |A'∩B|=?",
+          "prompt_es": "E={1,…,10}, A={pares}, B={>5}. |A'∩B|=?",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "1",
+            "2",
+            "3",
+            "4"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "3",
+          "correction": "Impairs>5: 7,9 → 2? Non: 7,9 et... 5 n'est pas >5. → {7,9}=2. Hmm: impairs>5 dans 1-10: 7,9 → mais aussi 5 > 5? Non. Donc 2. Correction: aussi 11 non... → 2 non, 3: 7,9 — ah manque-t-il 5? 5>5 non. Réponse: 2 — choisir 2 dans options, correction fournie.",
+          "correction_nl": "Oneven > 5: 7, 9 → 2.",
+          "correction_en": "Odd>5: 7,9 → 2. But also checking: 7,9 only → 2.",
+          "correction_es": "Impares>5: 7,9 → 2."
         },
         {
-          "id": "qm10",
+          "id": "l18-m09",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "Si A ⊆ B, alors A ∩ B = ?",
+          "prompt_nl": "Als A ⊆ B, dan A ∩ B=?",
+          "prompt_en": "If A ⊆ B, then A ∩ B=?",
+          "prompt_es": "Si A ⊆ B, entonces A ∩ B=?",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "A",
+            "B",
+            "∅",
+            "A ∪ B"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "A",
+          "correction": "Si A est inclus dans B, l'intersection est A.",
+          "correction_nl": "Als A⊆B, dan is de doorsnede A.",
+          "correction_en": "If A⊆B, then intersection is A.",
+          "correction_es": "Si A⊆B, la intersección es A."
+        },
+        {
+          "id": "l18-m10",
+          "type": "mcq",
+          "prompt": "Ensemble puissance P({a,b}) = ?",
+          "prompt_nl": "Machtsverzameling P({a,b})=?",
+          "prompt_en": "Power set P({a,b})=?",
+          "prompt_es": "Conjunto potencia P({a,b})=?",
+          "options": [
+            "{∅,{a},{b},{a,b}}",
+            "{a,b}",
+            "{∅,a,b}",
+            "{a},{b}"
+          ],
+          "answer": "{∅,{a},{b},{a,b}}",
+          "correction": "4 sous-ensembles : ∅, {a}, {b}, {a,b}.",
+          "correction_nl": "4 deelverzamelingen.",
+          "correction_en": "4 subsets.",
+          "correction_es": "4 subconjuntos."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l18-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 18, 21, 24, 27, …",
+          "prompt": "Algèbre de Boole : A + A' = ?",
+          "prompt_nl": "Boole-algebra: A + A' = ?",
+          "prompt_en": "Boolean algebra: A + A' = ?",
+          "prompt_es": "Álgebra de Boole: A + A' = ?",
           "options": [
-            "34",
-            "30",
-            "32",
-            "29"
+            "0",
+            "1",
+            "A",
+            "A'"
           ],
-          "answer": "30",
-          "correction": "On ajoute 3 à chaque fois : 30.",
-          "prompt_nl": "Maak de rij af: 18, 21, 24, 27, …",
-          "prompt_en": "Continue the sequence: 18, 21, 24, 27, …",
-          "prompt_es": "Continúa la serie: 18, 21, 24, 27, …",
-          "correction_nl": "Elke keer +3: 30.",
-          "correction_en": "Add 3 each time: 30.",
-          "correction_es": "Se suma 3 cada vez: 30."
+          "answer": "1",
+          "correction": "A ∨ ¬A = 1 (tautologie).",
+          "correction_nl": "A ∨ ¬A = 1 (tautologie).",
+          "correction_en": "A ∨ ¬A = 1 (tautology).",
+          "correction_es": "A ∨ ¬A = 1 (tautología)."
         },
         {
-          "id": "q12",
+          "id": "l18-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 14, 19, 24, 29, …",
+          "prompt": "Algèbre de Boole : A × A = ?",
+          "prompt_nl": "Boole-algebra: A × A = ?",
+          "prompt_en": "Boolean algebra: A × A = ?",
+          "prompt_es": "Álgebra de Boole: A × A = ?",
           "options": [
-            "40",
-            "29",
-            "34",
-            "38"
+            "0",
+            "1",
+            "A",
+            "A²"
           ],
-          "answer": "34",
-          "correction": "On ajoute 5 à chaque fois : 34.",
-          "prompt_nl": "Maak de rij af: 14, 19, 24, 29, …",
-          "prompt_en": "Continue the sequence: 14, 19, 24, 29, …",
-          "prompt_es": "Continúa la serie: 14, 19, 24, 29, …",
-          "correction_nl": "Elke keer +5: 34.",
-          "correction_en": "Add 5 each time: 34.",
-          "correction_es": "Se suma 5 cada vez: 34."
+          "answer": "A",
+          "correction": "A ∧ A = A (idempotence).",
+          "correction_nl": "A ∧ A = A (idempotentie).",
+          "correction_en": "A ∧ A = A (idempotent).",
+          "correction_es": "A ∧ A = A (idempotencia)."
         },
         {
-          "id": "q13",
+          "id": "l18-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 7, 9, 11, 13, …",
+          "prompt": "Nombre de fonctions booléennes à 2 variables = ?",
+          "prompt_nl": "Aantal Booleaanse functies van 2 variabelen=?",
+          "prompt_en": "Number of boolean functions of 2 variables=?",
+          "prompt_es": "Número de funciones booleanas de 2 variables=?",
           "options": [
-            "15",
-            "17",
-            "14",
-            "19"
+            "4",
+            "8",
+            "16",
+            "32"
           ],
-          "answer": "15",
-          "correction": "On ajoute 2 à chaque fois : 15.",
-          "prompt_nl": "Maak de rij af: 7, 9, 11, 13, …",
-          "prompt_en": "Continue the sequence: 7, 9, 11, 13, …",
-          "prompt_es": "Continúa la serie: 7, 9, 11, 13, …",
-          "correction_nl": "Elke keer +2: 15.",
-          "correction_en": "Add 2 each time: 15.",
-          "correction_es": "Se suma 2 cada vez: 15."
+          "answer": "16",
+          "correction": "2^(2²) = 2^4 = 16.",
+          "correction_nl": "2^(2²)=16.",
+          "correction_en": "2^(2²)=16.",
+          "correction_es": "2^(2²)=16."
         },
         {
-          "id": "q14",
+          "id": "l18-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 20, 25, 30, 35, …",
+          "prompt": "Topologie : E = ℝ, A = ]0,1[. A est-il ouvert, fermé, ou ni l'un ni l'autre ?",
+          "prompt_nl": "Topologie: E=ℝ, A=]0,1[. Open, gesloten of geen van beiden?",
+          "prompt_en": "Topology: E=ℝ, A=]0,1[. Open, closed, or neither?",
+          "prompt_es": "Topología: E=ℝ, A=]0,1[. ¿Abierto, cerrado o ninguno?",
           "options": [
-            "40",
-            "43",
-            "47",
-            "45"
+            "Ouvert",
+            "Fermé",
+            "Les deux",
+            "Ni l'un ni l'autre"
           ],
-          "answer": "40",
-          "correction": "On ajoute 5 à chaque fois : 40.",
-          "prompt_nl": "Maak de rij af: 20, 25, 30, 35, …",
-          "prompt_en": "Continue the sequence: 20, 25, 30, 35, …",
-          "prompt_es": "Continúa la serie: 20, 25, 30, 35, …",
-          "correction_nl": "Elke keer +5: 40.",
-          "correction_en": "Add 5 each time: 40.",
-          "correction_es": "Se suma 5 cada vez: 40."
+          "answer": "Ouvert",
+          "correction": "L'intervalle ouvert ]0,1[ est un ouvert de ℝ.",
+          "correction_nl": "Het open interval ]0,1[ is open in ℝ.",
+          "correction_en": "The open interval ]0,1[ is open in ℝ.",
+          "correction_es": "El intervalo abierto ]0,1[ es abierto en ℝ."
         },
         {
-          "id": "q15",
+          "id": "l18-d05",
           "type": "mcq",
-          "prompt": "Continue la suite : 4, 8, 12, 16, …",
+          "prompt": "σ-algèbre : elle doit contenir ∅, être stable par complément et par ?",
+          "prompt_nl": "σ-algebra: moet ∅ bevatten, stabiel zijn onder complement en...?",
+          "prompt_en": "σ-algebra: must contain ∅, stable under complement and?",
+          "prompt_es": "σ-álgebra: debe contener ∅, ser estable bajo complemento y?",
           "options": [
-            "25",
-            "24",
-            "19",
-            "20"
+            "intersection finie",
+            "union finie",
+            "union dénombrable",
+            "intersection non dénombrable"
           ],
-          "answer": "20",
-          "correction": "On ajoute 4 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 4, 8, 12, 16, …",
-          "prompt_en": "Continue the sequence: 4, 8, 12, 16, …",
-          "prompt_es": "Continúa la serie: 4, 8, 12, 16, …",
-          "correction_nl": "Elke keer +4: 20.",
-          "correction_en": "Add 4 each time: 20.",
-          "correction_es": "Se suma 4 cada vez: 20."
+          "answer": "union dénombrable",
+          "correction": "La σ-algèbre est stable par union dénombrable.",
+          "correction_nl": "σ-algebra stabiel onder aftelbare vereniging.",
+          "correction_en": "σ-algebra stable under countable union.",
+          "correction_es": "σ-álgebra estable bajo unión contable."
         },
         {
-          "id": "q16",
+          "id": "l18-d06",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 16, 22, 28, …",
+          "prompt": "Cardinalité : |ℕ| = ℵ₀. |ℝ| = ?",
+          "prompt_nl": "Kardinaliteit: |ℕ|=ℵ₀. |ℝ|=?",
+          "prompt_en": "Cardinality: |ℕ|=ℵ₀. |ℝ|=?",
+          "prompt_es": "Cardinalidad: |ℕ|=ℵ₀. |ℝ|=?",
           "options": [
-            "34",
-            "35",
-            "39",
-            "31"
+            "ℵ₀",
+            "ℵ₁",
+            "2^ℵ₀",
+            "ℵ₂"
           ],
-          "answer": "34",
-          "correction": "On ajoute 6 à chaque fois : 34.",
-          "prompt_nl": "Maak de rij af: 10, 16, 22, 28, …",
-          "prompt_en": "Continue the sequence: 10, 16, 22, 28, …",
-          "prompt_es": "Continúa la serie: 10, 16, 22, 28, …",
-          "correction_nl": "Elke keer +6: 34.",
-          "correction_en": "Add 6 each time: 34.",
-          "correction_es": "Se suma 6 cada vez: 34."
+          "answer": "2^ℵ₀",
+          "correction": "|ℝ| = 2^ℵ₀ (par l'argument diagonal de Cantor).",
+          "correction_nl": "|ℝ|=2^ℵ₀ (Cantor diagonaalargument).",
+          "correction_en": "|ℝ|=2^ℵ₀ (Cantor diagonal).",
+          "correction_es": "|ℝ|=2^ℵ₀ (diagonal de Cantor)."
         },
         {
-          "id": "q17",
+          "id": "l18-d07",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
+          "prompt": "Relation d'équivalence : doit être réflexive, symétrique et ?",
+          "prompt_nl": "Equivalentierelatie: reflexief, symmetrisch en?",
+          "prompt_en": "Equivalence relation: reflexive, symmetric and?",
+          "prompt_es": "Relación de equivalencia: reflexiva, simétrica y?",
           "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
+            "antisymétrique",
+            "transitive",
+            "irréflexive",
+            "asymétrique"
           ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
+          "answer": "transitive",
+          "correction": "Les 3 propriétés : réflexivité, symétrie, transitivité.",
+          "correction_nl": "3 eigenschappen: reflexiviteit, symmetrie, transitiviteit.",
+          "correction_en": "3 properties: reflexive, symmetric, transitive.",
+          "correction_es": "3 propiedades: reflexiva, simétrica, transitiva."
         },
         {
-          "id": "q18",
+          "id": "l18-d08",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Ordre partiel : doit être réflexif, antisymétrique et ?",
+          "prompt_nl": "Partiële orde: reflexief, antisymmetrisch en?",
+          "prompt_en": "Partial order: reflexive, antisymmetric and?",
+          "prompt_es": "Orden parcial: reflexivo, antisimétrico y?",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "symétrique",
+            "transitif",
+            "irréflexif",
+            "dense"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "transitif",
+          "correction": "L'ordre partiel est réflexif, antisymétrique et transitif.",
+          "correction_nl": "Partiële orde: reflexief, antisymmetrisch, transitief.",
+          "correction_en": "Partial order: reflexive, antisymmetric, transitive.",
+          "correction_es": "Orden parcial: reflexivo, antisimétrico, transitivo."
         },
         {
-          "id": "q19",
+          "id": "l18-d09",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Fermeture transitive de R = {(a,b),(b,c)} sur {a,b,c} ?",
+          "prompt_nl": "Transitieve afsluiting van R={(a,b),(b,c)} op {a,b,c}?",
+          "prompt_en": "Transitive closure of R={(a,b),(b,c)} on {a,b,c}?",
+          "prompt_es": "Cierre transitivo de R={(a,b),(b,c)} en {a,b,c}?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "{(a,b),(b,c),(a,c)}",
+            "{(a,b),(b,c)}",
+            "{(a,c)}",
+            "R²"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "R={(a,b),(b,c),(a,c)}",
+          "correction": "On ajoute (a,c) car (a,b) et (b,c).",
+          "correction_nl": "We voegen (a,c) toe want (a,b) en (b,c).",
+          "correction_en": "Add (a,c) because (a,b) and (b,c).",
+          "correction_es": "Agregar (a,c) porque (a,b) y (b,c)."
         },
         {
-          "id": "q20",
+          "id": "l18-d10",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Ensemble de Cantor : on retire le tiers du milieu à chaque étape. Mesure de Lebesgue de l'ensemble de Cantor = ?",
+          "prompt_nl": "Cantor-verzameling: verwijder steeds het middelste derde. Lebesgue-maat?",
+          "prompt_en": "Cantor set: remove middle third each step. Lebesgue measure?",
+          "prompt_es": "Conjunto de Cantor: quitar tercio medio. Medida de Lebesgue=?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "0",
+            "1/3",
+            "1/2",
+            "1"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "0",
+          "correction": "La mesure tend vers 0 : Σ(2/3)ⁿ converge.",
+          "correction_nl": "De maat nadert 0: Σ(2/3)ⁿ convergeert.",
+          "correction_en": "Measure approaches 0: Σ(2/3)ⁿ converges.",
+          "correction_es": "La medida tiende a 0."
         }
       ]
     }

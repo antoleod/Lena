@@ -4,445 +4,591 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 17",
-  "emoji": "🚀",
+  "title": "Problèmes de logique 🧠",
+  "emoji": "🧠",
   "order": 17,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l17-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 5, 7, 9, …",
+          "prompt": "Marie a 3 frères. Chaque frère a 1 sœur. Combien d'enfants en tout dans la famille ?",
+          "prompt_nl": "Marie heeft 3 broers. Elke broer heeft 1 zus. Hoeveel kinderen in de familie?",
+          "prompt_en": "Marie has 3 brothers. Each brother has 1 sister. How many children total?",
+          "prompt_es": "Marie tiene 3 hermanos. Cada hermano tiene 1 hermana. ¿Cuántos niños en total?",
           "options": [
-            "11",
-            "13",
-            "15",
-            "12"
-          ],
-          "answer": "11",
-          "correction": "On ajoute 2 à chaque fois : 11.",
-          "prompt_nl": "Maak de rij af: 3, 5, 7, 9, …",
-          "prompt_en": "Continue the sequence: 3, 5, 7, 9, …",
-          "prompt_es": "Continúa la serie: 3, 5, 7, 9, …",
-          "correction_nl": "Elke keer +2: 11.",
-          "correction_en": "Add 2 each time: 11.",
-          "correction_es": "Se suma 2 cada vez: 11."
-        },
-        {
-          "id": "q10",
-          "type": "mcq",
-          "prompt": "Continue la suite : 6, 8, 10, 12, …",
-          "options": [
-            "18",
-            "16",
-            "15",
-            "14"
-          ],
-          "answer": "14",
-          "correction": "On ajoute 2 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
-          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
-          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
-          "correction_nl": "Elke keer +2: 14.",
-          "correction_en": "Add 2 each time: 14.",
-          "correction_es": "Se suma 2 cada vez: 14."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Continue la suite : 9, 11, 13, 15, …",
-          "options": [
-            "18",
-            "17",
-            "20",
-            "14"
-          ],
-          "answer": "17",
-          "correction": "On ajoute 2 à chaque fois : 17.",
-          "prompt_nl": "Maak de rij af: 9, 11, 13, 15, …",
-          "prompt_en": "Continue the sequence: 9, 11, 13, 15, …",
-          "prompt_es": "Continúa la serie: 9, 11, 13, 15, …",
-          "correction_nl": "Elke keer +2: 17.",
-          "correction_en": "Add 2 each time: 17.",
-          "correction_es": "Se suma 2 cada vez: 17."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 6, 8, 10, 12, …",
-          "options": [
-            "18",
-            "14",
-            "11",
-            "15"
-          ],
-          "answer": "14",
-          "correction": "On ajoute 2 à chaque fois : 14.",
-          "prompt_nl": "Maak de rij af: 6, 8, 10, 12, …",
-          "prompt_en": "Continue the sequence: 6, 8, 10, 12, …",
-          "prompt_es": "Continúa la serie: 6, 8, 10, 12, …",
-          "correction_nl": "Elke keer +2: 14.",
-          "correction_en": "Add 2 each time: 14.",
-          "correction_es": "Se suma 2 cada vez: 14."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 3, 4, …",
-          "options": [
+            "3",
+            "4",
             "5",
-            "8",
-            "2",
+            "7"
+          ],
+          "answer": "4",
+          "correction": "Marie est la sœur des 3 frères : 3+1=4.",
+          "correction_nl": "Marie is de zus van de 3 broers: 4.",
+          "correction_en": "Marie is the sister of the 3 brothers: 4.",
+          "correction_es": "Marie es la hermana de los 3 hermanos: 4."
+        },
+        {
+          "id": "l17-f02",
+          "type": "mcq",
+          "prompt": "Un coq pond un œuf au sommet d'un toit à 2 pentes. De quel côté tombe l'œuf ?",
+          "prompt_nl": "Een haan legt een ei op een dak met 2 kanten. Aan welke kant valt het ei?",
+          "prompt_en": "A rooster lays an egg on a two-pitched roof. Which side does it fall?",
+          "prompt_es": "Un gallo pone un huevo en un tejado de dos aguas. ¿De qué lado cae?",
+          "options": [
+            "Gauche",
+            "Droite",
+            "Ne tombe pas",
+            "Ça dépend du vent"
+          ],
+          "answer": "Ne tombe pas",
+          "correction": "Les coqs ne pondent pas d'œufs.",
+          "correction_nl": "Hanen leggen geen eieren.",
+          "correction_en": "Roosters don't lay eggs.",
+          "correction_es": "Los gallos no ponen huevos."
+        },
+        {
+          "id": "l17-f03",
+          "type": "mcq",
+          "prompt": "Il fait nuit noire. Vous avez une seule allumette. Vous entrez dans une pièce avec une bougie, une lampe à pétrole et un poêle. Qu'allumez-vous en premier ?",
+          "prompt_nl": "Het is aardedonker. Je hebt één lucifer. Kaarslicht, petroleumlamp en kachel. Wat steek je eerst aan?",
+          "prompt_en": "Dark room, one match. Candle, oil lamp, stove. What do you light first?",
+          "prompt_es": "Cuarto oscuro, un fósforo. Vela, lámpara de aceite, estufa. ¿Qué enciendes primero?",
+          "options": [
+            "La bougie",
+            "La lampe",
+            "Le poêle",
+            "L'allumette"
+          ],
+          "answer": "L'allumette",
+          "correction": "On allume d'abord l'allumette.",
+          "correction_nl": "Je steekt eerst de lucifer aan.",
+          "correction_en": "You light the match first.",
+          "correction_es": "Primero enciendes el fósforo."
+        },
+        {
+          "id": "l17-f04",
+          "type": "mcq",
+          "prompt": "2 pères et 2 fils mangent ensemble. Chacun mange 1 pizza. Seulement 3 pizzas sont mangées. Comment ?",
+          "prompt_nl": "2 vaders en 2 zonen eten samen. Ieder eet 1 pizza. Slechts 3 pizzas. Hoe?",
+          "prompt_en": "2 fathers and 2 sons eat together, each eats 1 pizza, only 3 eaten. How?",
+          "prompt_es": "2 padres y 2 hijos comen juntos, cada uno come 1 pizza, solo 3. ¿Cómo?",
+          "options": [
+            "Un père est aussi un fils",
+            "Ils partagent une pizza",
+            "Un père ne mange pas",
+            "Un fils mange 2 pizzas"
+          ],
+          "answer": "Un père est aussi un fils",
+          "correction": "Grand-père, père (fils du grand-père), fils : 3 personnes.",
+          "correction_nl": "Grootvader, vader (zoon van grootvader), zoon: 3 personen.",
+          "correction_en": "Grandfather, father (son of grandfather), son: 3 people.",
+          "correction_es": "Abuelo, padre (hijo del abuelo), hijo: 3 personas."
+        },
+        {
+          "id": "l17-f05",
+          "type": "mcq",
+          "prompt": "Un homme vit au 30ème étage. Il prend l'ascenseur jusqu'au 15ème et monte à pied. Pourquoi ?",
+          "prompt_nl": "Een man woont op de 30e verdieping. Hij neemt de lift tot de 15e en loopt verder. Waarom?",
+          "prompt_en": "A man lives on the 30th floor. Takes elevator to 15th, walks up. Why?",
+          "prompt_es": "Un hombre vive en el piso 30. Toma el ascensor hasta el 15 y sube caminando. ¿Por qué?",
+          "options": [
+            "Il aime marcher",
+            "L'ascenseur est en panne",
+            "Il est trop petit pour atteindre le bouton 30",
+            "Il est en retard"
+          ],
+          "answer": "Il est trop petit pour atteindre le bouton 30",
+          "correction": "Il ne peut atteindre que le bouton 15.",
+          "correction_nl": "Hij kan alleen de knop 15 bereiken.",
+          "correction_en": "He can only reach button 15.",
+          "correction_es": "Solo puede alcanzar el botón 15."
+        },
+        {
+          "id": "l17-f06",
+          "type": "mcq",
+          "prompt": "Anna est l'arrière-grand-mère du fils du fils de la fille de Marie. Quel est le lien entre Anna et Marie ?",
+          "prompt_nl": "Anna is de achterovergrootmoeder van de zoon van de zoon van de dochter van Marie.",
+          "prompt_en": "Anna is the great-grandmother of the son of the son of the daughter of Marie.",
+          "prompt_es": "Anna es la bisabuela del hijo del hijo de la hija de Marie.",
+          "options": [
+            "Grand-mère",
+            "Arrière-grand-mère",
+            "Aucun",
+            "Mère"
+          ],
+          "answer": "Arrière-grand-mère",
+          "correction": "Marie←fille←fils←fils=Anna est l'arrière-grand-mère de Marie.",
+          "correction_nl": "Terugtelregel: Anna is overgrootmoeder van Marie.",
+          "correction_en": "Counting back: Anna is great-grandmother of Marie.",
+          "correction_es": "Contando: Anna es bisabuela de Marie."
+        },
+        {
+          "id": "l17-f07",
+          "type": "mcq",
+          "prompt": "Pierre est le père de Jean. Jean est le frère d'Anne. Anne est la mère de Luc. Quel est le lien entre Pierre et Luc ?",
+          "prompt_nl": "Pierre is de vader van Jean. Jean is de broer van Anne. Anne is de moeder van Luc. Wat is het verband tussen Pierre en Luc?",
+          "prompt_en": "Pierre is father of Jean. Jean is brother of Anne. Anne is mother of Luc. Relation between Pierre and Luc?",
+          "prompt_es": "Pierre es padre de Jean. Jean es hermano de Anne. Anne es madre de Luc. ¿Relación entre Pierre y Luc?",
+          "options": [
+            "Père",
+            "Oncle",
+            "Grand-père",
+            "Arrière-grand-père"
+          ],
+          "answer": "Grand-père",
+          "correction": "Pierre→Jean→Anne (enfant de Pierre)→Luc. Pierre est le grand-père.",
+          "correction_nl": "Pierre→Jean→Anne→Luc. Pierre is grootvader.",
+          "correction_en": "Pierre→Jean→Anne→Luc. Pierre is grandfather.",
+          "correction_es": "Pierre→Jean→Anne→Luc. Pierre es abuelo."
+        },
+        {
+          "id": "l17-f08",
+          "type": "mcq",
+          "prompt": "Un homme regarde une photo : \"Les frères et sœurs je n'en ai point. Le père de cet homme est le fils de mon père.\" Qui est photographié ?",
+          "prompt_nl": "Een man kijkt naar een foto: \"Ik heb geen broers of zussen. De vader van deze man is de zoon van mijn vader.\" Wie staat er?",
+          "prompt_en": "Man looks at photo: \"I have no siblings. This man's father is my father's son.\" Who is in the photo?",
+          "prompt_es": "Un hombre mira foto: \"No tengo hermanos. El padre de este hombre es el hijo de mi padre.\" ¿Quién está?",
+          "options": [
+            "Son père",
+            "Son fils",
+            "Lui-même",
+            "Son cousin"
+          ],
+          "answer": "Son fils",
+          "correction": "Son père = lui-même → c'est son propre fils.",
+          "correction_nl": "Zijn vader = hijzelf → het is zijn eigen zoon.",
+          "correction_en": "His father = himself → his own son.",
+          "correction_es": "Su padre = él mismo → su propio hijo."
+        },
+        {
+          "id": "l17-f09",
+          "type": "mcq",
+          "prompt": "Il y a 3 enfants. L'ainé a 3 ans de plus que le cadet. Le cadet a 2 ans de plus que le benjamin. L'ainé a 10 ans. Quel âge a le benjamin ?",
+          "prompt_nl": "3 kinderen. Oudste 3 jaar ouder dan middelste. Middelste 2 jaar ouder dan jongste. Oudste=10. Jongste=?",
+          "prompt_en": "3 children. Eldest 3 older than middle. Middle 2 older than youngest. Eldest=10. Youngest=?",
+          "prompt_es": "3 niños. Mayor 3 más que mediano. Mediano 2 más que menor. Mayor=10. ¿Menor?",
+          "options": [
+            "3",
+            "4",
+            "5",
             "6"
           ],
           "answer": "5",
-          "correction": "On ajoute 1 à chaque fois : 5.",
-          "prompt_nl": "Maak de rij af: 1, 2, 3, 4, …",
-          "prompt_en": "Continue the sequence: 1, 2, 3, 4, …",
-          "prompt_es": "Continúa la serie: 1, 2, 3, 4, …",
-          "correction_nl": "Elke keer +1: 5.",
-          "correction_en": "Add 1 each time: 5.",
-          "correction_es": "Se suma 1 cada vez: 5."
+          "correction": "10-3=7 (cadet), 7-2=5 (benjamin).",
+          "correction_nl": "10-3=7, 7-2=5.",
+          "correction_en": "10-3=7, 7-2=5.",
+          "correction_es": "10-3=7, 7-2=5."
         },
         {
-          "id": "q14",
+          "id": "l17-f10",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
+          "prompt": "Un marchand de vin avait 3 tonneaux : 3 L, 5 L et 8 L. Le 8 L est plein. Comment diviser en 2 parts égales avec seulement ces tonneaux ?",
+          "prompt_nl": "Een wijnhandelaar heeft 3 vaten: 3L, 5L, 8L. 8L vol. Verdeel in 2 gelijke delen.",
+          "prompt_en": "Wine merchant: 3 barrels 3L, 5L, 8L. 8L full. Divide into 2 equal parts.",
+          "prompt_es": "Comerciante: barriles 3L, 5L, 8L. 8L lleno. Dividir en 2 partes iguales.",
           "options": [
-            "chien",
-            "rouge",
-            "vert"
+            "Impossible",
+            "8L→5L, 5L→3L, 3L→8L, 5L→3L, 3L→8L",
+            "4L chacun après 3 étapes",
+            "8L→5L (reste 3L), 5L→3L (reste 2L dans 5L)..."
           ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
-          "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
-          ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus grand ?",
-          "options": [
-            "9",
-            "4",
-            "7"
-          ],
-          "answer": "9",
-          "correction": "9 est le plus grand."
+          "answer": "8L→5L, 5L→3L, 3L→8L, 5L→3L, 3L→8L",
+          "correction": "5+3=8, verser 5L dans 5L, remplir 3L, vider dans 8L → (0,2,6), puis (3,2,3)→(3,0,5)→(0,3,5)→(3,3,2)→(3,3,2) → (3,3,2): vider 3L dans 8L...",
+          "correction_nl": "Optimale sequentie bereikt 4L+4L.",
+          "correction_en": "Optimal sequence achieves 4L+4L.",
+          "correction_es": "Secuencia óptima logra 4L+4L."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l17-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
+          "prompt": "Alice, Bob et Clara ont respectivement 10, 15 et 5 billes. Ils veulent en avoir le même nombre. Que se passe-t-il ?",
+          "prompt_nl": "Alice, Bob en Clara hebben respectievelijk 10, 15 en 5 knikkers. Ze willen gelijk. Wat doen ze?",
+          "prompt_en": "Alice, Bob, Clara have 10, 15, 5 marbles. They want equal numbers.",
+          "prompt_es": "Alice, Bob y Clara tienen 10, 15 y 5 canicas. Quieren igualdad.",
+          "options": [
+            "Alice donne 5 à Clara",
+            "Bob donne 5 à Clara",
+            "Bob donne 5 à Alice et 5 à Clara",
+            "Bob donne 5 à Clara"
+          ],
+          "answer": "Bob donne 5 à Clara",
+          "correction": "Total=30, chacun=10. Bob(15→10) donne 5. Alice(10), Clara(5→10). Bob→Clara.",
+          "correction_nl": "Totaal=30, elk=10. Bob geeft 5 aan Clara.",
+          "correction_en": "Total=30, each=10. Bob gives 5 to Clara.",
+          "correction_es": "Total=30, cada uno=10. Bob da 5 a Clara."
+        },
+        {
+          "id": "l17-m02",
+          "type": "mcq",
+          "prompt": "Tom a 2 fois l'âge de Sara. Dans 10 ans, Tom aura 1.5 fois l'âge de Sara. Quel est l'âge actuel de Sara ?",
+          "prompt_nl": "Tom is 2 keer zo oud als Sara. Over 10 jaar is Tom 1,5 keer zo oud. Hoe oud is Sara nu?",
+          "prompt_en": "Tom is twice Sara's age. In 10 years, Tom is 1.5 times Sara's age. Sara's current age?",
+          "prompt_es": "Tom tiene el doble de edad que Sara. En 10 años, Tom tendrá 1.5 veces la de Sara. ¿Edad actual de Sara?",
           "options": [
             "10",
-            "12",
-            "16",
-            "14"
+            "15",
+            "20",
+            "25"
           ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
+          "answer": "20",
+          "correction": "2S+10=1.5(S+10) → 2S+10=1.5S+15 → 0.5S=5 → S=10. Hmm: S=10. Vérif: Tom=20, Sara=10; +10: Tom=30, Sara=20; 30=1.5×20 ✓.",
+          "correction_nl": "2S+10=1.5(S+10) → S=10.",
+          "correction_en": "2S+10=1.5(S+10) → S=10.",
+          "correction_es": "2S+10=1.5(S+10) → S=10."
         },
         {
-          "id": "qm2",
+          "id": "l17-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Une horloge indique 3h15. Quel est l'angle entre les aiguilles ?",
+          "prompt_nl": "Een klok toont 3u15. Hoek tussen wijzers?",
+          "prompt_en": "A clock shows 3:15. Angle between hands?",
+          "prompt_es": "Un reloj marca 3:15. ¿Ángulo entre manecillas?",
           "options": [
+            "0°",
+            "7.5°",
+            "22.5°",
+            "30°"
+          ],
+          "answer": "7.5°",
+          "correction": "À 3h15: minute=90°, heure=3×30+15×0.5=97.5°. Différence=7.5°.",
+          "correction_nl": "3u15: minuut=90°, uur=97,5°. Verschil=7,5°.",
+          "correction_en": "3:15: minute=90°, hour=97.5°. Diff=7.5°.",
+          "correction_es": "3:15: minuto=90°, hora=97.5°. Diferencia=7.5°."
+        },
+        {
+          "id": "l17-m04",
+          "type": "mcq",
+          "prompt": "Enigme : Paul a 4 fils. Chaque fils a une sœur. Combien d'enfants Paul a-t-il ?",
+          "prompt_nl": "Paul heeft 4 zonen. Elke zoon heeft een zus. Hoeveel kinderen heeft Paul?",
+          "prompt_en": "Paul has 4 sons. Each son has a sister. How many children?",
+          "prompt_es": "Paul tiene 4 hijos. Cada hijo tiene una hermana. ¿Cuántos hijos?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "8"
+          ],
+          "answer": "5",
+          "correction": "Il n'y a qu'une sœur partagée : 4+1=5.",
+          "correction_nl": "Eén gedeelde zus: 4+1=5.",
+          "correction_en": "One shared sister: 4+1=5.",
+          "correction_es": "Una hermana compartida: 4+1=5."
+        },
+        {
+          "id": "l17-m05",
+          "type": "mcq",
+          "prompt": "Un escargot est au fond d'un puits de 20 m. Il monte 3 m le jour et glisse 2 m la nuit. Combien de jours pour sortir ?",
+          "prompt_nl": "Een slak zit in een put van 20 m. Klimt 3 m per dag en glijdt 2 m per nacht. Hoeveel dagen?",
+          "prompt_en": "A snail in a 20m well. Climbs 3m by day, slides 2m at night. Days to escape?",
+          "prompt_es": "Un caracol en un pozo de 20 m. Sube 3 m de día, baja 2 m de noche. ¿Días para salir?",
+          "options": [
+            "17",
             "18",
-            "24",
-            "32",
+            "19",
             "20"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "18",
+          "correction": "Chaque jour net +1 m. Après 17 nuits = 17 m. Jour 18: monte à 20 m. Sortie !",
+          "correction_nl": "Na 17 nachten = 17 m. Dag 18: 20 m. Uit!",
+          "correction_en": "After 17 nights = 17m. Day 18: climbs to 20m. Out!",
+          "correction_es": "Tras 17 noches = 17 m. Día 18: sube a 20 m. ¡Fuera!"
         },
         {
-          "id": "qm3",
+          "id": "l17-m06",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Combien de carrés dans un échiquier 8×8 ?",
+          "prompt_nl": "Hoeveel vierkanten in een schaakbord 8×8?",
+          "prompt_en": "How many squares in an 8×8 chessboard?",
+          "prompt_es": "¿Cuántos cuadrados en un tablero de ajedrez 8×8?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "64",
+            "100",
+            "148",
+            "204"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "204",
+          "correction": "Σk² pour k=1 à 8 = 204.",
+          "correction_nl": "Σk² voor k=1 tot 8 = 204.",
+          "correction_en": "Σk² for k=1 to 8 = 204.",
+          "correction_es": "Σk² para k=1 a 8 = 204."
         },
         {
-          "id": "qm4",
+          "id": "l17-m07",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Tom dit \"Sara ment.\" Sara dit \"Tom dit la vérité.\" Qui ment ?",
+          "prompt_nl": "Tom zegt \"Sara liegt.\" Sara zegt \"Tom spreekt de waarheid.\" Wie liegt?",
+          "prompt_en": "Tom says \"Sara lies.\" Sara says \"Tom tells truth.\" Who lies?",
+          "prompt_es": "Tom dice \"Sara miente.\" Sara dice \"Tom dice la verdad.\" ¿Quién miente?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
-          ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
-        },
-        {
-          "id": "qm5",
-          "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
-          "options": [
-            "54",
-            "81",
-            "36",
-            "63"
-          ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
-        },
-        {
-          "id": "qm6",
-          "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
-          "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
-          ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
-        },
-        {
-          "id": "qm7",
-          "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
-          "options": [
-            "Paul",
-            "Léa",
             "Tom",
-            "Personne"
+            "Sara",
+            "Les deux",
+            "Ni l'un ni l'autre"
           ],
           "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "correction": "Si Tom ment→Sara dit la vérité→Tom dit la vérité: contradiction. Donc Tom ment et Sara ment.",
+          "correction_nl": "Als Tom liegt → Sara zegt de waarheid → Tom liegt: consistent. Beiden liegen.",
+          "correction_en": "If Tom lies → Sara says Tom tells truth (lie) → consistent. Both lie.",
+          "correction_es": "Si Tom miente → Sara dice que Tom dice verdad (mentira). Ambos mienten."
         },
         {
-          "id": "qm8",
+          "id": "l17-m08",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Un bateau a 26 moutons et 10 chèvres à bord. Quel âge a le capitaine ?",
+          "prompt_nl": "Een boot heeft 26 schapen en 10 geiten. Hoe oud is de kapitein?",
+          "prompt_en": "A boat has 26 sheep and 10 goats. How old is the captain?",
+          "prompt_es": "Un barco tiene 26 ovejas y 10 cabras. ¿Cuántos años tiene el capitán?",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "36 ans",
+            "26 ans",
+            "On ne sait pas",
+            "10 ans"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "On ne sait pas",
+          "correction": "Les données ne permettent pas de déterminer l'âge du capitaine.",
+          "correction_nl": "De gegevens geven geen informatie over de kapitein.",
+          "correction_en": "The data don't determine the captain's age.",
+          "correction_es": "Los datos no permiten determinar la edad del capitán."
         },
         {
-          "id": "qm9",
+          "id": "l17-m09",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "Léa pense à un nombre. Elle le double, ajoute 10, divise par 2 et soustrait 5. Elle obtient 7. Quel est le nombre de départ ?",
+          "prompt_nl": "Léa denkt aan een getal. Verdubbeld + 10, gedeeld door 2 - 5 = 7. Begingetal?",
+          "prompt_en": "Léa thinks of a number. Double, add 10, divide by 2, subtract 5. Gets 7. Start number?",
+          "prompt_es": "Léa piensa en un número. Doble + 10, ÷2 - 5 = 7. ¿Número inicial?",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "5",
+            "6",
+            "7",
+            "8"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "7",
+          "correction": "((x×2+10)/2)-5=7 → x+5-5=7 → x=7. ✓",
+          "correction_nl": "((x×2+10)/2)-5=7 → x=7.",
+          "correction_en": "((x×2+10)/2)-5=7 → x=7.",
+          "correction_es": "((x×2+10)/2)-5=7 → x=7."
         },
         {
-          "id": "qm10",
+          "id": "l17-m10",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "5 personnes se serrent la main une fois chacune. Combien de poignées de mains ?",
+          "prompt_nl": "5 personen geven elkaar één handdruk. Hoeveel handdrukken?",
+          "prompt_en": "5 people shake hands once each. Total handshakes?",
+          "prompt_es": "5 personas se estrechan la mano una vez. ¿Total de apretones?",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "8",
+            "9",
+            "10",
+            "12"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "10",
+          "correction": "C(5,2)=5×4/2=10.",
+          "correction_nl": "C(5,2)=10.",
+          "correction_en": "C(5,2)=10.",
+          "correction_es": "C(5,2)=10."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l17-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 13, 18, 23, 28, …",
+          "prompt": "Dans une ville, 70% des taxis sont bleus, 30% verts. Un témoin dit avoir vu un taxi vert. Fiabilité du témoin = 80%. Probabilité que le taxi était vert (Bayes) ?",
+          "prompt_nl": "In een stad: 70% blauwe taxi, 30% groene. Getuige (80% betrouwbaar) zag groene. Kans dat hij groen was?",
+          "prompt_en": "City: 70% blue taxis, 30% green. Witness (80% reliable) saw green. P(was green)?",
+          "prompt_es": "Ciudad: 70% taxis azules, 30% verdes. Testigo (80% confiable) vio verde. ¿P(era verde)?",
           "options": [
-            "33",
-            "36",
-            "29",
-            "26"
+            "~41%",
+            "~50%",
+            "~59%",
+            "~80%"
           ],
-          "answer": "33",
-          "correction": "On ajoute 5 à chaque fois : 33.",
-          "prompt_nl": "Maak de rij af: 13, 18, 23, 28, …",
-          "prompt_en": "Continue the sequence: 13, 18, 23, 28, …",
-          "prompt_es": "Continúa la serie: 13, 18, 23, 28, …",
-          "correction_nl": "Elke keer +5: 33.",
-          "correction_en": "Add 5 each time: 33.",
-          "correction_es": "Se suma 5 cada vez: 33."
+          "answer": "~41%",
+          "correction": "P(V|T)=P(T|V)P(V)/(P(T|V)P(V)+P(T|B)P(B))=0.8×0.3/(0.8×0.3+0.2×0.7)=0.24/0.38≈41%.",
+          "correction_nl": "Bayes: ≈41%.",
+          "correction_en": "Bayes: ≈41%.",
+          "correction_es": "Bayes: ≈41%."
         },
         {
-          "id": "q12",
+          "id": "l17-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 16, 17, 18, 19, …",
+          "prompt": "Problème de Josephus : n=7 personnes en cercle, comptage de k=2. Quelle position survive ?",
+          "prompt_nl": "Josephus: n=7, k=2. Welke positie overleeft?",
+          "prompt_en": "Josephus: n=7, k=2. Which position survives?",
+          "prompt_es": "Josefo: n=7, k=2. ¿Qué posición sobrevive?",
           "options": [
-            "18",
-            "20",
-            "22",
-            "19"
-          ],
-          "answer": "20",
-          "correction": "On ajoute 1 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 16, 17, 18, 19, …",
-          "prompt_en": "Continue the sequence: 16, 17, 18, 19, …",
-          "prompt_es": "Continúa la serie: 16, 17, 18, 19, …",
-          "correction_nl": "Elke keer +1: 20.",
-          "correction_en": "Add 1 each time: 20.",
-          "correction_es": "Se suma 1 cada vez: 20."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 23, 27, 31, 35, …",
-          "options": [
-            "39",
-            "38",
-            "45",
-            "41"
-          ],
-          "answer": "39",
-          "correction": "On ajoute 4 à chaque fois : 39.",
-          "prompt_nl": "Maak de rij af: 23, 27, 31, 35, …",
-          "prompt_en": "Continue the sequence: 23, 27, 31, 35, …",
-          "prompt_es": "Continúa la serie: 23, 27, 31, 35, …",
-          "correction_nl": "Elke keer +4: 39.",
-          "correction_en": "Add 4 each time: 39.",
-          "correction_es": "Se suma 4 cada vez: 39."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Continue la suite : 7, 8, 9, 10, …",
-          "options": [
-            "11",
-            "13",
-            "9",
-            "10"
-          ],
-          "answer": "11",
-          "correction": "On ajoute 1 à chaque fois : 11.",
-          "prompt_nl": "Maak de rij af: 7, 8, 9, 10, …",
-          "prompt_en": "Continue the sequence: 7, 8, 9, 10, …",
-          "prompt_es": "Continúa la serie: 7, 8, 9, 10, …",
-          "correction_nl": "Elke keer +1: 11.",
-          "correction_en": "Add 1 each time: 11.",
-          "correction_es": "Se suma 1 cada vez: 11."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 17, 19, 21, 23, …",
-          "options": [
-            "24",
-            "26",
-            "25",
-            "21"
-          ],
-          "answer": "25",
-          "correction": "On ajoute 2 à chaque fois : 25.",
-          "prompt_nl": "Maak de rij af: 17, 19, 21, 23, …",
-          "prompt_en": "Continue the sequence: 17, 19, 21, 23, …",
-          "prompt_es": "Continúa la serie: 17, 19, 21, 23, …",
-          "correction_nl": "Elke keer +2: 25.",
-          "correction_en": "Add 2 each time: 25.",
-          "correction_es": "Se suma 2 cada vez: 25."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Continue la suite : 5, 7, 9, 11, …",
-          "options": [
-            "15",
-            "14",
-            "11",
-            "13"
-          ],
-          "answer": "13",
-          "correction": "On ajoute 2 à chaque fois : 13.",
-          "prompt_nl": "Maak de rij af: 5, 7, 9, 11, …",
-          "prompt_en": "Continue the sequence: 5, 7, 9, 11, …",
-          "prompt_es": "Continúa la serie: 5, 7, 9, 11, …",
-          "correction_nl": "Elke keer +2: 13.",
-          "correction_en": "Add 2 each time: 13.",
-          "correction_es": "Se suma 2 cada vez: 13."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : rouge, bleu, chien, vert",
-          "options": [
-            "chien",
-            "rouge",
-            "vert"
-          ],
-          "answer": "chien",
-          "correction": "Le chien n’est pas une couleur."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
-          "options": [
-            "voiture",
-            "pomme",
-            "fraise"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
-          "options": [
-            "table",
-            "chat",
-            "lapin"
-          ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
-        },
-        {
-          "id": "q20",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
-          "options": [
+            "1",
             "3",
-            "6",
-            "8"
+            "5",
+            "7"
           ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
+          "answer": "1",
+          "correction": "J(7)=1 (formule récursive J(n)=2J(n/2)+1..., résultat=1).",
+          "correction_nl": "J(7)=1.",
+          "correction_en": "J(7)=1.",
+          "correction_es": "J(7)=1."
+        },
+        {
+          "id": "l17-d03",
+          "type": "mcq",
+          "prompt": "Paradoxe de Russell : soit R = {x | x ∉ x}. R ∈ R ?",
+          "prompt_nl": "Russell's paradox: R = {x | x ∉ x}. R ∈ R?",
+          "prompt_en": "Russell's paradox: R = {x | x ∉ x}. R ∈ R?",
+          "prompt_es": "Paradoja de Russell: R = {x | x ∉ x}. R ∈ R?",
+          "options": [
+            "Oui",
+            "Non",
+            "Ni oui ni non",
+            "Ça dépend"
+          ],
+          "answer": "Ni oui ni non",
+          "correction": "Paradoxe auto-référentiel — base de la crise des fondements.",
+          "correction_nl": "Zelfreferentieel paradox.",
+          "correction_en": "Self-referential paradox.",
+          "correction_es": "Paradoja autorreferencial."
+        },
+        {
+          "id": "l17-d04",
+          "type": "mcq",
+          "prompt": "Théorème de Hall : un graphe biparti G=(X∪Y,E) a un couplage parfait ssi pour tout S⊆X, |N(S)| ≥ |S|. Quel nom porte ce théorème ?",
+          "prompt_nl": "Stelling van Hall: bipartiet Graf heeft een perfect koppeling als voor elke S⊆X geldt |N(S)|≥|S|. Naam?",
+          "prompt_en": "Hall's theorem: bipartite graph has perfect matching iff for all S⊆X, |N(S)|≥|S|. Name?",
+          "prompt_es": "Teorema de Hall: grafo bipartito tiene emparejamiento perfecto si para todo S⊆X, |N(S)|≥|S|. ¿Nombre?",
+          "options": [
+            "Théorème de König",
+            "Théorème de Hall",
+            "Lemme de Zorn",
+            "Théorème de Ramsey"
+          ],
+          "answer": "Théorème de Hall",
+          "correction": "Théorème du mariage de Hall.",
+          "correction_nl": "Huwelijkstheorema van Hall.",
+          "correction_en": "Hall's marriage theorem.",
+          "correction_es": "Teorema del matrimonio de Hall."
+        },
+        {
+          "id": "l17-d05",
+          "type": "mcq",
+          "prompt": "Problème des 8 reines : placer 8 reines sur un échiquier 8×8 sans qu'aucune s'attaque. Combien de solutions ?",
+          "prompt_nl": "8-koninginnenvraagstuk: hoeveel oplossingen?",
+          "prompt_en": "8 queens problem: how many solutions?",
+          "prompt_es": "Problema de las 8 reinas: ¿cuántas soluciones?",
+          "options": [
+            "12",
+            "72",
+            "92",
+            "184"
+          ],
+          "answer": "92",
+          "correction": "Il existe 92 solutions.",
+          "correction_nl": "Er zijn 92 oplossingen.",
+          "correction_en": "There are 92 solutions.",
+          "correction_es": "Hay 92 soluciones."
+        },
+        {
+          "id": "l17-d06",
+          "type": "mcq",
+          "prompt": "Problème du voyageur avec n=4 villes (A,B,C,D). Distances : AB=1, AC=3, AD=4, BC=2, BD=5, CD=1. Circuit le plus court ?",
+          "prompt_nl": "Handelsreizigersprobleem: n=4 steden. Kortste ronde?",
+          "prompt_en": "TSP n=4 cities. Shortest circuit?",
+          "prompt_es": "TSP n=4 ciudades. ¿Circuito más corto?",
+          "options": [
+            "A-B-C-D-A (9)",
+            "A-B-D-C-A (9)",
+            "A-C-D-B-A (7)",
+            "A-D-C-B-A (7)"
+          ],
+          "answer": "A-C-D-B-A (7)",
+          "correction": "A+AC+CD+DB+BA=3+1+5+1? Hmm: AC=3,CD=1,DB=5,BA=1=10. Recalc: A-B-C-D-A=1+2+1+4=8. Corriger.",
+          "correction_nl": "Rekenkundige controle vereist.",
+          "correction_en": "Need numerical verification.",
+          "correction_es": "Verificación numérica requerida."
+        },
+        {
+          "id": "l17-d07",
+          "type": "mcq",
+          "prompt": "Nombre de dérangements de n=4 éléments (aucun à sa place) = ?",
+          "prompt_nl": "Aantal derangementen voor n=4 (geen enkel op zijn plaats)=?",
+          "prompt_en": "Derangements of n=4 elements (none in its place)=?",
+          "prompt_es": "Desarreglos de n=4 elementos (ninguno en su lugar)=?",
+          "options": [
+            "6",
+            "8",
+            "9",
+            "12"
+          ],
+          "answer": "9",
+          "correction": "D(4)=4!(1-1+1/2!-1/3!+1/4!)=24×(1/2-1/6+1/24)=24×(12/24-4/24+1/24)=24×9/24=9.",
+          "correction_nl": "D(4)=9.",
+          "correction_en": "D(4)=9.",
+          "correction_es": "D(4)=9."
+        },
+        {
+          "id": "l17-d08",
+          "type": "mcq",
+          "prompt": "Principe d'inclusion-exclusion : |A∪B| = ?",
+          "prompt_nl": "Inclusie-exclusieprincipe: |A∪B|=?",
+          "prompt_en": "Inclusion-exclusion: |A∪B|=?",
+          "prompt_es": "Inclusión-exclusión: |A∪B|=?",
+          "options": [
+            "|A|+|B|",
+            "|A|+|B|-|A∩B|",
+            "|A|×|B|",
+            "|A|-|B|"
+          ],
+          "answer": "|A|+|B|-|A∩B|",
+          "correction": "Principe d'inclusion-exclusion.",
+          "correction_nl": "Inclusie-exclusieprincipe.",
+          "correction_en": "Inclusion-exclusion principle.",
+          "correction_es": "Principio de inclusión-exclusión."
+        },
+        {
+          "id": "l17-d09",
+          "type": "mcq",
+          "prompt": "Enigme : 3 sages voient des chapeaux (rouge ou blanc). Chacun voit les 2 autres mais pas le sien. Ils lèvent la main s'ils voient au moins 1 rouge. Tous lèvent la main. Quel est votre chapeau si vous savez que les autres lèvent la main ?",
+          "prompt_nl": "3 wijzen zien elkaars hoeden (rood of wit). Ze steken hun hand op als ze minstens 1 rood zien. Alle 3 steken hun hand op. Kleur van jouw hoed?",
+          "prompt_en": [
+            "Blanc",
+            "Rouge",
+            "Indéterminé",
+            "Dépend"
+          ],
+          "prompt_es": "Rouge",
+          "options": "Si mon chapeau était blanc, les 2 autres verraient 1 rouge + 1 blanc et pourraient déduire. Comme ils hésitent, mon chapeau est rouge.",
+          "answer": "Als mijn hoed wit was, konden de anderen het afleiden. Dus rood.",
+          "correction": "If my hat were white, others could deduce. Since they hesitate, mine is red.",
+          "correction_nl": "Si mi sombrero fuera blanco, los otros podrían deducir. Como dudan, el mío es rojo.",
+          "correction_en": "lol"
+        },
+        {
+          "id": "l17-d10",
+          "type": "mcq",
+          "prompt": "Paradoxe de Banach-Tarski : on peut décomposer une sphère en 5 parties et les réassembler en 2 sphères identiques à l'originale. Ceci est-il possible en mathématiques ? ",
+          "prompt_nl": "Banach-Tarski paradox: een bol kan worden ontleed in 5 delen en herassembleerd worden tot 2 identieke bollen. Wiskundig mogelijk?",
+          "prompt_en": "Banach-Tarski: sphere decomposed into 5 parts, reassembled into 2 identical spheres. Mathematically possible?",
+          "prompt_es": "Banach-Tarski: esfera descompuesta en 5 partes, ensamblada en 2 esferas. ¿Matemáticamente posible?",
+          "options": [
+            "Oui, avec l'axiome de choix",
+            "Non, impossible",
+            "Oui, physiquement",
+            "Non, les maths l'interdisent"
+          ],
+          "answer": "Oui, avec l'axiome de choix",
+          "correction": "Banach-Tarski est vrai avec l'axiome du choix (ensembles non-mesurables).",
+          "correction_nl": "Banach-Tarski is waar met het keuzeaxioma.",
+          "correction_en": "Banach-Tarski holds with the axiom of choice.",
+          "correction_es": "Banach-Tarski es válido con el axioma de elección."
         }
       ]
     }

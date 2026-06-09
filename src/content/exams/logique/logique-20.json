@@ -4,445 +4,590 @@
   "categoryLabel": "Logique",
   "categoryEmoji": "🧠",
   "categoryOrder": 10,
-  "title": "Réfléchis bien 20",
-  "emoji": "💫",
+  "title": "Grand défi logique 🏆",
+  "emoji": "🏆",
   "order": 20,
   "levels": {
     "facile": {
       "passPercent": 60,
       "questions": [
         {
-          "id": "q9",
+          "id": "l20-f01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 5, 7, …",
+          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt_nl": "Ga verder: 2, 4, 8, 16, …",
+          "prompt_en": "Continue: 2, 4, 8, 16, …",
+          "prompt_es": "Continúa: 2, 4, 8, 16, …",
           "options": [
-            "9",
-            "8",
-            "10",
-            "7"
+            "24",
+            "28",
+            "32",
+            "36"
           ],
-          "answer": "9",
-          "correction": "On ajoute 2 à chaque fois : 9.",
-          "prompt_nl": "Maak de rij af: 1, 3, 5, 7, …",
-          "prompt_en": "Continue the sequence: 1, 3, 5, 7, …",
-          "prompt_es": "Continúa la serie: 1, 3, 5, 7, …",
-          "correction_nl": "Elke keer +2: 9.",
-          "correction_en": "Add 2 each time: 9.",
-          "correction_es": "Se suma 2 cada vez: 9."
+          "answer": "32",
+          "correction": "×2 : 16×2=32.",
+          "correction_nl": "×2: 32.",
+          "correction_en": "×2: 32.",
+          "correction_es": "×2: 32."
         },
         {
-          "id": "q10",
+          "id": "l20-f02",
           "type": "mcq",
-          "prompt": "Continue la suite : 10, 12, 14, 16, …",
+          "prompt": "Trouve l'intrus : chien, chat, lion, table",
+          "prompt_nl": "Vind de intrus: hond, kat, leeuw, tafel",
+          "prompt_en": "Find the odd one: dog, cat, lion, table",
+          "prompt_es": "Encuentra el intruso: perro, gato, león, mesa",
           "options": [
-            "18",
-            "22",
-            "20",
-            "21"
-          ],
-          "answer": "18",
-          "correction": "On ajoute 2 à chaque fois : 18.",
-          "prompt_nl": "Maak de rij af: 10, 12, 14, 16, …",
-          "prompt_en": "Continue the sequence: 10, 12, 14, 16, …",
-          "prompt_es": "Continúa la serie: 10, 12, 14, 16, …",
-          "correction_nl": "Elke keer +2: 18.",
-          "correction_en": "Add 2 each time: 18.",
-          "correction_es": "Se suma 2 cada vez: 18."
-        },
-        {
-          "id": "q11",
-          "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 3, 4, …",
-          "options": [
-            "3",
-            "5",
-            "7",
-            "4"
-          ],
-          "answer": "5",
-          "correction": "On ajoute 1 à chaque fois : 5.",
-          "prompt_nl": "Maak de rij af: 1, 2, 3, 4, …",
-          "prompt_en": "Continue the sequence: 1, 2, 3, 4, …",
-          "prompt_es": "Continúa la serie: 1, 2, 3, 4, …",
-          "correction_nl": "Elke keer +1: 5.",
-          "correction_en": "Add 1 each time: 5.",
-          "correction_es": "Se suma 1 cada vez: 5."
-        },
-        {
-          "id": "q12",
-          "type": "mcq",
-          "prompt": "Continue la suite : 8, 11, 14, 17, …",
-          "options": [
-            "20",
-            "15",
-            "23",
-            "18"
-          ],
-          "answer": "20",
-          "correction": "On ajoute 3 à chaque fois : 20.",
-          "prompt_nl": "Maak de rij af: 8, 11, 14, 17, …",
-          "prompt_en": "Continue the sequence: 8, 11, 14, 17, …",
-          "prompt_es": "Continúa la serie: 8, 11, 14, 17, …",
-          "correction_nl": "Elke keer +3: 20.",
-          "correction_en": "Add 3 each time: 20.",
-          "correction_es": "Se suma 3 cada vez: 20."
-        },
-        {
-          "id": "q13",
-          "type": "mcq",
-          "prompt": "Continue la suite : 7, 10, 13, 16, …",
-          "options": [
-            "20",
-            "15",
-            "18",
-            "19"
-          ],
-          "answer": "19",
-          "correction": "On ajoute 3 à chaque fois : 19.",
-          "prompt_nl": "Maak de rij af: 7, 10, 13, 16, …",
-          "prompt_en": "Continue the sequence: 7, 10, 13, 16, …",
-          "prompt_es": "Continúa la serie: 7, 10, 13, 16, …",
-          "correction_nl": "Elke keer +3: 19.",
-          "correction_en": "Add 3 each time: 19.",
-          "correction_es": "Se suma 3 cada vez: 19."
-        },
-        {
-          "id": "q14",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
-          "options": [
-            "table",
+            "chien",
             "chat",
-            "lapin"
+            "lion",
+            "table"
           ],
           "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "correction": "Table est un objet, les autres sont des animaux.",
+          "correction_nl": "Tafel is een voorwerp.",
+          "correction_en": "Table is an object.",
+          "correction_es": "Mesa es un objeto."
         },
         {
-          "id": "q15",
+          "id": "l20-f03",
           "type": "mcq",
-          "prompt": "Range du plus petit au plus grand : 5, 2, 8",
+          "prompt": "Si tous les A sont B et X est A, X est B ?",
+          "prompt_nl": "Als alle A B zijn en X is A, is X dan B?",
+          "prompt_en": "If all A are B and X is A, is X a B?",
+          "prompt_es": "Si todos los A son B y X es A, ¿X es B?",
           "options": [
-            "2, 5, 8",
-            "8, 5, 2",
-            "5, 2, 8"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Jamais"
           ],
-          "answer": "2, 5, 8",
-          "correction": "Ordre croissant : 2, 5, 8."
+          "answer": "Oui",
+          "correction": "Syllogisme direct.",
+          "correction_nl": "Direct syllogisme.",
+          "correction_en": "Direct syllogism.",
+          "correction_es": "Silogismo directo."
         },
         {
-          "id": "q16",
+          "id": "l20-f04",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
+          "prompt": "Dé à 6 faces. P(obtenir 3) = ?",
+          "prompt_nl": "Dobbelsteen. P(3)=?",
+          "prompt_en": "Die. P(3)=?",
+          "prompt_es": "Dado. P(3)=?",
           "options": [
-            "voiture",
-            "pomme",
-            "fraise"
+            "1/3",
+            "1/4",
+            "1/6",
+            "1/2"
           ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
+          "answer": "1/6",
+          "correction": "1 chance sur 6.",
+          "correction_nl": "1 kans op 6.",
+          "correction_en": "1 in 6.",
+          "correction_es": "1 de 6."
+        },
+        {
+          "id": "l20-f05",
+          "type": "mcq",
+          "prompt": "A = {1,2,3}, B = {2,3,4}. A ∩ B = ?",
+          "prompt_nl": "A={1,2,3}, B={2,3,4}. A ∩ B=?",
+          "prompt_en": "A={1,2,3}, B={2,3,4}. A ∩ B=?",
+          "prompt_es": "A={1,2,3}, B={2,3,4}. A ∩ B=?",
+          "options": [
+            "{1}",
+            "{2,3}",
+            "{4}",
+            "{1,2,3,4}"
+          ],
+          "answer": "{2,3}",
+          "correction": "Intersection = éléments communs.",
+          "correction_nl": "Doorsnede = gemeenschappelijk.",
+          "correction_en": "Intersection = common elements.",
+          "correction_es": "Intersección = elementos comunes."
+        },
+        {
+          "id": "l20-f06",
+          "type": "mcq",
+          "prompt": "Chien est à aboyer comme chat est à ?",
+          "prompt_nl": "Hond staat tot blaffen als kat tot?",
+          "prompt_en": "Dog is to bark as cat is to?",
+          "prompt_es": "Perro es a ladrar como gato es a?",
+          "options": [
+            "ronronner",
+            "miauler",
+            "rugir",
+            "siffler"
+          ],
+          "answer": "miauler",
+          "correction": "Le chat miaule.",
+          "correction_nl": "De kat miauwt.",
+          "correction_en": "Cat meows.",
+          "correction_es": "El gato maúlla."
+        },
+        {
+          "id": "l20-f07",
+          "type": "mcq",
+          "prompt": "? + 5 = 12",
+          "prompt_nl": "? + 5 = 12",
+          "prompt_en": "? + 5 = 12",
+          "prompt_es": "? + 5 = 12",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "answer": "7",
+          "correction": "12-5=7.",
+          "correction_nl": "12-5=7.",
+          "correction_en": "12-5=7.",
+          "correction_es": "12-5=7."
+        },
+        {
+          "id": "l20-f08",
+          "type": "mcq",
+          "prompt": "Vrai ou faux : La Terre tourne autour du Soleil.",
+          "prompt_nl": "Waar of onwaar: De Aarde draait om de Zon.",
+          "prompt_en": "True or false: Earth orbits the Sun.",
+          "prompt_es": "Verdadero o falso: La Tierra gira alrededor del Sol.",
+          "options": [
+            "Vrai",
+            "Faux"
+          ],
+          "answer": "Vrai",
+          "correction": "La Terre orbite autour du Soleil en 1 an.",
+          "correction_nl": "De Aarde draait om de Zon in 1 jaar.",
+          "correction_en": "Earth orbits the Sun in 1 year.",
+          "correction_es": "La Tierra orbita alrededor del Sol en 1 año."
+        },
+        {
+          "id": "l20-f09",
+          "type": "mcq",
+          "prompt": "Motif : 🔴🟡🔵🔴🟡🔵 … Quelle couleur suit ?",
+          "prompt_nl": "Patroon: 🔴🟡🔵🔴🟡🔵 … Volgende?",
+          "prompt_en": "Pattern: 🔴🟡🔵 … Next?",
+          "prompt_es": "Patrón: 🔴🟡🔵 … ¿Siguiente?",
+          "options": [
+            "🔴",
+            "🟡",
+            "🔵",
+            "🟢"
+          ],
+          "answer": "🔴",
+          "correction": "Motif répété : après 🔵 vient 🔴.",
+          "correction_nl": "Herhaald patroon: na 🔵 komt 🔴.",
+          "correction_en": "Repeated pattern: after 🔵 comes 🔴.",
+          "correction_es": "Patrón repetido: después de 🔵 viene 🔴."
+        },
+        {
+          "id": "l20-f10",
+          "type": "mcq",
+          "prompt": "Énigme : J'ai des feuilles mais je ne suis pas un arbre. Qui suis-je ?",
+          "prompt_nl": "Raadsel: Ik heb bladeren maar ben geen boom. Wie ben ik?",
+          "prompt_en": "Riddle: I have leaves but I am not a tree. What am I?",
+          "prompt_es": "Adivinanza: Tengo hojas pero no soy un árbol. ¿Qué soy?",
+          "options": [
+            "un buisson",
+            "un livre",
+            "une salade",
+            "un cahier"
+          ],
+          "answer": "un livre",
+          "correction": "Un livre a des feuilles (pages).",
+          "correction_nl": "Een boek heeft bladeren (pagina's).",
+          "correction_en": "A book has leaves (pages).",
+          "correction_es": "Un libro tiene hojas (páginas)."
         }
       ]
     },
     "moyen": {
-      "passPercent": 60,
+      "passPercent": 65,
       "questions": [
         {
-          "id": "qm1",
+          "id": "l20-m01",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 2, 4, 8, …",
-          "options": [
-            "10",
-            "12",
-            "16",
-            "14"
-          ],
-          "answer": "16",
-          "correction": "On multiplie par 2 à chaque fois : 16."
-        },
-        {
-          "id": "qm2",
-          "type": "mcq",
-          "prompt": "Continue la suite : 2, 4, 8, 16, …",
+          "prompt": "Suite de Fibonacci : 1,1,2,3,5,8,13,… prochain terme ?",
+          "prompt_nl": "Fibonacci: 1,1,2,3,5,8,13,… volgend term?",
+          "prompt_en": "Fibonacci: next term?",
+          "prompt_es": "Fibonacci: ¿siguiente término?",
           "options": [
             "18",
-            "24",
-            "32",
-            "20"
+            "20",
+            "21",
+            "23"
           ],
-          "answer": "32",
-          "correction": "On multiplie par 2 à chaque fois : 32."
+          "answer": "21",
+          "correction": "8+13=21.",
+          "correction_nl": "8+13=21.",
+          "correction_en": "8+13=21.",
+          "correction_es": "8+13=21."
         },
         {
-          "id": "qm3",
+          "id": "l20-m02",
           "type": "mcq",
-          "prompt": "Continue la suite : 3, 6, 12, 24, …",
+          "prompt": "Problème des 3 portes (Monty Hall) : faut-il changer ?",
+          "prompt_nl": "Monty Hall: wisselen?",
+          "prompt_en": "Monty Hall: should you switch?",
+          "prompt_es": "Monty Hall: ¿cambiar?",
           "options": [
-            "36",
-            "48",
-            "30",
-            "42"
+            "Oui (2/3)",
+            "Non (1/2)",
+            "Ça ne change rien",
+            "Oui (3/4)"
           ],
-          "answer": "48",
-          "correction": "On multiplie par 2 à chaque fois : 48."
+          "answer": "Oui (2/3)",
+          "correction": "Changer donne 2/3 de chance.",
+          "correction_nl": "Wisselen geeft 2/3.",
+          "correction_en": "Switch gives 2/3 chance.",
+          "correction_es": "Cambiar da 2/3."
         },
         {
-          "id": "qm4",
+          "id": "l20-m03",
           "type": "mcq",
-          "prompt": "Continue la suite : 100, 90, 80, 70, …",
+          "prompt": "Déduction : Aucun X n'est Y. Z est X. Z est Y ?",
+          "prompt_nl": "Deductie: Geen X is Y. Z is X. Is Z dan Y?",
+          "prompt_en": "Deduction: No X is Y. Z is X. Is Z a Y?",
+          "prompt_es": "Deducción: Ningún X es Y. Z es X. ¿Z es Y?",
           "options": [
-            "65",
-            "55",
-            "60",
-            "50"
+            "Oui",
+            "Non",
+            "Peut-être",
+            "Certainement"
           ],
-          "answer": "60",
-          "correction": "On soustrait 10 à chaque fois : 60."
+          "answer": "Non",
+          "correction": "Si Z est X et aucun X n'est Y, alors Z n'est pas Y.",
+          "correction_nl": "Als Z een X is en geen X is Y, dan is Z geen Y.",
+          "correction_en": "If Z is X and no X is Y, then Z is not Y.",
+          "correction_es": "Si Z es X y ningún X es Y, entonces Z no es Y."
         },
         {
-          "id": "qm5",
+          "id": "l20-m04",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 9, 27, …",
+          "prompt": "Règle cachée : 1→1, 4→2, 9→3, 16→? Quelle est la règle ?",
+          "prompt_nl": "Verborgen regel: 1→1, 4→2, 9→3, 16→?",
+          "prompt_en": "Hidden rule: 1→1, 4→2, 9→3, 16→?",
+          "prompt_es": "Regla oculta: 1→1, 4→2, 9→3, 16→?",
           "options": [
-            "54",
-            "81",
-            "36",
-            "63"
+            "3",
+            "4",
+            "5",
+            "6"
           ],
-          "answer": "81",
-          "correction": "On multiplie par 3 à chaque fois : 81."
+          "answer": "4",
+          "correction": "√n : √16=4.",
+          "correction_nl": "√n: √16=4.",
+          "correction_en": "√n: √16=4.",
+          "correction_es": "√n: √16=4."
         },
         {
-          "id": "qm6",
+          "id": "l20-m05",
           "type": "mcq",
-          "prompt": "Tous les chiens sont des animaux. Rex est un chien. Rex est ___.",
+          "prompt": "Venn : 30 élèves, 18 aiment maths, 15 aiment sciences, 7 les deux. Combien aiment seulement les maths ?",
+          "prompt_nl": "30 leerlingen. 18 wiskunde, 15 wetenschappen, 7 beide. Hoeveel alleen wiskunde?",
+          "prompt_en": "30 students. 18 maths, 15 science, 7 both. How many only maths?",
+          "prompt_es": "30 alumnos. 18 mates, 15 ciencias, 7 ambos. ¿Cuántos solo mates?",
           "options": [
-            "un meuble",
-            "un animal",
-            "une plante",
-            "un outil"
+            "7",
+            "9",
+            "11",
+            "13"
           ],
-          "answer": "un animal",
-          "correction": "Rex est un chien, et tous les chiens sont des animaux, donc Rex est un animal."
+          "answer": "11",
+          "correction": "18-7=11.",
+          "correction_nl": "18-7=11.",
+          "correction_en": "18-7=11.",
+          "correction_es": "18-7=11."
         },
         {
-          "id": "qm7",
+          "id": "l20-m06",
           "type": "mcq",
-          "prompt": "Paul a plus de billes que Léa. Léa a plus de billes que Tom. Qui en a le moins ?",
+          "prompt": "P(A)=0.4, P(B)=0.3, indépendants. P(A∩B) = ?",
+          "prompt_nl": "P(A)=0,4, P(B)=0,3, onafhankelijk. P(A∩B)=?",
+          "prompt_en": "P(A)=0.4, P(B)=0.3, independent. P(A∩B)=?",
+          "prompt_es": "P(A)=0.4, P(B)=0.3, independientes. P(A∩B)=?",
           "options": [
-            "Paul",
-            "Léa",
-            "Tom",
-            "Personne"
+            "0.10",
+            "0.12",
+            "0.14",
+            "0.16"
           ],
-          "answer": "Tom",
-          "correction": "Paul > Léa > Tom, donc Tom en a le moins."
+          "answer": "0.12",
+          "correction": "0.4×0.3=0.12.",
+          "correction_nl": "0.4×0.3=0.12.",
+          "correction_en": "0.4×0.3=0.12.",
+          "correction_es": "0.4×0.3=0.12."
         },
         {
-          "id": "qm8",
+          "id": "l20-m07",
           "type": "mcq",
-          "prompt": "Léa est plus petite que Marie. Marie est plus petite que Julie. Qui est la plus grande ?",
+          "prompt": "Code César +3. \"KHOOR\" décode = ?",
+          "prompt_nl": "César +3. \"KHOOR\" decoderen=?",
+          "prompt_en": "Caesar +3. \"KHOOR\" decodes to?",
+          "prompt_es": "César +3. \"KHOOR\" se decodifica como?",
           "options": [
-            "Léa",
-            "Marie",
-            "Julie",
-            "Elles sont pareilles"
+            "HELLO",
+            "WORLD",
+            "BONUS",
+            "MAGIC"
           ],
-          "answer": "Julie",
-          "correction": "Léa < Marie < Julie, donc Julie est la plus grande."
+          "answer": "HELLO",
+          "correction": "K-3=H, H-3=E, O-3=L, O-3=L, R-3=O → HELLO.",
+          "correction_nl": "K-3=H, H-3=E, O-3=L, O-3=L, R-3=O → HELLO.",
+          "correction_en": "K-3=H, H-3=E, O-3=L, O-3=L, R-3=O → HELLO.",
+          "correction_es": "K-3=H, H-3=E, O-3=L, O-3=L, R-3=O → HELLO."
         },
         {
-          "id": "qm9",
+          "id": "l20-m08",
           "type": "mcq",
-          "prompt": "Si aujourd'hui est mercredi, quel jour était hier ?",
+          "prompt": "Analogie : planète est à orbite comme électron est à ?",
+          "prompt_nl": "Analogie: planeet staat tot baan als elektron tot?",
+          "prompt_en": "Analogy: planet is to orbit as electron is to?",
+          "prompt_es": "Analogía: planeta es a órbita como electrón es a?",
           "options": [
-            "Jeudi",
-            "Lundi",
-            "Mardi",
-            "Vendredi"
+            "noyau",
+            "orbitale",
+            "proton",
+            "atome"
           ],
-          "answer": "Mardi",
-          "correction": "Le jour avant mercredi est mardi."
+          "answer": "orbitale",
+          "correction": "L'électron suit une orbitale autour du noyau.",
+          "correction_nl": "Een elektron volgt een orbitaal om de kern.",
+          "correction_en": "An electron follows an orbital around the nucleus.",
+          "correction_es": "Un electrón sigue una orbital alrededor del núcleo."
         },
         {
-          "id": "qm10",
+          "id": "l20-m09",
           "type": "mcq",
-          "prompt": "Tous les oiseaux ont des ailes. Le moineau est un oiseau. Le moineau ___.",
+          "prompt": "Dans un arbre minimax de profondeur 2, MAX joue. Feuilles = {4,1,3,8}. Valeur à la racine ?",
+          "prompt_nl": "Minimax-boom diepte 2, MAX speelt. Bladeren={4,1,3,8}. Wortelwaarde?",
+          "prompt_en": "Minimax depth 2, MAX plays. Leaves={4,1,3,8}. Root value?",
+          "prompt_es": "Minimax profundidad 2, MAX juega. Hojas={4,1,3,8}. ¿Valor raíz?",
           "options": [
-            "n'a pas d'ailes",
-            "est un poisson",
-            "a des ailes",
-            "est un insecte"
+            "1",
+            "3",
+            "4",
+            "8"
           ],
-          "answer": "a des ailes",
-          "correction": "Tous les oiseaux ont des ailes, et le moineau est un oiseau, donc il a des ailes."
+          "answer": "3",
+          "correction": "MIN(4,1)=1, MIN(3,8)=3 → MAX(1,3)=3.",
+          "correction_nl": "MIN(4,1)=1, MIN(3,8)=3 → MAX(1,3)=3.",
+          "correction_en": "MIN(4,1)=1, MIN(3,8)=3 → MAX(1,3)=3.",
+          "correction_es": "MIN(4,1)=1, MIN(3,8)=3 → MAX(1,3)=3."
+        },
+        {
+          "id": "l20-m10",
+          "type": "mcq",
+          "prompt": "Enigme finale : 100 prisonniers, 100 tiroirs. Chaque prisonnier cherche son numéro en max 50 essais. Stratégie des cycles → P(succès) ≈ ?",
+          "prompt_nl": "Eindraadsel: 100 gevangenen, 100 laden, 50 pogingen. Cyclusstrategie → P(succes)≈?",
+          "prompt_en": "Final puzzle: 100 prisoners, 100 drawers, 50 tries. Cycle strategy → P(success)≈?",
+          "prompt_es": "Enigma final: 100 prisioneros, 100 cajones, 50 intentos. Estrategia de ciclos → P(éxito)≈?",
+          "options": [
+            "1%",
+            "31%",
+            "50%",
+            "75%"
+          ],
+          "answer": "31%",
+          "correction": "1-ln(2)≈31%.",
+          "correction_nl": "1-ln(2)≈31%.",
+          "correction_en": "1-ln(2)≈31%.",
+          "correction_es": "1-ln(2)≈31%."
         }
       ]
     },
     "difficile": {
-      "passPercent": 60,
+      "passPercent": 70,
       "questions": [
         {
-          "id": "q11",
+          "id": "l20-d01",
           "type": "mcq",
-          "prompt": "Continue la suite : 13, 18, 23, 28, …",
+          "prompt": "Suite : 1, 1, 2, 3, 5, 8, 13, 21, 34, … Rapport de deux termes consécutifs tend vers ?",
+          "prompt_nl": "Fibonacci-reeks: verhouding van twee opeenvolgende termen nadert tot?",
+          "prompt_en": "Fibonacci: ratio of consecutive terms tends to?",
+          "prompt_es": "Fibonacci: razón de términos consecutivos tiende a?",
           "options": [
-            "30",
-            "29",
-            "31",
-            "33"
+            "√2",
+            "π",
+            "φ (nombre d'or)",
+            "e"
           ],
-          "answer": "33",
-          "correction": "On ajoute 5 à chaque fois : 33.",
-          "prompt_nl": "Maak de rij af: 13, 18, 23, 28, …",
-          "prompt_en": "Continue the sequence: 13, 18, 23, 28, …",
-          "prompt_es": "Continúa la serie: 13, 18, 23, 28, …",
-          "correction_nl": "Elke keer +5: 33.",
-          "correction_en": "Add 5 each time: 33.",
-          "correction_es": "Se suma 5 cada vez: 33."
+          "answer": "φ (nombre d'or)",
+          "correction": "φ = (1+√5)/2 ≈ 1.618.",
+          "correction_nl": "φ=(1+√5)/2≈1,618.",
+          "correction_en": "φ=(1+√5)/2≈1.618.",
+          "correction_es": "φ=(1+√5)/2≈1.618."
         },
         {
-          "id": "q12",
+          "id": "l20-d02",
           "type": "mcq",
-          "prompt": "Continue la suite : 1, 3, 5, 7, …",
+          "prompt": "Paradoxe de Russell, théorème de Gödel, paradoxe du barbier — tous sont liés à ?",
+          "prompt_nl": "Russell, Gödel, barbierparadox — allemaal gerelateerd aan?",
+          "prompt_en": "Russell, Gödel, barber paradox — all related to?",
+          "prompt_es": "Russell, Gödel, paradoja del barbero — todos relacionados con?",
           "options": [
-            "7",
-            "11",
-            "9",
-            "5"
+            "L'infini",
+            "L'auto-référence",
+            "Les ensembles infinis",
+            "La logique modale"
           ],
-          "answer": "9",
-          "correction": "On ajoute 2 à chaque fois : 9.",
-          "prompt_nl": "Maak de rij af: 1, 3, 5, 7, …",
-          "prompt_en": "Continue the sequence: 1, 3, 5, 7, …",
-          "prompt_es": "Continúa la serie: 1, 3, 5, 7, …",
-          "correction_nl": "Elke keer +2: 9.",
-          "correction_en": "Add 2 each time: 9.",
-          "correction_es": "Se suma 2 cada vez: 9."
+          "answer": "L'auto-référence",
+          "correction": "Tous impliquent des énoncés qui se réfèrent à eux-mêmes.",
+          "correction_nl": "Allemaal zelfverwijzende uitspraken.",
+          "correction_en": "All involve self-referential statements.",
+          "correction_es": "Todos implican enunciados autorreferenciales."
         },
         {
-          "id": "q13",
+          "id": "l20-d03",
           "type": "mcq",
-          "prompt": "Continue la suite : 9, 12, 15, 18, …",
+          "prompt": "Dans la théorie de la complexité, P ⊆ NP est connu. L'égalité P = NP est ?",
+          "prompt_nl": "In de complexiteitstheorie: P ⊆ NP is bekend. P = NP is?",
+          "prompt_en": "In complexity theory: P ⊆ NP is known. P = NP is?",
+          "prompt_es": "En teoría de complejidad: P ⊆ NP. ¿P = NP es?",
           "options": [
-            "25",
-            "20",
-            "19",
-            "21"
+            "Prouvée vraie",
+            "Prouvée fausse",
+            "Non résolue",
+            "Fausse selon Gödel"
           ],
-          "answer": "21",
-          "correction": "On ajoute 3 à chaque fois : 21.",
-          "prompt_nl": "Maak de rij af: 9, 12, 15, 18, …",
-          "prompt_en": "Continue the sequence: 9, 12, 15, 18, …",
-          "prompt_es": "Continúa la serie: 9, 12, 15, 18, …",
-          "correction_nl": "Elke keer +3: 21.",
-          "correction_en": "Add 3 each time: 21.",
-          "correction_es": "Se suma 3 cada vez: 21."
+          "answer": "Non résolue",
+          "correction": "P vs NP est l'un des problèmes du millénaire — non résolu.",
+          "correction_nl": "P vs NP is een millenniumprobleem — onopgelost.",
+          "correction_en": "P vs NP is a Millennium Problem — unsolved.",
+          "correction_es": "P vs NP es un Problema del Milenio — no resuelto."
         },
         {
-          "id": "q14",
+          "id": "l20-d04",
           "type": "mcq",
-          "prompt": "Continue la suite : 22, 27, 32, 37, …",
-          "options": [
-            "42",
-            "49",
-            "37",
-            "41"
-          ],
-          "answer": "42",
-          "correction": "On ajoute 5 à chaque fois : 42.",
-          "prompt_nl": "Maak de rij af: 22, 27, 32, 37, …",
-          "prompt_en": "Continue the sequence: 22, 27, 32, 37, …",
-          "prompt_es": "Continúa la serie: 22, 27, 32, 37, …",
-          "correction_nl": "Elke keer +5: 42.",
-          "correction_en": "Add 5 each time: 42.",
-          "correction_es": "Se suma 5 cada vez: 42."
-        },
-        {
-          "id": "q15",
-          "type": "mcq",
-          "prompt": "Continue la suite : 7, 13, 19, 25, …",
-          "options": [
-            "27",
-            "26",
-            "39",
-            "31"
-          ],
-          "answer": "31",
-          "correction": "On ajoute 6 à chaque fois : 31.",
-          "prompt_nl": "Maak de rij af: 7, 13, 19, 25, …",
-          "prompt_en": "Continue the sequence: 7, 13, 19, 25, …",
-          "prompt_es": "Continúa la serie: 7, 13, 19, 25, …",
-          "correction_nl": "Elke keer +6: 31.",
-          "correction_en": "Add 6 each time: 31.",
-          "correction_es": "Se suma 6 cada vez: 31."
-        },
-        {
-          "id": "q16",
-          "type": "mcq",
-          "prompt": "Continue la suite : 25, 29, 33, 37, …",
-          "options": [
-            "40",
-            "41",
-            "39",
-            "45"
-          ],
-          "answer": "41",
-          "correction": "On ajoute 4 à chaque fois : 41.",
-          "prompt_nl": "Maak de rij af: 25, 29, 33, 37, …",
-          "prompt_en": "Continue the sequence: 25, 29, 33, 37, …",
-          "prompt_es": "Continúa la serie: 25, 29, 33, 37, …",
-          "correction_nl": "Elke keer +4: 41.",
-          "correction_en": "Add 4 each time: 41.",
-          "correction_es": "Se suma 4 cada vez: 41."
-        },
-        {
-          "id": "q17",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : lundi, mardi, pomme, jeudi",
-          "options": [
-            "pomme",
-            "lundi",
-            "jeudi"
-          ],
-          "answer": "pomme",
-          "correction": "La pomme n’est pas un jour."
-        },
-        {
-          "id": "q18",
-          "type": "mcq",
-          "prompt": "Trouve l’intrus : pomme, banane, voiture, fraise",
-          "options": [
-            "voiture",
-            "pomme",
-            "fraise"
-          ],
-          "answer": "voiture",
-          "correction": "La voiture n’est pas un fruit."
-        },
-        {
-          "id": "q19",
-          "type": "mcq",
-          "prompt": "Quel nombre est le plus petit ?",
+          "prompt": "Théorème des 4 couleurs : tout graphe planaire peut être colorié avec au plus ? couleurs de sorte que deux régions adjacentes aient des couleurs différentes.",
+          "prompt_nl": "Vierkleurenstelling: maximaal ? kleuren nodig voor vlak graaf?",
+          "prompt_en": "Four-color theorem: maximum colors needed for planar graph?",
+          "prompt_es": "Teorema de los 4 colores: ¿máximo de colores para grafo plano?",
           "options": [
             "3",
-            "6",
-            "8"
+            "4",
+            "5",
+            "6"
           ],
-          "answer": "3",
-          "correction": "3 est le plus petit."
+          "answer": "4",
+          "correction": "Le théorème des 4 couleurs.",
+          "correction_nl": "De vierkleurenstelling.",
+          "correction_en": "The four-color theorem.",
+          "correction_es": "El teorema de los 4 colores."
         },
         {
-          "id": "q20",
+          "id": "l20-d05",
           "type": "mcq",
-          "prompt": "Trouve l’intrus : chat, chien, table, lapin",
+          "prompt": "Nombre de Ramsey R(3,3) = 6. Signification : dans tout graphe de 6 sommets, il existe forcément un ?",
+          "prompt_nl": "Ramsey R(3,3)=6. Betekenis: in elke graaf met 6 hoekpunten bestaat er een?",
+          "prompt_en": "Ramsey R(3,3)=6. Meaning: in any 6-vertex graph there is necessarily a?",
+          "prompt_es": "Ramsey R(3,3)=6. Significado: en todo grafo de 6 vértices existe un?",
           "options": [
-            "table",
-            "chat",
-            "lapin"
+            "Triangle ou triange indépendant",
+            "Chemin de longueur 3",
+            "Cycle de longueur 4",
+            "Clique de taille 4"
           ],
-          "answer": "table",
-          "correction": "La table n’est pas un animal."
+          "answer": "Triangle ou triange indépendant",
+          "correction": "R(3,3)=6 : parmi 6 personnes, 3 se connaissent toutes ou 3 ne se connaissent pas.",
+          "correction_nl": "R(3,3)=6: onder 6 personen zijn 3 die elkaar allemaal kennen of 3 die elkaar niet kennen.",
+          "correction_en": "R(3,3)=6: among 6 people, 3 all know each other or 3 don't know each other.",
+          "correction_es": "R(3,3)=6: entre 6 personas, 3 se conocen o 3 no se conocen."
+        },
+        {
+          "id": "l20-d06",
+          "type": "mcq",
+          "prompt": "Machine de Turing universelle : peut-elle simuler toute machine de Turing ?",
+          "prompt_nl": "Universele Turingmachine: kan die elke Turingmachine simuleren?",
+          "prompt_en": "Universal Turing machine: can it simulate any Turing machine?",
+          "prompt_es": "Máquina de Turing universal: ¿puede simular cualquier máquina de Turing?",
+          "options": [
+            "Oui",
+            "Non",
+            "Seulement pour les problèmes décidables",
+            "Dépend de la mémoire"
+          ],
+          "answer": "Oui",
+          "correction": "La machine de Turing universelle peut simuler toute MTD.",
+          "correction_nl": "De universele Turingmachine kan elke Turingmachine simuleren.",
+          "correction_en": "Universal TM can simulate any TM.",
+          "correction_es": "La MTU puede simular cualquier MT."
+        },
+        {
+          "id": "l20-d07",
+          "type": "mcq",
+          "prompt": "Problème de l'arrêt (halting problem) : est-il décidable ?",
+          "prompt_nl": "Stopprobleem: is het beslistbaar?",
+          "prompt_en": "Halting problem: is it decidable?",
+          "prompt_es": "Problema de la parada: ¿es decidible?",
+          "options": [
+            "Oui",
+            "Non",
+            "Parfois",
+            "Dépend du langage"
+          ],
+          "answer": "Non",
+          "correction": "Turing a prouvé que le problème de l'arrêt est indécidable.",
+          "correction_nl": "Turing bewees dat het stopprobleem onbeslistbaar is.",
+          "correction_en": "Turing proved the halting problem is undecidable.",
+          "correction_es": "Turing demostró que el problema de la parada es indecidible."
+        },
+        {
+          "id": "l20-d08",
+          "type": "mcq",
+          "prompt": "Combinatoire : nombre de façons d'arranger n éléments = n!. Pour n=5 ?",
+          "prompt_nl": "Combinatoriek: n elementen rangschikken = n!. Voor n=5?",
+          "prompt_en": "Combinatorics: arrangements of n elements = n!. For n=5?",
+          "prompt_es": "Combinatoria: n elementos = n!. ¿Para n=5?",
+          "options": [
+            "24",
+            "60",
+            "100",
+            "120"
+          ],
+          "answer": "120",
+          "correction": "5!=120.",
+          "correction_nl": "5!=120.",
+          "correction_en": "5!=120.",
+          "correction_es": "5!=120."
+        },
+        {
+          "id": "l20-d09",
+          "type": "mcq",
+          "prompt": "Paradoxe de Banach-Tarski fonctionne parce que les ensembles construits sont ?",
+          "prompt_nl": "Banach-Tarski werkt omdat de geconstrueerde verzamelingen … zijn?",
+          "prompt_en": "Banach-Tarski works because the constructed sets are?",
+          "prompt_es": "Banach-Tarski funciona porque los conjuntos son?",
+          "options": [
+            "Finis",
+            "Non-mesurables",
+            "Dénombrables",
+            "Compacts"
+          ],
+          "answer": "Non-mesurables",
+          "correction": "Les ensembles non-mesurables violent notre intuition.",
+          "correction_nl": "Niet-meetbare verzamelingen.",
+          "correction_en": "Non-measurable sets.",
+          "correction_es": "Conjuntos no medibles."
+        },
+        {
+          "id": "l20-d10",
+          "type": "mcq",
+          "prompt": "Théorème de Cantor-Bernstein : si |A| ≤ |B| et |B| ≤ |A|, alors ?",
+          "prompt_nl": "Cantor-Bernstein: als |A|≤|B| en |B|≤|A|, dan?",
+          "prompt_en": "Cantor-Bernstein: if |A|≤|B| and |B|≤|A|, then?",
+          "prompt_es": "Cantor-Bernstein: si |A|≤|B| y |B|≤|A|, entonces?",
+          "options": [
+            "|A| < |B|",
+            "|A| = |B|",
+            "|A| > |B|",
+            "Indéterminé"
+          ],
+          "answer": "|A| = |B|",
+          "correction": "Théorème de Cantor-Bernstein-Schröder.",
+          "correction_nl": "Cantor-Bernstein-Schröder stelling.",
+          "correction_en": "Cantor-Bernstein-Schröder theorem.",
+          "correction_es": "Teorema de Cantor-Bernstein-Schröder."
         }
       ]
     }
