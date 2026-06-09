@@ -287,8 +287,8 @@ export default function ExerciseGeneratorPage() {
         </div>
       </section>
 
-      {/* Options avancées — collapsible for add/sous */}
-      {isMath && (type === 'additions' || type === 'soustractions') && (
+      {/* Options avancées — collapsible for numeric math types */}
+      {isMath && type !== 'measurements' && type !== 'problemes' && (
         <section className="cahier-section">
           <button
             type="button"
