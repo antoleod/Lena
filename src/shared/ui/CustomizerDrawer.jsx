@@ -11,8 +11,56 @@ import {
   equipPet
 } from '../../services/storage/rewardStore.js';
 
+const DRAWER_LABELS = {
+  fr: {
+    title: 'Personnalise ton monde !',
+    close: 'Fermer',
+    name: '📝 Ton prénom',
+    sound: '🔊 Effets sonores',
+    soundToggle: 'Sons interactifs',
+    themes: '🌈 Palette de couleurs',
+    effects: '❄️ Effets météo',
+    pets: '🐾 Mascottes',
+    wallpapers: '🖼️ Fonds d\'écran',
+  },
+  nl: {
+    title: 'Pas jouw wereld aan!',
+    close: 'Sluiten',
+    name: '📝 Jouw naam',
+    sound: '🔊 Geluidseffecten',
+    soundToggle: 'Interactieve geluiden',
+    themes: '🌈 Kleurenpalet',
+    effects: '❄️ Weereffecten',
+    pets: '🐾 Huisdieren',
+    wallpapers: '🖼️ Achtergronden',
+  },
+  es: {
+    title: '¡Personaliza tu mundo!',
+    close: 'Cerrar',
+    name: '📝 Tu nombre',
+    sound: '🔊 Efectos de sonido',
+    soundToggle: 'Sonidos interactivos',
+    themes: '🌈 Paleta de colores',
+    effects: '❄️ Efectos del clima',
+    pets: '🐾 Mascotas',
+    wallpapers: '🖼️ Fondos de pantalla',
+  },
+  en: {
+    title: 'Personalise your world!',
+    close: 'Close',
+    name: '📝 Your name',
+    sound: '🔊 Sound effects',
+    soundToggle: 'Interactive sounds',
+    themes: '🌈 Colour palette',
+    effects: '❄️ Weather effects',
+    pets: '🐾 Pets',
+    wallpapers: '🖼️ Wallpapers',
+  },
+};
+
 export default function CustomizerDrawer({ isOpen, onClose }) {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
+  const lbl = DRAWER_LABELS[locale] || DRAWER_LABELS.fr;
   const { themeId: activeThemeId, setThemeId } = useTheme();
   const [profile, setProfile] = useState(() => getProfile());
   const [rewards, setRewards] = useState(() => getRewardState());
@@ -91,9 +139,9 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
         <header className="drawer-header">
           <div className="drawer-header__title">
             <span className="eyebrow">LENA 🎨 Customizer</span>
-            <h2>¡Personaliza tu mundo!</h2>
+            <h2>{lbl.title}</h2>
           </div>
-          <button type="button" className="drawer-close" onClick={onClose} aria-label="Cerrar panel">
+          <button type="button" className="drawer-close" onClick={onClose} aria-label={lbl.close}>
             ✕
           </button>
         </header>
@@ -101,7 +149,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
         <div className="drawer-content">
           {/* Quick profile name edit */}
           <section className="drawer-section">
-            <h3 className="drawer-section__title">📝 Tu nombre</h3>
+            <h3 className="drawer-section__title">{lbl.name}</h3>
             <div className="drawer-name-field">
               <input
                 type="text"
@@ -119,9 +167,9 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
 
           {/* Sound settings */}
           <section className="drawer-section">
-            <h3 className="drawer-section__title">🔊 Efectos de sonido</h3>
+            <h3 className="drawer-section__title">{lbl.sound}</h3>
             <div className="drawer-switch-row">
-              <span>Sonidos interactivos</span>
+              <span>{lbl.soundToggle}</span>
               <label className="switch-toggle">
                 <input
                   type="checkbox"
@@ -135,7 +183,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
 
           {/* Theme/Color palettes */}
           <section className="drawer-section">
-            <h3 className="drawer-section__title">🌈 Paleta de colores</h3>
+            <h3 className="drawer-section__title">{lbl.themes}</h3>
             <div className="drawer-options-grid drawer-options-grid--themes">
               {themeOptions.map((theme) => {
                 const owned = isThemeOwned(theme.id);
@@ -169,7 +217,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
 
           {/* Weather Effects */}
           <section className="drawer-section">
-            <h3 className="drawer-section__title">❄️ Efectos del clima</h3>
+            <h3 className="drawer-section__title">{lbl.effects}</h3>
             <div className="drawer-options-grid">
               {effectOptions.map((effect) => {
                 const owned = isEffectOwned(effect.id);
@@ -195,7 +243,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
 
           {/* Mascots / Pets */}
           <section className="drawer-section">
-            <h3 className="drawer-section__title">🐾 Mascotas</h3>
+            <h3 className="drawer-section__title">{lbl.pets}</h3>
             <div className="drawer-options-grid">
               {petOptions.map((pet) => {
                 const owned = isPetOwned(pet.id);
@@ -224,7 +272,7 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
 
           {/* Wallpapers */}
           <section className="drawer-section">
-            <h3 className="drawer-section__title">🖼️ Fondos de pantalla</h3>
+            <h3 className="drawer-section__title">{lbl.wallpapers}</h3>
             <div className="drawer-options-grid">
               {wallpaperOptions.map((wall) => {
                 const owned = isWallpaperOwned(wall.id);
