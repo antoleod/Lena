@@ -147,17 +147,20 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
                     type="button"
                     className={`drawer-theme-btn ${active ? 'is-active' : ''} ${!owned ? 'is-locked' : ''}`}
                     onClick={() => handleThemeClick(theme)}
-                    title={theme.name}
+                    aria-label={theme.name}
+                    aria-pressed={active}
                   >
-                    <span className="drawer-theme-icon">{theme.icon}</span>
+                    <div className="drawer-theme-header">
+                      <span className="drawer-theme-icon">{theme.icon}</span>
+                      {active && <span className="drawer-theme-check">✓</span>}
+                      {!owned && <span className="drawer-theme-price">🔒{theme.price}💎</span>}
+                    </div>
                     <div className="drawer-theme-colors">
                       {theme.preview.map((color, i) => (
                         <span key={i} style={{ backgroundColor: color }} />
                       ))}
                     </div>
-                    {!owned && (
-                      <span className="drawer-item-lock">🔒 {theme.price}💎</span>
-                    )}
+                    <span className="drawer-theme-name">{theme.name}</span>
                   </button>
                 );
               })}

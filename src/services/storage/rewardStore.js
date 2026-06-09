@@ -9,7 +9,10 @@ const themeRewards = [
   { id: 'theme-galaxy', type: 'theme', name: 'Galaxie brillante', nameNl: 'Stralend heelal', price: 88, icon: '✨', preview: ['#8e8dff', '#ff9ad1', '#7ed7ff'] },
   { id: 'theme-castle', type: 'theme', name: 'Chateau pastel', nameNl: 'Pastelkasteel', price: 84, icon: '🏰', preview: ['#d1b8ff', '#ffd5ef', '#ffe79f'] },
   { id: 'theme-garden', type: 'theme', name: 'Jardin lumineux', nameNl: 'Lichte tuin', price: 80, icon: '🌸', preview: ['#7fe2bf', '#ffdba8', '#ffa9d0'] },
-  { id: 'theme-comet', type: 'theme', name: 'Comete magique', nameNl: 'Magische komeet', price: 92, icon: '☄️', preview: ['#6cc9ff', '#b89eff', '#ffd780'] }
+  { id: 'theme-comet', type: 'theme', name: 'Comete magique', nameNl: 'Magische komeet', price: 92, icon: '☄️', preview: ['#6cc9ff', '#b89eff', '#ffd780'] },
+  { id: 'theme-cherry', type: 'theme', name: 'Cerise rubis', nameNl: 'Robijnkers', price: 86, icon: '🍒', preview: ['#f06080', '#ffb3c8', '#ffd5a0'] },
+  { id: 'theme-aurora', type: 'theme', name: 'Aurore polaire', nameNl: 'Poolaurora', price: 90, icon: '🌌', preview: ['#3dcce0', '#a78bfa', '#34d399'] },
+  { id: 'theme-lemon', type: 'theme', name: 'Citron presse', nameNl: 'Vers citroen', price: 76, icon: '🍋', preview: ['#e8e800', '#a8e800', '#ffe060'] }
 ];
 
 const wallpaperRewards = [
@@ -27,6 +30,9 @@ const effectRewards = [
   { id: 'effect-snow', type: 'effect', name: 'Neige legere', nameNl: 'Lichte sneeuw', price: 60, icon: '❄️', preview: ['snow'] },
   { id: 'effect-stars', type: 'effect', name: 'Etoiles filantes', nameNl: 'Vallende sterren', price: 62, icon: '⭐', preview: ['stars'] },
   { id: 'effect-bubbles', type: 'effect', name: 'Bulles magiques', nameNl: 'Magische bellen', price: 58, icon: '🫧', preview: ['bubbles'] },
+  { id: 'effect-fireflies', type: 'effect', name: 'Lucioles douces', nameNl: 'Zachte vuurvliegjes', price: 66, icon: '🪲', preview: ['fireflies'] },
+  { id: 'effect-petals', type: 'effect', name: 'Pluie de petales', nameNl: 'Bloemblaadjesregen', price: 64, icon: '🌸', preview: ['petals'] },
+  { id: 'effect-aurora', type: 'effect', name: 'Aurore boreal', nameNl: 'Noorderlicht', price: 72, icon: '🌌', preview: ['aurora'] },
 ];
 
 const stickerRewards = [

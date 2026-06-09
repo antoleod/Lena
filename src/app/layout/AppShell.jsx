@@ -279,6 +279,10 @@ export default function AppShell() {
         <span className="scene-effects__snow"></span>
         <span className="scene-effects__snow scene-effects__snow--b"></span>
         <span className="scene-effects__rainbow"></span>
+        <span className="scene-effects__fireflies"></span>
+        <span className="scene-effects__petals"></span>
+        <span className="scene-effects__petals scene-effects__petals--b"></span>
+        <span className="scene-effects__aurora"></span>
       </div>
 
       {/* Sidebar nav — visible on tablet/desktop (≥768px) via CSS */}
