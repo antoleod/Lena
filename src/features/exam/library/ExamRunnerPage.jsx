@@ -382,6 +382,8 @@ export default function ExamRunnerPage() {
 
   // Timer countdown
   const endExamRef = useRef(null);
+  // Tracks answered questions for accurate timer-expiry history
+  const answeredMapRef = useRef({});
   useEffect(() => {
     if (phase !== 'quiz' || !configTimerMinutes) { setTimerSecondsLeft(null); return; }
     const total = configTimerMinutes * 60;
@@ -586,6 +588,7 @@ export default function ExamRunnerPage() {
 
     setSelected(value);
     setFeedback(ok ? 'correct' : 'wrong');
+    answeredMapRef.current[qIndex] = { userAnswer: String(value), correct: ok };
 
     const firstTry = isGuided ? !guidedRetry : true;
     if (ok) {
@@ -650,12 +653,15 @@ export default function ExamRunnerPage() {
       total: totalQ,
       pct: Math.round((score / totalQ) * 100),
       ts: Date.now(),
-      questions: (activeQuestions || allQuestions).map((q) => ({
-        prompt: getLocalizedField(q, 'prompt', locale),
-        answer: q.answer,
-        userAnswer: '?',
-        correct: false,
-      })),
+      questions: (activeQuestions || allQuestions).map((q, i) => {
+        const recorded = answeredMapRef.current[i];
+        return {
+          prompt: getLocalizedField(q, 'prompt', locale),
+          answer: q.answer,
+          userAnswer: recorded ? recorded.userAnswer : '?',
+          correct: recorded ? recorded.correct : false,
+        };
+      }),
     });
     saveRepasoData(wrongQuestions);
     setPhase('end');
@@ -851,7 +857,7 @@ export default function ExamRunnerPage() {
     );
   }
 
-  const repasoLabel = { fr: 'Repas & Pratique', nl: 'Herhaling & Oefening', en: 'Review & Practice', es: 'Repaso y Practica' };
+  const repasoLabel = { fr: 'Révisions & Entraînement', nl: 'Herhaling & Oefening', en: 'Review & Practice', es: 'Repaso y Práctica' };
 
   // ── END ──────────────────────────────────────────────────────────────────
   if (phase === 'end') {

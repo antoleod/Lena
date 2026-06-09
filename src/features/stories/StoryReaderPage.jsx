@@ -559,6 +559,7 @@ export default function StoryReaderPage() {
   const [speaking, setSpeaking] = useState(false);
   const speakingRef = useRef(false);
   const [turning, setTurning]   = useState(false);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
   const bookRef                  = useRef(null);
   const swipeRef                 = useRef({ startX: 0, startY: 0 });
   const confettiWrapRef          = useRef(null);
@@ -567,6 +568,12 @@ export default function StoryReaderPage() {
     if (!conte) return;
     if (phase === PHASE_REWARD) markRead(conte.id);
   }, [conte, phase]);
+
+  useEffect(() => {
+    if (phase !== PHASE_SCENES) return;
+    const id = setTimeout(() => setShowSwipeHint(false), 3000);
+    return () => clearTimeout(id);
+  }, [phase]);
 
   useEffect(() => () => {
     stopSpeech();
@@ -800,6 +807,18 @@ export default function StoryReaderPage() {
       onTouchEnd={onTouchEnd}
     >
       <DustParticles />
+
+      {phase === PHASE_SCENES && showSwipeHint && (
+        <div style={{
+          position: 'fixed', right: 12, top: '50%', transform: 'translateY(-50%)',
+          zIndex: 50, pointerEvents: 'none', display: 'flex', flexDirection: 'column',
+          alignItems: 'center', gap: 4, opacity: 1,
+          animation: 'swipe-hint-fade 3s ease forwards',
+        }}>
+          <span style={{ fontSize: '1.6rem', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,.4))' }}>👆</span>
+          <span style={{ fontSize: '1.3rem', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,.4))' }}>›</span>
+        </div>
+      )}
 
       {/* Top bar */}
       <header className="sa-topbar">
