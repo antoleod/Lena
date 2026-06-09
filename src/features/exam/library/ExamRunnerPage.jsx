@@ -443,6 +443,7 @@ export default function ExamRunnerPage() {
     const timerOptions = [null, 5, 10, 15, 20];
     const categoryId = exam.category;
     const isMathCategory = categoryId === 'calcul-mental' || categoryId === 'problemes-mathematiques';
+    const lockedRange = exam.lockedRange || null; // pre-set range from exam metadata
     const rangeOptions = [
       { label: '0 - 10',   min: 0,   max: 10  },
       { label: '0 - 20',   min: 0,   max: 20  },
@@ -455,11 +456,11 @@ export default function ExamRunnerPage() {
     return (
       <div className="reader-page" style={{ justifyContent: 'center', padding: '32px 16px' }}>
         <div className="reader-card" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <h2 style={{ color: '#fff', margin: 0, fontSize: '1.3rem' }}>{exam.emoji} {exam.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,.75)', margin: 0 }}>{ui.configTitle}</p>
+          <h2 style={{ margin: 0, fontSize: '1.3rem' }}>{exam.emoji} {exam.title}</h2>
+          <p style={{ margin: 0 }}>{ui.configTitle}</p>
 
           <div>
-            <p style={{ color: '#fff', fontWeight: 700, marginBottom: 8 }}>{ui.questionsCount}</p>
+            <p style={{ fontWeight: 700, marginBottom: 8 }}>{ui.questionsCount}</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {qCountOptions.map((n) => (
                 <button
@@ -476,7 +477,7 @@ export default function ExamRunnerPage() {
           </div>
 
           <div>
-            <p style={{ color: '#fff', fontWeight: 700, marginBottom: 8 }}>{ui.duree}</p>
+            <p style={{ fontWeight: 700, marginBottom: 8 }}>{ui.duree}</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {timerOptions.map((n) => (
                 <button
@@ -492,9 +493,9 @@ export default function ExamRunnerPage() {
             </div>
           </div>
 
-          {isMathCategory && (
+          {isMathCategory && !lockedRange && (
             <div>
-              <p style={{ color: '#fff', fontWeight: 700, marginBottom: 8 }}>{ui.plageNombres}</p>
+              <p style={{ fontWeight: 700, marginBottom: 8 }}>{ui.plageNombres}</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {rangeOptions.map((r) => {
                   const active = numberRange.min === r.min && numberRange.max === r.max;
@@ -522,12 +523,13 @@ export default function ExamRunnerPage() {
               if (isMathCategory) {
                 const genType = categoryId === 'calcul-mental' ? 'additions' : 'problemes';
                 const count = configQuestionCount || 10;
+                const activeRange = lockedRange || numberRange;
                 const generated = generateExercises({
                   subject: 'math',
                   type: genType,
                   count,
-                  minVal: numberRange.min,
-                  maxVal: numberRange.max,
+                  minVal: activeRange.min,
+                  maxVal: activeRange.max,
                   locale,
                 });
                 qs = generated.map((ex) => ({
@@ -740,7 +742,7 @@ export default function ExamRunnerPage() {
       <div className="reader-page" style={{ justifyContent: 'center', padding: '40px 16px' }}>
         <div className="reader-card" style={{ textAlign: 'center', gap: 14, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <span style={{ fontSize: '3rem' }}>🌟</span>
-          <h2 style={{ color: '#fff', margin: 0 }}>{ui.revisionsDone}</h2>
+          <h2 style={{ margin: 0 }}>{ui.revisionsDone}</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', marginTop: 8 }}>
             <button type="button" className="reader-btn reader-btn--start" style={{ width: '100%' }} onClick={restart}>🏠 {ui.back}</button>
           </div>
@@ -783,7 +785,7 @@ export default function ExamRunnerPage() {
           <div className="exam-progress-bar"><div className="exam-progress-fill" style={{ width: `${(revIndex / revTotal) * 100}%` }} /></div>
         </div>
 
-        <div className="reader-card" style={{ minHeight: 90 }}>
+        <div className="reader-card" style={{ minHeight: 90, flex: 'none' }}>
           <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(revQ, 'prompt', locale)}</p>
         </div>
 
@@ -868,9 +870,9 @@ export default function ExamRunnerPage() {
       <div className="reader-page" style={{ justifyContent: 'center', padding: '40px 16px' }}>
         <div className="reader-card" style={{ textAlign: 'center', gap: 14, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <span style={{ fontSize: '3rem' }}>{passed ? '🏆' : '💪'}</span>
-          <h2 style={{ color: '#fff', margin: 0 }}>{passed ? ui.passed : ui.keepPractising}</h2>
-          <p style={{ color: 'rgba(255,255,255,.7)', margin: 0 }}>{exam.emoji} {exam.title} · {levelMeta?.label}</p>
-          <p style={{ fontSize: '1.6rem', color: '#fff', fontWeight: 700 }}>{score} / {totalQ} <span style={{ fontSize: '1rem', opacity: .7 }}>({pct}%)</span></p>
+          <h2 style={{ margin: 0 }}>{passed ? ui.passed : ui.keepPractising}</h2>
+          <p style={{ margin: 0 }}>{exam.emoji} {exam.title} · {levelMeta?.label}</p>
+          <p style={{ fontSize: '1.6rem', fontWeight: 700 }}>{score} / {totalQ} <span style={{ fontSize: '1rem', opacity: .7 }}>({pct}%)</span></p>
           <p style={{ fontSize: '1.8rem', letterSpacing: 4 }}>
             {[1, 2, 3].map((i) => <span key={i} style={{ opacity: i <= stars ? 1 : 0.25 }}>⭐</span>)}
           </p>
@@ -1035,7 +1037,7 @@ export default function ExamRunnerPage() {
         />
       )}
 
-      <div className="reader-card" style={{ minHeight: 90 }}>
+      <div className="reader-card" style={{ minHeight: 90, flex: 'none' }}>
         <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(currentQ, 'prompt', locale)}</p>
       </div>
 
