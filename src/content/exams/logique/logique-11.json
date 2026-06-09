@@ -28,7 +28,17 @@
           "correction": "La suite alterne ○ et □.",
           "correction_nl": "De reeks wisselt ○ en □.",
           "correction_en": "Alternates ○ and □.",
-          "correction_es": "Alterna ○ y □."
+          "correction_es": "Alterna ○ y □.",
+          "visual": {
+            "type": "shape-sequence",
+            "items": [
+              "○",
+              "□",
+              "○",
+              "□",
+              "?"
+            ]
+          }
         },
         {
           "id": "l11-f02",
@@ -47,7 +57,21 @@
           "correction": "Motif △△○ : après ○ vient △.",
           "correction_nl": "Patroon △△○: na ○ komt △.",
           "correction_en": "Pattern △△○: after ○ comes △.",
-          "correction_es": "Patrón △△○: después de ○ viene △."
+          "correction_es": "Patrón △△○: después de ○ viene △.",
+          "visual": {
+            "type": "shape-sequence",
+            "items": [
+              "△",
+              "△",
+              "○",
+              "△",
+              "△",
+              "○",
+              "△",
+              "△",
+              "?"
+            ]
+          }
         },
         {
           "id": "l11-f03",
@@ -66,7 +90,18 @@
           "correction": "Alterne plein/vide.",
           "correction_nl": "Afwisseling vol/leeg.",
           "correction_en": "Alternates filled/empty.",
-          "correction_es": "Alterna lleno/vacío."
+          "correction_es": "Alterna lleno/vacío.",
+          "visual": {
+            "type": "shape-sequence",
+            "items": [
+              "■",
+              "□",
+              "■",
+              "□",
+              "■",
+              "?"
+            ]
+          }
         },
         {
           "id": "l11-f04",
@@ -104,7 +139,30 @@
           "correction": "2○, 3□, 4○, 5□ — alternance +1.",
           "correction_nl": "2○,3□,4○,5□.",
           "correction_en": "2○,3□,4○,5□.",
-          "correction_es": "2○,3□,4○,5□."
+          "correction_es": "2○,3□,4○,5□.",
+          "visual": {
+            "type": "shape-sequence",
+            "groups": [
+              [
+                "○",
+                "○"
+              ],
+              [
+                "□",
+                "□",
+                "□"
+              ],
+              [
+                "○",
+                "○",
+                "○",
+                "○"
+              ],
+              [
+                "?"
+              ]
+            ]
+          }
         },
         {
           "id": "l11-f06",
@@ -123,7 +181,21 @@
           "correction": "9 mod 3 = 0 → 3ᵉ = ○.",
           "correction_nl": "9 mod 3 = 0 → 3e = ○.",
           "correction_en": "9 mod 3 = 0 → 3rd = ○.",
-          "correction_es": "9 mod 3 = 0 → 3.ª = ○."
+          "correction_es": "9 mod 3 = 0 → 3.ª = ○.",
+          "visual": {
+            "type": "shape-sequence",
+            "items": [
+              "△",
+              "□",
+              "○",
+              "△",
+              "□",
+              "○",
+              "△",
+              "□",
+              "?"
+            ]
+          }
         },
         {
           "id": "l11-f07",
@@ -142,7 +214,19 @@
           "correction": "Motif rouge-jaune-bleu, puis rouge…",
           "correction_nl": "Patroon rood-geel-blauw.",
           "correction_en": "Pattern red-yellow-blue.",
-          "correction_es": "Patrón rojo-amarillo-azul."
+          "correction_es": "Patrón rojo-amarillo-azul.",
+          "visual": {
+            "type": "shape-sequence",
+            "items": [
+              "🔴",
+              "🟡",
+              "🔵",
+              "🔴",
+              "🟡",
+              "🔵",
+              "?"
+            ]
+          }
         },
         {
           "id": "l11-f08",
@@ -180,7 +264,27 @@
           "correction": "La 3ᵉ commence par △.",
           "correction_nl": "De 3e rij begint met △.",
           "correction_en": "Row 3 starts with △.",
-          "correction_es": "La fila 3 empieza con △."
+          "correction_es": "La fila 3 empieza con △.",
+          "visual": {
+            "type": "shape-grid",
+            "rows": [
+              [
+                "○",
+                "□",
+                "△"
+              ],
+              [
+                "□",
+                "△",
+                "○"
+              ],
+              [
+                "?",
+                "○",
+                "□"
+              ]
+            ]
+          }
         },
         {
           "id": "l11-f10",
@@ -223,7 +327,27 @@
           "correction": "Ligne 2 manque ○. Colonne 3 a △. Donc (2,3)=○.",
           "correction_nl": "Rij 2 mist ○.",
           "correction_en": "Row 2 needs ○.",
-          "correction_es": "Fila 2 necesita ○."
+          "correction_es": "Fila 2 necesita ○.",
+          "visual": {
+            "type": "shape-grid",
+            "rows": [
+              [
+                "○",
+                "□",
+                "△"
+              ],
+              [
+                "□",
+                "△",
+                "?"
+              ],
+              [
+                "△",
+                "○",
+                "□"
+              ]
+            ]
+          }
         },
         {
           "id": "l11-m02",
@@ -318,7 +442,37 @@
           "correction": "Ligne 2 manque J. Colonne 2 déjà B,G → J.",
           "correction_nl": "Rij 2 mist J.",
           "correction_en": "Row 2 needs J.",
-          "correction_es": "Fila 2 necesita J."
+          "correction_es": "Fila 2 necesita J.",
+          "visual": {
+            "type": "color-grid",
+            "rows": [
+              [
+                "R",
+                "B",
+                "G",
+                "J"
+              ],
+              [
+                "B",
+                "?",
+                "G",
+                "R"
+              ],
+              [
+                "G",
+                "R",
+                "J",
+                "B"
+              ],
+              [
+                "J",
+                "G",
+                "B",
+                "?"
+              ]
+            ],
+            "labels": true
+          }
         },
         {
           "id": "l11-m07",
@@ -356,7 +510,12 @@
           "correction": "6×45°=270° dans le sens horaire → ↙.",
           "correction_nl": "6×45°=270°: ↙.",
           "correction_en": "6×45°=270°: ↙.",
-          "correction_es": "6×45°=270°: ↙."
+          "correction_es": "6×45°=270°: ↙.",
+          "visual": {
+            "type": "rotation",
+            "steps": 6,
+            "degreesPerStep": 45
+          }
         },
         {
           "id": "l11-m09",

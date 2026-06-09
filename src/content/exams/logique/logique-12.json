@@ -28,7 +28,12 @@
           "correction": "7-3=4.",
           "correction_nl": "7-3=4.",
           "correction_en": "7-3=4.",
-          "correction_es": "7-3=4."
+          "correction_es": "7-3=4.",
+          "visual": {
+            "type": "equation",
+            "left": "? + 3",
+            "right": "7"
+          }
         },
         {
           "id": "l12-f02",
@@ -47,7 +52,12 @@
           "correction": "10-7=3.",
           "correction_nl": "10-7=3.",
           "correction_en": "10-7=3.",
-          "correction_es": "10-7=3."
+          "correction_es": "10-7=3.",
+          "visual": {
+            "type": "equation",
+            "left": "7 + ?",
+            "right": "10"
+          }
         },
         {
           "id": "l12-f03",
@@ -66,7 +76,12 @@
           "correction": "6+2=8.",
           "correction_nl": "6+2=8.",
           "correction_en": "6+2=8.",
-          "correction_es": "6+2=8."
+          "correction_es": "6+2=8.",
+          "visual": {
+            "type": "equation",
+            "left": "? - 2",
+            "right": "6"
+          }
         },
         {
           "id": "l12-f04",
@@ -85,7 +100,12 @@
           "correction": "36÷4=9.",
           "correction_nl": "36÷4=9.",
           "correction_en": "36÷4=9.",
-          "correction_es": "36÷4=9."
+          "correction_es": "36÷4=9.",
+          "visual": {
+            "type": "equation",
+            "left": "15 - ?",
+            "right": "8"
+          }
         },
         {
           "id": "l12-f05",
@@ -104,7 +124,12 @@
           "correction": "21÷3=7.",
           "correction_nl": "21÷3=7.",
           "correction_en": "21÷3=7.",
-          "correction_es": "21÷3=7."
+          "correction_es": "21÷3=7.",
+          "visual": {
+            "type": "equation",
+            "left": "? × 2",
+            "right": "12"
+          }
         },
         {
           "id": "l12-f06",
@@ -123,7 +148,12 @@
           "correction": "10-4=6.",
           "correction_nl": "10-4=6.",
           "correction_en": "10-4=6.",
-          "correction_es": "10-4=6."
+          "correction_es": "10-4=6.",
+          "visual": {
+            "type": "equation",
+            "left": "? + 9",
+            "right": "16"
+          }
         },
         {
           "id": "l12-f07",
@@ -142,7 +172,12 @@
           "correction": "4×3=12.",
           "correction_nl": "4×3=12.",
           "correction_en": "4×3=12.",
-          "correction_es": "4×3=12."
+          "correction_es": "4×3=12.",
+          "visual": {
+            "type": "equation",
+            "left": "20 ÷ ?",
+            "right": "4"
+          }
         },
         {
           "id": "l12-f08",
@@ -161,7 +196,12 @@
           "correction": "10-2-3=5.",
           "correction_nl": "10-2-3=5.",
           "correction_en": "10-2-3=5.",
-          "correction_es": "10-2-3=5."
+          "correction_es": "10-2-3=5.",
+          "visual": {
+            "type": "equation",
+            "left": "? - 5",
+            "right": "13"
+          }
         },
         {
           "id": "l12-f09",
@@ -180,7 +220,12 @@
           "correction": "3×5=15.",
           "correction_nl": "3×5=15.",
           "correction_en": "3×5=15.",
-          "correction_es": "3×5=15."
+          "correction_es": "3×5=15.",
+          "visual": {
+            "type": "equation",
+            "left": "? + 7",
+            "right": "15"
+          }
         },
         {
           "id": "l12-f10",
@@ -199,7 +244,12 @@
           "correction": "6+0=6.",
           "correction_nl": "6+0=6.",
           "correction_en": "6+0=6.",
-          "correction_es": "6+0=6."
+          "correction_es": "6+0=6.",
+          "visual": {
+            "type": "equation",
+            "left": "3 × ?",
+            "right": "21"
+          }
         }
       ]
     },
@@ -223,7 +273,12 @@
           "correction": "50-24=26.",
           "correction_nl": "50-24=26.",
           "correction_en": "50-24=26.",
-          "correction_es": "50-24=26."
+          "correction_es": "50-24=26.",
+          "visual": {
+            "type": "equation",
+            "left": "? + 24",
+            "right": "50"
+          }
         },
         {
           "id": "l12-m02",
@@ -242,7 +297,12 @@
           "correction": "3×5-4=11.",
           "correction_nl": "3×5-4=11.",
           "correction_en": "3×5-4=11.",
-          "correction_es": "3×5-4=11."
+          "correction_es": "3×5-4=11.",
+          "visual": {
+            "type": "equation",
+            "left": "3×? - 4",
+            "right": "11"
+          }
         },
         {
           "id": "l12-m03",
@@ -261,7 +321,12 @@
           "correction": "5×6=30.",
           "correction_nl": "5×6=30.",
           "correction_en": "5×6=30.",
-          "correction_es": "5×6=30."
+          "correction_es": "5×6=30.",
+          "visual": {
+            "type": "equation",
+            "left": "? ÷ 6 + 3",
+            "right": "8"
+          }
         },
         {
           "id": "l12-m04",
@@ -280,7 +345,12 @@
           "correction": "20÷2=10, 10-7=3.",
           "correction_nl": "20÷2=10, 10-7=3.",
           "correction_en": "20÷2=10, 10-7=3.",
-          "correction_es": "20÷2=10, 10-7=3."
+          "correction_es": "20÷2=10, 10-7=3.",
+          "visual": {
+            "type": "equation",
+            "left": "2? + 7",
+            "right": "31"
+          }
         },
         {
           "id": "l12-m05",
@@ -299,7 +369,12 @@
           "correction": "48÷6=8.",
           "correction_nl": "48÷6=8.",
           "correction_en": "48÷6=8.",
-          "correction_es": "48÷6=8."
+          "correction_es": "48÷6=8.",
+          "visual": {
+            "type": "equation",
+            "left": "?² - 4",
+            "right": "32"
+          }
         },
         {
           "id": "l12-m06",

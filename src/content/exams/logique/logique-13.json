@@ -28,7 +28,18 @@
           "correction": "1 < 2 < 5 < 8.",
           "correction_nl": "1 < 2 < 5 < 8.",
           "correction_en": "1 < 2 < 5 < 8.",
-          "correction_es": "1 < 2 < 5 < 8."
+          "correction_es": "1 < 2 < 5 < 8.",
+          "visual": {
+            "type": "number-sequence",
+            "items": [
+              5,
+              2,
+              8,
+              1,
+              "→",
+              "?"
+            ]
+          }
         },
         {
           "id": "l13-f02",
@@ -47,7 +58,15 @@
           "correction": "7 < 8 < 10.",
           "correction_nl": "7 < 8 < 10.",
           "correction_en": "7 < 8 < 10.",
-          "correction_es": "7 < 8 < 10."
+          "correction_es": "7 < 8 < 10.",
+          "visual": {
+            "type": "number-sequence",
+            "items": [
+              7,
+              "?",
+              10
+            ]
+          }
         },
         {
           "id": "l13-f03",
@@ -66,7 +85,16 @@
           "correction": "15 est le plus grand.",
           "correction_nl": "15 is het grootst.",
           "correction_en": "15 is the largest.",
-          "correction_es": "15 es el mayor."
+          "correction_es": "15 es el mayor.",
+          "visual": {
+            "type": "number-sequence",
+            "items": [
+              12,
+              9,
+              15,
+              7
+            ]
+          }
         },
         {
           "id": "l13-f04",

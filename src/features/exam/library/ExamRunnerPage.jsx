@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
 import NumPad from '../../../shared/ui/NumPad.jsx';
 import { getExamLevel } from '../../../content/exams/registry.js';
+import LogiqueVisual from './LogiqueVisual.jsx';
 import { getDifficultyLevels, getLocalizedField, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { recordError } from '../../../services/storage/errorHistoryStore.js';
@@ -1018,6 +1019,7 @@ export default function ExamRunnerPage() {
 
       <div className="reader-card" style={{ minHeight: 90, flex: 'none' }}>
         <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(currentQ, 'prompt', locale)}</p>
+        {currentQ.visual && <LogiqueVisual visual={currentQ.visual} />}
       </div>
 
       {isComprehension && selected === null && (
