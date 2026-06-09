@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
 import NumPad from '../../../shared/ui/NumPad.jsx';
 import { getExamLevel } from '../../../content/exams/registry.js';
-import LogiqueVisual from './LogiqueVisual.jsx';
+import ExamVisual, { autoVisual } from './ExamVisual.jsx';
 import { getDifficultyLevels, getLocalizedField, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { recordError } from '../../../services/storage/errorHistoryStore.js';
@@ -755,6 +755,7 @@ export default function ExamRunnerPage() {
 
         <div className="reader-card" style={{ minHeight: 90, flex: 'none' }}>
           <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(revQ, 'prompt', locale)}</p>
+          <ExamVisual visual={autoVisual(exam?.category, revQ)} />
         </div>
 
         <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -1019,7 +1020,7 @@ export default function ExamRunnerPage() {
 
       <div className="reader-card" style={{ minHeight: 90, flex: 'none' }}>
         <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(currentQ, 'prompt', locale)}</p>
-        {currentQ.visual && <LogiqueVisual visual={currentQ.visual} />}
+        <ExamVisual visual={autoVisual(exam?.category, currentQ)} />
       </div>
 
       {isComprehension && selected === null && (
