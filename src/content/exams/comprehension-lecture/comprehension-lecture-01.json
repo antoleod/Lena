@@ -221,95 +221,90 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Où arrive Léo ?",
+          "prompt": "Qui a préparé le gâteau ?",
           "options": [
-            "À l'école",
-            "Au parc",
-            "À la piscine"
+            "La maman de Léo",
+            "La maîtresse",
+            "Hugo"
           ],
-          "answer": "À l'école",
-          "correction": "Page 1 : Léo arrive à l'école.",
-          "pageRef": "p1",
+          "answer": "La maman de Léo",
+          "correction": "Page 3 : le gâteau a été préparé par sa maman.",
+          "pageRef": "p3",
           "id": "q1"
         },
         {
           "type": "mcq",
-          "prompt": "De quelle couleur est le sac ?",
+          "prompt": "Pourquoi Léo serre-t-il son sac contre lui ?",
           "options": [
-            "Bleu",
-            "Rouge",
-            "Vert"
+            "Il cache une surprise",
+            "Il a froid",
+            "Le sac est lourd"
           ],
-          "answer": "Bleu",
-          "correction": "Page 1 : un petit sac bleu.",
-          "pageRef": "p1",
+          "answer": "Il cache une surprise",
+          "correction": "Page 2 : Hugo lui demande ce qu'il cache. Léo sourit mais ne dit rien.",
+          "pageRef": "p2",
           "id": "q2"
         },
         {
-          "type": "mcq",
-          "prompt": "Qu'y a-t-il dans le sac ?",
-          "options": [
-            "Un gâteau",
-            "Un ballon",
-            "Un livre"
-          ],
-          "answer": "Un gâteau",
-          "correction": "Page 2 : il y a un gâteau.",
+          "type": "true_false",
+          "prompt": "Hugo pose une question à Léo sur le chemin.",
+          "answer": true,
+          "correction": "Page 2 : Hugo demande ce que Léo cache dans son sac.",
           "pageRef": "p2",
           "id": "q3"
         },
         {
-          "type": "true_false",
-          "prompt": "Le gâteau est au chocolat.",
-          "answer": true,
-          "correction": "Page 2 : le gâteau est au chocolat.",
-          "pageRef": "p2",
+          "type": "mcq",
+          "prompt": "Avec quel outil coupe-t-on le gâteau ?",
+          "options": [
+            "Un couteau",
+            "Une fourchette",
+            "Des ciseaux"
+          ],
+          "answer": "Un couteau",
+          "correction": "Page 5 : la maîtresse prend un grand couteau.",
+          "pageRef": "p5",
           "id": "q4"
         },
         {
           "type": "mcq",
-          "prompt": "Avec qui Léo veut-il partager ?",
+          "prompt": "Que fait Hugo après avoir mangé sa part ?",
           "options": [
-            "Ses amis",
-            "Son chien",
-            "Le facteur"
+            "Il se lèche les doigts en riant",
+            "Il demande une deuxième part",
+            "Il sort de la classe"
           ],
-          "answer": "Ses amis",
-          "correction": "Page 3 : partager avec ses amis.",
-          "pageRef": "p3",
+          "answer": "Il se lèche les doigts en riant",
+          "correction": "Page 6 : Hugo se lèche les doigts en riant.",
+          "pageRef": "p6",
           "id": "q5"
         },
         {
-          "type": "mcq",
-          "prompt": "En combien de parts coupe-t-elle le gâteau ?",
-          "options": [
-            "Huit",
-            "Cinq",
-            "Dix"
-          ],
-          "answer": "Huit",
-          "correction": "Page 4 : huit parts.",
-          "pageRef": "p4",
+          "type": "true_false",
+          "prompt": "Toute la classe reçoit une part de gâteau.",
+          "answer": true,
+          "correction": "Page 5 : une part pour chaque enfant de la table.",
+          "pageRef": "p5",
           "id": "q6"
         },
         {
-          "type": "true_false",
-          "prompt": "La classe chante pour Léo.",
-          "answer": true,
-          "correction": "Page 5 : toute la classe chante.",
-          "pageRef": "p5",
+          "type": "mcq",
+          "prompt": "Que fait toute la classe à la fin ?",
+          "options": [
+            "Elle se lève et chante",
+            "Elle mange encore",
+            "Elle sort en récréation"
+          ],
+          "answer": "Elle se lève et chante",
+          "correction": "Page 7 : toute la classe se lève et chante.",
+          "pageRef": "p7",
           "id": "q7"
         },
         {
-          "type": "mcq",
-          "prompt": "Pourquoi la classe chante-t-elle ?",
-          "options": [
-            "C'est l'anniversaire de Léo",
-            "C'est la récréation",
-            "Il pleut"
-          ],
-          "answer": "C'est l'anniversaire de Léo",
-          "correction": "Page 5 : joyeux anniversaire Léo !",
+          "type": "fill_blank",
+          "prompt": "Les parts du gâteau sont ___ et toutes égales.",
+          "answer": "huit",
+          "correction": "Page 5 : elle coupe le gâteau en huit parts égales.",
           "pageRef": "p5",
           "id": "q8"
         }

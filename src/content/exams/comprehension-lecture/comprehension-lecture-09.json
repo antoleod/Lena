@@ -197,96 +197,91 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Où va Théo ?",
+          "prompt": "Quel jour Théo va-t-il à la bibliothèque ?",
           "options": [
-            "À la bibliothèque",
-            "À la piscine",
-            "À l’école"
+            "Un mercredi",
+            "Un samedi",
+            "Un lundi"
           ],
-          "answer": "À la bibliothèque",
-          "correction": "Page 1.",
+          "answer": "Un mercredi",
+          "correction": "Page 1 : un mercredi après-midi.",
           "pageRef": "p1",
           "id": "q1"
         },
         {
           "type": "mcq",
-          "prompt": "Sur quoi sont rangés les livres ?",
+          "prompt": "Est-ce la première fois que Théo entre dans cette bibliothèque ?",
           "options": [
-            "Des étagères",
-            "Le sol",
-            "Une table"
+            "Oui",
+            "Non",
+            "On ne sait pas"
           ],
-          "answer": "Des étagères",
-          "correction": "Page 2.",
-          "pageRef": "p2",
+          "answer": "Oui",
+          "correction": "Page 1 : Théo entre pour la première fois.",
+          "pageRef": "p1",
           "id": "q2"
         },
         {
-          "type": "mcq",
-          "prompt": "De quelle couleur est le livre spécial ?",
-          "options": [
-            "Rouge",
-            "Bleu",
-            "Vert"
-          ],
-          "answer": "Rouge",
-          "correction": "Page 3.",
+          "type": "true_false",
+          "prompt": "Le livre rouge est posé tout en haut d’une étagère.",
+          "answer": true,
+          "correction": "Page 3 : un petit livre rouge posé tout en haut d’une étagère.",
           "pageRef": "p3",
           "id": "q3"
         },
         {
-          "type": "true_false",
-          "prompt": "La couverture montre un dragon.",
-          "answer": true,
-          "correction": "Page 4.",
+          "type": "mcq",
+          "prompt": "Comment la bibliothécaire attrape-t-elle le livre ?",
+          "options": [
+            "Elle prend une échelle",
+            "Elle saute",
+            "Elle demande à Théo"
+          ],
+          "answer": "Elle prend une échelle",
+          "correction": "Page 4 : la bibliothécaire prend une échelle.",
           "pageRef": "p4",
           "id": "q4"
         },
         {
           "type": "mcq",
-          "prompt": "Qui donne le livre à Théo ?",
+          "prompt": "Sur quoi Théo s’assoit-il dans le coin lecture ?",
           "options": [
-            "La bibliothécaire",
-            "La maîtresse",
-            "Sa maman"
+            "Un gros coussin",
+            "Une chaise",
+            "Un banc"
           ],
-          "answer": "La bibliothécaire",
-          "correction": "Page 4.",
-          "pageRef": "p4",
+          "answer": "Un gros coussin",
+          "correction": "Page 5 : sur un gros coussin moelleux.",
+          "pageRef": "p5",
           "id": "q5"
         },
         {
-          "type": "mcq",
-          "prompt": "Où s’assoit Théo pour lire ?",
-          "options": [
-            "Le coin lecture",
-            "La cour",
-            "La cuisine"
-          ],
-          "answer": "Le coin lecture",
-          "correction": "Page 5.",
+          "type": "true_false",
+          "prompt": "Théo trouve l’histoire ennuyeuse.",
+          "answer": false,
+          "correction": "Page 5 : l’histoire est si captivante qu’il ne voit pas le temps passer.",
           "pageRef": "p5",
           "id": "q6"
         },
         {
-          "type": "true_false",
-          "prompt": "Théo laisse le livre à la bibliothèque.",
-          "answer": false,
-          "correction": "Page 6 : il l’emprunte.",
+          "type": "mcq",
+          "prompt": "Pourquoi Théo emporte le livre chez lui ?",
+          "options": [
+            "Pour finir l’histoire à la maison",
+            "Pour le montrer à ses amis",
+            "Pour l’offrir"
+          ],
+          "answer": "Pour finir l’histoire à la maison",
+          "correction": "Page 6 : il emprunte le livre pour finir l’histoire à la maison.",
           "pageRef": "p6",
           "id": "q7"
         },
         {
-          "type": "mcq",
-          "prompt": "Que fait Théo à la fin ?",
-          "options": [
-            "Il emprunte le livre",
-            "Il déchire le livre",
-            "Il le cache"
-          ],
-          "answer": "Il emprunte le livre",
-          "correction": "Page 6.",
-          "pageRef": "p6",
+          "type": "fill_blank",
+          "prompt": "Sur la couverture du livre, on voit un ___ qui crache du feu.",
+          "answer": "dragon",
+          "correction": "Page 4 : un magnifique dragon qui crache du feu.",
+          "pageRef": "p4",
           "id": "q8"
         }
       ]

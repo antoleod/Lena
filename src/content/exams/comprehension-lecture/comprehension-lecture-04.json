@@ -201,96 +201,91 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Où Nina voit-elle le chat ?",
+          "prompt": "Comment Nina s’approche-t-elle du chat ?",
           "options": [
-            "Sur le chemin de l'école",
-            "Dans le jardin",
-            "En classe"
+            "Sans faire de bruit",
+            "En courant",
+            "En criant"
           ],
-          "answer": "Sur le chemin de l'école",
-          "correction": "Page 1.",
-          "pageRef": "p1",
+          "answer": "Sans faire de bruit",
+          "correction": "Page 3 : Nina s’accroupit et lui tend la main sans faire de bruit.",
+          "pageRef": "p3",
           "id": "q1"
         },
         {
           "type": "mcq",
-          "prompt": "De quelle couleur est le chat ?",
+          "prompt": "Comment est le chat quand Nina l'aperçoit ?",
           "options": [
-            "Blanc",
-            "Noir",
-            "Roux"
+            "Assis tout seul au coin de la rue",
+            "En train de courir",
+            "Caché sous un banc"
           ],
-          "answer": "Blanc",
-          "correction": "Page 1 : un petit chat blanc.",
+          "answer": "Assis tout seul au coin de la rue",
+          "correction": "Page 1 : un petit chat tout blanc, assis tout seul au coin de la rue.",
           "pageRef": "p1",
           "id": "q2"
         },
         {
-          "type": "mcq",
-          "prompt": "Que fait le chat ?",
-          "options": [
-            "Il miaule",
-            "Il aboie",
-            "Il chante"
-          ],
-          "answer": "Il miaule",
-          "correction": "Page 2 : le chat miaule.",
-          "pageRef": "p2",
+          "type": "true_false",
+          "prompt": "Nina lit l’étiquette sur le collier du chat.",
+          "answer": true,
+          "correction": "Page 4 : Nina lit l’étiquette.",
+          "pageRef": "p4",
           "id": "q3"
         },
         {
-          "type": "true_false",
-          "prompt": "Le chat s'appelle Caramel.",
-          "answer": true,
-          "correction": "Page 4 : il s’appelle Caramel.",
-          "pageRef": "p4",
+          "type": "mcq",
+          "prompt": "Comment Nina porte-t-elle Caramel jusqu’à la maison ?",
+          "options": [
+            "Dans ses bras",
+            "Dans un sac",
+            "En le faisant marcher"
+          ],
+          "answer": "Dans ses bras",
+          "correction": "Page 5 : Nina prend Caramel dans ses bras.",
+          "pageRef": "p5",
           "id": "q4"
         },
         {
           "type": "mcq",
-          "prompt": "Où habite le chat ?",
+          "prompt": "Que crie la dame en voyant Caramel ?",
           "options": [
-            "Rue des Roses",
-            "Rue du Moulin",
-            "Avenue des Lilas"
+            "« Je te cherchais partout ! »",
+            "« Qu’est-ce que tu fais là ? »",
+            "« Merci beaucoup ! »"
           ],
-          "answer": "Rue des Roses",
-          "correction": "Page 4.",
-          "pageRef": "p4",
+          "answer": "« Je te cherchais partout ! »",
+          "correction": "Page 6 : « Caramel ! Je te cherchais partout ! »",
+          "pageRef": "p6",
           "id": "q5"
         },
         {
-          "type": "mcq",
-          "prompt": "Qui ouvre la porte ?",
-          "options": [
-            "Une dame",
-            "Un garçon",
-            "La maîtresse"
-          ],
-          "answer": "Une dame",
-          "correction": "Page 5 : une dame ouvre.",
-          "pageRef": "p5",
+          "type": "true_false",
+          "prompt": "La dame remercie Nina.",
+          "answer": true,
+          "correction": "Page 6 : elle remercie Nina mille fois.",
+          "pageRef": "p6",
           "id": "q6"
         },
         {
-          "type": "true_false",
-          "prompt": "La dame est fâchée contre Nina.",
-          "answer": false,
-          "correction": "Page 6 : elle remercie Nina.",
+          "type": "mcq",
+          "prompt": "Comment Caramel ronronne-t-il à la fin ?",
+          "options": [
+            "De bonheur",
+            "De peur",
+            "De faim"
+          ],
+          "answer": "De bonheur",
+          "correction": "Page 6 : Caramel ronronne de bonheur.",
           "pageRef": "p6",
           "id": "q7"
         },
         {
-          "type": "mcq",
-          "prompt": "Comment Caramel montre-t-il son bonheur ?",
-          "options": [
-            "Il ronronne",
-            "Il miaule fort",
-            "Il saute"
-          ],
-          "answer": "Il ronronne",
-          "correction": "Page 6 : il ronronne.",
-          "pageRef": "p6",
+          "type": "fill_blank",
+          "prompt": "Autour du cou du chat, Nina trouve un petit ___ rouge.",
+          "answer": "collier",
+          "correction": "Page 4 : autour du cou du chat, il y a un petit collier rouge.",
+          "pageRef": "p4",
           "id": "q8"
         }
       ]

@@ -203,101 +203,91 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Quel jour se passe l’histoire ?",
+          "prompt": "Que met Maya pour cuisiner les crêpes ?",
           "options": [
-            "Dimanche",
-            "Lundi",
-            "Samedi"
+            "Son tablier",
+            "Ses bottes",
+            "Un chapeau"
           ],
-          "answer": "Dimanche",
-          "correction": "Page 1.",
+          "answer": "Son tablier",
+          "correction": "Page 1 : elle enfile son tablier.",
           "pageRef": "p1",
           "id": "q1"
         },
         {
           "type": "mcq",
-          "prompt": "Que prépare Maya ?",
+          "prompt": "Comment les crêpes sentent-elles ?",
           "options": [
-            "Des crêpes",
-            "Une pizza",
-            "Une soupe"
+            "Le beurre et le sucre",
+            "Le citron",
+            "La fraise"
           ],
-          "answer": "Des crêpes",
-          "correction": "Page 1.",
-          "pageRef": "p1",
+          "answer": "Le beurre et le sucre",
+          "correction": "Page 3 : elles sentent bon le beurre et le sucre.",
+          "pageRef": "p3",
           "id": "q2"
         },
         {
-          "type": "mcq",
-          "prompt": "Avec qui prépare-t-elle les crêpes ?",
-          "options": [
-            "Sa maman",
-            "Son papa",
-            "Mamie"
-          ],
-          "answer": "Sa maman",
-          "correction": "Page 1.",
-          "pageRef": "p1",
+          "type": "true_false",
+          "prompt": "Pour la promenade, la famille met des bottes.",
+          "answer": true,
+          "correction": "Page 4 : ils mettent leurs bottes.",
+          "pageRef": "p4",
           "id": "q3"
         },
         {
           "type": "mcq",
-          "prompt": "Que fait le papa ?",
+          "prompt": "Où vont-ils se promener l’après-midi ?",
           "options": [
-            "Il met la table",
-            "Il dort",
-            "Il joue"
+            "Dans la forêt",
+            "Au parc",
+            "Sur la plage"
           ],
-          "answer": "Il met la table",
-          "correction": "Page 2.",
-          "pageRef": "p2",
+          "answer": "Dans la forêt",
+          "correction": "Page 4 : une promenade dans la forêt.",
+          "pageRef": "p4",
           "id": "q4"
         },
         {
           "type": "mcq",
-          "prompt": "Qu’apporte le petit frère ?",
+          "prompt": "Que ramasse Maya pendant la promenade ?",
           "options": [
-            "Le sucre",
-            "Le pain",
-            "Le sel"
+            "Des feuilles de toutes les couleurs",
+            "Des champignons",
+            "Des cailloux"
           ],
-          "answer": "Le sucre",
-          "correction": "Page 2.",
-          "pageRef": "p2",
+          "answer": "Des feuilles de toutes les couleurs",
+          "correction": "Page 4 : Maya ramasse des feuilles de toutes les couleurs.",
+          "pageRef": "p4",
           "id": "q5"
         },
         {
           "type": "true_false",
-          "prompt": "La famille mange dans la cuisine.",
+          "prompt": "Mamie apporte un gâteau aux pommes.",
           "answer": true,
-          "correction": "Page 3.",
-          "pageRef": "p3",
+          "correction": "Page 5 : un délicieux gâteau aux pommes encore tiède.",
+          "pageRef": "p5",
           "id": "q6"
         },
         {
           "type": "mcq",
-          "prompt": "Que font-ils l’après-midi ?",
+          "prompt": "À quel moment mamie sonne-t-elle à la porte ?",
           "options": [
-            "Une promenade",
-            "La sieste",
-            "Du vélo"
+            "Le soir",
+            "Le matin",
+            "À midi"
           ],
-          "answer": "Une promenade",
-          "correction": "Page 4.",
-          "pageRef": "p4",
+          "answer": "Le soir",
+          "correction": "Page 5 : le soir, on sonne à la porte.",
+          "pageRef": "p5",
           "id": "q7"
         },
         {
-          "type": "mcq",
-          "prompt": "Qui vient le soir ?",
-          "options": [
-            "Mamie",
-            "Le voisin",
-            "La maîtresse"
-          ],
-          "answer": "Mamie",
-          "correction": "Page 5.",
-          "pageRef": "p5",
+          "type": "fill_blank",
+          "prompt": "Avant de se coucher, Maya pense à sa ___.",
+          "answer": "journée",
+          "correction": "Page 6 : Maya pense à sa journée.",
+          "pageRef": "p6",
           "id": "q8"
         }
       ]

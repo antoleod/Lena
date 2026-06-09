@@ -208,91 +208,91 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Que fait Emma le matin ?",
+          "prompt": "Pourquoi Emma court-elle si vite le matin ?",
           "options": [
-            "Elle se dépêche",
-            "Elle dort",
-            "Elle joue"
+            "Pour ne pas être en retard",
+            "Pour jouer dehors",
+            "Pour voir ses amis"
           ],
-          "answer": "Elle se dépêche",
-          "correction": "Page 1 : elle se dépêche.",
+          "answer": "Pour ne pas être en retard",
+          "correction": "Page 1 : elle se dépêche pour ne pas être en retard à l'école.",
           "pageRef": "p1",
           "id": "q1"
         },
         {
-          "type": "true_false",
-          "prompt": "Le cartable d'Emma est vide.",
-          "answer": true,
-          "correction": "Page 2 : son cartable est vide.",
-          "pageRef": "p2",
+          "type": "mcq",
+          "prompt": "Où se trouve le cartable oublié ?",
+          "options": [
+            "Sur la table de l'entrée",
+            "Dans sa chambre",
+            "Dans le jardin"
+          ],
+          "answer": "Sur la table de l'entrée",
+          "correction": "Page 4 : oublié à la maison, sur la table de l'entrée.",
+          "pageRef": "p4",
           "id": "q2"
         },
         {
-          "type": "mcq",
-          "prompt": "Comment se sent Emma quand son cartable est vide ?",
-          "options": [
-            "Triste",
-            "Joyeuse",
-            "Fâchée"
-          ],
-          "answer": "Triste",
-          "correction": "Page 3 : Emma est triste.",
-          "pageRef": "p3",
+          "type": "true_false",
+          "prompt": "La maman d'Emma est essoufflée quand elle arrive.",
+          "answer": true,
+          "correction": "Page 5 : sa maman, essoufflée, tient le cartable dans ses bras.",
+          "pageRef": "p5",
           "id": "q3"
         },
         {
           "type": "mcq",
-          "prompt": "Où Emma a-t-elle oublié son cartable ?",
+          "prompt": "Qu'est-ce qu'Emma voulait sortir en classe ?",
           "options": [
-            "À la maison",
-            "Dans le bus",
-            "Au parc"
+            "Ses cahiers",
+            "Ses crayons",
+            "Son goûter"
           ],
-          "answer": "À la maison",
-          "correction": "Page 3 : oublié à la maison.",
+          "answer": "Ses cahiers",
+          "correction": "Page 3 : Emma veut sortir ses cahiers.",
           "pageRef": "p3",
           "id": "q4"
         },
         {
           "type": "mcq",
-          "prompt": "Qui apporte le cartable ?",
+          "prompt": "Comment réagit toute la classe quand la maman arrive ?",
           "options": [
-            "Sa maman",
-            "Son papa",
-            "La maîtresse"
+            "Elle applaudit",
+            "Elle rit",
+            "Elle continue à travailler"
           ],
-          "answer": "Sa maman",
-          "correction": "Page 4 : sa maman arrive.",
-          "pageRef": "p4",
+          "answer": "Elle applaudit",
+          "correction": "Page 6 : toute la classe applaudit la maman d'Emma.",
+          "pageRef": "p6",
           "id": "q5"
         },
         {
           "type": "true_false",
-          "prompt": "La classe applaudit Emma.",
+          "prompt": "La classe applaudit la maman d'Emma.",
           "answer": true,
-          "correction": "Page 5 : la classe applaudit.",
-          "pageRef": "p5",
+          "correction": "Page 6 : toute la classe applaudit la maman d'Emma.",
+          "pageRef": "p6",
           "id": "q6"
         },
         {
           "type": "mcq",
-          "prompt": "Que sort Emma de son cartable ?",
+          "prompt": "Comment Emma se sent-elle à la toute fin de l'histoire ?",
           "options": [
-            "Ses crayons",
-            "Son goûter",
-            "Un livre"
+            "Contente et prête à travailler",
+            "Encore triste",
+            "En colère"
           ],
-          "answer": "Ses crayons",
-          "correction": "Page 6 : elle sort ses crayons.",
-          "pageRef": "p6",
+          "answer": "Contente et prête à travailler",
+          "correction": "Page 7 : elle est contente et prête à travailler.",
+          "pageRef": "p7",
           "id": "q7"
         },
         {
-          "type": "true_false",
-          "prompt": "Emma se lève tard.",
-          "answer": false,
-          "correction": "Page 1 : Emma se lève tôt.",
-          "pageRef": "p1",
+          "type": "fill_blank",
+          "prompt": "Emma ouvre son cartable et sort ses ___ de couleur.",
+          "answer": "crayons",
+          "correction": "Page 7 : elle sort ses crayons de couleur.",
+          "pageRef": "p7",
           "id": "q8"
         }
       ]

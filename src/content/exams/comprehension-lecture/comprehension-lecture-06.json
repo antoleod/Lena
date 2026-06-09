@@ -201,96 +201,91 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Quand Lucie dessine-t-elle ?",
+          "prompt": "Quand Lucie ouvre-t-elle son cahier pour dessiner ?",
           "options": [
-            "Chaque soir",
-            "Le matin",
-            "À la récréation"
+            "Après ses devoirs",
+            "Avant l'école",
+            "Pendant la récréation"
           ],
-          "answer": "Chaque soir",
-          "correction": "Page 1.",
+          "answer": "Après ses devoirs",
+          "correction": "Page 1 : chaque soir, après ses devoirs.",
           "pageRef": "p1",
           "id": "q1"
         },
         {
           "type": "mcq",
-          "prompt": "De quelle couleur est son cahier ?",
+          "prompt": "Sur quel thème est le concours de dessin ?",
           "options": [
-            "Vert",
-            "Rouge",
-            "Bleu"
+            "La nature",
+            "Les animaux",
+            "La ville"
           ],
-          "answer": "Vert",
-          "correction": "Page 1.",
-          "pageRef": "p1",
+          "answer": "La nature",
+          "correction": "Page 2 : concours sur le thème de la nature.",
+          "pageRef": "p2",
           "id": "q2"
         },
         {
-          "type": "mcq",
-          "prompt": "Que dessine Lucie pour le concours ?",
-          "options": [
-            "Une forêt",
-            "La mer",
-            "Un château"
-          ],
-          "answer": "Une forêt",
-          "correction": "Page 3.",
+          "type": "true_false",
+          "prompt": "Lucie hésite longtemps avant de choisir son sujet.",
+          "answer": false,
+          "correction": "Page 3 : Lucie sait tout de suite quoi dessiner.",
           "pageRef": "p3",
           "id": "q3"
         },
         {
           "type": "mcq",
-          "prompt": "Que met-elle dans la forêt ?",
+          "prompt": "Que dessine Lucie en plus de l'arbre ?",
           "options": [
-            "Des papillons",
-            "Des avions",
-            "Des voitures"
+            "Une rivière et des fleurs",
+            "Un lac et des rochers",
+            "La mer et des bateaux"
           ],
-          "answer": "Des papillons",
-          "correction": "Page 3.",
-          "pageRef": "p3",
+          "answer": "Une rivière et des fleurs",
+          "correction": "Page 4 : une rivière qui brille au soleil et des fleurs partout.",
+          "pageRef": "p4",
           "id": "q4"
         },
         {
-          "type": "true_false",
-          "prompt": "Lucie gagne le concours.",
-          "answer": true,
-          "correction": "Page 6.",
-          "pageRef": "p6",
+          "type": "mcq",
+          "prompt": "Comment Lucie se sent-elle en remettant son dessin ?",
+          "options": [
+            "Le cœur battant",
+            "Très calme",
+            "Fâchée"
+          ],
+          "answer": "Le cœur battant",
+          "correction": "Page 5 : le cœur battant, Lucie remet son dessin.",
+          "pageRef": "p5",
           "id": "q5"
         },
         {
-          "type": "mcq",
-          "prompt": "Qui annonce le concours ?",
-          "options": [
-            "La maîtresse",
-            "Le directeur",
-            "La maman"
-          ],
-          "answer": "La maîtresse",
-          "correction": "Page 2.",
-          "pageRef": "p2",
+          "type": "true_false",
+          "prompt": "La maîtresse regarde tous les dessins avant d'annoncer la gagnante.",
+          "answer": true,
+          "correction": "Page 6 : la maîtresse regarde tous les dessins, puis elle annonce.",
+          "pageRef": "p6",
           "id": "q6"
         },
         {
           "type": "mcq",
-          "prompt": "Que dessine-t-elle aussi ?",
+          "prompt": "Que fait toute la classe quand Lucie est annoncée gagnante ?",
           "options": [
-            "Un arbre et une rivière",
-            "Un robot",
-            "Une fusée"
+            "Elle applaudit très fort",
+            "Elle chante",
+            "Elle sort"
           ],
-          "answer": "Un arbre et une rivière",
-          "correction": "Page 4.",
-          "pageRef": "p4",
+          "answer": "Elle applaudit très fort",
+          "correction": "Page 6 : toute la classe applaudit très fort.",
+          "pageRef": "p6",
           "id": "q7"
         },
         {
-          "type": "true_false",
-          "prompt": "Lucie est triste à la fin.",
-          "answer": false,
-          "correction": "Elle gagne, tout le monde applaudit.",
-          "pageRef": "p6",
+          "type": "fill_blank",
+          "prompt": "Lucie dessine une forêt avec des papillons aux ailes ___ .",
+          "answer": "colorées",
+          "correction": "Page 3 : des papillons aux ailes colorées.",
+          "pageRef": "p3",
           "id": "q8"
         }
       ]

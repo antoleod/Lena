@@ -201,96 +201,91 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Quand arrive Tom avec ses biscuits ?",
+          "prompt": "Où Tom s'assoit-il d'abord avec son sac de biscuits ?",
           "options": [
-            "À la récréation",
-            "Au déjeuner",
-            "Le matin"
+            "Sur un banc",
+            "Sous l'arbre",
+            "Dans la classe"
           ],
-          "answer": "À la récréation",
-          "correction": "Page 1 : à la récréation.",
-          "pageRef": "p1",
+          "answer": "Sur un banc",
+          "correction": "Page 2 : Tom s'assoit sur un banc.",
+          "pageRef": "p2",
           "id": "q1"
         },
         {
           "type": "mcq",
-          "prompt": "Que ramène Tom ?",
+          "prompt": "Que font les amis de Tom quand il s'assoit ?",
           "options": [
-            "Des biscuits",
-            "Des bonbons",
-            "Des pommes"
+            "Ils jouent au ballon",
+            "Ils mangent",
+            "Ils lisent"
           ],
-          "answer": "Des biscuits",
-          "correction": "Page 1 : un sac de biscuits.",
-          "pageRef": "p1",
+          "answer": "Ils jouent au ballon",
+          "correction": "Page 2 : ses amis jouent au ballon pendant ce temps.",
+          "pageRef": "p2",
           "id": "q2"
         },
         {
           "type": "true_false",
-          "prompt": "Tom a trop de biscuits pour lui seul.",
+          "prompt": "Tom appelle Lola, Hugo et Mia.",
           "answer": true,
-          "correction": "Page 2 : trop de biscuits pour lui tout seul.",
-          "pageRef": "p2",
+          "correction": "Page 3 : il appelle Lola, Hugo et Mia.",
+          "pageRef": "p3",
           "id": "q3"
         },
         {
           "type": "mcq",
-          "prompt": "Combien d'amis Tom appelle-t-il ?",
+          "prompt": "Comment les amis arrivent-ils quand Tom les appelle ?",
           "options": [
-            "Trois",
-            "Deux",
-            "Quatre"
+            "En courant",
+            "En marchant lentement",
+            "En sautant"
           ],
-          "answer": "Trois",
-          "correction": "Page 3 : Lola, Hugo et Mia.",
-          "pageRef": "p3",
+          "answer": "En courant",
+          "correction": "Page 4 : les trois amis arrivent en courant.",
+          "pageRef": "p4",
           "id": "q4"
         },
         {
           "type": "mcq",
-          "prompt": "Que disent les amis à Tom ?",
+          "prompt": "De loin, qui observe la scène ?",
           "options": [
-            "Merci",
-            "Pardon",
-            "Bravo"
+            "La maîtresse",
+            "Le directeur",
+            "La maman de Tom"
           ],
-          "answer": "Merci",
-          "correction": "Page 4 : ils disent merci.",
-          "pageRef": "p4",
+          "answer": "La maîtresse",
+          "correction": "Page 6 : de loin, la maîtresse voit toute la scène.",
+          "pageRef": "p6",
           "id": "q5"
         },
         {
-          "type": "mcq",
-          "prompt": "Où s'assoient-ils pour manger ?",
-          "options": [
-            "Sous l'arbre",
-            "En classe",
-            "Sur les marches"
-          ],
-          "answer": "Sous l'arbre",
-          "correction": "Page 5 : sous l'arbre.",
+          "type": "true_false",
+          "prompt": "Les amis mangent les biscuits en riant.",
+          "answer": true,
+          "correction": "Page 5 : ils mangent en discutant et en riant.",
           "pageRef": "p5",
           "id": "q6"
         },
         {
-          "type": "true_false",
-          "prompt": "La maîtresse est fâchée.",
-          "answer": false,
-          "correction": "Page 6 : la maîtresse sourit.",
+          "type": "mcq",
+          "prompt": "Que pense la maîtresse en voyant Tom ?",
+          "options": [
+            "Partager, c'est beau !",
+            "Il faut rentrer en classe.",
+            "Tom est sage."
+          ],
+          "answer": "Partager, c'est beau !",
+          "correction": "Page 6 : la maîtresse pense « Partager, c'est beau ! »",
           "pageRef": "p6",
           "id": "q7"
         },
         {
-          "type": "mcq",
-          "prompt": "Que dit la maîtresse ?",
-          "options": [
-            "Partager, c'est beau !",
-            "Allez en classe !",
-            "Bravo Tom !"
-          ],
-          "answer": "Partager, c'est beau !",
-          "correction": "Page 6.",
-          "pageRef": "p6",
+          "type": "fill_blank",
+          "prompt": "Tom et ses amis s'assoient sous le grand ___ de la cour.",
+          "answer": "arbre",
+          "correction": "Page 5 : sous le grand arbre de la cour.",
+          "pageRef": "p5",
           "id": "q8"
         }
       ]

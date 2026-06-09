@@ -201,96 +201,91 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "Où va la classe ?",
+          "prompt": "Comment les enfants se sentent-ils le matin avant la sortie ?",
           "options": [
-            "Au parc",
-            "À la piscine",
-            "Au musée"
+            "Contents et impatients",
+            "Tristes",
+            "Fatigués"
           ],
-          "answer": "Au parc",
-          "correction": "Page 1.",
+          "answer": "Contents et impatients",
+          "correction": "Page 1 : tout le monde est content et impatient.",
           "pageRef": "p1",
           "id": "q1"
         },
         {
           "type": "mcq",
-          "prompt": "De quelle couleur sont les casquettes ?",
+          "prompt": "Pourquoi le maître donne-t-il une casquette à chaque enfant ?",
           "options": [
-            "Rouges",
-            "Bleues",
-            "Jaunes"
+            "Pour les repérer et qu'ils ne se perdent pas",
+            "Pour avoir chaud",
+            "Pour jouer au parc"
           ],
-          "answer": "Rouges",
-          "correction": "Page 2.",
+          "answer": "Pour les repérer et qu'ils ne se perdent pas",
+          "correction": "Page 2 : « je vous verrai bien et personne ne se perdra ».",
           "pageRef": "p2",
           "id": "q2"
         },
         {
           "type": "true_false",
-          "prompt": "Les enfants jouent sur des toboggans.",
+          "prompt": "Les enfants jouent aussi sur les balançoires.",
           "answer": true,
-          "correction": "Page 3.",
+          "correction": "Page 3 : ils montent très haut sur les balançoires.",
           "pageRef": "p3",
           "id": "q3"
         },
         {
           "type": "mcq",
-          "prompt": "Quand mangent-ils ?",
+          "prompt": "Comment les enfants s'installent-ils pour manger ?",
           "options": [
-            "À midi",
-            "Le matin",
-            "Le soir"
+            "En cercle sur l'herbe",
+            "Sur des bancs",
+            "À une grande table"
           ],
-          "answer": "À midi",
-          "correction": "Page 4.",
+          "answer": "En cercle sur l'herbe",
+          "correction": "Page 4 : les enfants s'assoient en cercle sur l'herbe fraîche.",
           "pageRef": "p4",
           "id": "q4"
         },
         {
           "type": "mcq",
-          "prompt": "Qu'y a-t-il à boire ?",
+          "prompt": "Que boivent les enfants au pique-nique ?",
           "options": [
             "Du jus de pomme",
-            "Du lait",
-            "De la limonade"
+            "De l'eau",
+            "Du lait"
           ],
           "answer": "Du jus de pomme",
-          "correction": "Page 5.",
+          "correction": "Page 5 : des jus de pomme frais.",
           "pageRef": "p5",
           "id": "q5"
         },
         {
-          "type": "mcq",
-          "prompt": "Qui distribue les casquettes ?",
-          "options": [
-            "Le maître",
-            "La maman",
-            "Le directeur"
-          ],
-          "answer": "Le maître",
-          "correction": "Page 2.",
-          "pageRef": "p2",
+          "type": "true_false",
+          "prompt": "Les enfants sont joyeux sur le chemin du retour.",
+          "answer": true,
+          "correction": "Page 6 : fatigués mais joyeux, les enfants chantent.",
+          "pageRef": "p6",
           "id": "q6"
         },
         {
-          "type": "true_false",
-          "prompt": "Les enfants pleurent au retour.",
-          "answer": false,
-          "correction": "Page 6 : ils chantent.",
+          "type": "mcq",
+          "prompt": "Que font les enfants sur le chemin du retour ?",
+          "options": [
+            "Ils chantent une chanson",
+            "Ils courent",
+            "Ils mangent encore"
+          ],
+          "answer": "Ils chantent une chanson",
+          "correction": "Page 6 : les enfants chantent une chanson tous ensemble.",
           "pageRef": "p6",
           "id": "q7"
         },
         {
-          "type": "mcq",
-          "prompt": "Pourquoi des casquettes rouges ?",
-          "options": [
-            "Pour ne pas se perdre",
-            "Pour avoir chaud",
-            "Pour jouer"
-          ],
-          "answer": "Pour ne pas se perdre",
-          "correction": "Page 2.",
-          "pageRef": "p2",
+          "type": "fill_blank",
+          "prompt": "À midi, les enfants font un ___ sur l'herbe.",
+          "answer": "pique-nique",
+          "correction": "Page 4 : pour le pique-nique sur l'herbe fraîche.",
+          "pageRef": "p4",
           "id": "q8"
         }
       ]

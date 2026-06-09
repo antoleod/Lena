@@ -201,96 +201,91 @@
       "questions": [
         {
           "type": "mcq",
-          "prompt": "À quelle saison part Hugo ?",
+          "prompt": "Que fait Hugo dans la voiture pendant le voyage ?",
           "options": [
-            "En été",
-            "En hiver",
-            "Au printemps"
+            "Il chante",
+            "Il dort",
+            "Il lit"
           ],
-          "answer": "En été",
-          "correction": "Page 1.",
+          "answer": "Il chante",
+          "correction": "Page 1 : dans la voiture, il chante tout le long du voyage.",
           "pageRef": "p1",
           "id": "q1"
         },
         {
           "type": "mcq",
-          "prompt": "Où part Hugo ?",
+          "prompt": "Avec quoi Hugo construit-il son château de sable ?",
           "options": [
-            "À la mer",
-            "À la montagne",
-            "À la campagne"
+            "Un seau et une pelle",
+            "Ses mains",
+            "Des bâtons"
           ],
-          "answer": "À la mer",
-          "correction": "Page 1.",
-          "pageRef": "p1",
+          "answer": "Un seau et une pelle",
+          "correction": "Page 2 : avec son seau et sa pelle.",
+          "pageRef": "p2",
           "id": "q2"
         },
         {
           "type": "mcq",
-          "prompt": "Que construit Hugo ?",
+          "prompt": "Combien de tours a le château de sable ?",
           "options": [
-            "Un château de sable",
-            "Une cabane",
-            "Un bateau"
+            "Quatre",
+            "Deux",
+            "Six"
           ],
-          "answer": "Un château de sable",
-          "correction": "Page 2.",
+          "answer": "Quatre",
+          "correction": "Page 2 : un grand château de sable avec quatre tours.",
           "pageRef": "p2",
           "id": "q3"
         },
         {
-          "type": "mcq",
-          "prompt": "Que ramasse-t-il ?",
-          "options": [
-            "Des coquillages",
-            "Des cailloux",
-            "Des feuilles"
-          ],
-          "answer": "Des coquillages",
-          "correction": "Page 3.",
+          "type": "true_false",
+          "prompt": "Hugo trouve le crabe sous une pierre.",
+          "answer": true,
+          "correction": "Page 3 : un petit crabe rouge qui se cache sous une pierre.",
           "pageRef": "p3",
           "id": "q4"
         },
         {
-          "type": "true_false",
-          "prompt": "Hugo trouve un crabe rouge.",
-          "answer": true,
-          "correction": "Page 3.",
-          "pageRef": "p3",
+          "type": "mcq",
+          "prompt": "Que font les vagues à Hugo ?",
+          "options": [
+            "Elles le font rire",
+            "Elles lui font peur",
+            "Elles le mouillent"
+          ],
+          "answer": "Elles le font rire",
+          "correction": "Page 4 : les vagues le font rire.",
+          "pageRef": "p4",
           "id": "q5"
         },
         {
           "type": "mcq",
-          "prompt": "Que fait Hugo l’après-midi ?",
+          "prompt": "Qui offre la glace à Hugo le soir ?",
           "options": [
-            "Il se baigne",
-            "Il dort",
-            "Il lit"
+            "Ses parents",
+            "Son ami",
+            "La vendeuse"
           ],
-          "answer": "Il se baigne",
-          "correction": "Page 4.",
-          "pageRef": "p4",
+          "answer": "Ses parents",
+          "correction": "Page 5 : ses parents lui offrent une grande glace.",
+          "pageRef": "p5",
           "id": "q6"
         },
         {
-          "type": "mcq",
-          "prompt": "Quelle glace mange Hugo ?",
-          "options": [
-            "À la fraise",
-            "Au chocolat",
-            "À la vanille"
-          ],
-          "answer": "À la fraise",
-          "correction": "Page 5.",
-          "pageRef": "p5",
+          "type": "true_false",
+          "prompt": "Hugo est triste à la fin de la journée.",
+          "answer": false,
+          "correction": "Page 6 : il est fatigué mais vraiment très heureux.",
+          "pageRef": "p6",
           "id": "q7"
         },
         {
-          "type": "true_false",
-          "prompt": "L’eau est bleue.",
-          "answer": true,
-          "correction": "Page 4.",
-          "pageRef": "p4",
+          "type": "fill_blank",
+          "prompt": "Hugo déguste sa glace face au coucher de ___ .",
+          "answer": "soleil",
+          "correction": "Page 5 : face au coucher de soleil.",
+          "pageRef": "p5",
           "id": "q8"
         }
       ]
