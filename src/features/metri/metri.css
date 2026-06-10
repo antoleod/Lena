@@ -130,7 +130,7 @@
 .mt-step-nav { display: flex; gap: 8px; padding: 8px 14px calc(var(--nav-height-mobile,64px) + 8px); flex-shrink: 0; }
 .mt-step-btn { flex: 1; padding: 15px; border-radius: 16px; border: none; font-size: .95rem; font-weight: 800; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .mt-step-btn--prev { background: rgba(255,255,255,.1); color: #fff; }
-.mt-step-btn--next { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; box-shadow: 0 4px 16px rgba(245,158,11,.4); }
+.mt-step-btn--next { background: linear-gradient(135deg, #f59e0b, #d97706); color: var(--on-amber, #3d1f00); box-shadow: 0 4px 16px rgba(245,158,11,.4); }
 .mt-step-btn:active { transform: scale(.96); }
 
 /* Phrase display (choose-unit game) */
@@ -168,7 +168,7 @@
 @keyframes mtStarPop { to{opacity:1;transform:scale(1)} }
 .mt-results-btns { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 300px; }
 .mt-results-btn { width: 100%; padding: 15px; border-radius: 16px; border: none; font-size: .95rem; font-weight: 700; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
-.mt-results-btn--primary { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; box-shadow: 0 4px 16px rgba(245,158,11,.4); }
+.mt-results-btn--primary { background: linear-gradient(135deg, #f59e0b, #d97706); color: var(--on-amber, #3d1f00); box-shadow: 0 4px 16px rgba(245,158,11,.4); }
 .mt-results-btn--secondary { background: rgba(255,255,255,.09); color: #fff; border: 1.5px solid rgba(255,255,255,.18); }
 .mt-results-btn:active { transform: scale(.97); }
 
@@ -187,7 +187,7 @@
 .mt-badge-popup__emoji { font-size: 4rem; }
 .mt-badge-popup__title { font-size: 1.3rem; font-weight: 900; color: #fbbf24; margin: 8px 0 4px; }
 .mt-badge-popup__sub { font-size: .85rem; color: rgba(255,255,255,.7); }
-.mt-badge-popup__close { margin-top: 16px; padding: 10px 24px; background: #f59e0b; color: #fff; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; font-size: .95rem; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.mt-badge-popup__close { margin-top: 16px; padding: 10px 24px; background: #f59e0b; color: var(--on-amber, #3d1f00); border: none; border-radius: 12px; font-weight: 800; cursor: pointer; font-size: .95rem; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
 /* Answer input display (numpad modes) */
 .mt-answer-input {
@@ -221,7 +221,7 @@
 }
 .mt-key:active { transform: scale(.88); background: rgba(255,255,255,.22); }
 .mt-key--del { font-size: 1.3rem; color: rgba(255,255,255,.7); }
-.mt-key--ok { background: linear-gradient(135deg, #f59e0b, #d97706); border-color: transparent; box-shadow: 0 4px 16px rgba(245,158,11,.4); }
+.mt-key--ok { background: linear-gradient(135deg, #f59e0b, #d97706); color: var(--on-amber, #3d1f00); border-color: transparent; box-shadow: 0 4px 16px rgba(245,158,11,.4); }
 .mt-key--ok.is-disabled { background: rgba(255,255,255,.07); box-shadow: none; color: rgba(255,255,255,.25); }
 @media (min-width: 768px) {
   .mt-numpad {

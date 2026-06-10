@@ -1,5 +1,10 @@
 /* ── Lena Design Tokens ──────────────────────────────────────────────────── */
 :root {
+  /* Shared dark game page background — used by jeux, dudu, chrono, lexi, grammi, metri, dico */
+  --game-bg: linear-gradient(165deg, #0d0a2e 0%, #1a1060 50%, #0a1a3a 100%);
+  /* Dark text for amber/yellow buttons (#f59e0b bg) — passes WCAG AA 4.5:1 */
+  --on-amber: #3d1f00;
+
   /* Brand palette */
   --lena-pink:        #ff8fc6;
   --lena-pink-dark:   #e0609e;

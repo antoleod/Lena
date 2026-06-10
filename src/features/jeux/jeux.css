@@ -148,7 +148,7 @@
   display: flex;
   gap: 10px;
   font-size: .78rem;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.78);
   flex-wrap: wrap;
   margin-top: 4px;
 }
@@ -576,7 +576,7 @@
 }
 .jh-card__desc {
   font-size: .75rem;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.78);
   line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -786,7 +786,7 @@
 .cm-chip__name { font-size: .9rem; font-weight: 800; }
 .cm-chip__desc { font-size: .72rem; opacity: .7; }
 .cm-chip__sym  { font-size: 1.4rem; font-weight: 900; }
-.cm-cta { width: 100%; padding: 16px; border-radius: 14px; background: #f59e0b; border: none; color: #fff; font-size: 1.1rem; font-weight: 800; cursor: pointer; }
+.cm-cta { width: 100%; padding: 16px; border-radius: 14px; background: #f59e0b; border: none; color: var(--on-amber, #3d1f00); font-size: 1.1rem; font-weight: 800; cursor: pointer; }
 .cm-cta--soft { background: rgba(255,255,255,.15); }
 .cm-race-bar-wrap { position: relative; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .cm-race-track { flex: 1; height: 14px; background: rgba(255,255,255,.1); border-radius: 7px; overflow: hidden; position: relative; }
@@ -3428,7 +3428,7 @@
 }
 .sn-question__hint {
   font-size: .8rem;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.78);
   margin-top: 2px;
 }
 

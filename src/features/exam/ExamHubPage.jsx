@@ -75,13 +75,13 @@ export default function ExamHubPage() {
       </div>
 
       <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 4 }}>
-        <Link to="/exam/lecture" className="errors-cta" style={{ background: 'rgba(52,152,219,.18)', borderColor: 'rgba(52,152,219,.4)' }}>
+        <Link to="/exam/lecture" className="errors-cta" style={{ background: '#1565a8', borderColor: '#0e4d85', color: '#fff' }}>
           📚 Lecture &amp; Examens
         </Link>
-        <Link to="/exam/library" className="errors-cta" style={{ background: 'rgba(46,204,113,.18)', borderColor: 'rgba(46,204,113,.4)' }}>
+        <Link to="/exam/library" className="errors-cta" style={{ background: '#17865a', borderColor: '#0e6344', color: '#fff' }}>
           🗂️ Mes exercices
         </Link>
-        <Link to="/exam/grade" className="errors-cta" style={{ background: 'rgba(236,72,153,.18)', borderColor: 'rgba(236,72,153,.4)' }}>
+        <Link to="/exam/grade" className="errors-cta" style={{ background: '#a0185e', borderColor: '#7d1149', color: '#fff' }}>
           🎓 Quiz du jour
         </Link>
         {errorCount > 0 && (
