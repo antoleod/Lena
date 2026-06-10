@@ -3748,3 +3748,47 @@
   .sn-question { margin: 0 8px 4px; }
   .sn-dpad { margin-top: 4px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   BATCH C — 12 New Games (Animaux, Inventions, Géométrie, etc.)
+   Shared stat display using span + strong children
+═══════════════════════════════════════════════════════════════ */
+
+/* game-results__stat with inline span/strong children */
+.game-results__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.game-results__stat span {
+  font-size: .75rem;
+  opacity: .6;
+  color: #fff;
+}
+.game-results__stat strong {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fbbf24;
+}
+
+/* Poésie: game-btn variants for correct/wrong */
+.game-btn--correct {
+  background: #22c55e !important;
+  box-shadow: 0 6px 0 #15803d, 0 0 30px rgba(34,197,94,.6) !important;
+}
+.game-btn--wrong {
+  background: #ef4444 !important;
+  box-shadow: 0 6px 0 #991b1b !important;
+}
+
+/* Casse-Briques: canvas container */
+.casse-briques-equation {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fbbf24;
+  text-align: center;
+  padding: 8px 0;
+  letter-spacing: .08em;
+}

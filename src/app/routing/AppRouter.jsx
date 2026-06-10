@@ -90,6 +90,18 @@ import StatsPage from '../../features/stats/StatsPage.jsx';
 import VerbPage from '../../features/verbes/VerbPage.jsx';
 import DicoPage from '../../features/dico/DicoPage.jsx';
 import ComingSoonPage from '../../features/jeux/ComingSoonPage.jsx';
+import AnagrammesPage from '../../features/jeux/AnagrammesPage.jsx';
+import EstimationPage from '../../features/jeux/EstimationPage.jsx';
+import AnimauxPage from '../../features/jeux/AnimauxPage.jsx';
+import MotifsPage from '../../features/jeux/MotifsPage.jsx';
+import LectureVitessePage from '../../features/jeux/LectureVitessePage.jsx';
+import ObjetsCachesPage from '../../features/jeux/ObjetsCachesPage.jsx';
+import InventionsPage from '../../features/jeux/InventionsPage.jsx';
+import PoesiePage from '../../features/jeux/PoesiePage.jsx';
+import GeometriePage from '../../features/jeux/GeometriePage.jsx';
+import SudokuImagesPage from '../../features/jeux/SudokuImagesPage.jsx';
+import LabyRinthePage from '../../features/jeux/LabyRinthePage.jsx';
+import CasseBriquesPage from '../../features/jeux/CasseBriquesPage.jsx';
 import SynonymesPage from '../../features/jeux/SynonymesPage.jsx';
 import VraiFauxPage from '../../features/jeux/VraiFauxPage.jsx';
 import CapitalesPage from '../../features/jeux/CapitalesPage.jsx';
@@ -259,20 +271,20 @@ export default function AppRouter() {
         <Route path="/jeux/plus-petit-plus-grand" element={<Navigate to="/jeux/comparaison" replace />} />
         <Route path="/jeux/codeur-maths" element={<CodeurMathsPage />} />
         {/* ── Games ── */}
-        <Route path="/jeux/casse-briques"   element={<ComingSoonPage />} />
+        <Route path="/jeux/casse-briques"   element={<CasseBriquesPage />} />
         <Route path="/jeux/snake"           element={<SnakePage />} />
         <Route path="/jeux/ninja-fruits"    element={<NinjaFruitsPage />} />
         <Route path="/jeux/bataille-monstres" element={<BatailleMonstresPage />} />
-        <Route path="/jeux/anagrammes"      element={<ComingSoonPage />} />
-        <Route path="/jeux/poesie"          element={<ComingSoonPage />} />
-        <Route path="/jeux/geometrie"       element={<ComingSoonPage />} />
-        <Route path="/jeux/lecture-vitesse" element={<ComingSoonPage />} />
-        <Route path="/jeux/sudoku-images"   element={<ComingSoonPage />} />
-        <Route path="/jeux/labyrinthe"      element={<ComingSoonPage />} />
-        <Route path="/jeux/motifs"          element={<ComingSoonPage />} />
-        <Route path="/jeux/objets-caches"   element={<ComingSoonPage />} />
-        <Route path="/jeux/inventions"      element={<ComingSoonPage />} />
-        <Route path="/jeux/animaux"         element={<ComingSoonPage />} />
+        <Route path="/jeux/anagrammes"      element={<AnagrammesPage />} />
+        <Route path="/jeux/poesie"          element={<PoesiePage />} />
+        <Route path="/jeux/geometrie"       element={<GeometriePage />} />
+        <Route path="/jeux/lecture-vitesse" element={<LectureVitessePage />} />
+        <Route path="/jeux/sudoku-images"   element={<SudokuImagesPage />} />
+        <Route path="/jeux/labyrinthe"      element={<LabyRinthePage />} />
+        <Route path="/jeux/motifs"          element={<MotifsPage />} />
+        <Route path="/jeux/objets-caches"   element={<ObjetsCachesPage />} />
+        <Route path="/jeux/inventions"      element={<InventionsPage />} />
+        <Route path="/jeux/animaux"         element={<AnimauxPage />} />
         {/* ── New educational games (batch A) ── */}
         <Route path="/jeux/synonymes"         element={<SynonymesPage />} />
         <Route path="/jeux/vrai-faux"         element={<VraiFauxPage />} />
@@ -285,7 +297,7 @@ export default function AppRouter() {
         <Route path="/jeux/multiplications"   element={<MultiplicationsPage />} />
         <Route path="/jeux/mots-intrus-texte" element={<MotsIntrusPage />} />
         <Route path="/jeux/memoire-chiffres"  element={<MemChiffresPage />} />
-        <Route path="/jeux/estimation"        element={<ComingSoonPage />} />
+        <Route path="/jeux/estimation"        element={<EstimationPage />} />
         <Route path="/fun" element={<FunHubPage />} />
         <Route path="/fun/:type" element={<FunReaderPage />} />
         <Route path="/grammi" element={<GrammiPage />} />
