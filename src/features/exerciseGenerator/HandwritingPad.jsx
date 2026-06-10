@@ -93,6 +93,7 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
   }
 
   function startStroke(event) {
+    event.preventDefault();
     const canvas = canvasRef.current;
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
@@ -109,20 +110,28 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
 
   function moveStroke(event) {
     if (!drawingRef.current) return;
+    event.preventDefault();
     const canvas = canvasRef.current;
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
-    const point = createPoint(event, rect);
     const strokeIndex = currentStrokeRef.current;
     const stroke = strokesRef.current[strokeIndex];
     if (!stroke) return;
-    const lastPoint = stroke.points[stroke.points.length - 1];
-    if (distance(lastPoint, point) < MIN_POINT_DISTANCE) return;
-    stroke.points.push(point);
+    const events = typeof event.getCoalescedEvents === 'function'
+      ? event.getCoalescedEvents()
+      : [event];
+    for (const sourceEvent of events) {
+      const point = createPoint(sourceEvent, rect);
+      const lastPoint = stroke.points[stroke.points.length - 1];
+      if (distance(lastPoint, point) < MIN_POINT_DISTANCE) continue;
+      stroke.points.push(point);
+    }
     schedulePaint();
   }
 
   function endStroke(event) {
+    if (!drawingRef.current) return;
+    event.preventDefault();
     canvasRef.current?.releasePointerCapture?.(event.pointerId);
     drawingRef.current = false;
     const strokeIndex = currentStrokeRef.current;
@@ -191,9 +200,7 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
           onPointerDown={startStroke}
           onPointerMove={moveStroke}
           onPointerUp={endStroke}
-          onPointerLeave={endStroke}
           onPointerCancel={endStroke}
-          touchAction="none"
         />
       </div>
 
