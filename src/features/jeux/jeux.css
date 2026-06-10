@@ -2785,6 +2785,142 @@
 .bm2-monster-shake { animation: bm2-atk-r .4s ease-out; }
 .bm2-player-shake  { animation: bm2-atk-l .4s ease-out; }
 
+/* ── BM2 RPG: Difficulty picker ── */
+.bm2-diff-label { padding: 4px 16px; font-size: .82rem; opacity: .65; color: #fff; font-weight: 600; letter-spacing: .05em; }
+.bm2-diff-grid  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 0 16px 12px; }
+.bm2-diff-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 10px 8px; border-radius: 14px; border: 2px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.07); color: #fff; cursor: pointer;
+  transition: border-color .2s, background .2s, transform .12s;
+  touch-action: manipulation;
+}
+.bm2-diff-btn.is-selected { border-color: var(--lena-purple); background: rgba(168,85,247,.2); }
+.bm2-diff-btn:active      { transform: scale(.95); }
+.bm2-diff-badge { font-size: 1.5rem; line-height: 1; }
+.bm2-diff-name  { font-size: .8rem; font-weight: 700; }
+.bm2-diff-timer { font-size: .72rem; opacity: .6; }
+
+/* ── BM2 RPG: Boss chip ── */
+.bm2-monster-chip--boss { opacity: 1; color: var(--lena-gold, #f59e0b); font-weight: 700; }
+.bm2-monster-chip--boss span:first-child { filter: drop-shadow(0 0 6px rgba(245,158,11,.6)); }
+
+/* ── BM2 RPG: Timer bar ── */
+.bm2-timer-wrap {
+  position: relative; height: 14px; background: rgba(255,255,255,.1);
+  margin: 4px 12px 6px; border-radius: 7px; overflow: hidden;
+}
+.bm2-timer-fill {
+  height: 100%; border-radius: 7px;
+  background: linear-gradient(90deg, var(--lena-purple, #9b59b6), #a855f7);
+  transition: width .9s linear, background .4s;
+}
+.bm2-timer-fill--danger { background: linear-gradient(90deg, #ef4444, #f97316); animation: bm2-timer-pulse .5s ease-in-out infinite alternate; }
+.bm2-timer-secs {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  font-size: .7rem; font-weight: 800; color: rgba(255,255,255,.8);
+}
+.bm2-timer-secs--danger { color: #fff; }
+@keyframes bm2-timer-pulse { from { opacity: 1 } to { opacity: .6 } }
+
+/* ── BM2 RPG: Combatants ── */
+.bm2-combatant { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+.bm2-combatant__name { font-size: .82rem; font-weight: 700; opacity: .8; }
+.bm2-combatant__sprite-wrap { position: relative; display: flex; justify-content: center; }
+.bm2-combatant__sprite { font-size: clamp(3rem, 10vw, 5rem); line-height: 1.2; }
+.bm2-combatant__hp-bar { width: 100%; max-width: min(140px, 38vw); height: 10px; background: rgba(255,255,255,.15); border-radius: 5px; overflow: hidden; }
+.bm2-combatant__hp-fill { height: 100%; border-radius: 5px; transition: width .35s ease; }
+.bm2-combatant__hp-fill--monster { background: linear-gradient(90deg, #ef4444, #f97316); }
+.bm2-combatant__hp-fill--player  { background: linear-gradient(90deg, #22c55e, #84cc16); }
+.bm2-combatant__hp-fill--low     { background: linear-gradient(90deg, #ef4444, #f43f5e); }
+
+/* ── BM2 RPG: Attack + hit animations ── */
+.bm2-combatant--hit        { animation: bm2-damage .4s ease-out; }
+.bm2-combatant--atk-right  { animation: bm2-atk-r .4s ease-out; }
+.bm2-combatant--atk-left   { animation: bm2-atk-l .4s ease-out; }
+.bm2-combatant--special-hit { animation: bm2-special-flash .4s ease-out; }
+@keyframes bm2-special-flash {
+  0%  { filter: brightness(1) }
+  30% { filter: brightness(4) saturate(.2); transform: scale(.9) }
+  100%{ filter: brightness(1); transform: scale(1) }
+}
+
+/* ── BM2 RPG: Floating damage numbers ── */
+.bm2-dmg-num {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  font-size: 1.5rem; font-weight: 900; color: #ef4444;
+  text-shadow: 0 2px 4px rgba(0,0,0,.6);
+  animation: bm2-dmg-float 1.2s ease-out forwards;
+  pointer-events: none; white-space: nowrap; z-index: 10;
+}
+.bm2-dmg-num--critical { color: var(--lena-gold, #f59e0b); font-size: 1.9rem; }
+.bm2-dmg-num--player   { color: #a78bfa; }
+@keyframes bm2-dmg-float {
+  0%  { opacity: 1; transform: translateX(-50%) translateY(0) scale(1) }
+  20% { opacity: 1; transform: translateX(-50%) translateY(-24px) scale(1.2) }
+  100%{ opacity: 0; transform: translateX(-50%) translateY(-56px) scale(.8) }
+}
+
+/* ── BM2 RPG: Time's Up overlay ── */
+.bm2-timeup-overlay {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  background: rgba(239,68,68,.92); color: #fff;
+  font-size: 1.6rem; font-weight: 900; padding: 16px 32px; border-radius: 20px;
+  z-index: 100; pointer-events: none;
+  animation: bm2-timeup-pop .9s ease-out forwards;
+}
+@keyframes bm2-timeup-pop {
+  0%  { opacity: 0; transform: translate(-50%,-50%) scale(.6) }
+  20% { opacity: 1; transform: translate(-50%,-50%) scale(1.1) }
+  60% { opacity: 1; transform: translate(-50%,-50%) scale(1) }
+  100%{ opacity: 0; transform: translate(-50%,-50%) scale(.8) }
+}
+
+/* ── BM2 RPG: Power bar + special button ── */
+.bm2-status-row   { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px 16px 4px; }
+.bm2-power-pips   { display: flex; align-items: center; gap: 6px; }
+.bm2-power-label  { font-size: 1rem; opacity: .7; }
+.bm2-power-pip {
+  width: 26px; height: 10px; border-radius: 5px;
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.2);
+  transition: background .2s, box-shadow .2s;
+}
+.bm2-power-pip--full { background: linear-gradient(90deg, #f59e0b, #fbbf24); box-shadow: 0 0 8px rgba(245,158,11,.6); }
+.bm2-special-btn {
+  width: 100%; padding: 14px; border-radius: 16px; border: none;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: #1a1200; font-size: 1rem; font-weight: 900; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(245,158,11,.5);
+  animation: bm2-special-glow 1.2s ease-in-out infinite alternate;
+  touch-action: manipulation;
+}
+.bm2-special-btn:active { transform: scale(.96); }
+@keyframes bm2-special-glow {
+  from { box-shadow: 0 4px 16px rgba(245,158,11,.4) }
+  to   { box-shadow: 0 4px 28px rgba(245,158,11,.8) }
+}
+
+/* ── BM2 RPG: Boss intro overlay ── */
+.bm2-boss-intro {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(10,5,26,.95);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  animation: bm2-boss-in .4s ease-out;
+}
+.bm2-boss-intro__sprite { font-size: 6rem; animation: bm2-boss-bounce 1s ease-in-out infinite alternate; }
+.bm2-boss-intro__crown  { font-size: .85rem; font-weight: 900; letter-spacing: .2em; color: var(--lena-gold, #f59e0b); }
+.bm2-boss-intro__name   { font-size: 2rem; font-weight: 900; color: #fff; text-align: center; }
+.bm2-boss-intro__sub    { font-size: .9rem; opacity: .7; color: #fff; }
+.bm2-boss-intro__btn {
+  margin-top: 12px; padding: 14px 36px; border-radius: 20px; border: none;
+  background: var(--lena-purple, #9b59b6); color: #fff;
+  font-size: 1rem; font-weight: 800; cursor: pointer;
+  touch-action: manipulation;
+}
+.bm2-boss-intro__btn:active { transform: scale(.95); }
+@keyframes bm2-boss-in     { from { opacity: 0 } to { opacity: 1 } }
+@keyframes bm2-boss-bounce { from { transform: translateY(0) scale(1) } to { transform: translateY(-12px) scale(1.06) } }
+
 /* ── BM2 enhanced arena atmosphere ── */
 .bm2-arena {
   padding: clamp(10px, 2.5vw, 20px) clamp(8px, 2vw, 16px);
