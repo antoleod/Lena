@@ -8,7 +8,7 @@ export function isNumericAnswerValue(value) {
 }
 
 export function supportsHandwritingValue(value) {
-  return /^\d$/.test(String(value ?? '').trim());
+  return /^\d+$/.test(String(value ?? '').trim());
 }
 
 export default function NumericAnswerInput({
@@ -53,10 +53,15 @@ export default function NumericAnswerInput({
   function handleRecognized(nextValue) {
     const text = String(nextValue ?? '').trim();
     if (!text) return;
-    setRecognizedValue(text);
-    onChange?.(text);
+    const nextText = canUseHandwriting && normalizedExpected.length > 1
+      ? `${value}${text}`.slice(0, normalizedExpected.length)
+      : text;
+    setRecognizedValue(nextText);
+    onChange?.(nextText);
     onModeChange?.('handwriting');
-    onSubmit?.(text);
+    if (!canUseHandwriting || nextText.length >= normalizedExpected.length) {
+      onSubmit?.(nextText);
+    }
   }
 
   return (
@@ -107,6 +112,7 @@ export default function NumericAnswerInput({
               expectedValue={normalizedExpected}
               onRecognized={handleRecognized}
               onClose={activateNumPad}
+              clearOnRecognized={canUseHandwriting && normalizedExpected.length > 1}
             />
             <button type="button" className="cahier-cta cahier-cta--soft handwriting-launch" onClick={activateNumPad}>
               123

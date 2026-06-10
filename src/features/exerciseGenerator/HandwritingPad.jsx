@@ -33,7 +33,7 @@ function simplifyPoints(points) {
   return simplified;
 }
 
-export default function HandwritingPad({ expectedValue, onRecognized, onClose }) {
+export default function HandwritingPad({ expectedValue, onRecognized, onClose, clearOnRecognized = false }) {
   const L = useCahierT();
   const canvasRef = useRef(null);
   const strokesRef = useRef([]);
@@ -148,7 +148,12 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose })
       .filter((stroke) => stroke.points.length > 0);
     const result = recognizeDigit(drawingStrokes);
     setRecognition(result);
-    if (result.value) onRecognized(result.value, result);
+    if (result.value) {
+      onRecognized(result.value, result);
+      if (clearOnRecognized) {
+        window.setTimeout(clearAll, 250);
+      }
+    }
   }
 
   const hasInk = snapshot.some((stroke) => stroke.mode === 'pen' && stroke.points.length > 0);

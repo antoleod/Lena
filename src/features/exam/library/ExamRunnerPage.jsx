@@ -317,6 +317,7 @@ export default function ExamRunnerPage() {
   // Help system
   const [helpCount, setHelpCount] = useState(0);
   const [showHelp, setShowHelp] = useState(false);
+  const [showVisualHelp, setShowVisualHelp] = useState(false);
   const [totalHelpsUsed, setTotalHelpsUsed] = useState(0);
   const [helpWeights, setHelpWeights] = useState([]);
   const [audioHelpUsed, setAudioHelpUsed] = useState(false);
@@ -526,6 +527,7 @@ export default function ExamRunnerPage() {
               setTotalHelpsUsed(0);
               setHelpCount(0);
               setShowHelp(false);
+              setShowVisualHelp(false);
               setAudioHelpUsed(false);
               startRef.current = Date.now();
               setPhase(hasStory ? 'read' : 'quiz');
@@ -668,6 +670,7 @@ export default function ExamRunnerPage() {
       setFeedback(null);
       setHelpCount(0);
       setShowHelp(false);
+      setShowVisualHelp(false);
       setAudioHelpUsed(false);
       setGuidedRetry(false);
       setGuidedHint('');
@@ -689,6 +692,7 @@ export default function ExamRunnerPage() {
     setTotalHelpsUsed(0);
     setHelpCount(0);
     setShowHelp(false);
+    setShowVisualHelp(false);
     setAudioHelpUsed(false);
     setGuidedRetry(false);
     setGuidedHint('');
@@ -723,6 +727,8 @@ export default function ExamRunnerPage() {
   if (phase === 'revisions') {
     const revQ = wrongQuestions[revIndex];
     const revTotal = wrongQuestions.length;
+    const revVisual = autoVisual(exam?.category, revQ);
+    const revVisualIsHelp = !!revVisual && !revQ?.visual;
 
     function revAnswer(value) {
       if (revSelected !== null) return;
@@ -738,6 +744,7 @@ export default function ExamRunnerPage() {
         setRevSelected(null);
         setRevInput('');
         setRevFeedback(null);
+        setShowVisualHelp(false);
       }
     }
 
@@ -755,8 +762,20 @@ export default function ExamRunnerPage() {
 
         <div className="reader-card" style={{ minHeight: 90, flex: 'none' }}>
           <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(revQ, 'prompt', locale)}</p>
-          <ExamVisual visual={autoVisual(exam?.category, revQ)} />
+          {!revVisualIsHelp && <ExamVisual visual={revVisual} />}
         </div>
+
+        {revVisualIsHelp && revSelected === null && (
+          <button
+            className="exam-help-btn"
+            type="button"
+            onPointerDown={e => { e.preventDefault(); setShowVisualHelp(v => !v); }}
+          >
+            💡 {showVisualHelp ? "Masquer l'aide" : "Voir l'aide"}
+          </button>
+        )}
+
+        {revVisualIsHelp && showVisualHelp && <ExamVisual visual={revVisual} />}
 
         <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
           {revQ.type === 'mcq' && revOptions.map((opt) => {
@@ -972,6 +991,9 @@ export default function ExamRunnerPage() {
   }
 
   // ── QUIZ ─────────────────────────────────────────────────────────────────
+  const currentVisual = autoVisual(exam?.category, currentQ);
+  const currentVisualIsHelp = !!currentVisual && !currentQ?.visual;
+
   return (
     <div className="reader-page">
       <div className="reader-header">
@@ -1025,8 +1047,20 @@ export default function ExamRunnerPage() {
 
       <div className="reader-card" style={{ minHeight: 90, flex: 'none' }}>
         <p className="reader-text" style={{ fontSize: '1.15rem' }}>{getLocalizedField(currentQ, 'prompt', locale)}</p>
-        <ExamVisual visual={autoVisual(exam?.category, currentQ)} />
+        {!currentVisualIsHelp && <ExamVisual visual={currentVisual} />}
       </div>
+
+      {currentVisualIsHelp && selected === null && (
+        <button
+          className="exam-help-btn"
+          type="button"
+          onPointerDown={e => { e.preventDefault(); setShowVisualHelp(v => !v); }}
+        >
+          💡 {showVisualHelp ? "Masquer l'aide" : "Voir l'aide"}
+        </button>
+      )}
+
+      {currentVisualIsHelp && showVisualHelp && <ExamVisual visual={currentVisual} />}
 
       {isComprehension && selected === null && (
         <button
