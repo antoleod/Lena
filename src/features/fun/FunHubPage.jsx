@@ -8,10 +8,10 @@ export default function FunHubPage() {
     <div className="fun-page">
       {/* Hero */}
       <div className="fun-hero">
-        <div className="fun-hero__stars">✨ 😂 🌸 🤔 📜 🎭 ✨</div>
+        <div className="fun-hero__stars">✨ 😂 🌍 🤔 📜 🎭 ✨</div>
         <h1 className="fun-hero__title">Le Coin Amusant</h1>
         <p className="fun-hero__subtitle">
-          Blagues, devinettes, proverbes, poèmes et contes pour rire et réfléchir !
+          Blagues, devinettes, faits insolites, proverbes, poèmes et contes pour rire et réfléchir !
         </p>
       </div>
 

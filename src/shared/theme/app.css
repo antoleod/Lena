@@ -13479,46 +13479,40 @@ input.exam-choice:hover { transform: none; }
 .fun-card__text {
   font-size: .97rem;
   font-weight: 600;
-  color: #1e1b4b;
+  color: #e0e7ff;
   margin: 0;
   line-height: 1.5;
 }
 .fun-card__answer {
   font-size: .9rem;
   font-weight: 700;
-  color: #7c3aed;
+  color: #fde68a;
   margin: 0;
-  background: rgba(139,92,246,.1);
+  background: rgba(255,255,255,.1);
   border-radius: 10px;
   padding: 6px 10px;
 }
 .fun-card__reveal {
   border: none;
-  background: rgba(139,92,246,.12);
-  color: #7c3aed;
+  background: rgba(255,255,255,.12);
+  color: #e0e7ff;
   font-weight: 700;
   font-size: .85rem;
   border-radius: 10px;
   padding: 6px 14px;
   cursor: pointer;
 }
-/* On dark backgrounds (reader-card, fb-card etc.) */
-.reader-card .fun-card__text,
-.exam-results .fun-card__text {
-  color: #e0e7ff;
-}
-.reader-card .fun-card {
+/* fun-card on light background (exam-results inside reader card) */
+.exam-results .fun-card__type { color: #7c3aed; }
+.exam-results .fun-card__text { color: #1e1b4b; }
+.exam-results .fun-card__answer { color: #7c3aed; background: rgba(139,92,246,.1); }
+.exam-results .fun-card__reveal { background: rgba(139,92,246,.12); color: #7c3aed; }
+/* fun-card inside fb-card (dark overlay) — defaults already light, just adjust bg */
+.fb-card .fun-card {
   background: rgba(255,255,255,.08);
   border-color: rgba(255,255,255,.15);
 }
-.reader-card .fun-card__answer {
-  color: #fde68a;
-  background: rgba(255,255,255,.08);
-}
-.reader-card .fun-card__reveal {
-  background: rgba(255,255,255,.1);
-  color: #e0e7ff;
-}
+.fb-card .fun-card__type { color: #c4b5fd; }
 
 /* ── exam-results end screen ─────────────────────────────── */
 .exam-results {
