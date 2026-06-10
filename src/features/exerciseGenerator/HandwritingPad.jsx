@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { recognizeDigit } from './handwriting/digitRecognizer.js';
+import { recognizeDigit, extractAnswerStrokes } from './handwriting/digitRecognizer.js';
 import { useCahierT } from './cahierI18n.js';
 
 const MIN_POINT_DISTANCE = 3;
@@ -44,6 +44,7 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
   const [snapshot, setSnapshot] = useState([]);
   const [tool, setTool] = useState('pen');
   const [recognition, setRecognition] = useState(null);
+  const [failCount, setFailCount] = useState(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -159,19 +160,43 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
       .filter((stroke) => stroke.mode === 'pen')
       .map((stroke) => ({ points: simplifyPoints(stroke.points) }))
       .filter((stroke) => stroke.points.length > 0);
-    const result = recognizeDigit(drawingStrokes);
-    setRecognition(result);
+
+    let result = recognizeDigit(drawingStrokes);
+    let fromEquation = false;
+
+    if (!result.value) {
+      const answerStrokes = extractAnswerStrokes(drawingStrokes);
+      if (answerStrokes) {
+        const equationResult = recognizeDigit(answerStrokes);
+        if (equationResult.value) {
+          result = equationResult;
+          fromEquation = true;
+        }
+      }
+    }
+
+    setRecognition({ ...result, fromEquation });
     if (result.value) {
+      setFailCount(0);
       onRecognized(result.value, result);
       if (clearOnRecognized) {
         window.clearTimeout(clearTimerRef.current);
         clearTimerRef.current = window.setTimeout(clearAll, 250);
       }
+    } else {
+      setFailCount((n) => n + 1);
     }
   }
 
   const hasInk = snapshot.some((stroke) => stroke.mode === 'pen' && stroke.points.length > 0);
   const bestGuess = recognition?.value || recognition?.candidates?.[0]?.digit || '?';
+  const confidenceClass = recognition
+    ? recognition.value
+      ? 'is-success'
+      : recognition.confidence >= 0.20
+        ? 'is-low-confidence'
+        : ''
+    : '';
 
   return (
     <div className="handwriting-pad">
@@ -187,7 +212,7 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
 
       <div className="handwriting-pad__hero">
         <div className="handwriting-pad__badge">{hasInk ? '1' : '0'} trait</div>
-        <div className={`handwriting-pad__preview${recognition?.value ? ' is-success' : ''}`}>
+        <div className={`handwriting-pad__preview${confidenceClass ? ` ${confidenceClass}` : ''}`}>
           <span className="handwriting-pad__preview-label">{L.t('jAiLu')}</span>
           <strong>{bestGuess}</strong>
         </div>
@@ -227,8 +252,17 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
 
       <div className="handwriting-pad__status">
         {!recognition && <span className="handwriting-pad__hint">Écris grand au centre, puis appuie sur reconnaître.</span>}
-        {recognition?.value && <span>{L.t('jAiLu')} <strong>{recognition.value}</strong></span>}
-        {recognition && !recognition.value && <span>{L.t('recognitionRetry')}</span>}
+        {recognition?.value && !recognition.fromEquation && <span>{L.t('jAiLu')} <strong>{recognition.value}</strong></span>}
+        {recognition?.value && recognition.fromEquation && (
+          <span className="handwriting-pad__hint-equation">J'ai vu une équation → résultat : <strong>{recognition.value}</strong></span>
+        )}
+        {recognition && !recognition.value && (
+          <span className="handwriting-pad__fail">
+            {failCount >= 2
+              ? <>Difficile à lire… <button type="button" className="handwriting-pad__numpad-cta" onClick={onClose}>Utiliser les chiffres 123</button></>
+              : L.t('recognitionRetry')}
+          </span>
+        )}
       </div>
     </div>
   );

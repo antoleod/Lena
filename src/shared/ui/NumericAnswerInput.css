@@ -60,6 +60,14 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
 }
 
+.test-answer-switcher__value[role="button"] {
+  cursor: pointer;
+}
+
+.test-answer-switcher__value[role="button"]:active {
+  filter: brightness(0.96);
+}
+
 .test-answer-switcher__label {
   font-size: 0.82rem;
   font-weight: 700;
@@ -185,6 +193,12 @@
   border-color: rgba(39, 174, 96, 0.24);
 }
 
+.handwriting-pad__preview.is-low-confidence {
+  background: linear-gradient(135deg, #fff4e5, #fde8c8);
+  color: #a04000;
+  border-color: rgba(230, 126, 34, 0.32);
+}
+
 .handwriting-pad__preview-label {
   font-size: 0.78rem;
   font-weight: 800;
@@ -269,6 +283,34 @@
 
 .handwriting-pad__hint {
   color: #7f8c8d;
+}
+
+.handwriting-pad__hint-equation {
+  color: #1a5276;
+  background: rgba(93, 173, 226, 0.15);
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+
+.handwriting-pad__fail {
+  color: #922b21;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.handwriting-pad__numpad-cta {
+  border: none;
+  background: linear-gradient(135deg, #ffd166, #f39c12);
+  color: #5b3400;
+  font-weight: 800;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  padding: 6px 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(243, 156, 18, 0.32);
 }
 
 @media (max-width: 560px) {

@@ -1181,6 +1181,7 @@ export default function ExamRunnerPage() {
           locale={locale}
           onNext={next}
           explanation={currentQ.correction ? getLocalizedField(currentQ, 'correction', locale) : undefined}
+          difficulty={levelKey}
         />
       )}
     </div>

@@ -1,12 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
 import MathVisualSvg from './MathVisualSvg.jsx';
 import { useCahierT } from './cahierI18n.js';
+import { EyeOpenIcon, EyeHiddenIcon } from '../../assets/icons/VisualHintIcons.jsx';
 
 // Notebook phase — the child solves these by hand. NO inputs, NO answers shown.
 export default function NotebookView({ exercises, subject, level, timerMinutes, onBack, onDone }) {
   const L = useCahierT();
   const totalSeconds = timerMinutes ? timerMinutes * 60 : null;
   const [secondsLeft, setSecondsLeft] = useState(totalSeconds);
+  const [visibleVisuals, setVisibleVisuals] = useState(new Set());
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  function toggleVisual(id) {
+    setVisibleVisuals((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  }
   const onDoneRef = useRef(onDone);
   onDoneRef.current = onDone;
 
@@ -71,12 +83,24 @@ export default function NotebookView({ exercises, subject, level, timerMinutes, 
                 ) : (
                   <span className="notebook-item__text">{ex.question}</span>
                 )}
+                {ex.visual && (
+                  <button
+                    type="button"
+                    className="notebook-visual-toggle"
+                    onClick={() => toggleVisual(ex.id)}
+                    aria-label="Voir l'aide visuelle"
+                  >
+                    {visibleVisuals.has(ex.id) ? <EyeHiddenIcon size={18} /> : <EyeOpenIcon size={18} />}
+                  </button>
+                )}
+                {ex.visual && visibleVisuals.has(ex.id) && (
+                  <MathVisualSvg visual={ex.visual} />
+                )}
               </div>
-              {ex.visual && <MathVisualSvg visual={ex.visual} />}
+              <span className="notebook-item__blank" aria-hidden="true" />
               {ex.notebookInstruction && (
                 <span className="notebook-item__hint">{ex.notebookInstruction}</span>
               )}
-              <span className="notebook-item__blank" aria-hidden="true" />
             </li>
           ))}
         </ol>

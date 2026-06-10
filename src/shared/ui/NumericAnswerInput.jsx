@@ -54,7 +54,7 @@ export default function NumericAnswerInput({
     onModeChange?.('handwriting');
   }
 
-  function handleRecognized(nextValue) {
+  function handleRecognized(nextValue, result) {
     const text = String(nextValue ?? '').trim();
     if (!text) return;
     const currentText = recognizedValue || value;
@@ -64,7 +64,8 @@ export default function NumericAnswerInput({
     setRecognizedValue(nextText);
     onChange?.(nextText);
     onModeChange?.('handwriting');
-    if (!canUseHandwriting || nextText.length >= normalizedExpected.length) {
+    const confident = !result || result.confidence >= 0.45;
+    if (confident && (!canUseHandwriting || nextText.length >= normalizedExpected.length)) {
       onSubmit?.(nextText);
     }
   }
@@ -73,7 +74,13 @@ export default function NumericAnswerInput({
     <div className="numeric-answer-input">
       <div className="test-answer-switcher">
         <div className="test-answer-switcher__header">
-          <div className="test-answer-switcher__value">
+          <div
+            className="test-answer-switcher__value"
+            role="button"
+            tabIndex={disabled ? -1 : 0}
+            onClick={disabled ? undefined : activateNumPad}
+            onKeyDown={disabled ? undefined : (e) => e.key === 'Enter' && activateNumPad()}
+          >
             <span className="test-answer-switcher__label">{valueLabel}</span>
             <strong>{value || '...'}</strong>
           </div>

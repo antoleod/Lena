@@ -371,13 +371,49 @@ export function recognizeDigit(strokes) {
   const best = candidates[0];
   const second = candidates[1];
   const confidence = clamp((best.score - (second?.score || 0)) + best.templateScore * 0.28, 0, 1);
-  const value = confidence >= 0.24 && best.templateScore >= 0.34 ? best.digit : null;
+  const value = confidence >= 0.30 && best.templateScore >= 0.38 ? best.digit : null;
 
   return {
     value,
     confidence,
     candidates: candidates.slice(0, 3).map(({ digit, score }) => ({ digit, score })),
   };
+}
+
+export function extractAnswerStrokes(strokes) {
+  if (!strokes || strokes.length < 2) return null;
+  const bounds = getBounds(strokes);
+  if (!bounds) return null;
+
+  const spanW = bounds.maxX - bounds.minX;
+  const spanH = bounds.maxY - bounds.minY;
+  if (spanW < spanH * 2) return null;
+
+  const annotated = strokes
+    .map((stroke) => {
+      const xs = stroke.points.map((p) => p.x);
+      return {
+        stroke,
+        minX: Math.min(...xs),
+        maxX: Math.max(...xs),
+        cx: (Math.min(...xs) + Math.max(...xs)) / 2,
+      };
+    })
+    .sort((a, b) => a.cx - b.cx);
+
+  let maxGap = 0;
+  let splitIdx = -1;
+  for (let i = 0; i < annotated.length - 1; i += 1) {
+    const gap = annotated[i + 1].minX - annotated[i].maxX;
+    if (gap > maxGap) { maxGap = gap; splitIdx = i; }
+  }
+
+  if (splitIdx < 0 || maxGap < spanW * 0.08) return null;
+
+  const right = annotated.slice(splitIdx + 1).map((a) => a.stroke);
+  if (right.length > strokes.length / 2) return null;
+
+  return right;
 }
 
 export function buildStroke(points) {

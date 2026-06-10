@@ -315,6 +315,63 @@
   color: #1c1c1e;
 }
 
+/* ── cahier-page: fix white text on light background in theme-minimal ── */
+:root[data-theme='theme-minimal'] .cahier-page .cahier-header h1,
+:root[data-theme='theme-minimal'] .cahier-page .cahier-header .eyebrow,
+:root[data-theme='theme-minimal'] .cahier-page .cahier-sub,
+:root[data-theme='theme-minimal'] .cahier-page .cahier-section__title,
+:root[data-theme='theme-minimal'] .cahier-page .cahier-range-label,
+:root[data-theme='theme-minimal'] .cahier-page .cahier-ready__msg,
+:root[data-theme='theme-minimal'] .cahier-page .cahier-instruction,
+:root[data-theme='theme-minimal'] .cahier-page .cahier-empty,
+:root[data-theme='theme-minimal'] .cahier-page .results-score__num,
+:root[data-theme='theme-minimal'] .cahier-page .results-score__stars {
+  color: #1c1c1e;
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .cahier-header .eyebrow {
+  color: #8e54e9;
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .cahier-sub {
+  color: #555;
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .cahier-section {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1c1c1e;
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .cahier-choice {
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #1c1c1e;
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .cahier-choice.is-selected {
+  border-color: #8e54e9;
+  color: #8e54e9;
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .cahier-advanced-toggle {
+  color: #1c1c1e;
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .cahier-instruction {
+  background: rgba(0, 0, 0, 0.05);
+  color: #444;
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .cahier-progress-label {
+  color: #555;
+}
+
+:root[data-theme='theme-minimal'] .cahier-page .dictee-audio--big {
+  color: #1c1c1e;
+  background: rgba(52, 152, 219, 0.12);
+}
+
 /* ── error-review-page: inherits light body but has white-alpha text ── */
 :root[data-theme='theme-minimal'] .error-topic-tag {
   background: rgba(0, 122, 255, 0.1);
@@ -14725,24 +14782,25 @@ body {
 /* ── Shared FeedbackCard — pause-on-feedback system ──────── */
 .fb-overlay {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,.45);
+  background: rgba(0,0,0,.55);
   z-index: 200;
-  display: flex; align-items: flex-end;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
   animation: fbFadeIn .15s ease;
 }
 @keyframes fbFadeIn { from { opacity: 0 } to { opacity: 1 } }
 
 .fb-card {
-  width: 100%; max-width: 480px; margin: 0 auto;
+  width: 100%; max-width: 420px;
   background: #1e1b4b;
-  border-radius: 28px 28px 0 0;
-  padding: 20px 20px max(20px, env(safe-area-inset-bottom));
+  border-radius: 28px;
+  padding: 28px 20px 20px;
   animation: fbSlideUp .22s cubic-bezier(.34,1.36,.64,1);
-  border-top: 3px solid rgba(255,255,255,.12);
+  border: 3px solid rgba(255,255,255,.12);
 }
 @keyframes fbSlideUp {
-  from { transform: translateY(100%) }
-  to   { transform: translateY(0) }
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
 }
 
 .fb-card.is-correct { background: #064e3b; border-top-color: #34d399; }

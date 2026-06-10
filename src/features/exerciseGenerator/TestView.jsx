@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import MathVisualSvg from './MathVisualSvg.jsx';
+import { EyeOpenIcon, EyeHiddenIcon } from '../../assets/icons/VisualHintIcons.jsx';
 import { useCahierT } from './cahierI18n.js';
 import { checkAnswer } from './exerciseEngine.js';
 import { recordError } from '../../services/storage/errorHistoryStore.js';
@@ -18,6 +19,7 @@ export default function TestView({ exercises, onBack, onFinish }) {
   const [revealed, setRevealed] = useState(false);
   const [firstTryWrong, setFirstTryWrong] = useState(false);
   const [answerMode, setAnswerMode] = useState('keyboard');
+  const [showVisual, setShowVisual] = useState(false);
 
   const ex = exercises[index];
   const total = exercises.length;
@@ -81,6 +83,7 @@ export default function TestView({ exercises, onBack, onFinish }) {
     setShowExpl(false);
     setRevealed(false);
     setFirstTryWrong(false);
+    setShowVisual(false);
   }
 
   return (
@@ -101,8 +104,20 @@ export default function TestView({ exercises, onBack, onFinish }) {
         {ex.dictation && (
           <button type="button" className="dictee-audio dictee-audio--big" onClick={() => speak(ex.dictation)}>🔊 Réécouter</button>
         )}
-        <p className="test-card__question">{ex.testQuestion || ex.question}</p>
-        {ex.visual && <MathVisualSvg visual={ex.visual} />}
+        <div className="test-card__question-row">
+          <p className="test-card__question">{ex.testQuestion || ex.question}</p>
+          {ex.visual && (
+            <button
+              type="button"
+              className="notebook-visual-toggle"
+              onClick={() => setShowVisual((v) => !v)}
+              aria-label="Voir l'aide visuelle"
+            >
+              {showVisual ? <EyeHiddenIcon size={18} /> : <EyeOpenIcon size={18} />}
+            </button>
+          )}
+          {ex.visual && showVisual && <MathVisualSvg visual={ex.visual} />}
+        </div>
       </div>
 
       {!canContinue && (
