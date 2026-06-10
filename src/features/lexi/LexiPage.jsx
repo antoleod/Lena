@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './lexi.css';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import FunContentCard from '../../shared/ui/FunContentCard.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   MOT_MANQUANT, MOTS_CACHES, RECONSTRUCTIONS, MEMOIRE_PHRASES,
@@ -421,6 +422,7 @@ export default function LexiPage() {
               </span>
             ))}
           </div>
+          <FunContentCard />
           <div className="lx-results-btns">
             <button className="lx-results-btn lx-results-btn--primary" type="button" onPointerDown={e => { e.preventDefault(); startMode(currentMode); }}>
               Rejouer

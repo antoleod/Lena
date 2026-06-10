@@ -36,12 +36,22 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 debug.log
+*.log
 
 # TypeScript
 *.tsbuildinfo
 
 # Test coverage
 coverage/
+playwright-report/
+blob-report/
+test-results/
 
 # Misc
 migration_discovery*.json
+.claude/
+.idea/
+.cache/
+.tmp/
+tmp/
+temp/

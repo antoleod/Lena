@@ -49,6 +49,8 @@ const PATTERN_POOLS = {
   ],
 };
 
+// hints:true  → guide is free (no point penalty)
+// hints:false → guide costs -2 pts (harder levels)
 const LEVEL_CONFIG = [
   { id:1,  label:'N1',  n:6,  poolLvl:[1],   hints:true  },
   { id:2,  label:'N2',  n:6,  poolLvl:[1],   hints:true  },
@@ -104,6 +106,84 @@ function makeRound(levelCfg) {
 
 const CHOICE_COLORS = ['#6366f1', '#ec4899', '#06b6d4'];
 
+/* ── Visual hint guide ────────────────────────────────────────────────── */
+const HINT_EXPLANATIONS = {
+  '+1':       { label: 'On ajoute 1 à chaque fois',      color: '#6366f1', icon: '➕' },
+  '+2':       { label: 'On ajoute 2 à chaque fois',      color: '#6366f1', icon: '➕' },
+  '+3':       { label: 'On ajoute 3 à chaque fois',      color: '#6366f1', icon: '➕' },
+  '+4':       { label: 'On ajoute 4 à chaque fois',      color: '#6366f1', icon: '➕' },
+  '+5':       { label: 'On ajoute 5 à chaque fois',      color: '#6366f1', icon: '➕' },
+  '+6':       { label: 'On ajoute 6 à chaque fois',      color: '#6366f1', icon: '➕' },
+  '+7':       { label: 'On ajoute 7 à chaque fois',      color: '#6366f1', icon: '➕' },
+  '-1':       { label: 'On enlève 1 à chaque fois',      color: '#f43f5e', icon: '➖' },
+  '-2':       { label: 'On enlève 2 à chaque fois',      color: '#f43f5e', icon: '➖' },
+  '-3':       { label: 'On enlève 3 à chaque fois',      color: '#f43f5e', icon: '➖' },
+  '-4':       { label: 'On enlève 4 à chaque fois',      color: '#f43f5e', icon: '➖' },
+  '-10':      { label: 'On enlève 10 à chaque fois',     color: '#f43f5e', icon: '➖' },
+  '×2':       { label: 'On multiplie par 2 à chaque fois', color: '#f59e0b', icon: '✖️' },
+  '×3':       { label: 'On multiplie par 3 à chaque fois', color: '#f59e0b', icon: '✖️' },
+  'Pairs +2': { label: 'Ce sont des nombres pairs (0,2,4…)', color: '#10b981', icon: '🔢' },
+  'Fibonacci !': { label: 'Chaque nombre = les 2 précédents additionnés !', color: '#8b5cf6', icon: '🌀' },
+  'Carres !': { label: 'Ce sont des carrés parfaits : 2²=4, 3²=9…',        color: '#8b5cf6', icon: '⬜' },
+  '+1 +2 +1 +2':   { label: 'On alterne : +1, puis +2, puis +1, puis +2…', color: '#06b6d4', icon: '🔄' },
+  '+1+2+1+2':      { label: 'On alterne : +1, puis +2, puis +1, puis +2…', color: '#06b6d4', icon: '🔄' },
+  '+6+5+4...':     { label: 'L\'écart diminue de 1 à chaque fois',          color: '#ec4899', icon: '📉' },
+  '+1+2+3+4...':   { label: 'L\'écart augmente de 1 à chaque fois',         color: '#ec4899', icon: '📈' },
+  'Alterne !':     { label: 'Les éléments se répètent en alternant',        color: '#06b6d4', icon: '🔄' },
+  'Repete !':      { label: 'Le motif se répète régulièrement',             color: '#06b6d4', icon: '🔁' },
+  'Continue !':    { label: 'Continue dans le même ordre',                  color: '#10b981', icon: '▶️' },
+  'Meme nombre':   { label: 'Tous les nombres sont identiques',             color: '#10b981', icon: '🟰' },
+};
+
+function SequenceGuide({ seq, hint }) {
+  const meta = HINT_EXPLANATIONS[hint] || { label: `Indice : ${hint}`, color: '#6366f1', icon: '💡' };
+  const isNumeric = seq.every(v => typeof v === 'number');
+
+  // compute differences between consecutive numbers
+  const diffs = isNumeric
+    ? seq.slice(1).map((v, i) => v - seq[i])
+    : [];
+
+  return (
+    <div className="sl-guide">
+      <div className="sl-guide__header" style={{ '--g-color': meta.color }}>
+        <span className="sl-guide__icon">{meta.icon}</span>
+        <span className="sl-guide__label">{meta.label}</span>
+      </div>
+
+      {isNumeric && diffs.length > 0 && (
+        <div className="sl-guide__steps">
+          {seq.map((v, i) => (
+            <div key={i} className="sl-guide__step">
+              <span className="sl-guide__num" style={{ background: `${meta.color}22`, borderColor: meta.color }}>
+                {v}
+              </span>
+              {i < diffs.length && (
+                <span className="sl-guide__arrow" style={{ color: meta.color }}>
+                  <span className="sl-guide__diff">{diffs[i] > 0 ? `+${diffs[i]}` : diffs[i]}</span>
+                  →
+                </span>
+              )}
+            </div>
+          ))}
+          <div className="sl-guide__step">
+            <span className="sl-guide__num sl-guide__num--unknown" style={{ borderColor: meta.color }}>?</span>
+          </div>
+        </div>
+      )}
+
+      {!isNumeric && (
+        <div className="sl-guide__emoji-row">
+          {seq.map((v, i) => (
+            <span key={i} className="sl-guide__emoji-item">{v}</span>
+          ))}
+          <span className="sl-guide__emoji-item sl-guide__emoji-item--q">?</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function SuiteLogiquePage() {
   const { progress, saveSession, resetTimer, elapsedSecs } = useGameSession('suite-logique');
   const { feedbackRef, triggerCorrect, triggerWrong, triggerScore } = useGameFeedback();
@@ -134,10 +214,11 @@ export default function SuiteLogiquePage() {
     setFeedback(correct ? 'ok' : 'bad');
     let newScore = score;
     if (correct) {
-      newScore = score + (showHint ? 1 : 2);
+      const pts = showHint ? (cfg.hints ? 1 : 0) : 2;
+      newScore = score + pts;
       setScore(newScore);
       triggerCorrect();
-      triggerScore(showHint ? '+1' : '+2');
+      triggerScore(`+${pts}`);
     } else {
       triggerWrong();
     }
@@ -265,10 +346,10 @@ export default function SuiteLogiquePage() {
         <div className="sl-seq-item sl-seq-item--blank">?</div>
       </div>
 
-      {showHint && <p className="sl-hint">Indice : {round?.hint}</p>}
-      {!showHint && cfg.hints && (
+      {showHint && round && <SequenceGuide seq={round.seq} hint={round.hint} />}
+      {!showHint && (
         <button className="sl-hint-btn" onPointerDown={e => { e.preventDefault(); setShowHint(true); }}>
-          💡 Indice (-1 pt)
+          💡 Voir le guide {cfg.hints ? <span className="sl-hint-cost">−1 pt</span> : null}
         </button>
       )}
 

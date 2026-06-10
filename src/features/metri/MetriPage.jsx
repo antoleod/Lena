@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './metri.css';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import FunContentCard from '../../shared/ui/FunContentCard.jsx';
 import NumPad from '../../shared/ui/NumPad.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
@@ -968,6 +969,7 @@ export default function MetriPage() {
               </span>
             ))}
           </div>
+          <FunContentCard />
           <div className="mt-results-btns">
             <button
               className="mt-results-btn mt-results-btn--primary"

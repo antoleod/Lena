@@ -4,36 +4,40 @@ import { useGameSession } from '../../shared/hooks/useGameSession.js';
 import './jeux.css';
 
 const LEVEL_CONFIG = [
-  { label: 'N1 — Addition ≤10',       ops: ['+'],        max: 10,  visibleMs: 2500, intervalMs: 3000,  duration: 60,  holeCount: 9  },
-  { label: 'N2 — Addition ≤20',        ops: ['+'],        max: 20,  visibleMs: 2000, intervalMs: 2500,  duration: 60,  holeCount: 9  },
-  { label: 'N3 — Addition+Soustraction',ops: ['+', '-'],  max: 20,  visibleMs: 1800, intervalMs: 2000,  duration: 90,  holeCount: 9  },
-  { label: 'N4 — Tables 1-5',          ops: ['*'],        max: 5,   visibleMs: 1500, intervalMs: 1800,  duration: 90,  holeCount: 9  },
-  { label: 'N5 — Mult+Div (4×4)',      ops: ['*', '/'],   max: 9,   visibleMs: 1200, intervalMs: 1500,  duration: 120, holeCount: 16 },
+  { label: 'N1 — Addition ≤10',        max: 10, visibleMs: 2500, intervalMs: 3000, duration: 60,  holeCount: 9  },
+  { label: 'N2 — Addition ≤20',         max: 20, visibleMs: 2000, intervalMs: 2500, duration: 60,  holeCount: 9  },
+  { label: 'N3 — Calculs ≤20',          max: 20, visibleMs: 1800, intervalMs: 2000, duration: 90,  holeCount: 9  },
+  { label: 'N4 — Tables',               max: 9,  visibleMs: 1500, intervalMs: 1800, duration: 90,  holeCount: 9  },
+  { label: 'N5 — Rapide (4×4)',         max: 9,  visibleMs: 1200, intervalMs: 1500, duration: 120, holeCount: 16 },
 ];
 
-function generateProblem(cfg) {
-  const op = cfg.ops[Math.floor(Math.random() * cfg.ops.length)];
+const ALL_OPS = ['+', '-', '*', '/'];
+const OP_LABELS = { '+': '+', '-': '−', '*': '×', '/': '÷' };
+
+function generateProblem(max, selectedOps) {
+  const op = selectedOps[Math.floor(Math.random() * selectedOps.length)];
   let a, b, answer;
   if (op === '+') {
-    a = Math.floor(Math.random() * cfg.max) + 1;
-    b = Math.floor(Math.random() * (cfg.max - a)) + 1;
+    a = Math.floor(Math.random() * max) + 1;
+    b = Math.floor(Math.random() * (max - a)) + 1;
     answer = a + b;
   } else if (op === '-') {
-    a = Math.floor(Math.random() * cfg.max) + 2;
+    a = Math.floor(Math.random() * max) + 2;
     b = Math.floor(Math.random() * (a - 1)) + 1;
     answer = a - b;
   } else if (op === '*') {
-    a = Math.floor(Math.random() * cfg.max) + 1;
-    b = Math.floor(Math.random() * cfg.max) + 1;
+    const cap = Math.min(max, 9);
+    a = Math.floor(Math.random() * cap) + 1;
+    b = Math.floor(Math.random() * cap) + 1;
     answer = a * b;
   } else {
-    // division: generate clean division
-    b = Math.floor(Math.random() * 8) + 2;
+    const cap = Math.min(max, 8);
+    b = Math.floor(Math.random() * (cap - 1)) + 2;
     answer = Math.floor(Math.random() * 8) + 1;
     a = b * answer;
   }
-  const opSymbol = op === '*' ? '×' : op === '/' ? '÷' : op;
-  return { text: `${a}${opSymbol}${b}`, answer };
+  const sym = op === '*' ? '×' : op === '/' ? '÷' : op;
+  return { text: `${a}${sym}${b}`, answer };
 }
 
 function generateChoices(answer) {
@@ -62,6 +66,7 @@ export default function TaupesMathsPage() {
 
   const [phase, setPhase] = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(1);
+  const [selectedOps, setSelectedOps] = useState(['+', '-', '*', '/']);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60);
   const [moles, setMoles] = useState(Array(9).fill(null));
@@ -75,12 +80,25 @@ export default function TaupesMathsPage() {
   const moleShowInterval = useRef(null);
   const clockInterval = useRef(null);
   const scoreRef = useRef(0);
+  const selectedOpsRef = useRef(selectedOps);
+
+  useEffect(() => { selectedOpsRef.current = selectedOps; }, [selectedOps]);
 
   const cfg = LEVEL_CONFIG[selectedLevel - 1];
 
+  function toggleOp(op) {
+    setSelectedOps(prev => {
+      if (prev.includes(op)) {
+        if (prev.length === 1) return prev; // keep at least one
+        return prev.filter(o => o !== op);
+      }
+      return [...prev, op];
+    });
+  }
+
   const spawnMole = useCallback(() => {
     const levelCfg = LEVEL_CONFIG[selectedLevel - 1];
-    const problem = generateProblem(levelCfg);
+    const problem = generateProblem(levelCfg.max, selectedOpsRef.current);
     const idx = Math.floor(Math.random() * levelCfg.holeCount);
     setMoles(prev => {
       const next = [...prev];
@@ -137,7 +155,6 @@ export default function TaupesMathsPage() {
     };
   }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Save session when entering results
   useEffect(() => {
     if (phase !== 'results') return;
     const stars = calcStars(scoreRef.current, selectedLevel);
@@ -199,8 +216,19 @@ export default function TaupesMathsPage() {
           })}
         </div>
 
-        <div className="tm-setup-sub" style={{ marginBottom: 8 }}>
-          {cfg.label}
+        <div className="tm-setup-sub" style={{ marginBottom: 8 }}>{cfg.label}</div>
+
+        <div className="jeux-ops-label">Opérations :</div>
+        <div className="jeux-ops-grid">
+          {ALL_OPS.map(op => (
+            <button
+              key={op}
+              className={`jeux-ops-btn${selectedOps.includes(op) ? ' is-on' : ''}`}
+              onPointerDown={() => toggleOp(op)}
+            >
+              {OP_LABELS[op]}
+            </button>
+          ))}
         </div>
 
         <div className="jeux-setup-stats">

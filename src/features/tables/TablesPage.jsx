@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './tables.css';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
 import NumPad from '../../shared/ui/NumPad.jsx';
+import FunContentCard from '../../shared/ui/FunContentCard.jsx';
 
 // ── Audio ─────────────────────────────────────────────────────────────────────
 function playChime(ok) {
@@ -566,6 +567,7 @@ function Results({ data, onRetry, onBack }) {
           </div>
         )}
 
+        <FunContentCard />
         <div className="tp-results-actions">
           <button type="button" className="tp-results-btn tp-results-btn--primary" onPointerDown={onRetry}>
             🔄 Recommencer

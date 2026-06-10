@@ -100,6 +100,9 @@ import FractionsPage from '../../features/jeux/FractionsPage.jsx';
 import MultiplicationsPage from '../../features/jeux/MultiplicationsPage.jsx';
 import MotsIntrusPage from '../../features/jeux/MotsIntrusPage.jsx';
 import MemChiffresPage from '../../features/jeux/MemChiffresPage.jsx';
+import NinjaFruitsPage from '../../features/jeux/NinjaFruitsPage.jsx';
+import BatailleMonstresPage from '../../features/jeux/BatailleMonstresPage.jsx';
+import SnakePage from '../../features/jeux/SnakePage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -256,8 +259,9 @@ export default function AppRouter() {
         <Route path="/jeux/codeur-maths" element={<CodeurMathsPage />} />
         {/* ── Games coming soon (placeholder pages) ── */}
         <Route path="/jeux/casse-briques"   element={<ComingSoonPage />} />
-        <Route path="/jeux/snake"           element={<ComingSoonPage />} />
-        <Route path="/jeux/ninja-fruits"    element={<ComingSoonPage />} />
+        <Route path="/jeux/snake"           element={<SnakePage />} />
+        <Route path="/jeux/ninja-fruits"    element={<NinjaFruitsPage />} />
+        <Route path="/jeux/bataille-monstres" element={<BatailleMonstresPage />} />
         <Route path="/jeux/synonymes"       element={<ComingSoonPage />} />
         <Route path="/jeux/anagrammes"      element={<ComingSoonPage />} />
         <Route path="/jeux/poesie"          element={<ComingSoonPage />} />

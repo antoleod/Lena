@@ -5,85 +5,55 @@ import { GameFeedback, useGameFeedback } from './GameFeedback.jsx';
 import './jeux.css';
 
 const LEVEL_CONFIG = [
-  { label: 'N1 — 1+1 chiffre',           fuseTime: 8,  rounds: 10, gen: genN1 },
-  { label: 'N2 — 2+1 chiffre, soustraction', fuseTime: 7, rounds: 10, gen: genN2 },
-  { label: 'N3 — Multiplication, division', fuseTime: 6, rounds: 12, gen: genN3 },
-  { label: 'N4 — 3 chiffres, 2×2',        fuseTime: 5,  rounds: 12, gen: genN4 },
-  { label: 'N5 — Mixte avancé',            fuseTime: 4,  rounds: 15, gen: genN5 },
+  { label: 'N1 — 1 chiffre',              fuseTime: 8, rounds: 10 },
+  { label: 'N2 — 2 chiffres',             fuseTime: 7, rounds: 10 },
+  { label: 'N3 — Tables × ÷',             fuseTime: 6, rounds: 12 },
+  { label: 'N4 — 3 chiffres',             fuseTime: 5, rounds: 12 },
+  { label: 'N5 — Mixte avancé',           fuseTime: 4, rounds: 15 },
 ];
 
-function genN1() {
-  const a = Math.floor(Math.random() * 9) + 1;
-  const b = Math.floor(Math.random() * 9) + 1;
-  const op = Math.random() < 0.5 ? '+' : '-';
-  if (op === '+') return { text: `${a} + ${b}`, answer: a + b };
-  const [big, small] = a >= b ? [a, b] : [b, a];
-  return { text: `${big} - ${small}`, answer: big - small };
-}
+const ALL_OPS = ['+', '-', '*', '/'];
+const OP_LABELS = { '+': '+', '-': '−', '*': '×', '/': '÷' };
 
-function genN2() {
-  const op = Math.random() < 0.5 ? '+' : '-';
+// Number ranges per level (min, max for each operand)
+const RANGES = [
+  [1, 9],
+  [10, 99],
+  [2, 9],    // level 3: focused on tables (small numbers for × ÷)
+  [100, 999],
+  [2, 20],   // level 5: mixed, wider table range
+];
+
+function generateQuestion(ops, level) {
+  const op = ops[Math.floor(Math.random() * ops.length)];
+  const [min, max] = RANGES[level - 1];
+
   if (op === '+') {
-    const a = Math.floor(Math.random() * 90) + 10;
-    const b = Math.floor(Math.random() * 9) + 1;
+    const a = Math.floor(Math.random() * (max - min + 1)) + min;
+    const b = Math.floor(Math.random() * (max - min + 1)) + min;
     return { text: `${a} + ${b}`, answer: a + b };
   }
-  const a = Math.floor(Math.random() * 90) + 15;
-  const b = Math.floor(Math.random() * 9) + 1;
-  return { text: `${a} - ${b}`, answer: a - b };
-}
-
-function genN3() {
-  if (Math.random() < 0.5) {
-    const a = Math.floor(Math.random() * 9) + 2;
-    const b = Math.floor(Math.random() * 9) + 2;
+  if (op === '-') {
+    const a = Math.floor(Math.random() * (max - min + 1)) + min + (max - min);
+    const b = Math.floor(Math.random() * (max - min + 1)) + min;
+    const big = Math.max(a, b);
+    const small = Math.min(a, b);
+    return { text: `${big} - ${small}`, answer: big - small };
+  }
+  if (op === '*') {
+    const cap = Math.min(max, 12);
+    const lo = Math.max(min, 2);
+    const a = Math.floor(Math.random() * (cap - lo + 1)) + lo;
+    const b = Math.floor(Math.random() * (cap - lo + 1)) + lo;
     return { text: `${a} × ${b}`, answer: a * b };
   }
-  // clean division
-  const divisors = [2, 3, 4, 5, 6];
-  const b = divisors[Math.floor(Math.random() * divisors.length)];
-  const q = Math.floor(Math.random() * 8) + 2;
+  // division — always generates clean integer result
+  const cap = Math.min(max, 12);
+  const lo = Math.max(min, 2);
+  const b = Math.floor(Math.random() * (cap - lo + 1)) + lo;
+  const q = Math.floor(Math.random() * 9) + 1;
   const a = b * q;
   return { text: `${a} ÷ ${b}`, answer: q };
-}
-
-function genN4() {
-  const r = Math.random();
-  if (r < 0.4) {
-    const a = Math.floor(Math.random() * 900) + 100;
-    const b = Math.floor(Math.random() * 90) + 10;
-    return { text: `${a} + ${b}`, answer: a + b };
-  }
-  if (r < 0.7) {
-    const a = Math.floor(Math.random() * 900) + 200;
-    const b = Math.floor(Math.random() * 90) + 10;
-    return { text: `${a} - ${b}`, answer: a - b };
-  }
-  // 2-digit × 2-digit easy (one operand ≤ 15)
-  const a = Math.floor(Math.random() * 9) + 11;
-  const b = Math.floor(Math.random() * 9) + 2;
-  return { text: `${a} × ${b}`, answer: a * b };
-}
-
-function genN5() {
-  const r = Math.random();
-  if (r < 0.33) {
-    // (A×B)+C
-    const a = Math.floor(Math.random() * 9) + 2;
-    const b = Math.floor(Math.random() * 9) + 2;
-    const c = Math.floor(Math.random() * 20) + 1;
-    return { text: `(${a}×${b})+${c}`, answer: a * b + c };
-  }
-  if (r < 0.66) {
-    // easy squares: 2²–9²
-    const a = Math.floor(Math.random() * 8) + 2;
-    return { text: `${a}²`, answer: a * a };
-  }
-  // A×B – C
-  const a = Math.floor(Math.random() * 9) + 2;
-  const b = Math.floor(Math.random() * 9) + 2;
-  const c = Math.floor(Math.random() * 10) + 1;
-  return { text: `${a}×${b}−${c}`, answer: a * b - c };
 }
 
 function formatTime(secs) {
@@ -97,6 +67,7 @@ export default function BombesMathsPage() {
 
   const [phase, setPhase] = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(1);
+  const [selectedOps, setSelectedOps] = useState(['+', '-', '*', '/']);
   const [roundNum, setRoundNum] = useState(0);
   const [question, setQuestion] = useState(null);
   const [input, setInput] = useState('');
@@ -109,8 +80,25 @@ export default function BombesMathsPage() {
   const timerRef = useRef(null);
   const answeredRef = useRef(false);
   const explosionsRef = useRef(0);
+  const selectedOpsRef = useRef(selectedOps);
+  const selectedLevelRef = useRef(selectedLevel);
+  const roundNumRef = useRef(roundNum);
+
+  useEffect(() => { selectedOpsRef.current = selectedOps; }, [selectedOps]);
+  useEffect(() => { selectedLevelRef.current = selectedLevel; }, [selectedLevel]);
+  useEffect(() => { roundNumRef.current = roundNum; }, [roundNum]);
 
   const cfg = LEVEL_CONFIG[selectedLevel - 1];
+
+  function toggleOp(op) {
+    setSelectedOps(prev => {
+      if (prev.includes(op)) {
+        if (prev.length === 1) return prev;
+        return prev.filter(o => o !== op);
+      }
+      return [...prev, op];
+    });
+  }
 
   function clearTimer() { clearInterval(timerRef.current); }
 
@@ -119,10 +107,11 @@ export default function BombesMathsPage() {
     explosionsRef.current = 0;
     setExplosions(0);
     setRoundNum(0);
+    roundNumRef.current = 0;
     setInput('');
     setBombState('idle');
     setFeedback(null);
-    setQuestion(c.gen());
+    setQuestion(generateQuestion(selectedOpsRef.current, selectedLevel));
     setTimeLeft(c.fuseTime);
     setSessionResult(null);
     answeredRef.current = false;
@@ -133,7 +122,7 @@ export default function BombesMathsPage() {
   useEffect(() => {
     if (phase !== 'play' || feedback !== null) return;
     answeredRef.current = false;
-    const c = LEVEL_CONFIG[selectedLevel - 1];
+    const c = LEVEL_CONFIG[selectedLevelRef.current - 1];
 
     timerRef.current = setInterval(() => {
       setTimeLeft(t => {
@@ -167,7 +156,6 @@ export default function BombesMathsPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roundNum, phase]);
 
-  // Save session when results appear
   useEffect(() => {
     if (phase !== 'results') return;
     const expl = explosionsRef.current;
@@ -177,15 +165,16 @@ export default function BombesMathsPage() {
   }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function scheduleNextRound() {
-    const c = LEVEL_CONFIG[selectedLevel - 1];
+    const c = LEVEL_CONFIG[selectedLevelRef.current - 1];
     setTimeout(() => {
-      const next = roundNum + 1;
+      const next = roundNumRef.current + 1;
       if (next >= c.rounds) {
         setPhase('results');
         return;
       }
       setRoundNum(next);
-      setQuestion(c.gen());
+      roundNumRef.current = next;
+      setQuestion(generateQuestion(selectedOpsRef.current, selectedLevelRef.current));
       setInput('');
       setTimeLeft(c.fuseTime);
       setBombState('idle');
@@ -259,6 +248,19 @@ export default function BombesMathsPage() {
         <div className="bm-info-row">
           <span>🔢 {cfg.rounds} bombes</span>
           <span>⏱ {cfg.fuseTime}s par bombe</span>
+        </div>
+
+        <div className="jeux-ops-label">Opérations :</div>
+        <div className="jeux-ops-grid">
+          {ALL_OPS.map(op => (
+            <button
+              key={op}
+              className={`jeux-ops-btn${selectedOps.includes(op) ? ' is-on' : ''}`}
+              onPointerDown={() => toggleOp(op)}
+            >
+              {OP_LABELS[op]}
+            </button>
+          ))}
         </div>
 
         <div className="jeux-setup-stats">

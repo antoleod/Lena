@@ -105,12 +105,32 @@ function IllusConte({ theme }) {
   );
 }
 
+function IllusFait({ size }) {
+  const s = size === 'hub' ? 90 : 110;
+  return (
+    <svg width={s} height={s} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="54" fill="#d1fae5" />
+      {/* globe */}
+      <circle cx="60" cy="55" r="28" fill="#6ee7b7" stroke="#10b981" strokeWidth="3" />
+      <ellipse cx="60" cy="55" rx="14" ry="28" fill="none" stroke="#10b981" strokeWidth="2" />
+      <line x1="32" y1="55" x2="88" y2="55" stroke="#10b981" strokeWidth="2" />
+      {/* magnifier */}
+      <circle cx="82" cy="78" r="12" fill="#fff" stroke="#10b981" strokeWidth="3" />
+      <line x1="91" y1="87" x2="100" y2="96" stroke="#10b981" strokeWidth="4" strokeLinecap="round" />
+      {/* sparkles */}
+      <text x="20" y="28" fontSize="16">✨</text>
+      <text x="82" y="28" fontSize="12">⭐</text>
+    </svg>
+  );
+}
+
 const ILLUSTRATORS = {
   blague:    IllusBlague,
   devinette: IllusDevinette,
   proverbe:  IllusProverbe,
   poeme:     IllusPoeme,
   conte:     IllusConte,
+  fait:      IllusFait,
 };
 
 export default function FunIllustration({ type, theme, size = 'normal' }) {

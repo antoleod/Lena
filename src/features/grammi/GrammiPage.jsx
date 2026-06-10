@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import FunContentCard from '../../shared/ui/FunContentCard.jsx';
 import NumPad from '../../shared/ui/NumPad.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
@@ -1138,6 +1139,7 @@ export default function GrammiPage() {
               </span>
             ))}
           </div>
+          <FunContentCard />
           <div className="gm-results-btns">
             <button
               className="gm-results-btn gm-results-btn--primary"

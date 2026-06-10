@@ -22,6 +22,20 @@ Lena is a React educational platform for primary school children with:
 npm run dev
 ```
 
+## Windows setup after clone
+
+```bat
+setup-windows.bat
+```
+
+This installs the exact dependencies from `package-lock.json` and validates the build.
+
+For E2E browsers too:
+
+```bat
+setup-windows.bat /playwright
+```
+
 ## Production build
 
 ```bash

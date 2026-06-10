@@ -29,22 +29,38 @@ function Base({ id, c0, c1, shadow, children, size }) {
 
 export function IconGameTetris({ size = 48 }) {
   return (
-    <Base id="gi-tt" c0="#c084fc" c1="#6d28d9" shadow="#3b0764" size={size}>
-      {/* T-tetromino */}
-      <rect x="14" y="12" width="8" height="8" rx="2" fill="#e9d5ff" opacity="0.9" />
-      <rect x="22" y="12" width="8" height="8" rx="2" fill="#e9d5ff" opacity="0.9" />
-      <rect x="30" y="12" width="8" height="8" rx="2" fill="#e9d5ff" opacity="0.7" />
-      <rect x="22" y="20" width="8" height="8" rx="2" fill="#e9d5ff" opacity="0.9" />
-      {/* L-tetromino */}
-      <rect x="10" y="28" width="8" height="8" rx="2" fill="#f9a8d4" opacity="0.85" />
-      <rect x="10" y="36" width="8" height="8" rx="2" fill="#f9a8d4" opacity="0.85" />
-      <rect x="18" y="36" width="8" height="8" rx="2" fill="#f9a8d4" opacity="0.85" />
-      {/* S-tetromino */}
-      <rect x="28" y="28" width="8" height="8" rx="2" fill="#fde68a" opacity="0.85" />
-      <rect x="36" y="28" width="6" height="8" rx="2" fill="#fde68a" opacity="0.85" />
-      <rect x="22" y="36" width="8" height="8" rx="2" fill="#fde68a" opacity="0.85" />
-      <rect x="28" y="36" width="8" height="8" rx="2" fill="#fde68a" opacity="0.85" />
-    </Base>
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="gi-tt-bg" cx="50%" cy="35%" r="62%">
+          <stop offset="0%" stopColor="#a855f7"/>
+          <stop offset="100%" stopColor="#4c1d95"/>
+        </radialGradient>
+        <filter id="gi-tt-sh"><feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#2e1065" floodOpacity="0.5"/></filter>
+        <filter id="gi-tt-glow"><feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#c084fc" floodOpacity="0.8"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#gi-tt-bg)" filter="url(#gi-tt-sh)"/>
+      <ellipse cx="20" cy="13" rx="11" ry="6" fill="white" opacity="0.15"/>
+      {/* I-tetromino — cyan neon */}
+      <rect x="9" y="10" width="7" height="7" rx="2" fill="#22d3ee" filter="url(#gi-tt-glow)"/>
+      <rect x="9" y="10" width="7" height="7" rx="2" fill="none" stroke="#a5f3fc" strokeWidth="0.8" opacity="0.8"/>
+      <rect x="17" y="10" width="7" height="7" rx="2" fill="#22d3ee" filter="url(#gi-tt-glow)"/>
+      <rect x="17" y="10" width="7" height="7" rx="2" fill="none" stroke="#a5f3fc" strokeWidth="0.8" opacity="0.8"/>
+      <rect x="25" y="10" width="7" height="7" rx="2" fill="#22d3ee" filter="url(#gi-tt-glow)"/>
+      <rect x="33" y="10" width="7" height="7" rx="2" fill="#22d3ee" filter="url(#gi-tt-glow)"/>
+      {/* T-tetromino — pink neon */}
+      <rect x="9" y="20" width="7" height="7" rx="2" fill="#f472b6" filter="url(#gi-tt-glow)"/>
+      <rect x="9" y="20" width="7" height="7" rx="2" fill="none" stroke="#fbcfe8" strokeWidth="0.8" opacity="0.8"/>
+      <rect x="17" y="20" width="7" height="7" rx="2" fill="#f472b6" filter="url(#gi-tt-glow)"/>
+      <rect x="25" y="20" width="7" height="7" rx="2" fill="#f472b6" filter="url(#gi-tt-glow)"/>
+      <rect x="17" y="28" width="7" height="7" rx="2" fill="#f472b6" filter="url(#gi-tt-glow)"/>
+      {/* S-tetromino — gold */}
+      <rect x="25" y="28" width="7" height="7" rx="2" fill="#fbbf24" filter="url(#gi-tt-glow)"/>
+      <rect x="33" y="28" width="7" height="7" rx="2" fill="#fbbf24" filter="url(#gi-tt-glow)"/>
+      <rect x="17" y="36" width="7" height="7" rx="2" fill="#fbbf24" filter="url(#gi-tt-glow)"/>
+      <rect x="25" y="36" width="7" height="7" rx="2" fill="#fbbf24" filter="url(#gi-tt-glow)"/>
+      {/* Ground line */}
+      <line x1="6" y1="44" x2="42" y2="44" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
   );
 }
 
@@ -74,22 +90,40 @@ export function IconGameTaupesMaths({ size = 48 }) {
 
 export function IconGameBombesMaths({ size = 48 }) {
   return (
-    <Base id="gi-bm" c0="#f87171" c1="#7f1d1d" shadow="#450a0a" size={size}>
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="gi-bm-bg" cx="50%" cy="35%" r="62%">
+          <stop offset="0%" stopColor="#f87171"/>
+          <stop offset="100%" stopColor="#7f1d1d"/>
+        </radialGradient>
+        <radialGradient id="gi-bm-bomb" cx="35%" cy="30%" r="65%">
+          <stop offset="0%" stopColor="#374151"/>
+          <stop offset="100%" stopColor="#111827"/>
+        </radialGradient>
+        <filter id="gi-bm-sh"><feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#450a0a" floodOpacity="0.5"/></filter>
+        <filter id="gi-bm-spark"><feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="#fbbf24" floodOpacity="0.9"/></filter>
+      </defs>
+      <circle cx="24" cy="24" r="23" fill="url(#gi-bm-bg)" filter="url(#gi-bm-sh)"/>
+      <ellipse cx="20" cy="13" rx="11" ry="6" fill="white" opacity="0.15"/>
       {/* Bomb body */}
-      <circle cx="24" cy="28" r="15" fill="#1c1917" />
-      <circle cx="24" cy="28" r="15" fill="white" opacity="0.05" />
-      {/* Shine */}
-      <ellipse cx="18" cy="21" rx="5" ry="3" fill="white" opacity="0.2" />
+      <circle cx="24" cy="30" r="14" fill="url(#gi-bm-bomb)"/>
+      {/* Bomb shine */}
+      <ellipse cx="18.5" cy="22.5" rx="5" ry="3" fill="white" opacity="0.22"/>
+      <ellipse cx="30" cy="26" rx="2.5" ry="1.5" fill="white" opacity="0.1"/>
       {/* Fuse */}
-      <path d="M24 13 Q28 9 32 10 Q36 11 34 7" stroke="#d97706" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      <path d="M24 16 Q29 11 33 12 Q37 13 35 8" stroke="#d97706" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
       {/* Spark */}
-      <circle cx="34" cy="7" r="3" fill="#fbbf24" opacity="0.95" />
-      <line x1="34" y1="4" x2="34" y2="1" stroke="#fde68a" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="37" y1="5" x2="39" y2="3" stroke="#fde68a" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Math symbols on bomb */}
-      <text x="17" y="31" fontSize="11" fontWeight="900" fill="#ef4444" fontFamily="system-ui">×</text>
-      <text x="27" y="31" fontSize="8" fontWeight="900" fill="#fca5a5" fontFamily="system-ui">2</text>
-    </Base>
+      <circle cx="35" cy="8" r="3.5" fill="#fbbf24" filter="url(#gi-bm-spark)"/>
+      <line x1="35" y1="4" x2="35" y2="1" stroke="#fde68a" strokeWidth="1.8" strokeLinecap="round"/>
+      <line x1="38" y1="6" x2="41" y2="4" stroke="#fde68a" strokeWidth="1.8" strokeLinecap="round"/>
+      <line x1="39" y1="9" x2="42" y2="9" stroke="#fde68a" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Math problem on bomb */}
+      <text x="14" y="32" fontSize="10" fontWeight="900" fill="#fca5a5" fontFamily="system-ui">7×</text>
+      <text x="27" y="32" fontSize="10" fontWeight="900" fill="#fde68a" fontFamily="system-ui">3</text>
+      {/* Timer indicator */}
+      <rect x="9" y="40" width="30" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+      <rect x="9" y="40" width="12" height="4" rx="2" fill="#ef4444" opacity="0.8"/>
+    </svg>
   );
 }
 
@@ -115,45 +149,71 @@ export function IconGameCasseBriques({ size = 48 }) {
 
 export function IconGameSnake({ size = 48 }) {
   return (
-    <Base id="gi-sk" c0="#4ade80" c1="#14532d" shadow="#052e16" size={size}>
-      {/* Snake body segments */}
-      <rect x="8" y="22" width="10" height="10" rx="5" fill="#86efac" opacity="0.9" />
-      <rect x="16" y="22" width="10" height="10" rx="5" fill="#4ade80" opacity="0.9" />
-      <rect x="24" y="22" width="10" height="10" rx="5" fill="#22c55e" opacity="0.9" />
-      <rect x="24" y="12" width="10" height="12" rx="5" fill="#22c55e" opacity="0.9" />
-      <rect x="32" y="12" width="8" height="10" rx="4" fill="#16a34a" opacity="0.9" />
-      {/* Head */}
-      <ellipse cx="38" cy="26" rx="7" ry="6" fill="#15803d" />
-      {/* Eyes */}
-      <circle cx="36" cy="23" r="2" fill="white" />
-      <circle cx="40" cy="23" r="2" fill="white" />
-      <circle cx="36.5" cy="23.5" r="1" fill="#1c1917" />
-      <circle cx="40.5" cy="23.5" r="1" fill="#1c1917" />
+    <Base id="gi-sk" c0="#34d399" c1="#064e3b" shadow="#022c22" size={size}>
+      {/* Snake body — curvy cartoon segments */}
+      <circle cx="13" cy="30" r="5.5" fill="#86efac" opacity="0.9"/>
+      <circle cx="20" cy="27" r="5.5" fill="#4ade80" opacity="0.95"/>
+      <circle cx="27" cy="25" r="5.5" fill="#22c55e" opacity="0.95"/>
+      <circle cx="27" cy="17" r="5.5" fill="#16a34a" opacity="0.9"/>
+      <circle cx="34" cy="13" r="5.5" fill="#15803d" opacity="0.9"/>
+      {/* Neck */}
+      <ellipse cx="38" cy="20" rx="5" ry="6" fill="#15803d"/>
+      {/* Head — big cute cartoon */}
+      <ellipse cx="38" cy="29" rx="8" ry="9" fill="#16a34a"/>
+      <ellipse cx="38" cy="27" rx="7" ry="7" fill="#22c55e"/>
+      {/* Cheeks blush */}
+      <ellipse cx="32.5" cy="31" rx="3" ry="2" fill="#86efac" opacity="0.5"/>
+      <ellipse cx="43.5" cy="31" rx="3" ry="2" fill="#86efac" opacity="0.5"/>
+      {/* Eyes — big cute */}
+      <circle cx="34.5" cy="26" r="3.5" fill="white"/>
+      <circle cx="41.5" cy="26" r="3.5" fill="white"/>
+      <circle cx="34.8" cy="26.3" r="2" fill="#1c1917"/>
+      <circle cx="41.8" cy="26.3" r="2" fill="#1c1917"/>
+      <circle cx="35.5" cy="25.5" r="0.8" fill="white"/>
+      <circle cx="42.5" cy="25.5" r="0.8" fill="white"/>
+      {/* Smile */}
+      <path d="M34 31 Q38 34 42 31" stroke="#064e3b" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
       {/* Tongue */}
-      <path d="M44 27 L47 25 M44 27 L47 29" stroke="#f43f5e" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-      {/* Apple */}
-      <circle cx="12" cy="14" r="5" fill="#ef4444" />
-      <path d="M12 9 Q14 6 15 8" stroke="#65a30d" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <path d="M37 37 Q38 40 36 42 M38 40 Q40 42 40 40" stroke="#f43f5e" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+      {/* Apple top left */}
+      <circle cx="11" cy="13" r="5.5" fill="#ef4444"/>
+      <ellipse cx="9.5" cy="11" rx="2" ry="1.2" fill="white" opacity="0.3"/>
+      <path d="M11 8 Q13 5 14 7" stroke="#16a34a" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+      {/* Number on body segment */}
+      <text x="24" y="29" fontSize="6" fontWeight="900" fill="white" fontFamily="system-ui" textAnchor="middle">+1</text>
     </Base>
   );
 }
 
 export function IconGameNinjaFruits({ size = 48 }) {
   return (
-    <Base id="gi-nf" c0="#fb923c" c1="#9a3412" shadow="#431407" size={size}>
-      {/* Watermelon half */}
-      <path d="M8 26 Q8 14 20 12 Q26 11 30 16 L8 26Z" fill="#22c55e" />
-      <path d="M8 26 Q8 16 20 14 Q25 13 28 17 L8 26Z" fill="#f43f5e" />
-      {/* Seeds */}
-      <ellipse cx="14" cy="21" rx="1.5" ry="2" fill="#1c1917" opacity="0.7" transform="rotate(-20 14 21)" />
-      <ellipse cx="20" cy="19" rx="1.5" ry="2" fill="#1c1917" opacity="0.7" transform="rotate(-10 20 19)" />
-      {/* Orange */}
-      <circle cx="35" cy="20" r="8" fill="#f97316" />
-      <ellipse cx="33" cy="17" rx="3" ry="2" fill="white" opacity="0.25" />
-      <path d="M35 12 Q37 10 36 13" stroke="#65a30d" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      {/* Slash lines */}
-      <line x1="6" y1="38" x2="42" y2="10" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.9" />
-      <line x1="6" y1="42" x2="42" y2="14" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+    <Base id="gi-nf" c0="#fb923c" c1="#7c2d12" shadow="#431407" size={size}>
+      {/* Ninja figure (little black silhouette top-right) */}
+      <circle cx="37" cy="11" r="4" fill="#1c1917" opacity="0.9"/>
+      {/* Ninja mask */}
+      <rect x="33" y="11" width="8" height="3" rx="1.5" fill="#ef4444" opacity="0.9"/>
+      {/* Body */}
+      <rect x="34" y="15" width="6" height="7" rx="2" fill="#1c1917" opacity="0.9"/>
+      {/* Arms */}
+      <line x1="34" y1="17" x2="30" y2="22" stroke="#1c1917" strokeWidth="2.5" strokeLinecap="round" opacity="0.9"/>
+      {/* Sword */}
+      <line x1="29" y1="22" x2="22" y2="30" stroke="#e2e8f0" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="22" y1="30" x2="19" y2="33" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Watermelon slice — being cut */}
+      <path d="M6 38 Q6 28 14 25 Q20 23 24 28 L6 38Z" fill="#16a34a"/>
+      <path d="M6 38 Q7 30 14 27 Q19 25 22 29 L6 38Z" fill="#f43f5e"/>
+      <ellipse cx="11" cy="33" rx="1.2" ry="1.6" fill="#1c1917" opacity="0.7" transform="rotate(-15 11 33)"/>
+      <ellipse cx="16" cy="31" rx="1.2" ry="1.6" fill="#1c1917" opacity="0.7" transform="rotate(-5 16 31)"/>
+      {/* Orange (flying) */}
+      <circle cx="33" cy="34" r="7" fill="#f97316"/>
+      <ellipse cx="31" cy="31" rx="2.5" ry="1.5" fill="white" opacity="0.25"/>
+      <path d="M33 27 Q35 24 36 26" stroke="#65a30d" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      {/* Cut effect — slash arc */}
+      <path d="M15 10 Q22 20 28 26" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.85" fill="none"/>
+      <path d="M16 12 Q23 21 29 27" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" fill="none"/>
+      {/* Speed lines */}
+      <line x1="8" y1="14" x2="14" y2="14" stroke="white" strokeWidth="1.2" strokeLinecap="round" opacity="0.4"/>
+      <line x1="7" y1="17" x2="12" y2="17" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.3"/>
     </Base>
   );
 }
@@ -1068,6 +1128,28 @@ export function IconGameAnimaux({ size = 48 }) {
       <ellipse cx="24" cy="27" rx="3" ry="2" fill="#d97706" />
       {/* Sound waves */}
       <text x="34" y="14" fontSize="10" fontFamily="system-ui">🔊</text>
+    </Base>
+  );
+}
+
+export function IconGameBatailleMonstres({ size = 48 }) {
+  return (
+    <Base id="gi-btm" c0="#7c3aed" c1="#3b0764" shadow="#1e0036" size={size}>
+      {/* Monster face */}
+      <ellipse cx="24" cy="26" rx="12" ry="11" fill="#a855f7" opacity="0.9" />
+      {/* Eyes */}
+      <circle cx="20" cy="24" r="3" fill="#1c1917" />
+      <circle cx="28" cy="24" r="3" fill="#1c1917" />
+      <circle cx="21" cy="23" r="1" fill="white" opacity="0.8" />
+      <circle cx="29" cy="23" r="1" fill="white" opacity="0.8" />
+      {/* Teeth */}
+      <path d="M18 30 L20 27 L22 30 L24 27 L26 30 L28 27 L30 30Z" fill="white" opacity="0.9" />
+      {/* Horns */}
+      <path d="M15 18 L12 10 L18 16Z" fill="#9333ea" opacity="0.95" />
+      <path d="M33 18 L36 10 L30 16Z" fill="#9333ea" opacity="0.95" />
+      {/* Sword */}
+      <rect x="35" y="8" width="3" height="14" rx="1" fill="#e2e8f0" opacity="0.9" transform="rotate(35 35 8)" />
+      <rect x="34" y="8" width="7" height="2" rx="1" fill="#f59e0b" opacity="0.9" transform="rotate(35 35 8)" />
     </Base>
   );
 }

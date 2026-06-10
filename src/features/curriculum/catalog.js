@@ -62,6 +62,28 @@ import { histoireGrade3Modules } from '../../content/histoire/grade-3/modules.js
 import { histoireGrade4Modules } from '../../content/histoire/grade-4/modules.js';
 import { histoireGrade5Modules } from '../../content/histoire/grade-5/modules.js';
 import { histoireGrade6Modules } from '../../content/histoire/grade-6/modules.js';
+
+import { logiqueSubject, logiqueActivities } from '../../content/logique/generatedActivities.js';
+import { logiqueGrade2Modules } from '../../content/logique/grade-2/modules.js';
+import { logiqueGrade3Modules } from '../../content/logique/grade-3/modules.js';
+import { logiqueGrade4Modules } from '../../content/logique/grade-4/modules.js';
+import { logiqueGrade5Modules } from '../../content/logique/grade-5/modules.js';
+import { logiqueGrade6Modules } from '../../content/logique/grade-6/modules.js';
+
+import { financeSubject, financeActivities } from '../../content/finance/generatedActivities.js';
+import { financeGrade2Modules } from '../../content/finance/grade-2/modules.js';
+import { financeGrade3Modules } from '../../content/finance/grade-3/modules.js';
+import { financeGrade4Modules } from '../../content/finance/grade-4/modules.js';
+import { financeGrade5Modules } from '../../content/finance/grade-5/modules.js';
+import { financeGrade6Modules } from '../../content/finance/grade-6/modules.js';
+
+import { informatiqueSubject, informatiqueActivities } from '../../content/informatique/generatedActivities.js';
+import { informatiqueGrade2Modules } from '../../content/informatique/grade-2/modules.js';
+import { informatiqueGrade3Modules } from '../../content/informatique/grade-3/modules.js';
+import { informatiqueGrade4Modules } from '../../content/informatique/grade-4/modules.js';
+import { informatiqueGrade5Modules } from '../../content/informatique/grade-5/modules.js';
+import { informatiqueGrade6Modules } from '../../content/informatique/grade-6/modules.js';
+
 export const subjects = [
   mathematicsSubject,
   frenchSubject,
@@ -71,7 +93,10 @@ export const subjects = [
   reasoningSubject,
   storiesSubject,
   sciencesSubject,
-  histoireSubject
+  histoireSubject,
+  logiqueSubject,
+  financeSubject,
+  informatiqueSubject
 ];
 
 export const activities = [
@@ -88,7 +113,10 @@ export const activities = [
   ...generatedReasoningActivities,
   ...storyActivities,
   ...sciencesActivities,
-  ...histoireActivities
+  ...histoireActivities,
+  ...logiqueActivities,
+  ...financeActivities,
+  ...informatiqueActivities
 ];
 
 export const gradeCatalog = ['P2', 'P3', 'P4', 'P5', 'P6'];
@@ -138,7 +166,25 @@ export const modules = [
   ...histoireGrade3Modules,
   ...histoireGrade4Modules,
   ...histoireGrade5Modules,
-  ...histoireGrade6Modules
+  ...histoireGrade6Modules,
+
+  ...logiqueGrade2Modules,
+  ...logiqueGrade3Modules,
+  ...logiqueGrade4Modules,
+  ...logiqueGrade5Modules,
+  ...logiqueGrade6Modules,
+
+  ...financeGrade2Modules,
+  ...financeGrade3Modules,
+  ...financeGrade4Modules,
+  ...financeGrade5Modules,
+  ...financeGrade6Modules,
+
+  ...informatiqueGrade2Modules,
+  ...informatiqueGrade3Modules,
+  ...informatiqueGrade4Modules,
+  ...informatiqueGrade5Modules,
+  ...informatiqueGrade6Modules
 ];
 
 export function getSubjectById(subjectId) {

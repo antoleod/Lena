@@ -159,7 +159,29 @@ export function IconNavCahier({ size = 24 }) {
   );
 }
 
-/* ── 6. Réglages — gear with sparkle center ───────────────────────────── */
+/* ── 6. Fun Corner — star with a smiley face ─────────────────────────── */
+export function IconNavFun({ size = 24 }) {
+  return (
+    <Nav size={size}>
+      {/* big star */}
+      <path
+        d="M12 2l2.4 5 5.6.8-4 4 .9 5.5L12 15l-4.9 2.3.9-5.5-4-4 5.6-.8L12 2Z"
+        fill="currentColor"
+        fillOpacity="0.22"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      {/* smiley eyes */}
+      <circle cx="10" cy="11" r=".9" fill="currentColor" />
+      <circle cx="14" cy="11" r=".9" fill="currentColor" />
+      {/* smiley mouth */}
+      <path d="M10 13.2 Q12 15 14 13.2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" fill="none" />
+    </Nav>
+  );
+}
+
+/* ── 7. Réglages — gear with sparkle center ───────────────────────────── */
 export function IconNavReglages({ size = 24 }) {
   return (
     <Nav size={size}>

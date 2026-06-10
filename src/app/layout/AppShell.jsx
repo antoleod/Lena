@@ -10,7 +10,7 @@ import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
 import {
   IconNavApprendre, IconNavPratiquer, IconNavExamens,
-  IconNavProgres, IconNavCahier,
+  IconNavProgres, IconNavCahier, IconNavFun,
 } from '../../assets/icons/NavIcons.jsx';
 import { getParentalState, verifyPin } from '../../services/storage/parentalStore.js';
 import { getTodayStudySeconds } from '../../services/storage/progressStore.js';
@@ -152,10 +152,10 @@ export default function AppShell() {
   const globalLevel = computeGlobalLevel(session.profile?.totalActivitiesCompleted || 0);
 
   const NAV_LABELS = {
-    fr: { learn: 'Apprendre', practise: 'Jouer', cahier: 'Cahier', progress: 'Mes Étoiles', settings: 'Reglages', exams: 'Quiz' },
-    nl: { learn: 'Leren', practise: 'Spelen', cahier: 'Schrift', progress: 'Mijn Sterren', settings: 'Instellingen', exams: 'Quiz' },
-    en: { learn: 'Learn', practise: 'Play', cahier: 'Notebook', progress: 'My Stars', settings: 'Settings', exams: 'Quiz' },
-    es: { learn: 'Aprender', practise: 'Jugar', cahier: 'Cuaderno', progress: 'Mis Estrellas', settings: 'Ajustes', exams: 'Quiz' },
+    fr: { learn: 'Apprendre', practise: 'Jouer', cahier: 'Cahier', progress: 'Mes Étoiles', settings: 'Reglages', exams: 'Quiz', fun: 'Le Coin' },
+    nl: { learn: 'Leren', practise: 'Spelen', cahier: 'Schrift', progress: 'Mijn Sterren', settings: 'Instellingen', exams: 'Quiz', fun: 'Hoekje' },
+    en: { learn: 'Learn', practise: 'Play', cahier: 'Notebook', progress: 'My Stars', settings: 'Settings', exams: 'Quiz', fun: 'Fun Corner' },
+    es: { learn: 'Aprender', practise: 'Jugar', cahier: 'Cuaderno', progress: 'Mis Estrellas', settings: 'Ajustes', exams: 'Quiz', fun: 'Rincón' },
   };
   const nl = NAV_LABELS[locale] || NAV_LABELS.fr;
 
@@ -164,6 +164,7 @@ export default function AppShell() {
     const PRACTISE_PREFIXES = ['/pratiquer', '/jeux', '/tables', '/practice'];
     const EXAM_PREFIXES = ['/exam'];
     const CAHIER_PREFIXES = ['/cahier'];
+    const FUN_PREFIXES = ['/fun'];
     function matchPrefix(prefixes, path) {
       return prefixes.some((p) => path === p || path.startsWith(p + '/'));
     }
@@ -204,6 +205,12 @@ export default function AppShell() {
         label: nl.progress,
         Icon: IconNavProgres,
         isActive: (path) => path === '/history' || path.startsWith('/history/'),
+      },
+      {
+        to: '/fun',
+        label: nl.fun,
+        Icon: IconNavFun,
+        isActive: (path) => matchPrefix(FUN_PREFIXES, path),
       },
     ];
   }, [locale]); // nl is derived from locale, stable reference not needed

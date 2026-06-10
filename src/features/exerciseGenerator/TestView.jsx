@@ -1,29 +1,34 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import MathVisualSvg from './MathVisualSvg.jsx';
+import { EyeOpenIcon, EyeHiddenIcon } from '../../assets/icons/VisualHintIcons.jsx';
 import { useCahierT } from './cahierI18n.js';
 import { checkAnswer } from './exerciseEngine.js';
 import { recordError } from '../../services/storage/errorHistoryStore.js';
+import NumericAnswerInput from '../../shared/ui/NumericAnswerInput.jsx';
 
-// Test phase — one exercise at a time. PEDAGOGICAL RULE: a wrong answer does
-// NOT advance. We stop, offer progressive help (hint → method → explanation →
-// solution) and let the child retry until she understands.
 export default function TestView({ exercises, onBack, onFinish }) {
   const L = useCahierT();
   const [index, setIndex] = useState(0);
-  const [results, setResults] = useState({});   // { [id]: { correct } } first-try score
+  const [results, setResults] = useState({});
   const [draft, setDraft] = useState('');
-  const [feedback, setFeedback] = useState(null); // 'correct' | 'wrong' | null
+  const [feedback, setFeedback] = useState(null);
   const [selected, setSelected] = useState(null);
-  const [hintLevel, setHintLevel] = useState(0); // how many hints revealed
+  const [hintLevel, setHintLevel] = useState(0);
   const [showMethod, setShowMethod] = useState(false);
   const [showExpl, setShowExpl] = useState(false);
-  const [revealed, setRevealed] = useState(false); // solution shown → may continue
+  const [revealed, setRevealed] = useState(false);
   const [firstTryWrong, setFirstTryWrong] = useState(false);
+  const [answerMode, setAnswerMode] = useState('keyboard');
+  const [showVisual, setShowVisual] = useState(false);
 
   const ex = exercises[index];
   const total = exercises.length;
   const isLast = index === total - 1;
   const hints = ex.hints && ex.hints.length ? ex.hints : (ex.hint ? [ex.hint] : []);
+  const expectedAnswer = useMemo(() => String(ex.answer ?? ex.correctAnswer ?? '').trim(), [ex]);
+  const isNumericAnswer = ex.inputType === 'number' || /^-?\d+([.,]\d+)?$/.test(expectedAnswer);
+  const starsEarned = feedback === 'correct' ? (firstTryWrong ? 1 : 3) : 0;
+  const canContinue = feedback === 'correct' || revealed;
 
   function speak(text) {
     if (!window.speechSynthesis) return;
@@ -43,27 +48,43 @@ export default function TestView({ exercises, onBack, onFinish }) {
       setFeedback('wrong');
       setFirstTryWrong(true);
       recordError({
-        topic: ex.subject || 'cahier', question: ex.testQuestion || ex.question,
-        correctAnswer: String(ex.answer ?? ex.correctAnswer), userAnswer: String(value), source: 'cahier-test',
-        practiceKey: `${ex.subject}:${ex.type}`, level: ex.level,
+        topic: ex.subject || 'cahier',
+        question: ex.testQuestion || ex.question,
+        correctAnswer: String(ex.answer ?? ex.correctAnswer),
+        userAnswer: String(value),
+        source: 'cahier-test',
+        practiceKey: `${ex.subject}:${ex.type}`,
+        level: ex.level,
       });
     }
   }
 
   function retry() {
-    setFeedback(null); setSelected(null); setDraft('');
+    setFeedback(null);
+    setSelected(null);
+    setDraft('');
+    setAnswerMode('keyboard');
   }
 
   function advance() {
-    const next = { ...results, [ex.id]: { correct: !firstTryWrong } };
-    if (isLast) { onFinish(next); return; }
+    const next = { ...results, [ex.id]: { correct: !firstTryWrong, starsEarned, answerMode } };
+    if (isLast) {
+      onFinish(next);
+      return;
+    }
     setResults(next);
     setIndex((i) => i + 1);
-    setDraft(''); setFeedback(null); setSelected(null);
-    setHintLevel(0); setShowMethod(false); setShowExpl(false); setRevealed(false); setFirstTryWrong(false);
+    setDraft('');
+    setFeedback(null);
+    setSelected(null);
+    setAnswerMode('keyboard');
+    setHintLevel(0);
+    setShowMethod(false);
+    setShowExpl(false);
+    setRevealed(false);
+    setFirstTryWrong(false);
+    setShowVisual(false);
   }
-
-  const canContinue = feedback === 'correct' || revealed;
 
   return (
     <div className="cahier-page">
@@ -83,11 +104,22 @@ export default function TestView({ exercises, onBack, onFinish }) {
         {ex.dictation && (
           <button type="button" className="dictee-audio dictee-audio--big" onClick={() => speak(ex.dictation)}>🔊 Réécouter</button>
         )}
-        <p className="test-card__question">{ex.testQuestion || ex.question}</p>
-        {ex.visual && <MathVisualSvg visual={ex.visual} />}
+        <div className="test-card__question-row">
+          <p className="test-card__question">{ex.testQuestion || ex.question}</p>
+          {ex.visual && (
+            <button
+              type="button"
+              className="notebook-visual-toggle"
+              onClick={() => setShowVisual((v) => !v)}
+              aria-label="Voir l'aide visuelle"
+            >
+              {showVisual ? <EyeHiddenIcon size={18} /> : <EyeOpenIcon size={18} />}
+            </button>
+          )}
+          {ex.visual && showVisual && <MathVisualSvg visual={ex.visual} />}
+        </div>
       </div>
 
-      {/* Answer input (locked once correct or solution revealed) */}
       {!canContinue && (
         <div className="test-answer">
           {ex.inputType === 'choice' && (ex.options || []).map((opt) => {
@@ -100,24 +132,47 @@ export default function TestView({ exercises, onBack, onFinish }) {
           })}
 
           {ex.inputType !== 'choice' && (
-            <form onSubmit={(e) => { e.preventDefault(); if (draft.trim()) evaluate(draft.trim()); }} className="test-input-row">
-              <input
-                className="test-input"
-                inputMode={(ex.inputType === 'number' || /^-?\d+([.,]\d+)?$/.test(String(ex.answer ?? ex.correctAnswer ?? '').trim())) ? 'numeric' : 'text'}
-                value={draft}
-                onChange={(e) => setDraft(e.target.value)}
-                placeholder={L.t('taReponse')}
-                autoFocus
-              />
-              <button type="submit" className="cahier-cta cahier-cta--inline" disabled={draft.trim() === ''}>
-                {L.t('verifier')}
-              </button>
-            </form>
+            <>
+              {isNumericAnswer ? (
+                <NumericAnswerInput
+                  value={draft}
+                  onChange={setDraft}
+                  onSubmit={(value) => {
+                    const text = String(value).trim();
+                    if (text) evaluate(text);
+                  }}
+                  expectedAnswer={expectedAnswer}
+                  placeholder={L.t('taReponse')}
+                  allowNegative={expectedAnswer.startsWith('-')}
+                  valueLabel={L.t('taReponse')}
+                  readLabel={L.t('jAiLu')}
+                  handwritingLabel={L.t('ecrireReponse')}
+                  keypadLabel="Clavier numérique"
+                  onModeChange={setAnswerMode}
+                />
+              ) : (
+                <form onSubmit={(e) => { e.preventDefault(); if (draft.trim()) evaluate(draft.trim()); }} className="test-input-row">
+                  <input
+                    className="test-input"
+                    inputMode="text"
+                    value={draft}
+                    onChange={(e) => {
+                      setDraft(e.target.value);
+                      setAnswerMode('keyboard');
+                    }}
+                    placeholder={L.t('taReponse')}
+                    autoFocus
+                  />
+                  <button type="submit" className="cahier-cta cahier-cta--inline" disabled={draft.trim() === ''}>
+                    {L.t('verifier')}
+                  </button>
+                </form>
+              )}
+            </>
           )}
         </div>
       )}
 
-      {/* WRONG — block progression, progressive help */}
       {feedback === 'wrong' && (
         <div className="test-help">
           <p className="test-help__head test-help__head--ko">❌ {L.t('notCorrect')} {L.t('pasGrave')}</p>
@@ -154,7 +209,6 @@ export default function TestView({ exercises, onBack, onFinish }) {
         </div>
       )}
 
-      {/* Solution revealed (gave up) — allow continue, counted as not first-try */}
       {feedback === 'wrong' && revealed && (
         <div className="test-help test-help--solution">
           <p>{L.t('solution')} : <strong>{ex.inputType === 'true_false' ? (ex.answer ? 'Vrai' : 'Faux') : String(ex.answer ?? ex.correctAnswer)}</strong></p>
@@ -162,10 +216,10 @@ export default function TestView({ exercises, onBack, onFinish }) {
         </div>
       )}
 
-      {/* CORRECT */}
       {feedback === 'correct' && (
         <div className="test-help test-help--ok">
           <p className="test-help__head test-help__head--ok">✅ {L.t('goodAnswer')} {firstTryWrong ? '' : L.t('felicitations')}</p>
+          <p className="test-help__stars">⭐ {L.t('etoilesGagnees')} <strong>+{starsEarned}</strong></p>
           {ex.improvementTip && <p className="test-help__tip">{L.t('conseil')} : {ex.improvementTip}</p>}
           <button type="button" className="cahier-cta" onClick={advance}>{isLast ? L.t('voirResultat') : L.t('exerciceSuivant')}</button>
         </div>

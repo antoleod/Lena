@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import FunContentCard from '../../shared/ui/FunContentCard.jsx';
 import NumPad from '../../shared/ui/NumPad.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
@@ -621,6 +622,7 @@ export default function ChronoPage() {
               <span key={s} className="ch-results-star">{s <= stars ? '⭐' : '☆'}</span>
             ))}
           </div>
+          <FunContentCard />
           <div className="ch-results-btns">
             <button
               type="button"

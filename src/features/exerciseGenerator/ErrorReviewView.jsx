@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import NumericAnswerInput, { isNumericAnswerValue } from '../../shared/ui/NumericAnswerInput.jsx';
 import { getErrors, clearError, clearAllErrors } from './exerciseStorage.js';
 import { checkAnswer } from './exerciseEngine.js';
 
-// "Mes erreurs" — only wrong exercises, each retriable.
 export default function ErrorReviewView({ onBack, onCountChange }) {
   const [errors, setErrors] = useState(() => getErrors());
 
@@ -54,10 +54,11 @@ export default function ErrorReviewView({ onBack, onCountChange }) {
 
 function ErrorCard({ err, onSolved }) {
   const [draft, setDraft] = useState('');
-  const [feedback, setFeedback] = useState(null); // 'ok' | 'ko' | null
+  const [feedback, setFeedback] = useState(null);
+  const expectedAnswer = String(err.answer ?? err.correctAnswer ?? '').trim();
+  const isNumeric = err.inputType === 'number' || isNumericAnswerValue(expectedAnswer);
 
   function tryAnswer(value) {
-    // Reuse the same flexible checker the test uses.
     const ok = checkAnswer(err, value);
     setFeedback(ok ? 'ok' : 'ko');
     if (ok) setTimeout(onSolved, 1100);
@@ -80,9 +81,26 @@ function ErrorCard({ err, onSolved }) {
               {opt}
             </button>
           ))}
-          {err.inputType !== 'choice' && (
+          {err.inputType !== 'choice' && isNumeric && (
+            <NumericAnswerInput
+              value={draft}
+              onChange={setDraft}
+              onSubmit={(value) => {
+                const text = String(value).trim();
+                if (text) tryAnswer(text);
+              }}
+              expectedAnswer={expectedAnswer}
+              placeholder="Réessaie..."
+              allowNegative={expectedAnswer.startsWith('-')}
+              valueLabel="Ta réponse"
+              readLabel="J'ai lu"
+              handwritingLabel="Écrire la réponse"
+              keypadLabel="Clavier numérique"
+            />
+          )}
+          {err.inputType !== 'choice' && !isNumeric && (
             <form onSubmit={(e) => { e.preventDefault(); if (draft.trim()) tryAnswer(draft.trim()); }} className="test-input-row">
-              <input className="test-input" value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="Réessaie…" />
+              <input className="test-input" value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="Réessaie..." />
               <button type="submit" className="cahier-cta cahier-cta--inline" disabled={!draft.trim()}>OK</button>
             </form>
           )}

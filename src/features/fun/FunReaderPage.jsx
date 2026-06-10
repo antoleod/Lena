@@ -97,12 +97,31 @@ function ConteCard({ item }) {
   );
 }
 
+function FaitCard({ item }) {
+  const [revealed, setRevealed] = useState(false);
+  return (
+    <div className="fait-card">
+      <span className="fait-card__emoji">{item.emoji}</span>
+      <p className="fait-card__content">{item.content}</p>
+      {item.detail && !revealed && (
+        <button type="button" className="fun-reveal-btn" onClick={() => setRevealed(true)}>
+          🔬 En savoir plus
+        </button>
+      )}
+      {item.detail && revealed && (
+        <p className="fait-card__detail">{item.detail}</p>
+      )}
+    </div>
+  );
+}
+
 const RENDERERS = {
   blague:    BlagueCard,
   devinette: DevinetteCard,
   proverbe:  ProverbeCard,
   poeme:     PoemeCard,
   conte:     ConteCard,
+  fait:      FaitCard,
 };
 
 /* ── main page ──────────────────────────────────────────── */

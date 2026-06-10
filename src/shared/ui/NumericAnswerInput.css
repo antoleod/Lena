@@ -1,0 +1,342 @@
+.numeric-answer-input {
+  width: 100%;
+}
+
+.cahier-cta {
+  margin-top: 4px;
+  background: linear-gradient(135deg, #ff8fc6, #c86dd7);
+  border: none;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  border-radius: 18px;
+  padding: 16px 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(200, 109, 215, 0.35);
+  transition: transform 0.12s, filter 0.15s;
+}
+
+.cahier-cta:active {
+  transform: scale(0.97);
+}
+
+.cahier-cta:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.cahier-cta--go {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 8px 20px rgba(39, 174, 96, 0.35);
+}
+
+.cahier-cta--soft {
+  background: rgba(0, 0, 0, 0.28);
+  box-shadow: none;
+}
+
+.test-answer-switcher {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.test-answer-switcher__header {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.test-answer-switcher__value {
+  flex: 1;
+  min-height: 68px;
+  border-radius: 18px;
+  background: #fff;
+  color: #2c3e50;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.test-answer-switcher__value[role="button"] {
+  cursor: pointer;
+}
+
+.test-answer-switcher__value[role="button"]:active {
+  filter: brightness(0.96);
+}
+
+.test-answer-switcher__label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #7f8c8d;
+}
+
+.test-answer-switcher__value strong {
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.test-answer-switcher__tool {
+  width: 68px;
+  min-width: 68px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ffd166, #f39c12);
+  color: #5b3400;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.28);
+  transition: transform 0.12s, filter 0.15s, box-shadow 0.15s;
+}
+
+.test-answer-switcher__tool:active {
+  transform: scale(0.96);
+}
+
+.test-answer-switcher__tool.is-active {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35), 0 10px 26px rgba(243, 156, 18, 0.35);
+  filter: saturate(1.1);
+}
+
+.test-answer-switcher__tool:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.test-handwriting {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.handwriting-launch {
+  align-self: stretch;
+}
+
+.test-handwriting__value {
+  margin: 0;
+  color: inherit;
+  font-weight: 700;
+  text-align: center;
+}
+
+.handwriting-pad {
+  background: #fff;
+  color: #2c3e50;
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.handwriting-pad__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.handwriting-pad__header strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.handwriting-pad__header p {
+  margin: 4px 0 0;
+  color: #5d6d7e;
+  font-size: 0.92rem;
+}
+
+.handwriting-pad__hero {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.handwriting-pad__badge,
+.handwriting-pad__preview {
+  border-radius: 16px;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.handwriting-pad__badge {
+  min-width: 92px;
+  padding: 0 14px;
+  background: linear-gradient(135deg, #e8f7ff, #d7edff);
+  color: #2471a3;
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.handwriting-pad__preview {
+  flex: 1;
+  background: linear-gradient(135deg, #fff8ef, #fff3d7);
+  color: #7d4d00;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border: 2px solid rgba(243, 156, 18, 0.18);
+}
+
+.handwriting-pad__preview.is-success {
+  background: linear-gradient(135deg, #eafff1, #dbf7e6);
+  color: #1e8449;
+  border-color: rgba(39, 174, 96, 0.24);
+}
+
+.handwriting-pad__preview.is-low-confidence {
+  background: linear-gradient(135deg, #fff4e5, #fde8c8);
+  color: #a04000;
+  border-color: rgba(230, 126, 34, 0.32);
+}
+
+.handwriting-pad__preview-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.handwriting-pad__preview strong {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.handwriting-pad__close {
+  margin-left: auto;
+  border: none;
+  background: #f2f2f7;
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.handwriting-pad__board {
+  background: linear-gradient(180deg, #fffdf7 0%, #fff8ea 100%);
+  border: 2px solid #f1e1b7;
+  border-radius: 18px;
+  padding: 8px;
+}
+
+.handwriting-pad__canvas {
+  width: 100%;
+  height: 220px;
+  display: block;
+  border-radius: 12px;
+  background: transparent;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.handwriting-pad__toolbar,
+.handwriting-pad__actions {
+  display: grid;
+  gap: 8px;
+}
+
+.handwriting-pad__toolbar {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.handwriting-pad__actions {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.handwriting-tool {
+  border: 2px solid #dfe6e9;
+  background: #fff;
+  color: #2c3e50;
+  border-radius: 14px;
+  min-height: 48px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.handwriting-tool.is-active {
+  background: #e8f0fe;
+  border-color: #007aff;
+  color: #007aff;
+}
+
+.handwriting-pad__status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.handwriting-pad__hint {
+  color: #7f8c8d;
+}
+
+.handwriting-pad__hint-equation {
+  color: #1a5276;
+  background: rgba(93, 173, 226, 0.15);
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+
+.handwriting-pad__fail {
+  color: #922b21;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.handwriting-pad__numpad-cta {
+  border: none;
+  background: linear-gradient(135deg, #ffd166, #f39c12);
+  color: #5b3400;
+  font-weight: 800;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  padding: 6px 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(243, 156, 18, 0.32);
+}
+
+@media (max-width: 560px) {
+  .test-answer-switcher__header {
+    align-items: center;
+  }
+
+  .test-answer-switcher__tool {
+    width: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .test-answer-switcher__value strong {
+    font-size: 1.3rem;
+  }
+
+  .handwriting-pad__hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 768px) {
+  .handwriting-pad__canvas {
+    height: 280px;
+  }
+}

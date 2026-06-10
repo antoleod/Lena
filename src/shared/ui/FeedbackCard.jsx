@@ -11,6 +11,41 @@ const MSGS = {
     en: ['Not quite...', 'Almost!', 'Keep going!', 'Next time!'],
     es: ['No del todo...', 'Casi!', 'Sigue adelante!', 'La proxima vez!'],
   },
+  wrongMotivational: {
+    fr: [
+      'Tu peux le faire, réessaie ! 💪',
+      'Les champions ne lâchent pas ! 🏆',
+      'Chaque erreur t\'apprend quelque chose ! 🌟',
+      'Tu es plus fort(e) que tu ne le crois ! 🚀',
+      'Un faux pas, et on repart ! 🔥',
+      'Les grands esprits se trompent aussi ! 🧠',
+      'Continue, tu vas y arriver ! ⚡',
+    ],
+    nl: [
+      'Je kunt het! Probeer het opnieuw! 💪',
+      'Kampioenen geven niet op! 🏆',
+      'Elke fout leert je iets! 🌟',
+      'Je bent sterker dan je denkt! 🚀',
+      'Doorzetten! 🔥',
+      'Ga door, je komt er! ⚡',
+    ],
+    en: [
+      'You can do it, try again! 💪',
+      'Champions never give up! 🏆',
+      'Every mistake teaches you something! 🌟',
+      'You\'re stronger than you think! 🚀',
+      'Keep pushing! 🔥',
+      'Keep going, you\'ll get it! ⚡',
+    ],
+    es: [
+      '¡Tú puedes, inténtalo de nuevo! 💪',
+      '¡Los campeones no se rinden! 🏆',
+      '¡Cada error te enseña algo! 🌟',
+      '¡Eres más fuerte de lo que crees! 🚀',
+      '¡Sigue adelante! 🔥',
+      '¡Continúa, lo lograrás! ⚡',
+    ],
+  },
   next: {
     fr: 'Suivant', nl: 'Volgende', en: 'Next', es: 'Siguiente',
   },
@@ -26,12 +61,12 @@ function pickMsg(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export default function FeedbackCard({ isCorrect, correctAnswer, locale, onNext, explanation, onRepaso }) {
+export default function FeedbackCard({ isCorrect, correctAnswer, locale, onNext, explanation, onRepaso, difficulty }) {
   const loc = MSGS.correct[locale] ? locale : 'fr';
   const icon = isCorrect ? '✅' : '❌';
   const title = isCorrect
     ? pickMsg(MSGS.correct[loc])
-    : pickMsg(MSGS.wrong[loc]);
+    : pickMsg(MSGS.wrongMotivational[loc]);
   return (
     <div className="fb-overlay">
       <div className={`fb-card${isCorrect ? ' is-correct' : ' is-wrong'}`}>
