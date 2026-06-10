@@ -38,6 +38,10 @@ export default function NumericAnswerInput({
     setRecognizedValue('');
   }, [normalizedExpected]);
 
+  useEffect(() => {
+    if (!showHandwriting) setRecognizedValue('');
+  }, [showHandwriting]);
+
   function activateNumPad() {
     setShowHandwriting(false);
     setRecognizedValue('');
@@ -53,8 +57,9 @@ export default function NumericAnswerInput({
   function handleRecognized(nextValue) {
     const text = String(nextValue ?? '').trim();
     if (!text) return;
+    const currentText = recognizedValue || value;
     const nextText = canUseHandwriting && normalizedExpected.length > 1
-      ? `${value}${text}`.slice(0, normalizedExpected.length)
+      ? `${currentText}${text}`.slice(0, normalizedExpected.length)
       : text;
     setRecognizedValue(nextText);
     onChange?.(nextText);

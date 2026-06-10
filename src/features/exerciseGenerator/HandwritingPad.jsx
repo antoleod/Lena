@@ -40,6 +40,7 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
   const drawingRef = useRef(false);
   const currentStrokeRef = useRef(null);
   const frameRef = useRef(0);
+  const clearTimerRef = useRef(0);
   const [snapshot, setSnapshot] = useState([]);
   const [tool, setTool] = useState('pen');
   const [recognition, setRecognition] = useState(null);
@@ -71,7 +72,10 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
     redraw(ctx, rect.width, rect.height, strokesRef.current, tool);
   }, [snapshot, tool]);
 
-  useEffect(() => () => cancelAnimationFrame(frameRef.current), []);
+  useEffect(() => () => {
+    cancelAnimationFrame(frameRef.current);
+    window.clearTimeout(clearTimerRef.current);
+  }, []);
 
   function commitSnapshot() {
     setSnapshot(cloneStrokes(strokesRef.current));
@@ -151,7 +155,8 @@ export default function HandwritingPad({ expectedValue, onRecognized, onClose, c
     if (result.value) {
       onRecognized(result.value, result);
       if (clearOnRecognized) {
-        window.setTimeout(clearAll, 250);
+        window.clearTimeout(clearTimerRef.current);
+        clearTimerRef.current = window.setTimeout(clearAll, 250);
       }
     }
   }
