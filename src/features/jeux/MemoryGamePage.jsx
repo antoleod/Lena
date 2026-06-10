@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
-import '../exerciseGenerator/cahier.css';
 import './jeux.css';
 
 const UI = {

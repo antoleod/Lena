@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useGameSession } from '../../shared/hooks/useGameSession.js';
-import '../exerciseGenerator/cahier.css';
 import './jeux.css';
 
 const UI = {
@@ -222,40 +221,67 @@ export default function SpeedMathPage() {
     }, 300);
   }, [locked, phase, question, selectedLevel]);
 
+  const DECO_OPS = [
+    { op: '+', left: '8%',  delay: '0s',   d: '7s',  r0: '-10deg', r1: '20deg' },
+    { op: '×', left: '78%', delay: '1.2s', d: '6s',  r0: '15deg',  r1: '-25deg' },
+    { op: '−', left: '20%', delay: '2.4s', d: '8s',  r0: '5deg',   r1: '-15deg' },
+    { op: '÷', left: '60%', delay: '0.8s', d: '5.5s',r0: '-20deg', r1: '10deg' },
+    { op: '=', left: '88%', delay: '3s',   d: '9s',  r0: '0deg',   r1: '30deg' },
+  ];
+
   function renderSetup() {
+    const ops = levelCfg.ops.map(o => o === '*' ? '×' : o === '/' ? '÷' : o).join(' ');
     return (
-      <div className="cahier-page">
+      <div className="sm-page">
         <Link to="/jeux" className="exam-back-btn">←</Link>
-        <h1 className="cahier-title">{ui.title}</h1>
+        <div className="sm-setup">
+          {DECO_OPS.map(({ op, left, delay, d, r0, r1 }) => (
+            <span
+              key={op}
+              className="sm-deco-op"
+              style={{ left, '--delay': delay, '--d': d, '--r0': r0, '--r1': r1 }}
+            >
+              {op}
+            </span>
+          ))}
 
-        <div className="cahier-section">
-          <div className="cahier-section-title">{ui.levelLabel}</div>
-          <div className="jeux-level-grid">
-            {LEVELS.map(lc => {
-              const locked = lc.id > progress.unlockedLevel;
-              const sel = lc.id === selectedLevel;
-              return (
-                <button
-                  key={lc.id}
-                  className={`jeux-level-btn${sel ? ' is-selected' : ''}${locked ? ' is-locked' : ''}`}
-                  onPointerDown={e => { e.preventDefault(); if (!locked) setSelectedLevel(lc.id); }}
-                  disabled={locked}
-                >
-                  {locked ? '🔒' : lc.label}
-                </button>
-              );
-            })}
+          <div className="sm-setup__hero">
+            <span className="sm-setup__emoji">⚡</span>
+            <h1 className="sm-setup__title">{ui.title}</h1>
+            <p className="sm-setup__sub">
+              {progress.bestLevel > 1 ? `🏆 Meilleur : niveau ${progress.bestLevel}` : 'Choisis ton niveau'}
+            </p>
           </div>
-        </div>
 
-        <div style={{ textAlign: 'center', opacity: .7, fontSize: '.9rem', marginBottom: 12 }}>
-          {levelCfg.ops.map(o => o === '*' ? '×' : o === '/' ? '÷' : o).join(' ')} · max {levelCfg.max} · {levelCfg.timer}s
-          {levelCfg.bonus && ' · 🔥 ×2 serie'}
-        </div>
+          <div className="sm-level-section">
+            <div className="sm-level-title">{ui.levelLabel}</div>
+            <div className="jeux-level-grid">
+              {LEVELS.map(lc => {
+                const isLocked = lc.id > progress.unlockedLevel;
+                const sel = lc.id === selectedLevel;
+                return (
+                  <button
+                    key={lc.id}
+                    className={`jeux-level-btn${sel ? ' is-selected' : ''}${isLocked ? ' is-locked' : ''}`}
+                    onPointerDown={e => { e.preventDefault(); if (!isLocked) setSelectedLevel(lc.id); }}
+                    disabled={isLocked}
+                  >
+                    {isLocked ? '🔒' : lc.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-        <button className="cahier-cta" onPointerDown={e => { e.preventDefault(); startGame(); }}>
-          {ui.play}
-        </button>
+          <p className="sm-level-desc">
+            {ops} · max {levelCfg.max} · {levelCfg.timer}s
+            {levelCfg.bonus && ' · 🔥 ×2 série'}
+          </p>
+
+          <button className="sm-cta" onPointerDown={e => { e.preventDefault(); startGame(); }}>
+            ⚡ {ui.play}
+          </button>
+        </div>
       </div>
     );
   }
@@ -266,47 +292,48 @@ export default function SpeedMathPage() {
     const pct = (timeLeft / cfg.timer) * 100;
     const urgent = timeLeft <= 10;
     const bonusActive = cfg.bonus && streak >= 3;
+    const BTN_COLORS = ['#6366f1', '#8b5cf6', '#ec4899', '#06b6d4'];
     return (
-      <div className="cahier-page" style={{ position: 'relative' }}>
+      <div className="sm-page" style={{ position: 'relative' }}>
         <Link to="/jeux" className="exam-back-btn">←</Link>
-        <div className="sm-score-badge">{score}</div>
+        <div className="sm-play">
+          <div className="game-hud">
+            <span className="game-hud__score">⚡ {score}</span>
+            <span className="game-hud__round">{levelCfg.label} · {totalAnswered} {ui.questionsLabel}</span>
+            {streak >= 3 && <span className="game-hud__streak">🔥 ×2</span>}
+          </div>
 
-        <h2 style={{ textAlign: 'center', margin: '8px 0 4px', fontSize: '1rem', fontWeight: 700 }}>
-          {ui.title} — {levelCfg.label}
-        </h2>
-        <div style={{ textAlign: 'center', fontSize: '.85rem', opacity: .7, marginBottom: 8 }}>
-          {ui.timeLeft}: {timeLeft}s — {totalAnswered} {ui.questionsLabel}
-          {bonusActive && <span style={{ marginLeft: 8, color: '#f97316', fontWeight: 700 }}>🔥 ×2</span>}
-        </div>
+          <div className="game-timer-bar">
+            <div
+              className={`game-timer-fill${urgent ? ' game-timer-fill--urgent' : ''}`}
+              style={{ width: `${pct}%` }}
+            />
+          </div>
 
-        <div className="sm-timer-bar">
-          <div
-            className={`sm-timer-fill${urgent ? ' is-urgent' : ''}`}
-            style={{ width: `${pct}%` }}
-          />
-        </div>
+          <div className="game-question-card">
+            <div className="game-question-text">
+              {question.a} {question.op} {question.b} = ?
+            </div>
+            <div className="game-question-sub">{ui.timeLeft} : {timeLeft}s</div>
+          </div>
 
-        <div className="sm-question">
-          {question.a} {question.op} {question.b} = ?
-        </div>
-
-        <div className="sm-choices">
-          {question.choices.map((c, idx) => {
-            let cls = 'sm-choice';
-            if (answeredId === idx) {
-              cls += answeredCorrect ? ' is-correct' : ' is-wrong';
-            }
-            return (
-              <button
-                key={idx}
-                className={cls}
-                onPointerDown={e => { e.preventDefault(); handleChoice(c, idx); }}
-                disabled={locked}
-              >
-                {c}
-              </button>
-            );
-          })}
+          <div className="sm-choices">
+            {question.choices.map((c, idx) => {
+              let cls = 'sm-choice';
+              if (answeredId === idx) cls += answeredCorrect ? ' is-correct' : ' is-wrong';
+              return (
+                <button
+                  key={idx}
+                  className={cls}
+                  style={{ '--btn-color': BTN_COLORS[idx % BTN_COLORS.length] }}
+                  onPointerDown={e => { e.preventDefault(); handleChoice(c, idx); }}
+                  disabled={locked}
+                >
+                  {c}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
@@ -317,30 +344,41 @@ export default function SpeedMathPage() {
     const starStr = '★'.repeat(stars) + '☆'.repeat(3 - stars);
     const rankEmoji = stars === 3 ? '🧠' : stars === 2 ? '💪' : '📚';
     return (
-      <div className="cahier-page">
-        <h2 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 900, margin: '24px 0 8px' }}>
-          {rankEmoji} {ui.win}
-        </h2>
+      <div className="sm-page">
+        <div className="game-results">
+          <div className="game-results__emoji">{rankEmoji}</div>
+          <div className="game-results__title">{ui.win}</div>
+          <div className="game-results__stars">{starStr}</div>
 
-        <div className="jeux-stars">{starStr}</div>
+          <div className="game-results__stats">
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{score}</span>
+              <span className="game-results__stat-lbl">{ui.score}</span>
+            </div>
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{totalAnswered}</span>
+              <span className="game-results__stat-lbl">{ui.questionsLabel}</span>
+            </div>
+            <div className="game-results__stat">
+              <span className="game-results__stat-val">{levelCfg.label}</span>
+              <span className="game-results__stat-lbl">{ui.levelLabel}</span>
+            </div>
+          </div>
 
-        <div className="jeux-result-stat">
-          <span>{ui.score}</span>
-          <span>{score}</span>
-        </div>
-        <div className="jeux-result-stat">
-          <span>{ui.questionsLabel}</span>
-          <span>{totalAnswered}</span>
-        </div>
+          {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
+          {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} débloqué !</div>}
 
-        {sessionResult?.isNewBest && <div className="jeux-new-best">🏆 Nouveau record !</div>}
-        {sessionResult?.newUnlocked && <div className="jeux-unlocked">🔓 Niveau {selectedLevel + 1} debloque !</div>}
-
-        <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
-          <button className="cahier-cta" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); startGame(); }}>
-            {ui.playAgain}
+          <button
+            className="game-results__btn"
+            style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)', boxShadow: '0 6px 0 #92400e', color: 'var(--on-amber, #3d1f00)' }}
+            onPointerDown={e => { e.preventDefault(); startGame(); }}
+          >
+            ⚡ {ui.playAgain}
           </button>
-          <button className="cahier-cta cahier-cta--soft" style={{ flex: 1 }} onPointerDown={e => { e.preventDefault(); setPhase('setup'); }}>
+          <button
+            className="game-results__btn game-results__btn--soft"
+            onPointerDown={e => { e.preventDefault(); setPhase('setup'); }}
+          >
             {ui.settings}
           </button>
         </div>
