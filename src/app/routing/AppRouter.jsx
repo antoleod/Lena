@@ -44,7 +44,6 @@ import CahierHistoryPage from '../../features/exerciseGenerator/CahierHistoryPag
 import ExerciseGeneratorPage from '../../features/exerciseGenerator/ExerciseGeneratorPage.jsx';
 import GeometryPage from '../../features/mathGeometry/GeometryPage.jsx';
 import CalculationChallengePage from '../../features/mathChallenges/CalculationChallengePage.jsx';
-import MixedCalcPage from '../../features/mathChallenges/MixedCalcPage.jsx';
 import MixedModePage from '../../features/exerciseGenerator/MixedModePage.jsx';
 import TablesPage from '../../features/tables/TablesPage.jsx';
 import DuduPage from '../../features/dudu/DuduPage.jsx';
