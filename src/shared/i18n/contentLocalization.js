@@ -131,6 +131,72 @@ const localizedSubjects = {
       roadmap: ['Series', 'Clasificacion', 'Logica visual', 'Estrategia']
     }
   },
+  logique: {
+    fr: {
+      label: 'Logique & Reflexion',
+      description: 'Suites logiques, intrus, formes, labyrinthes et deduction pour developper la pensee critique.',
+      roadmap: ['Suites logiques', 'Trouver l intrus', 'Formes et motifs', 'Deduction et resolution']
+    },
+    nl: {
+      label: 'Logica & Redeneren',
+      description: 'Logische reeksen, vreemde eend, vormen, labyrinten en deductie om kritisch denken te ontwikkelen.',
+      roadmap: ['Logische reeksen', 'Vreemde eend zoeken', 'Vormen en patronen', 'Deductie en oplossing']
+    },
+    en: {
+      label: 'Logic & Reasoning',
+      description: 'Logical sequences, odd one out, patterns, mazes and deduction to develop critical thinking.',
+      roadmap: ['Logical sequences', 'Find the odd one out', 'Shapes and patterns', 'Deduction and problem solving']
+    },
+    es: {
+      label: 'Logica & Reflexion',
+      description: 'Series logicas, intruso, formas, laberintos y deduccion para desarrollar el pensamiento critico.',
+      roadmap: ['Series logicas', 'Encontrar el intruso', 'Formas y patrones', 'Deduccion y resolucion']
+    }
+  },
+  finance: {
+    fr: {
+      label: 'Education Financiere',
+      description: 'Reconnaitre les pieces et billets, calculer des achats, rendre la monnaie et gerer un budget simple.',
+      roadmap: ['Pieces et billets', 'Calculer un achat', 'Rendre la monnaie', 'Budget et epargne']
+    },
+    nl: {
+      label: 'Financiele Educatie',
+      description: 'Munten en biljetten herkennen, aankopen berekenen, wisselgeld geven en een eenvoudig budget beheren.',
+      roadmap: ['Munten en biljetten', 'Aankopen berekenen', 'Wisselgeld geven', 'Budget en sparen']
+    },
+    en: {
+      label: 'Financial Education',
+      description: 'Recognise coins and notes, calculate purchases, give change and manage a simple budget.',
+      roadmap: ['Coins and notes', 'Calculate a purchase', 'Give change', 'Budget and saving']
+    },
+    es: {
+      label: 'Educacion Financiera',
+      description: 'Reconocer monedas y billetes, calcular compras, dar cambio y gestionar un presupuesto basico.',
+      roadmap: ['Monedas y billetes', 'Calcular una compra', 'Dar el cambio', 'Presupuesto y ahorro']
+    }
+  },
+  informatique: {
+    fr: {
+      label: 'Informatique',
+      description: 'Parties de l ordinateur, clavier, souris, internet, securite numerique et premiers algorithmes.',
+      roadmap: ['Parties de l ordinateur', 'Clavier et souris', 'Internet et securite', 'Logique et algorithmes']
+    },
+    nl: {
+      label: 'Informatica',
+      description: 'Onderdelen van de computer, toetsenbord, muis, internet, digitale veiligheid en eerste algoritmen.',
+      roadmap: ['Onderdelen van de computer', 'Toetsenbord en muis', 'Internet en veiligheid', 'Logica en algoritmen']
+    },
+    en: {
+      label: 'Computer Science',
+      description: 'Parts of a computer, keyboard, mouse, internet, digital safety and first algorithms.',
+      roadmap: ['Parts of a computer', 'Keyboard and mouse', 'Internet and safety', 'Logic and algorithms']
+    },
+    es: {
+      label: 'Informatica',
+      description: 'Partes del ordenador, teclado, raton, internet, seguridad digital y primeros algoritmos.',
+      roadmap: ['Partes del ordenador', 'Teclado y raton', 'Internet y seguridad', 'Logica y algoritmos']
+    }
+  },
   stories: {
     fr: {
       label: 'Histoires',

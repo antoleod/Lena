@@ -6,12 +6,15 @@ import { GameFeedback, useGameFeedback } from './GameFeedback.jsx';
 import './jeux.css';
 
 const LEVELS = [
-  { label: 'Niveau 1 — CP',  ops: ['+'],              max: 10, time: 25, twoStep: false },
-  { label: 'Niveau 2 — CE1', ops: ['+', '-'],          max: 20, time: 20, twoStep: false },
-  { label: 'Niveau 3 — CE2', ops: ['+', '-', '×'],     max: 50, time: 15, twoStep: false },
-  { label: 'Niveau 4 — CM1', ops: ['×', '÷'],          max: 10, time: 12, twoStep: false },
-  { label: 'Niveau 5 — CM2', ops: ['×', '÷', '+'],     max: 10, time: 10, twoStep: true  },
+  { label: 'Niveau 1 — CP',  max: 10, time: 25, twoStep: false },
+  { label: 'Niveau 2 — CE1', max: 20, time: 20, twoStep: false },
+  { label: 'Niveau 3 — CE2', max: 50, time: 15, twoStep: false },
+  { label: 'Niveau 4 — CM1', max: 10, time: 12, twoStep: false },
+  { label: 'Niveau 5 — CM2', max: 10, time: 10, twoStep: true  },
 ];
+
+const ALL_OPS = ['+', '-', '×', '÷'];
+const OP_LABELS = { '+': '+', '-': '−', '×': '×', '÷': '÷' };
 
 function shuffle(arr) {
   const a = [...arr];
@@ -23,7 +26,8 @@ function shuffle(arr) {
 }
 
 function makeQuestion(ops, max, twoStep) {
-  if (twoStep && Math.random() < 0.5) {
+  const canTwoStep = twoStep && ops.includes('×');
+  if (canTwoStep && Math.random() < 0.5) {
     // Two-step: "a×b+c = ?"
     const a = Math.floor(Math.random() * 9) + 2;
     const b = Math.floor(Math.random() * 9) + 2;
@@ -67,6 +71,14 @@ function makeQuestion(ops, max, twoStep) {
   return { text: `${a} ${opChar} ${b} = ?`, answer, choices: shuffle([answer, ...[...wrongs]]) };
 }
 
+const SCENES_BY_LEVEL = [
+  ['🌊 Dans l\'océan, des bulles remontent…', '🌈 Dans le jardin magique…', '🚀 À bord de la fusée…', '🏰 Dans le château enchanté…', '🌿 Dans la forêt des nombres…'],
+  ['🌌 Dans la galaxie des chiffres…', '🎪 Au grand cirque des maths…', '🏖️ Sur la plage au soleil…', '🦄 Dans la forêt des licornes…', '🎩 Dans le chapeau du magicien…'],
+  ['⚡ Dans le laboratoire secret…', '🌋 Au sommet du volcan…', '🔮 Dans la tour du sorcier…', '🌊 Sur les flots de l\'aventure…', '🛸 Dans la station spatiale…'],
+  ['🤖 Dans l\'usine des robots…', '🔬 Dans le labo de chimie…', '🏆 Dans l\'arène des champions…', '🌍 En orbite autour de la Terre…', '⚗️ Dans l\'atelier du savant…'],
+  ['🧬 Au cœur du code secret…', '🌠 Aux confins de l\'univers…', '🏛️ Dans le temple de la sagesse…', '⚔️ Dans la bataille des géants…', '🔭 Sous les étoiles du savoir…'],
+];
+
 const BUBBLE_COLORS = ['#6366f1', '#22c55e', '#f59e0b', '#ec4899'];
 const BUBBLE_POSITIONS = [
   { left: '8%',  top: '30%' },
@@ -82,6 +94,7 @@ export default function BullesCalculPage() {
 
   const [phase, setPhase]       = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(Math.min(progress.unlockedLevel, 5));
+  const [selectedOps, setSelectedOps] = useState(['+', '-', '×', '÷']);
   const [question, setQuestion] = useState(null);
   const [score, setScore]       = useState(0);
   const [round, setRound]       = useState(0);
@@ -89,13 +102,29 @@ export default function BullesCalculPage() {
   const [feedback, setFeedback] = useState(null);
   const [streak, setStreak]     = useState(0);
   const [sessionResult, setSessionResult] = useState(null);
+  const [sceneIdx, setSceneIdx] = useState(0);
+  const [feedbackText, setFeedbackText] = useState(null);
   const timerRef = useRef(null);
+  const selectedOpsRef = useRef(selectedOps);
+  useEffect(() => { selectedOpsRef.current = selectedOps; }, [selectedOps]);
+
+  function toggleOp(op) {
+    setSelectedOps(prev => {
+      if (prev.includes(op)) {
+        if (prev.length === 1) return prev;
+        return prev.filter(o => o !== op);
+      }
+      return [...prev, op];
+    });
+  }
 
   function startGame() {
-    setScore(0); setRound(0); setStreak(0); setFeedback(null); setSessionResult(null);
+    setScore(0); setRound(0); setStreak(0); setFeedback(null); setSessionResult(null); setFeedbackText(null);
+    const scenes = SCENES_BY_LEVEL[selectedLevel - 1];
+    setSceneIdx(Math.floor(Math.random() * scenes.length));
     resetTimer();
     const lvl = LEVELS[selectedLevel - 1];
-    const q = makeQuestion(lvl.ops, lvl.max, lvl.twoStep);
+    const q = makeQuestion(selectedOpsRef.current, lvl.max, lvl.twoStep);
     setQuestion(q);
     setTimeLeft(lvl.time);
     setPhase('play');
@@ -111,7 +140,7 @@ export default function BullesCalculPage() {
       setPhase('results');
       return;
     }
-    setQuestion(makeQuestion(lvl.ops, lvl.max, lvl.twoStep));
+    setQuestion(makeQuestion(selectedOpsRef.current, lvl.max, lvl.twoStep));
     setTimeLeft(lvl.time);
     setRound(currentRound);
   }
@@ -148,6 +177,9 @@ export default function BullesCalculPage() {
       triggerCorrect();
       triggerScore(`+${bonus * 10}`);
       if (newStreak >= 3) triggerCombo(newStreak);
+      const txt = newStreak >= 3 ? `Combo ×${newStreak} ! 🔥` : newStreak === 2 ? 'Parfait ! ⚡' : `+${bonus * 10} XP · Bien joué !`;
+      setFeedbackText(txt);
+      setTimeout(() => setFeedbackText(null), 1000);
     } else {
       newStreak = 0;
       setStreak(0);
@@ -156,6 +188,8 @@ export default function BullesCalculPage() {
     const nextRound = round + 1;
     setTimeout(() => {
       setFeedback(null);
+      const scenes = SCENES_BY_LEVEL[selectedLevel - 1];
+      setSceneIdx(Math.floor(Math.random() * scenes.length));
       nextQuestion(nextRound, newScore, newStreak);
     }, 900);
   }
@@ -203,6 +237,19 @@ export default function BullesCalculPage() {
         <p style={{ textAlign: 'center', opacity: .65, fontSize: '.82rem', color: '#fff', marginBottom: 12 }}>
           {level.label} — {level.time}s par bulle
         </p>
+
+        <div className="jeux-ops-label">Opérations :</div>
+        <div className="jeux-ops-grid">
+          {ALL_OPS.map(op => (
+            <button
+              key={op}
+              className={`jeux-ops-btn${selectedOps.includes(op) ? ' is-on' : ''}`}
+              onPointerDown={() => toggleOp(op)}
+            >
+              {OP_LABELS[op]}
+            </button>
+          ))}
+        </div>
 
         <button className="bc-cta" onPointerDown={e => { e.preventDefault(); startGame(); }}>▶ Jouer</button>
       </div>
@@ -255,6 +302,7 @@ export default function BullesCalculPage() {
       <div className="bc-hud game-hud">
         <span className="bc-score game-hud__score">⭐ {score}</span>
         {streak >= 2 && <span className="bc-streak game-hud__streak">🔥 ×{streak}</span>}
+        <span className="game-hud__level">Niv.{selectedLevel}</span>
         <span className="bc-round game-hud__round">{round + 1} / {ROUNDS}</span>
       </div>
       <div className="bc-timer-bar game-timer-bar">
@@ -264,9 +312,15 @@ export default function BullesCalculPage() {
         />
       </div>
 
+      <div className="game-scene-header">
+        <span className="game-scene-header__emoji">{SCENES_BY_LEVEL[selectedLevel - 1][sceneIdx].split(' ')[0]}</span>
+        <span className="game-scene-header__text">{SCENES_BY_LEVEL[selectedLevel - 1][sceneIdx].slice(SCENES_BY_LEVEL[selectedLevel - 1][sceneIdx].indexOf(' ') + 1)}</span>
+      </div>
+
       <div className="bc-question game-question-card">
         <div className="game-question-text">{question?.text}</div>
       </div>
+      {feedbackText && <div className="game-xp-text">{feedbackText}</div>}
 
       <div className={`bc-bubbles${feedback === 'ok' ? ' bc-flash-ok' : feedback === 'bad' ? ' bc-flash-bad' : ''}`}>
         {question?.choices.map((choice, i) => (

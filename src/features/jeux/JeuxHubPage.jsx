@@ -1,6 +1,42 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllGameProgress, getTotalStats, formatDuration } from '../../services/storage/gameProgressStore.js';
+
+function MascotOwl() {
+  return (
+    <svg className="jh-topbar__mascot" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="owl-body" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#7c3aed"/><stop offset="100%" stopColor="#4c1d95"/></radialGradient>
+        <radialGradient id="owl-belly" cx="50%" cy="50%" r="60%"><stop offset="0%" stopColor="#e9d5ff"/><stop offset="100%" stopColor="#c4b5fd"/></radialGradient>
+        <radialGradient id="owl-eye" cx="35%" cy="30%" r="60%"><stop offset="0%" stopColor="#fde68a"/><stop offset="100%" stopColor="#f59e0b"/></radialGradient>
+        <filter id="owl-glow"><feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#a78bfa" floodOpacity="0.7"/></filter>
+      </defs>
+      <ellipse cx="26" cy="32" rx="15" ry="17" fill="url(#owl-body)" filter="url(#owl-glow)"/>
+      <circle cx="26" cy="18" r="13" fill="url(#owl-body)" filter="url(#owl-glow)"/>
+      <ellipse cx="26" cy="36" rx="9" ry="10" fill="url(#owl-belly)" opacity="0.9"/>
+      <ellipse cx="26" cy="28" rx="6" ry="5" fill="url(#owl-belly)" opacity="0.7"/>
+      <polygon points="15,9 12,2 19,7" fill="#6d28d9"/>
+      <polygon points="37,9 40,2 33,7" fill="#6d28d9"/>
+      <circle cx="20" cy="18" r="5.5" fill="white" opacity="0.95"/>
+      <circle cx="32" cy="18" r="5.5" fill="white" opacity="0.95"/>
+      <circle cx="20" cy="18" r="4" fill="url(#owl-eye)"/>
+      <circle cx="32" cy="18" r="4" fill="url(#owl-eye)"/>
+      <circle cx="20.5" cy="17.5" r="2.2" fill="#1c1917"/>
+      <circle cx="32.5" cy="17.5" r="2.2" fill="#1c1917"/>
+      <circle cx="21.5" cy="16.5" r="0.9" fill="white"/>
+      <circle cx="33.5" cy="16.5" r="0.9" fill="white"/>
+      <polygon points="26,21 23,24 29,24" fill="#f59e0b"/>
+      <ellipse cx="13" cy="36" rx="6" ry="9" fill="#5b21b6" transform="rotate(-15,13,36)"/>
+      <ellipse cx="39" cy="36" rx="6" ry="9" fill="#5b21b6" transform="rotate(15,39,36)"/>
+      <circle cx="21" cy="48" r="2.5" fill="#f59e0b"/>
+      <circle cx="31" cy="48" r="2.5" fill="#f59e0b"/>
+      <circle cx="6" cy="10" r="1.5" fill="#fde68a" opacity="0.8"/>
+      <circle cx="46" cy="14" r="1" fill="#a5f3fc" opacity="0.9"/>
+      <circle cx="8" cy="40" r="1" fill="#f0abfc" opacity="0.7"/>
+    </svg>
+  );
+}
+
 import {
   IconGameTetris, IconGameTaupesMaths, IconGameBombesMaths,
   IconGameCasseBriques, IconGameSnake, IconGameNinjaFruits,
@@ -20,6 +56,7 @@ import {
   IconGameLabyrinthe, IconGameMotifs,
   IconGameMemory, IconGameSimon, IconGameObjetsCache, IconGameMemoireChiffres,
   IconGameQuizCulture, IconGameCapitales, IconGameAnimaux, IconGameInventions,
+  IconGameBatailleMonstres,
 } from '../../assets/icons/GameIcons.jsx';
 import './jeux.css';
 
@@ -76,6 +113,7 @@ const GAME_ICON_MAP = {
   '/jeux/capitales':           IconGameCapitales,
   '/jeux/animaux':             IconGameAnimaux,
   '/jeux/inventions':          IconGameInventions,
+  '/jeux/bataille-monstres':  IconGameBatailleMonstres,
 };
 
 const CATEGORIES = [
@@ -90,8 +128,9 @@ const CATEGORIES = [
       { to: '/jeux/taupes',       emoji: '🦔', name: 'Taupes Maths',    desc: 'Frappe la taupe avec la bonne reponse !', badge: 'Facile' },
       { to: '/jeux/bombes-maths', emoji: '💣', name: 'Bombes Maths',    desc: 'Desamorce la bombe en calculant vite !', badge: 'Moyen' },
       { to: '/jeux/casse-briques', emoji: '🧱', name: 'Casse Briques', desc: 'Détruis toutes les briques sans faire tomber la balle !', badge: 'Moyen' },
-      { to: '/jeux/snake', emoji: '🐍', name: 'Snake', desc: 'Mange les pommes pour grandir, mais ne te mords pas la queue !', badge: 'Facile' },
-      { to: '/jeux/ninja-fruits', emoji: '🍉', name: 'Ninja Fruits', desc: 'Coupe les fruits mais évite les bombes !', badge: 'Moyen' },
+      { to: '/jeux/snake', emoji: '🐍', name: 'Snake Éducatif', desc: 'Dirige le serpent vers les bonnes réponses — maths, mots, tables et plus !', badge: 'Moyen' },
+      { to: '/jeux/ninja-fruits',       emoji: '🍉', name: 'Ninja Fruits',         desc: 'Tranche la bonne réponse avant qu\'elle tombe !', badge: 'Moyen', isNew: true },
+      { to: '/jeux/bataille-monstres', emoji: '⚔️', name: 'Bataille de Monstres', desc: 'Réponds aux calculs pour attaquer les monstres !', badge: 'Moyen', isNew: true },
     ],
   },
   {
@@ -259,48 +298,25 @@ export default function JeuxHubPage() {
   return (
     <div className="jh-page">
 
-      {/* Hero */}
-      <div className="jh-hero">
-        <div className="jh-hero__badge">🧠 Zone de jeux</div>
-        <h1 className="jh-hero__title">Jeux Cerebraux</h1>
-        <p className="jh-hero__subtitle">Joue, reflechis et apprends en t&rsquo;amusant !</p>
-
-        {/* Stats strip */}
-        {stats.totalSessions > 0 && (
-          <div className="jh-stats-strip">
-            <div className="jh-stat-item">
-              <span className="jh-stat-item__icon">🎮</span>
-              <span className="jh-stat-item__val">{stats.totalSessions}</span>
-              <span className="jh-stat-item__label">parties</span>
-            </div>
-            <div className="jh-stat-divider" />
-            <div className="jh-stat-item">
-              <span className="jh-stat-item__icon">⏱️</span>
-              <span className="jh-stat-item__val">{formatDuration(stats.totalGameSecs)}</span>
-              <span className="jh-stat-item__label">joues</span>
-            </div>
-            <div className="jh-stat-divider" />
-            <div className="jh-stat-item">
-              <span className="jh-stat-item__icon">🎯</span>
-              <span className="jh-stat-item__val">{playedCount}/{totalGames}</span>
-              <span className="jh-stat-item__label">jeux</span>
+      {/* Hero header avec mascotte magique */}
+      <div className="jh-topbar">
+        <div className="jh-topbar__left">
+          <div className="jh-topbar__heading">
+            <MascotOwl />
+            <div>
+              <h1 className="jh-topbar__title">Zone de Jeux</h1>
             </div>
           </div>
-        )}
-      </div>
-
-      {/* Featured card */}
-      <Link to={FEATURED.to} className="jh-featured" style={{ '--feat-gradient': FEATURED.gradient }}>
-        <div className="jh-featured__glow" />
-        <div className="jh-featured__content">
-          <div className="jh-featured__tag">✨ Jeu du moment</div>
-          <div className="jh-featured__emoji">{FEATURED.emoji}</div>
-          <h2 className="jh-featured__name">{FEATURED.name}</h2>
-          <p className="jh-featured__desc">{FEATURED.desc}</p>
-          <div className="jh-featured__cta">▶ Jouer maintenant</div>
         </div>
-        <div className="jh-featured__deco" aria-hidden="true">🌍🗺️🏆</div>
-      </Link>
+        <Link to={FEATURED.to} className="jh-featured-mini" style={{ '--feat-gradient': FEATURED.gradient }}>
+          <div className="jh-featured-mini__emoji">{FEATURED.emoji}</div>
+          <div className="jh-featured-mini__body">
+            <span className="jh-featured-mini__tag">⭐ Jeu du moment</span>
+            <span className="jh-featured-mini__name">{FEATURED.name}</span>
+            <span className="jh-featured-mini__cta">▶ Jouer</span>
+          </div>
+        </Link>
+      </div>
 
       {/* Search */}
       <div className="jh-search-wrap">
@@ -354,8 +370,10 @@ export default function JeuxHubPage() {
       )}
 
       {/* Game categories */}
-      {filteredCategories.map(cat => (
-        <section key={cat.id} className="jh-category">
+      {filteredCategories.map(cat => {
+        const CAT_THEME = { arcade: 'arcade', langage: 'langue', maths: 'math', 'logique-lecture': 'langue', 'logique-nombre': 'math', logique: 'logique', memoire: 'memoire', culture: 'culture' };
+        return (
+        <section key={cat.id} className="jh-category" data-theme={CAT_THEME[cat.id]}>
           <div
             className="jh-category__label"
             style={{ '--cat-color': cat.color, '--cat-gradient': cat.gradient }}
@@ -372,32 +390,49 @@ export default function JeuxHubPage() {
                 <Link
                   key={g.to}
                   to={g.to}
-                  className={`jh-card ${played ? 'jh-card--played' : ''}`}
+                  className={`jh-card ${played ? 'jh-card--played' : ''}${g.isNew && !played ? ' jh-card--new' : ''}`}
                   style={{ '--card-accent': cat.color, '--card-gradient': cat.gradient }}
                 >
+                  {g.isNew && !played && <span className="jh-card__shimmer" aria-hidden="true" />}
                   <div className="jh-card__icon" style={{ '--icon-bg': cat.color + '22' }}>
                     {GAME_ICON_MAP[g.to]
-                      ? (() => { const Icon = GAME_ICON_MAP[g.to]; return <Icon size={24} />; })()
-                      : g.emoji}
+                      ? (() => { const Icon = GAME_ICON_MAP[g.to]; return <Icon size={80} />; })()
+                      : <span style={{ fontSize: '2.4rem' }}>{g.emoji}</span>}
                     {played && <span className="jh-card__played-badge">✓</span>}
                   </div>
                   <div className="jh-card__body">
                     <div className="jh-card__top">
                       <span className="jh-card__name">{g.name}</span>
+                      {g.isNew && !played && <span className="jh-card__new-badge">✦ NOUVEAU</span>}
                     </div>
+                    <span
+                      className={`jh-card__badge ${
+                        g.badge === 'Facile' ? 'jh-card__badge--easy' :
+                        g.badge === 'Difficile' ? 'jh-card__badge--hard' :
+                        'jh-card__badge--medium'
+                      }`}
+                    >{g.badge}</span>
                     <span className="jh-card__desc">{g.desc}</span>
                     {gp?.bestScore > 0 && (
                       <div className="jh-card__prog">
-                        ⭐ {gp.bestScore} pts · Niv.{gp.bestLevel}
+                        <div className="jh-card__prog-label">⭐ {gp.bestScore} pts · Niv.{gp.bestLevel}</div>
+                        <div className="jh-card__prog-bar">
+                          <div
+                            className="jh-card__prog-fill"
+                            style={{ width: `${Math.min(100, (gp.bestScore / 100) * 100)}%` }}
+                          />
+                        </div>
                       </div>
                     )}
+                    <div className="jh-card__play">▶ Jouer</div>
                   </div>
                 </Link>
               );
             })}
           </div>
         </section>
-      ))}
+        );
+      })}
 
       {/* Bottom spacer for mobile nav */}
       <div className="jh-bottom-spacer" />

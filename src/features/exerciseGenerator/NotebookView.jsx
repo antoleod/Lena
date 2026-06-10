@@ -3,6 +3,52 @@ import MathVisualSvg from './MathVisualSvg.jsx';
 import { useCahierT } from './cahierI18n.js';
 import { EyeOpenIcon, EyeHiddenIcon } from '../../assets/icons/VisualHintIcons.jsx';
 
+const RADIUS = 26;
+const CIRC = 2 * Math.PI * RADIUS;
+
+function CahierTimer({ secondsLeft, totalSeconds, label }) {
+  const pct = totalSeconds ? secondsLeft / totalSeconds : 1;
+  const isWarning = secondsLeft <= 120 && secondsLeft > 30;
+  const isUrgent  = secondsLeft <= 30;
+
+  const arcColor = isUrgent ? '#ef4444' : isWarning ? '#f59e0b' : '#34d399';
+  const glowColor = isUrgent ? 'rgba(239,68,68,.35)' : isWarning ? 'rgba(245,158,11,.25)' : 'rgba(52,211,153,.2)';
+
+  const mins = String(Math.floor(secondsLeft / 60)).padStart(2, '0');
+  const secs = String(secondsLeft % 60).padStart(2, '0');
+
+  return (
+    <div className={`cahier-timer${isWarning ? ' is-warning' : ''}${isUrgent ? ' is-urgent' : ''}`}>
+      {/* arc ring */}
+      <svg className="cahier-timer__ring" width="68" height="68" viewBox="0 0 68 68">
+        {/* glow */}
+        <circle cx="34" cy="34" r={RADIUS} fill="none"
+          stroke={glowColor} strokeWidth="10" />
+        {/* track */}
+        <circle cx="34" cy="34" r={RADIUS} fill="none"
+          stroke="rgba(255,255,255,.12)" strokeWidth="5" />
+        {/* arc */}
+        <circle cx="34" cy="34" r={RADIUS} fill="none"
+          stroke={arcColor} strokeWidth="5"
+          strokeLinecap="round"
+          strokeDasharray={CIRC}
+          strokeDashoffset={CIRC * (1 - pct)}
+          transform="rotate(-90 34 34)"
+          style={{ transition: 'stroke-dashoffset 1s linear, stroke .6s ease' }}
+        />
+      </svg>
+
+      {/* digital display */}
+      <div className="cahier-timer__body">
+        <span className="cahier-timer__label">{label}</span>
+        <span className="cahier-timer__digits" style={{ color: arcColor }}>
+          {mins}<span className="cahier-timer__colon">:</span>{secs}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 // Notebook phase — the child solves these by hand. NO inputs, NO answers shown.
 export default function NotebookView({ exercises, subject, level, timerMinutes, onBack, onDone }) {
   const L = useCahierT();
@@ -59,14 +105,7 @@ export default function NotebookView({ exercises, subject, level, timerMinutes, 
       </div>
 
       {timerMinutes && secondsLeft !== null && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div className="exam-progress-bar" style={{ flex: 1, height: 10, borderRadius: 5 }}>
-            <div className="exam-progress-fill" style={{ width: `${pct}%`, background: fillColor, transition: 'width 1s linear, background .5s' }} />
-          </div>
-          <span style={{ color: '#fff', fontWeight: 700, fontSize: '.95rem', whiteSpace: 'nowrap' }}>
-            {L.t('tempsRestant')} : {String(Math.floor(secondsLeft / 60)).padStart(2, '0')}:{String(secondsLeft % 60).padStart(2, '0')}
-          </span>
-        </div>
+        <CahierTimer secondsLeft={secondsLeft} totalSeconds={totalSeconds} label={L.t('tempsRestant')} />
       )}
 
       <p className="cahier-instruction">{L.t('instructionNotebook')}</p>

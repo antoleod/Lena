@@ -12294,7 +12294,7 @@ input.exam-choice:hover { transform: none; }
     display: flex;
     flex-direction: column;
     gap: 6px;
-    width: 220px;
+    width: 180px;
     flex-shrink: 0;
     min-height: 100dvh;
     position: sticky;
@@ -16588,4 +16588,69 @@ body {
 }
 .elh-cat-card__prog-label {
   font-size: .65rem; color: var(--muted, #6e6e73); font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GAME SIDEBAR — dark mode using existing Lena design tokens
+   Background dark colors already used in jeux.css game pages.
+   All accent colors reference --lena-* or --surface-border.
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  /* Dark bg: same #07051a / #0d0a2e / #1a0a3e already in jeux.css */
+  .app-shell--game .app-sidebar {
+    background: linear-gradient(180deg, #1a0a3e 0%, #0d0a2e 55%, #07051a 100%);
+    border-right: 1px solid var(--surface-border);
+    backdrop-filter: none;
+  }
+  /* Inactive links: white at opacity, consistent with bottom nav */
+  .app-shell--game .sidebar-link {
+    color: rgba(255,255,255,.6);
+  }
+  /* Hover: --lena-purple as tint (rgba of #9b59b6) */
+  .app-shell--game .sidebar-link:hover {
+    background: rgba(155,89,182,.18);
+    color: #fff;
+  }
+  /* Active: stays var(--lena-pink) — same as light sidebar, brand-consistent */
+  .app-shell--game .sidebar-link.is-active {
+    background: var(--lena-pink, var(--primary));
+    color: var(--text-primary, #1a0a35);
+    box-shadow: var(--shadow-btn);
+  }
+  .app-shell--game .sidebar-link.is-active:hover {
+    background: var(--lena-pink-dark, var(--primary-strong));
+    color: #fff;
+  }
+  /* Level pill: --lena-purple tones */
+  .app-shell--game .level-pill {
+    background: rgba(155,89,182,.2);
+    color: var(--lena-pink);
+    border: 1px solid rgba(155,89,182,.4);
+  }
+  /* Wallet: --lena-gold tones */
+  .app-shell--game .wallet-compact {
+    background: rgba(241,196,15,.12);
+    color: var(--lena-gold, var(--gold));
+    border: 1px solid rgba(241,196,15,.28);
+  }
+  /* Divider: existing --surface-border token */
+  .app-shell--game .sidebar-tools {
+    border-top-color: var(--surface-border);
+  }
+  /* Brand mark: --lena-pink → --lena-purple (both tokens) */
+  .app-shell--game .brand-inline__mark {
+    background: linear-gradient(135deg, var(--lena-pink), var(--lena-purple));
+    color: #fff;
+  }
+  .app-shell--game .brand-inline__name {
+    color: rgba(255,255,255,.85);
+  }
+  /* Utility icon links */
+  .app-shell--game .icon-link {
+    color: rgba(255,255,255,.45);
+  }
+  .app-shell--game .icon-link:hover {
+    color: #fff;
+    background: rgba(155,89,182,.15);
+  }
 }
