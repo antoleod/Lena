@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './dudu.css';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import FunContentCard from '../../shared/ui/FunContentCard.jsx';
 import NumPad from '../../shared/ui/NumPad.jsx';
 import {
   BADGES, GUIDED_EXERCISES, LEVELS, generateProblem, genSubtraction,
@@ -116,6 +117,7 @@ function ResultsPhase({ correct, total, onRetry, onHub, megaReto }) {
           </span>
         ))}
       </div>
+      <FunContentCard />
       <div className="dd-results-btns">
         <button className="dd-results-btn dd-results-btn--primary" onPointerDown={e => { e.preventDefault(); onRetry(); }} type="button">
           Rejouer

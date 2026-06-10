@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import FeedbackCard from '../../../shared/ui/FeedbackCard.jsx';
+import FunContentCard from '../../../shared/ui/FunContentCard.jsx';
 import NumericAnswerInput, { isNumericAnswerValue } from '../../../shared/ui/NumericAnswerInput.jsx';
 import { getExamLevel } from '../../../content/exams/registry.js';
 import ExamVisual, { autoVisual } from './ExamVisual.jsx';
@@ -560,14 +561,34 @@ export default function ExamRunnerPage() {
     }
 
     setSelected(value);
-    setFeedback(ok ? 'correct' : 'wrong');
     answeredMapRef.current[qIndex] = { userAnswer: String(value), correct: ok };
 
     const firstTry = isGuided ? !guidedRetry : true;
     if (ok) {
       setScore((s) => s + (isGuided && !firstTry ? 0.5 : 1));
       if (isGuided) setGuidedAttempts((prev) => [...prev, { firstTry }]);
+      // Skip correct feedback popup — auto-advance for all modes
+      const capturedQIndex = qIndex;
+      const capturedTotalQ = totalQ;
+      setTimeout(() => {
+        if (capturedQIndex + 1 >= capturedTotalQ) {
+          endExamRef.current();
+        } else {
+          setQIndex((i) => i + 1);
+          setSelected(null);
+          setInput('');
+          setFeedback(null);
+          setHelpCount(0);
+          setShowHelp(false);
+          setShowVisualHelp(false);
+          setAudioHelpUsed(false);
+          setGuidedRetry(false);
+          setGuidedHint('');
+        }
+      }, isGuided ? 600 : 320);
+      return;
     } else {
+      setFeedback('wrong');
       setWrongQuestions((prev) => {
         if (prev.find((q) => q === currentQ)) return prev;
         return [...prev, { ...currentQ, _userWrongAnswer: value }];
@@ -871,94 +892,74 @@ export default function ExamRunnerPage() {
     const pct = Math.round((score / totalQ) * 100);
     const passed = pct >= (level.passPercent ?? 60);
     const stars = starsFor(score, totalQ, level.passPercent);
+    const nextLevel = levelKey === 'facile' ? 'moyen' : levelKey === 'moyen' ? 'difficile' : null;
     return (
-      <div className="reader-page" style={{ justifyContent: 'center', padding: '40px 16px' }}>
-        <div className="reader-card" style={{ textAlign: 'center', gap: 14, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <span style={{ fontSize: '3rem' }}>{passed ? '🏆' : '💪'}</span>
-          <h2 style={{ margin: 0 }}>{passed ? ui.passed : ui.keepPractising}</h2>
-          <p style={{ margin: 0 }}>{exam.emoji} {exam.title} · {levelMeta?.label}</p>
-          <p style={{ fontSize: '1.6rem', fontWeight: 700 }}>{score} / {totalQ} <span style={{ fontSize: '1rem', opacity: .7 }}>({pct}%)</span></p>
-          <p style={{ fontSize: '1.8rem', letterSpacing: 4 }}>
-            {[1, 2, 3].map((i) => <span key={i} style={{ opacity: i <= stars ? 1 : 0.25 }}>⭐</span>)}
-          </p>
-          {isGuided && guidedAttempts.length > 0 && (() => {
-            const firstTryCount = guidedAttempts.filter((a) => a.firstTry).length;
-            const total = guidedAttempts.length;
-            const pctFirst = Math.round((firstTryCount / total) * 100);
-            return (
-              <div className="exam-help-summary">
-                <div className="exam-help-summary__row">
-                  <span>🎯 Du premier coup</span>
-                  <strong>{firstTryCount}/{total} ({pctFirst}%)</strong>
+      <div className="reader-page" style={{ justifyContent: 'center', padding: '32px 16px' }}>
+        <div className="reader-card">
+          <div className="exam-results">
+            <div className="exam-results__trophy">{passed ? '🏆' : '💪'}</div>
+            <h2 className="exam-results__title">{passed ? ui.passed : ui.keepPractising}</h2>
+            <p className="exam-results__subtitle">{exam.emoji} {exam.title}{levelMeta?.label ? ` · ${levelMeta.label}` : ''}</p>
+            <p className="exam-results__score">{score} / {totalQ} <span>({pct}%)</span></p>
+            <div className="exam-results__stars">
+              {[1, 2, 3].map((i) => <span key={i} style={{ opacity: i <= stars ? 1 : 0.2 }}>⭐</span>)}
+            </div>
+
+            {isGuided && guidedAttempts.length > 0 && (() => {
+              const firstTryCount = guidedAttempts.filter((a) => a.firstTry).length;
+              const tot = guidedAttempts.length;
+              const pctFirst = Math.round((firstTryCount / tot) * 100);
+              return (
+                <div className="exam-help-summary">
+                  <div className="exam-help-summary__row"><span>🎯 Du premier coup</span><strong>{firstTryCount}/{tot} ({pctFirst}%)</strong></div>
+                  <div className="exam-help-summary__row exam-help-summary__row--sub"><span>💡 Avec aide</span><span>{tot - firstTryCount}</span></div>
+                  <p className="exam-help-summary__msg">{firstTryCount === tot ? '🌟 Bravo ! Tout réussi du premier coup !' : firstTryCount >= tot * 0.7 ? '👍 Très bien ! Tu maîtrises bien le sujet.' : '💪 Continue à t\'entraîner, tu progresses !'}</p>
                 </div>
-                <div className="exam-help-summary__row exam-help-summary__row--sub">
-                  <span>💡 Avec aide</span>
-                  <span>{total - firstTryCount}</span>
+              );
+            })()}
+
+            {isComprehension && helpWeights.length > 0 && (() => {
+              const weightedPct = Math.round((helpWeights.reduce((a, b) => a + b, 0) / helpWeights.length) * 100);
+              return (
+                <div className="exam-help-summary">
+                  <div className="exam-help-summary__row"><span>🎯 Score ajusté avec aides</span><strong>{weightedPct}%</strong></div>
+                  {totalHelpsUsed > 0 && <div className="exam-help-summary__row exam-help-summary__row--sub"><span>💡 Aides utilisées</span><span>{totalHelpsUsed}</span></div>}
+                  <p className="exam-help-summary__msg">{totalHelpsUsed === 0 ? 'Bravo, tu as répondu sans aide !' : totalHelpsUsed <= 2 ? 'Bien joué ! Tu as utilisé un peu d\'aide.' : 'Continue à t\'entraîner pour ne plus avoir besoin d\'aide !'}</p>
                 </div>
-                <p className="exam-help-summary__msg">
-                  {firstTryCount === total
-                    ? '🌟 Bravo ! Tu as tout réussi du premier coup !'
-                    : firstTryCount >= total * 0.7
-                      ? '👍 Très bien ! Tu maîtrises bien le sujet.'
-                      : '💪 Continue à t\'entraîner, tu progresses !'}
-                </p>
-              </div>
-            );
-          })()}
-          {isComprehension && helpWeights.length > 0 && (() => {
-            const weightedPct = helpWeights.length > 0
-              ? Math.round((helpWeights.reduce((a, b) => a + b, 0) / helpWeights.length) * 100)
-              : Math.round((score / totalQ) * 100);
-            return (
-              <div className="exam-help-summary">
-                <div className="exam-help-summary__row">
-                  <span>🎯 Score ajuste avec aides</span>
-                  <strong>{weightedPct}%</strong>
-                </div>
-                {totalHelpsUsed > 0 && (
-                  <div className="exam-help-summary__row exam-help-summary__row--sub">
-                    <span>💡 Aides utilisees</span>
-                    <span>{totalHelpsUsed}</span>
-                  </div>
-                )}
-                <p className="exam-help-summary__msg">
-                  {totalHelpsUsed === 0
-                    ? 'Bravo, tu as repondu sans aide !'
-                    : totalHelpsUsed <= 2
-                      ? 'Bien joue ! Tu as utilise un peu d\'aide.'
-                      : 'Continue a t\'entrainer pour ne plus avoir besoin d\'aide !'}
-                </p>
-              </div>
-            );
-          })()}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', marginTop: 8 }}>
-            <button type="button" className="reader-btn reader-btn--next" style={{ width: '100%' }} onClick={restart}>{ui.restart}</button>
-            {wrongQuestions.length > 0 && (
-              <button
-                type="button"
-                className="reader-btn reader-btn--listen"
-                style={{ width: '100%' }}
-                onClick={() => {
-                  setRevIndex(0);
-                  setRevSelected(null);
-                  setRevInput('');
-                  setRevFeedback(null);
-                  setPhase('revisions');
-                }}
-              >
-                📝 {ui.reviserErreurs} ({wrongQuestions.length})
-              </button>
-            )}
-            {wrongQuestions.length > 0 && (
-              <button
-                type="button"
-                className="repaso-btn"
-                onPointerDown={e => { e.preventDefault(); navigate('/exam/repaso'); }}
-              >
-                📚 {repasoLabel[locale]} ({wrongQuestions.length})
-              </button>
-            )}
-            <button type="button" className="reader-btn reader-btn--start" style={{ width: '100%' }} onClick={() => navigate(`/exam/library/${exam.category}`)}>{ui.otherExams}</button>
+              );
+            })()}
+
+            <FunContentCard />
+
+            <div className="exam-results__actions">
+              {passed && nextLevel && (
+                <button
+                  type="button"
+                  className="reader-btn reader-btn--next-level"
+                  style={{ width: '100%' }}
+                  onClick={() => { window.location.href = `/exam/library/play?exam=${examId}&level=${nextLevel}`; }}
+                >
+                  🚀 {nextLevel === 'moyen' ? '⬆️ Passer au niveau Moyen' : '🔥 Passer au niveau Difficile'}
+                </button>
+              )}
+              <button type="button" className="reader-btn reader-btn--next" style={{ width: '100%' }} onClick={restart}>{ui.restart}</button>
+              {wrongQuestions.length > 0 && (
+                <button
+                  type="button"
+                  className="reader-btn reader-btn--listen"
+                  style={{ width: '100%' }}
+                  onClick={() => { setRevIndex(0); setRevSelected(null); setRevInput(''); setRevFeedback(null); setPhase('revisions'); }}
+                >
+                  📝 {ui.reviserErreurs} ({wrongQuestions.length})
+                </button>
+              )}
+              {wrongQuestions.length > 0 && (
+                <button type="button" className="repaso-btn" onPointerDown={e => { e.preventDefault(); navigate('/exam/repaso'); }}>
+                  📚 {repasoLabel[locale]} ({wrongQuestions.length})
+                </button>
+              )}
+              <button type="button" className="reader-btn reader-btn--start" style={{ width: '100%' }} onClick={() => navigate(`/exam/library/${exam.category}`)}>{ui.otherExams}</button>
+            </div>
           </div>
         </div>
       </div>
@@ -1174,10 +1175,10 @@ export default function ExamRunnerPage() {
         )}
       </div>
 
-      {feedback && (
+      {feedback === 'wrong' && (
         <FeedbackCard
-          isCorrect={feedback === 'correct'}
-          correctAnswer={feedback === 'wrong' ? (currentQ.type === 'true_false' ? (currentQ.answer ? ui.vrai : ui.faux) : String(currentQ.answer)) : null}
+          isCorrect={false}
+          correctAnswer={currentQ.type === 'true_false' ? (currentQ.answer ? ui.vrai : ui.faux) : String(currentQ.answer)}
           locale={locale}
           onNext={next}
           explanation={currentQ.correction ? getLocalizedField(currentQ, 'correction', locale) : undefined}

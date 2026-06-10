@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './verb.css';
 import FeedbackCard from '../../shared/ui/FeedbackCard.jsx';
+import FunContentCard from '../../shared/ui/FunContentCard.jsx';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import {
   VERBES, NIVEAUX, VERB_BADGES, ENCOURAGEMENTS_VERB, HISTOIRES,
@@ -576,6 +577,7 @@ export default function VerbPage() {
               <span key={s} className="vb-results-star">{s <= stars ? '⭐' : '☆'}</span>
             ))}
           </div>
+          <FunContentCard />
           <div className="vb-results-btns">
             <button
               className="vb-results-btn vb-results-btn--primary"
