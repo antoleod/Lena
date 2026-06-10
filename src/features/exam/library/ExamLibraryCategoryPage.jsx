@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getCategories, getExamsByCategory } from '../../../content/exams/registry.js';
 import { getCategoryLabel, getCategoryEmoji, getDifficultyLevels, getExamUi } from '../../../content/exams/examI18n.js';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { getResult, starsFor } from './examLibraryProgress.js';
+import { isFavorite, toggleFavorite } from './examFavoritesStore.js';
 import {
   IconGeoB01, IconGeoB02, IconGeoB03, IconGeoB04, IconGeoB05,
   IconGeoB06, IconGeoB07, IconGeoB08, IconGeoB09, IconGeoB10,
@@ -119,6 +120,8 @@ export default function ExamLibraryCategoryPage() {
   const badgeLabels = NEW_BADGE_LABEL[locale] || NEW_BADGE_LABEL.fr;
 
   const [exams, setExams] = useState(null);
+  // Use a render counter so toggling favorites re-renders without separate state per exam
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   useEffect(() => {
     let cancelled = false;
@@ -220,6 +223,14 @@ export default function ExamLibraryCategoryPage() {
                 {isDone && <span className="ec-card__crown" aria-hidden="true">👑</span>}
                 {isDone && <span className="ec-card__check-badge" aria-hidden="true">✓</span>}
                 {isNew && <span className="ec-card__new-tag">✨ {badgeLabel}</span>}
+                <button
+                  type="button"
+                  aria-label={isFavorite(exam.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFavorite(exam.id); forceUpdate(); }}
+                  style={{ position: 'absolute', top: 8, right: 8, background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.3rem', lineHeight: 1, zIndex: 2, padding: 2, filter: isFavorite(exam.id) ? 'none' : 'grayscale(1) opacity(0.5)' }}
+                >
+                  ⭐
+                </button>
               </div>
 
               {/* Body */}

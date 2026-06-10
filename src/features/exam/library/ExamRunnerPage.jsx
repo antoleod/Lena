@@ -12,6 +12,7 @@ import { recordStudyTime } from '../../../services/storage/progressStore.js';
 import { saveResult, starsFor } from './examLibraryProgress.js';
 import { saveHistoryEntry } from './examHistoryStore.js';
 import { generateExercises } from '../../exerciseGenerator/exerciseEngine.js';
+import { isFavorite, toggleFavorite, recordRecentExam } from './examFavoritesStore.js';
 
 /* ── Guided hint: build a rich hint object from question + wrong answer ── */
 function buildRichHint(q, wrongAnswer, locale) {
@@ -323,6 +324,9 @@ export default function ExamRunnerPage() {
   const [helpWeights, setHelpWeights] = useState([]);
   const [audioHelpUsed, setAudioHelpUsed] = useState(false);
 
+  // Favorites
+  const [favorited, setFavorited] = useState(() => (examId ? isFavorite(examId) : false));
+
   // Feature A — mute toggle, persisted to localStorage
   const [muted, setMuted] = useState(() => {
     try { return localStorage.getItem('lena:exam-mute') === 'true'; } catch (_) { return false; }
@@ -531,6 +535,14 @@ export default function ExamRunnerPage() {
               setShowVisualHelp(false);
               setAudioHelpUsed(false);
               startRef.current = Date.now();
+              recordRecentExam({
+                examId: exam.id,
+                levelKey,
+                title: exam.title,
+                emoji: exam.emoji || '📝',
+                category: exam.category,
+                categoryEmoji: exam.categoryEmoji || '📚',
+              });
               setPhase(hasStory ? 'read' : 'quiz');
             }}
           >
@@ -663,27 +675,7 @@ export default function ExamRunnerPage() {
 
   function next() {
     if (qIndex + 1 >= totalQ) {
-      const elapsed = Math.round((Date.now() - startRef.current) / 1000);
-      recordStudyTime(elapsed);
-      saveResult(exam.id, levelKey, score, totalQ);
-      saveHistoryEntry({
-        examId: exam.id,
-        examTitle: exam.title,
-        examEmoji: exam.emoji || '📝',
-        levelKey,
-        score,
-        total: totalQ,
-        pct: Math.round((score / totalQ) * 100),
-        ts: Date.now(),
-        questions: (activeQuestions || allQuestions).map((q) => ({
-          prompt: getLocalizedField(q, 'prompt', locale),
-          answer: q.answer,
-          userAnswer: '?',
-          correct: false,
-        })),
-      });
-      saveRepasoData(wrongQuestions);
-      setPhase('end');
+      endExamRef.current();
     } else {
       setQIndex((i) => i + 1);
       setSelected(null);
@@ -931,6 +923,22 @@ export default function ExamRunnerPage() {
 
             <FunContentCard />
 
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
+              <button
+                type="button"
+                onClick={() => { const now = toggleFavorite(examId); setFavorited(now); }}
+                style={{ background: 'none', border: '2px solid rgba(255,255,255,0.2)', borderRadius: 20, cursor: 'pointer', fontSize: '1rem', padding: '6px 16px', color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}
+              >
+                {favorited ? '⭐ Favori' : '☆ Ajouter aux favoris'}
+              </button>
+            </div>
+
+            {passed && !nextLevel && (
+              <div style={{ textAlign: 'center', padding: '10px 0 4px', fontSize: '0.92rem', color: 'var(--muted, rgba(255,255,255,0.7))' }}>
+                🎉 {locale === 'nl' ? 'Bravo ! Je hebt alle niveaus voltooid.' : locale === 'en' ? 'Bravo! You completed all levels.' : locale === 'es' ? '¡Bravo! Has completado todos los niveles.' : 'Bravo ! Tu as terminé cette série.'}
+              </div>
+            )}
+
             <div className="exam-results__actions">
               {passed && nextLevel && (
                 <button
@@ -992,6 +1000,17 @@ export default function ExamRunnerPage() {
   }
 
   // ── QUIZ ─────────────────────────────────────────────────────────────────
+  // Guard: if questions exhausted unexpectedly (empty set after filtering, etc.)
+  if (phase === 'quiz' && !currentQ) {
+    // End the exam cleanly rather than crashing on undefined question
+    setTimeout(() => { if (endExamRef.current) endExamRef.current(); }, 0);
+    return (
+      <div className="reader-page" style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <p style={{ color: '#fff' }}>Chargement…</p>
+      </div>
+    );
+  }
+
   const currentVisual = autoVisual(exam?.category, currentQ);
   const currentVisualIsHelp = !!currentVisual && !currentQ?.visual;
 
@@ -1001,6 +1020,15 @@ export default function ExamRunnerPage() {
         <button type="button" className="exam-back-btn" style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.1rem', color: '#fff' }} onClick={() => navigate(`/exam/library/${exam.category}`)}>←</button>
         <span style={{ color: '#fff', fontWeight: 700 }}>{exam.title} · {levelMeta?.label ?? (isGuided ? (locale === 'nl' ? 'Begeleid' : locale === 'en' ? 'Guided' : locale === 'es' ? 'Guiado' : 'Guidé') : levelKey)}</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <button
+            type="button"
+            aria-label={favorited ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+            title={favorited ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+            onClick={() => { const now = toggleFavorite(examId); setFavorited(now); }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.2rem', padding: '0 2px', lineHeight: 1 }}
+          >
+            {favorited ? '⭐' : '☆'}
+          </button>
           <button
             type="button"
             aria-label={muted ? ui.muteOn : ui.muteOff}
