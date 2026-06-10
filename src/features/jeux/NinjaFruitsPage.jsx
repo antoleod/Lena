@@ -17,14 +17,13 @@ const SPECIAL_TYPES = {
 };
 const SPECIAL_KEYS = Object.keys(SPECIAL_TYPES);
 const LEVELS = [
-  { label: 'Niveau 1', ops: ['+'],               max: 10,  speed: 60 },
-  { label: 'Niveau 2', ops: ['+','-'],            max: 20,  speed: 50 },
-  { label: 'Niveau 3', ops: ['+','-','×'],        max: 30,  speed: 45 },
-  { label: 'Niveau 4', ops: ['×','÷'],            max: 10,  speed: 40 },
-  { label: 'Niveau 5', ops: ['+','-','×','÷'],    max: 12,  speed: 35 },
+  { label: 'Niveau 1', ops: ['+'],               max: 10,  speed: 60, maxFruits: 5 },
+  { label: 'Niveau 2', ops: ['+','-'],            max: 20,  speed: 50, maxFruits: 6 },
+  { label: 'Niveau 3', ops: ['+','-','×'],        max: 30,  speed: 45, maxFruits: 6 },
+  { label: 'Niveau 4', ops: ['×','÷'],            max: 10,  speed: 40, maxFruits: 7 },
+  { label: 'Niveau 5', ops: ['+','-','×','÷'],    max: 12,  speed: 35, maxFruits: 7 },
 ];
 const TOTAL_TIME   = 60;
-const TARGET_FRUITS = 14;
 const MAX_LIVES    = 3;
 const SPECIAL_INTERVAL = 12; // seconds between special spawns
 const HUD_REFRESH  = 0.15;   // seconds between React HUD updates
@@ -200,8 +199,8 @@ export default function NinjaFruitsPage() {
   }
 
   // ── Build initial fruit pool ─────────────────────────────────────────────────
-  function buildFruitPool(q) {
-    const wrongs = buildWrongValues(q.answer, TARGET_FRUITS - 1);
+  function buildFruitPool(q, maxFruits) {
+    const wrongs = buildWrongValues(q.answer, maxFruits - 1);
     const all = shuffle([
       { value: q.answer, isCorrect: true },
       ...wrongs.map(v => ({ value: v, isCorrect: false })),
@@ -273,11 +272,12 @@ export default function NinjaFruitsPage() {
       }
     });
 
-    // Spawn 2 replacement fruits with wrong values
-    for (let i = 0; i < 2; i++) {
+    // Spawn replacements only up to the level's fruit limit
+    const aliveNow = gs.fruits.filter(f => f.state === 'alive').length;
+    const needed = gs.maxFruits - aliveNow;
+    for (let i = 0; i < Math.max(0, needed); i++) {
       const v = wrongPool[wrongIdx++] ?? (newQ.answer + wrongIdx + 10);
-      const newFruit = spawnFruit(gs.nextId++, v, false);
-      gs.fruits.push(newFruit);
+      gs.fruits.push(spawnFruit(gs.nextId++, v, false));
     }
 
     setQuestion({ ...newQ });
@@ -364,9 +364,9 @@ export default function NinjaFruitsPage() {
       gs.specials.push(s);
     }
 
-    // Auto-fill fruits
+    // Auto-fill fruits up to the level's limit
     const aliveFruits = gs.fruits.filter(f => f.state === 'alive').length;
-    if (aliveFruits < TARGET_FRUITS - 2) {
+    if (aliveFruits < gs.maxFruits) {
       const v = pick(buildWrongValues(gs.question.answer, 3));
       gs.fruits.push(spawnFruit(gs.nextId++, v, false));
     }
@@ -481,7 +481,7 @@ export default function NinjaFruitsPage() {
     specialElsRef.current.clear();
 
     const q = makeQuestion(level.ops, level.max);
-    const fruits = buildFruitPool(q);
+    const fruits = buildFruitPool(q, level.maxFruits);
     let idCounter = fruits.length;
 
     gsRef.current = {
@@ -498,6 +498,7 @@ export default function NinjaFruitsPage() {
       lastTs: 0,
       hudTimer: 0,
       specialTimer: SPECIAL_INTERVAL,
+      maxFruits: level.maxFruits,
     };
 
     setQuestion({ ...q });
