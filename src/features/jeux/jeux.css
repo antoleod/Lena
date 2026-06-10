@@ -2568,6 +2568,119 @@
 }
 @keyframes nf-bubble-in { from{transform:scale(.7) translateX(-8px);opacity:0} to{transform:scale(1);opacity:1} }
 
+/* ── Custom mode panel ── */
+.nf-level-btn--custom {
+  background: rgba(99,102,241,.18);
+  border-color: rgba(99,102,241,.4);
+  color: #a5b4fc;
+  font-size: 1.1rem;
+  min-width: 48px;
+}
+.nf-level-btn--custom.nf-level-btn--active {
+  background: linear-gradient(135deg,#6366f1,#8b5cf6);
+  border-color: transparent;
+  color: #fff;
+}
+.nf-custom-panel {
+  background: rgba(99,102,241,.1);
+  border: 1.5px solid rgba(99,102,241,.25);
+  border-radius: 18px;
+  padding: 16px 18px 12px;
+  margin: 4px 20px 0;
+  width: calc(100% - 40px);
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: nf-panel-in .22s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes nf-panel-in { from{opacity:0;transform:translateY(-8px) scale(.97)} to{opacity:1;transform:none} }
+.nf-custom-panel__title {
+  font-size: .85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: #a5b4fc;
+  margin: 0;
+}
+.nf-custom-section { display: flex; flex-direction: column; gap: 7px; }
+.nf-custom-label {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  opacity: .55;
+}
+.nf-custom-ops { display: flex; gap: 8px; }
+.nf-custom-op-btn {
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.07);
+  color: rgba(255,255,255,.6);
+  font-size: 1.4rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, transform .1s, color .15s;
+  touch-action: manipulation;
+  display: flex; align-items: center; justify-content: center;
+}
+.nf-custom-op-btn--on {
+  background: linear-gradient(135deg,#6366f1,#8b5cf6);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.08);
+}
+.nf-custom-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.nf-custom-chip {
+  padding: 7px 12px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.07);
+  color: rgba(255,255,255,.6);
+  font-size: .82rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s, transform .1s;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+.nf-custom-chip--on {
+  background: linear-gradient(135deg,#f97316,#ef4444);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.06);
+}
+.nf-custom-preview {
+  margin: 0;
+  font-size: .78rem;
+  opacity: .55;
+  text-align: center;
+  letter-spacing: .03em;
+}
+
+/* ── Fruit halves (ninja slash effect) ── */
+.nf-half {
+  position: absolute;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 40;
+  transform: translate(-50%, -50%);
+  animation: nf-half-fly 0.65s cubic-bezier(.2,.8,.4,1) forwards;
+  will-change: transform, opacity;
+}
+.nf-half--left  { animation-name: nf-half-left; }
+.nf-half--right { animation-name: nf-half-right; }
+@keyframes nf-half-left {
+  0%   { transform: translate(-50%,-50%) rotate(0deg) scale(1);   opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scale(0.4); opacity: 0; }
+}
+@keyframes nf-half-right {
+  0%   { transform: translate(-50%,-50%) rotate(0deg) scale(1);   opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scale(0.4); opacity: 0; }
+}
+
 /* ── Bataille de Monstres (bm2-) ── */
 .bm2-page {
   min-height: 100svh;

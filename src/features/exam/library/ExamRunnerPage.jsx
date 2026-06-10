@@ -378,7 +378,7 @@ export default function ExamRunnerPage() {
 
   // Feature B — confetti + chime on pass
   useEffect(() => {
-    if (phase !== 'end' || !data) return;
+    if (phase !== 'end' || !data || !totalQ) return;
     const { level } = data;
     const pct = Math.round((score / totalQ) * 100);
     const passed = pct >= (level.passPercent ?? 60);
@@ -386,6 +386,13 @@ export default function ExamRunnerPage() {
     fireConfetti();
     playRewardChime();
   }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Guard: end exam cleanly when questions array is empty (e.g. all filtered as duplicates)
+  useEffect(() => {
+    if (phase === 'quiz' && !currentQ && endExamRef.current) {
+      endExamRef.current();
+    }
+  }, [phase, currentQ]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Timer countdown
   const endExamRef = useRef(null);
@@ -649,7 +656,7 @@ export default function ExamRunnerPage() {
   endExamRef.current = () => {
     const elapsed = Math.round((Date.now() - startRef.current) / 1000);
     recordStudyTime(elapsed);
-    saveResult(exam?.id, levelKey, score, totalQ);
+    if (totalQ > 0) saveResult(exam?.id, levelKey, score, totalQ);
     saveHistoryEntry({
       examId: exam?.id,
       examTitle: exam?.title,
@@ -657,7 +664,7 @@ export default function ExamRunnerPage() {
       levelKey,
       score,
       total: totalQ,
-      pct: Math.round((score / totalQ) * 100),
+      pct: totalQ > 0 ? Math.round((score / totalQ) * 100) : 0,
       ts: Date.now(),
       questions: (activeQuestions || allQuestions).map((q, i) => {
         const recorded = answeredMapRef.current[i];
@@ -1000,10 +1007,8 @@ export default function ExamRunnerPage() {
   }
 
   // ── QUIZ ─────────────────────────────────────────────────────────────────
-  // Guard: if questions exhausted unexpectedly (empty set after filtering, etc.)
+  // Guard: questions array empty — useEffect above will call endExamRef; show spinner
   if (phase === 'quiz' && !currentQ) {
-    // End the exam cleanly rather than crashing on undefined question
-    setTimeout(() => { if (endExamRef.current) endExamRef.current(); }, 0);
     return (
       <div className="reader-page" style={{ justifyContent: 'center', alignItems: 'center' }}>
         <p style={{ color: '#fff' }}>Chargement…</p>

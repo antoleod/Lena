@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes, useParams, useSearchParams } from 'react-router-dom';
+import ErrorBoundary from '../ErrorBoundary.jsx';
 import AppShell from '../layout/AppShell.jsx';
 import HomePage from '../../features/home/HomePage.jsx';
 import SubjectPage from '../../features/subject/SubjectPage.jsx';
@@ -171,6 +172,7 @@ export default function AppRouter() {
   }, []);
 
   return (
+    <ErrorBoundary>
     <Routes>
       <Route path="/onboarding" element={needsOnboarding || onboardingActive ? <OnboardingFlow /> : <Navigate to="/" replace />} />
       <Route element={<AppShell />}>
@@ -257,12 +259,11 @@ export default function AppRouter() {
         <Route path="/jeux/comparaison" element={<PlusPetitPlusGrandPage />} />
         <Route path="/jeux/plus-petit-plus-grand" element={<Navigate to="/jeux/comparaison" replace />} />
         <Route path="/jeux/codeur-maths" element={<CodeurMathsPage />} />
-        {/* ── Games coming soon (placeholder pages) ── */}
+        {/* ── Games ── */}
         <Route path="/jeux/casse-briques"   element={<ComingSoonPage />} />
         <Route path="/jeux/snake"           element={<SnakePage />} />
         <Route path="/jeux/ninja-fruits"    element={<NinjaFruitsPage />} />
         <Route path="/jeux/bataille-monstres" element={<BatailleMonstresPage />} />
-        <Route path="/jeux/synonymes"       element={<ComingSoonPage />} />
         <Route path="/jeux/anagrammes"      element={<ComingSoonPage />} />
         <Route path="/jeux/poesie"          element={<ComingSoonPage />} />
         <Route path="/jeux/geometrie"       element={<ComingSoonPage />} />
@@ -298,5 +299,6 @@ export default function AppRouter() {
         <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
       </Route>
     </Routes>
+    </ErrorBoundary>
   );
 }

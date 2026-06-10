@@ -23,6 +23,25 @@ const LEVELS = [
   { label: 'Niveau 4', ops: ['×','÷'],            max: 10,  speed: 40, maxFruits: 7 },
   { label: 'Niveau 5', ops: ['+','-','×','÷'],    max: 12,  speed: 35, maxFruits: 7 },
 ];
+
+const CUSTOM_LEVEL = 0; // sentinel for custom mode
+
+const MAX_OPTIONS   = [10, 20, 50, 100, 200, 500, 1000];
+const SPEED_OPTIONS = [
+  { label: '🐢 Lent',    value: 90 },
+  { label: '🚶 Normal',  value: 60 },
+  { label: '🏃 Rapide',  value: 40 },
+  { label: '⚡ Éclair',  value: 20 },
+];
+const ALL_OPS = ['+', '-', '×', '÷'];
+
+const CUSTOM_STORAGE_KEY = 'lena:ninja-custom:v1';
+function loadCustomConfig() {
+  try { return JSON.parse(localStorage.getItem(CUSTOM_STORAGE_KEY) || 'null'); } catch { return null; }
+}
+function saveCustomConfig(cfg) {
+  try { localStorage.setItem(CUSTOM_STORAGE_KEY, JSON.stringify(cfg)); } catch {}
+}
 const TOTAL_TIME   = 60;
 const MAX_LIVES    = 3;
 const SPECIAL_INTERVAL = 12; // seconds between special spawns
@@ -123,7 +142,11 @@ export default function NinjaFruitsPage() {
 
   const [phase, setPhase] = useState('setup');
   const [selectedLevel, setSelectedLevel] = useState(Math.min(progress.unlockedLevel ?? 1, 5));
-  const [hudState, setHudState] = useState({ score: 0, lives: MAX_LIVES, streak: 0, timeLeft: TOTAL_TIME });
+  const [showCustom, setShowCustom] = useState(false);
+  const [customOps, setCustomOps] = useState(() => loadCustomConfig()?.ops ?? ['+', '-']);
+  const [customMax, setCustomMax] = useState(() => loadCustomConfig()?.max ?? 20);
+  const [customSpeed, setCustomSpeed] = useState(() => loadCustomConfig()?.speed ?? 60);
+  const [hudState, setHudState] = useState({ score: 0, lives: MAX_LIVES, streak: 0, timeLeft: TOTAL_TIME }); // timeLeft updated at startGame with level.speed
   const [question, setQuestion] = useState(null);
   const [mascotMsg, setMascotMsg] = useState(null);
   const [comboMsg, setComboMsg] = useState(null);
@@ -140,7 +163,9 @@ export default function NinjaFruitsPage() {
   const comboTimerRef  = useRef(null);
   const lockedRef  = useRef(false);
 
-  const level = LEVELS[selectedLevel - 1];
+  const level = selectedLevel === CUSTOM_LEVEL
+    ? { label: '⚙️ Personnalisé', ops: customOps.length ? customOps : ['+'], max: customMax, speed: customSpeed, maxFruits: 6 }
+    : LEVELS[selectedLevel - 1];
 
   // ── Mascot ──────────────────────────────────────────────────────────────────
   function showMascot(key) {
@@ -176,6 +201,51 @@ export default function NinjaFruitsPage() {
     }
   }
 
+  // ── Ninja slash (canvas) ─────────────────────────────────────────────────────
+  function spawnSlash(px, py, isCorrect) {
+    const gs = gsRef.current;
+    if (!gs) return;
+    // Main slash: bright diagonal line
+    const baseAngle = rnd(-0.5, 0.5) + Math.PI / 4; // roughly top-left → bottom-right
+    gs.slashes.push({
+      x: px, y: py,
+      angle: baseAngle,
+      length: rnd(70, 110),
+      life: 1,
+      decay: 5.5,
+      color: isCorrect ? '#ffffff' : '#ef4444',
+      width: rnd(4, 7),
+    });
+    // Secondary thinner slash slightly offset
+    gs.slashes.push({
+      x: px + rnd(-8, 8), y: py + rnd(-8, 8),
+      angle: baseAngle + rnd(-0.25, 0.25),
+      length: rnd(35, 55),
+      life: 0.7,
+      decay: 6.5,
+      color: isCorrect ? '#fcd34d' : '#fb923c',
+      width: rnd(2, 3.5),
+    });
+  }
+
+  // ── Fruit halves flying apart (DOM) ─────────────────────────────────────────
+  function spawnFruitHalves(px, py, emoji) {
+    const arena = arenaRef.current;
+    if (!arena) return;
+
+    [
+      { cls: 'nf-half nf-half--left',  dx: rnd(-90, -40), dy: rnd(-80, -20), rot: rnd(-80, -30) },
+      { cls: 'nf-half nf-half--right', dx: rnd( 40,  90), dy: rnd(-80, -20), rot: rnd( 30,  80) },
+    ].forEach(({ cls, dx, dy, rot }) => {
+      const el = document.createElement('div');
+      el.className = cls;
+      el.textContent = emoji;
+      el.style.cssText = `left:${px}px;top:${py}px;--dx:${dx}px;--dy:${dy}px;--rot:${rot}deg;`;
+      arena.appendChild(el);
+      setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 700);
+    });
+  }
+
   function updateCanvas(dt) {
     const canvas = canvasRef.current;
     const gs = gsRef.current;
@@ -183,6 +253,26 @@ export default function NinjaFruitsPage() {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Draw slash lines
+    gs.slashes = gs.slashes.filter(s => s.life > 0);
+    for (const s of gs.slashes) {
+      const alpha = Math.pow(Math.max(0, s.life), 0.6);
+      ctx.globalAlpha = alpha;
+      ctx.strokeStyle = s.color;
+      ctx.lineWidth = s.width * Math.max(0.3, s.life);
+      ctx.lineCap = 'round';
+      ctx.shadowColor = s.color;
+      ctx.shadowBlur = 12 * s.life;
+      const half = (s.length / 2) * Math.min(1, (1 - s.life) * 4 + 0.2); // grow then stay
+      ctx.beginPath();
+      ctx.moveTo(s.x - Math.cos(s.angle) * half, s.y - Math.sin(s.angle) * half);
+      ctx.lineTo(s.x + Math.cos(s.angle) * half, s.y + Math.sin(s.angle) * half);
+      ctx.stroke();
+      s.life -= s.decay * dt;
+    }
+    ctx.shadowBlur = 0;
+
+    // Draw particles
     gs.particles = gs.particles.filter(p => p.life > 0);
     for (const p of gs.particles) {
       p.x  += p.vx * dt;
@@ -222,7 +312,8 @@ export default function NinjaFruitsPage() {
     const finalLives = gs.lives;
     const stars = finalLives >= MAX_LIVES ? 3 : finalLives >= 1 ? 2 : 1;
     const secs = elapsedSecs();
-    const result = saveSession({ score: finalScore, level: selectedLevel, stars });
+    // Custom mode (0) counts as level 1 for progression tracking
+    const result = saveSession({ score: finalScore, level: selectedLevel || 1, stars });
     setHudState({ score: finalScore, lives: finalLives, streak: gs.streak, timeLeft: 0 });
     setSessionResult({ ...result, timeSecs: secs, stars, finalScore, finalLives });
     setPhase('results');
@@ -293,6 +384,7 @@ export default function NinjaFruitsPage() {
       const item = gs.specials.find(s => s.id === id);
       if (!item || item.state !== 'alive') return;
       item.state = 'popping'; item.stateTimer = 0.3;
+      spawnSlash(px, py, true);
       spawnParticles(px, py, ['#fcd34d','#f59e0b','#fb923c'], 12);
 
       if (specialType === 'star')  { gs.score += 50; showMascot('star'); }
@@ -311,6 +403,8 @@ export default function NinjaFruitsPage() {
       gs.streak++;
       triggerCorrect();
       triggerScore(`+${gs.streak >= 5 ? 30 : gs.streak >= 2 ? 20 : 10}`);
+      spawnSlash(px, py, true);
+      spawnFruitHalves(px, py, fruit.emoji);
       spawnParticles(px, py, PARTICLE_COLORS_CORRECT, 22);
 
       if (gs.streak >= 10) { triggerCombo(gs.streak); showCombo('⚡ INCROYABLE ×10 !!'); showMascot('combo10'); }
@@ -325,6 +419,8 @@ export default function NinjaFruitsPage() {
       gs.streak = 0;
       gs.lives -= 1;
       triggerWrong();
+      spawnSlash(px, py, false);
+      spawnFruitHalves(px, py, fruit.emoji);
       spawnParticles(px, py, PARTICLE_COLORS_WRONG, 12);
       showMascot('wrong');
 
@@ -476,6 +572,9 @@ export default function NinjaFruitsPage() {
 
   // ── Start ────────────────────────────────────────────────────────────────────
   function startGame() {
+    if (selectedLevel === CUSTOM_LEVEL) {
+      saveCustomConfig({ ops: customOps.length ? customOps : ['+'], max: customMax, speed: customSpeed });
+    }
     cancelAnimationFrame(animRef.current);
     fruitElsRef.current.clear();
     specialElsRef.current.clear();
@@ -489,11 +588,12 @@ export default function NinjaFruitsPage() {
       fruits,
       specials: [],
       particles: [],
+      slashes: [],
       question: q,
       score: 0,
       lives: MAX_LIVES,
       streak: 0,
-      timeLeft: TOTAL_TIME,
+      timeLeft: level.speed,
       nextId: idCounter,
       lastTs: 0,
       hudTimer: 0,
@@ -502,7 +602,7 @@ export default function NinjaFruitsPage() {
     };
 
     setQuestion({ ...q });
-    setHudState({ score: 0, lives: MAX_LIVES, streak: 0, timeLeft: TOTAL_TIME });
+    setHudState({ score: 0, lives: MAX_LIVES, streak: 0, timeLeft: level.speed });
     setMascotMsg(null);
     setComboMsg(null);
     setSessionResult(null);
@@ -565,15 +665,91 @@ export default function NinjaFruitsPage() {
               <button
                 key={lvl}
                 className={`nf-level-btn${selectedLevel===lvl?' nf-level-btn--active':''}${locked?' nf-level-btn--locked':''}`}
-                onPointerDown={e => { e.preventDefault(); if (!locked) setSelectedLevel(lvl); }}
+                onPointerDown={e => { e.preventDefault(); if (!locked) { setSelectedLevel(lvl); setShowCustom(false); } }}
               >
                 {locked ? '🔒' : `Niv. ${lvl}`}
                 {!locked && progress.bestLevel >= lvl && <span className="nf-level-star">⭐</span>}
               </button>
             );
           })}
+          <button
+            className={`nf-level-btn nf-level-btn--custom${selectedLevel===CUSTOM_LEVEL?' nf-level-btn--active':''}`}
+            onPointerDown={e => { e.preventDefault(); setSelectedLevel(CUSTOM_LEVEL); setShowCustom(true); }}
+          >
+            ⚙️
+          </button>
         </div>
-        <p className="nf-level-desc">{level.label} — {level.ops.join(' ')} — {level.speed}s</p>
+
+        {/* ── Custom panel ── */}
+        {showCustom && (
+          <div className="nf-custom-panel">
+            <p className="nf-custom-panel__title">⚙️ Personnaliser</p>
+
+            <div className="nf-custom-section">
+              <span className="nf-custom-label">Opérations</span>
+              <div className="nf-custom-ops">
+                {ALL_OPS.map(op => (
+                  <button
+                    key={op}
+                    type="button"
+                    className={`nf-custom-op-btn${customOps.includes(op) ? ' nf-custom-op-btn--on' : ''}`}
+                    onPointerDown={e => {
+                      e.preventDefault();
+                      setCustomOps(prev => {
+                        const next = prev.includes(op) ? prev.filter(o => o !== op) : [...prev, op];
+                        return next.length ? next : [op]; // always keep at least one
+                      });
+                    }}
+                  >
+                    {op}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="nf-custom-section">
+              <span className="nf-custom-label">Nombres jusqu'à</span>
+              <div className="nf-custom-row">
+                {MAX_OPTIONS.map(n => (
+                  <button
+                    key={n}
+                    type="button"
+                    className={`nf-custom-chip${customMax===n ? ' nf-custom-chip--on' : ''}`}
+                    onPointerDown={e => { e.preventDefault(); setCustomMax(n); }}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="nf-custom-section">
+              <span className="nf-custom-label">Vitesse</span>
+              <div className="nf-custom-row">
+                {SPEED_OPTIONS.map(s => (
+                  <button
+                    key={s.value}
+                    type="button"
+                    className={`nf-custom-chip${customSpeed===s.value ? ' nf-custom-chip--on' : ''}`}
+                    onPointerDown={e => { e.preventDefault(); setCustomSpeed(s.value); }}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <p className="nf-custom-preview">
+              {(customOps.length ? customOps : ['+']).join(' · ')} &nbsp;·&nbsp; max {customMax} &nbsp;·&nbsp; {SPEED_OPTIONS.find(s=>s.value===customSpeed)?.label ?? customSpeed + 's'}
+            </p>
+          </div>
+        )}
+
+        <p className="nf-level-desc">
+          {selectedLevel === CUSTOM_LEVEL
+            ? `Personnalisé — ${(customOps.length ? customOps : ['+']).join(' ')} — max ${customMax}`
+            : `${level.label} — ${level.ops.join(' ')} — ${level.speed}s`}
+        </p>
 
         <button className="nf-start-btn" onPointerDown={e => { e.preventDefault(); startGame(); }}>
           ⚔️ Jouer
