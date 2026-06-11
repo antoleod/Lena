@@ -893,7 +893,7 @@ export default function ExamRunnerPage() {
     const stars = starsFor(score, totalQ, level.passPercent);
     const nextLevel = levelKey === 'facile' ? 'moyen' : levelKey === 'moyen' ? 'difficile' : null;
     return (
-      <div className="reader-page" style={{ justifyContent: 'center', padding: '32px 16px' }}>
+      <div className="reader-page" style={{ justifyContent: 'flex-start', padding: '16px 0 24px' }}>
         <div className="reader-card">
           <div className="exam-results">
             <div className="exam-results__trophy">{passed ? '🏆' : '💪'}</div>
@@ -930,13 +930,13 @@ export default function ExamRunnerPage() {
 
             <FunContentCard />
 
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
               <button
                 type="button"
                 onClick={() => { const now = toggleFavorite(examId); setFavorited(now); }}
-                style={{ background: 'none', border: '2px solid rgba(255,255,255,0.2)', borderRadius: 20, cursor: 'pointer', fontSize: '1rem', padding: '6px 16px', color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}
+                style={{ background: 'none', border: '1.5px solid rgba(0,0,0,0.15)', borderRadius: 20, cursor: 'pointer', fontSize: '.85rem', padding: '4px 12px', color: 'var(--text,#2c1654)', display: 'flex', alignItems: 'center', gap: 5 }}
               >
-                {favorited ? '⭐ Favori' : '☆ Ajouter aux favoris'}
+                {favorited ? '⭐ Favori' : '☆ Favoris'}
               </button>
             </div>
 

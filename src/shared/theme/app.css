@@ -13445,10 +13445,10 @@ input.exam-choice:hover { transform: none; }
 .errors-cta__badge { background: #e74c3c; color: #fff; border-radius: 999px; padding: 2px 9px; font-size: .8rem; font-weight: 900; }
 
 /* Reader page */
-.reader-page { display: flex; flex-direction: column; min-height: 100vh; padding: 0 0 40px; max-width: 700px; margin: 0 auto; background: linear-gradient(160deg, #5a36a8 0%, #743fb0 52%, #9a4fa6 100%); border-radius: 22px; }
+.reader-page { display: flex; flex-direction: column; min-height: 100vh; padding: 0 0 24px; max-width: 680px; margin: 0 auto; background: linear-gradient(160deg, #5a36a8 0%, #743fb0 52%, #9a4fa6 100%); border-radius: 22px; }
 .reader-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
 .reader-page-indicator { font-size: .85rem; color: rgba(255,255,255,.9); margin-left: auto; }
-.reader-card { background: rgba(255,255,255,.93); border: 1.5px solid rgba(255,255,255,.7); border-radius: 20px; padding: 28px 24px; margin: 0 16px; flex: 1; display: flex; flex-direction: column; justify-content: center; animation: fade-up .25s ease both; }
+.reader-card { background: rgba(255,255,255,.93); border: 1.5px solid rgba(255,255,255,.7); border-radius: 20px; padding: 20px 18px; margin: 0 14px; flex: 1; display: flex; flex-direction: column; justify-content: center; animation: fade-up .25s ease both; }
 .reader-card h2, .reader-card > p { color: var(--text, #2c1654); }
 .reader-card .reader-muted { color: var(--muted, #5a3d80); }
 .reader-text { font-size: 1.35rem; line-height: 1.8; font-weight: 500; color: var(--text, #2c1654); }
@@ -13458,9 +13458,9 @@ input.exam-choice:hover { transform: none; }
 .reader-btn:active { transform: scale(.95); }
 .reader-btn--prev { background: rgba(255,255,255,.12); color: #fff; }
 .reader-btn--next { background: var(--primary); color: #fff; }
-.reader-btn--start { background: #27ae60; color: #fff; flex: 1; }
-.reader-btn--listen { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2); }
-.reader-btn--next-level { background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; font-size: 1.05rem; }
+.reader-btn--start { background: #16a34a; color: #fff; flex: 1; }
+.reader-btn--listen { background: #0e7490; color: #fff; border: none; }
+.reader-btn--next-level { background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; font-size: 1rem; }
 
 /* ── Shared FunContentCard ───────────────────────────────── */
 .fun-card {
@@ -13524,17 +13524,17 @@ input.exam-choice:hover { transform: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   width: 100%;
   text-align: center;
 }
-.exam-results__trophy { font-size: 3.5rem; line-height: 1; }
-.exam-results__title { margin: 0; font-size: 1.6rem; font-weight: 900; }
-.exam-results__subtitle { margin: 0; font-size: .95rem; opacity: .7; }
-.exam-results__score { font-size: 1.7rem; font-weight: 800; margin: 0; }
-.exam-results__score span { font-size: 1rem; opacity: .65; font-weight: 600; }
-.exam-results__stars { font-size: 1.9rem; letter-spacing: 4px; }
-.exam-results__actions { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 4px; }
+.exam-results__trophy { font-size: 2.4rem; line-height: 1; }
+.exam-results__title { margin: 0; font-size: 1.25rem; font-weight: 900; }
+.exam-results__subtitle { margin: 0; font-size: .85rem; opacity: .65; }
+.exam-results__score { font-size: 1.4rem; font-weight: 800; margin: 0; }
+.exam-results__score span { font-size: .9rem; opacity: .65; font-weight: 600; }
+.exam-results__stars { font-size: 1.5rem; letter-spacing: 3px; }
+.exam-results__actions { display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: 6px; }
 
 /* True/false buttons */
 .tf-buttons { display: flex; gap: 12px; padding: 0 16px; }
@@ -15776,11 +15776,12 @@ body {
 /* Repaso button on exam end screen */
 .repaso-btn {
   padding: 13px 22px; border-radius: 14px;
-  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   border: none; color: #fff;
   font-size: .95rem; font-weight: 800; cursor: pointer;
-  box-shadow: 0 4px 14px rgba(245,158,11,.35);
-  margin-top: 8px;
+  box-shadow: 0 4px 14px rgba(99,102,241,.35);
+  margin-top: 0;
+  width: 100%;
 }
 /* FeedbackCard repaso button */
 .fb-card__actions { display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: 4px; }
