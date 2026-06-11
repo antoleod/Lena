@@ -115,6 +115,7 @@ import MemChiffresPage from '../../features/jeux/MemChiffresPage.jsx';
 import NinjaFruitsPage from '../../features/jeux/NinjaFruitsPage.jsx';
 import BatailleMonstresPage from '../../features/jeux/BatailleMonstresPage.jsx';
 import SnakePage from '../../features/jeux/SnakePage.jsx';
+import StudioPage from '../../features/studio/StudioPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -185,6 +186,7 @@ export default function AppRouter() {
   return (
     <ErrorBoundary>
     <Routes>
+      <Route path="/studio" element={<StudioPage />} />
       <Route path="/onboarding" element={needsOnboarding || onboardingActive ? <OnboardingFlow /> : <Navigate to="/" replace />} />
       <Route element={<AppShell />}>
         <Route path="/" element={needsOnboarding && !onboardingActive ? <Navigate to="/onboarding" replace /> : <HomePage />} />
