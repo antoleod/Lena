@@ -8,6 +8,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { getProfile } from '../storage/profileStore.js';
+import { getLearningControls } from '../storage/parentalStore.js';
 import { analyzePerformance, classifySkills, decideNext } from './adaptiveEngine.js';
 
 const DNA_KEY = 'lena:learningDNA:v1'; // { [childId]: dna }
@@ -81,7 +82,7 @@ export function updateDNAFromSession(events = []) {
 
   const perf = analyzePerformance(events);
   const { mastered, struggling, learning } = classifySkills(perf);
-  const recommendation = decideNext({ profile, events });
+  const recommendation = decideNext({ profile, events, parentControls: safeControls() });
 
   // Rolling average of response time across sessions.
   const prevAvg = prev.behaviorProfile.averageResponseTime;
@@ -121,6 +122,10 @@ export function updateDNAFromSession(events = []) {
 }
 
 // ── helpers ───────────────────────────────────────────────────────────────────
+
+function safeControls() {
+  try { return getLearningControls(); } catch { return {}; }
+}
 
 function union(a = [], b = []) { return [...new Set([...a, ...b])]; }
 function subtract(a = [], b = []) { const rm = new Set(b); return a.filter((x) => !rm.has(x)); }

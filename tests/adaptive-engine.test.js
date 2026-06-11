@@ -5,6 +5,7 @@ import {
   classifySkills,
   recommendDifficulty,
   decideNext,
+  applyParentControls,
   THRESHOLDS,
 } from '../src/services/learning/adaptiveEngine.js';
 
@@ -73,6 +74,27 @@ test('decideNext folds weak areas into reviewTopics', () => {
   const out = decideNext({ profile: { age: 8, schoolGrade: 'P3' }, events, weakAreas });
   assert.ok(out.reviewTopics.includes('sub'));
   assert.ok(out.reviewTopics.includes('math:subtraction'));
+});
+
+test('applyParentControls blocks multiplication and division when disabled', () => {
+  const rec = { difficulty: 4, blockedSkills: [], challengeTopics: ['multiplication', 'addition'], reasons: [] };
+  const out = applyParentControls(rec, { allowMultiplication: false, allowDivision: false });
+  assert.ok(out.blockedSkills.includes('multiplication'));
+  assert.ok(out.blockedSkills.includes('division'));
+  assert.ok(!out.challengeTopics.includes('multiplication'), 'blocked skill not offered as challenge');
+});
+
+test('applyParentControls caps difficulty at maxDifficultyGrade', () => {
+  const rec = { difficulty: 5, blockedSkills: [], challengeTopics: [], reasons: [] };
+  const out = applyParentControls(rec, { maxDifficultyGrade: 'P3' }); // P3 → index 3
+  assert.equal(out.difficulty, 3);
+});
+
+test('decideNext honors parent controls end-to-end', () => {
+  const events = Array.from({ length: 6 }, () => ({ flavor: 'question', skill: 'multiplication', isCorrect: true, responseTimeMs: 2000, sessionId: 's1' }));
+  const out = decideNext({ profile: { age: 9, schoolGrade: 'P4' }, events, parentControls: { allowMultiplication: false } });
+  assert.ok(out.blockedSkills.includes('multiplication'));
+  assert.ok(!out.challengeTopics.includes('multiplication'));
 });
 
 test('THRESHOLDS are sane', () => {

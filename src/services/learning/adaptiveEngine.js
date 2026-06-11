@@ -15,6 +15,11 @@
 
 import { GRADE_KEYS, gradeFromAge, gradeIndex } from './gradeModel.js';
 
+// Skill/topic keys that map onto the parent operation toggles (parentalStore
+// `learningControls`). Used to gate content when a parent disables an operation.
+const MULTIPLICATION_SKILLS = ['multiplication', 'mult', 'times-tables', 'tables'];
+const DIVISION_SKILLS = ['division', 'div'];
+
 // Tunable thresholds — named so the behaviour is legible and testable.
 export const THRESHOLDS = {
   MASTERY_ACCURACY: 0.85,   // ≥ this (with enough attempts) → mastered
@@ -125,12 +130,35 @@ export function recommendDifficulty({ profile = {}, perf, accuracy }) {
 }
 
 /**
+ * Apply parent overrides (parentalStore `learningControls`) on top of an engine
+ * recommendation. Pure. A `null` control means "defer to the engine".
+ *   - maxDifficultyGrade  → hard cap on difficulty (e.g. 'P3' caps at band 3)
+ *   - allowMultiplication=false / allowDivision=false → those skills are blocked
+ */
+export function applyParentControls(recommendation, parentControls = {}) {
+  const blocked = new Set(recommendation.blockedSkills || []);
+  const reasons = [...(recommendation.reasons || [])];
+
+  if (parentControls.allowMultiplication === false) { MULTIPLICATION_SKILLS.forEach((s) => blocked.add(s)); reasons.push('parent: × off'); }
+  if (parentControls.allowDivision === false) { DIVISION_SKILLS.forEach((s) => blocked.add(s)); reasons.push('parent: ÷ off'); }
+
+  let difficulty = recommendation.difficulty;
+  const cap = parentControls.maxDifficultyGrade ? gradeIndex(parentControls.maxDifficultyGrade) : null;
+  if (cap != null && difficulty > cap) { difficulty = cap; reasons.push(`parent: capped at ${parentControls.maxDifficultyGrade}`); }
+
+  // Don't recommend a blocked skill as a challenge.
+  const challengeTopics = (recommendation.challengeTopics || []).filter((s) => !blocked.has(s));
+
+  return { ...recommendation, difficulty, blockedSkills: [...blocked], challengeTopics, reasons };
+}
+
+/**
  * Top-level decision. Pure: feed it everything, get a recommendation.
  *
- * @param {{ profile?: object, events?: object[], weakAreas?: object[] }} input
+ * @param {{ profile?: object, events?: object[], weakAreas?: object[], parentControls?: object }} input
  * @returns {AdaptiveRecommendation}
  */
-export function decideNext({ profile = {}, events = [], weakAreas = [] } = {}) {
+export function decideNext({ profile = {}, events = [], weakAreas = [], parentControls = {} } = {}) {
   // Respect the parent/child opt-out.
   if (profile.adaptiveModeEnabled === false) {
     return {
@@ -156,7 +184,7 @@ export function decideNext({ profile = {}, events = [], weakAreas = [] } = {}) {
     ...weakAreas.slice(0, 3).map((w) => w.key || `${w.subject}:${w.type}`),
   ])];
 
-  return {
+  const recommendation = {
     adaptive: true,
     grade: diff.grade,
     difficulty: diff.difficulty,
@@ -165,9 +193,13 @@ export function decideNext({ profile = {}, events = [], weakAreas = [] } = {}) {
     learningSkills: learning,
     reviewTopics,                 // ease difficulty / reinforce these
     challengeTopics: mastered,    // reduce frequency / introduce harder variations
+    blockedSkills: [],            // filled by parent controls below
     overallAccuracy,
     sessionsPlayed: perf.sessionsPlayed,
     totalAnswered: perf.totalAnswered,
     reasons: diff.reasons,
   };
+
+  // Parent overrides are the final clamp (contract: parent settings cap the engine).
+  return applyParentControls(recommendation, parentControls);
 }

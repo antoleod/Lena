@@ -107,8 +107,8 @@ Bottom-up: each layer testable before the next. Reconciled with audit plan A→H
 - [x] **3.4** `detectLimit()` reports current band on the done screen. · 2026-06-11
 
 ### Track 4 — Settings & polish
-- [ ] **4.1** Parent toggles (allow ×/÷/timed, max difficulty). → `ParentalPage.jsx`, `parentalStore.js`
-- [ ] **4.2** Privacy/cost pass: small docs, session summaries, no Storage. → `syncService.js`
+- [x] **4.1** Parent controls honored by the engine: `applyParentControls` blocks ×/÷ and caps difficulty at `maxDifficultyGrade`. Wired into DNA's `decideNext`. Store (`learningControls`) + partial UI already existed (Phase B). · 2026-06-11 → `adaptiveEngine.js`, `learningDNA.js`. **TODO:** confirm ParentalPage UI exposes all toggles.
+- [ ] **4.2** Privacy/cost pass: small docs, session summaries, no Storage. (Mostly satisfied — played events are lightweight, DNA is per-session.) → `syncService.js`
 
 ---
 
