@@ -262,9 +262,17 @@ function routeToGameId(to) {
   return to.replace('/jeux/', '');
 }
 
+const COMPLEXITY = [
+  { id: 'all',      label: 'Tous',      dot: null },
+  { id: 'Facile',   label: 'Facile',    dot: '🟢', color: '#22c55e' },
+  { id: 'Moyen',    label: 'Moyen',     dot: '🟡', color: '#f59e0b' },
+  { id: 'Difficile',label: 'Difficile', dot: '🔴', color: '#ef4444' },
+];
+
 export default function JeuxHubPage() {
   const [allProgress, setAllProgress] = useState(() => getAllGameProgress());
   const [activeCategory, setActiveCategory] = useState('all');
+  const [activeComplexity, setActiveComplexity] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
@@ -277,20 +285,31 @@ export default function JeuxHubPage() {
 
   const filteredCategories = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
-    if (activeCategory === 'all' && !q) return CATEGORIES;
-
     return CATEGORIES
       .filter(cat => activeCategory === 'all' || cat.id === activeCategory)
       .map(cat => ({
         ...cat,
-        games: q
-          ? cat.games.filter(g =>
-              g.name.toLowerCase().includes(q) || g.desc.toLowerCase().includes(q)
-            )
-          : cat.games,
+        games: cat.games.filter(g => {
+          if (q && !g.name.toLowerCase().includes(q) && !g.desc.toLowerCase().includes(q)) return false;
+          if (activeComplexity !== 'all' && g.badge !== activeComplexity) return false;
+          return true;
+        }),
       }))
       .filter(cat => cat.games.length > 0);
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, activeComplexity, searchQuery]);
+
+  // Recent games — sort by lastPlayed desc, limit 6
+  const recentGames = useMemo(() => {
+    return Object.entries(allProgress)
+      .filter(([, gp]) => gp.lastPlayed)
+      .sort(([, a], [, b]) => new Date(b.lastPlayed) - new Date(a.lastPlayed))
+      .slice(0, 6)
+      .map(([gameId, gp]) => {
+        const game = ALL_GAMES.find(g => routeToGameId(g.to) === gameId);
+        return game ? { ...game, gp } : null;
+      })
+      .filter(Boolean);
+  }, [allProgress]);
 
   const totalGames = ALL_GAMES.length;
   const playedCount = Object.keys(allProgress).length;
@@ -334,6 +353,35 @@ export default function JeuxHubPage() {
         )}
       </div>
 
+      {/* Recent games strip — only shown when games have been played */}
+      {recentGames.length > 0 && (
+        <div className="jh-recent">
+          <div className="jh-recent__header">🕒 Récemment joués</div>
+          <div className="jh-recent__strip">
+            {recentGames.map(g => {
+              const Icon = GAME_ICON_MAP[g.to];
+              const cat = CATEGORIES.find(c => c.id === g.catId);
+              return (
+                <Link
+                  key={g.to}
+                  to={g.to}
+                  className="jh-recent-card"
+                  style={{ '--rc-bg': (cat?.color ?? '#6366f1') + '33' }}
+                >
+                  <div className="jh-recent-card__icon">
+                    {Icon ? <Icon size={36} /> : <span style={{ fontSize: '1.4rem' }}>{g.emoji}</span>}
+                  </div>
+                  <div className="jh-recent-card__info">
+                    <span className="jh-recent-card__name">{g.name}</span>
+                    <span className="jh-recent-card__score">⭐ {g.gp.bestScore} pts</span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Category filter tabs */}
       <div className="jh-tabs" role="tablist" aria-label="Filtrer par categorie">
         <button
@@ -358,12 +406,27 @@ export default function JeuxHubPage() {
         ))}
       </div>
 
+      {/* Complexity filter — compact pill row */}
+      <div className="jh-complexity-bar" role="group" aria-label="Filtrer par niveau">
+        <span className="jh-complexity-label">Niveau :</span>
+        {COMPLEXITY.map(cx => (
+          <button
+            key={cx.id}
+            className={`jh-cpx-btn${activeComplexity === cx.id ? ' jh-cpx-btn--active' : ''}`}
+            style={activeComplexity === cx.id && cx.color ? { '--cpx-color': cx.color + '44', borderColor: cx.color + '88' } : {}}
+            onClick={() => setActiveComplexity(cx.id)}
+          >
+            {cx.dot && <span>{cx.dot}</span>}{cx.label}
+          </button>
+        ))}
+      </div>
+
       {/* Empty state */}
       {filteredCategories.length === 0 && (
         <div className="jh-empty">
           <div className="jh-empty__icon">🔍</div>
-          <p className="jh-empty__text">Aucun jeu ne correspond a ta recherche</p>
-          <button className="jh-empty__btn" onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}>
+          <p className="jh-empty__text">Aucun jeu ne correspond à ta recherche</p>
+          <button className="jh-empty__btn" onClick={() => { setSearchQuery(''); setActiveCategory('all'); setActiveComplexity('all'); }}>
             Voir tous les jeux
           </button>
         </div>

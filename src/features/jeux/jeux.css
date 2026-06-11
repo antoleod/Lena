@@ -511,30 +511,61 @@
   width: 100%;
   height: 150px;
   border-radius: 18px 18px 0 0;
-  background: linear-gradient(145deg,
-    color-mix(in srgb, var(--card-accent,#6366f1) 85%, #0d0a2e),
-    color-mix(in srgb, var(--card-accent,#6366f1) 55%, #0a0020)
-  );
+  background:
+    radial-gradient(ellipse at 30% 25%, rgba(255,255,255,.18) 0%, transparent 55%),
+    linear-gradient(145deg,
+      color-mix(in srgb, var(--card-accent,#6366f1) 85%, #0d0a2e),
+      color-mix(in srgb, var(--card-accent,#6366f1) 55%, #0a0020)
+    );
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
   position: relative;
   flex-shrink: 0;
-  transition: transform .22s cubic-bezier(.34,1.56,.64,1);
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1);
   overflow: hidden;
   z-index: 1;
+  perspective: 400px;
+}
+/* Specular light streak */
+.jh-card__icon::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -40%; width: 80%; height: 55%;
+  background: linear-gradient(135deg, rgba(255,255,255,.2) 0%, transparent 65%);
+  border-radius: 0 0 60% 0;
+  pointer-events: none;
+  z-index: 2;
 }
 /* Bottom fade to card body */
 .jh-card__icon::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 28px;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,.25));
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,.32));
   pointer-events: none;
+  z-index: 2;
 }
-.jh-card:hover .jh-card__icon { transform: scale(1.06); }
+/* 3D icon tilt — SVG floats with perspective tilt at rest, straightens on hover */
+.jh-card__icon svg,
+.jh-card__icon > span {
+  position: relative; z-index: 3;
+  transform: perspective(300px) rotateY(-8deg) rotateX(4deg) scale(.88);
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.55)) drop-shadow(0 2px 4px rgba(0,0,0,.4));
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), filter .3s;
+  will-change: transform;
+}
+.jh-card:hover .jh-card__icon svg,
+.jh-card:hover .jh-card__icon > span {
+  transform: perspective(300px) rotateY(0deg) rotateX(0deg) scale(1) translateY(-4px);
+  filter:
+    drop-shadow(0 14px 24px rgba(0,0,0,.65))
+    drop-shadow(0 4px 8px rgba(0,0,0,.5))
+    drop-shadow(0 0 18px color-mix(in srgb, var(--card-accent,#6366f1) 55%, transparent));
+}
+.jh-card:hover .jh-card__icon { transform: scale(1.04); }
 .jh-card__played-badge {
   position: absolute;
   top: 9px;
@@ -3791,4 +3822,128 @@
   text-align: center;
   padding: 8px 0;
   letter-spacing: .08em;
+}
+
+/* ── Complexity filter bar ─────────────────────────────────────────────────── */
+.jh-complexity-bar {
+  display: flex;
+  gap: 6px;
+  padding: 2px 16px 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  align-items: center;
+}
+.jh-complexity-bar::-webkit-scrollbar { display: none; }
+.jh-complexity-label {
+  font-size: .72rem;
+  font-weight: 700;
+  color: rgba(200,180,255,.5);
+  white-space: nowrap;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  padding-right: 2px;
+}
+.jh-cpx-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: rgba(200,180,255,.65);
+  font-size: .76rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, border-color .15s, color .15s, transform .1s;
+  touch-action: manipulation;
+}
+.jh-cpx-btn:active { transform: scale(.92); }
+.jh-cpx-btn--active {
+  background: var(--cpx-color, rgba(255,255,255,.18));
+  border-color: var(--cpx-color, rgba(255,255,255,.3));
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+/* ── Recent games strip ────────────────────────────────────────────────────── */
+.jh-recent {
+  padding: 10px 16px 4px;
+}
+.jh-recent__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: .76rem;
+  font-weight: 800;
+  color: rgba(200,180,255,.6);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.jh-recent__strip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 4px;
+}
+.jh-recent__strip::-webkit-scrollbar { display: none; }
+.jh-recent-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 8px 8px;
+  background: rgba(255,255,255,.07);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+  transition: background .18s, border-color .18s, transform .15s;
+  min-width: 0;
+}
+.jh-recent-card:hover {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(200,170,255,.25);
+  transform: translateY(-2px);
+}
+.jh-recent-card:active { transform: scale(.95); }
+.jh-recent-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--rc-bg, rgba(99,102,241,.25));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.jh-recent-card__icon svg { transform: scale(.72); }
+.jh-recent-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.jh-recent-card__name {
+  font-size: .78rem;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px;
+  line-height: 1;
+}
+.jh-recent-card__score {
+  font-size: .7rem;
+  font-weight: 700;
+  color: #fbbf24;
+  line-height: 1;
 }
