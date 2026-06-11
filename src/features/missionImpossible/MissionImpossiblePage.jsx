@@ -36,6 +36,7 @@ export default function MissionImpossiblePage() {
   const logRef = useRef([]);             // [{band, isCorrect}] whole mission
   const bandResultsRef = useRef([]);     // boolean[] for the current band run
   const startRef = useRef(Date.now());
+  const advanceTimerRef = useRef(null);  // auto-advance timer on correct answers
 
   const start = useCallback(() => {
     const profile = getProfile();
@@ -79,9 +80,16 @@ export default function MissionImpossiblePage() {
 
     logRef.current.push({ band: b, isCorrect });
     bandResultsRef.current.push(isCorrect);
+
+    // Positive feedback is silent: a correct answer just moves on (brief green flash).
+    // Feedback is only shown when the child gets it wrong.
+    if (isCorrect) {
+      advanceTimerRef.current = window.setTimeout(advance, 650);
+    }
   }
 
   function advance() {
+    if (advanceTimerRef.current) { window.clearTimeout(advanceTimerRef.current); advanceTimerRef.current = null; }
     if (isMissionComplete(logRef.current)) { setPhase('done'); return; }
     const decision = nextBand(band, bandResultsRef.current);
     if (decision.direction !== 'stay') bandResultsRef.current = []; // fresh run on the new band
@@ -98,6 +106,9 @@ export default function MissionImpossiblePage() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   });
+
+  // Clear any pending auto-advance timer on unmount.
+  useEffect(() => () => { if (advanceTimerRef.current) window.clearTimeout(advanceTimerRef.current); }, []);
 
   // ── Intro ───────────────────────────────────────────────────────────────────
   if (phase === 'intro') {
@@ -174,11 +185,9 @@ export default function MissionImpossiblePage() {
           })}
         </div>
 
-        {reveal && (
+        {reveal && String(picked) !== String(ex.correct) && (
           <div className="mi-feedback">
-            {String(picked) === String(ex.correct)
-              ? <p className="mi-fb-ok">✅ Bravo&nbsp;!</p>
-              : <p className="mi-fb-no">❌ La réponse était <strong>{ex.correct}</strong></p>}
+            <p className="mi-fb-no">❌ La réponse était <strong>{ex.correct}</strong></p>
             {ex.explanation && <p className="mi-fb-exp">{ex.explanation}</p>}
             <button className="mi-cta" onClick={advance}>Défi suivant →</button>
           </div>
