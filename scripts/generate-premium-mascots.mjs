@@ -1,4 +1,172 @@
-<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" class="lena-mascot state-correct" role="img" aria-label="Lena mascot correct">
+import { writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const OUT_DIR = 'public/assets/characters';
+
+const STATES = {
+  idle: {
+    mood: 'smile',
+    className: 'state-idle',
+    leftArm: 'M63 130 C40 124 35 150 51 164',
+    rightArm: 'M137 130 C160 124 165 150 149 164',
+    extras: ['sparkles'],
+  },
+  thinking: {
+    mood: 'curious',
+    className: 'state-thinking',
+    leftArm: 'M63 131 C43 125 36 143 48 156',
+    rightArm: 'M137 130 C154 119 162 102 151 92',
+    extras: ['thoughts', 'crystals'],
+  },
+  correct: {
+    mood: 'happy',
+    className: 'state-correct',
+    leftArm: 'M64 128 C42 112 35 86 51 78',
+    rightArm: 'M136 128 C158 112 165 86 149 78',
+    extras: ['stars', 'sparkles'],
+  },
+  wrong: {
+    mood: 'soft',
+    className: 'state-wrong',
+    leftArm: 'M64 132 C43 129 39 148 51 160',
+    rightArm: 'M136 132 C157 129 161 148 149 160',
+    extras: ['softDots'],
+  },
+  celebrate: {
+    mood: 'joy',
+    className: 'state-celebrate',
+    leftArm: 'M64 126 C37 105 31 68 49 58',
+    rightArm: 'M136 126 C163 105 169 68 151 58',
+    extras: ['confetti', 'stars', 'sparkles'],
+  },
+  levelup: {
+    mood: 'proud',
+    className: 'state-levelup',
+    leftArm: 'M64 127 C39 109 31 76 48 66',
+    rightArm: 'M136 127 C161 109 169 76 152 66',
+    extras: ['crystals', 'stars', 'rays'],
+  },
+  encouraging: {
+    mood: 'warm',
+    className: 'state-encouraging',
+    leftArm: 'M64 130 C41 121 34 137 45 150',
+    rightArm: 'M136 130 C160 117 168 136 154 151',
+    extras: ['sparkles', 'softDots'],
+  },
+};
+
+const LEGACY = {
+  'mascot-focused.svg': 'idle',
+  'mascot-think.svg': 'thinking',
+  'mascot-happy.svg': 'correct',
+  'mascot-sad.svg': 'wrong',
+  'mascot-celebrate.svg': 'celebrate',
+};
+
+function eye({ x, y, mood, side }) {
+  const blinkDelay = side === 'left' ? '0s' : '.05s';
+  const shineX = x - 7;
+  const pupilX = mood === 'curious' ? x + (side === 'left' ? 2 : 3) : x;
+  const pupilY = mood === 'soft' ? y + 1 : y;
+  const scale = mood === 'joy' || mood === 'happy' ? 1.06 : 1;
+  return `
+    <g class="eye eye-${side}" style="--blink-delay:${blinkDelay}; transform-origin:${x}px ${y}px">
+      <ellipse cx="${x}" cy="${y}" rx="${15 * scale}" ry="${18 * scale}" fill="url(#eyeGrad)" stroke="#4a2e79" stroke-width="2.8"/>
+      <circle class="pupil" cx="${pupilX}" cy="${pupilY + 2}" r="7.2" fill="#2b205f"/>
+      <circle cx="${shineX}" cy="${y - 9}" r="4.2" fill="#fff"/>
+      <circle cx="${x + 4}" cy="${y - 3}" r="1.9" fill="#bff7ff" opacity=".9"/>
+    </g>`;
+}
+
+function mouth(mood) {
+  if (mood === 'soft') {
+    return '<path d="M84 112 C92 107 108 107 116 112" fill="none" stroke="#8b3f77" stroke-width="4" stroke-linecap="round"/>';
+  }
+  if (mood === 'curious') {
+    return '<ellipse cx="101" cy="112" rx="7" ry="9" fill="#73305f"/><ellipse cx="103" cy="109" rx="3" ry="3.5" fill="#ff9bc7" opacity=".7"/>';
+  }
+  if (mood === 'joy') {
+    return '<path d="M80 106 C88 125 113 126 123 106 C116 119 90 119 80 106Z" fill="#7a2f66"/><path d="M89 118 C97 123 109 122 116 117" fill="none" stroke="#ff9bc7" stroke-width="4" stroke-linecap="round"/>';
+  }
+  if (mood === 'proud') {
+    return '<path d="M80 108 C91 123 111 123 122 108" fill="none" stroke="#7a2f66" stroke-width="5" stroke-linecap="round"/><circle cx="126" cy="104" r="3" fill="#ff8fc6"/>';
+  }
+  return '<path d="M80 106 C91 121 111 121 122 106" fill="none" stroke="#7a2f66" stroke-width="5" stroke-linecap="round"/>';
+}
+
+function extras(names) {
+  const parts = [];
+  if (names.includes('rays')) {
+    parts.push(`
+      <g class="rays" opacity=".65">
+        ${Array.from({ length: 10 }, (_, i) => {
+          const angle = (i * 36 - 90) * Math.PI / 180;
+          const x1 = 100 + Math.cos(angle) * 84;
+          const y1 = 108 + Math.sin(angle) * 84;
+          const x2 = 100 + Math.cos(angle) * 106;
+          const y2 = 108 + Math.sin(angle) * 106;
+          return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#ffd166" stroke-width="4" stroke-linecap="round"/>`;
+        }).join('')}
+      </g>`);
+  }
+  if (names.includes('sparkles')) {
+    parts.push(`
+      <g class="sparkles">
+        <path class="sparkle s1" d="M35 60 l5 10 10 5 -10 5 -5 10 -5 -10 -10 -5 10 -5Z" fill="#fff3a3"/>
+        <path class="sparkle s2" d="M166 46 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4Z" fill="#bff7ff"/>
+        <circle class="sparkle s3" cx="31" cy="165" r="4" fill="#ffffff"/>
+      </g>`);
+  }
+  if (names.includes('stars')) {
+    parts.push(`
+      <g class="stars">
+        <path class="star st1" d="M37 35 l7 14 15 2 -11 10 3 15 -14 -8 -14 8 3 -15 -11 -10 15 -2Z" fill="#ffd166"/>
+        <path class="star st2" d="M160 28 l6 12 13 2 -10 9 3 13 -12 -7 -12 7 3 -13 -10 -9 13 -2Z" fill="#ffe680"/>
+      </g>`);
+  }
+  if (names.includes('crystals')) {
+    parts.push(`
+      <g class="crystals">
+        <path class="crystal c1" d="M32 128 l12 -18 12 18 -12 28Z" fill="url(#crystalGrad)" stroke="#7dd3fc" stroke-width="2"/>
+        <path class="crystal c2" d="M166 135 l10 -15 10 15 -10 24Z" fill="url(#crystalGrad)" stroke="#a78bfa" stroke-width="2"/>
+      </g>`);
+  }
+  if (names.includes('thoughts')) {
+    parts.push(`
+      <g class="thoughts">
+        <circle class="thought t1" cx="144" cy="54" r="6" fill="#fff" opacity=".9"/>
+        <circle class="thought t2" cx="158" cy="39" r="9" fill="#fff" opacity=".86"/>
+        <circle class="thought t3" cx="177" cy="27" r="12" fill="#fff" opacity=".82"/>
+      </g>`);
+  }
+  if (names.includes('softDots')) {
+    parts.push(`
+      <g class="soft-dots">
+        <circle class="dot d1" cx="38" cy="72" r="5" fill="#bff7ff" opacity=".65"/>
+        <circle class="dot d2" cx="166" cy="75" r="4" fill="#fff3a3" opacity=".7"/>
+        <circle class="dot d3" cx="151" cy="170" r="5" fill="#ffb3d9" opacity=".55"/>
+      </g>`);
+  }
+  if (names.includes('confetti')) {
+    parts.push(`
+      <g class="confetti">
+        <rect class="conf cf1" x="27" y="34" width="7" height="13" rx="2" fill="#60a5fa"/>
+        <rect class="conf cf2" x="60" y="20" width="7" height="13" rx="2" fill="#f472b6"/>
+        <rect class="conf cf3" x="134" y="19" width="7" height="13" rx="2" fill="#34d399"/>
+        <rect class="conf cf4" x="171" y="43" width="7" height="13" rx="2" fill="#fbbf24"/>
+        <circle class="conf cf5" cx="45" cy="91" r="4" fill="#a78bfa"/>
+        <circle class="conf cf6" cx="157" cy="91" r="4" fill="#fb7185"/>
+      </g>`);
+  }
+  return parts.join('\n');
+}
+
+function svgForState(stateKey) {
+  const state = STATES[stateKey];
+  const browLeft = state.mood === 'thinking' ? 'M69 65 C77 58 86 58 93 64' : 'M70 64 C78 61 86 61 93 64';
+  const browRight = state.mood === 'soft' ? 'M108 64 C116 60 125 61 132 66' : 'M108 64 C116 61 124 61 132 64';
+
+  return `<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" class="lena-mascot ${state.className}" role="img" aria-label="Lena mascot ${stateKey}">
   <defs>
     <radialGradient id="bodyGrad" cx="34%" cy="25%" r="78%">
       <stop offset="0%" stop-color="#fff8fd"/>
@@ -84,22 +252,12 @@
     </style>
   </defs>
   <ellipse class="shadow" cx="100" cy="219" rx="55" ry="13" fill="#6b315f" opacity=".35"/>
-  
-      <g class="sparkles">
-        <path class="sparkle s1" d="M35 60 l5 10 10 5 -10 5 -5 10 -5 -10 -10 -5 10 -5Z" fill="#fff3a3"/>
-        <path class="sparkle s2" d="M166 46 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4Z" fill="#bff7ff"/>
-        <circle class="sparkle s3" cx="31" cy="165" r="4" fill="#ffffff"/>
-      </g>
-
-      <g class="stars">
-        <path class="star st1" d="M37 35 l7 14 15 2 -11 10 3 15 -14 -8 -14 8 3 -15 -11 -10 15 -2Z" fill="#ffd166"/>
-        <path class="star st2" d="M160 28 l6 12 13 2 -10 9 3 13 -12 -7 -12 7 3 -13 -10 -9 13 -2Z" fill="#ffe680"/>
-      </g>
+  ${extras(state.extras)}
   <g class="float-core" filter="url(#softShadow)">
     <path class="wing-left" d="M66 108 C31 88 21 132 52 149 C35 133 42 108 66 108Z" fill="url(#wingGrad)" stroke="#ffffff" stroke-opacity=".75" stroke-width="2"/>
     <path class="wing-right" d="M134 108 C169 88 179 132 148 149 C165 133 158 108 134 108Z" fill="url(#wingGrad)" stroke="#ffffff" stroke-opacity=".75" stroke-width="2"/>
-    <path class="arm-left" d="M64 128 C42 112 35 86 51 78" fill="none" stroke="#df5fa8" stroke-width="13" stroke-linecap="round"/>
-    <path class="arm-right" d="M136 128 C158 112 165 86 149 78" fill="none" stroke="#df5fa8" stroke-width="13" stroke-linecap="round"/>
+    <path class="arm-left" d="${state.leftArm}" fill="none" stroke="#df5fa8" stroke-width="13" stroke-linecap="round"/>
+    <path class="arm-right" d="${state.rightArm}" fill="none" stroke="#df5fa8" stroke-width="13" stroke-linecap="round"/>
     <ellipse cx="100" cy="153" rx="49" ry="59" fill="url(#bodyGrad)"/>
     <ellipse cx="100" cy="163" rx="29" ry="35" fill="url(#bellyGrad)" opacity=".95"/>
     <path d="M82 53 L99 10 L118 53 C108 48 93 48 82 53Z" fill="url(#hornGrad)" stroke="#fff5bd" stroke-width="2"/>
@@ -110,24 +268,12 @@
     <path d="M146 53 C157 42 161 24 151 15 C136 19 125 34 122 49Z" fill="url(#bodyGrad)" stroke="#f8b3d8" stroke-width="2"/>
     <path d="M60 58 C49 61 39 69 33 81 C48 75 58 77 66 85Z" fill="#c7f9ff" opacity=".9"/>
     <path d="M140 58 C151 61 161 69 167 81 C152 75 142 77 134 85Z" fill="#c7f9ff" opacity=".9"/>
-    <path d="M70 64 C78 61 86 61 93 64" fill="none" stroke="#7a2f66" stroke-width="4" stroke-linecap="round" opacity=".75"/>
-    <path d="M108 64 C116 61 124 61 132 64" fill="none" stroke="#7a2f66" stroke-width="4" stroke-linecap="round" opacity=".75"/>
-    
-    <g class="eye eye-left" style="--blink-delay:0s; transform-origin:78px 84px">
-      <ellipse cx="78" cy="84" rx="15.9" ry="19.080000000000002" fill="url(#eyeGrad)" stroke="#4a2e79" stroke-width="2.8"/>
-      <circle class="pupil" cx="78" cy="86" r="7.2" fill="#2b205f"/>
-      <circle cx="71" cy="75" r="4.2" fill="#fff"/>
-      <circle cx="82" cy="81" r="1.9" fill="#bff7ff" opacity=".9"/>
-    </g>
-    
-    <g class="eye eye-right" style="--blink-delay:.05s; transform-origin:122px 84px">
-      <ellipse cx="122" cy="84" rx="15.9" ry="19.080000000000002" fill="url(#eyeGrad)" stroke="#4a2e79" stroke-width="2.8"/>
-      <circle class="pupil" cx="122" cy="86" r="7.2" fill="#2b205f"/>
-      <circle cx="115" cy="75" r="4.2" fill="#fff"/>
-      <circle cx="126" cy="81" r="1.9" fill="#bff7ff" opacity=".9"/>
-    </g>
+    <path d="${browLeft}" fill="none" stroke="#7a2f66" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+    <path d="${browRight}" fill="none" stroke="#7a2f66" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+    ${eye({ x: 78, y: 84, mood: state.mood, side: 'left' })}
+    ${eye({ x: 122, y: 84, mood: state.mood, side: 'right' })}
     <ellipse cx="100" cy="99" rx="7" ry="5" fill="#d8579f" opacity=".7"/>
-    <path d="M80 106 C91 121 111 121 122 106" fill="none" stroke="#7a2f66" stroke-width="5" stroke-linecap="round"/>
+    ${mouth(state.mood)}
     <ellipse class="highlight" cx="76" cy="63" rx="13" ry="8" fill="#ffffff" opacity=".54"/>
     <ellipse class="highlight" cx="83" cy="136" rx="16" ry="10" fill="#ffffff" opacity=".35"/>
     <circle cx="63" cy="101" r="6" fill="#ff78b8" opacity=".45"/>
@@ -136,3 +282,14 @@
     <ellipse cx="122" cy="213" rx="16" ry="8" fill="#d8579f"/>
   </g>
 </svg>
+`;
+}
+
+for (const key of Object.keys(STATES)) {
+  writeFileSync(join(OUT_DIR, `mascot-${key}.svg`), svgForState(key));
+}
+
+for (const [fileName, state] of Object.entries(LEGACY)) {
+  writeFileSync(join(OUT_DIR, fileName), svgForState(state));
+}
+

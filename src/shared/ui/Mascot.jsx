@@ -6,11 +6,14 @@ import DicoSearchOverlay from './DicoSearchOverlay.jsx';
 // ─── SVG assets ──────────────────────────────────────────────────────────────
 
 const MASCOT_SRC = {
-  idle:      assetUrl('assets/characters/mascot-focused.svg'),
-  thinking:  assetUrl('assets/characters/mascot-focused.svg'),
-  correct:   assetUrl('assets/characters/mascot-happy.svg'),
-  wrong:     assetUrl('assets/characters/mascot-sad.svg'),
-  completed: assetUrl('assets/characters/mascot-celebrate.svg'),
+  idle:        assetUrl('assets/characters/mascot-idle.svg'),
+  thinking:    assetUrl('assets/characters/mascot-thinking.svg'),
+  correct:     assetUrl('assets/characters/mascot-correct.svg'),
+  wrong:       assetUrl('assets/characters/mascot-wrong.svg'),
+  celebrate:   assetUrl('assets/characters/mascot-celebrate.svg'),
+  levelup:     assetUrl('assets/characters/mascot-levelup.svg'),
+  encouraging: assetUrl('assets/characters/mascot-encouraging.svg'),
+  completed:   assetUrl('assets/characters/mascot-celebrate.svg'),
 };
 
 // ─── Messages ────────────────────────────────────────────────────────────────
@@ -89,13 +92,18 @@ export default function Mascot({ status = 'idle' }) {
     winkTimer.current = setTimeout(() => setWink(false), 650);
   }
 
-  // CSS class drives the animation on .mascot-body
+  // CSS class drives the wrapper animation; the SVG owns the detailed state motion.
   let stateClass = 'mascot--idle';
-  if (status === 'correct')   stateClass = 'mascot--correct mascot--bounce';
-  if (status === 'wrong')     stateClass = 'mascot--wrong mascot--shake';
-  if (status === 'completed') stateClass = 'mascot--completed mascot--jump';
-  if (status === 'thinking')  stateClass = 'mascot--thinking';
-  if (wink)                   stateClass += ' mascot--wink';
+  if (status === 'correct') {
+    stateClass = 'mascot--correct mascot--bounce';
+  } else if (status === 'wrong') {
+    stateClass = 'mascot--wrong mascot--shake';
+  } else if (status === 'completed' || status === 'celebrate' || status === 'levelup') {
+    stateClass = 'mascot--completed mascot--jump';
+  } else if (status === 'thinking' || status === 'encouraging') {
+    stateClass = 'mascot--thinking';
+  }
+  if (wink) stateClass += ' mascot--wink';
 
   return (
     <>
