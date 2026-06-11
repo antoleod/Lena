@@ -2,10 +2,8 @@ import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { subjects } from '../curriculum/catalog.js';
 import { getSubjectUniverse } from '../../shared/gameplay/subjectThemes.js';
-import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot, getStudyStats } from '../../services/storage/progressStore.js';
 import { getActivitiesBySubject } from '../curriculum/catalog.js';
-import { SUBJECT_ICONS } from '../../assets/icons/AppIcons.jsx';
 import { getProfile } from '../../services/storage/profileStore.js';
 import { getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
@@ -250,21 +248,35 @@ function RewardCard({ icon, title, sub, c }) {
   );
 }
 
-// ── World destinations: each subject is a place with a story ────────────────
-const WORLDS = {
-  mathematics:  { fr: ['Galaxie des Nombres', 'Voyage à travers les planètes du calcul'],      en: ['Number Galaxy', 'Travel across the planets of math'],          es: ['Galaxia de los Números', 'Viaja por los planetas del cálculo'],   nl: ['Getallensterrenstelsel', 'Reis langs de planeten van rekenen'] },
-  french:       { fr: ['Forêt des Mots', 'Découvre la magie des phrases'],                      en: ['Forest of Words', 'Discover the magic of sentences'],          es: ['Bosque de Palabras', 'Descubre la magia de las frases'],         nl: ['Woordenbos', 'Ontdek de magie van zinnen'] },
-  dutch:        { fr: ['Île des Mots NL', 'Explore la langue du Nord'],                          en: ['Dutch Word Island', 'Explore the language of the North'],      es: ['Isla del Neerlandés', 'Explora la lengua del Norte'],            nl: ['Woordeneiland', 'Verken de taal van het Noorden'] },
-  english:      { fr: ['Royaume des Contes', 'Une aventure à travers les terres anglaises'],     en: ['Story Kingdom', 'An adventure across British lands'],           es: ['Reino de los Cuentos', 'Una aventura por tierras inglesas'],     nl: ['Verhalenkoninkrijk', 'Een avontuur door Britse landen'] },
-  spanish:      { fr: ['Terre du Soleil', 'Explore le monde en espagnol'],                       en: ['Land of the Sun', 'Explore the world in Spanish'],             es: ['Tierra del Sol', 'Explora el mundo en español'],                 nl: ['Land van de Zon', 'Verken de wereld in het Spaans'] },
-  reasoning:    { fr: ['Temple de la Logique', 'Résous les énigmes anciennes'],                  en: ['Temple of Logic', 'Solve the ancient riddles'],                es: ['Templo de la Lógica', 'Resuelve los enigmas antiguos'],          nl: ['Tempel van Logica', 'Los de oude raadsels op'] },
-  stories:      { fr: ['Bibliothèque Enchantée', 'Plonge dans des histoires vivantes'],          en: ['Enchanted Library', 'Dive into living stories'],               es: ['Biblioteca Encantada', 'Sumérgete en historias vivas'],          nl: ['Betoverde Bibliotheek', 'Duik in levende verhalen'] },
-  sciences:     { fr: ['Laboratoire Magique', 'Mène des expériences fascinantes'],              en: ['Magic Laboratory', 'Run fascinating experiments'],             es: ['Laboratorio Mágico', 'Realiza experimentos fascinantes'],        nl: ['Magisch Laboratorium', 'Doe fascinerende experimenten'] },
-  histoire:     { fr: ['Portail du Temps', 'Voyage à travers les époques'],                      en: ['Time Portal', 'Travel through the ages'],                      es: ['Portal del Tiempo', 'Viaja a través de las épocas'],             nl: ['Tijdportaal', 'Reis door de eeuwen'] },
-  logique:      { fr: ['Labyrinthe des Énigmes', "Déjoue les pièges de l'esprit"],              en: ['Maze of Riddles', 'Outsmart the mind traps'],                  es: ['Laberinto de Enigmas', 'Burla las trampas de la mente'],         nl: ['Doolhof van Raadsels', 'Ontwijk de breinvallen'] },
-  finance:      { fr: ["Cité de l'Or", 'Apprends à gérer ton trésor'],                          en: ['City of Gold', 'Learn to manage your treasure'],               es: ['Ciudad del Oro', 'Aprende a gestionar tu tesoro'],               nl: ['Stad van Goud', 'Leer je schat beheren'] },
-  informatique: { fr: ['Cyber Station', 'Code ton propre futur'],                                en: ['Cyber Station', 'Code your own future'],                       es: ['Ciberestación', 'Programa tu propio futuro'],                    nl: ['Cyberstation', 'Codeer je eigen toekomst'] },
-};
+// ── Major worlds: 12 subjects grouped into 4 large destinations ─────────────
+// Each world reuses the theme/icon of its representative subject (themeFrom)
+// so colors, icons, animations stay unchanged.
+const MAJOR_WORLDS = [
+  {
+    id: 'maths', emoji: '🏰', themeFrom: 'mathematics', to: '/subjects/mathematics',
+    subjectIds: ['mathematics', 'finance'],
+    name:  { fr: 'Royaume des Mathématiques', en: 'Kingdom of Mathematics', es: 'Reino de las Matemáticas', nl: 'Koninkrijk van Wiskunde' },
+    story: { fr: 'Compte, calcule et règne sur les nombres', en: 'Count, calculate and rule the numbers', es: 'Cuenta, calcula y domina los números', nl: 'Tel, reken en heers over getallen' },
+  },
+  {
+    id: 'langues', emoji: '📚', themeFrom: 'french', to: '/subjects/french',
+    subjectIds: ['french', 'dutch', 'english', 'spanish', 'stories'],
+    name:  { fr: 'Royaume des Langues', en: 'Kingdom of Languages', es: 'Reino de las Lenguas', nl: 'Koninkrijk van Talen' },
+    story: { fr: 'Mots, histoires et langues du monde', en: 'Words, stories and world languages', es: 'Palabras, historias y lenguas del mundo', nl: 'Woorden, verhalen en wereldtalen' },
+  },
+  {
+    id: 'sciences', emoji: '🧪', themeFrom: 'sciences', to: '/subjects/sciences',
+    subjectIds: ['sciences', 'informatique', 'histoire'],
+    name:  { fr: 'Laboratoire des Sciences', en: 'Science Laboratory', es: 'Laboratorio de Ciencias', nl: 'Wetenschapslab' },
+    story: { fr: 'Explore, expérimente et découvre', en: 'Explore, experiment and discover', es: 'Explora, experimenta y descubre', nl: 'Verken, experimenteer en ontdek' },
+  },
+  {
+    id: 'logique', emoji: '🚀', themeFrom: 'reasoning', to: '/subjects/reasoning',
+    subjectIds: ['reasoning', 'logique'],
+    name:  { fr: 'Univers de la Logique', en: 'Logic Universe', es: 'Universo de la Lógica', nl: 'Logica Universum' },
+    story: { fr: 'Énigmes, code et raisonnement', en: 'Riddles, code and reasoning', es: 'Enigmas, código y razonamiento', nl: 'Raadsels, code en redeneren' },
+  },
+];
 
 const WORLD_CTA = {
   fr: { explore: 'Explorer', resume: 'Continuer', badge: 'Monde' },
@@ -273,23 +285,25 @@ const WORLD_CTA = {
   nl: { explore: 'Verken',   resume: 'Doorgaan',  badge: 'Wereld' },
 };
 
-function WorldCard({ subject, locale, t, progress, index }) {
-  const universe = getSubjectUniverse(subject.id);
-  const acts = getActivitiesBySubject(subject.id);
-  const completed = acts.filter(a => progress.activities?.[a.id]?.completed).length;
-  const pct = acts.length ? Math.round((completed / acts.length) * 100) : 0;
+function MajorWorld({ world, locale, progress, index }) {
+  const universe = getSubjectUniverse(world.themeFrom);
+  let total = 0, done = 0;
+  world.subjectIds.forEach(id => {
+    const acts = getActivitiesBySubject(id);
+    total += acts.length;
+    done += acts.filter(a => progress.activities?.[a.id]?.completed).length;
+  });
+  const pct = total ? Math.round((done / total) * 100) : 0;
 
-  const world = WORLDS[subject.id]?.[locale] || WORLDS[subject.id]?.fr;
   const cta = WORLD_CTA[locale] || WORLD_CTA.fr;
-  const name = world ? world[0] : getSubjectLabel(subject, locale, t);
-  const story = world ? world[1] : '';
+  const name = world.name[locale] || world.name.fr;
+  const story = world.story[locale] || world.story.fr;
   const particle = universe.particle || '✦';
-  const Icon = SUBJECT_ICONS[subject.id];
 
   return (
     <Link
-      to={`/subjects/${subject.id}`}
-      className="al-world"
+      to={world.to}
+      className="al-world al-world--mega"
       style={{
         '--w-sky-top': universe.skyTop,
         '--w-sky-bot': universe.skyBottom,
@@ -306,12 +320,12 @@ function WorldCard({ subject, locale, t, progress, index }) {
       </div>
 
       <div className="al-world__landmark" aria-hidden="true">
-        {Icon ? <Icon size={72} /> : <span className="al-world__landmark-emoji">{universe.icon}</span>}
+        <span className="al-world__landmark-emoji">{world.emoji}</span>
       </div>
 
       <div className="al-world__overlay">
         <div className="al-world__top">
-          <span className="al-world__badge">{universe.icon} {cta.badge}</span>
+          <span className="al-world__badge">{world.emoji} {cta.badge}</span>
           {pct === 100 && <span className="al-world__crown">👑</span>}
         </div>
 
@@ -321,7 +335,7 @@ function WorldCard({ subject, locale, t, progress, index }) {
         </div>
 
         <div className="al-world__foot">
-          {acts.length > 0 ? (
+          {total > 0 ? (
             <div className="al-world__journey">
               <div className="al-world__bar"><div className="al-world__bar-fill" style={{ width: `${pct}%` }} /></div>
               <span className="al-world__pct">{pct}%</span>
@@ -398,26 +412,7 @@ export default function ApprendreHubPage() {
         stars={stars}
       />
 
-      {/* ── Worlds: each subject is a destination ─────────────── */}
-      <div className="al-worlds-header">
-        <h2 className="al-worlds-header__title">{hero.worldsTitle}</h2>
-        <p className="al-worlds-header__sub">{hero.worldsSub}</p>
-      </div>
-
-      <div className="al-worlds-grid">
-        {activeSubjects.map((s, i) => (
-          <WorldCard
-            key={s.id}
-            subject={s}
-            locale={locale}
-            t={t}
-            progress={progress}
-            index={i}
-          />
-        ))}
-      </div>
-
-      {/* ── Grand Voyage — main adventure system ──────────────── */}
+      {/* ── Grand Voyage — PRIMARY section, directly under Hero ─── */}
       <Link to="/map" className="al-voyage">
         <div className="al-voyage__sky" aria-hidden="true">
           {['🌟','✨','⭐','💫','🌠','✨'].map((e, i) => (
@@ -445,6 +440,18 @@ export default function ApprendreHubPage() {
           <span className="al-voyage__cta">{hero.voyageCta} →</span>
         </div>
       </Link>
+
+      {/* ── Major worlds: 4 large destinations below Grand Voyage ─ */}
+      <div className="al-worlds-header">
+        <h2 className="al-worlds-header__title">{hero.worldsTitle}</h2>
+        <p className="al-worlds-header__sub">{hero.worldsSub}</p>
+      </div>
+
+      <div className="al-worlds-grid al-worlds-grid--mega">
+        {MAJOR_WORLDS.map((w, i) => (
+          <MajorWorld key={w.id} world={w} locale={locale} progress={progress} index={i} />
+        ))}
+      </div>
 
       {/* ── Rewards row ───────────────────────────────────────── */}
       <div className="al-rewards-section">

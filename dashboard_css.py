@@ -469,6 +469,37 @@ worlds_css = r"""
 }
 """
 
+MEGA_MARKER = "MEGA WORLDS V1"
+mega_css = r"""
+/* ═══════════════════════════════════════════════════════════════
+   MEGA WORLDS V1 — 4 large destination cards (layout/sizing only,
+   reuses GAME WORLDS V1 visuals; no colour/typography changes)
+   ═══════════════════════════════════════════════════════════════ */
+.al-worlds-grid--mega {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .al-worlds-grid--mega { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+
+.al-world--mega { min-height: 320px; }
+.al-world--mega .al-world__overlay { min-height: 320px; }
+.al-world--mega .al-world__landmark-emoji { font-size: 7rem; }
+.al-world--mega .al-world__name { font-size: 1.95rem; }
+.al-world--mega .al-world__story { font-size: 0.95rem; max-width: 70%; }
+
+@media (min-width: 640px) {
+  .al-world--mega { min-height: 300px; }
+  .al-world--mega .al-world__overlay { min-height: 300px; }
+}
+@media (min-width: 1024px) {
+  .al-world--mega { min-height: 340px; }
+  .al-world--mega .al-world__overlay { min-height: 340px; }
+  .al-world--mega .al-world__landmark-emoji { font-size: 8.5rem; }
+}
+"""
+
 target = pathlib.Path("src/shared/theme/app.css")
 existing = target.read_text(encoding="utf-8")
 out = existing
@@ -492,5 +523,10 @@ if WORLDS_MARKER not in out:
     print("Game worlds CSS appended OK")
 else:
     print("Game worlds CSS already present, skipping")
+if MEGA_MARKER not in out:
+    out += "\n" + mega_css
+    print("Mega worlds CSS appended OK")
+else:
+    print("Mega worlds CSS already present, skipping")
 if out != existing:
     target.write_text(out, encoding="utf-8")

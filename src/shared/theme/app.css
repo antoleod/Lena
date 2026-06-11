@@ -19052,3 +19052,32 @@ body {
   .al-world__overlay { min-height: 172px; }
   .al-world__landmark-emoji { font-size: 5rem; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MEGA WORLDS V1 — 4 large destination cards (layout/sizing only,
+   reuses GAME WORLDS V1 visuals; no colour/typography changes)
+   ═══════════════════════════════════════════════════════════════ */
+.al-worlds-grid--mega {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .al-worlds-grid--mega { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+
+.al-world--mega { min-height: 320px; }
+.al-world--mega .al-world__overlay { min-height: 320px; }
+.al-world--mega .al-world__landmark-emoji { font-size: 7rem; }
+.al-world--mega .al-world__name { font-size: 1.95rem; }
+.al-world--mega .al-world__story { font-size: 0.95rem; max-width: 70%; }
+
+@media (min-width: 640px) {
+  .al-world--mega { min-height: 300px; }
+  .al-world--mega .al-world__overlay { min-height: 300px; }
+}
+@media (min-width: 1024px) {
+  .al-world--mega { min-height: 340px; }
+  .al-world--mega .al-world__overlay { min-height: 340px; }
+  .al-world--mega .al-world__landmark-emoji { font-size: 8.5rem; }
+}
