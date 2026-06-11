@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes, useParams, useSearchParams } from 'react-router-dom';
+import { useAuth } from '../../shared/auth/AuthContext.jsx';
 import ErrorBoundary from '../ErrorBoundary.jsx';
 import AppShell from '../layout/AppShell.jsx';
 import HomePage from '../../features/home/HomePage.jsx';
@@ -162,6 +163,7 @@ function MissionRedirect() {
 }
 
 export default function AppRouter() {
+  const { user } = useAuth();
   const [needsOnboarding, setNeedsOnboarding] = useState(() => typeof window !== 'undefined' && !isProfileComplete());
   const [onboardingActive, setOnboardingActive] = useState(() => typeof window !== 'undefined' && isOnboardingFlowActive());
 
@@ -184,6 +186,9 @@ export default function AppRouter() {
     };
   }, []);
 
+  // Auth state still loading — show nothing (prevents flash to onboarding)
+  if (user === null) return null;
+
   return (
     <ErrorBoundary>
     <Routes>
@@ -191,7 +196,11 @@ export default function AppRouter() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/onboarding" element={needsOnboarding || onboardingActive ? <OnboardingFlow /> : <Navigate to="/" replace />} />
       <Route element={<AppShell />}>
-        <Route path="/" element={needsOnboarding && !onboardingActive ? <Navigate to="/onboarding" replace /> : <HomePage />} />
+        <Route path="/" element={
+          needsOnboarding && !onboardingActive
+            ? (user ? <Navigate to="/login" replace /> : <Navigate to="/onboarding" replace />)
+            : <HomePage />
+        } />
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="/continue" element={<ContinueRedirect />} />
         <Route path="/map" element={<MapPage />} />
@@ -311,7 +320,11 @@ export default function AppRouter() {
         <Route path="/dico" element={<DicoPage />} />
         <Route path="/stats" element={<StatsPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
-        <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/onboarding' : '/'} replace />} />
+        <Route path="*" element={<Navigate to={
+          needsOnboarding && !onboardingActive
+            ? (user ? '/login' : '/onboarding')
+            : '/'
+        } replace />} />
       </Route>
     </Routes>
     </ErrorBoundary>
