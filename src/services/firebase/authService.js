@@ -3,6 +3,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signInAnonymously,
+  linkWithPopup,
   GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
@@ -35,6 +37,16 @@ export async function signInEmail(email, password) {
 
 export async function signInGoogle() {
   const cred = await signInWithPopup(auth, googleProvider);
+  return cred.user;
+}
+
+export async function signInAnon() {
+  const cred = await signInAnonymously(auth);
+  return cred.user;
+}
+
+export async function linkAnonWithGoogle() {
+  const cred = await linkWithPopup(auth.currentUser, googleProvider);
   return cred.user;
 }
 
