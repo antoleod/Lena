@@ -1,6 +1,6 @@
 # MISSION IMPOSSIBLE — LIVING CONTRACT & WORKFLOW
 
-> Status: **TRACKS 1·2·3 BUILT (build green, 17 tests pass)** — pending: rules deploy + e2e (1.8), launcher routing (2.5, high-risk), settings/privacy (Track 4). Mission Impossible playable at `/mission-impossible`. · Last updated: 2026-06-11
+> Status: **TRACKS 1·2·3·4.1 BUILT (build green, 20 tests pass, committed)** — remaining: rules deploy + e2e (1.8), launcher routing (2.5, high-risk/deferred). Mission Impossible playable at `/mission-impossible`. · Last updated: 2026-06-11
 > Spec: [`new categori`](new%20categori) · Audits: [`../AUDIT-ADAPTIVE-LEARNING.md`](../AUDIT-ADAPTIVE-LEARNING.md), [`../ARCHITECTURE.md`](../ARCHITECTURE.md)
 >
 > **This is the durable memory of the project.** Tick the boxes in §5 as work lands and
