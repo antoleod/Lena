@@ -274,7 +274,6 @@ function SubjectWorld({ subject, locale, t, progress, index }) {
   const cta = WORLD_CTA[locale] || WORLD_CTA.fr;
   const name = getSubjectLabel(subject, locale, t) || subject.label;
   const desc = subject.description || '';
-  const grades = subject.grades || [];
   const particle = universe.particle || '✦';
 
   return (
@@ -300,12 +299,6 @@ function SubjectWorld({ subject, locale, t, progress, index }) {
         {pct === 100 && <span className="al-subj__crown"> 👑</span>}
       </h3>
       {desc && <p className="al-subj__desc">{desc}</p>}
-
-      {grades.length > 0 && (
-        <div className="al-subj__grades">
-          {grades.map(g => <span key={g} className="al-subj__grade">{g}</span>)}
-        </div>
-      )}
 
       <div className="al-subj__bar"><div className="al-subj__bar-fill" style={{ width: `${pct}%` }} /></div>
 
