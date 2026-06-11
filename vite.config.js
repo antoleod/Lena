@@ -21,8 +21,8 @@ export default ({ mode }) => {
           'offline.html',
         ],
         manifest: {
-          name: 'Lena Learning Adventure',
-          short_name: 'Lena',
+          name: 'LénaLand — Explorer · Apprendre · Rêver',
+          short_name: 'LénaLand',
           id: '/',
           lang: 'fr',
           dir: 'ltr',
