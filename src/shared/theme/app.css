@@ -18914,3 +18914,141 @@ body {
   margin: 10px 0 0; font-size: 0.78rem; font-weight: 600;
   color: rgba(124,58,237,0.85); text-align: center;
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   GAME WORLDS V1 — subjects as immersive destinations (not cards)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Remove repeated mascot watermark — mascot is only the hero guide now */
+.al-subject-card__sky::after { content: none !important; }
+
+.al-worlds-header { padding: 18px 16px 4px; }
+.al-worlds-header__title {
+  margin: 0; font-family: 'Fredoka', sans-serif;
+  font-size: 1.3rem; font-weight: 800; color: #fff;
+}
+.al-worlds-header__sub { margin: 3px 0 0; font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+
+.al-worlds-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  padding: 10px 16px 4px;
+}
+
+.al-world {
+  position: relative;
+  display: block;
+  min-height: 158px;
+  border-radius: 24px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1.5px solid color-mix(in srgb, var(--w-accent) 45%, transparent);
+  background: linear-gradient(158deg, var(--w-sky-top) 0%, var(--w-sky-bot) 100%);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: transform 0.2s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.22s, border-color 0.2s;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: alWorldIn 0.5s cubic-bezier(0.34,1.4,0.64,1) forwards;
+  animation-delay: calc(var(--w-i, 0) * 0.05s);
+  isolation: isolate;
+}
+@keyframes alWorldIn { to { opacity: 1; transform: translateY(0); } }
+.al-world:hover {
+  transform: translateY(-5px) scale(1.012);
+  box-shadow: 0 20px 46px rgba(0,0,0,0.5), 0 0 36px color-mix(in srgb, var(--w-accent) 40%, transparent);
+  border-color: color-mix(in srgb, var(--w-accent) 80%, transparent);
+}
+.al-world:active { transform: scale(0.985); }
+
+/* Atmosphere */
+.al-world__bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+.al-world__halo {
+  position: absolute; right: -10%; top: -30%;
+  width: 70%; height: 120%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--w-accent) 55%, transparent), transparent 65%);
+  filter: blur(18px); opacity: 0.55;
+}
+.al-world__particle {
+  position: absolute;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--w-accent) 70%, #fff);
+  opacity: 0.5;
+  animation: alWorldFloat 6s ease-in-out infinite;
+  animation-delay: calc(var(--p) * 0.7s);
+}
+.al-world__particle:nth-child(1){top:18%;left:12%}.al-world__particle:nth-child(2){top:60%;left:24%}
+.al-world__particle:nth-child(3){top:30%;left:46%}.al-world__particle:nth-child(4){top:72%;left:58%}
+.al-world__particle:nth-child(5){top:14%;left:70%}.al-world__particle:nth-child(6){top:50%;left:84%}
+@keyframes alWorldFloat { 0%,100%{transform:translateY(0) scale(1);opacity:.35} 50%{transform:translateY(-8px) scale(1.2);opacity:.8} }
+
+/* Landmark icon = the place */
+.al-world__landmark {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  z-index: 1; opacity: 0.92;
+  filter: drop-shadow(0 6px 16px color-mix(in srgb, var(--w-shadow) 70%, transparent));
+  animation: alWorldBob 5s ease-in-out infinite;
+}
+@keyframes alWorldBob { 0%,100%{transform:translateY(-50%)} 50%{transform:translateY(calc(-50% - 7px))} }
+.al-world__landmark-emoji { font-size: 4.4rem; line-height: 1; }
+
+/* Text scrim + overlay */
+.al-world__overlay {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; justify-content: space-between;
+  height: 100%; min-height: 158px;
+  padding: 14px 16px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 55%, transparent 80%);
+}
+.al-world__top { display: flex; align-items: center; justify-content: space-between; }
+.al-world__badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 11px; border-radius: 13px;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+  color: #fff;
+  background: color-mix(in srgb, var(--w-accent) 55%, rgba(0,0,0,0.3));
+  border: 1px solid color-mix(in srgb, var(--w-accent) 70%, transparent);
+}
+.al-world__crown { font-size: 1.3rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+.al-world__info { margin: 6px 0; }
+.al-world__name {
+  display: block; font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.05;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+}
+.al-world__story {
+  display: block; margin-top: 3px; max-width: 78%;
+  font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.85);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5); line-height: 1.3;
+}
+.al-world__foot { display: flex; align-items: center; gap: 12px; }
+.al-world__journey { flex: 1; display: flex; align-items: center; gap: 8px; max-width: 70%; }
+.al-world__bar {
+  flex: 1; height: 8px; border-radius: 5px; overflow: hidden;
+  background: rgba(0,0,0,0.4); box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
+}
+.al-world__bar-fill {
+  height: 100%; border-radius: 5px;
+  background: linear-gradient(90deg, #fff, var(--w-accent));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--w-accent) 80%, transparent);
+  transition: width 0.7s ease;
+}
+.al-world__pct { font-size: 0.74rem; font-weight: 800; color: #fff; }
+.al-world__cta {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 14px; border-radius: 14px;
+  font-size: 0.82rem; font-weight: 800; color: #fff;
+  background: color-mix(in srgb, var(--w-accent) 80%, #000);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--w-accent) 45%, transparent);
+}
+
+@media (min-width: 600px) {
+  .al-worlds-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (min-width: 1024px) {
+  .al-worlds-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 12px 16px; }
+  .al-world { min-height: 172px; }
+  .al-world__overlay { min-height: 172px; }
+  .al-world__landmark-emoji { font-size: 5rem; }
+}

@@ -24,6 +24,8 @@ const HERO_UI = {
     starsLabel: 'étoiles',
     voyageProgress: 'Ta progression',
     voyageCta: "Continuer l'aventure",
+    worldsTitle: '🗺️ Choisis ton monde',
+    worldsSub: 'Chaque matière est une aventure à explorer',
     rewardsTitle: 'Récompenses',
     rewards: [
       { icon: '🎁', title: 'Récompense du jour', sub: 'À réclamer !', c: '#f59e0b' },
@@ -39,6 +41,7 @@ const HERO_UI = {
     streakLabel: n => `${n} dag${n > 1 ? 'en' : ''} reeks`,
     rewardLabel: 'Volgende beloning', starsLabel: 'sterren',
     voyageProgress: 'Jouw voortgang', voyageCta: 'Ga verder',
+    worldsTitle: '🗺️ Kies je wereld', worldsSub: 'Elk vak is een avontuur om te verkennen',
     rewardsTitle: 'Beloningen',
     rewards: [
       { icon: '🎁', title: 'Dagbeloning', sub: 'Te claimen!', c: '#f59e0b' },
@@ -54,6 +57,7 @@ const HERO_UI = {
     streakLabel: n => `${n}-day streak`,
     rewardLabel: 'Next reward', starsLabel: 'stars',
     voyageProgress: 'Your progress', voyageCta: 'Continue the adventure',
+    worldsTitle: '🗺️ Choose your world', worldsSub: 'Every subject is an adventure to explore',
     rewardsTitle: 'Rewards',
     rewards: [
       { icon: '🎁', title: 'Daily reward', sub: 'Claim it!', c: '#f59e0b' },
@@ -69,6 +73,7 @@ const HERO_UI = {
     streakLabel: n => `Racha de ${n} día${n > 1 ? 's' : ''}`,
     rewardLabel: 'Próxima recompensa', starsLabel: 'estrellas',
     voyageProgress: 'Tu progreso', voyageCta: 'Continuar la aventura',
+    worldsTitle: '🗺️ Elige tu mundo', worldsSub: 'Cada materia es una aventura por explorar',
     rewardsTitle: 'Recompensas',
     rewards: [
       { icon: '🎁', title: 'Recompensa diaria', sub: '¡A reclamar!', c: '#f59e0b' },
@@ -245,6 +250,90 @@ function RewardCard({ icon, title, sub, c }) {
   );
 }
 
+// ── World destinations: each subject is a place with a story ────────────────
+const WORLDS = {
+  mathematics:  { fr: ['Galaxie des Nombres', 'Voyage à travers les planètes du calcul'],      en: ['Number Galaxy', 'Travel across the planets of math'],          es: ['Galaxia de los Números', 'Viaja por los planetas del cálculo'],   nl: ['Getallensterrenstelsel', 'Reis langs de planeten van rekenen'] },
+  french:       { fr: ['Forêt des Mots', 'Découvre la magie des phrases'],                      en: ['Forest of Words', 'Discover the magic of sentences'],          es: ['Bosque de Palabras', 'Descubre la magia de las frases'],         nl: ['Woordenbos', 'Ontdek de magie van zinnen'] },
+  dutch:        { fr: ['Île des Mots NL', 'Explore la langue du Nord'],                          en: ['Dutch Word Island', 'Explore the language of the North'],      es: ['Isla del Neerlandés', 'Explora la lengua del Norte'],            nl: ['Woordeneiland', 'Verken de taal van het Noorden'] },
+  english:      { fr: ['Royaume des Contes', 'Une aventure à travers les terres anglaises'],     en: ['Story Kingdom', 'An adventure across British lands'],           es: ['Reino de los Cuentos', 'Una aventura por tierras inglesas'],     nl: ['Verhalenkoninkrijk', 'Een avontuur door Britse landen'] },
+  spanish:      { fr: ['Terre du Soleil', 'Explore le monde en espagnol'],                       en: ['Land of the Sun', 'Explore the world in Spanish'],             es: ['Tierra del Sol', 'Explora el mundo en español'],                 nl: ['Land van de Zon', 'Verken de wereld in het Spaans'] },
+  reasoning:    { fr: ['Temple de la Logique', 'Résous les énigmes anciennes'],                  en: ['Temple of Logic', 'Solve the ancient riddles'],                es: ['Templo de la Lógica', 'Resuelve los enigmas antiguos'],          nl: ['Tempel van Logica', 'Los de oude raadsels op'] },
+  stories:      { fr: ['Bibliothèque Enchantée', 'Plonge dans des histoires vivantes'],          en: ['Enchanted Library', 'Dive into living stories'],               es: ['Biblioteca Encantada', 'Sumérgete en historias vivas'],          nl: ['Betoverde Bibliotheek', 'Duik in levende verhalen'] },
+  sciences:     { fr: ['Laboratoire Magique', 'Mène des expériences fascinantes'],              en: ['Magic Laboratory', 'Run fascinating experiments'],             es: ['Laboratorio Mágico', 'Realiza experimentos fascinantes'],        nl: ['Magisch Laboratorium', 'Doe fascinerende experimenten'] },
+  histoire:     { fr: ['Portail du Temps', 'Voyage à travers les époques'],                      en: ['Time Portal', 'Travel through the ages'],                      es: ['Portal del Tiempo', 'Viaja a través de las épocas'],             nl: ['Tijdportaal', 'Reis door de eeuwen'] },
+  logique:      { fr: ['Labyrinthe des Énigmes', "Déjoue les pièges de l'esprit"],              en: ['Maze of Riddles', 'Outsmart the mind traps'],                  es: ['Laberinto de Enigmas', 'Burla las trampas de la mente'],         nl: ['Doolhof van Raadsels', 'Ontwijk de breinvallen'] },
+  finance:      { fr: ["Cité de l'Or", 'Apprends à gérer ton trésor'],                          en: ['City of Gold', 'Learn to manage your treasure'],               es: ['Ciudad del Oro', 'Aprende a gestionar tu tesoro'],               nl: ['Stad van Goud', 'Leer je schat beheren'] },
+  informatique: { fr: ['Cyber Station', 'Code ton propre futur'],                                en: ['Cyber Station', 'Code your own future'],                       es: ['Ciberestación', 'Programa tu propio futuro'],                    nl: ['Cyberstation', 'Codeer je eigen toekomst'] },
+};
+
+const WORLD_CTA = {
+  fr: { explore: 'Explorer', resume: 'Continuer', badge: 'Monde' },
+  en: { explore: 'Explore',  resume: 'Continue',  badge: 'World' },
+  es: { explore: 'Explorar', resume: 'Continuar', badge: 'Mundo' },
+  nl: { explore: 'Verken',   resume: 'Doorgaan',  badge: 'Wereld' },
+};
+
+function WorldCard({ subject, locale, t, progress, index }) {
+  const universe = getSubjectUniverse(subject.id);
+  const acts = getActivitiesBySubject(subject.id);
+  const completed = acts.filter(a => progress.activities?.[a.id]?.completed).length;
+  const pct = acts.length ? Math.round((completed / acts.length) * 100) : 0;
+
+  const world = WORLDS[subject.id]?.[locale] || WORLDS[subject.id]?.fr;
+  const cta = WORLD_CTA[locale] || WORLD_CTA.fr;
+  const name = world ? world[0] : getSubjectLabel(subject, locale, t);
+  const story = world ? world[1] : '';
+  const particle = universe.particle || '✦';
+  const Icon = SUBJECT_ICONS[subject.id];
+
+  return (
+    <Link
+      to={`/subjects/${subject.id}`}
+      className="al-world"
+      style={{
+        '--w-sky-top': universe.skyTop,
+        '--w-sky-bot': universe.skyBottom,
+        '--w-accent':  universe.accent,
+        '--w-shadow':  universe.accentShadow,
+        '--w-i':       index,
+      }}
+    >
+      <div className="al-world__bg" aria-hidden="true">
+        {Array.from({ length: 6 }, (_, i) => (
+          <span key={i} className="al-world__particle" style={{ '--p': i }}>{particle}</span>
+        ))}
+        <span className="al-world__halo" />
+      </div>
+
+      <div className="al-world__landmark" aria-hidden="true">
+        {Icon ? <Icon size={72} /> : <span className="al-world__landmark-emoji">{universe.icon}</span>}
+      </div>
+
+      <div className="al-world__overlay">
+        <div className="al-world__top">
+          <span className="al-world__badge">{universe.icon} {cta.badge}</span>
+          {pct === 100 && <span className="al-world__crown">👑</span>}
+        </div>
+
+        <div className="al-world__info">
+          <strong className="al-world__name">{name}</strong>
+          {story && <span className="al-world__story">{story}</span>}
+        </div>
+
+        <div className="al-world__foot">
+          {acts.length > 0 ? (
+            <div className="al-world__journey">
+              <div className="al-world__bar"><div className="al-world__bar-fill" style={{ width: `${pct}%` }} /></div>
+              <span className="al-world__pct">{pct}%</span>
+            </div>
+          ) : <span />}
+          <span className="al-world__cta">{pct > 0 ? cta.resume : cta.explore} →</span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 function AcademyCard({ to, emoji, title, desc, color, badge }) {
   return (
     <Link to={to} className="al-ac-card" style={{ '--ac-c': color }}>
@@ -269,40 +358,6 @@ function GroupSection({ emoji, title, color, children }) {
         {children}
       </div>
     </div>
-  );
-}
-
-function SubjectCard({ subject, locale, t, progress }) {
-  const universe = getSubjectUniverse(subject.id);
-  const acts = getActivitiesBySubject(subject.id);
-  const completed = acts.filter(a => progress.activities?.[a.id]?.completed).length;
-  const pct = acts.length ? Math.round((completed / acts.length) * 100) : 0;
-
-  return (
-    <Link
-      to={`/subjects/${subject.id}`}
-      className="al-subject-card"
-      style={{
-        '--s-sky-top': universe.skyTop,
-        '--s-sky-bot': universe.skyBottom,
-        '--s-accent':  universe.accent,
-        '--s-shadow':  universe.accentShadow,
-        '--s-bg':      universe.accentBg,
-      }}
-    >
-      <div className="al-subject-card__sky">
-        {(() => { const Icon = SUBJECT_ICONS[subject.id]; return Icon ? <Icon size={52} /> : <span className="al-subject-card__icon">{universe.icon}</span>; })()}
-        {pct === 100 && <span className="al-subject-card__crown">👑</span>}
-      </div>
-      <div className="al-subject-card__body">
-        <strong className="al-subject-card__name">{getSubjectLabel(subject, locale, t)}</strong>
-        {acts.length > 0 && (
-          <div className="al-subject-card__bar">
-            <div className="al-subject-card__bar-fill" style={{ width: `${pct}%` }} />
-          </div>
-        )}
-      </div>
-    </Link>
   );
 }
 
@@ -343,26 +398,21 @@ export default function ApprendreHubPage() {
         stars={stars}
       />
 
-      {/* ── Mes Matières ──────────────────────────────────────── */}
-      <div className="al-subjects-header">
-        <div className="al-subjects-header__top">
-          <h2 className="al-subjects-header__title">{ui.subjectsTitle}</h2>
-          <span className="al-subjects-header__pct">{globalPct}%</span>
-        </div>
-        <div className="al-subjects-header__bar">
-          <div className="al-subjects-header__bar-fill" style={{ width: `${globalPct}%` }} />
-        </div>
-        <p className="al-subjects-header__sub">{ui.subjectsDesc}</p>
+      {/* ── Worlds: each subject is a destination ─────────────── */}
+      <div className="al-worlds-header">
+        <h2 className="al-worlds-header__title">{hero.worldsTitle}</h2>
+        <p className="al-worlds-header__sub">{hero.worldsSub}</p>
       </div>
 
-      <div className="al-subjects-grid al-subjects-grid--top">
-        {activeSubjects.map(s => (
-          <SubjectCard
+      <div className="al-worlds-grid">
+        {activeSubjects.map((s, i) => (
+          <WorldCard
             key={s.id}
             subject={s}
             locale={locale}
             t={t}
             progress={progress}
+            index={i}
           />
         ))}
       </div>
