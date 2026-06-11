@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../shared/auth/AuthContext.jsx';
 import { signInGoogle, signInEmail, signUpEmail } from '../../services/firebase/authService.js';
-import { getProfile } from '../../services/storage/profileStore.js';
+import { getProfile, isProfileComplete } from '../../services/storage/profileStore.js';
 
 // ── Emoji palette (4×5 grid) ──────────────────────────────────────────────────
 const EMOJIS = [
@@ -148,7 +148,7 @@ export default function LoginPage() {
   function handlePinEntry(entered) {
     const saved = loadPin();
     if (entered.join('') === saved) {
-      navigate('/', { replace: true });
+      navigate(isProfileComplete() ? '/' : '/onboarding', { replace: true });
     } else {
       setShake(true);
       setTimeout(() => setShake(false), 600);
@@ -165,7 +165,8 @@ export default function LoginPage() {
   function handlePinConfirm(second) {
     if (second.join('') === pinDraft.join('')) {
       savePin(second);
-      navigate('/', { replace: true });
+      // New Google/email user who hasn't done onboarding yet → set up profile first
+      navigate(isProfileComplete() ? '/' : '/onboarding', { replace: true });
     } else {
       setShake(true);
       setTimeout(() => setShake(false), 600);
@@ -199,7 +200,8 @@ export default function LoginPage() {
   }
 
   function handleGuest() {
-    navigate('/', { replace: true });
+    // Guest users need onboarding to set up their profile
+    navigate(isProfileComplete() ? '/' : '/onboarding', { replace: true });
   }
 
   // ── Render ────────────────────────────────────────────────────────────────

@@ -198,7 +198,7 @@ export default function AppRouter() {
       <Route element={<AppShell />}>
         <Route path="/" element={
           needsOnboarding && !onboardingActive
-            ? (user ? <Navigate to="/login" replace /> : <Navigate to="/onboarding" replace />)
+            ? <Navigate to="/login" replace />
             : <HomePage />
         } />
         <Route path="/home" element={<Navigate to="/" replace />} />
@@ -320,11 +320,7 @@ export default function AppRouter() {
         <Route path="/dico" element={<DicoPage />} />
         <Route path="/stats" element={<StatsPage />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
-        <Route path="*" element={<Navigate to={
-          needsOnboarding && !onboardingActive
-            ? (user ? '/login' : '/onboarding')
-            : '/'
-        } replace />} />
+        <Route path="*" element={<Navigate to={needsOnboarding && !onboardingActive ? '/login' : '/'} replace />} />
       </Route>
     </Routes>
     </ErrorBoundary>
