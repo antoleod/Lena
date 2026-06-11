@@ -38,11 +38,21 @@ const ERROR_MAP = {
 const friendlyErr = code => ERROR_MAP[code] || 'Une erreur est survenue.';
 
 // ── Stars background (positions fixed at module load) ─────────────────────────
-const STAR_POS = Array.from({ length: 18 }, () => ({
+const STAR_POS = Array.from({ length: 24 }, () => ({
   left:      `${Math.random() * 100}%`,
   top:       `${Math.random() * 100}%`,
-  '--delay': `${(Math.random() * 3).toFixed(1)}s`,
-  '--size':  `${6 + Math.random() * 10}px`,
+  '--delay': `${(Math.random() * 4).toFixed(1)}s`,
+  '--size':  `${4 + Math.random() * 8}px`,
+  '--dur':   `${2 + Math.random() * 2}s`,
+}));
+
+// ── Particles (positions fixed at module load) ────────────────────────────────
+const PARTICLE_POS = Array.from({ length: 14 }, (_, i) => ({
+  left:      `${5 + Math.random() * 90}%`,
+  bottom:    `${Math.random() * 20}%`,
+  '--delay': `${(i * 0.4).toFixed(1)}s`,
+  '--size':  `${3 + Math.random() * 5}px`,
+  '--drift': `${Math.random() > 0.5 ? '' : '-'}${(10 + Math.random() * 30).toFixed(0)}px`,
 }));
 
 function Stars() {
@@ -53,12 +63,37 @@ function Stars() {
   );
 }
 
-function Blobs() {
+function Particles() {
   return (
-    <div className="login-bg" aria-hidden="true">
-      <span className="login-bg__blob login-bg__blob--1" />
-      <span className="login-bg__blob login-bg__blob--2" />
-      <span className="login-bg__blob login-bg__blob--3" />
+    <div className="login-particles" aria-hidden="true">
+      {PARTICLE_POS.map((p, i) => <span key={i} className="login-particle" style={p} />)}
+    </div>
+  );
+}
+
+function Planets() {
+  return (
+    <div className="login-planets" aria-hidden="true">
+      <div className="login-planet login-planet--1" />
+      <div className="login-planet login-planet--2" />
+    </div>
+  );
+}
+
+function Mascot() {
+  return (
+    <div className="mascot" aria-hidden="true">
+      <div className="mascot__helmet">
+        <div className="mascot__visor" />
+      </div>
+      <div className="mascot__body">
+        <div className="mascot__arm mascot__arm--left" />
+        <div className="mascot__arm mascot__arm--right">
+          <div className="mascot__hand" />
+        </div>
+        <div className="mascot__leg mascot__leg--left" />
+        <div className="mascot__leg mascot__leg--right" />
+      </div>
     </div>
   );
 }
@@ -259,7 +294,8 @@ export default function LoginPage() {
   return (
     <div className="login-page">
       <Stars />
-      <Blobs />
+      <Particles />
+      <Planets />
 
       {/* ── Loading ── */}
       {step === 'detecting' && (
@@ -270,38 +306,49 @@ export default function LoginPage() {
 
       {/* ── Welcome: choose path ── */}
       {step === 'welcome' && (
-        <div className="login-card">
+        <div className="login-card login-card--welcome">
+
+          {/* Mascot astronauta */}
+          <Mascot />
+
+          {/* Logo */}
           <div className="login-logo">
-            <span className="login-logo__icon">🚀</span>
+            <div className="login-logo__rocket-wrap">
+              <span className="login-logo__icon">🚀</span>
+            </div>
             <h1 className="login-logo__name">LénaLand</h1>
-            <p className="login-logo__sub">Explorer · Apprendre · Rêver · Grandir</p>
+            <p className="login-logo__tagline">✨ Bienvenue dans ton univers d&apos;apprentissage !</p>
           </div>
 
-          {/* Child CTA — primary */}
+          {/* Social proof chips */}
+          <div className="login-stats">
+            <span className="login-stat">🎮 120+ Jeux</span>
+            <span className="login-stat">📚 20+ Histoires</span>
+            <span className="login-stat">🏆 Défis quotidiens</span>
+          </div>
+
+          {/* Google — primary returning user */}
+          <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
+
+          {/* Create account — primary child CTA */}
           <button
-            className="login-child-btn"
+            className="login-primary-btn"
             onClick={() => setStep('creer-enfant')}
             type="button"
           >
-            <span className="login-child-btn__icon">🎉</span>
-            <div>
-              <p className="login-child-btn__title">C'est mon premier jour !</p>
-              <p className="login-child-btn__sub">Crée ton compte en 30 secondes</p>
-            </div>
+            🎉 Créer mon compte
           </button>
 
-          <div className="login-divider"><span>déjà un compte</span></div>
-
-          {/* Returning / parent */}
-          <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
+          {/* Guest — visible secondary */}
+          <button className="login-secondary-btn" onClick={handleGuest} type="button">
+            🕹️ Jouer sans compte
+          </button>
 
           <button className="login-email-toggle" onClick={() => setStep('parent-email')} type="button">
             Connexion avec email →
           </button>
 
-          <button className="login-guest-btn" onClick={handleGuest}>
-            Jouer sans compte →
-          </button>
+          <p className="login-safety">🛡️ Sécurisé et conçu pour les enfants</p>
         </div>
       )}
 
@@ -309,8 +356,8 @@ export default function LoginPage() {
       {step === 'creer-enfant' && (
         <div className="login-card">
           <div className="login-logo">
-            <span className="login-logo__icon">👋</span>
-            <h1 className="login-hello">Comment tu t'appelles ?</h1>
+            <span className="login-logo__icon login-logo__icon--bounce">👋</span>
+            <h1 className="login-hello">Comment tu t&apos;appelles ?</h1>
             <p className="login-instruction">Tape ton prénom ou ton surnom</p>
           </div>
 
@@ -328,7 +375,7 @@ export default function LoginPage() {
               onKeyDown={e => e.key === 'Enter' && childName.trim() && setStep('setup-pin')}
             />
             <div className="login-name-emojis" aria-hidden="true">
-              {['🌟','🎮','🦄','🚀','🎈'].map(e => <span key={e}>{e}</span>)}
+              {['🌟','🎮','🦄','🚀','🎈'].map(e => <span key={e} className="login-name-emoji-item">{e}</span>)}
             </div>
           </div>
 
@@ -351,7 +398,7 @@ export default function LoginPage() {
       {step === 'setup-pin' && (
         <div className="login-card">
           <div className="login-logo">
-            <span className="login-logo__icon">🔐</span>
+            <span className="login-logo__icon login-logo__icon--bounce">🔐</span>
             <h1 className="login-hello">
               {childName ? `Super ${childName} ! ` : ''}Crée ton code secret !
             </h1>
@@ -366,7 +413,7 @@ export default function LoginPage() {
       {step === 'confirm-pin' && (
         <div className="login-card">
           <div className="login-logo">
-            <span className="login-logo__icon">✅</span>
+            <span className="login-logo__icon login-logo__icon--bounce">✅</span>
             <h1 className="login-hello">Confirme ton code !</h1>
             <p className="login-instruction">Retape tes 4 emojis dans le même ordre</p>
           </div>
@@ -384,12 +431,31 @@ export default function LoginPage() {
       {/* ── Save prompt (link anon → Google, optional) ── */}
       {step === 'save-prompt' && (
         <div className="login-card">
+          {/* Rocket SVG illustration */}
+          <div className="login-rocket-illus" aria-hidden="true">
+            <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="60" cy="85" rx="28" ry="8" fill="rgba(124,58,237,0.25)" />
+              {/* Cloud */}
+              <ellipse cx="60" cy="22" rx="30" ry="14" fill="rgba(255,255,255,0.18)" />
+              <ellipse cx="44" cy="26" rx="18" ry="12" fill="rgba(255,255,255,0.14)" />
+              <ellipse cx="76" cy="26" rx="18" ry="12" fill="rgba(255,255,255,0.14)" />
+              {/* Rocket body */}
+              <path d="M60 72 L50 90 L60 85 L70 90 Z" fill="#7C3AED" />
+              <path d="M52 50 Q60 20 68 50 L66 72 L54 72 Z" fill="#fff" />
+              <path d="M52 50 Q60 20 68 50" fill="#7C3AED" />
+              {/* Window */}
+              <circle cx="60" cy="56" r="6" fill="#22D3EE" opacity="0.9" />
+              {/* Flames */}
+              <ellipse cx="60" cy="78" rx="5" ry="9" fill="#FBBF24" opacity="0.9" />
+              <ellipse cx="60" cy="80" rx="3" ry="6" fill="#fff" opacity="0.7" />
+            </svg>
+          </div>
+
           <div className="login-logo">
-            <span className="login-logo__icon">☁️</span>
             <h1 className="login-hello">Sauvegarde ton progrès !</h1>
             <p className="login-instruction">
               Connecte un compte Google pour retrouver<br />
-              tes points et trophées sur n'importe quel appareil.
+              tes points et trophées sur n&apos;importe quel appareil.
             </p>
           </div>
 
@@ -401,8 +467,8 @@ export default function LoginPage() {
             label="Sauvegarder avec Google"
           />
 
-          <button className="login-guest-btn" onClick={handleSkipSave} type="button">
-            Plus tard — on joue d'abord ! →
+          <button className="login-secondary-btn login-secondary-btn--sm" onClick={handleSkipSave} type="button">
+            Plus tard — on joue d&apos;abord ! 🎮
           </button>
         </div>
       )}
@@ -420,7 +486,7 @@ export default function LoginPage() {
           {error && <p className="login-error">{error}</p>}
           <EmojiPad onComplete={handlePinEntry} shake={shake} />
           <button className="login-guest-btn" onClick={() => { clearPin(); setStep('welcome'); }}>
-            Mon parent va m'aider 🔑
+            Mon parent va m&apos;aider 🔑
           </button>
         </div>
       )}
