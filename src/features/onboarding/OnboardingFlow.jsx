@@ -57,9 +57,9 @@ export default function OnboardingFlow() {
   }, []);
 
   const mascotSrc = useMemo(() => {
-    if (step === 4) return assetUrl('assets/characters/mascot-celebrate.svg');
-    if ((step === 2 || step === 3) && name.length > 0) return assetUrl('assets/characters/mascot-happy.svg');
-    return assetUrl('assets/characters/mascot-focused.svg');
+    if (step === 4) return assetUrl('assets/characters/mascot-pair.svg');
+    if ((step === 2 || step === 3) && name.length > 0) return assetUrl('assets/characters/mascot-pair.svg');
+    return assetUrl('assets/characters/mascot-pair.svg');
   }, [step, name]);
 
   useEffect(() => {

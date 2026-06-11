@@ -6,14 +6,14 @@ import DicoSearchOverlay from './DicoSearchOverlay.jsx';
 // ─── SVG assets ──────────────────────────────────────────────────────────────
 
 const MASCOT_SRC = {
-  idle:        assetUrl('assets/characters/mascot-idle.svg'),
-  thinking:    assetUrl('assets/characters/mascot-thinking.svg'),
-  correct:     assetUrl('assets/characters/mascot-correct.svg'),
-  wrong:       assetUrl('assets/characters/mascot-wrong.svg'),
-  celebrate:   assetUrl('assets/characters/mascot-celebrate.svg'),
-  levelup:     assetUrl('assets/characters/mascot-levelup.svg'),
-  encouraging: assetUrl('assets/characters/mascot-encouraging.svg'),
-  completed:   assetUrl('assets/characters/mascot-celebrate.svg'),
+  idle:        assetUrl('assets/characters/mascot-pair.svg'),
+  thinking:    assetUrl('assets/characters/mascot-pair.svg'),
+  correct:     assetUrl('assets/characters/mascot-pair.svg'),
+  wrong:       assetUrl('assets/characters/mascot-pair.svg'),
+  celebrate:   assetUrl('assets/characters/mascot-pair.svg'),
+  levelup:     assetUrl('assets/characters/mascot-pair.svg'),
+  encouraging: assetUrl('assets/characters/mascot-pair.svg'),
+  completed:   assetUrl('assets/characters/mascot-pair.svg'),
 };
 
 // ─── Messages ────────────────────────────────────────────────────────────────

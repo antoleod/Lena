@@ -9,7 +9,7 @@ import { getProfile } from '../../services/storage/profileStore.js';
 import { getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
 
-const MASCOT_HERO = 'assets/characters/mascot-happy.svg';
+const MASCOT_HERO = 'assets/characters/mascot-pair.svg';
 
 // ── Hero / gamification strings ─────────────────────────────────────────────
 const HERO_UI = {

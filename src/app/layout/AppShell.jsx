@@ -5,7 +5,6 @@ import { logoutProfile } from '../../services/storage/profileStore.js';
 import { signOutUser } from '../../services/firebase/authService.js';
 import { getMascotColorHue } from '../../services/storage/rewardStore.js';
 import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
-import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
 import PetMascot from '../../shared/ui/PetMascot.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
 import { computeGlobalLevel, getLevelProgress } from '../../services/learning/levelSystem.js';
@@ -134,7 +133,6 @@ export default function AppShell() {
   const [session, setSession] = useState(() => getSessionSnapshot());
   const navigate = useNavigate();
   const location = useLocation();
-  const [customizerOpen, setCustomizerOpen] = useState(false);
   const [limitBlocked, setLimitBlocked] = useState(false);
   const [logoutConfirm, setLogoutConfirm] = useState(false);
 
@@ -312,7 +310,7 @@ export default function AppShell() {
       <aside className="app-sidebar" aria-label="Navigation principale">
         <button type="button" className="brand-inline app-sidebar__brand app-sidebar__profile" onClick={() => { playTapSound(); navigate('/'); }} data-testid="shell-brand-sidebar">
           <span className="app-sidebar__avatar-wrap">
-            <img src={assetUrl('assets/characters/mascot-happy.svg')} alt="" className="app-sidebar__avatar" draggable="false" />
+            <img src={assetUrl('assets/characters/mascot-pair.svg')} alt="" className="app-sidebar__avatar" draggable="false" />
           </span>
           <span className="app-sidebar__profile-info">
             <span className="brand-inline__name app-sidebar__profile-name">{displayName}</span>
@@ -357,7 +355,7 @@ export default function AppShell() {
           <button
             type="button"
             className="icon-link icon-link--customizer"
-            onClick={() => { playTapSound(); setCustomizerOpen(true); }}
+            onClick={() => { playTapSound(); navigate('/personnaliser'); }}
             title="Personnaliser mon monde"
           >
             <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
@@ -415,7 +413,7 @@ export default function AppShell() {
           <button
             type="button"
             className="icon-link icon-link--customizer"
-            onClick={() => { playTapSound(); setCustomizerOpen(true); }}
+            onClick={() => { playTapSound(); navigate('/personnaliser'); }}
             title="Personnaliser mon monde"
           >
             <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
@@ -424,7 +422,6 @@ export default function AppShell() {
         </div>
       </header>
 
-      <CustomizerDrawer isOpen={customizerOpen} onClose={() => setCustomizerOpen(false)} />
 
       {/* Bottom nav — mobile only (CSS hides on tablet+) */}
       <nav className="app-bottom-nav" aria-label="Navigation principale">

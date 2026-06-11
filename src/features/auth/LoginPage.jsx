@@ -138,8 +138,8 @@ function ShootingStars() {
   );
 }
 
-const MASCOT_HAPPY     = 'assets/characters/mascot-happy.svg';
-const MASCOT_CELEBRATE = 'assets/characters/mascot-celebrate.svg';
+const MASCOT_HAPPY     = 'assets/characters/mascot-pair.svg';
+const MASCOT_CELEBRATE = 'assets/characters/mascot-pair.svg';
 
 function MascotHero({ src = MASCOT_HAPPY }) {
   return (

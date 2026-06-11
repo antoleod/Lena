@@ -119,6 +119,7 @@ import BatailleMonstresPage from '../../features/jeux/BatailleMonstresPage.jsx';
 import SnakePage from '../../features/jeux/SnakePage.jsx';
 import StudioPage from '../../features/studio/StudioPage.jsx';
 import LoginPage from '../../features/auth/LoginPage.jsx';
+import CustomizerPage from '../../features/customizer/CustomizerPage.jsx';
 
 function isOnboardingFlowActive() {
   try {
@@ -228,6 +229,7 @@ export default function AppRouter() {
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/personnaliser" element={<CustomizerPage />} />
         <Route path="/parental" element={<ParentalPage />} />
         <Route path="/exam" element={<ExamHubPage />} />
         <Route path="/exam/play" element={<ExamPage />} />
