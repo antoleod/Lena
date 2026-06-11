@@ -1,5 +1,6 @@
 import { db } from './firebaseConfig.js';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp, writeBatch } from 'firebase/firestore';
+import { getPendingEvents, markEventsSynced } from '../learning/playedEventsStore.js';
 
 // ── Keys to sync ──────────────────────────────────────────────────────────────
 const STORE_KEYS = [
@@ -11,7 +12,7 @@ const STORE_KEYS = [
   { field: 'appTime',      ls: 'lena:appTime' },
   { field: 'gameErrors',   ls: 'lena:gameErrors' },
   { field: 'pratiquerPrefs', ls: 'lena:pratiquer:prefs:v1' },
-  { field: 'emojiPin',      ls: 'lena:emoji-pin' },
+  { field: 'iconPin',       ls: 'lena:icon-pin:v2' },
 ];
 
 function userDocRef(uid) {
@@ -56,6 +57,43 @@ export async function pushToCloud(uid) {
   await setDoc(userDocRef(uid), payload, { merge: true });
 }
 
+// ── Played-exercise events → per-child subcollection ──────────────────────────
+// Track 1.7: drain the local-first queue to users/{uid}/children/{childId}/played_exercises.
+// Only real played events live in the queue, so we never upload unplayed questions.
+// Idempotent: each event keeps its eventId as the doc id, and we only clear the queue
+// after the batch commit succeeds (so a failed/offline sync is retried next tick).
+let playedSyncing = false;
+
+export async function syncPlayedEvents(uid) {
+  if (!uid || playedSyncing) return 0;
+  const pending = getPendingEvents();
+  if (pending.length === 0) return 0;
+
+  playedSyncing = true;
+  try {
+    // Firestore batches cap at 500 writes; our queue is bounded at 500, but chunk to be safe.
+    const CHUNK = 400;
+    for (let i = 0; i < pending.length; i += CHUNK) {
+      const slice = pending.slice(i, i + CHUNK);
+      const batch = writeBatch(db);
+      slice.forEach((event) => {
+        const ref = doc(
+          db, 'users', uid, 'children', event.childId || 'default',
+          'played_exercises', event.eventId
+        );
+        batch.set(ref, { ...event, syncedAt: serverTimestamp() });
+      });
+      await batch.commit();
+      markEventsSynced(slice.map((e) => e.eventId)); // clear only what committed
+    }
+    return pending.length;
+  } catch {
+    return 0; // offline / transient — events stay queued and retry next tick
+  } finally {
+    playedSyncing = false;
+  }
+}
+
 // ── Auto-sync on store events (debounced) ─────────────────────────────────────
 let syncTimer = null;
 
@@ -70,14 +108,30 @@ export function startAutoSync(uid) {
     syncTimer = setTimeout(() => pushToCloud(uid).catch(() => {}), 8000);
   }
 
-  SYNC_EVENTS.forEach(e => window.addEventListener(e, scheduleSync));
+  // Drain played-exercise events shortly after one is queued (separate from blob sync).
+  let playedTimer = null;
+  function schedulePlayedSync() {
+    clearTimeout(playedTimer);
+    playedTimer = setTimeout(() => syncPlayedEvents(uid).catch(() => {}), 5000);
+  }
 
-  // Periodic sync every 2 minutes
-  const interval = setInterval(() => pushToCloud(uid).catch(() => {}), 120_000);
+  SYNC_EVENTS.forEach(e => window.addEventListener(e, scheduleSync));
+  window.addEventListener('lena-played-events-change', schedulePlayedSync);
+
+  // Periodic sync every 2 minutes (blob + played-event retry for anything still queued).
+  const interval = setInterval(() => {
+    pushToCloud(uid).catch(() => {});
+    syncPlayedEvents(uid).catch(() => {});
+  }, 120_000);
+
+  // Flush whatever is already queued from a previous offline session.
+  syncPlayedEvents(uid).catch(() => {});
 
   return () => {
     SYNC_EVENTS.forEach(e => window.removeEventListener(e, scheduleSync));
+    window.removeEventListener('lena-played-events-change', schedulePlayedSync);
     clearInterval(interval);
     clearTimeout(syncTimer);
+    clearTimeout(playedTimer);
   };
 }

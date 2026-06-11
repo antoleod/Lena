@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { getGameProgress, saveGameSession, saveGameErrors } from '../../services/storage/gameProgressStore.js';
+import { recordPlayedExercise } from '../../services/learning/recordPlayedExercise.js';
 
 /**
  * Hook for tracking a single game session.
@@ -31,10 +32,25 @@ export function useGameSession(gameId) {
 
   function saveSession({ score, level, stars }) {
     const timeSecs = elapsedSecs();
-    if (errorsRef.current.length > 0) {
+    const errorCount = errorsRef.current.length;
+    if (errorCount > 0) {
       saveGameErrors(gameId, errorsRef.current);
       errorsRef.current = [];
     }
+
+    // Track 1: games emit a session-summary played event (no per-question data).
+    recordPlayedExercise({
+      flavor:         'session',
+      exerciseId:     gameId,
+      sourceModule:   'jeux',
+      gameMode:       gameId,
+      subject:        'jeux',
+      responseTimeMs: timeSecs * 1000,
+      attempts:       errorCount, // wrong answers logged this session
+      difficultyAfter: level ?? null,
+      generatedBy:    'game',
+    });
+
     return saveGameSession(gameId, { score, level, stars, timeSecs });
   }
 

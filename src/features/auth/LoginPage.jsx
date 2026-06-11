@@ -14,20 +14,13 @@ import {
   IconEmail, IconCreate, IconPlay, IconRocket, IconPalette,
   IconParents, IconKey, IconArrow, IconShield,
 } from './LoginIcons.jsx';
+import { PIN_ICONS, PinIcon } from './PinIcons.jsx';
 
-// ── Emoji palette (4×5 grid) ──────────────────────────────────────────────────
-const EMOJIS = [
-  '🌟','⭐','🎈','🦋',
-  '🐱','🐶','🌸','🍦',
-  '🎮','🏆','🌈','🦄',
-  '🍕','🎵','🐸','🦁',
-  '🚀','🌙','🎀','🐙',
-];
-
-const PIN_KEY = 'lena:emoji-pin';
+const PIN_KEY = 'lena:icon-pin:v2';   // bumped from emoji codes → resets old PINs
 const PIN_LEN = 4;
 
-function hashPin(pin)  { return btoa(unescape(encodeURIComponent(pin.join('')))); }
+// PIN is an array of icon ids; join with a delimiter so ids stay unambiguous.
+function hashPin(pin)  { return btoa(unescape(encodeURIComponent(pin.join('|')))); }
 function savePin(pin)  { localStorage.setItem(PIN_KEY, hashPin(pin)); }
 function loadPin()     { return localStorage.getItem(PIN_KEY) || null; }
 function clearPin()    { localStorage.removeItem(PIN_KEY); }
@@ -133,26 +126,26 @@ function MascotHero({ src = MASCOT_HAPPY }) {
   );
 }
 
-// ── Emoji slots ───────────────────────────────────────────────────────────────
+// ── Code slots (show chosen icons) ─────────────────────────────────────────────
 function EmojiSlots({ pin, shake }) {
   return (
     <div className={`ep-slots${shake ? ' ep-slots--shake' : ''}`}>
       {Array.from({ length: PIN_LEN }, (_, i) => (
         <div key={i} className={`ep-slot${i < pin.length ? ' ep-slot--filled' : ''}`}>
-          {pin[i] || ''}
+          {pin[i] ? <PinIcon id={pin[i]} /> : null}
         </div>
       ))}
     </div>
   );
 }
 
-// ── Emoji pad ─────────────────────────────────────────────────────────────────
+// ── Icon pad (3D candy keypad) ──────────────────────────────────────────────────
 function EmojiPad({ onComplete, onBack }) {
   const [pin, setPin] = useState([]);
 
-  function tap(e) {
+  function tap(id) {
     if (pin.length >= PIN_LEN) return;
-    const next = [...pin, e];
+    const next = [...pin, id];
     setPin(next);
     if (next.length === PIN_LEN) setTimeout(() => onComplete(next), 180);
   }
@@ -161,14 +154,14 @@ function EmojiPad({ onComplete, onBack }) {
     <div className="ep-pad">
       <EmojiSlots pin={pin} />
       <div className="ep-grid">
-        {EMOJIS.map(e => (
+        {PIN_ICONS.map(({ id, label }) => (
           <button
-            key={e}
+            key={id}
             type="button"
-            className={`ep-emoji${pin.includes(e) ? ' ep-emoji--used' : ''}`}
-            onClick={() => tap(e)}
-            aria-label={`Choisir ${e}`}
-          >{e}</button>
+            className={`ep-emoji${pin.includes(id) ? ' ep-emoji--used' : ''}`}
+            onClick={() => tap(id)}
+            aria-label={`Choisir ${label}`}
+          ><PinIcon id={id} /></button>
         ))}
       </div>
       <div className="ep-controls">
@@ -523,7 +516,7 @@ export default function LoginPage() {
             <h1 className="login-hello">
               {childName ? `Super ${childName} ! ` : ''}Crée ton code secret !
             </h1>
-            <p className="login-instruction">Choisis 4 emojis faciles à retenir</p>
+            <p className="login-instruction">Choisis 4 images faciles à retenir</p>
             {error && <p className="login-error">{error}</p>}
             <EmojiPad onComplete={handlePinSetup} onBack={() => { setStep(childName ? 'creer-enfant' : 'welcome'); setError(''); }} />
           </div>
@@ -536,7 +529,7 @@ export default function LoginPage() {
           <MascotHero src={MASCOT_CELEBRATE} />
           <div className="login-card">
             <h1 className="login-hello">Confirme ton code !</h1>
-            <p className="login-instruction">Retape tes 4 emojis dans le même ordre</p>
+            <p className="login-instruction">Retape tes 4 images dans le même ordre</p>
             {error && <p className="login-error">{error}</p>}
             {loading === 'anon' && <span className="login-spinner login-spinner--lg" />}
             {loading !== 'anon' && (
@@ -605,7 +598,7 @@ export default function LoginPage() {
               <span className="login-whois__name">{profile.name || 'toi'}</span>
             </div>
             <h1 className="login-hello">Salut {profile.name || 'toi'} ! 👋</h1>
-            <p className="login-instruction">Tape tes 4 emojis secrets</p>
+            <p className="login-instruction">Tape tes 4 images secrètes</p>
             {error && <p className="login-error">{error}</p>}
             <EmojiPad onComplete={handlePinEntry} shake={shake} />
             {user === false && (

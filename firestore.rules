@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// LénaLand Firestore security rules.
+// Deploy with:  firebase deploy --only firestore:rules
+// (or paste into Firebase console → Firestore Database → Rules)
+//
+// Model: each authenticated user owns exactly one document tree under users/{uid}.
+// Children, played exercises, sessions and learning DNA all live UNDER that uid,
+// so a user can only ever read/write their own family's data.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // A user may only touch their own root document (the whole-store blob sync).
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      // Everything nested under a user (children, played_exercises, learning_sessions,
+      // learning_dna, learning_events, adaptive_recommendations, …) inherits the
+      // same owner-only rule via the recursive wildcard.
+      match /{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+  }
+}

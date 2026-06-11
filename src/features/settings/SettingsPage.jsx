@@ -5,6 +5,15 @@ import { getProfile, logoutProfile, saveProfile } from '../../services/storage/p
 import { getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 import AccountWidget from '../../shared/auth/AccountWidget.jsx';
+import { gradeOptions, gradeFromAge, defaultCountrySystem } from '../../services/learning/gradeModel.js';
+
+const SETTINGS_AGE_CHOICES = [5, 6, 7, 8, 9, 10, 11];
+const DIFFICULTY_MODES = [
+  { id: 'auto', label: 'Auto adaptativo' },
+  { id: 'easy', label: 'Fácil' },
+  { id: 'normal', label: 'Normal' },
+  { id: 'challenge', label: 'Desafío' },
+];
 
 export default function SettingsPage() {
   const navigate = useNavigate();
@@ -55,6 +64,16 @@ export default function SettingsPage() {
 
   function isThemeOwned(themeId) {
     return themeId === 'theme-candy' || rewardState.inventory.includes(themeId);
+  }
+
+  const countrySystem = profile.countrySystem || defaultCountrySystem(profile.language);
+  const grades = gradeOptions(countrySystem);
+
+  function handleAgeChange(nextAge) {
+    // If grade hasn't been set yet, derive it from the new age.
+    const patch = { age: nextAge };
+    if (!profile.schoolGrade) patch.schoolGrade = gradeFromAge(nextAge);
+    setProfile(saveProfile(patch));
   }
 
   return (
@@ -145,6 +164,59 @@ export default function SettingsPage() {
                 >
                   <option value="on">Activados</option>
                   <option value="off">Desactivados</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section className="settings-card" data-testid="settings-learning">
+            <div className="settings-card__head">
+              <div>
+                <span className="eyebrow">Aprendizaje</span>
+                <h3>Edad, curso y nivel</h3>
+              </div>
+            </div>
+            <div className="settings-grid">
+              <div className="form-field">
+                <label htmlFor="settings-age">Edad</label>
+                <select
+                  id="settings-age"
+                  value={String(profile.age ?? '')}
+                  onChange={(event) => handleAgeChange(Number(event.target.value))}
+                  data-testid="settings-age"
+                >
+                  {SETTINGS_AGE_CHOICES.map((a) => (
+                    <option key={a} value={a}>{a} años</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="settings-grade">Curso</label>
+                <select
+                  id="settings-grade"
+                  value={profile.schoolGrade || ''}
+                  onChange={(event) => setProfile(saveProfile({ schoolGrade: event.target.value }))}
+                  data-testid="settings-grade"
+                >
+                  <option value="" disabled>—</option>
+                  {grades.map((g) => (
+                    <option key={g.key} value={g.key}>{g.label}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="settings-difficulty-mode">Nivel de dificultad</label>
+                <select
+                  id="settings-difficulty-mode"
+                  value={profile.preferredDifficultyMode || 'auto'}
+                  onChange={(event) => setProfile(saveProfile({ preferredDifficultyMode: event.target.value }))}
+                  data-testid="settings-difficulty-mode"
+                >
+                  {DIFFICULTY_MODES.map((m) => (
+                    <option key={m.id} value={m.id}>{m.label}</option>
+                  ))}
                 </select>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { useLocale } from '../../../shared/i18n/LocaleContext.jsx';
 import { getProfile } from '../../../services/storage/profileStore.js';
 import { recordQuestionOutcome } from '../../../services/storage/progressStore.js';
+import { recordPlayedExercise } from '../../../services/learning/recordPlayedExercise.js';
 
 const FEEDBACK_SUCCESS = [
   'Bravo 🌟',
@@ -65,7 +66,14 @@ export default function TraceActivity({ activity, progress, onComplete }) {
   function handlePick(choiceValue) {
     if (!current) return;
     const correct = String(current.answer ?? '') === String(choiceValue ?? '');
-    recordQuestionOutcome(activity.id, current.sourceId, correct);
+    const state = recordQuestionOutcome(activity.id, current.sourceId, correct);
+    recordPlayedExercise({
+      exerciseId: activity.id, sourceModule: 'renforcement-trace',
+      subject: activity.subject ?? 'renforcement', questionType: 'trace',
+      question: current.prompt ?? current.question ?? null,
+      expectedAnswer: current.answer ?? null, childAnswer: choiceValue ?? null,
+      isCorrect: correct, attempts: state.attempts,
+    });
 
     if (correct) {
       const msg = pickMessage(FEEDBACK_SUCCESS, prenom);

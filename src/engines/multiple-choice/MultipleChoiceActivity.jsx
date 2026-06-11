@@ -4,6 +4,7 @@ import {
   getActivityQuestionStates,
   recordQuestionOutcome
 } from '../../services/storage/progressStore.js';
+import { recordPlayedExercise } from '../../services/learning/recordPlayedExercise.js';
 import { useSpeechPlayer } from '../../shared/hooks/useSpeechPlayer.js';
 import { getProfile } from '../../services/storage/profileStore.js';
 import { playCorrectSound, playWrongSound } from '../../services/sound/soundService.js';
@@ -120,6 +121,8 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
   const [isLocked, setIsLocked] = useState(false);
   const pendingAdvanceRef = useRef(null);
   const timerRef = useRef(null);
+  // When the child started reading the current question — for responseTimeMs (Track 1).
+  const questionStartRef = useRef(Date.now());
   const feedbackPreferences = getProfile().feedbackPreferences || {};
 
   const current = queue[currentIndex];
@@ -141,6 +144,9 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
   }, [current, currentOptions]);
 
   useEffect(() => () => { if (timerRef.current) window.clearTimeout(timerRef.current); }, []);
+
+  // Reset the per-question timer whenever the displayed question changes.
+  useEffect(() => { questionStartRef.current = Date.now(); }, [currentIndex]);
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -183,6 +189,23 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
     const correctValues = resolveCorrectValues(current);
     const isCorrect = option.id === correctOptionId || correctValues.includes(option.value) || correctValues.includes(option.id);
     const questionState = recordQuestionOutcome(activity.id, current.sourceId, isCorrect);
+
+    // Track 1: record the real played exercise (rich, per-question flavor).
+    recordPlayedExercise({
+      exerciseId:     activity.id,
+      sourceModule:   'multiple-choice',
+      subject:        activity.subject ?? null,
+      skill:          activity.skill ?? null,
+      questionType:   current.kind ?? 'multiple-choice',
+      question:       current.prompt ?? current.question ?? null,
+      expectedAnswer: currentOptions.find((o) => o.id === correctOptionId)?.label ?? null,
+      childAnswer:    option.label ?? option.value ?? option.id ?? null,
+      isCorrect,
+      responseTimeMs: Date.now() - questionStartRef.current,
+      attempts:       questionState.attempts,
+      generatedBy:    activity.generated ? 'generator' : 'static',
+    });
+
     const nextScore = score + (isCorrect ? 1 : 0);
     const nextQueue = [...queue];
     const futureRepeats = getFutureRepeats(nextQueue, currentIndex, current.sourceId);

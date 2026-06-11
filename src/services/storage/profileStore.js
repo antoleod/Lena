@@ -9,6 +9,17 @@ function defaultProfile() {
     avatarId: 'avatar-unicorn',
     themeId: 'theme-candy',
     visualTheme: 'fantasy',
+    // ── Adaptive learning (Phase A) ──────────────────────────────────────────
+    // Canonical Belgian primaire grade key: 'P1'..'P6' (see difficultyMatrix.js
+    // for age/grade mapping and FR/BE label rendering). null until collected.
+    schoolGrade: null,
+    countrySystem: 'BE-fr',        // 'BE-fr' | 'BE-nl' | 'FR' — drives grade labels
+    adaptiveModeEnabled: true,
+    preferredDifficultyMode: 'auto', // 'auto' | 'easy' | 'normal' | 'challenge'
+    parentSelectedLevel: null,       // grade-key override set by a parent, or null
+    detectedSkillLevel: null,        // { math, reading, logic } 0–100, set by diagnostic
+    strengths: [],                   // [skillKey] — derived/cached
+    weaknesses: [],                  // [skillKey] — derived/cached
     settings: {
       soundEnabled: true,
       notificationsEnabled: true

@@ -7,8 +7,12 @@ import {
   setPin,
   removePin,
   toggleWorldBlock,
-  setDailyLimit
+  setDailyLimit,
+  getLearningControls,
+  setLearningControl
 } from '../../services/storage/parentalStore.js';
+import { getProfile } from '../../services/storage/profileStore.js';
+import { gradeOptions, defaultCountrySystem } from '../../services/learning/gradeModel.js';
 import { getProgressSnapshot, getStudyStats } from '../../services/storage/progressStore.js';
 import { worldMap, getWorldProgress } from '../../shared/gameplay/worldMap.js';
 import { WORLD_STYLES } from '../../shared/gameplay/worldThemes.js';
@@ -376,11 +380,33 @@ function ProgressTab() {
 
 const LIMIT_STEP = 5;
 
+const TRISTATE_OPTIONS = [
+  { value: 'auto', label: 'Auto' },
+  { value: 'on', label: 'Autorisé' },
+  { value: 'off', label: 'Bloqué' },
+];
+
+/** Map a stored learning-control value (null/true/false) to a select value. */
+function triValue(v) {
+  if (v === true) return 'on';
+  if (v === false) return 'off';
+  return 'auto';
+}
+/** Map a select value back to the stored value. */
+function triStore(v) {
+  if (v === 'on') return true;
+  if (v === 'off') return false;
+  return null;
+}
+
 function ControlTab() {
   const [state, setState] = useState(() => getParentalState());
+  const [controls, setControls] = useState(() => getLearningControls());
+  const countrySystem = getProfile().countrySystem || defaultCountrySystem(getProfile().language);
+  const grades = gradeOptions(countrySystem);
 
   useEffect(() => {
-    function sync() { setState(getParentalState()); }
+    function sync() { setState(getParentalState()); setControls(getLearningControls()); }
     window.addEventListener('lena-parental-change', sync);
     return () => window.removeEventListener('lena-parental-change', sync);
   }, []);
@@ -388,6 +414,11 @@ function ControlTab() {
   function handleToggle(worldId) {
     toggleWorldBlock(worldId);
     setState(getParentalState());
+  }
+
+  function updateControl(key, value) {
+    setLearningControl(key, value);
+    setControls(getLearningControls());
   }
 
   const currentLimit = state.dailyLimitMinutes || 0; // 0 means unlimited
@@ -398,9 +429,67 @@ function ControlTab() {
     setState(getParentalState());
   }
 
+  const selectStyle = {
+    background: 'rgba(255,255,255,.12)', border: '2px solid rgba(255,255,255,.3)',
+    borderRadius: 10, color: '#fff', fontWeight: 600, padding: '6px 10px', cursor: 'pointer',
+  };
+
   return (
     <div className="parental-tab-content">
-      <h3 className="parental-section-title">Bloquer des mondes</h3>
+      <h3 className="parental-section-title">Apprentissage</h3>
+      <p className="parental-hint">
+        « Auto » laisse l&apos;app choisir selon l&apos;âge et le niveau. Forcez « Autorisé » ou « Bloqué » pour passer outre.
+      </p>
+      <div className="parental-toggle-list" data-testid="parental-learning-controls">
+        {[
+          { key: 'allowMultiplication', label: '✖️ Multiplication' },
+          { key: 'allowDivision', label: '➗ Division' },
+          { key: 'allowAdvanced', label: '🎯 Questions avancées' },
+        ].map((row) => (
+          <div key={row.key} className="parental-toggle-row">
+            <span className="parental-toggle-name">{row.label}</span>
+            <select
+              value={triValue(controls[row.key])}
+              onChange={(e) => updateControl(row.key, triStore(e.target.value))}
+              style={selectStyle}
+              data-testid={`parental-control-${row.key}`}
+            >
+              {TRISTATE_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>{o.label}</option>
+              ))}
+            </select>
+          </div>
+        ))}
+
+        <div className="parental-toggle-row">
+          <span className="parental-toggle-name">⏱️ Quiz chronométrés</span>
+          <button
+            type="button"
+            className={`parental-toggle-btn ${controls.allowTimedQuizzes ? 'parental-toggle-btn--on' : ''}`}
+            onClick={() => updateControl('allowTimedQuizzes', !controls.allowTimedQuizzes)}
+            aria-label={controls.allowTimedQuizzes ? 'Désactiver' : 'Activer'}
+          >
+            <span className="parental-toggle-thumb" />
+          </button>
+        </div>
+
+        <div className="parental-toggle-row">
+          <span className="parental-toggle-name">📈 Difficulté max</span>
+          <select
+            value={controls.maxDifficultyGrade || ''}
+            onChange={(e) => updateControl('maxDifficultyGrade', e.target.value || null)}
+            style={selectStyle}
+            data-testid="parental-control-maxDifficultyGrade"
+          >
+            <option value="">Aucune limite</option>
+            {grades.map((g) => (
+              <option key={g.key} value={g.key}>{g.label}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <h3 className="parental-section-title" style={{ marginTop: 24 }}>Bloquer des mondes</h3>
       <p className="parental-hint">Les mondes bloques affichent un cadenas — l&apos;enfant ne peut pas y acceder.</p>
       <div className="parental-toggle-list">
         {worldMap.map((world, i) => {

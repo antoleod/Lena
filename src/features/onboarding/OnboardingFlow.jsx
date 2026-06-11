@@ -4,6 +4,9 @@ import { saveProfile, getProfile } from '../../services/storage/profileStore.js'
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
+import { gradeOptions, gradeFromAge, defaultCountrySystem } from '../../services/learning/gradeModel.js';
+
+const AGE_CHOICES = [5, 6, 7, 8, 9, 10, 11];
 
 const localeOptions = [
   { id: 'fr', label: 'Français', flag: '🇫🇷' },
@@ -40,8 +43,13 @@ export default function OnboardingFlow() {
   const [step, setStep] = useState(1);
   const [language, setLanguage] = useState(existing.language || locale || 'fr');
   const [name, setName] = useState(existing.name || '');
+  const [age, setAge] = useState(existing.age || null);
+  const [schoolGrade, setSchoolGrade] = useState(existing.schoolGrade || null);
   const [visualTheme, setVisualTheme] = useState(existing.visualTheme || 'fantasy');
   const autoAdvanceRef = useRef(null);
+
+  const countrySystem = existing.countrySystem || defaultCountrySystem(language);
+  const grades = useMemo(() => gradeOptions(countrySystem), [countrySystem]);
 
   const detectedLocale = useMemo(() => {
     const lang = navigator.language?.slice(0, 2) || '';
@@ -49,8 +57,8 @@ export default function OnboardingFlow() {
   }, []);
 
   const mascotSrc = useMemo(() => {
-    if (step === 3) return assetUrl('assets/characters/mascot-celebrate.svg');
-    if (step === 2 && name.length > 0) return assetUrl('assets/characters/mascot-happy.svg');
+    if (step === 4) return assetUrl('assets/characters/mascot-celebrate.svg');
+    if ((step === 2 || step === 3) && name.length > 0) return assetUrl('assets/characters/mascot-happy.svg');
     return assetUrl('assets/characters/mascot-focused.svg');
   }, [step, name]);
 
@@ -62,7 +70,7 @@ export default function OnboardingFlow() {
     };
   }, []);
 
-  const totalSteps = 3;
+  const totalSteps = 4;
   const progressPercent = Math.round((step / totalSteps) * 100);
 
   useEffect(() => {
@@ -88,6 +96,9 @@ export default function OnboardingFlow() {
       name: name.trim() || existing.name || '',
       themeId: (themeOptions.find((option) => option.id === visualTheme) || themeOptions[0]).themeId,
       avatarId: existing.avatarId || 'avatar-unicorn',
+      countrySystem,
+      ...(age != null ? { age } : {}),
+      ...(schoolGrade ? { schoolGrade } : {}),
       ...patch
     });
 
@@ -117,11 +128,27 @@ export default function OnboardingFlow() {
     scheduleAdvance(3);
   }
 
+  function handleAgeSelect(nextAge) {
+    setAge(nextAge);
+    // Pre-fill grade from age if the parent hasn't picked one yet.
+    const nextGrade = schoolGrade || gradeFromAge(nextAge);
+    setSchoolGrade(nextGrade);
+    persistDraft({ age: nextAge, schoolGrade: nextGrade });
+  }
+
+  function handleGradeSelect(gradeKey) {
+    setSchoolGrade(gradeKey);
+    persistDraft({ schoolGrade: gradeKey, ...(age != null ? { age } : {}) });
+  }
+
   function handleStartAdventure() {
     const selectedTheme = themeOptions.find((option) => option.id === visualTheme) || themeOptions[0];
     saveProfile({
       name: name.trim() || t('defaultChildName'),
       language,
+      countrySystem,
+      ...(age != null ? { age } : {}),
+      ...(schoolGrade ? { schoolGrade } : {}),
       visualTheme: selectedTheme.id,
       themeId: selectedTheme.themeId,
       avatarId: existing.avatarId || 'avatar-unicorn'
@@ -136,6 +163,9 @@ export default function OnboardingFlow() {
     if (step === 2 && name.trim()) {
       persistDraft({ name: name.trim() });
       scheduleAdvance(3);
+    } else if (step === 3 && age != null && schoolGrade) {
+      persistDraft({ age, schoolGrade });
+      scheduleAdvance(4);
     }
   }
 
@@ -154,7 +184,7 @@ export default function OnboardingFlow() {
 
         {/* Step dots */}
         <div className="ob-dots" aria-label="Progression">
-          {[1, 2, 3].map((n) => (
+          {[1, 2, 3, 4].map((n) => (
             <span key={n} className={`ob-dot${step > n ? ' is-done' : step === n ? ' is-current' : ''}`} />
           ))}
         </div>
@@ -199,6 +229,42 @@ export default function OnboardingFlow() {
           ) : null}
 
           {step === 3 ? (
+            <div className="ob-age-wrap" data-testid="onboarding-step-age">
+              <h2 className="ob-step-title">{t('onboardingStep3AgeQuestion')}</h2>
+              <div className="ob-age-grid">
+                {AGE_CHOICES.map((a) => (
+                  <button
+                    key={a}
+                    type="button"
+                    className={`ob-age-card${age === a ? ' is-selected' : ''}`}
+                    onClick={() => handleAgeSelect(a)}
+                    data-testid={`onboarding-age-${a}`}
+                  >
+                    <span className="ob-age-card__num">{a}</span>
+                    <span className="ob-age-card__unit">{t('onboardingYearsOld')}</span>
+                  </button>
+                ))}
+              </div>
+
+              <h2 className="ob-step-title ob-step-title--sub">{t('onboardingStep3GradeQuestion')}</h2>
+              <div className="ob-grade-grid">
+                {grades.map((g) => (
+                  <button
+                    key={g.key}
+                    type="button"
+                    className={`ob-grade-card${schoolGrade === g.key ? ' is-selected' : ''}`}
+                    onClick={() => handleGradeSelect(g.key)}
+                    data-testid={`onboarding-grade-${g.key}`}
+                  >
+                    <strong className="ob-grade-card__label">{g.label}</strong>
+                    <span className="ob-grade-card__age">~{g.age} {t('onboardingYearsOld')}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {step === 4 ? (
             <div className="ob-worlds-wrap" data-testid="onboarding-step-theme">
               <h2 className="ob-step-title">
                 {name.trim()
@@ -255,7 +321,14 @@ export default function OnboardingFlow() {
             </button>
           ) : null}
 
-          {step === 3 && visualTheme ? (
+          {step === 3 && age != null && schoolGrade ? (
+            <button type="button" className="primary-action" onClick={handleNext} data-testid="onboarding-next-age">
+              <span className="button-icon" aria-hidden="true">▶</span>
+              <span>{t('next')}</span>
+            </button>
+          ) : null}
+
+          {step === 4 && visualTheme ? (
             <button type="button" className="primary-action" onClick={handleStartAdventure} data-testid="onboarding-start">
               <span className="button-icon" aria-hidden="true">▶</span>
               <span>{t('onboardingLaunchCTA')}</span>

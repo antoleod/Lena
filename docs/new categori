@@ -1,0 +1,331 @@
+# LÉNALAND — CHILD LEARNING INTELLIGENCE SYSTEM
+
+## MASTER EXECUTION CONTRACT — "MISSION IMPOSSIBLE"
+
+---
+
+## MISSION
+
+Audit the current LénaLand application and build the **first working version of an
+intelligent learning system that learns from each child**, delivered as a new pilot
+category called **Mission Impossible**.
+
+This is **not** a difficulty slider, **not** a static level ladder, and **not** plain
+Firebase logging. It is the foundation of a *Learning Brain*: it observes what the child
+actually does, detects learning patterns, and adapts future exercises accordingly.
+
+The two non-negotiable pillars of this MVP:
+
+1. **Real-only Firebase sync** — persist *only the exercises the child actually played*
+   (answers, attempts, times, results). Never store randomly generated, unplayed
+   questions. The result is a true history of what the child completed, ready for analysis.
+2. **Adaptive intelligence** — the app must "learn": when a child masters a problem type,
+   stop drilling the basics and advance; when a weakness appears, reinforce it. Generation
+   and difficulty follow the child's performance, not a fixed script.
+
+Rules of engagement:
+- Do **not** ask for confirmation. Do **not** propose alternatives.
+- Do **not** make random or speculative changes.
+- First **audit**, then implement the **safest MVP foundation** that satisfies the
+  acceptance criteria below.
+
+---
+
+## CORE IDEA
+
+LénaLand must stop being a collection of random exercises and become a living system that
+models each child. The system must understand:
+
+- what is already mastered  → reduce its frequency
+- what is answered quickly   → candidate to advance
+- what is answered slowly    → watch, may need support
+- what is often wrong         → reinforce
+- what the child avoids       → surface gently, don't punish
+- what is repeated successfully → confirm mastery
+- what the child is ready to learn next → unlock
+
+---
+
+## ABSOLUTE CONSTRAINTS
+
+- Do **not** ship naïve logic like `if score > 80 then level++`.
+- Do **not** model the child as only Easy / Medium / Hard.
+- Do **not** decide difficulty from age or school grade alone — they are *context*, never
+  the final signal. **Performance is the main signal.**
+- Do **not** save generated-but-unplayed exercises. Save **only what the child played.**
+
+---
+
+## PHASE 1 — APP AUDIT (already done — verify & extend)
+
+> The audit exists: see [`ARCHITECTURE.md`](../ARCHITECTURE.md) (full navigation map) and
+> [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) (runtime layers + contracts). **Do not redo it
+> from scratch.** Read both, confirm they still match the code, and map the system to the
+> integration points below. Report only deltas you find.
+
+Known baseline from the audit (treat as given):
+
+- **Persistence is 100% localStorage today — there is NO Firebase yet.** Phases 3 & 13
+  build it from zero.
+- **Exercise generation:** `src/engines/generators/` (27 generators) + `engines/math/`,
+  `engines/logic/`, `engines/language/`; type→engine mapping in `engines/engineRegistry.js`.
+- **Static vs. generated content:** `content/<subject>/activities.js` (static) vs.
+  `content/<subject>/generatedActivities.js` (dynamic).
+- **Persistence layer:** `src/services/storage/{profileStore,progressStore,rewardStore,gameProgressStore,errorHistoryStore,parentalStore}.js`
+  and `src/services/session/sessionStore.js`.
+- **Child profile:** `profileStore.js` (`lena:profile:v1`) — **single profile, no `childId`
+  concept exists yet.** Decide how `childId` maps onto it (Phase 2/12).
+- **Existing mastery signal:** `progressStore.js` already tracks question status
+  `unseen / failed / shaky / mastered` — reuse this as the seed for the Mastery/Struggle
+  models (Phases 7–8), don't reinvent it.
+- **Answer checking / scoring:** `engines/activity-engine/` validators +
+  `errorHistoryStore.js` (error history).
+
+Confirm and report, with file paths:
+
+1. The exact function(s) that emit a "child answered" result today — this is the **single
+   hook point** where Phase 4 `playedExercise` events must be captured.
+2. Which generators produce truly random vs. seeded/deterministic output.
+3. Files to modify first vs. files that must **not** be touched yet.
+
+---
+
+## PHASE 2 — CHILD LEARNING DNA
+
+Introduce a living learning profile (not a school grade), updated after every **real
+played** exercise:
+
+```js
+learningDNA = {
+  childId, age, schoolGrade, countrySystem, preferredLanguage,
+
+  skills: {
+    calculation, multiplication, subtraction, logic, memory,
+    reading, comprehension, attention, speed, confidence
+  },
+
+  masteredSkills: [],
+  learningSkills: [],
+  weakSkills: [],
+  blockedSkills: [],
+  recommendedNextSkills: [],
+
+  behaviorProfile: {
+    averageResponseTime, accuracyTrend, mistakePatterns,
+    hesitationPatterns, repetitionTolerance, challengeTolerance,
+    focusLevel, fatigueSignals
+  },
+
+  updatedAt
+}
+```
+
+---
+
+## PHASE 3 — FIREBASE LEARNING MEMORY (real data only)
+
+Use Firestore as the child's long-term memory. Store **only meaningful, played** data —
+never generated/unused questions. Persist:
+
+played exercises · submitted answers · response time · attempts · hints used · mistakes ·
+scores · completed games · skill updates · learning events · session summaries · DNA updates
+
+Required collections (lightweight JSON per record):
+
+```
+children
+learning_sessions
+played_exercises
+played_games
+learning_events
+learning_dna
+adaptive_recommendations
+```
+
+---
+
+## PHASE 4 — PLAYED EXERCISE EVENT (the source of truth)
+
+Every real played exercise emits exactly one event. The adaptive engine learns from these:
+
+```js
+playedExercise = {
+  childId, sessionId, exerciseId, sourceModule, gameMode,
+  subject, skill, subSkill, questionType,
+  question, expectedAnswer, childAnswer, isCorrect,
+  responseTimeMs, attempts, hintsUsed,
+  difficultyBefore, difficultyAfter, generatedBy, createdAt
+}
+```
+
+---
+
+## PHASE 5 — LEARNING EVENTS
+
+Derive meaningful events that feed future recommendations:
+
+```
+skill_mastered · skill_struggling · skill_ready_for_next_level · skill_needs_review
+fast_correct_answer · slow_correct_answer · repeated_mistake · confidence_increased
+difficulty_increased · difficulty_decreased · topic_unlocked · topic_reduced
+```
+
+---
+
+## PHASE 6 — INTELLIGENT ADAPTATION ENGINE
+
+Build the first adaptive engine. It decides: what skill to practice / reduce / reinforce /
+unlock next, the difficulty range, when to stop easy repetition, when to introduce harder
+items, when to slow down, and when to offer support.
+
+Inputs: accuracy · response time · consistency · attempts · hints · recent history ·
+long-term history · age · grade · parent settings.
+
+> Age and grade are context only. Performance is the final decision.
+
+---
+
+## PHASE 7 — MASTERY MODEL
+
+A skill is mastered only with: high accuracy + fast response + consistency across multiple
+sessions + low hint usage + low mistake repetition.
+
+On mastery → reduce frequency, stop overusing, generate harder variations, connect to more
+advanced skills.
+
+> Example: if the child answers 5×5, 4×8, 6×7, 7×8 quickly and correctly across sessions,
+> reduce basic multiplication and introduce mixed multiplication, division readiness, word
+> problems, multi-step logic, and timed challenges.
+
+---
+
+## PHASE 8 — STRUGGLE MODEL
+
+A skill is struggling with: repeated mistakes · slow answers · many attempts · hint
+dependency · avoidance · inconsistency.
+
+On struggle → reduce difficulty, generate simpler variants, offer explanation, recommend
+review, avoid frustration loops. **Help, never pressure or punish.**
+
+---
+
+## PHASE 9 — PROCEDURAL EXERCISE GENERATION
+
+Don't depend only on fixed exercises. Generate **controlled, intelligent variation** (not
+random noise) from: skill metadata · difficulty range · number ranges · operation type ·
+cognitive load · Learning DNA · recent performance. Every generated exercise carries
+metadata (Phase 10).
+
+---
+
+## PHASE 10 — EXERCISE METADATA
+
+```js
+exerciseMeta = {
+  subject, skill, subSkill,
+  ageMin, ageMax, gradeMin, gradeMax,
+  difficulty, numberRange, operationTypes, cognitiveLoad,
+  prerequisites, estimatedTime, supportAvailable
+}
+```
+
+No adaptive decision works without metadata. Audit where it is missing and add the first
+safe structure.
+
+---
+
+## PHASE 11 — MISSION IMPOSSIBLE (pilot module)
+
+Create the new category **Mission Impossible**: a learning laboratory disguised as an
+adventure. Its purpose is to **discover the child's current learning limit** while it feels
+like a mission to the child.
+
+It must:
+
+- generate logic/math challenges dynamically
+- start at a comfortable level
+- increase complexity after success, reduce it after struggle
+- detect the current limit
+- save **every played challenge** (Phase 4 events)
+- update Learning DNA (Phase 2)
+- produce recommendations (Phase 6)
+
+The child plays a mission; the system silently measures learning.
+
+---
+
+## PHASE 12 — SETTINGS / PARENT PROFILE
+
+Prepare settings for: child name · age · school grade · country school system · language ·
+adaptive mode on/off · parent difficulty preference · allow multiplication · allow division ·
+allow timed challenges · max daily difficulty · study-time preference.
+
+When age and grade conflict, the engine picks a balanced intermediate level.
+
+> Example: Age 9 but Grade 2 → don't jump to advanced age-9 content. Use grade as a safety
+> ceiling and performance as the final decision.
+
+---
+
+## PHASE 13 — LOCAL-FIRST + FIREBASE SYNC
+
+The app keeps working offline. Implement: local event queue · offline-first storage ·
+Firebase sync only when available · no duplicate uploads · sync status · retry mechanism.
+
+Sync **only played data**. Never sync unused generated questions.
+
+---
+
+## PHASE 14 — PRIVACY & COST CONTROL
+
+Keep Firestore lean: small documents, no unnecessary writes, prefer session summaries.
+Store no sensitive or unneeded data. No audio/video/images and no Firebase Storage for now —
+Firestore only, unless already configured otherwise.
+
+---
+
+## PHASE 15 — REQUIRED OUTPUT
+
+After audit + implementation, report:
+
+1. What currently exists
+2. What was missing
+3. Which files were modified
+4. Which Firebase collections were created/prepared
+5. How played exercises are now recorded
+6. How Learning DNA is updated
+7. How Mission Impossible works
+8. How the adaptive engine decides next difficulty
+9. What remains for future phases
+10. How to test the full flow end to end
+
+---
+
+## MVP ACCEPTANCE CRITERIA
+
+The MVP is complete only when **all** hold:
+
+- [ ] The app records real played exercises
+- [ ] The app stores no unused generated exercises
+- [ ] Firebase receives lightweight learning JSON
+- [ ] Local-first sync works (queue + retry, no duplicates)
+- [ ] Each child has a Learning DNA profile
+- [ ] The system detects mastered skills
+- [ ] The system detects struggling skills
+- [ ] Basic repetition is reduced
+- [ ] Challenge increases progressively
+- [ ] Mission Impossible exists as a pilot module
+- [ ] The system can recommend the next skill
+- [ ] Age and grade are used as context only
+- [ ] Performance is the main signal
+- [ ] The app feels less repetitive
+- [ ] The foundation can grow into a real intelligent tutor
+
+If any item is missing, the task is **not** complete.
+
+---
+
+## FINAL RULE
+
+Do not build a static educational app. Build the first version of LénaLand's **Learning
+Brain**. The child should not follow the app — the app should learn to follow the child.
