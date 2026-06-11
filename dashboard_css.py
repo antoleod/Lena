@@ -500,6 +500,106 @@ mega_css = r"""
 }
 """
 
+HERO_MARKER = "HERO GAME V2"
+hero_css = r"""
+/* ═══════════════════════════════════════════════════════════════
+   HERO GAME V2 — compact game-home hero (~22vh), strong hierarchy
+   Reuses existing palette/gradient; only the Hero is restyled.
+   ═══════════════════════════════════════════════════════════════ */
+.al-hero--game {
+  min-height: clamp(148px, 21vh, 205px);
+  padding: 11px 15px !important;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Avatar = biggest anchor */
+.al-hero__avatar {
+  position: relative; flex-shrink: 0; z-index: 1;
+  width: clamp(82px, 13vh, 132px); aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.al-hero__avatar .al-hero__mascot {
+  width: 100%; height: 100%; object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(140,60,180,0.5)) hue-rotate(var(--mascot-hue, 0deg));
+}
+.al-hero__avatar .al-hero__mascot-glow {
+  position: absolute; inset: 14% 6%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255,150,200,0.42), transparent 70%);
+  filter: blur(16px);
+}
+.al-hero__level-ring {
+  position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #fff;
+  font-weight: 800; font-size: 0.7rem; padding: 3px 11px; border-radius: 12px;
+  box-shadow: 0 3px 9px rgba(245,158,11,0.55); white-space: nowrap;
+  border: 2px solid rgba(255,255,255,0.35);
+}
+
+/* Main column */
+.al-hero--game .al-hero__main {
+  flex: 1; min-width: 0; display: flex; flex-direction: column;
+  gap: 7px; justify-content: center;
+}
+.al-hero--game .al-hero__greet {
+  margin: 0; font-size: clamp(1.3rem, 4.2vw, 2rem); line-height: 1.05;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* XP bar with inline value */
+.al-hero__xpbar {
+  position: relative; height: 21px; border-radius: 11px; overflow: hidden;
+  background: rgba(0,0,0,0.32); box-shadow: inset 0 1px 3px rgba(0,0,0,0.45);
+}
+.al-hero__xpbar-fill {
+  position: absolute; left: 0; top: 0; bottom: 0; border-radius: 11px;
+  background: linear-gradient(90deg, #22d3ee, #a855f7, #fbbf24);
+  box-shadow: 0 0 12px rgba(168,85,247,0.7); transition: width 0.8s cubic-bezier(0.34,1.4,0.64,1);
+}
+.al-hero__xpbar-text {
+  position: relative; z-index: 1; display: block; text-align: center;
+  line-height: 21px; font-size: 0.74rem; font-weight: 800; color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Stat tiles + CTA */
+.al-hero__stats { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.al-hero__stat {
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding: 5px 11px; border-radius: 13px; line-height: 1.12;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16);
+}
+.al-hero__stat b { font-size: 0.82rem; font-weight: 800; color: #fff; white-space: nowrap; }
+.al-hero__stat small {
+  font-size: 0.58rem; color: rgba(255,255,255,0.62);
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.al-hero__stat--fire   { background: rgba(249,115,22,0.2); border-color: rgba(249,115,22,0.4); }
+.al-hero__stat--reward { background: rgba(34,211,238,0.16); border-color: rgba(34,211,238,0.4); }
+
+.al-hero__cta {
+  margin-left: auto; flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 18px; border-radius: 16px; text-decoration: none;
+  background: linear-gradient(135deg, #7c3aed, #2563eb); color: #fff;
+  font-weight: 800; font-size: 0.9rem; white-space: nowrap;
+  box-shadow: 0 5px 16px rgba(124,58,237,0.55);
+  transition: transform 0.14s, box-shadow 0.2s;
+}
+.al-hero__cta:hover  { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,0.7); }
+.al-hero__cta:active { transform: scale(0.97); }
+
+@media (max-width: 430px) {
+  .al-hero__cta { margin-left: 0; flex: 1 1 100%; justify-content: center; }
+}
+@media (min-width: 768px) {
+  .al-hero--game { min-height: clamp(180px, 23vh, 240px); padding: 18px 26px !important; gap: 24px; }
+  .al-hero--game .al-hero__greet { font-size: 2.2rem; }
+  .al-hero__stat b { font-size: 0.92rem; }
+  .al-hero__cta { font-size: 1rem; padding: 12px 24px; }
+}
+"""
+
 target = pathlib.Path("src/shared/theme/app.css")
 existing = target.read_text(encoding="utf-8")
 out = existing
@@ -528,5 +628,10 @@ if MEGA_MARKER not in out:
     print("Mega worlds CSS appended OK")
 else:
     print("Mega worlds CSS already present, skipping")
+if HERO_MARKER not in out:
+    out += "\n" + hero_css
+    print("Hero V2 CSS appended OK")
+else:
+    print("Hero V2 CSS already present, skipping")
 if out != existing:
     target.write_text(out, encoding="utf-8")

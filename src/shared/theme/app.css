@@ -18595,6 +18595,233 @@ body {
 
 
 /* ═══════════════════════════════════════════════════════════════
+   LOGIN V4 — living mascot, recognition, daily reward, auth groups
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Mascot: breathing + floating shell (SVG keeps its own animation) ── */
+.login-mascot-breathe {
+  position: relative;
+  display: inline-flex;
+  animation: loginMascotFloat 4.5s ease-in-out infinite,
+             loginMascotBreathe 3.4s ease-in-out infinite;
+  transform-origin: 50% 88%;
+  will-change: transform;
+}
+@keyframes loginMascotFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes loginMascotBreathe {
+  0%, 100% { scale: 1 1; }
+  50%      { scale: 1.035 0.97; }
+}
+
+/* (Eye-blink is animated natively inside the mascot SVG.) */
+
+/* Pulsing glow already exists (.login-mascot-glow) — strengthen its pulse */
+.login-mascot-hero-wrap--alive .login-mascot-glow {
+  animation: loginMascotGlowPulse 3.6s ease-in-out infinite;
+}
+@keyframes loginMascotGlowPulse {
+  0%, 100% { opacity: 0.65; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.12); }
+}
+
+/* Orbiting sparkles */
+.login-mascot-spark {
+  position: absolute;
+  font-size: 1.1rem;
+  pointer-events: none;
+  opacity: 0;
+  animation: loginSparkTwinkle 3.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(255,220,150,0.8));
+}
+.login-mascot-spark--1 { top: 12%;  left: 6%;  animation-delay: 0s;   }
+.login-mascot-spark--2 { top: 22%;  right: 4%; animation-delay: 1.2s; font-size: 0.9rem; }
+.login-mascot-spark--3 { bottom: 26%; left: 12%; animation-delay: 2.4s; font-size: 0.85rem; }
+@keyframes loginSparkTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4) translateY(0); }
+  40%, 60% { opacity: 1; transform: scale(1) translateY(-6px); }
+}
+
+/* ── Section group + label ── */
+.login-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login-group__label {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.92);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+/* ── Email login: a REAL button (priority #2), not a text link ── */
+.login-email-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 54px;
+  border-radius: 27px;
+  border: 1.5px solid rgba(124,58,237,0.55);
+  background: rgba(124,58,237,0.18);
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.16s, border-color 0.16s, transform 0.12s, box-shadow 0.18s;
+  -webkit-tap-highlight-color: transparent;
+}
+.login-email-btn:hover {
+  background: rgba(124,58,237,0.3);
+  border-color: rgba(168,85,247,0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(124,58,237,0.4);
+}
+.login-email-btn:active { transform: scale(0.97); }
+
+/* ── Continue your adventure ── */
+.login-resume {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 22px;
+  border: 1.5px solid rgba(251,191,36,0.5);
+  background:
+    radial-gradient(ellipse 80% 120% at 0% 0%, rgba(251,191,36,0.22), transparent 70%),
+    linear-gradient(135deg, rgba(124,58,237,0.32), rgba(34,211,238,0.18));
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.14s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 6px 24px rgba(124,58,237,0.28);
+  -webkit-tap-highlight-color: transparent;
+}
+.login-resume:hover {
+  transform: translateY(-2px);
+  border-color: rgba(251,191,36,0.9);
+  box-shadow: 0 10px 30px rgba(124,58,237,0.4), 0 0 24px rgba(251,191,36,0.25);
+}
+.login-resume:active { transform: scale(0.98); }
+.login-resume__halo {
+  position: absolute;
+  inset: -40% -10%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.16), transparent 60%);
+  animation: loginAuraPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+.login-resume__body { position: relative; z-index: 1; flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.login-resume__title { font-size: 1rem; font-weight: 800; color: #fff; }
+.login-resume__detail { font-size: 0.82rem; color: rgba(255,255,255,0.82); }
+.login-resume__detail strong { color: #fde68a; }
+.login-resume__cta {
+  position: relative; z-index: 1;
+  flex-shrink: 0;
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #fff;
+  padding: 7px 13px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  box-shadow: 0 3px 12px rgba(245,158,11,0.5);
+}
+
+/* ── Profile preview chips ── */
+.login-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: center;
+  width: 100%;
+}
+.login-preview__chip {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  white-space: nowrap;
+}
+.login-preview__chip--name { background: rgba(124,58,237,0.32); border-color: rgba(168,85,247,0.55); }
+.login-preview__chip--gem  { background: rgba(34,211,238,0.16); border-color: rgba(34,211,238,0.42); }
+.login-preview__chip--star { background: rgba(251,191,36,0.16); border-color: rgba(251,191,36,0.42); }
+.login-preview__chip--fire { background: rgba(249,115,22,0.2);  border-color: rgba(249,115,22,0.45); }
+
+/* ── Daily reward strip ── */
+.login-daily {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: center;
+  width: 100%;
+}
+.login-daily__item {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.08);
+  white-space: nowrap;
+  animation: loginDailyPulse 2.8s ease-in-out infinite;
+}
+.login-daily__item--fire   { background: rgba(249,115,22,0.2);  border-color: rgba(249,115,22,0.42); animation-delay: 0s; }
+.login-daily__item--gift   { background: rgba(34,211,238,0.16); border-color: rgba(34,211,238,0.42); animation-delay: 0.5s; }
+.login-daily__item--trophy { background: rgba(251,191,36,0.18); border-color: rgba(251,191,36,0.45); animation-delay: 1s; }
+@keyframes loginDailyPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  50%      { transform: scale(1.04); box-shadow: 0 2px 14px rgba(255,255,255,0.12); }
+}
+
+/* ── Discreet entry points (personalization + parents) ── */
+.login-entries {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 2px;
+}
+.login-entry {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.62);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.login-entry:hover { color: #fff; }
+.login-entry--parent:hover { color: #fbbf24; }
+.login-entry__dot { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+
+/* ── Reduced motion: calm everything ── */
+@media (prefers-reduced-motion: reduce) {
+  .login-mascot-breathe,
+  .login-mascot-spark,
+  .login-mascot-hero-wrap--alive .login-mascot-glow,
+  .login-daily__item,
+  .login-resume__halo { animation: none !important; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
    APPRENDRE DASHBOARD V3 — premium hero, Grand Voyage, rewards
    ═══════════════════════════════════════════════════════════════ */
 
@@ -19080,4 +19307,102 @@ body {
   .al-world--mega { min-height: 340px; }
   .al-world--mega .al-world__overlay { min-height: 340px; }
   .al-world--mega .al-world__landmark-emoji { font-size: 8.5rem; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO GAME V2 — compact game-home hero (~22vh), strong hierarchy
+   Reuses existing palette/gradient; only the Hero is restyled.
+   ═══════════════════════════════════════════════════════════════ */
+.al-hero--game {
+  min-height: clamp(148px, 21vh, 205px);
+  padding: 11px 15px !important;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Avatar = biggest anchor */
+.al-hero__avatar {
+  position: relative; flex-shrink: 0; z-index: 1;
+  width: clamp(82px, 13vh, 132px); aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.al-hero__avatar .al-hero__mascot {
+  width: 100%; height: 100%; object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(140,60,180,0.5)) hue-rotate(var(--mascot-hue, 0deg));
+}
+.al-hero__avatar .al-hero__mascot-glow {
+  position: absolute; inset: 14% 6%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255,150,200,0.42), transparent 70%);
+  filter: blur(16px);
+}
+.al-hero__level-ring {
+  position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #fff;
+  font-weight: 800; font-size: 0.7rem; padding: 3px 11px; border-radius: 12px;
+  box-shadow: 0 3px 9px rgba(245,158,11,0.55); white-space: nowrap;
+  border: 2px solid rgba(255,255,255,0.35);
+}
+
+/* Main column */
+.al-hero--game .al-hero__main {
+  flex: 1; min-width: 0; display: flex; flex-direction: column;
+  gap: 7px; justify-content: center;
+}
+.al-hero--game .al-hero__greet {
+  margin: 0; font-size: clamp(1.3rem, 4.2vw, 2rem); line-height: 1.05;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* XP bar with inline value */
+.al-hero__xpbar {
+  position: relative; height: 21px; border-radius: 11px; overflow: hidden;
+  background: rgba(0,0,0,0.32); box-shadow: inset 0 1px 3px rgba(0,0,0,0.45);
+}
+.al-hero__xpbar-fill {
+  position: absolute; left: 0; top: 0; bottom: 0; border-radius: 11px;
+  background: linear-gradient(90deg, #22d3ee, #a855f7, #fbbf24);
+  box-shadow: 0 0 12px rgba(168,85,247,0.7); transition: width 0.8s cubic-bezier(0.34,1.4,0.64,1);
+}
+.al-hero__xpbar-text {
+  position: relative; z-index: 1; display: block; text-align: center;
+  line-height: 21px; font-size: 0.74rem; font-weight: 800; color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Stat tiles + CTA */
+.al-hero__stats { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.al-hero__stat {
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding: 5px 11px; border-radius: 13px; line-height: 1.12;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16);
+}
+.al-hero__stat b { font-size: 0.82rem; font-weight: 800; color: #fff; white-space: nowrap; }
+.al-hero__stat small {
+  font-size: 0.58rem; color: rgba(255,255,255,0.62);
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.al-hero__stat--fire   { background: rgba(249,115,22,0.2); border-color: rgba(249,115,22,0.4); }
+.al-hero__stat--reward { background: rgba(34,211,238,0.16); border-color: rgba(34,211,238,0.4); }
+
+.al-hero__cta {
+  margin-left: auto; flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 18px; border-radius: 16px; text-decoration: none;
+  background: linear-gradient(135deg, #7c3aed, #2563eb); color: #fff;
+  font-weight: 800; font-size: 0.9rem; white-space: nowrap;
+  box-shadow: 0 5px 16px rgba(124,58,237,0.55);
+  transition: transform 0.14s, box-shadow 0.2s;
+}
+.al-hero__cta:hover  { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,0.7); }
+.al-hero__cta:active { transform: scale(0.97); }
+
+@media (max-width: 430px) {
+  .al-hero__cta { margin-left: 0; flex: 1 1 100%; justify-content: center; }
+}
+@media (min-width: 768px) {
+  .al-hero--game { min-height: clamp(180px, 23vh, 240px); padding: 18px 26px !important; gap: 24px; }
+  .al-hero--game .al-hero__greet { font-size: 2.2rem; }
+  .al-hero__stat b { font-size: 0.92rem; }
+  .al-hero__cta { font-size: 1rem; padding: 12px 24px; }
 }

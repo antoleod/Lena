@@ -6,6 +6,9 @@ import {
   signInAnon, linkAnonWithGoogle,
 } from '../../services/firebase/authService.js';
 import { getProfile, saveProfile, isProfileComplete } from '../../services/storage/profileStore.js';
+import { getStudyStats } from '../../services/storage/progressStore.js';
+import { getRewardState } from '../../services/storage/rewardStore.js';
+import { getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
 
 // ── Emoji palette (4×5 grid) ──────────────────────────────────────────────────
@@ -106,15 +109,22 @@ const MASCOT_CELEBRATE = 'assets/characters/mascot-celebrate.svg';
 
 function MascotHero({ src = MASCOT_HAPPY }) {
   return (
-    <div className="login-mascot-hero-wrap" aria-hidden="true">
-      <img
-        src={assetUrl(src)}
-        className="login-mascot-hero"
-        alt=""
-        draggable="false"
-      />
-      {/* Glow ring behind mascot */}
+    <div className="login-mascot-hero-wrap login-mascot-hero-wrap--alive" aria-hidden="true">
+      {/* Pulsing glow ring behind mascot */}
       <div className="login-mascot-glow" />
+      {/* Breathing + floating shell — the SVG handles its own eye-blink */}
+      <div className="login-mascot-breathe">
+        <img
+          src={assetUrl(src)}
+          className="login-mascot-hero"
+          alt=""
+          draggable="false"
+        />
+      </div>
+      {/* Sparkles orbiting the mascot */}
+      <span className="login-mascot-spark login-mascot-spark--1">✨</span>
+      <span className="login-mascot-spark login-mascot-spark--2">⭐</span>
+      <span className="login-mascot-spark login-mascot-spark--3">💫</span>
     </div>
   );
 }
@@ -311,6 +321,22 @@ export default function LoginPage() {
     navigate(isProfileComplete() ? '/' : '/onboarding', { replace: true });
   }
 
+  // ── Returning-user resume (local profile exists) ──────────────────────────
+  function handleResume() {
+    if (!isProfileComplete()) localStorage.setItem('lena:guest-session', '1');
+    navigate(profile.lastVisitedRoute || '/', { replace: true });
+  }
+
+  // ── Recognition data (from local stores) ──────────────────────────────────
+  const stats     = getStudyStats();
+  const reward    = getRewardState();
+  const levelInfo = getLevelProgress(profile.totalActivitiesCompleted);
+  const crystals  = reward.balance || 0;
+  const starsTot  = stats.totalCorrect || 0;
+  const streak    = stats.streakCurrent || profile.streakCurrent || 0;
+  const hasSession    = Boolean(profile.name && (profile.sessionActive || loadPin()));
+  const profileReady  = isProfileComplete();
+
   // ── Render ────────────────────────────────────────────────────────────────
   return (
     <div className="login-page">
@@ -343,30 +369,80 @@ export default function LoginPage() {
               <p className="login-logo__subtitle">Explorer • Apprendre • Rêver • Grandir</p>
             </div>
 
-            {/* Social proof chips */}
-            <div className="login-stats">
-              <span className="login-stat">🎮 120+ Jeux</span>
-              <span className="login-stat">📚 20+ Histoires</span>
-              <span className="login-stat">🏆 Défis quotidiens</span>
-              <span className="login-stat">⭐ Récompenses</span>
+            {error && <p className="login-error">{error}</p>}
+
+            {/* ── Continue your adventure (returning user only) ── */}
+            {hasSession && (
+              <button className="login-resume" onClick={handleResume} type="button">
+                <span className="login-resume__halo" aria-hidden="true" />
+                <span className="login-resume__body">
+                  <span className="login-resume__title">✨ Continuer ton aventure</span>
+                  <span className="login-resume__detail">
+                    Dernière activité&nbsp;: <strong>LexiLena</strong> · Niveau {levelInfo.level}
+                  </span>
+                </span>
+                <span className="login-resume__cta" aria-hidden="true">Reprendre →</span>
+              </button>
+            )}
+
+            {/* ── Profile preview (returning user only) ── */}
+            {hasSession && (
+              <div className="login-preview">
+                <span className="login-preview__chip login-preview__chip--name">👧 {profile.name}</span>
+                <span className="login-preview__chip">⭐ Niveau {levelInfo.level}</span>
+                <span className="login-preview__chip login-preview__chip--gem">💎 {crystals} Cristaux</span>
+                <span className="login-preview__chip login-preview__chip--star">🏆 {starsTot} Étoiles</span>
+                {streak > 0 && (
+                  <span className="login-preview__chip login-preview__chip--fire">🔥 Série {streak} jour{streak > 1 ? 's' : ''}</span>
+                )}
+              </div>
+            )}
+
+            {/* ── Daily reward / anticipation strip ── */}
+            <div className="login-daily">
+              {streak > 0
+                ? <span className="login-daily__item login-daily__item--fire">🔥 Série de {streak} jour{streak > 1 ? 's' : ''}</span>
+                : <span className="login-daily__item login-daily__item--fire">🔥 Démarre ta série aujourd&apos;hui&nbsp;!</span>}
+              {crystals > 0
+                ? <span className="login-daily__item login-daily__item--gift">🎁 {crystals} cristaux disponibles</span>
+                : <span className="login-daily__item login-daily__item--gift">🎁 Ton premier cadeau t&apos;attend&nbsp;!</span>}
+              <span className="login-daily__item login-daily__item--trophy">🏆 Nouvelle récompense</span>
             </div>
 
-            {/* Google — parent / returning */}
-            <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
+            {/* ── EXISTING USER ── */}
+            <div className="login-group">
+              <p className="login-group__label">Tu as déjà un compte&nbsp;?</p>
+              <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
+              <button className="login-email-btn" onClick={() => setStep('parent-email')} type="button">
+                📧 Se connecter avec Email
+              </button>
+            </div>
 
-            {/* Create account — child primary CTA */}
-            <button className="login-primary-btn" onClick={() => setStep('creer-enfant')} type="button">
-              🎉 Créer mon compte
-            </button>
+            {/* ── NEW USER ── */}
+            <div className="login-group">
+              <p className="login-group__label">Nouveau sur LénaLand&nbsp;?</p>
+              <button className="login-primary-btn" onClick={() => setStep('creer-enfant')} type="button">
+                🎉 Créer un compte
+              </button>
+            </div>
 
-            {/* Guest */}
+            {/* ── GUEST (always visible) ── */}
             <button className="login-secondary-btn" onClick={handleGuest} type="button">
               🕹️ Jouer sans compte
             </button>
 
-            <button className="login-email-toggle" onClick={() => setStep('parent-email')} type="button">
-              📧 Connexion avec email →
-            </button>
+            {/* ── Discreet entry points (complete profile only — nav won't bounce) ── */}
+            {profileReady && (
+              <div className="login-entries">
+                <button className="login-entry" onClick={() => navigate('/shop')} type="button">
+                  🎨 Personnaliser ma mascotte
+                </button>
+                <span className="login-entry__dot" aria-hidden="true">•</span>
+                <button className="login-entry login-entry--parent" onClick={() => navigate('/parental')} type="button">
+                  👨‍👩‍👧 Espace Parents
+                </button>
+              </div>
+            )}
 
             <p className="login-safety">🛡️ Sécurisé et conçu pour les enfants</p>
           </div>

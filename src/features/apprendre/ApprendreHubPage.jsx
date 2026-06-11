@@ -16,6 +16,7 @@ const HERO_UI = {
     greet: n => `Bonjour ${n} !`,
     greetSub: 'Prête pour une nouvelle aventure ? ✨',
     levelLabel: 'Niveau',
+    levelShort: 'Niv.', streakWord: 'jours', rewardWord: 'Récompense',
     actsLabel: 'activités',
     streakLabel: n => `Série de ${n} jour${n > 1 ? 's' : ''}`,
     rewardLabel: 'Prochaine récompense',
@@ -35,7 +36,7 @@ const HERO_UI = {
   nl: {
     greet: n => `Hallo ${n}!`,
     greetSub: 'Klaar voor een nieuw avontuur? ✨',
-    levelLabel: 'Niveau', actsLabel: 'activiteiten',
+    levelLabel: 'Niveau', levelShort: 'Niv.', streakWord: 'dagen', rewardWord: 'Beloning', actsLabel: 'activiteiten',
     streakLabel: n => `${n} dag${n > 1 ? 'en' : ''} reeks`,
     rewardLabel: 'Volgende beloning', starsLabel: 'sterren',
     voyageProgress: 'Jouw voortgang', voyageCta: 'Ga verder',
@@ -51,7 +52,7 @@ const HERO_UI = {
   en: {
     greet: n => `Hi ${n}!`,
     greetSub: 'Ready for a new adventure? ✨',
-    levelLabel: 'Level', actsLabel: 'activities',
+    levelLabel: 'Level', levelShort: 'Lvl', streakWord: 'days', rewardWord: 'Reward', actsLabel: 'activities',
     streakLabel: n => `${n}-day streak`,
     rewardLabel: 'Next reward', starsLabel: 'stars',
     voyageProgress: 'Your progress', voyageCta: 'Continue the adventure',
@@ -67,7 +68,7 @@ const HERO_UI = {
   es: {
     greet: n => `¡Hola ${n}!`,
     greetSub: '¿Listo para una nueva aventura? ✨',
-    levelLabel: 'Nivel', actsLabel: 'actividades',
+    levelLabel: 'Nivel', levelShort: 'Niv.', streakWord: 'días', rewardWord: 'Recompensa', actsLabel: 'actividades',
     streakLabel: n => `Racha de ${n} día${n > 1 ? 's' : ''}`,
     rewardLabel: 'Próxima recompensa', starsLabel: 'estrellas',
     voyageProgress: 'Tu progreso', voyageCta: 'Continuar la aventura',
@@ -197,40 +198,46 @@ const HUB_UI = {
   },
 };
 
-// ── Premium hero: mascot + greeting + level + XP + streak + reward ──────────
-function Hero({ hero, name, level, levelInfo, done, streak, stars }) {
+// ── Game home hero: avatar + name + level + XP + streak + reward + CTA ───────
+function Hero({ hero, name, level, levelInfo, done, streak }) {
   const pct = Math.round(levelInfo.progress * 100);
   const next = levelInfo.nextLevelAt ?? done;
+  const nextReward = `${hero.levelLabel} ${level + 1}`;
   return (
-    <div className="al-hero">
+    <section className="al-hero al-hero--game">
       <div className="al-hero__stars" aria-hidden="true">
         {Array.from({ length: 10 }, (_, i) => <span key={i} className="al-hero__star" style={{ '--i': i }} />)}
       </div>
 
-      <div className="al-hero__mascot-wrap" aria-hidden="true">
-        <img src={assetUrl(MASCOT_HERO)} className="al-hero__mascot" alt="" draggable="false" />
+      {/* Avatar — biggest visual anchor, with level ring */}
+      <div className="al-hero__avatar" aria-hidden="true">
         <div className="al-hero__mascot-glow" />
+        <img src={assetUrl(MASCOT_HERO)} className="al-hero__mascot" alt="" draggable="false" />
+        <span className="al-hero__level-ring">{hero.levelShort} {level}</span>
       </div>
 
       <div className="al-hero__main">
+        {/* Name = strongest text */}
         <h1 className="al-hero__greet">{hero.greet(name)}</h1>
-        <p className="al-hero__sub">{hero.greetSub}</p>
 
-        <div className="al-hero__levelrow">
-          <span className="al-hero__level-badge">⚡ {hero.levelLabel} {level}</span>
-          <span className="al-hero__xp">{done} / {next} {hero.actsLabel}</span>
-        </div>
-        <div className="al-hero__bar">
-          <div className="al-hero__bar-fill" style={{ width: `${pct}%` }} />
+        {/* XP bar with inline value */}
+        <div className="al-hero__xpbar" aria-label={`${done} / ${next} XP`}>
+          <div className="al-hero__xpbar-fill" style={{ width: `${pct}%` }} />
+          <span className="al-hero__xpbar-text">{done} / {next} XP</span>
         </div>
 
-        <div className="al-hero__chips">
-          <span className="al-hero__chip al-hero__chip--fire">🔥 {hero.streakLabel(streak)}</span>
-          <span className="al-hero__chip al-hero__chip--star">⭐ {stars} {hero.starsLabel}</span>
-          <span className="al-hero__chip al-hero__chip--gift">🎁 {hero.rewardLabel}</span>
+        {/* Stat tiles: streak + next reward */}
+        <div className="al-hero__stats">
+          <span className="al-hero__stat al-hero__stat--fire">
+            <b>🔥 {streak}</b><small>{hero.streakWord}</small>
+          </span>
+          <span className="al-hero__stat al-hero__stat--reward">
+            <b>🎁 {nextReward}</b><small>{hero.rewardWord}</small>
+          </span>
+          <Link to="/continue" className="al-hero__cta">{hero.voyageCta} →</Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
