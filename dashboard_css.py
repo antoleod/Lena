@@ -653,6 +653,8 @@ subj_css = r"""
 .al-subj__desc {
   margin: 0; flex: 1; font-size: 0.8rem; line-height: 1.35;
   color: rgba(255,255,255,0.82); text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .al-subj__grades { display: flex; flex-wrap: wrap; gap: 5px; }
 .al-subj__grade {

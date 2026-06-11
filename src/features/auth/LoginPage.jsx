@@ -10,6 +10,10 @@ import { getStudyStats } from '../../services/storage/progressStore.js';
 import { getRewardState } from '../../services/storage/rewardStore.js';
 import { getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
+import {
+  IconEmail, IconCreate, IconPlay, IconRocket, IconPalette,
+  IconParents, IconKey, IconArrow, IconShield,
+} from './LoginIcons.jsx';
 
 // ── Emoji palette (4×5 grid) ──────────────────────────────────────────────────
 const EMOJIS = [
@@ -332,6 +336,13 @@ export default function LoginPage() {
     navigate(isProfileComplete() ? '/' : '/onboarding', { replace: true });
   }
 
+  // ── Secret-code login (emoji "password with special characters") ──────────
+  function handleSecretCode() {
+    setError('');
+    // Got a saved code → enter it; otherwise start the create flow to make one.
+    setStep(loadPin() ? 'pin' : 'creer-enfant');
+  }
+
   // ── Returning-user resume (local profile exists) ──────────────────────────
   function handleResume() {
     // If the child set an emoji code, ask for it (their "password with figures").
@@ -394,8 +405,9 @@ export default function LoginPage() {
                 {/* ── Continue your adventure (returning user) ── */}
                 <button className="login-resume" onClick={handleResume} type="button">
                   <span className="login-resume__halo" aria-hidden="true" />
+                  <span className="login-resume__ico" aria-hidden="true"><IconRocket /></span>
                   <span className="login-resume__body">
-                    <span className="login-resume__title">✨ Continuer ton aventure</span>
+                    <span className="login-resume__title">Continuer ton aventure</span>
                     <span className="login-resume__detail">Niveau {levelInfo.level} · Reprends là où tu t&apos;es arrêté</span>
                   </span>
                   <span className="login-resume__cta" aria-hidden="true">Reprendre →</span>
@@ -423,7 +435,10 @@ export default function LoginPage() {
               <p className="login-group__label">Tu as déjà un compte&nbsp;?</p>
               <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
               <button className="login-email-btn" onClick={() => setStep('parent-email')} type="button">
-                📧 Se connecter avec Email
+                <IconEmail /> Se connecter avec Email
+              </button>
+              <button className="login-code-btn" onClick={handleSecretCode} type="button">
+                <IconKey /> Entrer avec mon code secret
               </button>
             </div>
 
@@ -431,29 +446,29 @@ export default function LoginPage() {
             <div className="login-group">
               <p className="login-group__label">Nouveau sur LénaLand&nbsp;?</p>
               <button className="login-primary-btn" onClick={() => setStep('creer-enfant')} type="button">
-                🎉 Créer un compte
+                <IconCreate /> Créer un compte
               </button>
             </div>
 
             {/* ── GUEST (always visible) ── */}
             <button className="login-secondary-btn" onClick={handleGuest} type="button">
-              🕹️ Jouer sans compte
+              <IconPlay /> Jouer sans compte
             </button>
 
             {/* ── Discreet entry points (complete profile only — nav won't bounce) ── */}
             {profileReady && (
               <div className="login-entries">
                 <button className="login-entry" onClick={() => navigate('/shop')} type="button">
-                  🎨 Personnaliser ma mascotte
+                  <IconPalette /> Personnaliser ma mascotte
                 </button>
                 <span className="login-entry__dot" aria-hidden="true">•</span>
                 <button className="login-entry login-entry--parent" onClick={() => navigate('/parental')} type="button">
-                  👨‍👩‍👧 Espace Parents
+                  <IconParents /> Espace Parents
                 </button>
               </div>
             )}
 
-            <p className="login-safety">🛡️ Sécurisé et conçu pour les enfants</p>
+            <p className="login-safety"><IconShield /> Sécurisé et conçu pour les enfants</p>
           </div>
         </div>
       )}
@@ -491,7 +506,7 @@ export default function LoginPage() {
             type="button"
             disabled={!!loading}
           >
-            Suivant →
+            Suivant <IconArrow />
           </button>
 
           <button className="login-guest-btn" onClick={() => { setStep('welcome'); setError(''); }}>
@@ -648,7 +663,11 @@ export default function LoginPage() {
             {error && <p className="login-error">{error}</p>}
             <button className="login-submit-btn" type="submit" disabled={!!loading}>
               {loading === 'email' ? <span className="login-spinner" /> : null}
-              {loading === 'email' ? 'Chargement…' : emailForm.mode === 'signup' ? '🎉 Créer' : '→ Entrer'}
+              {loading === 'email'
+                ? 'Chargement…'
+                : emailForm.mode === 'signup'
+                  ? <><IconCreate /> Créer</>
+                  : <>Entrer <IconArrow /></>}
             </button>
           </form>
 

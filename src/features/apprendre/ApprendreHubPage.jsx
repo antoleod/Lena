@@ -289,7 +289,7 @@ function SubjectWorld({ subject, locale, t, progress, index }) {
       }}
     >
       <div className="al-subj__particles" aria-hidden="true">
-        {Array.from({ length: 6 }, (_, i) => <span key={i} className="al-subj__particle">{particle}</span>)}
+        {Array.from({ length: 4 }, (_, i) => <span key={i} className="al-subj__particle">{particle}</span>)}
       </div>
 
       <span className="al-subj__icon" aria-hidden="true">{universe.icon}</span>
