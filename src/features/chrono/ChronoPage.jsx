@@ -186,7 +186,8 @@ export default function ChronoPage() {
       setStatus('correct');
       setScore(s => s + 1);
       setTries(0);
-      setFbState({ isCorrect: true, correctAnswer: null });
+      clearInterval(timerRef.current);
+      setTimeout(() => handleNext(), 600);
     } else {
       setStatus('wrong');
       const t = tries + 1;

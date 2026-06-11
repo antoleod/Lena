@@ -375,7 +375,8 @@ function GuidedPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTimeLe
       setState('correct');
       playChime(true);
       setShowDecomp(false);
-      setFbState({ isCorrect: true, correctAnswer: null });
+      clearInterval(timerRef.current);
+      setTimeout(() => handleNext(), 600);
     } else {
       playChime(false);
       setTryCount(t => t + 1);
@@ -517,7 +518,8 @@ function AutonomousPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTi
       setCorrect(c => c + 1);
       setState('correct');
       playChime(true);
-      setFbState({ isCorrect: true, correctAnswer: null });
+      clearInterval(timerRef.current);
+      setTimeout(() => handleNext(), 600);
     } else {
       playChime(false);
       const newTry = tryCount + 1;
@@ -640,7 +642,8 @@ function ProblemsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
       setCorrect(c => c + 1);
       setState('correct');
       playChime(true);
-      setFbState({ isCorrect: true, correctAnswer: null });
+      clearInterval(timerRef.current);
+      setTimeout(() => handleNext(), 600);
     } else {
       playChime(false);
       setState('wrong');
@@ -775,7 +778,8 @@ function TensUnitsPhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTim
         }, 700);
       } else {
         setCorrect(c => c + 1);
-        setFbState({ isCorrect: true, correctAnswer: null });
+        clearInterval(timerRef.current);
+        setTimeout(() => handleNext(), 600);
       }
     } else {
       playChime(false);
@@ -1053,7 +1057,8 @@ function SaucissePhase({ onFinish, onBack, megaReto, timerRef, timeLeft, setTime
       setCorrect(c => c + 1);
       setState('correct');
       playChime(true);
-      setFbState({ isCorrect: true, correctAnswer: null });
+      clearInterval(timerRef.current);
+      setTimeout(() => handleNext(), 600);
     } else {
       playChime(false);
       setState('wrong');

@@ -260,7 +260,8 @@ export default function LexiPage() {
     if (isCorrect) {
       setScore(s => s + 1);
       setTries(0);
-      setFbState({ isCorrect: true, correctAnswer: null });
+      clearInterval(timerRef.current);
+      setTimeout(() => handleNext(), 600);
     } else {
       const t = tries + 1; setTries(t);
       if (!megaReto) setEncourage(ENCOURAGEMENTS_LEXI[Math.floor(Math.random() * ENCOURAGEMENTS_LEXI.length)]);

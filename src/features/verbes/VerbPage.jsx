@@ -323,7 +323,7 @@ export default function VerbPage() {
         setCoursePos(p => Math.min(100, p + 10));
       }
       setEncourage(pickRandom(ENCOURAGEMENTS_VERB));
-      setFbState({ isCorrect: true, correctAnswer: null });
+      setTimeout(() => handleDragonNext(), 600);
     } else {
       setEncourage('Presque ! La bonne reponse est : ' + q.answer);
       setFbState({ isCorrect: false, correctAnswer: q.answer });
