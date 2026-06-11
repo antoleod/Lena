@@ -18579,12 +18579,12 @@ body {
 }
 
 @media (min-width: 640px) {
-  .login-mascot-hero { width: 240px; height: 240px; }
-  .login-mascot-hero-wrap { margin-bottom: -100px; }
-  .login-card--welcome { padding-top: 110px !important; }
-  .login-scene .login-card:not(.login-card--welcome) { padding-top: 110px !important; }
-  .login-logo__name { font-size: 3.8rem !important; }
-  .login-scene { max-width: 560px; }
+  .login-mascot-hero { width: 200px; height: 200px; }
+  .login-mascot-hero-wrap { margin-bottom: -84px; }
+  .login-card--welcome { padding-top: 96px !important; }
+  .login-scene .login-card:not(.login-card--welcome) { padding-top: 96px !important; }
+  .login-logo__name { font-size: 3rem !important; }
+  .login-scene { max-width: 420px; }
 }
 
 
@@ -18685,20 +18685,30 @@ body {
   50%      { opacity: 0.95; transform: scale(1.08); }
 }
 
-/* ── Tablet & desktop: bigger mascot + brighter planets so no
-      empty space, mascot reaches ~30% of viewport ── */
+/* ── Tablet (incl. iPad 11"): keep the card compact & centered, not huge ── */
 @media (min-width: 700px) {
-  .login-mascot-hero { width: 300px !important; height: 300px !important; }
-  .login-mascot-hero-wrap { margin-bottom: -120px !important; }
-  .login-scene { max-width: 600px !important; }
-  .login-card--welcome { padding-top: 140px !important; }
-  .login-scene .login-card:not(.login-card--welcome) { padding-top: 140px !important; }
-  .login-planet--1 { width: 140px !important; height: 140px !important; opacity: 0.95; }
-  .login-planet--2 { width: 90px !important; height: 90px !important; opacity: 0.95; }
+  .login-mascot-hero { width: 210px !important; height: 210px !important; }
+  .login-mascot-hero-wrap { margin-bottom: -88px !important; }
+  .login-scene { max-width: 430px !important; }
+  .login-card--welcome { padding-top: 100px !important; min-height: 0 !important; }
+  .login-scene .login-card:not(.login-card--welcome) { padding-top: 100px !important; }
+  .login-planet--1 { width: 120px !important; height: 120px !important; opacity: 0.9; }
+  .login-planet--2 { width: 80px !important; height: 80px !important; opacity: 0.9; }
 }
-@media (min-width: 1024px) {
-  .login-mascot-hero { width: 340px !important; height: 340px !important; }
-  .login-mascot-hero-wrap { margin-bottom: -135px !important; }
+/* Larger desktops can afford a slightly bigger hero, still controlled */
+@media (min-width: 1280px) {
+  .login-mascot-hero { width: 240px !important; height: 240px !important; }
+  .login-mascot-hero-wrap { margin-bottom: -100px !important; }
+  .login-scene { max-width: 460px !important; }
+}
+/* Short / landscape (e.g. iPad landscape ~834h): shrink so the card fits ── */
+@media (min-width: 700px) and (max-height: 900px) {
+  .login-mascot-hero { width: 150px !important; height: 150px !important; }
+  .login-mascot-hero-wrap { margin-bottom: -60px !important; }
+  .login-card--welcome { padding-top: 70px !important; }
+  .login-scene .login-card:not(.login-card--welcome) { padding-top: 70px !important; }
+  .login-card { gap: 9px !important; padding-top: 70px; }
+  .login-logo__name { font-size: 2.3rem !important; }
 }
 
 
@@ -19096,6 +19106,23 @@ body {
 }
 .ep-slot .pin-ico { filter: drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
 
+/* Breathing: the icons gently pulse so the keypad feels alive. We animate the
+   inner icon (not the button) so hover/press transforms stay untouched. The
+   stagger across columns/rows makes it ripple rather than throb in unison. */
+.ep-emoji .pin-ico {
+  transform-origin: center;
+  animation: epIcoBreathe 3.2s ease-in-out infinite;
+}
+@keyframes epIcoBreathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.09); }
+}
+.ep-emoji:nth-child(4n+2) .pin-ico { animation-delay: 0.4s; }
+.ep-emoji:nth-child(4n+3) .pin-ico { animation-delay: 0.8s; }
+.ep-emoji:nth-child(4n)   .pin-ico { animation-delay: 1.2s; }
+.ep-emoji:nth-child(n+9)  .pin-ico { animation-duration: 3.6s; }
+.ep-emoji:hover .pin-ico  { animation-play-state: paused; transform: scale(1.12); }
+
 @media (max-width: 440px) {
   .ep-slot { width: 52px; height: 52px; padding: 9px; }
   .ep-emoji { border-radius: 16px; box-shadow: 0 5px 0 rgba(60,20,110,0.7), 0 6px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.35); }
@@ -19106,7 +19133,8 @@ body {
   .login-mascot-spark,
   .login-mascot-hero-wrap--alive .login-mascot-glow,
   .login-daily__item,
-  .login-resume__halo { animation: none !important; }
+  .login-resume__halo,
+  .ep-emoji .pin-ico { animation: none !important; }
 }
 
 
