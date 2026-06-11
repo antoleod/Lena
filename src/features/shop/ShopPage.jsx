@@ -1,246 +1,266 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  buyReward,
-  equipEffect,
-  equipTheme,
-  equipWallpaper,
-  getRewardCatalog,
-  getRewardState
+  buyReward, equipAvatar, equipEffect, equipPet, equipTheme, equipWallpaper,
+  getRewardCatalog, getRewardState, getDailyDealId, openChest,
 } from '../../services/storage/rewardStore.js';
-import { getProfile } from '../../services/storage/profileStore.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
 
-function getDailyDealId(catalog) {
-  const day = Math.floor(Date.now() / 86400000);
-  const buyable = catalog.filter(i => i.price > 0);
-  return buyable[day % buyable.length]?.id || null;
-}
-
-// Avatar background colors per avatar id
-const AVATAR_BG = {
-  'avatar-unicorn':   'linear-gradient(145deg,#ffb8e8,#ff7cc0)',
-  'avatar-panda':     'linear-gradient(145deg,#e8e8e8,#b0b0c0)',
-  'avatar-dragon':    'linear-gradient(145deg,#a8f0a0,#4db870)',
-  'avatar-owl':       'linear-gradient(145deg,#d4c08a,#a07840)',
-  'avatar-fox':       'linear-gradient(145deg,#ffb87a,#e07030)',
-  'avatar-lion':      'linear-gradient(145deg,#ffe08a,#d09820)',
-  'avatar-dolphin':   'linear-gradient(145deg,#88d8f8,#3098c8)',
-  'avatar-frog':      'linear-gradient(145deg,#88e898,#28a840)',
-  'avatar-penguin':   'linear-gradient(145deg,#b0c8e8,#3868a8)',
-  'avatar-apple':     'linear-gradient(145deg,#ff8888,#d03030)',
-  'avatar-banana':    'linear-gradient(145deg,#ffe870,#c8a020)',
-  'avatar-pineapple': 'linear-gradient(145deg,#f8d060,#c08020)',
-  'avatar-strawberry':'linear-gradient(145deg,#ff8888,#d03030)',
-  'avatar-cat':       'linear-gradient(145deg,#f0c890,#c89040)',
-  'avatar-rabbit':    'linear-gradient(145deg,#f8e0f0,#e8a0c8)',
-  'avatar-bear':      'linear-gradient(145deg,#c8a878,#906030)',
-  'avatar-butterfly': 'linear-gradient(145deg,#c0a8f8,#8060e0)',
-  'avatar-turtle':    'linear-gradient(145deg,#90d890,#408040)',
+// ── Rarity config ────────────────────────────────────────────────────────────
+const RARITY = {
+  common:    { label: 'Commun',     emoji: '⚪', color: '#9ca3af', glow: 'rgba(156,163,175,0.3)' },
+  rare:      { label: 'Rare',       emoji: '🟢', color: '#22c55e', glow: 'rgba(34,197,94,0.35)' },
+  epic:      { label: 'Épique',     emoji: '🔵', color: '#3b82f6', glow: 'rgba(59,130,246,0.4)' },
+  legendary: { label: 'Légendaire', emoji: '🟣', color: '#a855f7', glow: 'rgba(168,85,247,0.5)' },
+  mythic:    { label: 'Mythique',   emoji: '🟡', color: '#f59e0b', glow: 'rgba(245,158,11,0.6)' },
 };
 
-// 3D Avatar display component
-function Avatar3D({ item, size = 110 }) {
-  if (!item) return null;
-  const bg = AVATAR_BG[item.id] || 'linear-gradient(145deg,#d0c0f8,#9060e0)';
+// ── Art backgrounds per type/id ───────────────────────────────────────────────
+const TYPE_BG = {
+  avatar:    'linear-gradient(145deg,#ff9ad1,#ff6eb4)',
+  theme:     'linear-gradient(145deg,#8dd8ff,#5fb8ff)',
+  wallpaper: 'linear-gradient(145deg,#a3e635,#65a30d)',
+  effect:    'linear-gradient(145deg,#fb923c,#ea580c)',
+  pet:       'linear-gradient(145deg,#c084fc,#9333ea)',
+  accessory: 'linear-gradient(145deg,#fde68a,#f59e0b)',
+  badge:     'linear-gradient(145deg,#6ee7b7,#059669)',
+  frame:     'linear-gradient(145deg,#fda4af,#e11d48)',
+  sticker:   'linear-gradient(145deg,#fef08a,#ca8a04)',
+  title:     'linear-gradient(145deg,#c4b5fd,#7c3aed)',
+};
+const CHEST_BG = {
+  bronze:    'linear-gradient(145deg,#d97706,#92400e)',
+  silver:    'linear-gradient(145deg,#94a3b8,#475569)',
+  gold:      'linear-gradient(145deg,#fbbf24,#d97706)',
+  legendary: 'linear-gradient(145deg,#a855f7,#6d28d9)',
+};
+
+// ── Category tabs ─────────────────────────────────────────────────────────────
+const TABS = [
+  { key: 'all',       emoji: '🌟', label: 'Tout' },
+  { key: 'chest',     emoji: '🎁', label: 'Coffres' },
+  { key: 'avatar',    emoji: '🐾', label: 'Avatars' },
+  { key: 'theme',     emoji: '🎨', label: 'Thèmes' },
+  { key: 'wallpaper', emoji: '🌈', label: 'Fonds' },
+  { key: 'effect',    emoji: '✨', label: 'Effets' },
+  { key: 'pet',       emoji: '🐶', label: 'Animaux' },
+  { key: 'accessory', emoji: '🎀', label: 'Accessoires' },
+  { key: 'badge',     emoji: '🏅', label: 'Badges' },
+  { key: 'frame',     emoji: '🪞', label: 'Cadres' },
+  { key: 'title',     emoji: '📜', label: 'Titres' },
+  { key: 'sticker',   emoji: '🏷️', label: 'Stickers' },
+];
+
+// ── Item visual ────────────────────────────────────────────────────────────────
+function ItemIcon({ item, size = 52 }) {
+  if (item.assetPath) {
+    return <img src={assetUrl(item.assetPath)} alt="" style={{ width: size, height: size, objectFit: 'contain' }} />;
+  }
+  return <span style={{ fontSize: size * 0.72, lineHeight: 1 }}>{item.icon || '?'}</span>;
+}
+
+// ── Chest open modal ──────────────────────────────────────────────────────────
+function ChestModal({ item, onClose }) {
+  const r = RARITY[item.rarity] || RARITY.common;
   return (
-    <div className="avatar3d" style={{ '--av-size': `${size}px`, '--av-bg': bg }}>
-      <div className="avatar3d__glow" aria-hidden="true" />
-      <div className="avatar3d__sphere">
-        <div className="avatar3d__highlight" aria-hidden="true" />
-        {item.assetPath ? (
-          <img className="avatar3d__img" src={assetUrl(item.assetPath)} alt="" />
-        ) : (
-          <span className="avatar3d__emoji">{item.icon}</span>
-        )}
+    <div className="bq-overlay" onClick={onClose}>
+      <div className="bq-chest-modal" onClick={e => e.stopPropagation()}>
+        <div className="bq-chest-modal__burst" style={{ '--rarity-glow': r.glow }} />
+        <div className="bq-chest-modal__icon">
+          <ItemIcon item={item} size={80} />
+        </div>
+        <p className="bq-chest-modal__label">{r.emoji} {r.label}</p>
+        <h2 className="bq-chest-modal__name">{item.name}</h2>
+        <p className="bq-chest-modal__sub">Tu as gagné un nouvel objet !</p>
+        <button className="bq-chest-modal__btn" onClick={onClose}>🎉 Super !</button>
       </div>
-      <div className="avatar3d__shadow" aria-hidden="true" />
     </div>
   );
 }
 
-const CATEGORY_TABS = [
-  { key: 'all',       label: 'Tout',          emoji: '🌟' },
-  { key: 'avatar',    label: 'Avatars',       emoji: '🐾' },
-  { key: 'theme',     label: 'Thèmes',        emoji: '🎨' },
-  { key: 'effect',    label: 'Effets',        emoji: '✨' },
-  { key: 'wallpaper', label: 'Fonds',         emoji: '🖼️' },
-  { key: 'accessory', label: 'Accessoires',   emoji: '🎀' },
-  { key: 'pet',       label: 'Animaux',       emoji: '🐶' },
-  { key: 'badge',     label: 'Badges',        emoji: '🏅' },
-  { key: 'frame',     label: 'Cadres',        emoji: '🪞' },
-  { key: 'title',     label: 'Titres',        emoji: '📜' },
-  { key: 'sticker',   label: 'Autocollants',  emoji: '🏷️' },
-];
+// ── Preview modal ─────────────────────────────────────────────────────────────
+function PreviewModal({ item, owned, active, affordable, dealPrice, onClose, onAction }) {
+  const r = RARITY[item.rarity] || RARITY.common;
+  const bg = item.type === 'chest'
+    ? (CHEST_BG[item.chestTier] || CHEST_BG.bronze)
+    : (TYPE_BG[item.type] || 'linear-gradient(145deg,#e0e7ff,#6366f1)');
 
-const BUY_REACTIONS = [
-  '🎉 Super choix !', '✨ Tu vas adorer !', '🌟 Excellent !', '🎊 Bravo !', '💫 Fantastique !'
-];
+  const actionLabel = !owned
+    ? `Acheter — ${dealPrice ?? item.price} 💎`
+    : active ? '✓ Équipé' : canEquipType(item.type) ? 'Équiper' : '✓ Acquis';
 
+  return (
+    <div className="bq-overlay" onClick={onClose}>
+      <div className="bq-preview" onClick={e => e.stopPropagation()}>
+        <div className="bq-preview__art" style={{ background: bg }}>
+          <ItemIcon item={item} size={96} />
+        </div>
+        <div className="bq-preview__body">
+          <span className="bq-preview__rarity" style={{ color: r.color }}>{r.emoji} {r.label}</span>
+          <h2 className="bq-preview__name">{item.name}</h2>
+          {item.desc && <p className="bq-preview__desc">{item.desc}</p>}
+          {!owned && (
+            <p className="bq-preview__price">
+              {dealPrice != null && <s className="bq-preview__old">{item.price} 💎</s>}
+              <strong>{dealPrice ?? item.price} 💎</strong>
+              {!affordable && <span className="bq-preview__lack"> (manque {(dealPrice ?? item.price) - 0} 💎)</span>}
+            </p>
+          )}
+          <div className="bq-preview__actions">
+            <button className="bq-preview__close" onClick={onClose}>Fermer</button>
+            <button
+              className="bq-preview__buy"
+              onClick={onAction}
+              disabled={!owned && !affordable}
+            >
+              {actionLabel}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function canEquipType(type) {
+  return ['theme', 'effect', 'wallpaper', 'pet', 'avatar'].includes(type);
+}
+
+// ── Main page ─────────────────────────────────────────────────────────────────
 export default function ShopPage() {
-  const { locale, t } = useLocale();
+  const { locale } = useLocale();
   const { themeId } = useTheme();
+
+  const catalog = useMemo(() => getRewardCatalog(), []);
+  const dailyId = useMemo(() => getDailyDealId(), []);
+
   const [shopState, setShopState] = useState(() => getRewardState());
-  const [profile] = useState(() => getProfile());
-  const [toast, setToast] = useState('');
-  const [toastKind, setToastKind] = useState('info');
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeTab, setActiveTab] = useState('all');
+  const [previewItem, setPreviewItem] = useState(null);
+  const [chestResult, setChestResult] = useState(null);
   const [justBought, setJustBought] = useState(null);
-  const catalog = getRewardCatalog();
-  const dailyDealId = useMemo(() => getDailyDealId(catalog), [catalog]);
+  const [toast, setToast] = useState(null);
+  const toastTimer = useRef(null);
+
+  function refresh() { setShopState(getRewardState()); }
 
   useEffect(() => {
-    function sync() { setShopState(getRewardState()); }
-    window.addEventListener('lena-rewards-change', sync);
-    return () => window.removeEventListener('lena-rewards-change', sync);
+    window.addEventListener('lena-rewards-change', refresh);
+    return () => window.removeEventListener('lena-rewards-change', refresh);
   }, []);
 
-  useEffect(() => {
-    if (!toast) return;
-    const timer = setTimeout(() => setToast(''), 2500);
-    return () => clearTimeout(timer);
-  }, [toast]);
-
-  const visibleItems = useMemo(() => {
-    const base = activeCategory === 'all' ? catalog : catalog.filter(i => i.type === activeCategory);
-    return [...base].sort((a, b) => {
-      if (a.id === dailyDealId) return -1;
-      if (b.id === dailyDealId) return 1;
-      const ao = isOwnedId(a.id), bo = isOwnedId(b.id);
-      if (ao !== bo) return ao ? 1 : -1;
-      return 0;
-    });
-  }, [catalog, activeCategory, shopState, dailyDealId]);
-
-  const categoryCounts = useMemo(() => {
-    const counts = {};
-    catalog.forEach(item => { counts[item.type] = (counts[item.type] || 0) + 1; });
-    return counts;
-  }, [catalog]);
-
-  const ownedCount = useMemo(() => catalog.filter(i => isOwnedId(i.id)).length, [shopState, catalog]);
-
-  function getLabel(item) {
-    if (!item) return '';
-    if (locale === 'nl') return item.nameNl || item.name;
-    return item.name;
+  function showToast(msg, type = 'success') {
+    clearTimeout(toastTimer.current);
+    setToast({ msg, type });
+    toastTimer.current = setTimeout(() => setToast(null), 2400);
   }
 
-  function isOwnedId(id) {
-    if (id === 'theme-candy' || id === 'effect-rainbow' || id === 'wallpaper-dreamy-sky') return true;
+  function isOwned(id) {
+    if (['theme-candy', 'effect-rainbow', 'wallpaper-dreamy-sky'].includes(id)) return true;
     return shopState.inventory.includes(id);
   }
-
-  function isOwned(item) { return isOwnedId(item.id); }
 
   function isActive(item) {
     if (item.type === 'theme') return themeId === item.id;
     if (item.type === 'effect') return shopState.equippedEffectId === item.id;
     if (item.type === 'wallpaper') return shopState.equippedWallpaperId === item.id;
+    if (item.type === 'pet') return shopState.equippedPetId === item.id;
+    if (item.type === 'avatar') return shopState.equippedAvatarId === item.id;
     return false;
   }
 
-  function handleItemAction(item) {
-    if (!isOwned(item)) {
-      const isDeal = item.id === dailyDealId;
-      const result = buyReward(item.id, isDeal ? Math.floor(item.price * 0.8) : undefined);
-      if (result.ok) {
-        setShopState(getRewardState());
-        setJustBought(item.id);
-        setToastKind('success');
-        const reaction = BUY_REACTIONS[Math.floor(Math.random() * BUY_REACTIONS.length)];
-        setToast(`${reaction} Tu as débloqué : ${getLabel(item)}`);
-        setTimeout(() => setJustBought(null), 1200);
-      } else {
-        setToastKind(result.reason === 'owned-item' ? 'info' : 'warn');
-        setToast(result.reason === 'owned-item' ? t('shopOwned') : `Il te faut ${item.price} 💎`);
+  function getDealPrice(item) {
+    return item.id === dailyId ? Math.floor(item.price * 0.8) : null;
+  }
+
+  function handleAction(item) {
+    const owned = isOwned(item.id);
+    if (!owned) {
+      if (item.type === 'chest') {
+        const res = openChest(item.id);
+        if (res.ok) { refresh(); setChestResult(res.item); setPreviewItem(null); }
+        else showToast('Pas assez de 💎 !', 'warn');
+        return;
       }
-      return;
-    }
-    let result = { ok: false };
-    if (item.type === 'theme') result = equipTheme(item.id);
-    if (item.type === 'effect') result = equipEffect(item.id);
-    if (item.type === 'wallpaper') result = equipWallpaper(item.id);
-    if (result.ok) {
-      setShopState(getRewardState());
-      setToastKind('success');
-      setToast(`✨ ${getLabel(item)} appliqué !`);
+      const dealPrice = getDealPrice(item);
+      const price = dealPrice ?? item.price;
+      if (shopState.balance < price) { showToast(`Manque ${price - shopState.balance} 💎`, 'warn'); return; }
+      const res = buyReward(item.id);
+      if (res.ok) {
+        refresh();
+        setJustBought(item.id);
+        setTimeout(() => setJustBought(null), 1300);
+        showToast(`🎉 ${item.name} débloqué !`);
+        setPreviewItem(null);
+      }
+    } else {
+      if (item.type === 'theme') equipTheme(item.id);
+      else if (item.type === 'effect') equipEffect(item.id);
+      else if (item.type === 'wallpaper') equipWallpaper(item.id);
+      else if (item.type === 'pet') equipPet(item.id);
+      else if (item.type === 'avatar') equipAvatar(item.id);
+      else { showToast('✓ Déjà acquis', 'info'); return; }
+      refresh();
+      showToast('✨ Équipé !', 'info');
+      setPreviewItem(null);
     }
   }
 
-  function renderVisual(item) {
-    if (item.type === 'avatar') {
-      return <Avatar3D item={item} size={72} />;
-    }
-    if (item.assetPath) {
-      return <img className="shop-card__image" src={assetUrl(item.assetPath)} alt="" />;
-    }
-    if (item.type === 'effect') {
-      return <div className={`effect-preview effect-preview--${item.id.replace('effect-', '')}`} />;
-    }
-    if (item.preview?.length > 0 && !['rain','snow','rainbow','stars','bubbles'].includes(item.preview[0])) {
-      return (
-        <div className="shop-card__theme-preview">
-          {item.preview.map(color => <span key={color} style={{ backgroundColor: color }} />)}
-          <span className="shop-card__theme-icon">{item.icon}</span>
-        </div>
-      );
-    }
-    return <span className="shop-card__emoji">{item.icon}</span>;
-  }
+  const visibleItems = useMemo(() => {
+    const base = activeTab === 'all' ? catalog : catalog.filter(i => i.type === activeTab);
+    return [...base].sort((a, b) => {
+      if (a.id === dailyId) return -1;
+      if (b.id === dailyId) return 1;
+      const ao = isOwned(a.id), bo = isOwned(b.id);
+      if (ao !== bo) return ao ? 1 : -1;
+      return 0;
+    });
+  }, [catalog, activeTab, shopState, dailyId]);
 
-  const dailyDealItem = catalog.find(i => i.id === dailyDealId);
-  const canAfford = (price) => shopState.balance >= price;
+  const featuredItems = useMemo(() => catalog.filter(i => i.featured && i.type !== 'chest'), [catalog]);
+  const dailyItem = catalog.find(i => i.id === dailyId);
+  const ownedCount = catalog.filter(i => isOwned(i.id)).length;
+  const pct = Math.round(ownedCount / catalog.length * 100);
 
-  // Current avatar item
-  const currentAvatarId = profile.avatarId || 'avatar-unicorn';
-  const currentAvatarItem = catalog.find(i => i.id === currentAvatarId);
-
-  const progressPct = Math.round(ownedCount / catalog.length * 100);
+  const tabCounts = useMemo(() => {
+    const m = {};
+    catalog.forEach(i => { m[i.type] = (m[i.type] || 0) + 1; });
+    return m;
+  }, [catalog]);
 
   return (
-    <div className="shop-page" data-testid="shop-page">
+    <div className="bq-page">
 
-      {/* Premium hero with 3D avatar */}
-      <div className="shop-hero">
-        <div className="shop-hero__avatar-col">
-          <Avatar3D item={currentAvatarItem} size={96} />
-          <span className="shop-hero__avatar-name">{getLabel(currentAvatarItem)}</span>
+      {/* ── Header ── */}
+      <div className="bq-header">
+        <div className="bq-header__left">
+          <h1 className="bq-header__title">🏪 Boutique</h1>
+          <p className="bq-header__prog">{ownedCount}/{catalog.length} débloqués · {pct}%</p>
         </div>
-        <div className="shop-hero__center">
-          <span className="shop-hero__title">Boutique</span>
-          <span className="shop-hero__sub">{ownedCount} / {catalog.length} débloqués</span>
-          <div className="shop-hero__bar-wrap">
-            <div className="shop-hero__progress">
-              <div className="shop-hero__progress-fill" style={{ width: `${progressPct}%` }} />
-            </div>
-            <span className="shop-hero__pct">{progressPct}%</span>
-          </div>
-        </div>
-        <div className="shop-hero__balance">
-          <span className="shop-hero__gem">💎</span>
-          <strong>{shopState.balance}</strong>
-          <small>cristaux</small>
+        <div className="bq-header__balance">
+          <span className="bq-header__gem">💎</span>
+          <strong className="bq-header__amount">{shopState.balance}</strong>
         </div>
       </div>
 
-      {/* Daily deal banner */}
-      {dailyDealItem && !isOwnedId(dailyDealItem.id) && (
-        <div className="shop-deal-banner">
-          <div className="shop-deal-banner__left">
-            <span className="shop-deal-banner__badge">⚡ OFFRE DU JOUR</span>
-            <strong className="shop-deal-banner__name">{getLabel(dailyDealItem)}</strong>
-            <span className="shop-deal-banner__discount">−20% aujourd'hui seulement !</span>
+      {/* ── Daily deal ── */}
+      {dailyItem && !isOwned(dailyItem.id) && (
+        <div className="bq-deal">
+          <div className="bq-deal__left">
+            <span className="bq-deal__badge">⚡ OFFRE DU JOUR</span>
+            <strong className="bq-deal__name">{dailyItem.name}</strong>
+            <span className="bq-deal__tag">−20% aujourd'hui seulement !</span>
           </div>
-          <div className="shop-deal-banner__right">
-            <span className="shop-deal-banner__old-price">{dailyDealItem.price} 💎</span>
-            <span className="shop-deal-banner__new-price">{Math.floor(dailyDealItem.price * 0.8)} 💎</span>
+          <div className="bq-deal__right">
+            <div className="bq-deal__prices">
+              <s className="bq-deal__old">{dailyItem.price} 💎</s>
+              <span className="bq-deal__new">{Math.floor(dailyItem.price * 0.8)} 💎</span>
+            </div>
             <button
-              className="shop-deal-banner__btn"
-              type="button"
-              onClick={() => handleItemAction(dailyDealItem)}
-              disabled={!canAfford(Math.floor(dailyDealItem.price * 0.8))}
+              className="bq-deal__btn"
+              disabled={shopState.balance < Math.floor(dailyItem.price * 0.8)}
+              onClick={() => handleAction(dailyItem)}
             >
               Acheter
             </button>
@@ -248,88 +268,123 @@ export default function ShopPage() {
         </div>
       )}
 
-      {/* Toast */}
-      {toast && (
-        <div className={`shop-toast shop-toast--${toastKind}`} role="status" aria-live="polite">
-          {toast}
+      {/* ── Featured ── */}
+      {featuredItems.length > 0 && (
+        <div className="bq-featured">
+          <h2 className="bq-featured__title">⭐ Objets en vedette</h2>
+          <div className="bq-featured__scroll">
+            {featuredItems.map(item => {
+              const r = RARITY[item.rarity] || RARITY.common;
+              const owned = isOwned(item.id);
+              return (
+                <button
+                  key={item.id}
+                  className={`bq-feat-card${owned ? ' bq-feat-card--owned' : ''}`}
+                  style={{ '--feat-glow': r.glow }}
+                  onClick={() => setPreviewItem(item)}
+                >
+                  <div className="bq-feat-card__art" style={{ background: TYPE_BG[item.type] || '' }}>
+                    <ItemIcon item={item} size={44} />
+                  </div>
+                  <span className="bq-feat-card__name">{item.name}</span>
+                  <span className="bq-feat-card__rarity" style={{ color: r.color }}>{r.emoji}</span>
+                  {!owned && <span className="bq-feat-card__price">{item.price} 💎</span>}
+                  {owned && <span className="bq-feat-card__owned">✓</span>}
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
 
-      {/* Category tabs */}
-      <div className="shop-tabs" role="tablist" aria-label="Catégories">
-        {CATEGORY_TABS.map(tab => {
-          const count = tab.key === 'all' ? catalog.length : (categoryCounts[tab.key] || 0);
+      {/* ── Tabs ── */}
+      <div className="bq-tabs">
+        {TABS.map(tab => {
+          const count = tab.key === 'all' ? catalog.length : (tabCounts[tab.key] || 0);
           if (tab.key !== 'all' && count === 0) return null;
           return (
             <button
               key={tab.key}
-              className={`shop-tab${activeCategory === tab.key ? ' shop-tab--active' : ''}`}
-              role="tab"
-              aria-selected={activeCategory === tab.key}
-              type="button"
-              onClick={() => setActiveCategory(tab.key)}
+              className={`bq-tab${activeTab === tab.key ? ' bq-tab--active' : ''}`}
+              onClick={() => setActiveTab(tab.key)}
             >
-              <span className="shop-tab__emoji">{tab.emoji}</span>
-              <span className="shop-tab__label">{tab.label}</span>
-              {count > 0 && <span className="shop-tab__count">{count}</span>}
+              {tab.emoji} {tab.label}
+              {count > 0 && <span className="bq-tab__count">{count}</span>}
             </button>
           );
         })}
       </div>
 
-      {/* Item grid */}
-      <div className="shop-grid" data-testid={`shop-section-${activeCategory}`}>
+      {/* ── Grid ── */}
+      <div className="bq-grid">
         {visibleItems.map(item => {
-          const owned = isOwned(item);
+          const r = RARITY[item.rarity] || RARITY.common;
+          const owned = isOwned(item.id);
           const active = isActive(item);
-          const isDaily = item.id === dailyDealId;
-          const canEquip = item.type === 'theme' || item.type === 'effect' || item.type === 'wallpaper';
-          const disabled = owned && !canEquip;
-          const displayPrice = isDaily && !owned ? Math.floor(item.price * 0.8) : item.price;
-          const affordable = canAfford(displayPrice);
+          const isDaily = item.id === dailyId && !owned;
+          const canEquip = canEquipType(item.type);
+          const dealPrice = isDaily ? Math.floor(item.price * 0.8) : null;
+          const price = dealPrice ?? item.price;
+          const affordable = shopState.balance >= price;
           const justGot = justBought === item.id;
 
+          const artBg = item.type === 'chest'
+            ? (CHEST_BG[item.chestTier] || CHEST_BG.bronze)
+            : (TYPE_BG[item.type] || 'linear-gradient(145deg,#e0e7ff,#6366f1)');
+
+          const rarityGlow = (item.rarity === 'legendary' || item.rarity === 'mythic')
+            ? `0 0 20px ${r.glow}, 0 0 6px ${r.glow}`
+            : undefined;
+
           const btnLabel = !owned
-            ? `${displayPrice} 💎`
-            : active ? '✓ Équipé' : canEquip ? t('shopEquip') : '✓ Acquis';
+            ? `${price} 💎`
+            : active ? '✓ Équipé'
+            : canEquip ? 'Équiper'
+            : '✓ Acquis';
 
           return (
             <article
               key={item.id}
               className={[
-                'shop-card',
-                owned ? 'shop-card--owned' : '',
-                active ? 'shop-card--active' : '',
-                isDaily && !owned ? 'shop-card--deal' : '',
-                justGot ? 'shop-card--just-bought' : '',
-                !owned && !affordable ? 'shop-card--unaffordable' : '',
+                'bq-card',
+                owned ? 'bq-card--owned' : '',
+                active ? 'bq-card--active' : '',
+                isDaily ? 'bq-card--deal' : '',
+                justGot ? 'bq-card--burst' : '',
+                !owned && !affordable ? 'bq-card--locked' : '',
               ].filter(Boolean).join(' ')}
-              data-testid={`shop-item-${item.id}`}
+              style={rarityGlow ? { boxShadow: rarityGlow } : undefined}
             >
-              {isDaily && !owned && <span className="shop-card__deal-tag">⚡ −20%</span>}
-              {active && <span className="shop-card__active-ring" aria-hidden="true" />}
+              {isDaily && <span className="bq-card__deal-tag">⚡ −20%</span>}
+              {active && <span className="bq-card__equipped-ring" aria-hidden="true" />}
 
-              <div className="shop-card__visual">
-                {renderVisual(item)}
-                {owned && <span className="shop-card__owned-badge" aria-label="Possédé">✓</span>}
+              <button className="bq-card__art" style={{ background: artBg }} onClick={() => setPreviewItem(item)}>
+                <span className="bq-card__rarity-dot" style={{ background: r.color }} title={r.label} />
+                <ItemIcon item={item} size={54} />
+                {owned && <span className="bq-card__owned-badge">✓</span>}
+              </button>
+
+              <div className="bq-card__body">
+                <p className="bq-card__name">{item.name}</p>
+                <p className="bq-card__rarity" style={{ color: r.color }}>{r.emoji} {r.label}</p>
+                {!owned && (
+                  <p className={`bq-card__price${!affordable ? ' bq-card__price--red' : ''}`}>
+                    {isDaily && <s className="bq-card__old">{item.price}</s>}
+                    {price} 💎
+                  </p>
+                )}
               </div>
 
-              <p className="shop-card__name">{getLabel(item)}</p>
-
-              {!owned && (
-                <p className={`shop-card__price${!affordable ? ' shop-card__price--low' : ''}`}>
-                  {isDaily && <s className="shop-card__old-price">{item.price}</s>}
-                  {displayPrice} 💎
-                  {!affordable && <span className="shop-card__need"> manque {displayPrice - shopState.balance}</span>}
-                </p>
-              )}
-
               <button
-                className={`shop-card__btn${owned && !canEquip ? ' shop-card__btn--owned' : ''}${active ? ' shop-card__btn--active' : ''}`}
-                type="button"
-                onClick={() => handleItemAction(item)}
-                disabled={disabled || (!owned && !affordable)}
-                data-testid={`shop-action-${item.id}`}
+                className={[
+                  'bq-card__btn',
+                  active ? 'bq-card__btn--equipped' : '',
+                  owned && !active && canEquip ? 'bq-card__btn--equip' : '',
+                  owned && !canEquip ? 'bq-card__btn--owned' : '',
+                  !owned && !affordable ? 'bq-card__btn--cant' : '',
+                ].filter(Boolean).join(' ')}
+                disabled={(owned && !canEquip) || (!owned && !affordable)}
+                onClick={() => handleAction(item)}
               >
                 {btnLabel}
               </button>
@@ -337,6 +392,27 @@ export default function ShopPage() {
           );
         })}
       </div>
+
+      {/* ── Modals ── */}
+      {previewItem && (
+        <PreviewModal
+          item={previewItem}
+          owned={isOwned(previewItem.id)}
+          active={isActive(previewItem)}
+          affordable={shopState.balance >= (getDealPrice(previewItem) ?? previewItem.price)}
+          dealPrice={getDealPrice(previewItem)}
+          onClose={() => setPreviewItem(null)}
+          onAction={() => handleAction(previewItem)}
+        />
+      )}
+      {chestResult && (
+        <ChestModal item={chestResult} onClose={() => setChestResult(null)} />
+      )}
+
+      {/* ── Toast ── */}
+      {toast && (
+        <div className={`bq-toast bq-toast--${toast.type}`}>{toast.msg}</div>
+      )}
     </div>
   );
 }
