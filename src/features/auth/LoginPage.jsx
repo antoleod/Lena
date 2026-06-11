@@ -81,6 +81,26 @@ function Planets() {
   );
 }
 
+function Nebula() {
+  return (
+    <div className="login-nebula" aria-hidden="true">
+      <span className="login-nebula__cloud login-nebula__cloud--1" />
+      <span className="login-nebula__cloud login-nebula__cloud--2" />
+      <span className="login-nebula__cloud login-nebula__cloud--3" />
+    </div>
+  );
+}
+
+function ShootingStars() {
+  return (
+    <div className="login-shooting" aria-hidden="true">
+      <span className="login-shoot login-shoot--1" />
+      <span className="login-shoot login-shoot--2" />
+      <span className="login-shoot login-shoot--3" />
+    </div>
+  );
+}
+
 const MASCOT_HAPPY     = 'assets/characters/mascot-happy.svg';
 const MASCOT_CELEBRATE = 'assets/characters/mascot-celebrate.svg';
 
@@ -294,7 +314,9 @@ export default function LoginPage() {
   // ── Render ────────────────────────────────────────────────────────────────
   return (
     <div className="login-page">
+      <Nebula />
       <Stars />
+      <ShootingStars />
       <Particles />
       <Planets />
 
@@ -318,6 +340,7 @@ export default function LoginPage() {
             <div className="login-logo">
               <h1 className="login-logo__name">LénaLand</h1>
               <p className="login-logo__tagline">✨ Bienvenue dans ton univers d&apos;apprentissage !</p>
+              <p className="login-logo__subtitle">Explorer • Apprendre • Rêver • Grandir</p>
             </div>
 
             {/* Social proof chips */}
@@ -325,6 +348,7 @@ export default function LoginPage() {
               <span className="login-stat">🎮 120+ Jeux</span>
               <span className="login-stat">📚 20+ Histoires</span>
               <span className="login-stat">🏆 Défis quotidiens</span>
+              <span className="login-stat">⭐ Récompenses</span>
             </div>
 
             {/* Google — parent / returning */}

@@ -3,9 +3,81 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { subjects } from '../curriculum/catalog.js';
 import { getSubjectUniverse } from '../../shared/gameplay/subjectThemes.js';
 import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
-import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import { getProgressSnapshot, getStudyStats } from '../../services/storage/progressStore.js';
 import { getActivitiesBySubject } from '../curriculum/catalog.js';
 import { SUBJECT_ICONS } from '../../assets/icons/AppIcons.jsx';
+import { getProfile } from '../../services/storage/profileStore.js';
+import { getLevelProgress } from '../../services/learning/levelSystem.js';
+import { assetUrl } from '../../shared/assets/assetUrl.js';
+
+const MASCOT_HERO = 'assets/characters/mascot-happy.svg';
+
+// ── Hero / gamification strings ─────────────────────────────────────────────
+const HERO_UI = {
+  fr: {
+    greet: n => `Bonjour ${n} !`,
+    greetSub: 'Prête pour une nouvelle aventure ? ✨',
+    levelLabel: 'Niveau',
+    actsLabel: 'activités',
+    streakLabel: n => `Série de ${n} jour${n > 1 ? 's' : ''}`,
+    rewardLabel: 'Prochaine récompense',
+    starsLabel: 'étoiles',
+    voyageProgress: 'Ta progression',
+    voyageCta: "Continuer l'aventure",
+    rewardsTitle: 'Récompenses',
+    rewards: [
+      { icon: '🎁', title: 'Récompense du jour', sub: 'À réclamer !', c: '#f59e0b' },
+      { icon: '🏆', title: 'Nouveau succès', sub: 'Bravo, continue !', c: '#7c3aed' },
+      { icon: '⭐', title: 'Nouvel accessoire', sub: 'À débloquer', c: '#22d3ee' },
+      { icon: '💎', title: 'Cristal magique', sub: 'Collecte-les', c: '#10b981' },
+    ],
+  },
+  nl: {
+    greet: n => `Hallo ${n}!`,
+    greetSub: 'Klaar voor een nieuw avontuur? ✨',
+    levelLabel: 'Niveau', actsLabel: 'activiteiten',
+    streakLabel: n => `${n} dag${n > 1 ? 'en' : ''} reeks`,
+    rewardLabel: 'Volgende beloning', starsLabel: 'sterren',
+    voyageProgress: 'Jouw voortgang', voyageCta: 'Ga verder',
+    rewardsTitle: 'Beloningen',
+    rewards: [
+      { icon: '🎁', title: 'Dagbeloning', sub: 'Te claimen!', c: '#f59e0b' },
+      { icon: '🏆', title: 'Nieuwe prestatie', sub: 'Goed bezig!', c: '#7c3aed' },
+      { icon: '⭐', title: 'Nieuw accessoire', sub: 'Ontgrendelen', c: '#22d3ee' },
+      { icon: '💎', title: 'Magisch kristal', sub: 'Verzamel ze', c: '#10b981' },
+    ],
+  },
+  en: {
+    greet: n => `Hi ${n}!`,
+    greetSub: 'Ready for a new adventure? ✨',
+    levelLabel: 'Level', actsLabel: 'activities',
+    streakLabel: n => `${n}-day streak`,
+    rewardLabel: 'Next reward', starsLabel: 'stars',
+    voyageProgress: 'Your progress', voyageCta: 'Continue the adventure',
+    rewardsTitle: 'Rewards',
+    rewards: [
+      { icon: '🎁', title: 'Daily reward', sub: 'Claim it!', c: '#f59e0b' },
+      { icon: '🏆', title: 'New achievement', sub: 'Well done!', c: '#7c3aed' },
+      { icon: '⭐', title: 'New accessory', sub: 'Unlock it', c: '#22d3ee' },
+      { icon: '💎', title: 'Magic crystal', sub: 'Collect them', c: '#10b981' },
+    ],
+  },
+  es: {
+    greet: n => `¡Hola ${n}!`,
+    greetSub: '¿Listo para una nueva aventura? ✨',
+    levelLabel: 'Nivel', actsLabel: 'actividades',
+    streakLabel: n => `Racha de ${n} día${n > 1 ? 's' : ''}`,
+    rewardLabel: 'Próxima recompensa', starsLabel: 'estrellas',
+    voyageProgress: 'Tu progreso', voyageCta: 'Continuar la aventura',
+    rewardsTitle: 'Recompensas',
+    rewards: [
+      { icon: '🎁', title: 'Recompensa diaria', sub: '¡A reclamar!', c: '#f59e0b' },
+      { icon: '🏆', title: 'Nuevo logro', sub: '¡Bravo!', c: '#7c3aed' },
+      { icon: '⭐', title: 'Nuevo accesorio', sub: 'Desbloquear', c: '#22d3ee' },
+      { icon: '💎', title: 'Cristal mágico', sub: 'Coléccionalos', c: '#10b981' },
+    ],
+  },
+};
 
 const HUB_UI = {
   fr: {
@@ -122,6 +194,57 @@ const HUB_UI = {
   },
 };
 
+// ── Premium hero: mascot + greeting + level + XP + streak + reward ──────────
+function Hero({ hero, name, level, levelInfo, done, streak, stars }) {
+  const pct = Math.round(levelInfo.progress * 100);
+  const next = levelInfo.nextLevelAt ?? done;
+  return (
+    <div className="al-hero">
+      <div className="al-hero__stars" aria-hidden="true">
+        {Array.from({ length: 10 }, (_, i) => <span key={i} className="al-hero__star" style={{ '--i': i }} />)}
+      </div>
+
+      <div className="al-hero__mascot-wrap" aria-hidden="true">
+        <img src={assetUrl(MASCOT_HERO)} className="al-hero__mascot" alt="" draggable="false" />
+        <div className="al-hero__mascot-glow" />
+      </div>
+
+      <div className="al-hero__main">
+        <h1 className="al-hero__greet">{hero.greet(name)}</h1>
+        <p className="al-hero__sub">{hero.greetSub}</p>
+
+        <div className="al-hero__levelrow">
+          <span className="al-hero__level-badge">⚡ {hero.levelLabel} {level}</span>
+          <span className="al-hero__xp">{done} / {next} {hero.actsLabel}</span>
+        </div>
+        <div className="al-hero__bar">
+          <div className="al-hero__bar-fill" style={{ width: `${pct}%` }} />
+        </div>
+
+        <div className="al-hero__chips">
+          <span className="al-hero__chip al-hero__chip--fire">🔥 {hero.streakLabel(streak)}</span>
+          <span className="al-hero__chip al-hero__chip--star">⭐ {stars} {hero.starsLabel}</span>
+          <span className="al-hero__chip al-hero__chip--gift">🎁 {hero.rewardLabel}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Reward cards (architecture prepared for future store) ───────────────────
+function RewardCard({ icon, title, sub, c }) {
+  return (
+    <div className="al-reward" style={{ '--rw-c': c }}>
+      <span className="al-reward__icon">{icon}</span>
+      <div className="al-reward__body">
+        <strong className="al-reward__title">{title}</strong>
+        <span className="al-reward__sub">{sub}</span>
+      </div>
+      <span className="al-reward__plus">+</span>
+    </div>
+  );
+}
+
 function AcademyCard({ to, emoji, title, desc, color, badge }) {
   return (
     <Link to={to} className="al-ac-card" style={{ '--ac-c': color }}>
@@ -186,7 +309,10 @@ function SubjectCard({ subject, locale, t, progress }) {
 export default function ApprendreHubPage() {
   const { locale, t } = useLocale();
   const ui = HUB_UI[locale] || HUB_UI.fr;
+  const hero = HERO_UI[locale] || HERO_UI.fr;
   const progress = getProgressSnapshot();
+  const profile = getProfile();
+  const stats = getStudyStats();
   const activeSubjects = subjects.filter(s =>
     s.grades?.some(g => ['P2','P3','P4','P5','P6'].includes(g))
   );
@@ -198,10 +324,26 @@ export default function ApprendreHubPage() {
   }, 0);
   const globalPct = totalActs > 0 ? Math.round((doneActs / totalActs) * 100) : 0;
 
+  const levelInfo = getLevelProgress(doneActs);
+  const name      = profile.name || 'toi';
+  const streak    = stats.streakCurrent || profile.streakCurrent || 0;
+  const stars     = stats.totalCorrect || 0;
+
   return (
     <div className="al-hub">
 
-      {/* ── Mes Matières — TOP ────────────────────────────────── */}
+      {/* ── Premium hero ──────────────────────────────────────── */}
+      <Hero
+        hero={hero}
+        name={name}
+        level={levelInfo.level}
+        levelInfo={levelInfo}
+        done={doneActs}
+        streak={streak}
+        stars={stars}
+      />
+
+      {/* ── Mes Matières ──────────────────────────────────────── */}
       <div className="al-subjects-header">
         <div className="al-subjects-header__top">
           <h2 className="al-subjects-header__title">{ui.subjectsTitle}</h2>
@@ -225,22 +367,45 @@ export default function ApprendreHubPage() {
         ))}
       </div>
 
-      {/* ── Adventure map shortcut ────────────────────────────── */}
-      <Link to="/map" className="al-map-banner">
-        <div className="al-map-banner__bg" aria-hidden="true">
-          {['☁️','🌟','✨','☁️','⭐'].map((e, i) => (
-            <span key={i} className="al-map-banner__deco" style={{ '--i': i }}>{e}</span>
+      {/* ── Grand Voyage — main adventure system ──────────────── */}
+      <Link to="/map" className="al-voyage">
+        <div className="al-voyage__sky" aria-hidden="true">
+          {['🌟','✨','⭐','💫','🌠','✨'].map((e, i) => (
+            <span key={i} className="al-voyage__deco" style={{ '--i': i }}>{e}</span>
           ))}
         </div>
-        <div className="al-map-banner__content">
-          <span className="al-map-banner__emoji">🗺️</span>
-          <div>
-            <strong className="al-map-banner__title">{ui.mapTitle}</strong>
-            <span className="al-map-banner__desc">{ui.mapDesc}</span>
+        <div className="al-voyage__castle" aria-hidden="true">🏰</div>
+        <div className="al-voyage__content">
+          <div className="al-voyage__head">
+            <span className="al-voyage__map-emoji">🗺️</span>
+            <div>
+              <strong className="al-voyage__title">{ui.mapTitle}</strong>
+              <span className="al-voyage__desc">{ui.mapDesc}</span>
+            </div>
           </div>
-          <span className="al-map-banner__arrow">→</span>
+          <div className="al-voyage__progress">
+            <div className="al-voyage__prog-row">
+              <span className="al-voyage__prog-label">{hero.voyageProgress}</span>
+              <span className="al-voyage__prog-pct">{globalPct}%</span>
+            </div>
+            <div className="al-voyage__bar">
+              <div className="al-voyage__bar-fill" style={{ width: `${globalPct}%` }} />
+            </div>
+          </div>
+          <span className="al-voyage__cta">{hero.voyageCta} →</span>
         </div>
       </Link>
+
+      {/* ── Rewards row ───────────────────────────────────────── */}
+      <div className="al-rewards-section">
+        <div className="al-rewards-head">
+          <span className="al-group__emoji">🎁</span>
+          <h2 className="al-group__title">{hero.rewardsTitle}</h2>
+        </div>
+        <div className="al-rewards-grid">
+          {hero.rewards.map((r, i) => <RewardCard key={i} {...r} />)}
+        </div>
+      </div>
 
       {/* ── Academies ─────────────────────────────────────────── */}
       <GroupSection emoji="🗣️" title={ui.langTitle} color="#7c3aed">
