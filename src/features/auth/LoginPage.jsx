@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../shared/auth/AuthContext.jsx';
 import {
   signInGoogle, signInEmail, signUpEmail,
-  signInAnon, linkAnonWithGoogle,
+  signInAnon, linkAnonWithGoogle, setAuthPersistence,
 } from '../../services/firebase/authService.js';
 import { getProfile, saveProfile, isProfileComplete } from '../../services/storage/profileStore.js';
 import { getStudyStats } from '../../services/storage/progressStore.js';
@@ -213,7 +213,11 @@ export default function LoginPage() {
   const [error, setError]       = useState('');
   const [loading, setLoading]   = useState('');
   const [shake, setShake]       = useState(false);
-  const [emailForm, setEmailForm] = useState({ email: '', password: '', name: '', mode: 'login' });
+  const [emailForm, setEmailForm] = useState({
+    email: localStorage.getItem('lena:remember-email') || '',
+    password: '', name: '', mode: 'login',
+    remember: localStorage.getItem('lena:remember-email') !== null,
+  });
 
   useEffect(() => {
     function sync() { setProfile(getProfile()); }
@@ -235,6 +239,10 @@ export default function LoginPage() {
   // ── PIN entry (returning child) ───────────────────────────────────────────
   function handlePinEntry(entered) {
     if (hashPin(entered) === loadPin()) {
+      // Re-activate the local session so the route guard lets the child back in
+      // (works for guest/offline profiles too, not just Firebase users).
+      saveProfile({ sessionActive: true });
+      if (!user) localStorage.setItem('lena:guest-session', '1');
       navigate(isProfileComplete() ? '/' : '/onboarding', { replace: true });
     } else {
       setShake(true);
@@ -308,8 +316,11 @@ export default function LoginPage() {
   async function handleEmailAuth(e) {
     e.preventDefault();
     setError(''); setLoading('email');
-    const { email, password, name, mode } = emailForm;
+    const { email, password, name, mode, remember } = emailForm;
     try {
+      await setAuthPersistence(remember);
+      if (remember) localStorage.setItem('lena:remember-email', email.trim());
+      else localStorage.removeItem('lena:remember-email');
       if (mode === 'signup') await signUpEmail(email, password, name);
       else await signInEmail(email, password);
     } catch (err) { setError(friendlyErr(err.code)); }
@@ -323,6 +334,13 @@ export default function LoginPage() {
 
   // ── Returning-user resume (local profile exists) ──────────────────────────
   function handleResume() {
+    // If the child set an emoji code, ask for it (their "password with figures").
+    // Otherwise resume straight away.
+    if (loadPin()) {
+      setError('');
+      setStep('pin');
+      return;
+    }
     if (!isProfileComplete()) localStorage.setItem('lena:guest-session', '1');
     navigate(profile.lastVisitedRoute || '/', { replace: true });
   }
@@ -371,43 +389,34 @@ export default function LoginPage() {
 
             {error && <p className="login-error">{error}</p>}
 
-            {/* ── Continue your adventure (returning user only) ── */}
-            {hasSession && (
-              <button className="login-resume" onClick={handleResume} type="button">
-                <span className="login-resume__halo" aria-hidden="true" />
-                <span className="login-resume__body">
-                  <span className="login-resume__title">✨ Continuer ton aventure</span>
-                  <span className="login-resume__detail">
-                    Dernière activité&nbsp;: <strong>LexiLena</strong> · Niveau {levelInfo.level}
+            {hasSession ? (
+              <>
+                {/* ── Continue your adventure (returning user) ── */}
+                <button className="login-resume" onClick={handleResume} type="button">
+                  <span className="login-resume__halo" aria-hidden="true" />
+                  <span className="login-resume__body">
+                    <span className="login-resume__title">✨ Continuer ton aventure</span>
+                    <span className="login-resume__detail">Niveau {levelInfo.level} · Reprends là où tu t&apos;es arrêté</span>
                   </span>
-                </span>
-                <span className="login-resume__cta" aria-hidden="true">Reprendre →</span>
-              </button>
-            )}
+                  <span className="login-resume__cta" aria-hidden="true">Reprendre →</span>
+                </button>
 
-            {/* ── Profile preview (returning user only) ── */}
-            {hasSession && (
-              <div className="login-preview">
-                <span className="login-preview__chip login-preview__chip--name">👧 {profile.name}</span>
-                <span className="login-preview__chip">⭐ Niveau {levelInfo.level}</span>
-                <span className="login-preview__chip login-preview__chip--gem">💎 {crystals} Cristaux</span>
-                <span className="login-preview__chip login-preview__chip--star">🏆 {starsTot} Étoiles</span>
-                {streak > 0 && (
-                  <span className="login-preview__chip login-preview__chip--fire">🔥 Série {streak} jour{streak > 1 ? 's' : ''}</span>
-                )}
+                {/* ── Profile preview (carries the streak/crystals, so no daily strip) ── */}
+                <div className="login-preview">
+                  <span className="login-preview__chip login-preview__chip--name">👧 {profile.name}</span>
+                  <span className="login-preview__chip login-preview__chip--gem">💎 {crystals}</span>
+                  <span className="login-preview__chip login-preview__chip--star">🏆 {starsTot}</span>
+                  {streak > 0 && (
+                    <span className="login-preview__chip login-preview__chip--fire">🔥 {streak} j</span>
+                  )}
+                </div>
+              </>
+            ) : (
+              /* ── New user: a single enticement chip ── */
+              <div className="login-daily">
+                <span className="login-daily__item login-daily__item--gift">🎁 Ton premier cadeau t&apos;attend&nbsp;!</span>
               </div>
             )}
-
-            {/* ── Daily reward / anticipation strip ── */}
-            <div className="login-daily">
-              {streak > 0
-                ? <span className="login-daily__item login-daily__item--fire">🔥 Série de {streak} jour{streak > 1 ? 's' : ''}</span>
-                : <span className="login-daily__item login-daily__item--fire">🔥 Démarre ta série aujourd&apos;hui&nbsp;!</span>}
-              {crystals > 0
-                ? <span className="login-daily__item login-daily__item--gift">🎁 {crystals} cristaux disponibles</span>
-                : <span className="login-daily__item login-daily__item--gift">🎁 Ton premier cadeau t&apos;attend&nbsp;!</span>}
-              <span className="login-daily__item login-daily__item--trophy">🏆 Nouvelle récompense</span>
-            </div>
 
             {/* ── EXISTING USER ── */}
             <div className="login-group">
@@ -575,12 +584,22 @@ export default function LoginPage() {
         <div className="login-scene">
           <MascotHero src={MASCOT_HAPPY} />
           <div className="login-card">
+            {/* Username badge — who is signing in */}
+            <div className="login-whois">
+              <span className="login-whois__avatar">👧</span>
+              <span className="login-whois__name">{profile.name || 'toi'}</span>
+            </div>
             <h1 className="login-hello">Salut {profile.name || 'toi'} ! 👋</h1>
             <p className="login-instruction">Tape tes 4 emojis secrets</p>
             {error && <p className="login-error">{error}</p>}
             <EmojiPad onComplete={handlePinEntry} shake={shake} />
-            <button className="login-guest-btn" onClick={() => { clearPin(); setStep('welcome'); }}>
-              Mon parent va m&apos;aider 🔑
+            {user === false && (
+              <button className="login-secondary-btn login-secondary-btn--sm" onClick={() => { setError(''); setStep('welcome'); }} type="button">
+                ← Changer de profil
+              </button>
+            )}
+            <button className="login-guest-btn" onClick={() => { clearPin(); setStep(user ? 'setup-pin' : 'welcome'); setError(''); }}>
+              J&apos;ai oublié mon code — mon parent va m&apos;aider 🔑
             </button>
           </div>
         </div>
@@ -621,6 +640,11 @@ export default function LoginPage() {
               placeholder={emailForm.mode === 'signup' ? 'Mot de passe (6 car. min)' : 'Mot de passe'}
               value={emailForm.password} onChange={e => setEmailForm(f => ({ ...f, password: e.target.value }))} required
               autoComplete={emailForm.mode === 'signup' ? 'new-password' : 'current-password'} />
+            <label className="login-remember">
+              <input type="checkbox" checked={emailForm.remember}
+                onChange={e => setEmailForm(f => ({ ...f, remember: e.target.checked }))} />
+              <span>Se souvenir de moi</span>
+            </label>
             {error && <p className="login-error">{error}</p>}
             <button className="login-submit-btn" type="submit" disabled={!!loading}>
               {loading === 'email' ? <span className="login-spinner" /> : null}

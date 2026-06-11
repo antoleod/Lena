@@ -600,6 +600,84 @@ hero_css = r"""
 }
 """
 
+SUBJ_MARKER = "SUBJECT CARDS V3"
+subj_css = r"""
+/* ═══════════════════════════════════════════════════════════════
+   SUBJECT CARDS V3 — all 12 subjects shown, detailed cards
+   (particles + icon + name + description + grade chips + count + CTA)
+   ═══════════════════════════════════════════════════════════════ */
+.al-worlds-grid--subjects {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 560px) { .al-worlds-grid--subjects { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .al-worlds-grid--subjects { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+
+.al-subj {
+  position: relative;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 16px 16px 14px; border-radius: 22px; overflow: hidden;
+  text-decoration: none;
+  background: linear-gradient(160deg, var(--w-sky-top) 0%, var(--w-sky-bot) 100%);
+  border: 1.5px solid color-mix(in srgb, var(--w-accent) 45%, transparent);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: transform 0.18s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.2s, border-color 0.2s;
+  opacity: 0; transform: translateY(12px);
+  animation: alWorldIn 0.45s cubic-bezier(0.34,1.4,0.64,1) forwards;
+  animation-delay: calc(var(--w-i, 0) * 0.04s);
+}
+.al-subj:hover {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.48), 0 0 30px color-mix(in srgb, var(--w-accent) 38%, transparent);
+  border-color: color-mix(in srgb, var(--w-accent) 80%, transparent);
+}
+.al-subj:active { transform: scale(0.985); }
+
+.al-subj__particles { display: flex; gap: 7px; font-size: 0.82rem; opacity: 0.55;
+  color: color-mix(in srgb, var(--w-accent) 70%, #fff); }
+.al-subj__particle { animation: alWorldFloat 6s ease-in-out infinite; }
+.al-subj__particle:nth-child(2){animation-delay:.4s}.al-subj__particle:nth-child(3){animation-delay:.8s}
+.al-subj__particle:nth-child(4){animation-delay:1.2s}.al-subj__particle:nth-child(5){animation-delay:1.6s}
+.al-subj__particle:nth-child(6){animation-delay:2s}
+
+.al-subj__icon {
+  font-size: 2.6rem; line-height: 1;
+  filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--w-shadow) 70%, transparent));
+}
+.al-subj__name {
+  margin: 0; font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem; font-weight: 800; color: #fff; line-height: 1.1;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.al-subj__crown { font-size: 0.95rem; }
+.al-subj__desc {
+  margin: 0; flex: 1; font-size: 0.8rem; line-height: 1.35;
+  color: rgba(255,255,255,0.82); text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.al-subj__grades { display: flex; flex-wrap: wrap; gap: 5px; }
+.al-subj__grade {
+  font-size: 0.66rem; font-weight: 800; color: #fff;
+  padding: 2px 9px; border-radius: 9px;
+  background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22);
+}
+.al-subj__bar { height: 7px; border-radius: 5px; overflow: hidden; background: rgba(0,0,0,0.32); }
+.al-subj__bar-fill {
+  height: 100%; border-radius: 5px;
+  background: linear-gradient(90deg, #fff, var(--w-accent));
+  box-shadow: 0 0 8px color-mix(in srgb, var(--w-accent) 80%, transparent);
+  transition: width 0.7s ease;
+}
+.al-subj__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.al-subj__count { font-size: 0.82rem; font-weight: 800; color: rgba(255,255,255,0.9); }
+.al-subj__enter {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.82rem; font-weight: 800; color: #fff;
+  padding: 7px 15px; border-radius: 13px;
+  background: color-mix(in srgb, var(--w-accent) 80%, #000);
+  box-shadow: 0 4px 13px color-mix(in srgb, var(--w-accent) 45%, transparent);
+}
+"""
+
 target = pathlib.Path("src/shared/theme/app.css")
 existing = target.read_text(encoding="utf-8")
 out = existing
@@ -633,5 +711,10 @@ if HERO_MARKER not in out:
     print("Hero V2 CSS appended OK")
 else:
     print("Hero V2 CSS already present, skipping")
+if SUBJ_MARKER not in out:
+    out += "\n" + subj_css
+    print("Subject cards V3 CSS appended OK")
+else:
+    print("Subject cards V3 CSS already present, skipping")
 if out != existing:
     target.write_text(out, encoding="utf-8")

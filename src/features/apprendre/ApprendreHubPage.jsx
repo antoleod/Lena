@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { subjects } from '../curriculum/catalog.js';
 import { getSubjectUniverse } from '../../shared/gameplay/subjectThemes.js';
+import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot, getStudyStats } from '../../services/storage/progressStore.js';
 import { getActivitiesBySubject } from '../curriculum/catalog.js';
 import { getProfile } from '../../services/storage/profileStore.js';
@@ -255,62 +256,31 @@ function RewardCard({ icon, title, sub, c }) {
   );
 }
 
-// ── Major worlds: 12 subjects grouped into 4 large destinations ─────────────
-// Each world reuses the theme/icon of its representative subject (themeFrom)
-// so colors, icons, animations stay unchanged.
-const MAJOR_WORLDS = [
-  {
-    id: 'maths', emoji: '🏰', themeFrom: 'mathematics', to: '/subjects/mathematics',
-    subjectIds: ['mathematics', 'finance'],
-    name:  { fr: 'Royaume des Mathématiques', en: 'Kingdom of Mathematics', es: 'Reino de las Matemáticas', nl: 'Koninkrijk van Wiskunde' },
-    story: { fr: 'Compte, calcule et règne sur les nombres', en: 'Count, calculate and rule the numbers', es: 'Cuenta, calcula y domina los números', nl: 'Tel, reken en heers over getallen' },
-  },
-  {
-    id: 'langues', emoji: '📚', themeFrom: 'french', to: '/subjects/french',
-    subjectIds: ['french', 'dutch', 'english', 'spanish', 'stories'],
-    name:  { fr: 'Royaume des Langues', en: 'Kingdom of Languages', es: 'Reino de las Lenguas', nl: 'Koninkrijk van Talen' },
-    story: { fr: 'Mots, histoires et langues du monde', en: 'Words, stories and world languages', es: 'Palabras, historias y lenguas del mundo', nl: 'Woorden, verhalen en wereldtalen' },
-  },
-  {
-    id: 'sciences', emoji: '🧪', themeFrom: 'sciences', to: '/subjects/sciences',
-    subjectIds: ['sciences', 'informatique', 'histoire'],
-    name:  { fr: 'Laboratoire des Sciences', en: 'Science Laboratory', es: 'Laboratorio de Ciencias', nl: 'Wetenschapslab' },
-    story: { fr: 'Explore, expérimente et découvre', en: 'Explore, experiment and discover', es: 'Explora, experimenta y descubre', nl: 'Verken, experimenteer en ontdek' },
-  },
-  {
-    id: 'logique', emoji: '🚀', themeFrom: 'reasoning', to: '/subjects/reasoning',
-    subjectIds: ['reasoning', 'logique'],
-    name:  { fr: 'Univers de la Logique', en: 'Logic Universe', es: 'Universo de la Lógica', nl: 'Logica Universum' },
-    story: { fr: 'Énigmes, code et raisonnement', en: 'Riddles, code and reasoning', es: 'Enigmas, código y razonamiento', nl: 'Raadsels, code en redeneren' },
-  },
-];
-
 const WORLD_CTA = {
-  fr: { explore: 'Explorer', resume: 'Continuer', badge: 'Monde' },
-  en: { explore: 'Explore',  resume: 'Continue',  badge: 'World' },
-  es: { explore: 'Explorar', resume: 'Continuar', badge: 'Mundo' },
-  nl: { explore: 'Verken',   resume: 'Doorgaan',  badge: 'Wereld' },
+  fr: { enter: 'Entrer' },
+  en: { enter: 'Enter' },
+  es: { enter: 'Entrar' },
+  nl: { enter: 'Start' },
 };
 
-function MajorWorld({ world, locale, progress, index }) {
-  const universe = getSubjectUniverse(world.themeFrom);
-  let total = 0, done = 0;
-  world.subjectIds.forEach(id => {
-    const acts = getActivitiesBySubject(id);
-    total += acts.length;
-    done += acts.filter(a => progress.activities?.[a.id]?.completed).length;
-  });
+// ── One detailed card per subject (all 12 shown, not grouped) ───────────────
+function SubjectWorld({ subject, locale, t, progress, index }) {
+  const universe = getSubjectUniverse(subject.id);
+  const acts = getActivitiesBySubject(subject.id);
+  const done = acts.filter(a => progress.activities?.[a.id]?.completed).length;
+  const total = acts.length;
   const pct = total ? Math.round((done / total) * 100) : 0;
 
   const cta = WORLD_CTA[locale] || WORLD_CTA.fr;
-  const name = world.name[locale] || world.name.fr;
-  const story = world.story[locale] || world.story.fr;
+  const name = getSubjectLabel(subject, locale, t) || subject.label;
+  const desc = subject.description || '';
+  const grades = subject.grades || [];
   const particle = universe.particle || '✦';
 
   return (
     <Link
-      to={world.to}
-      className="al-world al-world--mega"
+      to={`/subjects/${subject.id}`}
+      className="al-subj"
       style={{
         '--w-sky-top': universe.skyTop,
         '--w-sky-bot': universe.skyBottom,
@@ -319,37 +289,29 @@ function MajorWorld({ world, locale, progress, index }) {
         '--w-i':       index,
       }}
     >
-      <div className="al-world__bg" aria-hidden="true">
-        {Array.from({ length: 6 }, (_, i) => (
-          <span key={i} className="al-world__particle" style={{ '--p': i }}>{particle}</span>
-        ))}
-        <span className="al-world__halo" />
+      <div className="al-subj__particles" aria-hidden="true">
+        {Array.from({ length: 6 }, (_, i) => <span key={i} className="al-subj__particle">{particle}</span>)}
       </div>
 
-      <div className="al-world__landmark" aria-hidden="true">
-        <span className="al-world__landmark-emoji">{world.emoji}</span>
-      </div>
+      <span className="al-subj__icon" aria-hidden="true">{universe.icon}</span>
 
-      <div className="al-world__overlay">
-        <div className="al-world__top">
-          <span className="al-world__badge">{world.emoji} {cta.badge}</span>
-          {pct === 100 && <span className="al-world__crown">👑</span>}
-        </div>
+      <h3 className="al-subj__name">
+        {name}
+        {pct === 100 && <span className="al-subj__crown"> 👑</span>}
+      </h3>
+      {desc && <p className="al-subj__desc">{desc}</p>}
 
-        <div className="al-world__info">
-          <strong className="al-world__name">{name}</strong>
-          {story && <span className="al-world__story">{story}</span>}
+      {grades.length > 0 && (
+        <div className="al-subj__grades">
+          {grades.map(g => <span key={g} className="al-subj__grade">{g}</span>)}
         </div>
+      )}
 
-        <div className="al-world__foot">
-          {total > 0 ? (
-            <div className="al-world__journey">
-              <div className="al-world__bar"><div className="al-world__bar-fill" style={{ width: `${pct}%` }} /></div>
-              <span className="al-world__pct">{pct}%</span>
-            </div>
-          ) : <span />}
-          <span className="al-world__cta">{pct > 0 ? cta.resume : cta.explore} →</span>
-        </div>
+      <div className="al-subj__bar"><div className="al-subj__bar-fill" style={{ width: `${pct}%` }} /></div>
+
+      <div className="al-subj__foot">
+        <span className="al-subj__count">{done}/{total}</span>
+        <span className="al-subj__enter">▶ {cta.enter}</span>
       </div>
     </Link>
   );
@@ -454,9 +416,9 @@ export default function ApprendreHubPage() {
         <p className="al-worlds-header__sub">{hero.worldsSub}</p>
       </div>
 
-      <div className="al-worlds-grid al-worlds-grid--mega">
-        {MAJOR_WORLDS.map((w, i) => (
-          <MajorWorld key={w.id} world={w} locale={locale} progress={progress} index={i} />
+      <div className="al-worlds-grid al-worlds-grid--subjects">
+        {activeSubjects.map((s, i) => (
+          <SubjectWorld key={s.id} subject={s} locale={locale} t={t} progress={progress} index={i} />
         ))}
       </div>
 

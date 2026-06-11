@@ -9,6 +9,9 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  setPersistence,
+  browserLocalPersistence,
+  browserSessionPersistence,
 } from 'firebase/auth';
 
 const googleProvider = new GoogleAuthProvider();
@@ -20,6 +23,18 @@ export function onAuthChange(callback) {
 
 export function getCurrentUser() {
   return auth.currentUser;
+}
+
+/**
+ * "Remember me": local persistence keeps the session across restarts,
+ * session persistence forgets it when the tab/app closes.
+ */
+export async function setAuthPersistence(remember) {
+  try {
+    await setPersistence(auth, remember ? browserLocalPersistence : browserSessionPersistence);
+  } catch {
+    // Non-fatal (e.g. unsupported environment) — fall back to SDK default.
+  }
 }
 
 export async function signUpEmail(email, password, displayName) {
