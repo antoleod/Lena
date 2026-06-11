@@ -6,6 +6,7 @@ import {
   signInAnon, linkAnonWithGoogle,
 } from '../../services/firebase/authService.js';
 import { getProfile, saveProfile, isProfileComplete } from '../../services/storage/profileStore.js';
+import { assetUrl } from '../../shared/assets/assetUrl.js';
 
 // ── Emoji palette (4×5 grid) ──────────────────────────────────────────────────
 const EMOJIS = [
@@ -80,20 +81,20 @@ function Planets() {
   );
 }
 
-function Mascot() {
+const MASCOT_HAPPY     = 'assets/characters/mascot-happy.svg';
+const MASCOT_CELEBRATE = 'assets/characters/mascot-celebrate.svg';
+
+function MascotHero({ src = MASCOT_HAPPY }) {
   return (
-    <div className="mascot" aria-hidden="true">
-      <div className="mascot__helmet">
-        <div className="mascot__visor" />
-      </div>
-      <div className="mascot__body">
-        <div className="mascot__arm mascot__arm--left" />
-        <div className="mascot__arm mascot__arm--right">
-          <div className="mascot__hand" />
-        </div>
-        <div className="mascot__leg mascot__leg--left" />
-        <div className="mascot__leg mascot__leg--right" />
-      </div>
+    <div className="login-mascot-hero-wrap" aria-hidden="true">
+      <img
+        src={assetUrl(src)}
+        className="login-mascot-hero"
+        alt=""
+        draggable="false"
+      />
+      {/* Glow ring behind mascot */}
+      <div className="login-mascot-glow" />
     </div>
   );
 }
@@ -299,62 +300,58 @@ export default function LoginPage() {
 
       {/* ── Loading ── */}
       {step === 'detecting' && (
-        <div className="login-card login-card--centered">
-          <span className="login-spinner login-spinner--lg" />
+        <div className="login-scene">
+          <div className="login-card login-card--centered">
+            <span className="login-spinner login-spinner--lg" />
+          </div>
         </div>
       )}
 
       {/* ── Welcome: choose path ── */}
       {step === 'welcome' && (
-        <div className="login-card login-card--welcome">
+        <div className="login-scene">
+          {/* Mascota real — sobresale encima de la tarjeta */}
+          <MascotHero src={MASCOT_HAPPY} />
 
-          {/* Mascot astronauta */}
-          <Mascot />
-
-          {/* Logo */}
-          <div className="login-logo">
-            <div className="login-logo__rocket-wrap">
-              <span className="login-logo__icon">🚀</span>
+          <div className="login-card login-card--welcome">
+            {/* Logo */}
+            <div className="login-logo">
+              <h1 className="login-logo__name">LénaLand</h1>
+              <p className="login-logo__tagline">✨ Bienvenue dans ton univers d&apos;apprentissage !</p>
             </div>
-            <h1 className="login-logo__name">LénaLand</h1>
-            <p className="login-logo__tagline">✨ Bienvenue dans ton univers d&apos;apprentissage !</p>
+
+            {/* Social proof chips */}
+            <div className="login-stats">
+              <span className="login-stat">🎮 120+ Jeux</span>
+              <span className="login-stat">📚 20+ Histoires</span>
+              <span className="login-stat">🏆 Défis quotidiens</span>
+            </div>
+
+            {/* Google — parent / returning */}
+            <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
+
+            {/* Create account — child primary CTA */}
+            <button className="login-primary-btn" onClick={() => setStep('creer-enfant')} type="button">
+              🎉 Créer mon compte
+            </button>
+
+            {/* Guest */}
+            <button className="login-secondary-btn" onClick={handleGuest} type="button">
+              🕹️ Jouer sans compte
+            </button>
+
+            <button className="login-email-toggle" onClick={() => setStep('parent-email')} type="button">
+              📧 Connexion avec email →
+            </button>
+
+            <p className="login-safety">🛡️ Sécurisé et conçu pour les enfants</p>
           </div>
-
-          {/* Social proof chips */}
-          <div className="login-stats">
-            <span className="login-stat">🎮 120+ Jeux</span>
-            <span className="login-stat">📚 20+ Histoires</span>
-            <span className="login-stat">🏆 Défis quotidiens</span>
-          </div>
-
-          {/* Google — primary returning user */}
-          <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
-
-          {/* Create account — primary child CTA */}
-          <button
-            className="login-primary-btn"
-            onClick={() => setStep('creer-enfant')}
-            type="button"
-          >
-            🎉 Créer mon compte
-          </button>
-
-          {/* Guest — visible secondary */}
-          <button className="login-secondary-btn" onClick={handleGuest} type="button">
-            🕹️ Jouer sans compte
-          </button>
-
-          <button className="login-email-toggle" onClick={() => setStep('parent-email')} type="button">
-            Connexion avec email →
-          </button>
-
-          <p className="login-safety">🛡️ Sécurisé et conçu pour les enfants</p>
         </div>
       )}
 
       {/* ── Create child account: enter name ── */}
       {step === 'creer-enfant' && (
-        <div className="login-card">
+        <div className="login-scene"><div className="login-card">
           <div className="login-logo">
             <span className="login-logo__icon login-logo__icon--bounce">👋</span>
             <h1 className="login-hello">Comment tu t&apos;appelles ?</h1>
@@ -391,46 +388,46 @@ export default function LoginPage() {
           <button className="login-guest-btn" onClick={() => { setStep('welcome'); setError(''); }}>
             ← Retour
           </button>
-        </div>
+        </div></div>
       )}
 
       {/* ── Create PIN ── */}
       {step === 'setup-pin' && (
-        <div className="login-card">
-          <div className="login-logo">
-            <span className="login-logo__icon login-logo__icon--bounce">🔐</span>
+        <div className="login-scene">
+          <MascotHero src={MASCOT_CELEBRATE} />
+          <div className="login-card">
             <h1 className="login-hello">
               {childName ? `Super ${childName} ! ` : ''}Crée ton code secret !
             </h1>
             <p className="login-instruction">Choisis 4 emojis faciles à retenir</p>
+            {error && <p className="login-error">{error}</p>}
+            <EmojiPad onComplete={handlePinSetup} onBack={() => { setStep(childName ? 'creer-enfant' : 'welcome'); setError(''); }} />
           </div>
-          {error && <p className="login-error">{error}</p>}
-          <EmojiPad onComplete={handlePinSetup} onBack={() => { setStep(childName ? 'creer-enfant' : 'welcome'); setError(''); }} />
         </div>
       )}
 
       {/* ── Confirm PIN ── */}
       {step === 'confirm-pin' && (
-        <div className="login-card">
-          <div className="login-logo">
-            <span className="login-logo__icon login-logo__icon--bounce">✅</span>
+        <div className="login-scene">
+          <MascotHero src={MASCOT_CELEBRATE} />
+          <div className="login-card">
             <h1 className="login-hello">Confirme ton code !</h1>
             <p className="login-instruction">Retape tes 4 emojis dans le même ordre</p>
+            {error && <p className="login-error">{error}</p>}
+            {loading === 'anon' && <span className="login-spinner login-spinner--lg" />}
+            {loading !== 'anon' && (
+              <EmojiPad
+                onComplete={handlePinConfirm}
+                onBack={() => { setStep('setup-pin'); setError(''); }}
+              />
+            )}
           </div>
-          {error && <p className="login-error">{error}</p>}
-          {loading === 'anon' && <span className="login-spinner login-spinner--lg" />}
-          {loading !== 'anon' && (
-            <EmojiPad
-              onComplete={handlePinConfirm}
-              onBack={() => { setStep('setup-pin'); setError(''); }}
-            />
-          )}
         </div>
       )}
 
       {/* ── Save prompt (link anon → Google, optional) ── */}
       {step === 'save-prompt' && (
-        <div className="login-card">
+        <div className="login-scene"><div className="login-card">
           {/* Rocket SVG illustration */}
           <div className="login-rocket-illus" aria-hidden="true">
             <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -470,30 +467,28 @@ export default function LoginPage() {
           <button className="login-secondary-btn login-secondary-btn--sm" onClick={handleSkipSave} type="button">
             Plus tard — on joue d&apos;abord ! 🎮
           </button>
-        </div>
+        </div></div>
       )}
 
       {/* ── PIN entry (returning child) ── */}
       {step === 'pin' && (
-        <div className="login-card">
-          <div className="login-logo">
-            <div className="login-avatar-bubble">
-              {profile.avatarId ? '🦄' : '🚀'}
-            </div>
+        <div className="login-scene">
+          <MascotHero src={MASCOT_HAPPY} />
+          <div className="login-card">
             <h1 className="login-hello">Salut {profile.name || 'toi'} ! 👋</h1>
             <p className="login-instruction">Tape tes 4 emojis secrets</p>
+            {error && <p className="login-error">{error}</p>}
+            <EmojiPad onComplete={handlePinEntry} shake={shake} />
+            <button className="login-guest-btn" onClick={() => { clearPin(); setStep('welcome'); }}>
+              Mon parent va m&apos;aider 🔑
+            </button>
           </div>
-          {error && <p className="login-error">{error}</p>}
-          <EmojiPad onComplete={handlePinEntry} shake={shake} />
-          <button className="login-guest-btn" onClick={() => { clearPin(); setStep('welcome'); }}>
-            Mon parent va m&apos;aider 🔑
-          </button>
         </div>
       )}
 
       {/* ── Parent auth (email) ── */}
       {step === 'parent-email' && (
-        <div className="login-card">
+        <div className="login-scene"><div className="login-card">
           <div className="login-logo">
             <span className="login-logo__icon">👨‍👩‍👧</span>
             <h1 className="login-hello">Espace parents</h1>
@@ -536,7 +531,7 @@ export default function LoginPage() {
           <button className="login-email-toggle" onClick={() => { setStep('welcome'); setError(''); }} type="button">
             ← Retour
           </button>
-        </div>
+        </div></div>
       )}
     </div>
   );
