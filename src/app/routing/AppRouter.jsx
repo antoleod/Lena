@@ -127,6 +127,10 @@ function isOnboardingFlowActive() {
   }
 }
 
+function isGuestSession() {
+  try { return localStorage.getItem('lena:guest-session') === '1'; } catch { return false; }
+}
+
 function LegacyModuleActivityRedirect() {
   const { moduleId, activityId } = useParams();
   const [searchParams] = useSearchParams();
@@ -164,12 +168,13 @@ function MissionRedirect() {
 
 export default function AppRouter() {
   const { user } = useAuth();
-  const [needsOnboarding, setNeedsOnboarding] = useState(() => typeof window !== 'undefined' && !isProfileComplete());
-  const [onboardingActive, setOnboardingActive] = useState(() => typeof window !== 'undefined' && isOnboardingFlowActive());
+  // Start false — recompute after auth resolves to prevent flash-to-login on cold load
+  const [needsOnboarding, setNeedsOnboarding] = useState(false);
+  const [onboardingActive, setOnboardingActive] = useState(false);
 
   useEffect(() => {
     function syncProfile() {
-      setNeedsOnboarding(!isProfileComplete());
+      setNeedsOnboarding(!isProfileComplete() && !isGuestSession());
       setOnboardingActive(isOnboardingFlowActive());
     }
 
@@ -184,9 +189,9 @@ export default function AppRouter() {
       window.removeEventListener('storage', syncProfile);
       window.removeEventListener('lena-onboarding-change', syncProfile);
     };
-  }, []);
+  }, [user]); // re-run when auth resolves so cloud pull is complete
 
-  // Auth state still loading — show nothing (prevents flash to onboarding)
+  // Auth state still loading — show nothing (prevents flash to login)
   if (user === null) return null;
 
   return (

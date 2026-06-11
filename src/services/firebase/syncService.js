@@ -11,6 +11,7 @@ const STORE_KEYS = [
   { field: 'appTime',      ls: 'lena:appTime' },
   { field: 'gameErrors',   ls: 'lena:gameErrors' },
   { field: 'pratiquerPrefs', ls: 'lena:pratiquer:prefs:v1' },
+  { field: 'emojiPin',      ls: 'lena:emoji-pin' },
 ];
 
 function userDocRef(uid) {

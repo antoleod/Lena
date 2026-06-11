@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../shared/auth/AuthContext.jsx';
 import { signInGoogle, signInEmail, signUpEmail } from '../../services/firebase/authService.js';
@@ -16,11 +16,10 @@ const EMOJIS = [
 const PIN_KEY  = 'lena:emoji-pin';
 const PIN_LEN  = 4;
 
-function savePin(pin)  { localStorage.setItem(PIN_KEY, pin.join('')); }
+function hashPin(pin)  { return btoa(unescape(encodeURIComponent(pin.join('')))); }
+function savePin(pin)  { localStorage.setItem(PIN_KEY, hashPin(pin)); }
 function loadPin()     { return localStorage.getItem(PIN_KEY) || null; }
 function clearPin()    { localStorage.removeItem(PIN_KEY); }
-
-function hashPin(pin)  { return btoa(unescape(encodeURIComponent(pin.join('')))); }
 
 const ERROR_MAP = {
   'auth/user-not-found':        'Aucun compte avec cet email.',
@@ -100,20 +99,18 @@ function EmojiPad({ onComplete, onBack }) {
 }
 
 // ── Floating stars background ─────────────────────────────────────────────────
+const STAR_POSITIONS = Array.from({ length: 18 }, () => ({
+  left:    `${Math.random() * 100}%`,
+  top:     `${Math.random() * 100}%`,
+  '--delay': `${(Math.random() * 3).toFixed(1)}s`,
+  '--size':  `${6 + Math.random() * 10}px`,
+}));
+
 function Stars() {
   return (
     <div className="login-stars" aria-hidden="true">
-      {Array.from({ length: 18 }, (_, i) => (
-        <span
-          key={i}
-          className="login-star"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top:  `${Math.random() * 100}%`,
-            '--delay': `${(Math.random() * 3).toFixed(1)}s`,
-            '--size':  `${6 + Math.random() * 10}px`,
-          }}
-        />
+      {STAR_POSITIONS.map((style, i) => (
+        <span key={i} className="login-star" style={style} />
       ))}
     </div>
   );
@@ -123,7 +120,13 @@ function Stars() {
 export default function LoginPage() {
   const { user } = useAuth();
   const navigate  = useNavigate();
-  const profile   = getProfile();
+  const [profile, setProfile] = useState(() => getProfile());
+
+  useEffect(() => {
+    function sync() { setProfile(getProfile()); }
+    window.addEventListener('lena-profile-change', sync);
+    return () => window.removeEventListener('lena-profile-change', sync);
+  }, []);
 
   // step: 'detecting' | 'pin' | 'setup-pin' | 'confirm-pin' | 'parent-auth' | 'parent-email'
   const [step, setStep]         = useState('detecting');
@@ -147,7 +150,7 @@ export default function LoginPage() {
   // ── PIN entry (returning child) ───────────────────────────────────────────
   function handlePinEntry(entered) {
     const saved = loadPin();
-    if (entered.join('') === saved) {
+    if (hashPin(entered) === saved) {
       navigate(isProfileComplete() ? '/' : '/onboarding', { replace: true });
     } else {
       setShake(true);
@@ -200,7 +203,8 @@ export default function LoginPage() {
   }
 
   function handleGuest() {
-    // Guest users need onboarding to set up their profile
+    // Mark explicit guest so router doesn't loop them back to /login
+    localStorage.setItem('lena:guest-session', '1');
     navigate(isProfileComplete() ? '/' : '/onboarding', { replace: true });
   }
 

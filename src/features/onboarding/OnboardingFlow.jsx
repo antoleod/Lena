@@ -128,7 +128,8 @@ export default function OnboardingFlow() {
     });
 
     markOnboardingActive(false);
-    navigate('/map', { replace: true });
+    // Go to login so the child can set their emoji PIN before entering
+    navigate('/login', { replace: true });
   }
 
   function handleNext() {
