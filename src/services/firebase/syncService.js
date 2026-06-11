@@ -1,6 +1,7 @@
 import { db } from './firebaseConfig.js';
 import { doc, getDoc, setDoc, serverTimestamp, writeBatch } from 'firebase/firestore';
 import { getPendingEvents, markEventsSynced } from '../learning/playedEventsStore.js';
+import { updateDNAFromSession } from '../learning/learningDNA.js';
 
 // ── Keys to sync ──────────────────────────────────────────────────────────────
 const STORE_KEYS = [
@@ -13,6 +14,7 @@ const STORE_KEYS = [
   { field: 'gameErrors',   ls: 'lena:gameErrors' },
   { field: 'pratiquerPrefs', ls: 'lena:pratiquer:prefs:v1' },
   { field: 'iconPin',       ls: 'lena:icon-pin:v2' },
+  { field: 'learningDNA',  ls: 'lena:learningDNA:v1' },
 ];
 
 function userDocRef(uid) {
@@ -86,6 +88,9 @@ export async function syncPlayedEvents(uid) {
       await batch.commit();
       markEventsSynced(slice.map((e) => e.eventId)); // clear only what committed
     }
+    // Track 2.4: fold the just-synced events into the child's Learning DNA
+    // (per-session summary; counts distinct sessionIds, not flushes).
+    try { updateDNAFromSession(pending); } catch { /* DNA is best-effort */ }
     return pending.length;
   } catch {
     return 0; // offline / transient — events stay queued and retry next tick

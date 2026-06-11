@@ -13,8 +13,27 @@ const firebaseConfig = {
   measurementId:     import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+// If the build was produced without the Firebase env vars (e.g. missing CI
+// secrets), `getAuth()` throws `auth/invalid-api-key` at module load and the
+// whole app white-screens. Guard it: skip init and let the app run in
+// local/guest mode (auth & cloud sync disabled) instead of crashing.
+export const firebaseReady = Boolean(firebaseConfig.apiKey);
 
-export const db      = getFirestore(app);
-export const storage = getStorage(app);
-export const auth    = getAuth(app);
+let app = null;
+let db = null;
+let storage = null;
+let auth = null;
+
+if (firebaseReady) {
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+  storage = getStorage(app);
+  auth = getAuth(app);
+} else if (typeof console !== 'undefined') {
+  console.warn(
+    '[Firebase] Configuration absente (VITE_FIREBASE_* manquantes) — ' +
+    'mode local/invité actif : connexion et synchronisation désactivées.'
+  );
+}
+
+export { db, storage, auth };

@@ -35,6 +35,7 @@ const ERROR_MAP = {
   'auth/network-request-failed':'Problème réseau. Vérifie ta connexion.',
   'auth/invalid-credential':    'Email ou mot de passe incorrect.',
   'auth/credential-already-in-use': 'Ce compte Google est déjà lié à un autre profil.',
+  'auth/unconfigured':          'Connexion indisponible ici. Tu peux jouer sans compte ! 🕹️',
 };
 const friendlyErr = code => ERROR_MAP[code] || 'Une erreur est survenue.';
 

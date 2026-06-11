@@ -17,12 +17,19 @@ import {
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: 'select_account' });
 
+// Thrown by the sign-in helpers when Firebase isn't configured in this build.
+function notConfigured() {
+  return Object.assign(new Error('Firebase not configured'), { code: 'auth/unconfigured' });
+}
+
 export function onAuthChange(callback) {
+  // No Firebase → report "guest" immediately so the app renders in local mode.
+  if (!auth) { callback(null); return () => {}; }
   return onAuthStateChanged(auth, callback);
 }
 
 export function getCurrentUser() {
-  return auth.currentUser;
+  return auth ? auth.currentUser : null;
 }
 
 /**
@@ -30,6 +37,7 @@ export function getCurrentUser() {
  * session persistence forgets it when the tab/app closes.
  */
 export async function setAuthPersistence(remember) {
+  if (!auth) return;
   try {
     await setPersistence(auth, remember ? browserLocalPersistence : browserSessionPersistence);
   } catch {
@@ -38,6 +46,7 @@ export async function setAuthPersistence(remember) {
 }
 
 export async function signUpEmail(email, password, displayName) {
+  if (!auth) throw notConfigured();
   const cred = await createUserWithEmailAndPassword(auth, email, password);
   if (displayName) {
     await updateProfile(cred.user, { displayName });
@@ -46,25 +55,30 @@ export async function signUpEmail(email, password, displayName) {
 }
 
 export async function signInEmail(email, password) {
+  if (!auth) throw notConfigured();
   const cred = await signInWithEmailAndPassword(auth, email, password);
   return cred.user;
 }
 
 export async function signInGoogle() {
+  if (!auth) throw notConfigured();
   const cred = await signInWithPopup(auth, googleProvider);
   return cred.user;
 }
 
 export async function signInAnon() {
+  if (!auth) throw notConfigured();
   const cred = await signInAnonymously(auth);
   return cred.user;
 }
 
 export async function linkAnonWithGoogle() {
+  if (!auth) throw notConfigured();
   const cred = await linkWithPopup(auth.currentUser, googleProvider);
   return cred.user;
 }
 
 export async function signOutUser() {
+  if (!auth) return;
   await signOut(auth);
 }
