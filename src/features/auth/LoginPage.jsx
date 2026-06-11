@@ -428,12 +428,17 @@ export default function LoginPage() {
             <div className="login-group">
               <p className="login-group__label">Tu as déjà un compte&nbsp;?</p>
               <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
-              <button className="login-email-btn" onClick={() => setStep('parent-email')} type="button">
-                <IconEmail /> Se connecter avec Email
-              </button>
-              <button className="login-code-btn" onClick={handleSecretCode} type="button">
-                <IconKey /> Entrer avec mon code secret
-              </button>
+              <div className="login-divider"><span>ou</span></div>
+              <div className="login-icon-row">
+                <button className="login-icon-btn" onClick={() => setStep('parent-email')} type="button" aria-label="Se connecter avec Email">
+                  <span className="login-icon-btn__ico"><IconEmail /></span>
+                  <span className="login-icon-btn__label">Email</span>
+                </button>
+                <button className="login-icon-btn login-icon-btn--code" onClick={handleSecretCode} type="button" aria-label="Entrer avec mon code secret">
+                  <span className="login-icon-btn__ico"><IconKey /></span>
+                  <span className="login-icon-btn__label">Code secret</span>
+                </button>
+              </div>
             </div>
 
             {/* ── NEW USER ── */}

@@ -18801,31 +18801,54 @@ body {
 .login-submit-btn .login-btn-ico { width: 20px; height: 20px; }
 .login-safety { display: inline-flex; align-items: center; justify-content: center; gap: 2px; }
 
-/* ── Secret-code login button (emoji "password") ── */
-.login-code-btn {
+/* ── Compact icon buttons: Email + Code secret (one row, less clutter) ── */
+.login-icon-row {
   display: flex;
+  gap: 12px;
+  width: 100%;
+}
+.login-icon-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 100%;
-  height: 54px;
-  border-radius: 27px;
-  border: 1.5px solid rgba(251,191,36,0.5);
-  background: linear-gradient(135deg, rgba(251,191,36,0.18), rgba(249,115,22,0.14));
+  gap: 7px;
+  padding: 13px 8px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(124,58,237,0.45);
+  background: rgba(124,58,237,0.16);
   color: #fff;
-  font-size: 0.98rem;
-  font-weight: 700;
   cursor: pointer;
   transition: background 0.16s, border-color 0.16s, transform 0.12s, box-shadow 0.18s;
   -webkit-tap-highlight-color: transparent;
 }
-.login-code-btn:hover {
-  background: linear-gradient(135deg, rgba(251,191,36,0.3), rgba(249,115,22,0.24));
-  border-color: rgba(251,191,36,0.9);
+.login-icon-btn:hover {
+  background: rgba(124,58,237,0.28);
+  border-color: rgba(168,85,247,0.85);
   transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(251,191,36,0.32);
+  box-shadow: 0 6px 20px rgba(124,58,237,0.36);
 }
-.login-code-btn:active { transform: scale(0.97); }
+.login-icon-btn:active { transform: scale(0.96); }
+.login-icon-btn__ico {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-icon-btn__ico .login-btn-ico { width: 30px; height: 30px; }
+.login-icon-btn__label { font-size: 0.84rem; font-weight: 700; letter-spacing: 0.01em; }
+/* Code-secret variant: warm gold accent */
+.login-icon-btn--code {
+  border-color: rgba(251,191,36,0.5);
+  background: linear-gradient(135deg, rgba(251,191,36,0.16), rgba(249,115,22,0.12));
+}
+.login-icon-btn--code:hover {
+  border-color: rgba(251,191,36,0.9);
+  background: linear-gradient(135deg, rgba(251,191,36,0.28), rgba(249,115,22,0.2));
+  box-shadow: 0 6px 20px rgba(251,191,36,0.32);
+}
 
 /* Resume card icon */
 .login-resume__ico { position: relative; z-index: 1; flex-shrink: 0; }
