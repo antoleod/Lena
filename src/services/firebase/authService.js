@@ -1,0 +1,43 @@
+import { auth } from './firebaseConfig.js';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged,
+  updateProfile,
+} from 'firebase/auth';
+
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
+
+export function onAuthChange(callback) {
+  return onAuthStateChanged(auth, callback);
+}
+
+export function getCurrentUser() {
+  return auth.currentUser;
+}
+
+export async function signUpEmail(email, password, displayName) {
+  const cred = await createUserWithEmailAndPassword(auth, email, password);
+  if (displayName) {
+    await updateProfile(cred.user, { displayName });
+  }
+  return cred.user;
+}
+
+export async function signInEmail(email, password) {
+  const cred = await signInWithEmailAndPassword(auth, email, password);
+  return cred.user;
+}
+
+export async function signInGoogle() {
+  const cred = await signInWithPopup(auth, googleProvider);
+  return cred.user;
+}
+
+export async function signOutUser() {
+  await signOut(auth);
+}

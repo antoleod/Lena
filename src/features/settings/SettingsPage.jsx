@@ -4,6 +4,7 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getProfile, logoutProfile, saveProfile } from '../../services/storage/profileStore.js';
 import { getRewardCatalog, getRewardState } from '../../services/storage/rewardStore.js';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
+import AccountWidget from '../../shared/auth/AccountWidget.jsx';
 
 export default function SettingsPage() {
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ export default function SettingsPage() {
           <span className="pill">{rewardState.balance} {t('crystals')}</span>
         </div>
 
+        <AccountWidget />
         <div className="settings-stack">
           <section className="settings-card">
             <div className="settings-card__head">
