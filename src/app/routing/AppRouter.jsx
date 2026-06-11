@@ -111,6 +111,7 @@ import PyramideNombresPage from '../../features/jeux/PyramideNombresPage.jsx';
 import SimonDitPage from '../../features/jeux/SimonDitPage.jsx';
 import FractionsPage from '../../features/jeux/FractionsPage.jsx';
 import MultiplicationsPage from '../../features/jeux/MultiplicationsPage.jsx';
+import MissionImpossiblePage from '../../features/missionImpossible/MissionImpossiblePage.jsx';
 import MotsIntrusPage from '../../features/jeux/MotsIntrusPage.jsx';
 import MemChiffresPage from '../../features/jeux/MemChiffresPage.jsx';
 import NinjaFruitsPage from '../../features/jeux/NinjaFruitsPage.jsx';
@@ -313,6 +314,7 @@ export default function AppRouter() {
         <Route path="/jeux/simon"             element={<SimonDitPage />} />
         <Route path="/jeux/fractions"         element={<FractionsPage />} />
         <Route path="/jeux/multiplications"   element={<MultiplicationsPage />} />
+        <Route path="/mission-impossible"     element={<MissionImpossiblePage />} />
         <Route path="/jeux/mots-intrus-texte" element={<MotsIntrusPage />} />
         <Route path="/jeux/memoire-chiffres"  element={<MemChiffresPage />} />
         <Route path="/jeux/estimation"        element={<EstimationPage />} />

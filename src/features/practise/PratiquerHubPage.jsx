@@ -21,6 +21,15 @@ const COUNTS = [5, 10, 15, 20];
 // ── Card catalogue ────────────────────────────────────────────────────────────
 const CARDS = [
   {
+    id: 'mission', to: '/mission-impossible',
+    emoji: '🕶️', bg: ['#6d4bff', '#1ac8ff'],
+    badge: 'NOUVEAU',
+    fr: { title: 'Mission Impossible', desc: 'Des défis qui s\'adaptent à toi' },
+    nl: { title: 'Mission Impossible', desc: 'Uitdagingen die zich aanpassen' },
+    en: { title: 'Mission Impossible', desc: 'Challenges that adapt to you' },
+    es: { title: 'Misión Imposible', desc: 'Retos que se adaptan a ti' },
+  },
+  {
     id: 'exam', to: '/exam/library',
     emoji: '📚', bg: ['#7c3aed', '#5b21b6'],
     badge: 'POPULAIRE',

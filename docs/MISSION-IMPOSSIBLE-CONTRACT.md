@@ -1,6 +1,6 @@
 # MISSION IMPOSSIBLE — LIVING CONTRACT & WORKFLOW
 
-> Status: **TRACK 1 WIRED (build green)** — pending Firestore rules deploy + e2e verify (1.8). Tracks 2–4 not started. · Last updated: 2026-06-11
+> Status: **TRACKS 1·2·3 BUILT (build green, 17 tests pass)** — pending: rules deploy + e2e (1.8), launcher routing (2.5, high-risk), settings/privacy (Track 4). Mission Impossible playable at `/mission-impossible`. · Last updated: 2026-06-11
 > Spec: [`new categori`](new%20categori) · Audits: [`../AUDIT-ADAPTIVE-LEARNING.md`](../AUDIT-ADAPTIVE-LEARNING.md), [`../ARCHITECTURE.md`](../ARCHITECTURE.md)
 >
 > **This is the durable memory of the project.** Tick the boxes in §5 as work lands and
@@ -94,17 +94,17 @@ Bottom-up: each layer testable before the next. Reconciled with audit plan A→H
 - [ ] **1.8** Verify end-to-end: deploy rules → play 3 exercises offline → reconnect → exactly 3 docs in Firestore with answer+time+result, no unplayed ones. (Needs a live login + rules deployed.)
 
 ### Track 2 — Adaptive intelligence (pillar 2)
-- [ ] **2.1** `adaptiveEngine.js` (pure, tested): inputs profile + mastery + weakAreas + recent session → next difficulty/skills. → (new), audit §8
-- [ ] **2.2** Mastery model: derive from `successStreak≥2 & accuracy>0.85` (reuse `mastered`). → audit §8
-- [ ] **2.3** Struggle model: derive from `failed` + `getWeakAreas()` → review topics, ease difficulty.
-- [ ] **2.4** Learning DNA store, updated from played events (Phase 2 spec). → (new) `services/learning/`
-- [ ] **2.5** Recommendation output persisted + readable by launchers.
+- [x] **2.1** `adaptiveEngine.js` — pure/stateless, 9 passing tests. Builds on `gradeModel.js`. · 2026-06-11 → `services/learning/adaptiveEngine.js`, `tests/adaptive-engine.test.js`
+- [x] **2.2** Mastery model: `classifySkills` (accuracy≥0.85 + not-mostly-slow + ≥4 attempts). · 2026-06-11
+- [x] **2.3** Struggle model: low accuracy / mostly-slow → `reviewTopics` ∪ `getWeakAreas()`. · 2026-06-11
+- [x] **2.4** `learningDNA.js` — per-session summary (distinct sessionIds), synced via blob `learningDNA`. · 2026-06-11 → `services/learning/learningDNA.js`. DNA folds in on cloud flush (avoids double-count).
+- [ ] **2.5** Route launchers through `decideNext()` (PracticePage/MixedMode/exam/games). ← behavioral, behind `adaptiveModeEnabled` (audit Phase G, highest risk).
 
 ### Track 3 — Mission Impossible pilot (the visible module)
-- [ ] **3.1** New category route + hub `/mission-impossible`. → `AppRouter.jsx`, `features/missionImpossible/`
-- [ ] **3.2** Dynamic challenge loop: start comfortable, step up on success, down on struggle.
-- [ ] **3.3** Every challenge emits `recordPlayedExercise` (Track 1) + updates DNA (Track 2).
-- [ ] **3.4** Detects & reports current learning limit.
+- [x] **3.1** Route `/mission-impossible` + page + Pratiquer hub card. · 2026-06-11 → `features/missionImpossible/MissionImpossiblePage.jsx`, `AppRouter.jsx`, `PratiquerHubPage.jsx`
+- [x] **3.2** `missionEngine.js` — 5-band ladder, step up/down on streaks, pure + 8 tests. · 2026-06-11 → `features/missionImpossible/missionEngine.js`, `tests/mission-engine.test.js`
+- [x] **3.3** Every challenge emits `recordPlayedExercise` (rich); DNA folds in via flush. · 2026-06-11
+- [x] **3.4** `detectLimit()` reports current band on the done screen. · 2026-06-11
 
 ### Track 4 — Settings & polish
 - [ ] **4.1** Parent toggles (allow ×/÷/timed, max difficulty). → `ParentalPage.jsx`, `parentalStore.js`
