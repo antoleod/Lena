@@ -19824,3 +19824,340 @@ body {
   background: color-mix(in srgb, var(--w-accent) 80%, #000);
   box-shadow: 0 4px 13px color-mix(in srgb, var(--w-accent) 45%, transparent);
 }
+
+/* =================================================================================
+   LOGIN — palette UNISEXE (neutre)
+   Override scoped à `.login-page` : remplace le violet/rose dominant par un trio
+   indigo + bleu + teal (or réservé aux étoiles). Spécificité volontairement plus
+   haute (`.login-page` ancêtre) pour gagner le cascade SANS toucher le reste de
+   l'app. Pour revenir à l'original : supprimer ce bloc.
+   ================================================================================= */
+.login-page {
+  /* tokens locaux unisexes — réutilisés ci-dessous */
+  --u-indigo:      #5b6cf0;
+  --u-indigo-deep: #4350c8;
+  --u-blue:        #2f74d6;
+  --u-teal:        #22b8c2;
+  --u-cyan:        #38bdf8;
+  --u-gold:        #fbbf24;
+}
+
+/* Fond du cosmos : moins de violet, plus de bleu nuit + teal */
+.login-page.login-page {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(79,80,200,0.45) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, rgba(34,184,194,0.28) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 10%, rgba(47,116,214,0.40) 0%, transparent 55%),
+    linear-gradient(160deg, #14143f 0%, #0d1030 42%, #070a1e 100%);
+}
+
+/* Logo : dégradé neutre (blanc → indigo → cyan → or) */
+.login-page .login-logo__name {
+  background: linear-gradient(135deg, #fff 0%, #b9c6ff 38%, var(--u-cyan) 78%, var(--u-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 16px rgba(79,80,200,0.6));
+}
+
+/* Planète violette → indigo neutre */
+.login-page .login-planet--1 {
+  background: radial-gradient(circle at 35% 30%, #97a3f5, #2d348f 70%);
+  box-shadow: 0 0 30px rgba(91,108,240,0.55), inset -10px -10px 20px rgba(0,0,0,0.5);
+}
+
+/* Boutons principaux (Créer un compte / submit) : indigo → bleu */
+.login-page .login-primary-btn,
+.login-page .login-submit-btn {
+  background: linear-gradient(135deg, var(--u-indigo) 0%, var(--u-blue) 100%);
+  box-shadow: 0 4px 20px rgba(91,108,240,0.45);
+}
+.login-page .login-primary-btn:hover {
+  box-shadow: 0 8px 30px rgba(91,108,240,0.6), 0 0 24px rgba(47,116,214,0.3);
+}
+.login-page .login-submit-btn { box-shadow: 0 4px 16px rgba(91,108,240,0.4); }
+
+/* Tuile « Email » : accent indigo/cyan au lieu de violet */
+.login-page .login-icon-btn {
+  border-color: rgba(91,108,240,0.5);
+  background: rgba(91,108,240,0.16);
+}
+.login-page .login-icon-btn:hover {
+  background: rgba(91,108,240,0.28);
+  border-color: rgba(56,189,248,0.85);
+  box-shadow: 0 6px 20px rgba(91,108,240,0.34);
+}
+/* (la tuile « Code secret » garde son accent doré — déjà neutre) */
+
+/* Toggle connexion/inscription actif */
+.login-page .login-toggle__btn--active {
+  background: rgba(91,108,240,0.55);
+}
+
+/* Champs : focus indigo */
+.login-page .login-field__input:focus {
+  border-color: rgba(91,108,240,0.75);
+  background: rgba(91,108,240,0.11);
+}
+
+/* Bulle avatar (écran code) */
+.login-page .login-avatar-bubble {
+  background: linear-gradient(135deg, var(--u-indigo), var(--u-blue));
+  box-shadow: 0 0 0 4px rgba(91,108,240,0.32), 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Chip profil (nom) : indigo au lieu de violet/magenta */
+.login-page .login-preview__chip--name {
+  background: rgba(91,108,240,0.3);
+  border-color: rgba(56,189,248,0.5);
+}
+
+/* Carte « Reprendre » + halo, si présents en violet */
+.login-page .login-resume {
+  background: linear-gradient(135deg, rgba(91,108,240,0.85), rgba(47,116,214,0.85));
+}
+
+/* Pavé code secret : faces de touches en indigo plutôt que violet */
+.login-page .ep-emoji {
+  background: linear-gradient(160deg, rgba(255,255,255,0.18), rgba(91,108,240,0.22) 60%, rgba(67,80,200,0.3));
+  box-shadow: 0 6px 0 rgba(40,52,130,0.7), 0 8px 14px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+.login-page .ep-emoji:hover {
+  background: linear-gradient(160deg, rgba(255,255,255,0.26), rgba(91,108,240,0.34) 60%, rgba(67,80,200,0.4));
+}
+/* touche choisie : garde l'or (déjà neutre) */
+
+/* Carte en verre : l'original force un violet en !important → on le neutralise */
+.login-page .login-card {
+  background: rgba(13, 16, 46, 0.74) !important;
+  border-color: rgba(91,108,240,0.32) !important;
+}
+
+/* Nébula : le gros nuage violet → indigo (c'est lui qui « rose-violette » la scène) */
+.login-page .login-nebula__cloud--1 {
+  background: radial-gradient(circle, rgba(91,108,240,0.5), transparent 70%);
+}
+
+/* Sous-titre du logo : trio neutre (indigo → cyan → or) */
+.login-page .login-logo__subtitle {
+  background: linear-gradient(90deg, #aab6ff, #67e8f9, #fbbf24);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Mascotte : halo + ombres en teal/bleu, et teinte décalée du rose vers le bleu.
+   (le SVG est une image rose → hue-rotate la rend turquoise, neutre/unisexe) */
+.login-page .login-mascot-hero {
+  filter:
+    hue-rotate(185deg) saturate(0.9)
+    drop-shadow(0 0 28px rgba(56,189,248,0.5))
+    drop-shadow(0 8px 20px rgba(67,80,200,0.4));
+}
+.login-page .login-mascot-glow {
+  background: radial-gradient(ellipse, rgba(56,189,248,0.32) 0%, transparent 70%);
+}
+
+/* =================================================================================
+   LOGIN V2 — refonte écran d'accueil d'après la maquette LénaLand.
+   Classes `lp2-*` propres (n'entrent pas en conflit avec le CSS `.login-*` legacy).
+   Cette maquette fait foi : ciel indigo-violet, CTA doré, Email violet, boutons
+   navy, mascotte turquoise. La palette ci-dessous s'applique AUSSI aux autres
+   écrans (cartes PIN/email) pour rester cohérent.
+   ================================================================================= */
+
+/* -- Palette v2 (jeton local) -- */
+.login-page {
+  --v-gold-1:#ffd24d; --v-gold-2:#f6a823;
+  --v-violet:#8b6cf0; --v-violet-2:#6d4fd0;
+  --v-navy:#171247;   --v-navy-2:#221a5e;
+  --v-green:#5fe0a8;
+  --v-ink:#ffffff;    --v-muted:#b7b0e0;
+}
+
+/* Fond cosmos conforme à la maquette (supersede les définitions précédentes) */
+.login-page.login-page {
+  background:
+    radial-gradient(ellipse 60% 45% at 18% 18%, rgba(120,90,210,0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 55% at 85% 30%, rgba(70,60,170,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 40% at 50% 108%, rgba(70,150,120,0.4) 0%, transparent 60%),
+    linear-gradient(180deg, #1c1546 0%, #2a2068 45%, #45357e 78%, #5a4a86 100%);
+}
+
+/* ── Conteneur plein cadre ── */
+.lp2-welcome { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+
+/* ── Scène décorative ── */
+.lp2-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.lp2-planet { position: absolute; top: 4%; left: 3%; width: 17%; max-width: 230px; opacity: .92; }
+.lp2-island--castle { position: absolute; bottom: 16%; left: 1%; width: 12%; max-width: 160px; filter: drop-shadow(0 12px 18px rgba(0,0,0,.4)); }
+.lp2-rocket { position: absolute; bottom: 6%; right: 3.5%; width: 11%; max-width: 140px; filter: drop-shadow(0 12px 18px rgba(0,0,0,.45)); animation: lp2Float 4s ease-in-out infinite; }
+
+.lp2-cloud { position: absolute; border-radius: 50%; filter: blur(40px); opacity: .45; }
+.lp2-cloud--1 { width: 32vw; height: 22vw; bottom: 4%;  left: 8%;  background: radial-gradient(circle, rgba(150,120,225,.6), transparent 70%); }
+.lp2-cloud--2 { width: 28vw; height: 18vw; bottom: 2%;  right: 10%; background: radial-gradient(circle, rgba(120,95,205,.55), transparent 70%); }
+.lp2-cloud--3 { width: 22vw; height: 16vw; top: 20%;    left: 38%;  background: radial-gradient(circle, rgba(90,80,180,.4), transparent 70%); }
+
+.lp2-ground {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
+  background: linear-gradient(180deg, transparent 0%, rgba(48,40,70,.45) 45%, rgba(40,70,55,.7) 100%);
+}
+.lp2-path { position: absolute; bottom: 7%; left: 28%; right: 8%; display: flex; justify-content: space-between; align-items: flex-end; }
+.lp2-path span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: radial-gradient(circle, #ffe27a, #f6a823);
+  box-shadow: 0 0 12px 3px rgba(255,210,90,.7);
+  transform: translateY(calc(var(--i) * -6px));
+  animation: lp2Twinkle 2.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.25s);
+}
+@keyframes lp2Twinkle { 0%,100%{opacity:.45} 50%{opacity:1} }
+@keyframes lp2Float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+/* ── Engrenage réglages (bas-gauche) ── */
+/* Cristaux (bas-droite) */
+.lp2-crystals { position: absolute; bottom: 4%; right: 4%; width: 13%; max-width: 170px; filter: drop-shadow(0 0 14px rgba(120,180,255,.5)); }
+
+/* ── Mascotte : même avatar, AUCUN cadre — flotte librement ── */
+.lp2-mascot-wrap {
+  position: absolute; top: 46%; left: 29%; transform: translate(-50%,-50%);
+  width: 30%; max-width: 400px; z-index: 2;
+  animation: lp2MascotBreathe 4s ease-in-out infinite;
+}
+.lp2-mascot { width: 100%; height: auto; display: block; }
+/* Asset rose → décalé vers le turquoise + ombre portée douce (pas de cadre) */
+.lp2-mascot--img {
+  filter:
+    hue-rotate(185deg) saturate(0.9)
+    drop-shadow(0 22px 26px rgba(0,0,0,.45))
+    drop-shadow(0 0 36px rgba(90,220,200,.28));
+}
+@keyframes lp2MascotBreathe { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,calc(-50% - 8px)) scale(1.03)} }
+.lp2-mascot-wave { transform-origin: 290px 150px; animation: lp2Wave 1.8s ease-in-out infinite; }
+@keyframes lp2Wave { 0%,100%{transform:rotate(-6deg)} 50%{transform:rotate(10deg)} }
+
+/* ── Panneau de contrôle (droite) ── */
+.lp2-panel {
+  position: absolute; top: 50%; left: 64%; transform: translateY(-50%);
+  width: min(460px, 40%); z-index: 3;
+  display: flex; flex-direction: column; align-items: stretch; gap: 14px;
+}
+/* Logo « sticker » 3D : remplissage dégradé + contour blanc épais + base violette */
+.lp2-logo-wrap { position: relative; align-self: center; margin-bottom: 4px; }
+.lp2-logo {
+  position: relative; margin: 0; text-align: center;
+  font-family: 'Baloo 2','Fredoka',system-ui,sans-serif;
+  font-weight: 900; letter-spacing: .5px; line-height: 1;
+  font-size: clamp(3rem, 5.6vw, 4.6rem);
+  background: linear-gradient(180deg, #c89bff 0%, #8a6bf0 30%, #6fd0c0 55%, #7ee06a 74%, #ffd24d 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+/* Couche de contour (derrière) : gros trait blanc + ombre violette = effet autocollant */
+.lp2-logo::before {
+  content: attr(data-text);
+  position: absolute; left: 0; top: 0; z-index: -1;
+  -webkit-text-stroke: 10px #fff; color: #fff;
+  text-shadow: 0 6px 0 #6a3fc0, 0 9px 0 #5a32a8, 0 16px 22px rgba(0,0,0,.5);
+}
+.lp2-logo__star {
+  position: absolute; top: -14%; left: 50%; transform: translateX(20%);
+  font-size: clamp(1rem, 1.8vw, 1.5rem); color: #ffd24d;
+  text-shadow: 0 0 8px rgba(255,210,77,.8), 0 2px 0 #e0951a;
+}
+
+/* Accroche « Prêt pour ta mission ? » + étoiles */
+.lp2-head { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 2px; }
+.lp2-head__star { width: clamp(20px, 2.2vw, 30px); height: clamp(20px, 2.2vw, 30px); flex-shrink: 0; filter: drop-shadow(0 2px 3px rgba(0,0,0,.4)); }
+.lp2-head__title {
+  margin: 0; color: #fff; font-weight: 900; line-height: 1.1;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  text-shadow: 0 2px 6px rgba(0,0,0,.45);
+}
+.lp2-subtitle {
+  margin: 2px 0 8px; text-align: center; color: #d9d3f5;
+  font-size: clamp(.95rem, 1.5vw, 1.15rem); font-weight: 600; line-height: 1.4;
+}
+.lp2-subtitle b { color: #ffce5a; font-weight: 800; }
+.lp2-error { margin: 0; }
+
+/* CTA doré */
+.lp2-cta {
+  position: relative; display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; padding: 18px 22px; border: none; cursor: pointer;
+  border-radius: 26px; font-size: clamp(1.05rem, 1.8vw, 1.4rem); font-weight: 900;
+  color: #3a1f6e; letter-spacing: .2px;
+  background: linear-gradient(180deg, var(--v-gold-1), var(--v-gold-2));
+  box-shadow: 0 8px 0 #c9821a, 0 14px 26px rgba(246,168,35,.45), inset 0 2px 0 rgba(255,255,255,.55);
+  transition: transform .12s, filter .15s, box-shadow .12s;
+}
+.lp2-cta:hover { filter: brightness(1.04); transform: translateY(-2px); }
+.lp2-cta:active { transform: translateY(4px); box-shadow: 0 3px 0 #c9821a, 0 6px 14px rgba(246,168,35,.4), inset 0 2px 0 rgba(255,255,255,.55); }
+.lp2-cta:disabled { opacity: .7; cursor: default; }
+.lp2-cta__rocket { width: 34px; height: 34px; flex-shrink: 0; filter: drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
+
+/* Séparateurs « Ou continuer avec » / « Ou » */
+.lp2-or { display: flex; align-items: center; gap: 12px; color: var(--v-muted); font-size: .82rem; font-weight: 600; margin: 2px 0; }
+.lp2-or::before, .lp2-or::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.18); }
+
+/* Rangée Google + Email */
+.lp2-row { display: flex; gap: 12px; }
+.lp2-row .lp2-btn { flex: 1; }
+
+/* Boutons génériques */
+.lp2-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 15px 18px; border-radius: 18px; cursor: pointer;
+  font-size: 1.05rem; font-weight: 800; border: 1.5px solid transparent;
+  transition: transform .12s, filter .15s, background .15s, border-color .15s;
+}
+.lp2-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.lp2-btn:active { transform: scale(.98); }
+.lp2-btn:disabled { opacity: .65; cursor: default; }
+.lp2-btn .lp2-gi { width: 24px; height: 24px; flex-shrink: 0; }
+.lp2-btn .lp2-bi { width: 22px; height: 22px; flex-shrink: 0; }
+
+.lp2-btn--google { background: #fff; color: #2b2f45; box-shadow: 0 6px 18px rgba(0,0,0,.3); }
+.lp2-btn--email  { background: linear-gradient(180deg, var(--v-violet), var(--v-violet-2)); color: #fff; box-shadow: 0 6px 18px rgba(109,79,208,.45); }
+.lp2-btn--email .lp2-bi { color: #fff; }
+.lp2-btn--dark {
+  background: rgba(20,16,54,.82); color: #fff; border-color: rgba(255,255,255,.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+}
+.lp2-btn--dark .lp2-bi { color: #cdd3ff; }
+.lp2-btn--guest { color: var(--v-green); }
+.lp2-btn--guest .lp2-bi { color: var(--v-green); }
+
+.lp2-safe { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 6px 0 0; font-size: .85rem; color: var(--v-muted); }
+.lp2-safe__ico { width: 18px; height: 18px; color: #7fe0c0; flex-shrink: 0; }
+
+/* ── Responsive : on empile sous ~880px ── */
+@media (max-width: 880px) {
+  .lp2-panel {
+    position: static; transform: none; left: auto; top: auto; width: min(440px, 90%);
+    margin: 0 auto; padding-top: 30vh;
+  }
+  .lp2-welcome { overflow-y: auto; }
+  .lp2-mascot-wrap { top: 15%; left: 50%; width: 200px; }
+  .lp2-planet { top: 2%; width: 30%; }
+  .lp2-island--castle { display: none; }
+  .lp2-rocket { width: 22%; bottom: 2%; }
+}
+@media (max-width: 520px) {
+  .lp2-panel { padding-top: 26vh; gap: 11px; }
+  .lp2-mascot-wrap { top: 12%; width: 160px; }
+  .lp2-btn { padding: 13px 14px; font-size: .98rem; }
+}
+
+/* ── Cohérence des autres écrans (cartes PIN / email) avec la maquette ── */
+.login-page .login-card {
+  background: rgba(26,19,66,.76) !important;
+  border-color: rgba(139,108,240,.32) !important;
+}
+.login-page .login-primary-btn,
+.login-page .login-submit-btn {
+  background: linear-gradient(180deg, var(--v-gold-1), var(--v-gold-2));
+  color: #3a1f6e;
+  box-shadow: 0 5px 0 #c9821a, 0 8px 18px rgba(246,168,35,.4);
+}
+.login-page .login-primary-btn:hover,
+.login-page .login-submit-btn:hover:not(:disabled) {
+  box-shadow: 0 7px 0 #c9821a, 0 12px 22px rgba(246,168,35,.5);
+}

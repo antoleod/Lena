@@ -6,16 +6,60 @@ import {
   signInAnon, linkAnonWithGoogle, setAuthPersistence,
 } from '../../services/firebase/authService.js';
 import { getProfile, saveProfile, isProfileComplete } from '../../services/storage/profileStore.js';
-import { getStudyStats } from '../../services/storage/progressStore.js';
-import { getRewardState } from '../../services/storage/rewardStore.js';
-import { getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
-import {
-  IconEmail, IconCreate, IconPlay, IconRocket, IconPalette,
-  IconParents, IconKey, IconArrow, IconShield,
-} from './LoginIcons.jsx';
+import { IconCreate, IconArrow } from './LoginIcons.jsx';
 import IconPinPad from './IconPinPad.jsx';
 import { hashPin, savePin, loadPin, clearPin } from './iconPinStore.js';
+
+// ── Small inline icons for the v2 welcome panel ───────────────────────────────
+const GoogleGlyph = () => (
+  <svg className="lp2-gi" viewBox="0 0 48 48" aria-hidden="true">
+    <path fill="#4285F4" d="M47.5 24.5c0-1.6-.1-3.2-.4-4.7H24v9h13.2c-.6 3-2.3 5.5-4.9 7.2v6h7.9c4.6-4.3 7.3-10.6 7.3-17.5z"/>
+    <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.9-6C29.9 37.8 27.1 38.8 24 38.8c-6.3 0-11.6-4.2-13.5-9.9H2.4v6.2C6.4 42.6 14.6 48 24 48z"/>
+    <path fill="#FBBC05" d="M10.5 28.9c-.5-1.5-.8-3.1-.8-4.9s.3-3.4.8-4.9v-6.2H2.4C.9 16.1 0 19.9 0 24s.9 7.9 2.4 11.1l8.1-6.2z"/>
+    <path fill="#EA4335" d="M24 9.2c3.5 0 6.6 1.2 9.1 3.5l6.8-6.8C35.9 2.1 30.5 0 24 0 14.6 0 6.4 5.4 2.4 13.1l8.1 6.2C12.4 13.4 17.7 9.2 24 9.2z"/>
+  </svg>
+);
+const MailGlyph = () => (
+  <svg className="lp2-bi" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="5" width="18" height="14" rx="3" fill="currentColor"/>
+    <path d="M5 8l7 5 7-5" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+const LockGlyph = () => (
+  <svg className="lp2-bi" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="5" y="10" width="14" height="10" rx="2.5" fill="currentColor"/>
+    <path d="M8 10V8a4 4 0 0 1 8 0v2" stroke="currentColor" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+    <circle cx="12" cy="15" r="1.6" fill="#1a1340"/>
+  </svg>
+);
+const GuestGlyph = () => (
+  <svg className="lp2-bi" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="8" r="4" fill="currentColor"/>
+    <path d="M4 20c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5" fill="currentColor"/>
+  </svg>
+);
+const RocketGlyph = () => (
+  <svg className="lp2-cta__rocket" viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16 3c5 3 7 8 6.5 14l-3 4.5h-7L9.5 17C9 11 11 6 16 3z" fill="#dfe6ff"/>
+    <path d="M16 3c3 2 4.6 5 4.8 8.5L16 10l-4.8 1.5C11.4 8 13 5 16 3z" fill="#8b6cf0"/>
+    <circle cx="16" cy="12" r="2.9" fill="#6ad0ff" stroke="#3a2c8f" strokeWidth="1"/>
+    <path d="M9.6 19l-3.2 3.2 4.4-1.1zM22.4 19l3.2 3.2-4.4-1.1z" fill="#7c5fd0"/>
+    <path d="M12.8 21.5c0 3 3.2 6.5 3.2 6.5s3.2-3.5 3.2-6.5z" fill="#ffb13b"/>
+    <path d="M13.6 22.5c0 2 2.4 4.5 2.4 4.5s2.4-2.5 2.4-4.5z" fill="#ffe27a"/>
+  </svg>
+);
+const StarGlyph = () => (
+  <svg className="lp2-head__star" viewBox="0 0 24 24" aria-hidden="true">
+    <polygon points="12,2 15,9 22,9 16,14 18,22 12,17 6,22 8,14 2,9 9,9" fill="#ffd24d" stroke="#e0951a" strokeWidth="1"/>
+  </svg>
+);
+const ShieldGlyph = () => (
+  <svg className="lp2-safe__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" fill="currentColor"/>
+    <path d="M8.5 12l2.5 2.5L16 9" stroke="#1a1340" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
 
 const ERROR_MAP = {
   'auth/user-not-found':        'Aucun compte avec cet email.',
@@ -290,14 +334,14 @@ export default function LoginPage() {
   }
 
   // ── Recognition data (from local stores) ──────────────────────────────────
-  const stats     = getStudyStats();
-  const reward    = getRewardState();
-  const levelInfo = getLevelProgress(profile.totalActivitiesCompleted);
-  const crystals  = reward.balance || 0;
-  const starsTot  = stats.totalCorrect || 0;
-  const streak    = stats.streakCurrent || profile.streakCurrent || 0;
-  const hasSession    = Boolean(profile.name && (profile.sessionActive || loadPin()));
-  const profileReady  = isProfileComplete();
+  const hasSession = Boolean(profile.name && (profile.sessionActive || loadPin()));
+
+  // Smart primary CTA: returning user resumes, new user starts account creation.
+  function handleStartAdventure() {
+    setError('');
+    if (hasSession) handleResume();
+    else setStep('creer-enfant');
+  }
 
   // ── Render ────────────────────────────────────────────────────────────────
   return (
@@ -317,96 +361,123 @@ export default function LoginPage() {
         </div>
       )}
 
-      {/* ── Welcome: choose path ── */}
+      {/* ── Welcome: full-bleed scene (v2, maquette) ── */}
       {step === 'welcome' && (
-        <div className="login-scene">
-          {/* Mascota real — sobresale encima de la tarjeta */}
-          <MascotHero src={MASCOT_HAPPY} />
+        <div className="lp2-welcome">
+          {/* ── Decorative cosmos scene ── */}
+          <div className="lp2-scene" aria-hidden="true">
+            {/* Ringed planet (left) */}
+            <svg className="lp2-planet" viewBox="0 0 220 180">
+              <defs><radialGradient id="lp2-pl" cx="36%" cy="30%" r="72%"><stop offset="0" stopColor="#8e7bd6"/><stop offset="1" stopColor="#3a2a72"/></radialGradient></defs>
+              <circle cx="108" cy="92" r="64" fill="url(#lp2-pl)"/>
+              <ellipse cx="108" cy="96" rx="104" ry="26" fill="none" stroke="#b9a6f0" strokeWidth="6" opacity=".65" transform="rotate(-16 108 96)"/>
+              <ellipse cx="108" cy="96" rx="104" ry="26" fill="none" stroke="#7c5fd0" strokeWidth="2" opacity=".7" transform="rotate(-16 108 96)"/>
+            </svg>
 
-          <div className="login-card login-card--welcome">
-            {/* Logo */}
-            <div className="login-logo">
-              <h1 className="login-logo__name">LénaLand</h1>
-              <p className="login-logo__tagline">✨ Bienvenue dans ton univers d&apos;apprentissage !</p>
-              <p className="login-logo__subtitle">Explorer • Apprendre • Rêver • Grandir</p>
+            {/* Soft clouds */}
+            <span className="lp2-cloud lp2-cloud--1" />
+            <span className="lp2-cloud lp2-cloud--2" />
+            <span className="lp2-cloud lp2-cloud--3" />
+
+            {/* Floating castle island (left) */}
+            <svg className="lp2-island lp2-island--castle" viewBox="0 0 140 130">
+              <ellipse cx="70" cy="104" rx="58" ry="18" fill="#6a4fb0"/>
+              <path d="M14 100 Q70 128 126 100 L116 112 Q70 134 24 112 Z" fill="#4f3a8f"/>
+              <g fill="#7d72d8" stroke="#a99cf0" strokeWidth="2">
+                <rect x="40" y="44" width="44" height="52" rx="3"/>
+                <rect x="32" y="34" width="16" height="62"/><rect x="76" y="34" width="16" height="62"/>
+              </g>
+              <g fill="#b3a6f2"><polygon points="48,34 30,34 40,18"/><polygon points="94,34 76,34 84,18"/></g>
+              <g fill="#ffd36b"><rect x="56" y="58" width="10" height="14" rx="2"/></g>
+              <rect x="83" y="10" width="2.5" height="12" fill="#caa"/>
+              <polygon points="85,10 85,18 96,14" fill="#ffce5a"/>
+              <g fill="#56c98a"><ellipse cx="22" cy="92" rx="10" ry="8"/><ellipse cx="118" cy="92" rx="10" ry="8"/></g>
+            </svg>
+
+            {/* Rocket (bottom-right) */}
+            <svg className="lp2-rocket" viewBox="0 0 120 150">
+              <ellipse cx="60" cy="138" rx="34" ry="9" fill="#6a4fb0" opacity=".6"/>
+              <path d="M60 14 C82 30 90 64 86 96 L72 112 H48 L34 96 C30 64 38 30 60 14 Z" fill="#e7ecff"/>
+              <path d="M60 14 C74 26 82 50 82 76 L60 70 L38 76 C38 50 46 26 60 14 Z" fill="#8b6cf0"/>
+              <circle cx="60" cy="62" r="14" fill="#1f2a55"/><circle cx="60" cy="62" r="9" fill="#6ad0ff"/>
+              <path d="M48 96 L30 116 L40 112 L44 122 Z" fill="#7c5fd0"/>
+              <path d="M72 96 L90 116 L80 112 L76 122 Z" fill="#7c5fd0"/>
+              <ellipse cx="60" cy="120" rx="8" ry="14" fill="#ffb13b"/>
+              <ellipse cx="60" cy="122" rx="4" ry="8" fill="#ffe27a"/>
+              <rect x="92" y="118" width="3" height="20" fill="#caa"/>
+              <polygon points="95,118 95,130 110,124" fill="#7c5fd0"/>
+              <polygon points="101,121 101,127 108,124" fill="#ffd36b"/>
+            </svg>
+
+            {/* Crystal cluster (bottom-right) */}
+            <svg className="lp2-crystals" viewBox="0 0 120 110">
+              <g stroke="#2b2a78" strokeWidth="1.5" strokeLinejoin="round">
+                <polygon points="40,108 30,60 50,46 66,66 58,108" fill="#6ad0ff"/>
+                <polygon points="40,108 30,60 44,66 42,108" fill="#9ae3ff"/>
+                <polygon points="74,108 64,38 82,30 96,58 90,108" fill="#8b6cf0"/>
+                <polygon points="74,108 64,38 78,46 80,108" fill="#b59bf2"/>
+                <polygon points="98,108 92,72 104,66 112,90 108,108" fill="#7ce0c0"/>
+              </g>
+            </svg>
+
+            {/* Ground glow + light path */}
+            <div className="lp2-ground" />
+            <div className="lp2-path">
+              {Array.from({ length: 7 }).map((_, i) => <span key={i} style={{ '--i': i }} />)}
+            </div>
+          </div>
+
+          {/* ── Mascot (même avatar, sans cadre — libre) ── */}
+          <div className="lp2-mascot-wrap">
+            <img src={assetUrl(MASCOT_HAPPY)} className="lp2-mascot lp2-mascot--img" alt="" draggable="false" />
+          </div>
+
+          {/* ── Control panel (right) ── */}
+          <div className="lp2-panel">
+            <div className="lp2-logo-wrap">
+              <h1 className="lp2-logo" data-text="LénaLand">LénaLand</h1>
+              <span className="lp2-logo__star" aria-hidden="true">★</span>
             </div>
 
-            {error && <p className="login-error">{error}</p>}
-
-            {hasSession ? (
-              <>
-                {/* ── Continue your adventure (returning user) ── */}
-                <button className="login-resume" onClick={handleResume} type="button">
-                  <span className="login-resume__halo" aria-hidden="true" />
-                  <span className="login-resume__ico" aria-hidden="true"><IconRocket /></span>
-                  <span className="login-resume__body">
-                    <span className="login-resume__title">Continuer ton aventure</span>
-                    <span className="login-resume__detail">Niveau {levelInfo.level} · Reprends là où tu t&apos;es arrêté</span>
-                  </span>
-                  <span className="login-resume__cta" aria-hidden="true">Reprendre →</span>
-                </button>
-
-                {/* ── Profile preview (carries the streak/crystals, so no daily strip) ── */}
-                <div className="login-preview">
-                  <span className="login-preview__chip login-preview__chip--name">👧 {profile.name}</span>
-                  <span className="login-preview__chip login-preview__chip--gem">💎 {crystals}</span>
-                  <span className="login-preview__chip login-preview__chip--star">🏆 {starsTot}</span>
-                  {streak > 0 && (
-                    <span className="login-preview__chip login-preview__chip--fire">🔥 {streak} j</span>
-                  )}
-                </div>
-              </>
-            ) : (
-              /* ── New user: a single enticement chip ── */
-              <div className="login-daily">
-                <span className="login-daily__item login-daily__item--gift">🎁 Ton premier cadeau t&apos;attend&nbsp;!</span>
-              </div>
-            )}
-
-            {/* ── EXISTING USER ── */}
-            <div className="login-group">
-              <p className="login-group__label">Tu as déjà un compte&nbsp;?</p>
-              <GoogleBtn onClick={handleGoogle} loading={loading === 'google'} />
-              <div className="login-divider"><span>ou</span></div>
-              <div className="login-icon-row">
-                <button className="login-icon-btn" onClick={() => setStep('parent-email')} type="button" aria-label="Se connecter avec Email">
-                  <span className="login-icon-btn__ico"><IconEmail /></span>
-                  <span className="login-icon-btn__label">Email</span>
-                </button>
-                <button className="login-icon-btn login-icon-btn--code" onClick={handleSecretCode} type="button" aria-label="Entrer avec mon code secret">
-                  <span className="login-icon-btn__ico"><IconKey /></span>
-                  <span className="login-icon-btn__label">Code secret</span>
-                </button>
-              </div>
+            <div className="lp2-head">
+              <StarGlyph />
+              <h2 className="lp2-head__title">Prêt pour ta mission&nbsp;?</h2>
+              <StarGlyph />
             </div>
+            <p className="lp2-subtitle">
+              Connecte-toi pour retrouver tes étoiles<br />
+              et continuer ton <b>aventure</b>&nbsp;!
+            </p>
 
-            {/* ── NEW USER ── */}
-            <div className="login-group">
-              <p className="login-group__label">Nouveau sur LénaLand&nbsp;?</p>
-              <button className="login-primary-btn" onClick={() => setStep('creer-enfant')} type="button">
-                <IconCreate /> Créer un compte
+            {error && <p className="login-error lp2-error">{error}</p>}
+
+            <button className="lp2-cta" type="button" onClick={handleStartAdventure} disabled={!!loading}>
+              <RocketGlyph />
+              <span>Commencer l&apos;aventure</span>
+            </button>
+
+            <div className="lp2-or"><span>Ou continuer avec</span></div>
+
+            <div className="lp2-row">
+              <button className="lp2-btn lp2-btn--google" type="button" onClick={handleGoogle} disabled={!!loading}>
+                {loading === 'google' ? <span className="login-spinner" /> : <GoogleGlyph />} Google
+              </button>
+              <button className="lp2-btn lp2-btn--email" type="button" onClick={() => setStep('parent-email')}>
+                <MailGlyph /> Email
               </button>
             </div>
 
-            {/* ── GUEST (always visible) ── */}
-            <button className="login-secondary-btn" onClick={handleGuest} type="button">
-              <IconPlay /> Jouer sans compte
+            <button className="lp2-btn lp2-btn--dark" type="button" onClick={handleSecretCode}>
+              <LockGlyph /> Code secret
             </button>
 
-            {/* ── Discreet entry points (complete profile only — nav won't bounce) ── */}
-            {profileReady && (
-              <div className="login-entries">
-                <button className="login-entry" onClick={() => navigate('/shop')} type="button">
-                  <IconPalette /> Personnaliser ma mascotte
-                </button>
-                <span className="login-entry__dot" aria-hidden="true">•</span>
-                <button className="login-entry login-entry--parent" onClick={() => navigate('/parental')} type="button">
-                  <IconParents /> Espace Parents
-                </button>
-              </div>
-            )}
+            <div className="lp2-or"><span>Ou</span></div>
 
-            <p className="login-safety"><IconShield /> Sécurisé et conçu pour les enfants</p>
+            <button className="lp2-btn lp2-btn--dark lp2-btn--guest" type="button" onClick={handleGuest}>
+              <GuestGlyph /> Jouer en invité
+            </button>
+
+            <p className="lp2-safe"><ShieldGlyph /> Espace sécurisé pour les enfants</p>
           </div>
         </div>
       )}
