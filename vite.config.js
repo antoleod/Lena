@@ -14,11 +14,12 @@ export default ({ mode }) => {
         registerType: 'prompt',
         injectRegister: false,
         base,
+        // Only list assets NOT already matched by workbox.globPatterns below.
+        // png / wav / html are globbed (with a revision hash); listing them here
+        // too would double-precache them → "add-to-cache-list-conflicting-entries".
+        // JSON i18n files are the only extension the glob doesn't cover.
         includeAssets: [
-          'assets/iconos/*.png',
           'assets/i18n/*.json',
-          'assets/sounds/*.wav',
-          'offline.html',
         ],
         manifest: {
           name: 'LénaLand — Explorer · Apprendre · Rêver',
