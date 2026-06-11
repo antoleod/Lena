@@ -1,0 +1,219 @@
+{
+  "id": "questions-pieges-01",
+  "category": "questions-pieges",
+  "categoryLabel": "Questions Pièges",
+  "categoryEmoji": "🪤",
+  "categoryOrder": 19,
+  "title": "Pièges de maths 1",
+  "emoji": "🧮",
+  "order": 1,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "qp01-f1",
+          "type": "mcq",
+          "prompt": "Tu as 6 pommes. Tu en manges 2. Combien en reste-t-il ?",
+          "options": ["4", "6", "2", "8"],
+          "answer": "4",
+          "correction": "6 − 2 = 4. C'est simple mais attention à ne pas te précipiter !"
+        },
+        {
+          "id": "qp01-f2",
+          "type": "mcq",
+          "prompt": "Un coq est au sommet d'un toit pointu. De quel côté tombe l'œuf qu'il pond ?",
+          "options": ["Les coqs ne pondent pas d'œufs", "À gauche", "À droite", "Droit devant"],
+          "answer": "Les coqs ne pondent pas d'œufs",
+          "correction": "Un coq est un mâle — seules les poules pondent des œufs !"
+        },
+        {
+          "id": "qp01-f3",
+          "type": "mcq",
+          "prompt": "Si tu es dans une course et que tu dépasses le concurrent en 2e place, à quelle place es-tu ?",
+          "options": ["2e place", "1re place", "3e place", "Dernier"],
+          "answer": "2e place",
+          "correction": "Tu prends SA place, donc tu es maintenant 2e — pas 1er !"
+        },
+        {
+          "id": "qp01-f4",
+          "type": "mcq",
+          "prompt": "Un père a 4 fils et chaque fils a une sœur. Combien d'enfants le père a-t-il en tout ?",
+          "options": ["5", "8", "4", "6"],
+          "answer": "5",
+          "correction": "Les 4 frères ont TOUS la même sœur. Cela fait 4 + 1 = 5 enfants."
+        },
+        {
+          "id": "qp01-f5",
+          "type": "mcq",
+          "prompt": "Combien de mois ont 28 jours ?",
+          "options": ["12", "1", "7", "3"],
+          "answer": "12",
+          "correction": "Tous les mois ont au moins 28 jours. Pas seulement février !"
+        },
+        {
+          "id": "qp01-f6",
+          "type": "mcq",
+          "prompt": "Un fermier a 17 moutons. Tous sauf 9 meurent. Combien reste-t-il de moutons ?",
+          "options": ["9", "8", "17", "0"],
+          "answer": "9",
+          "correction": "« Tous sauf 9 » = 9 moutons sont encore vivants."
+        },
+        {
+          "id": "qp01-f7",
+          "type": "mcq",
+          "prompt": "Tu as une allumette. Tu entres dans une pièce sombre avec une bougie, une cheminée et une lampe à gaz. Que dois-tu allumer en premier ?",
+          "options": ["L'allumette", "La bougie", "La cheminée", "La lampe à gaz"],
+          "answer": "L'allumette",
+          "correction": "Sans allumer l'allumette d'abord, tu ne peux rien allumer du tout !"
+        },
+        {
+          "id": "qp01-f8",
+          "type": "mcq",
+          "prompt": "Un homme a 3 sœurs. Chaque sœur a 1 frère. Combien de frères ont-elles en tout ?",
+          "options": ["1", "3", "6", "4"],
+          "answer": "1",
+          "correction": "Elles ont TOUTES le même frère — l'homme lui-même !"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "qp01-m1",
+          "type": "mcq",
+          "prompt": "Quelle est la moitié de 2 + 2 ?",
+          "options": ["2", "3", "1", "4"],
+          "answer": "3",
+          "correction": "La moitié de « 2 + 2 » = moitié de 4 = 2. Mais si on lit « moitié de 2 » + 2 = 1 + 2 = 3. La réponse dépend de la lecture !"
+        },
+        {
+          "id": "qp01-m2",
+          "type": "mcq",
+          "prompt": "En Belgique, peut-on enterrer un homme qui habite en France dans un cimetière belge ?",
+          "options": ["Non, on n'enterre pas les vivants", "Oui", "Non, la loi l'interdit", "Seulement avec autorisation"],
+          "answer": "Non, on n'enterre pas les vivants",
+          "correction": "Un homme qui « habite » en France est vivant. On ne peut pas enterrer quelqu'un de vivant !"
+        },
+        {
+          "id": "qp01-m3",
+          "type": "mcq",
+          "prompt": "Un avion s'écrase exactement à la frontière entre la France et la Belgique. Où enterrez-vous les survivants ?",
+          "options": ["On n'enterre pas les survivants", "En France", "En Belgique", "Moitié en France, moitié en Belgique"],
+          "answer": "On n'enterre pas les survivants",
+          "correction": "Les survivants sont VIVANTS. On enterre uniquement les morts !"
+        },
+        {
+          "id": "qp01-m4",
+          "type": "mcq",
+          "prompt": "Un boucher mesure 1,85 m et porte une pointure 42. Quel est son métier ?",
+          "options": ["Boucher", "Médecin", "Boulanger", "Cuisinier"],
+          "answer": "Boucher",
+          "correction": "La question te donne la réponse dès le début : c'est un boucher !"
+        },
+        {
+          "id": "qp01-m5",
+          "type": "mcq",
+          "prompt": "Certains mois ont 31 jours, d'autres 30. Combien de mois ont 28 jours ?",
+          "options": ["12", "1", "2", "7"],
+          "answer": "12",
+          "correction": "Tous les 12 mois ont au moins 28 jours. Même mars, juillet ou décembre !"
+        },
+        {
+          "id": "qp01-m6",
+          "type": "mcq",
+          "prompt": "Si 5 chats attrapent 5 souris en 5 minutes, combien de chats faut-il pour attraper 100 souris en 100 minutes ?",
+          "options": ["5", "100", "20", "10"],
+          "answer": "5",
+          "correction": "Chaque chat attrape 1 souris toutes les 5 minutes. En 100 min, chaque chat attrape 20 souris. Donc 5 chats × 20 = 100 souris."
+        },
+        {
+          "id": "qp01-m7",
+          "type": "mcq",
+          "prompt": "Tu as 3 euros. Tu achètes une pomme à 1€ et une poire à 1€. Combien d'euros te reste-t-il ?",
+          "options": ["1", "2", "0", "3"],
+          "answer": "1",
+          "correction": "3 − 1 − 1 = 1 euro. Simple, mais beaucoup répondent 2 par précipitation !"
+        },
+        {
+          "id": "qp01-m8",
+          "type": "mcq",
+          "prompt": "Une vache donne 5 litres de lait par jour. Combien de litres donnent 10 vaches en 10 jours ?",
+          "options": ["500", "50", "100", "5"],
+          "answer": "500",
+          "correction": "10 vaches × 10 jours × 5 litres = 500 litres. Attention à bien multiplier les trois facteurs !"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 70,
+      "questions": [
+        {
+          "id": "qp01-d1",
+          "type": "mcq",
+          "prompt": "Un train part de Paris à 100 km/h. Un autre part de Lyon (400 km) à 100 km/h. Quand ils se rencontrent, lequel est le plus proche de Paris ?",
+          "options": ["Ils sont au même endroit", "Celui venant de Paris", "Celui venant de Lyon", "On ne peut pas savoir"],
+          "answer": "Ils sont au même endroit",
+          "correction": "Quand deux trains se rencontrent, ils sont ÉVIDEMMENT au même endroit !"
+        },
+        {
+          "id": "qp01-d2",
+          "type": "mcq",
+          "prompt": "Tu as un seau d'un litre et un seau de 3 litres. Comment mesures-tu exactement 2 litres ?",
+          "options": ["Remplis le 3L, verse dans le 1L, ce qui reste = 2L", "Impossible", "Remplis deux fois le 1L dans le 3L", "Estime à vue"],
+          "answer": "Remplis le 3L, verse dans le 1L, ce qui reste = 2L",
+          "correction": "Remplis le seau de 3L, verse dedans jusqu'au seau de 1L. Il reste exactement 2L dans le seau de 3L."
+        },
+        {
+          "id": "qp01-d3",
+          "type": "mcq",
+          "prompt": "Un homme marche 1 km vers le sud, puis 1 km vers l'est, puis 1 km vers le nord et se retrouve exactement où il a commencé. Où vit-il ?",
+          "options": ["Au pôle Nord", "Au pôle Sud", "À l'équateur", "En France"],
+          "answer": "Au pôle Nord",
+          "correction": "Au pôle Nord, un pas vers le sud puis l'est puis le nord te ramène au départ. C'est la géométrie sphérique !"
+        },
+        {
+          "id": "qp01-d4",
+          "type": "mcq",
+          "prompt": "Le Dr. Bernard a une sœur. La sœur du Dr. Bernard n'a pas de frère. Comment est-ce possible ?",
+          "options": ["Le Dr. Bernard est une femme", "Impossible", "Il est adopté", "Il est fils unique"],
+          "answer": "Le Dr. Bernard est une femme",
+          "correction": "Si le Dr. Bernard est une femme, alors la 'sœur du Dr. Bernard' c'est elle-même — elle n'a pas de frère !"
+        },
+        {
+          "id": "qp01-d5",
+          "type": "mcq",
+          "prompt": "Divide 30 by ½ and add 10. What is the answer?",
+          "options": ["70", "25", "40", "15"],
+          "answer": "70",
+          "correction": "Diviser par ½ = multiplier par 2. 30 × 2 = 60, + 10 = 70. Beaucoup répondent 25 en faisant 30 ÷ 2 !"
+        },
+        {
+          "id": "qp01-d6",
+          "type": "mcq",
+          "prompt": "Un électricien et son fils ont un accident. Le père meurt. À l'hôpital, le chirurgien dit : « Je ne peux pas opérer cet enfant, c'est mon fils. » Comment est-ce possible ?",
+          "options": ["Le chirurgien est la mère de l'enfant", "L'enfant a deux pères", "Erreur de la question", "Le chirurgien ment"],
+          "answer": "Le chirurgien est la mère de l'enfant",
+          "correction": "On suppose souvent que le chirurgien est un homme. Mais c'est la mère de l'enfant !"
+        },
+        {
+          "id": "qp01-d7",
+          "type": "mcq",
+          "prompt": "Tu prends le départ en dernière position d'une course. Tu dépasses successivement tous les concurrents. À quelle position arrives-tu ?",
+          "options": ["Avant-dernière", "1re", "Dernière", "2e"],
+          "answer": "Avant-dernière",
+          "correction": "Tu dépasses tous les concurrents sauf... celui en tête que tu ne peux pas dépasser si tu arrives derrière tous les autres !"
+        },
+        {
+          "id": "qp01-d8",
+          "type": "mcq",
+          "prompt": "Combien de fois peut-on soustraire 5 du nombre 25 ?",
+          "options": ["1 fois", "5 fois", "25 fois", "Infiniment"],
+          "answer": "1 fois",
+          "correction": "On peut soustraire 5 de 25 UNE seule fois. Après, on soustrait 5 de 20, puis de 15... Le nombre a changé !"
+        }
+      ]
+    }
+  }
+}

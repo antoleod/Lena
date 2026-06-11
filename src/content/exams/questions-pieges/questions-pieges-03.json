@@ -1,0 +1,219 @@
+{
+  "id": "questions-pieges-03",
+  "category": "questions-pieges",
+  "categoryLabel": "Questions Pièges",
+  "categoryEmoji": "🪤",
+  "categoryOrder": 19,
+  "title": "Pièges de logique",
+  "emoji": "🧩",
+  "order": 3,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "qp03-f1",
+          "type": "mcq",
+          "prompt": "Marie a 3 frères. Chaque frère a 2 sœurs. Combien de sœurs a Marie ?",
+          "options": ["2", "6", "3", "1"],
+          "answer": "2",
+          "correction": "Les frères de Marie ont 2 sœurs chacun, et Marie est l'une d'elles. Donc Marie a 1 autre sœur en plus d'elle-même = 2 sœurs au total."
+        },
+        {
+          "id": "qp03-f2",
+          "type": "mcq",
+          "prompt": "Il y a 3 pommes sur la table. Tu en prends 2. Combien en as-tu ?",
+          "options": ["2", "1", "3", "0"],
+          "answer": "2",
+          "correction": "Tu as pris 2 pommes — tu en as donc 2 dans les mains !"
+        },
+        {
+          "id": "qp03-f3",
+          "type": "mcq",
+          "prompt": "Quelle lettre vient après Y dans l'alphabet ?",
+          "options": ["Z", "A", "W", "X"],
+          "answer": "Z",
+          "correction": "Après Y vient Z. L'alphabet se termine par Z."
+        },
+        {
+          "id": "qp03-f4",
+          "type": "mcq",
+          "prompt": "Si tu te couches à 20h et mets ton réveil pour 9h du matin, combien d'heures dors-tu ?",
+          "options": ["13", "11", "9", "1"],
+          "answer": "13",
+          "correction": "De 20h à 9h du matin = 13 heures. Beaucoup répondent 9 parce qu'ils voient '9h' !"
+        },
+        {
+          "id": "qp03-f5",
+          "type": "mcq",
+          "prompt": "Un avion à réaction met 3 heures pour aller de A à B. Mais il met seulement 2 heures 45 minutes pour revenir. Pourquoi ?",
+          "options": ["Le vent pousse l'avion au retour", "L'avion va plus vite au retour", "C'est impossible", "Il prend un autre chemin"],
+          "answer": "Le vent pousse l'avion au retour",
+          "correction": "Les vents dominants peuvent aider ou ralentir un avion selon le sens de vol."
+        },
+        {
+          "id": "qp03-f6",
+          "type": "mcq",
+          "prompt": "Qu'est-ce qu'on trouve toujours au milieu de Paris ?",
+          "options": ["La lettre 'a'", "La Tour Eiffel", "La Seine", "Notre-Dame"],
+          "answer": "La lettre 'a'",
+          "correction": "P-A-R-I-S : la lettre 'A' est au milieu du mot 'Paris' !"
+        },
+        {
+          "id": "qp03-f7",
+          "type": "mcq",
+          "prompt": "Un coq pond-il des œufs ?",
+          "options": ["Non, jamais", "Oui, rarement", "Seulement en été", "Oui, mais petits"],
+          "answer": "Non, jamais",
+          "correction": "Un coq est un mâle. Seules les poules femelles pondent des œufs."
+        },
+        {
+          "id": "qp03-f8",
+          "type": "mcq",
+          "prompt": "Si une vache pèse 500 kg et se tient sur 4 pattes, combien pèse chaque patte ?",
+          "options": ["La question n'a pas de sens", "125 kg", "500 kg", "250 kg"],
+          "answer": "La question n'a pas de sens",
+          "correction": "Les pattes ne 'pèsent' pas la même chose que la masse totale — chaque patte supporte ~125 kg mais la question porte sur le poids de la patte elle-même, ce qui dépend de l'anatomie."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "qp03-m1",
+          "type": "mcq",
+          "prompt": "Il faut 5 machines pour fabriquer 5 pièces en 5 minutes. Combien faut-il de machines pour faire 100 pièces en 100 minutes ?",
+          "options": ["5", "100", "500", "50"],
+          "answer": "5",
+          "correction": "Chaque machine fabrique 1 pièce en 5 min. En 100 min, chaque machine fait 20 pièces. 5 machines × 20 = 100 pièces."
+        },
+        {
+          "id": "qp03-m2",
+          "type": "mcq",
+          "prompt": "Un nénuphar double de taille chaque jour. Il couvre tout l'étang en 48 jours. Quand couvrait-il la moitié de l'étang ?",
+          "options": ["Le 47e jour", "Le 24e jour", "Le 36e jour", "Le 46e jour"],
+          "answer": "Le 47e jour",
+          "correction": "Le nénuphar double chaque jour. S'il couvre tout le 48e jour, il couvrait la moitié le 47e jour (un jour avant) !"
+        },
+        {
+          "id": "qp03-m3",
+          "type": "mcq",
+          "prompt": "Thomas a deux enfants. L'un d'eux est un garçon né un mardi. Quelle est la probabilité que l'autre soit aussi un garçon ?",
+          "options": ["Environ 13/27", "1/2 (50%)", "1/3", "2/3"],
+          "answer": "Environ 13/27",
+          "correction": "Contre-intuitif ! Savoir qu'un garçon est né un mardi change légèrement les probabilités via la règle des cas favorables."
+        },
+        {
+          "id": "qp03-m4",
+          "type": "mcq",
+          "prompt": "Deux pères et deux fils se partagent 3 pizzas entières, chacun en mange exactement une. Comment est-ce possible ?",
+          "options": ["Il y a 3 personnes : grand-père, père, fils", "Il y a 4 personnes", "Une pizza est coupée en deux", "C'est impossible"],
+          "answer": "Il y a 3 personnes : grand-père, père, fils",
+          "correction": "Grand-père = père de quelqu'un. Père = père ET fils. Fils = fils. Donc 2 pères ET 2 fils = 3 personnes seulement !"
+        },
+        {
+          "id": "qp03-m5",
+          "type": "mcq",
+          "prompt": "Une grenouille est au fond d'un puits de 10 m. Chaque jour elle monte 3 m, chaque nuit elle redescend 2 m. Combien de jours met-elle pour sortir ?",
+          "options": ["8 jours", "10 jours", "7 jours", "5 jours"],
+          "answer": "8 jours",
+          "correction": "Elle progresse de 1 m/jour. Au soir du 7e jour elle est à 7 m. Le 8e jour elle monte à 10 m et sort (sans redescendre cette nuit-là) !"
+        },
+        {
+          "id": "qp03-m6",
+          "type": "mcq",
+          "prompt": "Quelle est la suite logique : 2, 4, 8, 16, ?",
+          "options": ["32", "24", "18", "20"],
+          "answer": "32",
+          "correction": "Chaque terme est multiplié par 2 : 2×2=4, 4×2=8, 8×2=16, 16×2=32."
+        },
+        {
+          "id": "qp03-m7",
+          "type": "mcq",
+          "prompt": "Un train de 200 m traverse un tunnel de 300 m à 100 km/h. Combien de temps le train est-il dans le tunnel ?",
+          "options": ["18 secondes", "10,8 secondes", "7,2 secondes", "20 secondes"],
+          "answer": "18 secondes",
+          "correction": "Le train doit parcourir 200 + 300 = 500 m. À 100 km/h ≈ 27,78 m/s → 500 ÷ 27,78 ≈ 18 secondes."
+        },
+        {
+          "id": "qp03-m8",
+          "type": "mcq",
+          "prompt": "Dans une famille, tous les enfants ont des sœurs, sauf les filles. Tous ont des frères, sauf les garçons. Combien d'enfants y a-t-il ?",
+          "options": ["Au minimum 2 (1 fille, 1 garçon)", "Impossible", "4 enfants", "0 enfants"],
+          "answer": "Au minimum 2 (1 fille, 1 garçon)",
+          "correction": "1 fille + 1 garçon : le garçon a une sœur (la fille), la fille a un frère (le garçon). Conditions remplies avec 2 enfants !"
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 70,
+      "questions": [
+        {
+          "id": "qp03-d1",
+          "type": "mcq",
+          "prompt": "Un prisonnier doit choisir entre 3 portes : derrière la 1re il y a des lions affamés, derrière la 2e des assassins, derrière la 3e une flamme. Laquelle choisir ?",
+          "options": ["Les lions — ils sont morts de faim", "La flamme", "Les assassins", "Toutes sont mortelles"],
+          "answer": "Les lions — ils sont morts de faim",
+          "correction": "Des lions 'affamés' signifient qu'ils n'ont pas mangé depuis longtemps et pourraient même être morts. Les lions morts ne peuvent pas tuer !"
+        },
+        {
+          "id": "qp03-d2",
+          "type": "mcq",
+          "prompt": "Le paradoxe du bateau de Thésée : si l'on remplace toutes les planches d'un bateau une à une, est-ce encore le même bateau ?",
+          "options": ["Ça dépend de votre définition de 'même'", "Oui, c'est le même", "Non, c'est un autre", "C'est illégal"],
+          "answer": "Ça dépend de votre définition de 'même'",
+          "correction": "Ce paradoxe philosophique pose la question de l'identité. Il n'y a pas de réponse scientifique — tout dépend de ce qu'on appelle 'être le même'."
+        },
+        {
+          "id": "qp03-d3",
+          "type": "mcq",
+          "prompt": "Un homme dit : 'Je mens toujours.' Dit-il la vérité ou ment-il ?",
+          "options": ["Ni l'un ni l'autre — c'est un paradoxe", "Il ment", "Il dit la vérité", "On ne peut pas savoir"],
+          "answer": "Ni l'un ni l'autre — c'est un paradoxe",
+          "correction": "Si c'est vrai qu'il ment toujours, alors il ment en disant ça (donc il dit la vérité). Contradiction ! C'est le paradoxe du menteur."
+        },
+        {
+          "id": "qp03-d4",
+          "type": "mcq",
+          "prompt": "Vous jouez à Qui veut gagner des millions. Vous choisissez la porte 1. L'animateur ouvre la porte 3 (qui cache une chèvre). Devriez-vous changer ?",
+          "options": ["Oui, changer double vos chances (67%)", "Non, 50/50 maintenant", "Changer ne change rien", "Oui, mais très légèrement"],
+          "answer": "Oui, changer double vos chances (67%)",
+          "correction": "Problème de Monty Hall : en changeant, vos chances passent de 1/3 à 2/3. L'animateur qui 'sait' vous donne de l'information !"
+        },
+        {
+          "id": "qp03-d5",
+          "type": "mcq",
+          "prompt": "Combien de fois au minimum faut-il plier une feuille de papier pour qu'elle soit plus épaisse que la distance Terre-Lune ?",
+          "options": ["42 fois", "100 fois", "1000 fois", "Impossible"],
+          "answer": "42 fois",
+          "correction": "La croissance exponentielle : 0.1mm × 2^42 ≈ 440 000 km > 384 000 km (Terre-Lune). Seulement 42 plis !"
+        },
+        {
+          "id": "qp03-d6",
+          "type": "mcq",
+          "prompt": "Dans un groupe de 23 personnes, quelle est la probabilité qu'au moins deux aient le même anniversaire ?",
+          "options": ["Plus de 50%", "Moins de 10%", "Exactement 50%", "Moins de 5%"],
+          "answer": "Plus de 50%",
+          "correction": "Le paradoxe des anniversaires : avec 23 personnes, P(collision) ≈ 50,7% ! Très contre-intuitif car on imagine 365 jours."
+        },
+        {
+          "id": "qp03-d7",
+          "type": "mcq",
+          "prompt": "Zénon dit : 'Achille ne peut pas rattraper une tortue car elle sera toujours un peu devant lui.' Quel est le flaw de ce raisonnement ?",
+          "options": ["Une somme infinie de termes peut être finie", "Achille court plus vite", "La tortue s'arrête", "Ce n'est pas un raisonnement valide"],
+          "answer": "Une somme infinie de termes peut être finie",
+          "correction": "1/2 + 1/4 + 1/8 + ... = 1. Une suite infinie peut converger. Zénon ignorait les séries géométriques."
+        },
+        {
+          "id": "qp03-d8",
+          "type": "mcq",
+          "prompt": "Un sac contient 3 boules blanches et 2 noires. Je tire 2 boules d'un coup. Quelle est la probabilité qu'elles soient de la même couleur ?",
+          "options": ["4/10", "3/10", "5/10", "6/10"],
+          "answer": "4/10",
+          "correction": "P(2 blanches) = C(3,2)/C(5,2) = 3/10. P(2 noires) = C(2,2)/C(5,2) = 1/10. Total = 4/10."
+        }
+      ]
+    }
+  }
+}

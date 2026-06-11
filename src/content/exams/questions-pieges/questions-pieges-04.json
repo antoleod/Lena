@@ -1,0 +1,219 @@
+{
+  "id": "questions-pieges-04",
+  "category": "questions-pieges",
+  "categoryLabel": "Questions Pièges",
+  "categoryEmoji": "🪤",
+  "categoryOrder": 19,
+  "title": "Mythes et réalités",
+  "emoji": "🔬",
+  "order": 4,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "qp04-f1",
+          "type": "mcq",
+          "prompt": "Les chauves-souris sont-elles aveugles ?",
+          "options": ["Non, elles voient très bien", "Oui, complètement", "Oui, mais seulement de jour", "Elles voient uniquement dans le noir"],
+          "answer": "Non, elles voient très bien",
+          "correction": "Les chauves-souris ne sont PAS aveugles ! Elles ont de bons yeux ET utilisent l'écholocation. Expression fausse."
+        },
+        {
+          "id": "qp04-f2",
+          "type": "mcq",
+          "prompt": "Quelle partie du cerveau utilisons-nous ?",
+          "options": ["100% — pas seulement 10%", "10%", "50%", "30%"],
+          "answer": "100% — pas seulement 10%",
+          "correction": "Le mythe des '10% du cerveau' est faux ! Nous utilisons tout notre cerveau, différentes zones à différents moments."
+        },
+        {
+          "id": "qp04-f3",
+          "type": "mcq",
+          "prompt": "La Grande Muraille de Chine est-elle visible à l'œil nu depuis l'espace ?",
+          "options": ["Non", "Oui, clairement", "Oui, avec bonne météo", "Oui, depuis la Lune"],
+          "answer": "Non",
+          "correction": "C'est un mythe célèbre ! La Grande Muraille est trop étroite pour être visible à l'œil nu depuis l'espace."
+        },
+        {
+          "id": "qp04-f4",
+          "type": "mcq",
+          "prompt": "Les poissons rouges ont-ils une mémoire de 3 secondes ?",
+          "options": ["Non, ils peuvent se souvenir plusieurs mois", "Oui", "Oui, mais 5 secondes", "Ils n'ont aucune mémoire"],
+          "answer": "Non, ils peuvent se souvenir plusieurs mois",
+          "correction": "Ce mythe est complètement faux ! Des études montrent que les poissons rouges peuvent mémoriser des informations pendant des mois."
+        },
+        {
+          "id": "qp04-f5",
+          "type": "mcq",
+          "prompt": "Les épinards sont-ils exceptionnellement riches en fer ?",
+          "options": ["Non, c'est un mythe lié à une erreur de calcul", "Oui, c'est le légume le plus riche en fer", "Oui, mais seulement cuits", "Oui, et Popeye avait raison"],
+          "answer": "Non, c'est un mythe lié à une erreur de calcul",
+          "correction": "En 1870, une virgule mal placée dans une analyse multipliait par 10 la teneur en fer. Les épinards ont environ 2,7 mg/100g — pas exceptionnel."
+        },
+        {
+          "id": "qp04-f6",
+          "type": "mcq",
+          "prompt": "Le soleil est-il une boule de feu ?",
+          "options": ["Non, c'est une boule de plasma", "Oui", "C'est une étoile de type gaz", "Oui, de gaz en feu"],
+          "answer": "Non, c'est une boule de plasma",
+          "correction": "Le Soleil est une étoile composée principalement de plasma (hydrogène et hélium). Le 'feu' tel qu'on le connaît nécessite de l'oxygène — absent dans le Soleil."
+        },
+        {
+          "id": "qp04-f7",
+          "type": "mcq",
+          "prompt": "Les humains sont-ils les seuls animaux à utiliser des outils ?",
+          "options": ["Non, de nombreux animaux utilisent des outils", "Oui", "Non, seulement les singes aussi", "Non, seulement les dauphins aussi"],
+          "answer": "Non, de nombreux animaux utilisent des outils",
+          "correction": "Les corbeaux, dauphins, loutres, pieuvres, et bien d'autres animaux utilisent des outils !"
+        },
+        {
+          "id": "qp04-f8",
+          "type": "mcq",
+          "prompt": "Le sang dans les veines est-il bleu ?",
+          "options": ["Non, il est toujours rouge", "Oui, le sang désoxygéné est bleu", "Oui, mais il rougit à l'air", "Les veines semblent bleues car la peau filtre la lumière"],
+          "answer": "Non, il est toujours rouge",
+          "correction": "Le sang est toujours rouge ! Les veines semblent bleues sous la peau car la peau filtre différemment les longueurs d'onde lumineuses."
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "qp04-m1",
+          "type": "mcq",
+          "prompt": "Napoléon Bonaparte était-il très petit ?",
+          "options": ["Non, il mesurait environ 1,69 m — taille moyenne pour l'époque", "Oui, il mesurait 1,51 m", "Oui, environ 1,60 m", "Non, il mesurait 1,80 m"],
+          "answer": "Non, il mesurait environ 1,69 m — taille moyenne pour l'époque",
+          "correction": "Napoléon mesurait ~1,69 m, taille dans la moyenne pour un Français de l'époque. La confusion vient d'une erreur de conversion entre pouces français et anglais."
+        },
+        {
+          "id": "qp04-m2",
+          "type": "mcq",
+          "prompt": "Les Vikings portaient-ils des casques à cornes ?",
+          "options": ["Non, c'est une invention du XIXe siècle", "Oui, toujours au combat", "Oui, mais seulement les chefs", "Non, ils ne portaient pas de casques"],
+          "answer": "Non, c'est une invention du XIXe siècle",
+          "correction": "Les casques à cornes des Vikings sont un mythe romantique popularisé au XIXe siècle ! Les vrais casques vikings étaient simples, sans cornes."
+        },
+        {
+          "id": "qp04-m3",
+          "type": "mcq",
+          "prompt": "Le cristal de roche est-il plus froid au toucher que le verre ordinaire ?",
+          "options": ["Oui, car il conduit mieux la chaleur", "Non, ils sont à la même température", "Oui, car il absorbe le froid", "Non, le verre est plus froid"],
+          "answer": "Oui, car il conduit mieux la chaleur",
+          "correction": "Le cristal de roche (quartz) conduit mieux la chaleur que le verre. Il extrait plus vite la chaleur de votre main, donnant une sensation de froid."
+        },
+        {
+          "id": "qp04-m4",
+          "type": "mcq",
+          "prompt": "Einstein a-t-il raté ses cours de maths à l'école ?",
+          "options": ["Non, il excellait en maths", "Oui, c'est documenté", "Oui, mais seulement en primaire", "Non, il ne fut pas scolarisé"],
+          "answer": "Non, il excellait en maths",
+          "correction": "Einstein était excellent en mathématiques et en physique ! Ce mythe vient d'une confusion avec la notation suisse inversée. Il a toutefois raté l'entrée à l'Ecole Polytechnique la première fois."
+        },
+        {
+          "id": "qp04-m5",
+          "type": "mcq",
+          "prompt": "Pendant combien de temps peut-on survivre sans eau ?",
+          "options": ["3 à 5 jours en moyenne", "3 semaines", "24 heures", "10 jours"],
+          "answer": "3 à 5 jours en moyenne",
+          "correction": "Sans eau, la mort survient généralement en 3 à 5 jours (variable selon chaleur, activité, santé). Sans nourriture, on peut survivre des semaines."
+        },
+        {
+          "id": "qp04-m6",
+          "type": "mcq",
+          "prompt": "L'eau chaude gèle-t-elle plus vite que l'eau froide ?",
+          "options": ["Parfois — c'est l'effet Mpemba", "Non, jamais", "Oui, toujours", "Elles gèlent à la même vitesse"],
+          "answer": "Parfois — c'est l'effet Mpemba",
+          "correction": "L'effet Mpemba est réel dans certaines conditions mais pas universel. Les facteurs : évaporation, convection, gaz dissous. Le débat scientifique continue !"
+        },
+        {
+          "id": "qp04-m7",
+          "type": "mcq",
+          "prompt": "On dit qu'on ne doit pas se baigner dans l'heure après avoir mangé. Est-ce vrai ?",
+          "options": ["C'est exagéré — un léger risque de crampes, pas de noyade", "Oui, c'est dangereux", "Oui, cela cause la noyade", "Non, c'est totalement faux"],
+          "answer": "C'est exagéré — un léger risque de crampes, pas de noyade",
+          "correction": "Nager après manger peut causer de l'inconfort ou des crampes légères, mais ne cause pas de noyade. C'est une précaution exagérée."
+        },
+        {
+          "id": "qp04-m8",
+          "type": "mcq",
+          "prompt": "Les ongles et cheveux continuent-ils de pousser après la mort ?",
+          "options": ["Non, c'est une illusion due à la déshydratation de la peau", "Oui", "Oui, pendant 48h", "Seulement les ongles"],
+          "answer": "Non, c'est une illusion due à la déshydratation de la peau",
+          "correction": "Après la mort, les cellules n'ont plus d'énergie pour croître. La peau se rétracte en se déshydratant, faisant paraître ongles et cheveux plus longs."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 70,
+      "questions": [
+        {
+          "id": "qp04-d1",
+          "type": "mcq",
+          "prompt": "La foudre ne tombe-t-elle jamais deux fois au même endroit ?",
+          "options": ["Faux — la Tour Eiffel est frappée ~10 fois par an", "Vrai", "Vrai, mais seulement pour les arbres", "Faux, mais c'est rare"],
+          "answer": "Faux — la Tour Eiffel est frappée ~10 fois par an",
+          "correction": "Ce mythe est faux ! La Tour Eiffel est frappée environ 10 fois par an. Les parafoudres attirent délibérément la foudre."
+        },
+        {
+          "id": "qp04-d2",
+          "type": "mcq",
+          "prompt": "L'espace est-il complètement silencieux ?",
+          "options": ["Oui, le vide ne transmet pas les ondes sonores", "Non, on entend des sons", "Partiellement — certaines zones ont du bruit", "Non, il y a un bourdonnement constant"],
+          "answer": "Oui, le vide ne transmet pas les ondes sonores",
+          "correction": "Le son est une onde mécanique qui nécessite un milieu pour se propager. Dans le vide de l'espace, le son ne se propage pas."
+        },
+        {
+          "id": "qp04-d3",
+          "type": "mcq",
+          "prompt": "Les dinosaures ont-ils disparu à cause d'un seul astéroïde ?",
+          "options": ["Probablement une combinaison d'astéroïde et de volcanisme", "Oui, uniquement l'astéroïde", "Non, ils ont évolué en oiseaux", "Non, c'est le volcanisme seul"],
+          "answer": "Probablement une combinaison d'astéroïde et de volcanisme",
+          "correction": "L'astéroïde de Chicxulub est le déclencheur principal, mais le volcanisme massif des Trapps du Deccan aggravait déjà la situation. La science est nuancée !"
+        },
+        {
+          "id": "qp04-d4",
+          "type": "mcq",
+          "prompt": "Peut-on voir les couleurs dans le noir total ?",
+          "options": ["Non — sans photons, la couleur n'existe pas", "Oui, les cônes fonctionnent encore", "Non, mais on voit des formes", "Oui, avec de l'infrarouge"],
+          "answer": "Non — sans photons, la couleur n'existe pas",
+          "correction": "La couleur est une interprétation cérébrale de longueurs d'onde lumineuses. Sans lumière = sans photons = sans couleur. Le noir total est sans couleur."
+        },
+        {
+          "id": "qp04-d5",
+          "type": "mcq",
+          "prompt": "L'ADN humain est-il identique à 99% entre tous les humains ?",
+          "options": ["Oui — nous différons à ~0,1% de l'ADN", "Non, on diffère à 10%", "Oui, à 50%", "Oui, nous sommes identiques à 100%"],
+          "answer": "Oui — nous différons à ~0,1% de l'ADN",
+          "correction": "Tous les humains partagent ~99,9% de leur ADN. Les 0,1% restants expliquent toute notre diversité individuelle !"
+        },
+        {
+          "id": "qp04-d6",
+          "type": "mcq",
+          "prompt": "Combien de sens possède l'être humain ?",
+          "options": ["Plus de 5 — équilibre, proprioception, thermoception, nociception...", "5 exactement", "7", "6"],
+          "answer": "Plus de 5 — équilibre, proprioception, thermoception, nociception...",
+          "correction": "Au-delà des 5 sens classiques, on compte l'équilibre (vestibulaire), la proprioception (position du corps), la thermoception (température), la nociception (douleur). Au moins 9 à 21 selon les définitions."
+        },
+        {
+          "id": "qp04-d7",
+          "type": "mcq",
+          "prompt": "Un objet tombe-t-il à la même vitesse quelle que soit sa masse, dans le vide ?",
+          "options": ["Oui — Galilée l'a prouvé", "Non — les objets lourds tombent plus vite", "Seulement si la forme est identique", "Non — Newton a réfuté Galilée"],
+          "answer": "Oui — Galilée l'a prouvé",
+          "correction": "Dans le vide, tous les objets tombent à la même vitesse, quelle que soit leur masse. Galilée l'a démontré sur la Tour de Pise."
+        },
+        {
+          "id": "qp04-d8",
+          "type": "mcq",
+          "prompt": "Le cœur s'arrête-t-il quand on éternue ?",
+          "options": ["Non, le rythme peut juste légèrement varier", "Oui, une fraction de seconde", "Oui, pendant 1 seconde", "Non, le cœur accélère"],
+          "answer": "Non, le rythme peut juste légèrement varier",
+          "correction": "C'est un mythe ! Le cœur ne s'arrête pas lors d'un éternuement. La pression thoracique peut légèrement modifier le rythme cardiaque, sans arrêt."
+        }
+      ]
+    }
+  }
+}

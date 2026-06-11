@@ -5835,6 +5835,50 @@
           "_path": "./grand-defi/grand-defi-05.json"
         }
       ]
+    },
+    {
+      "id": "questions-pieges",
+      "label": "Questions Pièges",
+      "emoji": "🪤",
+      "order": 19,
+      "exams": [
+        {
+          "id": "questions-pieges-01",
+          "title": "Pièges de maths 1",
+          "emoji": "🧮",
+          "order": 1,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": { "facile": 60, "moyen": 60, "difficile": 70 },
+          "_path": "./questions-pieges/questions-pieges-01.json"
+        },
+        {
+          "id": "questions-pieges-02",
+          "title": "Pièges de langue",
+          "emoji": "📝",
+          "order": 2,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": { "facile": 60, "moyen": 60, "difficile": 70 },
+          "_path": "./questions-pieges/questions-pieges-02.json"
+        },
+        {
+          "id": "questions-pieges-03",
+          "title": "Pièges de logique",
+          "emoji": "🧩",
+          "order": 3,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": { "facile": 60, "moyen": 60, "difficile": 70 },
+          "_path": "./questions-pieges/questions-pieges-03.json"
+        },
+        {
+          "id": "questions-pieges-04",
+          "title": "Mythes et réalités",
+          "emoji": "🔬",
+          "order": 4,
+          "levelKeys": ["facile", "moyen", "difficile"],
+          "levelPassPercent": { "facile": 60, "moyen": 60, "difficile": 70 },
+          "_path": "./questions-pieges/questions-pieges-04.json"
+        }
+      ]
     }
   ]
 }

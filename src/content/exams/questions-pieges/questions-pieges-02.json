@@ -1,0 +1,219 @@
+{
+  "id": "questions-pieges-02",
+  "category": "questions-pieges",
+  "categoryLabel": "Questions Pièges",
+  "categoryEmoji": "🪤",
+  "categoryOrder": 19,
+  "title": "Pièges de langue",
+  "emoji": "📝",
+  "order": 2,
+  "levels": {
+    "facile": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "qp02-f1",
+          "type": "mcq",
+          "prompt": "Lis cette phrase : « Tout est bien qui finit bien. » Combien y a-t-il de fois la lettre « i » ?",
+          "options": ["4", "3", "5", "2"],
+          "answer": "4",
+          "correction": "b-i-en (1), f-i-n-i-t (2 fois), b-i-en (1) → 4 fois la lettre 'i'."
+        },
+        {
+          "id": "qp02-f2",
+          "type": "mcq",
+          "prompt": "Est-ce qu'un homme peut se marier avec la sœur de sa veuve ?",
+          "options": ["Non, il est mort", "Oui, c'est légal", "Non, c'est interdit", "Oui, dans certains pays"],
+          "answer": "Non, il est mort",
+          "correction": "Sa VEUVE, c'est sa femme... après sa mort. Un homme mort ne peut pas se marier !"
+        },
+        {
+          "id": "qp02-f3",
+          "type": "mcq",
+          "prompt": "Combien de fois la lettre « e » apparaît-elle dans « éléphant » ?",
+          "options": ["2", "3", "1", "0"],
+          "answer": "2",
+          "correction": "é-l-é-p-h-a-n-t : le é (1) et le é (2). Il y a 2 fois la lettre e (accent ou non)."
+        },
+        {
+          "id": "qp02-f4",
+          "type": "mcq",
+          "prompt": "« Il y a une faute dans cette phrase. » Y a-t-il une faute ?",
+          "options": ["Non, elle est correcte", "Oui, une faute d'orthographe", "Oui, une faute de grammaire", "Impossible à dire"],
+          "answer": "Non, elle est correcte",
+          "correction": "La phrase dit qu'il Y A une faute, mais elle est parfaitement correcte. C'est un piège de logique !"
+        },
+        {
+          "id": "qp02-f5",
+          "type": "mcq",
+          "prompt": "Comment écrit-on le pluriel de « un bal » ?",
+          "options": ["des bals", "des baux", "des balles", "des bal"],
+          "answer": "des bals",
+          "correction": "'Bal' est une exception : le pluriel est 'bals' et non 'baux'. Attention aux pièges d'orthographe !"
+        },
+        {
+          "id": "qp02-f6",
+          "type": "mcq",
+          "prompt": "Quelle heure est-il quand il est midi et demi ?",
+          "options": ["12h30", "12h50", "11h30", "13h00"],
+          "answer": "12h30",
+          "correction": "Midi = 12h00. Midi et demi = 12h30. Simple mais beaucoup répondent 12h50 !"
+        },
+        {
+          "id": "qp02-f7",
+          "type": "mcq",
+          "prompt": "Lequel de ces mots n'existe pas ?",
+          "options": ["Tous existent", "Anticonstitutionnellement", "Précédemment", "Gouvernementalement"],
+          "answer": "Tous existent",
+          "correction": "Ces trois mots très longs existent bel et bien en français !"
+        },
+        {
+          "id": "qp02-f8",
+          "type": "mcq",
+          "prompt": "On dit « un requin-marteau ». Quel est le pluriel correct ?",
+          "options": ["des requins-marteaux", "des requin-marteaux", "des requins-marteux", "des requins-marteaux ou des requins-marteau"],
+          "answer": "des requins-marteaux",
+          "correction": "'Requins-marteaux' : les deux noms prennent la marque du pluriel !"
+        }
+      ]
+    },
+    "moyen": {
+      "passPercent": 60,
+      "questions": [
+        {
+          "id": "qp02-m1",
+          "type": "mcq",
+          "prompt": "Quelle phrase est FAUSSE ? « Les Romains parlaient latin. » / « César est mort en −44. » / « Les Gaulois habitaient en Gaule. »",
+          "options": ["Aucune n'est fausse", "Les Romains parlaient latin", "César est mort en −44", "Les Gaulois habitaient en Gaule"],
+          "answer": "Aucune n'est fausse",
+          "correction": "Les trois affirmations sont historiquement correctes. C'est un piège de lecture rapide !"
+        },
+        {
+          "id": "qp02-m2",
+          "type": "mcq",
+          "prompt": "Lis attentivement : « Paris est la capitale de la France et la France est un pays d'Europe. » Combien de 'et' y a-t-il ?",
+          "options": ["1", "2", "0", "3"],
+          "answer": "1",
+          "correction": "Il y a UN seul 'et' dans cette phrase. Relis bien !"
+        },
+        {
+          "id": "qp02-m3",
+          "type": "mcq",
+          "prompt": "Comment dit-on « en face de la mairie » en changeant 'mairie' par son synonyme ?",
+          "options": ["en face de l'hôtel de ville", "devant la mairie", "à côté de la mairie", "derrière l'hôtel de ville"],
+          "answer": "en face de l'hôtel de ville",
+          "correction": "'Mairie' et 'hôtel de ville' sont synonymes. Le reste de la phrase ne change pas."
+        },
+        {
+          "id": "qp02-m4",
+          "type": "mcq",
+          "prompt": "« Je mange » est au présent. « Je mangerai » est au futur. Et « J'ai mangé » est...",
+          "options": ["Passé composé", "Imparfait", "Futur antérieur", "Plus-que-parfait"],
+          "answer": "Passé composé",
+          "correction": "'Avoir/être' au présent + participe passé = passé composé. C'est le temps du passé le plus courant."
+        },
+        {
+          "id": "qp02-m5",
+          "type": "mcq",
+          "prompt": "Quelle est la bonne façon d'écrire : « Cent euros » ou « Cent euro » ?",
+          "options": ["Cent euros", "Cent euro", "Les deux sont corrects", "Centième euro"],
+          "answer": "Cent euros",
+          "correction": "'Euro' prend un 's' au pluriel quand on parle d'une somme ronde : cent euros, vingt euros."
+        },
+        {
+          "id": "qp02-m6",
+          "type": "mcq",
+          "prompt": "Combien de syllabes contient le mot « extraordinaire » ?",
+          "options": ["6", "5", "7", "4"],
+          "answer": "6",
+          "correction": "ex-tra-or-di-nai-re = 6 syllabes. Beaucoup en comptent 5 en oubliant de séparer 'tra-or'."
+        },
+        {
+          "id": "qp02-m7",
+          "type": "mcq",
+          "prompt": "On lit : « Le chien de ma voisine qui aboie tout le temps m'énerve. » Qui aboie ?",
+          "options": ["Le chien", "La voisine", "Les deux", "On ne sait pas"],
+          "answer": "Le chien",
+          "correction": "Grammaticalement, 'qui' se rapporte à 'chien' (le plus proche). C'est le chien qui aboie !"
+        },
+        {
+          "id": "qp02-m8",
+          "type": "mcq",
+          "prompt": "Comment s'appelle la figure de style dans : « Il pleut des cordes » ?",
+          "options": ["Métaphore", "Comparaison", "Hyperbole", "Métonymie"],
+          "answer": "Métaphore",
+          "correction": "'Il pleut des cordes' compare la pluie à des cordes SANS 'comme' ni 'tel que'. C'est une métaphore."
+        }
+      ]
+    },
+    "difficile": {
+      "passPercent": 70,
+      "questions": [
+        {
+          "id": "qp02-d1",
+          "type": "mcq",
+          "prompt": "Quelle est la particularité du mot « REVER » écrit en majuscules ?",
+          "options": ["Il se lit pareil dans les deux sens", "Il contient 5 lettres", "Il a une symétrie verticale", "Aucune particularité"],
+          "answer": "Il se lit pareil dans les deux sens",
+          "correction": "R-E-V-E-R à l'envers donne R-E-V-E-R. C'est un palindrome !"
+        },
+        {
+          "id": "qp02-d2",
+          "type": "mcq",
+          "prompt": "Ce mot a le sens opposé de lui-même selon le contexte : « Je vais te prêter mon livre » / « Puis-je emprunter ton livre ? » Le mot piège est :",
+          "options": ["prêter / emprunter", "vais / puis", "livre / ton", "le / mon"],
+          "answer": "prêter / emprunter",
+          "correction": "'Prêter' = donner temporairement. 'Emprunter' = recevoir temporairement. Sens opposés, même situation !"
+        },
+        {
+          "id": "qp02-d3",
+          "type": "mcq",
+          "prompt": "Dans la phrase « Il fait beau », quel est le sujet de 'fait' ?",
+          "options": ["Il (sujet impersonnel)", "beau", "Pas de sujet", "Le temps"],
+          "answer": "Il (sujet impersonnel)",
+          "correction": "'Il' est un sujet impersonnel — il ne représente personne ni rien de réel."
+        },
+        {
+          "id": "qp02-d4",
+          "type": "mcq",
+          "prompt": "Complète : « Je __ allé(e) au marché hier. » Quel auxiliaire utilise-t-on avec 'aller' au passé composé ?",
+          "options": ["suis", "ai", "étais", "fus"],
+          "answer": "suis",
+          "correction": "'Aller' se conjugue avec l'auxiliaire 'être' au passé composé. Je SUIS allé(e)."
+        },
+        {
+          "id": "qp02-d5",
+          "type": "mcq",
+          "prompt": "Quelle phrase contient une négation correcte ?",
+          "options": ["Je n'ai vu personne.", "Je n'ai pas vu personne.", "Je n'ai vu pas personne.", "J'ai vu personne."],
+          "answer": "Je n'ai vu personne.",
+          "correction": "'Personne' est déjà une négation. 'N'ai vu personne' = correct. 'N'ai pas vu personne' = double négation incorrecte."
+        },
+        {
+          "id": "qp02-d6",
+          "type": "mcq",
+          "prompt": "Combien de fois la lettre 'a' apparaît dans la phrase : « Anna a un chat dans sa cave » ?",
+          "options": ["5", "4", "6", "3"],
+          "answer": "5",
+          "correction": "Ann-a (1) a (2) un ch-a-t (3) d-a-ns (4) s-a (5) cave. Comptons : A-nn-a = 2, a = 1, ch-a-t = 1, d-a-ns = 1 → 5 fois."
+        },
+        {
+          "id": "qp02-d7",
+          "type": "mcq",
+          "prompt": "On dit 'anticonstitutionnellement'. Combien de lettres contient ce mot ?",
+          "options": ["25", "22", "28", "20"],
+          "answer": "25",
+          "correction": "a-n-t-i-c-o-n-s-t-i-t-u-t-i-o-n-n-e-l-l-e-m-e-n-t = 25 lettres. C'est l'un des plus longs mots français !"
+        },
+        {
+          "id": "qp02-d8",
+          "type": "mcq",
+          "prompt": "Quelle est la différence entre 'davantage' et 'd'avantage' ?",
+          "options": ["Davantage = plus. D'avantage = d'un avantage.", "Aucune différence", "Davantage s'écrit en deux mots", "D'avantage est incorrect"],
+          "answer": "Davantage = plus. D'avantage = d'un avantage.",
+          "correction": "'Il travaille davantage' = plus. 'Il bénéficie d'avantage' = d'un avantage (nom). Le piège est la prononciation identique !"
+        }
+      ]
+    }
+  }
+}
