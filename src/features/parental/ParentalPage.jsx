@@ -12,6 +12,14 @@ import {
   setLearningControl
 } from '../../services/storage/parentalStore.js';
 import { getProfile } from '../../services/storage/profileStore.js';
+import IconPinPad from '../auth/IconPinPad.jsx';
+import {
+  savePin as saveIconPin,
+  verifyPin as verifyIconPin,
+  clearPin as clearIconPin,
+  isPinSet as isIconPinSet,
+} from '../auth/iconPinStore.js';
+import { hasEmailPasswordProvider, changeEmailPassword } from '../../services/firebase/authService.js';
 import { gradeOptions, defaultCountrySystem } from '../../services/learning/gradeModel.js';
 import { getProgressSnapshot, getStudyStats } from '../../services/storage/progressStore.js';
 import { worldMap, getWorldProgress } from '../../shared/gameplay/worldMap.js';
@@ -564,6 +572,168 @@ function ControlTab() {
   );
 }
 
+// ── Account password (parent email/password) ─────────────────────────────────
+
+const PW_ERRORS = {
+  'auth/wrong-password':         'Mot de passe actuel incorrect.',
+  'auth/invalid-credential':     'Mot de passe actuel incorrect.',
+  'auth/weak-password':          'Nouveau mot de passe trop court (6 car. min).',
+  'auth/requires-recent-login':  'Reconnectez-vous puis réessayez.',
+  'auth/too-many-requests':      'Trop de tentatives. Réessayez plus tard.',
+  'auth/network-request-failed': 'Problème réseau. Vérifiez votre connexion.',
+};
+
+function AccountPasswordSection() {
+  const [form, setForm] = useState({ current: '', next: '', confirm: '' });
+  const [error, setError] = useState('');
+  const [done, setDone] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  // Only meaningful for email/password accounts (not Google-only / anon / guest).
+  if (!hasEmailPasswordProvider()) return null;
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError(''); setDone(false);
+    const { current, next, confirm } = form;
+    if (next.length < 6) { setError('Nouveau mot de passe trop court (6 car. min).'); return; }
+    if (next !== confirm) { setError('Les nouveaux mots de passe ne correspondent pas.'); return; }
+    setBusy(true);
+    try {
+      await changeEmailPassword(current, next);
+      setDone(true);
+      setForm({ current: '', next: '', confirm: '' });
+    } catch (err) {
+      setError(PW_ERRORS[err.code] || 'Une erreur est survenue.');
+    }
+    setBusy(false);
+  }
+
+  return (
+    <>
+      <h3 className="parental-section-title" style={{ marginTop: 28 }}>Mot de passe du compte</h3>
+      <p className="parental-hint">Modifiez le mot de passe de votre compte email.</p>
+      <form className="login-form" onSubmit={handleSubmit} style={{ marginTop: 8 }}>
+        <input
+          className="login-field__input" type="password" placeholder="Mot de passe actuel"
+          value={form.current} onChange={e => { setForm(f => ({ ...f, current: e.target.value })); setError(''); }}
+          required autoComplete="current-password"
+        />
+        <input
+          className="login-field__input" type="password" placeholder="Nouveau mot de passe (6 car. min)"
+          value={form.next} onChange={e => { setForm(f => ({ ...f, next: e.target.value })); setError(''); }}
+          required autoComplete="new-password"
+        />
+        <input
+          className="login-field__input" type="password" placeholder="Confirmer le nouveau mot de passe"
+          value={form.confirm} onChange={e => { setForm(f => ({ ...f, confirm: e.target.value })); setError(''); }}
+          required autoComplete="new-password"
+        />
+        {error && <p className="pin-error">{error}</p>}
+        {done && <p style={{ color: '#2ecc71', fontWeight: 700, margin: '4px 0 0' }}>✓ Mot de passe modifié.</p>}
+        <button className="primary-action" type="submit" disabled={busy}>
+          {busy ? 'Modification…' : 'Modifier le mot de passe'}
+        </button>
+      </form>
+    </>
+  );
+}
+
+// ── Child secret code (icon PIN) ──────────────────────────────────────────────
+
+function ChildCodeSection() {
+  // phase: 'idle' | 'verify' | 'new' | 'confirm' | 'done'
+  const [phase, setPhase] = useState('idle');
+  const [draft, setDraft] = useState([]);
+  const [error, setError] = useState('');
+  const [attempt, setAttempt] = useState(0);   // bump to remount the pad between entries
+  const codeSet = isIconPinSet();
+
+  const bump = () => setAttempt(a => a + 1);
+
+  function start() {
+    setError('');
+    setDraft([]);
+    setPhase(codeSet ? 'verify' : 'new');
+  }
+
+  function handleVerify(entered) {
+    bump();
+    if (verifyIconPin(entered)) { setError(''); setPhase('new'); }
+    else setError('Code actuel incorrect. Réessayez.');
+  }
+
+  function handleNew(entered) {
+    bump();
+    setDraft(entered);
+    setError('');
+    setPhase('confirm');
+  }
+
+  function handleConfirm(entered) {
+    bump();
+    if (entered.join('|') !== draft.join('|')) {
+      setError('Les deux codes sont différents. Réessayez.');
+      setPhase('new');
+      return;
+    }
+    saveIconPin(entered);
+    setError('');
+    setPhase('done');
+  }
+
+  function handleRemove() {
+    if (window.confirm('Supprimer le code secret de l\'enfant ? Il pourra entrer sans code.')) {
+      clearIconPin();
+      setPhase('idle');
+    }
+  }
+
+  if (phase === 'verify' || phase === 'new' || phase === 'confirm') {
+    const cfg = {
+      verify:  { onComplete: handleVerify,  title: 'Code actuel',        sub: 'Entrez le code secret actuel' },
+      new:     { onComplete: handleNew,     title: 'Nouveau code',       sub: 'Choisissez 4 images' },
+      confirm: { onComplete: handleConfirm, title: 'Confirmer le code',  sub: 'Retapez les 4 mêmes images' },
+    }[phase];
+    return (
+      <>
+        <h3 className="parental-section-title" style={{ marginTop: 28 }}>{cfg.title}</h3>
+        <p className="parental-hint">{cfg.sub}</p>
+        {error && <p className="pin-error">{error}</p>}
+        <IconPinPad
+          key={`${phase}-${attempt}`}
+          onComplete={cfg.onComplete}
+          onBack={() => { setPhase('idle'); setError(''); }}
+        />
+      </>
+    );
+  }
+
+  return (
+    <>
+      <h3 className="parental-section-title" style={{ marginTop: 28 }}>Code secret de l&apos;enfant</h3>
+      <p className="parental-hint">
+        {codeSet
+          ? 'Le code de 4 images que votre enfant utilise pour se connecter. Ce code est propre à cet appareil.'
+          : "Aucun code secret n'est défini sur cet appareil."}
+      </p>
+      {phase === 'done' && (
+        <p style={{ color: '#2ecc71', fontWeight: 700, margin: '0 0 8px' }}>✓ Code secret enregistré.</p>
+      )}
+      <div className="parental-security-actions">
+        <button className="primary-action" type="button" onClick={start}>
+          {codeSet ? 'Changer le code' : 'Créer un code'}
+        </button>
+        {codeSet && (
+          <button className="secondary-action" type="button" onClick={handleRemove}>
+            Supprimer le code
+          </button>
+        )}
+      </div>
+    </>
+  );
+}
+
 // ── Security tab ─────────────────────────────────────────────────────────────
 
 function SecurityTab() {
@@ -671,6 +841,9 @@ function SecurityTab() {
           </button>
         )}
       </div>
+
+      <ChildCodeSection />
+      <AccountPasswordSection />
     </div>
   );
 }

@@ -14,16 +14,8 @@ import {
   IconEmail, IconCreate, IconPlay, IconRocket, IconPalette,
   IconParents, IconKey, IconArrow, IconShield,
 } from './LoginIcons.jsx';
-import { PIN_ICONS, PinIcon } from './PinIcons.jsx';
-
-const PIN_KEY = 'lena:icon-pin:v2';   // bumped from emoji codes → resets old PINs
-const PIN_LEN = 4;
-
-// PIN is an array of icon ids; join with a delimiter so ids stay unambiguous.
-function hashPin(pin)  { return btoa(unescape(encodeURIComponent(pin.join('|')))); }
-function savePin(pin)  { localStorage.setItem(PIN_KEY, hashPin(pin)); }
-function loadPin()     { return localStorage.getItem(PIN_KEY) || null; }
-function clearPin()    { localStorage.removeItem(PIN_KEY); }
+import IconPinPad from './IconPinPad.jsx';
+import { hashPin, savePin, loadPin, clearPin } from './iconPinStore.js';
 
 const ERROR_MAP = {
   'auth/user-not-found':        'Aucun compte avec cet email.',
@@ -123,59 +115,6 @@ function MascotHero({ src = MASCOT_HAPPY }) {
       <span className="login-mascot-spark login-mascot-spark--1">✨</span>
       <span className="login-mascot-spark login-mascot-spark--2">⭐</span>
       <span className="login-mascot-spark login-mascot-spark--3">💫</span>
-    </div>
-  );
-}
-
-// ── Code slots (show chosen icons) ─────────────────────────────────────────────
-function EmojiSlots({ pin, shake }) {
-  return (
-    <div className={`ep-slots${shake ? ' ep-slots--shake' : ''}`}>
-      {Array.from({ length: PIN_LEN }, (_, i) => (
-        <div key={i} className={`ep-slot${i < pin.length ? ' ep-slot--filled' : ''}`}>
-          {pin[i] ? <PinIcon id={pin[i]} /> : null}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ── Icon pad (3D candy keypad) ──────────────────────────────────────────────────
-function EmojiPad({ onComplete, onBack }) {
-  const [pin, setPin] = useState([]);
-
-  function tap(id) {
-    if (pin.length >= PIN_LEN) return;
-    const next = [...pin, id];
-    setPin(next);
-    if (next.length === PIN_LEN) setTimeout(() => onComplete(next), 180);
-  }
-
-  return (
-    <div className="ep-pad">
-      <EmojiSlots pin={pin} />
-      <div className="ep-grid">
-        {PIN_ICONS.map(({ id, label }) => (
-          <button
-            key={id}
-            type="button"
-            className={`ep-emoji${pin.includes(id) ? ' ep-emoji--used' : ''}`}
-            onClick={() => tap(id)}
-            aria-label={`Choisir ${label}`}
-          ><PinIcon id={id} /></button>
-        ))}
-      </div>
-      <div className="ep-controls">
-        {onBack && (
-          <button className="ep-ctrl ep-ctrl--back" onClick={onBack} type="button">← Retour</button>
-        )}
-        <button
-          className="ep-ctrl ep-ctrl--del"
-          onClick={() => setPin(p => p.slice(0, -1))}
-          disabled={pin.length === 0}
-          type="button"
-        >⌫</button>
-      </div>
     </div>
   );
 }
@@ -524,7 +463,7 @@ export default function LoginPage() {
             </h1>
             <p className="login-instruction">Choisis 4 images faciles à retenir</p>
             {error && <p className="login-error">{error}</p>}
-            <EmojiPad onComplete={handlePinSetup} onBack={() => { setStep(childName ? 'creer-enfant' : 'welcome'); setError(''); }} />
+            <IconPinPad onComplete={handlePinSetup} onBack={() => { setStep(childName ? 'creer-enfant' : 'welcome'); setError(''); }} />
           </div>
         </div>
       )}
@@ -539,7 +478,7 @@ export default function LoginPage() {
             {error && <p className="login-error">{error}</p>}
             {loading === 'anon' && <span className="login-spinner login-spinner--lg" />}
             {loading !== 'anon' && (
-              <EmojiPad
+              <IconPinPad
                 onComplete={handlePinConfirm}
                 onBack={() => { setStep('setup-pin'); setError(''); }}
               />
@@ -606,7 +545,7 @@ export default function LoginPage() {
             <h1 className="login-hello">Salut {profile.name || 'toi'} ! 👋</h1>
             <p className="login-instruction">Tape tes 4 images secrètes</p>
             {error && <p className="login-error">{error}</p>}
-            <EmojiPad onComplete={handlePinEntry} shake={shake} />
+            <IconPinPad onComplete={handlePinEntry} shake={shake} />
             {user === false && (
               <button className="login-secondary-btn login-secondary-btn--sm" onClick={() => { setError(''); setStep('welcome'); }} type="button">
                 ← Changer de profil

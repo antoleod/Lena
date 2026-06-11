@@ -9,6 +9,9 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  updatePassword,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
   setPersistence,
   browserLocalPersistence,
   browserSessionPersistence,
@@ -76,6 +79,27 @@ export async function linkAnonWithGoogle() {
   if (!auth) throw notConfigured();
   const cred = await linkWithPopup(auth.currentUser, googleProvider);
   return cred.user;
+}
+
+/** True when the signed-in user can change an email/password (not Google-only/anon/guest). */
+export function hasEmailPasswordProvider() {
+  const u = auth?.currentUser;
+  return !!u && u.providerData.some(p => p.providerId === 'password');
+}
+
+/**
+ * Change the email/password account password. Firebase requires a recent login,
+ * so we re-authenticate with the current password first.
+ */
+export async function changeEmailPassword(currentPassword, newPassword) {
+  if (!auth) throw notConfigured();
+  const user = auth.currentUser;
+  if (!user || !user.email) {
+    throw Object.assign(new Error('No password account'), { code: 'auth/no-password-account' });
+  }
+  const cred = EmailAuthProvider.credential(user.email, currentPassword);
+  await reauthenticateWithCredential(user, cred);
+  await updatePassword(user, newPassword);
 }
 
 export async function signOutUser() {
