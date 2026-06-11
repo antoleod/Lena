@@ -6,14 +6,14 @@ import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges
 import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
 import PetMascot from '../../shared/ui/PetMascot.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
-import { computeGlobalLevel } from '../../services/learning/levelSystem.js';
+import { computeGlobalLevel, getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
 import {
   IconNavApprendre, IconNavPratiquer, IconNavExamens,
   IconNavProgres, IconNavCahier, IconNavFun,
 } from '../../assets/icons/NavIcons.jsx';
 import { getParentalState, verifyPin } from '../../services/storage/parentalStore.js';
-import { getTodayStudySeconds } from '../../services/storage/progressStore.js';
+import { getTodayStudySeconds, getStudyStats } from '../../services/storage/progressStore.js';
 import { addAppTime } from '../../services/storage/gameProgressStore.js';
 
 const PARENTAL_OVERRIDE_KEY = 'lena:parental-override';
@@ -149,7 +149,13 @@ export default function AppShell() {
   const displayName = session.profile?.name || t('defaultChildName') || 'Kid';
   const displayInitial = displayName.charAt(0).toUpperCase();
   const notificationsEnabled = session.profile?.settings?.notificationsEnabled ?? true;
-  const globalLevel = computeGlobalLevel(session.profile?.totalActivitiesCompleted || 0);
+  const totalDone = session.profile?.totalActivitiesCompleted || 0;
+  const globalLevel = computeGlobalLevel(totalDone);
+  const levelProgress = getLevelProgress(totalDone);
+  const xpPct = Math.round(levelProgress.progress * 100);
+  const streakCurrent = session.profile?.streakCurrent || 0;
+  const starsCount = getStudyStats().totalCorrect || 0;
+  const crystals = session.rewards?.balance || 0;
 
   const NAV_LABELS = {
     fr: { learn: 'Apprendre', practise: 'Jouer', cahier: 'Cahier', progress: 'Mes Étoiles', settings: 'Reglages', exams: 'Quiz', fun: 'Le Coin' },
@@ -295,10 +301,24 @@ export default function AppShell() {
 
       {/* Sidebar nav — visible on tablet/desktop (≥768px) via CSS */}
       <aside className="app-sidebar" aria-label="Navigation principale">
-        <button type="button" className="brand-inline app-sidebar__brand" onClick={() => { playTapSound(); navigate('/'); }} data-testid="shell-brand-sidebar">
-          <span className="brand-inline__mark">{displayInitial}</span>
-          <span className="brand-inline__name">{displayName}</span>
+        <button type="button" className="brand-inline app-sidebar__brand app-sidebar__profile" onClick={() => { playTapSound(); navigate('/'); }} data-testid="shell-brand-sidebar">
+          <span className="app-sidebar__avatar-wrap">
+            <img src={assetUrl('assets/characters/mascot-happy.svg')} alt="" className="app-sidebar__avatar" draggable="false" />
+          </span>
+          <span className="app-sidebar__profile-info">
+            <span className="brand-inline__name app-sidebar__profile-name">{displayName}</span>
+            <span className="app-sidebar__profile-level">Niveau {globalLevel}</span>
+            <span className="app-sidebar__xpbar" aria-label={`${xpPct}% XP`}>
+              <span className="app-sidebar__xpbar-fill" style={{ width: `${xpPct}%` }} />
+            </span>
+          </span>
         </button>
+
+        <div className="app-sidebar__stats" aria-label="Statistiques">
+          <span className="app-sidebar__stat app-sidebar__stat--fire" title="Série">🔥 {streakCurrent}</span>
+          <span className="app-sidebar__stat app-sidebar__stat--star" title="Étoiles">⭐ {starsCount}</span>
+          <span className="app-sidebar__stat app-sidebar__stat--gem" title="Cristaux">💎 {crystals}</span>
+        </div>
 
         <nav className="sidebar-nav" aria-label="Primary">
           {navItems.filter(item => !item.isHome).map((item) => (
@@ -316,11 +336,6 @@ export default function AppShell() {
         </nav>
 
         <div className="sidebar-tools">
-          <div className="level-pill" aria-label={`Niveau ${globalLevel}`}>
-            <img src={assetUrl('assets/icons/icon-star.svg')} alt="" className="level-pill__icon" />
-            <span>Niv. {globalLevel}</span>
-          </div>
-
           <button type="button" className="wallet-compact sidebar-wallet" onClick={() => { playTapSound(); navigate('/shop'); }} data-testid="shell-wallet-sidebar" title={t('shop')}>
             <img src={assetUrl('assets/icons/icon-gem.svg')} alt="" className="wallet-compact__icon" />
             <span>{session.rewards.balance}</span>

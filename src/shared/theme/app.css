@@ -18795,3 +18795,56 @@ body {
 @media (min-width: 1024px) {
   .al-hero__greet { font-size: 2.4rem; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR PROFILE V3 — player-profile card (avatar, level, XP, stats)
+   ═══════════════════════════════════════════════════════════════ */
+.app-sidebar__profile {
+  display: flex !important;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 12px 12px !important;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.28), rgba(37,99,235,0.18));
+  border: 1.5px solid rgba(168,85,247,0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+  cursor: pointer;
+  text-align: left;
+}
+.app-sidebar__profile:hover { border-color: rgba(168,85,247,0.7); }
+.app-sidebar__avatar-wrap {
+  position: relative; flex-shrink: 0;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, rgba(255,150,200,0.35), rgba(124,58,237,0.25));
+  border: 2px solid rgba(255,255,255,0.35);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  box-shadow: 0 3px 10px rgba(124,58,237,0.4);
+}
+.app-sidebar__avatar { width: 56px; height: 56px; object-fit: contain; margin-top: 4px; }
+.app-sidebar__profile-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1; }
+.app-sidebar__profile-name {
+  font-family: 'Fredoka', sans-serif; font-weight: 800; color: #fff;
+  font-size: 1rem; line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.app-sidebar__profile-level { font-size: 0.72rem; font-weight: 700; color: #fbbf24; }
+.app-sidebar__xpbar {
+  display: block; height: 7px; border-radius: 4px; overflow: hidden;
+  background: rgba(0,0,0,0.35); margin-top: 2px;
+}
+.app-sidebar__xpbar-fill {
+  display: block; height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, #22d3ee, #a855f7, #fbbf24);
+  box-shadow: 0 0 8px rgba(168,85,247,0.7); transition: width 0.7s ease;
+}
+.app-sidebar__stats { display: flex; gap: 6px; margin: 4px 0 2px; }
+.app-sidebar__stat {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 3px;
+  padding: 6px 4px; border-radius: 12px;
+  font-size: 0.78rem; font-weight: 800; color: #fff;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+}
+.app-sidebar__stat--fire { background: rgba(249,115,22,0.2); border-color: rgba(249,115,22,0.38); }
+.app-sidebar__stat--star { background: rgba(251,191,36,0.18); border-color: rgba(251,191,36,0.38); }
+.app-sidebar__stat--gem  { background: rgba(34,211,238,0.16); border-color: rgba(34,211,238,0.38); }
