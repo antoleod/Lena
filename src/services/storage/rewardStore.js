@@ -118,6 +118,20 @@ const titleRewards = [
   { id: 'title-dragon',   type: 'title', name: 'Dompteur de Dragons', nameNl: 'Drakentammer',  price: 42, rarity: 'rare',   icon: '🐉' },
 ];
 
+// Mascot colour skins — hue is a CSS hue-rotate offset from the pink base SVG.
+// Pink + blue are free (price 0); the rest are unlockable in the shop.
+const mascotColorRewards = [
+  { id: 'mascot-pink',   type: 'mascotColor', name: 'Rose magique',   nameNl: 'Magisch roze',    price: 0,  rarity: 'common',    icon: '🌸', hue: 0,   preview: ['#ff9ecf'] },
+  { id: 'mascot-blue',   type: 'mascotColor', name: 'Bleu océan',     nameNl: 'Oceaanblauw',     price: 0,  rarity: 'common',    icon: '🐬', hue: 205, preview: ['#7fb8ff'] },
+  { id: 'mascot-mint',   type: 'mascotColor', name: 'Vert menthe',    nameNl: 'Muntgroen',       price: 55, rarity: 'rare',      icon: '🍃', hue: 135, preview: ['#7fe2bf'] },
+  { id: 'mascot-violet', type: 'mascotColor', name: 'Violet royal',   nameNl: 'Koninklijk paars', price: 60, rarity: 'epic',     icon: '🔮', hue: 285, preview: ['#c084fc'] },
+  { id: 'mascot-sunset', type: 'mascotColor', name: 'Orange soleil',  nameNl: 'Zonoranje',       price: 60, rarity: 'epic',      icon: '🔥', hue: 55,  preview: ['#ffb066'] },
+  { id: 'mascot-aqua',   type: 'mascotColor', name: 'Cyan glacé',     nameNl: 'IJscyaan',        price: 65, rarity: 'epic',      icon: '❄️', hue: 175, preview: ['#67e8f9'] },
+  { id: 'mascot-gold',   type: 'mascotColor', name: 'Or étincelant',  nameNl: 'Sprankelend goud', price: 80, rarity: 'legendary', icon: '✨', hue: 95, preview: ['#ffe066'], featured: true },
+];
+
+const FREE_MASCOT_COLORS = ['mascot-pink', 'mascot-blue'];
+
 const chestRewards = [
   { id: 'chest-bronze',    type: 'chest', name: 'Coffre Bronze',    nameNl: 'Bronzen kist',   price: 15, rarity: 'common',    icon: '📦', chestTier: 'bronze',    desc: 'Contient 1 objet Commun ou Rare' },
   { id: 'chest-silver',    type: 'chest', name: 'Coffre Argent',    nameNl: 'Zilveren kist',  price: 35, rarity: 'rare',      icon: '🎁', chestTier: 'silver',    desc: 'Contient 1 objet Rare ou Épique' },
@@ -136,6 +150,7 @@ const rewardCatalog = [
   ...frameRewards,
   ...petRewards,
   ...titleRewards,
+  ...mascotColorRewards,
   ...chestRewards,
 ];
 
@@ -151,6 +166,7 @@ function defaultStore() {
     equippedWallpaperId: 'wallpaper-dreamy-sky',
     equippedPetId: null,
     equippedAvatarId: null,
+    equippedMascotColorId: 'mascot-pink',
   };
 }
 
@@ -313,4 +329,27 @@ export function equipAvatar(avatarId) {
   store.equippedAvatarId = avatarId;
   writeStore(store);
   return { ok: true, avatarId };
+}
+
+export function equipMascotColor(colorId) {
+  const store = readStore();
+  if (!FREE_MASCOT_COLORS.includes(colorId) && !store.inventory.includes(colorId)) {
+    return { ok: false, reason: 'color-not-owned' };
+  }
+  store.equippedMascotColorId = colorId;
+  writeStore(store);
+  return { ok: true, colorId };
+}
+
+export function getMascotColors() {
+  return mascotColorRewards;
+}
+
+export function isFreeMascotColor(colorId) {
+  return FREE_MASCOT_COLORS.includes(colorId);
+}
+
+export function getMascotColorHue(colorId) {
+  const c = mascotColorRewards.find(x => x.id === colorId);
+  return c ? c.hue : 0;
 }

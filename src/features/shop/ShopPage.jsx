@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   buyReward, equipAvatar, equipEffect, equipPet, equipTheme, equipWallpaper,
+  equipMascotColor,
   getRewardCatalog, getRewardState, getDailyDealId, openChest,
 } from '../../services/storage/rewardStore.js';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
@@ -28,6 +29,7 @@ const TYPE_BG = {
   frame:     'linear-gradient(145deg,#fda4af,#e11d48)',
   sticker:   'linear-gradient(145deg,#fef08a,#ca8a04)',
   title:     'linear-gradient(145deg,#c4b5fd,#7c3aed)',
+  mascotColor: 'linear-gradient(145deg,#ff9ecf,#a855f7)',
 };
 const CHEST_BG = {
   bronze:    'linear-gradient(145deg,#d97706,#92400e)',
@@ -40,6 +42,7 @@ const CHEST_BG = {
 const TABS = [
   { key: 'all',       emoji: '🌟', label: 'Tout' },
   { key: 'chest',     emoji: '🎁', label: 'Coffres' },
+  { key: 'mascotColor', emoji: '🎨', label: 'Couleurs' },
   { key: 'avatar',    emoji: '🐾', label: 'Avatars' },
   { key: 'theme',     emoji: '🎨', label: 'Thèmes' },
   { key: 'wallpaper', emoji: '🌈', label: 'Fonds' },
@@ -124,7 +127,7 @@ function PreviewModal({ item, owned, active, affordable, dealPrice, onClose, onA
 }
 
 function canEquipType(type) {
-  return ['theme', 'effect', 'wallpaper', 'pet', 'avatar'].includes(type);
+  return ['theme', 'effect', 'wallpaper', 'pet', 'avatar', 'mascotColor'].includes(type);
 }
 
 // ── Main page ─────────────────────────────────────────────────────────────────
@@ -157,7 +160,7 @@ export default function ShopPage() {
   }
 
   function isOwned(id) {
-    if (['theme-candy', 'effect-rainbow', 'wallpaper-dreamy-sky'].includes(id)) return true;
+    if (['theme-candy', 'effect-rainbow', 'wallpaper-dreamy-sky', 'mascot-pink', 'mascot-blue'].includes(id)) return true;
     return shopState.inventory.includes(id);
   }
 
@@ -167,6 +170,7 @@ export default function ShopPage() {
     if (item.type === 'wallpaper') return shopState.equippedWallpaperId === item.id;
     if (item.type === 'pet') return shopState.equippedPetId === item.id;
     if (item.type === 'avatar') return shopState.equippedAvatarId === item.id;
+    if (item.type === 'mascotColor') return (shopState.equippedMascotColorId || 'mascot-pink') === item.id;
     return false;
   }
 
@@ -200,6 +204,7 @@ export default function ShopPage() {
       else if (item.type === 'wallpaper') equipWallpaper(item.id);
       else if (item.type === 'pet') equipPet(item.id);
       else if (item.type === 'avatar') equipAvatar(item.id);
+      else if (item.type === 'mascotColor') equipMascotColor(item.id);
       else { showToast('✓ Déjà acquis', 'info'); return; }
       refresh();
       showToast('✨ Équipé !', 'info');

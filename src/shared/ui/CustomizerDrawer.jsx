@@ -2,13 +2,17 @@ import { useEffect, useState } from 'react';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import { useTheme } from '../theme/ThemeContext.jsx';
 import { getProfile, saveProfile } from '../../services/storage/profileStore.js';
+import { assetUrl } from '../assets/assetUrl.js';
 import {
   getRewardState,
   getRewardCatalog,
   equipTheme,
   equipEffect,
   equipWallpaper,
-  equipPet
+  equipPet,
+  equipMascotColor,
+  getMascotColors,
+  isFreeMascotColor
 } from '../../services/storage/rewardStore.js';
 
 const DRAWER_LABELS = {
@@ -21,6 +25,8 @@ const DRAWER_LABELS = {
     themes: '🌈 Palette de couleurs',
     effects: '❄️ Effets météo',
     pets: '🐾 Mascottes',
+    mascotColors: '🎨 Couleur de ta mascotte',
+    moreInShop: '✨ Plus de couleurs dans la boutique',
     wallpapers: '🖼️ Fonds d\'écran',
   },
   nl: {
@@ -32,6 +38,8 @@ const DRAWER_LABELS = {
     themes: '🌈 Kleurenpalet',
     effects: '❄️ Weereffecten',
     pets: '🐾 Huisdieren',
+    mascotColors: '🎨 Kleur van je mascotte',
+    moreInShop: '✨ Meer kleuren in de winkel',
     wallpapers: '🖼️ Achtergronden',
   },
   es: {
@@ -43,6 +51,8 @@ const DRAWER_LABELS = {
     themes: '🌈 Paleta de colores',
     effects: '❄️ Efectos del clima',
     pets: '🐾 Mascotas',
+    mascotColors: '🎨 Color de tu mascota',
+    moreInShop: '✨ Más colores en la tienda',
     wallpapers: '🖼️ Fondos de pantalla',
   },
   en: {
@@ -54,6 +64,8 @@ const DRAWER_LABELS = {
     themes: '🌈 Colour palette',
     effects: '❄️ Weather effects',
     pets: '🐾 Pets',
+    mascotColors: '🎨 Your mascot colour',
+    moreInShop: '✨ More colours in the shop',
     wallpapers: '🖼️ Wallpapers',
   },
 };
@@ -117,6 +129,15 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
       equipPet(petId);
     }
   }
+
+  function handleColorClick(colorId) {
+    if (isFreeMascotColor(colorId) || rewards.inventory.includes(colorId)) {
+      equipMascotColor(colorId);
+    }
+  }
+  const isColorOwned = (id) => isFreeMascotColor(id) || rewards.inventory.includes(id);
+  const mascotColorOptions = getMascotColors();
+  const equippedColorId = rewards.equippedMascotColorId || 'mascot-pink';
 
   function handleSoundToggle(e) {
     const nextSettings = {
@@ -213,6 +234,39 @@ export default function CustomizerDrawer({ isOpen, onClose }) {
                 );
               })}
             </div>
+          </section>
+
+          {/* Mascot colour */}
+          <section className="drawer-section">
+            <h3 className="drawer-section__title">{lbl.mascotColors}</h3>
+            <div className="drawer-color-grid">
+              {mascotColorOptions.map((color) => {
+                const owned = isColorOwned(color.id);
+                const active = equippedColorId === color.id;
+                return (
+                  <button
+                    key={color.id}
+                    type="button"
+                    className={`drawer-color-btn ${active ? 'is-active' : ''} ${!owned ? 'is-locked' : ''}`}
+                    onClick={() => handleColorClick(color.id)}
+                    aria-label={color.name}
+                    aria-pressed={active}
+                    title={color.name}
+                  >
+                    <span
+                      className="drawer-color-swatch"
+                      style={{ '--swatch': color.preview[0], filter: `hue-rotate(${color.hue}deg)` }}
+                    >
+                      <img src={assetUrl('assets/characters/mascot-happy.svg')} alt="" draggable="false" />
+                    </span>
+                    <span className="drawer-color-name">{color.name}</span>
+                    {active && <span className="drawer-color-check">✓</span>}
+                    {!owned && <span className="drawer-color-lock">🔒 {color.price}💎</span>}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="drawer-color-hint">{lbl.moreInShop}</p>
           </section>
 
           {/* Weather Effects */}

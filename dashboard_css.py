@@ -261,6 +261,74 @@ sidebar_css = r"""
 .app-sidebar__stat--gem  { background: rgba(34,211,238,0.16); border-color: rgba(34,211,238,0.38); }
 """
 
+COLOR_MARKER = "MASCOT COLOR V1"
+color_css = r"""
+/* ═══════════════════════════════════════════════════════════════
+   MASCOT COLOR V1 — global hue recolor + customizer colour picker
+   The pink base SVG is recoloured app-wide via --mascot-hue (set by
+   AppShell from the equipped mascotColor reward). Each rule keeps its
+   own drop-shadow and appends hue-rotate.
+   ═══════════════════════════════════════════════════════════════ */
+.login-mascot-hero {
+  filter:
+    drop-shadow(0 0 28px rgba(255,150,200,0.55))
+    drop-shadow(0 8px 20px rgba(140,60,180,0.4))
+    hue-rotate(var(--mascot-hue, 0deg));
+}
+.al-hero__mascot {
+  filter: drop-shadow(0 6px 16px rgba(140,60,180,0.5)) hue-rotate(var(--mascot-hue, 0deg));
+}
+.app-sidebar__avatar { filter: hue-rotate(var(--mascot-hue, 0deg)); }
+.mascot-img { filter: hue-rotate(var(--mascot-hue, 0deg)); }
+.mascot-character:hover .mascot-img {
+  filter: drop-shadow(0 8px 20px rgba(255,100,180,0.35)) hue-rotate(var(--mascot-hue, 0deg));
+}
+.al-subject-card__sky::after {
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3)) hue-rotate(var(--mascot-hue, 0deg));
+}
+
+/* ── Customizer: mascot colour picker ── */
+.drawer-color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+  gap: 10px;
+}
+.drawer-color-btn {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 10px 6px 8px;
+  border-radius: 16px;
+  border: 2px solid rgba(124,58,237,0.18);
+  background: rgba(124,58,237,0.05);
+  cursor: pointer;
+  transition: transform 0.14s, border-color 0.16s, box-shadow 0.16s;
+}
+.drawer-color-btn:hover { transform: translateY(-2px); border-color: rgba(124,58,237,0.45); }
+.drawer-color-btn.is-active {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.2), 0 6px 16px rgba(124,58,237,0.25);
+  background: rgba(124,58,237,0.1);
+}
+.drawer-color-btn.is-locked { opacity: 0.72; }
+.drawer-color-swatch {
+  width: 58px; height: 58px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  background: radial-gradient(circle at 38% 32%, #fff6, var(--swatch, #ff9ecf));
+  box-shadow: inset 0 -4px 10px rgba(0,0,0,0.18), 0 3px 8px rgba(0,0,0,0.18);
+}
+.drawer-color-swatch img { width: 60px; height: 60px; object-fit: contain; margin-top: 4px; pointer-events: none; }
+.drawer-color-name { font-size: 0.72rem; font-weight: 700; text-align: center; line-height: 1.1; }
+.drawer-color-check {
+  position: absolute; top: 6px; right: 8px;
+  color: #7c3aed; font-weight: 900; font-size: 0.95rem;
+}
+.drawer-color-lock { font-size: 0.66rem; font-weight: 700; color: var(--text-soft, #888); }
+.drawer-color-hint {
+  margin: 10px 0 0; font-size: 0.78rem; font-weight: 600;
+  color: rgba(124,58,237,0.85); text-align: center;
+}
+"""
+
 target = pathlib.Path("src/shared/theme/app.css")
 existing = target.read_text(encoding="utf-8")
 out = existing
@@ -274,5 +342,10 @@ if SIDEBAR_MARKER not in out:
     print("Sidebar CSS appended OK")
 else:
     print("Sidebar CSS already present, skipping")
+if COLOR_MARKER not in out:
+    out += "\n" + color_css
+    print("Mascot colour CSS appended OK")
+else:
+    print("Mascot colour CSS already present, skipping")
 if out != existing:
     target.write_text(out, encoding="utf-8")

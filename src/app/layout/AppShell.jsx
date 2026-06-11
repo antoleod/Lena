@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { logoutProfile } from '../../services/storage/profileStore.js';
+import { signOutUser } from '../../services/firebase/authService.js';
+import { getMascotColorHue } from '../../services/storage/rewardStore.js';
 import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 import CustomizerDrawer from '../../shared/ui/CustomizerDrawer.jsx';
 import PetMascot from '../../shared/ui/PetMascot.jsx';
@@ -140,8 +142,10 @@ export default function AppShell() {
   const confirmLogout = () => {
     setLogoutConfirm(false);
     playTapSound();
+    try { localStorage.removeItem('lena:guest-session'); } catch { /* ignore */ }
+    signOutUser().catch(() => { /* ignore */ });
     logoutProfile();
-    navigate('/onboarding', { replace: true, state: { from: location.pathname } });
+    navigate('/login', { replace: true });
   };
 
 
@@ -223,7 +227,7 @@ export default function AppShell() {
 
   useEffect(() => {
     function handleLogout() {
-      navigate('/onboarding');
+      navigate('/login', { replace: true });
     }
 
     const unsubscribe = subscribeToSessionChanges(setSession);
@@ -237,6 +241,11 @@ export default function AppShell() {
   useEffect(() => {
     document.documentElement.dataset.effect = session.rewards.equippedEffectId || 'effect-rainbow';
   }, [session.rewards.equippedEffectId]);
+
+  useEffect(() => {
+    const hue = getMascotColorHue(session.rewards.equippedMascotColorId || 'mascot-pink');
+    document.documentElement.style.setProperty('--mascot-hue', `${hue}deg`);
+  }, [session.rewards.equippedMascotColorId]);
 
   useEffect(() => {
     if (session.profile?.settings?.effectsEnabled === false) {
