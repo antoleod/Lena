@@ -20311,6 +20311,28 @@ body {
   filter: drop-shadow(0 0 12px var(--w-accent));
 }
 
+/* Tile de materia (sticker SVG) */
+.al-subj__icon-3d {
+  width: 84px;
+  height: 84px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--w-accent, #888) 45%, transparent));
+  animation: al-subj-float 4.5s ease-in-out infinite;
+  animation-delay: calc(var(--w-i, 0) * 0.35s);
+}
+
+.al-subj:hover .al-subj__icon-3d {
+  filter: drop-shadow(0 14px 26px color-mix(in srgb, var(--w-accent, #888) 65%, transparent));
+}
+
+@keyframes al-subj-float {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50%      { transform: translateY(-7px) rotate(1.5deg); }
+}
+
 .subject-svg-icon {
   width: 100%;
   height: 100%;
@@ -20346,11 +20368,11 @@ body {
 .al-subj__diff--MOYEN { background: #f5b800; color: #3d1f00; }
 .al-subj__diff--DIFFICILE { background: #ef4444; color: #fff; }
 
-/* Botón Magenta Premium */
+/* Botón temático (color de la materia) */
 .al-subj__play-btn {
   width: 100%;
   margin-top: auto;
-  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  background: linear-gradient(135deg, var(--w-accent, #ec4899) 0%, var(--w-accent-2, #be185d) 100%);
   color: white;
   font-weight: 800;
   padding: 12px;
@@ -20359,13 +20381,21 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 8px 16px rgba(236, 72, 153, 0.3);
-  transition: all 0.2s ease;
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--w-accent, #ec4899) 40%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.al-subj__play-ico {
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
 }
 
 .al-subj:hover .al-subj__play-btn {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(236, 72, 153, 0.5);
+  filter: brightness(1.08);
+  box-shadow: 0 12px 24px color-mix(in srgb, var(--w-accent, #ec4899) 55%, transparent);
 }
 
 /* ════════════════════════════════════════════════════════════════════════
