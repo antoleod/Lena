@@ -63,9 +63,14 @@ function ItemIcon({ item, size = 52 }) {
   return <span style={{ fontSize: size * 0.72, lineHeight: 1 }}>{item.icon || '?'}</span>;
 }
 
+function getDisplayName(item, locale) {
+  return locale === 'nl' && item.nameNl ? item.nameNl : item.name;
+}
+
 // ── Chest open modal ──────────────────────────────────────────────────────────
-function ChestModal({ item, onClose }) {
+function ChestModal({ item, locale, onClose }) {
   const r = RARITY[item.rarity] || RARITY.common;
+  const displayName = getDisplayName(item, locale);
   return (
     <div className="bq-overlay" onClick={onClose}>
       <div className="bq-chest-modal" onClick={e => e.stopPropagation()}>
@@ -74,7 +79,7 @@ function ChestModal({ item, onClose }) {
           <ItemIcon item={item} size={80} />
         </div>
         <p className="bq-chest-modal__label">{r.emoji} {r.label}</p>
-        <h2 className="bq-chest-modal__name">{item.name}</h2>
+        <h2 className="bq-chest-modal__name">{displayName}</h2>
         <p className="bq-chest-modal__sub">Tu as gagné un nouvel objet !</p>
         <button className="bq-chest-modal__btn" onClick={onClose}>🎉 Super !</button>
       </div>
@@ -83,31 +88,37 @@ function ChestModal({ item, onClose }) {
 }
 
 // ── Preview modal ─────────────────────────────────────────────────────────────
-function PreviewModal({ item, owned, active, affordable, dealPrice, onClose, onAction }) {
+function PreviewModal({ item, locale, balance, owned, active, affordable, dealPrice, onClose, onAction }) {
   const r = RARITY[item.rarity] || RARITY.common;
   const bg = item.type === 'chest'
     ? (CHEST_BG[item.chestTier] || CHEST_BG.bronze)
     : (TYPE_BG[item.type] || 'linear-gradient(145deg,#e0e7ff,#6366f1)');
+  const price = dealPrice ?? item.price;
+  const missing = Math.max(0, price - balance);
+  const displayName = getDisplayName(item, locale);
 
   const actionLabel = !owned
-    ? `Acheter — ${dealPrice ?? item.price} 💎`
+    ? `Acheter — ${price} 💎`
     : active ? '✓ Équipé' : canEquipType(item.type) ? 'Équiper' : '✓ Acquis';
 
   return (
     <div className="bq-overlay" onClick={onClose}>
       <div className="bq-preview" onClick={e => e.stopPropagation()}>
         <div className="bq-preview__art" style={{ background: bg }}>
+          <span className="bq-preview__spark bq-preview__spark--one" />
+          <span className="bq-preview__spark bq-preview__spark--two" />
+          <span className="bq-preview__spark bq-preview__spark--three" />
           <ItemIcon item={item} size={96} />
         </div>
         <div className="bq-preview__body">
           <span className="bq-preview__rarity" style={{ color: r.color }}>{r.emoji} {r.label}</span>
-          <h2 className="bq-preview__name">{item.name}</h2>
+          <h2 className="bq-preview__name">{displayName}</h2>
           {item.desc && <p className="bq-preview__desc">{item.desc}</p>}
           {!owned && (
             <p className="bq-preview__price">
               {dealPrice != null && <s className="bq-preview__old">{item.price} 💎</s>}
-              <strong>{dealPrice ?? item.price} 💎</strong>
-              {!affordable && <span className="bq-preview__lack"> (manque {(dealPrice ?? item.price) - 0} 💎)</span>}
+              <strong>{price} 💎</strong>
+              {!affordable && <span className="bq-preview__lack"> (manque {missing} 💎)</span>}
             </p>
           )}
           <div className="bq-preview__actions">
@@ -227,6 +238,7 @@ export default function ShopPage() {
   const dailyItem = catalog.find(i => i.id === dailyId);
   const ownedCount = catalog.filter(i => isOwned(i.id)).length;
   const pct = Math.round(ownedCount / catalog.length * 100);
+  const activeTabLabel = TABS.find(tab => tab.key === activeTab)?.label || 'Tout';
 
   const tabCounts = useMemo(() => {
     const m = {};
@@ -249,12 +261,39 @@ export default function ShopPage() {
         </div>
       </div>
 
+      <section className="bq-hero" style={{ '--bq-progress': `${pct}%` }}>
+        <div className="bq-hero__aurora" aria-hidden="true" />
+        <div className="bq-hero__sparkles" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="bq-hero__copy">
+          <span className="bq-hero__eyebrow">Collection magique</span>
+          <h2 className="bq-hero__title">Débloque, équipe, fais briller ton aventure.</h2>
+          <p className="bq-hero__text">Thèmes, avatars, effets et trésors sont classés pour acheter vite et voir ce qui reste à gagner.</p>
+        </div>
+        <div className="bq-hero__panel">
+          <div className="bq-hero__meter">
+            <span>Progression</span>
+            <strong>{pct}%</strong>
+            <i />
+          </div>
+          <div className="bq-hero__stats">
+            <span><strong>{ownedCount}</strong><small>acquis</small></span>
+            <span><strong>{catalog.length - ownedCount}</strong><small>restants</small></span>
+            <span><strong>{activeTabLabel}</strong><small>filtre</small></span>
+          </div>
+        </div>
+      </section>
+
       {/* ── Daily deal ── */}
       {dailyItem && !isOwned(dailyItem.id) && (
         <div className="bq-deal">
           <div className="bq-deal__left">
             <span className="bq-deal__badge">⚡ OFFRE DU JOUR</span>
-            <strong className="bq-deal__name">{dailyItem.name}</strong>
+            <strong className="bq-deal__name">{getDisplayName(dailyItem, locale)}</strong>
             <span className="bq-deal__tag">−20% aujourd'hui seulement !</span>
           </div>
           <div className="bq-deal__right">
@@ -278,20 +317,20 @@ export default function ShopPage() {
         <div className="bq-featured">
           <h2 className="bq-featured__title">⭐ Objets en vedette</h2>
           <div className="bq-featured__scroll">
-            {featuredItems.map(item => {
+            {featuredItems.map((item, index) => {
               const r = RARITY[item.rarity] || RARITY.common;
               const owned = isOwned(item.id);
               return (
                 <button
                   key={item.id}
                   className={`bq-feat-card${owned ? ' bq-feat-card--owned' : ''}`}
-                  style={{ '--feat-glow': r.glow }}
+                  style={{ '--feat-glow': r.glow, '--feat-index': Math.min(index, 10) }}
                   onClick={() => setPreviewItem(item)}
                 >
                   <div className="bq-feat-card__art" style={{ background: TYPE_BG[item.type] || '' }}>
                     <ItemIcon item={item} size={44} />
                   </div>
-                  <span className="bq-feat-card__name">{item.name}</span>
+                  <span className="bq-feat-card__name">{getDisplayName(item, locale)}</span>
                   <span className="bq-feat-card__rarity" style={{ color: r.color }}>{r.emoji}</span>
                   {!owned && <span className="bq-feat-card__price">{item.price} 💎</span>}
                   {owned && <span className="bq-feat-card__owned">✓</span>}
@@ -322,7 +361,7 @@ export default function ShopPage() {
 
       {/* ── Grid ── */}
       <div className="bq-grid">
-        {visibleItems.map(item => {
+        {visibleItems.map((item, index) => {
           const r = RARITY[item.rarity] || RARITY.common;
           const owned = isOwned(item.id);
           const active = isActive(item);
@@ -358,19 +397,25 @@ export default function ShopPage() {
                 justGot ? 'bq-card--burst' : '',
                 !owned && !affordable ? 'bq-card--locked' : '',
               ].filter(Boolean).join(' ')}
-              style={rarityGlow ? { boxShadow: rarityGlow } : undefined}
+              style={{
+                '--bq-card-index': Math.min(index, 16),
+                '--rarity-color': r.color,
+                '--rarity-glow': r.glow,
+                ...(rarityGlow ? { boxShadow: rarityGlow } : {}),
+              }}
             >
               {isDaily && <span className="bq-card__deal-tag">⚡ −20%</span>}
               {active && <span className="bq-card__equipped-ring" aria-hidden="true" />}
 
               <button className="bq-card__art" style={{ background: artBg }} onClick={() => setPreviewItem(item)}>
+                <span className="bq-card__shine" aria-hidden="true" />
                 <span className="bq-card__rarity-dot" style={{ background: r.color }} title={r.label} />
                 <ItemIcon item={item} size={54} />
                 {owned && <span className="bq-card__owned-badge">✓</span>}
               </button>
 
               <div className="bq-card__body">
-                <p className="bq-card__name">{item.name}</p>
+                <p className="bq-card__name">{getDisplayName(item, locale)}</p>
                 <p className="bq-card__rarity" style={{ color: r.color }}>{r.emoji} {r.label}</p>
                 {!owned && (
                   <p className={`bq-card__price${!affordable ? ' bq-card__price--red' : ''}`}>
@@ -402,6 +447,8 @@ export default function ShopPage() {
       {previewItem && (
         <PreviewModal
           item={previewItem}
+          locale={locale}
+          balance={shopState.balance}
           owned={isOwned(previewItem.id)}
           active={isActive(previewItem)}
           affordable={shopState.balance >= (getDealPrice(previewItem) ?? previewItem.price)}
@@ -411,7 +458,7 @@ export default function ShopPage() {
         />
       )}
       {chestResult && (
-        <ChestModal item={chestResult} onClose={() => setChestResult(null)} />
+        <ChestModal item={chestResult} locale={locale} onClose={() => setChestResult(null)} />
       )}
 
       {/* ── Toast ── */}
