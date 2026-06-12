@@ -35,7 +35,7 @@ function pickMessage(messages, prenom) {
   return prenom ? raw.replace('{prenom}', prenom) : raw.replace('{prenom}', '');
 }
 
-export default function ColoringActivity({ activity, progress, onComplete }) {
+export default function ColoringActivity({ activity, progress, onComplete, onQuestionChange }) {
   const { t } = useLocale();
   const prenom = getProfile().name || '';
   const { supported: speechSupported, speaking, speak, stop } = useSpeechPlayer(activity.language || 'fr');
@@ -64,6 +64,7 @@ export default function ColoringActivity({ activity, progress, onComplete }) {
     }
     setCurrentIndex(nextIndex);
     setFeedback(null);
+    if (onQuestionChange) onQuestionChange(nextIndex);
   }
 
   function handlePick(choiceValue) {
@@ -100,78 +101,64 @@ export default function ColoringActivity({ activity, progress, onComplete }) {
   }
 
   return (
-    <section className="engine-card engine-card--compact">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
-        <div>
-          <small style={{ opacity: 0.85 }}>{current.sectionTitle}</small>
-          <h3 style={{ margin: '6px 0 0' }}>{activity.title}</h3>
+    <section className="engine-card engine-card--compact engine-card--arcade">
+      {/* Progress rail */}
+      <div className="mc-progress-rail">
+        <span className="mc-progress-rail__label">{current.sectionTitle}</span>
+        <div className="mc-progress-rail__bar">
+          <div className="mc-progress-rail__fill" style={{ width: `${Math.max((currentIndex / total) * 100, 3)}%` }} />
         </div>
-        <strong>{currentIndex + 1}/{total}</strong>
+        <strong className="mc-progress-rail__counter">{currentIndex + 1}/{total}</strong>
       </div>
 
-      <div style={{ marginTop: 12 }}>
-        <p style={{ fontSize: '1.15rem', margin: '0 0 10px' }}>{current.prompt}</p>
+      {/* Question prompt + speak button */}
+      <div className="mc-prompt-area">
+        <p className="mc-prompt">{current.prompt}</p>
         {speechSupported ? (
           <button
             type="button"
+            className={`mc-speak-btn${speaking ? ' is-playing' : ''}`}
             onClick={() => (speaking ? stop() : speak(`${current.prompt}`))}
-            style={{
-              minHeight: 48,
-              padding: '10px 14px',
-              borderRadius: 14,
-              border: '1px solid var(--border)',
-              background: 'var(--panel)',
-              width: '100%'
-            }}
             aria-label={speaking ? 'Arrêter la lecture' : 'Lire la consigne'}
           >
-            {speaking ? '■' : '🔊'} {speaking ? 'Arrêter' : 'Lire'}
+            <span aria-hidden="true">{speaking ? '■' : '🔊'}</span>
           </button>
         ) : null}
       </div>
 
-      <div style={{ marginTop: 14, display: 'grid', gap: 10 }}>
+      {/* Choices */}
+      <div className="mc-choices mc-choices--compact">
         {(current.choices || []).map((choice, idx) => {
           const value = typeof choice === 'object' ? (choice.value ?? choice.label ?? choice.id) : choice;
+          const label = typeof choice === 'object' ? (choice.label ?? choice.value ?? choice.id) : String(choice);
           return (
             <button
               key={idx}
               type="button"
+              className="mc-choice mc-choice--compact mc-choice--row"
               onClick={() => handlePick(value)}
-              disabled={false}
-              style={{
-                minHeight: 48,
-                padding: '12px 14px',
-                borderRadius: 16,
-                border: '1px solid var(--border)',
-                background: 'var(--panel)'
-              }}
               data-testid={`coloring-choice-${idx}`}
             >
-              <span style={{ fontFamily: "'Fredoka', sans-serif", fontSize: '1.05rem' }}>
-                {typeof choice === 'object' ? (choice.label ?? choice.value ?? choice.id) : String(choice)}
-              </span>
+              <span className="mc-choice__letter" aria-hidden="true">{['A', 'B', 'C', 'D'][idx] || ''}</span>
+              <span className="mc-choice__text"><strong>{label}</strong></span>
             </button>
           );
         })}
       </div>
 
+      {/* Feedback */}
       {feedback ? (
         <div
-          style={{
-            marginTop: 14,
-            padding: '14px 16px',
-            borderRadius: 18,
-            border: `1px solid ${feedback.isCorrect ? 'rgba(53, 196, 144, 0.35)' : 'rgba(255, 207, 116, 0.35)'}`,
-            background: feedback.isCorrect ? 'rgba(53, 196, 144, 0.12)' : 'rgba(255, 207, 116, 0.15)',
-            animation: 'rise-in 0.25s ease both'
-          }}
+          className={`mc-feedback mc-feedback--${feedback.isCorrect ? 'correct' : 'wrong'}`}
           role="status"
           aria-live="polite"
         >
-          <strong>{feedback.msg}</strong>
+          <div className="mc-feedback__top">
+            <span className="mc-feedback__icon" aria-hidden="true">{feedback.isCorrect ? '✅' : '❌'}</span>
+            <strong className="mc-feedback__msg">{feedback.msg}</strong>
+          </div>
           {feedback.explanation ? (
-            <p style={{ margin: '8px 0 0', color: 'var(--muted)', fontSize: '0.95rem' }}>{feedback.explanation}</p>
+            <p className="mc-feedback__detail">{feedback.explanation}</p>
           ) : null}
         </div>
       ) : null}

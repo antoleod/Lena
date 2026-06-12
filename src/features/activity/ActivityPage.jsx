@@ -27,10 +27,16 @@ function resolveEngineKey(activity) {
   return 'multiple-choice';
 }
 
-function renderEngine(activity, progress, onComplete, onAnswerStateChange) {
+// Positions cycle in this order; each question changes the slot so the mascot
+// "moves" with the question. top-right is the default header slot; the others
+// float into the side GUTTERS beside the (max-width) card on wide screens only
+// — they never cover the back button, title, choices or the dictionary FAB.
+const MASCOT_POSITIONS = ['top-right', 'mid-right', 'mid-left', 'low-right'];
+
+function renderEngine(activity, progress, onComplete, onAnswerStateChange, onQuestionChange) {
   const engineKey = resolveEngineKey(activity);
   const Component = getEngineDefinition(engineKey)?.component || MultipleChoiceActivity;
-  return <Component activity={activity} progress={progress} onComplete={onComplete} onAnswerStateChange={onAnswerStateChange} />;
+  return <Component activity={activity} progress={progress} onComplete={onComplete} onAnswerStateChange={onAnswerStateChange} onQuestionChange={onQuestionChange} />;
 }
 
 function buildBackRoute({ moduleId, moduleJourney, world, mission }) {
@@ -128,6 +134,7 @@ export default function ActivityPage() {
   const [completion, setCompletion]   = useState(null);
   const [status, setStatus]           = useState(baseActivity ? 'loading' : 'not-found');
   const [mascotStatus, setMascotStatus] = useState('idle');
+  const [mascotPosition, setMascotPosition] = useState(0); // index into MASCOT_POSITIONS
 
   // World theme — falls back to a neutral dark palette when no world context
   const worldTheme = world ? getWorldTheme(world.order) : { color: '#a87cf9', shadow: '#7044d4', bg: 'linear-gradient(145deg,#d5b8ff,#a87cf9)', emoji: '✨', deco: '⭐' };
@@ -139,6 +146,7 @@ export default function ActivityPage() {
       setActivity(next);
       setCompletion(null);
       setMascotStatus('idle');
+      setMascotPosition(0);
       setStatus('ready');
     } catch { setActivity(null); setStatus('error'); }
   }, [activityId, baseActivity]);
@@ -181,6 +189,11 @@ export default function ActivityPage() {
       return mod ? `/subjects/${mod.subjectId}/grades/${mod.gradeId}/modules/${mod.id}` : null;
     }
     return null;
+  }
+
+  function handleQuestionChange(questionIndex) {
+    // Advance to the next position slot so the mascot visually moves each question.
+    setMascotPosition((prev) => (prev + 1) % MASCOT_POSITIONS.length);
   }
 
   function handleComplete(result) {
@@ -346,7 +359,10 @@ export default function ActivityPage() {
         </div>
 
         {!isComparisonActivity && (
-          <div className="cc-act-header__mascot">
+          <div
+            className="cc-act-header__mascot"
+            data-mascot-pos={MASCOT_POSITIONS[mascotPosition]}
+          >
             <Mascot status={mascotStatus} />
           </div>
         )}
@@ -354,7 +370,7 @@ export default function ActivityPage() {
 
       {/* Engine */}
       <div className="cc-act-engine">
-        {renderEngine(activity, progress, handleComplete, setMascotStatus)}
+        {renderEngine(activity, progress, handleComplete, setMascotStatus, handleQuestionChange)}
       </div>
     </div>
   );

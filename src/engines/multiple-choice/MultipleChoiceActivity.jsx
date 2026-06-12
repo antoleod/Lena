@@ -109,7 +109,7 @@ function randomFrom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export default function MultipleChoiceActivity({ activity, progress, onComplete, onAnswerStateChange }) {
+export default function MultipleChoiceActivity({ activity, progress, onComplete, onAnswerStateChange, onQuestionChange }) {
   const { t } = useLocale();
 
   const { supported: speechSupported, speaking, speak, stop } = useSpeechPlayer(activity.language || 'fr');
@@ -184,6 +184,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
     if (onAnswerStateChange) {
       onAnswerStateChange('thinking');
     }
+    if (onQuestionChange) onQuestionChange(nextIndex);
   }
 
 

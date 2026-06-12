@@ -5,7 +5,7 @@ function countValue(counts) {
   return counts.tens * 10 + counts.ones;
 }
 
-export default function BaseTenActivity({ activity, progress, onComplete }) {
+export default function BaseTenActivity({ activity, progress, onComplete, onQuestionChange }) {
   const { t } = useLocale();
   const [levelIndex, setLevelIndex] = useState(0);
   const [counts, setCounts] = useState({ tens: 0, ones: 0 });
@@ -47,9 +47,11 @@ export default function BaseTenActivity({ activity, progress, onComplete }) {
     }
 
     setTimeout(() => {
-      setLevelIndex((value) => value + 1);
+      const nextIndex = levelIndex + 1;
+      setLevelIndex(nextIndex);
       setCounts({ tens: 0, ones: 0 });
       setMessage({ text: '', tone: 'success' });
+      if (onQuestionChange) onQuestionChange(nextIndex);
     }, 700);
   }
 
@@ -71,16 +73,26 @@ export default function BaseTenActivity({ activity, progress, onComplete }) {
   }
 
   return (
-    <section className="engine-card engine-card--floating">
-      <div className="engine-progress">
-        <div>
-          <span className="eyebrow">{t('level')} {levelIndex + 1} / {activity.levels.length}</span>
-          <h3>{activity.title}</h3>
+    <section className="engine-card engine-card--compact engine-card--arcade">
+      {/* Progress rail */}
+      <div className="mc-progress-rail">
+        <span className="mc-progress-rail__label">{t('level')} {levelIndex + 1} / {activity.levels.length}</span>
+        <div className="mc-progress-rail__bar">
+          <div className="mc-progress-rail__fill" style={{ width: `${Math.max((levelIndex / activity.levels.length) * 100, 3)}%` }} />
         </div>
-        <strong>{countValue(counts)}</strong>
+        <strong className="mc-progress-rail__counter">{countValue(counts)}</strong>
       </div>
-      <p className="engine-prompt">{t('buildNumber')} {level.target}.</p>
-      <p className="hint-copy">{t('hint')}: {level.hint}</p>
+
+      {/* Question prompt */}
+      <div className="mc-prompt-area">
+        <p className="mc-prompt">{t('buildNumber')} <strong className="base-ten-target">{level.target}</strong>.</p>
+      </div>
+
+      {/* Hint strip */}
+      <div className="mc-hint">
+        <span aria-hidden="true">💡</span>
+        <span>{t('hint')}: {level.hint}</span>
+      </div>
       <div className="base-ten-layout">
         <div className="base-ten-column">
           <span className="base-ten-label">{t('tens')}</span>

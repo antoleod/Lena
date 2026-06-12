@@ -3035,7 +3035,7 @@ button {
 
 .app-shell--game {
   padding: 14px 16px 20px;
-  
+
   min-height: 100vh;
 }
 
@@ -4026,6 +4026,44 @@ button {
   justify-content: center;
   align-items: flex-start;
   padding-top: 2px;
+  /* Smooth transition when position changes */
+  transition: top 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              left 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              right 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Floating gutter positions only kick in on wide screens (≥1200px) where the
+   max-width card leaves real empty gutters on each side. Below that the mascot
+   simply stays in its header slot (top-right) — no overlap risk. */
+@media (min-width: 1280px) {
+  .cc-act-header__mascot[data-mascot-pos='mid-right'],
+  .cc-act-header__mascot[data-mascot-pos='mid-left'],
+  .cc-act-header__mascot[data-mascot-pos='low-right'] {
+    position: absolute;
+    z-index: 20;
+    pointer-events: auto;
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+  .cc-act-header__mascot[data-mascot-pos='mid-right']  { top: 132px; right: 12px; left: auto; }
+  .cc-act-header__mascot[data-mascot-pos='mid-left']   { top: 132px; left: 12px;  right: auto; }
+  .cc-act-header__mascot[data-mascot-pos='low-right']  { top: 320px; right: 12px; left: auto; }
+
+  /* In the gutter the speech bubble would spill over the card — show just the
+     character there (its width then fits the ~120px gutter). */
+  .cc-act-header__mascot[data-mascot-pos='mid-right'] .mascot-bubble,
+  .cc-act-header__mascot[data-mascot-pos='mid-left'] .mascot-bubble,
+  .cc-act-header__mascot[data-mascot-pos='low-right'] .mascot-bubble {
+    display: none;
+  }
+
+  /* Collapse the now-empty header 3rd column while the mascot floats */
+  .cc-act-header:has(.cc-act-header__mascot[data-mascot-pos='mid-right']),
+  .cc-act-header:has(.cc-act-header__mascot[data-mascot-pos='mid-left']),
+  .cc-act-header:has(.cc-act-header__mascot[data-mascot-pos='low-right']) {
+    grid-template-columns: 42px 1fr 0px;
+  }
 }
 
 /* ── Engine area ── */
@@ -4034,6 +4072,14 @@ button {
   padding: 8px 14px 24px;
   display: flex;
   flex-direction: column;
+}
+
+/* Center the exercise card with a max width so wide screens get side gutters
+   (room for the floating mascot) and the card never looks over-stretched. */
+.cc-act-engine > .engine-card {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
 }
 
 /* Make engine cards fit the dark theme */
@@ -7322,6 +7368,71 @@ button {
 .cc-activity-shell .engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n+2) { background: linear-gradient(165deg, #ff9fd6, #ff5fb0); }
 .cc-activity-shell .engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n+3) { background: linear-gradient(165deg, #ffe58a, #ffcb45); }
 .cc-activity-shell .engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n)   { background: linear-gradient(165deg, #c9a0ff, #9a5cff); }
+
+/* ── Base-ten arcade overrides ── */
+.cc-activity-shell .engine-card--arcade .base-ten-layout {
+  gap: 14px;
+}
+.cc-activity-shell .engine-card--arcade .base-ten-column {
+  background: linear-gradient(160deg, #2f3a66 0%, #232c52 100%);
+  border: 3px solid #1b1240;
+  border-radius: 22px;
+  box-shadow: 0 6px 0 #1b1240;
+  color: #fff;
+  text-align: center;
+}
+.cc-activity-shell .engine-card--arcade .base-ten-label {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cc-activity-shell .engine-card--arcade .base-ten-value {
+  font-size: 3.2rem;
+  color: #fff;
+  font-weight: 900;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.cc-activity-shell .engine-card--arcade .base-ten-target {
+  color: #ffcb45;
+  font-size: 1.4em;
+}
+.cc-activity-shell .engine-card--arcade .base-ten-actions button {
+  flex: 1;
+  min-height: 48px;
+  border-radius: 14px;
+  border: 2.5px solid #1b1240;
+  background: linear-gradient(165deg, #d7c4ff, #b79bff);
+  color: #1b1240;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 4px 0 #1b1240;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.cc-activity-shell .engine-card--arcade .base-ten-actions button:nth-child(even) {
+  background: linear-gradient(165deg, #ff9fd6, #ff5fb0);
+}
+.cc-activity-shell .engine-card--arcade .base-ten-actions button:hover {
+  transform: translateY(-2px);
+}
+.cc-activity-shell .engine-card--arcade .base-ten-actions button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #1b1240;
+}
+
+/* ── Story arcade overrides ── */
+.cc-activity-shell .engine-card--arcade .story-copy p {
+  background: linear-gradient(165deg, rgba(47,58,102,0.7), rgba(35,44,82,0.7));
+  border: 2px solid rgba(183,155,255,0.3);
+  color: #fff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    PET MASCOT — floating companion

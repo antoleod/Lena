@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useSpeechPlayer } from '../../shared/hooks/useSpeechPlayer.js';
 
-export default function StoryActivity({ activity, progress, onComplete }) {
+export default function StoryActivity({ activity, progress, onComplete, onQuestionChange }) {
   const { t } = useLocale();
   const { supported: speechSupported, speaking, speak, stop } = useSpeechPlayer(activity.language || 'fr');
   const stories = activity.stories || [];
@@ -11,6 +11,8 @@ export default function StoryActivity({ activity, progress, onComplete }) {
   const [selected, setSelected] = useState('');
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+
+  const globalQuestionIndex = stories.slice(0, storyIndex).reduce((acc, s) => acc + (s.quiz?.length || 0), 0) + quizIndex;
 
   const story = stories[storyIndex];
   const question = story?.quiz?.[quizIndex];
@@ -43,12 +45,14 @@ export default function StoryActivity({ activity, progress, onComplete }) {
       setQuizIndex(0);
       setSelected('');
       setScore(nextScore);
+      if (onQuestionChange) onQuestionChange(globalQuestionIndex + 1);
       return;
     }
 
     setQuizIndex((value) => value + 1);
     setSelected('');
     setScore(nextScore);
+    if (onQuestionChange) onQuestionChange(globalQuestionIndex + 1);
   }
 
   if (finished) {
@@ -69,51 +73,61 @@ export default function StoryActivity({ activity, progress, onComplete }) {
   }
 
   return (
-    <section className="engine-card story-card engine-card--floating">
-      <div className="engine-progress">
-        <div>
-          <span className="eyebrow">{t('story')} {storyIndex + 1} / {stories.length}</span>
-          <h3>{story.title}</h3>
+    <section className="engine-card engine-card--compact engine-card--arcade">
+      {/* Progress rail */}
+      <div className="mc-progress-rail">
+        <span className="mc-progress-rail__label">{t('story')} {storyIndex + 1} / {stories.length}</span>
+        <div className="mc-progress-rail__bar">
+          <div className="mc-progress-rail__fill" style={{ width: `${Math.max((globalQuestionIndex / Math.max((stories.reduce((a, s) => a + (s.quiz?.length || 0), 0)), 1)) * 100, 3)}%` }} />
         </div>
-        <strong>{story.theme}</strong>
+        <strong className="mc-progress-rail__counter">{story.theme}</strong>
       </div>
 
-      {speechSupported ? (
-        <div className="dashboard-actions">
+      {/* Story title + read button */}
+      <div className="mc-prompt-area">
+        <p className="mc-prompt">{story.title}</p>
+        {speechSupported ? (
           <button
             type="button"
-            className={`secondary-action audio-action-inline${speaking ? ' is-playing' : ''}`}
+            className={`mc-speak-btn${speaking ? ' is-playing' : ''}`}
             onClick={() => (speaking ? stop() : speak(storySpeechText))}
             data-testid="play-question"
+            aria-label={speaking ? 'Arrêter la lecture' : 'Lire l\'histoire'}
           >
-            <span className="button-icon" aria-hidden="true">{speaking ? '■' : '▶'}</span>
-            <span>{speaking ? 'Arreter la lecture' : 'Lire l histoire'}</span>
+            <span aria-hidden="true">{speaking ? '■' : '🔊'}</span>
           </button>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
 
+      {/* Story body */}
       <div className="story-copy">
         {story.text.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
       </div>
+
       {question ? (
         <>
-          <div className="story-question">
-            <strong>{question.prompt}</strong>
+          {/* Question prompt */}
+          <div className="mc-prompt-area" style={{ marginTop: 8 }}>
+            <p className="mc-prompt">{question.prompt}</p>
           </div>
-          <div className="choice-grid">
-            {question.choices.map((choice) => (
+
+          {/* Choices */}
+          <div className="mc-choices mc-choices--compact">
+            {question.choices.map((choice, i) => (
               <button
                 key={choice}
-                className={`choice-button${selected === choice ? ' is-selected' : ''}`}
+                className={`mc-choice mc-choice--compact mc-choice--row${selected === choice ? ' mc-choice--selected' : ''}`}
                 type="button"
                 onClick={() => setSelected(choice)}
               >
-                {choice}
+                <span className="mc-choice__letter" aria-hidden="true">{['A', 'B', 'C', 'D'][i] || ''}</span>
+                <span className="mc-choice__text"><strong>{choice}</strong></span>
               </button>
             ))}
           </div>
+
           <div className="engine-actions">
             <button className="primary-action" type="button" disabled={!selected} onClick={chooseAnswer}>
               <span className="button-icon" aria-hidden="true">✓</span>
