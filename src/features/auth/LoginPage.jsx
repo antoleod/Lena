@@ -10,6 +10,7 @@ import { assetUrl } from '../../shared/assets/assetUrl.js';
 import { IconCreate, IconArrow } from './LoginIcons.jsx';
 import IconPinPad from './IconPinPad.jsx';
 import { hashPin, savePin, loadPin, clearPin } from './iconPinStore.js';
+import { avatarSrc, isPictureAvatar } from '../../shared/avatars/avatarCatalog.js';
 
 // ── Small inline icons for the v2 welcome panel ───────────────────────────────
 const GoogleGlyph = () => (
@@ -610,7 +611,13 @@ export default function LoginPage() {
           <div className="login-card">
             {/* Username badge — who is signing in */}
             <div className="login-whois">
-              <span className="login-whois__avatar">👧</span>
+              {isPictureAvatar(profile.avatarId) ? (
+                <span className="login-whois__avatar login-whois__avatar--photo">
+                  <img src={assetUrl(avatarSrc(profile.avatarId))} alt="" draggable="false" />
+                </span>
+              ) : (
+                <span className="login-whois__avatar">👧</span>
+              )}
               <span className="login-whois__name">{profile.name || 'toi'}</span>
             </div>
             <h1 className="login-hello">Salut {profile.name || 'toi'} ! 👋</h1>

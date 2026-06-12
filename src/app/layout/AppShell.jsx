@@ -394,7 +394,13 @@ export default function AppShell() {
       {/* Topbar — visible on mobile (<768px) via CSS */}
       <header className="app-topbar" data-testid="app-shell">
         <button type="button" className="brand-inline" onClick={() => { playTapSound(); navigate('/'); }} data-testid="shell-brand">
-          <span className="brand-inline__mark">{displayInitial}</span>
+          {isPictureAvatar(session.profile?.avatarId) ? (
+            <span className="brand-inline__mark brand-inline__mark--avatar">
+              <img src={assetUrl(avatarSrc(session.profile.avatarId))} alt="" draggable="false" />
+            </span>
+          ) : (
+            <span className="brand-inline__mark">{displayInitial}</span>
+          )}
           <span className="brand-inline__name">{displayName}</span>
         </button>
 

@@ -1,5 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
+import { getProfile } from '../../services/storage/profileStore.js';
+import { assetUrl } from '../../shared/assets/assetUrl.js';
+import { avatarSrc, isPictureAvatar } from '../../shared/avatars/avatarCatalog.js';
 import CustomizerPanel, { CUSTOMIZER_LABELS } from './CustomizerPanel.jsx';
 
 /**
@@ -11,6 +14,7 @@ export default function CustomizerPage() {
   const navigate = useNavigate();
   const { locale } = useLocale();
   const lbl = CUSTOMIZER_LABELS[locale] || CUSTOMIZER_LABELS.fr;
+  const avatarId = getProfile().avatarId;
 
   return (
     <div className="customizer-page">
@@ -23,6 +27,11 @@ export default function CustomizerPage() {
         >
           ←
         </button>
+        {isPictureAvatar(avatarId) && (
+          <span className="avatar-mini avatar-mini--md">
+            <img src={assetUrl(avatarSrc(avatarId))} alt="" draggable="false" />
+          </span>
+        )}
         <div className="customizer-page__title">
           <span className="eyebrow">LÉNA 🎨</span>
           <h1>{lbl.title}</h1>

@@ -19463,13 +19463,13 @@ body {
 .app-sidebar__profile:hover { border-color: rgba(168,85,247,0.7); }
 .app-sidebar__avatar-wrap {
   position: relative; flex-shrink: 0;
-  width: 52px; height: 52px; border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, rgba(255,150,200,0.35), rgba(124,58,237,0.25));
   border: 2px solid rgba(255,255,255,0.35);
   display: flex; align-items: center; justify-content: center; overflow: hidden;
   box-shadow: 0 3px 10px rgba(124,58,237,0.4);
 }
-.app-sidebar__avatar { width: 56px; height: 56px; object-fit: contain; margin-top: 4px; }
+.app-sidebar__avatar { width: 48px; height: 48px; object-fit: contain; margin-top: 4px; }
 .app-sidebar__profile-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1; }
 .app-sidebar__profile-name {
   font-family: 'Fredoka', sans-serif; font-weight: 800; color: #fff;
@@ -19601,6 +19601,26 @@ body {
   width: 100%; height: 100%;
   margin-top: 0;
 }
+
+/* ── Reusable mini round avatar (small, discreet) ── */
+.avatar-mini {
+  display: inline-grid; place-items: center; flex-shrink: 0;
+  border-radius: 50%; overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.5);
+  background: rgba(124,58,237,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.avatar-mini img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.avatar-mini--sm { width: 28px; height: 28px; }
+.avatar-mini--md { width: 38px; height: 38px; }
+
+/* Topbar brand mark shown as a small avatar */
+.brand-inline__mark--avatar { background: none; overflow: hidden; padding: 0; width: 32px; height: 32px; }
+.brand-inline__mark--avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Login "whois" badge as a small photo */
+.login-whois__avatar--photo { background: none; overflow: hidden; padding: 0; }
+.login-whois__avatar--photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 
 /* ═══════════════════════════════════════════════════════════════
