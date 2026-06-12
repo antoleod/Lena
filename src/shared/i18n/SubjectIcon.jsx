@@ -137,18 +137,28 @@ const SYMBOL = {
       <circle cx="42" cy="40" r="2" fill={D} />
     </g>
   ),
-  // Finance — piggy bank
+  // Finance — piggy bank (coin dropping into the slot)
   finance: (
     <g>
-      <ellipse cx="31" cy="36" rx="14" ry="11" {...Wf} />
-      <path d="M36 27l5-4-1 7z" {...Wf} />
-      <rect x="42" y="33" width="6" height="7" rx="2.5" {...Wf} />
-      <rect x="23" y="45" width="4" height="5" rx="1" {...Wf} />
-      <rect x="35" y="45" width="4" height="5" rx="1" {...Wf} />
-      <path d="M28 28h8" stroke={D} strokeWidth="2.6" strokeLinecap="round" />
-      <circle cx="38" cy="34" r="1.4" fill={D} />
-      <circle cx="32" cy="19" r="4.5" {...Wf} />
-      <path d="M30.5 19h3M32 17.5v3" stroke={D} strokeWidth="1.4" strokeLinecap="round" />
+      {/* coin above the slot */}
+      <circle cx="28" cy="14" r="4.2" {...Wf} />
+      <path d="M26.6 14h2.8M28 12.6v2.8" stroke={D} strokeWidth="1.4" strokeLinecap="round" />
+      {/* body */}
+      <ellipse cx="30" cy="37" rx="15" ry="11.5" {...Wf} />
+      {/* ear */}
+      <path d="M24 27l-3-5 6 1.5z" {...Wf} />
+      {/* snout */}
+      <ellipse cx="45" cy="37" rx="5" ry="6" {...Wf} />
+      <circle cx="44" cy="35" r="1.3" fill={D} />
+      <circle cx="44" cy="39" r="1.3" fill={D} />
+      {/* legs */}
+      <rect x="22" y="46" width="4" height="5" rx="1.4" {...Wf} />
+      <rect x="34" y="46" width="4" height="5" rx="1.4" {...Wf} />
+      {/* eye + coin slot */}
+      <circle cx="34" cy="34" r="1.6" fill={D} />
+      <path d="M26 29h8" stroke={D} strokeWidth="2.6" strokeLinecap="round" />
+      {/* curly tail */}
+      <path d="M15 36c-2.5 0-2.5 3.5 0 3.5s2-3 0-3" {...W} strokeWidth="2.4" />
     </g>
   ),
   // Informatics — friendly robot
