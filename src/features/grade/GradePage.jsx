@@ -8,30 +8,11 @@ import { getGradeJourney } from '../../shared/gameplay/moduleJourney.js';
 import { inferLevelNumFromGrade } from '../../services/learning/levelSystem.js';
 import { getSubjectUniverse, getGradeWorld, getDomainTheme } from '../../shared/gameplay/subjectThemes.js';
 import { resolveNodeGlyph } from '../../shared/gameplay/nodeGlyphs.js';
-import { FloatingIsland, getBiome, SpaceBackdrop } from '../../assets/icons/BiomeIslands.jsx';
+import IslandPath from './IslandPath.jsx';
 import { GRADE_WORLD_ICON_MAP } from '../../assets/icons/GradeWorldIcons.jsx';
-
-// Winding column pattern: center → right → center → left → repeat
-const PATH_COLS  = [1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1, 0];
-const ROW_CLASS  = ['sw-island-row--left', 'sw-island-row--center', 'sw-island-row--right'];
 
 function getLevelNum(activity) {
   return activity.levelNum ?? inferLevelNumFromGrade(activity);
-}
-
-// Dashed curved road between two islands, with a star checkpoint at its middle.
-function IslandConnector({ fromCol, toCol }) {
-  const colToX = c => [22, 50, 78][c];
-  const x1 = colToX(fromCol), x2 = colToX(toCol), cx = (x1 + x2) / 2;
-  return (
-    <div className="sw-island-link" aria-hidden="true">
-      <svg viewBox="0 0 100 60" preserveAspectRatio="none">
-        <path d={`M ${x1} 4 C ${cx} 4, ${cx} 56, ${x2} 56`} fill="none"
-          stroke="rgba(255,255,255,0.85)" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="1.5 6" />
-      </svg>
-      <span className="sw-island-link__star">⭐</span>
-    </div>
-  );
 }
 
 export default function GradePage() {
@@ -143,70 +124,21 @@ export default function GradePage() {
       </div>
 
       {/* Floating-island adventure path */}
-      <div className="sw-island-map">
-        <SpaceBackdrop />
-
-        {allNodes.length === 0 && (
-          <div className="sw-island-end">
-            <span className="sw-island-end__icon">🗺️</span>
-            <Link to="/map" className="cc-end-trophy__label" style={{ color: 'inherit', textDecoration: 'none' }}>Ver el mapa de aventura</Link>
-          </div>
-        )}
-
-        <div className="sw-island-grid">
-          {allNodes.map((node, index) => {
-            const col      = PATH_COLS[index % PATH_COLS.length];
-            const nextCol  = index < allNodes.length - 1 ? PATH_COLS[(index + 1) % PATH_COLS.length] : null;
-            const isActive = node.id === activeNodeId;
-            const complete = node.pct === 100 && node.total > 0;
-            const biome    = getBiome(index);
-            const glyph    = resolveNodeGlyph({ subjectId, domain: node.domain, index });
-
-            return (
-              <div key={node.id} style={{ width: '100%' }}>
-                <div className={`sw-island-row ${ROW_CLASS[col]}`}>
-                  <Link
-                    to={node.launchTo}
-                    className={`sw-island-node ${isActive ? 'sw-island-node--current' : ''} ${complete ? 'sw-island-node--complete' : ''}`}
-                    style={{
-                      animationDelay: `${index * 70}ms`,
-                      '--isl-book': node.theme.bg,
-                      '--isl-glow': node.theme.color,
-                      '--isl-badge': gradeWorld.color,
-                    }}
-                    title={node.title}
-                  >
-                    <div className="sw-island__visual">
-                      <div className="sw-island__float">
-                        <span className="sw-island__halo" />
-                        <span className="sw-island__book">
-                          <span className="sw-island__book-glyph">{complete ? '✓' : glyph}</span>
-                        </span>
-                      </div>
-                      <FloatingIsland biome={biome} size={200} glow={isActive} />
-                      <span className="sw-island__num">{index + 1}</span>
-                    </div>
-                    <span className="sw-island__title">{node.title}</span>
-                    <span className="sw-island__stars">
-                      {[33, 66, 100].map((thr, i) => (
-                        <span key={i} className={`sw-island__star ${node.pct >= thr ? 'sw-island__star--on' : ''}`}>★</span>
-                      ))}
-                    </span>
-                  </Link>
-                </div>
-                {nextCol !== null && <IslandConnector fromCol={col} toCol={nextCol} />}
-              </div>
-            );
-          })}
-
-          {allNodes.length > 0 && (
-            <div className="sw-island-end">
-              <span className="sw-island-end__icon" style={{ filter: `drop-shadow(0 4px 12px ${gradeWorld.color}88)` }}>{WorldIcon ? <WorldIcon size={64} /> : gradeWorld.emoji}</span>
-              <span>¡{gradeWorld.name} completado!</span>
-            </div>
-          )}
-        </div>
-      </div>
+      <IslandPath
+        nodes={allNodes.map((node, index) => ({
+          id: node.id,
+          title: node.title,
+          launchTo: node.launchTo,
+          pct: node.pct,
+          isActive: node.id === activeNodeId,
+          complete: node.pct === 100 && node.total > 0,
+          glyph: resolveNodeGlyph({ subjectId, domain: node.domain, index }),
+        }))}
+        badgeColor={gradeWorld.color}
+        endIcon={WorldIcon ? <WorldIcon size={64} /> : gradeWorld.emoji}
+        endLabel={`¡${gradeWorld.name} completado!`}
+        emptyFallback={{ icon: '🗺️', label: 'Ver el mapa de aventura', to: '/map' }}
+      />
 
       {contextLessons.length > 0 && (
         <div className="sw-grade-lessons">

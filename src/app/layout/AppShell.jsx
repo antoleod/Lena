@@ -294,8 +294,12 @@ export default function AppShell() {
     setLimitBlocked(todaySeconds >= dailyLimitMinutes * 60);
   }, [location.pathname]);
 
+  // Immersive full-screen level map (no sidebar) for the grade adventure route.
+  const isImmersive = /^\/subjects\/[^/]+\/grades\/[^/]+/.test(location.pathname)
+    || /^\/map(\/|$)/.test(location.pathname);
+
   return (
-    <div className="app-shell app-shell--game">
+    <div className={`app-shell app-shell--game${isImmersive ? ' app-shell--immersive' : ''}`}>
       <div className="scene-effects" aria-hidden="true">
         <span className="scene-effects__rain"></span>
         <span className="scene-effects__rain scene-effects__rain--b"></span>
