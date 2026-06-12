@@ -7,6 +7,7 @@ export const DICO_THEMES = [
   { id: 'maison',       label: 'Maison',       emoji: '🏠', color: '#f97316' },
   { id: 'corps',        label: 'Corps',        emoji: '🫀', color: '#ec4899' },
   { id: 'emotions',     label: 'Emotions',     emoji: '😊', color: '#6366f1' },
+  { id: 'politesse',    label: 'Politesse',    emoji: '🙋', color: '#14b8a6' },
 ];
 
 export const DICO_WORDS = [
@@ -1343,6 +1344,129 @@ export const DICO_WORDS = [
       nl:{ word:'vrijgevig', definition:'Iemand die graag aan anderen geeft zonder er iets voor terug te verwachten.', example:'Hij is vrijgevig, hij deelt altijd zijn snoepjes.' },
       en:{ word:'generous', definition:'Someone who likes to give to others without expecting anything in return.', example:'He is generous, he always shares his sweets.' },
       es:{ word:'generoso', definition:'Quien le gusta dar a los demas sin esperar nada a cambio.', example:'Es generoso, siempre comparte sus caramelos.' },
+    },
+  },
+
+  // POLITESSE & MOTS DE TOUS LES JOURS
+  {
+    id:'bonjour', word:'bonjour', genre:'m', class:'interjection', emoji:'👋', theme:'politesse', level:1,
+    definition:'Mot gentil que l\'on dit quand on rencontre quelqu\'un pendant la journee.',
+    example:'Bonjour madame, comment allez-vous ?',
+    synonyms:['salut','coucou'], antonym:'au revoir', family:['bonsoir','salut','saluer'],
+    i18n:{
+      nl:{ word:'goedendag', definition:'Vriendelijk woord dat je zegt als je iemand overdag ontmoet.', example:'Goedendag mevrouw, hoe gaat het?' },
+      en:{ word:'hello', definition:'A kind word you say when you meet someone during the day.', example:'Hello madam, how are you?' },
+      es:{ word:'hola', definition:'Palabra amable que dices cuando te encuentras con alguien durante el dia.', example:'Hola senora, como esta?' },
+    },
+  },
+  {
+    id:'bonsoir', word:'bonsoir', genre:'m', class:'interjection', emoji:'🌙', theme:'politesse', level:1,
+    definition:'Mot gentil que l\'on dit le soir quand on rencontre ou quitte quelqu\'un.',
+    example:'Bonsoir, je vais me coucher.',
+    synonyms:['bonne nuit'], antonym:'bonjour', family:['bonjour','soir','nuit'],
+    i18n:{
+      nl:{ word:'goedenavond', definition:'Vriendelijk woord dat je \'s avonds zegt als je iemand ontmoet of verlaat.', example:'Goedenavond, ik ga slapen.' },
+      en:{ word:'good evening', definition:'A kind word you say in the evening when you meet or leave someone.', example:'Good evening, I am going to bed.' },
+      es:{ word:'buenas noches', definition:'Palabra amable que dices por la noche al encontrar o dejar a alguien.', example:'Buenas noches, me voy a dormir.' },
+    },
+  },
+  {
+    id:'salut', word:'salut', genre:'m', class:'interjection', emoji:'✋', theme:'politesse', level:1,
+    definition:'Petit mot amical pour dire bonjour ou au revoir a un copain.',
+    example:'Salut ! On joue ensemble ?',
+    synonyms:['coucou','bonjour'], antonym:null, family:['saluer','bonjour'],
+    i18n:{
+      nl:{ word:'hoi', definition:'Klein vriendelijk woord om hallo of dag te zeggen tegen een vriend.', example:'Hoi! Spelen we samen?' },
+      en:{ word:'hi', definition:'A small friendly word to say hello or bye to a friend.', example:'Hi! Shall we play together?' },
+      es:{ word:'hola', definition:'Palabra amistosa para decir hola o adios a un amigo.', example:'Hola! Jugamos juntos?' },
+    },
+  },
+  {
+    id:'merci', word:'merci', genre:'m', class:'interjection', emoji:'🙏', theme:'politesse', level:1,
+    definition:'Mot que l\'on dit pour remercier quand on recoit quelque chose.',
+    example:'Merci pour le cadeau !',
+    synonyms:[], antonym:null, family:['remercier','remerciement','gentil'],
+    i18n:{
+      nl:{ word:'dankjewel', definition:'Woord dat je zegt om iemand te bedanken als je iets krijgt.', example:'Dankjewel voor het cadeau!' },
+      en:{ word:'thank you', definition:'A word you say to thank someone when you receive something.', example:'Thank you for the gift!' },
+      es:{ word:'gracias', definition:'Palabra que dices para agradecer cuando recibes algo.', example:'Gracias por el regalo!' },
+    },
+  },
+  {
+    id:'au-revoir', word:'au revoir', genre:'m', class:'interjection', emoji:'👋', theme:'politesse', level:1,
+    definition:'Mot que l\'on dit pour se quitter en se souhaitant de se revoir.',
+    example:'Au revoir, a demain !',
+    synonyms:['adieu','salut'], antonym:'bonjour', family:['revoir','partir','adieu'],
+    i18n:{
+      nl:{ word:'tot ziens', definition:'Woord dat je zegt om afscheid te nemen en elkaar weer te zien.', example:'Tot ziens, tot morgen!' },
+      en:{ word:'goodbye', definition:'A word you say to leave each other, hoping to meet again.', example:'Goodbye, see you tomorrow!' },
+      es:{ word:'adios', definition:'Palabra que dices para despedirte deseando volver a verse.', example:'Adios, hasta manana!' },
+    },
+  },
+  {
+    id:'oui', word:'oui', genre:'m', class:'adverbe', emoji:'✅', theme:'politesse', level:1,
+    definition:'Petit mot qui sert a dire que l\'on est d\'accord ou que c\'est vrai.',
+    example:'Oui, j\'aime beaucoup les fraises.',
+    synonyms:['d\'accord'], antonym:'non', family:['d\'accord','vrai'],
+    i18n:{
+      nl:{ word:'ja', definition:'Klein woord om te zeggen dat je akkoord bent of dat het waar is.', example:'Ja, ik hou heel veel van aardbeien.' },
+      en:{ word:'yes', definition:'A small word to say that you agree or that it is true.', example:'Yes, I really like strawberries.' },
+      es:{ word:'si', definition:'Palabra pequena para decir que estas de acuerdo o que es verdad.', example:'Si, me gustan mucho las fresas.' },
+    },
+  },
+  {
+    id:'non', word:'non', genre:'m', class:'adverbe', emoji:'❌', theme:'politesse', level:1,
+    definition:'Petit mot qui sert a refuser ou a dire que ce n\'est pas vrai.',
+    example:'Non, je ne veux pas de soupe.',
+    synonyms:[], antonym:'oui', family:['refuser','jamais'],
+    i18n:{
+      nl:{ word:'nee', definition:'Klein woord om te weigeren of te zeggen dat het niet waar is.', example:'Nee, ik wil geen soep.' },
+      en:{ word:'no', definition:'A small word to refuse or to say that it is not true.', example:'No, I do not want soup.' },
+      es:{ word:'no', definition:'Palabra pequena para rechazar o decir que no es verdad.', example:'No, no quiero sopa.' },
+    },
+  },
+  {
+    id:'pardon', word:'pardon', genre:'m', class:'interjection', emoji:'😅', theme:'politesse', level:1,
+    definition:'Mot que l\'on dit pour s\'excuser quand on a fait une petite betise.',
+    example:'Pardon, je t\'ai bouscule sans faire expres.',
+    synonyms:['excuse-moi','desole'], antonym:null, family:['excuser','desole','excuse'],
+    i18n:{
+      nl:{ word:'sorry', definition:'Woord dat je zegt om je te verontschuldigen na een kleine fout.', example:'Sorry, ik heb je per ongeluk geduwd.' },
+      en:{ word:'sorry', definition:'A word you say to apologise when you made a small mistake.', example:'Sorry, I bumped into you by accident.' },
+      es:{ word:'perdon', definition:'Palabra que dices para disculparte cuando hiciste una pequena travesura.', example:'Perdon, te empuje sin querer.' },
+    },
+  },
+  {
+    id:'sil-te-plait', word:'s\'il te plait', genre:'m', class:'interjection', emoji:'🙏', theme:'politesse', level:1,
+    definition:'Mots polis que l\'on ajoute pour demander quelque chose gentiment.',
+    example:'Donne-moi le crayon, s\'il te plait.',
+    synonyms:['s\'il vous plait'], antonym:null, family:['merci','poli','demander'],
+    i18n:{
+      nl:{ word:'alsjeblieft', definition:'Beleefde woorden die je toevoegt om iets vriendelijk te vragen.', example:'Geef me het potlood, alsjeblieft.' },
+      en:{ word:'please', definition:'Polite words you add to ask for something kindly.', example:'Give me the pencil, please.' },
+      es:{ word:'por favor', definition:'Palabras educadas que anades para pedir algo amablemente.', example:'Dame el lapiz, por favor.' },
+    },
+  },
+  {
+    id:'bravo', word:'bravo', genre:'m', class:'interjection', emoji:'👏', theme:'politesse', level:1,
+    definition:'Mot que l\'on dit pour feliciter quelqu\'un qui a bien reussi.',
+    example:'Bravo ! Tu as gagne la course.',
+    synonyms:['felicitations'], antonym:null, family:['feliciter','applaudir','gagner'],
+    i18n:{
+      nl:{ word:'bravo', definition:'Woord dat je zegt om iemand te feliciteren die het goed heeft gedaan.', example:'Bravo! Je hebt de race gewonnen.' },
+      en:{ word:'well done', definition:'A word you say to congratulate someone who did well.', example:'Well done! You won the race.' },
+      es:{ word:'bravo', definition:'Palabra que dices para felicitar a alguien que lo hizo muy bien.', example:'Bravo! Ganaste la carrera.' },
+    },
+  },
+  {
+    id:'coucou', word:'coucou', genre:'m', class:'interjection', emoji:'🐤', theme:'politesse', level:1,
+    definition:'Petit mot rigolo et tres amical pour dire bonjour.',
+    example:'Coucou maman, c\'est moi !',
+    synonyms:['salut','bonjour'], antonym:null, family:['salut','bonjour','saluer'],
+    i18n:{
+      nl:{ word:'kiekeboe', definition:'Grappig en heel vriendelijk woordje om hallo te zeggen.', example:'Kiekeboe mama, ik ben het!' },
+      en:{ word:'hiya', definition:'A funny and very friendly little word to say hello.', example:'Hiya mum, it\'s me!' },
+      es:{ word:'hola', definition:'Palabrita divertida y muy amistosa para decir hola.', example:'Hola mama, soy yo!' },
     },
   },
 ];
