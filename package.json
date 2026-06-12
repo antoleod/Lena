@@ -24,6 +24,8 @@
     "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
+    "@dicebear/collection": "^9.4.2",
+    "@dicebear/core": "^9.4.2",
     "@playwright/test": "^1.58.2",
     "@vitejs/plugin-react": "^4.3.1",
     "cross-env": "^7.0.3",
