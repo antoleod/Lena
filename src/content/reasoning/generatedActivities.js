@@ -4,7 +4,7 @@ function createGeneratedReasoningActivity({
   id,
   slug,
   title,
-  topic = 'logic-sequence',
+  topic = 'logic',
   gradeBand,
   instructions,
   hints
@@ -88,7 +88,7 @@ export const generatedReasoningActivities = [
     id: 'generated-sequences-p2',
     slug: 'suites-visuelles-p2',
     title: 'Suites visuelles P2',
-    topic: 'logic-sequence',
+    topic: 'logic',
     gradeBand: ['P2'],
     instructions: 'Repeter une regle simple dans des suites tres lisibles.',
     hints: ['Observe la transformation entre deux cases voisines.']
@@ -123,7 +123,7 @@ export const generatedReasoningActivities = [
     id: 'generated-patterns-reasoning-p3',
     slug: 'patrons-logiques-p3',
     title: 'Patrons et matrices P3',
-    topic: 'logic-sequence',
+    topic: 'logic',
     gradeBand: ['P3'],
     instructions: 'Suites, motifs et organisations visuelles plus riches.',
     hints: ['Compare chaque ligne ou chaque groupe avant de decider.']

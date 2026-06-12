@@ -205,7 +205,7 @@ export default function AppShell() {
         isActive: (path) => path === '/',
       },
       {
-        to: '/pratiquer',
+        to: '/jeux',
         label: nl.practise,
         Icon: IconNavPratiquer,
         isActive: (path) => matchPrefix(PRACTISE_PREFIXES, path),

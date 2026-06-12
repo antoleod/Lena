@@ -56,9 +56,15 @@ const TOPIC_DEFINITIONS = Object.freeze({
   },
   'logic-sequence': {
     domain: 'logic',
-    activityType: 'ordering',
-    engineType: 'ordering',
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
     skillTags: ['sequence', 'patterns']
+  },
+  logic: {
+    domain: 'logic',
+    activityType: 'multiple-choice',
+    engineType: 'multiple-choice',
+    skillTags: ['reasoning', 'patterns', 'classification', 'deduction']
   },
   vocabulary: {
     domain: 'language',
@@ -147,8 +153,12 @@ const SKILL_TO_TOPIC = Object.freeze({
   'word-problem': 'word-problem',
   sequence: 'logic-sequence',
   sequences: 'logic-sequence',
-  patterns: 'logic-sequence',
-  classification: 'logic-sequence',
+  patterns: 'logic',
+  classification: 'logic',
+  logic: 'logic',
+  reasoning: 'logic',
+  deduction: 'logic',
+  intrus: 'logic',
   vocabulary: 'vocabulary',
   reading: 'reading-comprehension',
   comprehension: 'reading-comprehension',
