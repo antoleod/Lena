@@ -20798,3 +20798,228 @@ body {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(236, 72, 153, 0.5);
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   FLOATING ISLAND ADVENTURE MAP (Nintendo-style, SVG/CSS — all subjects)
+   ════════════════════════════════════════════════════════════════════════ */
+
+.sw-island-map {
+  position: relative;
+  flex: 1;
+  padding: 12px 0 80px;
+  overflow: hidden;
+  /* Deep-space backdrop — independent of subject sky / app theme */
+  background:
+    radial-gradient(circle at 20% 12%, rgba(99,80,200,0.18), transparent 45%),
+    radial-gradient(circle at 82% 70%, rgba(40,120,180,0.16), transparent 45%),
+    linear-gradient(180deg, #0a0820 0%, #120d33 45%, #0d0a26 100%);
+}
+
+/* ── Space backdrop ── */
+.sw-space-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.sw-space-bg__stars { position: absolute; inset: 0; width: 100%; height: 100%; }
+@keyframes sw-twinkle { 0%,100% { opacity: 0.25; } 50% { opacity: 1; } }
+
+.sw-space-bg__planet, .sw-space-bg__rocket, .sw-space-bg__moon { position: absolute; opacity: 0.85; }
+.sw-space-bg__planet--ring  { top: 8%;  right: 4%;  width: 120px; opacity: 0.5; }
+.sw-space-bg__planet--small { top: 34%; left: 5%;   width: 46px;  opacity: 0.55; }
+.sw-space-bg__moon          { bottom: 2%; left: 2%;  width: 130px; opacity: 0.5; }
+.sw-space-bg__rocket {
+  top: 52%; right: 5%; width: 52px;
+  animation: sw-rocket-bob 5s ease-in-out infinite;
+}
+@keyframes sw-rocket-bob {
+  0%,100% { transform: translateY(0) rotate(-8deg); }
+  50%     { transform: translateY(-16px) rotate(-4deg); }
+}
+
+/* ── Island path layout ── */
+.sw-island-grid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.sw-island-row { width: 100%; display: flex; }
+.sw-island-row--left   { justify-content: flex-start; padding-left: 6%; }
+.sw-island-row--center { justify-content: center; }
+.sw-island-row--right  { justify-content: flex-end; padding-right: 6%; }
+
+/* connector */
+.sw-island-link {
+  height: 64px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.sw-island-link svg { width: 60%; height: 100%; }
+.sw-island-link__star {
+  position: absolute;
+  font-size: 1.1rem;
+  color: #fff;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+  animation: sw-twinkle 2.4s ease-in-out infinite;
+}
+
+/* ── Island node ── */
+.sw-island-node {
+  position: relative;
+  width: 220px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: sw-island-pop 0.55s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes sw-island-pop { from { opacity: 0; transform: translateY(24px) scale(0.85); } to { opacity: 1; transform: none; } }
+
+.sw-island__visual {
+  position: relative;
+  width: 200px;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sw-island__svg { width: 100%; height: auto; animation: sw-island-float 4.5s ease-in-out infinite; }
+@keyframes sw-island-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+/* floating book/glyph above the island */
+.sw-island__float {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: sw-book-bob 3.4s ease-in-out infinite;
+}
+@keyframes sw-book-bob { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-9px); } }
+
+.sw-island__book {
+  width: 64px;
+  height: 76px;
+  border-radius: 6px 10px 10px 6px;
+  background: var(--isl-book, linear-gradient(135deg,#6fb8ff,#3a82e8));
+  box-shadow:
+    -6px 0 0 -1px rgba(0,0,0,0.18),
+    0 10px 22px rgba(0,0,0,0.4),
+    inset 4px 0 0 rgba(255,255,255,0.35),
+    inset -3px 0 6px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transform: rotate(-4deg);
+  position: relative;
+}
+.sw-island__book::after {     /* glossy page edge */
+  content: '';
+  position: absolute;
+  right: 3px; top: 5px; bottom: 5px;
+  width: 5px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.7);
+}
+.sw-island__book-glyph { filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
+.sw-island__halo {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--isl-glow,#7ecbff) 38%, transparent) 0%, transparent 70%);
+  z-index: -1;
+}
+
+/* number badge sitting on the island */
+.sw-island__num {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 4px;
+  border-radius: 16px;
+  background: var(--isl-badge,#ffc34a);
+  color: #3a2600;
+  font-weight: 900;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.3), 0 4px 10px rgba(0,0,0,0.35);
+  border: 2px solid rgba(255,255,255,0.7);
+}
+
+.sw-island__title {
+  margin-top: 2px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+.sw-island__stars { margin-top: 3px; display: flex; gap: 2px; }
+.sw-island__star { font-size: 0.95rem; color: rgba(255,255,255,0.22); }
+.sw-island__star--on { color: #ffd24a; filter: drop-shadow(0 0 5px rgba(255,210,74,0.7)); }
+
+.sw-island__lock {
+  margin-top: 2px;
+  font-size: 1rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+
+/* states */
+.sw-island-node--locked .sw-island__svg { filter: grayscale(0.7) brightness(0.55); }
+.sw-island-node--locked .sw-island__float,
+.sw-island-node--locked .sw-island__halo { display: none; }
+.sw-island-node--locked .sw-island__num { background: #5a5a7a; color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.2); }
+.sw-island-node--locked .sw-island__title { color: rgba(255,255,255,0.5); }
+
+.sw-island-node:hover .sw-island__svg { transform: translateY(-4px) scale(1.03); }
+.sw-island-node--current .sw-island__num {
+  box-shadow: 0 3px 0 rgba(0,0,0,0.3), 0 0 0 3px rgba(255,255,255,0.6), 0 0 18px rgba(255,255,255,0.5);
+}
+.sw-island-node--current::before {
+  content: '▼';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 1.1rem;
+  animation: sw-arrow-bounce 1.2s ease-in-out infinite;
+  z-index: 4;
+}
+@keyframes sw-arrow-bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(5px); } }
+
+.sw-island-end {
+  position: relative;
+  z-index: 1;
+  margin: 18px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  font-weight: 700;
+}
+.sw-island-end__icon { font-size: 3rem; filter: drop-shadow(0 4px 12px rgba(255,210,74,0.6)); }
+
+@media (max-width: 520px) {
+  .sw-island-node, .sw-island__visual { width: 170px; }
+  .sw-island__visual { height: 150px; }
+  .sw-space-bg__planet--ring { width: 80px; }
+  .sw-space-bg__moon { width: 90px; }
+}

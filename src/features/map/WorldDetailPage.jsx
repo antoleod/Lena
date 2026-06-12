@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { getMissionProgress, getWorldById, getWorldProgress, worldMap } from '../../shared/gameplay/worldMap.js';
 import { getProgressSnapshot } from '../../services/storage/progressStore.js';
+import { resolveNodeGlyph } from '../../shared/gameplay/nodeGlyphs.js';
 
 // Per-nodeType visual config
 const NODE_TYPE_CONFIG = {
@@ -57,8 +58,13 @@ function PathSegment({ fromCol, toCol }) {
   );
 }
 
-function MissionNode({ mission, missionProg, unlocked, index, col, isActive }) {
+function MissionNode({ mission, missionProg, unlocked, index, col, isActive, subjectId }) {
   const cfg = NODE_TYPE_CONFIG[mission.nodeType] || NODE_TYPE_CONFIG.lesson;
+  // Lesson nodes all shared 📖 — vary them by matching the mission title to a
+  // thematic glyph so a path of lessons no longer looks identical.
+  const faceGlyph = mission.nodeType === 'lesson' || !mission.nodeType
+    ? resolveNodeGlyph({ subjectId, domain: mission.title, index })
+    : cfg.emoji;
   const shape = NODE_SHAPES[index % NODE_SHAPES.length];
   const colClass = ['cc-col--left', 'cc-col--center', 'cc-col--right'][col];
   const completed = missionProg.completed >= missionProg.total && missionProg.total > 0;
@@ -76,7 +82,7 @@ function MissionNode({ mission, missionProg, unlocked, index, col, isActive }) {
       <div className="cc-node__body">
         {isLocked
           ? <span className="cc-node__emoji">🔒</span>
-          : <span className="cc-node__emoji">{cfg.emoji}</span>
+          : <span className="cc-node__emoji">{faceGlyph}</span>
         }
         {completed && !isLocked && <div className="cc-node__crown">✓</div>}
       </div>
@@ -201,6 +207,7 @@ export default function WorldDetailPage() {
                   index={index}
                   col={col}
                   isActive={isActive}
+                  subjectId={world.subjectIds?.[0]}
                 />
                 {nextCol !== null && <PathSegment fromCol={col} toCol={nextCol} />}
               </div>
