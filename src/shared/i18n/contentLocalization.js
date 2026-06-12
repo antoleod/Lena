@@ -1,5 +1,6 @@
 const localizedSubjects = {
   mathematics: {
+    iconId: 'math',
     fr: {
       label: 'Mathematiques',
       description: 'Nombres, operations, logique, calcul mental et problemes pour le primaire.',
@@ -22,6 +23,7 @@ const localizedSubjects = {
     }
   },
   french: {
+    iconId: 'french',
     fr: {
       label: 'Francais',
       description: 'Lecture, vocabulaire, orthographe, grammaire et comprehension.',
@@ -44,6 +46,7 @@ const localizedSubjects = {
     }
   },
   dutch: {
+    iconId: 'dutch',
     fr: {
       label: 'Neerlandais',
       description: 'Decouverte du neerlandais avec vocabulaire simple et petites lectures.',
@@ -66,6 +69,7 @@ const localizedSubjects = {
     }
   },
   english: {
+    iconId: 'english',
     fr: {
       label: 'Anglais',
       description: 'Vocabulaire, phrases, lecture simple et comprehension en anglais.',
@@ -88,6 +92,7 @@ const localizedSubjects = {
     }
   },
   spanish: {
+    iconId: 'spanish',
     fr: {
       label: 'Espagnol',
       description: 'Vocabulaire, phrases et lecture simple en espagnol.',
@@ -110,6 +115,7 @@ const localizedSubjects = {
     }
   },
   reasoning: {
+    iconId: 'reasoning',
     fr: {
       label: 'Raisonnement',
       description: 'Suites, logique visuelle, intrus, deduction et strategie.',
@@ -132,6 +138,7 @@ const localizedSubjects = {
     }
   },
   logique: {
+    iconId: 'logic',
     fr: {
       label: 'Logique & Reflexion',
       description: 'Suites logiques, intrus, formes, labyrinthes et deduction pour developper la pensee critique.',
@@ -154,6 +161,7 @@ const localizedSubjects = {
     }
   },
   finance: {
+    iconId: 'finance',
     fr: {
       label: 'Education Financiere',
       description: 'Reconnaitre les pieces et billets, calculer des achats, rendre la monnaie et gerer un budget simple.',
@@ -176,6 +184,7 @@ const localizedSubjects = {
     }
   },
   informatique: {
+    iconId: 'informatics',
     fr: {
       label: 'Informatique',
       description: 'Parties de l ordinateur, clavier, souris, internet, securite numerique et premiers algorithmes.',
@@ -198,6 +207,7 @@ const localizedSubjects = {
     }
   },
   stories: {
+    iconId: 'stories',
     fr: {
       label: 'Histoires',
       description: 'Mini recits, comprehension et lecture guidee.',

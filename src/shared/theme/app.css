@@ -19562,6 +19562,46 @@ body {
   color: rgba(124,58,237,0.85); text-align: center;
 }
 
+/* ── Avatar picker (kid avatars) ── */
+.drawer-avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
+  gap: 10px;
+}
+.drawer-avatar-btn {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  border: 2px solid rgba(124,58,237,0.18);
+  background: radial-gradient(circle at 50% 38%, rgba(124,58,237,0.14), rgba(124,58,237,0.05));
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  transition: transform 0.14s, border-color 0.16s, box-shadow 0.16s;
+  -webkit-tap-highlight-color: transparent;
+}
+.drawer-avatar-btn img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.drawer-avatar-btn:hover { transform: translateY(-2px); border-color: rgba(124,58,237,0.45); }
+.drawer-avatar-btn.is-active {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.25), 0 6px 16px rgba(124,58,237,0.3);
+}
+.drawer-avatar-check {
+  position: absolute; bottom: 4px; right: 5px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #7c3aed; color: #fff; font-size: 0.7rem; font-weight: 900;
+  display: grid; place-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Profile photo (kid avatar) in the sidebar — fill the circle, no mascot tint */
+.app-sidebar__avatar.app-sidebar__avatar--photo {
+  filter: none;
+  object-fit: cover;
+  width: 100%; height: 100%;
+  margin-top: 0;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    GAME WORLDS V1 — subjects as immersive destinations (not cards)

@@ -9,6 +9,7 @@ import PetMascot from '../../shared/ui/PetMascot.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
 import { computeGlobalLevel, getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
+import { avatarSrc, isPictureAvatar } from '../../shared/avatars/avatarCatalog.js';
 import {
   IconNavApprendre, IconNavPratiquer, IconNavExamens,
   IconNavProgres, IconNavCahier, IconNavFun,
@@ -310,7 +311,12 @@ export default function AppShell() {
       <aside className="app-sidebar" aria-label="Navigation principale">
         <button type="button" className="brand-inline app-sidebar__brand app-sidebar__profile" onClick={() => { playTapSound(); navigate('/'); }} data-testid="shell-brand-sidebar">
           <span className="app-sidebar__avatar-wrap">
-            <img src={assetUrl('assets/characters/mascot-pair.svg')} alt="" className="app-sidebar__avatar" draggable="false" />
+            <img
+              src={assetUrl(avatarSrc(session.profile?.avatarId))}
+              alt=""
+              className={`app-sidebar__avatar${isPictureAvatar(session.profile?.avatarId) ? ' app-sidebar__avatar--photo' : ''}`}
+              draggable="false"
+            />
           </span>
           <span className="app-sidebar__profile-info">
             <span className="brand-inline__name app-sidebar__profile-name">{displayName}</span>

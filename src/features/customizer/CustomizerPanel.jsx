@@ -3,6 +3,7 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 import { getProfile, saveProfile } from '../../services/storage/profileStore.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
+import { AVATAR_IDS, avatarSrc } from '../../shared/avatars/avatarCatalog.js';
 import {
   getRewardState,
   getRewardCatalog,
@@ -18,6 +19,7 @@ import {
 export const CUSTOMIZER_LABELS = {
   fr: {
     title: 'Personnalise ton monde !',
+    avatar: '🧒 Ton avatar',
     name: '📝 Ton prénom',
     sound: '🔊 Effets sonores',
     soundToggle: 'Sons interactifs',
@@ -32,6 +34,7 @@ export const CUSTOMIZER_LABELS = {
   },
   nl: {
     title: 'Pas jouw wereld aan!',
+    avatar: '🧒 Jouw avatar',
     name: '📝 Jouw naam',
     sound: '🔊 Geluidseffecten',
     soundToggle: 'Interactieve geluiden',
@@ -46,6 +49,7 @@ export const CUSTOMIZER_LABELS = {
   },
   es: {
     title: '¡Personaliza tu mundo!',
+    avatar: '🧒 Tu avatar',
     name: '📝 Tu nombre',
     sound: '🔊 Efectos de sonido',
     soundToggle: 'Sonidos interactivos',
@@ -60,6 +64,7 @@ export const CUSTOMIZER_LABELS = {
   },
   en: {
     title: 'Personalise your world!',
+    avatar: '🧒 Your avatar',
     name: '📝 Your name',
     sound: '🔊 Sound effects',
     soundToggle: 'Interactive sounds',
@@ -108,6 +113,10 @@ export default function CustomizerPanel() {
     if (trimmed && trimmed !== profile.name) {
       saveProfile({ name: trimmed });
     }
+  }
+
+  function handleAvatarClick(id) {
+    if (id !== profile.avatarId) saveProfile({ avatarId: id });
   }
 
   function handleThemeClick(themeOption) {
@@ -159,6 +168,30 @@ export default function CustomizerPanel() {
 
   return (
     <div className="drawer-content">
+      {/* Avatar picker */}
+      <section className="drawer-section">
+        <h3 className="drawer-section__title">{lbl.avatar}</h3>
+        <div className="drawer-avatar-grid">
+          {AVATAR_IDS.map((id) => {
+            const active = profile.avatarId === id;
+            return (
+              <button
+                key={id}
+                type="button"
+                className={`drawer-avatar-btn ${active ? 'is-active' : ''}`}
+                onClick={() => handleAvatarClick(id)}
+                aria-label={id}
+                aria-pressed={active}
+                data-testid={`avatar-${id}`}
+              >
+                <img src={assetUrl(avatarSrc(id))} alt="" draggable="false" />
+                {active && <span className="drawer-avatar-check">✓</span>}
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Quick profile name edit */}
       <section className="drawer-section">
         <h3 className="drawer-section__title">{lbl.name}</h3>
