@@ -51,7 +51,10 @@ function getExample(w, locale) { return w.i18n?.[locale]?.example || w.example; 
 function lookup(q, locale) {
   const needle = normalize(q.trim());
   const wordOf = (w) => normalize(getWord(w, locale));
-  return DICO_WORDS.find((w) => wordOf(w).startsWith(needle) || wordOf(w) === needle)
+  // Exact match wins first, so short words (jour, dur, haut) are never
+  // shadowed by a longer entry that merely starts with the same letters.
+  return DICO_WORDS.find((w) => wordOf(w) === needle)
+    || DICO_WORDS.find((w) => wordOf(w).startsWith(needle))
     || DICO_WORDS.find((w) => wordOf(w).includes(needle))
     || null;
 }

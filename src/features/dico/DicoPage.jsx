@@ -6,7 +6,7 @@ import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 
 const UI = {
   fr: {
-    title: 'Mon Dictionnaire', sub: '120 mots pour apprendre', wod: 'Mot du jour',
+    title: 'Mon Dictionnaire', sub: (n) => `${n} mots pour apprendre`, wod: 'Mot du jour',
     search: 'Chercher un mot...', themes: 'Themes', allWords: 'Tous les mots',
     favorites: 'Mes Favoris', recent: 'Recemment vus', definition: 'Definition',
     example: 'Exemple', synonyms: 'Synonymes', antonym: 'Contraire',
@@ -17,7 +17,7 @@ const UI = {
     genreMap: { m: 'masculin', f: 'feminin' },
   },
   nl: {
-    title: 'Mijn Woordenboek', sub: '120 woorden om te leren', wod: 'Woord van de dag',
+    title: 'Mijn Woordenboek', sub: (n) => `${n} woorden om te leren`, wod: 'Woord van de dag',
     search: 'Zoek een woord...', themes: 'Themas', allWords: 'Alle woorden',
     favorites: 'Mijn favorieten', recent: 'Recent bekeken', definition: 'Definitie',
     example: 'Voorbeeld', synonyms: 'Synoniemen', antonym: 'Tegendeel',
@@ -28,7 +28,7 @@ const UI = {
     genreMap: { m: 'mannelijk', f: 'vrouwelijk' },
   },
   en: {
-    title: 'My Dictionary', sub: '120 words to learn', wod: 'Word of the day',
+    title: 'My Dictionary', sub: (n) => `${n} words to learn`, wod: 'Word of the day',
     search: 'Search a word...', themes: 'Themes', allWords: 'All words',
     favorites: 'My Favourites', recent: 'Recently viewed', definition: 'Definition',
     example: 'Example', synonyms: 'Synonyms', antonym: 'Opposite',
@@ -39,7 +39,7 @@ const UI = {
     genreMap: { m: 'masculine', f: 'feminine' },
   },
   es: {
-    title: 'Mi Diccionario', sub: '120 palabras para aprender', wod: 'Palabra del dia',
+    title: 'Mi Diccionario', sub: (n) => `${n} palabras para aprender`, wod: 'Palabra del dia',
     search: 'Buscar una palabra...', themes: 'Temas', allWords: 'Todas las palabras',
     favorites: 'Mis Favoritos', recent: 'Vistos recientemente', definition: 'Definicion',
     example: 'Ejemplo', synonyms: 'Sinonimos', antonym: 'Contrario',
@@ -408,7 +408,7 @@ export default function DicoPage() {
       <div className="dc-home">
         <div className="dc-hero">
           <h1 className="dc-hero__title">{ui.title}</h1>
-          <p className="dc-hero__sub">{ui.sub}</p>
+          <p className="dc-hero__sub">{ui.sub(DICO_WORDS.length)}</p>
         </div>
 
         {/* Word of the day */}
