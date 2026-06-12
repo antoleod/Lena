@@ -94,6 +94,25 @@
   --theme-gradient: linear-gradient(135deg, #5bc6ff, #7be4c8, #ffe08b);
 }
 
+:root[data-theme='theme-candy'] {
+  --surface: rgba(255, 248, 252, 0.97);
+  --surface-strong: #ffffff;
+  --line: rgba(214, 120, 165, 0.18);
+  --text: #4a2540;
+  --muted: #7a4d68;
+  /* #cc2f66 passes 5.0:1 with white */
+  --primary: #cc2f66;
+  --primary-strong: #a8204f;
+  --primary-tint: #ff8fc6;
+  --secondary: #2a9fd4;
+  --gold: #c79100;
+  --violet: #b756c9;
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --theme-gradient: linear-gradient(135deg, #ff8fc6, #ffd977, #8dd8ff);
+}
+
 :root[data-theme='theme-sunset'] {
   --surface: rgba(255, 250, 246, 0.97);
   --surface-strong: #ffffff;
