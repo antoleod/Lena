@@ -4,126 +4,7 @@ import { getProgressSnapshot } from '../../services/storage/progressStore.js';
 import { getAdventureDashboard, getWorldNodeSummary } from '../../shared/gameplay/adventureProgress.js';
 import { WORLD_STYLES } from '../../shared/gameplay/worldThemes.js';
 import { isWorldBlocked } from '../../services/storage/parentalStore.js';
-
-// Candy Crush winding path: column positions per row index
-// 0=left, 1=center, 2=right
-const PATH_COLS = [1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1];
-
-// Node shapes cycle: circle, rounded-square, diamond, hexagon-like, shield
-const NODE_SHAPES = ['circle', 'squircle', 'diamond', 'squircle', 'circle'];
-
-function Stars({ count }) {
-  return (
-    <div className="cc-stars">
-      {[1, 2, 3].map(i => (
-        <span key={i} className={i <= count ? 'cc-star cc-star--on' : 'cc-star cc-star--off'}>★</span>
-      ))}
-    </div>
-  );
-}
-
-function PathSegment({ fromCol, toCol }) {
-  // Draws the SVG curved connector between two nodes
-  const colToX = (col) => [15, 50, 85][col];
-  const x1 = colToX(fromCol);
-  const x2 = colToX(toCol);
-  const cx = (x1 + x2) / 2;
-
-  return (
-    <div className="cc-path-segment" aria-hidden="true">
-      <svg viewBox="0 0 100 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d={`M ${x1} 0 C ${cx} 0, ${cx} 60, ${x2} 60`}
-          fill="none"
-          stroke="rgba(255,255,255,0.5)"
-          strokeWidth="8"
-          strokeLinecap="round"
-          strokeDasharray="4 6"
-        />
-        <path
-          d={`M ${x1} 0 C ${cx} 0, ${cx} 60, ${x2} 60`}
-          fill="none"
-          stroke="rgba(255,255,255,0.25)"
-          strokeWidth="14"
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
-  );
-}
-
-function ProgressRing({ pct }) {
-  const R = 44;
-  const circ = 2 * Math.PI * R;
-  const offset = circ - (pct / 100) * circ;
-  if (pct <= 0) return null;
-  return (
-    <svg className="cc-node__ring" viewBox="0 0 100 100" aria-hidden="true">
-      <circle cx="50" cy="50" r={R} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" />
-      <circle
-        cx="50" cy="50" r={R}
-        fill="none"
-        stroke="rgba(255,255,255,0.85)"
-        strokeWidth="6"
-        strokeLinecap="round"
-        strokeDasharray={circ}
-        strokeDashoffset={offset}
-        style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%', transition: 'stroke-dashoffset 0.8s ease' }}
-      />
-    </svg>
-  );
-}
-
-function WorldNode({ world, summary, progressPct, style, index, col, isCurrent, isLocked }) {
-  const shape = NODE_SHAPES[index % NODE_SHAPES.length];
-  const colClass = ['cc-col--left', 'cc-col--center', 'cc-col--right'][col];
-  const stateClass = isCurrent ? 'cc-node--current' : isLocked ? 'cc-node--locked' : summary.stars === 3 ? 'cc-node--complete' : '';
-
-  const inner = (
-    <div className={`cc-node ${stateClass} cc-node--${shape} ${colClass}`} style={{ '--node-color': style.color, '--node-shadow': style.shadow, '--node-bg': style.bg, animationDelay: `${index * 80}ms` }}>
-      {isCurrent && <div className="cc-node__arrow">▼</div>}
-
-      <ProgressRing pct={progressPct} />
-
-      <div className="cc-node__body">
-        {isLocked
-          ? <span className="cc-node__emoji">🔒</span>
-          : <span className="cc-node__emoji">{style.emoji}</span>
-        }
-        {summary.stars === 3 && !isLocked && (
-          <div className="cc-node__emoji-crown">👑</div>
-        )}
-      </div>
-
-      <div className="cc-node__label">
-        <span className="cc-node__num">{world.order}</span>
-      </div>
-
-      <Stars count={summary.stars} />
-
-      {!isLocked && (
-        <div className="cc-node__deco" aria-hidden="true">{style.deco}</div>
-      )}
-
-      {isCurrent && (
-        <div className="cc-node__pulse" aria-hidden="true" />
-      )}
-    </div>
-  );
-
-  if (isLocked) {
-    return <div className="cc-node-slot">{inner}</div>;
-  }
-
-  return (
-    <div className="cc-node-slot">
-      <Link to={`/map/${world.id}`} className="cc-node-link" title={world.title}>
-        {inner}
-        <span className="cc-node__title">{world.title}</span>
-      </Link>
-    </div>
-  );
-}
+import IslandPath from '../grade/IslandPath.jsx';
 
 export default function MapPage() {
   const progress = getProgressSnapshot();
@@ -133,6 +14,24 @@ export default function MapPage() {
   const totalCompleted = adventure.completedNodes;
   const totalNodes = adventure.totalNodes;
   const overallPercent = totalNodes ? Math.round((totalCompleted / totalNodes) * 100) : 0;
+
+  const nodes = worldMap.map((world, index) => {
+    const style = WORLD_STYLES[(world.order - 1) % WORLD_STYLES.length];
+    const summary = getWorldNodeSummary(world, progress);
+    const wp = getWorldProgress(world, progress);
+    const progressPct = wp.total ? Math.round((wp.completed / wp.total) * 100) : 0;
+    const locked = isWorldBlocked(world.id);
+    return {
+      id: world.id,
+      title: world.title,
+      launchTo: `/map/${world.id}`,
+      pct: progressPct,
+      isActive: world.id === currentWorldId,
+      complete: summary.stars === 3,
+      glyph: style.emoji,
+      locked,
+    };
+  });
 
   return (
     <div className="cc-map-page" data-testid="map-page">
@@ -162,56 +61,13 @@ export default function MapPage() {
         </Link>
       )}
 
-      {/* Candy Crush path */}
-      <div className="cc-path-canvas">
-        {/* Background decorations */}
-        <div className="cc-bg-clouds" aria-hidden="true">
-          <span className="cc-cloud" style={{ top: '8%', left: '5%', fontSize: '2rem', animationDelay: '0s' }}>☁️</span>
-          <span className="cc-cloud" style={{ top: '20%', right: '8%', fontSize: '1.5rem', animationDelay: '1.2s' }}>☁️</span>
-          <span className="cc-cloud" style={{ top: '38%', left: '3%', fontSize: '1.8rem', animationDelay: '2.5s' }}>☁️</span>
-          <span className="cc-cloud" style={{ top: '55%', right: '5%', fontSize: '1.4rem', animationDelay: '0.8s' }}>☁️</span>
-          <span className="cc-cloud" style={{ top: '72%', left: '6%', fontSize: '2rem', animationDelay: '1.8s' }}>☁️</span>
-        </div>
-
-        <div className="cc-grid">
-          {worldMap.map((world, index) => {
-            const col = PATH_COLS[index % PATH_COLS.length];
-            const style = WORLD_STYLES[(world.order - 1) % WORLD_STYLES.length];
-            const summary = getWorldNodeSummary(world, progress);
-            const isCurrent = world.id === currentWorldId;
-            const isLocked = isWorldBlocked(world.id);
-            const wp = getWorldProgress(world, progress);
-            const progressPct = wp.total ? Math.round((wp.completed / wp.total) * 100) : 0;
-            const nextCol = index < worldMap.length - 1 ? PATH_COLS[(index + 1) % PATH_COLS.length] : null;
-
-            return (
-              <div key={world.id} className="cc-row">
-                <WorldNode
-                  world={world}
-                  summary={summary}
-                  progressPct={progressPct}
-                  style={style}
-                  index={index}
-                  col={col}
-                  isCurrent={isCurrent}
-                  isLocked={isLocked}
-                />
-                {nextCol !== null && (
-                  <PathSegment fromCol={col} toCol={nextCol} />
-                )}
-              </div>
-            );
-          })}
-
-          {/* End trophy */}
-          <div className="cc-row">
-            <div className="cc-end-trophy" style={{ '--col': PATH_COLS[worldMap.length % PATH_COLS.length] }}>
-              <span>🏆</span>
-              <span className="cc-end-trophy__label">¡Fin del viaje!</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Floating-island world path */}
+      <IslandPath
+        nodes={nodes}
+        badgeColor="#38bdf8"
+        endIcon="🏆"
+        endLabel="¡Fin del viaje!"
+      />
     </div>
   );
 }

@@ -267,7 +267,7 @@ function SubjectWorld({ subject, locale, t, progress, index }) {
     <Link
       to={`/subjects/${subject.id}`}
       className="al-subj"
-      style={{ '--w-accent': universe.accent, '--w-i': index }}
+      style={{ '--w-accent': universe.accent, '--w-accent-2': universe.accentShadow, '--w-i': index }}
     >
       <div className="al-subj__fav">☆</div>
 
@@ -279,7 +279,10 @@ function SubjectWorld({ subject, locale, t, progress, index }) {
       <span className={`al-subj__diff al-subj__diff--${difficulty}`}>{difficulty}</span>
       <p className="al-subj__desc">{desc}</p>
 
-      <div className="al-subj__play-btn">Étudier</div>
+      <div className="al-subj__play-btn">
+        <svg className="al-subj__play-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+        Étudier
+      </div>
     </Link>
   );
 }

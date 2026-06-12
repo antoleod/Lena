@@ -19,6 +19,20 @@ export function getBiome(index = 0) {
   return BIOMES[index % BIOMES.length];
 }
 
+// State-driven island bodies (spec: gold = complete, cyan = active, slate = pending).
+// Body color signals progress; decoration still cycles by index for subtle variety.
+export const STATE_ISLANDS = {
+  complete: { id: 'st-gold',  topA: '#ffe98a', topB: '#e0a91e', rockA: '#b58a2a', rockB: '#6b4e15', accent: '#fff3b0' },
+  active:   { id: 'st-cyan',  topA: '#9bf0ff', topB: '#27b4e0', rockA: '#2c6f96', rockB: '#163f57', accent: '#e3faff' },
+  pending:  { id: 'st-slate', topA: '#6c7799', topB: '#3a4360', rockA: '#343b54', rockB: '#222740', accent: '#5c6790' },
+};
+
+/** Pick the island body palette for a node's progress state, keeping per-index decoration. */
+export function getStateIsland(state, index = 0) {
+  const base = STATE_ISLANDS[state] || STATE_ISLANDS.pending;
+  return { ...base, deco: BIOMES[index % BIOMES.length].deco };
+}
+
 // ── Biome-specific decorations sitting on the island top ─────────────────────
 function Decoration({ deco, accent }) {
   switch (deco) {
@@ -72,12 +86,13 @@ function Decoration({ deco, accent }) {
  * @param {number} [props.size]  Width in px (height scales 0.9×).
  * @param {boolean}[props.glow]  Add a top glow ring (active node).
  */
-export function FloatingIsland({ biome = BIOMES[0], size = 200, glow = false }) {
+export function FloatingIsland({ biome = BIOMES[0], size = 200, glow = false, dim = false, sparkle = false }) {
   const uid = biome.id;
   const w = size;
   const h = size * 0.9;
   return (
-    <svg width={w} height={h} viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="sw-island__svg">
+    <svg width={w} height={h} viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg"
+      className="sw-island__svg" style={dim ? { opacity: 0.62 } : undefined}>
       <defs>
         <radialGradient id={`isl-top-${uid}`} cx="50%" cy="38%" r="70%">
           <stop offset="0%" stopColor={biome.topA} />
@@ -111,6 +126,16 @@ export function FloatingIsland({ biome = BIOMES[0], size = 200, glow = false }) 
       {glow && <ellipse cx="100" cy="84" rx="66" ry="24" fill="none" stroke="#fff" strokeOpacity="0.5" strokeWidth="2" />}
 
       <Decoration deco={biome.deco} accent={biome.accent} />
+
+      {/* golden cosmic sparkles for completed islands */}
+      {sparkle && (
+        <g className="sw-island__sparkles">
+          {[[52, 60], [148, 56], [100, 44], [70, 100], [134, 104]].map(([x, y], i) => (
+            <text key={i} x={x} y={y} fontSize="11" textAnchor="middle" fill="#fff7c2"
+              style={{ animation: `sw-twinkle ${1.6 + i * 0.4}s ease-in-out ${i * 0.3}s infinite` }}>✦</text>
+          ))}
+        </g>
+      )}
     </svg>
   );
 }
