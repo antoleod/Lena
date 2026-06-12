@@ -370,6 +370,17 @@ export default function AppShell() {
 
           <button
             type="button"
+            className="icon-link icon-link--settings"
+            onClick={() => { playTapSound(); navigate('/settings'); }}
+            data-testid="nav-settings-sidebar"
+            title={nl.settings}
+          >
+            <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
+            <span>{nl.settings}</span>
+          </button>
+
+          <button
+            type="button"
             className="icon-link icon-link--logout"
             data-testid="shell-logout-sidebar"
             onClick={handleLogout}
@@ -424,6 +435,16 @@ export default function AppShell() {
           >
             <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
             <span>Personnaliser</span>
+          </button>
+          <button
+            type="button"
+            className="icon-link icon-link--settings"
+            onClick={() => { playTapSound(); navigate('/settings'); }}
+            data-testid="nav-settings-topbar"
+            title={nl.settings}
+          >
+            <img src={assetUrl('assets/icons/icon-settings.svg')} alt="" className="icon-link__icon" />
+            <span>{nl.settings}</span>
           </button>
         </div>
       </header>
