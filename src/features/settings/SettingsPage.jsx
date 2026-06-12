@@ -6,6 +6,7 @@ import { getRewardCatalog, getRewardState } from '../../services/storage/rewardS
 import { useTheme } from '../../shared/theme/ThemeContext.jsx';
 import AccountWidget from '../../shared/auth/AccountWidget.jsx';
 import { gradeOptions, gradeFromAge, defaultCountrySystem } from '../../services/learning/gradeModel.js';
+import { isCurrentUserAdmin } from '../../services/firebase/adminService.js';
 
 const SETTINGS_AGE_CHOICES = [5, 6, 7, 8, 9, 10, 11];
 const DIFFICULTY_MODES = [
@@ -22,7 +23,14 @@ export default function SettingsPage() {
   const [profile, setProfile] = useState(() => getProfile());
   const [draftName, setDraftName] = useState(() => getProfile().name || '');
   const [rewardState, setRewardState] = useState(() => getRewardState());
+  const [isAdmin, setIsAdmin] = useState(false);
   const themeOptions = getRewardCatalog().filter((item) => item.type === 'theme');
+
+  useEffect(() => {
+    let active = true;
+    isCurrentUserAdmin().then((ok) => { if (active) setIsAdmin(ok); });
+    return () => { active = false; };
+  }, []);
 
   useEffect(() => {
     function sync() {
@@ -318,6 +326,12 @@ export default function SettingsPage() {
             <span className="button-icon" aria-hidden="true">🔒</span>
             <span>Espace parents</span>
           </Link>
+          {isAdmin && (
+            <Link className="secondary-action" to="/admin" data-testid="settings-admin">
+              <span className="button-icon" aria-hidden="true">🛠️</span>
+              <span>Panel de administración</span>
+            </Link>
+          )}
         </div>
       </section>
 

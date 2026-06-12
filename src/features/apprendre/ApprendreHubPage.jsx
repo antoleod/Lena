@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom';
 import { useLocale } from '../../shared/i18n/LocaleContext.jsx';
 import { subjects } from '../curriculum/catalog.js';
 import { getSubjectUniverse } from '../../shared/gameplay/subjectThemes.js';
-import { getSubjectLabel } from '../../shared/i18n/contentLocalization.js';
+import { getSubjectLabel, getSubjectIconId, getSubjectDifficulty, getSubjectDescription } from '../../shared/i18n/contentLocalization.js';
 import { getProgressSnapshot, getStudyStats } from '../../services/storage/progressStore.js';
 import { getActivitiesBySubject } from '../curriculum/catalog.js';
 import { getProfile } from '../../services/storage/profileStore.js';
 import { getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
+import SubjectIcon from '../../shared/i18n/SubjectIcon.jsx';
 
 const MASCOT_HERO = 'assets/characters/mascot-pair.svg';
 
@@ -256,56 +257,29 @@ function RewardCard({ icon, title, sub, c }) {
   );
 }
 
-const WORLD_CTA = {
-  fr: { enter: 'Entrer' },
-  en: { enter: 'Enter' },
-  es: { enter: 'Entrar' },
-  nl: { enter: 'Start' },
-};
-
-// ── One detailed card per subject (all 12 shown, not grouped) ───────────────
 function SubjectWorld({ subject, locale, t, progress, index }) {
   const universe = getSubjectUniverse(subject.id);
-  const acts = getActivitiesBySubject(subject.id);
-  const done = acts.filter(a => progress.activities?.[a.id]?.completed).length;
-  const total = acts.length;
-  const pct = total ? Math.round((done / total) * 100) : 0;
-
-  const cta = WORLD_CTA[locale] || WORLD_CTA.fr;
   const name = getSubjectLabel(subject, locale, t) || subject.label;
-  const desc = subject.description || '';
-  const particle = universe.particle || '✦';
+  const difficulty = getSubjectDifficulty(subject.id);
+  const desc = getSubjectDescription(subject, locale);
 
   return (
     <Link
       to={`/subjects/${subject.id}`}
       className="al-subj"
-      style={{
-        '--w-sky-top': universe.skyTop,
-        '--w-sky-bot': universe.skyBottom,
-        '--w-accent':  universe.accent,
-        '--w-shadow':  universe.accentShadow,
-        '--w-i':       index,
-      }}
+      style={{ '--w-accent': universe.accent, '--w-i': index }}
     >
-      <div className="al-subj__particles" aria-hidden="true">
-        {Array.from({ length: 4 }, (_, i) => <span key={i} className="al-subj__particle">{particle}</span>)}
+      <div className="al-subj__fav">☆</div>
+
+      <div className="al-subj__icon-3d">
+        <SubjectIcon id={getSubjectIconId(subject.id)} />
       </div>
 
-      <span className="al-subj__icon" aria-hidden="true">{universe.icon}</span>
+      <h3 className="al-subj__name">{name}</h3>
+      <span className={`al-subj__diff al-subj__diff--${difficulty}`}>{difficulty}</span>
+      <p className="al-subj__desc">{desc}</p>
 
-      <h3 className="al-subj__name">
-        {name}
-        {pct === 100 && <span className="al-subj__crown"> 👑</span>}
-      </h3>
-      {desc && <p className="al-subj__desc">{desc}</p>}
-
-      <div className="al-subj__bar"><div className="al-subj__bar-fill" style={{ width: `${pct}%` }} /></div>
-
-      <div className="al-subj__foot">
-        <span className="al-subj__count">{done}/{total}</span>
-        <span className="al-subj__enter">▶ {cta.enter}</span>
-      </div>
+      <div className="al-subj__play-btn">Étudier</div>
     </Link>
   );
 }

@@ -12,6 +12,7 @@ import {
   updatePassword,
   reauthenticateWithCredential,
   EmailAuthProvider,
+  sendPasswordResetEmail,
   setPersistence,
   browserLocalPersistence,
   browserSessionPersistence,
@@ -105,4 +106,15 @@ export async function changeEmailPassword(currentPassword, newPassword) {
 export async function signOutUser() {
   if (!auth) return;
   await signOut(auth);
+}
+
+/**
+ * Send a password-reset email. Callable by anyone holding the address (Firebase
+ * never reveals whether it exists), so it works for the admin "a parent forgot
+ * their password" flow without any backend. Only email/password accounts have a
+ * password to reset — Google/anonymous/guest/child-icon-PIN accounts do not.
+ */
+export async function sendPasswordReset(email) {
+  if (!auth) throw notConfigured();
+  await sendPasswordResetEmail(auth, email);
 }

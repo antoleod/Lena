@@ -27,6 +27,7 @@ import PracticePage from '../../features/practice/PracticePage.jsx';
 import LessonsHubPage from '../../features/lessons/LessonsHubPage.jsx';
 import LessonPlayerPage from '../../features/lessons/LessonPlayerPage.jsx';
 import ParentalPage from '../../features/parental/ParentalPage.jsx';
+import AdminPage from '../../features/admin/AdminPage.jsx';
 import ExamHubPage from '../../features/exam/ExamHubPage.jsx';
 import ExamPage from '../../features/exam/ExamPage.jsx';
 import LectureHubPage from '../../features/exam/LectureHubPage.jsx';
@@ -200,6 +201,7 @@ export default function AppRouter() {
     <ErrorBoundary>
     <Routes>
       <Route path="/studio" element={<StudioPage />} />
+      <Route path="/admin" element={<AdminPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/onboarding" element={needsOnboarding || onboardingActive ? <OnboardingFlow /> : <Navigate to="/" replace />} />
       <Route element={<AppShell />}>

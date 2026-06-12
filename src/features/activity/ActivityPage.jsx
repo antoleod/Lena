@@ -163,6 +163,10 @@ export default function ActivityPage() {
 
   const subject   = activity ? getSubjectById(activity.subject) : null;
   const backRoute = buildBackRoute({ moduleId, moduleJourney, world, mission });
+  // Number-comparison activities show the mascot duo inside the hero, so the
+  // header mascot would be a duplicate — hide it there.
+  const isComparisonActivity = baseActivity?.generatorConfig?.topic === 'comparison'
+    || baseActivity?.tags?.includes('comparison');
 
   function resolveNextRoute() {
     if (world && mission && levelOrder) {
@@ -321,7 +325,7 @@ export default function ActivityPage() {
   return (
     <div className="cc-activity-shell" style={{ '--world-color': worldTheme.color, '--world-bg': worldTheme.bg }} data-testid="activity-page">
       {/* Top bar */}
-      <header className="cc-act-header">
+      <header className={`cc-act-header${isComparisonActivity ? ' cc-act-header--slim' : ''}`}>
         <Link className="cc-back-btn" to={backRoute} aria-label={t('back')}>←</Link>
 
         <div className="cc-act-header__center">
@@ -341,9 +345,11 @@ export default function ActivityPage() {
           )}
         </div>
 
-        <div className="cc-act-header__mascot">
-          <Mascot status={mascotStatus} />
-        </div>
+        {!isComparisonActivity && (
+          <div className="cc-act-header__mascot">
+            <Mascot status={mascotStatus} />
+          </div>
+        )}
       </header>
 
       {/* Engine */}

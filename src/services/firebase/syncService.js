@@ -30,7 +30,10 @@ export async function pullFromCloud(uid) {
   STORE_KEYS.forEach(({ field, ls }) => {
     if (data[field] != null) {
       try {
-        localStorage.setItem(ls, JSON.stringify(data[field]));
+        // iconPin is a bare base64 string (not JSON) — store it raw so the
+        // child's saved code round-trips byte-identically (hashPin === loadPin).
+        const value = field === 'iconPin' ? String(data[field]) : JSON.stringify(data[field]);
+        localStorage.setItem(ls, value);
       } catch { /* quota */ }
     }
   });
@@ -52,7 +55,10 @@ export async function pushToCloud(uid) {
   STORE_KEYS.forEach(({ field, ls }) => {
     try {
       const raw = localStorage.getItem(ls);
-      if (raw) payload[field] = JSON.parse(raw);
+      if (!raw) return;
+      // iconPin is a bare base64 string, not JSON: JSON.parse would throw and the
+      // field would silently never sync. Store it raw so admin recover/reset works.
+      payload[field] = field === 'iconPin' ? raw : JSON.parse(raw);
     } catch { /* malformed */ }
   });
 

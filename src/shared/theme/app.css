@@ -507,11 +507,6 @@
    theme-minimal: APPRENDRE HUB
    ═══════════════════════════════════════════════════════════════════════ */
 
-:root[data-theme='theme-minimal'] .al-hub {
-  background: #f2f2f7 !important;
-  color: #1c1c1e;
-}
-
 /* Map banner → white card */
 :root[data-theme='theme-minimal'] .al-map-banner {
   border-color: rgba(60, 60, 67, 0.15);
@@ -3040,6 +3035,8 @@ button {
 
 .app-shell--game {
   padding: 14px 16px 20px;
+  
+  min-height: 100vh;
 }
 
 .app-main--game {
@@ -6797,6 +6794,158 @@ button {
   gap: 12px;
 }
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Number-comparison "arcade" layout (engine-card--comparison)
+   ───────────────────────────────────────────────────────────────────────── */
+/* Collapse the empty mascot column in the header for comparison views */
+.cc-act-header--slim { grid-template-columns: 42px 1fr; }
+
+.engine-card--comparison .mc-vs {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(8px, 3vw, 28px);
+  margin-bottom: 14px;
+  padding: clamp(10px, 2vw, 18px) clamp(14px, 3vw, 32px);
+  border-radius: 26px;
+  background: linear-gradient(165deg, #d6f1ff 0%, #a9dcff 55%, #8fccff 100%);
+  border: 4px solid #1b1240;
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -8px 18px rgba(40, 90, 180, 0.18),
+    0 14px 34px rgba(20, 10, 60, 0.4);
+}
+
+.engine-card--comparison .mc-vs__num {
+  justify-self: center;
+  font-family: 'Fredoka', 'Baloo 2', sans-serif;
+  font-size: clamp(2.6rem, 8vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #ff5fb0;
+  -webkit-text-stroke: 4px #1b1240;
+  paint-order: stroke fill;
+  text-shadow: 0 5px 0 #c11f74, 0 10px 20px rgba(20, 10, 60, 0.35);
+  animation: mc-vs-pop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+.engine-card--comparison .mc-vs__num--b { animation-delay: 0.08s; }
+
+@keyframes mc-vs-pop {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.engine-card--comparison .mc-vs__mascot {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: clamp(84px, 14vw, 130px);
+  flex: 0 0 auto;
+}
+
+.engine-card--comparison .mc-vs__mascot-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 14px rgba(20, 10, 60, 0.35));
+  animation: mc-vs-bob 3s ease-in-out infinite;
+}
+
+@keyframes mc-vs-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.engine-card--comparison .mc-vs__bubble {
+  position: absolute;
+  bottom: calc(100% - 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 170px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 3px solid #1b1240;
+  color: #1b1240;
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  box-shadow: 0 6px 0 rgba(20, 10, 60, 0.18);
+}
+.engine-card--comparison .mc-vs__bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #1b1240;
+}
+
+/* Dark slate question dashboard — shared by every arcade exercise */
+.engine-card--arcade .mc-prompt-area {
+  background: linear-gradient(180deg, #2f3a66 0%, #232c52 100%);
+  border: 3px solid #141a36;
+  border-radius: 24px;
+  padding: 18px 20px;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.12), 0 10px 26px rgba(10, 8, 30, 0.45);
+}
+.engine-card--arcade .mc-prompt {
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.engine-card--arcade .mc-speak-btn {
+  background: linear-gradient(180deg, #8ed0ff, #4fa8f5);
+  border: 3px solid #143a66;
+  color: #08305c;
+  box-shadow: 0 4px 0 #2e6fb0;
+}
+
+/* Candy 2-column choice grid (text choices). Image-choice grids keep their
+   own responsive sizing so pictures aren't forced into a rigid 2-up layout. */
+.engine-card--arcade .mc-choices:not(.mc-choices--media) {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 560px) {
+  .engine-card--arcade .mc-choices:not(.mc-choices--media) {
+    grid-template-columns: 1fr;
+  }
+}
+.engine-card--arcade .mc-choice {
+  border-width: 4px;
+  border-color: #1b1240;
+  border-radius: 22px;
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.7), 0 6px 0 rgba(20, 10, 60, 0.25);
+}
+.engine-card--arcade .mc-choice:hover:not(:disabled) { border-color: #1b1240; }
+.engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n+1) { background: linear-gradient(165deg, #d7c4ff, #b79bff); }
+.engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n+2) { background: linear-gradient(165deg, #ff9fd6, #ff5fb0); }
+.engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n+3) { background: linear-gradient(165deg, #ffe58a, #ffcb45); }
+.engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n)   { background: linear-gradient(165deg, #c9a0ff, #9a5cff); }
+.engine-card--arcade .mc-choice__text strong {
+  color: #1b1240;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  font-weight: 800;
+}
+.engine-card--arcade .mc-choice__text small { color: #4a3a78; }
+.engine-card--arcade .mc-choice__letter {
+  width: 34px;
+  height: 34px;
+  background: #ffffff;
+  border: 3px solid #1b1240;
+  color: #1b1240;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+  .engine-card--comparison .mc-vs__num { font-size: clamp(2.4rem, 14vw, 3.4rem); }
+  .engine-card--comparison .mc-vs { gap: 6px; padding: 14px 10px; }
+}
+
 /* Separator between context passage and question */
 .mc-context-divider {
   height: 2px;
@@ -6994,10 +7143,6 @@ button {
    CSS vars pick up each theme's palette automatically
    ═══════════════════════════════════════════════════════════════════════ */
 
-:root[data-theme] .al-hub {
-  background: var(--surface) !important;
-  color: var(--text);
-}
 :root[data-theme] .al-section__title { color: var(--text); }
 :root[data-theme] .al-section__sub { color: var(--muted); }
 :root[data-theme] .al-subjects-header__pct { color: var(--primary); }
@@ -7144,6 +7289,39 @@ button {
   background: rgba(0, 122, 255, 0.1);
   color: #007aff;
 }
+
+/* Re-assert the "arcade" look over theme-minimal overrides
+   (these need to beat the (0,3,0) :root[data-theme] rules above). */
+.cc-activity-shell .engine-card--arcade .mc-prompt-area {
+  background: linear-gradient(180deg, #2f3a66 0%, #232c52 100%);
+  border: 3px solid #141a36;
+}
+.cc-activity-shell .engine-card--arcade .mc-prompt {
+  color: #ffffff;
+}
+.cc-activity-shell .engine-card--arcade .mc-speak-btn {
+  background: linear-gradient(180deg, #8ed0ff, #4fa8f5);
+  border: 3px solid #143a66;
+  color: #08305c;
+  box-shadow: 0 4px 0 #2e6fb0;
+}
+.cc-activity-shell .engine-card--arcade .mc-choice {
+  border: 4px solid #1b1240;
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.7), 0 6px 0 rgba(20, 10, 60, 0.25);
+}
+.cc-activity-shell .engine-card--arcade .mc-choice:hover:not(:disabled) {
+  border-color: #1b1240;
+}
+.cc-activity-shell .engine-card--arcade .mc-choice__letter {
+  background: #ffffff;
+  border: 3px solid #1b1240;
+  color: #1b1240;
+}
+/* Image-choice candy tints must also beat theme-minimal's white choice bg */
+.cc-activity-shell .engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n+1) { background: linear-gradient(165deg, #d7c4ff, #b79bff); }
+.cc-activity-shell .engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n+2) { background: linear-gradient(165deg, #ff9fd6, #ff5fb0); }
+.cc-activity-shell .engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n+3) { background: linear-gradient(165deg, #ffe58a, #ffcb45); }
+.cc-activity-shell .engine-card--arcade .mc-choices:not(.mc-choices--media) .mc-choice:nth-child(4n)   { background: linear-gradient(165deg, #c9a0ff, #9a5cff); }
 
 /* ═══════════════════════════════════════════════════════════════════════
    PET MASCOT — floating companion
@@ -9495,6 +9673,93 @@ button {
   opacity: 0.85;
   font-weight: 500;
 }
+
+/* ── Admin / operator dashboard (/admin) ── */
+.admin-page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 16px 16px 96px;
+  color: var(--text);
+}
+.admin-page--center {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+.admin-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 0 16px;
+}
+.admin-header h1 { margin: 2px 0 0; font-family: 'Fredoka', sans-serif; font-size: 1.5rem; }
+.admin-back {
+  width: 42px; height: 42px; flex-shrink: 0; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--surface, rgba(255,255,255,.9));
+  color: var(--text); font-size: 1.3rem; font-weight: 700; cursor: pointer;
+}
+.admin-count { margin-left: auto; font-weight: 700; opacity: .7; font-size: .85rem; }
+.admin-muted { opacity: .65; }
+.admin-error { color: #e74c3c; font-weight: 700; }
+.admin-search {
+  width: 100%; padding: 12px 16px; border-radius: 14px; margin-bottom: 16px;
+  border: 1px solid var(--line); background: var(--surface, rgba(255,255,255,.9));
+  color: var(--text); font-size: 1rem; outline: none;
+}
+.admin-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.admin-card {
+  border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  background: var(--surface, rgba(255,255,255,.85));
+}
+.admin-card__head {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 12px 14px; background: none; border: none; cursor: pointer;
+  color: var(--text); text-align: left;
+}
+.admin-avatar {
+  width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%;
+  display: grid; place-items: center; overflow: hidden;
+  background: var(--bg-pink, #ffe0ef); font-weight: 800;
+}
+.admin-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.admin-card__id { display: flex; flex-direction: column; min-width: 0; }
+.admin-card__id strong { font-size: 1rem; }
+.admin-card__meta { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.admin-card__meta span { font-weight: 700; }
+.admin-card__meta small { font-size: .72rem; }
+.admin-chevron { opacity: .5; font-size: .9rem; margin-left: 6px; }
+.admin-card__body { padding: 4px 14px 16px; display: flex; flex-direction: column; gap: 16px; }
+.admin-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+}
+.admin-stats > div {
+  display: flex; flex-direction: column; padding: 8px; border-radius: 10px;
+  background: var(--bg-pink, rgba(0,0,0,.03));
+}
+.admin-stats span { font-size: .72rem; opacity: .7; }
+.admin-stats strong { font-size: 1.05rem; }
+.admin-action h4 { margin: 0 0 8px; font-size: .95rem; }
+.admin-action .secondary-action { margin-right: 8px; margin-bottom: 8px; }
+.admin-feedback { font-weight: 700; color: #2e9e5b; margin: 4px 0 0; }
+.admin-email-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.admin-email-form input {
+  flex: 1; min-width: 180px; padding: 10px 14px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--surface, #fff); color: var(--text);
+}
+.admin-code-reveal { display: inline-flex; padding: 8px 0; }
+.admin-modal {
+  position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
+  background: rgba(0,0,0,.55); padding: 20px;
+}
+.admin-modal__panel {
+  background: var(--surface, #fff); color: var(--text); border-radius: 20px;
+  padding: 24px; max-width: 420px; width: 100%; text-align: center;
+}
+.admin-modal__panel h3 { margin: 0 0 6px; font-family: 'Fredoka', sans-serif; }
 
 .drawer-name-field {
   display: flex;
@@ -20299,4 +20564,126 @@ body {
 .login-page .login-primary-btn:hover,
 .login-page .login-submit-btn:hover:not(:disabled) {
   box-shadow: 0 7px 0 #c9821a, 0 12px 22px rgba(246,168,35,.5);
+}
+
+/* ── Cosmic Dashboard Theme ── */
+.al-hub {
+  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f0c29 40%, #020111 100%) !important;
+  position: relative;
+}
+
+.al-hub::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Tarjetas de Asignatura Verticales Premium */
+.al-subj {
+  min-height: 380px;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 32px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px 24px !important;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.al-subj:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--w-accent) !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px var(--w-accent)33 !important;
+}
+
+/* Icono de Favorito (Estrella) */
+.al-subj__fav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+}
+
+/* Contenedor del Icono Premium */
+.al-subj__icon {
+  width: 54px; /* Tamaño 70% respecto a los 80px originales */
+  height: 54px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--w-accent);
+  filter: drop-shadow(0 0 12px var(--w-accent));
+}
+
+.subject-svg-icon {
+  width: 100%;
+  height: 100%;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Tipografía */
+.al-subj__name {
+  font-size: 1.5rem !important;
+  margin-bottom: 8px !important;
+  color: #ffffff !important; /* Asegura visibilidad sobre fondo oscuro */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.al-subj__desc {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Badge de Dificultad */
+.al-subj__diff {
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.al-subj__diff--FACILE { background: #10b981; color: #fff; }
+.al-subj__diff--MOYEN { background: #f5b800; color: #3d1f00; }
+.al-subj__diff--DIFFICILE { background: #ef4444; color: #fff; }
+
+/* Botón Magenta Premium */
+.al-subj__play-btn {
+  width: 100%;
+  margin-top: auto;
+  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  color: white;
+  font-weight: 800;
+  padding: 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 16px rgba(236, 72, 153, 0.3);
+  transition: all 0.2s ease;
+}
+
+.al-subj:hover .al-subj__play-btn {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(236, 72, 153, 0.5);
 }

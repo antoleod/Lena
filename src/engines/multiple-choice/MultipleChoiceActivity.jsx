@@ -8,6 +8,9 @@ import { recordPlayedExercise } from '../../services/learning/recordPlayedExerci
 import { useSpeechPlayer } from '../../shared/hooks/useSpeechPlayer.js';
 import { getProfile } from '../../services/storage/profileStore.js';
 import { playCorrectSound, playWrongSound } from '../../services/sound/soundService.js';
+import { assetUrl } from '../../shared/assets/assetUrl.js';
+
+const MASCOT_PAIR_SRC = assetUrl('assets/characters/mascot-pair.svg');
 
 
 function shuffleChoices(choices = []) {
@@ -292,8 +295,15 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
   const hasMedia = currentOptions.some((option) => option.media?.src);
   const compactChoices = hasMedia || currentOptions.every((option) => option.label.length <= 24 && !option.description);
 
+  // Number-comparison gets a dedicated "arcade" hero: the two numbers being
+  // compared, side by side, with the mascot duo cheering in the middle.
+  const comparisonNumbers = (current.type === 'math_number_comparison')
+    ? currentContextSlots.filter((slot) => slot.kind === 'text' && slot.text.trim()).map((slot) => slot.text.trim())
+    : [];
+  const isComparison = comparisonNumbers.length === 2;
+
   return (
-    <section className="engine-card engine-card--compact">
+    <section className={`engine-card engine-card--compact engine-card--arcade${isComparison ? ' engine-card--comparison' : ''}`}>
       {/* Progress rail */}
       <div className="mc-progress-rail">
         <span className="mc-progress-rail__label">{current.sectionTitle}</span>
@@ -303,8 +313,20 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
         <strong className="mc-progress-rail__counter">{currentIndex + 1}/{total}</strong>
       </div>
 
+      {/* Comparison hero: number — mascot — number */}
+      {isComparison && (
+        <div className="mc-vs" aria-hidden="false">
+          <span className="mc-vs__num mc-vs__num--a">{comparisonNumbers[0]}</span>
+          <span className="mc-vs__mascot">
+            <span className="mc-vs__bubble">Salut ! Apprenons ensemble.</span>
+            <img src={MASCOT_PAIR_SRC} alt="" className="mc-vs__mascot-img" draggable="false" />
+          </span>
+          <span className="mc-vs__num mc-vs__num--b">{comparisonNumbers[1]}</span>
+        </div>
+      )}
+
       {/* Context slots */}
-      {currentContextSlots.length > 0 && (
+      {!isComparison && currentContextSlots.length > 0 && (
         <div className="mc-context">
           {currentContextSlots.map((slot) => (
             <div key={slot.id} className={`mc-context__slot mc-context__slot--${slot.kind}`}>
@@ -326,7 +348,7 @@ export default function MultipleChoiceActivity({ activity, progress, onComplete,
       )}
 
       {/* Divider between context and question */}
-      {currentContextSlots.length > 0 && (
+      {!isComparison && currentContextSlots.length > 0 && (
         <hr className="mc-context-divider" />
       )}
 

@@ -7,19 +7,48 @@ rules_version = '2';
 // Model: each authenticated user owns exactly one document tree under users/{uid}.
 // Children, played exercises, sessions and learning DNA all live UNDER that uid,
 // so a user can only ever read/write their own family's data.
+//
+// Admin model (operator dashboard): an account is an admin IFF a document exists
+// at admins/{their-uid}. Admin docs are created MANUALLY from the Firebase console
+// and are never client-writable. Admins may READ every user (dashboard: progress,
+// last activity) and may reset a child's secret code — but ONLY the `iconPin`
+// field, nothing else.
+//
+// ⚠️ Children's app: broadening read to admins means a compromised admin account
+// exposes every family's data. Keep the admins allowlist tiny and the accounts
+// strongly protected (MFA).
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // A user may only touch their own root document (the whole-store blob sync).
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // A user may read their own admin flag (to show/hide the admin panel).
+    // No client writes: manage the allowlist from the Firebase console.
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+
     match /users/{uid} {
+      // Owner: full access to their own document.
       allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      // Admin: read any user (dashboard) ...
+      allow read: if isAdmin();
+      // ... and reset a child's secret code — ONLY the iconPin (+ lastSync) field.
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['iconPin', 'lastSync']);
 
       // Everything nested under a user (children, played_exercises, learning_sessions,
       // learning_dna, learning_events, adaptive_recommendations, …) inherits the
-      // same owner-only rule via the recursive wildcard.
+      // owner-only rule, plus admin read for the dashboard drill-down.
       match /{document=**} {
         allow read, write: if request.auth != null && request.auth.uid == uid;
+        allow read: if isAdmin();
       }
     }
   }

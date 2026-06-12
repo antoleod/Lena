@@ -6,6 +6,7 @@ import { signOutUser } from '../../services/firebase/authService.js';
 import { getMascotColorHue } from '../../services/storage/rewardStore.js';
 import { getSessionSnapshot, rememberLastVisitedRoute, subscribeToSessionChanges } from '../../services/session/sessionStore.js';
 import PetMascot from '../../shared/ui/PetMascot.jsx';
+import DicoChatbot from '../../shared/ui/DicoChatbot.jsx';
 import { playTapSound } from '../../services/sound/soundService.js';
 import { computeGlobalLevel, getLevelProgress } from '../../services/learning/levelSystem.js';
 import { assetUrl } from '../../shared/assets/assetUrl.js';
@@ -491,6 +492,7 @@ export default function AppShell() {
       </main>
 
       <PetMascot />
+      <DicoChatbot />
 
       {limitBlocked && (
         <ParentalLimitOverlay locale={locale} onUnlock={() => setLimitBlocked(false)} />

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import { assetUrl } from '../assets/assetUrl.js';
-import DicoSearchOverlay from './DicoSearchOverlay.jsx';
 
 // ─── SVG assets ──────────────────────────────────────────────────────────────
 
@@ -72,7 +71,6 @@ export default function Mascot({ status = 'idle' }) {
   const [bubbleText, setBubbleText] = useState('');
   const [clickCount, setClickCount] = useState(0);
   const [wink, setWink] = useState(false);
-  const [showDico, setShowDico] = useState(false);
   const winkTimer = useRef(null);
 
   const lang = MASCOT_MESSAGES[locale] ? locale : 'en';
@@ -136,22 +134,7 @@ export default function Mascot({ status = 'idle' }) {
           <span className="mascot-sparkle mascot-sparkle--a" aria-hidden="true">⭐</span>
           <span className="mascot-sparkle mascot-sparkle--b" aria-hidden="true">✨</span>
         </button>
-
-        {/* Dictionary search button */}
-        <button
-          type="button"
-          className="mascot-dico-btn"
-          onPointerDown={(e) => { e.preventDefault(); e.stopPropagation(); setShowDico(true); }}
-          aria-label={{ fr: 'Chercher un mot dans le dictionnaire', nl: 'Een woord opzoeken in het woordenboek', en: 'Search a word in the dictionary', es: 'Buscar una palabra en el diccionario' }[lang] || 'Search dictionary'}
-          title={{ fr: 'Chercher un mot', nl: 'Woord zoeken', en: 'Search a word', es: 'Buscar una palabra' }[lang] || 'Search'}
-        >
-          🔍
-        </button>
       </div>
-
-      {showDico && (
-        <DicoSearchOverlay locale={locale} onClose={() => setShowDico(false)} />
-      )}
     </>
   );
 }
